@@ -1,89 +1,32 @@
 package com.baidu.ar.auth;
 
-import java.util.ArrayList;
+import android.content.Context;
+import android.graphics.Bitmap;
+import com.baidu.ar.callback.ICallbackWith;
 import java.util.List;
-import java.util.Set;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
-public class j {
-    private volatile a jG = a.RUNNING;
-    private volatile List<Integer> jH;
-    private String jI;
+/* loaded from: classes10.dex */
+public interface j {
+    List<Integer> checkAuth(Context context, byte[] bArr, IDuMixAuthCallback iDuMixAuthCallback);
 
-    /* loaded from: classes12.dex */
-    public enum a {
-        RUNNING,
-        PASS,
-        FAIL
-    }
+    List<Integer> checkAuth(Context context, byte[] bArr, ICallbackWith<List<Integer>> iCallbackWith, ICallbackWith<Integer> iCallbackWith2);
 
-    public j(List<Integer> list) {
-        this.jH = list;
-        cD();
-    }
+    boolean checkFeatureAuth(int i);
 
-    public void R(String str) {
-        synchronized (this) {
-            this.jG = a.FAIL;
-            this.jI = str;
-        }
-        b(null);
-    }
+    boolean checkOfflineLicenseAuth(Context context, byte[] bArr);
 
-    public void b(Set<Integer> set) {
-        synchronized (this) {
-            if (this.jH == null) {
-                this.jH = new ArrayList();
-            }
-            this.jH.clear();
-            if (set != null && !set.isEmpty()) {
-                this.jH.addAll(set);
-            }
-            cD();
-        }
-    }
+    Bitmap createTipBitmap(Context context);
 
-    public void cB() {
-        synchronized (this) {
-            this.jG = a.PASS;
-        }
-    }
+    void doAuth(Context context, IAuthCallback iAuthCallback);
 
-    public String cC() {
-        return this.jI;
-    }
+    boolean enableFeature(int i);
 
-    public final void cD() {
-        if (this.jH != null) {
-            int[] iArr = new int[this.jH.size()];
-            int size = this.jH.size();
-            for (int i = 0; i < size; i++) {
-                iArr[i] = this.jH.get(i).intValue();
-            }
-            AuthJni.setGrantedFeatures(iArr);
-        }
-    }
+    boolean isShowAuthTip();
 
-    public List<Integer> cE() {
-        ArrayList arrayList;
-        synchronized (this) {
-            arrayList = new ArrayList();
-            if (this.jH != null) {
-                arrayList.addAll(this.jH);
-            }
-        }
-        return arrayList;
-    }
+    void loadAuthInfo(Context context);
 
-    public boolean isFailed() {
-        return this.jG == a.FAIL;
-    }
+    void receiveAuthFailMessage(int i);
 
-    public boolean isRunning() {
-        return this.jG == a.RUNNING;
-    }
+    void release();
 
-    public boolean t(int i) {
-        return (isFailed() || this.jH == null || !this.jH.contains(Integer.valueOf(i))) ? false : true;
-    }
+    void setAuthLicense(byte[] bArr, String str, String str2, String str3);
 }

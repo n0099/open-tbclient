@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public abstract class b extends aa {
     protected abstract boolean a(@NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull com.baidu.swan.apps.inlinewidget.e.b bVar, @NonNull List<String> list);
 
@@ -69,18 +69,18 @@ public abstract class b extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
             }
-            com.baidu.swan.apps.adaptation.b.e nB = f.azg().nB(optString);
-            if (!(nB instanceof SwanAppWebViewManager)) {
+            com.baidu.swan.apps.adaptation.b.e oj = f.aCp().oj(optString);
+            if (!(oj instanceof SwanAppWebViewManager)) {
                 com.baidu.swan.apps.console.c.e("componentFullScreen", "cant get WebView");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            com.baidu.swan.apps.inlinewidget.e.b amC = ((SwanAppWebViewManager) nB).amC();
-            if (amC == null) {
+            com.baidu.swan.apps.inlinewidget.e.b apK = ((SwanAppWebViewManager) oj).apK();
+            if (apK == null) {
                 com.baidu.swan.apps.console.c.e("componentFullScreen", "cant get CustomViewHelper");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!a(unitedSchemeEntity, amC, arrayList)) {
+            } else if (!a(unitedSchemeEntity, apK, arrayList)) {
                 com.baidu.swan.apps.console.c.e("componentFullScreen", "custom view handle fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;

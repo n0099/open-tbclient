@@ -11,24 +11,24 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class TBSpecificationButtonConfig {
-    protected a eYA;
-    protected int eYm;
-    int eYn;
-    int eYo;
-    IconType eYq;
-    private int eYs;
-    boolean eYt;
-    boolean eYy = true;
-    int ajv = 0;
-    GradientDrawable.Orientation eYz = GradientDrawable.Orientation.LEFT_RIGHT;
-    final int[] eYp = new int[2];
-    int eYu = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-    int eYv = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-    int eYw = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-    int eYx = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+    protected int ffJ;
+    int ffK;
+    int ffL;
+    IconType ffN;
+    private int ffP;
+    boolean ffQ;
+    protected a ffX;
+    boolean ffV = true;
+    int aku = 0;
+    GradientDrawable.Orientation ffW = GradientDrawable.Orientation.LEFT_RIGHT;
+    final int[] ffM = new int[2];
+    int ffR = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+    int ffS = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+    int ffT = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+    int ffU = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
     int minWidth = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
     int minHeight = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-    int eYr = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+    int ffO = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
 
     /* loaded from: classes.dex */
     public enum IconType {
@@ -40,71 +40,71 @@ public abstract class TBSpecificationButtonConfig {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface a {
-        void bsx();
+        void bvX();
 
-        void bsy();
+        void bvY();
 
-        void bsz();
+        void bvZ();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract Drawable ah(float f);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable bsA() {
-        return qA(this.eYp[0]);
+    public Drawable bwa() {
+        return rb(this.ffM[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable bsB() {
-        return qA(this.eYp[1]);
+    public Drawable bwb() {
+        return rb(this.ffM[1]);
     }
 
-    private Drawable qA(int i) {
+    private Drawable rb(int i) {
         Drawable drawable;
-        if (this.eYq == IconType.SVG) {
-            drawable = SvgManager.bqB().c(i, ap.getColor(this.ajv, this.eYs > 0 ? this.eYs : this.eYm), SvgManager.SvgResourceStateType.NORMAL);
-        } else if (this.eYq == IconType.WEBP) {
-            drawable = WebPManager.a(i, ap.getColor(this.ajv, this.eYs > 0 ? this.eYs : this.eYm), (WebPManager.ResourceStateType) null);
+        if (this.ffN == IconType.SVG) {
+            drawable = SvgManager.btW().c(i, ap.getColor(this.aku, this.ffP > 0 ? this.ffP : this.ffJ), SvgManager.SvgResourceStateType.NORMAL);
+        } else if (this.ffN == IconType.WEBP) {
+            drawable = WebPManager.a(i, ap.getColor(this.aku, this.ffP > 0 ? this.ffP : this.ffJ), (WebPManager.ResourceStateType) null);
         } else {
-            drawable = ap.getDrawable(this.ajv, i);
+            drawable = ap.getDrawable(this.aku, i);
         }
         if (drawable != null) {
-            drawable.setBounds(0, 0, this.eYr, this.eYr);
+            drawable.setBounds(0, 0, this.ffO, this.ffO);
         }
         return drawable;
     }
 
     public void a(int i, int i2, IconType iconType) {
-        if (this.eYp[0] != i || this.eYp[1] != i2 || this.eYq != iconType) {
-            this.eYp[0] = i;
-            this.eYp[1] = i2;
-            this.eYq = iconType;
-            if (this.eYA != null) {
-                this.eYA.bsy();
+        if (this.ffM[0] != i || this.ffM[1] != i2 || this.ffN != iconType) {
+            this.ffM[0] = i;
+            this.ffM[1] = i2;
+            this.ffN = iconType;
+            if (this.ffX != null) {
+                this.ffX.bvY();
             }
         }
     }
 
-    public void qB(int i) {
-        if (i > 0 && this.eYr != i) {
-            this.eYr = i;
-            if (this.eYA != null) {
-                this.eYA.bsx();
+    public void rc(int i) {
+        if (i > 0 && this.ffO != i) {
+            this.ffO = i;
+            if (this.ffX != null) {
+                this.ffX.bvX();
             }
         }
     }
 
-    public void qC(@ColorRes int i) {
-        if (this.eYs != i) {
-            this.eYs = i;
-            if (this.eYA != null) {
-                this.eYA.bsy();
+    public void rd(@ColorRes int i) {
+        if (this.ffP != i) {
+            this.ffP = i;
+            if (this.ffX != null) {
+                this.ffX.bvY();
             }
         }
     }
 
-    public void aZ(int i, int i2) {
+    public void bb(int i, int i2) {
         if (i > 0) {
             this.minWidth = i;
         }
@@ -113,25 +113,25 @@ public abstract class TBSpecificationButtonConfig {
         }
     }
 
-    public void qD(int i) {
-        this.eYu = i;
-        this.eYv = i;
+    public void re(int i) {
+        this.ffR = i;
+        this.ffS = i;
     }
 
-    public void ba(int i, int i2) {
-        this.eYu = i;
-        this.eYv = i2;
+    public void bc(int i, int i2) {
+        this.ffR = i;
+        this.ffS = i2;
     }
 
-    public void qE(int i) {
-        this.eYw = i;
+    public void rf(int i) {
+        this.ffT = i;
     }
 
     public void a(GradientDrawable.Orientation orientation) {
-        this.eYz = orientation;
+        this.ffW = orientation;
     }
 
-    public void qF(int i) {
-        this.eYx = i;
+    public void rg(int i) {
+        this.ffU = i;
     }
 }

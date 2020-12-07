@@ -22,7 +22,7 @@ public class m {
         this.tag = str3;
     }
 
-    public String box() {
+    public String brQ() {
         return this.tip;
     }
 

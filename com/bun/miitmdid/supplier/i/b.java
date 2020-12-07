@@ -5,14 +5,14 @@ import android.text.TextUtils;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
 import com.bun.miitmdid.utils.sysParamters;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class b implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3996a;
+    private Context f3999a;
 
     public b(Context context) {
-        this.f3996a = context;
+        this.f3999a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -26,13 +26,13 @@ public class b implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
-        String c = a.c(this.f3996a);
+        String c = a.c(this.f3999a);
         return TextUtils.isEmpty(c) ? sysParamters.f() : c;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
-        String a2 = a.a(this.f3996a);
+        String a2 = a.a(this.f3999a);
         return a2 == null ? "" : a2;
     }
 
@@ -43,7 +43,7 @@ public class b implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
-        String b = a.b(this.f3996a);
+        String b = a.b(this.f3999a);
         return b == null ? "" : b;
     }
 

@@ -62,7 +62,6 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import org.webrtc.MediaStreamTrack;
 import org.xmlpull.v1.XmlPullParser;
 @RequiresApi(14)
 /* loaded from: classes14.dex */
@@ -1138,7 +1137,7 @@ class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implements MenuB
             z2 = false;
         }
         if (z2) {
-            AudioManager audioManager = (AudioManager) this.mContext.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            AudioManager audioManager = (AudioManager) this.mContext.getSystemService("audio");
             if (audioManager != null) {
                 audioManager.playSoundEffect(0);
             } else {

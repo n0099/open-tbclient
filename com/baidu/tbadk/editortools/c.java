@@ -7,12 +7,12 @@ public abstract class c {
 
     protected abstract void b(e eVar);
 
-    protected abstract e ej(Context context);
+    protected abstract e eO(Context context);
 
-    public e ei(Context context) {
-        e ej = ej(context);
-        a(ej);
-        b(ej);
-        return ej;
+    public e eN(Context context) {
+        e eO = eO(context);
+        a(eO);
+        b(eO);
+        return eO;
     }
 }

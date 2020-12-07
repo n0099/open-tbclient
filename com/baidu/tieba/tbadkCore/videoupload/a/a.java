@@ -10,8 +10,8 @@ public class a {
     public String mErrorMessage;
     public int mErrorNo;
     public String mVideoUrl;
-    public ArrayList<Integer> nbi;
-    public String nbj;
+    public ArrayList<Integer> npl;
+    public String npm;
 
     public void parseJson(String str) {
         if (!StringUtils.isNull(str)) {
@@ -21,12 +21,12 @@ public class a {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("chunk_nolist");
                     if (optJSONArray != null) {
                         int length = optJSONArray.length();
-                        this.nbi = new ArrayList<>();
+                        this.npl = new ArrayList<>();
                         for (int i = 0; i < length; i++) {
-                            this.nbi.add(Integer.valueOf(optJSONArray.getInt(i)));
+                            this.npl.add(Integer.valueOf(optJSONArray.getInt(i)));
                         }
                     }
-                    this.nbj = optJSONObject.optString("upload_id");
+                    this.npm = optJSONObject.optString("upload_id");
                     this.mVideoUrl = optJSONObject.optString("video_url");
                 }
             } catch (JSONException e) {

@@ -1,12 +1,6 @@
 package io.reactivex.exceptions;
-
-import io.reactivex.internal.util.ExceptionHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class a {
-    public static RuntimeException v(Throwable th) {
-        throw ExceptionHelper.L(th);
-    }
-
     public static void J(Throwable th) {
         if (th instanceof VirtualMachineError) {
             throw ((VirtualMachineError) th);

@@ -6,23 +6,23 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f3145a = {"m", "km", "米", "公里"};
+    public static final String[] f3147a = {"m", "km", "米", "公里"};
     public static final String[] b = {"m", "h", "分钟", "小时"};
     public static final String[] c = {"m", "h", "d", "分钟", "小时", "天"};
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f3146a = 1;
+        public static int f3148a = 1;
         public static int b = 2;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public enum b {
         EN(0),
         ZH(1);
@@ -51,13 +51,13 @@ public class g {
             if (stringBuffer != null) {
                 int i3 = i / 1000;
                 if (i3 >= 100) {
-                    stringBuffer.append(String.format("%d%s", Integer.valueOf(i3), f3145a[i2 + 1]));
+                    stringBuffer.append(String.format("%d%s", Integer.valueOf(i3), f3147a[i2 + 1]));
                 } else {
-                    stringBuffer.append(String.format(str, Double.valueOf(i / 1000.0d), f3145a[i2 + 1]));
+                    stringBuffer.append(String.format(str, Double.valueOf(i / 1000.0d), f3147a[i2 + 1]));
                 }
             }
         } else if (stringBuffer != null) {
-            stringBuffer.append(String.format("%d%s", Integer.valueOf(i), f3145a[0 + i2]));
+            stringBuffer.append(String.format("%d%s", Integer.valueOf(i), f3147a[0 + i2]));
         }
     }
 
@@ -113,7 +113,7 @@ public class g {
 
     public static boolean a() {
         com.baidu.g.a.d Q = com.baidu.platform.comapi.walknavi.b.a().Q();
-        return (Q == null || Q.wz() == 0) ? false : true;
+        return (Q == null || Q.wr() == 0) ? false : true;
     }
 
     public static int b() {
@@ -121,10 +121,10 @@ public class g {
         if (a()) {
             com.baidu.g.a.d Q = com.baidu.platform.comapi.walknavi.b.a().Q();
             int a2 = a(Q, com.baidu.platform.comapi.walknavi.b.a().b());
-            if (Q != null && Q.vM() && Q.wt().hasStart()) {
-                String floor = Q.wt().wE().getFloor();
-                String xd = Q.wt().wE().xd();
-                if (!TextUtils.isEmpty(floor) && !TextUtils.isEmpty(xd)) {
+            if (Q != null && Q.vE() && Q.wl().hasStart()) {
+                String floor = Q.wl().ww().getFloor();
+                String wV = Q.wl().ww().wV();
+                if (!TextUtils.isEmpty(floor) && !TextUtils.isEmpty(wV)) {
                     z = true;
                 }
             }
@@ -137,18 +137,18 @@ public class g {
         boolean z;
         boolean z2;
         if (d()) {
-            if (dVar.wz() != 0) {
+            if (dVar.wr() != 0) {
                 return 3;
             }
-        } else if (dVar != null && dVar.vQ() > 0 && i < dVar.vQ()) {
+        } else if (dVar != null && dVar.vI() > 0 && i < dVar.vI()) {
             z = false;
             z2 = false;
-            for (int i2 = 0; i2 < dVar.ca(i).xh(); i2++) {
-                d.b.C0129b.C0130b xQ = dVar.ca(i).cn(i2).xQ();
-                if (xQ != null && xQ.xW()) {
+            for (int i2 = 0; i2 < dVar.ce(i).wZ(); i2++) {
+                d.b.C0130b.C0131b xI = dVar.ce(i).cr(i2).xI();
+                if (xI != null && xI.xO()) {
                     z2 = true;
                 }
-                if (xQ != null && xQ.hasNext()) {
+                if (xI != null && xI.hasNext()) {
                     z = true;
                 }
             }
@@ -171,14 +171,14 @@ public class g {
         if (O != null) {
             arrayList.add(O);
         }
-        if (dVar.ca(i) != null) {
-            int xh = dVar.ca(i).xh();
-            for (int i2 = 0; i2 < xh; i2++) {
-                if (dVar.ca(i).xh() > i2 && dVar.ca(i).cn(i2) != null) {
-                    int xD = dVar.ca(i).cn(i2).xD();
-                    for (int i3 = 0; i3 < xD; i3++) {
-                        if (dVar.ca(i).cn(i2).cr(i3) != null && dVar.ca(i).cn(i2).cr(i3).vW() != null) {
-                            arrayList.add(CoordTrans.gcjToBaidu(new LatLng(dVar.ca(i).cn(i2).cr(i3).vW().get(1).doubleValue() / 100000.0d, dVar.ca(i).cn(i2).cr(i3).vW().get(0).doubleValue() / 100000.0d)));
+        if (dVar.ce(i) != null) {
+            int wZ = dVar.ce(i).wZ();
+            for (int i2 = 0; i2 < wZ; i2++) {
+                if (dVar.ce(i).wZ() > i2 && dVar.ce(i).cr(i2) != null) {
+                    int xv = dVar.ce(i).cr(i2).xv();
+                    for (int i3 = 0; i3 < xv; i3++) {
+                        if (dVar.ce(i).cr(i2).cv(i3) != null && dVar.ce(i).cr(i2).cv(i3).vO() != null) {
+                            arrayList.add(CoordTrans.gcjToBaidu(new LatLng(dVar.ce(i).cr(i2).cv(i3).vO().get(1).doubleValue() / 100000.0d, dVar.ce(i).cr(i2).cv(i3).vO().get(0).doubleValue() / 100000.0d)));
                         }
                     }
                 }
@@ -192,21 +192,21 @@ public class g {
     }
 
     public static int a(com.baidu.g.a.d dVar) {
-        List<d.b.C0129b.a> b2;
+        List<d.b.C0130b.a> b2;
         if (dVar == null || (b2 = b(dVar)) == null || b2.size() == 0) {
             return 0;
         }
         return b2.get(0).getType();
     }
 
-    public static List<d.b.C0129b.a> b(com.baidu.g.a.d dVar) {
+    public static List<d.b.C0130b.a> b(com.baidu.g.a.d dVar) {
         int b2 = com.baidu.platform.comapi.walknavi.b.a().b();
         ArrayList arrayList = new ArrayList();
-        if (dVar.vQ() > 0 && b2 < dVar.vQ()) {
-            for (d.b.C0129b c0129b : dVar.ca(b2).vT()) {
-                List<d.b.C0129b.a> xO = c0129b.xO();
-                if (xO != null) {
-                    for (d.b.C0129b.a aVar : xO) {
+        if (dVar.vI() > 0 && b2 < dVar.vI()) {
+            for (d.b.C0130b c0130b : dVar.ce(b2).vL()) {
+                List<d.b.C0130b.a> xG = c0130b.xG();
+                if (xG != null) {
+                    for (d.b.C0130b.a aVar : xG) {
                         arrayList.add(aVar);
                     }
                 }
@@ -217,23 +217,23 @@ public class g {
 
     public static boolean c() {
         com.baidu.g.a.d Q = com.baidu.platform.comapi.walknavi.b.a().Q();
-        if (Q == null || Q.wz() == 0) {
+        if (Q == null || Q.wr() == 0) {
             return false;
         }
-        List<com.baidu.g.a.b> wy = Q.wy();
+        List<com.baidu.g.a.b> wq = Q.wq();
         int i = 0;
-        for (int i2 = 0; i2 < wy.size(); i2++) {
-            com.baidu.g.a.b bVar = wy.get(i2);
-            if (bVar.vQ() != 0 && bVar.bK(0).vU() == 1) {
+        for (int i2 = 0; i2 < wq.size(); i2++) {
+            com.baidu.g.a.b bVar = wq.get(i2);
+            if (bVar.vI() != 0 && bVar.bO(0).vM() == 1) {
                 i++;
             }
         }
-        return i == wy.size();
+        return i == wq.size();
     }
 
     public static boolean d() {
         com.baidu.g.a.d Q = com.baidu.platform.comapi.walknavi.b.a().Q();
-        return (Q == null || Q.vQ() != 0 || Q.wz() == 0) ? false : true;
+        return (Q == null || Q.vI() != 0 || Q.wr() == 0) ? false : true;
     }
 
     public static int a(boolean z) {
@@ -246,7 +246,7 @@ public class g {
         } else if (d()) {
             return 3;
         } else {
-            return a(d) == a.f3146a ? 2 : 0;
+            return a(d) == a.f3148a ? 2 : 0;
         }
     }
 }

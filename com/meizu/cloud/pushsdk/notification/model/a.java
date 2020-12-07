@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class a implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.meizu.cloud.pushsdk.notification.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -25,16 +25,16 @@ public class a implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4430a;
+    private int f4200a;
     private String b;
 
     public a() {
-        this.f4430a = 0;
+        this.f4200a = 0;
     }
 
     protected a(Parcel parcel) {
-        this.f4430a = 0;
-        this.f4430a = parcel.readInt();
+        this.f4200a = 0;
+        this.f4200a = parcel.readInt();
         this.b = parcel.readString();
     }
 
@@ -106,11 +106,11 @@ public class a implements Parcelable {
     }
 
     public int a() {
-        return this.f4430a;
+        return this.f4200a;
     }
 
     public void a(int i) {
-        this.f4430a = i;
+        this.f4200a = i;
     }
 
     public void a(String str) {
@@ -127,12 +127,12 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "NotifyOption{notifyId=" + this.f4430a + ", notifyKey='" + this.b + "'}";
+        return "NotifyOption{notifyId=" + this.f4200a + ", notifyKey='" + this.b + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f4430a);
+        parcel.writeInt(this.f4200a);
         parcel.writeString(this.b);
     }
 }

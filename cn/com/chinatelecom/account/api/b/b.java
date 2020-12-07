@@ -3,6 +3,6 @@ package cn.com.chinatelecom.account.api.b;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f977a = "";
+    public String f975a = "";
     public boolean b;
 }

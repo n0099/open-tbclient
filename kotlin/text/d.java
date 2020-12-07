@@ -6,33 +6,33 @@ import java.util.NoSuchElementException;
 import kotlin.Pair;
 import kotlin.TypeCastException;
 /* JADX INFO: Access modifiers changed from: package-private */
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 public final class d implements kotlin.sequences.c<kotlin.b.h> {
-    private final int bEM;
+    private final int bJV;
     private final int limit;
-    private final CharSequence pVe;
-    private final kotlin.jvm.a.m<CharSequence, Integer, Pair<Integer, Integer>> pVf;
+    private final CharSequence pLq;
+    private final kotlin.jvm.a.c<CharSequence, Integer, Pair<Integer, Integer>> pLr;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: kotlin.jvm.a.m<? super java.lang.CharSequence, ? super java.lang.Integer, kotlin.Pair<java.lang.Integer, java.lang.Integer>> */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: kotlin.jvm.a.c<? super java.lang.CharSequence, ? super java.lang.Integer, kotlin.Pair<java.lang.Integer, java.lang.Integer>> */
     /* JADX WARN: Multi-variable type inference failed */
-    public d(CharSequence charSequence, int i, int i2, kotlin.jvm.a.m<? super CharSequence, ? super Integer, Pair<Integer, Integer>> mVar) {
-        kotlin.jvm.internal.q.n(charSequence, Config.INPUT_PART);
-        kotlin.jvm.internal.q.n(mVar, "getNextMatch");
-        this.pVe = charSequence;
-        this.bEM = i;
+    public d(CharSequence charSequence, int i, int i2, kotlin.jvm.a.c<? super CharSequence, ? super Integer, Pair<Integer, Integer>> cVar) {
+        kotlin.jvm.internal.p.o(charSequence, Config.INPUT_PART);
+        kotlin.jvm.internal.p.o(cVar, "getNextMatch");
+        this.pLq = charSequence;
+        this.bJV = i;
         this.limit = i2;
-        this.pVf = mVar;
+        this.pLr = cVar;
     }
 
-    @kotlin.h
-    /* loaded from: classes9.dex */
+    @kotlin.e
+    /* loaded from: classes17.dex */
     public static final class a implements Iterator<kotlin.b.h> {
-        private int pUR = -1;
-        private int pVg;
-        private int pVh;
-        private kotlin.b.h pVi;
-        private int pVj;
+        private int pLf = -1;
+        private int pLs;
+        private int pLt;
+        private kotlin.b.h pLu;
+        private int pLv;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -41,70 +41,70 @@ public final class d implements kotlin.sequences.c<kotlin.b.h> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.pVg = kotlin.b.l.at(d.this.bEM, 0, d.this.pVe.length());
-            this.pVh = this.pVg;
+            this.pLs = kotlin.b.l.an(d.this.bJV, 0, d.this.pLq.length());
+            this.pLt = this.pLs;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:9:0x0025, code lost:
-            if (r6.pVj < r6.pVk.limit) goto L13;
+            if (r7.pLv < r7.pLw.limit) goto L13;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private final void eCj() {
-            if (this.pVh >= 0) {
+        private final void eEp() {
+            if (this.pLt >= 0) {
                 if (d.this.limit > 0) {
-                    this.pVj++;
+                    this.pLv++;
                 }
-                if (this.pVh <= d.this.pVe.length()) {
-                    Pair pair = (Pair) d.this.pVf.invoke(d.this.pVe, Integer.valueOf(this.pVh));
+                if (this.pLt <= d.this.pLq.length()) {
+                    Pair pair = (Pair) d.this.pLr.invoke(d.this.pLq, Integer.valueOf(this.pLt));
                     if (pair == null) {
-                        this.pVi = new kotlin.b.h(this.pVg, l.A(d.this.pVe));
-                        this.pVh = -1;
+                        this.pLu = new kotlin.b.h(this.pLs, l.B(d.this.pLq));
+                        this.pLt = -1;
                     } else {
                         int intValue = ((Number) pair.component1()).intValue();
                         int intValue2 = ((Number) pair.component2()).intValue();
-                        this.pVi = kotlin.b.l.ex(this.pVg, intValue);
-                        this.pVg = intValue + intValue2;
-                        this.pVh = (intValue2 == 0 ? 1 : 0) + this.pVg;
+                        this.pLu = new kotlin.b.h(this.pLs, intValue - 1);
+                        this.pLs = intValue + intValue2;
+                        this.pLt = (intValue2 == 0 ? 1 : 0) + this.pLs;
                     }
-                    this.pUR = 1;
+                    this.pLf = 1;
                     return;
                 }
-                this.pVi = new kotlin.b.h(this.pVg, l.A(d.this.pVe));
-                this.pVh = -1;
-                this.pUR = 1;
+                this.pLu = new kotlin.b.h(this.pLs, l.B(d.this.pLq));
+                this.pLt = -1;
+                this.pLf = 1;
                 return;
             }
-            this.pUR = 0;
-            this.pVi = null;
+            this.pLf = 0;
+            this.pLu = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        /* renamed from: eCk */
+        /* renamed from: eEq */
         public kotlin.b.h next() {
-            if (this.pUR == -1) {
-                eCj();
+            if (this.pLf == -1) {
+                eEp();
             }
-            if (this.pUR == 0) {
+            if (this.pLf == 0) {
                 throw new NoSuchElementException();
             }
-            kotlin.b.h hVar = this.pVi;
+            kotlin.b.h hVar = this.pLu;
             if (hVar == null) {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.ranges.IntRange");
             }
-            this.pVi = null;
-            this.pUR = -1;
+            this.pLu = null;
+            this.pLf = -1;
             return hVar;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.pUR == -1) {
-                eCj();
+            if (this.pLf == -1) {
+                eEp();
             }
-            return this.pUR == 1;
+            return this.pLf == 1;
         }
     }
 

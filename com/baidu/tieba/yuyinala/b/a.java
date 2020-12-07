@@ -15,47 +15,47 @@ import com.baidu.tieba.yuyinala.message.AlaGetRoomRankListResponseMessage;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a implements d {
-    private String nSF;
-    private AlaRankListActivity nTb;
-    private b nVq;
-    private com.baidu.tieba.yuyinala.view.b nVr;
-    private i nVs;
+    private String ohD;
+    private AlaRankListActivity ohZ;
+    private b oko;
+    private com.baidu.tieba.yuyinala.view.b okp;
+    private i okq;
 
     public a(AlaRankListActivity alaRankListActivity, String str) {
-        this.nTb = alaRankListActivity;
-        this.nSF = str;
-        bRW();
+        this.ohZ = alaRankListActivity;
+        this.ohD = str;
+        bVG();
     }
 
-    private View bRW() {
-        this.nVr = new com.baidu.tieba.yuyinala.view.b(this.nTb, this.nSF);
-        mj(true);
-        return this.nVr.getView();
+    private View bVG() {
+        this.okp = new com.baidu.tieba.yuyinala.view.b(this.ohZ, this.ohD);
+        mE(true);
+        return this.okp.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mj(final boolean z) {
-        if (this.nVq == null) {
-            this.nVq = new b(this.nTb.getUniqueId());
-            this.nVq.a(new com.baidu.tieba.yuyinala.c.d() { // from class: com.baidu.tieba.yuyinala.b.a.1
+    public void mE(final boolean z) {
+        if (this.oko == null) {
+            this.oko = new b(this.ohZ.getUniqueId());
+            this.oko.a(new com.baidu.tieba.yuyinala.c.d() { // from class: com.baidu.tieba.yuyinala.b.a.1
                 @Override // com.baidu.tieba.yuyinala.c.d
                 public void a(int i, String str, Object obj) {
                     if (obj != null && (obj instanceof AlaGetRoomRankListResponseMessage)) {
                         AlaGetRoomRankListResponseMessage alaGetRoomRankListResponseMessage = (AlaGetRoomRankListResponseMessage) obj;
-                        i eaM = alaGetRoomRankListResponseMessage.eaM();
+                        i egr = alaGetRoomRankListResponseMessage.egr();
                         if (alaGetRoomRankListResponseMessage.getOrginalMessage() != null) {
                             if (i == 0 || StringUtils.isNull(str)) {
-                                a.this.nVs = eaM;
-                                a.this.nVr.VB();
-                                a.this.a(a.this.nVs);
-                            } else if (a.this.nVr != null) {
-                                a.this.nVr.ds(false);
-                                a.this.nVr.cld();
-                                a.this.nVr.VB();
-                                a.this.nVr.m(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.1.1
+                                a.this.okq = egr;
+                                a.this.okp.Yb();
+                                a.this.a(a.this.okq);
+                            } else if (a.this.okp != null) {
+                                a.this.okp.dG(false);
+                                a.this.okp.cps();
+                                a.this.okp.Yb();
+                                a.this.okp.m(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.1.1
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view) {
-                                        a.this.mj(true);
+                                        a.this.mE(true);
                                     }
                                 });
                             }
@@ -66,19 +66,19 @@ public class a implements d {
         }
         if (BdNetTypeUtil.isNetWorkAvailable()) {
             if (z) {
-                this.nVq.VQ(this.nSF);
+                this.oko.Xf(this.ohD);
             }
-        } else if (this.nVr != null) {
-            this.nVr.VB();
-            this.nVr.ds(false);
-            this.nVr.cld();
-            this.nVr.m(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.2
+        } else if (this.okp != null) {
+            this.okp.Yb();
+            this.okp.dG(false);
+            this.okp.cps();
+            this.okp.m(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (BdNetTypeUtil.isNetWorkAvailable()) {
-                        a.this.mj(z);
+                        a.this.mE(z);
                     } else {
-                        a.this.nTb.getPageContext().showToast(a.this.nTb.getResources().getString(a.h.sdk_no_network_guide));
+                        a.this.ohZ.getPageContext().showToast(a.this.ohZ.getResources().getString(a.h.sdk_no_network_guide));
                     }
                 }
             });
@@ -88,67 +88,67 @@ public class a implements d {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(i iVar) {
         if (iVar == null) {
-            if (this.nVr != null) {
-                this.nVr.cld();
-                this.nVr.VB();
-                this.nVr.setDatas(new ArrayList<>());
-                this.nVr.xh(0);
-                this.nVr.ds(false);
-                this.nVr.xg(8);
-                this.nVr.gx(8);
-                this.nVr.m(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.3
+            if (this.okp != null) {
+                this.okp.cps();
+                this.okp.Yb();
+                this.okp.setDatas(new ArrayList<>());
+                this.okp.xN(0);
+                this.okp.dG(false);
+                this.okp.xM(8);
+                this.okp.gV(8);
+                this.okp.m(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.mj(true);
+                        a.this.mE(true);
                     }
                 });
             }
         } else if (iVar.getList() == null || iVar.getList().size() <= 0) {
-            this.nVr.VB();
-            this.nVr.gx(0);
-            this.nVr.setDatas(new ArrayList<>());
-            this.nVr.xh(0);
-            this.nVr.ds(true);
-            this.nVr.xg(8);
-            if (this.nVr != null) {
+            this.okp.Yb();
+            this.okp.gV(0);
+            this.okp.setDatas(new ArrayList<>());
+            this.okp.xN(0);
+            this.okp.dG(true);
+            this.okp.xM(8);
+            if (this.okp != null) {
                 g gVar = new g();
-                gVar.aGs = 0L;
-                gVar.cover = this.nTb.getIntent().getStringExtra("room_cover");
-                gVar.room_name = this.nTb.getIntent().getStringExtra(DpStatConstants.KEY_ROOM_NAME);
-                this.nVr.b(gVar);
+                gVar.aJb = 0L;
+                gVar.cover = this.ohZ.getIntent().getStringExtra("room_cover");
+                gVar.room_name = this.ohZ.getIntent().getStringExtra(DpStatConstants.KEY_ROOM_NAME);
+                this.okp.b(gVar);
             }
         } else if (iVar.getList() != null && iVar.getList().size() > 0) {
-            this.nVr.gx(0);
-            this.nVr.VB();
-            if (this.nVr != null) {
-                this.nVr.c(iVar);
-                g dXp = iVar.dXp();
-                dXp.bq(iVar.getList().size() == 1);
+            this.okp.gV(0);
+            this.okp.Yb();
+            if (this.okp != null) {
+                this.okp.c(iVar);
+                g ecT = iVar.ecT();
+                ecT.by(iVar.getList().size() == 1);
                 for (int i = 0; i < iVar.getList().size(); i++) {
                     if (iVar.getList().get(i).rank == 10) {
-                        dXp.an(iVar.getList().get(i).point);
+                        ecT.aL(iVar.getList().get(i).aJg);
                     }
                 }
                 if (iVar.getList().size() == 1) {
-                    this.nVr.setDatas(new ArrayList<>());
-                    this.nVr.ds(false);
+                    this.okp.setDatas(new ArrayList<>());
+                    this.okp.dG(false);
                 } else if (iVar.getList().size() > 1) {
                     int size = iVar.getList().size();
                     ArrayList<c> arrayList = new ArrayList<>();
                     for (int i2 = 1; i2 < size; i2++) {
                         arrayList.add(iVar.getList().get(i2));
                     }
-                    this.nVr.setDatas(arrayList);
+                    this.okp.setDatas(arrayList);
                 }
-                this.nVr.xh(0);
-                this.nVr.xg(0);
-                if (this.nVr != null) {
-                    this.nVr.b(dXp);
+                this.okp.xN(0);
+                this.okp.xM(0);
+                if (this.okp != null) {
+                    this.okp.b(ecT);
                 }
-                if (iVar.getList().size() < iVar.dXq()) {
-                    this.nVr.VR(this.nTb.getPageContext().getResources().getString(a.h.rank_nomore_text));
+                if (iVar.getList().size() < iVar.ecU()) {
+                    this.okp.Xg(this.ohZ.getPageContext().getResources().getString(a.h.rank_nomore_text));
                 } else {
-                    this.nVr.VR(this.nTb.getPageContext().getResources().getString(a.h.rank_ten_text));
+                    this.okp.Xg(this.ohZ.getPageContext().getResources().getString(a.h.rank_ten_text));
                 }
             }
         }
@@ -156,7 +156,7 @@ public class a implements d {
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        return this.nVr.getView();
+        return this.okp.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -165,12 +165,12 @@ public class a implements d {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String KI() {
+    public String MK() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short KJ() {
+    public short ML() {
         return (short) 0;
     }
 
@@ -184,11 +184,11 @@ public class a implements d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.nVq != null) {
-            this.nVq.destory();
+        if (this.oko != null) {
+            this.oko.destory();
         }
-        if (this.nVr != null) {
-            this.nVr.release();
+        if (this.okp != null) {
+            this.okp.release();
         }
     }
 

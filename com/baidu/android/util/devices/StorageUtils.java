@@ -6,9 +6,9 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.os.storage.StorageManager;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.common.others.java.ReflectionUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,9 +22,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.StringTokenizer;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public final class StorageUtils {
-    private static final boolean DEBUG = false;
+    private static boolean DEBUG = false;
     private static final int DIVIDER = 1024;
     private static final int ERROR = -1;
     private static final String TAG = "StorageUtils";
@@ -32,7 +32,7 @@ public final class StorageUtils {
     private StorageUtils() {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes6.dex */
     public static class StorageInfo {
         public final int mDisplayNumber;
         public final boolean mInternal;
@@ -63,7 +63,7 @@ public final class StorageUtils {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [219=5, 221=4, 222=4, 223=4] */
-    /* JADX WARN: Removed duplicated region for block: B:109:0x01c6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:118:0x01dd A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -86,19 +86,25 @@ public final class StorageUtils {
             try {
                 HashSet hashSet = new HashSet();
                 bufferedReader2 = new BufferedReader(new FileReader("/proc/mounts"));
-                int i2 = 1;
-                while (true) {
-                    try {
+                try {
+                    if (DEBUG) {
+                        Log.d(TAG, "/proc/mounts");
+                    }
+                    int i2 = 1;
+                    while (true) {
                         String readLine = bufferedReader2.readLine();
                         if (readLine == null) {
                             break;
+                        }
+                        if (DEBUG) {
+                            Log.d(TAG, readLine);
                         }
                         StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
                         String nextToken = stringTokenizer.nextToken();
                         String nextToken2 = stringTokenizer.nextToken();
                         if (!hashSet.contains(nextToken2)) {
                             stringTokenizer.nextToken();
-                            boolean contains = Arrays.asList(stringTokenizer.nextToken().split(Constants.ACCEPT_TIME_SEPARATOR_SP)).contains("ro");
+                            boolean contains = Arrays.asList(stringTokenizer.nextToken().split(",")).contains("ro");
                             if (readLine.contains("vfat") || readLine.contains("/mnt")) {
                                 if (nextToken2.equals(path)) {
                                     hashSet.add(path);
@@ -141,62 +147,62 @@ public final class StorageUtils {
                                 }
                             }
                         }
-                    } catch (FileNotFoundException e) {
-                        e = e;
-                        bufferedReader3 = bufferedReader2;
-                        try {
-                            e.printStackTrace();
-                            if (bufferedReader3 != null) {
-                                try {
-                                    bufferedReader3.close();
-                                } catch (IOException e2) {
-                                    e2.printStackTrace();
-                                }
-                            }
-                            return arrayList;
-                        } catch (Throwable th) {
-                            th = th;
-                            bufferedReader = bufferedReader3;
-                            if (bufferedReader != null) {
-                                try {
-                                    bufferedReader.close();
-                                } catch (IOException e3) {
-                                    e3.printStackTrace();
-                                }
-                            }
-                            throw th;
+                    }
+                    for (StorageInfo storageInfo : hashMap.values()) {
+                        if (isPathAccessable(storageInfo.mPath)) {
+                            arrayList.add(storageInfo);
                         }
-                    } catch (IOException e4) {
-                        e = e4;
+                    }
+                    if (!hashSet.contains(path) && z) {
+                        arrayList.add(0, new StorageInfo(path, z2, equals, -1));
+                    }
+                    if (bufferedReader2 != null) {
+                        try {
+                            bufferedReader2.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                } catch (FileNotFoundException e2) {
+                    e = e2;
+                    bufferedReader3 = bufferedReader2;
+                    try {
                         e.printStackTrace();
-                        if (bufferedReader2 != null) {
+                        if (bufferedReader3 != null) {
                             try {
-                                bufferedReader2.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
+                                bufferedReader3.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
                             }
                         }
                         return arrayList;
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedReader = bufferedReader3;
+                        if (bufferedReader != null) {
+                        }
+                        throw th;
                     }
-                }
-                for (StorageInfo storageInfo : hashMap.values()) {
-                    if (isPathAccessable(storageInfo.mPath)) {
-                        arrayList.add(storageInfo);
+                } catch (IOException e4) {
+                    e = e4;
+                    e.printStackTrace();
+                    if (bufferedReader2 != null) {
+                        try {
+                            bufferedReader2.close();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
                     }
-                }
-                if (!hashSet.contains(path) && z) {
-                    arrayList.add(0, new StorageInfo(path, z2, equals, -1));
-                }
-                if (bufferedReader2 != null) {
-                    try {
-                        bufferedReader2.close();
-                    } catch (IOException e6) {
-                        e6.printStackTrace();
-                    }
+                    return arrayList;
                 }
             } catch (Throwable th2) {
                 th = th2;
                 if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException e6) {
+                        e6.printStackTrace();
+                    }
                 }
                 throw th;
             }
@@ -242,36 +248,8 @@ public final class StorageUtils {
     public static long getAvailableInternalMemorySize() {
         long blockSize;
         long availableBlocks;
-        StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-        if (Build.VERSION.SDK_INT >= 18) {
-            blockSize = statFs.getBlockSizeLong();
-            availableBlocks = statFs.getAvailableBlocksLong();
-        } else {
-            blockSize = statFs.getBlockSize();
-            availableBlocks = statFs.getAvailableBlocks();
-        }
-        return availableBlocks * blockSize;
-    }
-
-    public static long getTotalInternalMemorySize() {
-        long blockSize;
-        long blockCount;
-        StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-        if (Build.VERSION.SDK_INT >= 18) {
-            blockSize = statFs.getBlockSizeLong();
-            blockCount = statFs.getBlockCountLong();
-        } else {
-            blockSize = statFs.getBlockSize();
-            blockCount = statFs.getBlockCount();
-        }
-        return blockCount * blockSize;
-    }
-
-    public static long getAvailableExternalMemorySize() {
-        long blockSize;
-        long availableBlocks;
-        if (externalMemoryAvailable()) {
-            StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+        try {
+            StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             if (Build.VERSION.SDK_INT >= 18) {
                 blockSize = statFs.getBlockSizeLong();
                 availableBlocks = statFs.getAvailableBlocksLong();
@@ -280,6 +258,56 @@ public final class StorageUtils {
                 availableBlocks = statFs.getAvailableBlocks();
             }
             return availableBlocks * blockSize;
+        } catch (IllegalArgumentException e) {
+            if (DEBUG) {
+                Log.d(TAG, e.getMessage());
+            }
+            return -1L;
+        }
+    }
+
+    public static long getTotalInternalMemorySize() {
+        long blockSize;
+        long blockCount;
+        try {
+            StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
+            if (Build.VERSION.SDK_INT >= 18) {
+                blockSize = statFs.getBlockSizeLong();
+                blockCount = statFs.getBlockCountLong();
+            } else {
+                blockSize = statFs.getBlockSize();
+                blockCount = statFs.getBlockCount();
+            }
+            return blockCount * blockSize;
+        } catch (IllegalArgumentException e) {
+            if (DEBUG) {
+                Log.d(TAG, e.getMessage());
+            }
+            return -1L;
+        }
+    }
+
+    public static long getAvailableExternalMemorySize() {
+        long blockSize;
+        long availableBlocks;
+        if (externalMemoryAvailable()) {
+            try {
+                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+                if (Build.VERSION.SDK_INT >= 18) {
+                    blockSize = statFs.getBlockSizeLong();
+                    availableBlocks = statFs.getAvailableBlocksLong();
+                } else {
+                    blockSize = statFs.getBlockSize();
+                    availableBlocks = statFs.getAvailableBlocks();
+                }
+                return availableBlocks * blockSize;
+            } catch (IllegalArgumentException e) {
+                if (DEBUG) {
+                    Log.d(TAG, e.getMessage());
+                    return -1L;
+                }
+                return -1L;
+            }
         }
         return -1L;
     }
@@ -307,17 +335,25 @@ public final class StorageUtils {
         long blockSize;
         long blockCount;
         try {
-            StatFs statFs = new StatFs(str);
-            if (Build.VERSION.SDK_INT >= 18) {
-                blockSize = statFs.getBlockSizeLong();
-                blockCount = statFs.getBlockCountLong();
-            } else {
-                blockSize = statFs.getBlockSize();
-                blockCount = statFs.getBlockCount();
+            try {
+                StatFs statFs = new StatFs(str);
+                if (Build.VERSION.SDK_INT >= 18) {
+                    blockSize = statFs.getBlockSizeLong();
+                    blockCount = statFs.getBlockCountLong();
+                } else {
+                    blockSize = statFs.getBlockSize();
+                    blockCount = statFs.getBlockCount();
+                }
+                return blockCount * blockSize;
+            } catch (IllegalArgumentException e) {
+                if (DEBUG) {
+                    Log.d(TAG, e.getMessage());
+                    return 0L;
+                }
+                return 0L;
             }
-            return blockCount * blockSize;
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
+        } catch (IllegalArgumentException e2) {
+            e2.printStackTrace();
             return 0L;
         }
     }
@@ -326,15 +362,23 @@ public final class StorageUtils {
         long blockSize;
         long blockCount;
         if (externalMemoryAvailable()) {
-            StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-            if (Build.VERSION.SDK_INT >= 18) {
-                blockSize = statFs.getBlockSizeLong();
-                blockCount = statFs.getBlockCountLong();
-            } else {
-                blockSize = statFs.getBlockSize();
-                blockCount = statFs.getBlockCount();
+            try {
+                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+                if (Build.VERSION.SDK_INT >= 18) {
+                    blockSize = statFs.getBlockSizeLong();
+                    blockCount = statFs.getBlockCountLong();
+                } else {
+                    blockSize = statFs.getBlockSize();
+                    blockCount = statFs.getBlockCount();
+                }
+                return blockCount * blockSize;
+            } catch (IllegalArgumentException e) {
+                if (DEBUG) {
+                    Log.d(TAG, e.getMessage());
+                    return -1L;
+                }
+                return -1L;
             }
-            return blockCount * blockSize;
         }
         return -1L;
     }
@@ -361,10 +405,24 @@ public final class StorageUtils {
     }
 
     public static boolean isEnoughSpace(File file, long j) {
-        StatFs statFs = new StatFs(file.getPath());
-        return ((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize()) > j;
+        try {
+            StatFs statFs = new StatFs(file.getPath());
+            long blockSize = statFs.getBlockSize();
+            long availableBlocks = statFs.getAvailableBlocks();
+            if (DEBUG) {
+                Log.d(TAG, "Available size:" + (blockSize * availableBlocks));
+            }
+            return blockSize * availableBlocks > j;
+        } catch (IllegalArgumentException e) {
+            if (DEBUG) {
+                Log.d(TAG, e.getMessage());
+                return false;
+            }
+            return false;
+        }
     }
 
+    @Deprecated
     public static String getVolumePath(Object obj) {
         Object invokeHideMethodForObject = ReflectionUtils.invokeHideMethodForObject(obj, "getPath", null, null);
         if (invokeHideMethodForObject == null) {
@@ -373,6 +431,7 @@ public final class StorageUtils {
         return (String) invokeHideMethodForObject;
     }
 
+    @Deprecated
     public static Object[] getVolumeList() {
         Object invokeHideMethodForObject = ReflectionUtils.invokeHideMethodForObject((StorageManager) AppRuntime.getAppContext().getSystemService("storage"), "getVolumeList", null, null);
         if (invokeHideMethodForObject != null) {
@@ -381,6 +440,7 @@ public final class StorageUtils {
         return null;
     }
 
+    @Deprecated
     public static String getVolumeState(String str) {
         Object invokeHideMethodForObject = ReflectionUtils.invokeHideMethodForObject((StorageManager) AppRuntime.getAppContext().getSystemService("storage"), "getVolumeState", new Class[]{String.class}, new Object[]{str});
         if (invokeHideMethodForObject == null) {

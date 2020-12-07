@@ -12,7 +12,7 @@ import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import com.baidu.sapi2.ecommerce.callback.InvoiceBuildCallback;
 import com.baidu.sapi2.ecommerce.dto.AddressManageDTO;
 import com.baidu.sapi2.ecommerce.dto.InvoiceBuildDTO;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class EcommerceRouter implements NoProguard {
     private static EcommerceRouter instance;
     private AddressManageCallback addressManageCallback;

@@ -4,7 +4,7 @@ import org.apache.http.HttpRequest;
 import org.apache.http.ProtocolVersion;
 import org.apache.http.RequestLine;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class BasicHttpRequest extends AbstractHttpMessage implements HttpRequest {
     public BasicHttpRequest(String str, String str2) {
         throw new RuntimeException("Stub!");

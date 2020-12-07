@@ -3,7 +3,7 @@ package com.baidu.live.yuyinnoble.d;
 public interface a {
     void a(c cVar);
 
-    void aV(String str, String str2);
+    void bb(String str, String str2);
 
     void release();
 }

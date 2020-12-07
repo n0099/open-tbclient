@@ -15,7 +15,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class CommonUtils implements INoProGuard {
     private static final boolean DEBUG = false;
     private static final String TAG = "CommonUtils";
@@ -30,7 +30,7 @@ public final class CommonUtils implements INoProGuard {
             return;
         }
         sb.append(str);
-        sb.append(ETAG.EQUAL);
+        sb.append("=");
         sb.append(str2);
         sb.append(ETAG.ITEM_SEPARATOR);
     }
@@ -71,7 +71,7 @@ public final class CommonUtils implements INoProGuard {
         String[] split = cookie.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         int length = split.length;
         for (int i = 0; i != length; i++) {
-            String[] split2 = split[i].trim().split(ETAG.EQUAL);
+            String[] split2 = split[i].trim().split("=");
             if (split2.length == 2 && TextUtils.equals(str2, split2[0])) {
                 return split2[1];
             }

@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class i implements View.OnTouchListener {
-    private final Spannable nDO;
-    private com.baidu.tbadk.widget.richText.f nDP = null;
-    private int nDQ = 0;
+    private final Spannable nRQ;
+    private com.baidu.tbadk.widget.richText.f nRR = null;
+    private int nRS = 0;
 
     public i(Spannable spannable) {
-        this.nDO = spannable;
+        this.nRQ = spannable;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -24,10 +24,10 @@ public class i implements View.OnTouchListener {
         int action = motionEvent.getAction();
         if (view instanceof TextView) {
             TextView textView = (TextView) view;
-            if (action == 3 && this.nDP != null) {
-                this.nDP.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+            if (action == 3 && this.nRR != null) {
+                this.nRR.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                 view.invalidate();
-                this.nDP = null;
+                this.nRR = null;
                 return false;
             }
             if (action == 1 || action == 0) {
@@ -39,43 +39,43 @@ public class i implements View.OnTouchListener {
                 }
                 int totalPaddingLeft = x - textView.getTotalPaddingLeft();
                 int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), totalPaddingLeft + textView.getScrollX());
-                if (this.nDO == null) {
+                if (this.nRQ == null) {
                     return false;
                 }
-                com.baidu.tbadk.widget.richText.f[] fVarArr = (com.baidu.tbadk.widget.richText.f[]) this.nDO.getSpans(offsetForHorizontal, offsetForHorizontal, com.baidu.tbadk.widget.richText.f.class);
+                com.baidu.tbadk.widget.richText.f[] fVarArr = (com.baidu.tbadk.widget.richText.f[]) this.nRQ.getSpans(offsetForHorizontal, offsetForHorizontal, com.baidu.tbadk.widget.richText.f.class);
                 if (fVarArr != null && fVarArr.length != 0 && fVarArr[0] != null) {
                     if (action == 1) {
                         fVarArr[0].setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                         fVarArr[0].onClick(textView);
                         view.invalidate();
                     } else {
-                        this.nDP = fVarArr[0];
-                        if (this.nDP.bFE()) {
-                            if (this.nDQ != 0) {
-                                fVarArr[0].setColor(ap.getColor(this.nDQ));
+                        this.nRR = fVarArr[0];
+                        if (this.nRR.bJe()) {
+                            if (this.nRS != 0) {
+                                fVarArr[0].setColor(ap.getColor(this.nRS));
                             } else if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                                 fVarArr[0].setColor(ap.getColor(R.color.CAM_X0204));
                             } else {
                                 fVarArr[0].setColor(ap.getColor(R.color.cp_bg_line_z));
                             }
                         }
-                        Selection.setSelection(this.nDO, this.nDO.getSpanStart(fVarArr[0]), this.nDO.getSpanEnd(fVarArr[0]));
+                        Selection.setSelection(this.nRQ, this.nRQ.getSpanStart(fVarArr[0]), this.nRQ.getSpanEnd(fVarArr[0]));
                         view.invalidate();
                     }
                     return true;
                 }
-                if (this.nDP != null) {
-                    this.nDP.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                if (this.nRR != null) {
+                    this.nRR.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                     view.invalidate();
                 }
-                Selection.removeSelection(this.nDO);
+                Selection.removeSelection(this.nRQ);
             }
             return false;
         }
         return false;
     }
 
-    public void LH(int i) {
-        this.nDQ = i;
+    public void Mz(int i) {
+        this.nRS = i;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.frs;
 import android.util.SparseArray;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,25 +13,25 @@ import org.json.JSONObject;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class a {
-    private final List<bx> iGG;
-    private boolean iGH;
-    private int iGI;
-    private List<FrsTabInfo> iGJ;
-    private SparseArray<FrsTabInfo> iGK;
-    private ay iGL;
+    private int iRA;
+    private List<FrsTabInfo> iRB;
+    private SparseArray<FrsTabInfo> iRC;
+    private ay iRD;
+    private final List<by> iRy;
+    private boolean iRz;
     private String mForumId;
 
     private a() {
-        this.iGI = -1;
-        this.iGG = new ArrayList();
+        this.iRA = -1;
+        this.iRy = new ArrayList();
     }
 
-    public static a cwH() {
-        return C0725a.iGM;
+    public static a cAW() {
+        return C0739a.iRE;
     }
 
-    public boolean cwI() {
-        return this.iGH;
+    public boolean cAX() {
+        return this.iRz;
     }
 
     public void setForumId(String str) {
@@ -42,111 +42,111 @@ public class a {
         return this.mForumId;
     }
 
-    public void yW(int i) {
-        this.iGI = i;
+    public void zB(int i) {
+        this.iRA = i;
     }
 
-    public int cwJ() {
-        return this.iGI;
+    public int cAY() {
+        return this.iRA;
     }
 
-    public void db(List<FrsTabInfo> list) {
-        this.iGJ = new ArrayList(list);
-        this.iGK = new SparseArray<>();
-        for (FrsTabInfo frsTabInfo : this.iGJ) {
+    public void df(List<FrsTabInfo> list) {
+        this.iRB = new ArrayList(list);
+        this.iRC = new SparseArray<>();
+        for (FrsTabInfo frsTabInfo : this.iRB) {
             if (frsTabInfo != null) {
-                this.iGK.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
+                this.iRC.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
             }
         }
     }
 
-    public List<FrsTabInfo> cwK() {
-        return this.iGJ;
+    public List<FrsTabInfo> cAZ() {
+        return this.iRB;
     }
 
-    public List<bx> cwL() {
-        return this.iGG;
+    public List<by> cBa() {
+        return this.iRy;
     }
 
-    public boolean yX(int i) {
-        return this.iGK.get(i) != null && this.iGK.get(i).is_general_tab.intValue() == 1;
+    public boolean zC(int i) {
+        return this.iRC.get(i) != null && this.iRC.get(i).is_general_tab.intValue() == 1;
     }
 
     public void a(ay ayVar) {
-        this.iGL = ayVar;
+        this.iRD = ayVar;
     }
 
     public void V(boolean z, boolean z2) {
-        this.iGH = z;
-        if (this.iGL != null) {
-            this.iGL.d(this.iGH, z2, 2);
+        this.iRz = z;
+        if (this.iRD != null) {
+            this.iRD.d(this.iRz, z2, 2);
         }
     }
 
-    public boolean al(bx bxVar) {
-        if (bxVar == null) {
+    public boolean al(by byVar) {
+        if (byVar == null) {
             return false;
         }
-        if (this.iGG.size() > 29) {
-            if (this.iGL != null) {
-                this.iGL.zf(2);
+        if (this.iRy.size() > 29) {
+            if (this.iRD != null) {
+                this.iRD.zK(2);
                 return false;
             }
             return false;
         }
-        this.iGG.add(bxVar);
-        if (this.iGL != null) {
-            this.iGL.cm(this.iGG.size(), 2);
+        this.iRy.add(byVar);
+        if (this.iRD != null) {
+            this.iRD.cq(this.iRy.size(), 2);
         }
         return true;
     }
 
-    public void am(bx bxVar) {
-        this.iGG.remove(bxVar);
-        if (this.iGL != null) {
-            this.iGL.cm(this.iGG.size(), 2);
+    public void am(by byVar) {
+        this.iRy.remove(byVar);
+        if (this.iRD != null) {
+            this.iRD.cq(this.iRy.size(), 2);
         }
     }
 
-    public void ck(int i, int i2) {
+    public void co(int i, int i2) {
         try {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_MOVE_AREA);
             JSONArray jSONArray = new JSONArray();
-            for (bx bxVar : cwH().cwL()) {
-                if (bxVar != null) {
+            for (by byVar : cAW().cBa()) {
+                if (byVar != null) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("thread_id", bxVar.getId());
-                    jSONObject.put("from_tab_id", bxVar.getTabId());
+                    jSONObject.put("thread_id", byVar.getId());
+                    jSONObject.put("from_tab_id", byVar.getTabId());
                     jSONObject.put("to_tab_id", i2);
                     jSONArray.put(jSONObject);
                 }
             }
             httpMessage.addParam("threads", jSONArray.toString());
-            httpMessage.addParam("forum_id", cwH().getForumId());
+            httpMessage.addParam("forum_id", cAW().getForumId());
             MessageManager.getInstance().sendMessage(httpMessage);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public void cwM() {
-        if (!com.baidu.tbadk.core.util.y.isEmpty(this.iGG)) {
-            this.iGG.clear();
-            if (this.iGL != null) {
-                this.iGL.cm(this.iGG.size(), 2);
+    public void cBb() {
+        if (!com.baidu.tbadk.core.util.y.isEmpty(this.iRy)) {
+            this.iRy.clear();
+            if (this.iRD != null) {
+                this.iRD.cq(this.iRy.size(), 2);
             }
         }
     }
 
     public void clearData() {
-        for (bx bxVar : this.iGG) {
-            if (bxVar != null) {
-                bxVar.iS(false);
+        for (by byVar : this.iRy) {
+            if (byVar != null) {
+                byVar.jh(false);
             }
         }
-        this.iGG.clear();
-        if (this.iGL != null) {
-            this.iGL.cm(0, 2);
+        this.iRy.clear();
+        if (this.iRD != null) {
+            this.iRD.cq(0, 2);
         }
     }
 
@@ -157,19 +157,19 @@ public class a {
 
     public void destory() {
         this.mForumId = null;
-        this.iGI = -1;
-        if (this.iGJ != null) {
-            this.iGJ.clear();
+        this.iRA = -1;
+        if (this.iRB != null) {
+            this.iRB.clear();
         }
-        if (this.iGK != null) {
-            this.iGK.clear();
+        if (this.iRC != null) {
+            this.iRC.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0725a {
-        private static a iGM = new a();
+    public static class C0739a {
+        private static a iRE = new a();
     }
 }

@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private a Lh;
+    private a Mf;
     private boolean mBuilt;
     private List<b> mComponents = new ArrayList();
-    private Configuration Le = new Configuration();
+    private Configuration Mc = new Configuration();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -17,14 +17,14 @@ public class d {
         void onShown();
     }
 
-    public d ak(int i) {
+    public d an(int i) {
         if (this.mBuilt) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i < 0 || i > 255) {
             throw new BuildException("Illegal alpha value, should between [0-255]");
         }
-        this.Le.mAlpha = i;
+        this.Mc.mAlpha = i;
         return this;
     }
 
@@ -35,56 +35,56 @@ public class d {
         if (view == null) {
             throw new BuildException("Illegal view.");
         }
-        this.Le.mTargetView = view;
+        this.Mc.mTargetView = view;
         return this;
     }
 
-    public d al(int i) {
+    public d ao(int i) {
         if (this.mBuilt) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i <= 0) {
             throw new BuildException("Illegal view id.");
         }
-        this.Le.mTargetViewId = i;
+        this.Mc.mTargetViewId = i;
         return this;
     }
 
-    public d ae(boolean z) {
+    public d ac(boolean z) {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.Le.mAutoDismiss = z;
+        this.Mc.mAutoDismiss = z;
         return this;
     }
 
-    public d af(boolean z) {
+    public d ad(boolean z) {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.Le.mOverlayTarget = z;
+        this.Mc.mOverlayTarget = z;
         return this;
     }
 
-    public d am(int i) {
+    public d ap(int i) {
         if (this.mBuilt) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i <= 0) {
             throw new BuildException("Illegal animation resource id.");
         }
-        this.Le.mEnterAnimationId = i;
+        this.Mc.mEnterAnimationId = i;
         return this;
     }
 
-    public d an(int i) {
+    public d aq(int i) {
         if (this.mBuilt) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i <= 0) {
             throw new BuildException("Illegal animation resource id.");
         }
-        this.Le.mExitAnimationId = i;
+        this.Mc.mExitAnimationId = i;
         return this;
     }
 
@@ -100,23 +100,23 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.Lh = aVar;
+        this.Mf = aVar;
         return this;
     }
 
-    public d ag(boolean z) {
-        this.Le.mOutsideTouchable = z;
+    public d ae(boolean z) {
+        this.Mc.mOutsideTouchable = z;
         return this;
     }
 
     public c mi() {
         c cVar = new c();
         cVar.a((b[]) this.mComponents.toArray(new b[this.mComponents.size()]));
-        cVar.a(this.Le);
-        cVar.a(this.Lh);
+        cVar.a(this.Mc);
+        cVar.a(this.Mf);
         this.mComponents = null;
-        this.Le = null;
-        this.Lh = null;
+        this.Mc = null;
+        this.Mf = null;
         this.mBuilt = true;
         return cVar;
     }

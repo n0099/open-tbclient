@@ -1,5 +1,5 @@
 package com.baidu.tieba.frs.entelechy.b;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public interface d {
-    boolean cBN();
+    boolean cGg();
 }

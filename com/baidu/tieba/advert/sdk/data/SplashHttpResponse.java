@@ -8,7 +8,7 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class SplashHttpResponse extends JsonHttpResponsedMessage {
     private AdInfo adInfo;
     private int errno;
@@ -42,9 +42,9 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
 
     private void dealVideoAd() {
         if (n.checkSD()) {
-            b Fl = b.Fl(com.baidu.tieba.advert.sdk.c.a.bJR());
+            b FZ = b.FZ(com.baidu.tieba.advert.sdk.c.a.bNz());
             if (!this.adInfo.shouldDownloadVideo()) {
-                this.adInfo.videoLocalPath = Fl.videoLocalPath;
+                this.adInfo.videoLocalPath = FZ.videoLocalPath;
                 com.baidu.tieba.advert.sdk.c.a.c(this.adInfo);
             } else if (j.isNetWorkAvailable() && j.isWifiNet()) {
                 com.baidu.tieba.advert.sdk.b.a searchTask = searchTask(this.adInfo.adVideoUrl);

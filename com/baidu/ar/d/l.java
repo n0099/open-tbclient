@@ -1,32 +1,32 @@
 package com.baidu.ar.d;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class l {
-    private String I;
-    private int mX;
-    private boolean mY;
+    private String J;
+    private int nn;
+    private boolean no;
 
     public l(String str, boolean z) {
-        this.mX = -1;
-        this.I = str;
-        this.mY = z;
+        this.nn = -1;
+        this.J = str;
+        this.no = z;
     }
 
     public l(String str, boolean z, int i) {
-        this.mX = -1;
-        this.I = str;
-        this.mY = z;
-        this.mX = i;
+        this.nn = -1;
+        this.J = str;
+        this.no = z;
+        this.nn = i;
     }
 
-    public String dd() {
-        return this.I;
+    public String dc() {
+        return this.J;
     }
 
-    public int dl() {
-        return this.mX;
+    public int dk() {
+        return this.nn;
     }
 
     public boolean isSuccess() {
-        return this.mY;
+        return this.no;
     }
 }

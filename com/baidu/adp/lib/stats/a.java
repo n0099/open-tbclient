@@ -12,7 +12,7 @@ import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
-    private g Nq;
+    private g Ol;
     public long logID;
     private ArrayList<BasicNameValuePair> mKvLists;
     private long mStartTime;
@@ -96,7 +96,7 @@ public class a {
                 this.mStringBuilder.append('&');
             }
             this.mStringBuilder.append(str);
-            this.mStringBuilder.append(ETAG.EQUAL);
+            this.mStringBuilder.append("=");
             try {
                 this.mStringBuilder.append(URLEncoder.encode(valueEscapeSpace(str2), "utf-8"));
             } catch (Throwable th) {
@@ -119,30 +119,30 @@ public class a {
     }
 
     public void a(c cVar) {
-        if (this.Nq == null) {
-            this.Nq = new g();
+        if (this.Ol == null) {
+            this.Ol = new g();
         }
-        this.Nq.b(cVar);
+        this.Ol.b(cVar);
         if (this.mKvLists != null && this.mKvLists.size() > 0) {
             Iterator<BasicNameValuePair> it = this.mKvLists.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (BdStatsConstant.StatsKey.TYPE.equals(next.getName())) {
-                    this.Nq.ca(next.getValue());
+                    this.Ol.cd(next.getValue());
                 } else if ("st".equals(next.getName())) {
-                    this.Nq.setAction(next.getValue());
+                    this.Ol.setAction(next.getValue());
                 } else if ("errNo".equals(next.getName())) {
-                    this.Nq.setErrorCode(next.getValue());
+                    this.Ol.setErrorCode(next.getValue());
                 } else if ("errMsg".equals(next.getName())) {
-                    this.Nq.setErrorMessage(next.getValue());
+                    this.Ol.setErrorMessage(next.getValue());
                 } else {
-                    this.Nq.y(next.getName(), next.getValue());
+                    this.Ol.y(next.getName(), next.getValue());
                 }
             }
         }
     }
 
     public g nb() {
-        return this.Nq;
+        return this.Ol;
     }
 }

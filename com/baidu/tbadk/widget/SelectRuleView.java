@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class SelectRuleView extends LinearLayout {
-    List<String> fzL;
-    private int fzR;
-    List<String> fzS;
-    List<String> fzT;
+    List<String> fHB;
+    private int fHH;
+    List<String> fHI;
+    List<String> mContent;
     private int mSkinType;
     private int mType;
 
@@ -28,7 +28,7 @@ public class SelectRuleView extends LinearLayout {
     public SelectRuleView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mType = 0;
-        this.fzR = 2;
+        this.fHH = 2;
         this.mSkinType = 3;
         initUI();
     }
@@ -41,9 +41,9 @@ public class SelectRuleView extends LinearLayout {
 
     public void setData(List<String> list, List<String> list2) {
         if (!y.isEmpty(list) || !y.isEmpty(list2)) {
-            bDK();
-            this.fzS = list;
-            this.fzT = list2;
+            bHm();
+            this.fHI = list;
+            this.mContent = list2;
             List<String> arrayList = new ArrayList<>();
             arrayList.addAll(list);
             List<String> arrayList2 = new ArrayList<>();
@@ -55,11 +55,11 @@ public class SelectRuleView extends LinearLayout {
             while (arrayList.size() < size) {
                 arrayList.add("");
             }
-            for (int i = 0; i < ((this.fzR + size) - 1) / this.fzR; i++) {
+            for (int i = 0; i < ((this.fHH + size) - 1) / this.fHH; i++) {
                 SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
                 selectRuleRowItem.setType(this.mType);
-                int i2 = this.fzR * i;
-                int i3 = (i + 1) * this.fzR;
+                int i2 = this.fHH * i;
+                int i3 = (i + 1) * this.fHH;
                 selectRuleRowItem.setData(d(arrayList, i2, i3), d(arrayList2, i2, i3));
                 addView(selectRuleRowItem);
             }
@@ -68,10 +68,10 @@ public class SelectRuleView extends LinearLayout {
 
     public void setData(List<String> list, List<String> list2, List<String> list3) {
         if (!y.isEmpty(list2) || !y.isEmpty(list3) || !y.isEmpty(list)) {
-            bDK();
-            this.fzS = list2;
-            this.fzT = list3;
-            this.fzL = list;
+            bHm();
+            this.fHI = list2;
+            this.mContent = list3;
+            this.fHB = list;
             List<String> arrayList = new ArrayList<>();
             arrayList.addAll(list2);
             List<String> arrayList2 = new ArrayList<>();
@@ -91,11 +91,11 @@ public class SelectRuleView extends LinearLayout {
             while (arrayList3.size() < size) {
                 arrayList3.add("");
             }
-            for (int i = 0; i < ((this.fzR + size) - 1) / this.fzR; i++) {
+            for (int i = 0; i < ((this.fHH + size) - 1) / this.fHH; i++) {
                 SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
                 selectRuleRowItem.setType(this.mType);
-                int i2 = this.fzR * i;
-                int i3 = (i + 1) * this.fzR;
+                int i2 = this.fHH * i;
+                int i3 = (i + 1) * this.fHH;
                 selectRuleRowItem.setData(d(arrayList3, i2, i3), d(arrayList, i2, i3), d(arrayList2, i2, i3));
                 addView(selectRuleRowItem);
             }
@@ -103,7 +103,7 @@ public class SelectRuleView extends LinearLayout {
     }
 
     public void setColumn(int i) {
-        this.fzR = i;
+        this.fHH = i;
     }
 
     public void setType(int i) {
@@ -124,16 +124,16 @@ public class SelectRuleView extends LinearLayout {
         return arrayList;
     }
 
-    private void bDK() {
+    private void bHm() {
         removeAllViews();
     }
 
-    public void su(int i) {
+    public void sX(int i) {
         if (this.mSkinType != i) {
             if (this.mType == 0) {
-                setData(this.fzS, this.fzT);
+                setData(this.fHI, this.mContent);
             } else if (this.mType == 1) {
-                setData(this.fzL, this.fzS, this.fzT);
+                setData(this.fHB, this.fHI, this.mContent);
             }
         }
     }

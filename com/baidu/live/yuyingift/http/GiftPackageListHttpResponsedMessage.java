@@ -11,10 +11,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessage {
-    private ArrayList<h> aXE;
-    private ArrayList<j> aXF;
-    private ArrayList<com.baidu.live.gift.h> bci;
-    private JSONObject bcj;
+    private ArrayList<h> baW;
+    private ArrayList<j> baX;
+    private ArrayList<com.baidu.live.gift.h> bgi;
+    private JSONObject bgj;
     private String scene_from;
 
     public GiftPackageListHttpResponsedMessage() {
@@ -30,18 +30,18 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
     }
 
     public void G(JSONObject jSONObject) {
-        this.bcj = jSONObject.optJSONObject("data");
-        if (this.bcj != null) {
-            this.scene_from = this.bcj.optString("scene_from");
-            j(this.bcj.optJSONArray("list"));
-            k(this.bcj.optJSONArray("num_info"));
+        this.bgj = jSONObject.optJSONObject("data");
+        if (this.bgj != null) {
+            this.scene_from = this.bgj.optString("scene_from");
+            j(this.bgj.optJSONArray("list"));
+            k(this.bgj.optJSONArray("num_info"));
         }
     }
 
     private void j(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.bci = new ArrayList<>();
-            this.aXE = new ArrayList<>();
+            this.bgi = new ArrayList<>();
+            this.baW = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 int optInt = optJSONObject.optInt("category_id");
@@ -57,8 +57,8 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                     hVar.setCategoryId(optInt);
                     hVar.setCategoryName(optString);
                     hVar.k(arrayList);
-                    hVar.bp(z);
-                    this.aXE.add(hVar);
+                    hVar.bx(z);
+                    this.baW.add(hVar);
                 }
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("gift_list");
                 if (optJSONArray2 != null) {
@@ -70,7 +70,7 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                             gVar.parseJson(optJSONObject2);
                             gVar.setSceneFrom(this.scene_from);
                             gVar.A(optJSONObject2);
-                            if (gVar.aSX != null && gVar.aSX.aTk > 0) {
+                            if (gVar.aVZ != null && gVar.aVZ.aWo > 0) {
                                 arrayList2.add(gVar);
                             }
                         }
@@ -78,9 +78,9 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                     com.baidu.live.gift.h hVar2 = new com.baidu.live.gift.h();
                     hVar2.setCategoryId(optInt);
                     hVar2.setCategoryName(optString);
-                    hVar2.F(arrayList2);
-                    hVar2.bp(z);
-                    this.bci.add(hVar2);
+                    hVar2.G(arrayList2);
+                    hVar2.bx(z);
+                    this.bgi.add(hVar2);
                 }
             }
         }
@@ -88,31 +88,31 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
 
     private void k(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.aXF = new ArrayList<>();
+            this.baX = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     j jVar = new j();
                     jVar.parser(optJSONObject);
-                    this.aXF.add(jVar);
+                    this.baX.add(jVar);
                 }
             }
         }
     }
 
-    public ArrayList<com.baidu.live.gift.h> IG() {
-        return this.bci;
+    public ArrayList<com.baidu.live.gift.h> KG() {
+        return this.bgi;
     }
 
     public ArrayList<h> getCategoryList() {
-        return this.aXE;
+        return this.baW;
     }
 
-    public ArrayList<j> IH() {
-        return this.aXF;
+    public ArrayList<j> KH() {
+        return this.baX;
     }
 
-    public String II() {
+    public String KI() {
         return getOrginalMessage() instanceof a ? ((a) getOrginalMessage()).getLoc() : "";
     }
 }

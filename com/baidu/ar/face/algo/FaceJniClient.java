@@ -1,12 +1,12 @@
 package com.baidu.ar.face.algo;
 
 import android.content.res.AssetManager;
-import com.baidu.ar.libloader.b;
-/* loaded from: classes12.dex */
+import com.baidu.ar.libloader.a;
+/* loaded from: classes10.dex */
 public class FaceJniClient {
     static {
-        b.as("anakin_lite");
-        b.as("FaceAlgoSDK2");
+        a.require("anakin_lite");
+        a.require("FaceAlgoSDK2");
     }
 
     public static native FaceAlgoData animateFace(long j, FaceAlgoData faceAlgoData, long j2);

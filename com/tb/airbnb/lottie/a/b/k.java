@@ -1,7 +1,7 @@
 package com.tb.airbnb.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes20.dex */
 public class k extends f<com.tb.airbnb.lottie.e.d> {
     public k(List<com.tb.airbnb.lottie.e.a<com.tb.airbnb.lottie.e.d>> list) {
         super(list);
@@ -12,12 +12,12 @@ public class k extends f<com.tb.airbnb.lottie.e.d> {
     /* renamed from: f */
     public com.tb.airbnb.lottie.e.d a(com.tb.airbnb.lottie.e.a<com.tb.airbnb.lottie.e.d> aVar, float f) {
         com.tb.airbnb.lottie.e.d dVar;
-        if (aVar.Hn == null || aVar.Ho == null) {
+        if (aVar.If == null || aVar.Ig == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        com.tb.airbnb.lottie.e.d dVar2 = aVar.Hn;
-        com.tb.airbnb.lottie.e.d dVar3 = aVar.Ho;
-        if (this.pKq != null && (dVar = (com.tb.airbnb.lottie.e.d) this.pKq.b(aVar.Bo, aVar.Hq.floatValue(), dVar2, dVar3, f, jj(), getProgress())) != null) {
+        com.tb.airbnb.lottie.e.d dVar2 = aVar.If;
+        com.tb.airbnb.lottie.e.d dVar3 = aVar.Ig;
+        if (this.pBu != null && (dVar = (com.tb.airbnb.lottie.e.d) this.pBu.b(aVar.Ce, aVar.Ii.floatValue(), dVar2, dVar3, f, jj(), getProgress())) != null) {
             return dVar;
         }
         return new com.tb.airbnb.lottie.e.d(com.tb.airbnb.lottie.d.e.lerp(dVar2.getScaleX(), dVar3.getScaleX(), f), com.tb.airbnb.lottie.d.e.lerp(dVar2.getScaleY(), dVar3.getScaleY(), f));

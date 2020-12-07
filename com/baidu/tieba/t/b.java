@@ -14,37 +14,37 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private Map<BdUniqueId, ArrayList<ar>> mVf;
-    private String[] mVg = {"obj_floor", "obj_isad", "obj_id", "tid", "pid", "thread_type", "fid", "post_type", "obj_isofficial", "obj_adlocate", "recom_weight", IntentConfig.RECOM_SOURCE, "recom_ab_tag", "recom_extra", "recom_type", "ugc_vid", "ugc_nid", "ori_ugc_type"};
+    private Map<BdUniqueId, ArrayList<ar>> njd;
+    private String[] nje = {"obj_floor", "obj_isad", "obj_id", "tid", "pid", "thread_type", "fid", "post_type", "obj_isofficial", "obj_adlocate", "recom_weight", IntentConfig.RECOM_SOURCE, "recom_ab_tag", "recom_extra", "recom_type", "ugc_vid", "ugc_nid", "ori_ugc_type", "obj_locate", "list_order"};
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b() {
-        if (this.mVf == null) {
-            this.mVf = new LinkedHashMap();
+        if (this.njd == null) {
+            this.njd = new LinkedHashMap();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void z(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.mVf.put(bdUniqueId, null);
+            this.njd.put(bdUniqueId, null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void A(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.mVf.remove(bdUniqueId);
+            this.njd.remove(bdUniqueId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, ar arVar) {
         if (arVar != null && bdUniqueId != null) {
-            ArrayList<ar> arrayList = this.mVf.get(bdUniqueId);
+            ArrayList<ar> arrayList = this.njd.get(bdUniqueId);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.mVf.put(bdUniqueId, arrayList);
+                this.njd.put(bdUniqueId, arrayList);
             }
             arrayList.add(arVar);
         }
@@ -52,13 +52,13 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean B(BdUniqueId bdUniqueId) {
-        return this.mVf.containsKey(bdUniqueId);
+        return this.njd.containsKey(bdUniqueId);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dIN() {
-        if (this.mVf.size() != 0) {
-            for (Map.Entry<BdUniqueId, ArrayList<ar>> entry : this.mVf.entrySet()) {
+    public void dOd() {
+        if (this.njd.size() != 0) {
+            for (Map.Entry<BdUniqueId, ArrayList<ar>> entry : this.njd.entrySet()) {
                 ArrayList<ar> value = entry.getValue();
                 if (value != null) {
                     value.clear();
@@ -70,15 +70,15 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, boolean z) {
         if (bdUniqueId != null) {
-            ArrayList<ar> arrayList = this.mVf.get(bdUniqueId);
+            ArrayList<ar> arrayList = this.njd.get(bdUniqueId);
             if (y.getCount(arrayList) != 0) {
-                bj(arrayList);
+                bl(arrayList);
                 arrayList.clear();
             }
         }
     }
 
-    private void bj(ArrayList<ar> arrayList) {
+    private void bl(ArrayList<ar> arrayList) {
         if (arrayList != null && y.getCount(arrayList) != 0) {
             long currentTimeMillis = System.currentTimeMillis();
             if (y.getCount(arrayList) == 1) {
@@ -99,17 +99,17 @@ public class b {
                     List list = (List) entry.getValue();
                     if (y.getCount(list) != 0) {
                         ar arVar2 = (ar) list.get(0);
-                        for (int i2 = 0; i2 < this.mVg.length; i2++) {
+                        for (int i2 = 0; i2 < this.nje.length; i2++) {
                             StringBuilder sb = new StringBuilder();
                             for (int i3 = 0; i3 < list.size(); i3++) {
-                                sb.append(p(((ar) list.get(i3)).getParams(), this.mVg[i2]));
+                                sb.append(s(((ar) list.get(i3)).getParams(), this.nje[i2]));
                                 sb.append("|");
                             }
                             if (sb.length() > 0) {
                                 sb.deleteCharAt(sb.length() - 1);
                             }
-                            arVar2.delete(this.mVg[i2]);
-                            arVar2.dR(this.mVg[i2] + "s", sb.toString());
+                            arVar2.delete(this.nje[i2]);
+                            arVar2.dY(this.nje[i2] + "s", sb.toString());
                         }
                         TiebaStatic.log(arVar2);
                     }
@@ -124,7 +124,7 @@ public class b {
         }
     }
 
-    private String p(List<Object> list, String str) {
+    private String s(List<Object> list, String str) {
         int indexOf;
         if (y.getCount(list) != 0 && !StringUtils.isNull(str) && (indexOf = list.indexOf(str)) >= 0 && list.size() > indexOf + 1) {
             String valueOf = String.valueOf(list.get(indexOf + 1));

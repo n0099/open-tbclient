@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class CyberTaskExcutor {
 
     /* renamed from: a  reason: collision with root package name */
-    private static CyberTaskExcutor f1347a;
+    private static CyberTaskExcutor f1346a;
     private final int b = 0;
     private final int c = 5;
     private final int d = 180;
@@ -22,7 +22,7 @@ public final class CyberTaskExcutor {
     public static class a implements ThreadFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        private final AtomicInteger f1348a = new AtomicInteger(1);
+        private final AtomicInteger f1347a = new AtomicInteger(1);
         private final String b;
         private int c;
 
@@ -34,7 +34,7 @@ public final class CyberTaskExcutor {
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            Thread thread = new Thread(runnable, this.b + this.f1348a.getAndIncrement());
+            Thread thread = new Thread(runnable, this.b + this.f1347a.getAndIncrement());
             if (thread.isDaemon()) {
                 thread.setDaemon(true);
             }
@@ -50,10 +50,10 @@ public final class CyberTaskExcutor {
     public static synchronized CyberTaskExcutor getInstance() {
         CyberTaskExcutor cyberTaskExcutor;
         synchronized (CyberTaskExcutor.class) {
-            if (f1347a == null) {
-                f1347a = new CyberTaskExcutor();
+            if (f1346a == null) {
+                f1346a = new CyberTaskExcutor();
             }
-            cyberTaskExcutor = f1347a;
+            cyberTaskExcutor = f1346a;
         }
         return cyberTaskExcutor;
     }

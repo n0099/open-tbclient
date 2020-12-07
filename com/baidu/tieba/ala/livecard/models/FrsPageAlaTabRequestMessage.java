@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.livecard.models;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.mobstat.Config;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FrsPageAlaTabRequestMessage extends HttpMessage {
     private String mForumId;
     private String mForumName;

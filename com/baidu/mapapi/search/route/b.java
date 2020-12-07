@@ -3,7 +3,7 @@ package com.baidu.mapapi.search.route;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.search.route.BikingRouteLine;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 final class b implements Parcelable.Creator<BikingRouteLine.BikingStep> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator

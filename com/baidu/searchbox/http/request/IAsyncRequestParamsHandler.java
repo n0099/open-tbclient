@@ -1,7 +1,7 @@
 package com.baidu.searchbox.http.request;
 
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public interface IAsyncRequestParamsHandler {
     void onHandleParams(Map<String, String> map);
 }

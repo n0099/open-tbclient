@@ -23,33 +23,33 @@ import java.text.DecimalFormat;
 import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
 public class a implements View.OnClickListener {
-    private ImageView gMX;
-    private TextView gMY;
-    private ForegroundColorSpan gMZ;
-    private RelativeSizeSpan gNa;
-    private HorizontalProgressBar gNb;
-    private TextView gNc;
-    private TextView gNd;
-    private ImageView gNe;
-    private float gNf = 0.0f;
-    private int gNg = 0;
-    private float gNh = 0.0f;
-    private int gNi = 0;
-    private float gNj = 0.0f;
-    private boolean gNk = false;
-    private int gNl = -1;
-    private DecimalFormat gNm;
-    private InterfaceC0659a gNn;
+    private InterfaceC0672a gWA;
+    private ImageView gWk;
+    private TextView gWl;
+    private ForegroundColorSpan gWm;
+    private RelativeSizeSpan gWn;
+    private HorizontalProgressBar gWo;
+    private TextView gWp;
+    private TextView gWq;
+    private ImageView gWr;
+    private float gWs = 0.0f;
+    private int gWt = 0;
+    private float gWu = 0.0f;
+    private int gWv = 0;
+    private float gWw = 0.0f;
+    private boolean gWx = false;
+    private int gWy = -1;
+    private DecimalFormat gWz;
     private Context mContext;
     private Dialog mDialog;
     private View mRootView;
 
     /* renamed from: com.baidu.tieba.ala.live.guess.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0659a {
-        void bUh();
+    public interface InterfaceC0672a {
+        void bXQ();
 
-        void bUi();
+        void bXR();
     }
 
     public a(Context context) {
@@ -57,7 +57,7 @@ public class a implements View.OnClickListener {
         initDialog();
     }
 
-    private void Ov() {
+    private void Ki() {
         this.mDialog.setCancelable(true);
         this.mDialog.setCanceledOnTouchOutside(true);
         Window window = this.mDialog.getWindow();
@@ -79,31 +79,31 @@ public class a implements View.OnClickListener {
         }
     }
 
-    public void a(InterfaceC0659a interfaceC0659a) {
-        if (interfaceC0659a != null) {
-            this.gNn = interfaceC0659a;
+    public void a(InterfaceC0672a interfaceC0672a) {
+        if (interfaceC0672a != null) {
+            this.gWA = interfaceC0672a;
         }
     }
 
     private void initDialog() {
         this.mDialog = new e(this.mContext);
-        Ov();
+        Ki();
         initView();
-        FS();
+        HH();
     }
 
-    private void FS() {
-        this.gMX.setOnClickListener(this);
+    private void HH() {
+        this.gWk.setOnClickListener(this);
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.ala_guess_con_dialog, (ViewGroup) null);
-        this.gMY = (TextView) this.mRootView.findViewById(a.f.tv_average);
-        this.gNc = (TextView) this.mRootView.findViewById(a.f.tv_notify);
-        this.gNd = (TextView) this.mRootView.findViewById(a.f.tv_guess_cong);
-        this.gMX = (ImageView) this.mRootView.findViewById(a.f.img_exit);
-        this.gNe = (ImageView) this.mRootView.findViewById(a.f.img_crown);
-        this.gNb = (HorizontalProgressBar) this.mRootView.findViewById(a.f.progress_horizontal);
+        this.gWl = (TextView) this.mRootView.findViewById(a.f.tv_average);
+        this.gWp = (TextView) this.mRootView.findViewById(a.f.tv_notify);
+        this.gWq = (TextView) this.mRootView.findViewById(a.f.tv_guess_cong);
+        this.gWk = (ImageView) this.mRootView.findViewById(a.f.img_exit);
+        this.gWr = (ImageView) this.mRootView.findViewById(a.f.img_crown);
+        this.gWo = (HorizontalProgressBar) this.mRootView.findViewById(a.f.progress_horizontal);
         this.mDialog.setContentView(this.mRootView);
         this.mDialog.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.live.guess.a.a.1
             @Override // android.content.DialogInterface.OnKeyListener
@@ -115,7 +115,7 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gMX) {
+        if (view == this.gWk) {
             dismiss();
         }
     }
@@ -123,43 +123,43 @@ public class a implements View.OnClickListener {
     public void show() {
         if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && this.mDialog != null) {
             this.mDialog.show();
-            this.gMY.setText(bUp());
-            bUo();
+            this.gWl.setText(bXY());
+            bXX();
         }
     }
 
-    private void bUo() {
-        if (this.gNl == this.gNi) {
-            this.gNe.setImageResource(a.e.ala_guess_success);
-            this.gNd.setText(a.h.ala_guess_congratulate);
-            if (this.gNn != null) {
-                this.gNn.bUh();
+    private void bXX() {
+        if (this.gWy == this.gWv) {
+            this.gWr.setImageResource(a.e.ala_guess_success);
+            this.gWq.setText(a.h.ala_guess_congratulate);
+            if (this.gWA != null) {
+                this.gWA.bXQ();
             }
         } else {
-            this.gNe.setImageResource(a.e.ala_guess_failure);
-            this.gNd.setText(a.h.ala_guess_regret);
-            if (this.gNn != null) {
-                this.gNn.bUi();
+            this.gWr.setImageResource(a.e.ala_guess_failure);
+            this.gWq.setText(a.h.ala_guess_regret);
+            if (this.gWA != null) {
+                this.gWA.bXR();
             }
         }
-        if (this.gNi == 0) {
-            this.gNk = false;
+        if (this.gWv == 0) {
+            this.gWx = false;
         } else {
-            this.gNk = true;
+            this.gWx = true;
         }
-        if (Math.abs(this.gNh) <= 1.0E-6d) {
-            this.gNh = 0.0f;
+        if (Math.abs(this.gWu) <= 1.0E-6d) {
+            this.gWu = 0.0f;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(this.gNg).append("人瓜分").append((int) this.gNh).append("元");
-        this.gNc.setText(sb);
-        this.gNb.mB(this.gNk);
-        int i = (int) (this.gNj * 100.0f);
+        sb.append(this.gWt).append("人瓜分").append((int) this.gWu).append("元");
+        this.gWp.setText(sb);
+        this.gWo.mW(this.gWx);
+        int i = (int) (this.gWw * 100.0f);
         int i2 = 100 - i;
-        if (this.gNk) {
-            this.gNb.bI(i, i2);
+        if (this.gWx) {
+            this.gWo.bM(i, i2);
         } else {
-            this.gNb.bI(i2, i);
+            this.gWo.bM(i2, i);
         }
     }
 
@@ -169,64 +169,64 @@ public class a implements View.OnClickListener {
         }
     }
 
-    public void vp(int i) {
-        this.gNl = i;
+    public void vW(int i) {
+        this.gWy = i;
     }
 
     public void setAverage(float f) {
-        this.gNf = f;
+        this.gWs = f;
     }
 
-    public void vq(int i) {
-        this.gNg = i;
+    public void vX(int i) {
+        this.gWt = i;
     }
 
-    public void at(float f) {
-        this.gNh = f;
+    public void au(float f) {
+        this.gWu = f;
     }
 
     public void h(int i, float f) {
-        this.gNj = f;
-        this.gNi = i;
+        this.gWw = f;
+        this.gWv = i;
     }
 
-    public void eo(String str, String str2) {
-        this.gNb.setLeftFirstString(str);
-        this.gNb.setRightFirstString(str2);
+    public void ev(String str, String str2) {
+        this.gWo.setLeftFirstString(str);
+        this.gWo.setRightFirstString(str2);
     }
 
-    private SpannableStringBuilder bUp() {
-        if (this.gNm == null) {
-            this.gNm = new DecimalFormat("0.00");
+    private SpannableStringBuilder bXY() {
+        if (this.gWz == null) {
+            this.gWz = new DecimalFormat("0.00");
         }
-        String bUq = bUq();
+        String bXZ = bXZ();
         int length = "人均".length();
-        String str = "人均" + bUq + "元";
+        String str = "人均" + bXZ + "元";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        this.gMZ = new ForegroundColorSpan(this.mContext.getResources().getColor(a.c.ala_guess_bonus));
+        this.gWm = new ForegroundColorSpan(this.mContext.getResources().getColor(a.c.ala_guess_bonus));
         int length2 = (str.length() - length) + 1;
-        spannableStringBuilder.setSpan(this.gMZ, length, length2, 34);
-        this.gNa = new RelativeSizeSpan(1.8f);
-        spannableStringBuilder.setSpan(this.gNa, length, length2, 34);
+        spannableStringBuilder.setSpan(this.gWm, length, length2, 34);
+        this.gWn = new RelativeSizeSpan(1.8f);
+        spannableStringBuilder.setSpan(this.gWn, length, length2, 34);
         return spannableStringBuilder;
     }
 
-    private String bUq() {
-        String str = this.gNf + "";
-        if (Math.abs(this.gNf) <= 1.0E-6d) {
+    private String bXZ() {
+        String str = this.gWs + "";
+        if (Math.abs(this.gWs) <= 1.0E-6d) {
             return "0";
         }
-        if (!GZ(str) && isDecimal(str)) {
-            return this.gNm.format(this.gNf);
+        if (!HN(str) && isDecimal(str)) {
+            return this.gWz.format(this.gWs);
         }
-        return ((int) this.gNf) + "";
+        return ((int) this.gWs) + "";
     }
 
     public boolean isShowing() {
         return this.mDialog.isShowing();
     }
 
-    private boolean GZ(String str) {
+    private boolean HN(String str) {
         return Pattern.compile("^[-\\+]?[\\d]*$").matcher(str).matches();
     }
 

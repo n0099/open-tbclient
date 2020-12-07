@@ -7,12 +7,12 @@ import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class f {
     public static Rect a(com.baidu.adp.widget.ListView.v vVar, View view, int i) {
         View findViewByPosition;
         if (view.getTag() instanceof a) {
-            return az.bk(((a) view.getTag()).tz().getVideoContainer());
+            return az.bn(((a) view.getTag()).tC().getVideoContainer());
         }
         if (vVar instanceof BdTypeRecyclerView) {
             RecyclerView.LayoutManager layoutManager = ((BdTypeRecyclerView) vVar).getLayoutManager();
@@ -31,7 +31,7 @@ public class f {
             for (int i2 = firstVisiblePosition > headerViewsCount ? firstVisiblePosition - headerViewsCount : headerViewsCount; i2 <= lastVisiblePosition; i2++) {
                 Object item2 = com.baidu.tbadk.core.util.y.getItem(data, i2 - headerViewsCount);
                 if ((item2 instanceof BaseCardInfo) && baseCardInfo.position == ((BaseCardInfo) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null && (findViewByPosition.getTag() instanceof a)) {
-                    return az.bk(((a) findViewByPosition.getTag()).tz().getVideoContainer());
+                    return az.bn(((a) findViewByPosition.getTag()).tC().getVideoContainer());
                 }
             }
         }

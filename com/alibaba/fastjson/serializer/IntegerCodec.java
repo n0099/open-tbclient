@@ -11,7 +11,7 @@ import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class IntegerCodec implements ObjectDeserializer, ObjectSerializer {
     public static IntegerCodec instance = new IntegerCodec();
 

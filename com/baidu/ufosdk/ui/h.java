@@ -2,24 +2,24 @@ package com.baidu.ufosdk.ui;
 
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class h implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f3878a;
+    final /* synthetic */ e f3881a;
     final /* synthetic */ f b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar, e eVar) {
         this.b = fVar;
-        this.f3878a = eVar;
+        this.f3881a = eVar;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         ey eyVar;
         ey eyVar2;
-        String b = this.f3878a.b();
+        String b = this.f3881a.b();
         for (int i = 0; i < this.b.c.getChildCount(); i++) {
             View childAt = this.b.c.getChildAt(i);
             if (childAt instanceof e) {

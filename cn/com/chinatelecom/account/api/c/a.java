@@ -5,7 +5,6 @@ import android.net.Network;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.webkit.internal.ETAG;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +19,7 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f984a = a.class.getSimpleName();
+    private static final String f982a = a.class.getSimpleName();
     private static HashMap<String, String> b = new HashMap<>();
 
     public static long a(Context context) {
@@ -28,7 +27,7 @@ public final class a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:23:0x005a, code lost:
-        r2.f977a = b(r1, "gw_auth");
+        r2.f975a = b(r1, "gw_auth");
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -69,7 +68,7 @@ public final class a {
         if (eVar == null || TextUtils.isEmpty(eVar.b)) {
             return "{\"result\":\"-8001\",\"msg\":\"请求网络异常\"}";
         }
-        if (eVar.f981a == -1) {
+        if (eVar.f979a == -1) {
             return eVar.b;
         }
         try {
@@ -232,7 +231,7 @@ public final class a {
             String[] split = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             for (int i = 0; i < split.length; i++) {
                 if (split[i].contains(str2)) {
-                    return split[i].split(ETAG.EQUAL)[1];
+                    return split[i].split("=")[1];
                 }
             }
             return "";

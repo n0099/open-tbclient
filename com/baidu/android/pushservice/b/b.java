@@ -11,17 +11,17 @@ import java.io.File;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f1017a;
+    protected Context f1015a;
     protected String b;
     protected String c;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(Context context) {
-        this.f1017a = context;
+        this.f1015a = context;
     }
 
     public boolean a() {
-        String a2 = new File(this.c).exists() ? a.a(this.f1017a, this.c) : a.a();
+        String a2 = new File(this.c).exists() ? a.a(this.f1015a, this.c) : a.a();
         if (!TextUtils.isEmpty(a2)) {
             try {
                 byte[] decode = Base64.decode(a2.getBytes(), 2);
@@ -29,9 +29,9 @@ public class b {
                     this.b = new String(BaiduAppSSOJni.decryptAES(decode, decode.length, 0), "utf-8");
                 }
             } catch (Exception e) {
-                new b.c(this.f1017a).a(Log.getStackTraceString(e)).a();
+                new b.c(this.f1015a).a(Log.getStackTraceString(e)).a();
             } catch (UnsatisfiedLinkError e2) {
-                new b.c(this.f1017a).a(Log.getStackTraceString(e2)).a();
+                new b.c(this.f1015a).a(Log.getStackTraceString(e2)).a();
             }
         }
         return !TextUtils.isEmpty(this.b);

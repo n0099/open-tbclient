@@ -9,13 +9,13 @@ import com.xiaomi.push.service.XMJobService;
 public final class fc {
 
     /* renamed from: a  reason: collision with other field name */
-    private static a f315a;
+    private static a f313a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final String f316a = XMJobService.class.getCanonicalName();
+    private static final String f314a = XMJobService.class.getCanonicalName();
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f4897a = 0;
+    private static int f4667a = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes18.dex */
@@ -25,14 +25,14 @@ public final class fc {
         void a(boolean z);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean m278a();
+        boolean m268a();
     }
 
     public static synchronized void a() {
         synchronized (fc.class) {
-            if (f315a != null) {
+            if (f313a != null) {
                 com.xiaomi.channel.commonutils.logger.b.c("stop alarm.");
-                f315a.a();
+                f313a.a();
             }
         }
     }
@@ -43,7 +43,7 @@ public final class fc {
         boolean z2 = true;
         Context applicationContext = context.getApplicationContext();
         if ("com.xiaomi.xmsf".equals(applicationContext.getPackageName())) {
-            f315a = new fd(applicationContext);
+            f313a = new fd(applicationContext);
             return;
         }
         try {
@@ -55,11 +55,11 @@ public final class fc {
                 while (i < length) {
                     ServiceInfo serviceInfo = serviceInfoArr[i];
                     if ("android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
-                        if (f316a.equals(serviceInfo.name)) {
+                        if (f314a.equals(serviceInfo.name)) {
                             z = true;
                         } else {
                             try {
-                                if (f316a.equals(t.a(applicationContext, serviceInfo.name).getSuperclass().getCanonicalName())) {
+                                if (f314a.equals(t.a(applicationContext, serviceInfo.name).getSuperclass().getCanonicalName())) {
                                     z = true;
                                 }
                             } catch (Exception e2) {
@@ -72,7 +72,7 @@ public final class fc {
                     }
                     boolean z3 = z;
                     try {
-                        if (f316a.equals(serviceInfo.name) && "android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
+                        if (f314a.equals(serviceInfo.name) && "android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
                             break;
                         }
                         i++;
@@ -80,12 +80,12 @@ public final class fc {
                     } catch (Exception e3) {
                         e = e3;
                         z2 = z3;
-                        com.xiaomi.channel.commonutils.logger.b.m57a("check service err : " + e.getMessage());
+                        com.xiaomi.channel.commonutils.logger.b.m47a("check service err : " + e.getMessage());
                         if (z2) {
                         }
                         if (Build.VERSION.SDK_INT < 21) {
                         }
-                        f315a = new fd(applicationContext);
+                        f313a = new fd(applicationContext);
                     }
                 }
             }
@@ -94,48 +94,48 @@ public final class fc {
             z2 = z;
             e = e4;
         }
-        if (z2 && t.m590a(applicationContext)) {
-            throw new RuntimeException("Should export service: " + f316a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
+        if (z2 && t.m580a(applicationContext)) {
+            throw new RuntimeException("Should export service: " + f314a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
         }
         if (Build.VERSION.SDK_INT < 21) {
         }
-        f315a = new fd(applicationContext);
+        f313a = new fd(applicationContext);
     }
 
     public static synchronized void a(Context context, int i) {
         synchronized (fc.class) {
-            int i2 = f4897a;
+            int i2 = f4667a;
             if (!"com.xiaomi.xmsf".equals(context.getPackageName())) {
                 if (i == 2) {
-                    f4897a = 2;
+                    f4667a = 2;
                 } else {
-                    f4897a = 0;
+                    f4667a = 0;
                 }
             }
-            if (i2 != f4897a && f4897a == 2) {
+            if (i2 != f4667a && f4667a == 2) {
                 a();
-                f315a = new ff(context);
+                f313a = new ff(context);
             }
         }
     }
 
     public static synchronized void a(boolean z) {
         synchronized (fc.class) {
-            if (f315a == null) {
-                com.xiaomi.channel.commonutils.logger.b.m57a("timer is not initialized");
+            if (f313a == null) {
+                com.xiaomi.channel.commonutils.logger.b.m47a("timer is not initialized");
             } else {
                 com.xiaomi.channel.commonutils.logger.b.c("register alarm. (" + z + ")");
-                f315a.a(z);
+                f313a.a(z);
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m277a() {
-        boolean m278a;
+    public static synchronized boolean m267a() {
+        boolean m268a;
         synchronized (fc.class) {
-            m278a = f315a == null ? false : f315a.m278a();
+            m268a = f313a == null ? false : f313a.m268a();
         }
-        return m278a;
+        return m268a;
     }
 }

@@ -5,19 +5,19 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a {
-    public List<C0369a> dkV;
-    public String dkW;
+    public List<C0381a> drV;
+    public String drW;
 
     @Nullable
-    public static a br(JSONObject jSONObject) {
+    public static a bt(JSONObject jSONObject) {
         int length;
         if (jSONObject == null) {
             return null;
         }
         a aVar = new a();
-        aVar.dkW = jSONObject.optString("more");
+        aVar.drW = jSONObject.optString("more");
         JSONArray optJSONArray = jSONObject.optJSONArray("bind_app_list");
         if (optJSONArray == null || (length = optJSONArray.length()) <= 0) {
             return null;
@@ -26,28 +26,28 @@ public class a {
         for (int i = 0; i < length; i++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
             if (optJSONObject != null) {
-                C0369a c0369a = new C0369a();
-                c0369a.appKey = optJSONObject.optString("app_key");
-                c0369a.appName = optJSONObject.optString("app_name");
-                c0369a.iconUrl = optJSONObject.optString("photo_addr");
-                c0369a.dkX = optJSONObject.optString("scheme");
-                arrayList.add(c0369a);
+                C0381a c0381a = new C0381a();
+                c0381a.appKey = optJSONObject.optString("app_key");
+                c0381a.appName = optJSONObject.optString("app_name");
+                c0381a.iconUrl = optJSONObject.optString("photo_addr");
+                c0381a.drX = optJSONObject.optString("scheme");
+                arrayList.add(c0381a);
             }
         }
-        aVar.dkV = arrayList;
+        aVar.drV = arrayList;
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.apps.af.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0369a {
+    /* loaded from: classes25.dex */
+    public static class C0381a {
         public String appKey;
         public String appName;
-        public String dkX;
+        public String drX;
         public String iconUrl;
 
-        C0369a() {
+        C0381a() {
         }
     }
 }

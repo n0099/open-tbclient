@@ -19,10 +19,10 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ChatClipImageItemView extends TbImageView implements k.a {
-    private boolean iRa;
     private boolean isLeft;
-    public k kaG;
-    private a kaH;
+    private boolean jbS;
+    public k kok;
+    private a kol;
     private final Path mDefaultPath;
     public int position;
 
@@ -44,8 +44,8 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         this.isLeft = true;
         this.position = 0;
         this.mDefaultPath = new Path();
-        this.iRa = true;
-        this.kaH = null;
+        this.jbS = true;
+        this.kol = null;
         init(context, attributeSet, i);
     }
 
@@ -78,20 +78,20 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
             }
         }
         if (z) {
-            this.kaG = new h();
+            this.kok = new h();
         } else {
-            this.kaG = new n();
+            this.kok = new n();
         }
-        this.Rz.isChatPage = true;
-        this.kaG.a(this);
-        this.RA = this.kaG;
-        this.RA.a(this.Rz);
+        this.St.isChatPage = true;
+        this.kok.a(this);
+        this.Su = this.kok;
+        this.Su.a(this.St);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        this.kaG.releaseMemory();
+        this.kok.releaseMemory();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,12 +99,12 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     public void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i != 0) {
-            this.kaG.releaseMemory();
-        } else if (!this.iRa) {
-            this.kaG.onFinishComputeBounds();
+            this.kok.releaseMemory();
+        } else if (!this.jbS) {
+            this.kok.onFinishComputeBounds();
             invalidate();
         } else {
-            this.iRa = false;
+            this.jbS = false;
         }
     }
 
@@ -116,9 +116,9 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         this.isLeft = z;
     }
 
-    public void cPa() {
-        this.kaG.onFinishComputeBounds();
-        this.kaG.setPathAvailable(true);
+    public void cUo() {
+        this.kok.onFinishComputeBounds();
+        this.kok.setPathAvailable(true);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
@@ -127,7 +127,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         com.baidu.adp.widget.ImageView.a bdImage = super.getBdImage();
         boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
         boolean z3 = bdImage != null && bdImage.isValidNow();
-        k kVar = this.kaG;
+        k kVar = this.kok;
         if (z3 || z2) {
             z = true;
         }
@@ -138,7 +138,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
     public com.baidu.adp.widget.ImageView.a getDefaultBdImage() {
-        this.kaG.setPathAvailable(false);
+        this.kok.setPathAvailable(false);
         return super.getDefaultBdImage();
     }
 
@@ -203,15 +203,15 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.kaH == null) {
+        if (this.kol == null) {
             ap.setBackgroundColor(this, R.color.CAM_X0204);
         } else {
-            this.kaH.ac(canvas);
+            this.kol.ac(canvas);
         }
         super.onDraw(canvas);
     }
 
     public void setOnDrawCallback(a aVar) {
-        this.kaH = aVar;
+        this.kol = aVar;
     }
 }

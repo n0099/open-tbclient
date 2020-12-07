@@ -3,7 +3,7 @@ package com.baidu.searchbox.appframework;
 import android.app.Activity;
 import android.os.Bundle;
 import com.baidu.searchbox.appframework.BdBoxActivityLifecycle;
-/* loaded from: classes8.dex */
+/* loaded from: classes18.dex */
 public class SimpleActivityLifeCycle implements BdBoxActivityLifecycle.IActivityLifecycle {
     @Override // com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
     public void onActivityCreated(Activity activity, Bundle bundle) {

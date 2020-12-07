@@ -4,14 +4,14 @@ import android.util.ArrayMap;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a {
-    private static ArrayList<String> oyN = new ArrayList<>();
-    private static ArrayMap<String, String> oyO = new ArrayMap<>();
-    private static ArrayList<Object> oyP = new ArrayList<>();
+    private static ArrayList<String> oNT = new ArrayList<>();
+    private static ArrayMap<String, String> oNU = new ArrayMap<>();
+    private static ArrayList<Object> oNV = new ArrayList<>();
     public static int maxSelected = 9;
 
-    public static void efr() {
-        oyN.clear();
-        oyO.clear();
-        oyP.clear();
+    public static void ele() {
+        oNT.clear();
+        oNU.clear();
+        oNV.clear();
     }
 }

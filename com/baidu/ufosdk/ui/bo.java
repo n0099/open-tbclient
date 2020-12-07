@@ -1,17 +1,17 @@
 package com.baidu.ufosdk.ui;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class bo implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bm f3782a;
+    final /* synthetic */ bm f3785a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bo(bm bmVar) {
-        this.f3782a = bmVar;
+        this.f3785a = bmVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        FeedbackInputActivity.j(this.f3782a.b);
+        FeedbackInputActivity.j(this.f3785a.b);
     }
 }

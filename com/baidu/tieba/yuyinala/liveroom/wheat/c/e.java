@@ -3,57 +3,57 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.c;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class e {
-    private static e ofx;
-    private TbPageContext oey;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c ofy;
+    private static e oux;
+    private TbPageContext oty;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c ouy;
 
-    public static e dZj() {
-        if (ofx == null) {
-            ofx = new e();
+    public static e eeN() {
+        if (oux == null) {
+            oux = new e();
         }
-        return ofx;
+        return oux;
     }
 
     private e() {
     }
 
     public void h(TbPageContext tbPageContext) {
-        if (tbPageContext != null && tbPageContext != this.oey) {
-            this.oey = tbPageContext;
+        if (tbPageContext != null && tbPageContext != this.oty) {
+            this.oty = tbPageContext;
             hide();
         }
-        if (this.oey == null) {
-            this.oey = o.dZz().dZE();
+        if (this.oty == null) {
+            this.oty = o.efd().efi();
         }
-        if (this.oey != null) {
-            if (this.ofy == null) {
-                this.ofy = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c(this.oey);
+        if (this.oty != null) {
+            if (this.ouy == null) {
+                this.ouy = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c(this.oty);
             }
-            if (this.ofy.dZO()) {
-                this.ofy.show();
+            if (this.ouy.eft()) {
+                this.ouy.show();
                 return;
             }
-            this.ofy.show();
-            this.ofy.startTimer();
+            this.ouy.show();
+            this.ouy.startTimer();
         }
     }
 
-    public e dZk() {
-        if (this.ofy != null) {
-            this.ofy.cancelTimer();
+    public e eeO() {
+        if (this.ouy != null) {
+            this.ouy.cancelTimer();
         }
         return this;
     }
 
     private void hide() {
-        if (this.ofy != null) {
-            this.ofy.dismiss();
-            this.ofy = null;
+        if (this.ouy != null) {
+            this.ouy.dismiss();
+            this.ouy = null;
         }
     }
 
     public void onDestroy() {
-        dZk();
+        eeO();
         hide();
     }
 }

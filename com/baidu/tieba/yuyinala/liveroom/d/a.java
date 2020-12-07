@@ -10,42 +10,42 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class a {
-    private w aDh;
-    private ViewGroup bIc;
+    private w aFN;
+    private ViewGroup bNk;
+    private boolean gEn = true;
+    private ViewGroup.LayoutParams hin = new ViewGroup.LayoutParams(-2, -1);
     private ViewGroup mParentView;
     private TbPageContext mTbPageContext;
-    protected c nWC;
-    private boolean gvD = true;
-    private ViewGroup.LayoutParams gYE = new ViewGroup.LayoutParams(-2, -1);
+    protected c olA;
 
     public a(TbPageContext tbPageContext, ViewGroup viewGroup) {
         this.mTbPageContext = tbPageContext;
-        this.bIc = viewGroup;
-        bQz();
+        this.bNk = viewGroup;
+        bUj();
     }
 
-    private void bQz() {
-        this.mParentView = new FrameLayout(this.bIc.getContext());
+    private void bUj() {
+        this.mParentView = new FrameLayout(this.bNk.getContext());
         this.mParentView.setId(a.f.ala_live_room_back_to_target);
         this.mParentView.setBackgroundColor(0);
-        this.bIc.addView(this.mParentView, this.gYE);
+        this.bNk.addView(this.mParentView, this.hin);
     }
 
     public void a(w wVar, b bVar) {
         if (wVar != null && wVar.mLiveInfo != null && !TextUtils.isEmpty(TbConfig.getLiveEnterFrom()) && bVar != null) {
-            this.aDh = wVar;
-            if (this.mParentView == null || this.bIc.indexOfChild(this.mParentView) < 0) {
-                bQz();
-                this.mParentView.setVisibility(this.gvD ? 0 : 8);
+            this.aFN = wVar;
+            if (this.mParentView == null || this.bNk.indexOfChild(this.mParentView) < 0) {
+                bUj();
+                this.mParentView.setVisibility(this.gEn ? 0 : 8);
             }
-            if (this.nWC == null || (this.mParentView != null && this.mParentView.indexOfChild(this.nWC.getView()) < 0)) {
-                this.nWC = new c(this.mTbPageContext);
-                this.mParentView.addView(this.nWC.getView(), new FrameLayout.LayoutParams(-2, -1));
-                this.nWC.bYD().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.d.a.1
+            if (this.olA == null || (this.mParentView != null && this.mParentView.indexOfChild(this.olA.getView()) < 0)) {
+                this.olA = new c(this.mTbPageContext);
+                this.mParentView.addView(this.olA.getView(), new FrameLayout.LayoutParams(-2, -1));
+                this.olA.ccy().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.d.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.nWC.bYC();
-                        a.this.nWC.hide();
+                        a.this.olA.ccx();
+                        a.this.olA.hide();
                     }
                 });
             }
@@ -54,9 +54,9 @@ public class a {
             bVar2.setImageUrl(bVar.getImageUrl());
             bVar2.setScheme(bVar.getScheme());
             bVar2.setImageId(a.e.back_to_come_logo);
-            bVar2.vW(a.h.ala_back_to_come_title);
-            this.nWC.a(bVar2);
-            this.nWC.show();
+            bVar2.wB(a.h.ala_back_to_come_title);
+            this.olA.a(bVar2);
+            this.olA.show();
         }
     }
 
@@ -65,13 +65,13 @@ public class a {
     }
 
     private void reset(boolean z) {
-        this.gvD = true;
-        lD(z);
+        this.gEn = true;
+        lY(z);
     }
 
-    private void lD(boolean z) {
-        if (this.nWC != null && this.nWC.getView() != null && (this.nWC.getView().getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.nWC.getView().getParent()).removeView(this.nWC.getView());
+    private void lY(boolean z) {
+        if (this.olA != null && this.olA.getView() != null && (this.olA.getView().getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.olA.getView().getParent()).removeView(this.olA.getView());
         }
         if (z && this.mParentView != null && (this.mParentView.getParent() instanceof ViewGroup)) {
             ((ViewGroup) this.mParentView.getParent()).removeView(this.mParentView);

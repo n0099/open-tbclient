@@ -19,155 +19,155 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected TbPageContext eGu;
-    public View.OnClickListener jvX = new View.OnClickListener() { // from class: com.baidu.tieba.write.a.1
+    protected TbPageContext eNx;
+    public View.OnClickListener jJy = new View.OnClickListener() { // from class: com.baidu.tieba.write.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.nEi != null) {
-                if (a.this.nEi.getBgColor() != 0) {
-                    UtilHelper.setNavigationBarBackground(a.this.eGu.getPageActivity(), a.this.nEi.getBgColor());
+            if (a.this.nSk != null) {
+                if (a.this.nSk.getBgColor() != 0) {
+                    UtilHelper.setNavigationBarBackground(a.this.eNx.getPageActivity(), a.this.nSk.getBgColor());
                 }
-                a.this.nEi.yz(true);
+                a.this.nSk.ze(true);
             }
         }
     };
-    protected View mRootView = cBk();
-    protected g nEi;
+    protected View mRootView = cFA();
+    protected g nSk;
 
-    public abstract View cBk();
+    public abstract View cFA();
 
     public a(TbPageContext tbPageContext, g gVar) {
-        this.eGu = tbPageContext;
-        this.nEi = gVar;
+        this.eNx = tbPageContext;
+        this.nSk = gVar;
     }
 
     public void onChangeSkinType(int i) {
     }
 
-    public void dSQ() {
+    public void dYk() {
     }
 
     /* loaded from: classes.dex */
     public static class c extends a {
-        TextView eXr;
-        public View nEG;
-        public TBLottieAnimationView nEH;
-        public View nEP;
-        public LinearLayout nEQ;
-        public ImageView nER;
-        public TextView nES;
-        public LinearLayout nET;
-        public ImageView nEU;
-        public TextView nEV;
-        public LinearLayout nEW;
-        public ImageView nEX;
-        public TextView nEY;
-        public LinearLayout nEZ;
-        public ImageView nFa;
-        public TextView nFb;
-        public LinearLayout nFc;
-        ImageView nFd;
-        public LinearLayout nFe;
-        ImageView nFf;
-        TextView nFg;
-        public LinearLayout nFh;
-        ImageView nFi;
-        TextView nFj;
-        public OvalActionButton nFk;
-        public GridLayout nFl;
+        TextView feO;
+        public View nSM;
+        public TBLottieAnimationView nSN;
+        public View nSV;
+        public LinearLayout nSW;
+        public ImageView nSX;
+        public TextView nSY;
+        public LinearLayout nSZ;
+        public ImageView nTa;
+        public TextView nTb;
+        public LinearLayout nTc;
+        public ImageView nTd;
+        public TextView nTe;
+        public LinearLayout nTf;
+        public ImageView nTg;
+        public TextView nTh;
+        public LinearLayout nTi;
+        ImageView nTj;
+        public LinearLayout nTk;
+        ImageView nTl;
+        TextView nTm;
+        public LinearLayout nTn;
+        ImageView nTo;
+        TextView nTp;
+        public OvalActionButton nTq;
+        public GridLayout nTr;
 
         public c(TbPageContext tbPageContext, g gVar) {
             super(tbPageContext, gVar);
             if (tbPageContext != null) {
-                this.nET = (LinearLayout) this.mRootView.findViewById(R.id.home_write_article);
-                this.nEU = (ImageView) this.mRootView.findViewById(R.id.home_write_article_icon);
-                this.nEV = (TextView) this.mRootView.findViewById(R.id.home_write_article_title);
-                this.nEQ = (LinearLayout) this.mRootView.findViewById(R.id.home_write_photo);
-                this.nER = (ImageView) this.mRootView.findViewById(R.id.home_write_photo_icon);
-                this.nES = (TextView) this.mRootView.findViewById(R.id.home_write_photo_title);
-                this.nEW = (LinearLayout) this.mRootView.findViewById(R.id.home_write_album);
-                this.nEX = (ImageView) this.mRootView.findViewById(R.id.home_write_album_icon);
-                this.nEY = (TextView) this.mRootView.findViewById(R.id.home_write_album_title);
-                this.nEZ = (LinearLayout) this.mRootView.findViewById(R.id.home_write_live);
-                this.nFa = (ImageView) this.mRootView.findViewById(R.id.home_write_live_icon);
-                this.nFb = (TextView) this.mRootView.findViewById(R.id.home_write_live_title);
-                this.nFc = (LinearLayout) this.mRootView.findViewById(R.id.home_write_vote);
-                this.nFd = (ImageView) this.mRootView.findViewById(R.id.home_write_vote_icon);
-                this.eXr = (TextView) this.mRootView.findViewById(R.id.home_write_vote_title);
-                this.nFe = (LinearLayout) this.mRootView.findViewById(R.id.home_write_score);
-                this.nFf = (ImageView) this.mRootView.findViewById(R.id.home_write_score_icon);
-                this.nFg = (TextView) this.mRootView.findViewById(R.id.home_write_score_title);
-                this.nFh = (LinearLayout) this.mRootView.findViewById(R.id.home_write_commodity);
-                this.nFi = (ImageView) this.mRootView.findViewById(R.id.home_write_commodity_icon);
-                this.nFj = (TextView) this.mRootView.findViewById(R.id.home_write_commodity_title);
-                this.nFk = (OvalActionButton) this.mRootView.findViewById(R.id.write_close_view);
-                if (this.nEi != null && "frs".equals(this.nEi.getFrom())) {
-                    this.nFk.setIsCircle(true);
-                    this.nFk.setHasShadow(false);
+                this.nSZ = (LinearLayout) this.mRootView.findViewById(R.id.home_write_article);
+                this.nTa = (ImageView) this.mRootView.findViewById(R.id.home_write_article_icon);
+                this.nTb = (TextView) this.mRootView.findViewById(R.id.home_write_article_title);
+                this.nSW = (LinearLayout) this.mRootView.findViewById(R.id.home_write_photo);
+                this.nSX = (ImageView) this.mRootView.findViewById(R.id.home_write_photo_icon);
+                this.nSY = (TextView) this.mRootView.findViewById(R.id.home_write_photo_title);
+                this.nTc = (LinearLayout) this.mRootView.findViewById(R.id.home_write_album);
+                this.nTd = (ImageView) this.mRootView.findViewById(R.id.home_write_album_icon);
+                this.nTe = (TextView) this.mRootView.findViewById(R.id.home_write_album_title);
+                this.nTf = (LinearLayout) this.mRootView.findViewById(R.id.home_write_live);
+                this.nTg = (ImageView) this.mRootView.findViewById(R.id.home_write_live_icon);
+                this.nTh = (TextView) this.mRootView.findViewById(R.id.home_write_live_title);
+                this.nTi = (LinearLayout) this.mRootView.findViewById(R.id.home_write_vote);
+                this.nTj = (ImageView) this.mRootView.findViewById(R.id.home_write_vote_icon);
+                this.feO = (TextView) this.mRootView.findViewById(R.id.home_write_vote_title);
+                this.nTk = (LinearLayout) this.mRootView.findViewById(R.id.home_write_score);
+                this.nTl = (ImageView) this.mRootView.findViewById(R.id.home_write_score_icon);
+                this.nTm = (TextView) this.mRootView.findViewById(R.id.home_write_score_title);
+                this.nTn = (LinearLayout) this.mRootView.findViewById(R.id.home_write_commodity);
+                this.nTo = (ImageView) this.mRootView.findViewById(R.id.home_write_commodity_icon);
+                this.nTp = (TextView) this.mRootView.findViewById(R.id.home_write_commodity_title);
+                this.nTq = (OvalActionButton) this.mRootView.findViewById(R.id.write_close_view);
+                if (this.nSk != null && "frs".equals(this.nSk.getFrom())) {
+                    this.nTq.setIsCircle(true);
+                    this.nTq.setHasShadow(false);
                 }
-                this.nEP = this.mRootView.findViewById(R.id.view_background_white);
-                this.nEG = this.mRootView.findViewById(R.id.view_background_translate);
-                this.nFl = (GridLayout) this.mRootView.findViewById(R.id.type_container);
-                this.nFl.setMeasureAllChild(true);
-                this.nFl.setVerNum(2);
-                this.nEH = (TBLottieAnimationView) this.mRootView.findViewById(R.id.bottom_bar_background);
-                this.nEH.setSpeed(1.2f);
-                dSQ();
-                this.nEG.setOnClickListener(this.jvX);
-                this.nEG.setClickable(true);
-                this.nEU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.1
+                this.nSV = this.mRootView.findViewById(R.id.view_background_white);
+                this.nSM = this.mRootView.findViewById(R.id.view_background_translate);
+                this.nTr = (GridLayout) this.mRootView.findViewById(R.id.type_container);
+                this.nTr.setMeasureAllChild(true);
+                this.nTr.setVerNum(2);
+                this.nSN = (TBLottieAnimationView) this.mRootView.findViewById(R.id.bottom_bar_background);
+                this.nSN.setSpeed(1.2f);
+                dYk();
+                this.nSM.setOnClickListener(this.jJy);
+                this.nSM.setClickable(true);
+                this.nTa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.nEi != null) {
-                            c.this.nEi.Up(c.this.nEi.cFj());
+                        if (c.this.nSk != null) {
+                            c.this.nSk.VE(c.this.nSk.cKy());
                         }
                     }
                 });
-                this.nER.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.2
+                this.nSX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.nEi != null) {
-                            c.this.nEi.dTf();
+                        if (c.this.nSk != null) {
+                            c.this.nSk.dYy();
                         }
                     }
                 });
-                this.nEX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.3
+                this.nTd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.nEi != null) {
-                            c.this.nEi.dTe();
+                        if (c.this.nSk != null) {
+                            c.this.nSk.dYx();
                         }
                     }
                 });
-                this.nFa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.4
+                this.nTg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.nEi != null) {
-                            c.this.nEi.dTd();
+                        if (c.this.nSk != null) {
+                            c.this.nSk.dYw();
                         }
                     }
                 });
-                this.nFc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.5
+                this.nTi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.5
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.nEi != null) {
-                            c.this.nEi.Uo(c.this.nEi.cFj());
+                        if (c.this.nSk != null) {
+                            c.this.nSk.VD(c.this.nSk.cKy());
                         }
                     }
                 });
-                this.nFe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.6
+                this.nTk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.6
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.nEi != null) {
-                            c.this.nEi.dTb();
+                        if (c.this.nSk != null) {
+                            c.this.nSk.dYz();
                         }
                     }
                 });
-                this.nFh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.7
+                this.nTn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.7
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.nEi != null) {
-                            c.this.nEi.dTc();
+                        if (c.this.nSk != null) {
+                            c.this.nSk.dYv();
                         }
                     }
                 });
@@ -175,62 +175,61 @@ public abstract class a {
         }
 
         @Override // com.baidu.tieba.write.a
-        public View cBk() {
-            return LayoutInflater.from(this.eGu.getPageActivity()).inflate(R.layout.bottom_write_thread, (ViewGroup) null);
+        public View cFA() {
+            return LayoutInflater.from(this.eNx.getPageActivity()).inflate(R.layout.bottom_write_thread, (ViewGroup) null);
         }
 
-        public void yv(boolean z) {
-            this.nFe.setVisibility(z ? 0 : 8);
+        public void za(boolean z) {
         }
 
         @Override // com.baidu.tieba.write.a
         public void onChangeSkinType(int i) {
-            this.nFk.onChangeSkinType(i);
-            ap.a(this.nEH, R.raw.bottom_bar_bg);
-            ap.setBackgroundResource(this.nEP, R.drawable.write_tab_background);
-            ap.setImageResource(this.nER, R.drawable.icon_mask_post_photograph56);
-            ap.setImageResource(this.nEU, R.drawable.icon_mask_post_text56);
-            ap.setImageResource(this.nEX, R.drawable.icon_mask_post_image56);
-            ap.setImageResource(this.nFa, R.drawable.icon_mask_post_live56);
-            ap.setImageResource(this.nFd, R.drawable.icon_mask_post_vote56);
-            ap.setImageResource(this.nFf, R.drawable.icon_mask_post_evaluation56);
-            ap.setImageResource(this.nFi, R.drawable.icon_mask_post_goods56);
-            ap.setViewTextColor(this.nES, R.color.CAM_X0107);
-            ap.setViewTextColor(this.nEV, R.color.CAM_X0107);
-            ap.setViewTextColor(this.nEY, R.color.CAM_X0107);
-            ap.setViewTextColor(this.nFb, R.color.CAM_X0107);
-            ap.setViewTextColor(this.eXr, R.color.CAM_X0107);
-            ap.setViewTextColor(this.nFg, R.color.CAM_X0107);
-            ap.setViewTextColor(this.nFj, R.color.CAM_X0107);
+            this.nTq.onChangeSkinType(i);
+            ap.a(this.nSN, R.raw.bottom_bar_bg);
+            ap.setBackgroundResource(this.nSV, R.drawable.write_tab_background);
+            ap.setImageResource(this.nSX, R.drawable.icon_mask_post_photograph56);
+            ap.setImageResource(this.nTa, R.drawable.icon_mask_post_text56);
+            ap.setImageResource(this.nTd, R.drawable.icon_mask_post_image56);
+            ap.setImageResource(this.nTg, R.drawable.icon_mask_post_live56);
+            ap.setImageResource(this.nTj, R.drawable.icon_mask_post_vote56);
+            ap.setImageResource(this.nTl, R.drawable.icon_mask_post_evaluation56);
+            ap.setImageResource(this.nTo, R.drawable.icon_mask_post_goods56);
+            ap.setViewTextColor(this.nSY, R.color.CAM_X0107);
+            ap.setViewTextColor(this.nTb, R.color.CAM_X0107);
+            ap.setViewTextColor(this.nTe, R.color.CAM_X0107);
+            ap.setViewTextColor(this.nTh, R.color.CAM_X0107);
+            ap.setViewTextColor(this.feO, R.color.CAM_X0107);
+            ap.setViewTextColor(this.nTm, R.color.CAM_X0107);
+            ap.setViewTextColor(this.nTp, R.color.CAM_X0107);
         }
 
         @Override // com.baidu.tieba.write.a
-        public void dSQ() {
-            int equipmentWidth = l.getEquipmentWidth(this.eGu.getPageActivity());
+        public void dYk() {
+            int equipmentWidth = l.getEquipmentWidth(this.eNx.getPageActivity());
             int i = (int) (0.13518518f * equipmentWidth);
-            b(this.nEU, i);
-            b(this.nER, i);
-            b(this.nEX, i);
-            b(this.nFa, i);
-            b(this.nFd, i);
-            b(this.nFf, i);
-            b(this.nFi, i);
+            b(this.nTa, i);
+            b(this.nSX, i);
+            b(this.nTd, i);
+            b(this.nTg, i);
+            b(this.nTj, i);
+            b(this.nTl, i);
+            b(this.nTo, i);
             float dimens = (equipmentWidth * 1.0f) / l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1080);
-            ViewGroup.LayoutParams layoutParams = this.nFl.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.nTr.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {
                 ((RelativeLayout.LayoutParams) layoutParams).bottomMargin = (int) (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds433) * dimens);
-                this.nFl.setLayoutParams(layoutParams);
+                this.nTr.setLayoutParams(layoutParams);
             }
-            ViewGroup.LayoutParams layoutParams2 = this.nEP.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams2 = this.nSV.getLayoutParams();
             if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
                 int dimens2 = (int) (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1023) * dimens);
                 ((RelativeLayout.LayoutParams) layoutParams2).height = dimens2 <= 0 ? 1023 : dimens2;
-                this.nEP.setLayoutParams(layoutParams2);
+                this.nSV.setLayoutParams(layoutParams2);
             }
-            ViewGroup.LayoutParams layoutParams3 = this.nEH.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams3 = this.nSN.getLayoutParams();
             if (layoutParams3 instanceof RelativeLayout.LayoutParams) {
                 ((RelativeLayout.LayoutParams) layoutParams3).height = (int) ((dimens * l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds800)) - ((l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds135) * dimens) - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()));
-                this.nEH.setLayoutParams(layoutParams3);
+                this.nSN.setLayoutParams(layoutParams3);
             }
         }
 
@@ -246,96 +245,96 @@ public abstract class a {
 
     /* loaded from: classes.dex */
     public static class b extends a {
-        public View eal;
-        public View etA;
-        public View nEG;
-        public TBLottieAnimationView nEH;
-        public RelativeLayout nEI;
-        public View nEJ;
-        public View nEK;
-        public View nEL;
-        public View nEM;
-        public View nEN;
+        public View eAC;
+        public View ehl;
+        public View nSM;
+        public TBLottieAnimationView nSN;
+        public RelativeLayout nSO;
+        public View nSP;
+        public View nSQ;
+        public View nSR;
+        public View nSS;
+        public View nST;
 
         public b(TbPageContext tbPageContext, g gVar) {
             super(tbPageContext, gVar);
-            this.nEG = this.mRootView.findViewById(R.id.transparent_back_view);
-            this.eal = this.mRootView.findViewById(R.id.view_background);
-            this.nEH = (TBLottieAnimationView) this.mRootView.findViewById(R.id.bottom_bar_background);
-            this.nEI = (RelativeLayout) this.mRootView.findViewById(R.id.type_container);
-            this.etA = this.mRootView.findViewById(R.id.closeView);
-            this.nEJ = this.mRootView.findViewById(R.id.publish_text_view);
-            this.nEK = this.mRootView.findViewById(R.id.publish_image_view);
-            this.nEL = this.mRootView.findViewById(R.id.publish_video_view);
-            this.nEM = this.mRootView.findViewById(R.id.publish_ala_view);
-            this.nEN = this.mRootView.findViewById(R.id.publish_ala_view_tip);
-            this.eal.setOnClickListener(this.jvX);
-            this.nEI.setOnClickListener(this.jvX);
-            this.etA.setOnClickListener(this.jvX);
-            this.nEJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.1
+            this.nSM = this.mRootView.findViewById(R.id.transparent_back_view);
+            this.ehl = this.mRootView.findViewById(R.id.view_background);
+            this.nSN = (TBLottieAnimationView) this.mRootView.findViewById(R.id.bottom_bar_background);
+            this.nSO = (RelativeLayout) this.mRootView.findViewById(R.id.type_container);
+            this.eAC = this.mRootView.findViewById(R.id.closeView);
+            this.nSP = this.mRootView.findViewById(R.id.publish_text_view);
+            this.nSQ = this.mRootView.findViewById(R.id.publish_image_view);
+            this.nSR = this.mRootView.findViewById(R.id.publish_video_view);
+            this.nSS = this.mRootView.findViewById(R.id.publish_ala_view);
+            this.nST = this.mRootView.findViewById(R.id.publish_ala_view_tip);
+            this.ehl.setOnClickListener(this.jJy);
+            this.nSO.setOnClickListener(this.jJy);
+            this.eAC.setOnClickListener(this.jJy);
+            this.nSP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.nEi != null) {
-                        b.this.nEi.Up(b.this.nEi.cFj());
+                    if (b.this.nSk != null) {
+                        b.this.nSk.VE(b.this.nSk.cKy());
                     }
                 }
             });
-            this.nEK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.2
+            this.nSQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.nEi != null) {
-                        b.this.nEi.dTe();
+                    if (b.this.nSk != null) {
+                        b.this.nSk.dYx();
                     }
                 }
             });
-            this.nEL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.3
+            this.nSR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.nEi != null) {
-                        b.this.nEi.dTf();
+                    if (b.this.nSk != null) {
+                        b.this.nSk.dYy();
                     }
                 }
             });
-            this.nEM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.4
+            this.nSS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.nEi != null) {
-                        b.this.nEi.dTd();
+                    if (b.this.nSk != null) {
+                        b.this.nSk.dYw();
                     }
                 }
             });
-            yt(false);
-            this.nEH.setSpeed(1.4f);
+            yY(false);
+            this.nSN.setSpeed(1.4f);
         }
 
         @Override // com.baidu.tieba.write.a
-        public View cBk() {
-            return LayoutInflater.from(this.eGu.getPageActivity()).inflate(R.layout.home_page_bottom_write_thread, (ViewGroup) null);
+        public View cFA() {
+            return LayoutInflater.from(this.eNx.getPageActivity()).inflate(R.layout.home_page_bottom_write_thread, (ViewGroup) null);
         }
 
         @Override // com.baidu.tieba.write.a
         public void onChangeSkinType(int i) {
-            ap.a(this.nEH, R.raw.lottie_use_publish_n);
-            ap.setBackgroundResource(this.eal, R.color.CAM_X0502);
-            ap.setBackgroundResource(this.nEN, R.drawable.home_publish_ala_red_tip);
+            ap.a(this.nSN, R.raw.lottie_use_publish_n);
+            ap.setBackgroundResource(this.ehl, R.color.CAM_X0502);
+            ap.setBackgroundResource(this.nST, R.drawable.home_publish_ala_red_tip);
         }
 
-        public void yt(boolean z) {
-            this.eal.setClickable(z);
-            this.nEI.setClickable(z);
-            this.etA.setClickable(z);
-            this.nEJ.setClickable(z);
-            this.nEK.setClickable(z);
-            this.nEL.setClickable(z);
-            this.nEM.setClickable(z);
+        public void yY(boolean z) {
+            this.ehl.setClickable(z);
+            this.nSO.setClickable(z);
+            this.eAC.setClickable(z);
+            this.nSP.setClickable(z);
+            this.nSQ.setClickable(z);
+            this.nSR.setClickable(z);
+            this.nSS.setClickable(z);
         }
 
-        public void yu(boolean z) {
-            if (this.nEN != null) {
+        public void yZ(boolean z) {
+            if (this.nST != null) {
                 if (z) {
-                    this.nEN.setVisibility(0);
+                    this.nST.setVisibility(0);
                 } else {
-                    this.nEN.setVisibility(8);
+                    this.nST.setVisibility(8);
                 }
             }
         }
@@ -343,132 +342,153 @@ public abstract class a {
 
     /* renamed from: com.baidu.tieba.write.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0874a extends a {
-        public View eal;
-        private View nEA;
-        private View nEB;
-        private View nEC;
-        private View nED;
-        private int nEE;
-        public LinearLayout nEk;
-        private LinearLayout nEl;
-        private LinearLayout nEm;
-        private LinearLayout nEn;
-        private LinearLayout nEo;
-        private LinearLayout nEp;
-        private ImageView nEq;
-        private ImageView nEr;
-        private ImageView nEs;
-        private ImageView nEt;
-        private ImageView nEu;
-        private TextView nEv;
-        private TextView nEw;
-        private TextView nEx;
-        private TextView nEy;
-        private TextView nEz;
+    public static class C0890a extends a {
+        public View ehl;
+        private TextView nSA;
+        private TextView nSB;
+        private TextView nSC;
+        private TextView nSD;
+        private TextView nSE;
+        private View nSF;
+        private View nSG;
+        private View nSH;
+        private View nSI;
+        private View nSJ;
+        private int nSK;
+        public LinearLayout nSm;
+        private LinearLayout nSn;
+        private LinearLayout nSo;
+        private LinearLayout nSp;
+        private LinearLayout nSq;
+        private LinearLayout nSr;
+        private LinearLayout nSs;
+        private ImageView nSt;
+        private ImageView nSu;
+        private ImageView nSv;
+        private ImageView nSw;
+        private ImageView nSx;
+        private ImageView nSy;
+        private TextView nSz;
 
-        public C0874a(TbPageContext tbPageContext, g gVar) {
+        public C0890a(TbPageContext tbPageContext, g gVar) {
             super(tbPageContext, gVar);
-            this.eal = this.mRootView.findViewById(R.id.view_background);
-            this.nEk = (LinearLayout) this.mRootView.findViewById(R.id.type_container);
-            this.nEl = (LinearLayout) this.mRootView.findViewById(R.id.thread_text);
-            this.nEq = (ImageView) this.mRootView.findViewById(R.id.thread_text_iv);
-            this.nEv = (TextView) this.mRootView.findViewById(R.id.thread_text_tv);
-            this.nEm = (LinearLayout) this.mRootView.findViewById(R.id.thread_pic);
-            this.nEr = (ImageView) this.mRootView.findViewById(R.id.thread_pic_iv);
-            this.nEw = (TextView) this.mRootView.findViewById(R.id.thread_pic_tv);
-            this.nEn = (LinearLayout) this.mRootView.findViewById(R.id.thread_video);
-            this.nEs = (ImageView) this.mRootView.findViewById(R.id.thread_video_iv);
-            this.nEx = (TextView) this.mRootView.findViewById(R.id.thread_video_tv);
-            this.nEo = (LinearLayout) this.mRootView.findViewById(R.id.thread_ala);
-            this.nEt = (ImageView) this.mRootView.findViewById(R.id.thread_ala_iv);
-            this.nEy = (TextView) this.mRootView.findViewById(R.id.thread_ala_tv);
-            this.nEp = (LinearLayout) this.mRootView.findViewById(R.id.thread_vote);
-            this.nEu = (ImageView) this.mRootView.findViewById(R.id.thread_vote_iv);
-            this.nEz = (TextView) this.mRootView.findViewById(R.id.thread_vote_tv);
-            this.nEA = this.mRootView.findViewById(R.id.line_1);
-            this.nEB = this.mRootView.findViewById(R.id.line_2);
-            this.nEC = this.mRootView.findViewById(R.id.line_3);
-            this.nED = this.mRootView.findViewById(R.id.line_4);
-            this.nEv.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.frs_write_article_title));
-            this.nEw.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_article_pic));
-            this.nEx.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_photo_title));
-            this.nEy.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_live));
-            this.nEz.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.frs_write_vote_title));
-            this.eal.setOnClickListener(this.jvX);
-            this.nEl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.1
+            this.ehl = this.mRootView.findViewById(R.id.view_background);
+            this.nSm = (LinearLayout) this.mRootView.findViewById(R.id.type_container);
+            this.nSn = (LinearLayout) this.mRootView.findViewById(R.id.thread_text);
+            this.nSt = (ImageView) this.mRootView.findViewById(R.id.thread_text_iv);
+            this.nSz = (TextView) this.mRootView.findViewById(R.id.thread_text_tv);
+            this.nSo = (LinearLayout) this.mRootView.findViewById(R.id.thread_pic);
+            this.nSu = (ImageView) this.mRootView.findViewById(R.id.thread_pic_iv);
+            this.nSA = (TextView) this.mRootView.findViewById(R.id.thread_pic_tv);
+            this.nSp = (LinearLayout) this.mRootView.findViewById(R.id.thread_video);
+            this.nSv = (ImageView) this.mRootView.findViewById(R.id.thread_video_iv);
+            this.nSB = (TextView) this.mRootView.findViewById(R.id.thread_video_tv);
+            this.nSq = (LinearLayout) this.mRootView.findViewById(R.id.thread_ala);
+            this.nSw = (ImageView) this.mRootView.findViewById(R.id.thread_ala_iv);
+            this.nSC = (TextView) this.mRootView.findViewById(R.id.thread_ala_tv);
+            this.nSr = (LinearLayout) this.mRootView.findViewById(R.id.thread_vote);
+            this.nSx = (ImageView) this.mRootView.findViewById(R.id.thread_vote_iv);
+            this.nSD = (TextView) this.mRootView.findViewById(R.id.thread_vote_tv);
+            this.nSs = (LinearLayout) this.mRootView.findViewById(R.id.thread_write_score);
+            this.nSy = (ImageView) this.mRootView.findViewById(R.id.thread_write_score_iv);
+            this.nSE = (TextView) this.mRootView.findViewById(R.id.thread_write_score_tv);
+            this.nSF = this.mRootView.findViewById(R.id.line_1);
+            this.nSG = this.mRootView.findViewById(R.id.line_2);
+            this.nSH = this.mRootView.findViewById(R.id.line_3);
+            this.nSI = this.mRootView.findViewById(R.id.line_4);
+            this.nSJ = this.mRootView.findViewById(R.id.line_5);
+            this.nSz.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.frs_write_article_title));
+            this.nSA.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_article_pic));
+            this.nSB.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_photo_title));
+            this.nSC.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_live));
+            this.nSD.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.frs_write_vote_title));
+            this.nSE.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.evaluate));
+            this.ehl.setOnClickListener(this.jJy);
+            this.nSn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0874a.this.nEi != null) {
-                        C0874a.this.nEi.Up(C0874a.this.nEi.cFj());
+                    if (C0890a.this.nSk != null) {
+                        C0890a.this.nSk.VE(C0890a.this.nSk.cKy());
                     }
                 }
             });
-            this.nEm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.2
+            this.nSo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0874a.this.nEi != null) {
-                        C0874a.this.nEi.dTe();
+                    if (C0890a.this.nSk != null) {
+                        C0890a.this.nSk.dYx();
                     }
                 }
             });
-            this.nEn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.3
+            this.nSp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0874a.this.nEi != null) {
-                        C0874a.this.nEi.dTf();
+                    if (C0890a.this.nSk != null) {
+                        C0890a.this.nSk.dYy();
                     }
                 }
             });
-            this.nEo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.4
+            this.nSq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0874a.this.nEi != null) {
-                        C0874a.this.nEi.dTd();
+                    if (C0890a.this.nSk != null) {
+                        C0890a.this.nSk.dYw();
                     }
                 }
             });
-            this.nEp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.5
+            this.nSr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0874a.this.nEi != null) {
-                        C0874a.this.nEi.Uo(C0874a.this.nEi.cFj());
+                    if (C0890a.this.nSk != null) {
+                        C0890a.this.nSk.VD(C0890a.this.nSk.cKy());
                     }
                 }
             });
-            this.nEE = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21);
+            this.nSs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.6
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    if (C0890a.this.nSk != null) {
+                        C0890a.this.nSk.dYz();
+                    }
+                }
+            });
+            this.nSK = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
 
         @Override // com.baidu.tieba.write.a
-        public View cBk() {
-            return LayoutInflater.from(this.eGu.getPageActivity()).inflate(R.layout.home_page_test_write_thread_view, (ViewGroup) null);
+        public View cFA() {
+            return LayoutInflater.from(this.eNx.getPageActivity()).inflate(R.layout.home_page_test_write_thread_view, (ViewGroup) null);
         }
 
         @Override // com.baidu.tieba.write.a
         public void onChangeSkinType(int i) {
             super.onChangeSkinType(i);
-            ap.setBackgroundColor(this.eal, R.color.CAM_X0603);
-            com.baidu.tbadk.core.util.e.a.brc().pF(0).pO(1).ac(this.nEE).pG(R.color.CAM_X0701).bn(this.nEk);
-            this.nEq.setImageDrawable(WebPManager.a(R.drawable.icon_mask_post_text24, WebPManager.ResourceStateType.NORMAL));
-            this.nEr.setImageDrawable(WebPManager.a(R.drawable.icon_mask_post_image24, WebPManager.ResourceStateType.NORMAL));
-            this.nEs.setImageDrawable(WebPManager.a(R.drawable.icon_mask_post_photograph24, WebPManager.ResourceStateType.NORMAL));
-            this.nEt.setImageDrawable(WebPManager.a(R.drawable.icon_mask_post_live24, WebPManager.ResourceStateType.NORMAL));
-            this.nEu.setImageDrawable(WebPManager.a(R.drawable.icon_mask_post_vote24, WebPManager.ResourceStateType.NORMAL));
-            ap.setViewTextColor(this.nEv, R.color.CAM_X0101);
-            ap.setViewTextColor(this.nEw, R.color.CAM_X0101);
-            ap.setViewTextColor(this.nEx, R.color.CAM_X0101);
-            ap.setViewTextColor(this.nEy, R.color.CAM_X0101);
-            ap.setViewTextColor(this.nEz, R.color.CAM_X0101);
-            com.baidu.tbadk.core.util.e.a.brc().pF(0).pO(1).ae(this.nEE).ad(this.nEE).bn(this.nEl);
-            com.baidu.tbadk.core.util.e.a.brc().pF(0).pO(1).bn(this.nEm);
-            com.baidu.tbadk.core.util.e.a.brc().pF(0).pO(1).bn(this.nEn);
-            com.baidu.tbadk.core.util.e.a.brc().pF(0).pO(1).bn(this.nEo);
-            com.baidu.tbadk.core.util.e.a.brc().pF(0).pO(1).ag(this.nEE).af(this.nEE).bn(this.nEp);
-            ap.setBackgroundColor(this.nEA, R.color.CAM_X0613);
-            ap.setBackgroundColor(this.nEB, R.color.CAM_X0613);
-            ap.setBackgroundColor(this.nEC, R.color.CAM_X0613);
-            ap.setBackgroundColor(this.nED, R.color.CAM_X0613);
+            ap.setBackgroundColor(this.ehl, R.color.CAM_X0603);
+            com.baidu.tbadk.core.util.e.a.buz().qf(0).qo(1).ac(this.nSK).qg(R.color.CAM_X0701).bq(this.nSm);
+            this.nSt.setImageDrawable(WebPManager.a(R.drawable.icon_mask_post_text24, WebPManager.ResourceStateType.NORMAL));
+            this.nSu.setImageDrawable(WebPManager.a(R.drawable.icon_mask_post_image24, WebPManager.ResourceStateType.NORMAL));
+            this.nSv.setImageDrawable(WebPManager.a(R.drawable.icon_mask_post_photograph24, WebPManager.ResourceStateType.NORMAL));
+            this.nSw.setImageDrawable(WebPManager.a(R.drawable.icon_mask_post_live24, WebPManager.ResourceStateType.NORMAL));
+            this.nSx.setImageDrawable(WebPManager.a(R.drawable.icon_mask_post_vote24, WebPManager.ResourceStateType.NORMAL));
+            this.nSy.setImageDrawable(WebPManager.a(R.drawable.icon_home_publish_grade24, WebPManager.ResourceStateType.NORMAL));
+            ap.setViewTextColor(this.nSz, R.color.CAM_X0101);
+            ap.setViewTextColor(this.nSA, R.color.CAM_X0101);
+            ap.setViewTextColor(this.nSB, R.color.CAM_X0101);
+            ap.setViewTextColor(this.nSC, R.color.CAM_X0101);
+            ap.setViewTextColor(this.nSD, R.color.CAM_X0101);
+            ap.setViewTextColor(this.nSE, R.color.CAM_X0101);
+            com.baidu.tbadk.core.util.e.a.buz().qf(0).qo(1).ae(this.nSK).ad(this.nSK).bq(this.nSn);
+            com.baidu.tbadk.core.util.e.a.buz().qf(0).qo(1).bq(this.nSo);
+            com.baidu.tbadk.core.util.e.a.buz().qf(0).qo(1).bq(this.nSp);
+            com.baidu.tbadk.core.util.e.a.buz().qf(0).qo(1).bq(this.nSq);
+            com.baidu.tbadk.core.util.e.a.buz().qf(0).qo(1).ag(this.nSK).af(this.nSK).bq(this.nSr);
+            com.baidu.tbadk.core.util.e.a.buz().qf(0).qo(1).ag(this.nSK).af(this.nSK).bq(this.nSs);
+            ap.setBackgroundColor(this.nSF, R.color.CAM_X0613);
+            ap.setBackgroundColor(this.nSG, R.color.CAM_X0613);
+            ap.setBackgroundColor(this.nSH, R.color.CAM_X0613);
+            ap.setBackgroundColor(this.nSI, R.color.CAM_X0613);
+            ap.setBackgroundColor(this.nSJ, R.color.CAM_X0613);
         }
     }
 }

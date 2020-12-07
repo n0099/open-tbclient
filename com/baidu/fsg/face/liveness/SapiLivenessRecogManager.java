@@ -16,13 +16,13 @@ import com.baidu.fsg.face.liveness.callback.LivenessRecogCallback;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
 import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     public static final long MAX_CALL_INTERNAL_TIME = 300;
     public static final String TAG = "SapiLivenessRecog";
 
     /* renamed from: a  reason: collision with root package name */
-    private static SapiLivenessRecogManager f1596a;
+    private static SapiLivenessRecogManager f1598a;
     private LivenessRecogCallback b;
     private long c;
     private long d;
@@ -33,10 +33,10 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     public static synchronized SapiLivenessRecogManager getInstance() {
         SapiLivenessRecogManager sapiLivenessRecogManager;
         synchronized (SapiLivenessRecogManager.class) {
-            if (f1596a == null) {
-                f1596a = new SapiLivenessRecogManager();
+            if (f1598a == null) {
+                f1598a = new SapiLivenessRecogManager();
             }
-            sapiLivenessRecogManager = f1596a;
+            sapiLivenessRecogManager = f1598a;
         }
         return sapiLivenessRecogManager;
     }

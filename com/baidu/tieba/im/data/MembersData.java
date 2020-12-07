@@ -3,7 +3,7 @@ package com.baidu.tieba.im.data;
 import com.baidu.tbadk.data.UserData;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class MembersData implements Serializable {
     private static final long serialVersionUID = -7753167435649497271L;
     private UserData.Permission permission;

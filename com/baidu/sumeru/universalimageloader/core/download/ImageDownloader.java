@@ -4,11 +4,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
 import org.apache.http.HttpHost;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public interface ImageDownloader {
     InputStream getStream(String str, Object obj) throws IOException;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public enum Scheme {
         HTTP(HttpHost.DEFAULT_SCHEME_NAME),
         HTTPS("https"),

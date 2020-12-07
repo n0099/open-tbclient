@@ -3,9 +3,9 @@ package com.baidu.live.liveroom.d;
 import android.view.View;
 /* loaded from: classes4.dex */
 public interface d {
-    String KI();
+    String MK();
 
-    short KJ();
+    short ML();
 
     void enterBackground();
 

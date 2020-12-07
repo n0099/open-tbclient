@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.model.friendAndStrangerSwitch;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class GetFriendAndStrangerSwitchResMsg extends JsonHttpResponsedMessage {
     public static final int INVALID_TYPE = -1;
     public int mMaskType;

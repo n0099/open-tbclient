@@ -2,16 +2,16 @@ package com.meizu.cloud.pushsdk.notification.c;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class d {
     private static d b;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f4428a;
+    private Context f4198a;
     private AssetManager c;
 
     private d(Context context) {
-        this.f4428a = context;
+        this.f4198a = context;
         a();
     }
 
@@ -23,11 +23,11 @@ public class d {
     }
 
     private void a() {
-        this.c = this.f4428a.getAssets();
+        this.c = this.f4198a.getAssets();
     }
 
     public int a(String str, String str2) {
         com.meizu.cloud.a.a.i("ResourceReader", "Get resource type " + str2 + " " + str);
-        return this.f4428a.getResources().getIdentifier(str, str2, this.f4428a.getApplicationInfo().packageName);
+        return this.f4198a.getResources().getIdentifier(str, str2, this.f4198a.getApplicationInfo().packageName);
     }
 }

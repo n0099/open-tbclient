@@ -7,20 +7,20 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.au;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static final List<String> mVe = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
+    private static final List<String> njc = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
 
-    public static String Se(String str) {
+    public static String Ts(String str) {
         return "enterfourm_att_" + str;
     }
 
-    public static String Sf(String str) {
+    public static String Tt(String str) {
         return "enterfourm_rec_" + str;
     }
 
@@ -51,26 +51,26 @@ public class a {
         return str3;
     }
 
-    public static ar a(bx bxVar, String str, String str2, int i, int i2, boolean z, String str3, String str4) {
-        return a(true, bxVar, str, str2, i, i2, z, str3, str4, false, "", 0);
+    public static ar a(by byVar, String str, String str2, int i, int i2, boolean z, String str3, String str4) {
+        return a(true, byVar, str, str2, i, i2, z, str3, str4, false, "", 0);
     }
 
-    public static ar a(bx bxVar, String str, String str2, int i, int i2, boolean z, String str3, String str4, int i3) {
-        if (bxVar == null) {
+    public static ar a(by byVar, String str, String str2, int i, int i2, boolean z, String str3, String str4, int i3) {
+        if (byVar == null) {
             return null;
         }
-        return a(true, bxVar, str, str2, i, i2, z, str3, str4, false, "", i3);
+        return a(true, byVar, str, str2, i, i2, z, str3, str4, false, "", i3);
     }
 
-    public static ar a(bx bxVar, String str, String str2, int i, boolean z, String str3, String str4) {
-        return a(false, bxVar, str, str2, -1, i, z, str3, str4, false, "", 0);
+    public static ar a(by byVar, String str, String str2, int i, boolean z, String str3, String str4) {
+        return a(false, byVar, str, str2, -1, i, z, str3, str4, false, "", 0);
     }
 
-    public static ar a(bx bxVar, String str, String str2, int i, boolean z, String str3, String str4, int i2) {
-        if (bxVar == null) {
+    public static ar a(by byVar, String str, String str2, int i, boolean z, String str3, String str4, int i2) {
+        if (byVar == null) {
             return null;
         }
-        return a(false, bxVar, str, str2, -1, i, z, str3, str4, false, "", i2);
+        return a(false, byVar, str, str2, -1, i, z, str3, str4, false, "", i2);
     }
 
     public static ar b(String str, String str2, boolean z, int i) {
@@ -79,95 +79,95 @@ public class a {
 
     public static ar a(String str, String str2, boolean z, int i, int i2) {
         ar arVar = new ar(str2);
-        arVar.dR("page_type", str).ak("ad_exp", z ? 1 : 0).ak("ad_exp_cnt", i).ak("obj_floor", 0).ak("obj_adlocate", i2);
-        if (str != null && mVe.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            arVar.dR("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().fbE);
+        arVar.dY("page_type", str).al("ad_exp", z ? 1 : 0).al("ad_exp_cnt", i).al("obj_floor", 0).al("obj_adlocate", i2);
+        if (str != null && njc.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+            arVar.dY("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().fje);
         }
         return arVar;
     }
 
-    public static ar a(bx bxVar, String str, String str2, int i, int i2, String str3) {
-        if (bxVar == null) {
+    public static ar a(by byVar, String str, String str2, int i, int i2, String str3) {
+        if (byVar == null) {
             return null;
         }
-        return a(true, bxVar, str, str2, i, i2, false, "", null, true, str3, 0);
+        return a(true, byVar, str, str2, i, i2, false, "", null, true, str3, 0);
     }
 
-    public static ar a(bx bxVar, String str, String str2, int i, String str3) {
-        if (bxVar == null) {
+    public static ar a(by byVar, String str, String str2, int i, String str3) {
+        if (byVar == null) {
             return null;
         }
-        return a(false, bxVar, str, str2, -1, i, false, "", null, true, str3, 0);
+        return a(false, byVar, str, str2, -1, i, false, "", null, true, str3, 0);
     }
 
-    public static ar a(boolean z, bx bxVar, String str, String str2, int i, int i2, boolean z2, String str3, String str4, boolean z3, String str5, int i3) {
+    public static ar a(boolean z, by byVar, String str, String str2, int i, int i2, boolean z2, String str3, String str4, boolean z3, String str5, int i3) {
         ar arVar = new ar(str2);
-        arVar.dR("page_type", str).ak("obj_floor", i2).ak("obj_isad", z2 ? 1 : 0).dR("obj_id", a(z2, str3, z3, str5, bxVar.getId(), bxVar.getBaijiahaoData())).dR("tid", bxVar.getTid()).ak("thread_type", z2 ? -1 : bxVar.getThreadType()).ak("obj_adlocate", i3).dR("nid", bxVar.getNid());
-        if (!au.isEmpty(bxVar.bna())) {
-            arVar.dR("list_strategy", bxVar.bna());
+        arVar.dY("page_type", str).al("obj_floor", i2).al("obj_isad", z2 ? 1 : 0).dY("obj_id", a(z2, str3, z3, str5, byVar.getId(), byVar.getBaijiahaoData())).dY("tid", byVar.getTid()).al("thread_type", z2 ? -1 : byVar.getThreadType()).al("obj_adlocate", i3).dY("nid", byVar.getNid());
+        if (!au.isEmpty(byVar.bqn())) {
+            arVar.dY("list_strategy", byVar.bqn());
         }
-        if (str != null && mVe.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().fbE)) {
-            arVar.dR("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().fbE);
-        } else if (!au.isEmpty(bxVar.mRecomAbTag)) {
-            arVar.dR("ab_tag", bxVar.mRecomAbTag);
+        if (str != null && njc.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().fje)) {
+            arVar.dY("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().fje);
+        } else if (!au.isEmpty(byVar.mRecomAbTag)) {
+            arVar.dY("ab_tag", byVar.mRecomAbTag);
         }
         if (z) {
-            arVar.ak("obj_locate", i);
+            arVar.al("obj_locate", i);
         }
-        if (bxVar.getFid() > 0) {
-            arVar.w("fid", bxVar.getFid());
+        if (byVar.getFid() > 0) {
+            arVar.w("fid", byVar.getFid());
         }
-        if (!StringUtils.isNull(bxVar.bnm())) {
-            arVar.dR("first_dir", bxVar.bnm());
+        if (!StringUtils.isNull(byVar.bqz())) {
+            arVar.dY("first_dir", byVar.bqz());
         }
-        if (!StringUtils.isNull(bxVar.bnn())) {
-            arVar.dR("second_dir", bxVar.bnn());
+        if (!StringUtils.isNull(byVar.bqA())) {
+            arVar.dY("second_dir", byVar.bqA());
         }
-        if (bxVar.getBaijiahaoData() != null) {
-            arVar.dR("ugc_vid", bxVar.getBaijiahaoData().oriUgcVid);
-            arVar.dR("ugc_nid", bxVar.getBaijiahaoData().oriUgcNid);
+        if (byVar.getBaijiahaoData() != null) {
+            arVar.dY("ugc_vid", byVar.getBaijiahaoData().oriUgcVid);
+            arVar.dY("ugc_nid", byVar.getBaijiahaoData().oriUgcNid);
         }
         if (!StringUtils.isNull(str4)) {
-            arVar.dR("pid", str4);
+            arVar.dY("pid", str4);
         }
         return arVar;
     }
 
     public static ar a(boolean z, String str, String str2, int i, int i2, boolean z2, String str3, String str4, int i3) {
         ar arVar = new ar(str2);
-        ar ak = arVar.dR("page_type", str).ak("obj_floor", i2).ak("obj_isad", z2 ? 1 : 0);
+        ar al = arVar.dY("page_type", str).al("obj_floor", i2).al("obj_isad", z2 ? 1 : 0);
         if (!z2) {
             str3 = str4;
         }
-        ak.dR("obj_id", str3).ak("obj_adlocate", i3);
-        if (str != null && mVe.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            arVar.dR("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().fbE);
+        al.dY("obj_id", str3).al("obj_adlocate", i3);
+        if (str != null && njc.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+            arVar.dY("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().fje);
         }
         if (z) {
-            arVar.ak("obj_locate", i);
+            arVar.al("obj_locate", i);
         }
         return arVar;
     }
 
-    public static ar c(String str, bx bxVar) {
-        return a(str, bxVar, 0, 0);
+    public static ar c(String str, by byVar) {
+        return a(str, byVar, 0, 0);
     }
 
-    public static ar a(String str, bx bxVar, int i) {
-        return a(str, bxVar, i, 0);
+    public static ar a(String str, by byVar, int i) {
+        return a(str, byVar, i, 0);
     }
 
-    public static ar a(String str, bx bxVar, int i, int i2) {
-        if (bxVar == null) {
+    public static ar a(String str, by byVar, int i, int i2) {
+        if (byVar == null) {
             return null;
         }
         ar arVar = new ar(str);
-        arVar.dR("tid", bxVar.getTid()).w("fid", bxVar.getFid()).dR("uid", TbadkCoreApplication.getCurrentAccount());
+        arVar.dY("tid", byVar.getTid()).w("fid", byVar.getFid()).dY("uid", TbadkCoreApplication.getCurrentAccount());
         if (i != 0) {
-            arVar.ak("obj_locate", i);
+            arVar.al("obj_locate", i);
         }
         if (i2 != 0) {
-            arVar.ak("obj_type", i2);
+            arVar.al("obj_type", i2);
         }
         if (BdLog.isDebugMode()) {
             Log.d("CardSimpleStatisticItem", arVar.toString());

@@ -11,14 +11,14 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class NewAckMessage extends Message {
     private Context mContext;
     private JSONArray mJsonArray;
     private long mTriggerId;
     private List<Tripule> tripules;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Tripule {
         private String accountType;
         private String businessSource;
@@ -201,8 +201,10 @@ public class NewAckMessage extends Message {
 
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+        super.handleMessageResult(context, jSONObject, i, str);
         if (i == 0) {
             DBManager.getInstance(context).deleteCmdMsg(getUUID());
+            AckHandlerThread.getInstance(context).mRetryCount.set(0);
         }
     }
 }

@@ -1,10 +1,10 @@
 package com.baidu.tieba.video.record;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class e<T> {
     private String mName;
     private int mType;
-    private T mValue;
-    private int ntp;
+    private int nHr;
+    private T zJ;
 
     public e() {
     }
@@ -12,8 +12,8 @@ public class e<T> {
     public e(int i, String str, T t, int i2) {
         this.mType = i;
         this.mName = str;
-        this.mValue = t;
-        this.ntp = i2;
+        this.zJ = t;
+        this.nHr = i2;
     }
 
     public String getName() {
@@ -24,20 +24,20 @@ public class e<T> {
         this.mName = str;
     }
 
-    public int dQn() {
-        return this.ntp;
+    public int dVH() {
+        return this.nHr;
     }
 
-    public void Lr(int i) {
-        this.ntp = i;
+    public void Mj(int i) {
+        this.nHr = i;
     }
 
     public T getValue() {
-        return this.mValue;
+        return this.zJ;
     }
 
     public void setValue(T t) {
-        this.mValue = t;
+        this.zJ = t;
     }
 
     public int getType() {

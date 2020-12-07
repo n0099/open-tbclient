@@ -16,6 +16,7 @@ import android.os.Environment;
 import android.os.Process;
 import android.os.StatFs;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import com.baidu.webkit.internal.ETAG;
@@ -47,7 +48,7 @@ import org.json.JSONTokener;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1406a = ".video_cache";
+    public static String f1405a = ".video_cache";
     public static String b = "last_file_cache_time";
     public static long c = 86400000;
     public static long d = 536870912;
@@ -208,7 +209,7 @@ public class n {
                 byte[] bArr = new byte[1024];
                 while (entries.hasMoreElements()) {
                     ZipEntry nextElement = entries.nextElement();
-                    if (!nextElement.getName().contains("../")) {
+                    if (!nextElement.getName().contains(Constants.PATH_PARENT)) {
                         File file3 = new File(str, nextElement.getName());
                         if (nextElement.isDirectory()) {
                             try {
@@ -256,7 +257,7 @@ public class n {
         }
         String str = map.get("User-Agent");
         if (TextUtils.isEmpty(str)) {
-            str = "dumedia/7.10.2.20";
+            str = "dumedia/7.12.2.49";
         } else if (str.indexOf("dumedia") == -1) {
             str = str + " dumedia/" + SDKVersion.VERSION;
         }
@@ -288,7 +289,7 @@ public class n {
             sb.append(ETAG.ITEM_SEPARATOR);
         }
         sb.append(str);
-        sb.append(ETAG.EQUAL);
+        sb.append("=");
         sb.append(j);
     }
 
@@ -297,7 +298,7 @@ public class n {
             sb.append(ETAG.ITEM_SEPARATOR);
         }
         sb.append(str);
-        sb.append(ETAG.EQUAL);
+        sb.append("=");
         sb.append(str2);
     }
 

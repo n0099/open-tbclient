@@ -1,5 +1,5 @@
 package org.webrtc;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class AudioTrack extends MediaStreamTrack {
     public AudioTrack(long j) {
         super(j);

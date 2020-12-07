@@ -6,7 +6,7 @@ import android.support.annotation.FloatRange;
 import com.tb.airbnb.lottie.a.a.j;
 import com.tb.airbnb.lottie.model.content.h;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes20.dex */
 public class e {
     public static PointF a(PointF pointF, PointF pointF2) {
         return new PointF(pointF.x + pointF2.x, pointF.y + pointF2.y);
@@ -54,14 +54,14 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int i(float f, float f2) {
-        return l((int) f, (int) f2);
-    }
-
-    private static int l(int i, int i2) {
-        return i - (m(i, i2) * i2);
+        return m((int) f, (int) f2);
     }
 
     private static int m(int i, int i2) {
+        return i - (n(i, i2) * i2);
+    }
+
+    private static int n(int i, int i2) {
         int i3 = i / i2;
         return (((i ^ i2) >= 0) || i % i2 == 0) ? i3 : i3 - 1;
     }
@@ -80,7 +80,7 @@ public class e {
 
     public static void a(com.tb.airbnb.lottie.model.e eVar, int i, List<com.tb.airbnb.lottie.model.e> list, com.tb.airbnb.lottie.model.e eVar2, j jVar) {
         if (eVar.j(jVar.getName(), i)) {
-            list.add(eVar2.YW(jVar.getName()).a(jVar));
+            list.add(eVar2.ZT(jVar.getName()).a(jVar));
         }
     }
 }

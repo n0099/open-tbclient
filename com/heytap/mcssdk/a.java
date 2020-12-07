@@ -3,7 +3,7 @@ package com.heytap.mcssdk;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4056a = false;
+    public static final boolean f4059a = false;
     public static final String b = "com.heytap.mcssdk";
     public static final String c = "release";
     public static final String d = "";

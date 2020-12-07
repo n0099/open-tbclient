@@ -19,7 +19,7 @@ import com.baidu.searchbox.player.session.VideoKernelState;
 import com.baidu.searchbox.player.session.VideoSession;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class BaseKernelLayer extends AbsLayer {
     protected static final int MIN_POSITION = 2;
     public static int SEEK_TO_DELTA = 1;

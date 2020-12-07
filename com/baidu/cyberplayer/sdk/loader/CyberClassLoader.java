@@ -20,7 +20,7 @@ import java.util.List;
 public class CyberClassLoader extends BaseDexClassLoader {
 
     /* renamed from: a  reason: collision with root package name */
-    static Class f1399a = null;
+    static Class f1398a = null;
     static Class b = null;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -106,9 +106,9 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     private static void a() throws Exception {
-        if (f1399a == null || b == null) {
-            f1399a = Class.forName("dalvik.system.DexPathList");
-            Class<?>[] declaredClasses = f1399a.getDeclaredClasses();
+        if (f1398a == null || b == null) {
+            f1398a = Class.forName("dalvik.system.DexPathList");
+            Class<?>[] declaredClasses = f1398a.getDeclaredClasses();
             int length = declaredClasses.length;
             int i = 0;
             while (true) {
@@ -178,9 +178,9 @@ public class CyberClassLoader extends BaseDexClassLoader {
             Object newInstance2 = Array.newInstance(b, 1);
             Array.set(newInstance2, 0, newInstance);
             Object a2 = a(BaseDexClassLoader.class, this, "pathList");
-            a(f1399a, a2, "dexElements", newInstance2);
+            a(f1398a, a2, "dexElements", newInstance2);
             if (Build.VERSION.SDK_INT >= 19) {
-                a(f1399a, a2, "dexElementsSuppressedExceptions", (Object) null);
+                a(f1398a, a2, "dexElementsSuppressedExceptions", (Object) null);
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -10,7 +10,7 @@ import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class SingleClientConnManager implements ClientConnectionManager {
     public static final String MISUSE_MESSAGE = "Invalid use of SingleClientConnManager: connection still allocated.\nMake sure to release the connection before allocating another one.";
     protected boolean alwaysShutDown;
@@ -22,7 +22,7 @@ public class SingleClientConnManager implements ClientConnectionManager {
     protected SchemeRegistry schemeRegistry;
     protected PoolEntry uniquePoolEntry;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     protected class PoolEntry extends AbstractPoolEntry {
         protected PoolEntry() {
             super(null, null);
@@ -38,7 +38,7 @@ public class SingleClientConnManager implements ClientConnectionManager {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     protected class ConnAdapter extends AbstractPooledConnAdapter {
         protected ConnAdapter(PoolEntry poolEntry, HttpRoute httpRoute) {
             super(null, null);

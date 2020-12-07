@@ -1,7 +1,8 @@
 package com.baidu.ar.ability;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public enum AbilityType {
     TRACK_2D("ability_image_track"),
+    TRACK_3D("ability_3d_track"),
     IMU("ability_imu"),
     VO("ability_vo"),
     LOCAL_IR("ability_local_image_recognition"),
@@ -21,7 +22,8 @@ public enum AbilityType {
     HAND_SKELETON("ability_hand_skeleton"),
     ANIME("ability_anime"),
     HEAD_SEG("ability_head_segmentation"),
-    GENDER_TRANS("com.baidu.ar.gendertrans.GenderTransAR");
+    GENDER_TRANS("com.baidu.ar.gendertrans.GenderTransAR"),
+    VPAS_MARKER("ability_marker");
     
     private String mTypeValue;
 

@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.shield.request;
 
 import android.content.Context;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatuser.IStatusListener;
@@ -17,7 +18,7 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
     private static final String TAG = "IMSetShieldAndTopRequest";
     private long mContacter;
@@ -80,7 +81,7 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             i2 = jSONObject.getInt("error_code");
-            str = jSONObject.optString("error_msg", "");
+            str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
         } catch (JSONException e) {
             LogUtils.e(TAG, "JSONException", e);
             i2 = 1010;
@@ -106,6 +107,8 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
         } else if (this.mSubBusiness == 2) {
             if (this.mContacterType == 0) {
                 ShieldAndTopManager.getInstance(this.mContext).onUserMarkTopResult(i2, str, this.user, this.mKey);
+            } else if (this.mContacterType == 2) {
+                ShieldAndTopManager.getInstance(this.mContext).onGroupMarkTopResult(i2, str, this.user, this.mKey);
             } else {
                 ShieldAndTopManager.getInstance(this.mContext).onPaMarkTopResult(i2, str, this.user, this.mKey);
             }
@@ -127,6 +130,8 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
         } else if (this.mSubBusiness == 2) {
             if (this.mContacterType == 0) {
                 ShieldAndTopManager.getInstance(this.mContext).onUserMarkTopResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mKey);
+            } else if (this.mContacterType == 2) {
+                ShieldAndTopManager.getInstance(this.mContext).onGroupMarkTopResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mKey);
             } else {
                 ShieldAndTopManager.getInstance(this.mContext).onPaMarkTopResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mKey);
             }

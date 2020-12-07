@@ -3,10 +3,10 @@ package com.baidu.searchbox.floating.utils;
 import android.content.Context;
 import android.os.Build;
 import android.provider.Settings;
-import kotlin.h;
-import kotlin.jvm.internal.q;
-@h
-/* loaded from: classes9.dex */
+import kotlin.e;
+import kotlin.jvm.internal.p;
+@e
+/* loaded from: classes16.dex */
 public final class OverlayPermissionCheck {
     public static final OverlayPermissionCheck INSTANCE = new OverlayPermissionCheck();
 
@@ -14,7 +14,7 @@ public final class OverlayPermissionCheck {
     }
 
     public final boolean hasPermission(Context context) {
-        q.n(context, "context");
+        p.o(context, "context");
         if (Build.VERSION.SDK_INT < 23) {
             return false;
         }

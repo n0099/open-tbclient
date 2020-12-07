@@ -1,7 +1,7 @@
 package com.baidu.swan.games.utils;
 
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class e {
     public static float W(float f) {
         return f / AppRuntime.getAppContext().getResources().getDisplayMetrics().density;

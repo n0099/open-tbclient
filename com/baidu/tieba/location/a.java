@@ -15,21 +15,20 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ae;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.Locale;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class a implements com.baidu.adp.lib.c.b {
-    private static a kLn = null;
-    private LocationClient eaS;
-    private C0786a kLq;
-    private LocationClientOption kLr;
+    private static a kYE = null;
+    private LocationClient ehT;
+    private C0802a kYH;
+    private LocationClientOption kYI;
     private Address lastAddress;
     private Context mContext;
-    private boolean QB = true;
-    private String kLo = "";
-    private a.b kLp = null;
+    private boolean Ru = true;
+    private String kYF = "";
+    private a.b kYG = null;
     private long lastLocationTime = 0;
-    private boolean kLs = false;
+    private boolean kYJ = false;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BAIDU_LOCATION_SWITCH) { // from class: com.baidu.tieba.location.a.1
@@ -37,11 +36,11 @@ public class a implements com.baidu.adp.lib.c.b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001330) {
-                    if ((!com.baidu.m.a.aah() || ae.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && (customResponsedMessage.getData() instanceof Boolean)) {
+                    if ((!com.baidu.n.a.adp() || ae.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && (customResponsedMessage.getData() instanceof Boolean)) {
                         if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                            com.baidu.adp.lib.c.a.mk().a(a.daw());
+                            com.baidu.adp.lib.c.a.mk().a(a.dfI());
                         } else {
-                            com.baidu.adp.lib.c.a.mk().b(a.daw());
+                            com.baidu.adp.lib.c.a.mk().b(a.dfI());
                         }
                     }
                 }
@@ -49,15 +48,15 @@ public class a implements com.baidu.adp.lib.c.b {
         });
     }
 
-    public static a daw() {
-        if (kLn == null) {
+    public static a dfI() {
+        if (kYE == null) {
             synchronized (a.class) {
-                if (kLn == null) {
-                    kLn = new a();
+                if (kYE == null) {
+                    kYE = new a();
                 }
             }
         }
-        return kLn;
+        return kYE;
     }
 
     private a() {
@@ -66,19 +65,19 @@ public class a implements com.baidu.adp.lib.c.b {
     @Override // com.baidu.adp.lib.c.b
     public void a(a.b bVar) {
         this.mContext = TbadkCoreApplication.getInst().getContext();
-        this.kLp = bVar;
-        this.kLo = "baidu";
-        if (this.QB) {
+        this.kYG = bVar;
+        this.kYF = "baidu";
+        if (this.Ru) {
             try {
-                this.eaS = new LocationClient(this.mContext);
-                this.kLr = new LocationClientOption();
-                this.kLr.setOpenGps(true);
-                this.kLr.setIgnoreKillProcess(true);
-                this.kLr.setProdName(this.kLo);
-                this.kLr.setAddrType("all");
-                this.kLr.setCoorType("bd09ll");
-                this.kLq = new C0786a();
-                this.eaS.registerLocationListener(this.kLq);
+                this.ehT = new LocationClient(this.mContext);
+                this.kYI = new LocationClientOption();
+                this.kYI.setOpenGps(true);
+                this.kYI.setIgnoreKillProcess(true);
+                this.kYI.setProdName(this.kYF);
+                this.kYI.setAddrType("all");
+                this.kYI.setCoorType("bd09ll");
+                this.kYH = new C0802a();
+                this.ehT.registerLocationListener(this.kYH);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -87,22 +86,22 @@ public class a implements com.baidu.adp.lib.c.b {
 
     @Override // com.baidu.adp.lib.c.b
     public void startLocation(boolean z) {
-        if ((!com.baidu.m.a.aah() || ae.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.QB && this.eaS != null) {
+        if ((!com.baidu.n.a.adp() || ae.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.Ru && this.ehT != null) {
             try {
-                this.kLs = z;
+                this.kYJ = z;
                 if (z) {
-                    this.kLr.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+                    this.kYI.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
                 }
-                this.eaS.setLocOption(this.kLr);
-                if (!this.eaS.isStarted()) {
-                    this.eaS.start();
+                this.ehT.setLocOption(this.kYI);
+                if (!this.ehT.isStarted()) {
+                    this.ehT.start();
                 }
-                this.eaS.requestLocation();
+                this.ehT.requestLocation();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 stopLocation();
-                if (this.kLp != null) {
-                    this.kLp.onProviderGetLocation(5, "", this.lastAddress, this.lastLocationTime, this.kLs);
+                if (this.kYG != null) {
+                    this.kYG.onProviderGetLocation(5, "", this.lastAddress, this.lastLocationTime, this.kYJ);
                 }
             }
         }
@@ -114,19 +113,19 @@ public class a implements com.baidu.adp.lib.c.b {
     }
 
     /* renamed from: com.baidu.tieba.location.a$a  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    private class C0786a implements BDLocationListener {
-        private C0786a() {
+    /* loaded from: classes23.dex */
+    private class C0802a implements BDLocationListener {
+        private C0802a() {
         }
 
         @Override // com.baidu.location.BDLocationListener
         public void onReceiveLocation(BDLocation bDLocation) {
-            if ((!com.baidu.m.a.aah() || ae.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && bDLocation != null && bDLocation.getLocType() != 62 && bDLocation.getLocType() != 63 && bDLocation.getLocType() != 67 && bDLocation.getLocType() != 68 && bDLocation.getLocType() <= 161) {
+            if ((!com.baidu.n.a.adp() || ae.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && bDLocation != null && bDLocation.getLocType() != 62 && bDLocation.getLocType() != 63 && bDLocation.getLocType() != 67 && bDLocation.getLocType() != 68 && bDLocation.getLocType() <= 161) {
                 a.this.stopLocation();
                 a.this.lastAddress = new Address(Locale.getDefault());
                 a.this.lastAddress.setLatitude(bDLocation.getLatitude());
                 a.this.lastAddress.setLongitude(bDLocation.getLongitude());
-                com.baidu.tbadk.core.sharedPref.b.bpu().putString("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + Constants.ACCEPT_TIME_SEPARATOR_SP + bDLocation.getLongitude());
+                com.baidu.tbadk.core.sharedPref.b.bsO().putString("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + "," + bDLocation.getLongitude());
                 a.this.lastAddress.setLocality(bDLocation.getCity());
                 Bundle bundle = new Bundle();
                 bundle.putFloat("radius", bDLocation.getRadius());
@@ -147,11 +146,11 @@ public class a implements com.baidu.adp.lib.c.b {
                 if (bDLocation.getAddrStr() != null) {
                     a.this.lastAddress.setAddressLine(0, stringBuffer.toString());
                 }
-                if (a.this.kLp != null) {
-                    a.this.kLp.onProviderGetLocation(0, "", a.this.lastAddress, a.this.lastLocationTime, a.this.kLs);
-                    com.baidu.tieba.recapp.d.a.dAG().LP(String.valueOf(a.this.lastAddress.getLatitude()));
-                    com.baidu.tieba.recapp.d.a.dAG().LO(String.valueOf(a.this.lastAddress.getLongitude()));
-                    com.baidu.tieba.recapp.d.a.dAG().gW(System.currentTimeMillis());
+                if (a.this.kYG != null) {
+                    a.this.kYG.onProviderGetLocation(0, "", a.this.lastAddress, a.this.lastLocationTime, a.this.kYJ);
+                    com.baidu.tieba.recapp.d.a.dFX().MX(String.valueOf(a.this.lastAddress.getLatitude()));
+                    com.baidu.tieba.recapp.d.a.dFX().MW(String.valueOf(a.this.lastAddress.getLongitude()));
+                    com.baidu.tieba.recapp.d.a.dFX().hB(System.currentTimeMillis());
                 }
             }
         }
@@ -159,9 +158,9 @@ public class a implements com.baidu.adp.lib.c.b {
 
     @Override // com.baidu.adp.lib.c.b
     public void stopLocation() {
-        if (this.eaS != null && this.eaS.isStarted()) {
+        if (this.ehT != null && this.ehT.isStarted()) {
             try {
-                this.eaS.stop();
+                this.ehT.stop();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

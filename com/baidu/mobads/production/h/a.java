@@ -13,12 +13,12 @@ import java.util.HashMap;
 public class a extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected IXAdProd f2415a;
+    protected IXAdProd f2417a;
 
     public a(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType, IXAdProd iXAdProd) {
         super(context, activity, slotType);
         this.b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
-        this.f2415a = iXAdProd;
+        this.f2417a = iXAdProd;
     }
 
     @Override // com.baidu.mobads.vo.d
@@ -29,7 +29,7 @@ public class a extends d {
         hashMap.put(IXAdRequestInfo.FET, "ANTI,HTML,MSSP,VIDEO,NMON");
         hashMap.put("at", "10");
         hashMap.put("n", "1");
-        if (this.f2415a.getProdBase() == null && getApt() != AdSize.PrerollVideoNative.getValue()) {
+        if (this.f2417a.getProdBase() == null && getApt() != AdSize.PrerollVideoNative.getValue()) {
             hashMap.put(IXAdRequestInfo.QUERY_WIDTH, "640");
             hashMap.put(IXAdRequestInfo.QUERY_HEIGHT, "480");
         }

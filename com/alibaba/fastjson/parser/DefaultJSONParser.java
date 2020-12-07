@@ -39,7 +39,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class DefaultJSONParser implements Closeable {
     public static final int NONE = 0;
     public static final int NeedToResolve = 1;
@@ -1409,7 +1409,7 @@ public class DefaultJSONParser implements Closeable {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes15.dex */
     public static class ResolveTask {
         public final ParseContext context;
         public FieldDeserializer fieldDeserializer;

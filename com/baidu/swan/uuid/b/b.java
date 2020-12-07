@@ -1,7 +1,7 @@
 package com.baidu.swan.uuid.b;
 
 import java.security.MessageDigest;
-/* loaded from: classes14.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static String toMd5(byte[] bArr, boolean z) {
         try {

@@ -1,7 +1,11 @@
 package com.baidu.android.imsdk;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
@@ -48,25 +52,39 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMManagerImpl;
 import com.baidu.android.imsdk.internal.IMSettings;
 import com.baidu.android.imsdk.mcast.ILiveMsgReceiveListener;
+import com.baidu.android.imsdk.retrieve.RetrieveMsgReceiver;
 import com.baidu.android.imsdk.shield.ISetForbidListener;
 import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.IUploadTransferListener;
 import com.baidu.android.imsdk.upload.action.IMTrack;
+import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.imsdk.a;
+import com.baidu.lcp.sdk.client.a;
+import com.baidu.lcp.sdk.d.b;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class BIMManager extends BaseManager implements NoProGuard {
     private static IConnectListener mConnectListener;
     private static Context sContext = null;
     private static List<IConnectListener> mConnectListeners = new ArrayList();
+    private static volatile Runnable checkIMLoginState = new Runnable() { // from class: com.baidu.android.imsdk.BIMManager.4
+        @Override // java.lang.Runnable
+        public void run() {
+            if (a.Aj() == 0 && LoginManager.getInstance(BIMManager.sContext).getCurrentState() != LoginManager.LoginState.LOGINED) {
+                LogUtils.e("BIMManager", "checkIMLoginState lcp connected, but im not login, triggle im relogin");
+                LoginManager.getInstance(BIMManager.sContext).triggleLogoutListener(4001, Constants.ERROR_LOGIN_STATE_ERROR);
+            }
+            BIMManager.postCheckRunnable();
+        }
+    };
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public enum CATEGORY {
         ALL(-1),
         SINGLEPERSON(0),
@@ -113,7 +131,39 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
         Context applicationContext = context.getApplicationContext();
         sContext = applicationContext;
-        a.axQ = false;
+        com.baidu.h.a.ayO = a.aC(applicationContext);
+        if (com.baidu.h.a.ayO) {
+            try {
+                b.i(applicationContext, i != 0);
+                b.j(applicationContext, i);
+            } catch (Throwable th) {
+                LogUtils.e(TAG, "LCPConstants.setLcpEnv not found");
+            }
+        }
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.baidu.lcp.sdk.broadcast");
+        LocalBroadcastManager.getInstance(applicationContext).registerReceiver(new BroadcastReceiver() { // from class: com.baidu.android.imsdk.BIMManager.1
+            @Override // android.content.BroadcastReceiver
+            public void onReceive(Context context2, Intent intent) {
+                if (intent != null && "com.baidu.lcp.sdk.broadcast".equals(intent.getAction())) {
+                    boolean z = intent.getIntExtra("com.baidu.lcp.sdk.connect.state", -1) == 0;
+                    LogUtils.e("BIMManager", "BLCPClient notifyConnectState :" + z);
+                    if (!z) {
+                        BIMManager.imLogoutByLcpAsync(context2);
+                        BIMManager.connectStatusNotify(1);
+                    }
+                    try {
+                        BIMManager.initIMServiceImpl(context2);
+                        com.baidu.h.a.mHandler.removeCallbacks(BIMManager.checkIMLoginState);
+                        if (z) {
+                            BIMManager.postCheckRunnable();
+                        }
+                    } catch (Exception e) {
+                        LogUtils.e(BaseManager.TAG, "registerLCPReceiver exception" + e.getMessage());
+                    }
+                }
+            }
+        }, intentFilter);
         Log.d("imsdk", "set env as " + i + "， appId:" + j + ", cuid :" + str);
         AccountManagerImpl.getInstance(applicationContext).setAppid(j);
         Utility.setDeviceId(applicationContext, str);
@@ -122,30 +172,65 @@ public class BIMManager extends BaseManager implements NoProGuard {
         IMSettings.setContext(applicationContext);
         ConversationManagerImpl.getInstance(applicationContext);
         Utility.clearExpiredMsg(applicationContext);
+        registerInternalListener(RetrieveMsgReceiver.getInstance(applicationContext));
         return true;
     }
 
-    private static void initIMServiceImpl(final Context context) {
-        TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.BIMManager.1
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void initIMServiceImpl(final Context context) {
+        TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.BIMManager.2
             @Override // java.lang.Runnable
             public void run() {
-                a.ao(context);
+                com.baidu.h.a.aq(context);
             }
         });
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void imLogoutByLcpAsync(final Context context) {
+        TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.BIMManager.3
+            @Override // java.lang.Runnable
+            public void run() {
+                BIMManager.imLogoutByLcp(context);
+            }
+        });
+    }
+
+    public static void registerInternalListener(IMessageReceiveListener iMessageReceiveListener) {
+        ChatMsgManagerImpl.getInstance(sContext).registerInternalMessageReceiveListener(iMessageReceiveListener);
+    }
+
     public static void imLogoutByLcp(Context context) {
         try {
-            a.ap(context);
+            com.baidu.h.a.ar(context);
             LoginManager.getInstance(context).onLogoutResultInternal(0, "lcp unconnected");
         } catch (Exception e) {
             LogUtils.e(TAG, "imLogoutByLcp exception ", e);
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void postCheckRunnable() {
+        try {
+            LogUtils.i("BIMManager", "postCheckRunnable after 30s");
+            com.baidu.h.a.mHandler.postDelayed(checkIMLoginState, 30000L);
+        } catch (Exception e) {
+            LogUtils.e(TAG, "postCheckRunnable exception ", e);
+        }
+    }
+
+    public static void pingRequest() {
+        a.pingRequest();
+    }
+
     public static boolean enableDebugMode(boolean z) {
         if (isNullContext(sContext)) {
             return false;
+        }
+        try {
+            b.LOG_DEBUG = z;
+        } catch (Throwable th) {
+            LogUtils.e(TAG, "LCPConstants.LOG_DEBUG not found");
         }
         return IMSettings.enableDebugMode(sContext.getApplicationContext(), z);
     }
@@ -274,7 +359,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     /* JADX INFO: Access modifiers changed from: private */
     public static void getCuidTokenAndLogin(final String str, final int i, final String str2, final String str3, final ILoginListener iLoginListener) {
         Utility.writeLoginFlag(sContext, "3N", "getCuidTokenAndLogin accessToken = " + str);
-        AccountManagerImpl.getInstance(sContext).getTokenByCuid(AccountManager.getAppid(sContext), str, new IGetTokenByCuidListener() { // from class: com.baidu.android.imsdk.BIMManager.2
+        AccountManagerImpl.getInstance(sContext).getTokenByCuid(AccountManager.getAppid(sContext), str, new IGetTokenByCuidListener() { // from class: com.baidu.android.imsdk.BIMManager.5
             @Override // com.baidu.android.imsdk.account.IGetTokenByCuidListener
             public void onGetTokenByCuidResult(int i2, String str4, String str5) {
                 if (i2 == 0) {
@@ -363,7 +448,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
             }
             return;
         }
-        AccountManagerImpl.getInstance(sContext).logout(1, new ILoginListener() { // from class: com.baidu.android.imsdk.BIMManager.3
+        AccountManagerImpl.getInstance(sContext).logout(1, new ILoginListener() { // from class: com.baidu.android.imsdk.BIMManager.6
             @Override // com.baidu.android.imsdk.account.ILoginListener
             public void onLoginResult(int i, String str) {
             }
@@ -624,11 +709,39 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void clearCache(Context context) {
+        LogUtils.d(TAG, "start clearCache");
         Utility.clearFileCache(context);
+        IMTrackDatabase.getInstance(context).clearAllTables();
+        Utility.writeLongData(context, IMConstants.KEY_TRACK_DB_DEFAULT_SIZE, Utility.getImTrackDbSize(context));
     }
 
     public static long getCacheSize(Context context) {
-        return Utility.sumCacheSize(context);
+        long sumCacheSize = Utility.sumCacheSize(context);
+        long imTrackDbSize = Utility.getImTrackDbSize(context);
+        long readLongData = Utility.readLongData(context, IMConstants.KEY_TRACK_DB_DEFAULT_SIZE, 0L);
+        LogUtils.d(TAG, "getCacheSize pluginCacheSize = " + sumCacheSize + " trackSize = " + imTrackDbSize + " defSize = " + readLongData);
+        long j = imTrackDbSize - readLongData;
+        if (j < 0) {
+            j = 0;
+        }
+        return j + sumCacheSize;
+    }
+
+    public static void autoClearCache(Context context) {
+        long imTrackDbSize = Utility.getImTrackDbSize(context);
+        long readLongData = Utility.readLongData(context, IMConstants.KEY_TRACK_DB_DEFAULT_SIZE, 0L);
+        LogUtils.d(TAG, "autoClearCache trackSize = " + imTrackDbSize + " defSize = " + readLongData);
+        if (imTrackDbSize - readLongData >= BdStatsConstant.MAX_WRITTING_FILE_SIZE_AFTER_RENAME_FAILED) {
+            LogUtils.d(TAG, "autoClearCache start clean db");
+            IMTrackDatabase.getInstance(context).clearAllTables();
+            Utility.writeLongData(context, IMConstants.KEY_TRACK_DB_DEFAULT_SIZE, Utility.getImTrackDbSize(context));
+        }
+        long sumCacheSize = Utility.sumCacheSize(context);
+        LogUtils.d(TAG, "autoClearCache pluginCacheSize = " + sumCacheSize);
+        if (sumCacheSize >= 31457280) {
+            LogUtils.d(TAG, "autoClearCache start clean cache");
+            Utility.clearFileCache(context);
+        }
     }
 
     public static String getCuid(Context context) {
@@ -717,7 +830,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static boolean isSupportMsgType(int i) {
-        return i == 0 || i == 8 || i == 2 || i == 1 || i == 13 || i == 16 || i == 18 || i == 12 || i == 21 || i == 9 || i == 1002 || i == 1001 || i == 1003 || i == 1004 || i == 1005 || i == 1007 || i == 1008 || i == 1009 || i == 1010 || i == 1011 || i == 2010 || i == 1012 || i == 2001 || i == 80 || i == 31 || i == 32 || i == 33 || i == 20 || i == 22 || i == 25 || i == 26 || i == 24 || i == 2012 || i == 2014 || i == 28 || i == 27 || i == 29;
+        return i == 0 || i == 8 || i == 2 || i == 1 || i == 13 || i == 16 || i == 18 || i == 12 || i == 21 || i == 9 || i == 1002 || i == 1001 || i == 1003 || i == 1004 || i == 1005 || i == 1007 || i == 1008 || i == 1009 || i == 1010 || i == 1011 || i == 2010 || i == 1012 || i == 2001 || i == 80 || i == 31 || i == 32 || i == 33 || i == 20 || i == 22 || i == 25 || i == 26 || i == 24 || i == 2012 || i == 2014 || i == 28 || i == 27 || i == 29 || i == 30;
     }
 
     public static int getLoginType(Context context) {
@@ -725,7 +838,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void tryConnection(Context context) {
-        if (!a.axQ) {
+        if (!com.baidu.h.a.ayO) {
             AccountManagerImpl.getInstance(context);
             AccountManagerImpl.tryConnection(context);
         }
@@ -733,6 +846,10 @@ public class BIMManager extends BaseManager implements NoProGuard {
 
     public static void setMarkTop(Context context, long j, int i, IStatusListener iStatusListener) {
         ShieldAndTopManager.getInstance(context).setMarkTop(j, 1, i, iStatusListener);
+    }
+
+    public static void setGroupMarkTop(Context context, long j, int i, IStatusListener iStatusListener) {
+        ShieldAndTopManager.getInstance(context).setMarkTop(j, 3, i, iStatusListener);
     }
 
     public static void setUserMarkTop(Context context, long j, int i, IStatusListener iStatusListener) {
@@ -809,6 +926,10 @@ public class BIMManager extends BaseManager implements NoProGuard {
 
     public static void mediaSetSessionRead(Context context, long j, long j2, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
         ChatMsgManager.mediaSetSessionRead(context, j, j2, iMediaSetSessionReadListener);
+    }
+
+    public static void mediaSetAllSessionRead(Context context, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
+        ChatMsgManager.setMediaAllSessionRead(context, iMediaSetSessionReadListener);
     }
 
     public static void mediaSetSessionRead(Context context, long j, int i, long j2, String str, long j3, IMediaSetSessionReadListener iMediaSetSessionReadListener) {

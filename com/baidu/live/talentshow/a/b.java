@@ -5,32 +5,32 @@ import com.baidu.live.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes4.dex */
 public class b {
-    private boolean bvN = true;
-    private PermissionJudgePolicy bvO;
+    private boolean bAX = true;
+    private PermissionJudgePolicy bAY;
     private Activity mActivity;
 
     public b(Activity activity) {
         this.mActivity = activity;
     }
 
-    public boolean Rj() {
+    public boolean TH() {
         if (checkPermission()) {
             return true;
         }
-        if (this.bvN && this.bvO != null) {
-            this.bvO.startRequestPermission(this.mActivity, true, true);
+        if (this.bAX && this.bAY != null) {
+            this.bAY.startRequestPermission(this.mActivity, true, true);
         }
         return false;
     }
 
     private boolean checkPermission() {
-        if (this.bvO == null) {
-            this.bvO = new PermissionJudgePolicy();
-            this.bvO.clearRequestPermissionList();
-            this.bvO.appendRequestPermission(this.mActivity, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-            this.bvO.appendRequestPermission(this.mActivity, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
-            this.bvO.appendRequestPermission(this.mActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+        if (this.bAY == null) {
+            this.bAY = new PermissionJudgePolicy();
+            this.bAY.clearRequestPermissionList();
+            this.bAY.appendRequestPermission(this.mActivity, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            this.bAY.appendRequestPermission(this.mActivity, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
+            this.bAY.appendRequestPermission(this.mActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
         }
-        return this.bvO.checkPermissionListGranted(this.mActivity);
+        return this.bAY.checkPermissionListGranted(this.mActivity);
     }
 }

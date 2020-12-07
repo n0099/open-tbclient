@@ -1,7 +1,7 @@
 package com.google.protobuf.micro;
 
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public abstract class MessageMicro {
     public abstract int getCachedSize();
 

@@ -2,79 +2,79 @@ package com.baidu.ar.face.detector;
 
 import com.baidu.ar.face.algo.FaceAlgoData;
 import java.nio.ByteBuffer;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class m {
-    private long hV;
+    private long il;
     private long mTimestamp;
-    private boolean nx;
-    private boolean po;
-    private long pp;
-    private FaceAlgoData pq;
-    private boolean pr;
-    private ByteBuffer ps;
-    private long pt = 0;
+    private boolean nN;
+    private boolean pE;
+    private long pF;
+    private FaceAlgoData pG;
+    private boolean pH;
+    private ByteBuffer pI;
+    private long pJ = 0;
 
     public m(long j) {
         this.mTimestamp = j;
     }
 
-    public void H(boolean z) {
-        this.po = z;
+    public void F(boolean z) {
+        this.pE = z;
     }
 
     public void a(FaceAlgoData faceAlgoData) {
-        this.pq = faceAlgoData;
+        this.pG = faceAlgoData;
     }
 
     public void a(ByteBuffer byteBuffer) {
-        this.ps = byteBuffer;
+        this.pI = byteBuffer;
     }
 
-    public long cZ() {
-        return this.hV;
+    public long cY() {
+        return this.il;
     }
 
-    public long dO() {
-        return this.pt;
+    public long dN() {
+        return this.pJ;
     }
 
-    public ByteBuffer eC() {
-        return this.ps;
+    public ByteBuffer eB() {
+        return this.pI;
     }
 
-    public FaceAlgoData eD() {
-        return this.pq;
+    public FaceAlgoData eC() {
+        return this.pG;
+    }
+
+    public void g(long j) {
+        this.il = j;
     }
 
     public long getTimestamp() {
         return this.mTimestamp;
     }
 
-    public void i(long j) {
-        this.hV = j;
-    }
-
     public boolean isFrontCamera() {
-        return this.pr;
+        return this.pH;
     }
 
     public boolean isTracked() {
-        return this.nx;
+        return this.nN;
+    }
+
+    public void p(long j) {
+        this.pJ = j;
     }
 
     public void r(long j) {
-        this.pt = j;
+        this.pF = j;
     }
 
     public void setFrontCamera(boolean z) {
-        this.pr = z;
+        this.pH = z;
     }
 
     public void setTracked(boolean z) {
-        this.nx = z;
-    }
-
-    public void t(long j) {
-        this.pp = j;
+        this.nN = z;
     }
 }

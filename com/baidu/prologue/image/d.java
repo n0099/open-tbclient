@@ -12,23 +12,23 @@ public class d implements b<ImageView> {
 
     /* loaded from: classes14.dex */
     private static class a {
-        private static final d chi = new d();
+        private static final d cnQ = new d();
     }
 
-    public static b<ImageView> aci() {
-        return a.chi;
+    public static b<ImageView> afq() {
+        return a.cnQ;
     }
 
     @Override // com.baidu.prologue.image.b
     public void a(String str, ImageView imageView) {
-        c.aT(com.baidu.prologue.a.b.a.cft.get().aba()).asBitmap().load(str).apply(new RequestOptions().placeholder(aU(imageView.getContext())).error(aV(imageView.getContext())).centerCrop()).transition(new BitmapTransitionOptions().crossFade(300)).into(imageView);
+        c.bz(com.baidu.prologue.a.b.a.clZ.get().aei()).asBitmap().load(str).apply(new RequestOptions().placeholder(bA(imageView.getContext())).error(bB(imageView.getContext())).centerCrop()).transition(new BitmapTransitionOptions().crossFade(300)).into(imageView);
     }
 
-    private Drawable aU(Context context) {
+    private Drawable bA(Context context) {
         return null;
     }
 
-    private Drawable aV(Context context) {
+    private Drawable bB(Context context) {
         return null;
     }
 }

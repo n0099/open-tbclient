@@ -3,25 +3,25 @@ package com.facebook.drawee.a.a;
 import com.facebook.common.internal.ImmutableList;
 import com.facebook.common.internal.j;
 import javax.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b {
     @Nullable
-    private final ImmutableList<com.facebook.imagepipeline.f.a> oOf;
+    private final ImmutableList<com.facebook.imagepipeline.e.a> pdn;
     @Nullable
-    private final g oOg;
-    private final j<Boolean> oOh;
+    private final g pdo;
+    private final j<Boolean> pdp;
 
     @Nullable
-    public ImmutableList<com.facebook.imagepipeline.f.a> ekN() {
-        return this.oOf;
+    public ImmutableList<com.facebook.imagepipeline.e.a> eqC() {
+        return this.pdn;
     }
 
     @Nullable
-    public g ekO() {
-        return this.oOg;
+    public g eqD() {
+        return this.pdo;
     }
 
-    public j<Boolean> ekP() {
-        return this.oOh;
+    public j<Boolean> eqE() {
+        return this.pdp;
     }
 }

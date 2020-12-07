@@ -3,7 +3,7 @@ package com.google.zxing.client.result;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import java.util.regex.Pattern;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class VINResultParser extends ResultParser {
     private static final Pattern IOQ = Pattern.compile("[IOQ]");
     private static final Pattern AZ09 = Pattern.compile("[A-Z0-9]{17}");

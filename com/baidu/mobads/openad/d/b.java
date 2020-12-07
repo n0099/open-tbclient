@@ -6,19 +6,19 @@ import com.baidu.mobads.utils.m;
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f2386a;
+    final /* synthetic */ a f2388a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f2386a = aVar;
+        this.f2388a = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            if (this.f2386a.f != null && this.f2386a.d.getAndSet(false)) {
-                this.f2386a.f.disconnect();
-                this.f2386a.f = null;
+            if (this.f2388a.f != null && this.f2388a.d.getAndSet(false)) {
+                this.f2388a.f.disconnect();
+                this.f2388a.f = null;
             }
         } catch (Exception e) {
             m.a().e(e);

@@ -1,5 +1,5 @@
 package com.baidu.ar;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public enum ARType {
     TRACK_2D(0),
     LBS(1),
@@ -11,7 +11,9 @@ public enum ARType {
     CLOUD_IR(7),
     IMU(8),
     FACE(10),
-    VPAS(11);
+    VPAS(11),
+    MARKER(12),
+    TRACK_3D(13);
     
     private int mTypeValue;
 

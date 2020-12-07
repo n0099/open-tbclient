@@ -9,20 +9,20 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.yuyinala.liveroom.a {
-    private final List<AlaTopTipView> htg;
-    private com.baidu.live.liveroom.a.a hti;
-    private final AlaTopTipView.a obN;
+    private final List<AlaTopTipView> hCK;
+    private com.baidu.live.liveroom.a.a hCM;
+    private final AlaTopTipView.a oqN;
 
     public a(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar) {
         super(tbPageContext);
-        this.htg = new LinkedList();
-        this.obN = new AlaTopTipView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.tippop.a.1
+        this.hCK = new LinkedList();
+        this.oqN = new AlaTopTipView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.tippop.a.1
             @Override // com.baidu.tieba.yuyinala.liveroom.tippop.AlaTopTipView.a
-            public void cm(View view) {
-                a.this.htg.remove(view);
+            public void ct(View view) {
+                a.this.hCK.remove(view);
             }
         };
-        this.hti = aVar;
+        this.hCM = aVar;
     }
 
     public void a(ViewGroup viewGroup, String str, int i, boolean z) {
@@ -33,30 +33,30 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
             }
             alaTopTipView.setType(i);
             alaTopTipView.setText(str);
-            alaTopTipView.setOnTipCompletedCallback(this.obN);
+            alaTopTipView.setOnTipCompletedCallback(this.oqN);
             alaTopTipView.r(viewGroup, 0);
-            this.htg.add(alaTopTipView);
+            this.hCK.add(alaTopTipView);
         }
     }
 
     public void a(ViewGroup viewGroup, String str, int i) {
         if (viewGroup != null && !StringUtils.isNull(str)) {
-            if (i != 1 || this.hti == null || this.hti.eK(9)) {
+            if (i != 1 || this.hCM == null || this.hCM.fh(9)) {
                 AlaTopTipView alaTopTipView = new AlaTopTipView(viewGroup.getContext());
                 alaTopTipView.setType(i);
                 alaTopTipView.setText(str);
-                alaTopTipView.setOnTipCompletedCallback(this.obN);
+                alaTopTipView.setOnTipCompletedCallback(this.oqN);
                 alaTopTipView.r(viewGroup, 0);
-                this.htg.add(alaTopTipView);
+                this.hCK.add(alaTopTipView);
             }
         }
     }
 
-    public boolean wJ(int i) {
-        if (this.htg.isEmpty()) {
+    public boolean xo(int i) {
+        if (this.hCK.isEmpty()) {
             return false;
         }
-        for (AlaTopTipView alaTopTipView : this.htg) {
+        for (AlaTopTipView alaTopTipView : this.hCK) {
             if (alaTopTipView.getType() == i) {
                 return true;
             }
@@ -64,28 +64,28 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
         return false;
     }
 
-    public void wK(int i) {
-        for (AlaTopTipView alaTopTipView : this.htg) {
+    public void xp(int i) {
+        for (AlaTopTipView alaTopTipView : this.hCK) {
             if (alaTopTipView.getType() == i) {
-                alaTopTipView.gk(true);
+                alaTopTipView.gz(true);
             }
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void CD() {
-        super.CD();
-        for (AlaTopTipView alaTopTipView : this.htg) {
-            alaTopTipView.gk(false);
+    public void En() {
+        super.En();
+        for (AlaTopTipView alaTopTipView : this.hCK) {
+            alaTopTipView.gz(false);
         }
-        this.htg.clear();
+        this.hCK.clear();
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        for (AlaTopTipView alaTopTipView : this.htg) {
-            alaTopTipView.gk(false);
+        for (AlaTopTipView alaTopTipView : this.hCK) {
+            alaTopTipView.gz(false);
         }
-        this.htg.clear();
+        this.hCK.clear();
     }
 }

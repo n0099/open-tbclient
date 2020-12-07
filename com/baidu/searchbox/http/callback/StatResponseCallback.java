@@ -2,7 +2,7 @@ package com.baidu.searchbox.http.callback;
 
 import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import okhttp3.Response;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public interface StatResponseCallback<T> {
     void onFail(Exception exc);
 

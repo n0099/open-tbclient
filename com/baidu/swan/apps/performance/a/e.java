@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.performance.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public interface e {
-    void bX(long j);
+    void cw(long j);
 
     void start(long j);
 }

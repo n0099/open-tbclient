@@ -12,9 +12,9 @@ public interface b {
 
     void F(int i, String str);
 
-    void Qv();
+    void ST();
 
-    void Um();
+    void WO();
 
     void a(boolean z, long j, View view, View view2);
 
@@ -22,5 +22,5 @@ public interface b {
 
     boolean a(AlaLiveUserInfoData alaLiveUserInfoData, g gVar);
 
-    void db(boolean z);
+    void dp(boolean z);
 }

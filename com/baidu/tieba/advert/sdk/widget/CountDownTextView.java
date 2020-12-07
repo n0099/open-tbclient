@@ -5,106 +5,106 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class CountDownTextView extends TextView {
-    private int cIG;
-    private b fVC;
-    private final Runnable fVD;
-    private boolean fVE;
+    private int cPz;
+    private b gdM;
+    private final Runnable gdN;
+    private boolean gdO;
     private Handler mHandler;
     private String mText;
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public interface b {
-        void bT(View view);
+        void ca(View view);
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     private static class a implements Runnable {
-        private final WeakReference<CountDownTextView> fUV;
+        private final WeakReference<CountDownTextView> gdf;
 
         private a(CountDownTextView countDownTextView) {
-            this.fUV = new WeakReference<>(countDownTextView);
+            this.gdf = new WeakReference<>(countDownTextView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.fUV.get();
+            CountDownTextView countDownTextView = this.gdf.get();
             if (countDownTextView != null) {
-                countDownTextView.tS(1);
+                countDownTextView.uw(1);
             }
         }
     }
 
     public CountDownTextView(Context context) {
         super(context);
-        this.cIG = 0;
+        this.cPz = 0;
         this.mText = "";
-        this.fVC = null;
+        this.gdM = null;
         this.mHandler = new Handler();
-        this.fVE = false;
-        this.fVD = new a();
+        this.gdO = false;
+        this.gdN = new a();
     }
 
     public void setNumTypeFromBes(boolean z) {
-        this.fVE = z;
+        this.gdO = z;
     }
 
     public void setTimeoutListener(b bVar) {
-        this.fVC = bVar;
+        this.gdM = bVar;
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        tS(0);
+        uw(0);
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bJV();
+        bND();
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i == 0) {
-            tS(0);
+            uw(0);
         } else {
-            bJV();
+            bND();
         }
     }
 
-    public void az(String str, int i) {
+    public void aA(String str, int i) {
         this.mText = str;
         if (i > 0) {
-            this.cIG = i;
+            this.cPz = i;
         }
     }
 
-    private void bJV() {
+    private void bND() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tS(int i) {
-        this.cIG -= i;
-        if (this.cIG == 0) {
-            if (this.fVC != null) {
-                this.fVC.bT(this);
+    public void uw(int i) {
+        this.cPz -= i;
+        if (this.cPz == 0) {
+            if (this.gdM != null) {
+                this.gdM.ca(this);
             }
             this.mHandler.removeCallbacksAndMessages(null);
             return;
         }
-        if (this.cIG > 0) {
-            if (this.fVE) {
-                setText(String.format("%s 0%s", this.mText, Integer.valueOf(this.cIG)));
+        if (this.cPz > 0) {
+            if (this.gdO) {
+                setText(String.format("%s 0%s", this.mText, Integer.valueOf(this.cPz)));
             } else {
-                setText(String.format("%s %s", this.mText, Integer.valueOf(this.cIG)));
+                setText(String.format("%s %s", this.mText, Integer.valueOf(this.cPz)));
             }
         }
-        this.mHandler.removeCallbacks(this.fVD);
-        this.mHandler.postDelayed(this.fVD, 1000L);
+        this.mHandler.removeCallbacks(this.gdN);
+        this.mHandler.postDelayed(this.gdN, 1000L);
     }
 }

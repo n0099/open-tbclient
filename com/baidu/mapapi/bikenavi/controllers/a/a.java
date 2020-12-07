@@ -13,13 +13,13 @@ import com.baidu.mapapi.bikenavi.controllers.UnsupportedBikeNaviException;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 import com.baidu.platform.comapi.wnplatform.walkmap.WNaviBaiduMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class a {
     private static IBTTSPlayer b;
     private static com.baidu.platform.comapi.wnplatform.n.c d = new d();
 
     /* renamed from: a  reason: collision with root package name */
-    FrameLayout f1974a;
+    FrameLayout f1976a;
     private MapView c = null;
 
     public void a(Activity activity, IBEngineInitListener iBEngineInitListener) {
@@ -57,12 +57,12 @@ public class a {
 
     public View a(Activity activity) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        this.f1974a = new FrameLayout(activity);
-        this.f1974a.setLayoutParams(layoutParams);
+        this.f1976a = new FrameLayout(activity);
+        this.f1976a.setLayoutParams(layoutParams);
         View b2 = BNavigatorWrapper.getWNavigator().b(activity);
-        this.f1974a.addView(this.c);
-        this.f1974a.addView(b2);
-        return this.f1974a;
+        this.f1976a.addView(this.c);
+        this.f1976a.addView(b2);
+        return this.f1976a;
     }
 
     public void b() {
@@ -86,10 +86,10 @@ public class a {
             this.c.onDestroy();
         }
         this.c = null;
-        if (this.f1974a != null && this.f1974a.getParent() != null) {
-            ((ViewGroup) this.f1974a.getParent()).removeAllViews();
+        if (this.f1976a != null && this.f1976a.getParent() != null) {
+            ((ViewGroup) this.f1976a.getParent()).removeAllViews();
         }
-        this.f1974a = null;
+        this.f1976a = null;
     }
 
     private void b(com.baidu.platform.comapi.walknavi.e.a aVar, IBRoutePlanListener iBRoutePlanListener) {

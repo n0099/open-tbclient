@@ -52,7 +52,7 @@ import org.json.JSONObject;
 public class e implements IXAdCommonUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f2437a;
+    private static String f2439a;
     private static String b;
     private static String c;
     private static String d;
@@ -261,10 +261,10 @@ public class e implements IXAdCommonUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String getAppId(Context context) {
         try {
-            if (f2437a == null) {
-                f2437a = d(context, IXAdCommonUtils.APPSID);
+            if (f2439a == null) {
+                f2439a = d(context, IXAdCommonUtils.APPSID);
             }
-            return f2437a;
+            return f2439a;
         } catch (Exception e) {
             return "";
         }
@@ -467,7 +467,7 @@ public class e implements IXAdCommonUtils {
         JSONObject jSONObject = new JSONObject();
         for (String str2 : str.substring(str.indexOf("?") + 1).split(ETAG.ITEM_SEPARATOR)) {
             try {
-                String[] split = str2.split(ETAG.EQUAL);
+                String[] split = str2.split("=");
                 if (split.length > 1 && !split[0].equals("type")) {
                     jSONObject.putOpt(split[0], split[1]);
                 }
@@ -498,8 +498,8 @@ public class e implements IXAdCommonUtils {
                     str3 = encodeURIComponent(str3);
                     str4 = encodeURIComponent(str4);
                 }
-                sb.append(str3 + ETAG.EQUAL + str4 + ETAG.ITEM_SEPARATOR);
-                sb2.append(str4 + Constants.ACCEPT_TIME_SEPARATOR_SP);
+                sb.append(str3 + "=" + str4 + ETAG.ITEM_SEPARATOR);
+                sb2.append(str4 + ",");
             }
         }
         sb2.append("mobads,");
@@ -563,7 +563,7 @@ public class e implements IXAdCommonUtils {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public void setAppId(String str) {
-        f2437a = str;
+        f2439a = str;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:51:0x010a -> B:13:0x004f). Please submit an issue!!! */
@@ -969,7 +969,7 @@ public class e implements IXAdCommonUtils {
             int i2 = i;
             if (i2 < list.size() - 1) {
                 sb.append(list.get(i2));
-                sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                sb.append(",");
                 i = i2 + 1;
             } else {
                 sb.append(list.get(list.size() - 1));

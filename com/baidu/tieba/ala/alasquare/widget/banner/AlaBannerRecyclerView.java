@@ -6,10 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlaBannerRecyclerView extends RecyclerView {
-    private int Wc;
-    private int dFF;
+    private int WZ;
+    private int dMD;
 
     public AlaBannerRecyclerView(Context context) {
         super(context);
@@ -29,8 +29,8 @@ public class AlaBannerRecyclerView extends RecyclerView {
         int y = (int) motionEvent.getY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.Wc = y;
-                this.dFF = x;
+                this.WZ = y;
+                this.dMD = x;
                 getParent().requestDisallowInterceptTouchEvent(true);
                 break;
             case 1:
@@ -38,8 +38,8 @@ public class AlaBannerRecyclerView extends RecyclerView {
                 getParent().requestDisallowInterceptTouchEvent(false);
                 break;
             case 2:
-                int i = y - this.Wc;
-                int i2 = x - this.dFF;
+                int i = y - this.WZ;
+                int i2 = x - this.dMD;
                 if (Math.abs(i) > ViewConfiguration.getTouchSlop() && Math.abs(i) > Math.abs(i2)) {
                     getParent().requestDisallowInterceptTouchEvent(false);
                     break;
@@ -49,17 +49,17 @@ public class AlaBannerRecyclerView extends RecyclerView {
                 }
                 break;
         }
-        this.Wc = y;
-        this.dFF = x;
+        this.WZ = y;
+        this.dMD = x;
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.support.v7.widget.RecyclerView
     public boolean fling(int i, int i2) {
-        return super.fling(uK(i), uK(i2));
+        return super.fling(vo(i), vo(i2));
     }
 
-    private int uK(int i) {
+    private int vo(int i) {
         return i > 0 ? Math.min(i, 3000) : Math.max(i, -3000);
     }
 }

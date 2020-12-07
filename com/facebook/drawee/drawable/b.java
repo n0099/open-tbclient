@@ -4,12 +4,12 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public class b extends g implements Runnable {
     private int mInterval;
-    private boolean oQo;
-    float oQp;
-    private boolean oQq;
+    private boolean pfw;
+    float pfx;
+    private boolean pfy;
 
     public b(Drawable drawable, int i) {
         this(drawable, i, true);
@@ -17,10 +17,10 @@ public class b extends g implements Runnable {
 
     public b(Drawable drawable, int i, boolean z) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.oQp = 0.0f;
-        this.oQq = false;
+        this.pfx = 0.0f;
+        this.pfy = false;
         this.mInterval = i;
-        this.oQo = z;
+        this.pfw = z;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
@@ -29,31 +29,31 @@ public class b extends g implements Runnable {
         Rect bounds = getBounds();
         int i = bounds.right - bounds.left;
         int i2 = bounds.bottom - bounds.top;
-        float f = this.oQp;
-        if (!this.oQo) {
-            f = 360.0f - this.oQp;
+        float f = this.pfx;
+        if (!this.pfw) {
+            f = 360.0f - this.pfx;
         }
         canvas.rotate(f, (i / 2) + bounds.left, bounds.top + (i2 / 2));
         super.draw(canvas);
         canvas.restoreToCount(save);
-        elL();
+        erA();
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.oQq = false;
-        this.oQp += elM();
+        this.pfy = false;
+        this.pfx += erB();
         invalidateSelf();
     }
 
-    private void elL() {
-        if (!this.oQq) {
-            this.oQq = true;
+    private void erA() {
+        if (!this.pfy) {
+            this.pfy = true;
             scheduleSelf(this, SystemClock.uptimeMillis() + 20);
         }
     }
 
-    private int elM() {
+    private int erB() {
         return (int) ((20.0f / this.mInterval) * 360.0f);
     }
 }

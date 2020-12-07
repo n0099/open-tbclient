@@ -3,22 +3,22 @@ package com.baidu.turbonet.net.proxy;
 import android.util.Log;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 public class a extends InputStream {
     private static final String TAG = a.class.getName();
     private InputStream inputStream;
-    private b oqM;
+    private b oFI;
     private long bytesRead = 0;
-    private boolean oqN = false;
+    private boolean oFJ = false;
 
     public a(InputStream inputStream, b bVar) {
         this.inputStream = inputStream;
-        this.oqM = bVar;
+        this.oFI = bVar;
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr) throws IOException {
-        if (this.oqN) {
+        if (this.oFJ) {
             return -1;
         }
         try {
@@ -26,12 +26,12 @@ public class a extends InputStream {
             if (read >= 0) {
                 this.bytesRead += read;
             } else {
-                this.oqN = true;
-                this.oqM.onComplete(this.bytesRead);
+                this.oFJ = true;
+                this.oFI.onComplete(this.bytesRead);
             }
             return read;
         } catch (IOException e) {
-            this.oqM.a(e, this.bytesRead);
+            this.oFI.a(e, this.bytesRead);
             throw e;
         } catch (IllegalStateException e2) {
             Log.e(TAG, "Exception reading data from InputStream", e2);
@@ -41,7 +41,7 @@ public class a extends InputStream {
 
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i, int i2) throws IOException {
-        if (this.oqN) {
+        if (this.oFJ) {
             return -1;
         }
         try {
@@ -49,12 +49,12 @@ public class a extends InputStream {
             if (read >= 0) {
                 this.bytesRead += read;
             } else {
-                this.oqN = true;
-                this.oqM.onComplete(this.bytesRead);
+                this.oFJ = true;
+                this.oFI.onComplete(this.bytesRead);
             }
             return read;
         } catch (IOException e) {
-            this.oqM.a(e, this.bytesRead);
+            this.oFI.a(e, this.bytesRead);
             throw e;
         } catch (IllegalStateException e2) {
             Log.e(TAG, "Exception reading data from InputStream", e2);
@@ -74,37 +74,37 @@ public class a extends InputStream {
         try {
             return this.inputStream.available();
         } catch (IOException e) {
-            this.oqM.a(e, this.bytesRead);
+            this.oFI.a(e, this.bytesRead);
             throw e;
         }
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (!this.oqN) {
-            this.oqN = true;
+        if (!this.oFJ) {
+            this.oFJ = true;
             try {
                 if (this.inputStream.read() == -1) {
-                    this.oqM.onComplete(this.bytesRead);
+                    this.oFI.onComplete(this.bytesRead);
                 } else {
-                    this.oqM.hq(this.bytesRead);
+                    this.oFI.hV(this.bytesRead);
                 }
                 try {
                     this.inputStream.close();
                 } catch (Exception e) {
-                    this.oqM.a(e, this.bytesRead);
+                    this.oFI.a(e, this.bytesRead);
                 }
             } catch (Exception e2) {
                 try {
                     this.inputStream.close();
                 } catch (Exception e3) {
-                    this.oqM.a(e3, this.bytesRead);
+                    this.oFI.a(e3, this.bytesRead);
                 }
             } catch (Throwable th) {
                 try {
                     this.inputStream.close();
                 } catch (Exception e4) {
-                    this.oqM.a(e4, this.bytesRead);
+                    this.oFI.a(e4, this.bytesRead);
                 }
                 throw th;
             }
@@ -116,14 +116,14 @@ public class a extends InputStream {
         try {
             this.inputStream.reset();
         } catch (IOException e) {
-            this.oqM.a(e, this.bytesRead);
+            this.oFI.a(e, this.bytesRead);
             throw e;
         }
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        if (this.oqN) {
+        if (this.oFJ) {
             return -1;
         }
         try {
@@ -131,12 +131,12 @@ public class a extends InputStream {
             if (read >= 0) {
                 this.bytesRead += read;
             } else {
-                this.oqN = true;
-                this.oqM.onComplete(this.bytesRead);
+                this.oFJ = true;
+                this.oFI.onComplete(this.bytesRead);
             }
             return read;
         } catch (IOException e) {
-            this.oqM.a(e, this.bytesRead);
+            this.oFI.a(e, this.bytesRead);
             throw e;
         } catch (IllegalStateException e2) {
             Log.e(TAG, "Exception reading data from InputStream", e2);

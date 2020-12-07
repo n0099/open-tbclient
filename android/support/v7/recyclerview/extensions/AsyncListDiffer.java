@@ -9,7 +9,7 @@ import android.support.v7.util.ListUpdateCallback;
 import android.support.v7.widget.RecyclerView;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes14.dex */
 public class AsyncListDiffer<T> {
     private final AsyncDifferConfig<T> mConfig;
     @Nullable

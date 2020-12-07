@@ -1,76 +1,74 @@
 package kotlin.b;
 
 import com.baidu.android.common.others.IStringUtil;
-import kotlin.collections.ad;
-@kotlin.h
-/* loaded from: classes9.dex */
+import kotlin.collections.y;
+import kotlin.jvm.internal.o;
+@kotlin.e
+/* loaded from: classes17.dex */
 public class f implements Iterable<Integer> {
-    public static final a pUD = new a(null);
-    private final int oJl;
-    private final int pUC;
+    public static final a pKR = new a(null);
+    private final int oYr;
+    private final int pKQ;
     private final int step;
 
     public f(int i, int i2, int i3) {
         if (i3 == 0) {
-            throw new IllegalArgumentException("Step must be non-zero.");
+            throw new IllegalArgumentException("Step must be non-zero");
         }
-        if (i3 == Integer.MIN_VALUE) {
-            throw new IllegalArgumentException("Step must be greater than Int.MIN_VALUE to avoid overflow on negation.");
-        }
-        this.pUC = i;
-        this.oJl = kotlin.internal.d.ar(i, i2, i3);
+        this.pKQ = i;
+        this.oYr = kotlin.internal.d.al(i, i2, i3);
         this.step = i3;
     }
 
     public final int getFirst() {
-        return this.pUC;
+        return this.pKQ;
     }
 
     public final int getLast() {
-        return this.oJl;
+        return this.oYr;
     }
 
-    public final int eCa() {
+    public final int eEg() {
         return this.step;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: eCb */
-    public ad iterator() {
-        return new g(this.pUC, this.oJl, this.step);
+    /* renamed from: eEh */
+    public y iterator() {
+        return new g(this.pKQ, this.oYr, this.step);
     }
 
     public boolean isEmpty() {
-        return this.step > 0 ? this.pUC > this.oJl : this.pUC < this.oJl;
+        return this.step > 0 ? this.pKQ > this.oYr : this.pKQ < this.oYr;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof f) && ((isEmpty() && ((f) obj).isEmpty()) || (this.pUC == ((f) obj).pUC && this.oJl == ((f) obj).oJl && this.step == ((f) obj).step));
+        return (obj instanceof f) && ((isEmpty() && ((f) obj).isEmpty()) || (this.pKQ == ((f) obj).pKQ && this.oYr == ((f) obj).oYr && this.step == ((f) obj).step));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (((this.pUC * 31) + this.oJl) * 31) + this.step;
+        return (((this.pKQ * 31) + this.oYr) * 31) + this.step;
     }
 
     public String toString() {
-        return this.step > 0 ? this.pUC + IStringUtil.TOP_PATH + this.oJl + " step " + this.step : this.pUC + " downTo " + this.oJl + " step " + (-this.step);
+        return this.step > 0 ? "" + this.pKQ + IStringUtil.TOP_PATH + this.oYr + " step " + this.step : "" + this.pKQ + " downTo " + this.oYr + " step " + (-this.step);
     }
 
-    @kotlin.h
-    /* loaded from: classes9.dex */
+    @kotlin.e
+    /* loaded from: classes17.dex */
     public static final class a {
         private a() {
         }
 
-        public /* synthetic */ a(kotlin.jvm.internal.o oVar) {
+        public /* synthetic */ a(o oVar) {
             this();
         }
 
-        public final f as(int i, int i2, int i3) {
+        public final f am(int i, int i2, int i3) {
             return new f(i, i2, i3);
         }
     }

@@ -9,12 +9,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements IAdapterData {
-    public static final BdUniqueId ovf = BdUniqueId.gen();
+    public static final BdUniqueId oKl = BdUniqueId.gen();
     private String mId;
     private String mName;
-    private String ouJ;
-    private String ovg;
-    private List<String> ovh;
+    private String oJP;
+    private String oKm;
+    private List<String> oKn;
 
     public String getId() {
         return this.mId;
@@ -25,20 +25,20 @@ public class a implements IAdapterData {
     }
 
     public String getThumbnailUrl() {
-        return this.ouJ;
+        return this.oJP;
     }
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.mId = jSONObject.optString("img_id");
             this.mName = jSONObject.optString("img_name");
-            this.ouJ = jSONObject.optString("compression_img");
-            this.ovg = jSONObject.optString("prototype_img");
+            this.oJP = jSONObject.optString("compression_img");
+            this.oKm = jSONObject.optString("prototype_img");
             JSONArray optJSONArray = jSONObject.optJSONArray("results_img");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.ovh = new ArrayList();
+                this.oKn = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.ovh.add(optJSONArray.optString(i));
+                    this.oKn.add(optJSONArray.optString(i));
                 }
             }
         }
@@ -46,7 +46,7 @@ public class a implements IAdapterData {
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return ovf;
+        return oKl;
     }
 
     public boolean equals(Object obj) {

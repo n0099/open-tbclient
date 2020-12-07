@@ -242,15 +242,9 @@ public class FlutterBoostPlugin implements FlutterPlugin {
             String str = methodCall.method;
             char c = 65535;
             switch (str.hashCode()) {
-                case -2029879373:
-                    if (str.equals("closeFlutterPage")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
                 case -1224756544:
                     if (str.equals("disablePopGesture")) {
-                        c = 6;
+                        c = 4;
                         break;
                     }
                     break;
@@ -280,13 +274,7 @@ public class FlutterBoostPlugin implements FlutterPlugin {
                     break;
                 case 1882486492:
                     if (str.equals("swipeBackControl")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 1964912673:
-                    if (str.equals("openFlutterPage")) {
-                        c = 4;
+                        c = 5;
                         break;
                     }
                     break;
@@ -343,13 +331,6 @@ public class FlutterBoostPlugin implements FlutterPlugin {
                         return;
                     }
                 case 4:
-                    String str3 = (String) methodCall.argument("uniqueId");
-                    return;
-                case 5:
-                    String str4 = (String) methodCall.argument("uniqueId");
-                    String str5 = (String) methodCall.argument("flutterUniqueId");
-                    return;
-                case 6:
                     try {
                         boolean booleanValue = ((Boolean) methodCall.arguments).booleanValue();
                         IFlutterViewContainer container = flutterViewContainerManager.getLastGenerateRecord().getContainer();
@@ -362,7 +343,7 @@ public class FlutterBoostPlugin implements FlutterPlugin {
                         e.printStackTrace();
                         return;
                     }
-                case 7:
+                case 5:
                     try {
                         int intValue = ((Integer) methodCall.arguments).intValue();
                         IFlutterViewContainer container2 = flutterViewContainerManager.getLastGenerateRecord().getContainer();

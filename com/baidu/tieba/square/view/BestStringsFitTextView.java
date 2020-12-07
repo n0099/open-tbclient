@@ -4,74 +4,74 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class BestStringsFitTextView extends TextView {
-    private float brG;
-    private String mUu;
-    private String mUv;
-    private boolean mUw;
+    private float bwQ;
+    private String nit;
+    private String niu;
+    private boolean niv;
     private String[] textArray;
 
     public BestStringsFitTextView(Context context) {
         super(context);
-        this.mUu = " ";
-        this.brG = 0.0f;
-        this.mUv = "";
-        this.mUw = false;
+        this.nit = " ";
+        this.bwQ = 0.0f;
+        this.niu = "";
+        this.niv = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mUu = " ";
-        this.brG = 0.0f;
-        this.mUv = "";
-        this.mUw = false;
+        this.nit = " ";
+        this.bwQ = 0.0f;
+        this.niu = "";
+        this.niv = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mUu = " ";
-        this.brG = 0.0f;
-        this.mUv = "";
-        this.mUw = false;
+        this.nit = " ";
+        this.bwQ = 0.0f;
+        this.niu = "";
+        this.niv = false;
     }
 
-    protected void dIL() {
-        this.brG = (getWidth() - getPaddingLeft()) - getPaddingRight();
+    protected void dOb() {
+        this.bwQ = (getWidth() - getPaddingLeft()) - getPaddingRight();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.textArray.length; i++) {
             if (i > 0) {
-                sb.append(this.mUu);
+                sb.append(this.nit);
             }
             sb.append(this.textArray[i]);
             String sb2 = sb.toString();
-            if (this.brG < getPaint().measureText(sb2)) {
+            if (this.bwQ < getPaint().measureText(sb2)) {
                 break;
             }
-            this.mUw = true;
-            this.mUv = sb2;
+            this.niv = true;
+            this.niu = sb2;
         }
-        setText(this.mUv);
+        setText(this.niu);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.textArray != null && !this.mUw) {
-            dIL();
+        if (this.textArray != null && !this.niv) {
+            dOb();
         }
     }
 
     public void setTextArray(String[] strArr) {
         this.textArray = strArr;
-        dIL();
+        dOb();
     }
 
     public String getSeperator() {
-        return this.mUu;
+        return this.nit;
     }
 
     public void setSeperator(String str) {
-        this.mUu = str;
+        this.nit = str;
     }
 }

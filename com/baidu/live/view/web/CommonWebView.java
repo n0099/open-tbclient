@@ -10,9 +10,9 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 /* loaded from: classes4.dex */
 public class CommonWebView extends WebView {
-    private boolean bMb;
-    private boolean bMc;
-    private boolean bMd;
+    private boolean bRg;
+    private boolean bRh;
+    private boolean bRi;
 
     public CommonWebView(Context context) {
         super(context);
@@ -20,46 +20,46 @@ public class CommonWebView extends WebView {
     }
 
     public void setRequestDisallowInterceptTouchEvent(boolean z) {
-        this.bMb = z;
+        this.bRg = z;
     }
 
     public void setVerticalScrollEnabled(boolean z) {
-        this.bMc = z;
+        this.bRh = z;
     }
 
     public void setHorizontalScrollEnabled(boolean z) {
-        this.bMd = z;
+        this.bRi = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        requestDisallowInterceptTouchEvent(this.bMb);
+        requestDisallowInterceptTouchEvent(this.bRg);
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.webkit.WebView, android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (!this.bMc && !this.bMd) {
+        if (!this.bRh && !this.bRi) {
             scrollTo(0, 0);
-        } else if (!this.bMc) {
+        } else if (!this.bRh) {
             scrollTo(i, 0);
-        } else if (!this.bMd) {
+        } else if (!this.bRi) {
             scrollTo(0, i2);
         }
     }
 
     @Override // android.webkit.WebView
     public void loadUrl(String str) {
-        i.G(getContext(), str);
-        i.H(getContext(), str);
+        i.K(getContext(), str);
+        i.L(getContext(), str);
         super.loadUrl(str);
     }
 
     private void init() {
-        this.bMb = true;
-        this.bMc = true;
-        this.bMd = true;
+        this.bRg = true;
+        this.bRh = true;
+        this.bRi = true;
         setBackgroundColor(0);
         if (getBackground() != null) {
             getBackground().setAlpha(0);

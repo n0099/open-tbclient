@@ -1,21 +1,21 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes15.dex */
-public class a implements aj<com.facebook.imagepipeline.g.e> {
-    private final aj<com.facebook.imagepipeline.g.e> oZF;
+public class a implements aj<com.facebook.imagepipeline.f.e> {
+    private final aj<com.facebook.imagepipeline.f.e> pox;
 
-    public a(aj<com.facebook.imagepipeline.g.e> ajVar) {
-        this.oZF = ajVar;
+    public a(aj<com.facebook.imagepipeline.f.e> ajVar) {
+        this.pox = ajVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.oZF.c(new C0984a(kVar), akVar);
+    public void a(k<com.facebook.imagepipeline.f.e> kVar, ak akVar) {
+        this.pox.a(new C0999a(kVar), akVar);
     }
 
     /* renamed from: com.facebook.imagepipeline.producers.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    private static class C0984a extends n<com.facebook.imagepipeline.g.e, com.facebook.imagepipeline.g.e> {
-        private C0984a(k<com.facebook.imagepipeline.g.e> kVar) {
+    private static class C0999a extends n<com.facebook.imagepipeline.f.e, com.facebook.imagepipeline.f.e> {
+        private C0999a(k<com.facebook.imagepipeline.f.e> kVar) {
             super(kVar);
         }
 
@@ -23,15 +23,15 @@ public class a implements aj<com.facebook.imagepipeline.g.e> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
-        public void g(com.facebook.imagepipeline.g.e eVar, int i) {
+        public void g(com.facebook.imagepipeline.f.e eVar, int i) {
             if (eVar == null) {
-                erf().h(null, i);
+                ewI().h(null, i);
                 return;
             }
-            if (!com.facebook.imagepipeline.g.e.d(eVar)) {
-                eVar.epY();
+            if (!com.facebook.imagepipeline.f.e.d(eVar)) {
+                eVar.evD();
             }
-            erf().h(eVar, i);
+            ewI().h(eVar, i);
         }
     }
 }

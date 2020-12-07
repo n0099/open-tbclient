@@ -7,13 +7,13 @@ import android.os.Message;
 class bc extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bb f5075a;
+    final /* synthetic */ bb f4845a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bc(bb bbVar, Looper looper) {
         super(looper);
-        this.f5075a = bbVar;
+        this.f4845a = bbVar;
     }
 
     @Override // android.os.Handler

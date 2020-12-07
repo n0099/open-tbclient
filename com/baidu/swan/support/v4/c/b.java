@@ -4,25 +4,25 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 class b {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes16.dex */
     static class a implements LayoutInflater.Factory {
-        final e ejv;
+        final e eqx;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(e eVar) {
-            this.ejv = eVar;
+            this.eqx = eVar;
         }
 
         @Override // android.view.LayoutInflater.Factory
         public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-            return this.ejv.onCreateView(null, str, context, attributeSet);
+            return this.eqx.onCreateView(null, str, context, attributeSet);
         }
 
         public String toString() {
-            return getClass().getName() + "{" + this.ejv + "}";
+            return getClass().getName() + "{" + this.eqx + "}";
         }
     }
 

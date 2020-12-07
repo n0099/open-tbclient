@@ -41,8 +41,8 @@ import com.baidu.tbadk.core.util.e;
 import com.baidu.tbadk.core.util.f.b;
 import com.baidu.tbadk.core.view.GuidPageView;
 import com.baidu.tbadk.core.view.d;
-import com.baidu.tbadk.k.g;
-import com.baidu.tbadk.k.h;
+import com.baidu.tbadk.l.g;
+import com.baidu.tbadk.l.h;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
@@ -109,7 +109,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = e.bpC();
+        this.customToast = e.bsW();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new a();
@@ -194,7 +194,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
 
     protected void adjustResizeForSoftInput() {
         if (this.mUseStyleImmersiveSticky) {
-            d.ad(getPageContext().getPageActivity());
+            d.ae(getPageContext().getPageActivity());
         }
     }
 
@@ -362,19 +362,19 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.a((Context) getActivity(), (CharSequence) str, i, false).bom();
+        BdToast.a((Context) getActivity(), (CharSequence) str, i, false).brB();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2, false).bom();
+        BdToast.a(getActivity(), str, i, i2, false).brB();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).bom();
+        BdToast.a(getActivity(), str, defaultIcon).brB();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).bom();
+        BdToast.a(getActivity(), str, defaultIcon, i).brB();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity

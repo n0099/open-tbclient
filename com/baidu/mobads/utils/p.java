@@ -28,7 +28,6 @@ import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -58,7 +57,7 @@ public class p implements IXAdSystemUtils {
     private String m;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f2446a = new JSONArray();
+    public JSONArray f2448a = new JSONArray();
     private String b = "";
     private String c = "";
     private int h = -1;
@@ -230,7 +229,7 @@ public class p implements IXAdSystemUtils {
         if (Environment.getExternalStorageState().equals("mounted")) {
             String str = "";
             try {
-                str = getAvailableExternalMemorySize() + Constants.ACCEPT_TIME_SEPARATOR_SP + getAllExternalMemorySize();
+                str = getAvailableExternalMemorySize() + "," + getAllExternalMemorySize();
                 XAdSDKFoundationFacade.getInstance().getCommonUtils().a("sysSdc", str);
                 return str;
             } catch (Exception e2) {
@@ -252,7 +251,7 @@ public class p implements IXAdSystemUtils {
         }
         String str = "";
         try {
-            str = getAvailableInternalMemorySize() + Constants.ACCEPT_TIME_SEPARATOR_SP + getAllInternalMemorySize();
+            str = getAvailableInternalMemorySize() + "," + getAllInternalMemorySize();
             XAdSDKFoundationFacade.getInstance().getCommonUtils().a("sysMem", str);
             return str;
         } catch (Exception e2) {
@@ -681,7 +680,7 @@ public class p implements IXAdSystemUtils {
                     strArr[1] = gsmCellLocation.getLac() + "";
                     strArr[2] = "0";
                 } else {
-                    String[] split = cellLocation.toString().replace("[", "").replace("]", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = cellLocation.toString().replace("[", "").replace("]", "").split(",");
                     strArr[0] = split[0];
                     strArr[1] = split[3];
                     strArr[2] = split[4];
@@ -812,7 +811,7 @@ public class p implements IXAdSystemUtils {
                 if (packageManager.getLaunchIntentForPackage(runningAppProcessInfo.processName) != null && packageManager.getApplicationInfo(runningAppProcessInfo.processName, 128) != null) {
                     for (String str : supportedBrowsers) {
                         if (runningAppProcessInfo.processName.equals(str)) {
-                            this.f2446a.put(runningAppProcessInfo.processName);
+                            this.f2448a.put(runningAppProcessInfo.processName);
                         }
                     }
                 }
@@ -820,8 +819,8 @@ public class p implements IXAdSystemUtils {
         } catch (Exception e) {
             adLogger.d(e);
         }
-        adLogger.d("bgBrowsers:" + this.f2446a);
-        return this.f2446a;
+        adLogger.d("bgBrowsers:" + this.f2448a);
+        return this.f2448a;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils

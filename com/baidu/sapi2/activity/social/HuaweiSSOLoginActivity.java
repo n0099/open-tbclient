@@ -3,7 +3,7 @@ package com.baidu.sapi2.activity.social;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.k.a.a.a;
+import com.baidu.l.a.a.a;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.utils.Log;
@@ -13,7 +13,7 @@ import com.huawei.hms.support.hwid.request.HuaweiIdAuthParams;
 import com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper;
 import com.huawei.hms.support.hwid.result.AuthHuaweiId;
 import com.huawei.hms.support.hwid.service.HuaweiIdAuthService;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     public static final int REQUEST_SIGN_IN_LOGIN = 1002;
     public static final int REQUEST_SIGN_IN_LOGIN_CODE = 1003;

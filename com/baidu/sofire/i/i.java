@@ -6,14 +6,13 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.down.common.intercepter.IIntercepter;
 import com.baidu.sofire.ac.F;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class i {
     public static String a(Context context, String str, String str2, boolean z, boolean z2) throws Throwable {
         return b(context, str, str2, z, z2);
@@ -49,7 +48,7 @@ public final class i {
             com.baidu.sofire.b.a();
             bytes = F.getInstance().ae(byteArray, a3);
         }
-        new StringBuilder().append(bytes.length).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(str2);
+        new StringBuilder().append(bytes.length).append(",").append(str2);
         com.baidu.sofire.b.a();
         byte[] bytes2 = p.a(h.b(context)).getBytes();
         new StringBuilder().append(bytes2 == null ? 0 : bytes2.length);
@@ -109,7 +108,7 @@ public final class i {
         try {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
             long currentTimeMillis = System.currentTimeMillis();
-            long j = eVar.f3621a.getLong("pu_cl_fd", 0L);
+            long j = eVar.f3624a.getLong("pu_cl_fd", 0L);
             if (j == 0) {
                 j = System.currentTimeMillis();
                 eVar.g();

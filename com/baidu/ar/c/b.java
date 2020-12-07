@@ -7,65 +7,63 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private int ic = 1500;
-    private final ReentrantLock ie = new ReentrantLock();
-
-    /* renamed from: if  reason: not valid java name */
-    private Map<String, a> f1if = new HashMap();
+    private int is = 1500;
+    private final ReentrantLock it = new ReentrantLock();
+    private Map<String, a> iu = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public class a implements Runnable {
-        final Thread ig;
-        com.baidu.ar.c.a ih;
-        BlockingQueue<com.baidu.ar.c.a> ii;
+        final Thread iv;
+        com.baidu.ar.c.a iw;
+        BlockingQueue<com.baidu.ar.c.a> ix;
         String tag;
 
         a(String str, com.baidu.ar.c.a aVar) {
-            this.ih = aVar;
-            this.ig = new Thread(this);
-            this.ii = new ArrayBlockingQueue(10);
+            this.iw = aVar;
+            this.iv = new Thread(this);
+            this.ix = new ArrayBlockingQueue(10);
             this.tag = str;
         }
 
         a(String str, BlockingQueue<com.baidu.ar.c.a> blockingQueue) {
-            this.ig = new Thread(this);
-            this.ii = blockingQueue;
+            this.iv = new Thread(this);
+            this.ix = blockingQueue;
             this.tag = str;
         }
 
-        private void cd() {
-            b.this.ie.lock();
+        private void cc() {
+            b.this.it.lock();
             try {
-                b.this.f1if.remove(this.tag);
-                if (this.ii.size() > 0) {
-                    a aVar = new a(this.tag, this.ii);
-                    b.this.f1if.put(this.tag, aVar);
-                    aVar.ig.start();
+                b.this.iu.remove(this.tag);
+                if (this.ix.size() > 0) {
+                    a aVar = new a(this.tag, this.ix);
+                    b.this.iu.put(this.tag, aVar);
+                    aVar.iv.start();
                 }
             } finally {
-                b.this.ie.unlock();
+                b.this.it.unlock();
             }
         }
 
         public boolean b(com.baidu.ar.c.a aVar) {
-            return this.ii.offer(aVar);
+            return this.ix.offer(aVar);
         }
 
-        final void cc() {
-            com.baidu.ar.c.a aVar = this.ih;
-            this.ih = null;
+        final void cb() {
+            com.baidu.ar.c.a aVar = this.iw;
+            this.iw = null;
             while (true) {
                 if (aVar == null) {
                     try {
-                        aVar = this.ii.poll(b.this.ic, TimeUnit.MILLISECONDS);
+                        aVar = this.ix.poll(b.this.is, TimeUnit.MILLISECONDS);
                         if (aVar == null) {
                             return;
                         }
                     } finally {
-                        cd();
+                        cc();
                     }
                 }
                 aVar.run();
@@ -76,17 +74,17 @@ public class b {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                cc();
+                cb();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public int O(String str) {
+    public int R(String str) {
         a aVar;
-        if (!TextUtils.isEmpty(str) && (aVar = this.f1if.get(str)) != null) {
-            BlockingQueue<com.baidu.ar.c.a> blockingQueue = aVar.ii;
+        if (!TextUtils.isEmpty(str) && (aVar = this.iu.get(str)) != null) {
+            BlockingQueue<com.baidu.ar.c.a> blockingQueue = aVar.ix;
             int size = blockingQueue.size();
             blockingQueue.clear();
             return size;
@@ -99,16 +97,16 @@ public class b {
         if (aVar == null) {
             return false;
         }
-        ReentrantLock reentrantLock = this.ie;
+        ReentrantLock reentrantLock = this.it;
         reentrantLock.lock();
         try {
             String tag = aVar.getTag();
             String str = tag == null ? "" : tag;
-            a aVar2 = this.f1if.get(str);
+            a aVar2 = this.iu.get(str);
             if (aVar2 == null) {
                 a aVar3 = new a(str, aVar);
-                this.f1if.put(str, aVar3);
-                aVar3.ig.start();
+                this.iu.put(str, aVar3);
+                aVar3.iv.start();
                 b = true;
             } else {
                 b = aVar2.b(aVar);

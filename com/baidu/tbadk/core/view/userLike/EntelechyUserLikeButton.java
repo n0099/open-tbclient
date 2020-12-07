@@ -33,20 +33,20 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void s(boolean z, int i) {
-        this.eYF = z;
+        this.fgc = z;
         if (z) {
             setClickable(false);
-            setText(this.eYD);
+            setText(this.fga);
         } else {
             setClickable(true);
-            setText(this.eYE);
+            setText(this.fgb);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.eYF) {
+        if (this.fgc) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             ap.setViewTextColor(this, R.color.CAM_X0109);
             setBackgroundDrawable(null);

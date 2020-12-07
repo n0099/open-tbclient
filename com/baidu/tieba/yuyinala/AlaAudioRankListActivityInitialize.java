@@ -1,6 +1,6 @@
 package com.baidu.tieba.yuyinala;
 
-import com.baidu.live.b.b;
+import com.baidu.live.d.b;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class AlaAudioRankListActivityInitialize {

@@ -37,11 +37,11 @@ import com.baidu.swan.pms.node.b.e;
 import java.io.File;
 import java.util.HashSet;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
     private static boolean isShowing = false;
-    private static final long cWA = TimeUnit.SECONDS.toMillis(1);
+    private static final long ddy = TimeUnit.SECONDS.toMillis(1);
 
     public static void a(Context context, @NonNull com.baidu.swan.apps.am.a aVar, int i, String str) {
         a(context, aVar, i, str, (Bundle) null);
@@ -57,44 +57,44 @@ public class a {
     }
 
     public static void a(Context context, @NonNull com.baidu.swan.apps.am.a aVar, int i, String str, boolean z, Bundle bundle) {
-        File aLO;
+        File aOV;
         if (context != null) {
             if ((context instanceof SwanAppActivity) && ((SwanAppActivity) context).isDestroyed()) {
-                c.bm("LaunchError", "launch activity closed, ignore launch error");
+                c.bt("LaunchError", "launch activity closed, ignore launch error");
                 return;
             }
-            c.bm("LaunchError", "handleLaunchError errCode: " + aVar.toString());
-            String a2 = com.baidu.swan.apps.swancore.b.a(f.azg().ayI(), i);
-            long aLd = aVar.aLd();
-            String aLf = aVar.aLf();
-            boolean z2 = 1020 == aLd && !TextUtils.isEmpty(aLf);
-            String cV = z2 ? aLf : e.bbL().cV(aLd);
-            String format = String.format(context.getResources().getString(a.h.aiapps_open_failed_detail_format), ak.getVersionName(), a2, String.valueOf(aVar.aLh()));
-            if (!com.baidu.swan.apps.t.a.awA().a(context, str, aVar)) {
+            c.bt("LaunchError", "handleLaunchError errCode: " + aVar.toString());
+            String a2 = com.baidu.swan.apps.swancore.b.a(f.aCp().aBR(), i);
+            long aOk = aVar.aOk();
+            String aOm = aVar.aOm();
+            boolean z2 = 1020 == aOk && !TextUtils.isEmpty(aOm);
+            String du = z2 ? aOm : e.beQ().du(aOk);
+            String format = String.format(context.getResources().getString(a.h.aiapps_open_failed_detail_format), ak.getVersionName(), a2, String.valueOf(aVar.aOo()));
+            if (!com.baidu.swan.apps.t.a.azI().a(context, str, aVar)) {
                 if (i == 0) {
-                    a(context, str, cV, format, bundle);
+                    a(context, str, du, format, bundle);
                 } else if (i == 1) {
-                    a(context, str, cV, z2 ? aLf : e.bbL().cW(aLd), format, z ? SwanAppProcessInfo.current().index : SwanAppProcessInfo.UNKNOWN.index);
+                    a(context, str, du, z2 ? aOm : e.beQ().dv(aOk), format, z ? SwanAppProcessInfo.current().index : SwanAppProcessInfo.UNKNOWN.index);
                 }
             }
             StringBuilder sb = new StringBuilder();
-            String a3 = j.a(j.aLN(), "yyyy-MM-dd HH:mm:ss");
+            String a3 = j.a(j.aOU(), "yyyy-MM-dd HH:mm:ss");
             if (!TextUtils.isEmpty(str)) {
                 sb.append(a3).append(": ").append(str).append("\r\n");
             }
             sb.append(a3).append(": ").append(format).append("\r\n");
-            q.ai(sb.toString(), false);
+            q.aj(sb.toString(), false);
             com.baidu.swan.apps.statistic.search.b.a(new SearchFlowEvent("nreach", System.currentTimeMillis(), "swan_error", "", SearchFlowEvent.EventType.END));
             if (b.DEBUG) {
-                String aMn = ak.aMn();
-                if (!TextUtils.isEmpty(aMn) && (aLO = k.aLO()) != null) {
-                    File file = new File(aLO.getPath(), "error_dialog_info.txt");
+                String stackTrace = ak.getStackTrace();
+                if (!TextUtils.isEmpty(stackTrace) && (aOV = k.aOV()) != null) {
+                    File file = new File(aOV.getPath(), "error_dialog_info.txt");
                     d.deleteFile(file);
                     StringBuilder sb2 = new StringBuilder();
                     if (!TextUtils.isEmpty(format)) {
                         sb2.append(format).append("\n");
                     }
-                    sb2.append(aMn).append("\n");
+                    sb2.append(stackTrace).append("\n");
                     d.saveFile(sb2.toString(), file);
                 }
             }
@@ -106,10 +106,10 @@ public class a {
         if (bundle != null) {
             intent.putExtras(bundle);
         }
-        intent.putExtra("swan_error_type", aa(context, str) ? "type_network_error" : "type_normal");
-        com.baidu.swan.apps.runtime.e aGN = com.baidu.swan.apps.runtime.e.aGN();
-        if (aGN != null) {
-            ForbiddenInfo forbiddenInfo = new ForbiddenInfo(aGN.aGQ(), str2, str3);
+        intent.putExtra("swan_error_type", ad(context, str) ? "type_network_error" : "type_normal");
+        com.baidu.swan.apps.runtime.e aJV = com.baidu.swan.apps.runtime.e.aJV();
+        if (aJV != null) {
+            ForbiddenInfo forbiddenInfo = new ForbiddenInfo(aJV.aJY(), str2, str3);
             forbiddenInfo.enableSlidingFlag = -1;
             intent.putExtra("swan_error_forbidden_info", forbiddenInfo);
         }
@@ -121,16 +121,16 @@ public class a {
     }
 
     private static void a(Context context, String str, String str2, String str3, String str4, int i) {
-        if (aa(context, str)) {
-            if (x.cC(context)) {
-                com.baidu.swan.apps.res.widget.b.d.k(AppRuntime.getAppContext(), a.h.aiapps_net_error).showToast();
+        if (ad(context, str)) {
+            if (x.di(context)) {
+                com.baidu.swan.apps.res.widget.b.d.t(AppRuntime.getAppContext(), a.h.aiapps_net_error).showToast();
                 return;
             }
             if (DEBUG) {
                 Log.w("LaunchError", "show network err toast: areNotificationsEnabled false");
             }
             d(str2, str4, i);
-        } else if (x.cC(context)) {
+        } else if (x.di(context)) {
             q(context, str3, str4);
         } else {
             if (DEBUG) {
@@ -140,8 +140,8 @@ public class a {
         }
     }
 
-    private static boolean aa(@NonNull Context context, @Nullable String str) {
-        return (TextUtils.isEmpty(str) || SwanAppNetworkUtils.isNetworkConnected(context) || com.baidu.swan.apps.u.f.a.pE(str)) ? false : true;
+    private static boolean ad(@NonNull Context context, @Nullable String str) {
+        return (TextUtils.isEmpty(str) || SwanAppNetworkUtils.isNetworkConnected(context) || com.baidu.swan.apps.u.f.a.ql(str)) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -152,43 +152,43 @@ public class a {
                 bundle.putString("arg_title", str);
                 bundle.putString("arg_message", str2);
                 bundle.putInt("arg_match_target_down", i);
-                DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.avS(), C0489a.class, bundle);
+                DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.aza(), C0501a.class, bundle);
                 return;
             }
             if (DEBUG) {
                 Log.d("LaunchError", "show normal err dialog, isShowing=" + isShowing);
             }
             if (!SwanAppProcessInfo.checkProcessId(i)) {
-                bR(str, str2);
+                bY(str, str2);
                 return;
             }
             final HashSet N = com.facebook.common.internal.i.N("event_puppet_unload_app", "event_puppet_offline");
-            com.baidu.swan.apps.process.messaging.service.e.aFk().a(new com.baidu.swan.apps.process.messaging.service.a() { // from class: com.baidu.swan.apps.u.b.a.1
+            com.baidu.swan.apps.process.messaging.service.e.aIs().a(new com.baidu.swan.apps.process.messaging.service.a() { // from class: com.baidu.swan.apps.u.b.a.1
                 @Override // com.baidu.swan.apps.process.messaging.service.a
                 public void c(String str3, com.baidu.swan.apps.process.messaging.service.c cVar) {
-                    if (cVar.dkv.index == i && N.contains(str3)) {
-                        com.baidu.swan.apps.process.messaging.service.e.aFk().a(this);
-                        a.bR(str, str2);
+                    if (cVar.drv.index == i && N.contains(str3)) {
+                        com.baidu.swan.apps.process.messaging.service.e.aIs().a(this);
+                        a.bY(str, str2);
                     }
                 }
 
                 @Override // com.baidu.swan.apps.process.messaging.service.a
-                public void asF() {
-                    a.bR(str, str2);
+                public void avN() {
+                    a.bY(str, str2);
                 }
-            }, cWA);
+            }, ddy);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bR(String str, String str2) {
+    public static void bY(String str, String str2) {
         if (!isShowing) {
-            SwanAppErrorDialog.aMW().rH(str).b(new DialogInterface.OnDismissListener() { // from class: com.baidu.swan.apps.u.b.a.2
+            SwanAppErrorDialog.aQc().so(str).b(new DialogInterface.OnDismissListener() { // from class: com.baidu.swan.apps.u.b.a.2
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
                     boolean unused = a.isShowing = false;
                 }
-            }).rI(str2).a(a.h.aiapps_open_failed_button, (DialogInterface.OnClickListener) null).show();
+            }).sp(str2).a(a.h.aiapps_open_failed_button, (DialogInterface.OnClickListener) null).show();
             isShowing = true;
         }
     }
@@ -198,12 +198,12 @@ public class a {
         if (DEBUG) {
             Log.d("LaunchError", "show normal err toast: " + format);
         }
-        com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), format).ke(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED).showMultiToast();
+        com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), format).kC(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED).showMultiToast();
     }
 
     /* renamed from: com.baidu.swan.apps.u.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0489a extends ProviderDelegation {
+    /* loaded from: classes25.dex */
+    public static class C0501a extends ProviderDelegation {
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
             if (bundle != null) {

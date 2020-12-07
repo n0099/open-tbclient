@@ -22,24 +22,24 @@ import com.baidu.tieba.l.l;
 import com.baidu.tieba.l.m;
 import com.tencent.connect.common.Constants;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class VideoPlatformStatic {
-    private static CustomMessageListener fQl = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
+    private static CustomMessageListener fYu = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.v.e.dNV().dNR();
-            com.baidu.tieba.v.b.dNQ().dNR();
+            com.baidu.tieba.v.e.dTn().dTj();
+            com.baidu.tieba.v.b.dTi().dTj();
         }
     };
 
     static {
-        bIf();
-        MessageManager.getInstance().registerListener(fQl);
-        bIg();
+        bLN();
+        MessageManager.getInstance().registerListener(fYu);
+        bLO();
     }
 
-    private static void bIf() {
+    private static void bLN() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, new CustomMessageTask.CustomRunnable<l>() { // from class: com.baidu.tieba.VideoPlatformStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -51,7 +51,7 @@ public class VideoPlatformStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bIg() {
+    private static void bLO() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003388, TbConfig.SERVER_ADDRESS + TbConfig.URL_MOOV_REPORT);
         tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
@@ -59,7 +59,7 @@ public class VideoPlatformStatic {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static int tF(int i) {
+    public static int uj(int i) {
         switch (i) {
             case -400:
                 return 4;
@@ -72,7 +72,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static String Ex(String str) {
+    public static String Fl(String str) {
         if (TextUtils.equals(str, "1")) {
             return "index";
         }
@@ -100,14 +100,14 @@ public class VideoPlatformStatic {
         return str;
     }
 
-    public static JSONObject bIh() {
+    public static JSONObject bLP() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("appVer", TbConfig.getVersion());
             jSONObject.put("clientIp", com.baidu.tbadk.core.util.d.getIp());
             jSONObject.put("clientTimestamp", String.valueOf(System.currentTimeMillis()));
             jSONObject.put("deviceId", UtilHelper.getDeviceId());
-            jSONObject.put("network", np());
+            jSONObject.put("network", getNetwork());
             jSONObject.put(HttpConstants.HTTP_OS_TYPE_OLD, AlaLiveBaseInfo.mOSType);
             jSONObject.put("osVer", Build.VERSION.RELEASE);
             if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
@@ -127,7 +127,7 @@ public class VideoPlatformStatic {
         return jSONObject;
     }
 
-    public static String np() {
+    public static String getNetwork() {
         if (j.isWifiNet()) {
             return "WIFI";
         }
@@ -143,7 +143,7 @@ public class VideoPlatformStatic {
         return "4G";
     }
 
-    public static String tG(int i) {
+    public static String uk(int i) {
         switch (i) {
             case 101:
                 return TbadkCoreApplication.getInst().getString(R.string.post_error_compress_success);

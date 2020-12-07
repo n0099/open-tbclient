@@ -4,14 +4,14 @@ import com.idlefish.flutterboost.FlutterBoost;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.embedding.engine.plugins.PluginRegistry;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class FlutterHotReload {
     private static boolean changePlugin() {
         FlutterEngine engineProvider = FlutterBoost.instance().engineProvider();
         if (engineProvider != null && engineProvider.getPlugins() != null) {
             PluginRegistry plugins = engineProvider.getPlugins();
             try {
-                Class<?> cls = Class.forName("com.baidu.j.a");
+                Class<?> cls = Class.forName("com.baidu.k.a");
                 if (plugins.has(cls)) {
                     plugins.remove((Class<? extends FlutterPlugin>) cls);
                 }

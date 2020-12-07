@@ -3,26 +3,24 @@ package io.flutter.embedding.engine.plugins.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public interface ActivityControlSurface {
-    void attachToActivity(@NonNull Activity activity, @NonNull Lifecycle lifecycle);
+    void attachToActivity(Activity activity, Lifecycle lifecycle);
 
     void detachFromActivity();
 
     void detachFromActivityForConfigChanges();
 
-    boolean onActivityResult(int i, int i2, @Nullable Intent intent);
+    boolean onActivityResult(int i, int i2, Intent intent);
 
-    void onNewIntent(@NonNull Intent intent);
+    void onNewIntent(Intent intent);
 
-    boolean onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
+    boolean onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
 
-    void onRestoreInstanceState(@Nullable Bundle bundle);
+    void onRestoreInstanceState(Bundle bundle);
 
-    void onSaveInstanceState(@NonNull Bundle bundle);
+    void onSaveInstanceState(Bundle bundle);
 
     void onUserLeaveHint();
 }

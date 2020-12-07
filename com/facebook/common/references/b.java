@@ -3,38 +3,38 @@ package com.facebook.common.references;
 import java.lang.ref.SoftReference;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class b<T> {
-    SoftReference<T> oNc = null;
-    SoftReference<T> oNd = null;
-    SoftReference<T> oNe = null;
+    SoftReference<T> pck = null;
+    SoftReference<T> pcl = null;
+    SoftReference<T> pcm = null;
 
     public void set(@Nonnull T t) {
-        this.oNc = new SoftReference<>(t);
-        this.oNd = new SoftReference<>(t);
-        this.oNe = new SoftReference<>(t);
+        this.pck = new SoftReference<>(t);
+        this.pcl = new SoftReference<>(t);
+        this.pcm = new SoftReference<>(t);
     }
 
     @Nullable
     public T get() {
-        if (this.oNc == null) {
+        if (this.pck == null) {
             return null;
         }
-        return this.oNc.get();
+        return this.pck.get();
     }
 
     public void clear() {
-        if (this.oNc != null) {
-            this.oNc.clear();
-            this.oNc = null;
+        if (this.pck != null) {
+            this.pck.clear();
+            this.pck = null;
         }
-        if (this.oNd != null) {
-            this.oNd.clear();
-            this.oNd = null;
+        if (this.pcl != null) {
+            this.pcl.clear();
+            this.pcl = null;
         }
-        if (this.oNe != null) {
-            this.oNe.clear();
-            this.oNe = null;
+        if (this.pcm != null) {
+            this.pcm.clear();
+            this.pcm = null;
         }
     }
 }

@@ -2,8 +2,8 @@ package kotlin.reflect;
 
 import java.util.List;
 import java.util.Map;
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 public interface b<R> extends a {
     R call(Object... objArr);
 
@@ -22,6 +22,4 @@ public interface b<R> extends a {
     boolean isFinal();
 
     boolean isOpen();
-
-    boolean isSuspend();
 }

@@ -10,11 +10,11 @@ import com.sdk.base.framework.a.i;
 import com.sdk.base.framework.bean.DataInfo;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.f.h.g;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4516a = a.class.getName();
+    private static final String f4286a = a.class.getName();
     private static Boolean b = Boolean.valueOf(f.b);
     private a<T>.d c;
     private Context d;
@@ -22,11 +22,11 @@ public class a<T> {
     private int f;
     private CallBack<T> g;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class d implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private Handler f4519a = new Handler(Looper.getMainLooper());
+        private Handler f4289a = new Handler(Looper.getMainLooper());
         private long b;
 
         d(long j) {
@@ -34,17 +34,17 @@ public class a<T> {
         }
 
         public final void a() {
-            this.f4519a.postDelayed(this, this.b);
+            this.f4289a.postDelayed(this, this.b);
         }
 
         public final void b() {
-            this.f4519a.removeCallbacks(this);
+            this.f4289a.removeCallbacks(this);
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             if (a.this.e != null) {
-                com.sdk.base.framework.a.a.c.c(a.f4516a, "超时，已取消请求", a.b);
+                com.sdk.base.framework.a.a.c.c(a.f4286a, "超时，已取消请求", a.b);
                 a.this.e.a();
             }
             a.this.a(1, PayHelper.STATUS_TIMEOUT_DESC, 101005, null, com.sdk.base.framework.f.g.a.b().a());

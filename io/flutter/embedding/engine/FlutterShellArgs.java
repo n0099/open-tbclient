@@ -1,13 +1,12 @@
 package io.flutter.embedding.engine;
 
 import android.content.Intent;
-import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class FlutterShellArgs {
     public static final String ARG_CACHE_SKSL = "--cache-sksl";
     public static final String ARG_DART_FLAGS = "--dart-flags";
@@ -37,11 +36,9 @@ public class FlutterShellArgs {
     public static final String ARG_TRACE_STARTUP = "--trace-startup";
     public static final String ARG_USE_TEST_FONTS = "--use-test-fonts";
     public static final String ARG_VERBOSE_LOGGING = "--verbose-logging";
-    @NonNull
     private Set<String> args;
 
-    @NonNull
-    public static FlutterShellArgs fromIntent(@NonNull Intent intent) {
+    public static FlutterShellArgs fromIntent(Intent intent) {
         ArrayList arrayList = new ArrayList();
         if (intent.getBooleanExtra(ARG_KEY_TRACE_STARTUP, false)) {
             arrayList.add(ARG_TRACE_STARTUP);
@@ -89,27 +86,26 @@ public class FlutterShellArgs {
         return new FlutterShellArgs(arrayList);
     }
 
-    public FlutterShellArgs(@NonNull String[] strArr) {
+    public FlutterShellArgs(String[] strArr) {
         this.args = new HashSet(Arrays.asList(strArr));
     }
 
-    public FlutterShellArgs(@NonNull List<String> list) {
+    public FlutterShellArgs(List<String> list) {
         this.args = new HashSet(list);
     }
 
-    public FlutterShellArgs(@NonNull Set<String> set) {
+    public FlutterShellArgs(Set<String> set) {
         this.args = new HashSet(set);
     }
 
-    public void add(@NonNull String str) {
+    public void add(String str) {
         this.args.add(str);
     }
 
-    public void remove(@NonNull String str) {
+    public void remove(String str) {
         this.args.remove(str);
     }
 
-    @NonNull
     public String[] toArray() {
         return (String[]) this.args.toArray(new String[this.args.size()]);
     }

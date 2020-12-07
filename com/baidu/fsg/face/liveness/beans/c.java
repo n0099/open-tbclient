@@ -10,11 +10,11 @@ import com.baidu.fsg.base.utils.SharedPreferencesUtils;
 import com.baidu.fsg.face.base.dto.SapiBiometricDto;
 import java.util.HashMap;
 import org.json.JSONException;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1711a = "request_data";
+    public static final String f1713a = "request_data";
     private static c b = null;
     private static final String d = "RIM_LIVENESS_VIDEO_PREFERENCE";
     private static final String e = "RIM_LIVENESS_VIDEO_VIDEOENCODINGBITRATE";

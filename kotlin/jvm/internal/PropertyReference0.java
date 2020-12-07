@@ -1,7 +1,7 @@
 package kotlin.jvm.internal;
 
 import kotlin.reflect.k;
-/* loaded from: classes9.dex */
+/* loaded from: classes17.dex */
 public abstract class PropertyReference0 extends PropertyReference implements kotlin.reflect.k {
     public PropertyReference0() {
     }
@@ -12,7 +12,7 @@ public abstract class PropertyReference0 extends PropertyReference implements ko
 
     @Override // kotlin.jvm.internal.CallableReference
     protected kotlin.reflect.b computeReflected() {
-        return t.a(this);
+        return s.a(this);
     }
 
     @Override // kotlin.jvm.a.a

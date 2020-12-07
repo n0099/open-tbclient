@@ -8,11 +8,11 @@ import android.widget.TextView;
 import android.widget.ViewSwitcher;
 import com.baidu.pass.biometrics.face.R;
 import com.baidu.pass.utils.CommonViewUtility;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a extends AppCompatDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private ViewSwitcher f2757a;
+    private ViewSwitcher f2759a;
     private TextView b;
     private TextView c;
     private TextView d;
@@ -30,7 +30,7 @@ public class a extends AppCompatDialog {
     private void a() {
         setContentView(R.layout.layout_pass_liveness_alert_dialog);
         setCanceledOnTouchOutside(false);
-        this.f2757a = (ViewSwitcher) findViewById(R.id.view_switcher);
+        this.f2759a = (ViewSwitcher) findViewById(R.id.view_switcher);
         this.b = (TextView) findViewById(R.id.dialog_title);
         this.c = (TextView) findViewById(R.id.dialog_msg);
         this.d = (TextView) findViewById(R.id.msg_text);
@@ -85,9 +85,9 @@ public class a extends AppCompatDialog {
 
     public void a(int i) {
         if ((i < 1 ? 1 : Math.min(i, 2)) == 2) {
-            this.f2757a.setDisplayedChild(0);
+            this.f2759a.setDisplayedChild(0);
         } else {
-            this.f2757a.setDisplayedChild(1);
+            this.f2759a.setDisplayedChild(1);
         }
     }
 

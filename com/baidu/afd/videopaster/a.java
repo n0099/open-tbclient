@@ -2,17 +2,17 @@ package com.baidu.afd.videopaster;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public interface a {
     int height();
 
-    int rl();
+    String rA();
 
     int rn();
 
-    Map<String, String> ro();
+    int rp();
 
-    String ry();
+    Map<String, String> rq();
 
     void u(HashMap hashMap);
 

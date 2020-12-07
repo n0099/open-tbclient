@@ -3,66 +3,66 @@ package com.baidu.helios.a.a;
 import android.os.Bundle;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes19.dex */
+/* loaded from: classes5.dex */
 class c<T> implements com.baidu.helios.c<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile boolean f1783a = false;
-    private final CountDownLatch avS = new CountDownLatch(1);
-    private b<T> avT = null;
-    private a avU = null;
+    private volatile boolean f1785a = false;
+    private final CountDownLatch awQ = new CountDownLatch(1);
+    private b<T> awR = null;
+    private a awS = null;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes5.dex */
     public static class a {
-        public boolean avV;
-        public Throwable avW;
-        public Bundle avX;
+        public boolean awT;
+        public Throwable awU;
+        public Bundle awV;
         public int errorCode;
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes5.dex */
     public static class b<T> {
-        public Bundle avX;
+        public Bundle awV;
         public T result;
     }
 
     @Override // com.baidu.helios.c
     public void a(int i, Throwable th, Bundle bundle) {
-        this.avU = new a();
-        this.avU.errorCode = i;
-        this.avU.avW = th;
-        this.avU.avX = bundle;
-        this.f1783a = false;
-        this.avS.countDown();
+        this.awS = new a();
+        this.awS.errorCode = i;
+        this.awS.awU = th;
+        this.awS.awV = bundle;
+        this.f1785a = false;
+        this.awQ.countDown();
     }
 
     @Override // com.baidu.helios.c
     public void a(T t, Bundle bundle) {
-        this.avT = new b<>();
-        this.avT.result = t;
-        this.avT.avX = bundle;
-        this.f1783a = true;
-        this.avS.countDown();
+        this.awR = new b<>();
+        this.awR.result = t;
+        this.awR.awV = bundle;
+        this.f1785a = true;
+        this.awQ.countDown();
     }
 
     public boolean a(int i) {
         try {
-            this.avS.await(i, TimeUnit.MILLISECONDS);
-            if (this.avU == null) {
-                this.avU = new a();
-                this.avU.avV = true;
+            this.awQ.await(i, TimeUnit.MILLISECONDS);
+            if (this.awS == null) {
+                this.awS = new a();
+                this.awS.awT = true;
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return this.f1783a;
+        return this.f1785a;
     }
 
-    public b<T> zK() {
-        return this.avT;
+    public b<T> zC() {
+        return this.awR;
     }
 
-    public a zL() {
-        return this.avU;
+    public a zD() {
+        return this.awS;
     }
 }

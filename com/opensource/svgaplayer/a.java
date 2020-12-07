@@ -1,12 +1,10 @@
 package com.opensource.svgaplayer;
-
-import kotlin.h;
-@h
-/* loaded from: classes17.dex */
+@kotlin.e
+/* loaded from: classes18.dex */
 public interface a {
-    void aeS();
+    void aia();
 
-    void aeT();
+    void aib();
 
     void b(int i, double d);
 

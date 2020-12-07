@@ -19,14 +19,14 @@ import com.baidu.live.tbadk.skin.SkinUtil;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class h {
-    private ImageView aEA;
-    private TextView bCA;
-    private TextView bCB;
-    private c bCi;
-    private AlbumActivity bCw;
-    private AlbumImagePagerAdapter bCx;
-    private ImageView bCy;
-    private View bCz;
+    private ImageView aHg;
+    private AlbumActivity bHE;
+    private AlbumImagePagerAdapter bHF;
+    private ImageView bHG;
+    private View bHH;
+    private TextView bHI;
+    private TextView bHJ;
+    private c bHq;
     private View mNoDataView;
     private View mRoot;
     private ViewPager mViewPager;
@@ -35,21 +35,21 @@ public class h {
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.live.tieba.write.album.h.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view != h.this.bCz && view == h.this.bCy && h.this.bCx != null && h.this.bCi != null && h.this.bCw != null) {
-                if (h.this.bCi.Tn()) {
-                    h.this.bCw.showToast(a.h.sdk_ph_album_choose_switch_tip);
-                } else if (h.this.bCx.fU(h.this.mCurrentIndex)) {
-                    ImageFileInfo fT = h.this.bCx.fT(h.this.mCurrentIndex);
-                    if (h.this.bCi.isAdded(fT)) {
-                        if (h.this.bCw.b(fT)) {
-                            h.this.a(h.this.bCy, false);
-                            h.this.bCw.a(fT, false);
+            if (view != h.this.bHH && view == h.this.bHG && h.this.bHF != null && h.this.bHq != null && h.this.bHE != null) {
+                if (h.this.bHq.VN()) {
+                    h.this.bHE.showToast(a.h.sdk_ph_album_choose_switch_tip);
+                } else if (h.this.bHF.gt(h.this.mCurrentIndex)) {
+                    ImageFileInfo gs = h.this.bHF.gs(h.this.mCurrentIndex);
+                    if (h.this.bHq.isAdded(gs)) {
+                        if (h.this.bHE.b(gs)) {
+                            h.this.a(h.this.bHG, false);
+                            h.this.bHE.a(gs, false);
                         }
-                    } else if (h.this.bCw.a(fT)) {
-                        h.this.a(h.this.bCy, true);
-                        h.this.bCw.a(fT, true);
+                    } else if (h.this.bHE.a(gs)) {
+                        h.this.a(h.this.bHG, true);
+                        h.this.bHE.a(gs, true);
                     }
-                    h.this.Ta();
+                    h.this.VA();
                 }
             }
         }
@@ -58,19 +58,19 @@ public class h {
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
             h.this.mCurrentIndex = i;
-            if (h.this.bCx != null && h.this.bCi != null) {
-                ImageFileInfo fT = h.this.bCx.fT(h.this.mCurrentIndex);
-                if (h.this.bCi.isAdded(fT)) {
-                    h.this.a(h.this.bCy, true);
+            if (h.this.bHF != null && h.this.bHq != null) {
+                ImageFileInfo gs = h.this.bHF.gs(h.this.mCurrentIndex);
+                if (h.this.bHq.isAdded(gs)) {
+                    h.this.a(h.this.bHG, true);
                 } else {
-                    h.this.a(h.this.bCy, false);
+                    h.this.a(h.this.bHG, false);
                 }
-                if (fT == null || !fT.isGif()) {
-                    h.this.bCB.setVisibility(0);
+                if (gs == null || !gs.isGif()) {
+                    h.this.bHJ.setVisibility(0);
                 } else {
-                    h.this.bCB.setVisibility(8);
+                    h.this.bHJ.setVisibility(8);
                 }
-                h.this.cS(h.this.bCi.isOriginalImg());
+                h.this.dg(h.this.bHq.isOriginalImg());
             }
         }
 
@@ -85,64 +85,64 @@ public class h {
 
     public h(TbPageContext tbPageContext, AlbumActivity albumActivity) {
         this.tbPageContext = tbPageContext;
-        this.bCw = albumActivity;
-        this.bCi = this.bCw.SX();
+        this.bHE = albumActivity;
+        this.bHq = this.bHE.Vx();
         initView();
     }
 
     public void initView() {
-        this.mRoot = LayoutInflater.from(this.bCw).inflate(a.g.sdk_ph_album_big_image_view, (ViewGroup) null);
-        this.aEA = (ImageView) this.mRoot.findViewById(a.f.img_back);
-        this.bCy = (ImageView) this.mRoot.findViewById(a.f.img_choose);
+        this.mRoot = LayoutInflater.from(this.bHE).inflate(a.g.sdk_ph_album_big_image_view, (ViewGroup) null);
+        this.aHg = (ImageView) this.mRoot.findViewById(a.f.img_back);
+        this.bHG = (ImageView) this.mRoot.findViewById(a.f.img_choose);
         this.mViewPager = (ViewPager) this.mRoot.findViewById(a.f.viewPager);
         this.mNoDataView = this.mRoot.findViewById(a.f.album_no_data);
-        this.bCA = (TextView) this.mRoot.findViewById(a.f.btn_next_step);
-        this.bCB = (TextView) this.mRoot.findViewById(a.f.original_select_btn);
-        this.bCz = this.mRoot.findViewById(a.f.layout_bottom);
-        this.aEA.setOnClickListener(this.bCw);
-        this.bCA.setOnClickListener(this.bCw);
-        this.bCy.setOnClickListener(this.mOnClickListener);
-        this.bCB.setOnClickListener(this.bCw);
-        this.bCz.setOnClickListener(this.mOnClickListener);
+        this.bHI = (TextView) this.mRoot.findViewById(a.f.btn_next_step);
+        this.bHJ = (TextView) this.mRoot.findViewById(a.f.original_select_btn);
+        this.bHH = this.mRoot.findViewById(a.f.layout_bottom);
+        this.aHg.setOnClickListener(this.bHE);
+        this.bHI.setOnClickListener(this.bHE);
+        this.bHG.setOnClickListener(this.mOnClickListener);
+        this.bHJ.setOnClickListener(this.bHE);
+        this.bHH.setOnClickListener(this.mOnClickListener);
         this.mViewPager.setOnPageChangeListener(this.mOnPageChangeListener);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ta() {
-        this.bCw.SU();
+    public void VA() {
+        this.bHE.Vu();
     }
 
     public void onResume() {
-        Tc();
+        VC();
     }
 
-    private void Tb() {
-        List<ImageFileInfo> Ts;
+    private void VB() {
+        List<ImageFileInfo> VS;
         int currentIndex;
-        if (this.bCi == null && this.bCw != null) {
-            this.bCi = this.bCw.SX();
+        if (this.bHq == null && this.bHE != null) {
+            this.bHq = this.bHE.Vx();
         }
-        if (this.bCi != null && (Ts = this.bCi.Ts()) != null && (currentIndex = this.bCi.getCurrentIndex()) >= 0) {
+        if (this.bHq != null && (VS = this.bHq.VS()) != null && (currentIndex = this.bHq.getCurrentIndex()) >= 0) {
             this.mCurrentIndex = currentIndex;
-            this.bCx = new AlbumImagePagerAdapter(this.bCw);
-            this.mViewPager.setAdapter(this.bCx);
-            if (this.mCurrentIndex == 0 && Ts != null) {
-                ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(Ts, this.mCurrentIndex);
-                if (this.bCi.isAdded(imageFileInfo)) {
-                    a(this.bCy, true);
+            this.bHF = new AlbumImagePagerAdapter(this.bHE);
+            this.mViewPager.setAdapter(this.bHF);
+            if (this.mCurrentIndex == 0 && VS != null) {
+                ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(VS, this.mCurrentIndex);
+                if (this.bHq.isAdded(imageFileInfo)) {
+                    a(this.bHG, true);
                 } else {
-                    a(this.bCy, false);
+                    a(this.bHG, false);
                 }
                 if (imageFileInfo.isGif()) {
-                    this.bCB.setVisibility(8);
+                    this.bHJ.setVisibility(8);
                 } else {
-                    this.bCB.setVisibility(0);
+                    this.bHJ.setVisibility(0);
                 }
             }
-            this.bCx.setData(Ts);
+            this.bHF.setData(VS);
             this.mViewPager.setCurrentItem(this.mCurrentIndex, false);
-            cS(this.bCi.isOriginalImg());
+            dg(this.bHq.isOriginalImg());
         }
     }
 
@@ -150,64 +150,64 @@ public class h {
         return this.mRoot;
     }
 
-    public View Tv() {
-        return this.aEA;
+    public View VV() {
+        return this.aHg;
     }
 
-    public View Tw() {
-        return this.bCA;
+    public View VW() {
+        return this.bHI;
     }
 
     public void onChangeSkinType(int i) {
         SkinUtil.onModeChanged(this.tbPageContext, this.mRoot);
-        SkinManager.setNavbarIconSrc(this.aEA, a.e.sdk_icon_return_bg_s, a.e.sdk_icon_return_bg, i);
-        if (this.bCi != null) {
-            cS(this.bCi.isOriginalImg());
+        SkinManager.setNavbarIconSrc(this.aHg, a.e.sdk_icon_return_bg_s, a.e.sdk_icon_return_bg, i);
+        if (this.bHq != null) {
+            dg(this.bHq.isOriginalImg());
         }
-        if (this.bCx != null) {
-            this.bCx.notifyDataSetChanged();
+        if (this.bHF != null) {
+            this.bHF.notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ImageView imageView, boolean z) {
-        if (imageView != null && this.bCw != null) {
+        if (imageView != null && this.bHE != null) {
             SkinManager.setImageResource(imageView, z ? a.e.sdk_ph_ic_post_edit_select_s : a.e.sdk_ph_icon_image_clear_select);
-            if (this.bCA != null) {
-                int count = this.bCi != null ? ListUtils.getCount(this.bCi.Tp()) : 0;
-                this.bCA.setText(this.bCw.getString(a.h.sdk_ph_image_selected_list_count_max, new Object[]{Integer.valueOf(count), Integer.valueOf(this.bCi != null ? this.bCi.getMaxImagesAllowed() : 1)}));
-                this.bCA.setEnabled(count > 0);
+            if (this.bHI != null) {
+                int count = this.bHq != null ? ListUtils.getCount(this.bHq.VP()) : 0;
+                this.bHI.setText(this.bHE.getString(a.h.sdk_ph_image_selected_list_count_max, new Object[]{Integer.valueOf(count), Integer.valueOf(this.bHq != null ? this.bHq.getMaxImagesAllowed() : 1)}));
+                this.bHI.setEnabled(count > 0);
             }
         }
     }
 
     public void c(ImageFileInfo imageFileInfo, boolean z) {
-        ImageFileInfo fT;
-        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.bCx != null && (fT = this.bCx.fT(this.mCurrentIndex)) != null && fT.getFilePath() != null && fT.getFilePath().equals(imageFileInfo.getFilePath())) {
-            a(this.bCy, z);
+        ImageFileInfo gs;
+        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.bHF != null && (gs = this.bHF.gs(this.mCurrentIndex)) != null && gs.getFilePath() != null && gs.getFilePath().equals(imageFileInfo.getFilePath())) {
+            a(this.bHG, z);
         }
     }
 
-    private void Tc() {
+    private void VC() {
         this.mNoDataView.setVisibility(8);
         this.mViewPager.setVisibility(0);
-        Tb();
+        VB();
     }
 
-    public View Ti() {
-        return this.bCB;
+    public View VI() {
+        return this.bHJ;
     }
 
-    public void cS(boolean z) {
+    public void dg(boolean z) {
         long j;
-        if (this.bCw != null && this.bCB != null) {
-            if (this.bCx != null) {
-                ImageFileInfo fT = this.bCx.fT(this.mCurrentIndex);
-                j = fT != null ? FileHelper.getFileSize(fT.getFilePath()) : 0L;
+        if (this.bHE != null && this.bHJ != null) {
+            if (this.bHF != null) {
+                ImageFileInfo gs = this.bHF.gs(this.mCurrentIndex);
+                j = gs != null ? FileHelper.getFileSize(gs.getFilePath()) : 0L;
             } else {
                 j = 0;
             }
-            String string = this.bCw.getResources().getString(a.h.sdk_ph_original_img);
+            String string = this.bHE.getResources().getString(a.h.sdk_ph_original_img);
             if (z) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(string);
@@ -217,14 +217,14 @@ public class h {
                     sb.append(")");
                 }
                 String sb2 = sb.toString();
-                SkinManager.setViewTextColor(this.bCB, a.c.sdk_cp_link_tip_a);
-                this.bCB.setText(sb2);
-                this.bCB.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.e.sdk_ph_icon_image_select_ok_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                SkinManager.setViewTextColor(this.bHJ, a.c.sdk_cp_link_tip_a);
+                this.bHJ.setText(sb2);
+                this.bHJ.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.e.sdk_ph_icon_image_select_ok_n), (Drawable) null, (Drawable) null, (Drawable) null);
                 return;
             }
-            SkinManager.setViewTextColor(this.bCB, a.c.sdk_cp_cont_f);
-            this.bCB.setText(string);
-            this.bCB.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.e.sdk_ph_icon_image_select_n), (Drawable) null, (Drawable) null, (Drawable) null);
+            SkinManager.setViewTextColor(this.bHJ, a.c.sdk_cp_cont_f);
+            this.bHJ.setText(string);
+            this.bHJ.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.e.sdk_ph_icon_image_select_n), (Drawable) null, (Drawable) null, (Drawable) null);
         }
     }
 }

@@ -1,12 +1,11 @@
 package com.baidu.tieba.r;
 
-import com.baidu.searchbox.cloudcontrol.processor.DataProcessors;
-import com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.searchbox.aperf.param.IAperfOverlayContext;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class a implements ICloudControlRegister {
-    @Override // com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister
-    public void registerAllProcessors(DataProcessors dataProcessors) {
-        dataProcessors.addProcessor("ubc", new UBCCloudControlProcessor());
+public class a implements IAperfOverlayContext {
+    @Override // com.baidu.searchbox.aperf.param.IAperfOverlayContext
+    public String getAppVersion() {
+        return TbConfig.getVersion();
     }
 }

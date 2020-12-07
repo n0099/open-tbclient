@@ -9,7 +9,7 @@ import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class LivenessRecogDTO extends SapiBiometricDto {
     private static final int IMAGE_FLAG_CUTIMAGE = 1;
     private static final int IMAGE_FLAG_ORIGINIMAGE = 2;
@@ -52,7 +52,7 @@ public class LivenessRecogDTO extends SapiBiometricDto {
                 String[] split2 = this.spParams.split(ETAG.ITEM_SEPARATOR);
                 if (split2 != null && split2.length > 0) {
                     for (String str : split2) {
-                        if (str != null && (split = str.split(ETAG.EQUAL)) != null && split.length == 2) {
+                        if (str != null && (split = str.split("=")) != null && split.length == 2) {
                             hashMap.put(split[0], split[1]);
                         }
                     }

@@ -13,12 +13,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class ResUtils {
     public static final String ANIM = "anim";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1525a = "id";
+    private static final String f1527a = "id";
     private static final String b = "string";
     private static final String c = "layout";
     private static final String d = "style";

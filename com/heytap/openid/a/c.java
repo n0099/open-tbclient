@@ -16,22 +16,22 @@ import com.baidu.android.imsdk.internal.IMConnection;
 import com.heytap.openid.a;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class c {
-    public com.heytap.openid.a piE = null;
+    public com.heytap.openid.a pxK = null;
     public String b = null;
     public String c = null;
     public final Object d = new Object();
-    public ServiceConnection oJK = new a();
+    public ServiceConnection oYQ = new a();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public class a implements ServiceConnection {
         public a() {
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            c.this.piE = a.AbstractBinderC0988a.a(iBinder);
+            c.this.pxK = a.AbstractBinderC1004a.a(iBinder);
             synchronized (c.this.d) {
                 c.this.d.notify();
             }
@@ -39,14 +39,14 @@ public class c {
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            c.this.piE = null;
+            c.this.pxK = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes18.dex */
     public static class b {
-        public static final c piF = new c(null);
+        public static final c pxL = new c(null);
     }
 
     public /* synthetic */ c(a aVar) {
@@ -55,11 +55,11 @@ public class c {
     public synchronized String a(Context context, String str) {
         String str2;
         if (Looper.myLooper() != Looper.getMainLooper()) {
-            if (this.piE == null) {
+            if (this.pxK == null) {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                if (context.bindService(intent, this.oJK, 1)) {
+                if (context.bindService(intent, this.oYQ, 1)) {
                     synchronized (this.d) {
                         try {
                             this.d.wait(IMConnection.RETRY_DELAY_TIMES);
@@ -68,7 +68,7 @@ public class c {
                         }
                     }
                 }
-                if (this.piE == null) {
+                if (this.pxK == null) {
                     str2 = "";
                 } else {
                     try {
@@ -140,7 +140,7 @@ public class c {
             }
             this.c = str2;
         }
-        String a2 = ((a.AbstractBinderC0988a.C0989a) this.piE).a(this.b, this.c, str);
+        String a2 = ((a.AbstractBinderC1004a.C1005a) this.pxK).a(this.b, this.c, str);
         return TextUtils.isEmpty(a2) ? "" : a2;
     }
 }

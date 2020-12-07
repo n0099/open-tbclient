@@ -1,22 +1,19 @@
 package io.flutter.embedding.engine.plugins;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public interface PluginRegistry {
-    void add(@NonNull FlutterPlugin flutterPlugin);
+    void add(FlutterPlugin flutterPlugin);
 
-    void add(@NonNull Set<FlutterPlugin> set);
+    void add(Set<FlutterPlugin> set);
 
-    @Nullable
-    FlutterPlugin get(@NonNull Class<? extends FlutterPlugin> cls);
+    FlutterPlugin get(Class<? extends FlutterPlugin> cls);
 
-    boolean has(@NonNull Class<? extends FlutterPlugin> cls);
+    boolean has(Class<? extends FlutterPlugin> cls);
 
-    void remove(@NonNull Class<? extends FlutterPlugin> cls);
+    void remove(Class<? extends FlutterPlugin> cls);
 
-    void remove(@NonNull Set<Class<? extends FlutterPlugin>> set);
+    void remove(Set<Class<? extends FlutterPlugin>> set);
 
     void removeAll();
 }

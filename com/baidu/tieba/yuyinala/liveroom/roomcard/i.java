@@ -10,7 +10,7 @@ public class i {
     public static boolean a(Context context, Activity activity) {
         try {
             if (!checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                aA(activity);
+                aB(activity);
                 return false;
             }
         } catch (Exception e) {
@@ -30,7 +30,7 @@ public class i {
         return context.checkPermission(str, Process.myPid(), Process.myUid());
     }
 
-    private static boolean aA(Activity activity) {
+    private static boolean aB(Activity activity) {
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.setDialogClickListener(new PermissionJudgePolicy.PermissionDialogClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.i.1
             @Override // com.baidu.live.tbadk.core.util.permission.PermissionJudgePolicy.PermissionDialogClickListener

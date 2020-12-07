@@ -11,7 +11,7 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public final class AudioSampleEntry extends AbstractSampleEntry {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE1 = "samr";

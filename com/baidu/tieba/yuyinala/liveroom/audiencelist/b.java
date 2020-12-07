@@ -13,12 +13,12 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 /* loaded from: classes4.dex */
 public class b {
     private long count;
-    private TextView gYs;
-    private ImageView hmw;
+    private TextView hhX;
+    private ImageView hvY;
     private Context mContext;
-    private com.baidu.tieba.yuyinala.liveroom.operation.b nWu;
+    private com.baidu.tieba.yuyinala.liveroom.operation.b ols;
     private View mView = null;
-    private boolean gts = true;
+    private boolean gBW = true;
 
     public b(Context context) {
         this.mContext = context;
@@ -29,26 +29,26 @@ public class b {
         this.mView = View.inflate(this.mContext, a.g.yuyin_ala_liveroom_audience_count_layout, null);
         this.mView.setMinimumWidth(this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds90));
         this.mView.setId(a.f.ala_liveroom_audience_count_layout);
-        this.gYs = (TextView) this.mView.findViewById(a.f.ala_live_room_audience_count);
-        this.hmw = (ImageView) this.mView.findViewById(a.f.close_imageView);
+        this.hhX = (TextView) this.mView.findViewById(a.f.ala_live_room_audience_count);
+        this.hvY = (ImageView) this.mView.findViewById(a.f.close_imageView);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.hmw.setVisibility(0);
-            this.hmw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.audiencelist.b.1
+            this.hvY.setVisibility(0);
+            this.hvY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.audiencelist.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.nWu != null) {
-                        b.this.nWu.a(view, 8, null);
+                    if (b.this.ols != null) {
+                        b.this.ols.a(view, 8, null);
                     }
                 }
             });
         } else {
-            this.hmw.setVisibility(8);
+            this.hvY.setVisibility(8);
         }
-        this.gYs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.audiencelist.b.2
+        this.hhX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.audiencelist.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.nWu != null) {
-                    b.this.nWu.a(view, 14, null);
+                if (b.this.ols != null) {
+                    b.this.ols.a(view, 14, null);
                 }
             }
         });
@@ -58,36 +58,36 @@ public class b {
         if (this.mView.getParent() != null) {
             ((ViewGroup) this.mView.getParent()).removeView(this.mView);
         }
-        ew(j);
+        eZ(j);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds90));
         layoutParams.addRule(11);
         layoutParams.rightMargin = BdUtilHelper.getDimens(this.mContext, a.d.sdk_ds8);
         layoutParams.topMargin = BdUtilHelper.getDimens(this.mContext, a.d.sdk_ds5);
-        this.gYs.setVisibility(0);
-        if (this.gYs != null) {
-            this.gYs.setText("");
+        this.hhX.setVisibility(0);
+        if (this.hhX != null) {
+            this.hhX.setText("");
         }
-        this.hmw.setVisibility(0);
+        this.hvY.setVisibility(0);
         viewGroup.addView(this.mView, layoutParams);
     }
 
     public void setVisible(int i) {
-        if (this.gts) {
+        if (this.gBW) {
             this.mView.setVisibility(i);
         } else {
             this.mView.setVisibility(8);
         }
     }
 
-    public void ew(long j) {
+    public void eZ(long j) {
         if (j < 0) {
             j = 0;
         }
         this.count = j;
-        this.gYs.setText(StringHelper.formatYuyinValue(j));
+        this.hhX.setText(StringHelper.formatYuyinValue(j));
     }
 
     public void a(com.baidu.tieba.yuyinala.liveroom.operation.b bVar) {
-        this.nWu = bVar;
+        this.ols = bVar;
     }
 }

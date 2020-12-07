@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import com.baidu.ar.bean.ARCaseBundleInfo;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.callback.IError;
-import com.baidu.ar.g.o;
-import com.baidu.ar.g.s;
+import com.baidu.ar.h.o;
+import com.baidu.ar.h.s;
 import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.HttpFactory;
 import com.baidu.ar.ihttp.IHttpRequest;
@@ -17,21 +17,21 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class e extends com.baidu.ar.e.a<String, String> {
-    private IHttpRequest bO;
-    private WeakReference<Context> vz;
-    private ARCaseBundleInfo wJ;
-    private a wL;
+    private IHttpRequest bR;
+    private WeakReference<Context> wn;
+    private ARCaseBundleInfo xx;
+    private a xz;
 
     public e(Context context, ARCaseBundleInfo aRCaseBundleInfo, a aVar) {
-        this.vz = new WeakReference<>(context);
-        this.wJ = aRCaseBundleInfo;
-        this.wL = aVar;
+        this.wn = new WeakReference<>(context);
+        this.xx = aRCaseBundleInfo;
+        this.xz = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String aL(String str) {
+    public String aO(String str) {
         JSONObject jSONObject = new JSONObject(str);
         if (jSONObject.getInt("errorNum") != 0) {
             throw new Exception(jSONObject.optString(TiebaInitialize.LogFields.ERROR_MESSAGE, "query res failed"));
@@ -58,25 +58,25 @@ class e extends com.baidu.ar.e.a<String, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.ar.e.a
     public void a(String str, final ICallbackWith<String> iCallbackWith, final IError iError) {
-        Context context = this.vz.get();
-        if (context == null || this.wJ == null) {
+        Context context = this.wn.get();
+        if (context == null || this.xx == null) {
             return;
         }
-        String str2 = this.wJ.arKey;
-        f aK = this.wL.aK(str);
-        if (aK == null) {
+        String str2 = this.xx.arKey;
+        f aN = this.xz.aN(str);
+        if (aN == null) {
             iError.onError(1, "资源不存在", null);
-        } else if (TextUtils.isEmpty(aK.wX)) {
+        } else if (TextUtils.isEmpty(aN.xL)) {
             iError.onError(1, "资源id不存在", null);
-        } else if ("local".equals(aK.wX)) {
+        } else if ("local".equals(aN.xL)) {
             iCallbackWith.run("local");
-        } else if (TextUtils.isEmpty(aK.wY)) {
+        } else if (TextUtils.isEmpty(aN.xM)) {
             iError.onError(1, "编码不正确", null);
         } else {
             StatisticApi.onEvent(StatisticConstants.LOAD_START_QUERY);
             String gT = s.gT();
-            this.bO = HttpFactory.newRequest();
-            this.bO.setUrl(gT).setMethod("POST").addQueryField("id", aK.wX).setBody(e(context, str2)).enqueue(new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.steploading.e.1
+            this.bR = HttpFactory.newRequest();
+            this.bR.setUrl(gT).setMethod("POST").addQueryField("id", aN.xL).setBody(e(context, str2)).enqueue(new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.steploading.e.1
                 @Override // com.baidu.ar.ihttp.a
                 public void a(HttpException httpException) {
                     StatisticApi.onEvent(StatisticConstants.LOAD_QUERY_FAILURE);
@@ -92,9 +92,9 @@ class e extends com.baidu.ar.e.a<String, String> {
                     String str3 = null;
                     if (iHttpResponse.isSuccess()) {
                         try {
-                            String aL = e.this.aL(iHttpResponse.getContent());
+                            String aO = e.this.aO(iHttpResponse.getContent());
                             if (iCallbackWith != null) {
-                                iCallbackWith.run(aL);
+                                iCallbackWith.run(aO);
                             }
                             i = 0;
                             jSONException = null;
@@ -126,10 +126,10 @@ class e extends com.baidu.ar.e.a<String, String> {
     }
 
     @Override // com.baidu.ar.e.a
-    protected void fq() {
-        if (this.bO != null) {
-            this.bO.cancel();
-            this.bO = null;
+    protected void fp() {
+        if (this.bR != null) {
+            this.bR.cancel();
+            this.bR = null;
         }
     }
 }

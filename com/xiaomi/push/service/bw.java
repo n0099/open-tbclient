@@ -7,19 +7,19 @@ import com.xiaomi.push.service.l;
 public class bw implements l.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XMPushService.i f5096a;
+    final /* synthetic */ XMPushService.i f4866a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ XMPushService f902a;
+    final /* synthetic */ XMPushService f900a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bw(XMPushService xMPushService, XMPushService.i iVar) {
-        this.f902a = xMPushService;
-        this.f5096a = iVar;
+        this.f900a = xMPushService;
+        this.f4866a = iVar;
     }
 
     @Override // com.xiaomi.push.service.l.a
     public void a() {
-        this.f902a.a(this.f5096a);
+        this.f900a.a(this.f4866a);
     }
 }

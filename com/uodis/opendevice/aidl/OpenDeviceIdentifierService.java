@@ -5,13 +5,13 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public interface OpenDeviceIdentifierService extends IInterface {
     String getOaid() throws RemoteException;
 
     boolean isOaidTrackLimited() throws RemoteException;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     public static abstract class Stub extends Binder implements OpenDeviceIdentifierService {
         private static final String DESCRIPTOR = "com.uodis.opendevice.aidl.OpenDeviceIdentifierService";
         static final int TRANSACTION_getOaid = 1;
@@ -60,7 +60,7 @@ public interface OpenDeviceIdentifierService extends IInterface {
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes14.dex */
         private static class Proxy implements OpenDeviceIdentifierService {
             private IBinder mRemote;
 

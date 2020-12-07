@@ -25,17 +25,17 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.n.m;
+import com.baidu.tbadk.n.l;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes20.dex */
 public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private static int requestId = -1;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes20.dex */
     public enum ImageLoadingError {
         Invalid,
         Succeed,
@@ -94,9 +94,9 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                                 } else if (methodCall.argument("patternColor") instanceof Long) {
                                     i3 = ((Long) methodCall.argument("patternColor")).intValue();
                                 }
-                                a2 = SvgManager.bqB().b(identifier, i3, SvgManager.SvgResourceStateType.NORMAL);
+                                a2 = SvgManager.btW().b(identifier, i3, SvgManager.SvgResourceStateType.NORMAL);
                             } else {
-                                a2 = SvgManager.bqB().a(identifier, null);
+                                a2 = SvgManager.btW().a(identifier, null);
                             }
                         } else if (methodCall.hasArgument("patternColor")) {
                             int i4 = 0;
@@ -178,7 +178,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                             ImageLoaderPlugin.access$108();
                             hashMap2.put("requestId", Integer.valueOf(ImageLoaderPlugin.requestId));
                             hashMap3 = new HashMap();
-                            hashMap3.put("codecCost", Long.valueOf(aVar.Vo.costTime));
+                            hashMap3.put("codecCost", Long.valueOf(aVar.Wj.costTime));
                             hashMap3.put("isBundleFile", false);
                             hashMap3.put("netType", j.netTypeNameInLowerCase());
                             hashMap3.put(CameraActivityConfig.KEY_CONTENT_TYPE, String.valueOf(i6));
@@ -235,7 +235,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
     }
 
     private boolean shouldMonitorPerformance(int i) {
-        return m.bBK().isSmallFlow() && i % 100 == 0;
+        return l.bFl().isSmallFlow() && i % 100 == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

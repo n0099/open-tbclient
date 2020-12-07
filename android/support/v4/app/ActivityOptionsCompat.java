@@ -13,7 +13,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.util.Pair;
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ActivityOptionsCompat {
     public static final String EXTRA_USAGE_TIME_REPORT = "android.activity.usage_time";
     public static final String EXTRA_USAGE_TIME_REPORT_PACKAGES = "android.usage_time_packages";
@@ -82,7 +82,7 @@ public class ActivityOptionsCompat {
 
     /* JADX INFO: Access modifiers changed from: private */
     @RequiresApi(16)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class ActivityOptionsCompatApi16Impl extends ActivityOptionsCompat {
         protected final ActivityOptions mActivityOptions;
 
@@ -105,7 +105,7 @@ public class ActivityOptionsCompat {
 
     /* JADX INFO: Access modifiers changed from: private */
     @RequiresApi(23)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class ActivityOptionsCompatApi23Impl extends ActivityOptionsCompatApi16Impl {
         ActivityOptionsCompatApi23Impl(ActivityOptions activityOptions) {
             super(activityOptions);
@@ -119,7 +119,7 @@ public class ActivityOptionsCompat {
 
     /* JADX INFO: Access modifiers changed from: private */
     @RequiresApi(24)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class ActivityOptionsCompatApi24Impl extends ActivityOptionsCompatApi23Impl {
         ActivityOptionsCompatApi24Impl(ActivityOptions activityOptions) {
             super(activityOptions);

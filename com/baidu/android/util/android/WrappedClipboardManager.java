@@ -6,7 +6,7 @@ import android.content.ClipData;
 import android.content.Context;
 import android.os.Build;
 import android.text.ClipboardManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class WrappedClipboardManager {
     protected static Context sTheApp;
 
@@ -21,7 +21,7 @@ public abstract class WrappedClipboardManager {
         return Build.VERSION.SDK_INT >= 11 ? new HoneycombClipboardManager() : new OldClipboardManager();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     private static class OldClipboardManager extends WrappedClipboardManager {
         private static ClipboardManager sInstance = null;
 
@@ -46,7 +46,7 @@ public abstract class WrappedClipboardManager {
     }
 
     @TargetApi(11)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     private static class HoneycombClipboardManager extends WrappedClipboardManager {
         private static android.content.ClipboardManager sInstance = null;
         private static ClipData sClipData = null;

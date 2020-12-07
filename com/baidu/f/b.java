@@ -7,9 +7,9 @@ import io.flutter.plugin.platform.PlatformView;
 import io.flutter.plugin.platform.PlatformViewFactory;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public final class b extends PlatformViewFactory {
-    private static HashMap<String, a> anK = new HashMap<>();
+    private static HashMap<String, a> aoy = new HashMap<>();
     private final BinaryMessenger messenger;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,10 +29,10 @@ public final class b extends PlatformViewFactory {
         String valueOf = map == null ? "0" : String.valueOf(map.get("persistentViewId"));
         System.out.println("FLT========create args = " + String.valueOf(map));
         if (Integer.parseInt(valueOf) < 0) {
-            a aVar = anK.get(valueOf);
+            a aVar = aoy.get(valueOf);
             if (aVar == null) {
                 a aVar2 = new a(context, this.messenger, i, map);
-                anK.put(valueOf, aVar2);
+                aoy.put(valueOf, aVar2);
                 return aVar2;
             }
             return aVar;
@@ -40,9 +40,9 @@ public final class b extends PlatformViewFactory {
         return new a(context, this.messenger, i, map);
     }
 
-    public static void bG(int i) {
-        if (anK.containsKey(String.valueOf(i))) {
-            anK.remove(Integer.valueOf(i));
+    public static void bK(int i) {
+        if (aoy.containsKey(String.valueOf(i))) {
+            aoy.remove(Integer.valueOf(i));
         }
     }
 }

@@ -29,19 +29,19 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final boolean deP = com.baidu.swan.apps.t.a.avV().getSwitch("swan_white_screent_webview_progress_bar_switch", false);
+    private static final boolean dlN = com.baidu.swan.apps.t.a.azd().getSwitch("swan_white_screent_webview_progress_bar_switch", false);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.baidu.swan.apps.core.d.e aBB() {
-        com.baidu.swan.apps.core.d.f afe;
-        SwanAppActivity ayQ = com.baidu.swan.apps.v.f.azg().ayQ();
-        if (ayQ != null && (afe = ayQ.afe()) != null) {
-            com.baidu.swan.apps.core.d.c aot = afe.aot();
-            if (aot instanceof com.baidu.swan.apps.core.d.e) {
-                return (com.baidu.swan.apps.core.d.e) aot;
+    public static com.baidu.swan.apps.core.d.e aEK() {
+        com.baidu.swan.apps.core.d.f aim;
+        SwanAppActivity aBZ = com.baidu.swan.apps.v.f.aCp().aBZ();
+        if (aBZ != null && (aim = aBZ.aim()) != null) {
+            com.baidu.swan.apps.core.d.c arB = aim.arB();
+            if (arB instanceof com.baidu.swan.apps.core.d.e) {
+                return (com.baidu.swan.apps.core.d.e) arB;
             }
         }
         return null;
@@ -50,9 +50,9 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int f(com.baidu.swan.apps.core.d.e eVar) {
         if (eVar != null) {
-            com.baidu.swan.apps.runtime.config.c anI = eVar.anI();
-            if (anI != null) {
-                return anI.backgroundColor;
+            com.baidu.swan.apps.runtime.config.c aqQ = eVar.aqQ();
+            if (aqQ != null) {
+                return aqQ.backgroundColor;
             }
             FrameLayout webViewContainer = eVar.getWebViewContainer();
             if (webViewContainer != null) {
@@ -76,17 +76,17 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static JSONObject aBC() {
+    public static JSONObject aEL() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (com.baidu.swan.apps.runtime.e.aGM() != null) {
-                jSONObject.put("name", com.baidu.swan.apps.runtime.e.aGM().getName());
+            if (com.baidu.swan.apps.runtime.e.aJU() != null) {
+                jSONObject.put("name", com.baidu.swan.apps.runtime.e.aJU().getName());
             } else {
                 jSONObject.put("name", RomUtils.UNKNOWN);
             }
-            jSONObject.put("zeus", com.baidu.swan.apps.t.a.awe().bs(AppRuntime.getAppContext()));
+            jSONObject.put("zeus", com.baidu.swan.apps.t.a.azm().bY(AppRuntime.getAppContext()));
             jSONObject.put("net", SwanAppNetworkUtils.getNetworkClass());
-            jSONObject.put("swaninfo", com.baidu.swan.apps.swancore.b.kD(com.baidu.swan.apps.runtime.d.aGI().aeW()).toString());
+            jSONObject.put("swaninfo", com.baidu.swan.apps.swancore.b.lb(com.baidu.swan.apps.runtime.d.aJQ().aie()).toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -94,45 +94,45 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void fQ(boolean z) {
-        String aGO = com.baidu.swan.apps.runtime.e.aGO();
-        Context ayQ = com.baidu.swan.apps.v.f.azg().ayQ();
-        if (ayQ == null) {
-            ayQ = AppRuntime.getAppContext();
+    public static void gf(boolean z) {
+        String aJW = com.baidu.swan.apps.runtime.e.aJW();
+        Context aBZ = com.baidu.swan.apps.v.f.aCp().aBZ();
+        if (aBZ == null) {
+            aBZ = AppRuntime.getAppContext();
         }
-        if (!TextUtils.isEmpty(aGO)) {
-            if (aGO.lastIndexOf("_dev") > 0 || aGO.lastIndexOf("_trial") > 0) {
-                com.baidu.swan.apps.res.widget.b.d.k(ayQ, a.h.aiapps_swan_app_error_page_hint).ki(5).ke(3).showToast();
+        if (!TextUtils.isEmpty(aJW)) {
+            if (aJW.lastIndexOf("_dev") > 0 || aJW.lastIndexOf("_trial") > 0) {
+                com.baidu.swan.apps.res.widget.b.d.t(aBZ, a.h.aiapps_swan_app_error_page_hint).kG(5).kC(3).showToast();
             } else if (z) {
-                cb("whiteScreen_L1", "检测到纯白屏");
+                ci("whiteScreen_L1", "检测到纯白屏");
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void cb(final String str, final String str2) {
+    public static void ci(final String str, final String str2) {
         com.baidu.swan.apps.core.f.a(new SwanAppNetworkUtils.a() { // from class: com.baidu.swan.apps.y.c.1
             @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.a
             public void onResult(int i) {
                 switch (i) {
                     case 1:
                         com.baidu.swan.apps.core.f.log(str2 + "; 网络：正常");
-                        com.baidu.swan.apps.core.d.F("white_screen", str, FrsActivityConfig.GOOD);
+                        com.baidu.swan.apps.core.d.I("white_screen", str, FrsActivityConfig.GOOD);
                         com.baidu.swan.apps.core.c.showToast(a.h.swanapp_tip_load_fail);
                         return;
                     case 2:
                         com.baidu.swan.apps.core.f.log(str2 + "; 网络：较差");
-                        com.baidu.swan.apps.core.d.F("white_screen", str, "bad");
+                        com.baidu.swan.apps.core.d.I("white_screen", str, "bad");
                         com.baidu.swan.apps.core.c.showToast(a.h.swanapp_tip_net_unavailable);
                         return;
                     case 3:
                         com.baidu.swan.apps.core.f.log(str2 + "; 网络：离线");
-                        com.baidu.swan.apps.core.d.F("white_screen", str, "offline");
+                        com.baidu.swan.apps.core.d.I("white_screen", str, "offline");
                         com.baidu.swan.apps.core.c.showToast(a.h.swanapp_tip_net_unavailable);
                         return;
                     default:
                         com.baidu.swan.apps.core.f.log(str2 + "; 网络：未知");
-                        com.baidu.swan.apps.core.d.F("white_screen", str, "unknown");
+                        com.baidu.swan.apps.core.d.I("white_screen", str, "unknown");
                         com.baidu.swan.apps.core.c.showToast(a.h.swanapp_tip_load_fail);
                         return;
                 }
@@ -141,27 +141,27 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void aBD() {
-        com.baidu.swan.apps.core.d.f afe = com.baidu.swan.apps.v.f.azg().afe();
-        if (afe != null && afe.aot() != null) {
+    public static void aEM() {
+        com.baidu.swan.apps.core.d.f aim = com.baidu.swan.apps.v.f.aCp().aim();
+        if (aim != null && aim.arB() != null) {
             p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.y.c.2
                 @Override // java.lang.Runnable
                 public void run() {
                     final File[] fileArr;
-                    Bitmap aMh = ah.aMh();
-                    w awb = com.baidu.swan.apps.t.a.awb();
-                    com.baidu.swan.apps.ak.a.aJk().aJo();
-                    File[] aJs = com.baidu.swan.apps.ak.a.aJk().aJq().aJs();
-                    File R = com.baidu.swan.apps.t.a.awC().R(AppRuntime.getAppContext(), com.baidu.swan.apps.runtime.e.aGO());
-                    if (aJs != null) {
-                        int length = aJs.length;
-                        fileArr = (File[]) Arrays.copyOf(aJs, length + 1);
-                        fileArr[length] = R;
+                    Bitmap aPo = ah.aPo();
+                    w azj = com.baidu.swan.apps.t.a.azj();
+                    com.baidu.swan.apps.ak.a.aMs().aMw();
+                    File[] aMA = com.baidu.swan.apps.ak.a.aMs().aMy().aMA();
+                    File U = com.baidu.swan.apps.t.a.azK().U(AppRuntime.getAppContext(), com.baidu.swan.apps.runtime.e.aJW());
+                    if (aMA != null) {
+                        int length = aMA.length;
+                        fileArr = (File[]) Arrays.copyOf(aMA, length + 1);
+                        fileArr[length] = U;
                     } else {
-                        fileArr = new File[]{R};
+                        fileArr = new File[]{U};
                     }
-                    if (awb != null) {
-                        awb.a(aMh, (HashMap<String, String>) null, fileArr, new w.a() { // from class: com.baidu.swan.apps.y.c.2.1
+                    if (azj != null) {
+                        azj.a(aPo, (HashMap<String, String>) null, fileArr, new w.a() { // from class: com.baidu.swan.apps.y.c.2.1
                             @Override // com.baidu.swan.apps.adaptation.a.w.a
                             public void onResult(String str) {
                                 if (str != null && str.contains("success")) {
@@ -178,21 +178,21 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean aBE() {
-        return com.baidu.swan.apps.v.f.azg().ayQ().aeZ().aGz();
+    public static boolean aEN() {
+        return com.baidu.swan.apps.v.f.aCp().aBZ().aih().aJH();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean afm() {
-        SwanAppActivity ayQ = com.baidu.swan.apps.v.f.azg().ayQ();
-        if (ayQ == null) {
+    public static boolean aiu() {
+        SwanAppActivity aBZ = com.baidu.swan.apps.v.f.aCp().aBZ();
+        if (aBZ == null) {
             return false;
         }
-        com.baidu.swan.apps.res.widget.floatlayer.a aeZ = ayQ.aeZ();
-        if (aeZ == null || !(aeZ.getView() instanceof FrameLayout)) {
+        com.baidu.swan.apps.res.widget.floatlayer.a aih = aBZ.aih();
+        if (aih == null || !(aih.getView() instanceof FrameLayout)) {
             return false;
         }
-        return ((FrameLayout) aeZ.getView()).getChildAt(0) instanceof LoadingView;
+        return ((FrameLayout) aih.getView()).getChildAt(0) instanceof LoadingView;
     }
 
     public static Rect a(Bitmap bitmap, com.baidu.swan.apps.core.d.e eVar, View view) {
@@ -203,28 +203,28 @@ public class c {
         view.getLocationOnScreen(iArr);
         int min = Math.min(iArr[0] + view.getMeasuredWidth(), bitmap.getWidth());
         int min2 = Math.min(iArr[1] + view.getMeasuredHeight(), bitmap.getHeight());
-        SwanAppActionBar anB = eVar.anB();
-        if (anB != null) {
+        SwanAppActionBar aqJ = eVar.aqJ();
+        if (aqJ != null) {
             int[] iArr2 = new int[2];
-            anB.getLocationOnScreen(iArr2);
-            iArr[1] = Math.max(iArr[1], iArr2[1] + anB.getHeight() + 1);
-            if (deP) {
+            aqJ.getLocationOnScreen(iArr2);
+            iArr[1] = Math.max(iArr[1], iArr2[1] + aqJ.getHeight() + 1);
+            if (dlN) {
                 if (DEBUG) {
                     Log.d("MonitorUtils", "getCheckRect: hit webview widget process bar calibrate");
                 }
-                com.baidu.swan.apps.adaptation.b.c aoi = eVar.aoi();
-                if (aoi != null) {
-                    com.baidu.swan.apps.adaptation.b.f ahS = aoi.ahS();
-                    if (ahS instanceof SwanAppWebViewWidget) {
+                com.baidu.swan.apps.adaptation.b.c arq = eVar.arq();
+                if (arq != null) {
+                    com.baidu.swan.apps.adaptation.b.f ala = arq.ala();
+                    if (ala instanceof SwanAppWebViewWidget) {
                         if (DEBUG) {
                             Log.d("MonitorUtils", "getCheckRect: hit webview widget");
                         }
-                        int aqO = ((SwanAppWebViewWidget) ahS).aqO();
+                        int atW = ((SwanAppWebViewWidget) ala).atW();
                         if (DEBUG) {
-                            Log.d("MonitorUtils", "getCheckRect: webview widget originY=" + iArr[1] + " , progressBarHeight=" + aqO);
+                            Log.d("MonitorUtils", "getCheckRect: webview widget originY=" + iArr[1] + " , progressBarHeight=" + atW);
                         }
-                        if (aqO > 0) {
-                            iArr[1] = aqO + iArr[1] + 1;
+                        if (atW > 0) {
+                            iArr[1] = atW + iArr[1] + 1;
                         }
                         if (DEBUG) {
                             Log.d("MonitorUtils", "getCheckRect: webview widget newY=" + iArr[1]);

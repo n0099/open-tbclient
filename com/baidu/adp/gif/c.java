@@ -3,10 +3,10 @@ package com.baidu.adp.gif;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class c {
-    public static final String[] JH = {"ZTE-T U880", "U880"};
+    public static final String[] Kz = {"ZTE-T U880", "U880"};
 
-    public static boolean bx(String str) {
-        for (String str2 : JH) {
+    public static boolean bA(String str) {
+        for (String str2 : Kz) {
             if (str2.equals(str)) {
                 return false;
             }
@@ -19,6 +19,6 @@ public class c {
     }
 
     public static boolean lK() {
-        return bx(Build.MODEL) && lJ() && NSGif.JD;
+        return bA(Build.MODEL) && lJ() && NSGif.Kv;
     }
 }

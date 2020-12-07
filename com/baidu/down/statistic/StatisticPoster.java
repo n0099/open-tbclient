@@ -31,7 +31,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class StatisticPoster {
     private static final boolean DEBUG = false;
     public static final int DOWNLOAD_STATUS_ERROR = 2;
@@ -132,7 +132,7 @@ public final class StatisticPoster {
                             str = str5 + "2@-1@-1";
                             break;
                     }
-                    str3 = str4 + str + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP;
+                    str3 = str4 + str + ",";
                 } else {
                     str3 = str4;
                 }

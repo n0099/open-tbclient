@@ -4,9 +4,9 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 /* loaded from: classes14.dex */
 public class m {
+    private static final DisplayMetrics cmg = com.baidu.prologue.a.b.b.getAppContext().getResources().getDisplayMetrics();
+    private static final float cmh = cmg.density;
     private static DisplayMetrics sDisplayMetrics;
-    private static final DisplayMetrics cfz = com.baidu.prologue.a.b.b.getAppContext().getResources().getDisplayMetrics();
-    private static final float cfA = cfz.density;
 
     public static float getDensity(Context context) {
         initDisplayMetrics(com.baidu.prologue.a.b.b.getAppContext());

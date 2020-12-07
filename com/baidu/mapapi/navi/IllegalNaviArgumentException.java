@@ -1,5 +1,5 @@
 package com.baidu.mapapi.navi;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class IllegalNaviArgumentException extends RuntimeException {
     public IllegalNaviArgumentException() {
     }

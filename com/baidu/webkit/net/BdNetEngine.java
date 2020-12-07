@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.net.BdNet;
@@ -34,7 +33,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.security.auth.x500.X500Principal;
 import org.apache.http.cookie.SM;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class BdNetEngine extends HandlerThread implements INoProGuard {
     private static final int ALT_DNS_NAME = 2;
     private static final int ALT_IPA_NAME = 7;
@@ -68,11 +67,11 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
     private static long mWaitTime = 10000;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        final String f3969a;
+        final String f3972a;
         final int b;
         int c;
         int d;
@@ -81,15 +80,15 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         char[] g;
 
         public a(X500Principal x500Principal) {
-            this.f3969a = x500Principal.getName("RFC2253");
-            this.b = this.f3969a.length();
+            this.f3972a = x500Principal.getName("RFC2253");
+            this.b = this.f3972a.length();
         }
 
         private int a(int i) {
             int i2;
             int i3;
             if (i + 1 >= this.b) {
-                throw new IllegalStateException("Malformed DN: " + this.f3969a);
+                throw new IllegalStateException("Malformed DN: " + this.f3972a);
             }
             char c = this.g[i];
             if (c >= '0' && c <= '9') {
@@ -97,7 +96,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             } else if (c >= 'a' && c <= 'f') {
                 i2 = c - 'W';
             } else if (c < 'A' || c > 'F') {
-                throw new IllegalStateException("Malformed DN: " + this.f3969a);
+                throw new IllegalStateException("Malformed DN: " + this.f3972a);
             } else {
                 i2 = c - '7';
             }
@@ -107,7 +106,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             } else if (c2 >= 'a' && c2 <= 'f') {
                 i3 = c2 - 'W';
             } else if (c2 < 'A' || c2 > 'F') {
-                throw new IllegalStateException("Malformed DN: " + this.f3969a);
+                throw new IllegalStateException("Malformed DN: " + this.f3972a);
             } else {
                 i3 = c2 - '7';
             }
@@ -165,7 +164,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                 this.c++;
             }
             if (this.c >= this.b) {
-                throw new IllegalStateException("Unexpected end of DN: " + this.f3969a);
+                throw new IllegalStateException("Unexpected end of DN: " + this.f3972a);
             }
             this.e = this.c;
             if (this.g[this.c] == ' ') {
@@ -173,7 +172,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                     this.c++;
                 }
                 if (this.g[this.c] != '=' || this.c == this.b) {
-                    throw new IllegalStateException("Unexpected end of DN: " + this.f3969a);
+                    throw new IllegalStateException("Unexpected end of DN: " + this.f3972a);
                 }
             }
             do {
@@ -191,7 +190,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         final String b() {
             int i;
             if (this.c + 4 >= this.b) {
-                throw new IllegalStateException("Unexpected end of DN: " + this.f3969a);
+                throw new IllegalStateException("Unexpected end of DN: " + this.f3972a);
             }
             this.d = this.c;
             this.c++;
@@ -204,7 +203,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                     }
                     i = this.e - this.d;
                     if (i >= 5 || (i & 1) == 0) {
-                        throw new IllegalStateException("Unexpected end of DN: " + this.f3969a);
+                        throw new IllegalStateException("Unexpected end of DN: " + this.f3972a);
                     }
                     byte[] bArr = new byte[i / 2];
                     int i2 = this.d + 1;
@@ -225,7 +224,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             i = this.e - this.d;
             if (i >= 5) {
             }
-            throw new IllegalStateException("Unexpected end of DN: " + this.f3969a);
+            throw new IllegalStateException("Unexpected end of DN: " + this.f3972a);
         }
 
         final String c() {
@@ -278,7 +277,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         final char d() {
             this.c++;
             if (this.c == this.b) {
-                throw new IllegalStateException("Unexpected end of DN: " + this.f3969a);
+                throw new IllegalStateException("Unexpected end of DN: " + this.f3972a);
             }
             switch (this.g[this.c]) {
                 case ' ':
@@ -301,7 +300,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public interface b {
         BdNetTask onNetDownloadComplete(BdNetEngine bdNetEngine, BdNetTask bdNetTask, boolean z);
 
@@ -336,7 +335,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         StringBuffer stringBuffer = new StringBuffer();
         for (Map.Entry<String, String> entry2 : bdNetTask.getCookies().entrySet()) {
             stringBuffer.append(entry2.getKey().trim());
-            stringBuffer.append(ETAG.EQUAL);
+            stringBuffer.append("=");
             stringBuffer.append(entry2.getValue().trim());
             stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         }
@@ -949,7 +948,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             aVar.d = 0;
             aVar.e = 0;
             aVar.f = 0;
-            aVar.g = aVar.f3969a.toCharArray();
+            aVar.g = aVar.f3972a.toCharArray();
             String a2 = aVar.a();
             if (a2 != null) {
                 do {
@@ -980,7 +979,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                                         aVar.e++;
                                     }
                                 }
-                                throw new IllegalStateException("Unexpected end of DN: " + aVar.f3969a);
+                                throw new IllegalStateException("Unexpected end of DN: " + aVar.f3972a);
                             case '#':
                                 str2 = aVar.b();
                                 break;
@@ -996,7 +995,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                             if (aVar.c >= aVar.b) {
                                 str2 = null;
                             } else if (aVar.g[aVar.c] != '+') {
-                                throw new IllegalStateException("Malformed DN: " + aVar.f3969a);
+                                throw new IllegalStateException("Malformed DN: " + aVar.f3972a);
                             } else {
                                 aVar.c++;
                                 a2 = aVar.a();
@@ -1004,7 +1003,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                         }
                     }
                 } while (a2 != null);
-                throw new IllegalStateException("Malformed DN: " + aVar.f3969a);
+                throw new IllegalStateException("Malformed DN: " + aVar.f3972a);
             }
             str2 = null;
             if (str2 != null) {

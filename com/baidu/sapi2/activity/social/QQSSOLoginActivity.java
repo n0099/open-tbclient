@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-import com.baidu.k.a.a.a;
+import com.baidu.l.a.a.a;
 import com.baidu.sapi2.social.SocialLoginBase;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.ParamsUtil;
@@ -16,14 +16,14 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class QQSSOLoginActivity extends BaseSSOLoginActivity {
     private static final String DEFAULT_QQ_NOT_INSTALL_ERROR = "QQ未安装";
     private static final String TAG = QQSSOLoginActivity.class.getSimpleName();
     private IUiListener qqLoginListener;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public interface QqCallback {
         void onFailure();
 

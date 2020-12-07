@@ -7,13 +7,13 @@ import com.baidu.ubs.analytics.SampleResult;
 import com.baidu.ubs.analytics.c;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class c {
-    private boolean fQp = false;
+    private boolean fYy = false;
     private int mChannel;
 
     public c() {
-        bIi();
+        bLQ();
     }
 
     public void a(ArrayList<Integer> arrayList, b bVar) {
@@ -21,30 +21,30 @@ public class c {
             Iterator<Integer> it = arrayList.iterator();
             while (it.hasNext()) {
                 int intValue = it.next().intValue();
-                bVar.by(intValue, tH(intValue));
+                bVar.bA(intValue, ul(intValue));
             }
         }
     }
 
-    private int tH(int i) {
+    private int ul(int i) {
         if (i == 1) {
-            return tI(i);
+            return um(i);
         }
         if (this.mChannel == 1) {
-            return tK(i);
+            return uo(i);
         }
         if (this.mChannel == 0) {
-            return tI(i);
+            return um(i);
         }
         return 0;
     }
 
-    private int tI(int i) {
-        String tJ = tJ(i);
-        return (!au.isEmpty(tJ) && com.baidu.tbadk.core.sharedPref.b.bpu().getInt(tJ, 0) == 1) ? 1 : 0;
+    private int um(int i) {
+        String un = un(i);
+        return (!au.isEmpty(un) && com.baidu.tbadk.core.sharedPref.b.bsO().getInt(un, 0) == 1) ? 1 : 0;
     }
 
-    private String tJ(int i) {
+    private String un(int i) {
         if (i == 1) {
             return "key_card_show_type";
         }
@@ -54,53 +54,53 @@ public class c {
         return null;
     }
 
-    private int tK(int i) {
-        String tL = tL(i);
-        if (au.isEmpty(tL)) {
+    private int uo(int i) {
+        String up = up(i);
+        if (au.isEmpty(up)) {
             return 0;
         }
-        SampleResult WF = com.baidu.ubs.analytics.a.WF(tL);
-        return (WF == SampleResult.T1 || WF == SampleResult.T2 || WF == SampleResult.T3 || WF == SampleResult.T4 || WF == SampleResult.T5) ? 1 : 0;
+        SampleResult XY = com.baidu.ubs.analytics.a.XY(up);
+        return (XY == SampleResult.T1 || XY == SampleResult.T2 || XY == SampleResult.T3 || XY == SampleResult.T4 || XY == SampleResult.T5) ? 1 : 0;
     }
 
-    private String tL(int i) {
+    private String up(int i) {
         if (i == 2) {
             return "46";
         }
         return null;
     }
 
-    private void bIi() {
-        this.mChannel = com.baidu.tbadk.core.sharedPref.b.bpu().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0);
+    private void bLQ() {
+        this.mChannel = com.baidu.tbadk.core.sharedPref.b.bsO().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0);
         initSdk();
     }
 
-    public void tM(int i) {
+    public void uq(int i) {
         if (i == 1 || i == 0) {
             this.mChannel = i;
-            com.baidu.tbadk.core.sharedPref.b.bpu().putInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, this.mChannel);
+            com.baidu.tbadk.core.sharedPref.b.bsO().putInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, this.mChannel);
             initSdk();
         }
     }
 
     private void initSdk() {
-        if (!this.fQp && this.mChannel == 1) {
-            this.fQp = bIk();
-            if (!this.fQp) {
+        if (!this.fYy && this.mChannel == 1) {
+            this.fYy = bLS();
+            if (!this.fYy) {
                 this.mChannel = 0;
             }
         }
     }
 
-    public boolean bIj() {
-        return this.fQp;
+    public boolean bLR() {
+        return this.fYy;
     }
 
-    public boolean bIk() {
+    public boolean bLS() {
         boolean z = true;
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             try {
-                com.baidu.ubs.analytics.a.a(new c.a().go(TbadkCoreApplication.getInst()).zH(false).hs(30L).NM(1).zI(false).ht(15L).NN(1000).edx());
+                com.baidu.ubs.analytics.a.a(new c.a().gY(TbadkCoreApplication.getInst()).Al(false).hX(30L).OK(1).Am(false).hY(15L).OL(1000).ejl());
             } catch (Exception e) {
                 e.printStackTrace();
                 z = false;

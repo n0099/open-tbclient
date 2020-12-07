@@ -1,7 +1,6 @@
 package com.cmic.sso.sdk.e;
 
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
@@ -20,7 +19,7 @@ public class r {
                     while (inetAddresses.hasMoreElements()) {
                         InetAddress nextElement2 = inetAddresses.nextElement();
                         if (!nextElement2.isLoopbackAddress() && (nextElement2 instanceof Inet4Address)) {
-                            sb.append(nextElement2.getHostAddress()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                            sb.append(nextElement2.getHostAddress()).append(",");
                         }
                     }
                 }
@@ -34,7 +33,7 @@ public class r {
         }
     }
 
-    public static String aF(boolean z, boolean z2) {
+    public static String aG(boolean z, boolean z2) {
         StringBuilder sb = new StringBuilder();
         try {
             Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
@@ -49,10 +48,10 @@ public class r {
                             if (!TextUtils.isEmpty(hostAddress)) {
                                 if (z2) {
                                     if (hostAddress.startsWith("2409:89")) {
-                                        sb.append(hostAddress).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                                        sb.append(hostAddress).append(",");
                                     }
                                 } else {
-                                    sb.append(hostAddress).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                                    sb.append(hostAddress).append(",");
                                 }
                             }
                         }

@@ -2,14 +2,14 @@ package kotlin.jvm.internal;
 
 import kotlin.reflect.i;
 import kotlin.reflect.m;
-/* loaded from: classes9.dex */
+/* loaded from: classes17.dex */
 public abstract class MutablePropertyReference2 extends MutablePropertyReference implements kotlin.reflect.i {
     @Override // kotlin.jvm.internal.CallableReference
     protected kotlin.reflect.b computeReflected() {
-        return t.a(this);
+        return s.a(this);
     }
 
-    @Override // kotlin.jvm.a.m
+    @Override // kotlin.jvm.a.c
     public Object invoke(Object obj, Object obj2) {
         return get(obj, obj2);
     }

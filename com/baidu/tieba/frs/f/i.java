@@ -1,150 +1,24 @@
 package com.baidu.tieba.frs.f;
 
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
-/* loaded from: classes.dex */
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.frs.FrsFragment;
+/* loaded from: classes22.dex */
 public class i {
-    private static String cEP() {
-        return "pref_name_frs_sortType_" + TbadkCoreApplication.getCurrentAccount();
-    }
-
-    private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(cEP(), 0);
-    }
-
-    public static void aR(String str, int i) {
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                SharedPreferences.Editor edit = getSharedPreferences().edit();
-                edit.putInt(str, i);
-                edit.apply();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+    public static boolean a(FrsFragment frsFragment, String str, String str2, boolean z) {
+        if (z && frsFragment != null && !TextUtils.isEmpty(str) && frsFragment.isAdded() && l.aO(TbadkCoreApplication.getInst().getApplicationContext(), frsFragment.getActivity().getClass().getName())) {
+            Intent intent = new Intent();
+            intent.putExtra(DealIntentService.KEY_CLASS, 2);
+            intent.putExtra("fname", str);
+            intent.putExtra(str2, "short_cut");
+            frsFragment.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LogoActivityConfig(frsFragment.getPageContext().getPageActivity(), intent)));
+            return false;
         }
-    }
-
-    public static int Kz(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return -1;
-        }
-        try {
-            return getSharedPreferences().getInt(str, -1);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return -1;
-        }
-    }
-
-    public static void clearAll() {
-        try {
-            SharedPreferences.Editor edit = getSharedPreferences().edit();
-            edit.clear();
-            edit.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static int AP(int i) {
-        switch (i) {
-            case 2:
-            case 5:
-                return 0;
-            case 3:
-                return 1;
-            case 4:
-            default:
-                return -1;
-            case 6:
-                return 2;
-            case 7:
-                return 3;
-            case 8:
-                return 4;
-        }
-    }
-
-    public static int AQ(int i) {
-        switch (i) {
-            case 0:
-                return 2;
-            case 1:
-                return 3;
-            case 2:
-                return 6;
-            case 3:
-                return 7;
-            case 4:
-                return 8;
-            default:
-                return -1;
-        }
-    }
-
-    public static int a(int i, FrsRequestData frsRequestData) {
-        switch (i) {
-            case 2:
-                if (frsRequestData != null) {
-                    frsRequestData.setSortType(0);
-                    frsRequestData.setIsGood(0);
-                    break;
-                }
-                break;
-            case 3:
-                if (frsRequestData != null) {
-                    frsRequestData.setSortType(1);
-                    frsRequestData.setIsGood(0);
-                    break;
-                }
-                break;
-            case 5:
-                if (frsRequestData != null) {
-                    frsRequestData.setSortType(0);
-                    frsRequestData.setIsGood(1);
-                    break;
-                }
-                break;
-            case 6:
-                if (frsRequestData != null) {
-                    frsRequestData.setSortType(2);
-                    frsRequestData.setIsGood(0);
-                    break;
-                }
-                break;
-            case 7:
-                if (frsRequestData != null) {
-                    frsRequestData.setSortType(3);
-                    frsRequestData.setIsGood(0);
-                    break;
-                }
-                break;
-            case 8:
-                if (frsRequestData != null) {
-                    frsRequestData.setSortType(4);
-                    frsRequestData.setIsGood(0);
-                    break;
-                }
-                break;
-        }
-        return 1;
-    }
-
-    public static int AR(int i) {
-        switch (i) {
-            case 0:
-                return 2;
-            case 1:
-                return 3;
-            case 2:
-            case 4:
-                return 4;
-            case 3:
-                return 1;
-            default:
-                return -1;
-        }
+        return true;
     }
 }

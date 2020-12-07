@@ -1,6 +1,5 @@
 package io.flutter.embedding.engine.plugins.shim;
 
-import androidx.annotation.NonNull;
 import io.flutter.Log;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
@@ -11,14 +10,14 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class ShimPluginRegistry implements PluginRegistry {
     private static final String TAG = "ShimPluginRegistry";
     private final FlutterEngine flutterEngine;
     private final Map<String, Object> pluginMap = new HashMap();
     private final ShimRegistrarAggregate shimRegistrarAggregate = new ShimRegistrarAggregate();
 
-    public ShimPluginRegistry(@NonNull FlutterEngine flutterEngine) {
+    public ShimPluginRegistry(FlutterEngine flutterEngine) {
         this.flutterEngine = flutterEngine;
         this.flutterEngine.getPlugins().add(this.shimRegistrarAggregate);
     }
@@ -45,7 +44,7 @@ public class ShimPluginRegistry implements PluginRegistry {
         return (T) this.pluginMap.get(str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     private static class ShimRegistrarAggregate implements FlutterPlugin, ActivityAware {
         private ActivityPluginBinding activityPluginBinding;
         private FlutterPlugin.FlutterPluginBinding flutterPluginBinding;
@@ -55,7 +54,7 @@ public class ShimPluginRegistry implements PluginRegistry {
             this.shimRegistrars = new HashSet();
         }
 
-        public void addPlugin(@NonNull ShimRegistrar shimRegistrar) {
+        public void addPlugin(ShimRegistrar shimRegistrar) {
             this.shimRegistrars.add(shimRegistrar);
             if (this.flutterPluginBinding != null) {
                 shimRegistrar.onAttachedToEngine(this.flutterPluginBinding);
@@ -66,7 +65,7 @@ public class ShimPluginRegistry implements PluginRegistry {
         }
 
         @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
-        public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
+        public void onAttachedToEngine(FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
             this.flutterPluginBinding = flutterPluginBinding;
             for (ShimRegistrar shimRegistrar : this.shimRegistrars) {
                 shimRegistrar.onAttachedToEngine(flutterPluginBinding);
@@ -74,7 +73,7 @@ public class ShimPluginRegistry implements PluginRegistry {
         }
 
         @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
-        public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
+        public void onDetachedFromEngine(FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
             for (ShimRegistrar shimRegistrar : this.shimRegistrars) {
                 shimRegistrar.onDetachedFromEngine(flutterPluginBinding);
             }
@@ -83,7 +82,7 @@ public class ShimPluginRegistry implements PluginRegistry {
         }
 
         @Override // io.flutter.embedding.engine.plugins.activity.ActivityAware
-        public void onAttachedToActivity(@NonNull ActivityPluginBinding activityPluginBinding) {
+        public void onAttachedToActivity(ActivityPluginBinding activityPluginBinding) {
             this.activityPluginBinding = activityPluginBinding;
             for (ShimRegistrar shimRegistrar : this.shimRegistrars) {
                 shimRegistrar.onAttachedToActivity(activityPluginBinding);
@@ -99,7 +98,7 @@ public class ShimPluginRegistry implements PluginRegistry {
         }
 
         @Override // io.flutter.embedding.engine.plugins.activity.ActivityAware
-        public void onReattachedToActivityForConfigChanges(@NonNull ActivityPluginBinding activityPluginBinding) {
+        public void onReattachedToActivityForConfigChanges(ActivityPluginBinding activityPluginBinding) {
             this.activityPluginBinding = activityPluginBinding;
             for (ShimRegistrar shimRegistrar : this.shimRegistrars) {
                 shimRegistrar.onReattachedToActivityForConfigChanges(activityPluginBinding);

@@ -7,13 +7,13 @@ import java.nio.ByteBuffer;
 public class a implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    private ByteBuffer f1188a;
+    private ByteBuffer f1186a;
 
     public a(ByteBuffer byteBuffer) {
         if (byteBuffer == null) {
             throw new NullPointerException("input parameter bb is null");
         }
-        this.f1188a = byteBuffer;
+        this.f1186a = byteBuffer;
         byteBuffer.rewind();
         try {
             a(0L);
@@ -28,10 +28,10 @@ public class a implements d {
 
     @Override // com.baidu.appsearch.update.patchupdate.d
     public int a(ByteBuffer byteBuffer) {
-        if (this.f1188a.hasRemaining()) {
+        if (this.f1186a.hasRemaining()) {
             int i = 0;
-            while (this.f1188a.hasRemaining() && byteBuffer.hasRemaining()) {
-                byteBuffer.put(this.f1188a.get());
+            while (this.f1186a.hasRemaining() && byteBuffer.hasRemaining()) {
+                byteBuffer.put(this.f1186a.get());
                 i++;
             }
             return i;
@@ -41,18 +41,18 @@ public class a implements d {
 
     @Override // com.baidu.appsearch.update.patchupdate.d
     public void a(long j) {
-        if (j > this.f1188a.limit()) {
-            throw new IOException("pos " + j + " cannot seek " + this.f1188a.limit());
+        if (j > this.f1186a.limit()) {
+            throw new IOException("pos " + j + " cannot seek " + this.f1186a.limit());
         }
-        this.f1188a.position((int) j);
+        this.f1186a.position((int) j);
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        this.f1188a = null;
+        this.f1186a = null;
     }
 
     public String toString() {
-        return "BBSeekable bb=" + this.f1188a.position() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.f1188a.limit();
+        return "BBSeekable bb=" + this.f1186a.position() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.f1186a.limit();
     }
 }

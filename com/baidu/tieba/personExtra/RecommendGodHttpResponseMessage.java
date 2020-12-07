@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.personPolymeric.c.q;
 import com.squareup.wire.Wire;
 import tbclient.GetRecommendGodList.GetRecommendGodListResIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class RecommendGodHttpResponseMessage extends HttpResponsedMessage {
     public q recommendGodData;
 

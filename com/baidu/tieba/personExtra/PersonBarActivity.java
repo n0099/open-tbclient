@@ -3,83 +3,83 @@ package com.baidu.tieba.personExtra;
 import android.os.Bundle;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
-    private PersonBarAdapter lYu = null;
-    private PersonBarModel lYv = null;
+    private PersonBarAdapter mmC = null;
+    private PersonBarModel mmD = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.lXL && this.knG != 23011) {
+        if (this.mlT && this.kBc != 23011) {
             setSwipeBackEnabled(false);
         }
-        this.lYv = new PersonBarModel(getPageContext(), VH());
-        this.lYv.setSex(getSex());
-        this.lYv.setId(getUid());
-        this.lYv.setUniqueId(getUniqueId());
+        this.mmD = new PersonBarModel(getPageContext(), Yh());
+        this.mmD.setSex(getSex());
+        this.mmD.setId(getUid());
+        this.mmD.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public BasePersonInfoAdapter a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.lYu == null) {
-            this.lYu = new PersonBarAdapter(this, VH());
+        if (this.mmC == null) {
+            this.mmC = new PersonBarAdapter(this, Yh());
         }
-        return this.lYu;
+        return this.mmC;
     }
 
-    public PersonBarModel dtJ() {
-        return this.lYv;
+    public PersonBarModel dzb() {
+        return this.mmD;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String dtr() {
+    public String dyJ() {
         return getPageContext().getString(R.string.person_bar_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String dts() {
+    public String dyK() {
         return getPageContext().getString(R.string.attention_bar);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String dtt() {
+    public String dyL() {
         return getPageContext().getString(R.string.person_bar_no_common_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String dtu() {
+    public String dyM() {
         return getPageContext().getString(R.string.person_bar_personal);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String dtv() {
+    public String dyN() {
         return getPageContext().getString(R.string.person_bar_common);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String dtz() {
+    public String dyR() {
         return "common_forum";
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public int dtA() {
+    public int dyS() {
         return 2;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         BaseFragment baseFragment;
-        c dtT;
+        c dzl;
         super.onPageSelected(i);
-        if (this.lYu != null && this.lYu.getItem(i) != null && (baseFragment = (BaseFragment) this.lYu.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (dtT = ((PersonBarFragment) baseFragment).dtT()) != null) {
-            dtT.lk(false);
-            dtT.notifyDataSetChanged();
+        if (this.mmC != null && this.mmC.getItem(i) != null && (baseFragment = (BaseFragment) this.mmC.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (dzl = ((PersonBarFragment) baseFragment).dzl()) != null) {
+            dzl.lF(false);
+            dzl.notifyDataSetChanged();
         }
     }
 
     public int getRequestCode() {
-        return this.knG;
+        return this.kBc;
     }
 }

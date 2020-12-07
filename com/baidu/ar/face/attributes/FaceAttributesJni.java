@@ -1,19 +1,18 @@
 package com.baidu.ar.face.attributes;
 
 import android.content.res.AssetManager;
-import com.baidu.ar.libloader.b;
 import java.nio.ByteBuffer;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class FaceAttributesJni {
-    protected static boolean nH;
+    protected static boolean nX;
 
     static {
-        nH = false;
+        nX = false;
         try {
-            b.as("FaceAttributes");
-            nH = true;
+            com.baidu.ar.libloader.a.require("FaceAttributes");
+            nX = true;
         } catch (Throwable th) {
-            nH = false;
+            nX = false;
             th.printStackTrace();
         }
     }

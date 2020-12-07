@@ -9,7 +9,7 @@ import com.baidu.mobstat.av;
 public class ActivityLifeTask {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f2460a = false;
+    private static boolean f2462a = false;
     private static ActivityLifeObserver.IActivityLifeCallback b;
     private static ActivityLifeObserver.IActivityLifeCallback c;
     private static ActivityLifeObserver.IActivityLifeCallback d;
@@ -17,7 +17,7 @@ public class ActivityLifeTask {
 
     public static synchronized void registerActivityLifeCallback(Context context) {
         synchronized (ActivityLifeTask.class) {
-            if (!f2460a) {
+            if (!f2462a) {
                 a(context);
                 ActivityLifeObserver.instance().clearObservers();
                 ActivityLifeObserver.instance().addObserver(b);
@@ -25,7 +25,7 @@ public class ActivityLifeTask {
                 ActivityLifeObserver.instance().addObserver(c);
                 ActivityLifeObserver.instance().addObserver(e);
                 ActivityLifeObserver.instance().registerActivityLifeCallback(context);
-                f2460a = true;
+                f2462a = true;
             }
         }
     }

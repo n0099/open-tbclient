@@ -1,16 +1,17 @@
 package com.baidu.live.gift;
 
-import android.content.Context;
-import android.content.Intent;
+import android.view.View;
 /* loaded from: classes4.dex */
 public interface ag {
-    void FZ();
+    View IC();
 
-    void GM();
+    void bD(boolean z);
 
-    void a(int i, int i2, Intent intent, com.baidu.live.data.w wVar, String str);
+    void bE(boolean z);
 
-    void a(Context context, long j, String str, long j2, String str2, String str3);
+    void onDestroy();
 
-    void bw(boolean z);
+    void onPause();
+
+    void onResume();
 }

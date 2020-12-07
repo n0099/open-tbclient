@@ -8,32 +8,33 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+import org.a.d;
+/* loaded from: classes9.dex */
 public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
     final long bufferSize;
-    final io.reactivex.c.a onOverflow;
+    final io.reactivex.b.a onOverflow;
     final BackpressureOverflowStrategy strategy;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pOn.a((j) new OnBackpressureBufferStrategySubscriber(cVar, this.onOverflow, this.strategy, this.bufferSize));
+        this.pFg.a((j) new OnBackpressureBufferStrategySubscriber(cVar, this.onOverflow, this.strategy, this.bufferSize));
     }
 
-    /* loaded from: classes5.dex */
-    static final class OnBackpressureBufferStrategySubscriber<T> extends AtomicInteger implements j<T>, org.a.d {
+    /* loaded from: classes9.dex */
+    static final class OnBackpressureBufferStrategySubscriber<T> extends AtomicInteger implements j<T>, d {
         private static final long serialVersionUID = 3240706908776709697L;
         final org.a.c<? super T> actual;
         final long bufferSize;
         volatile boolean cancelled;
         volatile boolean done;
         Throwable error;
-        final io.reactivex.c.a onOverflow;
-        org.a.d s;
+        final io.reactivex.b.a onOverflow;
+        d s;
         final BackpressureOverflowStrategy strategy;
         final AtomicLong requested = new AtomicLong();
         final Deque<T> deque = new ArrayDeque();
 
-        OnBackpressureBufferStrategySubscriber(org.a.c<? super T> cVar, io.reactivex.c.a aVar, BackpressureOverflowStrategy backpressureOverflowStrategy, long j) {
+        OnBackpressureBufferStrategySubscriber(org.a.c<? super T> cVar, io.reactivex.b.a aVar, BackpressureOverflowStrategy backpressureOverflowStrategy, long j) {
             this.actual = cVar;
             this.onOverflow = aVar;
             this.strategy = backpressureOverflowStrategy;
@@ -41,7 +42,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -98,7 +99,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
         @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.e.a.onError(th);
+                io.reactivex.d.a.onError(th);
                 return;
             }
             this.error = th;

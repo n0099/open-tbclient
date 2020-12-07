@@ -15,43 +15,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0227a bIw;
-    private boolean bIx;
+    private InterfaceC0236a bNE;
+    private boolean bNF;
     private TbPageContext mPageContext;
     private int mPn = 1;
-    private HttpMessageListener bIy = new HttpMessageListener(1021216) { // from class: com.baidu.live.videochat.panel.b.a.1
+    private HttpMessageListener bNG = new HttpMessageListener(1021216) { // from class: com.baidu.live.videochat.panel.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof LiveBBVideoFriendsResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.getUniqueId()) {
                 LiveBBVideoFriendsResponseMessage liveBBVideoFriendsResponseMessage = (LiveBBVideoFriendsResponseMessage) httpResponsedMessage;
                 if (liveBBVideoFriendsResponseMessage.getError() != 0 || !liveBBVideoFriendsResponseMessage.isSuccess()) {
-                    if (a.this.bIw != null) {
-                        a.this.bIw.e(liveBBVideoFriendsResponseMessage.getError(), liveBBVideoFriendsResponseMessage.getErrorString(), a.this.bIx);
+                    if (a.this.bNE != null) {
+                        a.this.bNE.e(liveBBVideoFriendsResponseMessage.getError(), liveBBVideoFriendsResponseMessage.getErrorString(), a.this.bNF);
                     }
                 } else {
                     a.this.mPn = liveBBVideoFriendsResponseMessage.getPn();
-                    a.this.mDataList.addAll(liveBBVideoFriendsResponseMessage.VE());
-                    if (a.this.bIw != null) {
-                        a.this.bIw.g(a.this.mDataList, liveBBVideoFriendsResponseMessage.hasMore());
+                    a.this.mDataList.addAll(liveBBVideoFriendsResponseMessage.Ye());
+                    if (a.this.bNE != null) {
+                        a.this.bNE.g(a.this.mDataList, liveBBVideoFriendsResponseMessage.hasMore());
                     }
                 }
-                a.this.bIx = false;
+                a.this.bNF = false;
             }
         }
     };
-    private HttpMessageListener bIz = new HttpMessageListener(1021217) { // from class: com.baidu.live.videochat.panel.b.a.2
+    private HttpMessageListener bNH = new HttpMessageListener(1021217) { // from class: com.baidu.live.videochat.panel.b.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof LiveBBVideoCheckStatusResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.getUniqueId()) {
                 LiveBBVideoCheckStatusResponseMessage liveBBVideoCheckStatusResponseMessage = (LiveBBVideoCheckStatusResponseMessage) httpResponsedMessage;
                 if (liveBBVideoCheckStatusResponseMessage.getError() != 0 || !liveBBVideoCheckStatusResponseMessage.isSuccess()) {
-                    if (a.this.bIw != null) {
-                        a.this.bIw.X(liveBBVideoCheckStatusResponseMessage.getError(), liveBBVideoCheckStatusResponseMessage.getErrorString());
+                    if (a.this.bNE != null) {
+                        a.this.bNE.X(liveBBVideoCheckStatusResponseMessage.getError(), liveBBVideoCheckStatusResponseMessage.getErrorString());
                     }
-                } else if (a.this.bIw != null) {
-                    a.this.bIw.b(liveBBVideoCheckStatusResponseMessage);
+                } else if (a.this.bNE != null) {
+                    a.this.bNE.b(liveBBVideoCheckStatusResponseMessage);
                 }
             }
         }
@@ -60,7 +60,7 @@ public class a extends BdBaseModel {
 
     /* renamed from: com.baidu.live.videochat.panel.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0227a {
+    public interface InterfaceC0236a {
         void X(int i, String str);
 
         void b(LiveBBVideoCheckStatusResponseMessage liveBBVideoCheckStatusResponseMessage);
@@ -70,7 +70,7 @@ public class a extends BdBaseModel {
         void g(List<com.baidu.live.videochat.panel.a.a> list, boolean z);
     }
 
-    private void VF() {
+    private void Yf() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021216, TbConfig.SERVER_ADDRESS + "ala/pubshow/getPubShowList");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
@@ -83,17 +83,17 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0227a interfaceC0227a) {
+    public a(TbPageContext tbPageContext, InterfaceC0236a interfaceC0236a) {
         this.mPageContext = tbPageContext;
-        this.bIw = interfaceC0227a;
-        VF();
-        registerListener(this.bIy);
-        registerListener(this.bIz);
+        this.bNE = interfaceC0236a;
+        Yf();
+        registerListener(this.bNG);
+        registerListener(this.bNH);
     }
 
-    public void dh(boolean z) {
-        if (!this.bIx) {
-            this.bIx = z;
+    public void dv(boolean z) {
+        if (!this.bNF) {
+            this.bNF = z;
             if (!z) {
                 this.mPn = 1;
                 this.mDataList.clear();

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.ap.ai;
-import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.CookieSyncManager;
 import java.text.SimpleDateFormat;
@@ -14,23 +13,23 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class y {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String dGh = "cookieMap";
-    public static String dGi = "ptokenDomains";
-    public static String dGj = "bdussDomains";
+    public static String dNf = "cookieMap";
+    public static String dNg = "ptokenDomains";
+    public static String dNh = "bdussDomains";
 
-    public static void dm(Context context) {
-        dn(context);
+    public static void dS(Context context) {
+        dT(context);
     }
 
-    public static void dn(Context context) {
+    public static void dT(Context context) {
         if (context != null) {
-            String cY = a.cY(context);
-            String df = a.df(context);
-            b(context, cY, aNv());
-            c(context, df, aNv());
+            String dE = a.dE(context);
+            String dL = a.dL(context);
+            b(context, dE, aQB());
+            c(context, dL, aQB());
         }
     }
 
@@ -49,19 +48,19 @@ public class y {
             } else {
                 buildBDUSSCookie = buildBDUSSCookie(str2, str);
             }
-            q("http://www." + str2, buildBDUSSCookie, false);
+            r("http://www." + str2, buildBDUSSCookie, false);
         }
     }
 
     private static String buildBDUSSCookie(String str, String str2) {
-        return Z(str, "BDUSS", str2);
+        return ac(str, "BDUSS", str2);
     }
 
     private static String buildPtokenCookie(String str, String str2) {
-        return Z(str, "PTOKEN", str2);
+        return ac(str, "PTOKEN", str2);
     }
 
-    private static String Z(String str, String str2, String str3) {
+    private static String ac(String str, String str2, String str3) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.add(1, TextUtils.isEmpty(str3) ? -8 : 8);
@@ -71,7 +70,7 @@ public class y {
     private static String b(String str, String str2, String str3, Date date, boolean z) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
         simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-        return str2 + ETAG.EQUAL + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(date) + ";httponly" + (z ? ";secure" : "");
+        return str2 + "=" + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(date) + ";httponly" + (z ? ";secure" : "");
     }
 
     private static void c(Context context, String str, List<String> list) {
@@ -89,18 +88,18 @@ public class y {
             } else {
                 buildPtokenCookie = buildPtokenCookie(str2, str);
             }
-            q("http://www." + str2, buildPtokenCookie, false);
+            r("http://www." + str2, buildPtokenCookie, false);
         }
     }
 
-    private static void q(String str, String str2, boolean z) {
+    private static void r(String str, String str2, boolean z) {
         CookieManager.getInstance().setCookie(str, str2);
         if (z) {
             CookieSyncManager.getInstance().sync();
         }
     }
 
-    private static List<String> aNv() {
+    private static List<String> aQB() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("baidu.com");
         arrayList.add("hao123.com");

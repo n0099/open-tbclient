@@ -11,7 +11,7 @@ public class e extends g {
     private String c;
     private String d;
     private boolean e = false;
-    private a oKF;
+    private a oZL;
 
     public void a(boolean z) {
         this.e = z;
@@ -30,16 +30,16 @@ public class e extends g {
     }
 
     public void a(a aVar) {
-        this.oKF = aVar;
+        this.oZL = aVar;
     }
 
-    public a eiL() {
-        return this.oKF;
+    public a eoB() {
+        return this.oZL;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
     public String a() {
-        return this.oKF.a();
+        return this.oZL.a();
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
@@ -48,7 +48,7 @@ public class e extends g {
         if (this.e) {
             try {
                 jSONObject.put("encrypted", this.c);
-                jSONObject.put("reqdata", com.cmic.sso.sdk.e.a.a(this.b, this.oKF.toString()));
+                jSONObject.put("reqdata", com.cmic.sso.sdk.e.a.a(this.b, this.oZL.toString()));
                 jSONObject.put("securityreinforce", this.d);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -63,7 +63,7 @@ public class e extends g {
         private long q;
 
         /* renamed from: a  reason: collision with root package name */
-        private String f4012a = "";
+        private String f4015a = "";
         private String b = "";
         private String c = "";
         private String d = "";
@@ -114,11 +114,11 @@ public class e extends g {
         }
 
         public void e(String str) {
-            this.f4012a = Xy(str);
+            this.f4015a = YT(str);
         }
 
         public void f(String str) {
-            this.b = Xy(str);
+            this.b = YT(str);
         }
 
         public String a() {
@@ -126,90 +126,90 @@ public class e extends g {
         }
 
         public void g(String str) {
-            this.c = Xy(str);
+            this.c = YT(str);
         }
 
         public void h(String str) {
-            this.d = Xy(str);
+            this.d = YT(str);
         }
 
         public void i(String str) {
-            this.e = Xy(str);
+            this.e = YT(str);
         }
 
         public void j(String str) {
-            this.f = Xy(str);
+            this.f = YT(str);
         }
 
         public void k(String str) {
-            this.g = Xy(str);
+            this.g = YT(str);
         }
 
         public void l(String str) {
-            this.h = Xy(str);
+            this.h = YT(str);
         }
 
         public void m(String str) {
-            this.i = Xy(str);
+            this.i = YT(str);
         }
 
         public void n(String str) {
-            String Xy = Xy(str);
+            String YT = YT(str);
             try {
-                this.j = URLEncoder.encode(Xy, "utf-8");
+                this.j = URLEncoder.encode(YT, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
-                this.j = Xy;
+                this.j = YT;
             }
         }
 
         public void o(String str) {
-            String Xy = Xy(str);
+            String YT = YT(str);
             try {
-                this.k = URLEncoder.encode(Xy, "utf-8");
+                this.k = URLEncoder.encode(YT, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
-                this.k = Xy;
+                this.k = YT;
             }
         }
 
         public void p(String str) {
-            this.l = Xy(str);
+            this.l = YT(str);
         }
 
         public void q(String str) {
-            this.m = Xy(str);
+            this.m = YT(str);
         }
 
         public void r(String str) {
-            this.o = Xy(str);
+            this.o = YT(str);
         }
 
         public void s(String str) {
-            this.p = Xy(str);
+            this.p = YT(str);
         }
 
         public void t(String str) {
-            this.A = Xy(str);
+            this.A = YT(str);
         }
 
         public void u(String str) {
-            this.B = Xy(str);
+            this.B = YT(str);
         }
 
         public void v(String str) {
-            this.E = Xy(str);
+            this.E = YT(str);
         }
 
-        public String Xx(String str) {
+        public String YS(String str) {
             return com.cmic.sso.sdk.e.d.a(this.b + this.c + this.d + this.e + this.f + this.g + this.h + this.i + this.j + this.k + this.l + this.m + this.o + this.p + str + this.r + this.s + this.t + this.u + this.v + this.w + this.x + this.y + this.z + this.A + this.B + this.C + this.D);
         }
 
         public String toString() {
-            return this.f4012a + ETAG.ITEM_SEPARATOR + this.b + ETAG.ITEM_SEPARATOR + this.c + ETAG.ITEM_SEPARATOR + this.d + ETAG.ITEM_SEPARATOR + this.e + ETAG.ITEM_SEPARATOR + this.f + ETAG.ITEM_SEPARATOR + this.g + ETAG.ITEM_SEPARATOR + this.h + ETAG.ITEM_SEPARATOR + this.i + ETAG.ITEM_SEPARATOR + this.j + ETAG.ITEM_SEPARATOR + this.k + ETAG.ITEM_SEPARATOR + this.l + ETAG.ITEM_SEPARATOR + this.m + ETAG.ITEM_SEPARATOR + "6.0" + ETAG.ITEM_SEPARATOR + this.n + ETAG.ITEM_SEPARATOR + this.o + ETAG.ITEM_SEPARATOR + this.p + ETAG.ITEM_SEPARATOR + this.r + ETAG.ITEM_SEPARATOR + this.s + ETAG.ITEM_SEPARATOR + this.t + ETAG.ITEM_SEPARATOR + this.u + ETAG.ITEM_SEPARATOR + this.v + ETAG.ITEM_SEPARATOR + this.w + ETAG.ITEM_SEPARATOR + this.x + ETAG.ITEM_SEPARATOR + this.y + ETAG.ITEM_SEPARATOR + this.z + ETAG.ITEM_SEPARATOR + this.A + ETAG.ITEM_SEPARATOR + this.B + ETAG.ITEM_SEPARATOR + this.E + "&&" + this.C + ETAG.ITEM_SEPARATOR + this.D;
+            return this.f4015a + ETAG.ITEM_SEPARATOR + this.b + ETAG.ITEM_SEPARATOR + this.c + ETAG.ITEM_SEPARATOR + this.d + ETAG.ITEM_SEPARATOR + this.e + ETAG.ITEM_SEPARATOR + this.f + ETAG.ITEM_SEPARATOR + this.g + ETAG.ITEM_SEPARATOR + this.h + ETAG.ITEM_SEPARATOR + this.i + ETAG.ITEM_SEPARATOR + this.j + ETAG.ITEM_SEPARATOR + this.k + ETAG.ITEM_SEPARATOR + this.l + ETAG.ITEM_SEPARATOR + this.m + ETAG.ITEM_SEPARATOR + "6.0" + ETAG.ITEM_SEPARATOR + this.n + ETAG.ITEM_SEPARATOR + this.o + ETAG.ITEM_SEPARATOR + this.p + ETAG.ITEM_SEPARATOR + this.r + ETAG.ITEM_SEPARATOR + this.s + ETAG.ITEM_SEPARATOR + this.t + ETAG.ITEM_SEPARATOR + this.u + ETAG.ITEM_SEPARATOR + this.v + ETAG.ITEM_SEPARATOR + this.w + ETAG.ITEM_SEPARATOR + this.x + ETAG.ITEM_SEPARATOR + this.y + ETAG.ITEM_SEPARATOR + this.z + ETAG.ITEM_SEPARATOR + this.A + ETAG.ITEM_SEPARATOR + this.B + ETAG.ITEM_SEPARATOR + this.E + "&&" + this.C + ETAG.ITEM_SEPARATOR + this.D;
         }
 
-        private String Xy(String str) {
+        private String YT(String str) {
             return str == null ? "" : str;
         }
     }

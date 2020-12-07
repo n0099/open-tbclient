@@ -7,48 +7,48 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.yuyinala.liveroom.wheat.c.o;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.tieba.yuyinala.liveroom.wheat.b.a {
-    private com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a oeT;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a otT;
 
     public d(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.oeT = new com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a(tbPageContext);
+        this.otT = new com.baidu.tieba.yuyinala.liveroom.wheat.b.b.a(tbPageContext);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
     public void a(w wVar, AlaWheatInfoData alaWheatInfoData, int i, int i2) {
         super.a(wVar, alaWheatInfoData, i, i2);
-        this.oeT.a(wVar, alaWheatInfoData, i, i2);
+        this.otT.a(wVar, alaWheatInfoData, i, i2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void Vo(String str) {
-        this.oeT.Vo(str);
+    public void WD(String str) {
+        this.otT.WD(str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void Vp(String str) {
-        if (dYT()) {
-            dZa();
-        } else if (dYU()) {
-            if (o.dZz().dYR()) {
-                if (o.dZz().iP(str)) {
-                    if (o.dZz().iR(str)) {
-                        dYZ();
+    public void WE(String str) {
+        if (eex()) {
+            eeE();
+        } else if (eey()) {
+            if (o.efd().eev()) {
+                if (o.efd().jt(str)) {
+                    if (o.efd().jv(str)) {
+                        eeD();
                         return;
                     } else {
                         showToast(a.h.yuyin_not_allow_switchwheat_text);
                         return;
                     }
                 }
-                dYY();
-            } else if (o.dZz().iR(str)) {
-                dYZ();
-            } else if (o.dZz().VB(str)) {
+                eeC();
+            } else if (o.efd().jv(str)) {
+                eeD();
+            } else if (o.efd().WQ(str)) {
                 showToast(a.h.yuyin_not_allow_switchwheat_text);
             } else {
-                dYY();
+                eeC();
             }
         }
     }

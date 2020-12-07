@@ -12,52 +12,52 @@ import java.util.ArrayDeque;
 import java.util.HashSet;
 import java.util.Queue;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public abstract class d extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static d dqQ;
+    private static d dxR;
     private static Handler sMainHandler;
-    private com.baidu.swan.apps.adaptation.a dqS;
-    private com.baidu.swan.pms.c.f dqX;
-    public final com.baidu.swan.apps.u.c.a.c dqR = new c.a();
-    private final Set<com.baidu.swan.apps.ap.e.b<i.a>> dqT = new HashSet();
-    public volatile int dqU = 0;
-    private final Queue<Runnable> dqV = new ArrayDeque();
-    private Runnable dqW = null;
-    private boolean inited = false;
+    private com.baidu.swan.apps.adaptation.a dxT;
+    private com.baidu.swan.pms.c.f dxY;
+    public final com.baidu.swan.apps.u.c.a.c dxS = new c.a();
+    private final Set<com.baidu.swan.apps.ap.e.b<i.a>> dxU = new HashSet();
+    public volatile int dxV = 0;
+    private final Queue<Runnable> dxW = new ArrayDeque();
+    private Runnable dxX = null;
+    private boolean dxZ = false;
 
-    protected abstract com.baidu.swan.pms.c.f aGH();
+    protected abstract com.baidu.swan.pms.c.f aJP();
 
-    public static d aGI() {
-        d aGJ = aGJ();
-        if (!aGJ.inited) {
-            aGJ.init();
+    public static d aJQ() {
+        d aJR = aJR();
+        if (!aJR.dxZ) {
+            aJR.init();
         }
-        return aGJ;
+        return aJR;
     }
 
-    private static d aGJ() {
-        if (dqQ instanceof j) {
-            return dqQ;
+    private static d aJR() {
+        if (dxR instanceof j) {
+            return dxR;
         }
         synchronized (d.class) {
-            if (dqQ instanceof j) {
-                return dqQ;
+            if (dxR instanceof j) {
+                return dxR;
             }
             SwanAppProcessInfo current = SwanAppProcessInfo.current();
             if (current.isSwanClient) {
-                dqQ = new j();
-                return dqQ;
+                dxR = new j();
+                return dxR;
             } else if (current.isSwanService) {
-                if (!(dqQ instanceof l)) {
-                    dqQ = new l();
+                if (!(dxR instanceof l)) {
+                    dxR = new l();
                 }
-                return dqQ;
+                return dxR;
             } else {
-                if (dqQ == null) {
-                    dqQ = new c();
+                if (dxR == null) {
+                    dxR = new c();
                 }
-                return dqQ;
+                return dxR;
             }
         }
     }
@@ -70,22 +70,22 @@ public abstract class d extends a {
     }
 
     private void init() {
-        if (!this.inited) {
-            aGL();
+        if (!this.dxZ) {
+            aJT();
             com.baidu.swan.apps.process.b.c.init();
         }
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public com.baidu.swan.apps.adaptation.a aGK() {
-        if (this.dqS == null) {
-            this.dqS = new com.baidu.swan.apps.adaptation.a();
+    public com.baidu.swan.apps.adaptation.a aJS() {
+        if (this.dxT == null) {
+            this.dxT = new com.baidu.swan.apps.adaptation.a();
         }
-        return this.dqS;
+        return this.dxT;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public void rN(String str) {
+    public void sv(String str) {
         f(str, null);
     }
 
@@ -97,14 +97,14 @@ public abstract class d extends a {
     @Override // com.baidu.swan.apps.runtime.h
     public void i(final i.a aVar) {
         if (DEBUG) {
-            Log.i("SwanImpl", "SwanEvent dispatchEvent: " + aVar + " mEventCallbacks:" + this.dqT.size());
+            Log.i("SwanImpl", "SwanEvent dispatchEvent: " + aVar + " mEventCallbacks:" + this.dxU.size());
         }
         if (aVar != null) {
             g(new Runnable() { // from class: com.baidu.swan.apps.runtime.d.1
                 @Override // java.lang.Runnable
                 public void run() {
                     boolean z = Looper.getMainLooper() == Looper.myLooper();
-                    for (final com.baidu.swan.apps.ap.e.b bVar : d.this.dqT) {
+                    for (final com.baidu.swan.apps.ap.e.b bVar : d.this.dxU) {
                         if (z && !aVar.getBoolean("event_flag_force_post", false)) {
                             bVar.M(aVar);
                         } else {
@@ -127,7 +127,7 @@ public abstract class d extends a {
             g(new Runnable() { // from class: com.baidu.swan.apps.runtime.d.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.dqT.add(bVar);
+                    d.this.dxU.add(bVar);
                 }
             });
         }
@@ -139,29 +139,29 @@ public abstract class d extends a {
             g(new Runnable() { // from class: com.baidu.swan.apps.runtime.d.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.dqT.remove(bVar);
+                    d.this.dxU.remove(bVar);
                 }
             });
         }
     }
 
     private synchronized void g(@NonNull Runnable runnable) {
-        this.dqV.offer(runnable);
-        if (this.dqW == null) {
-            while (!this.dqV.isEmpty()) {
-                this.dqW = this.dqV.poll();
-                if (this.dqW != null) {
-                    this.dqW.run();
+        this.dxW.offer(runnable);
+        if (this.dxX == null) {
+            while (!this.dxW.isEmpty()) {
+                this.dxX = this.dxW.poll();
+                if (this.dxX != null) {
+                    this.dxX.run();
                 }
-                this.dqW = null;
+                this.dxX = null;
             }
         }
     }
 
-    public com.baidu.swan.pms.c.f aGL() {
-        if (this.dqX == null) {
-            this.dqX = aGH();
+    public com.baidu.swan.pms.c.f aJT() {
+        if (this.dxY == null) {
+            this.dxY = aJP();
         }
-        return this.dqX;
+        return this.dxY;
     }
 }

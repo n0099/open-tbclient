@@ -2,11 +2,11 @@ package com.baidu.fsg.face.base;
 
 import android.content.Context;
 import com.baidu.fsg.face.base.dto.SapiBiometricDto;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class c extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1580a = "1.3.7";
+    public static final String f1582a = "1.3.7";
     public static final int b = 32;
     private static c c;
 

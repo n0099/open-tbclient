@@ -14,18 +14,18 @@ import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.cg;
+import com.baidu.live.data.ci;
 import com.baidu.live.data.w;
-import com.baidu.live.gift.ah;
-import com.baidu.live.gift.x;
+import com.baidu.live.gift.aj;
 import com.baidu.live.gift.y;
+import com.baidu.live.gift.z;
 import com.baidu.live.im.b.a;
 import com.baidu.live.im.b.d;
 import com.baidu.live.im.data.ImSendMsgData;
 import com.baidu.live.im.data.b;
 import com.baidu.live.im.message.YuyinImBarragePayResponseMessage;
 import com.baidu.live.im.message.e;
-import com.baidu.live.m.c;
+import com.baidu.live.o.c;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
@@ -40,17 +40,17 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class a implements com.baidu.live.im.b.a {
-    private a.InterfaceC0186a aDg;
-    private w aDh;
-    private boolean aDi;
-    private String aDj;
-    private CustomMessageListener aDl;
-    private HttpMessageListener aDm;
-    private CustomMessageListener aDn;
-    private CustomMessageTask.CustomRunnable<ImSendMsgData> aDo;
-    private boolean aDp = false;
-    private ImBarrageTrackView bNy;
-    private List<com.baidu.live.im.data.a> mMessages;
+    private a.InterfaceC0193a aFM;
+    private w aFN;
+    private boolean aFO;
+    private String aFP;
+    private CustomMessageListener aFR;
+    private HttpMessageListener aFS;
+    private CustomMessageListener aFT;
+    private CustomMessageTask.CustomRunnable<ImSendMsgData> aFU;
+    private boolean aFV = false;
+    private ImBarrageTrackView bSE;
+    private List<b> mMessages;
     private String mOtherParams;
     private TbPageContext mPageContext;
 
@@ -61,81 +61,81 @@ public class a implements com.baidu.live.im.b.a {
     }
 
     @Override // com.baidu.live.im.b.a
-    public void a(a.InterfaceC0186a interfaceC0186a) {
-        this.aDg = interfaceC0186a;
+    public void a(a.InterfaceC0193a interfaceC0193a) {
+        this.aFM = interfaceC0193a;
     }
 
     @Override // com.baidu.live.im.b.a
     public void a(w wVar, boolean z) {
         if (z) {
-            if (!this.aDp) {
-                this.aDp = true;
+            if (!this.aFV) {
+                this.aFV = true;
             } else {
                 return;
             }
         }
-        this.bNy.setCanAddNext();
-        Cc();
+        this.bSE.setCanAddNext();
+        DM();
         a(wVar);
-        Ce();
-        Ck();
+        DO();
+        DU();
     }
 
     @Override // com.baidu.live.im.b.a
     public void a(w wVar) {
         boolean z = false;
-        this.aDh = wVar;
-        this.aDi = false;
-        if (this.aDh != null && this.aDh.mLiveInfo != null) {
-            this.aDj = String.valueOf(this.aDh.aHk.userId);
-            String valueOf = String.valueOf(this.aDh.mLiveInfo.user_id);
+        this.aFN = wVar;
+        this.aFO = false;
+        if (this.aFN != null && this.aFN.mLiveInfo != null) {
+            this.aFP = String.valueOf(this.aFN.aJV.userId);
+            String valueOf = String.valueOf(this.aFN.mLiveInfo.user_id);
             if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(valueOf)) {
                 z = true;
             }
-            this.aDi = z;
+            this.aFO = z;
         }
     }
 
     @Override // com.baidu.live.im.b.a
-    public View Cb() {
-        return this.bNy;
+    public View DL() {
+        return this.bSE;
     }
 
     @Override // com.baidu.live.im.b.a
-    public void Cc() {
-        if (this.bNy != null) {
-            this.bNy.post(new Runnable() { // from class: com.baidu.live.yuyinbarrage.a.a.1
+    public void DM() {
+        if (this.bSE != null) {
+            this.bSE.post(new Runnable() { // from class: com.baidu.live.yuyinbarrage.a.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.bNy.setVisibility(a.this.bNy.getTop() > 0 ? 0 : 4);
+                    a.this.bSE.setVisibility(a.this.bSE.getTop() > 0 ? 0 : 4);
                 }
             });
         }
     }
 
     @Override // com.baidu.live.im.b.a
-    public void Cd() {
-        Cf();
-        Cl();
-        this.aDh = null;
+    public void DN() {
+        DP();
+        DV();
+        this.aFN = null;
         if (this.mMessages != null) {
             this.mMessages.clear();
         }
-        if (this.bNy != null) {
-            this.bNy.release();
-            if (this.bNy.getParent() != null) {
-                ((ViewGroup) this.bNy.getParent()).removeView(this.bNy);
+        if (this.bSE != null) {
+            this.bSE.release();
+            if (this.bSE.getParent() != null) {
+                ((ViewGroup) this.bSE.getParent()).removeView(this.bSE);
             }
         }
-        this.aDp = false;
+        this.aFV = false;
     }
 
     @Override // com.baidu.live.im.b.a
     public void release() {
-        Cd();
-        Ch();
-        Cj();
-        d.Lx().release();
+        DN();
+        DR();
+        DT();
+        d.NK().release();
     }
 
     @Override // com.baidu.live.im.b.a
@@ -144,8 +144,8 @@ public class a implements com.baidu.live.im.b.a {
     }
 
     private void initView() {
-        this.bNy = new ImBarrageTrackView(this.mPageContext.getPageActivity());
-        this.bNy.setCallback(new ImBarrageTrackView.a() { // from class: com.baidu.live.yuyinbarrage.a.a.2
+        this.bSE = new ImBarrageTrackView(this.mPageContext.getPageActivity());
+        this.bSE.setCallback(new ImBarrageTrackView.a() { // from class: com.baidu.live.yuyinbarrage.a.a.2
             @Override // com.baidu.live.yuyinbarrage.view.ImBarrageTrackView.a
             public void b(com.baidu.live.data.a aVar) {
                 a.this.a(aVar);
@@ -153,19 +153,19 @@ public class a implements com.baidu.live.im.b.a {
 
             @Override // com.baidu.live.yuyinbarrage.view.ImBarrageTrackView.a
             public void onNext() {
-                a.this.Cn();
+                a.this.DX();
             }
         });
     }
 
     private void initListener() {
-        Cg();
-        Ci();
+        DQ();
+        DS();
     }
 
-    private void Ce() {
-        if (this.aDo == null) {
-            this.aDo = new CustomMessageTask.CustomRunnable<ImSendMsgData>() { // from class: com.baidu.live.yuyinbarrage.a.a.3
+    private void DO() {
+        if (this.aFU == null) {
+            this.aFU = new CustomMessageTask.CustomRunnable<ImSendMsgData>() { // from class: com.baidu.live.yuyinbarrage.a.a.3
                 @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
                 public CustomResponsedMessage<?> run(CustomMessage<ImSendMsgData> customMessage) {
                     if (customMessage != null && customMessage.getData() != null) {
@@ -176,36 +176,36 @@ public class a implements com.baidu.live.im.b.a {
                 }
             };
         }
-        CustomMessageTask customMessageTask = new CustomMessageTask(2501069, this.aDo);
+        CustomMessageTask customMessageTask = new CustomMessageTask(2501069, this.aFU);
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private void Cf() {
+    private void DP() {
         MessageManager.getInstance().unRegisterTask(2501069);
     }
 
-    private void Cg() {
-        this.aDl = new CustomMessageListener(2913102) { // from class: com.baidu.live.yuyinbarrage.a.a.4
+    private void DQ() {
+        this.aFR = new CustomMessageListener(2913102) { // from class: com.baidu.live.yuyinbarrage.a.a.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (UtilHelper.getRealScreenOrientation(a.this.mPageContext.getPageActivity()) != 2 && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof List)) {
-                    a.this.u((List) customResponsedMessage.getData());
+                    a.this.v((List) customResponsedMessage.getData());
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aDl);
+        MessageManager.getInstance().registerListener(this.aFR);
     }
 
-    private void Ch() {
-        if (this.aDl != null) {
-            MessageManager.getInstance().unRegisterListener(this.aDl);
+    private void DR() {
+        if (this.aFR != null) {
+            MessageManager.getInstance().unRegisterListener(this.aFR);
         }
     }
 
-    private void Ci() {
-        this.aDm = new HttpMessageListener(1031047) { // from class: com.baidu.live.yuyinbarrage.a.a.5
+    private void DS() {
+        this.aFS = new HttpMessageListener(1031047) { // from class: com.baidu.live.yuyinbarrage.a.a.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -214,46 +214,46 @@ public class a implements com.baidu.live.im.b.a {
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aDm);
+        MessageManager.getInstance().registerListener(this.aFS);
     }
 
-    private void Cj() {
-        if (this.aDm != null) {
-            MessageManager.getInstance().unRegisterListener(this.aDm);
+    private void DT() {
+        if (this.aFS != null) {
+            MessageManager.getInstance().unRegisterListener(this.aFS);
         }
     }
 
-    private void Ck() {
-        if (this.aDn == null) {
-            this.aDn = new CustomMessageListener(2913037) { // from class: com.baidu.live.yuyinbarrage.a.a.6
+    private void DU() {
+        if (this.aFT == null) {
+            this.aFT = new CustomMessageListener(2913037) { // from class: com.baidu.live.yuyinbarrage.a.a.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     if (UtilHelper.getRealScreenOrientation(a.this.mPageContext.getPageActivity()) != 2) {
                         Object data = customResponsedMessage.getData();
-                        if (data instanceof com.baidu.live.im.data.a) {
-                            a.this.b((com.baidu.live.im.data.a) data);
+                        if (data instanceof b) {
+                            a.this.b((b) data);
                         }
                     }
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.aDn);
+        MessageManager.getInstance().registerListener(this.aFT);
     }
 
-    private void Cl() {
-        if (this.aDn != null) {
-            MessageManager.getInstance().unRegisterListener(this.aDn);
+    private void DV() {
+        if (this.aFT != null) {
+            MessageManager.getInstance().unRegisterListener(this.aFT);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ImSendMsgData imSendMsgData) {
         if (imSendMsgData.msgType == 126) {
-            if (imSendMsgData.barrageType == 1 && (imSendMsgData.barrageCardInfo == null || !imSendMsgData.barrageCardInfo.bjY)) {
+            if (imSendMsgData.barrageType == 1 && (imSendMsgData.barrageCardInfo == null || !imSendMsgData.barrageCardInfo.bpc)) {
                 long j = imSendMsgData.price;
                 if (TbadkCoreApplication.getInst().currentAccountTdouNum < j) {
-                    Cm();
+                    DW();
                     return;
                 } else {
                     TbadkCoreApplication.getInst().currentAccountTdouNum -= j;
@@ -263,62 +263,62 @@ public class a implements com.baidu.live.im.b.a {
         }
     }
 
-    private void Cm() {
-        if (this.aDg != null) {
-            this.aDg.Lw();
+    private void DW() {
+        if (this.aFM != null) {
+            this.aFM.NJ();
         }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(this.mPageContext.getPageActivity(), 0L, this.mOtherParams, true, "", true)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void u(List list) {
+    public void v(List list) {
         if (list != null && !list.isEmpty()) {
             for (Object obj : list) {
-                if (obj instanceof com.baidu.live.im.data.a) {
-                    com.baidu.live.im.data.a aVar = (com.baidu.live.im.data.a) obj;
-                    if (d(aVar) && c(aVar)) {
-                        a(aVar);
+                if (obj instanceof b) {
+                    b bVar = (b) obj;
+                    if (d(bVar) && c(bVar)) {
+                        a(bVar);
                     }
                 }
             }
         }
     }
 
-    private void a(com.baidu.live.im.data.a aVar) {
-        if (aVar.LJ() == 1) {
-            b LL = aVar.LL();
-            if (LL != null && LL.bjY) {
-                a(aVar.LK(), LL, aVar.biJ);
+    private void a(b bVar) {
+        if (bVar.NY() == 1) {
+            com.baidu.live.im.data.d Oa = bVar.Oa();
+            if (Oa != null && Oa.bpc) {
+                a(bVar.NZ(), Oa, bVar.bnb);
             } else {
-                d(aVar.getMsgId(), aVar.LK());
+                f(bVar.getMsgId(), bVar.NZ());
             }
         }
     }
 
-    private void d(long j, String str) {
-        String GI = s.GI();
+    private void f(long j, String str) {
+        String Iz = s.Iz();
         e eVar = new e();
-        eVar.addParam("scene_from", GI);
-        eVar.addParam("live_id", this.aDh.mLiveInfo.live_id);
-        eVar.addParam(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aDh.aHZ.croom_id);
+        eVar.addParam("scene_from", Iz);
+        eVar.addParam("live_id", this.aFN.mLiveInfo.live_id);
+        eVar.addParam(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aFN.aKL.croom_id);
         eVar.addParam("is_jiaoyou", 1);
         eVar.addParam("im_id", j);
         eVar.addParam("barrage_id", str);
         MessageManager.getInstance().sendMessage(eVar);
     }
 
-    private void a(String str, b bVar, String str2) {
-        x xVar;
-        Map<String, x> Gu = y.Gt().Gu();
-        if (Gu != null && Gu.containsKey(str) && (xVar = Gu.get(str)) != null) {
-            ah.b(xVar.itemId, xVar.aTj, bVar.bjZ, bVar.liveId, 1, 0, "", str2);
+    private void a(String str, com.baidu.live.im.data.d dVar, String str2) {
+        y yVar;
+        Map<String, y> Ij = z.Ii().Ij();
+        if (Ij != null && Ij.containsKey(str) && (yVar = Ij.get(str)) != null) {
+            aj.b(yVar.itemId, yVar.aWn, dVar.bpd, dVar.liveId, 1, 0, "", str2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(YuyinImBarragePayResponseMessage yuyinImBarragePayResponseMessage) {
         if (yuyinImBarragePayResponseMessage.getError() == 0) {
-            TbadkCoreApplication.getInst().currentAccountTdouNum = yuyinImBarragePayResponseMessage.IK();
+            TbadkCoreApplication.getInst().currentAccountTdouNum = yuyinImBarragePayResponseMessage.KK();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA));
             return;
         }
@@ -329,14 +329,14 @@ public class a implements com.baidu.live.im.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(com.baidu.live.im.data.a aVar) {
+    public void b(b bVar) {
         int i;
-        if (aVar.getMsgType() == 126) {
+        if (bVar.getMsgType() == 126) {
             if (this.mMessages == null) {
                 this.mMessages = new ArrayList();
             }
-            boolean d = d(aVar);
-            if (d || this.mMessages.size() < com.baidu.live.aa.a.Ph().bms.aLq) {
+            boolean d = d(bVar);
+            if (d || this.mMessages.size() < com.baidu.live.ae.a.RB().brA.aOl) {
                 if (d && !this.mMessages.isEmpty()) {
                     int i2 = 0;
                     while (true) {
@@ -352,53 +352,53 @@ public class a implements com.baidu.live.im.b.a {
                 }
                 i = -1;
                 if (i >= 0) {
-                    this.mMessages.add(i, aVar);
+                    this.mMessages.add(i, bVar);
                 } else {
-                    this.mMessages.add(aVar);
+                    this.mMessages.add(bVar);
                 }
-                Cn();
+                DX();
             }
         }
     }
 
-    private boolean c(com.baidu.live.im.data.a aVar) {
-        return aVar != null && aVar.getMsgType() == 126;
+    private boolean c(b bVar) {
+        return bVar != null && bVar.getMsgType() == 126;
     }
 
-    private boolean d(com.baidu.live.im.data.a aVar) {
-        return aVar != null && aVar.getUserId() == JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
+    private boolean d(b bVar) {
+        return bVar != null && bVar.getUserId() == JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Cn() {
-        cg[] Lz;
-        cg cgVar;
-        if (this.mMessages != null && !this.mMessages.isEmpty() && this.bNy.Cu() && (Lz = d.Lx().Lz()) != null) {
-            com.baidu.live.im.data.a remove = this.mMessages.remove(0);
-            int length = Lz.length;
+    public void DX() {
+        ci[] NM;
+        ci ciVar;
+        if (this.mMessages != null && !this.mMessages.isEmpty() && this.bSE.Ee() && (NM = d.NK().NM()) != null) {
+            b remove = this.mMessages.remove(0);
+            int length = NM.length;
             int i = 0;
             while (true) {
                 if (i >= length) {
-                    cgVar = null;
+                    ciVar = null;
                     break;
                 }
-                cgVar = Lz[i];
-                if (cgVar.id.equals(remove.LK())) {
+                ciVar = NM[i];
+                if (ciVar.id.equals(remove.NZ())) {
                     break;
                 }
                 i++;
             }
-            if (cgVar == null) {
-                cgVar = new cg().En();
+            if (ciVar == null) {
+                ciVar = new ci().FY();
             }
-            this.bNy.a(cgVar, remove.LF(), remove.getContent(), this.aDj);
+            this.bSE.a(ciVar, remove.NU(), remove.getContent(), this.aFP);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.live.data.a aVar) {
-        if (aVar != null && this.aDh != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.mPageContext.getPageActivity(), aVar.userId, aVar.userName, aVar.portrait, aVar.sex, aVar.level_id, null, null, 0L, aVar.aFP, aVar.aFQ, aVar.aFR, String.valueOf(this.aDh.mLiveInfo.group_id), String.valueOf(this.aDh.mLiveInfo.live_id), this.aDi, String.valueOf(this.aDh.aHk.userId), aVar.appId, aVar.getNameShow(), "")));
+        if (aVar != null && this.aFN != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.mPageContext.getPageActivity(), aVar.userId, aVar.userName, aVar.portrait, aVar.sex, aVar.level_id, null, null, 0L, aVar.aIx, aVar.aIy, aVar.aIz, String.valueOf(this.aFN.mLiveInfo.group_id), String.valueOf(this.aFN.mLiveInfo.live_id), this.aFO, String.valueOf(this.aFN.aJV.userId), aVar.appId, aVar.getNameShow(), "")));
         }
     }
 }

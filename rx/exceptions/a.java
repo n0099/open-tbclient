@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import rx.e;
 import rx.i;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public final class a {
     public static RuntimeException v(Throwable th) {
         if (th instanceof RuntimeException) {
@@ -37,7 +37,7 @@ public final class a {
         }
     }
 
-    public static void a(Throwable th, Throwable th2) {
+    public static void b(Throwable th, Throwable th2) {
         HashSet hashSet = new HashSet();
         int i = 0;
         while (th.getCause() != null) {
@@ -58,7 +58,7 @@ public final class a {
         }
     }
 
-    public static Throwable T(Throwable th) {
+    public static Throwable R(Throwable th) {
         int i = 0;
         while (th.getCause() != null) {
             int i2 = i + 1;
@@ -71,7 +71,7 @@ public final class a {
         return th;
     }
 
-    public static void gT(List<? extends Throwable> list) {
+    public static void hg(List<? extends Throwable> list) {
         if (list != null && !list.isEmpty()) {
             if (list.size() == 1) {
                 Throwable th = list.get(0);

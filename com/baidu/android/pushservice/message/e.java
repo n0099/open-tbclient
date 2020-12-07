@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.message;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected short f1181a;
+    protected short f1179a;
     protected byte[] b;
     protected boolean c;
     protected boolean d = false;
@@ -11,11 +11,11 @@ public class e {
     private k f;
 
     public e(short s) {
-        this.f1181a = s;
+        this.f1179a = s;
     }
 
     public short a() {
-        return this.f1181a;
+        return this.f1179a;
     }
 
     public void a(k kVar) {
@@ -45,7 +45,7 @@ public class e {
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("type : ");
-        stringBuffer.append((int) this.f1181a);
+        stringBuffer.append((int) this.f1179a);
         stringBuffer.append(", needReply: ");
         stringBuffer.append(this.c);
         return stringBuffer.toString();

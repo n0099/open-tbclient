@@ -12,7 +12,7 @@ import com.baidu.mapapi.VersionInfo;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObservable;
 import com.baidu.mapsdkplatform.comapi.util.h;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class a implements PermissionCheck.c {
     private static a f;
     private Context b;
@@ -21,7 +21,7 @@ public class a implements PermissionCheck.c {
     private int e;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2189a = a.class.getSimpleName();
+    private static final String f2191a = a.class.getSimpleName();
     private static int g = -100;
 
     static {
@@ -88,22 +88,22 @@ public class a implements PermissionCheck.c {
         if (bVar == null) {
             return;
         }
-        if (bVar.f2245a == 0) {
+        if (bVar.f2247a == 0) {
             h.d = bVar.e;
             h.a(bVar.b, bVar.c);
         } else {
             Log.e("baidumapsdk", "Authentication Error\n" + bVar.toString());
         }
-        if (bVar.f2245a != PermissionCheck.b && bVar.f2245a != PermissionCheck.f2244a && bVar.f2245a != PermissionCheck.c) {
+        if (bVar.f2247a != PermissionCheck.b && bVar.f2247a != PermissionCheck.f2246a && bVar.f2247a != PermissionCheck.c) {
             com.baidu.mapsdkplatform.comapi.util.c.a().a(bVar.f);
         }
-        if (this.c == null || bVar.f2245a == g) {
+        if (this.c == null || bVar.f2247a == g) {
             return;
         }
-        g = bVar.f2245a;
+        g = bVar.f2247a;
         Message obtainMessage = this.c.obtainMessage();
         obtainMessage.what = 2012;
-        obtainMessage.arg1 = bVar.f2245a;
+        obtainMessage.arg1 = bVar.f2247a;
         obtainMessage.obj = bVar.d;
         this.c.sendMessage(obtainMessage);
     }

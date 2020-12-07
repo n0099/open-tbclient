@@ -4,12 +4,12 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class IndoorRouteResult extends SearchResult {
     public static final Parcelable.Creator<IndoorRouteResult> CREATOR = new h();
 
     /* renamed from: a  reason: collision with root package name */
-    private List<IndoorRouteLine> f2138a;
+    private List<IndoorRouteLine> f2140a;
 
     public IndoorRouteResult() {
     }
@@ -17,7 +17,7 @@ public class IndoorRouteResult extends SearchResult {
     /* JADX INFO: Access modifiers changed from: protected */
     public IndoorRouteResult(Parcel parcel) {
         super(parcel);
-        this.f2138a = parcel.createTypedArrayList(IndoorRouteLine.CREATOR);
+        this.f2140a = parcel.createTypedArrayList(IndoorRouteLine.CREATOR);
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -26,16 +26,16 @@ public class IndoorRouteResult extends SearchResult {
     }
 
     public List<IndoorRouteLine> getRouteLines() {
-        return this.f2138a;
+        return this.f2140a;
     }
 
     public void setRouteLines(List<IndoorRouteLine> list) {
-        this.f2138a = list;
+        this.f2140a = list;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
-        parcel.writeTypedList(this.f2138a);
+        parcel.writeTypedList(this.f2140a);
     }
 }

@@ -14,45 +14,45 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class SettingTextImageView extends FrameLayout {
-    private LinearLayout fjk;
-    private ImageView fjp;
+    private LinearLayout fqI;
+    private ImageView fqN;
     private Context mContext;
-    private HeadImageView mJF;
+    private HeadImageView mXG;
     private TextView textView;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        bxl();
+        bAL();
         e(attributeSet);
-        rx(TbadkCoreApplication.getInst().getSkinType());
+        rY(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextImageView(Context context) {
         super(context);
         this.mContext = context;
-        bxl();
-        rx(TbadkCoreApplication.getInst().getSkinType());
+        bAL();
+        rY(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void rx(int i) {
-        setBackgroundDrawable(ap.pt(R.color.CAM_X0205));
+    public void rY(int i) {
+        setBackgroundDrawable(ap.pT(R.color.CAM_X0205));
         ap.setViewTextColor(this.textView, R.color.CAM_X0105, 1);
-        SvgManager.bqB().a(this.fjp, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-        this.mJF.invalidate();
+        SvgManager.btW().a(this.fqN, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        this.mXG.invalidate();
     }
 
-    public void dFc() {
-        if (this.mJF != null) {
-            this.mJF.setVisibility(8);
+    public void dKn() {
+        if (this.mXG != null) {
+            this.mXG.setVisibility(8);
         }
     }
 
-    public void dFd() {
-        if (this.mJF != null) {
-            this.mJF.setVisibility(0);
+    public void dKo() {
+        if (this.mXG != null) {
+            this.mXG.setVisibility(0);
         }
     }
 
@@ -62,21 +62,21 @@ public class SettingTextImageView extends FrameLayout {
 
     public void setIcon(String str, boolean z) {
         if (z) {
-            this.mJF.startLoad(str, 26, false);
+            this.mXG.startLoad(str, 26, false);
         } else {
-            this.mJF.startLoad(str, 12, false);
+            this.mXG.startLoad(str, 12, false);
         }
     }
 
     public void recycle() {
     }
 
-    private void bxl() {
+    private void bAL() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
-        this.fjk = (LinearLayout) findViewById(R.id.container);
+        this.fqI = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.mJF = (HeadImageView) findViewById(R.id.icon);
-        this.fjp = (ImageView) findViewById(R.id.arrow);
+        this.mXG = (HeadImageView) findViewById(R.id.icon);
+        this.fqN = (ImageView) findViewById(R.id.arrow);
     }
 
     private void e(AttributeSet attributeSet) {
@@ -90,7 +90,7 @@ public class SettingTextImageView extends FrameLayout {
         if (color > -1) {
             this.textView.setTextColor(color);
         }
-        this.fjk.setClickable(false);
-        this.fjk.setFocusable(false);
+        this.fqI.setClickable(false);
+        this.fqI.setFocusable(false);
     }
 }

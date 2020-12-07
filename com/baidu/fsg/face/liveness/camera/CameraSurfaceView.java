@@ -6,20 +6,20 @@ import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.baidu.fsg.base.utils.LogUtil;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    SurfaceHolder f1720a;
+    SurfaceHolder f1722a;
     private b b;
 
     public CameraSurfaceView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1720a = getHolder();
-        this.f1720a.setFormat(-2);
-        this.f1720a.setSizeFromLayout();
-        this.f1720a.setType(3);
-        this.f1720a.addCallback(this);
+        this.f1722a = getHolder();
+        this.f1722a.setFormat(-2);
+        this.f1722a.setSizeFromLayout();
+        this.f1722a.setType(3);
+        this.f1722a.addCallback(this);
     }
 
     public void setCameraInterface(b bVar) {
@@ -34,7 +34,7 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
         LogUtil.d("surfaceChanged被调用了");
         if (getContext() instanceof Activity) {
-            this.b.a((Activity) getContext(), this.f1720a);
+            this.b.a((Activity) getContext(), this.f1722a);
         }
     }
 
@@ -46,7 +46,7 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
 
     public void startPreview() {
         if (getContext() instanceof Activity) {
-            this.b.a((Activity) getContext(), this.f1720a);
+            this.b.a((Activity) getContext(), this.f1722a);
         }
     }
 }

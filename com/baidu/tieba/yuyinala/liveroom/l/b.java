@@ -7,41 +7,41 @@ import com.baidu.tieba.yuyinala.liveroom.l.a;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class b {
-    private WeakReference<a> hrG;
+    private WeakReference<a> hBk;
     private String mGroupId;
     private String mLiveId;
     private String mRoomId;
     private String mUserId;
-    private h nZZ;
-    private a.b oaa = new a.b() { // from class: com.baidu.tieba.yuyinala.liveroom.l.b.1
+    private h ooZ;
+    private a.b opa = new a.b() { // from class: com.baidu.tieba.yuyinala.liveroom.l.b.1
         @Override // com.baidu.tieba.yuyinala.liveroom.l.a.b
-        public void HR(String str) {
-            b.this.nZZ.q(str, b.this.mGroupId, b.this.mLiveId);
+        public void IG(String str) {
+            b.this.ooZ.t(str, b.this.mGroupId, b.this.mLiveId);
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.l.a.b
-        public void HS(String str) {
-            b.this.nZZ.r(str, b.this.mGroupId, b.this.mLiveId);
+        public void IH(String str) {
+            b.this.ooZ.u(str, b.this.mGroupId, b.this.mLiveId);
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.l.a.b
-        public void HT(String str) {
-            b.this.nZZ.s(str, b.this.mGroupId, b.this.mLiveId);
+        public void II(String str) {
+            b.this.ooZ.x(str, b.this.mGroupId, b.this.mLiveId);
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.l.a.b
-        public void HU(String str) {
-            b.this.nZZ.t(str, b.this.mGroupId, b.this.mLiveId);
+        public void IJ(String str) {
+            b.this.ooZ.y(str, b.this.mGroupId, b.this.mLiveId);
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.l.a.b
-        public void HV(String str) {
-            b.this.nZZ.u(str, b.this.mRoomId, b.this.mGroupId);
+        public void IK(String str) {
+            b.this.ooZ.z(str, b.this.mRoomId, b.this.mGroupId);
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.l.a.b
-        public void HW(String str) {
-            b.this.nZZ.x(str, b.this.mRoomId, b.this.mGroupId);
+        public void IL(String str) {
+            b.this.ooZ.A(str, b.this.mRoomId, b.this.mGroupId);
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.l.a.b
@@ -51,44 +51,44 @@ public class b {
 
     public void a(TbPageContext tbPageContext, String str, String str2, String str3, String str4, boolean z, Object obj) {
         if (obj instanceof PersonUserData) {
-            this.nZZ = new h(tbPageContext);
+            this.ooZ = new h(tbPageContext);
             this.mGroupId = str;
             this.mLiveId = str2;
             this.mUserId = str4;
             this.mRoomId = str3;
             PersonUserData personUserData = (PersonUserData) obj;
-            if (this.hrG != null && this.hrG.get() != null) {
-                a aVar = this.hrG.get();
+            if (this.hBk != null && this.hBk.get() != null) {
+                a aVar = this.hBk.get();
                 if (aVar != null && aVar.isShowing()) {
                     aVar.dismiss();
                 }
-                this.hrG.clear();
+                this.hBk.clear();
             }
             a aVar2 = new a(tbPageContext);
-            aVar2.a(this.oaa);
+            aVar2.a(this.opa);
             aVar2.a(personUserData, z, str4);
-            this.hrG = new WeakReference<>(aVar2);
+            this.hBk = new WeakReference<>(aVar2);
         }
     }
 
     public void a(h.a aVar) {
-        this.nZZ.a(aVar);
+        this.ooZ.a(aVar);
     }
 
-    public void big() {
+    public void blq() {
         a aVar;
-        if (this.hrG != null && this.hrG.get() != null && (aVar = this.hrG.get()) != null && aVar.isShowing()) {
+        if (this.hBk != null && this.hBk.get() != null && (aVar = this.hBk.get()) != null && aVar.isShowing()) {
             aVar.resize();
         }
     }
 
     public void onDestory() {
-        if (this.hrG != null && this.hrG.get() != null) {
-            a aVar = this.hrG.get();
+        if (this.hBk != null && this.hBk.get() != null) {
+            a aVar = this.hBk.get();
             if (aVar != null && aVar.isShowing()) {
                 aVar.dismiss();
             }
-            this.hrG.clear();
+            this.hBk.clear();
         }
     }
 }

@@ -3,19 +3,20 @@ package com.baidu.live.sdk.goods.d;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.live.data.bn;
+import com.baidu.live.data.bo;
 import com.baidu.live.tbadk.browser.BrowserHelper;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
+import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class b {
-    public static void F(Context context, String str) {
+    public static void J(Context context, String str) {
         Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan1 scheme=" + str);
-        bn bnVar = com.baidu.live.aa.a.Ph().bsh;
-        if (bnVar != null && bnVar.aNQ != null) {
-            int i = bnVar.aNQ.aQt;
+        bo boVar = com.baidu.live.ae.a.RB().bxq;
+        if (boVar != null && boVar.aQQ != null) {
+            int i = boVar.aQQ.aTv;
             Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan1 preDownload=" + i);
             if (isDebug()) {
                 Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan1 debug");
@@ -33,9 +34,9 @@ public class b {
 
     public static void e(Context context, ArrayList<String> arrayList) {
         Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan2 appkeys=" + arrayList);
-        bn bnVar = com.baidu.live.aa.a.Ph().bsh;
-        if (bnVar != null && bnVar.aNQ != null) {
-            int i = bnVar.aNQ.aQt;
+        bo boVar = com.baidu.live.ae.a.RB().bxq;
+        if (boVar != null && boVar.aQQ != null) {
+            int i = boVar.aQQ.aTv;
             Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan2 preDownload=" + i);
             if (isDebug()) {
                 Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan2 debug");
@@ -50,7 +51,7 @@ public class b {
             while (true) {
                 int i3 = i2;
                 if (i3 < arrayList.size()) {
-                    Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan2 " + i3 + "->" + arrayList.get(i3));
+                    Log.i("PreDowanloadSwanHelper", "@@ preDowanloadSwan doPreDowanloadSwan2 " + i3 + PerfFrameTrackUIUtil.SEPERATOR_ARROR + arrayList.get(i3));
                     i2 = i3 + 1;
                 } else {
                     HashMap hashMap = new HashMap();

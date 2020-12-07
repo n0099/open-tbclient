@@ -11,7 +11,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.utils.e;
 /* loaded from: classes4.dex */
 public class AlaMasterOperationBaseItemView extends LinearLayout {
-    private TextView cKm;
+    private TextView cRf;
     private ImageView mIconView;
     public int mId;
 
@@ -22,7 +22,7 @@ public class AlaMasterOperationBaseItemView extends LinearLayout {
         setGravity(49);
         setPadding(0, context.getResources().getDimensionPixelSize(a.d.sdk_ds16), 0, 0);
         LayoutInflater.from(context).inflate(a.g.ala_gridview_item, this);
-        this.cKm = (TextView) findViewById(a.f.contentTv);
+        this.cRf = (TextView) findViewById(a.f.contentTv);
         this.mIconView = (ImageView) findViewById(a.f.icon_img);
     }
 
@@ -33,7 +33,7 @@ public class AlaMasterOperationBaseItemView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     public void setTextResId(int i) {
         if (i > 0) {
-            this.cKm.setText(i);
+            this.cRf.setText(i);
         }
     }
 
@@ -50,14 +50,14 @@ public class AlaMasterOperationBaseItemView extends LinearLayout {
     }
 
     protected void setTextColorResId(int i) {
-        this.cKm.setTextColor(getResources().getColor(i));
-        this.cKm.setAlpha(0.7f);
+        this.cRf.setTextColor(getResources().getColor(i));
+        this.cRf.setAlpha(0.7f);
     }
 
     @Override // android.view.View
     public void setEnabled(boolean z) {
         super.setEnabled(z);
-        this.cKm.setEnabled(z);
+        this.cRf.setEnabled(z);
         this.mIconView.setEnabled(z);
     }
 }

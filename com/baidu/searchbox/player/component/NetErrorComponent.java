@@ -9,7 +9,7 @@ import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.LayerEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.videoplayer.framework.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class NetErrorComponent extends AbsComponent {
     private Button mBtnRetry;
     private LinearLayout mRootView;

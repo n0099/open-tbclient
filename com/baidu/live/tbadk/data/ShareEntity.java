@@ -9,6 +9,7 @@ public class ShareEntity {
     public String imageUrl;
     public String linkUrl;
     public long liveId;
+    public String sharePicType;
     public int shareType;
     public String title;
     public String type;

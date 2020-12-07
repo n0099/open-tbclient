@@ -12,14 +12,14 @@ import com.baidu.live.sdk.a;
 public class h extends f {
     private Context mContext;
     public View mConvertView;
-    public TextView oxd;
+    public TextView oMj;
 
     @SuppressLint({"InflateParams"})
     public h(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_notice_txt, (ViewGroup) null);
-        this.owU = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oxd = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_notice);
+        this.oMa = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oMj = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_notice);
         this.mConvertView.setTag(this);
     }
 
@@ -29,7 +29,7 @@ public class h extends f {
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.f
     public TextView getTextView() {
-        return this.oxd;
+        return this.oMj;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.f
@@ -43,6 +43,6 @@ public class h extends f {
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.f
     public View getContentView() {
-        return this.oxd;
+        return this.oMj;
     }
 }

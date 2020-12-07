@@ -1,7 +1,7 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
 import com.google.zxing.common.BitArray;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 abstract class AI01decoder extends AbstractExpandedDecoder {
     static final int GTIN_SIZE = 40;
 

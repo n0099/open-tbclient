@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b extends BaseCardInfo {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public long end_time;

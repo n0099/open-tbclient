@@ -9,12 +9,12 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 public class g implements Executor {
     static final /* synthetic */ boolean $assertionsDisabled;
     private final String mUrl;
-    private boolean orq = false;
-    private boolean orr = false;
+    private boolean oGl = false;
+    private boolean oGm = false;
     private long mThreadId = -1;
     private final BlockingQueue<Runnable> mQueue = new LinkedBlockingQueue();
 
@@ -27,7 +27,7 @@ public class g implements Executor {
         this.mUrl = str;
     }
 
-    private boolean ecZ() {
+    private boolean eiE() {
         if (this.mThreadId != -1) {
             return this.mThreadId == Thread.currentThread().getId();
         }
@@ -55,30 +55,30 @@ public class g implements Executor {
         }
     }
 
-    public void eda() throws IOException {
-        NJ(0);
+    public void eiF() throws IOException {
+        OB(0);
     }
 
-    public void NJ(int i) throws IOException {
-        if (!$assertionsDisabled && !ecZ()) {
+    public void OB(int i) throws IOException {
+        if (!$assertionsDisabled && !eiE()) {
             throw new AssertionError();
         }
         long nanoTime = System.nanoTime();
         long convert = TimeUnit.NANOSECONDS.convert(i, TimeUnit.MILLISECONDS);
-        if (this.orr) {
+        if (this.oGm) {
             throw new IllegalStateException("Cannot run loop as an exception has occurred previously.");
         }
-        if (this.orq) {
+        if (this.oGl) {
             throw new IllegalStateException("Cannot run loop when it is already running.");
         }
-        this.orq = true;
-        while (this.orq) {
+        this.oGl = true;
+        while (this.oGl) {
             if (i == 0) {
                 try {
                     i(false, 0L).run();
                 } catch (InterruptedIOException | RuntimeException e) {
-                    this.orq = false;
-                    this.orr = true;
+                    this.oGl = false;
+                    this.oGm = true;
                     throw e;
                 }
             } else {
@@ -88,10 +88,10 @@ public class g implements Executor {
     }
 
     public void quit() {
-        if (!$assertionsDisabled && !ecZ()) {
+        if (!$assertionsDisabled && !eiE()) {
             throw new AssertionError();
         }
-        this.orq = false;
+        this.oGl = false;
     }
 
     @Override // java.util.concurrent.Executor

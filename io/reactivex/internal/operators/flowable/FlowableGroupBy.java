@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.c.h;
+import io.reactivex.b.h;
 import io.reactivex.internal.subscriptions.BasicIntQueueSubscription;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -11,38 +11,39 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
-public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operators.flowable.a<T, io.reactivex.b.b<K, V>> {
+import org.a.d;
+/* loaded from: classes9.dex */
+public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operators.flowable.a<T, io.reactivex.a.b<K, V>> {
     final int bufferSize;
     final boolean delayError;
     final h<? super T, ? extends K> keySelector;
     final h<? super T, ? extends V> valueSelector;
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super io.reactivex.b.b<K, V>> cVar) {
-        this.pOn.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
+    protected void a(org.a.c<? super io.reactivex.a.b<K, V>> cVar) {
+        this.pFg.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
     }
 
-    /* loaded from: classes5.dex */
-    public static final class GroupBySubscriber<T, K, V> extends BasicIntQueueSubscription<io.reactivex.b.b<K, V>> implements j<T> {
+    /* loaded from: classes9.dex */
+    public static final class GroupBySubscriber<T, K, V> extends BasicIntQueueSubscription<io.reactivex.a.b<K, V>> implements j<T> {
         static final Object NULL_KEY = new Object();
         private static final long serialVersionUID = -3688291656102519502L;
-        final org.a.c<? super io.reactivex.b.b<K, V>> actual;
+        final org.a.c<? super io.reactivex.a.b<K, V>> actual;
         final int bufferSize;
         final boolean delayError;
         volatile boolean done;
         Throwable error;
         final h<? super T, ? extends K> keySelector;
         boolean outputFused;
-        final io.reactivex.internal.queue.a<io.reactivex.b.b<K, V>> queue;
-        org.a.d s;
+        final io.reactivex.internal.queue.a<io.reactivex.a.b<K, V>> queue;
+        d s;
         final h<? super T, ? extends V> valueSelector;
         final AtomicBoolean cancelled = new AtomicBoolean();
         final AtomicLong requested = new AtomicLong();
         final AtomicInteger groupCount = new AtomicInteger(1);
         final Map<Object, a<K, V>> groups = new ConcurrentHashMap();
 
-        public GroupBySubscriber(org.a.c<? super io.reactivex.b.b<K, V>> cVar, h<? super T, ? extends K> hVar, h<? super T, ? extends V> hVar2, int i, boolean z) {
+        public GroupBySubscriber(org.a.c<? super io.reactivex.a.b<K, V>> cVar, h<? super T, ? extends K> hVar, h<? super T, ? extends V> hVar2, int i, boolean z) {
             this.actual = cVar;
             this.keySelector = hVar;
             this.valueSelector = hVar2;
@@ -52,7 +53,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -66,7 +67,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
         public void onNext(T t) {
             boolean z;
             if (!this.done) {
-                io.reactivex.internal.queue.a<io.reactivex.b.b<K, V>> aVar = this.queue;
+                io.reactivex.internal.queue.a<io.reactivex.a.b<K, V>> aVar = this.queue;
                 try {
                     Object apply = this.keySelector.apply(t);
                     Object obj = apply != null ? apply : NULL_KEY;
@@ -74,7 +75,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
                     if (aVar2 != null) {
                         z = false;
                     } else if (!this.cancelled.get()) {
-                        aVar2 = a.a(apply, this.bufferSize, (GroupBySubscriber<?, Object, T>) this, this.delayError);
+                        aVar2 = a.a(apply, this.bufferSize, this, this.delayError);
                         this.groups.put(obj, aVar2);
                         this.groupCount.getAndIncrement();
                         z = true;
@@ -82,7 +83,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
                         return;
                     }
                     try {
-                        aVar2.onNext(io.reactivex.internal.functions.a.l(this.valueSelector.apply(t), "The valueSelector returned null"));
+                        aVar2.onNext(io.reactivex.internal.functions.a.m(this.valueSelector.apply(t), "The valueSelector returned null"));
                         if (z) {
                             aVar.offer(aVar2);
                             drain();
@@ -103,7 +104,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
         @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.e.a.onError(th);
+                io.reactivex.d.a.onError(th);
                 return;
             }
             for (a<K, V> aVar : this.groups.values()) {
@@ -168,8 +169,8 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
         void drainFused() {
             Throwable th;
             int i = 1;
-            io.reactivex.internal.queue.a<io.reactivex.b.b<K, V>> aVar = this.queue;
-            org.a.c<? super io.reactivex.b.b<K, V>> cVar = this.actual;
+            io.reactivex.internal.queue.a<io.reactivex.a.b<K, V>> aVar = this.queue;
+            org.a.c<? super io.reactivex.a.b<K, V>> cVar = this.actual;
             while (!this.cancelled.get()) {
                 boolean z = this.done;
                 if (z && !this.delayError && (th = this.error) != null) {
@@ -197,15 +198,15 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
         }
 
         void drainNormal() {
-            io.reactivex.internal.queue.a<io.reactivex.b.b<K, V>> aVar = this.queue;
-            org.a.c<? super io.reactivex.b.b<K, V>> cVar = this.actual;
+            io.reactivex.internal.queue.a<io.reactivex.a.b<K, V>> aVar = this.queue;
+            org.a.c<? super io.reactivex.a.b<K, V>> cVar = this.actual;
             int i = 1;
             while (true) {
                 long j = this.requested.get();
                 long j2 = 0;
                 while (j2 != j) {
                     boolean z = this.done;
-                    io.reactivex.b.b<K, V> poll = aVar.poll();
+                    io.reactivex.a.b<K, V> poll = aVar.poll();
                     boolean z2 = poll == null;
                     if (!checkTerminated(z, z2, cVar, aVar)) {
                         if (z2) {
@@ -274,26 +275,26 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // io.reactivex.internal.a.g
-        public io.reactivex.b.b<K, V> poll() {
+        @Override // io.reactivex.internal.a.f
+        public io.reactivex.a.b<K, V> poll() {
             return this.queue.poll();
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public void clear() {
             this.queue.clear();
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public boolean isEmpty() {
             return this.queue.isEmpty();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
-    public static final class a<K, T> extends io.reactivex.b.b<K, T> {
-        final State<T, K> pOL;
+    /* loaded from: classes9.dex */
+    public static final class a<K, T> extends io.reactivex.a.b<K, T> {
+        final State<T, K> pFz;
 
         public static <T, K> a<K, T> a(K k, int i, GroupBySubscriber<?, K, T> groupBySubscriber, boolean z) {
             return new a<>(k, new State(i, groupBySubscriber, k, z));
@@ -301,29 +302,29 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
 
         protected a(K k, State<T, K> state) {
             super(k);
-            this.pOL = state;
+            this.pFz = state;
         }
 
         @Override // io.reactivex.g
         protected void a(org.a.c<? super T> cVar) {
-            this.pOL.subscribe(cVar);
+            this.pFz.subscribe(cVar);
         }
 
         public void onNext(T t) {
-            this.pOL.onNext(t);
+            this.pFz.onNext(t);
         }
 
         public void onError(Throwable th) {
-            this.pOL.onError(th);
+            this.pFz.onError(th);
         }
 
         public void onComplete() {
-            this.pOL.onComplete();
+            this.pFz.onComplete();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class State<T, K> extends BasicIntQueueSubscription<T> implements org.a.b<T> {
         private static final long serialVersionUID = -3852313036005250360L;
         final boolean delayError;
@@ -525,7 +526,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
             return 0;
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public T poll() {
             T poll = this.queue.poll();
             if (poll != null) {
@@ -540,12 +541,12 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
             return null;
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public boolean isEmpty() {
             return this.queue.isEmpty();
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public void clear() {
             this.queue.clear();
         }

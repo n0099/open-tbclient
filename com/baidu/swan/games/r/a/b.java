@@ -2,14 +2,14 @@ package com.baidu.swan.games.r.a;
 
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b {
     @V8JavascriptField
     public String key;
     @V8JavascriptField
     public String value;
 
-    public boolean aVV() {
+    public boolean aZa() {
         try {
             if (this.key != null) {
                 if (this.key.getBytes("UTF-8").length <= 128) {
@@ -23,7 +23,7 @@ public class b {
         }
     }
 
-    public boolean aVW() {
+    public boolean aZb() {
         try {
             if (this.key != null && this.value != null) {
                 if (this.key.getBytes("UTF-8").length + this.value.getBytes("UTF-8").length <= 1024) {

@@ -1,272 +1,266 @@
 package com.baidu.ar.face.detector;
 
 import android.content.Context;
+import com.baidu.ar.auth.ARAuth;
 import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.ar.databasic.AlgoHandleController;
 import com.baidu.ar.face.algo.FaceAlgoConfig;
 import com.baidu.ar.face.algo.FaceJniClient;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class i {
-    private AlgoHandleController bY;
-    private String oA;
-    private String oB;
-    private String oC;
-    private String oD;
-    private long oq;
-    private long or;
-    private String ow;
-    private String ox;
-    private String oy;
-    private String[] oz;
-    private long om = 0;
-    private long on = 0;
-    private long oo = 0;
-    private boolean op = true;
-    private k os = new k();
-    private FaceAlgoConfig ot = new FaceAlgoConfig(180, 5, 0.03f, 1.0f);
-    private boolean ou = true;
-    private boolean ov = false;
-    private g ol = new g();
+    private AlgoHandleController cb;
+    private long oG;
+    private long oH;
+    private String oM;
+    private String oN;
+    private String oO;
+    private String[] oP;
+    private String oQ;
+    private String oR;
+    private String oS;
+    private String oT;
+    private long oC = 0;
+    private long oD = 0;
+    private long oE = 0;
+    private boolean oF = true;
+    private k oI = new k();
+    private FaceAlgoConfig oJ = new FaceAlgoConfig(180, 5, 0.03f, 1.0f);
+    private boolean oK = true;
+    private boolean oL = false;
+    private g oB = new g();
 
     public i() {
-        com.baidu.ar.g.b.b("algo", "environment version= " + com.baidu.ar.g.c.getVersionCode() + ", face = " + FaceJniClient.getFaceAlgoVersion());
+        com.baidu.ar.h.b.b("algo", "environment version= " + com.baidu.ar.h.c.getVersionCode() + ", face = " + FaceJniClient.getFaceAlgoVersion());
     }
 
-    private String Y(String str) {
+    private String ab(String str) {
         return str.startsWith("file:///android_asset/") ? str.replace("file:///android_asset/", "") : str;
     }
 
-    private void ej() {
+    private void ei() {
         try {
-            if (this.om > 0) {
-                FaceJniClient.releaseDetectCore(this.om);
+            if (this.oC > 0) {
+                FaceJniClient.releaseDetectCore(this.oC);
             }
-            if (this.on > 0) {
-                FaceJniClient.releaseTrackCore(this.on);
+            if (this.oD > 0) {
+                FaceJniClient.releaseTrackCore(this.oD);
             }
-            if (this.oo > 0) {
-                FaceJniClient.releaseAnimateCore(this.oo);
+            if (this.oE > 0) {
+                FaceJniClient.releaseAnimateCore(this.oE);
             }
-            this.om = 0L;
-            this.on = 0L;
-            this.oo = 0L;
+            this.oC = 0L;
+            this.oD = 0L;
+            this.oE = 0L;
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private void setAutoCalibrate(boolean z) {
-        if (this.ot != null) {
-            this.ot.setAutoCalibrate(z);
+        if (this.oJ != null) {
+            this.oJ.setAutoCalibrate(z);
+        }
+    }
+
+    public void A(boolean z) {
+        if (this.oJ != null) {
+            if (z && !ARAuth.checkFeatureAuth(FeatureCodes.FACE_DUMOJI)) {
+                com.baidu.ar.h.b.c("bdar-face", "setAnimojiMode(true) hasn't auth");
+                return;
+            }
+            com.baidu.ar.h.b.c("bdar-face", "setAnimojiMode:" + z);
+            this.oJ.setIsAnimojiMode(z);
         }
     }
 
     public void B(boolean z) {
-        if (this.ot != null) {
-            com.baidu.ar.g.b.c("bdar-face", "setNeedRefineEyes:" + z);
-            this.ot.setNeedRefineEyes(z);
+        if (this.oJ != null) {
+            com.baidu.ar.h.b.c("bdar-face", "setNeedRefineMouth:" + z);
+            this.oJ.setNeedRefineMouth(z);
         }
     }
 
     public void C(boolean z) {
-        if (this.ot != null) {
-            if (z && !com.baidu.ar.auth.a.checkFeatureAuth(FeatureCodes.FACE_DUMOJI)) {
-                com.baidu.ar.g.b.c("bdar-face", "setAnimojiMode(true) hasn't auth");
-                return;
-            }
-            com.baidu.ar.g.b.c("bdar-face", "setAnimojiMode:" + z);
-            this.ot.setIsAnimojiMode(z);
+        if (this.oJ != null) {
+            com.baidu.ar.h.b.c("bdar-face", "setNeedExpression:" + z);
+            this.oJ.setNeedExpression(z);
         }
     }
 
-    public void D(boolean z) {
-        if (this.ot != null) {
-            com.baidu.ar.g.b.c("bdar-face", "setNeedRefineMouth:" + z);
-            this.ot.setNeedRefineMouth(z);
+    public void G(int i) {
+        if (this.oJ != null) {
+            com.baidu.ar.h.b.c("bdar-face", "trackMode:" + i);
+            this.oJ.setRunningMode(i);
         }
     }
 
-    public void E(int i) {
-        if (this.ot != null) {
-            com.baidu.ar.g.b.c("bdar-face", "trackMode:" + i);
-            this.ot.setRunningMode(i);
-        }
-    }
-
-    public void E(boolean z) {
-        if (this.ot != null) {
-            com.baidu.ar.g.b.c("bdar-face", "setNeedExpression:" + z);
-            this.ot.setNeedExpression(z);
-        }
-    }
-
-    public void F(int i) {
-        this.ol.D(i);
-        if (this.ot != null) {
-            com.baidu.ar.g.b.c("bdar-face", "setMaxTrackingFace:" + i);
-            this.ot.setMaxTrackingFace(i);
+    public void H(int i) {
+        this.oB.F(i);
+        if (this.oJ != null) {
+            com.baidu.ar.h.b.c("bdar-face", "setMaxTrackingFace:" + i);
+            this.oJ.setMaxTrackingFace(i);
         }
     }
 
     public i a(j jVar) {
-        this.ow = jVar.eo();
-        this.ox = jVar.ep();
-        this.oy = jVar.eq();
-        this.oz = new String[]{jVar.er(), jVar.es(), jVar.et()};
-        this.oA = jVar.eu();
-        this.oB = jVar.ev();
-        this.oC = jVar.ew();
-        this.oD = jVar.ex();
+        this.oM = jVar.en();
+        this.oN = jVar.eo();
+        this.oO = jVar.ep();
+        this.oP = new String[]{jVar.eq(), jVar.er(), jVar.es()};
+        this.oQ = jVar.et();
+        this.oR = jVar.eu();
+        this.oS = jVar.ev();
+        this.oT = jVar.ew();
         return this;
     }
 
     public void a(float f, float f2) {
-        if (this.ot != null) {
-            com.baidu.ar.g.b.c("bdar-face", "mTrackingSmoothAlpha:" + f + " mTrackingSmoothThreshold:" + f2);
-            this.ot.setTrackingSmoothAlpha(f);
-            this.ot.setTrackingSmoothThreshold(f2);
+        if (this.oJ != null) {
+            com.baidu.ar.h.b.c("bdar-face", "mTrackingSmoothAlpha:" + f + " mTrackingSmoothThreshold:" + f2);
+            this.oJ.setTrackingSmoothAlpha(f);
+            this.oJ.setTrackingSmoothThreshold(f2);
         }
     }
 
     public void a(AlgoHandleController algoHandleController) {
-        this.bY = algoHandleController;
+        this.cb = algoHandleController;
     }
 
     public void a(boolean z, boolean z2, boolean z3) {
-        if (this.ot != null) {
-            com.baidu.ar.g.b.c("bdar-face", "setAnimateMode needHeadPose:" + z + " needSkeleton:" + z2 + " needTriggers:" + z3);
-            this.ot.setAnimateRunningMode(z, z2, z3);
+        if (this.oJ != null) {
+            com.baidu.ar.h.b.c("bdar-face", "setAnimateMode needHeadPose:" + z + " needSkeleton:" + z2 + " needTriggers:" + z3);
+            this.oJ.setAnimateRunningMode(z, z2, z3);
         }
     }
 
     public boolean a(boolean z, int i) {
-        if (!this.ov) {
-            com.baidu.ar.g.b.k("bdar-face", "detect_frame track task executing modelLoad failed");
+        if (!this.oL) {
+            com.baidu.ar.h.b.k("bdar-face", "detect_frame track task executing modelLoad failed");
             return true;
         }
-        if ((!this.op) == z) {
-            this.ot.setForceLost(true);
-            this.op = z;
+        if ((!this.oF) == z) {
+            this.oJ.setForceLost(true);
+            this.oF = z;
         } else {
-            this.ot.setForceLost(false);
+            this.oJ.setForceLost(false);
         }
-        this.ot.setMirror(false);
-        this.ot.setTrackingRT(com.baidu.ar.face.c.B(i));
+        this.oJ.setMirror(false);
+        this.oJ.setTrackingRT(com.baidu.ar.face.c.D(i));
         return false;
     }
 
     public void b(long j) {
-        com.baidu.ar.g.b.j("bdar-face", "[FaceHandlerThread] destroy handle:" + j);
+        com.baidu.ar.h.b.j("bdar-face", "[FaceHandlerThread] destroy handle:" + j);
         FaceJniClient.destoryFrame(j);
     }
 
     public void c(int[] iArr) {
-        if (this.ol != null) {
-            this.ol.b(iArr);
+        if (this.oB != null) {
+            this.oB.b(iArr);
         } else {
-            com.baidu.ar.g.b.b("bdar-face", "mDetectSkiper is null when being configured");
+            com.baidu.ar.h.b.b("bdar-face", "mDetectSkiper is null when being configured");
         }
     }
 
-    public i dW() {
-        if (com.baidu.ar.face.c.a(this.ow, this.ox, this.oy, this.oz, this.oA, this.oB, this.oC, this.oD)) {
-            com.baidu.ar.g.b.b("bdar-face", "init error! check face model!");
+    public void d(float f) {
+        if (this.oJ != null) {
+            com.baidu.ar.h.b.c("bdar-face", "mTrackingMouthThreshold:" + f);
+            this.oJ.setTrackingMouthThreshold(f);
+        }
+    }
+
+    public i dV() {
+        if (com.baidu.ar.face.c.a(this.oM, this.oN, this.oO, this.oP, this.oQ, this.oR, this.oS, this.oT)) {
+            com.baidu.ar.h.b.b("bdar-face", "init error! check face model!");
             return null;
         }
-        com.baidu.ar.g.b.c("bdar-face", "detect_frame load facemodel");
+        com.baidu.ar.h.b.c("bdar-face", "detect_frame load facemodel");
         setAutoCalibrate(true);
-        com.baidu.ar.g.b.c("bdar-face", "imbin:" + this.ow + "\nDetect:" + this.ox + "\nTrack0:" + this.oy + "\nTrack1:" + Arrays.toString(this.oz) + "\nTrack2:" + this.oA + "\nTrack3:" + this.oB + "\nexpression:" + this.oC + "\nmouth:" + this.oD);
-        String[] strArr = {"detect", Y(this.ox)};
-        String[] strArr2 = {"angle", Y(this.oy), "heavy", Y(this.oz[0]), "medium", Y(this.oz[1]), "lite", Y(this.oz[2]), com.baidu.pass.biometrics.face.liveness.c.a.i, Y(this.oD), "eyes", Y(this.oA), "iris", Y(this.oB)};
-        String[] strArr3 = {"animate", Y(this.ow), "expression", Y(this.oC)};
-        this.om = this.ox.startsWith("file:///android_asset/") ? FaceJniClient.createDetectCoreFromAssetDir(strArr) : FaceJniClient.createDetectCore(strArr);
-        this.on = this.oy.startsWith("file:///android_asset/") ? FaceJniClient.createTrackCoreFromAssetDir(strArr2) : FaceJniClient.createTrackCore(strArr2);
-        this.oo = this.ow.startsWith("file:///android_asset/") ? FaceJniClient.createAnimateCoreFromAssetDir(strArr3) : FaceJniClient.createAnimateCore(strArr3);
+        com.baidu.ar.h.b.c("bdar-face", "imbin:" + this.oM + "\nDetect:" + this.oN + "\nTrack0:" + this.oO + "\nTrack1:" + Arrays.toString(this.oP) + "\nTrack2:" + this.oQ + "\nTrack3:" + this.oR + "\nexpression:" + this.oS + "\nmouth:" + this.oT);
+        String[] strArr = {"detect", ab(this.oN)};
+        String[] strArr2 = {"angle", ab(this.oO), "heavy", ab(this.oP[0]), "medium", ab(this.oP[1]), "lite", ab(this.oP[2]), com.baidu.pass.biometrics.face.liveness.c.a.i, ab(this.oT), "eyes", ab(this.oQ), "iris", ab(this.oR)};
+        String[] strArr3 = {"animate", ab(this.oM), "expression", ab(this.oS)};
+        this.oC = this.oN.startsWith("file:///android_asset/") ? FaceJniClient.createDetectCoreFromAssetDir(strArr) : FaceJniClient.createDetectCore(strArr);
+        this.oD = this.oO.startsWith("file:///android_asset/") ? FaceJniClient.createTrackCoreFromAssetDir(strArr2) : FaceJniClient.createTrackCore(strArr2);
+        this.oE = this.oM.startsWith("file:///android_asset/") ? FaceJniClient.createAnimateCoreFromAssetDir(strArr3) : FaceJniClient.createAnimateCore(strArr3);
         char c = 'd';
-        com.baidu.ar.g.b.c("bdar-face", "face init mDetectHandle:" + this.om + " mTrackHandle:" + this.on + " mAnimateHandle:" + this.oo);
-        this.ov = ((this.om <= 0 || this.on <= 0 || this.oo <= 0) ? 'h' : 'h') == 'd';
+        com.baidu.ar.h.b.c("bdar-face", "face init mDetectHandle:" + this.oC + " mTrackHandle:" + this.oD + " mAnimateHandle:" + this.oE);
+        this.oL = ((this.oC <= 0 || this.oD <= 0 || this.oE <= 0) ? 'h' : 'h') == 'd';
         return this;
     }
 
-    public boolean dX() {
-        return this.ov;
+    public boolean dW() {
+        return this.oL;
     }
 
-    public g dY() {
-        return this.ol;
+    public g dX() {
+        return this.oB;
     }
 
-    public AlgoHandleController dZ() {
-        return this.bY;
+    public AlgoHandleController dY() {
+        return this.cb;
     }
 
-    public void e(float f) {
-        if (this.ot != null) {
-            com.baidu.ar.g.b.c("bdar-face", "mTrackingMouthThreshold:" + f);
-            this.ot.setTrackingMouthThreshold(f);
-        }
+    public long dZ() {
+        return this.oC;
     }
 
     public long ea() {
-        return this.om;
+        return this.oD;
     }
 
     public long eb() {
-        return this.on;
+        return this.oE;
     }
 
-    public long ec() {
-        return this.oo;
+    public FaceAlgoConfig ec() {
+        return this.oJ;
     }
 
-    public FaceAlgoConfig ed() {
-        return this.ot;
+    public k ed() {
+        return this.oI;
     }
 
-    public k ee() {
-        return this.os;
+    public boolean ee() {
+        return this.oK;
     }
 
-    public boolean ef() {
-        return this.ou;
+    public i ef() {
+        if (this.oG > 0 && this.oI != null) {
+            this.oI.e(System.currentTimeMillis() - this.oG);
+        }
+        this.oG = System.currentTimeMillis();
+        return this;
     }
 
     public i eg() {
-        if (this.oq > 0 && this.os != null) {
-            this.os.e(System.currentTimeMillis() - this.oq);
+        if (this.oH > 0 && this.oI != null) {
+            this.oI.f(System.currentTimeMillis() - this.oH);
         }
-        this.oq = System.currentTimeMillis();
+        this.oH = System.currentTimeMillis();
         return this;
     }
 
-    public i eh() {
-        if (this.or > 0 && this.os != null) {
-            this.os.f(System.currentTimeMillis() - this.or);
-        }
-        this.or = System.currentTimeMillis();
-        return this;
+    public boolean eh() {
+        return dW();
     }
 
-    public boolean ei() {
-        return dX();
+    public void q(long j) {
+        if (this.cb != null) {
+            this.cb.destroyHandle(j);
+        }
     }
 
     public boolean release() {
-        ej();
-        if (this.os != null) {
-            this.os.eA();
-            this.os = null;
+        ei();
+        if (this.oI != null) {
+            this.oI.ez();
+            this.oI = null;
             return true;
         }
         return true;
-    }
-
-    public void s(long j) {
-        if (this.bY != null) {
-            this.bY.destroyHandle(j);
-        }
     }
 
     public void setContext(Context context) {
@@ -277,23 +271,30 @@ public class i {
     }
 
     public void setNeedHeadPose(boolean z) {
-        if (this.ot != null) {
-            com.baidu.ar.g.b.c("bdar-face", "setNeedHeadPose:" + z);
-            this.ot.setNeedHeadPose(z);
+        if (this.oJ != null) {
+            com.baidu.ar.h.b.c("bdar-face", "setNeedHeadPose:" + z);
+            this.oJ.setNeedHeadPose(z);
         }
     }
 
     public void setNeedSkeleton(boolean z) {
-        if (this.ot != null) {
-            com.baidu.ar.g.b.c("bdar-face", "setNeedSkeleton:" + z);
-            this.ot.setNeedSkeleton(z);
+        if (this.oJ != null) {
+            com.baidu.ar.h.b.c("bdar-face", "setNeedSkeleton:" + z);
+            this.oJ.setNeedSkeleton(z);
         }
     }
 
     public void setNeedTriggers(boolean z) {
-        if (this.ot != null) {
-            com.baidu.ar.g.b.c("bdar-face", "setNeedTriggers:" + z);
-            this.ot.setNeedTriggers(z);
+        if (this.oJ != null) {
+            com.baidu.ar.h.b.c("bdar-face", "setNeedTriggers:" + z);
+            this.oJ.setNeedTriggers(z);
+        }
+    }
+
+    public void z(boolean z) {
+        if (this.oJ != null) {
+            com.baidu.ar.h.b.c("bdar-face", "setNeedRefineEyes:" + z);
+            this.oJ.setNeedRefineEyes(z);
         }
     }
 }

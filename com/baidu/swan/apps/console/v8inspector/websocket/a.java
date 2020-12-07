@@ -15,19 +15,19 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private InterfaceC0415a cFn;
+    private InterfaceC0427a cMh;
     private InputStream mInputStream;
     private OutputStream mOutputStream;
     private int mState = 1;
-    private WebSocketFrame.OpCode cFo = null;
-    private final List<WebSocketFrame> cFp = new LinkedList();
+    private WebSocketFrame.OpCode cMi = null;
+    private final List<WebSocketFrame> cMj = new LinkedList();
 
     /* renamed from: com.baidu.swan.apps.console.v8inspector.websocket.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0415a {
+    /* loaded from: classes25.dex */
+    public interface InterfaceC0427a {
         void a(WebSocketFrame webSocketFrame);
 
         void onClose();
@@ -43,58 +43,58 @@ public class a {
         return "websocket".equalsIgnoreCase(str) && (str2 != null && str2.toLowerCase().contains("Upgrade".toLowerCase()));
     }
 
-    public static String mw(String str) throws NoSuchAlgorithmException {
+    public static String nd(String str) throws NoSuchAlgorithmException {
         MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
         messageDigest.update((str + "258EAFA5-E914-47DA-95CA-C5AB0DC85B11").getBytes());
         return Base64.encodeToString(messageDigest.digest(), 2);
     }
 
-    public void a(InterfaceC0415a interfaceC0415a) {
-        this.cFn = interfaceC0415a;
+    public void a(InterfaceC0427a interfaceC0427a) {
+        this.cMh = interfaceC0427a;
     }
 
     public void d(InputStream inputStream, OutputStream outputStream) {
         this.mInputStream = inputStream;
         this.mOutputStream = outputStream;
         this.mState = 2;
-        if (this.cFn != null) {
-            this.cFn.onOpen();
+        if (this.cMh != null) {
+            this.cMh.onOpen();
         }
-        alG();
+        aoO();
     }
 
-    private void alG() {
+    private void aoO() {
         while (this.mState == 2) {
             try {
-                b(WebSocketFrame.l(this.mInputStream));
+                b(WebSocketFrame.m(this.mInputStream));
             } catch (IOException e) {
-                if (this.cFn != null) {
-                    this.cFn.onException(e);
+                if (this.cMh != null) {
+                    this.cMh.onException(e);
                 }
                 c.e("V8WebSocket", "parse web socket frame fail", e);
                 return;
             } finally {
-                alH();
+                aoP();
             }
         }
     }
 
     private void b(WebSocketFrame webSocketFrame) throws IOException {
-        if (webSocketFrame.alI() == WebSocketFrame.OpCode.Close) {
+        if (webSocketFrame.aoQ() == WebSocketFrame.OpCode.Close) {
             d(webSocketFrame);
-        } else if (webSocketFrame.alI() == WebSocketFrame.OpCode.Ping) {
-            e(new WebSocketFrame(WebSocketFrame.OpCode.Pong, true, webSocketFrame.alK()));
-        } else if (webSocketFrame.alI() == WebSocketFrame.OpCode.Pong) {
+        } else if (webSocketFrame.aoQ() == WebSocketFrame.OpCode.Ping) {
+            e(new WebSocketFrame(WebSocketFrame.OpCode.Pong, true, webSocketFrame.aoS()));
+        } else if (webSocketFrame.aoQ() == WebSocketFrame.OpCode.Pong) {
             if (DEBUG) {
                 Log.i("V8WebSocket", "A pong request has received.");
             }
-        } else if (!webSocketFrame.alJ() || webSocketFrame.alI() == WebSocketFrame.OpCode.Continuation) {
+        } else if (!webSocketFrame.aoR() || webSocketFrame.aoQ() == WebSocketFrame.OpCode.Continuation) {
             c(webSocketFrame);
-        } else if (this.cFo != null) {
+        } else if (this.cMi != null) {
             throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence not completed.");
         } else {
-            if (webSocketFrame.alI() == WebSocketFrame.OpCode.Text || webSocketFrame.alI() == WebSocketFrame.OpCode.Binary) {
-                this.cFn.a(webSocketFrame);
+            if (webSocketFrame.aoQ() == WebSocketFrame.OpCode.Text || webSocketFrame.aoQ() == WebSocketFrame.OpCode.Binary) {
+                this.cMh.a(webSocketFrame);
                 return;
             }
             throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Non control or continuous frame expected.");
@@ -102,25 +102,25 @@ public class a {
     }
 
     private void c(WebSocketFrame webSocketFrame) throws IOException {
-        if (webSocketFrame.alI() != WebSocketFrame.OpCode.Continuation) {
-            if (this.cFo != null && DEBUG) {
+        if (webSocketFrame.aoQ() != WebSocketFrame.OpCode.Continuation) {
+            if (this.cMi != null && DEBUG) {
                 throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Previous continuous frame sequence not completed.");
             }
-            this.cFo = webSocketFrame.alI();
-            this.cFp.clear();
-            this.cFp.add(webSocketFrame);
-        } else if (webSocketFrame.alJ()) {
-            if (this.cFo == null) {
+            this.cMi = webSocketFrame.aoQ();
+            this.cMj.clear();
+            this.cMj.add(webSocketFrame);
+        } else if (webSocketFrame.aoR()) {
+            if (this.cMi == null) {
                 throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
             }
-            this.cFp.add(webSocketFrame);
-            this.cFn.a(new WebSocketFrame(this.cFo, this.cFp));
-            this.cFo = null;
-            this.cFp.clear();
-        } else if (this.cFo == null) {
+            this.cMj.add(webSocketFrame);
+            this.cMh.a(new WebSocketFrame(this.cMi, this.cMj));
+            this.cMi = null;
+            this.cMj.clear();
+        } else if (this.cMi == null) {
             throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
         } else {
-            this.cFp.add(webSocketFrame);
+            this.cMj.add(webSocketFrame);
         }
     }
 
@@ -128,11 +128,11 @@ public class a {
         WebSocketFrame.CloseCode closeCode = WebSocketFrame.CloseCode.NormalClosure;
         String str = "";
         if (webSocketFrame instanceof WebSocketFrame.a) {
-            closeCode = ((WebSocketFrame.a) webSocketFrame).alO();
+            closeCode = ((WebSocketFrame.a) webSocketFrame).aoW();
             str = ((WebSocketFrame.a) webSocketFrame).getCloseReason();
         }
         if (this.mState == 3) {
-            alH();
+            aoP();
         } else {
             a(closeCode, str);
         }
@@ -142,12 +142,12 @@ public class a {
         webSocketFrame.write(this.mOutputStream);
     }
 
-    private void alH() {
+    private void aoP() {
         if (this.mState != 4) {
             d.closeSafely(this.mInputStream);
             d.closeSafely(this.mOutputStream);
             this.mState = 4;
-            this.cFn.onClose();
+            this.cMh.onClose();
         }
     }
 
@@ -157,7 +157,7 @@ public class a {
         if (i == 2) {
             e(new WebSocketFrame.a(closeCode, str));
         } else {
-            alH();
+            aoP();
         }
     }
 }

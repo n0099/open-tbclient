@@ -52,6 +52,7 @@ import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.Okio;
 import okio.Source;
+import org.apache.http.auth.AUTH;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes15.dex */
 public final class RealConnection extends Http2Connection.Listener implements Connection {
@@ -317,10 +318,12 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         return request;
     }
 
-    private Request createTunnelRequest(Request request) {
-        Request.Builder header = new Request.Builder().url(this.route.address().url()).header("Host", Util.hostHeader(this.route.address().url(), true)).header("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).header("User-Agent", Version.userAgent());
+    private Request createTunnelRequest(Request request) throws IOException {
+        Request.Builder header = new Request.Builder().url(this.route.address().url()).method("CONNECT", null).header("Host", Util.hostHeader(this.route.address().url(), true)).header("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).header("User-Agent", Version.userAgent());
         addProxyHeaders(header, request);
-        return header.build();
+        Request build = header.build();
+        Request authenticate = this.route.address().proxyAuthenticator().authenticate(this.route, new Response.Builder().request(build).protocol(Protocol.HTTP_1_1).code(407).message("Preemptive Authenticate").body(Util.EMPTY_RESPONSE).sentRequestAtMillis(-1L).receivedResponseAtMillis(-1L).header(AUTH.PROXY_AUTH, "OkHttp-Preemptive").build());
+        return authenticate != null ? authenticate : build;
     }
 
     private void addProxyHeaders(Request.Builder builder, Request request) {
@@ -393,31 +396,33 @@ public final class RealConnection extends Http2Connection.Listener implements Co
     }
 
     public boolean isHealthy(boolean z) {
-        boolean z2 = true;
         if (this.socket.isClosed() || this.socket.isInputShutdown() || this.socket.isOutputShutdown()) {
             return false;
         }
         if (this.http2Connection != null) {
-            return !this.http2Connection.isShutdown();
-        } else if (z) {
+            return this.http2Connection.isHealthy(System.nanoTime());
+        }
+        if (z) {
             try {
                 int soTimeout = this.socket.getSoTimeout();
-                this.socket.setSoTimeout(1);
-                if (this.source.exhausted()) {
+                try {
+                    this.socket.setSoTimeout(1);
+                    if (this.source.exhausted()) {
+                        this.socket.setSoTimeout(soTimeout);
+                        return false;
+                    }
                     this.socket.setSoTimeout(soTimeout);
-                    z2 = false;
-                } else {
+                    return true;
+                } catch (Throwable th) {
                     this.socket.setSoTimeout(soTimeout);
+                    throw th;
                 }
-                return z2;
             } catch (SocketTimeoutException e) {
-                return z2;
             } catch (IOException e2) {
                 return false;
             }
-        } else {
-            return true;
         }
+        return true;
     }
 
     @Override // okhttp3.internal.http2.Http2Connection.Listener

@@ -7,7 +7,7 @@ import com.baidu.searchbox.NoProGuard;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class PrivateApiUtils implements NoProGuard {
     private static final String SDK_VERSION_NAME = "REL";
     private static final int SDK_VERSION_P = 28;

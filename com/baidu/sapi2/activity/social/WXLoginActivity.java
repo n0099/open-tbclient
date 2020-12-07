@@ -4,14 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-import com.baidu.k.a.a.a;
+import com.baidu.l.a.a.a;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.sapi2.social.SocialLoginBase;
 import com.baidu.sapi2.utils.ParamsUtil;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class WXLoginActivity extends BaseSSOLoginActivity {
     public static final String KEY_BASE_RESP_CODE = "code";
     public static final String KEY_BASE_RESP_ERROR_CODE = "error_code";
@@ -25,7 +25,7 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     public String wxRespState;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public interface WxCallback {
         void handleNotInstall();
 

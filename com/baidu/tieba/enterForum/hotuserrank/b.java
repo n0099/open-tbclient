@@ -12,27 +12,27 @@ import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.hotuserrank.c;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b {
-    private TbPageContext eGu;
-    private String imA;
-    private int imB;
-    private c.a imx;
-    private TextView imy;
-    private TextView imz;
+    private TbPageContext eNx;
+    private c.a ixq;
+    private TextView ixr;
+    private TextView ixs;
+    private String ixt;
+    private int ixu;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.hotuserrank.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(b.this.imA)) {
-                b.this.eGu.showToast(R.string.load_error_retry);
+            if (TextUtils.isEmpty(b.this.ixt)) {
+                b.this.eNx.showToast(R.string.load_error_retry);
                 return;
             }
-            bf.bqF().b(b.this.eGu, new String[]{b.this.imA});
-            if (b.this.imB != 0) {
-                if (b.this.imB != 2) {
-                    if (b.this.imB == 1) {
+            bf.bua().b(b.this.eNx, new String[]{b.this.ixt});
+            if (b.this.ixu != 0) {
+                if (b.this.ixu != 2) {
+                    if (b.this.ixu == 1) {
                         ar arVar = new ar("c13669");
-                        arVar.ak("obj_locate", 2);
+                        arVar.al("obj_locate", 2);
                         TiebaStatic.log(arVar);
                         return;
                     }
@@ -40,7 +40,7 @@ public class b {
                 }
                 ar arVar2 = new ar("c13658");
                 arVar2.w("uid", TbadkCoreApplication.getCurrentAccountId());
-                arVar2.ak("obj_locate", 2);
+                arVar2.al("obj_locate", 2);
                 TiebaStatic.log(arVar2);
             }
         }
@@ -48,34 +48,34 @@ public class b {
     private View mRootView;
 
     public b(TbPageContext tbPageContext, View view) {
-        this.eGu = tbPageContext;
+        this.eNx = tbPageContext;
         this.mRootView = view;
-        this.imx = new c.a(view.findViewById(R.id.user_view));
-        this.imx.yn(1);
-        this.imy = (TextView) view.findViewById(R.id.get_influence);
-        this.imz = (TextView) view.findViewById(R.id.rank_num);
-        this.imz.setTextSize(0, l.getDimens(this.eGu.getPageActivity(), R.dimen.tbfontsize46));
-        this.imy.setOnClickListener(this.mOnClickListener);
+        this.ixq = new c.a(view.findViewById(R.id.user_view));
+        this.ixq.yS(1);
+        this.ixr = (TextView) view.findViewById(R.id.get_influence);
+        this.ixs = (TextView) view.findViewById(R.id.rank_num);
+        this.ixs.setTextSize(0, l.getDimens(this.eNx.getPageActivity(), R.dimen.tbfontsize46));
+        this.ixr.setOnClickListener(this.mOnClickListener);
     }
 
     public void b(com.baidu.tieba.enterForum.hotuserrank.a.c cVar) {
-        if (cVar != null && cVar.inb != null && cVar.inb.imX != null && !cVar.inb.imX.isMask && TbadkCoreApplication.isLogin()) {
+        if (cVar != null && cVar.ixU != null && cVar.ixU.ixQ != null && !cVar.ixU.ixQ.isMask && TbadkCoreApplication.isLogin()) {
             this.mRootView.setVisibility(0);
-            this.imx.a(cVar.inb);
-            this.imx.crS();
-            this.imA = cVar.inc;
+            this.ixq.a(cVar.ixU);
+            this.ixq.cwh();
+            this.ixt = cVar.ixV;
             return;
         }
         this.mRootView.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.imx.onChangeSkinType(i);
-        ap.setBackgroundColor(this.imx.itemView, R.color.CAM_X0207);
-        ap.setViewTextColor(this.imy, R.color.CAM_X0302);
+        this.ixq.onChangeSkinType(i);
+        ap.setBackgroundColor(this.ixq.itemView, R.color.CAM_X0207);
+        ap.setViewTextColor(this.ixr, R.color.CAM_X0302);
     }
 
-    public void ym(int i) {
-        this.imB = i;
+    public void yR(int i) {
+        this.ixu = i;
     }
 }

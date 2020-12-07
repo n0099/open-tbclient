@@ -10,28 +10,28 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    private b f1866a;
+    private b f1868a;
     private long b = 0;
     private long c = 0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static aa f1867a = new aa();
+        private static aa f1869a = new aa();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     class b extends com.baidu.location.e.f {
         private boolean d = false;
         private String e = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f1868a = false;
+        public boolean f1870a = false;
         public long b = 0;
 
         public b() {
@@ -75,7 +75,7 @@ public class aa {
             if (z && this.j != null) {
                 try {
                     new JSONObject(this.j);
-                    this.f1868a = true;
+                    this.f1870a = true;
                 } catch (Throwable th) {
                 }
             }
@@ -91,7 +91,7 @@ public class aa {
     }
 
     public static aa a() {
-        return a.f1867a;
+        return a.f1869a;
     }
 
     @TargetApi(24)
@@ -106,10 +106,10 @@ public class aa {
         if (this.b == 0 || Math.abs(System.currentTimeMillis() - this.b) >= 20000) {
             return;
         }
-        if (this.f1866a == null) {
-            this.f1866a = new b();
+        if (this.f1868a == null) {
+            this.f1868a = new b();
         }
-        if (this.f1866a == null || this.f1866a.b() || (b2 = q.a().b()) == null || b2.size() <= 0) {
+        if (this.f1868a == null || this.f1868a.b() || (b2 = q.a().b()) == null || b2.size() <= 0) {
             return;
         }
         StringBuffer stringBuffer = new StringBuffer();
@@ -118,7 +118,7 @@ public class aa {
         while (true) {
             int i2 = i;
             if (!it.hasNext()) {
-                this.f1866a.a(stringBuffer.toString(), this.c);
+                this.f1868a.a(stringBuffer.toString(), this.c);
                 return;
             }
             stringBuffer.append(it.next());

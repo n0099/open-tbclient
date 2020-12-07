@@ -1,5 +1,5 @@
 package com.baidu.sapi2.utils;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public interface e {
     public static final String A = "/static/appsapi/img/default_portrait.png";
     public static final String B = "/phoenix/account/guidetouristnormalize";
@@ -18,7 +18,7 @@ public interface e {
     public static final String O = "/v3/api/device/app";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3543a = "/v2/sapi/login";
+    public static final String f3546a = "/v2/sapi/login";
     public static final String b = "/v2/sapi/center/getuinfo";
     public static final String c = "/cgi-bin/genimage?";
     public static final String d = "/phoenix/account/ssologin";

@@ -7,12 +7,12 @@ import android.support.annotation.Nullable;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class ThreadUtils {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: org.webrtc.ThreadUtils$1CaughtException  reason: invalid class name */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public class C1CaughtException {
         Exception e;
 
@@ -22,7 +22,7 @@ public class ThreadUtils {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: org.webrtc.ThreadUtils$1Result  reason: invalid class name */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public class C1Result {
         public V value;
 
@@ -30,12 +30,12 @@ public class ThreadUtils {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public interface BlockingOperation {
         void run() throws InterruptedException;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class ThreadChecker {
         @Nullable
         private Thread thread = Thread.currentThread();
@@ -64,10 +64,9 @@ public class ThreadUtils {
     }
 
     public static boolean awaitUninterruptibly(CountDownLatch countDownLatch, long j) {
-        boolean z;
-        boolean z2 = true;
+        boolean z = false;
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        boolean z3 = false;
+        boolean z2 = false;
         long j2 = j;
         while (true) {
             try {
@@ -76,14 +75,13 @@ public class ThreadUtils {
             } catch (InterruptedException e) {
                 j2 = j - (SystemClock.elapsedRealtime() - elapsedRealtime);
                 if (j2 <= 0) {
-                    z3 = z2;
-                    z = false;
+                    z2 = true;
                     break;
                 }
-                z3 = z2;
+                z2 = true;
             }
         }
-        if (z3) {
+        if (z2) {
             Thread.currentThread().interrupt();
         }
         return z;

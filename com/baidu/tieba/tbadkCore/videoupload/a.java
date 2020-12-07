@@ -9,61 +9,61 @@ import com.baidu.tieba.tbadkCore.videoupload.a.d;
 import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
-    private static int nbc = 524288;
-    private static int nbd = 6144000;
-    private static int nbe = 524288;
-    private h mZc;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b nbf;
+    private static int npf = 524288;
+    private static int npg = 6144000;
+    private static int nph = 524288;
+    private h nnb;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b npi;
 
     public a(h hVar) {
-        this.mZc = hVar;
+        this.nnb = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                this.nbf = new d(str2, nbe, this.mZc);
+                this.npi = new d(str2, nph, this.nnb);
             } else {
-                this.nbf = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, nbc, nbd, this.mZc);
+                this.npi = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, npf, npg, this.nnb);
             }
-            this.nbf.a(eVar);
-            return this.nbf.bL(str2, i);
+            this.npi.a(eVar);
+            return this.npi.bO(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.mZc != null) {
-                this.mZc.n(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.l.a.r(e));
+            if (this.nnb != null) {
+                this.nnb.o(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.l.a.r(e));
             }
             return null;
         }
     }
 
     public void cancelUpload() {
-        if (this.nbf != null) {
-            this.nbf.cancel();
+        if (this.npi != null) {
+            this.npi.cancel();
         }
     }
 
-    public static void Kt(int i) {
+    public static void Lj(int i) {
         if (i <= 0) {
-            nbe = 524288;
+            nph = 524288;
         } else {
-            nbe = i;
+            nph = i;
         }
     }
 
-    public static void Ku(int i) {
+    public static void Lk(int i) {
         if (i <= 0) {
-            nbc = 524288;
+            npf = 524288;
         } else {
-            nbc = i;
+            npf = i;
         }
     }
 
-    public static void Kv(int i) {
+    public static void Ll(int i) {
         if (i <= 0) {
-            nbd = 6144000;
+            npg = 6144000;
         } else {
-            nbd = i;
+            npg = i;
         }
     }
 }

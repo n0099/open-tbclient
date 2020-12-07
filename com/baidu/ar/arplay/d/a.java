@@ -6,18 +6,18 @@ import android.graphics.PorterDuff;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.webkit.WebView;
-import com.baidu.ar.arplay.core.filter.ARPFilter;
-/* loaded from: classes12.dex */
+import com.baidu.ar.arplay.core.engine.ARPEngine;
+/* loaded from: classes10.dex */
 public class a extends WebView {
-    private C0076a fM;
-    private boolean fN;
+    private C0078a fZ;
+    private boolean ga;
 
     /* renamed from: com.baidu.ar.arplay.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    public static class C0076a {
-        public int dz;
-        public boolean fQ;
-        public String fR;
+    /* loaded from: classes10.dex */
+    public static class C0078a {
+        public int dM;
+        public boolean gd;
+        public String ge;
         public int height;
         public String url;
         public int width;
@@ -25,20 +25,20 @@ public class a extends WebView {
 
     public a(Context context) {
         super(context);
-        this.fN = false;
+        this.ga = false;
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        if (this.fM == null || canvas == null || !this.fN) {
+        if (this.fZ == null || canvas == null || !this.ga) {
             return;
         }
-        final c n = d.bs().n(this.fM.dz);
-        if (n == null) {
-            Log.e("GLWebView", "HtmlTextureHolder is null: mTextureId: " + this.fM.dz);
+        final c p = d.bp().p(this.fZ.dM);
+        if (p == null) {
+            Log.e("GLWebView", "HtmlTextureHolder is null: mTextureId: " + this.fZ.dM);
             return;
         }
-        Canvas lockCanvas = n.lockCanvas();
+        Canvas lockCanvas = p.lockCanvas();
         if (lockCanvas != null) {
             float width = lockCanvas.getWidth() / canvas.getWidth();
             lockCanvas.scale(width, width);
@@ -46,20 +46,20 @@ public class a extends WebView {
             lockCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
             super.draw(lockCanvas);
         }
-        n.br();
-        ARPFilter.getInstance().runSyncOnRenderContext(new Runnable() { // from class: com.baidu.ar.arplay.d.a.1
+        p.bo();
+        ARPEngine.getInstance().getARPRenderer().runSyncOnRenderContext(new Runnable() { // from class: com.baidu.ar.arplay.d.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (n != null) {
-                    n.update();
-                    a.this.fN = false;
+                if (p != null) {
+                    p.update();
+                    a.this.ga = false;
                 }
             }
         });
     }
 
-    public C0076a getWebViewData() {
-        return this.fM;
+    public C0078a getWebViewData() {
+        return this.fZ;
     }
 
     @Override // android.webkit.WebView, android.view.View
@@ -68,10 +68,10 @@ public class a extends WebView {
     }
 
     public void setIsNeedRender(boolean z) {
-        this.fN = z;
+        this.ga = z;
     }
 
-    public void setWebViewData(C0076a c0076a) {
-        this.fM = c0076a;
+    public void setWebViewData(C0078a c0078a) {
+        this.fZ = c0078a;
     }
 }

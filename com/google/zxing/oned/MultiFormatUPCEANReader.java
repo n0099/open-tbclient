@@ -9,7 +9,7 @@ import com.google.zxing.common.BitArray;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class MultiFormatUPCEANReader extends OneDReader {
     private final UPCEANReader[] readers;
 

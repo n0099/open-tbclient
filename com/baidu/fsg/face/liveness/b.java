@@ -6,11 +6,11 @@ import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import com.baidu.idl.facesdk.FaceTracker;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f1708a;
+    public long f1710a;
     public int b;
     public int c;
     private long i;
@@ -54,7 +54,7 @@ public class b {
             arrayList.add(spno);
             RimStatisticsUtil.onEventWithValues(d.s, arrayList);
         } else if (d.f.equals(str)) {
-            arrayList.add(((System.currentTimeMillis() - this.f1708a) / 1000) + "");
+            arrayList.add(((System.currentTimeMillis() - this.f1710a) / 1000) + "");
             arrayList.add(spno);
             RimStatisticsUtil.onEventWithValues(d.f, arrayList);
         } else if (d.u.equals(str)) {
@@ -78,7 +78,7 @@ public class b {
             arrayList.add(spno);
             RimStatisticsUtil.onEventWithValues(str, arrayList);
         } else if (d.o.equals(str)) {
-            arrayList.add((System.currentTimeMillis() - this.f1708a) + "");
+            arrayList.add((System.currentTimeMillis() - this.f1710a) + "");
             arrayList.add(spno);
             RimStatisticsUtil.onEventWithValues(str, arrayList);
         }

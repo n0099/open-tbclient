@@ -1,5 +1,6 @@
 package com.cmic.sso.sdk.d;
 
+import com.baidu.tbadk.util.AdExtParam;
 import com.cmic.sso.sdk.c.b.g;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.xiaomi.mipush.sdk.Constants;
@@ -9,11 +10,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a extends g {
-    public static CopyOnWriteArrayList<Throwable> oKP = new CopyOnWriteArrayList<>();
+    public static CopyOnWriteArrayList<Throwable> oZV = new CopyOnWriteArrayList<>();
     private String A;
     private String B;
     private String C;
-    private JSONArray oKO;
+    private JSONArray oZU;
     private String b = null;
     private String c = null;
     private String d = null;
@@ -93,7 +94,7 @@ public class a extends g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(JSONArray jSONArray) {
-        this.oKO = jSONArray;
+        this.oZU = jSONArray;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -161,7 +162,7 @@ public class a extends g {
         this.B = str;
     }
 
-    public void WH(String str) {
+    public void Ya(String str) {
         this.C = str;
     }
 
@@ -179,12 +180,12 @@ public class a extends g {
             jSONObject.put("requestTime", this.h);
             jSONObject.put("responseTime", this.i);
             jSONObject.put("elapsedTime", this.j);
-            jSONObject.put("requestType", this.k);
+            jSONObject.put(AdExtParam.KEY_REQUEST_TYPE, this.k);
             jSONObject.put("interfaceType", this.l);
             jSONObject.put("interfaceCode", this.m);
             jSONObject.put("interfaceElasped", this.n);
             jSONObject.put("loginType", this.o);
-            jSONObject.put("exceptionStackTrace", this.oKO);
+            jSONObject.put("exceptionStackTrace", this.oZU);
             jSONObject.put("operatorType", this.q);
             jSONObject.put("networkType", this.r);
             jSONObject.put("networkClass", this.s);

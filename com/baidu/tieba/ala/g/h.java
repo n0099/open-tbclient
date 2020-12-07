@@ -17,9 +17,9 @@ import com.baidu.tieba.ala.message.AlaGetRedPacketInfoResponseMessage;
 import com.baidu.tieba.ala.message.AlaSnatchRedPacketResponseMessage;
 /* loaded from: classes4.dex */
 public class h extends BdBaseModel {
-    private a fZO;
-    private HttpMessageListener hyv;
-    private HttpMessageListener hyw;
+    private a ghZ;
+    private HttpMessageListener hIa;
+    private HttpMessageListener hIb;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -34,7 +34,7 @@ public class h extends BdBaseModel {
 
     public h(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.hyv = new HttpMessageListener(1021160) { // from class: com.baidu.tieba.ala.g.h.1
+        this.hIa = new HttpMessageListener(1021160) { // from class: com.baidu.tieba.ala.g.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -43,34 +43,34 @@ public class h extends BdBaseModel {
                     long logId = alaGetRedPacketInfoResponseMessage.getLogId();
                     AlaStatsItem alaStatsItem = new AlaStatsItem();
                     alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(alaGetRedPacketInfoResponseMessage.getError()));
-                    if (alaGetRedPacketInfoResponseMessage.chU() != null) {
-                        com.baidu.tieba.ala.data.i iVar = alaGetRedPacketInfoResponseMessage.chU().gzq;
+                    if (alaGetRedPacketInfoResponseMessage.clP() != null) {
+                        com.baidu.tieba.ala.data.i iVar = alaGetRedPacketInfoResponseMessage.clP().gIm;
                         if (iVar != null) {
                             alaStatsItem.addValue("redpacketId", iVar.id);
                             alaStatsItem.addValue("status", Integer.valueOf(iVar.status));
                         }
-                        c.a aVar2 = alaGetRedPacketInfoResponseMessage.chU().gzr;
+                        c.a aVar2 = alaGetRedPacketInfoResponseMessage.clP().gIn;
                         if (aVar2 != null) {
-                            alaStatsItem.addValue("needFollow", aVar2.gzu ? "1" : "0");
+                            alaStatsItem.addValue("needFollow", aVar2.gIq ? "1" : "0");
                             alaStatsItem.addValue("hasFollowed", aVar2.isFollowed ? "1" : "0");
-                            alaStatsItem.addValue("needSendGift", aVar2.gzv ? "1" : "0");
-                            alaStatsItem.addValue("hasSendGift", aVar2.gzw ? "1" : "0");
-                            alaStatsItem.addValue("myLootResult", Integer.valueOf(aVar2.gzs));
-                            alaStatsItem.addValue("myLootAmount", Long.valueOf(aVar2.gzt));
+                            alaStatsItem.addValue("needSendGift", aVar2.gIr ? "1" : "0");
+                            alaStatsItem.addValue("hasSendGift", aVar2.gIs ? "1" : "0");
+                            alaStatsItem.addValue("myLootResult", Integer.valueOf(aVar2.gIo));
+                            alaStatsItem.addValue("myLootAmount", Long.valueOf(aVar2.gIp));
                         }
                     }
                     AlaStatManager.getInstance().debug("redpacket_get_info", logId, "", alaStatsItem);
-                    if (h.this.fZO != null) {
+                    if (h.this.ghZ != null) {
                         if (alaGetRedPacketInfoResponseMessage.getError() != 0 || !alaGetRedPacketInfoResponseMessage.isSuccess()) {
-                            h.this.fZO.aO(alaGetRedPacketInfoResponseMessage.getError(), alaGetRedPacketInfoResponseMessage.getErrorString());
+                            h.this.ghZ.aO(alaGetRedPacketInfoResponseMessage.getError(), alaGetRedPacketInfoResponseMessage.getErrorString());
                         } else {
-                            h.this.fZO.b(alaGetRedPacketInfoResponseMessage.chU());
+                            h.this.ghZ.b(alaGetRedPacketInfoResponseMessage.clP());
                         }
                     }
                 }
             }
         };
-        this.hyw = new HttpMessageListener(1021161) { // from class: com.baidu.tieba.ala.g.h.2
+        this.hIb = new HttpMessageListener(1021161) { // from class: com.baidu.tieba.ala.g.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -79,27 +79,27 @@ public class h extends BdBaseModel {
                     long logId = alaSnatchRedPacketResponseMessage.getLogId();
                     AlaStatsItem alaStatsItem = new AlaStatsItem();
                     alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(alaSnatchRedPacketResponseMessage.getError()));
-                    com.baidu.tieba.ala.data.l chW = alaSnatchRedPacketResponseMessage.chW();
-                    if (chW != null) {
-                        alaStatsItem.addValue("result", chW.bRb() ? "1" : "0");
-                        alaStatsItem.addValue("resultAmount", Long.valueOf(chW.bRc()));
+                    com.baidu.tieba.ala.data.l clR = alaSnatchRedPacketResponseMessage.clR();
+                    if (clR != null) {
+                        alaStatsItem.addValue("result", clR.bUL() ? "1" : "0");
+                        alaStatsItem.addValue("resultAmount", Long.valueOf(clR.bUM()));
                     }
                     AlaStatManager.getInstance().debug("redpacket_loot_result", logId, "", alaStatsItem);
-                    if (h.this.fZO != null) {
-                        com.baidu.tieba.ala.data.l chW2 = alaSnatchRedPacketResponseMessage.chW();
+                    if (h.this.ghZ != null) {
+                        com.baidu.tieba.ala.data.l clR2 = alaSnatchRedPacketResponseMessage.clR();
                         if (alaSnatchRedPacketResponseMessage.getError() != 0 || !alaSnatchRedPacketResponseMessage.isSuccess()) {
-                            h.this.fZO.aP(alaSnatchRedPacketResponseMessage.getError(), alaSnatchRedPacketResponseMessage.getErrorString());
+                            h.this.ghZ.aP(alaSnatchRedPacketResponseMessage.getError(), alaSnatchRedPacketResponseMessage.getErrorString());
                         } else {
-                            h.this.fZO.b(chW2);
+                            h.this.ghZ.b(clR2);
                         }
                     }
                 }
             }
         };
-        this.fZO = aVar;
+        this.ghZ = aVar;
         initTasks();
-        registerListener(this.hyv);
-        registerListener(this.hyw);
+        registerListener(this.hIa);
+        registerListener(this.hIb);
     }
 
     private void initTasks() {
@@ -117,7 +117,7 @@ public class h extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
     }
 
-    public void au(String str, String str2, String str3) {
+    public void aw(String str, String str2, String str3) {
         HttpMessage httpMessage = new HttpMessage(1021160);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
         httpMessage.addParam("redpacket_id", str);
@@ -126,7 +126,7 @@ public class h extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    public void av(String str, String str2, String str3) {
+    public void ax(String str, String str2, String str3) {
         HttpMessage httpMessage = new HttpMessage(1021161);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
         httpMessage.addParam("redpacket_id", str);
@@ -146,8 +146,8 @@ public class h extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hyw);
-        MessageManager.getInstance().unRegisterListener(this.hyv);
+        MessageManager.getInstance().unRegisterListener(this.hIb);
+        MessageManager.getInstance().unRegisterListener(this.hIa);
         MessageManager.getInstance().unRegisterTask(1021161);
         MessageManager.getInstance().unRegisterTask(1021160);
     }

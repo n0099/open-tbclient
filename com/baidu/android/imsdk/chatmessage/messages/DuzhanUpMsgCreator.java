@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class DuzhanUpMsgCreator {
     private static final String TAG = "DuzhanUpMsgCreateor";
     private static int REQ_TYPE_BOX = 0;
@@ -60,7 +60,11 @@ public class DuzhanUpMsgCreator {
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put("type", chatMsg.getMsgType());
             jSONObject4.put("content", getMsgExtContent(chatMsg));
-            jSONObject3.put("description", "");
+            if (chatMsg.getMsgType() == 18) {
+                jSONObject3.put("description", chatMsg.getRecommendDescription());
+            } else {
+                jSONObject3.put("description", "");
+            }
             jSONObject3.put("ext", jSONObject4);
             jSONObject2.put("time", System.currentTimeMillis() / 1000);
             jSONObject2.put("msg", jSONObject3);

@@ -1,7 +1,7 @@
 package com.google.protobuf.micro;
 
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class InvalidProtocolBufferMicroException extends IOException {
     private static final long serialVersionUID = -1616151763072450476L;
 

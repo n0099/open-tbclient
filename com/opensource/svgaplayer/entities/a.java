@@ -1,53 +1,52 @@
 package com.opensource.svgaplayer.entities;
 
 import com.opensource.svgaplayer.proto.AudioEntity;
-import kotlin.h;
-import kotlin.jvm.internal.q;
-@h
-/* loaded from: classes17.dex */
+import kotlin.jvm.internal.p;
+@kotlin.e
+/* loaded from: classes18.dex */
 public final class a {
     private final String audioKey;
-    private final int pFX;
-    private final int pFY;
-    private final int pFZ;
-    private Integer pGa;
-    private Integer pGb;
+    private final int pzD;
+    private final int pzE;
+    private final int pzF;
+    private Integer pzG;
+    private Integer pzH;
     private final int startTime;
 
-    public final int exg() {
-        return this.pFX;
+    public final int eAd() {
+        return this.pzD;
     }
 
-    public final int exh() {
-        return this.pFY;
+    public final int eAe() {
+        return this.pzE;
     }
 
-    public final Integer exi() {
-        return this.pGa;
+    public final Integer eAf() {
+        return this.pzG;
     }
 
     public final void t(Integer num) {
-        this.pGa = num;
+        this.pzG = num;
     }
 
-    public final Integer exj() {
-        return this.pGb;
+    public final Integer eAg() {
+        return this.pzH;
     }
 
     public final void u(Integer num) {
-        this.pGb = num;
+        this.pzH = num;
     }
 
     public a(AudioEntity audioEntity) {
-        q.n(audioEntity, "audioItem");
+        p.o(audioEntity, "audioItem");
         this.audioKey = audioEntity.audioKey;
         Integer num = audioEntity.startFrame;
-        this.pFX = num != null ? num.intValue() : 0;
+        this.pzD = num != null ? num.intValue() : 0;
         Integer num2 = audioEntity.endFrame;
-        this.pFY = num2 != null ? num2.intValue() : 0;
+        this.pzE = num2 != null ? num2.intValue() : 0;
         Integer num3 = audioEntity.startTime;
         this.startTime = num3 != null ? num3.intValue() : 0;
         Integer num4 = audioEntity.totalTime;
-        this.pFZ = num4 != null ? num4.intValue() : 0;
+        this.pzF = num4 != null ? num4.intValue() : 0;
     }
 }

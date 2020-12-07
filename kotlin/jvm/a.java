@@ -1,17 +1,17 @@
 package kotlin.jvm;
 
 import kotlin.TypeCastException;
-import kotlin.h;
+import kotlin.e;
 import kotlin.jvm.internal.l;
-import kotlin.jvm.internal.q;
+import kotlin.jvm.internal.p;
 import kotlin.reflect.c;
-@h
-/* loaded from: classes9.dex */
+@e
+/* loaded from: classes17.dex */
 public final class a {
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [61=10] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [71=9] */
     public static final <T> Class<T> a(c<T> cVar) {
-        q.n(cVar, "receiver$0");
-        Class<T> cls = (Class<T>) ((l) cVar).eBO();
+        p.o(cVar, "$receiver");
+        Class<T> cls = (Class<T>) ((l) cVar).eDX();
         if (cls.isPrimitive()) {
             String name = cls.getName();
             if (name != null) {
@@ -43,12 +43,6 @@ public final class a {
                     case 3327612:
                         if (name.equals("long")) {
                             cls = (Class<T>) Long.class;
-                            break;
-                        }
-                        break;
-                    case 3625364:
-                        if (name.equals("void")) {
-                            cls = (Class<T>) Void.class;
                             break;
                         }
                         break;

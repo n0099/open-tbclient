@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.map;
 
 import android.graphics.Bitmap;
 import android.view.SurfaceHolder;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public interface ad extends SurfaceHolder.Callback2 {
     Bitmap a(int i, int i2, int i3, int i4, Object obj, Bitmap.Config config);
 

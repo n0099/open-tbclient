@@ -9,21 +9,21 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class FavoriteManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static FavoriteManager f1989a;
+    private static FavoriteManager f1991a;
     private static com.baidu.mapsdkplatform.comapi.favrite.a b;
 
     private FavoriteManager() {
     }
 
     public static FavoriteManager getInstance() {
-        if (f1989a == null) {
-            f1989a = new FavoriteManager();
+        if (f1991a == null) {
+            f1991a = new FavoriteManager();
         }
-        return f1989a;
+        return f1991a;
     }
 
     public int add(FavoritePoiInfo favoritePoiInfo) {
@@ -40,7 +40,7 @@ public class FavoriteManager {
             FavSyncPoi a2 = a.a(favoritePoiInfo);
             int a3 = b.a(a2.b, a2);
             if (a3 == 1) {
-                favoritePoiInfo.f1990a = a2.f2217a;
+                favoritePoiInfo.f1992a = a2.f2219a;
                 favoritePoiInfo.g = Long.parseLong(a2.h);
                 return a3;
             }
@@ -139,7 +139,7 @@ public class FavoriteManager {
                 Log.e("baidumapsdk", "poiName can not be null or empty!");
                 return false;
             } else {
-                favoritePoiInfo.f1990a = str;
+                favoritePoiInfo.f1992a = str;
                 return b.b(str, a.a(favoritePoiInfo));
             }
         }

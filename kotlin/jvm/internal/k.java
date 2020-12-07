@@ -1,27 +1,27 @@
 package kotlin.jvm.internal;
 
 import java.util.NoSuchElementException;
-import kotlin.collections.ap;
-@kotlin.h
-/* loaded from: classes9.dex */
-final class k extends ap {
+import kotlin.collections.aj;
+@kotlin.e
+/* loaded from: classes17.dex */
+final class k extends aj {
     private int index;
-    private final short[] pUg;
+    private final short[] pKA;
 
     public k(short[] sArr) {
-        q.n(sArr, com.baidu.fsg.base.statistics.b.j);
-        this.pUg = sArr;
+        p.o(sArr, com.baidu.fsg.base.statistics.b.j);
+        this.pKA = sArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.pUg.length;
+        return this.index < this.pKA.length;
     }
 
-    @Override // kotlin.collections.ap
-    public short eBH() {
+    @Override // kotlin.collections.aj
+    public short eDT() {
         try {
-            short[] sArr = this.pUg;
+            short[] sArr = this.pKA;
             int i = this.index;
             this.index = i + 1;
             return sArr[i];

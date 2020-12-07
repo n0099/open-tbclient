@@ -18,17 +18,17 @@ public class a {
         view.postOnAnimation(runnable);
     }
 
-    public static int Oo(int i) {
-        return Build.VERSION.SDK_INT >= 11 ? Oq(i) : Op(i);
+    public static int Pm(int i) {
+        return Build.VERSION.SDK_INT >= 11 ? Po(i) : Pn(i);
     }
 
     @TargetApi(5)
-    private static int Op(int i) {
+    private static int Pn(int i) {
         return (65280 & i) >> 8;
     }
 
     @TargetApi(11)
-    private static int Oq(int i) {
+    private static int Po(int i) {
         return (65280 & i) >> 8;
     }
 }

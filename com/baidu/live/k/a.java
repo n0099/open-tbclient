@@ -1,24 +1,27 @@
 package com.baidu.live.k;
 
+import android.view.ViewGroup;
 import com.baidu.live.data.w;
-import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.im.data.b;
 /* loaded from: classes4.dex */
 public interface a {
-    void MJ();
+    void Do();
 
-    void c(TbPageContext tbPageContext);
+    void a(ViewGroup viewGroup, w wVar, ViewGroup.LayoutParams layoutParams, String str);
 
-    com.baidu.live.core.a.a cf(boolean z);
+    void a(w wVar);
 
-    void e(w wVar);
+    void en(int i);
 
-    void h(w wVar);
+    boolean isShowing();
 
-    void hH(String str);
+    void l(b bVar);
+
+    void onDestroy();
 
     void onPause();
 
     void onResume();
 
-    void release();
+    void setCanVisible(boolean z);
 }

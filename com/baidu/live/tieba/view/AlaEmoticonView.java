@@ -20,23 +20,23 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.tieba.view.fresco.SimpleDraweeView;
 import com.facebook.drawee.a.a.c;
-import com.facebook.imagepipeline.g.f;
+import com.facebook.imagepipeline.f.f;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 /* loaded from: classes4.dex */
 public class AlaEmoticonView extends FrameLayout {
-    private SimpleDraweeView bBo;
-    private TbImageView bBp;
-    private a bBq;
+    private SimpleDraweeView bGw;
+    private TbImageView bGx;
+    private a bGy;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void SM();
+        void Vm();
     }
 
     /* loaded from: classes4.dex */
     public interface b {
-        void SN();
+        void Vn();
 
         void onFail();
     }
@@ -56,34 +56,34 @@ public class AlaEmoticonView extends FrameLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(a.g.ala_emoticon_view, (ViewGroup) this, true);
-        this.bBo = (SimpleDraweeView) inflate.findViewById(a.f.emoticon_iv);
-        this.bBp = (TbImageView) inflate.findViewById(a.f.emoticon_result_iv);
+        this.bGw = (SimpleDraweeView) inflate.findViewById(a.f.emoticon_iv);
+        this.bGx = (TbImageView) inflate.findViewById(a.f.emoticon_result_iv);
     }
 
-    public void aM(String str, String str2) {
-        this.bBo.setVisibility(StringUtils.isNull(str, true) ? 8 : 0);
-        aN(str, str2);
-        this.bBp.setVisibility(StringUtils.isNull(str2, true) ? 8 : 0);
+    public void aQ(String str, String str2) {
+        this.bGw.setVisibility(StringUtils.isNull(str, true) ? 8 : 0);
+        aR(str, str2);
+        this.bGx.setVisibility(StringUtils.isNull(str2, true) ? 8 : 0);
         c(str2, StringUtils.isNull(str, true) ? 1.0f : 0.0f);
     }
 
     public void stopLoad() {
-        if (this.bBo != null) {
-            this.bBo.clearAnimation();
-            if (this.bBo.getController() != null && this.bBo.getController().elw() != null && this.bBo.getController().elw().isRunning()) {
-                this.bBo.getController().elw().stop();
+        if (this.bGw != null) {
+            this.bGw.clearAnimation();
+            if (this.bGw.getController() != null && this.bGw.getController().erl() != null && this.bGw.getController().erl().isRunning()) {
+                this.bGw.getController().erl().stop();
             }
         }
     }
 
     public void setEmoticonListener(a aVar) {
-        this.bBq = aVar;
+        this.bGy = aVar;
     }
 
-    private void aN(String str, final String str2) {
+    private void aR(String str, final String str2) {
         if (!TextUtils.isEmpty(str)) {
-            this.bBo.setVisibility(0);
-            this.bBo.setController(c.ekQ().bo(ImageRequest.Yc(str)).c(this.bBo.getController()).Am(true).c(new com.facebook.drawee.controller.b<f>() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.1
+            this.bGw.setVisibility(0);
+            this.bGw.setController(c.eqF().bo(ImageRequest.Zv(str)).c(this.bGw.getController()).AP(true).c(new com.facebook.drawee.controller.b<f>() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
                 public void a(String str3, f fVar, Animatable animatable) {
@@ -107,14 +107,14 @@ public class AlaEmoticonView extends FrameLayout {
                         });
                     }
                 }
-            }).elH());
+            }).erw());
         }
     }
 
     private void c(String str, float f) {
-        this.bBp.setAlpha(f);
-        this.bBp.setDefaultBgResource(a.e.sdk_transparent_bg);
-        this.bBp.startLoad(str, 10, false);
+        this.bGx.setAlpha(f);
+        this.bGx.setDefaultBgResource(a.e.sdk_transparent_bg);
+        this.bGx.startLoad(str, 10, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -122,11 +122,11 @@ public class AlaEmoticonView extends FrameLayout {
         aVar.stop();
         aVar.a((com.facebook.fresco.animation.c.b) null);
         if (!TextUtils.isEmpty(str)) {
-            this.bBp.setAlpha(1.0f);
-            this.bBo.setVisibility(8);
+            this.bGx.setAlpha(1.0f);
+            this.bGw.setVisibility(8);
         }
-        if (this.bBq != null) {
-            this.bBq.SM();
+        if (this.bGy != null) {
+            this.bGy.Vm();
         }
     }
 
@@ -138,8 +138,8 @@ public class AlaEmoticonView extends FrameLayout {
 
     public static void a(String str, final String str2, final b bVar, Object obj) {
         if (!StringUtils.isNull(str, true)) {
-            c.ekS().e(ImageRequestBuilder.ae(Uri.parse(str)).Az(true).erW(), obj).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.2
-                @Override // com.facebook.imagepipeline.e.b
+            c.eqH().e(ImageRequestBuilder.af(Uri.parse(str)).Ba(true).exw(), obj).a(new com.facebook.imagepipeline.d.b() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.2
+                @Override // com.facebook.imagepipeline.d.b
                 public void e(@Nullable Bitmap bitmap) {
                     SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.2.1
                         @Override // java.lang.Runnable
@@ -147,7 +147,7 @@ public class AlaEmoticonView extends FrameLayout {
                             if (!StringUtils.isNull(str2, true)) {
                                 AlaEmoticonView.a(str2, bVar);
                             } else if (bVar != null) {
-                                bVar.SN();
+                                bVar.Vn();
                             }
                         }
                     });
@@ -155,12 +155,12 @@ public class AlaEmoticonView extends FrameLayout {
 
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.facebook.datasource.b] */
                 @Override // com.facebook.datasource.a
-                public void a(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> bVar2) {
+                public void a(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> bVar2) {
                     if (bVar != null) {
                         bVar.onFail();
                     }
                 }
-            }, com.facebook.common.b.a.ejT());
+            }, com.facebook.common.b.a.epI());
         }
     }
 
@@ -168,12 +168,12 @@ public class AlaEmoticonView extends FrameLayout {
     /* renamed from: com.baidu.live.tieba.view.AlaEmoticonView$3  reason: invalid class name */
     /* loaded from: classes4.dex */
     public static class AnonymousClass3 implements Runnable {
-        final /* synthetic */ b bBu;
+        final /* synthetic */ b bGC;
         final /* synthetic */ String val$url;
 
         AnonymousClass3(String str, b bVar) {
             this.val$url = str;
-            this.bBu = bVar;
+            this.bGC = bVar;
         }
 
         @Override // java.lang.Runnable
@@ -187,8 +187,8 @@ public class AlaEmoticonView extends FrameLayout {
                     SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.3.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (bdImage != null && bdImage.getRawBitmap() != null && str != null && str.equals(AnonymousClass3.this.val$url) && AnonymousClass3.this.bBu != null) {
-                                AnonymousClass3.this.bBu.SN();
+                            if (bdImage != null && bdImage.getRawBitmap() != null && str != null && str.equals(AnonymousClass3.this.val$url) && AnonymousClass3.this.bGC != null) {
+                                AnonymousClass3.this.bGC.Vn();
                             }
                         }
                     });

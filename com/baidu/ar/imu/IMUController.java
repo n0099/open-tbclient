@@ -3,51 +3,51 @@ package com.baidu.ar.imu;
 import android.content.Context;
 import android.hardware.SensorManager;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class IMUController implements c {
     private static final String TAG = IMUController.class.getSimpleName();
-    private SensorManager rq;
-    private HashMap<g, h> rr;
+    private SensorManager rH;
+    private HashMap<g, h> rI;
 
     @Override // com.baidu.ar.imu.c
     public void destroy() {
-        if (this.rr != null) {
-            for (h hVar : this.rr.values()) {
+        if (this.rI != null) {
+            for (h hVar : this.rI.values()) {
                 hVar.stop();
             }
-            this.rr.clear();
-            this.rr = null;
+            this.rI.clear();
+            this.rI = null;
         }
-        this.rq = null;
+        this.rH = null;
     }
 
     @Override // com.baidu.ar.imu.c
     public void setContext(Context context) {
         if (context != null) {
-            this.rq = (SensorManager) context.getSystemService("sensor");
+            this.rH = (SensorManager) context.getSystemService("sensor");
         }
     }
 
     @Override // com.baidu.ar.imu.c
     public boolean start(i iVar, g gVar) {
-        if (this.rq == null || iVar == null || gVar == null) {
+        if (this.rH == null || iVar == null || gVar == null) {
             return false;
         }
-        if (this.rr == null) {
-            this.rr = new HashMap<>();
+        if (this.rI == null) {
+            this.rI = new HashMap<>();
         }
-        h hVar = this.rr.get(gVar);
+        h hVar = this.rI.get(gVar);
         if (hVar == null) {
             hVar = new h();
-            this.rr.put(gVar, hVar);
+            this.rI.put(gVar, hVar);
         }
-        return hVar.a(this.rq, iVar, gVar);
+        return hVar.a(this.rH, iVar, gVar);
     }
 
     @Override // com.baidu.ar.imu.c
     public void stop(g gVar) {
         h remove;
-        if (gVar == null || this.rr == null || (remove = this.rr.remove(gVar)) == null) {
+        if (gVar == null || this.rI == null || (remove = this.rI.remove(gVar)) == null) {
             return;
         }
         remove.stop();

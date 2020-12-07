@@ -33,27 +33,27 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    private static c oew;
+    private static c otw;
     private Activity mActivity;
-    private HashMap<String, b> oeu = new HashMap<>();
-    private HashMap<String, List<d>> oev = new HashMap<>();
-    private w oex;
-    private TbPageContext oey;
+    private HashMap<String, b> otu = new HashMap<>();
+    private HashMap<String, List<d>> otv = new HashMap<>();
+    private w otx;
+    private TbPageContext oty;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void zf(boolean z);
+        void zJ(boolean z);
     }
 
-    public static c dYK() {
-        if (oew == null) {
-            oew = new c();
-            dYL();
+    public static c eeo() {
+        if (otw == null) {
+            otw = new c();
+            eep();
         }
-        return oew;
+        return otw;
     }
 
-    public static void dYL() {
+    public static void eep() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031077, TbConfig.SERVER_ADDRESS + "/ala/audio/live/synchronization");
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -62,20 +62,20 @@ public class c {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public b dYM() {
-        return a(Br(), (d) null);
+    public b eeq() {
+        return a(CZ(), (d) null);
     }
 
     public b b(d dVar) {
-        return a(Br(), dVar);
+        return a(CZ(), dVar);
     }
 
-    public b Vn(String str) {
+    public b WC(String str) {
         return a(str, (d) null);
     }
 
     public b a(String str, d dVar) {
-        return a(str, dYQ(), dVar);
+        return a(str, eeu(), dVar);
     }
 
     public b a(final String str, String str2, d dVar) {
@@ -84,36 +84,36 @@ public class c {
             return null;
         }
         if (dVar != null) {
-            if (this.oev.containsKey(str) && this.oev.get(str) != null) {
-                List<d> list = this.oev.get(str);
+            if (this.otv.containsKey(str) && this.otv.get(str) != null) {
+                List<d> list = this.otv.get(str);
                 if (!list.contains(dVar)) {
                     list.add(dVar);
                 }
             } else {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(dVar);
-                this.oev.put(str, arrayList);
+                this.otv.put(str, arrayList);
             }
         }
-        if (this.oeu.containsKey(str) && this.oeu.get(str) != null) {
-            return this.oeu.get(str);
+        if (this.otu.containsKey(str) && this.otu.get(str) != null) {
+            return this.otu.get(str);
         }
-        Iterator<Map.Entry<String, b>> it = this.oeu.entrySet().iterator();
+        Iterator<Map.Entry<String, b>> it = this.otu.entrySet().iterator();
         if (it != null) {
             while (it.hasNext()) {
                 Map.Entry<String, b> next = it.next();
                 if (next != null && (value = next.getValue()) != null) {
-                    value.Bw();
+                    value.Df();
                 }
             }
         }
-        this.oeu.clear();
+        this.otu.clear();
         final b bVar = new b(TbadkCoreApplication.getInst(), str, str2);
-        this.oeu.put(str, bVar);
+        this.otu.put(str, bVar);
         bVar.a(new e() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.c.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
             public void onError(int i, int i2, String str3) {
-                List list2 = (List) c.this.oev.get(str);
+                List list2 = (List) c.this.otv.get(str);
                 for (int i3 = 0; i3 < ListUtils.getCount(list2); i3++) {
                     d dVar2 = (d) list2.get(i3);
                     if (dVar2 != null) {
@@ -121,22 +121,22 @@ public class c {
                     }
                 }
                 if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    if ((str3 == null || !str3.contains("playererror")) && i2 != -4 && !o.dZz().dZG()) {
+                    if ((str3 == null || !str3.contains("playererror")) && i2 != -4 && !o.efd().efk()) {
                         if (i == 1) {
                             if (i2 == 1) {
                                 BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_error_status_text)).show();
                             } else if (i2 == 2) {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501036, false));
-                                c.this.WG();
+                                c.this.Zf();
                             } else if (i2 == 3) {
                                 BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_error_invite_text)).show();
-                                c.this.WG();
+                                c.this.Zf();
                             } else if (i2 == 4) {
                                 BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_error_apply_text)).show();
-                                c.this.WG();
+                                c.this.Zf();
                             } else if (i2 == 5) {
                                 BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_error_drops_text)).show();
-                                c.this.WG();
+                                c.this.Zf();
                             }
                         } else if (i == 2) {
                             if (i2 == 1) {
@@ -149,12 +149,12 @@ public class c {
                                 BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_error_operation_text)).show();
                             } else if (i2 == 8) {
                                 BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_error_drops_text)).show();
-                                c.this.WG();
+                                c.this.Zf();
                             } else if (i2 == 7) {
                                 BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_error_status_text)).show();
                             } else if (i2 == 6) {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501036, false));
-                                c.this.WG();
+                                c.this.Zf();
                             }
                         }
                     }
@@ -162,58 +162,58 @@ public class c {
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
-            public void MV(int i) {
+            public void NN(int i) {
                 if (i != 5) {
-                    List list2 = (List) c.this.oev.get(str);
+                    List list2 = (List) c.this.otv.get(str);
                     for (int i2 = 0; i2 < ListUtils.getCount(list2); i2++) {
                         d dVar2 = (d) list2.get(i2);
                         if (dVar2 != null) {
-                            dVar2.MV(i);
+                            dVar2.NN(i);
                         }
                     }
                     if (i == 2) {
-                        com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("join_rtc_room_succ_host_4", true);
+                        com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bk("join_rtc_room_succ_host_4", true);
                     } else if (i == 3) {
-                        com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("join_rtc_room_succ_anchor_7", false);
+                        com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bk("join_rtc_room_succ_anchor_7", false);
                     } else if (i == 4) {
-                        com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("join_rtc_room_succ_anchor_7", false);
+                        com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bk("join_rtc_room_succ_anchor_7", false);
                     }
-                } else if (!o.dZz().iP(o.dZz().WD()) && bVar != null) {
-                    bVar.dYu();
+                } else if (!o.efd().jt(o.efd().Zc()) && bVar != null) {
+                    bVar.edY();
                 }
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
-            public void MW(int i) {
-                AlaWheatInfoData iS;
-                List list2 = (List) c.this.oev.get(str);
+            public void NO(int i) {
+                AlaWheatInfoData jw;
+                List list2 = (List) c.this.otv.get(str);
                 for (int i2 = 0; i2 < ListUtils.getCount(list2); i2++) {
                     d dVar2 = (d) list2.get(i2);
                     if (dVar2 != null) {
-                        dVar2.MW(i);
+                        dVar2.NO(i);
                     }
                 }
                 if (i == 2) {
                     BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_host_shut_up_text)).show();
-                    c.this.dYN();
+                    c.this.eer();
                 } else if (i == 3) {
                     BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_host_diss_shut_up_text)).show();
-                    c.this.dYN();
+                    c.this.eer();
                 } else if (i == 1) {
                     BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_host_kick_off_text)).show();
-                    h.dZo().zi(true).zh(true);
-                    c.this.dYN();
+                    h.eeS().zM(true).zL(true);
+                    c.this.eer();
                 } else if (i == 7) {
-                    h.dZo().zi(true).zh(false);
-                    c.this.dYN();
-                } else if ((i == 4 || i == 5) && (iS = o.dZz().iS(o.dZz().WD())) != null && iS.isOpenMike()) {
+                    h.eeS().zM(true).zL(false);
+                    c.this.eer();
+                } else if ((i == 4 || i == 5) && (jw = o.efd().jw(o.efd().Zc())) != null && jw.isOpenMike()) {
                     AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
                     if (currentAccountInfo != null) {
                         HttpMessage httpMessage = new HttpMessage(1031077);
                         httpMessage.addParam("status", i == 4 ? 1 : 0);
                         httpMessage.addParam("uk", ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID()));
-                        httpMessage.addParam("room_id", c.this.Br());
-                        httpMessage.addParam("live_id", c.this.WF());
+                        httpMessage.addParam("room_id", c.this.CZ());
+                        httpMessage.addParam("live_id", c.this.Ze());
                         httpMessage.addParam("open_rtc_mode", 1);
                         MessageManager.getInstance().sendMessage(httpMessage);
                     }
@@ -223,8 +223,8 @@ public class c {
                             jSONObject.put("content_type", "sync_audio_speeker_status");
                             jSONObject.put("status", i != 4 ? 0 : 1);
                             jSONObject.put("uk", ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID()));
-                            jSONObject.put("room_id", c.this.Br());
-                            jSONObject.put("live_id", c.this.WF());
+                            jSONObject.put("room_id", c.this.CZ());
+                            jSONObject.put("live_id", c.this.Ze());
                             jSONObject.put("isLocalData", true);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -240,72 +240,72 @@ public class c {
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
-            public void PU() {
-                List list2 = (List) c.this.oev.get(str);
+            public void Ss() {
+                List list2 = (List) c.this.otv.get(str);
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 >= ListUtils.getCount(list2)) {
-                        c.this.dYN();
+                        c.this.eer();
                         return;
                     }
                     d dVar2 = (d) list2.get(i2);
                     if (dVar2 != null) {
-                        dVar2.PU();
+                        dVar2.Ss();
                     }
                     i = i2 + 1;
                 }
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
-            public void hm(long j) {
-                List list2 = (List) c.this.oev.get(str);
+            public void hR(long j) {
+                List list2 = (List) c.this.otv.get(str);
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 >= ListUtils.getCount(list2)) {
-                        c.this.dYN();
+                        c.this.eer();
                         return;
                     }
                     d dVar2 = (d) list2.get(i2);
                     if (dVar2 != null) {
-                        dVar2.hm(j);
+                        dVar2.hR(j);
                     }
                     i = i2 + 1;
                 }
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
-            public void hn(long j) {
-                List list2 = (List) c.this.oev.get(str);
+            public void hS(long j) {
+                List list2 = (List) c.this.otv.get(str);
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 >= ListUtils.getCount(list2)) {
-                        c.this.dYN();
+                        c.this.eer();
                         return;
                     }
                     d dVar2 = (d) list2.get(i2);
                     if (dVar2 != null) {
-                        dVar2.hn(j);
+                        dVar2.hS(j);
                     }
                     i = i2 + 1;
                 }
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
-            public void bm(long j) {
-                List list2 = (List) c.this.oev.get(str);
+            public void bL(long j) {
+                List list2 = (List) c.this.otv.get(str);
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 >= ListUtils.getCount(list2)) {
-                        c.this.dYN();
+                        c.this.eer();
                         return;
                     }
                     d dVar2 = (d) list2.get(i2);
                     if (dVar2 != null) {
-                        dVar2.bm(j);
+                        dVar2.bL(j);
                     }
                     i = i2 + 1;
                 }
@@ -313,12 +313,12 @@ public class c {
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
             public void t(long j, boolean z) {
-                List list2 = (List) c.this.oev.get(str);
+                List list2 = (List) c.this.otv.get(str);
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 >= ListUtils.getCount(list2)) {
-                        c.this.dYN();
+                        c.this.eer();
                         return;
                     }
                     d dVar2 = (d) list2.get(i2);
@@ -331,14 +331,14 @@ public class c {
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
             public void a(BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo) {
-                if (c.this.oex != null && c.this.oex.aHZ != null && TextUtils.equals(c.this.oex.aHZ.aRf, bIMInviteSyncRtcInfo.getRtcRoomId())) {
-                    List list2 = (List) c.this.oev.get(str);
+                if (c.this.otx != null && c.this.otx.aKL != null && TextUtils.equals(c.this.otx.aKL.aUh, bIMInviteSyncRtcInfo.getRtcRoomId())) {
+                    List list2 = (List) c.this.otv.get(str);
                     int i = 0;
                     while (true) {
                         int i2 = i;
                         if (i2 >= ListUtils.getCount(list2)) {
-                            com.baidu.tieba.yuyinala.liveroom.wheat.c.b.dZe().g(c.this.oey).a(c.this.mActivity, bIMInviteSyncRtcInfo);
-                            c.this.dYN();
+                            com.baidu.tieba.yuyinala.liveroom.wheat.c.b.eeI().g(c.this.oty).a(c.this.mActivity, bIMInviteSyncRtcInfo);
+                            c.this.eer();
                             return;
                         }
                         d dVar2 = (d) list2.get(i2);
@@ -352,13 +352,13 @@ public class c {
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
             public void b(BIMRtcInfo bIMRtcInfo, int i) {
-                if (c.this.oex != null && c.this.oex.aHZ != null && TextUtils.equals(c.this.oex.aHZ.aRf, bIMRtcInfo.getRtcRoomId())) {
-                    List list2 = (List) c.this.oev.get(str);
+                if (c.this.otx != null && c.this.otx.aKL != null && TextUtils.equals(c.this.otx.aKL.aUh, bIMRtcInfo.getRtcRoomId())) {
+                    List list2 = (List) c.this.otv.get(str);
                     int i2 = 0;
                     while (true) {
                         int i3 = i2;
                         if (i3 >= ListUtils.getCount(list2)) {
-                            c.this.dYN();
+                            c.this.eer();
                             c.this.a(bIMRtcInfo, i);
                             return;
                         }
@@ -372,15 +372,15 @@ public class c {
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
-            public void q(int i, int i2, String str3) {
-                List list2 = (List) c.this.oev.get(str);
+            public void r(int i, int i2, String str3) {
+                List list2 = (List) c.this.otv.get(str);
                 int i3 = 0;
                 while (true) {
                     int i4 = i3;
                     if (i4 < ListUtils.getCount(list2)) {
                         d dVar2 = (d) list2.get(i4);
                         if (dVar2 != null) {
-                            dVar2.q(i, i2, str3);
+                            dVar2.r(i, i2, str3);
                         }
                         i3 = i4 + 1;
                     } else {
@@ -393,7 +393,7 @@ public class c {
             public void j(int i, long j, String str3) {
                 if (!TextUtils.isEmpty(str3)) {
                     try {
-                        if (TextUtils.equals("sync_audio_speeker_status", new JSONObject(str3).optString("content_type")) && com.baidu.live.al.b.Wy().iP(com.baidu.live.al.b.Wy().WD())) {
+                        if (TextUtils.equals("sync_audio_speeker_status", new JSONObject(str3).optString("content_type")) && com.baidu.live.ap.b.YX().jt(com.baidu.live.ap.b.YX().Zc())) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501026, str3));
                         }
                     } catch (JSONException e) {
@@ -406,14 +406,14 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WG() {
+    public void Zf() {
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            b dYM = dYM();
-            if (dYM != null) {
-                dYM.dYu();
+            b eeq = eeq();
+            if (eeq != null) {
+                eeq.edY();
             }
-            if (o.dZz().iP(o.dZz().WD())) {
-                o.dZz().zn(false);
+            if (o.efd().jt(o.efd().Zc())) {
+                o.efd().zR(false);
             }
         }
     }
@@ -427,7 +427,7 @@ public class c {
                     JSONObject jSONObject = new JSONObject(rtcExt);
                     String optString = jSONObject.optString("invited_name");
                     String optString2 = jSONObject.optString("invite_uk");
-                    if (TextUtils.equals(jSONObject.optString("type"), "invite") && !TextUtils.isEmpty(optString) && TextUtils.equals(o.dZz().WD(), optString2)) {
+                    if (TextUtils.equals(jSONObject.optString("type"), "invite") && !TextUtils.isEmpty(optString) && TextUtils.equals(o.efd().Zc(), optString2)) {
                         BdToast.makeText(TbadkCoreApplication.getInst(), String.format(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_reject_invite_text), optString)).show();
                     }
                 } catch (JSONException e) {
@@ -438,121 +438,121 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dYN() {
+    public void eer() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009));
     }
 
-    public c aB(Activity activity) {
+    public c aC(Activity activity) {
         this.mActivity = activity;
         return this;
     }
 
     public c f(TbPageContext tbPageContext) {
-        this.oey = tbPageContext;
+        this.oty = tbPageContext;
         return this;
     }
 
-    public void aL(String str, String str2, String str3) {
-        b a2 = dYK().a(str, str2, (d) null);
+    public void aO(String str, String str2, String str3) {
+        b a2 = eeo().a(str, str2, (d) null);
         if (a2 != null) {
-            a2.Vj(str3);
+            a2.Wy(str3);
         }
     }
 
-    public void ab(w wVar) {
-        if (wVar != null && wVar.aHZ != null && wVar.aHZ.aRe != null) {
-            this.oex = wVar;
-            b a2 = dYK().a(wVar.aHZ.aRe, (d) null);
+    public void ag(w wVar) {
+        if (wVar != null && wVar.aKL != null && wVar.aKL.aUg != null) {
+            this.otx = wVar;
+            b a2 = eeo().a(wVar.aKL.aUg, (d) null);
             String str = wVar.mLiveInfo.session_info.flvUrl;
-            if (dYR()) {
-                a2.aK(dYK().dYP(), TbadkCoreApplication.getCurrentAccountName(), str);
+            if (eev()) {
+                a2.aN(eeo().eet(), TbadkCoreApplication.getCurrentAccountName(), str);
             } else {
-                a2.gI(TbadkCoreApplication.getCurrentAccountName(), str);
+                a2.gN(TbadkCoreApplication.getCurrentAccountName(), str);
             }
         }
     }
 
-    public void dYO() {
-        b dYM = dYM();
-        if (dYM != null) {
-            dYM.Bw();
+    public void ees() {
+        b eeq = eeq();
+        if (eeq != null) {
+            eeq.Df();
         }
     }
 
     public void onDestroy() {
-        dYO();
-        if (this.oeu != null) {
-            this.oeu.clear();
+        ees();
+        if (this.otu != null) {
+            this.otu.clear();
         }
-        if (this.oev != null) {
-            this.oev.clear();
+        if (this.otv != null) {
+            this.otv.clear();
         }
-        com.baidu.tieba.yuyinala.liveroom.wheat.c.b.dZe().onDestroy();
+        com.baidu.tieba.yuyinala.liveroom.wheat.c.b.eeI().onDestroy();
     }
 
-    public String WF() {
-        if (this.oex == null || this.oex.aHZ == null) {
+    public String Ze() {
+        if (this.otx == null || this.otx.aKL == null) {
             return null;
         }
-        return this.oex.aHZ.live_id;
+        return this.otx.aKL.live_id;
     }
 
-    public String Br() {
-        if (this.oex == null || this.oex.aHZ == null) {
+    public String CZ() {
+        if (this.otx == null || this.otx.aKL == null) {
             return null;
         }
-        return this.oex.aHZ.aRe;
+        return this.otx.aKL.aUg;
     }
 
     public String getCustomRoomId() {
-        if (this.oex == null || this.oex.aHZ == null) {
+        if (this.otx == null || this.otx.aKL == null) {
             return null;
         }
-        return this.oex.aHZ.croom_id;
+        return this.otx.aKL.croom_id;
     }
 
-    public String WC() {
-        if (this.oex == null || this.oex.mLiveInfo == null) {
+    public String Zb() {
+        if (this.otx == null || this.otx.mLiveInfo == null) {
             return null;
         }
-        return this.oex.mLiveInfo.user_uk;
+        return this.otx.mLiveInfo.user_uk;
     }
 
-    public String dYP() {
-        if (this.oex == null || this.oex.aHZ == null) {
+    public String eet() {
+        if (this.otx == null || this.otx.aKL == null) {
             return null;
         }
-        return this.oex.aHZ.aRf;
+        return this.otx.aKL.aUh;
     }
 
-    public String dYQ() {
-        if (this.oex == null || this.oex.mLiveInfo == null || this.oex.mLiveInfo.mCastIds == null) {
+    public String eeu() {
+        if (this.otx == null || this.otx.mLiveInfo == null || this.otx.mLiveInfo.mCastIds == null) {
             return null;
         }
-        return this.oex.mLiveInfo.mCastIds.chatMCastId;
+        return this.otx.mLiveInfo.mCastIds.chatMCastId;
     }
 
-    private boolean dYR() {
+    private boolean eev() {
         String encryptionUserId;
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-        return (currentAccountInfo == null || this.oex == null || this.oex.mLiveInfo == null || (encryptionUserId = ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID())) == null || !encryptionUserId.equals(this.oex.mLiveInfo.user_uk)) ? false : true;
+        return (currentAccountInfo == null || this.otx == null || this.otx.mLiveInfo == null || (encryptionUserId = ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID())) == null || !encryptionUserId.equals(this.otx.mLiveInfo.user_uk)) ? false : true;
     }
 
-    public w WE() {
-        return this.oex;
+    public w Zd() {
+        return this.otx;
     }
 
     public synchronized void a(String str, final boolean z, final a aVar) {
-        if (dYM() != null) {
-            dYM().a(str, new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.c.2
+        if (eeq() != null) {
+            eeq().a(str, new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.c.2
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.b.a
                 public void B(int i, long j) {
-                    boolean hj = c.this.dYM().hj(j);
-                    if (!hj && z) {
+                    boolean hO = c.this.eeq().hO(j);
+                    if (!hO && z) {
                         BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_sdk_connect_wheat_leave_room_txt)).show();
                     }
                     if (aVar != null) {
-                        aVar.zf(hj);
+                        aVar.zJ(hO);
                     }
                 }
             });

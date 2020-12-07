@@ -1,40 +1,12 @@
 package com.baidu.live.d;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.live.data.w;
-import com.baidu.live.im.d;
+import android.content.Context;
+import com.baidu.ala.atomdata.AlaAdminListActivityConfig;
+import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 /* loaded from: classes4.dex */
-public interface a {
-
-    /* renamed from: com.baidu.live.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0176a {
+public class a extends IntentConfig {
+    public a(Context context, String str) {
+        super(context);
+        getIntent().putExtra(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID, str);
     }
-
-    boolean CC();
-
-    void CD();
-
-    void CE();
-
-    void a(ViewGroup viewGroup, w wVar);
-
-    void a(InterfaceC0176a interfaceC0176a);
-
-    void a(d dVar, boolean z, boolean z2);
-
-    void b(w wVar);
-
-    void bj(boolean z);
-
-    void dH(int i);
-
-    View getRootView();
-
-    void onDestroy();
-
-    void setCanVisible(boolean z);
-
-    void setVisible(int i);
 }

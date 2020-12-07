@@ -1,48 +1,44 @@
 package com.baidu.ar.arplay.a.a;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private int dB;
-    private boolean dC;
-    private String dE;
-    private long dF;
-    private int dT;
+    private int dO;
+    private boolean dP;
+    private String dR;
+    private long dS;
+    private int eg;
     private String id;
     private String url;
 
-    public void C(String str) {
-        this.dE = str;
+    public void F(String str) {
+        this.dR = str;
     }
 
-    public int aM() {
-        return this.dB;
+    public int aN() {
+        return this.dO;
     }
 
-    public long aN() {
-        return this.dF;
+    public long aO() {
+        return this.dS;
     }
 
-    public String aO() {
-        return this.dE;
+    public String aP() {
+        return this.dR;
     }
 
-    public boolean aP() {
-        return this.dC;
+    public boolean aQ() {
+        return this.dP;
     }
 
-    public int aQ() {
-        return this.dT;
+    public int aR() {
+        return this.eg;
     }
 
     public void d(long j) {
-        this.dF = j;
-    }
-
-    public void g(int i) {
-        this.dB = i;
+        this.dS = j;
     }
 
     public void g(boolean z) {
-        this.dC = z;
+        this.dP = z;
     }
 
     public String getId() {
@@ -54,7 +50,11 @@ public class e {
     }
 
     public void i(int i) {
-        this.dT = i;
+        this.dO = i;
+    }
+
+    public void k(int i) {
+        this.eg = i;
     }
 
     public void setId(String str) {

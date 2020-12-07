@@ -3,7 +3,7 @@ package org.apache.http.message;
 import org.apache.http.ProtocolVersion;
 import org.apache.http.RequestLine;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class BasicRequestLine implements RequestLine {
     public BasicRequestLine(String str, String str2, ProtocolVersion protocolVersion) {
         throw new RuntimeException("Stub!");

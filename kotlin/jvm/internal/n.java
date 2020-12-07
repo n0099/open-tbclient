@@ -4,112 +4,64 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
-import kotlin.TypeCastException;
-@kotlin.h
-/* loaded from: classes9.dex */
-public final class n {
-    private static final Object[] pUj = new Object[0];
+/* loaded from: classes17.dex */
+public class n {
+    private static final Object[] EMPTY_OBJECT_ARRAY = new Object[0];
 
-    public static final Object[] r(Collection<?> collection) {
-        Object[] objArr;
-        q.n(collection, "collection");
+    public static Object[] r(Collection<?> collection) {
         int size = collection.size();
         if (size == 0) {
-            return pUj;
+            return EMPTY_OBJECT_ARRAY;
         }
+        Object[] objArr = new Object[size];
         Iterator<?> it = collection.iterator();
-        if (!it.hasNext()) {
-            return pUj;
-        }
-        Object[] objArr2 = new Object[size];
-        int i = 0;
-        Object[] objArr3 = objArr2;
-        while (true) {
-            int i2 = i + 1;
-            objArr3[i] = it.next();
-            if (i2 >= objArr3.length) {
-                if (!it.hasNext()) {
-                    return objArr3;
-                }
-                int i3 = ((i2 * 3) + 1) >>> 1;
-                if (i3 <= i2) {
-                    if (i2 >= 2147483645) {
-                        throw new OutOfMemoryError();
-                    }
-                    i3 = 2147483645;
-                }
-                objArr = Arrays.copyOf(objArr3, i3);
-                q.m(objArr, "Arrays.copyOf(result, newSize)");
-            } else if (!it.hasNext()) {
-                Object[] copyOf = Arrays.copyOf(objArr3, i2);
-                q.m(copyOf, "Arrays.copyOf(result, size)");
-                return copyOf;
-            } else {
-                objArr = objArr3;
+        for (int i = 0; i < size; i++) {
+            if (!it.hasNext()) {
+                return Arrays.copyOf(objArr, i);
             }
-            objArr3 = objArr;
-            i = i2;
+            objArr[i] = it.next();
         }
+        return it.hasNext() ? a(objArr, it) : objArr;
     }
 
-    public static final Object[] a(Collection<?> collection, Object[] objArr) {
-        Object[] objArr2;
-        int i = 0;
-        q.n(collection, "collection");
-        if (objArr == null) {
-            throw new NullPointerException();
-        }
+    /* JADX DEBUG: Multi-variable search result rejected for r0v16, resolved type: T[] */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static <T, E> T[] a(Collection<E> collection, T[] tArr) {
         int size = collection.size();
-        if (size == 0) {
-            if (objArr.length > 0) {
-                objArr[0] = null;
-                return objArr;
-            }
-            return objArr;
-        }
-        Iterator<?> it = collection.iterator();
-        if (!it.hasNext()) {
-            if (objArr.length > 0) {
-                objArr[0] = null;
-                return objArr;
-            }
-            return objArr;
-        }
-        if (size <= objArr.length) {
-            objArr2 = objArr;
-        } else {
-            Object newInstance = Array.newInstance(objArr.getClass().getComponentType(), size);
-            if (newInstance == null) {
-                throw new TypeCastException("null cannot be cast to non-null type kotlin.Array<kotlin.Any?>");
-            }
-            objArr2 = (Object[]) newInstance;
-        }
-        while (true) {
-            int i2 = i + 1;
-            objArr2[i] = it.next();
-            if (i2 >= objArr2.length) {
-                if (!it.hasNext()) {
-                    return objArr2;
+        T[] tArr2 = tArr.length >= size ? tArr : (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), size));
+        Iterator<E> it = collection.iterator();
+        for (int i = 0; i < tArr2.length; i++) {
+            if (!it.hasNext()) {
+                if (tArr != tArr2) {
+                    return (T[]) Arrays.copyOf(tArr2, i);
                 }
-                int i3 = ((i2 * 3) + 1) >>> 1;
-                if (i3 <= i2) {
-                    if (i2 >= 2147483645) {
-                        throw new OutOfMemoryError();
+                tArr2[i] = null;
+                return tArr2;
+            }
+            tArr2[i] = it.next();
+        }
+        return it.hasNext() ? (T[]) a((Object[]) tArr2, (Iterator<?>) it) : tArr2;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r4v11, resolved type: T[] */
+    /* JADX WARN: Multi-variable type inference failed */
+    private static <T> T[] a(T[] tArr, Iterator<?> it) {
+        int length = tArr.length;
+        while (it.hasNext()) {
+            int length2 = tArr.length;
+            if (length == length2) {
+                int i = ((length2 / 2) + 1) * 3;
+                if (i <= length2) {
+                    if (length2 == Integer.MAX_VALUE) {
+                        throw new OutOfMemoryError("Required array size too large");
                     }
-                    i3 = 2147483645;
+                    i = Integer.MAX_VALUE;
                 }
-                objArr2 = Arrays.copyOf(objArr2, i3);
-                q.m(objArr2, "Arrays.copyOf(result, newSize)");
-            } else if (!it.hasNext()) {
-                if (objArr2 == objArr) {
-                    objArr[i2] = null;
-                    return objArr;
-                }
-                Object[] copyOf = Arrays.copyOf(objArr2, i2);
-                q.m(copyOf, "Arrays.copyOf(result, size)");
-                return copyOf;
+                tArr = (T[]) Arrays.copyOf(tArr, i);
             }
-            i = i2;
+            tArr[length] = it.next();
+            length++;
         }
+        return length == tArr.length ? tArr : (T[]) Arrays.copyOf(tArr, length);
     }
 }

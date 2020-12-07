@@ -9,10 +9,10 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a, a> {
     public c(Context context) {
-        super(context, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a.hGQ);
+        super(context, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a.hQx);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,8 +26,8 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     private void a(a aVar) {
         if (aVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            ap.setViewTextColor(aVar.hGO, R.color.CAM_X0105, 1, skinType);
-            ap.setBackgroundResource(aVar.hGP, R.color.CAM_X0204, skinType);
+            ap.setViewTextColor(aVar.hQv, R.color.CAM_X0105, 1, skinType);
+            ap.setBackgroundResource(aVar.hQw, R.color.CAM_X0204, skinType);
         }
     }
 
@@ -36,26 +36,26 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a aVar, a aVar2) {
         if (aVar != null) {
-            aVar2.hGO.setText(aVar.aGl);
+            aVar2.hQv.setText(aVar.aIU);
         }
         if (i == 0) {
-            aVar2.hGP.setVisibility(8);
+            aVar2.hQw.setVisibility(8);
         } else {
-            aVar2.hGP.setVisibility(0);
+            aVar2.hQw.setVisibility(0);
         }
         a(aVar2);
         return aVar2.getView();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a extends af.a {
-        public TextView hGO;
-        public View hGP;
+        public TextView hQv;
+        public View hQw;
 
         public a(View view) {
             super(view);
-            this.hGO = (TextView) getView().findViewById(R.id.enter_effect_txt);
-            this.hGP = getView().findViewById(R.id.ala_enter_effect_devide);
+            this.hQv = (TextView) getView().findViewById(R.id.enter_effect_txt);
+            this.hQw = getView().findViewById(R.id.ala_enter_effect_devide);
         }
     }
 }

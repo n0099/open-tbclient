@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class ObservableBuffer<T, U extends Collection<? super T>> extends io.reactivex.internal.operators.observable.a<T, U> {
     final Callable<U> bufferSupplier;
     final int count;
@@ -18,7 +18,7 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
     protected void a(u<? super U> uVar) {
         if (this.skip == this.count) {
             a aVar = new a(uVar, this.count, this.bufferSupplier);
-            if (aVar.eAK()) {
+            if (aVar.eDb()) {
                 this.source.subscribe(aVar);
                 return;
             }
@@ -27,7 +27,7 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
         this.source.subscribe(new BufferSkipObserver(uVar, this.count, this.skip, this.bufferSupplier));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class a<T, U extends Collection<? super T>> implements io.reactivex.disposables.b, u<T> {
         final u<? super U> actual;
         U buffer;
@@ -42,9 +42,9 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
             this.bufferSupplier = callable;
         }
 
-        boolean eAK() {
+        boolean eDb() {
             try {
-                this.buffer = (U) io.reactivex.internal.functions.a.l(this.bufferSupplier.call(), "Empty buffer supplied");
+                this.buffer = (U) io.reactivex.internal.functions.a.m(this.bufferSupplier.call(), "Empty buffer supplied");
                 return true;
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.J(th);
@@ -87,7 +87,7 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
                 if (i >= this.count) {
                     this.actual.onNext(u);
                     this.size = 0;
-                    eAK();
+                    eDb();
                 }
             }
         }
@@ -109,7 +109,7 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class BufferSkipObserver<T, U extends Collection<? super T>> extends AtomicBoolean implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -8223395059921494546L;
         final u<? super U> actual;
@@ -153,7 +153,7 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
             this.index = 1 + j;
             if (j % this.skip == 0) {
                 try {
-                    this.buffers.offer((Collection) io.reactivex.internal.functions.a.l(this.bufferSupplier.call(), "The bufferSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources."));
+                    this.buffers.offer((Collection) io.reactivex.internal.functions.a.m(this.bufferSupplier.call(), "The bufferSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources."));
                 } catch (Throwable th) {
                     this.buffers.clear();
                     this.s.dispose();

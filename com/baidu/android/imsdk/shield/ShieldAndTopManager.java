@@ -1,5 +1,6 @@
 package com.baidu.android.imsdk.shield;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
@@ -8,6 +9,7 @@ import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatuser.IStatusListener;
 import com.baidu.android.imsdk.chatuser.db.ChatUserDBManager;
+import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
@@ -27,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ShieldAndTopManager {
     private static final String TAG = "ShieldAndTopManager";
     private static volatile ShieldAndTopManager mInstance;
@@ -273,6 +275,16 @@ public class ShieldAndTopManager {
         }
     }
 
+    public void onGroupMarkTopResult(int i, String str, @NonNull ChatSession chatSession, String str2) {
+        if (i == 0) {
+            GroupInfoDAOImpl.updateGroupMarkTop(this.mContext, chatSession.getContacter(), chatSession.getMarkTop(), chatSession.getMarkTopTime());
+        }
+        IStatusListener iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(str2);
+        if (iStatusListener != null) {
+            iStatusListener.onResult(i, str, chatSession.getMarkTop(), chatSession.getContacter());
+        }
+    }
+
     public void onUserMarkTopResult(int i, String str, @NonNull final ChatSession chatSession, String str2) {
         IStatusListener iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(str2);
         if (iStatusListener != null) {
@@ -293,15 +305,15 @@ public class ShieldAndTopManager {
         HttpHelper.executor(this.mContext, iMGetShieldAndTopListRequest, iMGetShieldAndTopListRequest);
     }
 
-    public void onMsgMarkTopListResult(int i, String str, List<ChatSession> list, List<ChatSession> list2) {
+    public void onMsgMarkTopListResult(int i, String str, List<ChatSession> list, List<ChatSession> list2, List<ChatSession> list3) {
         if (list != null) {
-            if ((list.size() != 0 || (list2 != null && list2.size() != 0)) && i == 0) {
-                if (list.size() > 0) {
-                    ChatUserDBManager.getInstance(this.mContext).updateMarkTopList(list);
-                }
-                if (list2.size() > 0) {
-                    PaInfoDBManager.getInstance(this.mContext).updateMarkTopList(list2);
-                }
+            if ((list.size() != 0 || ((list2 != null && list2.size() != 0) || (list3 != null && list3.size() != 0))) && i == 0) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("marktop", (Integer) 0);
+                ChatMessageDBManager.getInstance(this.mContext).updateChatSession("marktop=?", new String[]{String.valueOf(1)}, contentValues);
+                ChatUserDBManager.getInstance(this.mContext).updateMarkTopList(list);
+                PaInfoDBManager.getInstance(this.mContext).updateMarkTopList(list2);
+                GroupInfoDAOImpl.updateGroupListMarkTop(this.mContext, list3);
             }
         }
     }

@@ -18,7 +18,7 @@ import javax.microedition.khronos.opengles.GL10;
 public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer {
 
     /* renamed from: a  reason: collision with root package name */
-    protected a f1383a;
+    protected a f1382a;
     private int h;
     private int i;
     private int j;
@@ -256,8 +256,8 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                         GLES20.glClear(16640);
                     }
                     GLES20.glViewport(0, 0, this.t.g(), this.t.h());
-                    if (this.f1383a != null) {
-                        this.f1383a.a();
+                    if (this.f1382a != null) {
+                        this.f1382a.a();
                     }
                     CyberLog.i("CyberRender", "drawScreenSnapshot called end x:" + i + " y:" + i2);
                 }
@@ -281,8 +281,8 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             this.w = i;
             this.x = i2;
         }
-        if (this.f1383a != null) {
-            this.f1383a.a();
+        if (this.f1382a != null) {
+            this.f1382a.a();
         }
     }
 
@@ -299,7 +299,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     }
 
     public void a(a aVar) {
-        this.f1383a = aVar;
+        this.f1382a = aVar;
     }
 
     public void a(i.a aVar) {
@@ -355,8 +355,8 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                 return;
             }
             this.p = true;
-            if (this.f1383a != null) {
-                this.f1383a.a();
+            if (this.f1382a != null) {
+                this.f1382a.a();
             }
         }
     }
@@ -377,22 +377,26 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         this.l = GLES20.glGetAttribLocation(this.h, "aPosition");
         a("glGetAttribLocation aPosition");
         if (this.l == -1) {
-            throw new RuntimeException("Could not get attrib location for aPosition");
+            CyberLog.e("CyberRender", "Could not get attrib location for aPosition");
+            return;
         }
         this.m = GLES20.glGetAttribLocation(this.h, "aTextureCoord");
         a("glGetAttribLocation aTextureCoord");
         if (this.m == -1) {
-            throw new RuntimeException("Could not get attrib location for aTextureCoord");
+            CyberLog.e("CyberRender", "Could not get attrib location for aTextureCoord");
+            return;
         }
         this.j = GLES20.glGetUniformLocation(this.h, "uMVPMatrix");
         a("glGetUniformLocation uMVPMatrix");
         if (this.j == -1) {
-            throw new RuntimeException("Could not get attrib location for uMVPMatrix");
+            CyberLog.e("CyberRender", "Could not get attrib location for uMVPMatrix");
+            return;
         }
         this.k = GLES20.glGetUniformLocation(this.h, "uSTMatrix");
         a("glGetUniformLocation uSTMatrix");
         if (this.j == -1) {
-            throw new RuntimeException("Could not get attrib location for uSTMatrix");
+            CyberLog.e("CyberRender", "Could not get attrib location for uSTMatrix");
+            return;
         }
         GLES20.glTexParameterf(36197, 10241, 9728.0f);
         GLES20.glTexParameterf(36197, 10240, 9729.0f);

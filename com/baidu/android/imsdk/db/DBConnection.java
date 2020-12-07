@@ -9,7 +9,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.db.DBVersionManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class DBConnection extends SQLiteOpenHelper {
     private static final String TAG = "DBConnection";
     private Context mContext;
@@ -41,6 +41,10 @@ public class DBConnection extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         if (i <= 27 && i2 >= 28) {
             new Version27And28Handler().onUpgrade(sQLiteDatabase, i, i2);
+            i = 28;
+        }
+        if (i <= 47 && i2 >= 48) {
+            new Version47And48Handler().onUpgrade(sQLiteDatabase, i, i2);
         }
     }
 
@@ -49,7 +53,7 @@ public class DBConnection extends SQLiteOpenHelper {
     public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class Version27And28Handler implements DBVersionManager.VersionHandler {
         public Version27And28Handler() {
         }
@@ -58,6 +62,28 @@ public class DBConnection extends SQLiteOpenHelper {
         public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE groupmember ADD COLUMN nickname TEXT");
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(DBConnection.this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(LogUtils.TAG, "DBConnection onUpgrade:27->28", e);
+            }
+            Log.d(LogUtils.TAG, "DBConnection onUpgrade:27->28");
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class Version47And48Handler implements DBVersionManager.VersionHandler {
+        public Version47And48Handler() {
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE groupinfo ADD COLUMN marktop INTEGER DEFAULT 1");
+                sQLiteDatabase.execSQL("ALTER TABLE groupinfo ADD COLUMN marktoptime LONG ");
             } catch (Exception e) {
                 new IMTrack.CrashBuilder(DBConnection.this.mContext).exception(Log.getStackTraceString(e)).build();
                 LogUtils.e(LogUtils.TAG, "DBConnection onUpgrade:27->28", e);

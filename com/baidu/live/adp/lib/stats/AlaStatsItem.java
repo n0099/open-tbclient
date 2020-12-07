@@ -59,7 +59,7 @@ public class AlaStatsItem {
             String[] split2 = str.split(ETAG.ITEM_SEPARATOR);
             if (split2 != null && split2.length != 0) {
                 for (String str2 : split2) {
-                    if (!TextUtils.isEmpty(str2) && (split = str2.split(ETAG.EQUAL)) != null && split.length == 2) {
+                    if (!TextUtils.isEmpty(str2) && (split = str2.split("=")) != null && split.length == 2) {
                         try {
                             this.mKvLists.put(split[0], URLDecoder.decode(split[1], "utf-8"));
                         } catch (UnsupportedEncodingException e) {
@@ -130,7 +130,7 @@ public class AlaStatsItem {
                 this.mStringBuilder.append('&');
             }
             this.mStringBuilder.append(str);
-            this.mStringBuilder.append(ETAG.EQUAL);
+            this.mStringBuilder.append("=");
             try {
                 this.mStringBuilder.append(URLEncoder.encode(valueEscapeSpace(str2), "utf-8"));
             } catch (Throwable th) {

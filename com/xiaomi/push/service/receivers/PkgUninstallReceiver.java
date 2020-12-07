@@ -22,9 +22,9 @@ public class PkgUninstallReceiver extends BroadcastReceiver {
         }
         try {
             Intent intent2 = new Intent(context, XMPushService.class);
-            intent2.setAction(ax.f5069a);
+            intent2.setAction(ax.f4839a);
             intent2.putExtra("uninstall_pkg_name", data.getEncodedSchemeSpecificPart());
-            bb.a(context).m561a(intent2);
+            bb.a(context).m551a(intent2);
         } catch (Exception e) {
             b.a(e);
         }

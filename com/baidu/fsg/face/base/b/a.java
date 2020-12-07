@@ -10,21 +10,21 @@ import com.baidu.fsg.face.base.d.g;
 import java.util.HashMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1566a;
-    private C0118a b;
+    private Context f1568a;
+    private C0119a b;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [66=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(Context context, int i, Bundle bundle) {
-        this.f1566a = context;
-        this.b = new C0118a();
+        this.f1568a = context;
+        this.b = new C0119a();
         b.a a2 = b.a(i);
-        c a3 = b.a(context).a(context.getApplicationContext(), a2.f1569a);
-        this.b.j = a2.f1569a;
+        c a3 = b.a(context).a(context.getApplicationContext(), a2.f1571a);
+        this.b.j = a2.f1571a;
         try {
             if (!a3.q || !a3.r) {
                 this.b.i = a2.b;
@@ -56,7 +56,7 @@ public class a {
 
     private void a(String[] strArr, b.a aVar) {
         for (String str : strArr) {
-            String str2 = b.b(this.f1566a, aVar) + "/lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
+            String str2 = b.b(this.f1568a, aVar) + "/lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
             if (g.a(str2)) {
                 g.b(str2);
             }
@@ -70,7 +70,7 @@ public class a {
         try {
             int length = strArr.length;
             for (int i = 0; i < length; i++) {
-                System.load(b.b(this.f1566a, aVar) + "/lib" + strArr[i] + PluginInstallerService.APK_LIB_SUFFIX);
+                System.load(b.b(this.f1568a, aVar) + "/lib" + strArr[i] + PluginInstallerService.APK_LIB_SUFFIX);
             }
             this.b.i = cVar.n;
         } catch (Throwable th) {
@@ -87,8 +87,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.fsg.face.base.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes16.dex */
-    public class C0118a {
+    /* loaded from: classes17.dex */
+    public class C0119a {
         private static final String b = "load_so_zip_version";
         private static final String c = "load_so_modle_name";
         private static final String d = "load_default_so";
@@ -104,7 +104,7 @@ public class a {
         private String n;
         private String o;
 
-        private C0118a() {
+        private C0119a() {
             this.l = false;
             this.m = true;
         }

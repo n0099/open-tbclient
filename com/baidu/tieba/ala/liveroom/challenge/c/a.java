@@ -21,43 +21,43 @@ import com.baidu.tieba.ala.liveroom.challenge.adapter.b;
 import com.baidu.tieba.ala.liveroom.challenge.message.GetChallengeMvpToastInfoResponseMessage;
 /* loaded from: classes4.dex */
 public class a {
-    private int aKI;
+    private int aND;
     private long anchorId;
-    private Dialog ben;
+    private Dialog biC;
     private long challengeId;
     private Context context;
-    private CountDownTimer gvC;
-    private GetChallengeMvpToastInfoResponseMessage hdg;
-    private b hdh;
-    private i hdi;
+    private CountDownTimer gEm;
+    private GetChallengeMvpToastInfoResponseMessage hmO;
+    private b hmP;
+    private i hmQ;
     private long liveId;
 
     public a(Context context, long j, long j2, long j3, i iVar, GetChallengeMvpToastInfoResponseMessage getChallengeMvpToastInfoResponseMessage) {
-        this.aKI = 10;
+        this.aND = 10;
         this.context = context;
         this.liveId = j;
         this.anchorId = j2;
         this.challengeId = j3;
-        this.hdi = iVar;
-        this.hdg = getChallengeMvpToastInfoResponseMessage;
-        if (com.baidu.live.aa.a.Ph().bms != null) {
-            this.aKI = com.baidu.live.aa.a.Ph().bms.aKI;
-            if (this.aKI == 0) {
-                this.aKI = 10;
+        this.hmQ = iVar;
+        this.hmO = getChallengeMvpToastInfoResponseMessage;
+        if (com.baidu.live.ae.a.RB().brA != null) {
+            this.aND = com.baidu.live.ae.a.RB().brA.aND;
+            if (this.aND == 0) {
+                this.aND = 10;
             }
         }
     }
 
-    public void PA() {
-        if (this.context != null && this.hdg != null) {
+    public void RU() {
+        if (this.context != null && this.hmO != null) {
             View inflate = LayoutInflater.from(this.context).inflate(a.g.dialog_mvp_choose_punish, (ViewGroup) null);
-            this.ben = new Dialog(this.context, a.i.sdk_TransparentDialog);
-            this.ben.requestWindowFeature(1);
-            this.ben.setCancelable(false);
-            this.ben.setContentView(inflate);
-            this.ben.setCanceledOnTouchOutside(false);
-            this.ben.getWindow().getAttributes().width = this.context.getResources().getDimensionPixelSize(a.d.sdk_ds582);
-            this.ben.getWindow().getAttributes().height = -2;
+            this.biC = new Dialog(this.context, a.i.sdk_TransparentDialog);
+            this.biC.requestWindowFeature(1);
+            this.biC.setCancelable(false);
+            this.biC.setContentView(inflate);
+            this.biC.setCanceledOnTouchOutside(false);
+            this.biC.getWindow().getAttributes().width = this.context.getResources().getDimensionPixelSize(a.d.sdk_ds582);
+            this.biC.getWindow().getAttributes().height = -2;
             ImageView imageView = (ImageView) inflate.findViewById(a.f.close_imageView);
             TextView textView = (TextView) inflate.findViewById(a.f.desc_textView);
             AlphaGradientHListView alphaGradientHListView = (AlphaGradientHListView) inflate.findViewById(a.f.punish_listView);
@@ -67,10 +67,10 @@ public class a {
             TextView textView4 = (TextView) inflate.findViewById(a.f.know_textView);
             LinearLayout linearLayout2 = (LinearLayout) inflate.findViewById(a.f.countdown_layout);
             final TextView textView5 = (TextView) inflate.findViewById(a.f.countdown_textView);
-            if (!TextUtils.isEmpty(this.hdg.toast)) {
-                textView.setText(this.hdg.toast);
+            if (!TextUtils.isEmpty(this.hmO.toast)) {
+                textView.setText(this.hmO.toast);
             }
-            if (this.hdg.type == 0) {
+            if (this.hmO.type == 0) {
                 imageView.setVisibility(8);
                 alphaGradientHListView.setVisibility(8);
                 linearLayout.setVisibility(8);
@@ -79,7 +79,7 @@ public class a {
                 textView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.GM();
+                        a.this.ID();
                     }
                 });
             } else {
@@ -89,31 +89,31 @@ public class a {
                 textView4.setVisibility(8);
                 linearLayout2.setVisibility(0);
                 textView2.setEnabled(false);
-                textView5.setText(this.aKI + "s");
+                textView5.setText(this.aND + "s");
                 alphaGradientHListView.setDividerWidth(this.context.getResources().getDimensionPixelSize(a.d.sdk_ds18));
                 alphaGradientHListView.setSelector(this.context.getResources().getDrawable(a.e.sdk_transparent_bg));
-                this.hdh = new b(this.context, this.hdg.haj);
-                alphaGradientHListView.setAdapter((ListAdapter) this.hdh);
+                this.hmP = new b(this.context, this.hmO.hjS);
+                alphaGradientHListView.setAdapter((ListAdapter) this.hmP);
                 alphaGradientHListView.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.2
                     @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
                     public void a(AdapterView<?> adapterView, View view, int i, long j) {
                         com.baidu.tieba.ala.liveroom.challenge.a.b bVar;
-                        if (a.this.hdh != null && (bVar = (com.baidu.tieba.ala.liveroom.challenge.a.b) a.this.hdh.getItem(i)) != null) {
-                            if (TextUtils.equals(a.this.hdh.gZJ, bVar.id)) {
-                                a.this.hdh.gZJ = "";
+                        if (a.this.hmP != null && (bVar = (com.baidu.tieba.ala.liveroom.challenge.a.b) a.this.hmP.getItem(i)) != null) {
+                            if (TextUtils.equals(a.this.hmP.hjs, bVar.id)) {
+                                a.this.hmP.hjs = "";
                                 textView2.setEnabled(false);
                             } else {
-                                a.this.hdh.gZJ = bVar.id;
+                                a.this.hmP.hjs = bVar.id;
                                 textView2.setEnabled(true);
                             }
-                            a.this.hdh.notifyDataSetChanged();
+                            a.this.hmP.notifyDataSetChanged();
                         }
                     }
                 });
                 textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.bg(3, a.this.hdh.gZJ);
+                        a.this.bg(3, a.this.hmP.hjs);
                         a.this.release();
                     }
                 });
@@ -131,10 +131,10 @@ public class a {
                         a.this.release();
                     }
                 });
-                if (this.gvC != null) {
-                    this.gvC.cancel();
+                if (this.gEm != null) {
+                    this.gEm.cancel();
                 }
-                this.gvC = new CountDownTimer(this.aKI * 1000, 200L) { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.6
+                this.gEm = new CountDownTimer(this.aND * 1000, 200L) { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.6
                     @Override // android.os.CountDownTimer
                     public void onTick(long j) {
                         textView5.setText((j / 1000) + "s");
@@ -143,19 +143,19 @@ public class a {
                     @Override // android.os.CountDownTimer
                     public void onFinish() {
                         a.this.bg(1, "0");
-                        a.this.GM();
+                        a.this.ID();
                     }
                 };
-                this.gvC.start();
+                this.gEm.start();
             }
-            this.ben.show();
+            this.biC.show();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void GM() {
-        if (this.ben != null && this.ben.isShowing()) {
-            Context context = this.ben.getContext();
+    public void ID() {
+        if (this.biC != null && this.biC.isShowing()) {
+            Context context = this.biC.getContext();
             if (context != null && (context instanceof Activity)) {
                 Activity activity = (Activity) context;
                 if (Build.VERSION.SDK_INT >= 17) {
@@ -167,25 +167,25 @@ public class a {
                 }
             }
             try {
-                this.ben.dismiss();
+                this.biC.dismiss();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        this.ben = null;
+        this.biC = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bg(int i, String str) {
-        if (this.hdi != null) {
-            this.hdi.a(this.challengeId, this.liveId, this.anchorId, i, str);
+        if (this.hmQ != null) {
+            this.hmQ.a(this.challengeId, this.liveId, this.anchorId, i, str);
         }
     }
 
     public void release() {
-        if (this.gvC != null) {
-            this.gvC.cancel();
+        if (this.gEm != null) {
+            this.gEm.cancel();
         }
-        GM();
+        ID();
     }
 }

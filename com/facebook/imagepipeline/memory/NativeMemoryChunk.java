@@ -61,26 +61,26 @@ public class NativeMemoryChunk implements Closeable {
     }
 
     public synchronized int d(int i, byte[] bArr, int i2, int i3) {
-        int dY;
+        int ed;
         com.facebook.common.internal.g.checkNotNull(bArr);
         com.facebook.common.internal.g.checkState(!isClosed());
-        dY = dY(i, i3);
-        N(i, bArr.length, i2, dY);
-        nativeCopyFromByteArray(this.mNativePtr + i, bArr, i2, dY);
-        return dY;
+        ed = ed(i, i3);
+        R(i, bArr.length, i2, ed);
+        nativeCopyFromByteArray(this.mNativePtr + i, bArr, i2, ed);
+        return ed;
     }
 
     public synchronized int c(int i, byte[] bArr, int i2, int i3) {
-        int dY;
+        int ed;
         com.facebook.common.internal.g.checkNotNull(bArr);
         com.facebook.common.internal.g.checkState(!isClosed());
-        dY = dY(i, i3);
-        N(i, bArr.length, i2, dY);
-        nativeCopyToByteArray(this.mNativePtr + i, bArr, i2, dY);
-        return dY;
+        ed = ed(i, i3);
+        R(i, bArr.length, i2, ed);
+        nativeCopyToByteArray(this.mNativePtr + i, bArr, i2, ed);
+        return ed;
     }
 
-    public synchronized byte OU(int i) {
+    public synchronized byte PS(int i) {
         byte nativeReadByte;
         synchronized (this) {
             com.facebook.common.internal.g.checkState(!isClosed());
@@ -112,14 +112,14 @@ public class NativeMemoryChunk implements Closeable {
         }
     }
 
-    public long eki() {
+    public long epX() {
         return this.mNativePtr;
     }
 
     private void b(int i, NativeMemoryChunk nativeMemoryChunk, int i2, int i3) {
         com.facebook.common.internal.g.checkState(!isClosed());
         com.facebook.common.internal.g.checkState(nativeMemoryChunk.isClosed() ? false : true);
-        N(i, nativeMemoryChunk.mSize, i2, i3);
+        R(i, nativeMemoryChunk.mSize, i2, i3);
         nativeMemcpy(nativeMemoryChunk.mNativePtr + i2, this.mNativePtr + i, i3);
     }
 
@@ -134,11 +134,11 @@ public class NativeMemoryChunk implements Closeable {
         }
     }
 
-    private int dY(int i, int i2) {
+    private int ed(int i, int i2) {
         return Math.min(Math.max(0, this.mSize - i), i2);
     }
 
-    private void N(int i, int i2, int i3, int i4) {
+    private void R(int i, int i2, int i3, int i4) {
         com.facebook.common.internal.g.checkArgument(i4 >= 0);
         com.facebook.common.internal.g.checkArgument(i >= 0);
         com.facebook.common.internal.g.checkArgument(i3 >= 0);

@@ -11,13 +11,13 @@ import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.pay.d;
 import java.util.Map;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class a extends ActivityDelegation implements com.baidu.swan.apps.a.a {
-    private com.baidu.tieba.aiapps.apps.f.a.a fWE;
-    private Activity fWF;
-    public Map<String, String> ftZ;
+    public Map<String, String> fBL;
+    private com.baidu.tieba.aiapps.apps.f.a.a geP;
+    private Activity geQ;
     private BdUniqueId mPageId = BdUniqueId.gen();
-    private CustomMessageListener fWG = new CustomMessageListener(2921393) { // from class: com.baidu.tieba.aiapps.apps.f.a.1
+    private CustomMessageListener geR = new CustomMessageListener(2921393) { // from class: com.baidu.tieba.aiapps.apps.f.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -25,11 +25,11 @@ public class a extends ActivityDelegation implements com.baidu.swan.apps.a.a {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof d) {
                     d dVar = (d) data;
-                    if (getTag() == dVar.tag || dVar.fua) {
+                    if (getTag() == dVar.tag || dVar.fBM) {
                         a.this.mResult.putInt("result_code", dVar.type);
                         a.this.mResult.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, dVar.message);
-                        if (a.this.fWE != null) {
-                            a.this.fWE.ah(a.this.mResult);
+                        if (a.this.geP != null) {
+                            a.this.geP.ah(a.this.mResult);
                         }
                         a.this.finish();
                     }
@@ -39,13 +39,13 @@ public class a extends ActivityDelegation implements com.baidu.swan.apps.a.a {
     };
 
     public void a(com.baidu.tieba.aiapps.apps.f.a.a aVar) {
-        this.fWE = aVar;
+        this.geP = aVar;
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public boolean onExec() {
-        this.fWG.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.fWG);
+        this.geR.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.geR);
         int i = this.mParams.getInt("type");
         String string = this.mParams.getString("orderInfo");
         d dVar = new d();
@@ -53,11 +53,11 @@ public class a extends ActivityDelegation implements com.baidu.swan.apps.a.a {
         dVar.type = i;
         dVar.message = string;
         dVar.params = (Map) this.mParams.getSerializable("params");
-        dVar.ftZ = this.ftZ;
+        dVar.fBL = this.fBL;
         if (getAgent() != null) {
             dVar.context = getAgent();
-        } else if (this.fWF != null) {
-            dVar.context = this.fWF;
+        } else if (this.geQ != null) {
+            dVar.context = this.geQ;
         } else {
             dVar.context = TbadkCoreApplication.getInst().getCurrentActivity();
         }
@@ -72,8 +72,8 @@ public class a extends ActivityDelegation implements com.baidu.swan.apps.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void finish() {
-        this.fWE = null;
-        MessageManager.getInstance().unRegisterListener(this.fWG);
+        this.geP = null;
+        MessageManager.getInstance().unRegisterListener(this.geR);
         super.finish();
     }
 
@@ -84,7 +84,7 @@ public class a extends ActivityDelegation implements com.baidu.swan.apps.a.a {
         finish();
     }
 
-    public void ai(Activity activity) {
-        this.fWF = activity;
+    public void aj(Activity activity) {
+        this.geQ = activity;
     }
 }

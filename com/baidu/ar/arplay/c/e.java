@@ -4,10 +4,10 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import java.util.Locale;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class e {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum a {
         WIFI,
         CMNET,
@@ -15,7 +15,7 @@ public class e {
         NONE
     }
 
-    public static boolean e(Context context) {
+    public static boolean f(Context context) {
         try {
             NetworkInfo[] allNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getAllNetworkInfo();
             if (allNetworkInfo != null) {
@@ -31,7 +31,7 @@ public class e {
         return false;
     }
 
-    public static a f(Context context) {
+    public static a g(Context context) {
         NetworkInfo activeNetworkInfo;
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
         if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null) {

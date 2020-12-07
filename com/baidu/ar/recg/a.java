@@ -3,44 +3,44 @@ package com.baidu.ar.recg;
 import com.baidu.ar.c;
 import com.baidu.ar.d;
 import java.lang.ref.WeakReference;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a extends d implements IOnDeviceIR {
-    private WeakReference<IOnDeviceIR> lU;
-    private IOnDeviceIRStateChangedListener tg;
+    private WeakReference<IOnDeviceIR> mj;
+    private IOnDeviceIRStateChangedListener tT;
 
     @Override // com.baidu.ar.d
     public void a(c cVar) {
         if (cVar instanceof IOnDeviceIR) {
-            this.lU = new WeakReference<>((IOnDeviceIR) cVar);
-            if (this.tg != null) {
-                ((IOnDeviceIR) cVar).setStateChangedListener(this.tg);
+            this.mj = new WeakReference<>((IOnDeviceIR) cVar);
+            if (this.tT != null) {
+                ((IOnDeviceIR) cVar).setStateChangedListener(this.tT);
             }
         }
     }
 
     @Override // com.baidu.ar.d
     public void release() {
-        if (this.lU != null) {
-            this.lU.clear();
-            this.lU = null;
+        if (this.mj != null) {
+            this.mj.clear();
+            this.mj = null;
         }
-        this.tg = null;
+        this.tT = null;
     }
 
     @Override // com.baidu.ar.recg.IOnDeviceIR
     public void retry() {
-        if (this.lU == null || this.lU.get() == null) {
+        if (this.mj == null || this.mj.get() == null) {
             return;
         }
-        this.lU.get().retry();
+        this.mj.get().retry();
     }
 
     @Override // com.baidu.ar.recg.IOnDeviceIR
     public void setStateChangedListener(IOnDeviceIRStateChangedListener iOnDeviceIRStateChangedListener) {
-        this.tg = iOnDeviceIRStateChangedListener;
-        if (this.tg == null || this.lU == null || this.lU.get() == null) {
+        this.tT = iOnDeviceIRStateChangedListener;
+        if (this.tT == null || this.mj == null || this.mj.get() == null) {
             return;
         }
-        this.lU.get().setStateChangedListener(this.tg);
+        this.mj.get().setStateChangedListener(this.tT);
     }
 }

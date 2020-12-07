@@ -7,7 +7,7 @@ import java.util.GregorianCalendar;
 import java.util.TimeZone;
 /* loaded from: classes5.dex */
 public class a {
-    private static final TimeZone pht = TimeZone.getTimeZone("UTC");
+    private static final TimeZone pwC = TimeZone.getTimeZone("UTC");
 
     /* JADX WARN: Removed duplicated region for block: B:45:0x00cf  */
     /* JADX WARN: Removed duplicated region for block: B:48:0x00d6  */
@@ -28,63 +28,63 @@ public class a {
         try {
             int index = parsePosition.getIndex();
             int i5 = index + 4;
-            int A = A(str, index, i5);
+            int B = B(str, index, i5);
             int i6 = a(str, i5, '-') ? i5 + 1 : i5;
             int i7 = i6 + 2;
-            int A2 = A(str, i6, i7);
+            int B2 = B(str, i6, i7);
             int i8 = a(str, i7, '-') ? i7 + 1 : i7;
             int i9 = i8 + 2;
-            int A3 = A(str, i8, i9);
+            int B3 = B(str, i8, i9);
             boolean a2 = a(str, i9, 'T');
             if (!a2 && str.length() <= i9) {
-                GregorianCalendar gregorianCalendar = new GregorianCalendar(A, A2 - 1, A3);
+                GregorianCalendar gregorianCalendar = new GregorianCalendar(B, B2 - 1, B3);
                 parsePosition.setIndex(i9);
                 return gregorianCalendar.getTime();
             }
             if (a2) {
                 int i10 = i9 + 1;
                 int i11 = i10 + 2;
-                int A4 = A(str, i10, i11);
+                int B4 = B(str, i10, i11);
                 int i12 = a(str, i11, ':') ? i11 + 1 : i11;
                 i9 = i12 + 2;
-                int A5 = A(str, i12, i9);
+                int B5 = B(str, i12, i9);
                 if (a(str, i9, ':')) {
                     i9++;
                 }
                 if (str.length() <= i9 || (charAt = str.charAt(i9)) == 'Z' || charAt == '+' || charAt == '-') {
-                    i3 = A5;
-                    i4 = A4;
+                    i3 = B5;
+                    i4 = B4;
                     i = 0;
                     i2 = 0;
                 } else {
                     int i13 = i9 + 2;
-                    int A6 = A(str, i9, i13);
-                    if (A6 > 59 && A6 < 63) {
-                        A6 = 59;
+                    int B6 = B(str, i9, i13);
+                    if (B6 > 59 && B6 < 63) {
+                        B6 = 59;
                     }
                     if (a(str, i13, '.')) {
                         int i14 = i13 + 1;
-                        int bW = bW(str, i14 + 1);
-                        int min = Math.min(bW, i14 + 3);
-                        int A7 = A(str, i14, min);
+                        int cb = cb(str, i14 + 1);
+                        int min = Math.min(cb, i14 + 3);
+                        int B7 = B(str, i14, min);
                         switch (min - i14) {
                             case 1:
-                                A7 *= 100;
+                                B7 *= 100;
                                 break;
                             case 2:
-                                A7 *= 10;
+                                B7 *= 10;
                                 break;
                         }
-                        i4 = A4;
-                        i2 = A6;
-                        i9 = bW;
-                        i3 = A5;
-                        i = A7;
+                        i4 = B4;
+                        i2 = B6;
+                        i9 = cb;
+                        i3 = B5;
+                        i = B7;
                     } else {
-                        i4 = A4;
-                        i2 = A6;
+                        i4 = B4;
+                        i2 = B6;
                         i9 = i13;
-                        i3 = A5;
+                        i3 = B5;
                         i = 0;
                     }
                 }
@@ -99,7 +99,7 @@ public class a {
             }
             char charAt2 = str.charAt(i9);
             if (charAt2 == 'Z') {
-                timeZone = pht;
+                timeZone = pwC;
                 length = i9 + 1;
             } else if (charAt2 == '+' || charAt2 == '-') {
                 String substring = str.substring(i9);
@@ -108,7 +108,7 @@ public class a {
                 }
                 length = i9 + substring.length();
                 if ("+0000".equals(substring) || "+00:00".equals(substring)) {
-                    timeZone = pht;
+                    timeZone = pwC;
                 } else {
                     String str2 = "GMT" + substring;
                     timeZone = TimeZone.getTimeZone(str2);
@@ -122,9 +122,9 @@ public class a {
             }
             GregorianCalendar gregorianCalendar2 = new GregorianCalendar(timeZone);
             gregorianCalendar2.setLenient(false);
-            gregorianCalendar2.set(1, A);
-            gregorianCalendar2.set(2, A2 - 1);
-            gregorianCalendar2.set(5, A3);
+            gregorianCalendar2.set(1, B);
+            gregorianCalendar2.set(2, B2 - 1);
+            gregorianCalendar2.set(5, B3);
             gregorianCalendar2.set(11, i4);
             gregorianCalendar2.set(12, i3);
             gregorianCalendar2.set(13, i2);
@@ -170,7 +170,7 @@ public class a {
         return i < str.length() && str.charAt(i) == c;
     }
 
-    private static int A(String str, int i, int i2) throws NumberFormatException {
+    private static int B(String str, int i, int i2) throws NumberFormatException {
         int i3;
         if (i < 0 || i2 > str.length() || i > i2) {
             throw new NumberFormatException(str);
@@ -198,7 +198,7 @@ public class a {
         return -i4;
     }
 
-    private static int bW(String str, int i) {
+    private static int cb(String str, int i) {
         while (i < str.length()) {
             char charAt = str.charAt(i);
             if (charAt >= '0' && charAt <= '9') {

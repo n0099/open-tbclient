@@ -1,17 +1,17 @@
 package com.baidu.platform.comapi.walknavi.g.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f3027a;
+    private boolean f3029a;
 
     public void e() {
-        this.f3027a = true;
+        this.f3029a = true;
         a();
     }
 
     public void f() {
-        this.f3027a = false;
+        this.f3029a = false;
         b();
     }
 

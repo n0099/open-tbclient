@@ -10,11 +10,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class CustomAlertDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private ViewSwitcher f1742a;
+    private ViewSwitcher f1744a;
     private TextView b;
     private TextView c;
     private Button d;
@@ -41,7 +41,7 @@ public class CustomAlertDialog extends Dialog {
     private void a() {
         setContentView(R.layout.layout_sapi_liveness_dialog_alert);
         setCanceledOnTouchOutside(false);
-        this.f1742a = (ViewSwitcher) findViewById(R.id.view_switcher);
+        this.f1744a = (ViewSwitcher) findViewById(R.id.view_switcher);
         this.b = (TextView) findViewById(R.id.dialog_title);
         this.c = (TextView) findViewById(R.id.msg_text);
         this.d = (Button) findViewById(R.id.positive_btn);
@@ -68,9 +68,9 @@ public class CustomAlertDialog extends Dialog {
             i = 2;
         }
         if (i == 2) {
-            this.f1742a.setDisplayedChild(0);
+            this.f1744a.setDisplayedChild(0);
         } else {
-            this.f1742a.setDisplayedChild(1);
+            this.f1744a.setDisplayedChild(1);
         }
     }
 

@@ -1,28 +1,30 @@
 package com.baidu.ar.b.b;
 
-import com.baidu.ar.arplay.core.engine.pixel.FramePixels;
-/* loaded from: classes12.dex */
+import com.baidu.ar.arplay.core.pixel.FramePixels;
+/* loaded from: classes10.dex */
 public abstract class c<T> extends com.baidu.ar.c.a {
-    private int cD;
-    FramePixels cj;
+    private int cI;
+
+    /* renamed from: cn  reason: collision with root package name */
+    FramePixels f1193cn;
 
     public c(int i, FramePixels framePixels) {
-        this.cD = i;
-        this.cj = framePixels;
+        this.cI = i;
+        this.f1193cn = framePixels;
     }
 
     @Override // com.baidu.ar.c.a
-    public T ax() {
-        if (com.baidu.ar.b.a.ar().b(this.cD)) {
+    public T ay() {
+        if (com.baidu.ar.b.a.as().c(this.cI)) {
             try {
-                com.baidu.ar.b.a.ar().a(this.cD, true);
-                return f(this.cj);
+                com.baidu.ar.b.a.as().a(this.cI, true);
+                return e(this.f1193cn);
             } finally {
-                com.baidu.ar.b.a.ar().a(this.cD, false);
+                com.baidu.ar.b.a.as().a(this.cI, false);
             }
         }
         return null;
     }
 
-    public abstract T f(FramePixels framePixels);
+    public abstract T e(FramePixels framePixels);
 }

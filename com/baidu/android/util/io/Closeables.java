@@ -1,18 +1,17 @@
 package com.baidu.android.util.io;
 
 import android.database.Cursor;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import java.io.Closeable;
 import java.io.IOException;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class Closeables {
     private static final String TAG = "Closeables";
 
     private Closeables() {
     }
 
-    public static void closeSafely(@Nullable Closeable closeable) {
+    public static void closeSafely(Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();
@@ -22,7 +21,7 @@ public final class Closeables {
         }
     }
 
-    public static void close(@Nullable Closeable closeable, boolean z) throws IOException {
+    public static void close(Closeable closeable, boolean z) throws IOException {
         if (closeable != null) {
             try {
                 closeable.close();

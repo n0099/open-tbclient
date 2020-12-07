@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.single;
 
-import io.reactivex.c.f;
+import io.reactivex.b.f;
 import io.reactivex.internal.disposables.CancellableDisposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.w;
@@ -8,23 +8,23 @@ import io.reactivex.x;
 import io.reactivex.y;
 import io.reactivex.z;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class SingleCreate<T> extends w<T> {
-    final z<T> pQA;
+    final z<T> pHo;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
         Emitter emitter = new Emitter(yVar);
         yVar.onSubscribe(emitter);
         try {
-            this.pQA.a(emitter);
+            this.pHo.a(emitter);
         } catch (Throwable th) {
             io.reactivex.exceptions.a.J(th);
             emitter.onError(th);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class Emitter<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, x<T> {
         private static final long serialVersionUID = -2467358622224974244L;
         final y<? super T> actual;
@@ -56,7 +56,7 @@ public final class SingleCreate<T> extends w<T> {
 
         public void onError(Throwable th) {
             if (!tryOnError(th)) {
-                io.reactivex.e.a.onError(th);
+                io.reactivex.d.a.onError(th);
             }
         }
 

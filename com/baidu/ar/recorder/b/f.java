@@ -6,14 +6,14 @@ import android.media.MediaFormat;
 import android.view.Surface;
 import com.baidu.ar.record.EncoderParams;
 import java.nio.ByteBuffer;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class f extends b {
     private static final String TAG = f.class.getSimpleName();
-    private Surface uk;
+    private Surface uX;
 
     @Override // com.baidu.ar.recorder.b.b
-    public /* bridge */ /* synthetic */ void S(boolean z) {
-        super.S(z);
+    public /* bridge */ /* synthetic */ void Q(boolean z) {
+        super.Q(z);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:? A[RETURN, SYNTHETIC] */
@@ -24,28 +24,28 @@ public class f extends b {
     public void a(EncoderParams encoderParams, d dVar) {
         boolean z = true;
         if (encoderParams != null && dVar != null) {
-            this.uc = dVar;
+            this.uP = dVar;
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(encoderParams.getVideoCodec(), encoderParams.getVideoWidth(), encoderParams.getVideoHeight());
             createVideoFormat.setInteger("color-format", 2130708361);
             createVideoFormat.setInteger("bitrate", encoderParams.getVideoBitrate());
             createVideoFormat.setInteger("frame-rate", encoderParams.getVideoFrameRate());
             createVideoFormat.setInteger("i-frame-interval", encoderParams.getVideoIFrameInterval());
             try {
-                this.ud = MediaCodec.createEncoderByType(encoderParams.getVideoCodec());
-                this.ud.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                this.uk = this.ud.createInputSurface();
-                this.ug = true;
+                this.uQ = MediaCodec.createEncoderByType(encoderParams.getVideoCodec());
+                this.uQ.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
+                this.uX = this.uQ.createInputSurface();
+                this.uT = true;
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.uf == null) {
-                this.uf.a(z, this.uk);
+            if (this.uS == null) {
+                this.uS.a(z, this.uX);
                 return;
             }
             return;
         }
         z = false;
-        if (this.uf == null) {
+        if (this.uS == null) {
         }
     }
 
@@ -60,17 +60,12 @@ public class f extends b {
     }
 
     @Override // com.baidu.ar.recorder.b.b
-    protected void fP() {
-        if (this.uh == 0) {
-            this.uh = this.ue.presentationTimeUs;
+    protected void fQ() {
+        if (this.uU == 0) {
+            this.uU = this.uR.presentationTimeUs;
         }
-        this.ue.presentationTimeUs -= this.uh;
-        com.baidu.ar.g.b.c(TAG, "syncTimestamp mVideoEncoder = " + this.ue.size + "|" + this.ue.presentationTimeUs);
-    }
-
-    @Override // com.baidu.ar.recorder.b.b
-    public /* bridge */ /* synthetic */ void fQ() {
-        super.fQ();
+        this.uR.presentationTimeUs -= this.uU;
+        com.baidu.ar.h.b.c(TAG, "syncTimestamp mVideoEncoder = " + this.uR.size + "|" + this.uR.presentationTimeUs);
     }
 
     @Override // com.baidu.ar.recorder.b.b
@@ -81,5 +76,10 @@ public class f extends b {
     @Override // com.baidu.ar.recorder.b.b
     public /* bridge */ /* synthetic */ void fS() {
         super.fS();
+    }
+
+    @Override // com.baidu.ar.recorder.b.b
+    public /* bridge */ /* synthetic */ void fT() {
+        super.fT();
     }
 }

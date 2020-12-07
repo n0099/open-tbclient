@@ -4,6 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes.dex */
 public abstract class BaseCardInfo implements q, com.baidu.afd.k {
+    public boolean forceNoTest;
     public int position;
     private com.baidu.afd.j trigger;
     public boolean needTopMargin = false;

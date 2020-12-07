@@ -8,22 +8,22 @@ import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
 import com.baidu.mapapi.search.route.TransitRoutePlanOption;
 import com.baidu.mapapi.search.route.WalkingRoutePlanOption;
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class j extends com.baidu.platform.base.a implements e {
     private OnGetRoutePlanResultListener b = null;
 
     @Override // com.baidu.platform.core.d.e
     public void a() {
-        this.f2812a.lock();
+        this.f2814a.lock();
         this.b = null;
-        this.f2812a.unlock();
+        this.f2814a.unlock();
     }
 
     @Override // com.baidu.platform.core.d.e
     public void a(OnGetRoutePlanResultListener onGetRoutePlanResultListener) {
-        this.f2812a.lock();
+        this.f2814a.lock();
         this.b = onGetRoutePlanResultListener;
-        this.f2812a.unlock();
+        this.f2814a.unlock();
     }
 
     @Override // com.baidu.platform.core.d.e

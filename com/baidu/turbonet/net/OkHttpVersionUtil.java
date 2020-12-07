@@ -2,20 +2,20 @@ package com.baidu.turbonet.net;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.NoSuchElementException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class OkHttpVersionUtil {
-    public static boolean ebZ() throws RuntimeException {
-        String eca = eca();
-        if (eca.isEmpty()) {
+    public static boolean ehE() throws RuntimeException {
+        String ehF = ehF();
+        if (ehF.isEmpty()) {
             throw new NoSuchElementException();
         }
-        String[] split = eca.split("/");
+        String[] split = ehF.split("/");
         if (split.length != 2) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", eca));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", ehF));
         }
         String[] split2 = split[1].split("\\.");
         if (split2.length != 3) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", eca));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", ehF));
         }
         try {
             if (Integer.parseInt(split2[0]) == 3) {
@@ -25,12 +25,12 @@ public class OkHttpVersionUtil {
             }
             return false;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", eca));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", ehF));
         }
     }
 
-    private static String eca() {
-        if (ecb()) {
+    private static String ehF() {
+        if (ehG()) {
             try {
                 return (String) Class.forName("okhttp3.internal.Version").getMethod("userAgent", new Class[0]).invoke(null, new Object[0]);
             } catch (ClassNotFoundException e) {
@@ -46,7 +46,7 @@ public class OkHttpVersionUtil {
         return "";
     }
 
-    private static boolean ecb() {
+    private static boolean ehG() {
         try {
             Class.forName("okhttp3.OkHttpClient");
             return true;

@@ -8,59 +8,59 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
 /* loaded from: classes4.dex */
 public class e {
-    private TextView eUF;
-    private TbImageView geZ;
-    public ImageView gfL;
-    private TextView gfN;
-    public ImageView gfO;
-    private FrameLayout ggb;
+    private TextView fcb;
+    public ImageView gnT;
+    private TextView gnV;
+    public ImageView gnW;
+    private TbImageView gnh;
+    private FrameLayout gok;
     public View mRootView;
 
     public e(View view) {
         this.mRootView = view;
-        this.geZ = (TbImageView) this.mRootView.findViewById(a.f.face_img);
-        this.geZ.setDefaultBgResource(a.e.filter_beauty_item_bg);
-        this.geZ.setIsRound(true);
-        this.geZ.setAutoChangeStyle(false);
-        this.geZ.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.geZ.setDrawBorder(false);
-        this.gfL = (ImageView) this.mRootView.findViewById(a.f.face_bg);
-        this.eUF = (TextView) this.mRootView.findViewById(a.f.face_text);
-        this.gfN = (TextView) this.mRootView.findViewById(a.f.line);
-        this.ggb = (FrameLayout) this.mRootView.findViewById(a.f.fl_head);
-        this.gfO = (ImageView) this.mRootView.findViewById(a.f.face_redot);
-        this.gfO.setVisibility(8);
+        this.gnh = (TbImageView) this.mRootView.findViewById(a.f.face_img);
+        this.gnh.setDefaultBgResource(a.e.filter_beauty_item_bg);
+        this.gnh.setIsRound(true);
+        this.gnh.setAutoChangeStyle(false);
+        this.gnh.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.gnh.setDrawBorder(false);
+        this.gnT = (ImageView) this.mRootView.findViewById(a.f.face_bg);
+        this.fcb = (TextView) this.mRootView.findViewById(a.f.face_text);
+        this.gnV = (TextView) this.mRootView.findViewById(a.f.line);
+        this.gok = (FrameLayout) this.mRootView.findViewById(a.f.fl_head);
+        this.gnW = (ImageView) this.mRootView.findViewById(a.f.face_redot);
+        this.gnW.setVisibility(8);
     }
 
     public void a(com.baidu.live.ar.g gVar) {
         if (gVar != null) {
-            this.eUF.setText(gVar.getName());
-            FW(gVar.BK());
-            if (com.baidu.live.d.Aq().getInt("beauty_subitem_redot", 0) == 1) {
-                setRedotVisible(com.baidu.live.d.Aq().getBoolean(gVar.getType(), true));
+            this.fcb.setText(gVar.getName());
+            GK(gVar.Du());
+            if (com.baidu.live.d.BM().getInt("beauty_subitem_redot", 0) == 1) {
+                setRedotVisible(com.baidu.live.d.BM().getBoolean(gVar.getType(), true));
             }
         }
     }
 
-    public void FW(String str) {
-        this.geZ.startLoad(str, 10, false);
+    public void GK(String str) {
+        this.gnh.startLoad(str, 10, false);
     }
 
-    public void bNJ() {
-        this.eUF.setTextColor(this.mRootView.getResources().getColor(a.c.sdk_cp_cont_i));
-        this.gfL.setVisibility(4);
+    public void bRu() {
+        this.fcb.setTextColor(this.mRootView.getResources().getColor(a.c.sdk_cp_cont_i));
+        this.gnT.setVisibility(4);
     }
 
-    public void bNK() {
-        this.eUF.setTextColor(this.mRootView.getResources().getColor(a.c.sdk_cp_other_b));
-        this.gfL.setVisibility(0);
+    public void bRv() {
+        this.fcb.setTextColor(this.mRootView.getResources().getColor(a.c.sdk_cp_other_b));
+        this.gnT.setVisibility(0);
     }
 
     public void setRedotVisible(boolean z) {
         if (z) {
-            this.gfO.setVisibility(0);
+            this.gnW.setVisibility(0);
         } else {
-            this.gfO.setVisibility(8);
+            this.gnW.setVisibility(8);
         }
     }
 }

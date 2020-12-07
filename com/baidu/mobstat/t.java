@@ -30,7 +30,7 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f2519a = false;
+                acVar.f2521a = false;
                 acVar.b = "M";
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());
@@ -44,7 +44,7 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f2519a = false;
+                acVar.f2521a = false;
                 acVar.b = "R";
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());
@@ -58,7 +58,7 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f2519a = false;
+                acVar.f2521a = false;
                 acVar.b = ExifInterface.LONGITUDE_EAST;
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());

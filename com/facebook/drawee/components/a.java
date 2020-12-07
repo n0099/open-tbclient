@@ -5,53 +5,53 @@ import android.os.Looper;
 import com.facebook.common.internal.g;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private static a oPc = null;
-    private final Runnable oPe = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a pej = null;
+    private final Runnable pel = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.ell();
-            for (InterfaceC0975a interfaceC0975a : a.this.oPd) {
-                interfaceC0975a.release();
+            a.era();
+            for (InterfaceC0992a interfaceC0992a : a.this.pek) {
+                interfaceC0992a.release();
             }
-            a.this.oPd.clear();
+            a.this.pek.clear();
         }
     };
-    private final Set<InterfaceC0975a> oPd = new HashSet();
+    private final Set<InterfaceC0992a> pek = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
-    public interface InterfaceC0975a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0992a {
         void release();
     }
 
-    public static synchronized a elk() {
+    public static synchronized a eqZ() {
         a aVar;
         synchronized (a.class) {
-            if (oPc == null) {
-                oPc = new a();
+            if (pej == null) {
+                pej = new a();
             }
-            aVar = oPc;
+            aVar = pej;
         }
         return aVar;
     }
 
-    public void a(InterfaceC0975a interfaceC0975a) {
-        ell();
-        if (this.oPd.add(interfaceC0975a) && this.oPd.size() == 1) {
-            this.mUiHandler.post(this.oPe);
+    public void a(InterfaceC0992a interfaceC0992a) {
+        era();
+        if (this.pek.add(interfaceC0992a) && this.pek.size() == 1) {
+            this.mUiHandler.post(this.pel);
         }
     }
 
-    public void b(InterfaceC0975a interfaceC0975a) {
-        ell();
-        this.oPd.remove(interfaceC0975a);
+    public void b(InterfaceC0992a interfaceC0992a) {
+        era();
+        this.pek.remove(interfaceC0992a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void ell() {
+    public static void era() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

@@ -10,21 +10,21 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public final class ShareThreadView extends LinearLayout {
-    private TbImageView fsj;
-    private TextView jTC;
-    private EditText joP;
+    private TbImageView fzX;
+    private EditText jCr;
+    private TextView khg;
     private LinearLayout mRootView;
     private TextView title;
 
     public EditText getChatMsgView() {
-        return this.joP;
+        return this.jCr;
     }
 
-    public void aP(String str, boolean z) {
-        if (this.fsj != null) {
-            this.fsj.startLoad(str, z ? 17 : 18, false);
+    public void aQ(String str, boolean z) {
+        if (this.fzX != null) {
+            this.fzX.startLoad(str, z ? 17 : 18, false);
         }
     }
 
@@ -44,25 +44,25 @@ public final class ShareThreadView extends LinearLayout {
         this.mRootView = (LinearLayout) findViewById(R.id.share_content);
         this.title = (TextView) findViewById(R.id.share_title_view);
         ap.setViewTextColor(this.title, R.color.CAM_X0105, 1);
-        this.joP = (EditText) findViewById(R.id.chat_msg);
-        this.fsj = (TbImageView) findViewById(R.id.chat_group_img);
-        this.jTC = (TextView) findViewById(R.id.chat_group_desc);
-        ap.setViewTextColor(this.joP, R.color.CAM_X0105, 2);
-        ap.setViewTextColor(this.jTC, R.color.CAM_X0106, 1);
-        this.joP.setHintTextColor(ap.getColor(R.color.CAM_X0110));
-        this.joP.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-        cGR();
+        this.jCr = (EditText) findViewById(R.id.chat_msg);
+        this.fzX = (TbImageView) findViewById(R.id.chat_group_img);
+        this.khg = (TextView) findViewById(R.id.chat_group_desc);
+        ap.setViewTextColor(this.jCr, R.color.CAM_X0105, 2);
+        ap.setViewTextColor(this.khg, R.color.CAM_X0106, 1);
+        this.jCr.setHintTextColor(ap.getColor(R.color.CAM_X0110));
+        this.jCr.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        cMg();
     }
 
-    public void cGR() {
+    public void cMg() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
     }
 
     public void setDesc(String str) {
-        if (this.jTC != null) {
-            this.jTC.setText(str);
+        if (this.khg != null) {
+            this.khg.setText(str);
         }
     }
 
@@ -73,8 +73,8 @@ public final class ShareThreadView extends LinearLayout {
     }
 
     public String getLeaveMsg() {
-        if (this.joP != null) {
-            return k.charSequence2String(this.joP.getText(), null);
+        if (this.jCr != null) {
+            return k.charSequence2String(this.jCr.getText(), null);
         }
         return null;
     }

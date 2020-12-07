@@ -17,19 +17,26 @@ public class AlaBroadcastGiftToastData extends BaseData {
     public static final int HOUR_RANK_CONFIRM = 2;
     public static final int HOUR_RANK_LEFT_ALARM = 1;
     public String endBgColor;
+    public int enterTime;
     public String feed_id;
     public long gift_id;
     public String gift_name;
     public String gift_url;
+    public String guideButtonFontColor;
+    public String guideButtonGroundColor;
+    public String guideButtonText;
     public boolean isJump;
     public String keywords;
     public String leftIcon;
     public int leftIconHeight;
+    public int leftIconModel;
     public int leftIconWidth;
     public long live_id;
+    public int maxRollTime;
     public long msg_id;
     public JSONObject originJsonObject;
     public String otherParams;
+    public int quitTime;
     public String receiver;
     public String rightIcon;
     public int rightIconHeight;
@@ -38,6 +45,8 @@ public class AlaBroadcastGiftToastData extends BaseData {
     public String sender_portrait;
     public boolean showPortrait;
     public String startBgColor;
+    public int stop1Time;
+    public int stop2Time;
     public String subjectName;
     public String[] textArray;
     public String[] textColorArray;
@@ -69,6 +78,7 @@ public class AlaBroadcastGiftToastData extends BaseData {
             this.leftIcon = jSONObject.optString("left_icon");
             this.leftIconWidth = jSONObject.optInt("left_icon_width");
             this.leftIconHeight = jSONObject.optInt("left_icon_height");
+            this.leftIconModel = jSONObject.optInt("left_icon_model");
             this.rightIcon = jSONObject.optString("right_icon");
             this.rightIconWidth = jSONObject.optInt("right_icon_width");
             this.rightIconHeight = jSONObject.optInt("right_icon_height");
@@ -87,6 +97,35 @@ public class AlaBroadcastGiftToastData extends BaseData {
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                     this.textColorArray[i2] = optJSONArray2.optString(i2);
                 }
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("show_time_conf");
+            if (optJSONObject2 != null) {
+                this.enterTime = optJSONObject2.optInt("enter_time");
+                this.stop1Time = optJSONObject2.optInt("stop_1_time");
+                this.maxRollTime = optJSONObject2.optInt("max_roll_time");
+                this.stop2Time = optJSONObject2.optInt("stop_2_time");
+                this.quitTime = optJSONObject2.optInt("quit_time");
+            }
+            if (this.enterTime <= 0) {
+                this.enterTime = 1;
+            }
+            if (this.stop1Time <= 0) {
+                this.stop1Time = 1;
+            }
+            if (this.maxRollTime <= 0) {
+                this.maxRollTime = 5;
+            }
+            if (this.stop2Time <= 0) {
+                this.stop2Time = 1;
+            }
+            if (this.quitTime <= 0) {
+                this.quitTime = 1;
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("guide_button");
+            if (optJSONObject3 != null) {
+                this.guideButtonText = optJSONObject3.optString("button_text");
+                this.guideButtonGroundColor = optJSONObject3.optString("button_ground_color");
+                this.guideButtonFontColor = optJSONObject3.optString("button_font_color");
             }
         }
     }

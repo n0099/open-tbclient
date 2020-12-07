@@ -1,11 +1,11 @@
 package com.sdk.base.framework.a.c;
 
 import java.util.concurrent.Callable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 abstract class h<Params, Result> implements Callable<Result> {
 
     /* renamed from: a  reason: collision with root package name */
-    Params[] f4467a;
+    Params[] f4237a;
 
     private h() {
     }

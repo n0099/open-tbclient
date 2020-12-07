@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @ResponseBody
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public @interface ResponseJSONP {
     String callback() default "callback";
 }

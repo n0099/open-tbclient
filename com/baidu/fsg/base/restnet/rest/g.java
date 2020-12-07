@@ -9,11 +9,11 @@ import java.net.UnknownHostException;
 import java.util.HashSet;
 import java.util.Iterator;
 import javax.net.ssl.SSLException;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1477a = g.class.getSimpleName();
+    private static final String f1479a = g.class.getSimpleName();
     private static final HashSet<Class<?>> b = new HashSet<>();
     private static final HashSet<Class<?>> c = new HashSet<>();
     private final int d;
@@ -41,7 +41,7 @@ public class g {
                 z = true;
             }
         }
-        LogUtil.d(f1477a, f1477a + " retryRequest is called ,retry flag is " + z);
+        LogUtil.d(f1479a, f1479a + " retryRequest is called ,retry flag is " + z);
         if (z) {
             SystemClock.sleep(this.e);
         } else {

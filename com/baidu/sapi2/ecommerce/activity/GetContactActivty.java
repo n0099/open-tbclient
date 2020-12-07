@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 import com.baidu.pass.ecommerce.c.a;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class GetContactActivty extends Activity {
     private static final int REQUEST_CODE_CONTACT = 4002;
 
@@ -32,9 +32,9 @@ public class GetContactActivty extends Activity {
             a aVar = new a();
             if (i2 == -1 && intent != null) {
                 String[] phoneContacts = getPhoneContacts(intent.getData());
-                aVar.f2764a = phoneContacts[0];
+                aVar.f2766a = phoneContacts[0];
                 aVar.b = phoneContacts[1];
-                if (TextUtils.isEmpty(aVar.f2764a) && TextUtils.isEmpty(aVar.b)) {
+                if (TextUtils.isEmpty(aVar.f2766a) && TextUtils.isEmpty(aVar.b)) {
                     Toast.makeText(this, String.format("读取手机联系人失败，可能%1$s已被禁止该权限或手机号为空", SapiUtils.getAppName(this)), 0).show();
                     aVar.setResultCode(-901);
                 } else {

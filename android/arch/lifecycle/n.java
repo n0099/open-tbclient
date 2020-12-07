@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class n<T> {
     private static final Object NOT_SET = new Object();
     static final int START_VERSION = -1;
@@ -35,12 +35,12 @@ public abstract class n<T> {
     /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: android.arch.lifecycle.q<T> */
     /* JADX WARN: Multi-variable type inference failed */
     private void considerNotify(n<T>.c cVar) {
-        if (cVar.zG) {
+        if (cVar.Ax) {
             if (!cVar.hA()) {
-                cVar.Y(false);
-            } else if (cVar.zH < this.mVersion) {
-                cVar.zH = this.mVersion;
-                cVar.zF.onChanged(this.mData);
+                cVar.W(false);
+            } else if (cVar.Ay < this.mVersion) {
+                cVar.Ay = this.mVersion;
+                cVar.Aw.onChanged(this.mData);
             }
         }
     }
@@ -92,7 +92,7 @@ public abstract class n<T> {
             throw new IllegalArgumentException("Cannot add the same observer with different lifecycles");
         }
         if (c2 == null) {
-            aVar.Y(true);
+            aVar.W(true);
         }
     }
 
@@ -102,7 +102,7 @@ public abstract class n<T> {
         n<T>.c remove = this.mObservers.remove(qVar);
         if (remove != null) {
             remove.hB();
-            remove.Y(false);
+            remove.W(false);
         }
     }
 
@@ -166,52 +166,52 @@ public abstract class n<T> {
         return this.mActiveCount > 0;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     class b extends n<T>.c implements h {
         @NonNull
-        final j zE;
+        final j Av;
 
         b(@NonNull j jVar, q<T> qVar) {
             super(qVar);
-            this.zE = jVar;
+            this.Av = jVar;
         }
 
         @Override // android.arch.lifecycle.n.c
         boolean hA() {
-            return this.zE.getLifecycle().hw().isAtLeast(Lifecycle.State.STARTED);
+            return this.Av.getLifecycle().hw().isAtLeast(Lifecycle.State.STARTED);
         }
 
         @Override // android.arch.lifecycle.h
         public void a(j jVar, Lifecycle.Event event) {
-            if (this.zE.getLifecycle().hw() == Lifecycle.State.DESTROYED) {
-                n.this.removeObserver(this.zF);
+            if (this.Av.getLifecycle().hw() == Lifecycle.State.DESTROYED) {
+                n.this.removeObserver(this.Aw);
             } else {
-                Y(hA());
+                W(hA());
             }
         }
 
         @Override // android.arch.lifecycle.n.c
         boolean i(j jVar) {
-            return this.zE == jVar;
+            return this.Av == jVar;
         }
 
         @Override // android.arch.lifecycle.n.c
         void hB() {
-            this.zE.getLifecycle().b(this);
+            this.Av.getLifecycle().b(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public abstract class c {
-        final q<T> zF;
-        boolean zG;
-        int zH = -1;
+        final q<T> Aw;
+        boolean Ax;
+        int Ay = -1;
 
         abstract boolean hA();
 
         c(q<T> qVar) {
-            this.zF = qVar;
+            this.Aw = qVar;
         }
 
         boolean i(j jVar) {
@@ -221,26 +221,26 @@ public abstract class n<T> {
         void hB() {
         }
 
-        void Y(boolean z) {
-            if (z != this.zG) {
-                this.zG = z;
+        void W(boolean z) {
+            if (z != this.Ax) {
+                this.Ax = z;
                 boolean z2 = n.this.mActiveCount == 0;
                 n nVar = n.this;
-                nVar.mActiveCount = (this.zG ? 1 : -1) + nVar.mActiveCount;
-                if (z2 && this.zG) {
+                nVar.mActiveCount = (this.Ax ? 1 : -1) + nVar.mActiveCount;
+                if (z2 && this.Ax) {
                     n.this.onActive();
                 }
-                if (n.this.mActiveCount == 0 && !this.zG) {
+                if (n.this.mActiveCount == 0 && !this.Ax) {
                     n.this.onInactive();
                 }
-                if (this.zG) {
+                if (this.Ax) {
                     n.this.dispatchingValue(this);
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private class a extends n<T>.c {
         a(q<T> qVar) {
             super(qVar);

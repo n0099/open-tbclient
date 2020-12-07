@@ -13,22 +13,22 @@ import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.DarkImageView;
 /* loaded from: classes4.dex */
 public class g extends f {
-    private ImageView fQP;
+    private ImageView fYY;
     private Context mContext;
     public View mConvertView;
-    public TextView oxd;
-    private TextView oxe;
-    private TextView oxf;
+    public TextView oMj;
+    private TextView oMk;
+    private TextView oMl;
 
     @SuppressLint({"InflateParams"})
     public g(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_notice_red, (ViewGroup) null);
-        this.owU = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oxd = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_notice);
-        this.fQP = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_rednotify_img);
-        this.oxe = (TextView) this.mConvertView.findViewById(a.f.bd_im_rednofity_tail);
-        this.oxf = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_notice2);
+        this.oMa = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oMj = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_notice);
+        this.fYY = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_rednotify_img);
+        this.oMk = (TextView) this.mConvertView.findViewById(a.f.bd_im_rednofity_tail);
+        this.oMl = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_notice2);
         this.mConvertView.setTag(this);
     }
 
@@ -38,7 +38,7 @@ public class g extends f {
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.f
     public TextView getTextView() {
-        return this.oxd;
+        return this.oMj;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.f
@@ -48,25 +48,25 @@ public class g extends f {
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.f
     public View getContentView() {
-        return this.oxd;
+        return this.oMj;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.f
     public void b(Context context, ChatMsg chatMsg) {
         RedNotifyMsg redNotifyMsg = (RedNotifyMsg) chatMsg;
-        this.fQP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.g.1
+        this.fYY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
             }
         });
-        this.oxe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.g.2
+        this.oMk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.g.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
             }
         });
-        efl();
+        ekY();
     }
 
-    private void efl() {
+    private void ekY() {
     }
 }

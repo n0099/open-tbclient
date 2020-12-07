@@ -23,9 +23,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a {
-    private static final int jmE = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds33);
+    private static final int jAg = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds33);
 
     public static void a(Context context, TextView textView, String str, final String str2, final String str3) {
         int dimens;
@@ -48,13 +48,13 @@ public class a {
             SpannableString spannableString = new SpannableString(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             Drawable drawable = ap.getDrawable(R.drawable.icon_video_pb_ad_link);
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            spannableString.setSpan(new C0822a(drawable, 0), 0, 1, 17);
+            spannableString.setSpan(new C0838a(drawable, 0), 0, 1, 17);
             spannableString.setSpan(new ClickableSpan() { // from class: com.baidu.tieba.pb.video.a.a.1
                 @Override // android.text.style.ClickableSpan
                 public void onClick(View view) {
                     if (!StringUtils.isNull(str2)) {
                         ar arVar = new ar("c13313");
-                        arVar.dR("tid", str3);
+                        arVar.dY("tid", str3);
                         TiebaStatic.log(arVar);
                         com.baidu.tbadk.browser.a.startWebActivity(TbadkCoreApplication.getInst().getApplicationContext(), false, str2);
                     }
@@ -62,13 +62,13 @@ public class a {
             }, 0, 1, 17);
             spannableString.setSpan(new BackgroundColorSpan(0), 0, 1, 17);
             SpannableString spannableString2 = new SpannableString(" 广告");
-            spannableString2.setSpan(new b(jmE, color), 0, " 广告".length(), 17);
+            spannableString2.setSpan(new b(jAg, color), 0, " 广告".length(), 17);
             spannableStringBuilder.append((CharSequence) spannableString).append((CharSequence) spannableString2);
             textView.setHighlightColor(0);
             textView.setText(spannableStringBuilder);
             textView.setMovementMethod(LinkMovementMethod.getInstance());
             ar arVar = new ar("c13312");
-            arVar.dR("tid", str3);
+            arVar.dY("tid", str3);
             TiebaStatic.log(arVar);
         }
     }
@@ -81,14 +81,14 @@ public class a {
         return str2;
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     private static class b extends ReplacementSpan {
-        private int jmG;
-        private int jmH;
+        private int jAi;
+        private int jAj;
 
         public b(int i, int i2) {
-            this.jmG = i;
-            this.jmH = i2;
+            this.jAi = i;
+            this.jAj = i2;
         }
 
         @Override // android.text.style.ReplacementSpan
@@ -106,16 +106,16 @@ public class a {
 
         private TextPaint b(Paint paint) {
             TextPaint textPaint = new TextPaint(paint);
-            textPaint.setTextSize(this.jmG);
-            textPaint.setColor(this.jmH);
+            textPaint.setTextSize(this.jAi);
+            textPaint.setColor(this.jAj);
             return textPaint;
         }
     }
 
     /* renamed from: com.baidu.tieba.pb.video.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes21.dex */
-    private static class C0822a extends ImageSpan {
-        public C0822a(Drawable drawable, int i) {
+    /* loaded from: classes22.dex */
+    private static class C0838a extends ImageSpan {
+        public C0838a(Drawable drawable, int i) {
             super(drawable, i);
         }
 

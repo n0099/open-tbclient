@@ -11,13 +11,13 @@ import java.util.List;
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile ak f5054a;
+    private static volatile ak f4824a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected SharedPreferences f849a;
+    protected SharedPreferences f847a;
 
     /* renamed from: a  reason: collision with other field name */
-    private HashSet<a> f850a = new HashSet<>();
+    private HashSet<a> f848a = new HashSet<>();
 
     /* loaded from: classes18.dex */
     public static abstract class a implements Runnable {
@@ -46,18 +46,18 @@ public class ak {
     }
 
     private ak(Context context) {
-        this.f849a = context.getSharedPreferences("mipush_oc", 0);
+        this.f847a = context.getSharedPreferences("mipush_oc", 0);
     }
 
     public static ak a(Context context) {
-        if (f5054a == null) {
+        if (f4824a == null) {
             synchronized (ak.class) {
-                if (f5054a == null) {
-                    f5054a = new ak(context);
+                if (f4824a == null) {
+                    f4824a = new ak(context);
                 }
             }
         }
-        return f5054a;
+        return f4824a;
     }
 
     private String a(int i) {
@@ -89,29 +89,29 @@ public class ak {
 
     public int a(int i, int i2) {
         String b = b(i);
-        if (this.f849a.contains(b)) {
-            return this.f849a.getInt(b, 0);
+        if (this.f847a.contains(b)) {
+            return this.f847a.getInt(b, 0);
         }
         String a2 = a(i);
-        return this.f849a.contains(a2) ? this.f849a.getInt(a2, 0) : i2;
+        return this.f847a.contains(a2) ? this.f847a.getInt(a2, 0) : i2;
     }
 
     public String a(int i, String str) {
         String b = b(i);
-        if (this.f849a.contains(b)) {
-            return this.f849a.getString(b, null);
+        if (this.f847a.contains(b)) {
+            return this.f847a.getString(b, null);
         }
         String a2 = a(i);
-        return this.f849a.contains(a2) ? this.f849a.getString(a2, null) : str;
+        return this.f847a.contains(a2) ? this.f847a.getString(a2, null) : str;
     }
 
     public synchronized void a() {
-        this.f850a.clear();
+        this.f848a.clear();
     }
 
     public synchronized void a(a aVar) {
-        if (!this.f850a.contains(aVar)) {
-            this.f850a.add(aVar);
+        if (!this.f848a.contains(aVar)) {
+            this.f848a.add(aVar);
         }
     }
 
@@ -119,7 +119,7 @@ public class ak {
         if (com.xiaomi.push.ad.a(list)) {
             return;
         }
-        SharedPreferences.Editor edit = this.f849a.edit();
+        SharedPreferences.Editor edit = this.f847a.edit();
         for (Pair<Integer, Object> pair : list) {
             if (pair.first != null && pair.second != null) {
                 a(edit, pair, a(((Integer) pair.first).intValue()));
@@ -130,11 +130,11 @@ public class ak {
 
     public boolean a(int i, boolean z) {
         String b = b(i);
-        if (this.f849a.contains(b)) {
-            return this.f849a.getBoolean(b, false);
+        if (this.f847a.contains(b)) {
+            return this.f847a.getBoolean(b, false);
         }
         String a2 = a(i);
-        return this.f849a.contains(a2) ? this.f849a.getBoolean(a2, false) : z;
+        return this.f847a.contains(a2) ? this.f847a.getBoolean(a2, false) : z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -142,7 +142,7 @@ public class ak {
         com.xiaomi.channel.commonutils.logger.b.c("OC_Callback : receive new oc data");
         HashSet hashSet = new HashSet();
         synchronized (this) {
-            hashSet.addAll(this.f850a);
+            hashSet.addAll(this.f848a);
         }
         Iterator it = hashSet.iterator();
         while (it.hasNext()) {
@@ -158,7 +158,7 @@ public class ak {
         if (com.xiaomi.push.ad.a(list)) {
             return;
         }
-        SharedPreferences.Editor edit = this.f849a.edit();
+        SharedPreferences.Editor edit = this.f847a.edit();
         for (Pair<Integer, Object> pair : list) {
             if (pair.first != null) {
                 String b = b(((Integer) pair.first).intValue());

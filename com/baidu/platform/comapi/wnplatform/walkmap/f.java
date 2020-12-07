@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.wnplatform.walkmap;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public interface f {
     void a();
 }

@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMBindPushMsg extends Message {
     private String mChannelId;
     private boolean mChannelIdIsEmpty;
@@ -85,7 +85,7 @@ public class IMBindPushMsg extends Message {
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         LogUtils.d("IMBindPushMsg", "bind > handleMessageResult errcode = " + i);
         if (i != 0) {
-            if (i == 1004 || i == 1001 || i == 4001) {
+            if (i == 1004 || i == 1001) {
                 setNeedReSend(false);
                 LoginManager.getInstance(context).triggleLogoutListener(i, str);
             } else if (this.mReSendCount >= 3) {
@@ -98,6 +98,7 @@ public class IMBindPushMsg extends Message {
         } else {
             setNeedReSend(false);
         }
+        super.handleMessageResult(context, jSONObject, i, str);
         Utility.updateBindPushCUIDStatus(this.mContext, 1);
         BindStateManager.onRegisterNotifyResult(context, getListenerKey(), i, str, this.mChannelIdIsEmpty);
     }

@@ -6,20 +6,20 @@ import android.view.View;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class KeyEventDealContainerView extends LinearLayout {
-    private a eSi;
+    private a eZD;
 
     /* loaded from: classes.dex */
     public interface a {
-        void biB();
+        void blL();
 
-        void biC();
+        void blM();
     }
 
     public KeyEventDealContainerView(Context context, View view, a aVar) {
         super(context);
-        this.eSi = null;
+        this.eZD = null;
         setFocusableInTouchMode(true);
-        this.eSi = aVar;
+        this.eZD = aVar;
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
         addView(view);
     }
@@ -27,11 +27,11 @@ public class KeyEventDealContainerView extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
         if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 82) {
-            if (this.eSi != null) {
-                this.eSi.biB();
+            if (this.eZD != null) {
+                this.eZD.blL();
             }
-        } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && this.eSi != null) {
-            this.eSi.biC();
+        } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && this.eZD != null) {
+            this.eZD.blM();
         }
         return super.dispatchKeyEvent(keyEvent);
     }

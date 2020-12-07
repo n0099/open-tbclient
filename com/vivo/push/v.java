@@ -5,7 +5,7 @@ import android.content.Context;
 public abstract class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f4714a;
+    protected Context f4484a;
     private int b;
     private y c;
 
@@ -18,7 +18,7 @@ public abstract class v implements Runnable {
         if (this.b < 0) {
             throw new IllegalArgumentException("PushTask need a > 0 task id.");
         }
-        this.f4714a = p.a().h();
+        this.f4484a = p.a().h();
     }
 
     public final int a() {
@@ -27,8 +27,8 @@ public abstract class v implements Runnable {
 
     @Override // java.lang.Runnable
     public final void run() {
-        if (this.f4714a != null && !(this.c instanceof com.vivo.push.b.p)) {
-            com.vivo.push.util.p.a(this.f4714a, "[执行指令]" + this.c);
+        if (this.f4484a != null && !(this.c instanceof com.vivo.push.b.p)) {
+            com.vivo.push.util.p.a(this.f4484a, "[执行指令]" + this.c);
         }
         a(this.c);
     }

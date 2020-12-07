@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class HeatMap {
     public static final Gradient DEFAULT_GRADIENT;
     public static final double DEFAULT_OPACITY = 0.6d;
@@ -29,7 +29,7 @@ public class HeatMap {
     private static int r;
 
     /* renamed from: a  reason: collision with root package name */
-    BaiduMap f2011a;
+    BaiduMap f2013a;
     private t<WeightedLatLng> f;
     private Collection<WeightedLatLng> g;
     private int h;
@@ -43,17 +43,17 @@ public class HeatMap {
     private ExecutorService p;
     private HashSet<String> q;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private Collection<WeightedLatLng> f2012a;
+        private Collection<WeightedLatLng> f2014a;
         private int b = 12;
         private Gradient c = HeatMap.DEFAULT_GRADIENT;
         private double d = 0.6d;
 
         public HeatMap build() {
-            if (this.f2012a == null) {
+            if (this.f2014a == null) {
                 throw new IllegalStateException("BDMapSDKException: No input data: you must use either .data or .weightedData before building");
             }
             return new HeatMap(this, null);
@@ -108,7 +108,7 @@ public class HeatMap {
                 }
             }
             collection.removeAll(arrayList);
-            this.f2012a = collection;
+            this.f2014a = collection;
             return this;
         }
     }
@@ -142,7 +142,7 @@ public class HeatMap {
         this.o = new HashMap<>();
         this.p = Executors.newFixedThreadPool(1);
         this.q = new HashSet<>();
-        this.g = builder.f2012a;
+        this.g = builder.f2014a;
         this.h = builder.b;
         this.i = builder.c;
         this.j = builder.d;
@@ -157,7 +157,7 @@ public class HeatMap {
 
     private static double a(Collection<WeightedLatLng> collection, l lVar, int i, int i2) {
         LongSparseArray longSparseArray;
-        double d2 = lVar.f2076a;
+        double d2 = lVar.f2078a;
         double d3 = lVar.c;
         double d4 = lVar.b;
         double d5 = lVar.d;
@@ -304,7 +304,7 @@ public class HeatMap {
         double d5 = (i * d2) - d3;
         double d6 = (d2 * (i2 + 1)) + d3;
         l lVar = new l(d5, ((i + 1) * d2) + d3, (i2 * d2) - d3, d6);
-        if (lVar.a(new l(this.k.f2076a - d3, this.k.c + d3, this.k.b - d3, d3 + this.k.d))) {
+        if (lVar.a(new l(this.k.f2078a - d3, this.k.c + d3, this.k.b - d3, d3 + this.k.d))) {
             Collection<WeightedLatLng> a2 = this.f.a(lVar);
             if (a2.isEmpty()) {
                 return;
@@ -330,8 +330,8 @@ public class HeatMap {
             if (this.o.size() > r) {
                 a();
             }
-            if (this.f2011a != null) {
-                this.f2011a.a();
+            if (this.f2013a != null) {
+                this.f2013a.a();
             }
         }
     }
@@ -412,9 +412,9 @@ public class HeatMap {
             return c2;
         }
         if (!a(str)) {
-            if (this.f2011a != null && r == 0) {
-                MapStatus mapStatus = this.f2011a.getMapStatus();
-                r = (((mapStatus.f2022a.j.bottom - mapStatus.f2022a.j.top) / 256) + 2) * (((mapStatus.f2022a.j.right - mapStatus.f2022a.j.left) / 256) + 2) * 4;
+            if (this.f2013a != null && r == 0) {
+                MapStatus mapStatus = this.f2013a.getMapStatus();
+                r = (((mapStatus.f2024a.j.bottom - mapStatus.f2024a.j.top) / 256) + 2) * (((mapStatus.f2024a.j.right - mapStatus.f2024a.j.left) / 256) + 2) * 4;
             }
             if (this.o.size() > r) {
                 a();
@@ -447,8 +447,8 @@ public class HeatMap {
     }
 
     public void removeHeatMap() {
-        if (this.f2011a != null) {
-            this.f2011a.a(this);
+        if (this.f2013a != null) {
+            this.f2013a.a(this);
         }
     }
 }

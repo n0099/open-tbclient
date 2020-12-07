@@ -3,12 +3,12 @@ package com.baidu.location.e;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class d {
     static d c;
 
     /* renamed from: a  reason: collision with root package name */
-    String f1947a = "firll.dat";
+    String f1949a = "firll.dat";
     int b = 3164;
     int d = 0;
     int e = 20;
@@ -23,7 +23,7 @@ public class d {
         if (j == null) {
             return -1L;
         }
-        String str = j + File.separator + this.f1947a;
+        String str = j + File.separator + this.f1949a;
         RandomAccessFile randomAccessFile2 = null;
         try {
             randomAccessFile = new RandomAccessFile(str, "rw");
@@ -90,7 +90,7 @@ public class d {
             return;
         }
         try {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(j2 + File.separator + this.f1947a, "rw");
+            RandomAccessFile randomAccessFile = new RandomAccessFile(j2 + File.separator + this.f1949a, "rw");
             randomAccessFile.seek(i);
             randomAccessFile.writeInt(this.b);
             randomAccessFile.writeLong(j);

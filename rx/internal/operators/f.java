@@ -2,10 +2,10 @@ package rx.internal.operators;
 
 import rx.d;
 import rx.exceptions.OnErrorThrowable;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public final class f<T, R> implements d.a<R> {
-    final rx.d<T> qfy;
-    final rx.functions.f<? super T, ? extends R> qgw;
+    final rx.d<T> pPA;
+    final rx.functions.f<? super T, ? extends R> pQy;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -13,32 +13,32 @@ public final class f<T, R> implements d.a<R> {
     }
 
     public f(rx.d<T> dVar, rx.functions.f<? super T, ? extends R> fVar) {
-        this.qfy = dVar;
-        this.qgw = fVar;
+        this.pPA = dVar;
+        this.pQy = fVar;
     }
 
     public void call(rx.j<? super R> jVar) {
-        a aVar = new a(jVar, this.qgw);
+        a aVar = new a(jVar, this.pQy);
         jVar.add(aVar);
-        this.qfy.a((rx.j) aVar);
+        this.pPA.a((rx.j) aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public static final class a<T, R> extends rx.j<T> {
         final rx.j<? super R> actual;
         boolean done;
-        final rx.functions.f<? super T, ? extends R> qfQ;
+        final rx.functions.f<? super T, ? extends R> pPS;
 
         public a(rx.j<? super R> jVar, rx.functions.f<? super T, ? extends R> fVar) {
             this.actual = jVar;
-            this.qfQ = fVar;
+            this.pPS = fVar;
         }
 
         @Override // rx.e
         public void onNext(T t) {
             try {
-                this.actual.onNext(this.qfQ.call(t));
+                this.actual.onNext(this.pPS.call(t));
             } catch (Throwable th) {
                 rx.exceptions.a.J(th);
                 unsubscribe();

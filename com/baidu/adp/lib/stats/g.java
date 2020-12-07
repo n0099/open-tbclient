@@ -4,8 +4,10 @@ import android.os.Build;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
 import com.baidu.ala.helper.AlaLiveBaseInfo;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.tbadk.util.AdExtParam;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,9 +15,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    private String Oa;
-    private String Ob;
-    private Map<String, String> Oc;
+    private String OV;
+    private String OW;
+    private Map<String, String> OX;
     private String mAction;
     private c mCommonData;
     private String mErrorCode;
@@ -27,8 +29,8 @@ public class g {
         this.mCommonData = cVar;
     }
 
-    public void ca(String str) {
-        this.Oa = str;
+    public void cd(String str) {
+        this.OV = str;
     }
 
     public void setAction(String str) {
@@ -44,10 +46,10 @@ public class g {
     }
 
     public void y(String str, String str2) {
-        if (this.Oc == null) {
-            this.Oc = new HashMap();
+        if (this.OX == null) {
+            this.OX = new HashMap();
         }
-        this.Oc.put(str, str2);
+        this.OX.put(str, str2);
     }
 
     public JSONObject no() {
@@ -58,12 +60,12 @@ public class g {
                 jSONObject2.put("app_version", this.mCommonData.mAppVersion);
                 jSONObject2.put("client_timestamp", Long.toString(System.currentTimeMillis()));
                 jSONObject2.put("cuid", this.mCommonData.mCuid);
-                jSONObject2.put("shoubai_cuid", this.mCommonData.Nv);
+                jSONObject2.put(AdExtParam.KEY_SHOUBAI_CUID, this.mCommonData.Or);
                 jSONObject2.put("from", this.mCommonData.mChannel);
                 jSONObject2.put("uid", this.mCommonData.mUid);
             }
             jSONObject2.put("client_ip", f.getClientIp());
-            jSONObject2.put("network", np());
+            jSONObject2.put("network", getNetwork());
             jSONObject2.put("model", Build.MODEL);
             jSONObject2.put(Constants.PHONE_BRAND, Build.BRAND);
             jSONObject2.put(HttpConstants.HTTP_OS_TYPE, AlaLiveBaseInfo.mOSType);
@@ -72,8 +74,8 @@ public class g {
             jSONObject2.put("mission_id", f.nn());
             jSONObject.put("base_info", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            if (this.Oa != null) {
-                jSONObject3.put(BdStatsConstant.StatsKey.TYPE, this.Oa);
+            if (this.OV != null) {
+                jSONObject3.put(BdStatsConstant.StatsKey.TYPE, this.OV);
             }
             if (this.mAction != null) {
                 jSONObject3.put("action", this.mAction);
@@ -84,9 +86,9 @@ public class g {
             if (this.mErrorMessage != null) {
                 jSONObject3.put("error_message", this.mErrorMessage);
             }
-            if (this.Oc != null) {
+            if (this.OX != null) {
                 StringBuilder sb = new StringBuilder();
-                for (Map.Entry<String, String> entry : this.Oc.entrySet()) {
+                for (Map.Entry<String, String> entry : this.OX.entrySet()) {
                     sb.append(entry.getKey());
                     sb.append(":");
                     sb.append(entry.getValue());
@@ -103,10 +105,10 @@ public class g {
             if (this.mTitle != null) {
                 jSONObject3.put("title", this.mTitle);
             }
-            if (this.Ob != null) {
-                jSONObject3.put("abstract", this.Ob);
+            if (this.OW != null) {
+                jSONObject3.put("abstract", this.OW);
             }
-            jSONObject.put("debug_info", jSONObject3);
+            jSONObject.put(AlaRecorderLog.KEY_DEBUG_INFO, jSONObject3);
             jSONObject.put("kpi", new JSONObject());
         } catch (JSONException e) {
             BdLog.e(e);
@@ -114,7 +116,7 @@ public class g {
         return jSONObject;
     }
 
-    public static String np() {
+    public static String getNetwork() {
         if (j.isWifiNet()) {
             return "WIFI";
         }

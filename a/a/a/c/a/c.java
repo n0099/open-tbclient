@@ -4,7 +4,7 @@ import android.os.Build;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class c {
     public static Object a(Class<?> cls, Class<?>[] clsArr, Object[] objArr) {
         try {

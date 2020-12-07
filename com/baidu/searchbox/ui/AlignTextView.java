@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class AlignTextView extends TextView {
     private Align mAlign;
     private boolean mFirstCalc;
@@ -27,7 +27,7 @@ public class AlignTextView extends TextView {
     private float mTextLineSpaceExtra;
     private int mWidth;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public enum Align {
         ALIGN_LEFT,
         ALIGN_CENTER,

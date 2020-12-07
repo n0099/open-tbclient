@@ -2,7 +2,7 @@ package com.baidu.swan.apps.ap.e;
 
 import android.os.Handler;
 import java.util.Collection;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class a {
     public static <T> void a(b<T> bVar, T... tArr) {
         a((Handler) null, (b) bVar, (Object[]) tArr);

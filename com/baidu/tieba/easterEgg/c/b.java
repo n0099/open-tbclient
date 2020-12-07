@@ -10,37 +10,36 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.easterEgg.c;
-import com.baidu.webkit.internal.ETAG;
 import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class b extends k {
-    private Gson euH;
-    private c ihi;
-    private HashMap<String, String> ihj;
-    private SparseArray<String> ihk;
+    private Gson eBJ;
+    private c isc;
+    private HashMap<String, String> isd;
+    private SparseArray<String> ise;
 
     public b(int i) {
         super(i);
-        this.euH = new Gson();
-        cpW();
+        this.eBJ = new Gson();
+        cuk();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b.f
     /* renamed from: d */
     public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        String str = this.ihk.get(socketMessage.getCmd());
-        if (str != null && this.ihj != null && this.ihj.get(str) != null && this.ihi != null) {
-            this.ihi.az(str, this.euH.toJson(this.ihj.get(str)), this.euH.toJson(this.euH.toJson(socketMessage.getData())));
+        String str = this.ise.get(socketMessage.getCmd());
+        if (str != null && this.isd != null && this.isd.get(str) != null && this.isc != null) {
+            this.isc.aB(str, this.eBJ.toJson(this.isd.get(str)), this.eBJ.toJson(this.eBJ.toJson(socketMessage.getData())));
         }
         return socketMessage;
     }
 
-    private void cpW() {
+    private void cuk() {
         int i;
-        this.ihk = new SparseArray<>();
+        this.ise = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
         if (!y.isEmpty(findHttpTasks)) {
             for (int i2 = 0; i2 < findHttpTasks.size(); i2++) {
@@ -49,8 +48,8 @@ public class b extends k {
                     String[] split = url.split("[?]");
                     String str = split[1];
                     String str2 = split[0];
-                    if (!au.isEmpty(str) && str.contains(ETAG.EQUAL) && (i = com.baidu.adp.lib.f.b.toInt(str.split("[=]")[1], 0)) != 0) {
-                        this.ihk.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                    if (!au.isEmpty(str) && str.contains("=") && (i = com.baidu.adp.lib.f.b.toInt(str.split("[=]")[1], 0)) != 0) {
+                        this.ise.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                     }
                 }
             }
@@ -58,10 +57,10 @@ public class b extends k {
     }
 
     public void F(HashMap<String, String> hashMap) {
-        this.ihj = hashMap;
+        this.isd = hashMap;
     }
 
     public void a(c cVar) {
-        this.ihi = cVar;
+        this.isc = cVar;
     }
 }

@@ -9,13 +9,13 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IOAdDownloader f2376a;
+    final /* synthetic */ IOAdDownloader f2378a;
     final /* synthetic */ b b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, IOAdDownloader iOAdDownloader) {
         this.b = bVar;
-        this.f2376a = iOAdDownloader;
+        this.f2378a = iOAdDownloader;
     }
 
     @Override // java.lang.Runnable
@@ -33,14 +33,14 @@ public class c implements Runnable {
         try {
             aVar = this.b.c;
             if (aVar.g == IOAdDownloader.DownloadStatus.CANCELLED) {
-                notificationManager2 = b.f2375a;
+                notificationManager2 = b.f2377a;
                 aVar7 = this.b.c;
                 notificationManager2.cancel(aVar7.f);
             } else {
-                notificationManager = b.f2375a;
+                notificationManager = b.f2377a;
                 aVar2 = this.b.c;
                 int i = aVar2.f;
-                b = this.b.b(this.f2376a);
+                b = this.b.b(this.f2378a);
                 notificationManager.notify(i, b);
                 aVar3 = this.b.c;
                 if (aVar3.g != IOAdDownloader.DownloadStatus.ERROR) {
@@ -51,7 +51,7 @@ public class c implements Runnable {
                             b bVar = this.b;
                             StringBuilder append = new StringBuilder().append("开始下载 ");
                             aVar6 = this.b.c;
-                            bVar.d(append.append(aVar6.f2324a).toString());
+                            bVar.d(append.append(aVar6.f2326a).toString());
                         }
                     }
                 } else {

@@ -9,7 +9,7 @@ import java.util.List;
 import tbclient.HotForum.ForumInfo;
 import tbclient.HotForum.HotForumResIdl;
 import tbclient.HotForum.HotTopicList;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class HotForumSocketResponseMessage extends SocketResponsedMessage {
     private List<b> forumInfoList;
     private HotSearchInfoData mSearchInfo;

@@ -5,11 +5,11 @@ import com.baidu.live.tbadk.core.util.TbEnum;
 /* loaded from: classes4.dex */
 public class a extends HttpMessage {
     private String appId;
-    private com.baidu.live.im.data.b barrageCardInfo;
+    private com.baidu.live.im.data.d barrageCardInfo;
     private String barrageId;
     private int barrageType;
-    private int bkc;
-    private boolean bkd;
+    private int bpg;
+    private boolean bph;
     private String content;
     private String customRoomId;
     private int groupId;
@@ -22,7 +22,7 @@ public class a extends HttpMessage {
 
     public a(String str, short s, int i, String str2) {
         super(1021013);
-        this.bkd = false;
+        this.bph = false;
         this.content = str;
         this.msgType = s;
         this.groupId = i;
@@ -37,7 +37,7 @@ public class a extends HttpMessage {
         return this.content;
     }
 
-    public short LT() {
+    public short Oi() {
         return this.msgType;
     }
 
@@ -49,7 +49,7 @@ public class a extends HttpMessage {
         this.roomId = str;
     }
 
-    public String LU() {
+    public String Oj() {
         return this.otherParams;
     }
 
@@ -57,39 +57,39 @@ public class a extends HttpMessage {
         this.otherParams = str;
     }
 
-    public long LV() {
+    public long Ok() {
         return this.price;
     }
 
-    public void ay(long j) {
+    public void aW(long j) {
         this.price = j;
     }
 
-    public int LJ() {
+    public int NY() {
         return this.barrageType;
     }
 
-    public void eH(int i) {
+    public void fe(int i) {
         this.barrageType = i;
     }
 
-    public String LK() {
+    public String NZ() {
         return this.barrageId;
     }
 
-    public void hF(String str) {
+    public void ii(String str) {
         this.barrageId = str;
     }
 
-    public com.baidu.live.im.data.b LL() {
+    public com.baidu.live.im.data.d Oa() {
         return this.barrageCardInfo;
     }
 
-    public void a(com.baidu.live.im.data.b bVar) {
-        this.barrageCardInfo = bVar;
+    public void a(com.baidu.live.im.data.d dVar) {
+        this.barrageCardInfo = dVar;
     }
 
-    public String[] LM() {
+    public String[] Ob() {
         return this.imEffect;
     }
 
@@ -97,20 +97,20 @@ public class a extends HttpMessage {
         this.imEffect = strArr;
     }
 
-    public void cc(boolean z) {
-        this.bkd = z;
+    public void cm(boolean z) {
+        this.bph = z;
     }
 
-    public boolean LW() {
-        return this.bkd;
+    public boolean Ol() {
+        return this.bph;
     }
 
-    public void eI(int i) {
-        this.bkc = i;
+    public void ff(int i) {
+        this.bpg = i;
     }
 
-    public boolean LX() {
-        return this.bkc == 1;
+    public boolean Om() {
+        return this.bpg == 1;
     }
 
     public String getCustomRoomId() {

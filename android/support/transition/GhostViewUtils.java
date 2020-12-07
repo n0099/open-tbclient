@@ -7,7 +7,7 @@ import android.support.transition.GhostViewApi21;
 import android.support.transition.GhostViewImpl;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 class GhostViewUtils {
     private static final GhostViewImpl.Creator CREATOR;
 

@@ -11,8 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage {
-    private b hah;
-    private List<d> hai;
+    private b hjQ;
+    private List<d> hjR;
 
     public AlaSearchTargetListResponseMessage() {
         super(1021182);
@@ -25,24 +25,24 @@ public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("page");
             if (optJSONObject2 != null) {
-                this.hah = new b();
-                this.hah.parseJson(optJSONObject2);
+                this.hjQ = new b();
+                this.hjQ.parseJson(optJSONObject2);
             }
             String optString = optJSONObject.optString("query_words");
             JSONArray optJSONArray = optJSONObject.optJSONArray("user_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.hai = new ArrayList();
+                this.hjR = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     d dVar = new d();
                     dVar.parseJson(optJSONArray.optJSONObject(i2));
-                    dVar.userName = er(optString, dVar.userName);
-                    this.hai.add(dVar);
+                    dVar.userName = ex(optString, dVar.userName);
+                    this.hjR.add(dVar);
                 }
             }
         }
     }
 
-    private static String er(String str, String str2) {
+    private static String ex(String str, String str2) {
         Matcher matcher = Pattern.compile(str, 2).matcher(str2);
         StringBuffer stringBuffer = new StringBuffer();
         while (matcher.find()) {
@@ -52,11 +52,11 @@ public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage
         return stringBuffer.toString();
     }
 
-    public b bZm() {
-        return this.hah;
+    public b cdh() {
+        return this.hjQ;
     }
 
-    public List<d> bZn() {
-        return this.hai;
+    public List<d> cdi() {
+        return this.hjR;
     }
 }

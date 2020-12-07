@@ -15,7 +15,7 @@ public class v extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected com.facebook.imagepipeline.g.e g(ImageRequest imageRequest) throws IOException {
+    protected com.facebook.imagepipeline.f.e g(ImageRequest imageRequest) throws IOException {
         return e(this.mAssetManager.open(i(imageRequest), 2), h(imageRequest));
     }
 
@@ -62,11 +62,11 @@ public class v extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String erd() {
+    protected String ewG() {
         return "LocalAssetFetchProducer";
     }
 
     private static String i(ImageRequest imageRequest) {
-        return imageRequest.erL().getPath().substring(1);
+        return imageRequest.exl().getPath().substring(1);
     }
 }

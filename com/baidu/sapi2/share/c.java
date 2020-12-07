@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.utils.AES;
@@ -13,11 +14,11 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDataEncryptor;
 import com.baidu.sapi2.utils.k;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3517a;
+    private static String f3520a;
 
     c() {
     }
@@ -33,7 +34,7 @@ final class c {
             HashMap hashMap = new HashMap();
             hashMap.put(Config.DEVICE_PART, Build.MODEL);
             hashMap.put("device_ver", Build.VERSION.RELEASE);
-            hashMap.put("error_msg", android.util.Log.getStackTraceString(e));
+            hashMap.put(AlaRecorderLog.KEY_ERROR_MSG, android.util.Log.getStackTraceString(e));
             k.a("aes_decrypt_error", hashMap);
             return null;
         }
@@ -50,7 +51,7 @@ final class c {
             HashMap hashMap = new HashMap();
             hashMap.put(Config.DEVICE_PART, Build.MODEL);
             hashMap.put("device_ver", Build.VERSION.RELEASE);
-            hashMap.put("error_msg", android.util.Log.getStackTraceString(e));
+            hashMap.put(AlaRecorderLog.KEY_ERROR_MSG, android.util.Log.getStackTraceString(e));
             k.a("aes_encrypt_error", hashMap);
             return null;
         }
@@ -59,7 +60,7 @@ final class c {
     private static String a(Context context) {
         String str;
         String str2 = null;
-        String str3 = f3517a;
+        String str3 = f3520a;
         if (str3 == null) {
             String deviceId = Build.VERSION.SDK_INT < 23 ? ((TelephonyManager) context.getSystemService("phone")).getDeviceId() : null;
             String str4 = Build.MODEL;
@@ -77,8 +78,8 @@ final class c {
             if (substring.length() < 16) {
                 substring = (substring + "----------------").substring(0, 16);
             }
-            f3517a = substring;
-            return f3517a;
+            f3520a = substring;
+            return f3520a;
         }
         return str3;
     }

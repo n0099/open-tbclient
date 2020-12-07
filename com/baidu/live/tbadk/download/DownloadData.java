@@ -12,9 +12,10 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_STATUS_INSTALLED = 8;
     public static final int FILE_DOWNLOAD_STATUS_PAUSE = 7;
     public static final int FILE_DOWNLOAD_STATUS_SUCEED = 0;
+    public static final int FILE_DOWNLOAD_STATUS_WAITING = 9;
     public static final int FILE_DOWNLOAD_TYPE_ALA_IM_RECORD = 16;
     public static final int FILE_DOWNLOAD_TYPE_APP = 12;
-    public static final int FILE_DOWNLOAD_TYPE_DATING_ANIM = 22;
+    public static final int FILE_DOWNLOAD_TYPE_DATING_ANIM = 23;
     public static final int FILE_DOWNLOAD_TYPE_DYNAMIC = 19;
     public static final int FILE_DOWNLOAD_TYPE_EMOYION_APCKAGE = 11;
     public static final int FILE_DOWNLOAD_TYPE_ENTER_EFFECT = 20;
@@ -25,6 +26,7 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_TYPE_ORIGINAL_IMAGE = 13;
     public static final int FILE_DOWNLOAD_TYPE_PENDANT = 18;
     public static final int FILE_DOWNLOAD_TYPE_PK_RANK_START = 21;
+    public static final int FILE_DOWNLOAD_TYPE_POKE_START = 22;
     private static final long serialVersionUID = 1402749061179345930L;
     private String action;
     private String app_icon;

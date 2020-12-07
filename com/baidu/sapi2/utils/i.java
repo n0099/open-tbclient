@@ -4,15 +4,15 @@ import android.app.Activity;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewTreeObserver;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f3558a;
+    private View f3561a;
     int b;
     private b c;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     class a implements ViewTreeObserver.OnGlobalLayoutListener {
         a() {
         }
@@ -20,7 +20,7 @@ public class i {
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Rect rect = new Rect();
-            i.this.f3558a.getWindowVisibleDisplayFrame(rect);
+            i.this.f3561a.getWindowVisibleDisplayFrame(rect);
             int height = rect.height();
             System.out.println("" + height);
             i iVar = i.this;
@@ -43,7 +43,7 @@ public class i {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void keyBoardHide(int i);
 
@@ -51,8 +51,8 @@ public class i {
     }
 
     public i(Activity activity) {
-        this.f3558a = activity.getWindow().getDecorView();
-        this.f3558a.getViewTreeObserver().addOnGlobalLayoutListener(new a());
+        this.f3561a = activity.getWindow().getDecorView();
+        this.f3561a.getViewTreeObserver().addOnGlobalLayoutListener(new a());
     }
 
     private void a(b bVar) {

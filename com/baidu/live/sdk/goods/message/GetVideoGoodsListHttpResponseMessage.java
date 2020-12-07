@@ -8,9 +8,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class GetVideoGoodsListHttpResponseMessage extends JsonHttpResponsedMessage {
-    public List<com.baidu.live.sdk.goods.a.a> bqU;
-    public String bqV;
-    public ArrayList<String> bqW;
+    public List<com.baidu.live.sdk.goods.a.a> bwf;
+    public String bwg;
+    public ArrayList<String> bwh;
     public int count;
     private long mLogId;
 
@@ -23,7 +23,7 @@ public class GetVideoGoodsListHttpResponseMessage extends JsonHttpResponsedMessa
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             this.mLogId = jSONObject.optLong("logid");
-            this.bqU = new ArrayList();
+            this.bwf = new ArrayList();
             JSONObject optJSONObject = jSONObject.optJSONObject("result");
             if (optJSONObject != null && getError() == 0) {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("good_list");
@@ -32,18 +32,18 @@ public class GetVideoGoodsListHttpResponseMessage extends JsonHttpResponsedMessa
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                         com.baidu.live.sdk.goods.a.a aVar = new com.baidu.live.sdk.goods.a.a();
                         aVar.parseJson(jSONObject2);
-                        this.bqU.add(aVar);
+                        this.bwf.add(aVar);
                     }
                 }
                 this.count = optJSONObject.optInt("count");
-                this.bqV = optJSONObject.optString("pre_download_swan");
+                this.bwg = optJSONObject.optString("pre_download_swan");
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("pre_download_appkeys");
                 if (optJSONArray2 != null) {
-                    this.bqW = new ArrayList<>();
+                    this.bwh = new ArrayList<>();
                     for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                         String optString = optJSONArray2.optString(i3);
                         if (!TextUtils.isEmpty(optString)) {
-                            this.bqW.add(optString);
+                            this.bwh.add(optString);
                         }
                     }
                 }

@@ -2,7 +2,7 @@ package com.google.zxing.client.result;
 
 import com.google.zxing.Result;
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class BizcardResultParser extends AbstractDoCoMoResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser

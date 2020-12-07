@@ -1,16 +1,16 @@
 package com.baidu.platform.comapi.basestruct;
 
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2825a;
+    public int f2827a;
     public Point b;
     public Point c;
     public ArrayList<ArrayList<Point>> d;
 
     public String toString() {
-        return "ComplexPt [eType=" + this.f2825a + ", mLL=" + this.b + ", mRu=" + this.c + ", mGeoPt=" + this.d + "]";
+        return "ComplexPt [eType=" + this.f2827a + ", mLL=" + this.b + ", mRu=" + this.c + ", mGeoPt=" + this.d + "]";
     }
 }

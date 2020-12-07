@@ -14,6 +14,7 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.FrsTabInfoData;
+import com.baidu.tieba.frs.SerializableItemInfo;
 /* loaded from: classes.dex */
 public class WriteActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
@@ -38,6 +39,8 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String IS_ADDITION = "is_addition";
     public static final String IS_LIVE_POST = "is_live_post";
     public static final String IS_SAVE_DRAFTE = "need_save_draft";
+    public static final String ITEM_INFO = "item_info";
+    public static final String ITEM_IS_SCHOOL = "item_is_school";
     public static final String KEY_ANTI_POLL_LEVEL = "key_anti_poll_level";
     public static final String KEY_CALL_FROM = "KEY_CALL_FROM";
     public static final String KEY_FORUM_AVATAR = "forum_avatar";
@@ -68,6 +71,7 @@ public class WriteActivityConfig extends IntentConfig {
     public static final int PROFESSION_ZONE_TYPE_DEFAULT = -1;
     public static final String REFRESH_PIC = "refresh_pic";
     public static final String REPLY_SUB_PB = "reply_sub_pb";
+    public static final String STAR_COUNT = "star_count";
     public static final String SUB_USER_NAME = "sub_user_name";
     public static final String THREAD_ID = "thread_id";
     public static final String TITLE = "write_title";
@@ -251,6 +255,24 @@ public class WriteActivityConfig extends IntentConfig {
     public void setGoodsList(String str) {
         if (!StringUtils.isNull(str)) {
             getIntent().putExtra("goods_list", str);
+        }
+    }
+
+    public void setItemIsSchool(boolean z) {
+        if (getIntent() != null) {
+            getIntent().putExtra("item_is_school", z);
+        }
+    }
+
+    public void setScoreItemInfo(SerializableItemInfo serializableItemInfo) {
+        if (getIntent() != null) {
+            getIntent().putExtra("item_info", serializableItemInfo);
+        }
+    }
+
+    public void setStarCount(int i) {
+        if (getIntent() != null) {
+            getIntent().putExtra(STAR_COUNT, i);
         }
     }
 }

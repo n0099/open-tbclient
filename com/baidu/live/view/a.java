@@ -34,23 +34,23 @@ import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private static volatile a bJv;
+    private static volatile a bOD;
     private String mUserId;
     private HashMap<String, LinkedList<com.baidu.live.data.f>> mUserAttentionRequestMap = new HashMap<>();
-    private HashMap<String, C0229a> mAttentionTaskMap = new HashMap<>();
+    private HashMap<String, C0238a> mAttentionTaskMap = new HashMap<>();
 
     private a() {
     }
 
-    public static a VO() {
-        if (bJv == null) {
+    public static a Yo() {
+        if (bOD == null) {
             synchronized (a.class) {
-                if (bJv == null) {
-                    bJv = new a();
+                if (bOD == null) {
+                    bOD = new a();
                 }
             }
         }
-        return bJv;
+        return bOD;
     }
 
     public void a(String str, com.baidu.live.data.f fVar) {
@@ -108,19 +108,19 @@ public class a {
     public void executeAttentionTask(String str) {
         LinkedList<com.baidu.live.data.f> linkedList;
         if (!StringUtils.isNull(str) && this.mAttentionTaskMap.get(str) == null && (linkedList = this.mUserAttentionRequestMap.get(str)) != null && linkedList.size() > 0) {
-            C0229a c0229a = new C0229a();
-            this.mAttentionTaskMap.put(str, c0229a);
-            c0229a.setPriority(2);
-            c0229a.a(linkedList.getFirst());
-            c0229a.execute(new Integer[0]);
+            C0238a c0238a = new C0238a();
+            this.mAttentionTaskMap.put(str, c0238a);
+            c0238a.setPriority(2);
+            c0238a.a(linkedList.getFirst());
+            c0238a.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0229a extends BdAsyncTask<Integer, Integer, String> {
-        private BdUniqueId bJA;
+    public class C0238a extends BdAsyncTask<Integer, Integer, String> {
+        private BdUniqueId bOI;
         private String forumId;
         private String from;
         private String inLive;
@@ -131,7 +131,7 @@ public class a {
         private boolean showToastAfterAttentionSuc;
         private String toUid;
 
-        private C0229a() {
+        private C0238a() {
             this.mNetwork = null;
             this.metaKey = "";
             this.isGod = false;
@@ -145,9 +145,9 @@ public class a {
             this.isAttention = fVar.isAttention();
             this.toUid = fVar.getUserId();
             this.inLive = fVar.getInLive();
-            this.bJA = fVar.Dv();
+            this.bOI = fVar.Fg();
             this.from = fVar.getFrom();
-            this.metaKey = fVar.Dw();
+            this.metaKey = fVar.Fh();
             if (this.forumId != null) {
                 this.showToastAfterAttentionSuc = true;
             }
@@ -185,7 +185,7 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0229a) str);
+            super.onPostExecute((C0238a) str);
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
                 updateAttentionData.isSucc = this.mNetwork.isRequestSuccess();
@@ -200,7 +200,7 @@ public class a {
                     updateAttentionData.isSucc = updateAttentionData.response.mServerErrorCode == 0;
                 }
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bJA));
+                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bOI));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
                 a.this.a(updateAttentionData, this.from);
             }
@@ -284,59 +284,53 @@ public class a {
     }
 
     public boolean a(UpdateAttentionMessage.UpdateAttentionData updateAttentionData, final BdPageContext<?> bdPageContext, boolean z) {
+        JSONObject optJSONObject;
         if (updateAttentionData == null || updateAttentionData.resultJson == null || updateAttentionData.response == null || bdPageContext == null || bdPageContext.getPageActivity() == null) {
             return false;
         }
         int i = updateAttentionData.response.mServerErrorCode;
-        if (i == 3250001 || i == 3250002 || i == 3250003 || i == 3250004) {
-            if (updateAttentionData.hasShownForbiddenAlert) {
-                return true;
-            }
-            JSONObject optJSONObject = updateAttentionData.resultJson.optJSONObject("info");
-            if (optJSONObject != null) {
-                String optString = optJSONObject.optString("block_content");
-                final String optString2 = optJSONObject.optString("block_dealurl");
-                String optString3 = optJSONObject.optString("block_confirm");
-                String optString4 = optJSONObject.optString("block_cancel");
-                if (optString == null || optString2 == null || optString3 == null || optString4 == null) {
-                    return false;
-                }
-                updateAttentionData.hasShownForbiddenAlert = true;
-                BdAlertDialog bdAlertDialog = new BdAlertDialog(bdPageContext.getPageActivity());
-                bdAlertDialog.setAutoNight(z);
-                bdAlertDialog.setMessage(optString);
-                bdAlertDialog.setPositiveButton(optString3, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.view.a.3
-                    @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
-                    public void onClick(BdAlertDialog bdAlertDialog2) {
-                        BrowserHelper.startWebActivity(bdPageContext.getPageActivity(), optString2);
-                        bdAlertDialog2.dismiss();
-                        TiebaInitialize.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
-                    }
-                });
-                bdAlertDialog.setNegativeButton(optString4, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.view.a.4
-                    @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
-                    public void onClick(BdAlertDialog bdAlertDialog2) {
-                        bdAlertDialog2.dismiss();
-                        TiebaInitialize.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
-                    }
-                });
-                bdAlertDialog.create(bdPageContext).show();
-                TiebaInitialize.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
-                return true;
-            }
+        if (!(i == 3250001 || i == 3250002 || i == 3250003 || i == 3250004) || updateAttentionData.hasShownForbiddenAlert || (optJSONObject = updateAttentionData.resultJson.optJSONObject("info")) == null) {
             return false;
         }
-        return false;
+        String optString = optJSONObject.optString("block_content");
+        final String optString2 = optJSONObject.optString("block_dealurl");
+        String optString3 = optJSONObject.optString("block_confirm");
+        String optString4 = optJSONObject.optString("block_cancel");
+        if (optString == null || optString2 == null || optString3 == null || optString4 == null) {
+            return false;
+        }
+        updateAttentionData.hasShownForbiddenAlert = true;
+        BdAlertDialog bdAlertDialog = new BdAlertDialog(bdPageContext.getPageActivity());
+        bdAlertDialog.setAutoNight(z);
+        bdAlertDialog.setMessage(optString);
+        bdAlertDialog.setPositiveButton(optString3, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.view.a.3
+            @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
+            public void onClick(BdAlertDialog bdAlertDialog2) {
+                BrowserHelper.startWebActivity(bdPageContext.getPageActivity(), optString2);
+                bdAlertDialog2.dismiss();
+                TiebaInitialize.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
+            }
+        });
+        bdAlertDialog.setNegativeButton(optString4, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.view.a.4
+            @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
+            public void onClick(BdAlertDialog bdAlertDialog2) {
+                bdAlertDialog2.dismiss();
+                TiebaInitialize.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
+            }
+        });
+        bdAlertDialog.create(bdPageContext).show();
+        TiebaInitialize.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
+        return true;
     }
 
     public void o(String[] strArr) {
         for (String str : strArr) {
-            if (VP() != null && VP().equals(str)) {
+            if (Yp() != null && Yp().equals(str)) {
                 UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
                 updateAttentionData.isSucc = true;
                 updateAttentionData.errorString = null;
                 updateAttentionData.isAttention = true;
-                updateAttentionData.toUid = VP();
+                updateAttentionData.toUid = Yp();
                 updateAttentionData.isGod = false;
                 updateAttentionData.isShowMessage = false;
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
@@ -347,11 +341,11 @@ public class a {
         }
     }
 
-    public String VP() {
+    public String Yp() {
         return this.mUserId;
     }
 
-    public void iG(String str) {
+    public void jk(String str) {
         this.mUserId = str;
     }
 }

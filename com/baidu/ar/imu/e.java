@@ -4,39 +4,39 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
 import android.opengl.Matrix;
 import com.baidu.ar.arplay.representation.Quaternion;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class e extends j {
     private static final String TAG = e.class.getSimpleName();
-    private final Quaternion rj;
-    private int rk;
-    private double rl;
-    private Quaternion rs;
-    private Quaternion rt;
-    private boolean ru;
-    private int rv;
+    private final Quaternion rA;
+    private int rB;
+    private double rC;
+    private Quaternion rJ;
+    private Quaternion rK;
+    private boolean rL;
+    private int rM;
     private long timestamp;
 
     public e(SensorManager sensorManager) {
         super(sensorManager);
-        this.rj = new Quaternion();
-        this.rs = new Quaternion();
-        this.rt = new Quaternion();
-        this.rl = 0.0d;
-        this.ru = false;
-        this.rk = 0;
-        this.si.add(sensorManager.getDefaultSensor(4));
-        this.si.add(sensorManager.getDefaultSensor(11));
+        this.rA = new Quaternion();
+        this.rJ = new Quaternion();
+        this.rK = new Quaternion();
+        this.rC = 0.0d;
+        this.rL = false;
+        this.rB = 0;
+        this.sz.add(sensorManager.getDefaultSensor(4));
+        this.sz.add(sensorManager.getDefaultSensor(11));
     }
 
     private void a(Quaternion quaternion) {
-        Quaternion m17clone = quaternion.m17clone();
-        m17clone.w(-m17clone.w());
-        synchronized (this.sh) {
-            this.sk.copyVec4(quaternion);
-            SensorManager.getRotationMatrixFromVector(this.sj.matrix, m17clone.toArray());
-            this.rk++;
-            if (this.rk > 20) {
-                eR();
+        Quaternion m16clone = quaternion.m16clone();
+        m16clone.w(-m16clone.w());
+        synchronized (this.sy) {
+            this.sB.copyVec4(quaternion);
+            SensorManager.getRotationMatrixFromVector(this.sA.matrix, m16clone.toArray());
+            this.rB++;
+            if (this.rB > 20) {
+                eQ();
                 setChanged();
                 notifyObservers();
             }
@@ -55,23 +55,23 @@ public class e extends j {
         fArr[3] = fArr2[2];
     }
 
-    protected void eR() {
-        if (this.sm) {
-            a(this.sp.matrix, this.sj.matrix, this.sn.matrix);
+    protected void eQ() {
+        if (this.sD) {
+            a(this.sG.matrix, this.sA.matrix, this.sE.matrix);
             return;
         }
-        this.sm = true;
-        System.arraycopy(this.sj.matrix, 0, this.sn.matrix, 0, this.sj.matrix.length);
-        Matrix.setIdentityM(this.sp.matrix, 0);
+        this.sD = true;
+        System.arraycopy(this.sA.matrix, 0, this.sE.matrix, 0, this.sA.matrix.length);
+        Matrix.setIdentityM(this.sG.matrix, 0);
     }
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
         if (sensorEvent.sensor.getType() == 11) {
-            synchronized (this.sf) {
+            synchronized (this.sw) {
                 for (int i = 0; i < sensorEvent.values.length; i++) {
                     if (Float.isNaN(sensorEvent.values[i])) {
-                        this.sg = false;
+                        this.sx = false;
                         return;
                     }
                 }
@@ -81,59 +81,59 @@ public class e extends j {
                 } catch (Exception e) {
                     getQuaternionFromVector(fArr, sensorEvent.values);
                 }
-                this.rt.setXYZW(fArr[1], fArr[2], fArr[3], -fArr[0]);
-                if (this.ru) {
+                this.rK.setXYZW(fArr[1], fArr[2], fArr[3], -fArr[0]);
+                if (this.rL) {
                     return;
                 }
-                this.rs.set(this.rt);
-                this.ru = true;
+                this.rJ.set(this.rK);
+                this.rL = true;
             }
         } else if (sensorEvent.sensor.getType() == 4) {
-            synchronized (this.sf) {
-                if (this.sg.booleanValue()) {
+            synchronized (this.sw) {
+                if (this.sx.booleanValue()) {
                     if (this.timestamp != 0) {
                         float f = ((float) (sensorEvent.timestamp - this.timestamp)) * 1.0E-9f;
                         float f2 = sensorEvent.values[0];
                         float f3 = sensorEvent.values[1];
                         float f4 = sensorEvent.values[2];
-                        this.rl = Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4));
-                        if (this.rl > 0.10000000149011612d) {
-                            f2 = (float) (f2 / this.rl);
-                            f3 = (float) (f3 / this.rl);
-                            f4 = (float) (f4 / this.rl);
+                        this.rC = Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4));
+                        if (this.rC > 0.10000000149011612d) {
+                            f2 = (float) (f2 / this.rC);
+                            f3 = (float) (f3 / this.rC);
+                            f4 = (float) (f4 / this.rC);
                         } else {
-                            this.rl = 0.0d;
+                            this.rC = 0.0d;
                         }
-                        double d = (f * this.rl) / 2.0d;
+                        double d = (f * this.rC) / 2.0d;
                         double sin = Math.sin(d);
                         double cos = Math.cos(d);
-                        this.rj.setX((float) (f2 * sin));
-                        this.rj.setY((float) (f3 * sin));
-                        this.rj.setZ((float) (sin * f4));
-                        this.rj.setW(-((float) cos));
-                        this.rj.multiplyByQuat(this.rs, this.rs);
-                        float dotProduct = this.rs.dotProduct(this.rt);
+                        this.rA.setX((float) (f2 * sin));
+                        this.rA.setY((float) (f3 * sin));
+                        this.rA.setZ((float) (sin * f4));
+                        this.rA.setW(-((float) cos));
+                        this.rA.multiplyByQuat(this.rJ, this.rJ);
+                        float dotProduct = this.rJ.dotProduct(this.rK);
                         if (Math.abs(dotProduct) < 0.0f) {
                             if (Math.abs(dotProduct) < 0.0f) {
-                                this.rv++;
+                                this.rM++;
                             }
-                            a(this.rs);
+                            a(this.rJ);
                         } else {
                             Quaternion quaternion = new Quaternion();
-                            this.rs.slerp(this.rt, quaternion, (float) (0.009999999776482582d * this.rl));
+                            this.rJ.slerp(this.rK, quaternion, (float) (0.009999999776482582d * this.rC));
                             a(quaternion);
-                            this.rs.copyVec4(quaternion);
-                            this.rv = 0;
+                            this.rJ.copyVec4(quaternion);
+                            this.rM = 0;
                         }
-                        if (this.rv > 60) {
-                            com.baidu.ar.g.b.c(TAG, "Rotation VectorPanic counter is bigger than threshold; this indicates a Gyroscope failure. Panic reset is imminent.");
-                            if (this.rl < 3.0d) {
-                                com.baidu.ar.g.b.c(TAG, "Rotation VectorPerforming Panic-reset. Resetting orientation to rotation-vector value.");
-                                a(this.rt);
-                                this.rs.copyVec4(this.rt);
-                                this.rv = 0;
+                        if (this.rM > 60) {
+                            com.baidu.ar.h.b.c(TAG, "Rotation VectorPanic counter is bigger than threshold; this indicates a Gyroscope failure. Panic reset is imminent.");
+                            if (this.rC < 3.0d) {
+                                com.baidu.ar.h.b.c(TAG, "Rotation VectorPerforming Panic-reset. Resetting orientation to rotation-vector value.");
+                                a(this.rK);
+                                this.rJ.copyVec4(this.rK);
+                                this.rM = 0;
                             } else {
-                                com.baidu.ar.g.b.c(TAG, "Rotation Vector" + String.format("Panic reset delayed due to ongoing motion (user is still shaking the device). Gyroscope Velocity: %.2f > 3", Double.valueOf(this.rl)));
+                                com.baidu.ar.h.b.c(TAG, "Rotation Vector" + String.format("Panic reset delayed due to ongoing motion (user is still shaking the device). Gyroscope Velocity: %.2f > 3", Double.valueOf(this.rC)));
                             }
                         }
                     }

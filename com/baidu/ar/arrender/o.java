@@ -1,30 +1,33 @@
 package com.baidu.ar.arrender;
+/* loaded from: classes10.dex */
+public class o extends com.baidu.ar.ability.c {
 
-import android.view.Surface;
-import com.baidu.ar.DuMixOutput;
-/* loaded from: classes12.dex */
-class o {
-    private DuMixOutput aa;
-    private Surface gk;
-    private String hZ;
+    /* renamed from: io  reason: collision with root package name */
+    private byte[] f1192io;
+    private int mHeight;
+    private int mWidth;
 
-    public o(DuMixOutput duMixOutput) {
-        this.aa = duMixOutput;
+    public void a(byte[] bArr) {
+        this.f1192io = bArr;
     }
 
-    public void N(String str) {
-        this.hZ = str;
+    public byte[] bZ() {
+        return this.f1192io;
     }
 
-    public String cb() {
-        return this.hZ;
+    public int getHeight() {
+        return this.mHeight;
     }
 
-    public Surface getSurface() {
-        return this.gk;
+    public int getWidth() {
+        return this.mWidth;
     }
 
-    public void setSurface(Surface surface) {
-        this.gk = surface;
+    public void setHeight(int i) {
+        this.mHeight = i;
+    }
+
+    public void setWidth(int i) {
+        this.mWidth = i;
     }
 }

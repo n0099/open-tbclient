@@ -11,15 +11,15 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class AutoScrollTextView extends TextView implements View.OnClickListener {
     public boolean isStarting;
-    private float jmI;
-    private float jmJ;
-    private float jmK;
-    private float jmL;
-    public boolean jmM;
-    private View.OnClickListener jmN;
+    private float jAk;
+    private float jAl;
+    private float jAm;
+    private float jAn;
+    public boolean jAo;
+    private View.OnClickListener jAp;
     private Paint paint;
     private float progress;
     private float step;
@@ -28,14 +28,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context) {
         super(context);
-        this.jmI = 0.0f;
-        this.jmJ = 0.0f;
+        this.jAk = 0.0f;
+        this.jAl = 0.0f;
         this.step = 0.0f;
         this.y = 0.0f;
-        this.jmK = 0.0f;
-        this.jmL = 0.0f;
+        this.jAm = 0.0f;
+        this.jAn = 0.0f;
         this.isStarting = false;
-        this.jmM = false;
+        this.jAo = false;
         this.paint = null;
         this.text = "";
         initView();
@@ -43,14 +43,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jmI = 0.0f;
-        this.jmJ = 0.0f;
+        this.jAk = 0.0f;
+        this.jAl = 0.0f;
         this.step = 0.0f;
         this.y = 0.0f;
-        this.jmK = 0.0f;
-        this.jmL = 0.0f;
+        this.jAm = 0.0f;
+        this.jAn = 0.0f;
         this.isStarting = false;
-        this.jmM = false;
+        this.jAo = false;
         this.paint = null;
         this.text = "";
         initView();
@@ -64,14 +64,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         this.paint = getPaint();
         this.paint.setColor(-1);
         this.text = getText().toString();
-        this.jmI = this.paint.measureText(this.text);
-        this.jmJ = getWidth();
-        if (this.jmJ == 0.0f && windowManager != null) {
-            this.jmJ = windowManager.getDefaultDisplay().getWidth();
+        this.jAk = this.paint.measureText(this.text);
+        this.jAl = getWidth();
+        if (this.jAl == 0.0f && windowManager != null) {
+            this.jAl = windowManager.getDefaultDisplay().getWidth();
         }
-        this.step = this.jmI;
-        this.jmK = this.jmI;
-        this.jmL = this.jmI * 2.0f;
+        this.step = this.jAk;
+        this.jAm = this.jAk;
+        this.jAn = this.jAk * 2.0f;
         this.y = getTextSize();
     }
 
@@ -95,12 +95,12 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         this.isStarting = savedState.isStarting;
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.baidu.tieba.frs.view.AutoScrollTextView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: Bq */
+            /* renamed from: Cf */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
@@ -142,12 +142,12 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         }
     }
 
-    public void cAC() {
+    public void cES() {
         this.isStarting = true;
         invalidate();
     }
 
-    public void aF(float f) {
+    public void aG(float f) {
         this.progress = f;
         setWidth((int) (3000.0f * (this.progress - 0.5f)));
     }
@@ -157,27 +157,27 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         if (!this.isStarting) {
             if (this.progress > 0.5f) {
                 setWidth((int) (3000.0f * (this.progress - 0.5f)));
-                canvas.drawText(this.text, this.jmK - this.step, getTextSize() + 2.7f, this.paint);
+                canvas.drawText(this.text, this.jAm - this.step, getTextSize() + 2.7f, this.paint);
                 return;
             }
             return;
         }
-        canvas.drawText(this.text, this.jmK - this.step, getTextSize() + 2.7f, this.paint);
+        canvas.drawText(this.text, this.jAm - this.step, getTextSize() + 2.7f, this.paint);
         this.step = TbadkApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds3) + this.step;
-        if (this.step > this.jmL) {
-            this.step = this.jmI;
+        if (this.step > this.jAn) {
+            this.step = this.jAk;
         }
         invalidate();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jmN != null) {
-            this.jmN.onClick(view);
+        if (this.jAp != null) {
+            this.jAp.onClick(view);
         }
     }
 
     public void setClickliner(View.OnClickListener onClickListener) {
-        this.jmN = onClickListener;
+        this.jAp = onClickListener;
     }
 }

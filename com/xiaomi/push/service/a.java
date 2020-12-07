@@ -10,38 +10,38 @@ import java.nio.channels.FileLock;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f5038a;
+    private static volatile a f4808a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f828a;
+    private Context f826a;
     private volatile String e;
     private volatile String f;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Object f829a = new Object();
+    private final Object f827a = new Object();
     private final Object b = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private final String f830a = "mipush_region";
+    private final String f828a = "mipush_region";
 
     /* renamed from: b  reason: collision with other field name */
-    private final String f831b = "mipush_country_code";
+    private final String f829b = "mipush_country_code";
     private final String c = "mipush_region.lock";
     private final String d = "mipush_country_code.lock";
 
     public a(Context context) {
-        this.f828a = context;
+        this.f826a = context;
     }
 
     public static a a(Context context) {
-        if (f5038a == null) {
+        if (f4808a == null) {
             synchronized (a.class) {
-                if (f5038a == null) {
-                    f5038a = new a(context);
+                if (f4808a == null) {
+                    f4808a = new a(context);
                 }
             }
         }
-        return f5038a;
+        return f4808a;
     }
 
     private String a(Context context, String str, String str2, Object obj) {
@@ -54,7 +54,7 @@ public class a {
             synchronized (obj) {
                 try {
                     File file2 = new File(context.getFilesDir(), str2);
-                    com.xiaomi.push.y.m593a(file2);
+                    com.xiaomi.push.y.m583a(file2);
                     randomAccessFile = new RandomAccessFile(file2, "rw");
                     try {
                         fileLock = randomAccessFile.getChannel().lock();
@@ -117,7 +117,7 @@ public class a {
                 }
             }
         } else {
-            com.xiaomi.channel.commonutils.logger.b.m57a("No ready file to get data from " + str);
+            com.xiaomi.channel.commonutils.logger.b.m47a("No ready file to get data from " + str);
         }
         return str3;
     }
@@ -129,7 +129,7 @@ public class a {
             try {
                 try {
                     File file = new File(context.getFilesDir(), str3);
-                    com.xiaomi.push.y.m593a(file);
+                    com.xiaomi.push.y.m583a(file);
                     randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
                         fileLock = randomAccessFile.getChannel().lock();
@@ -183,7 +183,7 @@ public class a {
 
     public String a() {
         if (TextUtils.isEmpty(this.e)) {
-            this.e = a(this.f828a, "mipush_region", "mipush_region.lock", this.f829a);
+            this.e = a(this.f826a, "mipush_region", "mipush_region.lock", this.f827a);
         }
         return this.e;
     }
@@ -193,12 +193,12 @@ public class a {
             return;
         }
         this.e = str;
-        a(this.f828a, this.e, "mipush_region", "mipush_region.lock", this.f829a);
+        a(this.f826a, this.e, "mipush_region", "mipush_region.lock", this.f827a);
     }
 
     public String b() {
         if (TextUtils.isEmpty(this.f)) {
-            this.f = a(this.f828a, "mipush_country_code", "mipush_country_code.lock", this.b);
+            this.f = a(this.f826a, "mipush_country_code", "mipush_country_code.lock", this.b);
         }
         return this.f;
     }
@@ -208,6 +208,6 @@ public class a {
             return;
         }
         this.f = str;
-        a(this.f828a, this.f, "mipush_country_code", "mipush_country_code.lock", this.b);
+        a(this.f826a, this.f, "mipush_country_code", "mipush_country_code.lock", this.b);
     }
 }

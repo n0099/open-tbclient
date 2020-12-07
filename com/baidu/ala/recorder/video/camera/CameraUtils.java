@@ -13,14 +13,14 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
+import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @TargetApi(16)
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class CameraUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final String TAG;

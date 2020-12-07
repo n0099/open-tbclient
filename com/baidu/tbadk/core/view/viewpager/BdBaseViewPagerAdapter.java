@@ -16,14 +16,14 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class BdBaseViewPagerAdapter<T extends q, V extends a> extends PagerAdapter implements View.OnClickListener {
     private Context context;
-    private HashMap<BdUniqueId, c<T, V>> eZR = new HashMap<>();
+    private HashMap<BdUniqueId, c<T, V>> fho = new HashMap<>();
     private List<q> mListData = new ArrayList();
-    private List<View> eZS = new ArrayList();
+    private List<View> fhp = new ArrayList();
     private int mChildCount = 0;
 
     public void a(Context context, c<T, V> cVar) {
         if (cVar != null && cVar.getType() != null) {
-            this.eZR.put(cVar.getType(), cVar);
+            this.fho.put(cVar.getType(), cVar);
         }
     }
 
@@ -34,9 +34,9 @@ public class BdBaseViewPagerAdapter<T extends q, V extends a> extends PagerAdapt
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         c<T, V> cVar;
-        a bz = bz(view);
-        if (bz != null && bz.qT() != null && bz.qT().getType() != null && (cVar = this.eZR.get(bz.qT().getType())) != null && cVar.btd() != null) {
-            cVar.btd().c(bz, bz.qT());
+        a bC = bC(view);
+        if (bC != null && bC.qV() != null && bC.qV().getType() != null && (cVar = this.fho.get(bC.qV().getType())) != null && cVar.bwD() != null) {
+            cVar.bwD().c(bC, bC.qV());
         }
     }
 
@@ -44,8 +44,8 @@ public class BdBaseViewPagerAdapter<T extends q, V extends a> extends PagerAdapt
         if (list != null && list.size() > 0) {
             destory();
             this.mListData = list;
-            if (this.eZS == null) {
-                this.eZS = new ArrayList();
+            if (this.fhp == null) {
+                this.fhp = new ArrayList();
             }
             int i = 0;
             while (true) {
@@ -55,7 +55,7 @@ public class BdBaseViewPagerAdapter<T extends q, V extends a> extends PagerAdapt
                     if (qVar != null) {
                         View b = b(qVar);
                         b.setOnClickListener(this);
-                        this.eZS.add(b);
+                        this.fhp.add(b);
                     }
                     i = i2 + 1;
                 } else {
@@ -66,7 +66,7 @@ public class BdBaseViewPagerAdapter<T extends q, V extends a> extends PagerAdapt
     }
 
     private View b(q qVar) {
-        c<T, V> cVar = this.eZR.get(qVar.getType());
+        c<T, V> cVar = this.fho.get(qVar.getType());
         if (cVar != null) {
             V E = cVar.E(null);
             if (BdBaseApplication.getInst().isDebugMode()) {
@@ -109,7 +109,7 @@ public class BdBaseViewPagerAdapter<T extends q, V extends a> extends PagerAdapt
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         View view;
-        if (this.eZS.size() > 0 && i >= 0 && i < this.eZS.size() && (view = this.eZS.get(i)) != null) {
+        if (this.fhp.size() > 0 && i >= 0 && i < this.fhp.size() && (view = this.fhp.get(i)) != null) {
             viewGroup.removeView(view);
         }
     }
@@ -119,21 +119,21 @@ public class BdBaseViewPagerAdapter<T extends q, V extends a> extends PagerAdapt
         if (i >= this.mListData.size()) {
             return null;
         }
-        View qS = qS(i);
-        if (qS != null && qS.getParent() != viewGroup) {
-            viewGroup.addView(qS);
-            return qS;
+        View rt = rt(i);
+        if (rt != null && rt.getParent() != viewGroup) {
+            viewGroup.addView(rt);
+            return rt;
         }
-        return qS;
+        return rt;
     }
 
-    public View qS(int i) {
-        if (i >= this.eZS.size() || i >= this.mListData.size()) {
+    public View rt(int i) {
+        if (i >= this.fhp.size() || i >= this.mListData.size()) {
             return null;
         }
-        View view = this.eZS.get(i);
-        a bz = bz(view);
-        if (bz != null && bz.qT() == null) {
+        View view = this.fhp.get(i);
+        a bC = bC(view);
+        if (bC != null && bC.qV() == null) {
             a((a) view.getTag(), this.mListData.get(i));
             return view;
         }
@@ -142,13 +142,13 @@ public class BdBaseViewPagerAdapter<T extends q, V extends a> extends PagerAdapt
 
     private void a(a aVar, q qVar) {
         c<T, V> cVar;
-        if (aVar != null && qVar != null && (cVar = this.eZR.get(qVar.getType())) != null) {
+        if (aVar != null && qVar != null && (cVar = this.fho.get(qVar.getType())) != null) {
             aVar.a(qVar);
             cVar.a(null, aVar, qVar);
         }
     }
 
-    private a bz(View view) {
+    private a bC(View view) {
         if (view == null || !(view.getTag() instanceof a)) {
             return null;
         }
@@ -162,15 +162,15 @@ public class BdBaseViewPagerAdapter<T extends q, V extends a> extends PagerAdapt
 
     public void destory() {
         c<T, V> cVar;
-        if (this.eZS != null) {
-            for (View view : this.eZS) {
-                a bz = bz(view);
-                if (bz != null && bz.qT() != null && (cVar = this.eZR.get(bz.qT().getType())) != null) {
-                    cVar.b(bz, bz.qT());
+        if (this.fhp != null) {
+            for (View view : this.fhp) {
+                a bC = bC(view);
+                if (bC != null && bC.qV() != null && (cVar = this.fho.get(bC.qV().getType())) != null) {
+                    cVar.b(bC, bC.qV());
                 }
             }
-            this.eZS.clear();
-            this.eZS = null;
+            this.fhp.clear();
+            this.fhp = null;
         }
         if (this.mListData != null) {
             this.mListData.clear();
@@ -179,8 +179,8 @@ public class BdBaseViewPagerAdapter<T extends q, V extends a> extends PagerAdapt
 
     /* loaded from: classes.dex */
     public static class a {
-        public int ajv = 3;
-        private q eZT = null;
+        public int aku = 3;
+        private q fhq = null;
         private View view;
 
         public a(View view) {
@@ -196,12 +196,12 @@ public class BdBaseViewPagerAdapter<T extends q, V extends a> extends PagerAdapt
             return this.view;
         }
 
-        public q qT() {
-            return this.eZT;
+        public q qV() {
+            return this.fhq;
         }
 
         public void a(q qVar) {
-            this.eZT = qVar;
+            this.fhq = qVar;
         }
 
         public void onSkinTypeChanged(int i) {

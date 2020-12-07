@@ -6,77 +6,77 @@ import android.support.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes14.dex */
 public interface a {
-    public static final AtomicReference<a> cft = new AtomicReference<>();
+    public static final AtomicReference<a> clZ = new AtomicReference<>();
 
     boolean a(String str, com.baidu.prologue.c.b bVar);
 
-    @NonNull
-    Context aba();
-
-    @NonNull
-    String abb();
-
-    @NonNull
-    String abc();
-
-    @NonNull
-    String abd();
-
-    @NonNull
-    String abe();
-
-    @NonNull
-    String abf();
-
-    @NonNull
-    String abg();
-
-    @NonNull
-    String abh();
-
-    @NonNull
-    String abi();
-
-    @NonNull
-    String abj();
-
-    boolean abk();
-
-    @NonNull
-    String abl();
-
-    boolean abm();
-
-    String abn();
-
-    String abo();
-
-    String[] abp();
-
-    String abq();
-
-    String abr();
+    @IdRes
+    int aeA();
 
     @IdRes
-    int abs();
+    int aeB();
 
     @IdRes
-    int abt();
+    int aeC();
 
-    @IdRes
-    int abu();
+    String aeD();
 
-    String abv();
+    int aeE();
 
-    int abw();
+    String aeF();
 
-    String abx();
+    @NonNull
+    Context aei();
+
+    @NonNull
+    String aej();
+
+    @NonNull
+    String aek();
+
+    @NonNull
+    String ael();
+
+    @NonNull
+    String aem();
+
+    @NonNull
+    String aen();
+
+    @NonNull
+    String aeo();
+
+    @NonNull
+    String aep();
+
+    @NonNull
+    String aeq();
+
+    @NonNull
+    String aer();
+
+    boolean aes();
+
+    @NonNull
+    String aet();
+
+    boolean aeu();
+
+    String aev();
+
+    String aew();
+
+    String[] aex();
+
+    String aey();
+
+    String aez();
 
     @NonNull
     String androidId();
 
     @NonNull
-    String ry();
+    String rA();
 
     @NonNull
     String userAgent();

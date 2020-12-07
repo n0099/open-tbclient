@@ -4,7 +4,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class TextOptions extends OverlayOptions {
     public static final int ALIGN_BOTTOM = 16;
     public static final int ALIGN_CENTER_HORIZONTAL = 4;
@@ -14,7 +14,7 @@ public final class TextOptions extends OverlayOptions {
     public static final int ALIGN_TOP = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    int f2047a;
+    int f2049a;
     Bundle c;
     private String d;
     private LatLng e;
@@ -32,9 +32,9 @@ public final class TextOptions extends OverlayOptions {
     public Overlay a() {
         Text text = new Text();
         text.B = this.b;
-        text.A = this.f2047a;
+        text.A = this.f2049a;
         text.C = this.c;
-        text.f2046a = this.d;
+        text.f2048a = this.d;
         text.b = this.e;
         text.c = this.f;
         text.d = this.g;
@@ -113,7 +113,7 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2047a;
+        return this.f2049a;
     }
 
     public boolean isVisible() {
@@ -152,7 +152,7 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public TextOptions zIndex(int i) {
-        this.f2047a = i;
+        this.f2049a = i;
         return this;
     }
 }

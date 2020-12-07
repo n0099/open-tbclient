@@ -8,15 +8,14 @@ import android.text.TextUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.ServiceManager;
-import com.baidu.webkit.internal.ETAG;
 import java.io.FileInputStream;
 import java.net.NetworkInterface;
 import java.net.URLEncoder;
 import java.util.Collections;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class SapiDeviceUtils {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class DeviceCrypto implements NoProguard {
         public static String base64Encode(byte[] bArr) {
             int i;
@@ -54,7 +53,7 @@ public class SapiDeviceUtils {
                 }
                 int i6 = length % 3;
                 for (int i7 = 0; i7 < i6; i7++) {
-                    sb.append(ETAG.EQUAL);
+                    sb.append("=");
                 }
                 return sb.toString();
             }

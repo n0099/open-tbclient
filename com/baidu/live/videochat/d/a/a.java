@@ -17,22 +17,22 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.videochat.d.c;
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
-    private Handler bHm;
-    private b bHn;
-    private HttpMessageListener bst;
+    private Handler bMu;
+    private b bMv;
+    private HttpMessageListener bxC;
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.bst = new HttpMessageListener(1021219) { // from class: com.baidu.live.videochat.d.a.a.1
+        this.bxC = new HttpMessageListener(1021219) { // from class: com.baidu.live.videochat.d.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if ((!httpResponsedMessage.isSuccess() || httpResponsedMessage.getError() != 0) && a.this.bHn != null) {
-                    a.this.bHm.postDelayed(new Runnable() { // from class: com.baidu.live.videochat.d.a.a.1.1
+                if ((!httpResponsedMessage.isSuccess() || httpResponsedMessage.getError() != 0) && a.this.bMv != null) {
+                    a.this.bMu.postDelayed(new Runnable() { // from class: com.baidu.live.videochat.d.a.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (a.this.bHn != null) {
-                                a.this.sendMessage(a.this.b(a.this.bHn));
+                            if (a.this.bMv != null) {
+                                a.this.sendMessage(a.this.b(a.this.bMv));
                             }
                         }
                     }, IMConnection.RETRY_DELAY_TIMES);
@@ -44,8 +44,8 @@ public class a extends BdBaseModel {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.bst);
-        this.bHm = new Handler();
+        MessageManager.getInstance().registerListener(this.bxC);
+        this.bMu = new Handler();
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -60,10 +60,10 @@ public class a extends BdBaseModel {
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.bHn = bVar;
+            this.bMv = bVar;
             MessageManager.getInstance().removeMessage(1021219, getUniqueId());
             cancelMessage();
-            this.bHm.removeCallbacksAndMessages(null);
+            this.bMu.removeCallbacksAndMessages(null);
             sendMessage(b(bVar));
         }
     }
@@ -72,20 +72,20 @@ public class a extends BdBaseModel {
     public HttpMessage b(b bVar) {
         HttpMessage httpMessage = new HttpMessage(1021219);
         httpMessage.addParam("appid", AccountManager.getAppid(TbadkCoreApplication.getInst().getContext()));
-        httpMessage.addParam("source", c.bwN);
-        httpMessage.addParam(LogConfig.LOG_ROOMID, bVar.bwo);
+        httpMessage.addParam("source", c.bBV);
+        httpMessage.addParam(LogConfig.LOG_ROOMID, bVar.bBy);
         httpMessage.addParam("action", bVar.action);
-        httpMessage.addParam("answer_type", bVar.bwp);
-        httpMessage.addParam("from_userid", bVar.bwq);
-        httpMessage.addParam("role", bVar.bwr);
-        httpMessage.addParam("user_states", bVar.bws);
+        httpMessage.addParam("answer_type", bVar.bBz);
+        httpMessage.addParam("from_userid", bVar.bBA);
+        httpMessage.addParam("role", bVar.bBB);
+        httpMessage.addParam("user_states", bVar.bBC);
         httpMessage.addParam("ext", bVar.ext != null ? bVar.ext.toString() : "");
         return httpMessage;
     }
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(1021219);
-        MessageManager.getInstance().unRegisterListener(this.bst);
-        this.bHm.removeCallbacksAndMessages(null);
+        MessageManager.getInstance().unRegisterListener(this.bxC);
+        this.bMu.removeCallbacksAndMessages(null);
     }
 }

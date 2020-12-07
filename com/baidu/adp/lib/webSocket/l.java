@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private int QT;
-    private int QU;
-    private boolean QV;
-    private boolean QW;
-    private int QX;
-    private int QY;
-    private boolean QZ;
-    private String Qj;
-    private boolean Ra;
+    private int RK;
+    private int RL;
+    private boolean RO;
+    private boolean RP;
+    private int RQ;
+    private int RR;
+    private boolean RT;
+    private boolean RU;
+    private String Rd;
 
     public l() {
-        this.Qj = null;
-        this.QT = 32768;
-        this.QU = 131072;
-        this.QV = false;
-        this.QW = true;
-        this.QX = 30000;
-        this.QY = 30000;
-        this.QZ = true;
-        this.Ra = true;
-        this.Qj = null;
+        this.Rd = null;
+        this.RK = 32768;
+        this.RL = 131072;
+        this.RO = false;
+        this.RP = true;
+        this.RQ = 30000;
+        this.RR = 30000;
+        this.RT = true;
+        this.RU = true;
+        this.Rd = null;
     }
 
     public l(l lVar) {
-        this.Qj = null;
-        this.QT = lVar.QT;
-        this.QU = lVar.QU;
-        this.QV = lVar.QV;
-        this.QW = lVar.QW;
-        this.QX = lVar.QX;
-        this.QY = lVar.QY;
-        this.QZ = lVar.QZ;
-        this.Ra = lVar.Ra;
-        this.Qj = lVar.Qj;
+        this.Rd = null;
+        this.RK = lVar.RK;
+        this.RL = lVar.RL;
+        this.RO = lVar.RO;
+        this.RP = lVar.RP;
+        this.RQ = lVar.RQ;
+        this.RR = lVar.RR;
+        this.RT = lVar.RT;
+        this.RU = lVar.RU;
+        this.Rd = lVar.Rd;
     }
 
     public boolean oQ() {
-        return this.QV;
+        return this.RO;
     }
 
     public int oR() {
-        return this.QT;
+        return this.RK;
     }
 
     public int oS() {
-        return this.QU;
+        return this.RL;
     }
 
-    public boolean getTcpNoDelay() {
-        return this.QW;
-    }
-
-    public int oT() {
-        return this.QX;
+    public boolean oT() {
+        return this.RP;
     }
 
     public int oU() {
-        return this.QY;
+        return this.RQ;
     }
 
-    public boolean oV() {
-        return this.QZ;
+    public int oV() {
+        return this.RR;
     }
 
     public boolean oW() {
-        return this.Ra;
+        return this.RT;
     }
 
-    public String oX() {
-        return this.Qj;
+    public boolean oX() {
+        return this.RU;
     }
 
-    public void cl(String str) {
-        this.Qj = str;
+    public String oY() {
+        return this.Rd;
+    }
+
+    public void co(String str) {
+        this.Rd = str;
     }
 }

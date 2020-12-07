@@ -1,10 +1,10 @@
 package com.baidu.swan.games.utils.so;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 final class a implements b {
     private a() {
     }
 
-    public static a aXf() {
+    public static a bak() {
         return new a();
     }
 

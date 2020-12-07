@@ -3,33 +3,33 @@ package com.baidu.swan.games.aa;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a {
-    private static final ReentrantLock dYd = new ReentrantLock();
-    private static volatile a dYe;
-    private List<c> dRV = new ArrayList(3);
-    private d dRd;
+    private static final ReentrantLock efc = new ReentrantLock();
+    private static volatile a efd;
+    private List<c> dYT = new ArrayList(3);
+    private d dYb;
 
     private a() {
     }
 
-    public static a aWI() {
-        if (dYe == null) {
+    public static a aZN() {
+        if (efd == null) {
             synchronized (a.class) {
-                if (dYe == null) {
-                    dYe = new a();
+                if (efd == null) {
+                    efd = new a();
                 }
             }
         }
-        return dYe;
+        return efd;
     }
 
     public void a(d dVar) {
-        this.dRd = dVar;
-        aWJ();
+        this.dYb = dVar;
+        aZO();
     }
 
-    public void as(String str, boolean z) {
+    public void at(String str, boolean z) {
         com.baidu.swan.apps.console.c.i("SwanGameBundleUpdateManager", String.format("sendJSMessage : eventType = %s; hasUpdate = %s", str, Boolean.valueOf(z)));
         c cVar = new c(str);
         cVar.hasUpdate = z;
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.dRd = null;
-        this.dRV.clear();
+        this.dYb = null;
+        this.dYT.clear();
     }
 
     private void a(c cVar) {
-        dYd.lock();
+        efc.lock();
         try {
-            if (this.dRd != null) {
-                this.dRd.c(cVar);
+            if (this.dYb != null) {
+                this.dYb.c(cVar);
             } else {
-                this.dRV.add(cVar);
+                this.dYT.add(cVar);
             }
         } finally {
-            dYd.unlock();
+            efc.unlock();
         }
     }
 
-    private void aWJ() {
-        if (!this.dRV.isEmpty() && this.dRd != null) {
-            dYd.lock();
+    private void aZO() {
+        if (!this.dYT.isEmpty() && this.dYb != null) {
+            efc.lock();
             try {
-                for (c cVar : this.dRV) {
-                    this.dRd.c(cVar);
+                for (c cVar : this.dYT) {
+                    this.dYb.c(cVar);
                 }
-                this.dRV.clear();
+                this.dYT.clear();
             } finally {
-                dYd.unlock();
+                efc.unlock();
             }
         }
     }

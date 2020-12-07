@@ -28,130 +28,130 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c extends Dialog {
-    private AlaStickerTabHost gdK;
-    private com.baidu.tieba.ala.alaar.sticker.view.a gdL;
-    private com.baidu.tieba.ala.alaar.sticker.view.a gdM;
-    private com.baidu.tieba.ala.alaar.sticker.view.a gdN;
-    private LinkedList<com.baidu.live.view.tabhost.a> gdO;
-    private BdUniqueId gdP;
-    private BdUniqueId gdQ;
-    a gdR;
-    private HttpMessageListener gdS;
-    private b gdb;
-    private HttpMessageListener gdx;
+    private HttpMessageListener glG;
+    private AlaStickerTabHost glT;
+    private com.baidu.tieba.ala.alaar.sticker.view.a glU;
+    private com.baidu.tieba.ala.alaar.sticker.view.a glV;
+    private com.baidu.tieba.ala.alaar.sticker.view.a glW;
+    private LinkedList<com.baidu.live.view.tabhost.a> glX;
+    private BdUniqueId glY;
+    private BdUniqueId glZ;
+    private b glk;
+    a gma;
+    private HttpMessageListener gmb;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void bNr();
+        void bRc();
 
-        void bNs();
+        void bRd();
 
-        void bNt();
+        void bRe();
     }
 
     /* loaded from: classes4.dex */
     public interface b {
         void a(FuFaceItem fuFaceItem, String str);
 
-        boolean bNj();
+        boolean bQU();
 
-        void bNk();
+        void bQV();
 
         void onCompleted();
     }
 
     public c(@NonNull Context context, b bVar) {
         super(context);
-        this.gdO = new LinkedList<>();
-        this.gdR = new a() { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.2
+        this.glX = new LinkedList<>();
+        this.gma = new a() { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.2
             @Override // com.baidu.tieba.ala.alaar.sticker.view.c.a
-            public void bNr() {
-                com.baidu.tieba.ala.alaar.sticker.a.g.a(c.this.gdQ, "text", 1, 50);
+            public void bRc() {
+                com.baidu.tieba.ala.alaar.sticker.a.g.a(c.this.glZ, "text", 1, 50);
             }
 
             @Override // com.baidu.tieba.ala.alaar.sticker.view.c.a
-            public void bNs() {
-                com.baidu.tieba.ala.alaar.sticker.a.g.a(c.this.gdP, SocialConstants.PARAM_AVATAR_URI, 1, 50);
+            public void bRd() {
+                com.baidu.tieba.ala.alaar.sticker.a.g.a(c.this.glY, SocialConstants.PARAM_AVATAR_URI, 1, 50);
             }
 
             @Override // com.baidu.tieba.ala.alaar.sticker.view.c.a
-            public void bNt() {
-                com.baidu.tieba.ala.alaar.sticker.a.g.PB();
+            public void bRe() {
+                com.baidu.tieba.ala.alaar.sticker.a.g.RV();
             }
         };
-        this.gdx = new HttpMessageListener(1021155) { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.3
+        this.glG = new HttpMessageListener(1021155) { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (!(httpResponsedMessage instanceof GetArStickerListHttpResponseMessage) || httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                    if (c.this.gdN != null) {
-                        c.this.gdN.setDatas(null);
+                    if (c.this.glW != null) {
+                        c.this.glW.setDatas(null);
                         return;
                     }
                     return;
                 }
                 GetArStickerListHttpResponseMessage getArStickerListHttpResponseMessage = (GetArStickerListHttpResponseMessage) httpResponsedMessage;
-                if (c.this.gdN != null) {
-                    c.this.gdN.setDatas(getArStickerListHttpResponseMessage.gbJ);
+                if (c.this.glW != null) {
+                    c.this.glW.setDatas(getArStickerListHttpResponseMessage.gjU);
                 }
             }
         };
-        this.gdS = new HttpMessageListener(1021156) { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.4
+        this.gmb = new HttpMessageListener(1021156) { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (!(httpResponsedMessage instanceof GetPicTxtStickerListHttpResponseMessage) || httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                    if (c.this.gdL != null) {
-                        c.this.gdL.setDatas(null);
+                    if (c.this.glU != null) {
+                        c.this.glU.setDatas(null);
                     }
-                    if (c.this.gdM != null) {
-                        c.this.gdM.setDatas(null);
+                    if (c.this.glV != null) {
+                        c.this.glV.setDatas(null);
                         return;
                     }
                     return;
                 }
                 GetPicTxtStickerListHttpResponseMessage getPicTxtStickerListHttpResponseMessage = (GetPicTxtStickerListHttpResponseMessage) httpResponsedMessage;
-                if (getPicTxtStickerListHttpResponseMessage.getOrginalMessage() != null && getPicTxtStickerListHttpResponseMessage.getOrginalMessage().getTag() == c.this.gdP && c.this.gdL != null) {
-                    c.this.gdL.setDatas(getPicTxtStickerListHttpResponseMessage.gbL);
+                if (getPicTxtStickerListHttpResponseMessage.getOrginalMessage() != null && getPicTxtStickerListHttpResponseMessage.getOrginalMessage().getTag() == c.this.glY && c.this.glU != null) {
+                    c.this.glU.setDatas(getPicTxtStickerListHttpResponseMessage.gjW);
                 }
-                if (getPicTxtStickerListHttpResponseMessage.getOrginalMessage() != null && getPicTxtStickerListHttpResponseMessage.getOrginalMessage().getTag() == c.this.gdQ && c.this.gdM != null) {
-                    c.this.gdM.setDatas(getPicTxtStickerListHttpResponseMessage.gbL);
+                if (getPicTxtStickerListHttpResponseMessage.getOrginalMessage() != null && getPicTxtStickerListHttpResponseMessage.getOrginalMessage().getTag() == c.this.glZ && c.this.glV != null) {
+                    c.this.glV.setDatas(getPicTxtStickerListHttpResponseMessage.gjW);
                 }
             }
         };
-        this.gdb = bVar;
+        this.glk = bVar;
         getContext().setTheme(a.i.theme_operation_portrait_dialog);
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
-        bNp();
+        bRa();
         setContentView(a.g.ala_master_sticker_layout);
         ViewGroup.LayoutParams layoutParams = findViewById(a.f.ala_master_sticker_root_view).getLayoutParams();
         if (layoutParams != null) {
             layoutParams.width = BdUtilHelper.getScreenDimensions(getContext())[0];
         }
-        this.gdK = (AlaStickerTabHost) findViewById(a.f.ala_master_sticker_view_pager);
-        bNq();
-        MessageManager.getInstance().registerListener(this.gdS);
-        MessageManager.getInstance().registerListener(this.gdx);
+        this.glT = (AlaStickerTabHost) findViewById(a.f.ala_master_sticker_view_pager);
+        bRb();
+        MessageManager.getInstance().registerListener(this.gmb);
+        MessageManager.getInstance().registerListener(this.glG);
     }
 
     @Override // android.app.Dialog
     public void show() {
         super.show();
-        if (!ListUtils.isEmpty(this.gdO)) {
+        if (!ListUtils.isEmpty(this.glX)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.gdO.size()) {
-                    com.baidu.live.view.tabhost.a aVar = this.gdO.get(i2);
-                    if (this.gdM == aVar) {
-                        FN("texttab_show");
-                    } else if (this.gdL == aVar) {
-                        FN("pictab_show");
-                    } else if (this.gdN == aVar) {
-                        FN("arstab_show");
+                if (i2 < this.glX.size()) {
+                    com.baidu.live.view.tabhost.a aVar = this.glX.get(i2);
+                    if (this.glV == aVar) {
+                        GC("texttab_show");
+                    } else if (this.glU == aVar) {
+                        GC("pictab_show");
+                    } else if (this.glW == aVar) {
+                        GC("arstab_show");
                     }
                     i = i2 + 1;
                 } else {
@@ -163,33 +163,33 @@ public class c extends Dialog {
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
-        if (this.gdb != null) {
-            this.gdb.onCompleted();
+        if (this.glk != null) {
+            this.glk.onCompleted();
         }
         super.dismiss();
     }
 
-    private void FN(String str) {
+    private void GC(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "sticker");
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Page.AUTHOR_LIVE_ROOM, str).setContentExt(jSONObject));
+        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "author_liveroom", str).setContentExt(jSONObject));
     }
 
-    public void bNo() {
-        com.baidu.tieba.ala.alaar.sticker.a.g.a(this.gdP, SocialConstants.PARAM_AVATAR_URI, 1, 50);
-        com.baidu.tieba.ala.alaar.sticker.a.g.a(this.gdQ, "text", 1, 50);
+    public void bQZ() {
+        com.baidu.tieba.ala.alaar.sticker.a.g.a(this.glY, SocialConstants.PARAM_AVATAR_URI, 1, 50);
+        com.baidu.tieba.ala.alaar.sticker.a.g.a(this.glZ, "text", 1, 50);
     }
 
     public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.gdS);
-        MessageManager.getInstance().unRegisterListener(this.gdx);
+        MessageManager.getInstance().unRegisterListener(this.gmb);
+        MessageManager.getInstance().unRegisterListener(this.glG);
     }
 
-    private void bNp() {
+    private void bRa() {
         Window window = getWindow();
         if (window != null) {
             WindowManager.LayoutParams attributes = window.getAttributes();
@@ -198,25 +198,25 @@ public class c extends Dialog {
         }
     }
 
-    private void bNq() {
-        this.gdL = new com.baidu.tieba.ala.alaar.sticker.view.a(getContext(), 1, this.gdb, this.gdR);
-        this.gdO.add(this.gdL);
-        this.gdM = new com.baidu.tieba.ala.alaar.sticker.view.a(getContext(), 2, this.gdb, this.gdR);
-        this.gdO.add(this.gdM);
-        if (com.baidu.live.aa.a.Ph().bsh != null && com.baidu.live.aa.a.Ph().bsh.aNK != null && com.baidu.live.aa.a.Ph().bsh.aNK.Eg()) {
-            this.gdN = new com.baidu.tieba.ala.alaar.sticker.view.a(getContext(), 3, this.gdb, this.gdR);
-            this.gdO.add(this.gdN);
-            com.baidu.tieba.ala.alaar.sticker.a.g.PB();
+    private void bRb() {
+        this.glU = new com.baidu.tieba.ala.alaar.sticker.view.a(getContext(), 1, this.glk, this.gma);
+        this.glX.add(this.glU);
+        this.glV = new com.baidu.tieba.ala.alaar.sticker.view.a(getContext(), 2, this.glk, this.gma);
+        this.glX.add(this.glV);
+        if (com.baidu.live.ae.a.RB().bxq != null && com.baidu.live.ae.a.RB().bxq.aQK != null && com.baidu.live.ae.a.RB().bxq.aQK.FR()) {
+            this.glW = new com.baidu.tieba.ala.alaar.sticker.view.a(getContext(), 3, this.glk, this.gma);
+            this.glX.add(this.glW);
+            com.baidu.tieba.ala.alaar.sticker.a.g.RV();
         }
-        this.gdK.setData(this.gdO);
-        this.gdK.setPageSelectedListener(new AlaStickerTabHost.b() { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.1
+        this.glT.setData(this.glX);
+        this.glT.setPageSelectedListener(new AlaStickerTabHost.b() { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.1
             @Override // com.baidu.tieba.ala.alaar.sticker.view.AlaStickerTabHost.b
             public void onPageSelected(int i) {
             }
         });
-        this.gdP = BdUniqueId.gen();
-        this.gdQ = BdUniqueId.gen();
-        com.baidu.tieba.ala.alaar.sticker.a.g.a(this.gdP, SocialConstants.PARAM_AVATAR_URI, 1, 50);
-        com.baidu.tieba.ala.alaar.sticker.a.g.a(this.gdQ, "text", 1, 50);
+        this.glY = BdUniqueId.gen();
+        this.glZ = BdUniqueId.gen();
+        com.baidu.tieba.ala.alaar.sticker.a.g.a(this.glY, SocialConstants.PARAM_AVATAR_URI, 1, 50);
+        com.baidu.tieba.ala.alaar.sticker.a.g.a(this.glZ, "text", 1, 50);
     }
 }

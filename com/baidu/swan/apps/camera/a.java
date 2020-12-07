@@ -8,7 +8,7 @@ import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
+import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.swan.apps.ap.ag;
 import com.baidu.swan.apps.b;
@@ -24,10 +24,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.camera.b.b czv;
+    private com.baidu.swan.apps.camera.b.b cGn;
     private Timer mTimer;
 
     private a() {
@@ -35,13 +35,13 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.camera.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0403a {
-        private static final a czy = new a();
+    /* loaded from: classes25.dex */
+    public static class C0415a {
+        private static final a cGq = new a();
     }
 
-    public static a ajH() {
-        return C0403a.czy;
+    public static a amP() {
+        return C0415a.cGq;
     }
 
     public boolean a(byte[] bArr, String str, int i, int i2, boolean z) {
@@ -97,46 +97,46 @@ public class a {
     }
 
     public void a(int i, final com.baidu.swan.apps.camera.b.b bVar) {
-        this.czv = bVar;
+        this.cGn = bVar;
         this.mTimer = new Timer();
         this.mTimer.schedule(new TimerTask() { // from class: com.baidu.swan.apps.camera.a.1
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 if (bVar != null) {
-                    bVar.ajK();
+                    bVar.amS();
                 }
-                a.this.ajI();
+                a.this.amQ();
             }
         }, i);
     }
 
-    public void ajI() {
-        this.czv = null;
+    public void amQ() {
+        this.cGn = null;
         if (this.mTimer != null) {
             this.mTimer.cancel();
         }
     }
 
     public void cancelTimer() {
-        if (this.czv != null) {
-            this.czv.cancel();
+        if (this.cGn != null) {
+            this.cGn.cancel();
         }
-        ajI();
+        amQ();
     }
 
-    public void ew(boolean z) {
+    public void eL(boolean z) {
         if (z) {
             cancelTimer();
         }
     }
 
-    public void j(String str, String str2, boolean z) {
-        if (ag.un("1.13.0")) {
+    public void k(String str, String str2, boolean z) {
+        if (ag.uU("1.13.0")) {
             HashMap hashMap = new HashMap();
             hashMap.put("wvID", str);
             hashMap.put("cameraId", str2);
             hashMap.put("eType", z ? BdStatsConstant.StatsType.ERROR : "stop");
-            f.azg().b(new com.baidu.swan.apps.event.a.b(PixelReadParams.DEFAULT_FILTER_ID, hashMap));
+            f.aCp().b(new com.baidu.swan.apps.event.a.b(PixelReadParams.DEFAULT_FILTER_ID, hashMap));
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -149,14 +149,14 @@ public class a {
                 e.printStackTrace();
             }
         }
-        com.baidu.swan.apps.view.b.b.a.b(str, str2, PixelReadParams.DEFAULT_FILTER_ID, jSONObject.optString("eType"), jSONObject);
+        com.baidu.swan.apps.view.b.b.a.c(str, str2, PixelReadParams.DEFAULT_FILTER_ID, jSONObject.optString("eType"), jSONObject);
     }
 
-    public boolean bI(Context context) {
+    public boolean co(Context context) {
         return Build.VERSION.SDK_INT < 23 || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE) == 0;
     }
 
-    public boolean bJ(Context context) {
+    public boolean cp(Context context) {
         return Build.VERSION.SDK_INT < 23 || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0;
     }
 

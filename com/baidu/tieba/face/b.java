@@ -19,16 +19,15 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.coreExtra.data.u;
 import com.baidu.tieba.R;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    private static final KeyEvent iuf = new KeyEvent(0, 67);
+    private static final KeyEvent iEX = new KeyEvent(0, 67);
 
     /* loaded from: classes.dex */
     public interface a {
-        void b(SpannableStringBuilder spannableStringBuilder);
+        void d(SpannableStringBuilder spannableStringBuilder);
     }
 
     public static void a(final Context context, final u uVar, final EditText editText) {
@@ -44,7 +43,7 @@ public class b {
                         if (selectionStart < 0) {
                             selectionStart = 0;
                         }
-                        b.a(context, editText, new SpannableStringBuilder(uVar.getName()), selectionStart, aVar, uVar.buc());
+                        b.a(context, editText, new SpannableStringBuilder(uVar.getName()), selectionStart, aVar, uVar.bxC());
                     }
                 }
             }, 0, 0, BdUniqueId.gen(), new Object[0]);
@@ -54,8 +53,8 @@ public class b {
     public static void b(final Context context, u uVar, final EditText editText) {
         if (uVar != null && editText != null && uVar.getName() != null) {
             String name = uVar.getName();
-            final EmotionGroupType buc = uVar.buc();
-            if (buc == EmotionGroupType.LOCAL || buc == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
+            final EmotionGroupType bxC = uVar.bxC();
+            if (bxC == EmotionGroupType.LOCAL || bxC == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
                 if (name != null) {
                     final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(name);
                     c.mS().a(name, 20, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.2
@@ -69,7 +68,7 @@ public class b {
                                 if (selectionStart < 0) {
                                     selectionStart = 0;
                                 }
-                                b.a(context, editText, spannableStringBuilder, selectionStart, aVar, buc);
+                                b.a(context, editText, spannableStringBuilder, selectionStart, aVar, bxC);
                             }
                         }
                     }, 0, 0, BdUniqueId.gen(), null, name, false, null);
@@ -107,15 +106,15 @@ public class b {
         CustomResponsedMessage runTask;
         if (context != null && !TextUtils.isEmpty(str) && aVar != null) {
             final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            final int[] iArr = {com.baidu.tieba.face.a.Jf(str)};
+            final int[] iArr = {com.baidu.tieba.face.a.JV(str)};
             if (iArr[0] <= 0) {
                 if (aVar != null) {
-                    aVar.b(spannableStringBuilder);
+                    aVar.d(spannableStringBuilder);
                     return;
                 }
                 return;
             }
-            Matcher matcher = com.baidu.tieba.face.a.iud.matcher(spannableStringBuilder);
+            Matcher matcher = com.baidu.tieba.face.a.iEV.matcher(spannableStringBuilder);
             while (matcher.find()) {
                 String group = matcher.group();
                 final int start = matcher.start();
@@ -138,7 +137,7 @@ public class b {
                                 int i2 = iArr2[0] - 1;
                                 iArr2[0] = i2;
                                 if (i2 == 0 && aVar != null) {
-                                    aVar.b(spannableStringBuilder);
+                                    aVar.d(spannableStringBuilder);
                                     return;
                                 }
                                 return;
@@ -148,7 +147,7 @@ public class b {
                             int i3 = iArr3[0] - 1;
                             iArr3[0] = i3;
                             if (i3 == 0 && aVar != null) {
-                                aVar.b(spannableStringBuilder);
+                                aVar.d(spannableStringBuilder);
                             }
                         }
                     }, 0, 0, BdUniqueId.gen(), null, group, false, null);
@@ -157,7 +156,7 @@ public class b {
             Matcher matcher2 = Pattern.compile("#\\(meme,[collect_]?[a-zA-Z0-9_,]+\\)").matcher(spannableStringBuilder);
             while (matcher2.find()) {
                 String group2 = matcher2.group();
-                String[] split = group2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split = group2.split(",");
                 if (split != null && split.length == 5) {
                     final int start2 = matcher2.start();
                     final int end2 = matcher2.end();
@@ -182,7 +181,7 @@ public class b {
                                 int i2 = iArr2[0] - 1;
                                 iArr2[0] = i2;
                                 if (i2 == 0 && aVar != null) {
-                                    aVar.b(spannableStringBuilder);
+                                    aVar.d(spannableStringBuilder);
                                     return;
                                 }
                                 return;
@@ -192,7 +191,7 @@ public class b {
                             int i3 = iArr3[0] - 1;
                             iArr3[0] = i3;
                             if (i3 == 0 && aVar != null) {
-                                aVar.b(spannableStringBuilder);
+                                aVar.d(spannableStringBuilder);
                             }
                         }
                     }, 0, 0, BdUniqueId.gen(), null, group2, false, null);
@@ -200,7 +199,7 @@ public class b {
             }
             Matcher matcher3 = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(spannableStringBuilder);
             while (matcher3.find()) {
-                String[] split2 = matcher3.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split2 = matcher3.group().split(",");
                 if (split2 != null && split2.length == 6) {
                     final int start3 = matcher3.start();
                     final int end3 = matcher3.end();
@@ -225,7 +224,7 @@ public class b {
                                 int i2 = iArr2[0] - 1;
                                 iArr2[0] = i2;
                                 if (i2 == 0 && aVar != null) {
-                                    aVar.b(spannableStringBuilder);
+                                    aVar.d(spannableStringBuilder);
                                     return;
                                 }
                                 return;
@@ -235,7 +234,7 @@ public class b {
                             int i3 = iArr3[0] - 1;
                             iArr3[0] = i3;
                             if (i3 == 0 && aVar != null) {
-                                aVar.b(spannableStringBuilder);
+                                aVar.d(spannableStringBuilder);
                             }
                         }
                     };
@@ -252,9 +251,9 @@ public class b {
         if (editText != null && (text = editText.getText()) != null) {
             int selectionStart = editText.getSelectionStart();
             if (selectionStart - 1 > 0 && selectionStart - 1 < text.length() && text.charAt(selectionStart - 1) == 0) {
-                editText.onKeyDown(67, iuf);
+                editText.onKeyDown(67, iEX);
             }
-            editText.onKeyDown(67, iuf);
+            editText.onKeyDown(67, iEX);
             int selectionStart2 = editText.getSelectionStart();
             if (text != null) {
                 editText.setSelection(selectionStart2);

@@ -4,44 +4,44 @@ import com.baidu.platform.comapi.util.SysOSUtil;
 import com.baidu.platform.comjni.base.logstatistics.NALogStatistics;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private NALogStatistics f2822a;
+    private NALogStatistics f2824a;
     private ArrayList<b> b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final c f2823a = new c();
+        private static final c f2825a = new c();
     }
 
     private c() {
-        this.f2822a = null;
+        this.f2824a = null;
         this.b = new ArrayList<>();
         b();
     }
 
     public static c a() {
-        return a.f2823a;
+        return a.f2825a;
     }
 
     private boolean b() {
-        if (this.f2822a == null) {
-            this.f2822a = new NALogStatistics();
+        if (this.f2824a == null) {
+            this.f2824a = new NALogStatistics();
             return true;
         }
         return true;
     }
 
     public boolean a(int i, int i2, String str, String str2) {
-        if (this.f2822a != null) {
+        if (this.f2824a != null) {
             if (com.baidu.platform.comapi.b.f() || com.baidu.platform.comapi.b.h()) {
                 a(new com.baidu.platform.comapi.b.a(i, i2, str, str2));
             }
-            return this.f2822a.a(i, i2, SysOSUtil.getInstance().getNetType(), str, str2);
+            return this.f2824a.a(i, i2, SysOSUtil.getInstance().getNetType(), str, str2);
         }
         return false;
     }

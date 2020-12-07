@@ -7,7 +7,7 @@ import java.lang.ref.WeakReference;
 public class BaiduNativeAdPlacement {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2301a;
+    private String f2303a;
     private IXAdResponseInfo b;
     private boolean c;
     private boolean d;
@@ -41,11 +41,11 @@ public class BaiduNativeAdPlacement {
     }
 
     public void setApId(String str) {
-        this.f2301a = str;
+        this.f2303a = str;
     }
 
     public String getApId() {
-        return this.f2301a;
+        return this.f2303a;
     }
 
     public static void setAppSid(String str) {

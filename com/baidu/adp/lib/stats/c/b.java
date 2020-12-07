@@ -3,7 +3,7 @@ package com.baidu.adp.lib.stats.c;
 public class b extends com.baidu.adp.lib.stats.base.a {
     public b(j jVar) {
         super(jVar);
-        this.Or = 500;
-        this.Os = "dbg";
+        this.Pl = 500;
+        this.Pm = "dbg";
     }
 }

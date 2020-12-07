@@ -2,26 +2,26 @@ package com.bun.miitmdid.utils;
 
 import android.content.Context;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f3998a;
+    private static Context f4001a;
 
     public static Context a() {
         Context context;
         synchronized (b.class) {
-            if (f3998a == null) {
-                f3998a = b();
+            if (f4001a == null) {
+                f4001a = b();
             }
-            context = f3998a;
+            context = f4001a;
         }
         return context;
     }
 
     public static void a(Context context) {
         synchronized (b.class) {
-            f3998a = context;
+            f4001a = context;
         }
     }
 

@@ -26,28 +26,28 @@ import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tbadkCore.aa;
-import com.baidu.tieba.tbadkCore.z;
+import com.baidu.tieba.tbadkCore.ab;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c implements b {
-    private FrsViewData jfx;
+    private FrsViewData jta;
     private final Context mContext;
     private RecyclerView mRecyclerView;
-    private List<aa> mDataList = new ArrayList();
+    private List<ab> mDataList = new ArrayList();
     private RecyclerView.Adapter mAdapter = new RecyclerView.Adapter<a>() { // from class: com.baidu.tieba.frs.servicearea.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.support.v7.widget.RecyclerView.Adapter
         /* renamed from: z */
         public a onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-            return new a(new LinearLayout(viewGroup.getContext()), c.this.jfx);
+            return new a(new LinearLayout(viewGroup.getContext()), c.this.jta);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.support.v7.widget.RecyclerView.Adapter
         /* renamed from: a */
         public void onBindViewHolder(a aVar, int i) {
-            aVar.a((aa) c.this.mDataList.get(i));
+            aVar.a((ab) c.this.mDataList.get(i));
         }
 
         @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -66,10 +66,10 @@ public class c implements b {
     }
 
     @Override // com.baidu.tieba.frs.servicearea.b
-    public void setData(z zVar, FrsViewData frsViewData) {
-        if (zVar != null && !y.isEmpty(zVar.dataList)) {
-            this.mDataList = zVar.dataList;
-            this.jfx = frsViewData;
+    public void setData(aa aaVar, FrsViewData frsViewData) {
+        if (aaVar != null && !y.isEmpty(aaVar.dataList)) {
+            this.mDataList = aaVar.dataList;
+            this.jta = frsViewData;
             this.mAdapter.notifyDataSetChanged();
             this.mRecyclerView.setPadding(l.getDimens(this.mRecyclerView.getContext(), R.dimen.M_W_X007), 0, 0, 0);
             this.mRecyclerView.setClipToPadding(false);
@@ -81,80 +81,80 @@ public class c implements b {
         return this.mRecyclerView;
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public static class a extends RecyclerView.ViewHolder {
-        private LinearLayout fDs;
-        private TbClipImageView jfA;
-        private aa jfB;
-        private List<String> jfC;
-        private FrsViewData jfx;
-        private FrameLayout jfz;
+        private LinearLayout fLe;
+        private FrsViewData jta;
+        private FrameLayout jtc;
+        private TbClipImageView jtd;
+        private ab jte;
+        private List<String> jtf;
         private View.OnClickListener mOnClickListener;
         private TextView mTextView;
 
         public a(View view, FrsViewData frsViewData) {
             super(view);
-            this.jfC = new ArrayList();
+            this.jtf = new ArrayList();
             this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.servicearea.c.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (!TextUtils.equals(view2.getResources().getString(R.string.hot_user_rank), a.this.jfB.imageUrl) || a.this.jfx == null || a.this.jfx.getForum() == null || TextUtils.isEmpty(a.this.jfx.getForum().getId())) {
-                        if (a.this.jfB != null && a.this.jfB.mWQ != null) {
-                            TiebaStatic.log(new ar("c13274").w("uid", TbadkCoreApplication.getCurrentAccountId()).dR("fid", a.this.jfB.forumId).dR("obj_source", "frs_card").dR("obj_id", a.this.jfB.mWQ.id).dR("obj_name", a.this.jfB.mWQ.name).ak("obj_param1", a.this.jfB.mWQ.eqD.intValue()));
+                    if (!TextUtils.equals(view2.getResources().getString(R.string.hot_user_rank), a.this.jte.imageUrl) || a.this.jta == null || a.this.jta.getForum() == null || TextUtils.isEmpty(a.this.jta.getForum().getId())) {
+                        if (a.this.jte != null && a.this.jte.nkO != null) {
+                            TiebaStatic.log(new ar("c13274").w("uid", TbadkCoreApplication.getCurrentAccountId()).dY("fid", a.this.jte.forumId).dY("obj_source", "frs_card").dY("obj_id", a.this.jte.nkO.id).dY("obj_name", a.this.jte.nkO.name).al("obj_param1", a.this.jte.nkO.exF.intValue()));
                         }
-                        e.a(view2.getContext(), a.this.jfB);
-                        e.c(a.this.jfB);
+                        e.a(view2.getContext(), a.this.jte);
+                        e.c(a.this.jte);
                         return;
                     }
                     HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(view2.getContext());
-                    hotUserRankActivityConfig.setForumId(Long.valueOf(com.baidu.adp.lib.f.b.toLong(a.this.jfx.getForum().getId(), 0L)));
+                    hotUserRankActivityConfig.setForumId(Long.valueOf(com.baidu.adp.lib.f.b.toLong(a.this.jta.getForum().getId(), 0L)));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, hotUserRankActivityConfig));
                     ar arVar = new ar("c13666");
-                    arVar.dR("fid", a.this.jfx.getForum().getId());
+                    arVar.dY("fid", a.this.jta.getForum().getId());
                     TiebaStatic.log(arVar);
                 }
             };
             Context context = view.getContext();
-            this.jfx = frsViewData;
-            this.fDs = (LinearLayout) view;
-            this.fDs.setGravity(16);
-            this.fDs.setOrientation(0);
-            this.jfz = new FrameLayout(context);
-            this.jfA = new TbClipImageView(context);
+            this.jta = frsViewData;
+            this.fLe = (LinearLayout) view;
+            this.fLe.setGravity(16);
+            this.fLe.setOrientation(0);
+            this.jtc = new FrameLayout(context);
+            this.jtd = new TbClipImageView(context);
             int dimens = l.getDimens(context, R.dimen.tbds57);
-            this.jfA.setDrawerType(1);
-            this.jfA.setIsRound(true);
-            this.jfA.setBorderWidth(R.dimen.L_X01);
-            this.jfA.setBorderColor(R.color.CAM_X0401);
-            this.jfA.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.jfA.setPlaceHolder(1);
-            this.jfz.addView(this.jfA, new FrameLayout.LayoutParams(dimens, dimens));
-            this.fDs.addView(this.jfz, new LinearLayout.LayoutParams(-2, l.getDimens(this.jfA.getContext(), R.dimen.tbds62)));
+            this.jtd.setDrawerType(1);
+            this.jtd.setIsRound(true);
+            this.jtd.setBorderWidth(R.dimen.L_X01);
+            this.jtd.setBorderColor(R.color.CAM_X0401);
+            this.jtd.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.jtd.setPlaceHolder(1);
+            this.jtc.addView(this.jtd, new FrameLayout.LayoutParams(dimens, dimens));
+            this.fLe.addView(this.jtc, new LinearLayout.LayoutParams(-2, l.getDimens(this.jtd.getContext(), R.dimen.tbds62)));
             this.mTextView = new TextView(context);
             this.mTextView.setTextSize(0, l.getDimens(context, R.dimen.T_X08));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.leftMargin = l.getDimens(context, R.dimen.tbds10);
             layoutParams.rightMargin = l.getDimens(context, R.dimen.M_W_X008);
-            this.fDs.addView(this.mTextView, layoutParams);
+            this.fLe.addView(this.mTextView, layoutParams);
             view.setOnClickListener(this.mOnClickListener);
         }
 
-        public void a(aa aaVar) {
-            if (aaVar != null) {
-                this.jfB = aaVar;
-                if (TextUtils.equals(this.itemView.getResources().getString(R.string.hot_user_rank), aaVar.imageUrl)) {
-                    this.jfA.setImageResource(R.drawable.icon_mask_service_celebrity24);
-                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.jfA.getLayoutParams();
-                    layoutParams.width = l.getDimens(this.jfA.getContext(), R.dimen.tbds62);
-                    layoutParams.height = l.getDimens(this.jfA.getContext(), R.dimen.tbds62);
+        public void a(ab abVar) {
+            if (abVar != null) {
+                this.jte = abVar;
+                if (TextUtils.equals(this.itemView.getResources().getString(R.string.hot_user_rank), abVar.imageUrl)) {
+                    this.jtd.setImageResource(R.drawable.icon_mask_service_celebrity24);
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.jtd.getLayoutParams();
+                    layoutParams.width = l.getDimens(this.jtd.getContext(), R.dimen.tbds62);
+                    layoutParams.height = l.getDimens(this.jtd.getContext(), R.dimen.tbds62);
                 } else {
-                    this.jfA.startLoad(aaVar.imageUrl, 10, false);
+                    this.jtd.startLoad(abVar.imageUrl, 10, false);
                 }
-                this.mTextView.setText(au.cutChineseAndEnglishWithSuffix(aaVar.name, 10, ""));
+                this.mTextView.setText(au.cutChineseAndEnglishWithSuffix(abVar.name, 10, ""));
                 ap.setViewTextColor(this.mTextView, R.color.CAM_X0105);
-                if (!this.jfC.contains(aaVar.name)) {
-                    e.b(aaVar);
-                    this.jfC.add(aaVar.name);
+                if (!this.jtf.contains(abVar.name)) {
+                    e.b(abVar);
+                    this.jtf.add(abVar.name);
                 }
             }
         }

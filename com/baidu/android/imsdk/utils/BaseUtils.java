@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.utils;
 import android.text.TextUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseUtils {
     public static final String METHOD_RECEIVEESSAGE = "93";
     public static final String METHOD_SENDMESSAGE = "55";

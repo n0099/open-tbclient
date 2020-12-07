@@ -11,12 +11,12 @@ public class j extends HttpMessage {
         super(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT);
     }
 
-    public void GT(String str) {
+    public void HH(String str) {
         this.id = str;
     }
 
     public void setParams() {
-        addParam("scene_from", p.GI());
+        addParam("scene_from", p.Iz());
         addParam("guard_club_id", this.id);
         addParam("client_type", 2);
     }

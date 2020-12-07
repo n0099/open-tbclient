@@ -3,6 +3,7 @@ package com.baidu.ufosdk.f;
 import android.annotation.SuppressLint;
 import android.support.media.ExifInterface;
 import android.util.Base64;
+import com.baidu.searchbox.ugc.model.PublishType;
 import java.security.Key;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -11,13 +12,13 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 @SuppressLint({"InlinedApi"})
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class k {
     private static String a() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(a(ExifInterface.LONGITUDE_WEST, false));
-        stringBuffer.append(a("9", true));
+        stringBuffer.append(a(PublishType.TYPE_VIDEO_SHARE, true));
         stringBuffer.append(random.nextInt(1) + 1);
         stringBuffer.append(a("Y", true));
         stringBuffer.append("abe");

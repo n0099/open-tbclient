@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.basestruct;
 
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class MapBound implements Serializable {
     public Point leftBottomPt = new Point();
     public Point rightTopPt = new Point();

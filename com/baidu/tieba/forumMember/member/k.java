@@ -7,36 +7,36 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class k extends af.a {
-    public TextView eRX;
-    public ImageView iDr;
-    public TextView iDs;
-    public TextView iEr;
-    public TextView iEs;
-    public LinearLayout iEt;
-    public NoPressedLinearLayout iEu;
-    public View iEv;
-    public TextView iEw;
-    public ImageView iEx;
-    public ImageView iEy;
+    public TextView eZp;
+    public ImageView iOj;
+    public TextView iOk;
+    public TextView iPj;
+    public TextView iPk;
+    public LinearLayout iPl;
+    public NoPressedLinearLayout iPm;
+    public View iPn;
+    public TextView iPo;
+    public ImageView iPp;
+    public ImageView iPq;
     public View mDivider;
 
     public k(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.iEr = (TextView) view.findViewById(R.id.like_btn);
-        this.iEs = (TextView) view.findViewById(R.id.lever_tip_view);
-        this.iDr = (ImageView) view.findViewById(R.id.header_level_img);
-        this.iDs = (TextView) view.findViewById(R.id.user_level_name);
+        this.iPj = (TextView) view.findViewById(R.id.like_btn);
+        this.iPk = (TextView) view.findViewById(R.id.lever_tip_view);
+        this.iOj = (ImageView) view.findViewById(R.id.header_level_img);
+        this.iOk = (TextView) view.findViewById(R.id.user_level_name);
         this.mDivider = view.findViewById(R.id.header_divider_line2);
-        this.iEt = (LinearLayout) view.findViewById(R.id.view_experience_score);
-        this.eRX = (TextView) view.findViewById(R.id.tip_experience_score);
-        this.iEu = (NoPressedLinearLayout) view.findViewById(R.id.root_forum_member_header);
-        this.iEv = view.findViewById(R.id.header_divider_line3);
-        this.iEw = (TextView) view.findViewById(R.id.tip_experience);
-        this.iEx = (ImageView) view.findViewById(R.id.love_level_top);
-        this.iEy = (ImageView) view.findViewById(R.id.love_level_bg);
-        this.iEr.setOnClickListener(onClickListener);
-        this.iDs.setOnClickListener(onClickListener);
+        this.iPl = (LinearLayout) view.findViewById(R.id.view_experience_score);
+        this.eZp = (TextView) view.findViewById(R.id.tip_experience_score);
+        this.iPm = (NoPressedLinearLayout) view.findViewById(R.id.root_forum_member_header);
+        this.iPn = view.findViewById(R.id.header_divider_line3);
+        this.iPo = (TextView) view.findViewById(R.id.tip_experience);
+        this.iPp = (ImageView) view.findViewById(R.id.love_level_top);
+        this.iPq = (ImageView) view.findViewById(R.id.love_level_bg);
+        this.iPj.setOnClickListener(onClickListener);
+        this.iOk.setOnClickListener(onClickListener);
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
     private static final String TAG = "IMMediaFetchMsgHttpRequest";
     private long mBeginMsgTime;
@@ -86,7 +87,7 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
                     z2 = false;
                 } else {
                     i = jSONObject.optInt("error_code", -1);
-                    String optString = jSONObject.optString("error_msg", "");
+                    String optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
                     z2 = jSONObject.optInt("has_more", 0) == 1;
                     if (i == 0) {
                         try {

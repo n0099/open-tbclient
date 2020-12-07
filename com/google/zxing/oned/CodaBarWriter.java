@@ -1,5 +1,5 @@
 package com.google.zxing.oned;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class CodaBarWriter extends OneDimensionalCodeWriter {
     private static final char[] START_END_CHARS = {'A', 'B', 'C', 'D'};
     private static final char[] ALT_START_END_CHARS = {'T', 'N', '*', 'E'};

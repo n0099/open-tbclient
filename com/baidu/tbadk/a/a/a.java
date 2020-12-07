@@ -10,15 +10,15 @@ import java.util.Map;
 public abstract class a {
     public abstract void a(com.baidu.tbadk.a.e eVar);
 
-    public abstract com.baidu.tbadk.a.e bhA();
+    public abstract BdUniqueId bkH();
 
-    public abstract BdUniqueId bhy();
+    public abstract ArrayList<String> bkI();
 
-    public abstract ArrayList<String> bhz();
+    public abstract com.baidu.tbadk.a.e bkJ();
 
-    public static void be(List<q> list) {
+    public static void bh(List<q> list) {
         if (list != null) {
-            HashMap hashMap = new HashMap(com.baidu.tbadk.a.d.bgX());
+            HashMap hashMap = new HashMap(com.baidu.tbadk.a.d.bkc());
             for (q qVar : list) {
                 if (qVar instanceof com.baidu.tbadk.core.data.a) {
                     com.baidu.tbadk.core.data.a aVar = (com.baidu.tbadk.core.data.a) qVar;
@@ -32,7 +32,7 @@ public abstract class a {
 
     public static void a(g... gVarArr) {
         if (gVarArr != null) {
-            HashMap hashMap = new HashMap(com.baidu.tbadk.a.d.bgX());
+            HashMap hashMap = new HashMap(com.baidu.tbadk.a.d.bkc());
             for (g gVar : gVarArr) {
                 if (gVar != null) {
                     for (Map.Entry entry : hashMap.entrySet()) {

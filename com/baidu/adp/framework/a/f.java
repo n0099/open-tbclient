@@ -18,7 +18,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class f {
     private static final String SECONDARY_FOLDER_NAME = "code_cache" + File.separator + "secondary-dexes";
-    public static a Ji = null;
+    public static a Ka = null;
 
     private static SharedPreferences getMultiDexPreferences(Context context) {
         return context.getSharedPreferences("multidex.version", Build.VERSION.SDK_INT < 11 ? 0 : 4);
@@ -59,6 +59,10 @@ public class f {
                         Class.forName(nextElement);
                         Log.e("MultiLoadHelper", nextElement);
                     }
+                    if (nextElement.startsWith("com.baidu.android.pushservice")) {
+                        Class.forName(nextElement);
+                        Log.e("MultiLoadHelper", "push sdk = " + nextElement);
+                    }
                 }
             } catch (IOException e) {
                 throw new IOException("Error at loading dex file '" + str + "'");
@@ -66,19 +70,19 @@ public class f {
         }
     }
 
-    public static void J(Context context) throws PackageManager.NameNotFoundException, IOException {
-        Ji = new a(getSourcePaths(context));
-        Ji.execute(new List[0]);
+    public static void K(Context context) throws PackageManager.NameNotFoundException, IOException {
+        Ka = new a(getSourcePaths(context));
+        Ka.execute(new List[0]);
     }
 
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<List<String>, Integer, String> {
-        public List<String> Jj;
+        public List<String> Kb;
         public boolean finished = false;
-        public String Jk = "";
+        public String Kc = "";
 
         public a(List<String> list) {
-            this.Jj = list;
+            this.Kb = list;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,7 +92,7 @@ public class f {
         public String doInBackground(List<String>... listArr) throws IOException {
             DexFile dexFile;
             Looper.prepare();
-            for (String str : this.Jj) {
+            for (String str : this.Kb) {
                 try {
                     if (str.endsWith(".zip")) {
                         dexFile = DexFile.loadDex(str, str + ".tmp", 0);
@@ -99,9 +103,9 @@ public class f {
                     while (entries.hasMoreElements()) {
                         String nextElement = entries.nextElement();
                         if (nextElement.endsWith("Static")) {
-                            this.Jk = nextElement;
+                            this.Kc = nextElement;
                             Class.forName(nextElement);
-                            this.Jk = "";
+                            this.Kc = "";
                             Log.e("MultiLoadHelper", nextElement + l.isMainThread());
                         }
                     }
@@ -120,8 +124,8 @@ public class f {
             this.finished = true;
         }
 
-        public boolean bu(String str) {
-            return (str == null || !str.equals(this.Jk) || this.finished) ? false : true;
+        public boolean bx(String str) {
+            return (str == null || !str.equals(this.Kc) || this.finished) ? false : true;
         }
     }
 }

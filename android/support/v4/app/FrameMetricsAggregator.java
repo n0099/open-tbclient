@@ -17,7 +17,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class FrameMetricsAggregator {
     public static final int ANIMATION_DURATION = 256;
     public static final int ANIMATION_INDEX = 8;
@@ -45,7 +45,7 @@ public class FrameMetricsAggregator {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public @interface MetricType {
     }
 
@@ -85,7 +85,7 @@ public class FrameMetricsAggregator {
         return this.mInstance.getMetrics();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     private static class FrameMetricsBaseImpl {
         private FrameMetricsBaseImpl() {
         }
@@ -111,7 +111,7 @@ public class FrameMetricsAggregator {
     }
 
     @RequiresApi(24)
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     private static class FrameMetricsApi24Impl extends FrameMetricsBaseImpl {
         private static final int NANOS_PER_MS = 1000000;
         private static final int NANOS_ROUNDING_VALUE = 500000;

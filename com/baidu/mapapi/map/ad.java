@@ -2,25 +2,25 @@ package com.baidu.mapapi.map;
 
 import android.text.TextUtils;
 import com.baidu.mapsdkplatform.comapi.map.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 class ad implements f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CustomMapStyleCallBack f2062a;
+    final /* synthetic */ CustomMapStyleCallBack f2064a;
     final /* synthetic */ MapCustomStyleOptions b;
     final /* synthetic */ WearMapView c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(WearMapView wearMapView, CustomMapStyleCallBack customMapStyleCallBack, MapCustomStyleOptions mapCustomStyleOptions) {
         this.c = wearMapView;
-        this.f2062a = customMapStyleCallBack;
+        this.f2064a = customMapStyleCallBack;
         this.b = mapCustomStyleOptions;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.f.a
     public void a(int i, String str, String str2) {
         boolean z;
-        if (this.f2062a == null || !this.f2062a.onCustomMapStyleLoadFailed(i, str, str2)) {
+        if (this.f2064a == null || !this.f2064a.onCustomMapStyleLoadFailed(i, str, str2)) {
             z = this.c.H;
             if (z) {
                 return;
@@ -31,7 +31,7 @@ class ad implements f.a {
 
     @Override // com.baidu.mapsdkplatform.comapi.map.f.a
     public void a(String str) {
-        if (this.f2062a == null || !this.f2062a.onPreLoadLastCustomMapStyle(str)) {
+        if (this.f2064a == null || !this.f2064a.onPreLoadLastCustomMapStyle(str)) {
             this.c.H = true;
             this.c.a(str, this.b);
         }
@@ -39,7 +39,7 @@ class ad implements f.a {
 
     @Override // com.baidu.mapsdkplatform.comapi.map.f.a
     public void a(boolean z, String str) {
-        if ((this.f2062a == null || !this.f2062a.onCustomMapStyleLoadSuccess(z, str)) && !TextUtils.isEmpty(str)) {
+        if ((this.f2064a == null || !this.f2064a.onCustomMapStyleLoadSuccess(z, str)) && !TextUtils.isEmpty(str)) {
             this.c.a(str, 1);
             this.c.setMapCustomStyleEnable(true);
         }

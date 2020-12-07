@@ -6,13 +6,25 @@ import android.net.NetworkInfo;
 import android.net.Proxy;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.Build;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes15.dex */
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.Iterator;
+/* loaded from: classes16.dex */
 public class ConnectManager {
     private static final boolean DEBUG = false;
     private static final String TAG = "ConnectManager";
+    private boolean mAirModeOn;
     private String mApn;
+    private String mHttpProxyIp;
+    private int mHttpProxyPort = -1;
     private String mNetType;
     private int mPort;
     private String mProxy;
@@ -21,6 +33,7 @@ public class ConnectManager {
     private int mSubType;
     private String mSubTypeName;
     private boolean mUseWap;
+    private boolean mVpnOn;
     private String mWifiBSSID;
     private String mWifiSSID;
 
@@ -42,6 +55,15 @@ public class ConnectManager {
             return false;
         }
         return activeNetworkInfo.getType() == 1;
+    }
+
+    public static boolean isMobile(Context context) {
+        NetworkInfo activeNetworkInfo;
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
+        if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || activeNetworkInfo.getType() != 0) {
+            return false;
+        }
+        return true;
     }
 
     private void checkApn(Context context, NetworkInfo networkInfo) {
@@ -106,6 +128,13 @@ public class ConnectManager {
             this.mSubType = networkInfo.getSubtype();
             this.mSubTypeName = networkInfo.getSubtypeName();
         }
+        this.mHttpProxyIp = System.getProperty("http.proxyHost");
+        String property = System.getProperty("http.proxyPort");
+        if (!TextUtils.isEmpty(property)) {
+            this.mHttpProxyPort = Integer.parseInt(property);
+        }
+        this.mAirModeOn = isAirModeOn(context);
+        this.mVpnOn = isVPNConnected(context);
     }
 
     private void checkWifi(Context context) {
@@ -243,5 +272,67 @@ public class ConnectManager {
             return sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(lowerCase).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(subtypeName).toString();
         }
         return activeNetworkInfo.getTypeName() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + activeNetworkInfo.getSubtypeName();
+    }
+
+    public String getHttpProxyIp() {
+        return this.mHttpProxyIp;
+    }
+
+    public int getHttpProxyPort() {
+        return this.mHttpProxyPort;
+    }
+
+    public boolean airModeOn() {
+        return this.mAirModeOn;
+    }
+
+    public boolean isVpnOn() {
+        return this.mVpnOn;
+    }
+
+    public static boolean isVPNConnected(Context context) {
+        ArrayList arrayList = new ArrayList();
+        boolean checkVPN = Build.VERSION.SDK_INT >= 21 ? checkVPN(context) : false;
+        try {
+            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+            if (networkInterfaces == null || !networkInterfaces.hasMoreElements()) {
+                return checkVPN;
+            }
+            Iterator it = Collections.list(networkInterfaces).iterator();
+            while (it.hasNext()) {
+                NetworkInterface networkInterface = (NetworkInterface) it.next();
+                if (networkInterface.isUp()) {
+                    arrayList.add(networkInterface.getName());
+                }
+            }
+            if (arrayList == null || arrayList.isEmpty()) {
+                return checkVPN;
+            }
+            if (!arrayList.contains("tun0")) {
+                if (!arrayList.contains("ppp0") && !checkVPN) {
+                    return false;
+                }
+            }
+            return true;
+        } catch (SocketException e) {
+            e.printStackTrace();
+            return checkVPN;
+        }
+    }
+
+    private static boolean checkVPN(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+        if (connectivityManager != null && connectivityManager.getNetworkInfo(17) != null) {
+            return connectivityManager.getNetworkInfo(17).isConnectedOrConnecting();
+        }
+        return false;
+    }
+
+    public static boolean isProxyConnected() {
+        return (TextUtils.isEmpty(System.getProperty("http.proxyHost")) || TextUtils.isEmpty(System.getProperty("http.proxyPort"))) ? false : true;
+    }
+
+    public static boolean isAirModeOn(Context context) {
+        return Settings.System.getInt(context.getContentResolver(), "airplane_mode_on", 0) == 1;
     }
 }

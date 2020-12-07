@@ -6,7 +6,6 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.searchbox.dns.util.DnsUtil;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -14,7 +13,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public class a {
     public int B;
     public String C;
@@ -113,7 +112,7 @@ public class a {
             if (z) {
                 z = false;
             } else {
-                sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                sb.append(",");
             }
             sb.append(str);
         }

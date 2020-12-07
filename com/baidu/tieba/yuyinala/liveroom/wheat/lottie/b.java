@@ -34,75 +34,75 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class b {
-    private static int ohx = 320;
-    private static b ohy;
-    private HandlerThread bao = new HandlerThread("read_image_thread");
+    private static int owx = 320;
+    private static b owy;
+    private HandlerThread bdP = new HandlerThread("read_image_thread");
     private Handler mHandler;
 
-    public static b dZX() {
-        if (ohy == null) {
+    public static b efC() {
+        if (owy == null) {
             synchronized (b.class) {
-                if (ohy == null) {
-                    ohy = new b();
+                if (owy == null) {
+                    owy = new b();
                 }
             }
         }
-        return ohy;
+        return owy;
     }
 
     private b() {
-        this.bao.start();
-        this.mHandler = new Handler(this.bao.getLooper());
+        this.bdP.start();
+        this.mHandler = new Handler(this.bdP.getLooper());
     }
 
     public void a(ViewGroup viewGroup, String str, c cVar) {
         if (viewGroup != null && viewGroup.getContext() != null && !StringUtils.isNull(str)) {
-            String VH = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.VH(com.baidu.live.ac.b.id(str));
-            if (com.baidu.live.f.a.isDirectory(VH)) {
-                a(viewGroup, VH, VH + "/video.mp4", null, null, cVar);
+            String WW = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.WW(com.baidu.live.ag.b.iH(str));
+            if (com.baidu.live.h.a.isDirectory(WW)) {
+                a(viewGroup, WW, WW + "/video.mp4", null, null, cVar);
             }
         }
     }
 
     public void a(ViewGroup viewGroup, String str, String str2, String str3, c cVar) {
         if (viewGroup != null && viewGroup.getContext() != null && !StringUtils.isNull(str)) {
-            String VH = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.VH(com.baidu.live.ac.b.id(str));
-            if (com.baidu.live.f.a.isDirectory(VH)) {
+            String WW = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.WW(com.baidu.live.ag.b.iH(str));
+            if (com.baidu.live.h.a.isDirectory(WW)) {
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("image_3", str3);
                 hashMap.put("image_7", str2);
-                a(viewGroup, VH, VH + "/video.mp4", VH + "/data.json", hashMap, cVar);
+                a(viewGroup, WW, WW + "/video.mp4", WW + "/data.json", hashMap, cVar);
             }
         }
     }
 
     public void b(ViewGroup viewGroup, String str, String str2, String str3, c cVar) {
         if (viewGroup != null && viewGroup.getContext() != null && !StringUtils.isNull(str)) {
-            String VH = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.VH(com.baidu.live.ac.b.id(str));
-            if (com.baidu.live.f.a.isDirectory(VH)) {
+            String WW = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.WW(com.baidu.live.ag.b.iH(str));
+            if (com.baidu.live.h.a.isDirectory(WW)) {
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("image_25", str3);
                 hashMap.put("image_26", str2);
-                a(viewGroup, VH, VH + "/video.mp4", VH + "/data.json", hashMap, cVar);
+                a(viewGroup, WW, WW + "/video.mp4", WW + "/data.json", hashMap, cVar);
             }
         }
     }
 
     public void c(ViewGroup viewGroup, String str, String str2, String str3, c cVar) {
         if (viewGroup != null && viewGroup.getContext() != null && !StringUtils.isNull(str)) {
-            String VH = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.VH(com.baidu.live.ac.b.id(str));
-            if (com.baidu.live.f.a.isDirectory(VH)) {
+            String WW = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.WW(com.baidu.live.ag.b.iH(str));
+            if (com.baidu.live.h.a.isDirectory(WW)) {
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("image_25", str3);
                 hashMap.put("image_26", str2);
-                a(viewGroup, VH, null, VH + "/data.json", hashMap, cVar);
+                a(viewGroup, WW, null, WW + "/data.json", hashMap, cVar);
             }
         }
     }
 
     private void a(ViewGroup viewGroup, String str, String str2, String str3, HashMap<String, String> hashMap, c cVar) {
-        a.dZV().cU(viewGroup);
-        a.dZV().cT(viewGroup);
+        a.efA().cX(viewGroup);
+        a.efA().cW(viewGroup);
         if (viewGroup != null && viewGroup.getContext() != null) {
             AlaAudioDatingVideoLayout a2 = a(viewGroup.getContext(), str2, cVar);
             if (a2 != null) {
@@ -125,8 +125,8 @@ public class b {
     }
 
     private AlaAudioDatingVideoLayout a(Context context, String str, final c cVar) {
-        if (context != null && com.baidu.live.f.a.existFile(str)) {
-            if (com.baidu.live.f.a.isDirectory(str)) {
+        if (context != null && com.baidu.live.h.a.existFile(str)) {
+            if (com.baidu.live.h.a.isDirectory(str)) {
                 FileHelper.deleteFileOrDir(new File(str));
                 return null;
             }
@@ -134,26 +134,26 @@ public class b {
             alaAudioDatingVideoLayout.setData(str);
             alaAudioDatingVideoLayout.setVideoCallback(new d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.b.1
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.lottie.d
-                public void EO(String str2) {
+                public void FC(String str2) {
                     if (cVar != null) {
-                        cVar.dZY();
+                        cVar.efD();
                     }
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.lottie.d
-                public void VE(String str2) {
+                public void WT(String str2) {
                     if (alaAudioDatingVideoLayout != null && (alaAudioDatingVideoLayout.getParent() instanceof ViewGroup)) {
-                        a.dZV().cU((ViewGroup) alaAudioDatingVideoLayout.getParent());
+                        a.efA().cX((ViewGroup) alaAudioDatingVideoLayout.getParent());
                     }
                     if (cVar != null) {
-                        cVar.eaa();
+                        cVar.efF();
                     }
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.lottie.d
                 public void onFail(String str2) {
                     if (cVar != null) {
-                        cVar.dZZ();
+                        cVar.efE();
                     }
                 }
             });
@@ -164,8 +164,8 @@ public class b {
 
     private LottieAnimationView b(Context context, String str, final c cVar) {
         FileInputStream fileInputStream;
-        if (context != null && com.baidu.live.f.a.existFile(str)) {
-            if (com.baidu.live.f.a.isDirectory(str)) {
+        if (context != null && com.baidu.live.h.a.existFile(str)) {
+            if (com.baidu.live.h.a.isDirectory(str)) {
                 FileHelper.deleteFileOrDir(new File(str));
                 return null;
             }
@@ -190,7 +190,7 @@ public class b {
                     public void onAnimationCancel(Animator animator) {
                         super.onAnimationCancel(animator);
                         if (cVar != null) {
-                            cVar.eac();
+                            cVar.efH();
                         }
                     }
 
@@ -198,9 +198,9 @@ public class b {
                     public void onAnimationEnd(Animator animator) {
                         super.onAnimationEnd(animator);
                         if (tBLottieAnimationView != null && (tBLottieAnimationView.getParent() instanceof ViewGroup)) {
-                            a.dZV().cT((ViewGroup) tBLottieAnimationView.getParent());
+                            a.efA().cW((ViewGroup) tBLottieAnimationView.getParent());
                             if (cVar != null) {
-                                cVar.eab();
+                                cVar.efG();
                             }
                         }
                     }
@@ -226,7 +226,7 @@ public class b {
         } else {
             final HashMap hashMap2 = new HashMap();
             for (final Map.Entry<String, String> entry : hashMap.entrySet()) {
-                final String urlWithResizeTag = TbImageView.getUrlWithResizeTag(entry.getValue(), ohx, ohx);
+                final String urlWithResizeTag = TbImageView.getUrlWithResizeTag(entry.getValue(), owx, owx);
                 BdResourceLoader.getInstance().loadResource(urlWithResizeTag, 25, new BdResourceCallback<BdImage>() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.b.5
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
@@ -259,7 +259,10 @@ public class b {
                     lottieAnimationView.setImageAssetDelegate(new com.tb.airbnb.lottie.c() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.b.6.1
                         @Override // com.tb.airbnb.lottie.c
                         public Bitmap fetchBitmap(h hVar) {
-                            if (hVar != null && !ListUtils.isEmpty(abstractMap) && abstractMap.containsKey(hVar.getId())) {
+                            if (hVar == null) {
+                                return null;
+                            }
+                            if (!ListUtils.isEmpty(abstractMap) && abstractMap.containsKey(hVar.getId())) {
                                 return b.this.a((Bitmap) abstractMap.get(hVar.getId()), hVar);
                             }
                             return BitmapFactory.decodeFile(str + "/" + hVar.iN().replace("/", "") + "/" + hVar.getFileName());
@@ -278,7 +281,10 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public Bitmap a(Bitmap bitmap, h hVar) {
-        Bitmap bitmapCenterCrop = BitmapHelper.getBitmapCenterCrop(bitmap, hVar.getWidth(), hVar.getHeight(), false);
+        Bitmap bitmapCenterCrop;
+        if (hVar == null || (bitmapCenterCrop = BitmapHelper.getBitmapCenterCrop(bitmap, hVar.getWidth(), hVar.getHeight(), false)) == null) {
+            return null;
+        }
         return BitmapHelper.getRoundedCornerBitmap(bitmapCenterCrop, bitmapCenterCrop.getWidth() / 2, true);
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 /* loaded from: classes4.dex */
 public class g {
-    public static String uQ(int i) {
+    public static String vx(int i) {
         if (i == 2) {
             return SdkStaticKeys.CHARM_TYPE_WEEK;
         }
@@ -18,7 +18,7 @@ public class g {
         return SdkStaticKeys.CHARM_TYPE_DAY;
     }
 
-    public static String B(Context context, int i) {
+    public static String K(Context context, int i) {
         if (context == null) {
             return "";
         }

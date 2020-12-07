@@ -1,6 +1,5 @@
 package com.google.protobuf;
 
-import com.baidu.webkit.internal.ETAG;
 import com.google.protobuf.FieldSet;
 import java.lang.Comparable;
 import java.util.AbstractMap;
@@ -307,7 +306,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         }
 
         public String toString() {
-            return this.key + ETAG.EQUAL + this.value;
+            return this.key + "=" + this.value;
         }
 
         private boolean equals(Object obj, Object obj2) {

@@ -7,11 +7,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
-    private TextView bDl;
-    private TextView iiN;
-    private TextView kdX;
+    private TextView bIt;
+    private TextView itG;
+    private TextView kry;
     private Context mContext;
     private LinearLayout mRootView;
 
@@ -23,22 +23,22 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
 
     public void setConfirmButtonListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.kdX.setOnClickListener(onClickListener);
+            this.kry.setOnClickListener(onClickListener);
         }
     }
 
     private void initUI(Context context) {
         LayoutInflater.from(context).inflate(R.layout.forum_broadcast_major_question_dialog, this);
         this.mRootView = (LinearLayout) findViewById(R.id.forum_broadcast_question);
-        this.bDl = (TextView) this.mRootView.findViewById(R.id.forum_broadcast_question_title);
-        this.iiN = (TextView) this.mRootView.findViewById(R.id.forum_broadcast_question_content);
-        this.kdX = (TextView) this.mRootView.findViewById(R.id.known_icon);
-        this.bDl.setText(R.string.subscribe_bar_title);
-        this.iiN.setText(R.string.forum_broadcast_major_history_hint);
-        this.kdX.setText(R.string.know);
+        this.bIt = (TextView) this.mRootView.findViewById(R.id.forum_broadcast_question_title);
+        this.itG = (TextView) this.mRootView.findViewById(R.id.forum_broadcast_question_content);
+        this.kry = (TextView) this.mRootView.findViewById(R.id.known_icon);
+        this.bIt.setText(R.string.subscribe_bar_title);
+        this.itG.setText(R.string.forum_broadcast_major_history_hint);
+        this.kry.setText(R.string.know);
         ap.setBackgroundResource(this.mRootView, R.drawable.bg_frs_private_dialog);
-        ap.setViewTextColor(this.bDl, R.color.CAM_X0105);
-        ap.setViewTextColor(this.iiN, R.color.CAM_X0107);
-        ap.setViewTextColor(this.kdX, R.color.CAM_X0302);
+        ap.setViewTextColor(this.bIt, R.color.CAM_X0105);
+        ap.setViewTextColor(this.itG, R.color.CAM_X0107);
+        ap.setViewTextColor(this.kry, R.color.CAM_X0302);
     }
 }

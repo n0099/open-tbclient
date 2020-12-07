@@ -160,9 +160,9 @@ public class CloudControlManager {
         getInstance().requestCloudControl("1");
     }
 
-    public boolean getConnectData(JSONObject jSONObject, JSONObject jSONObject2) {
+    public boolean getConnectData(JSONObject jSONObject, JSONObject jSONObject2, String str) {
         try {
-            CloudControlData parseConnectResponse = new CloudControlResponseParse("lcs").parseConnectResponse(jSONObject, jSONObject2);
+            CloudControlData parseConnectResponse = new CloudControlResponseParse(str).parseConnectResponse(jSONObject, jSONObject2);
             new DataRouter().routeServiceData(parseConnectResponse);
             return parseConnectResponse != null;
         } catch (JSONException e) {

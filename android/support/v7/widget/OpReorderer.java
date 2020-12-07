@@ -3,12 +3,12 @@ package android.support.v7.widget;
 import android.support.v7.widget.AdapterHelper;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes14.dex */
 public class OpReorderer {
     final Callback mCallback;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes14.dex */
     public interface Callback {
         AdapterHelper.UpdateOp obtainUpdateOp(int i, int i2, int i3, Object obj);
 

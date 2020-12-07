@@ -5,17 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes17.dex */
 public final class ac extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private final /* synthetic */ y f4038a;
+    private final /* synthetic */ y f4041a;
     private final /* synthetic */ w b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(w wVar, y yVar) {
         this.b = wVar;
-        this.f4038a = yVar;
+        this.f4041a = yVar;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -30,16 +30,16 @@ public final class ac extends BroadcastReceiver {
             case 1:
             case 2:
             case 3:
-                this.f4038a.a(p.ACCEPTED);
+                this.f4041a.a(p.ACCEPTED);
                 return;
             case 4:
-                this.f4038a.a(p.COMPLETED);
+                this.f4041a.a(p.COMPLETED);
                 return;
             case 5:
             default:
                 return;
             case 6:
-                this.f4038a.a(p.CANCELLED);
+                this.f4041a.a(p.CANCELLED);
                 return;
         }
     }

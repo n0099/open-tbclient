@@ -18,6 +18,7 @@ import com.baidu.tbadk.core.e.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.util.AdExtParam;
 /* loaded from: classes.dex */
 public class DealIntentService extends BdBaseService {
     private static String ACTION_ON_POST_EXSIT = "TaskExsits";
@@ -129,17 +130,17 @@ public class DealIntentService extends BdBaseService {
             }
             if (i2 == 9) {
                 ar arVar = new ar("c13253");
-                arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+                arVar.dY("uid", TbadkCoreApplication.getCurrentAccount());
                 TiebaStatic.log(arVar);
             }
-            ar dR = new ar(TbadkCoreStatisticKey.PUSH_CCLICK).w(Constants.EXTRA_SERVICE, j2).dR("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2()).dR(TiebaInitialize.Params.OBJ_TO, stringExtra).w("task_id", j).dR("app_version", TbConfig.getVersion());
+            ar dY = new ar(TbadkCoreStatisticKey.PUSH_CCLICK).w(Constants.EXTRA_SERVICE, j2).dY(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).dY(TiebaInitialize.Params.OBJ_TO, stringExtra).w("task_id", j).dY("app_version", TbConfig.getVersion());
             int i3 = this.intent.getExtras().getInt("is_live", -1);
             int i4 = this.intent.getExtras().getInt("is_live_lcs", -1);
             if (i3 >= 0) {
-                dR.ak("is_live", i3);
+                dY.al("is_live", i3);
             }
             if (i4 >= 0) {
-                dR.ak("is_live_lcs", i4);
+                dY.al("is_live_lcs", i4);
             }
             switch (this.intent.getExtras().getInt("KeyOfNotiId", -1)) {
                 case 16:
@@ -173,10 +174,10 @@ public class DealIntentService extends BdBaseService {
             } else if (!TextUtils.isEmpty(stringExtra) && stringExtra.contains("frs?kw=")) {
                 i = 7;
             }
-            dR.ak("obj_source", i);
-            TiebaStatic.log(dR);
+            dY.al("obj_source", i);
+            TiebaStatic.log(dY);
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                rm(i2);
+                rN(i2);
             }
             String string = this.intent.getExtras().getString("stat");
             if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
@@ -184,7 +185,7 @@ public class DealIntentService extends BdBaseService {
             }
             if (com.baidu.adp.base.a.lg().currentActivity() != null) {
                 if (5 == this.intent.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
-                    if (com.baidu.adp.base.a.lg().currentActivity().getClass().getName().equalsIgnoreCase(b.bpl())) {
+                    if (com.baidu.adp.base.a.lg().currentActivity().getClass().getName().equalsIgnoreCase(b.bsF())) {
                         this.intent.putExtra(DealIntentService.KEY_CLASS, 5);
                     } else {
                         this.intent.putExtra(DealIntentService.KEY_CLASS, 21);
@@ -198,7 +199,7 @@ public class DealIntentService extends BdBaseService {
                 TiebaStatic.eventStat(DealIntentService.this, "open_push", "start", 1, new Object[0]);
             }
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                rl(i2);
+                rM(i2);
             }
             return DealIntentService.ACTION_ON_POST_START;
         }
@@ -222,7 +223,7 @@ public class DealIntentService extends BdBaseService {
             DealIntentService.this.stopSelf();
         }
 
-        private void rl(int i) {
+        private void rM(int i) {
             switch (i) {
                 case 0:
                 case 1:
@@ -238,7 +239,7 @@ public class DealIntentService extends BdBaseService {
             }
         }
 
-        private void rm(int i) {
+        private void rN(int i) {
             switch (i) {
                 case 6:
                     TiebaStatic.eventStat(DealIntentService.this, "notify_to_pk_before", "click");

@@ -10,10 +10,10 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class b extends BdBaseModel {
-    private Context bEC;
-    private BdUniqueId bmJ = BdUniqueId.gen();
-    private final HttpMessageListener bst;
-    private a oac;
+    private Context bJK;
+    private BdUniqueId brR = BdUniqueId.gen();
+    private final HttpMessageListener bxC;
+    private a opc;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -23,37 +23,37 @@ public class b extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.oac = aVar;
+        this.opc = aVar;
     }
 
     public b(Context context) {
-        setUniqueId(this.bmJ);
-        this.bEC = context;
+        setUniqueId(this.brR);
+        this.bJK = context;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031082, TbConfig.SERVER_ADDRESS + "ala/audio/xiangqin/publish");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(PublishLoverHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.bst = new HttpMessageListener(1031082) { // from class: com.baidu.tieba.yuyinala.liveroom.publishlover.b.1
+        this.bxC = new HttpMessageListener(1031082) { // from class: com.baidu.tieba.yuyinala.liveroom.publishlover.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof PublishLoverHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.oac != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof PublishLoverHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.opc != null) {
                     PublishLoverHttpResponseMessage publishLoverHttpResponseMessage = (PublishLoverHttpResponseMessage) httpResponsedMessage;
                     if (publishLoverHttpResponseMessage.getError() != 0 || !publishLoverHttpResponseMessage.isSuccess()) {
-                        b.this.oac.onFail(publishLoverHttpResponseMessage.getError(), publishLoverHttpResponseMessage.getErrorString());
+                        b.this.opc.onFail(publishLoverHttpResponseMessage.getError(), publishLoverHttpResponseMessage.getErrorString());
                     } else {
-                        b.this.oac.a(publishLoverHttpResponseMessage);
+                        b.this.opc.a(publishLoverHttpResponseMessage);
                     }
                 }
             }
         };
-        registerListener(this.bst);
+        registerListener(this.bxC);
     }
 
     public void h(String str, String str2, String str3, int i) {
         com.baidu.tieba.yuyinala.liveroom.publishlover.a aVar = new com.baidu.tieba.yuyinala.liveroom.publishlover.a(str, str2, str3, i);
-        aVar.setTag(this.bmJ);
+        aVar.setTag(this.brR);
         sendMessage(aVar);
     }
 

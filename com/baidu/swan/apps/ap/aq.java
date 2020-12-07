@@ -2,14 +2,14 @@ package com.baidu.swan.apps.ap;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class aq {
-    private final Queue<Runnable> dqV = new ArrayDeque();
-    private Runnable dCA = null;
-    private boolean dCB = false;
+    private final Queue<Runnable> dxW = new ArrayDeque();
+    private Runnable dJy = null;
+    private boolean dJz = false;
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0013, code lost:
-        if (aMH() != false) goto L9;
+        if (aPN() != false) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -19,7 +19,7 @@ public class aq {
         synchronized (this) {
             boolean z2 = runnable == null;
             if (!z2) {
-                this.dqV.offer(runnable);
+                this.dxW.offer(runnable);
             }
             if (!z2) {
             }
@@ -28,34 +28,34 @@ public class aq {
         return z;
     }
 
-    public synchronized boolean aME() {
-        boolean aMG;
-        aMG = aMG();
-        this.dCB = true;
-        return aMG;
+    public synchronized boolean aPK() {
+        boolean aPM;
+        aPM = aPM();
+        this.dJz = true;
+        return aPM;
     }
 
-    public synchronized void aMF() {
-        this.dCB = false;
-        aMH();
+    public synchronized void aPL() {
+        this.dJz = false;
+        aPN();
     }
 
-    private boolean aMG() {
-        return !this.dCB && this.dCA == null;
+    private boolean aPM() {
+        return !this.dJz && this.dJy == null;
     }
 
-    private synchronized boolean aMH() {
-        boolean aMG;
-        aMG = aMG();
-        if (aMG) {
-            while (!this.dqV.isEmpty()) {
-                this.dCA = this.dqV.poll();
-                if (this.dCA != null) {
-                    this.dCA.run();
+    private synchronized boolean aPN() {
+        boolean aPM;
+        aPM = aPM();
+        if (aPM) {
+            while (!this.dxW.isEmpty()) {
+                this.dJy = this.dxW.poll();
+                if (this.dJy != null) {
+                    this.dJy.run();
                 }
             }
-            this.dCA = null;
+            this.dJy = null;
         }
-        return aMG;
+        return aPM;
     }
 }

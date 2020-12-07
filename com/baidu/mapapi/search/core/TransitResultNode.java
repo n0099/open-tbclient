@@ -3,12 +3,12 @@ package com.baidu.mapapi.search.core;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class TransitResultNode implements Parcelable {
     public static final Parcelable.Creator<TransitResultNode> CREATOR = new p();
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2112a;
+    private int f2114a;
     private String b;
     private LatLng c;
     private String d;
@@ -17,7 +17,7 @@ public class TransitResultNode implements Parcelable {
         this.b = null;
         this.c = null;
         this.d = null;
-        this.f2112a = i;
+        this.f2114a = i;
         this.b = str;
         this.c = latLng;
         this.d = str2;
@@ -28,7 +28,7 @@ public class TransitResultNode implements Parcelable {
         this.b = null;
         this.c = null;
         this.d = null;
-        this.f2112a = parcel.readInt();
+        this.f2114a = parcel.readInt();
         this.b = parcel.readString();
         this.c = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
         this.d = parcel.readString();
@@ -40,7 +40,7 @@ public class TransitResultNode implements Parcelable {
     }
 
     public int getCityId() {
-        return this.f2112a;
+        return this.f2114a;
     }
 
     public String getCityName() {
@@ -57,7 +57,7 @@ public class TransitResultNode implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f2112a);
+        parcel.writeInt(this.f2114a);
         parcel.writeString(this.b);
         parcel.writeValue(this.c);
         parcel.writeString(this.d);

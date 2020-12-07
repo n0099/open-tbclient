@@ -31,7 +31,7 @@ import org.apache.http.HttpHost;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"InlinedApi", "SetJavaScriptEnabled", "JavascriptInterface", "NewApi"})
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class FeedbackHotActivity extends Activity {
     private RelativeLayout g;
     private LinearLayout h;
@@ -44,7 +44,7 @@ public class FeedbackHotActivity extends Activity {
     private Timer q;
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f3735a = R.string.abc_action_bar_up_description;
+    private final int f3738a = R.string.abc_action_bar_up_description;
     private final int b = R.string.abc_action_menu_overflow_description;
     private final int c = R.string.abc_action_mode_done;
     private final int d = R.string.abc_activity_chooser_view_see_all;
@@ -137,7 +137,7 @@ public class FeedbackHotActivity extends Activity {
         }
         int i = 0;
         try {
-            i = Integer.parseInt(str.split(ETAG.EQUAL)[1]);
+            i = Integer.parseInt(str.split("=")[1]);
         } catch (Exception e) {
             e.printStackTrace();
         }

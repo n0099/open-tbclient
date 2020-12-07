@@ -8,20 +8,19 @@ import com.baidu.swan.games.bdtls.model.g;
 import com.baidu.swan.games.bdtls.model.h;
 import com.baidu.swan.games.bdtls.model.i;
 import com.baidu.swan.games.bdtls.model.j;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class d {
-    private static volatile d dPZ;
+    private static volatile d dWX;
 
-    public static d aSs() {
-        if (dPZ == null) {
+    public static d aVx() {
+        if (dWX == null) {
             synchronized (d.class) {
-                if (dPZ == null) {
-                    dPZ = new d();
+                if (dWX == null) {
+                    dWX = new d();
                 }
             }
         }
-        return dPZ;
+        return dWX;
     }
 
     private d() {
@@ -34,11 +33,11 @@ public class d {
         try {
             byte[] a2 = com.baidu.swan.games.bdtls.a.a.a(jVar, new g());
             if (a2 != null) {
-                h aTq = h.dQt.aTq();
-                aTq.c((byte) 22);
-                aTq.d((short) a2.length);
-                aTq.T(a2);
-                return com.baidu.swan.games.bdtls.a.b.a(aTq);
+                h aWv = h.dXr.aWv();
+                aWv.c((byte) 22);
+                aWv.d((short) a2.length);
+                aWv.V(a2);
+                return com.baidu.swan.games.bdtls.a.b.a(aWv);
             }
             return null;
         } catch (Exception e) {
@@ -56,19 +55,19 @@ public class d {
             return null;
         }
         try {
-            h aTq = h.dQt.aTq();
-            aTq.c((byte) 23);
-            byte[] aTC = jVar.aTC();
-            if (aTC != null && aTC.length > 0 && aTC.length <= 32767) {
-                aTq.d((short) aTC.length);
-                aTq.T(aTC);
+            h aWv = h.dXr.aWv();
+            aWv.c((byte) 23);
+            byte[] aWH = jVar.aWH();
+            if (aWH != null && aWH.length > 0 && aWH.length <= 32767) {
+                aWv.d((short) aWH.length);
+                aWv.V(aWH);
             }
             if (!TextUtils.isEmpty(str)) {
-                byte[] f = AES.f(str, jVar.aTB());
-                aTq.lW(f.length);
-                aTq.setContent(f);
+                byte[] f = AES.f(str, jVar.aWG());
+                aWv.mu(f.length);
+                aWv.setContent(f);
             }
-            return com.baidu.swan.games.bdtls.a.b.a(aTq);
+            return com.baidu.swan.games.bdtls.a.b.a(aWv);
         } catch (Exception e) {
             if (a.DEBUG) {
                 e.printStackTrace();
@@ -82,10 +81,10 @@ public class d {
     public i a(j jVar, byte[] bArr) {
         i iVar = new i();
         try {
-            h X = com.baidu.swan.games.bdtls.a.b.X(bArr);
-            switch (X.aTl()) {
+            h Z = com.baidu.swan.games.bdtls.a.b.Z(bArr);
+            switch (Z.aWq()) {
                 case 21:
-                    Bdtls.Alert parseFrom = Bdtls.Alert.parseFrom(X.aTp());
+                    Bdtls.Alert parseFrom = Bdtls.Alert.parseFrom(Z.aWu());
                     if (parseFrom != null) {
                         String str = new String(parseFrom.getDescription().toByteArray());
                         if (a.DEBUG) {
@@ -116,7 +115,7 @@ public class d {
                     }
                     break;
                 case 23:
-                    iVar.wp(new String(AES.d(X.getContent(), jVar.aTB())));
+                    iVar.wW(new String(AES.d(Z.getContent(), jVar.aWG())));
                     iVar.f(1);
                     break;
             }
@@ -130,11 +129,11 @@ public class d {
         return iVar;
     }
 
-    public static byte[] lR(int i) {
+    public static byte[] mp(int i) {
         return new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)};
     }
 
-    public static int P(byte[] bArr) {
+    public static int R(byte[] bArr) {
         if (bArr != null) {
             int i = 0;
             for (byte b : bArr) {
@@ -147,11 +146,11 @@ public class d {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: char */
     /* JADX WARN: Multi-variable type inference failed */
-    public static String Q(byte[] bArr) {
+    public static String S(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < bArr.length; i++) {
             sb.append(bArr[i] > 0 ? bArr[i] : bArr[i] & 255);
-            sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append(",");
         }
         return sb.toString();
     }

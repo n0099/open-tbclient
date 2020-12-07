@@ -10,12 +10,13 @@ import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.perfframe.ioc.Constant;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class e extends com.baidu.platform.base.d {
     private PoiInfo.ParentPoiInfo a(JSONObject jSONObject) {
         if (jSONObject == null || jSONObject.length() == 0) {
@@ -125,7 +126,7 @@ public class e extends com.baidu.platform.base.d {
         }
         reverseGeoCodeResult.setCityCode(optJSONObject.optInt("cityCode"));
         reverseGeoCodeResult.setAddress(optJSONObject.optString("formatted_address"));
-        reverseGeoCodeResult.setBusinessCircle(optJSONObject.optString("business"));
+        reverseGeoCodeResult.setBusinessCircle(optJSONObject.optString(Constant.KEY_BUSINESS));
         ReverseGeoCodeResult.AddressComponent a2 = a(optJSONObject, "addressComponent");
         reverseGeoCodeResult.setAddressDetail(a2);
         reverseGeoCodeResult.setLocation(d(optJSONObject, "location"));

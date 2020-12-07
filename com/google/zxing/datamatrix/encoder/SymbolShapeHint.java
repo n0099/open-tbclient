@@ -1,5 +1,5 @@
 package com.google.zxing.datamatrix.encoder;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public enum SymbolShapeHint {
     FORCE_NONE,
     FORCE_SQUARE,

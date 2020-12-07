@@ -1,13 +1,13 @@
 package com.baidu.sapi2.share.face;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class a implements Comparable<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3522a;
+    public String f3525a;
     public long b;
 
     public a(String str, long j) {
-        this.f3522a = str;
+        this.f3525a = str;
         this.b = j;
     }
 

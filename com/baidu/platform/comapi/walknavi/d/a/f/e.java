@@ -13,14 +13,14 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Arrays;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class e {
     public static c a(Context context, com.baidu.platform.comapi.walknavi.d.a.a.a aVar, f.a<JSONObject> aVar2) {
         String a2 = a(context, aVar);
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
-        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.f2989a + com.baidu.platform.comapi.walknavi.d.a.g.d.b + "/queryARResource";
+        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.f2991a + com.baidu.platform.comapi.walknavi.d.a.g.d.b + "/queryARResource";
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("doQueryArResource: " + str);
         d dVar = new d(str, aVar2);
         dVar.execute(a2);
@@ -66,7 +66,7 @@ public final class e {
         jSONObject2.put(HttpConstants.HTTP_SYSTEM_VERSION, Build.VERSION.SDK_INT);
         jSONObject2.put("user_id", a2.toString());
         jSONObject2.put("publish_id", "6");
-        if (!com.baidu.platform.comapi.walknavi.d.a.b.f2967a) {
+        if (!com.baidu.platform.comapi.walknavi.d.a.b.f2969a) {
             jSONObject2.put("update_check", 1);
         }
         a(context, jSONObject2);

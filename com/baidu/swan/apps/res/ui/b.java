@@ -4,18 +4,18 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.baidu.swan.apps.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b {
     public static FullScreenFloatView a(Context context, ViewGroup viewGroup, int i) {
         if (context == null || viewGroup == null) {
             return null;
         }
-        FullScreenFloatView j = j(context, i);
-        viewGroup.addView(j);
-        return j;
+        FullScreenFloatView s = s(context, i);
+        viewGroup.addView(s);
+        return s;
     }
 
-    private static FullScreenFloatView j(Context context, int i) {
+    private static FullScreenFloatView s(Context context, int i) {
         if (context == null) {
             return null;
         }

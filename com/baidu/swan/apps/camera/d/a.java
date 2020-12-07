@@ -1,13 +1,13 @@
 package com.baidu.swan.apps.camera.d;
 
 import android.text.TextUtils;
-import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
+import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a extends com.baidu.swan.apps.component.b.b {
+    private String cGH;
     public String cameraId;
-    private String czP;
     private String devicePosition;
 
     public a(String str) {
@@ -23,7 +23,7 @@ public class a extends com.baidu.swan.apps.component.b.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
         this.devicePosition = jSONObject.optString("devicePosition", "back");
-        this.czP = jSONObject.optString("flash", "auto");
+        this.cGH = jSONObject.optString("flash", "auto");
         this.cameraId = jSONObject.optString("cameraId");
     }
 
@@ -31,28 +31,28 @@ public class a extends com.baidu.swan.apps.component.b.b {
         return TextUtils.equals(this.devicePosition, "front");
     }
 
-    public String ajL() {
-        return C0404a.lY(this.czP);
+    public String amT() {
+        return C0416a.mF(this.cGH);
     }
 
     public int getWidth() {
-        if (this.cCe == null) {
+        if (this.cIZ == null) {
             return 0;
         }
-        return this.cCe.getWidth();
+        return this.cIZ.getWidth();
     }
 
     public int getHeight() {
-        if (this.cCe == null) {
+        if (this.cIZ == null) {
             return 0;
         }
-        return this.cCe.getHeight();
+        return this.cIZ.getHeight();
     }
 
     /* renamed from: com.baidu.swan.apps.camera.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    private static class C0404a {
-        static String lY(String str) {
+    /* loaded from: classes25.dex */
+    private static class C0416a {
+        static String mF(String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case 3551:

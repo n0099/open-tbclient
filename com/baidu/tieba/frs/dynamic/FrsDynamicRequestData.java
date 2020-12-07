@@ -8,11 +8,11 @@ import java.util.HashMap;
 import tbclient.CommonReq;
 import tbclient.StarTrends.DataReq;
 import tbclient.StarTrends.StarTrendsReqIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class FrsDynamicRequestData extends OrmObject implements e, h {
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f3683common;
+    public CommonReq f3686common;
     public long forumId;
     public long lastThreadId;
     public int qType;
@@ -21,12 +21,12 @@ public class FrsDynamicRequestData extends OrmObject implements e, h {
     public int scrW;
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String bAL() {
+    public String bEn() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean bAM() {
+    public boolean bEo() {
         return false;
     }
 
@@ -41,17 +41,17 @@ public class FrsDynamicRequestData extends OrmObject implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> bAO() {
+    public HashMap<String, Object> bEq() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> bAP() {
+    public HashMap<String, String> bEr() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.l
-    public Object ks(boolean z) {
+    public Object kL(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.forum_id = Long.valueOf(this.forumId);
         builder.scr_w = Integer.valueOf(this.scrW);

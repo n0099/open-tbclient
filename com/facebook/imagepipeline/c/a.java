@@ -1,18 +1,41 @@
 package com.facebook.imagepipeline.c;
 
-import com.facebook.imagepipeline.c.h;
-/* loaded from: classes17.dex */
-public class a {
-    public static h<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> a(com.facebook.common.internal.j<q> jVar, com.facebook.common.memory.c cVar, h.a aVar) {
-        h<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> hVar = new h<>(new v<com.facebook.imagepipeline.g.c>() { // from class: com.facebook.imagepipeline.c.a.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.facebook.imagepipeline.c.v
-            /* renamed from: e */
-            public int br(com.facebook.imagepipeline.g.c cVar2) {
-                return cVar2.getSizeInBytes();
-            }
-        }, aVar, jVar);
-        cVar.a(hVar);
-        return hVar;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+/* loaded from: classes7.dex */
+public class a implements e {
+    private final Executor plj;
+    private final Executor plk;
+    private final Executor pli = Executors.newFixedThreadPool(2, new k(10, "FrescoIoBoundExecutor", true));
+    private final Executor pll = Executors.newFixedThreadPool(1, new k(10, "FrescoLightWeightBackgroundExecutor", true));
+
+    public a(int i) {
+        this.plj = Executors.newFixedThreadPool(i, new k(10, "FrescoDecodeExecutor", true));
+        this.plk = Executors.newFixedThreadPool(i, new k(10, "FrescoBackgroundExecutor", true));
+    }
+
+    @Override // com.facebook.imagepipeline.c.e
+    public Executor etG() {
+        return this.pli;
+    }
+
+    @Override // com.facebook.imagepipeline.c.e
+    public Executor etH() {
+        return this.pli;
+    }
+
+    @Override // com.facebook.imagepipeline.c.e
+    public Executor etI() {
+        return this.plj;
+    }
+
+    @Override // com.facebook.imagepipeline.c.e
+    public Executor etJ() {
+        return this.plk;
+    }
+
+    @Override // com.facebook.imagepipeline.c.e
+    public Executor etK() {
+        return this.pll;
     }
 }

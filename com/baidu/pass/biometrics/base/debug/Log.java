@@ -3,7 +3,7 @@ package com.baidu.pass.biometrics.base.debug;
 public final class Log {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2692a = "SAPI_BIOMETRIC";
+    private static final String f2694a = "SAPI_BIOMETRIC";
     private static boolean b;
 
     private Log() {
@@ -49,7 +49,7 @@ public final class Log {
     }
 
     public static void e(Throwable th) {
-        e(f2692a, th);
+        e(f2694a, th);
     }
 
     public static void enable(boolean z) {
@@ -75,7 +75,7 @@ public final class Log {
     }
 
     public static void d(Object... objArr) {
-        d(f2692a, objArr);
+        d(f2694a, objArr);
     }
 
     public static void e(String str, Object... objArr) {
@@ -86,10 +86,10 @@ public final class Log {
     }
 
     public static void i(Object... objArr) {
-        i(f2692a, objArr);
+        i(f2694a, objArr);
     }
 
     public static void w(Object... objArr) {
-        w(f2692a, objArr);
+        w(f2694a, objArr);
     }
 }

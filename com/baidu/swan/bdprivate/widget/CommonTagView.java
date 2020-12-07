@@ -11,9 +11,9 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.swan.apps.ap.ah;
 import com.baidu.swan.bdprivate.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class CommonTagView extends TextView {
-    private boolean dIi;
+    private boolean dPg;
     private int mBorderColor;
     private int mBorderWidth;
     private Context mContext;
@@ -33,7 +33,7 @@ public class CommonTagView extends TextView {
     public CommonTagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mHasBorder = true;
-        this.dIi = true;
+        this.dPg = true;
         init(context, attributeSet, i);
     }
 
@@ -44,10 +44,10 @@ public class CommonTagView extends TextView {
         this.mCornerRadius = obtainStyledAttributes.getDimensionPixelOffset(b.h.CommonTagView_cornerRadius, 3);
         obtainStyledAttributes.recycle();
         setPadding(getPaddingLeft() == 0 ? ah.dip2px(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? ah.dip2px(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? ah.dip2px(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? ah.dip2px(context, 1.0f) : getPaddingBottom());
-        du(context);
+        ea(context);
     }
 
-    private void du(Context context) {
+    private void ea(Context context) {
         this.mContext = context;
         this.mPaint = new Paint();
         this.mRectF = new RectF();
@@ -60,7 +60,7 @@ public class CommonTagView extends TextView {
             this.mPaint.setStyle(Paint.Style.STROKE);
             this.mPaint.setAntiAlias(true);
             this.mPaint.setStrokeWidth(this.mBorderWidth);
-            if (this.dIi && this.mBorderColor != getCurrentTextColor()) {
+            if (this.dPg && this.mBorderColor != getCurrentTextColor()) {
                 this.mBorderColor = getCurrentTextColor();
             }
             this.mPaint.setColor(this.mBorderColor);

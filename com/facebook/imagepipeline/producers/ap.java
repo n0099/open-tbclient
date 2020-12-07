@@ -7,7 +7,7 @@ import javax.annotation.concurrent.ThreadSafe;
 /* loaded from: classes15.dex */
 public class ap extends d {
     public ap(ImageRequest imageRequest, ak akVar) {
-        this(imageRequest, akVar.getId(), akVar.eqU(), akVar.elx(), akVar.eqV(), akVar.eqW(), akVar.eqY(), akVar.eqX());
+        this(imageRequest, akVar.getId(), akVar.eww(), akVar.erm(), akVar.ewx(), akVar.ewy(), akVar.ewA(), akVar.ewz());
     }
 
     public ap(ImageRequest imageRequest, String str, am amVar, Object obj, ImageRequest.RequestLevel requestLevel, boolean z, boolean z2, Priority priority) {

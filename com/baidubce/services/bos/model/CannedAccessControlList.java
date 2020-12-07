@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
 
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public enum CannedAccessControlList {
     Private(PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE),
     PublicRead("public-read"),

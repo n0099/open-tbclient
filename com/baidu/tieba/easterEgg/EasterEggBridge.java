@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class EasterEggBridge implements com.baidu.tieba.tbadkCore.e.b {
     private static final String KEY_ARGS = "args";
     private static final String KEY_ARGS_EXT = "native_exts";

@@ -3,7 +3,7 @@ package com.baidu.mapapi;
 import android.content.Context;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comapi.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class SDKInitializer {
     public static final String SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR = "network error";
     public static final String SDK_BROADTCAST_ACTION_STRING_PERMISSION_CHECK_ERROR = "permission check error";
@@ -12,13 +12,13 @@ public class SDKInitializer {
     public static final String SDK_BROADTCAST_INTENT_EXTRA_INFO_KEY_ERROR_MESSAGE = "error_message";
 
     /* renamed from: a  reason: collision with root package name */
-    private static CoordType f1962a = CoordType.BD09LL;
+    private static CoordType f1964a = CoordType.BD09LL;
 
     private SDKInitializer() {
     }
 
     public static CoordType getCoordType() {
-        return f1962a;
+        return f1964a;
     }
 
     public static void initialize(Context context) {
@@ -38,7 +38,7 @@ public class SDKInitializer {
     }
 
     public static void setCoordType(CoordType coordType) {
-        f1962a = coordType;
+        f1964a = coordType;
     }
 
     public static void setHttpsEnable(boolean z) {

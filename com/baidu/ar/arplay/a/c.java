@@ -3,65 +3,82 @@ package com.baidu.ar.arplay.a;
 import android.content.Context;
 import android.view.OrientationEventListener;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-import com.baidu.ar.arplay.core.engine.ARPEngine;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class c extends OrientationEventListener {
-    private ARPEngine.e dk;
-    private boolean dl;
-    private int dm;
-    private ARPEngine.e mTouchOrientation;
+    private a dp;
+    private a dq;
+    private boolean dr;
+    private int ds;
+    private int dt;
+
+    /* loaded from: classes10.dex */
+    public enum a {
+        SCREEN_ORIENTATION_PORTRAIT,
+        SCREEN_ORIENTATION_LANDSCAPE,
+        SCREEN_ORIENTATION_REVERSE_PORTRAIT,
+        SCREEN_ORIENTATION_REVERSE_LANDSCAPE,
+        SCREEN_ORIENTATION_NOT_DEFINED
+    }
 
     public c(Context context) {
         super(context);
-        this.dl = false;
+        this.dr = false;
+        this.dt = 0;
     }
 
-    private int aJ() {
-        if (this.dk == ARPEngine.e.SCREEN_ORIENTATION_LANDSCAPE) {
+    private int aK() {
+        if (this.dp == a.SCREEN_ORIENTATION_LANDSCAPE) {
             return 90;
         }
-        if (this.dk == ARPEngine.e.SCREEN_ORIENTATION_REVERSE_LANDSCAPE) {
+        if (this.dp == a.SCREEN_ORIENTATION_REVERSE_LANDSCAPE) {
             return -90;
         }
-        return this.dk == ARPEngine.e.SCREEN_ORIENTATION_REVERSE_PORTRAIT ? 180 : 0;
+        return this.dp == a.SCREEN_ORIENTATION_REVERSE_PORTRAIT ? 180 : 0;
     }
 
-    public void aI() {
-        this.dm = aJ();
+    public void aJ() {
+        this.ds = aK();
+    }
+
+    public void h(int i) {
+        this.dt = i;
     }
 
     @Override // android.view.OrientationEventListener
     public void onOrientationChanged(int i) {
         if (i < 0) {
-            this.mTouchOrientation = ARPEngine.e.SCREEN_ORIENTATION_NOT_DEFINED;
-        } else if (ARPEngine.getInstance().getImuType() == 1) {
-            int i2 = ((i + EncoderTextureDrawer.X264_WIDTH) + this.dm) % EncoderTextureDrawer.X264_WIDTH;
+            this.dq = a.SCREEN_ORIENTATION_NOT_DEFINED;
+        } else if (this.dt != 1) {
+            if (this.dt == 0) {
+                if (i <= 45 || i > 315) {
+                    this.dq = a.SCREEN_ORIENTATION_PORTRAIT;
+                } else if (i > 45 && i <= 135) {
+                    this.dq = a.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
+                } else if (i > 135 && i <= 225) {
+                    this.dq = a.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
+                } else if (i <= 225 || i > 315) {
+                } else {
+                    this.dq = a.SCREEN_ORIENTATION_LANDSCAPE;
+                }
+            }
+        } else {
+            int i2 = ((i + EncoderTextureDrawer.X264_WIDTH) + this.ds) % EncoderTextureDrawer.X264_WIDTH;
             if (i2 <= 45 || i2 > 315) {
-                this.mTouchOrientation = ARPEngine.e.SCREEN_ORIENTATION_PORTRAIT;
+                this.dq = a.SCREEN_ORIENTATION_PORTRAIT;
             } else if (i2 > 45 && i2 <= 135) {
-                this.mTouchOrientation = ARPEngine.e.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
+                this.dq = a.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
             } else if (i2 > 135 && i2 <= 225) {
-                this.mTouchOrientation = ARPEngine.e.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
+                this.dq = a.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
             } else if (i2 > 225 && i2 <= 315) {
-                this.mTouchOrientation = ARPEngine.e.SCREEN_ORIENTATION_LANDSCAPE;
+                this.dq = a.SCREEN_ORIENTATION_LANDSCAPE;
             }
-            if (!this.dl && ARPEngine.getInstance().getImuType() == 1) {
-                this.dl = true;
-                this.dk = this.mTouchOrientation;
-                aI();
+            if (this.dr || this.dt != 1) {
+                return;
             }
-        } else if (ARPEngine.getInstance().getImuType() == 0) {
-            if (i <= 45 || i > 315) {
-                this.mTouchOrientation = ARPEngine.e.SCREEN_ORIENTATION_PORTRAIT;
-            } else if (i > 45 && i <= 135) {
-                this.mTouchOrientation = ARPEngine.e.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
-            } else if (i > 135 && i <= 225) {
-                this.mTouchOrientation = ARPEngine.e.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
-            } else if (i > 225 && i <= 315) {
-                this.mTouchOrientation = ARPEngine.e.SCREEN_ORIENTATION_LANDSCAPE;
-            }
+            this.dr = true;
+            this.dp = this.dq;
+            aJ();
         }
-        ARPEngine.getInstance().setTouchOrientation(this.mTouchOrientation);
     }
 
     public void release() {
@@ -70,6 +87,7 @@ public class c extends OrientationEventListener {
         } catch (RuntimeException e) {
             e.printStackTrace();
         }
+        this.dt = 0;
     }
 
     public void start() {

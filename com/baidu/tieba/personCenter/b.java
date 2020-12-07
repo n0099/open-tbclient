@@ -4,20 +4,20 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b {
-    private static b lVy;
+    private static b mjF;
     private Context context;
 
-    public static b dsW() {
-        if (lVy == null) {
+    public static b dyo() {
+        if (mjF == null) {
             synchronized (b.class) {
-                if (lVy == null) {
-                    lVy = new b(TbadkCoreApplication.getInst());
+                if (mjF == null) {
+                    mjF = new b(TbadkCoreApplication.getInst());
                 }
             }
         }
-        return lVy;
+        return mjF;
     }
 
     public b(Context context) {
@@ -27,7 +27,7 @@ public class b {
         UfoSDK.setContactDialogSwitch(false);
     }
 
-    public void dsX() {
+    public void dyp() {
         TbadkCoreApplication.getInst();
         if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
             TbadkCoreApplication.getInst();

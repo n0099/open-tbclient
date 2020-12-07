@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.Hottopic.JoinUser;
 import tbclient.Hottopic.UserInfo;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class h {
-    public List<l> jQn;
-    public long jQo;
+    public List<l> kdQ;
+    public long kdR;
 
     public void a(JoinUser joinUser) {
-        this.jQo = joinUser.join_user_num.longValue();
-        this.jQn = new ArrayList();
+        this.kdR = joinUser.join_user_num.longValue();
+        this.kdQ = new ArrayList();
         for (UserInfo userInfo : joinUser.join_user) {
             if (userInfo != null) {
                 l lVar = new l();
                 lVar.a(userInfo);
-                this.jQn.add(lVar);
+                this.kdQ.add(lVar);
             }
         }
     }

@@ -2,23 +2,23 @@ package com.baidu.ar.vo.b;
 
 import com.baidu.ar.slam.TrackModel;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class g {
     private long mTimestamp;
-    private boolean nx;
-    private boolean po;
-    private ArrayList<TrackModel> yi;
+    private boolean nN;
+    private boolean pE;
+    private ArrayList<TrackModel> yX;
 
     public g(long j) {
         this.mTimestamp = j;
     }
 
-    public void H(boolean z) {
-        this.po = z;
+    public void F(boolean z) {
+        this.pE = z;
     }
 
     public void b(ArrayList<TrackModel> arrayList) {
-        this.yi = arrayList;
+        this.yX = arrayList;
     }
 
     public long getTimestamp() {
@@ -26,10 +26,10 @@ public class g {
     }
 
     public ArrayList<TrackModel> hk() {
-        return this.yi;
+        return this.yX;
     }
 
     public void setTracked(boolean z) {
-        this.nx = z;
+        this.nN = z;
     }
 }

@@ -13,17 +13,17 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends BaseAdapter {
-    private ArrayList<a.C0897a> eHj = new ArrayList<>();
+    private ArrayList<a.C0914a> eOt = new ArrayList<>();
     private String mGroupId;
     private String mLiveId;
     private TbPageContext mPageContext;
     private String mRoomId;
     private int mType;
-    private a nTE;
+    private a oiC;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void bOx();
+        void bSi();
     }
 
     public b(TbPageContext tbPageContext, String str, String str2, String str3, int i) {
@@ -34,30 +34,30 @@ public class b extends BaseAdapter {
         this.mGroupId = str2;
     }
 
-    public void setData(List<a.C0897a> list) {
+    public void setData(List<a.C0914a> list) {
         if (list != null) {
-            this.eHj.clear();
-            this.eHj.addAll(list);
+            this.eOt.clear();
+            this.eOt.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eHj == null) {
+        if (this.eOt == null) {
             return 0;
         }
-        return this.eHj.size();
+        return this.eOt.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Ms */
-    public a.C0897a getItem(int i) {
-        if (this.eHj == null) {
+    /* renamed from: Nk */
+    public a.C0914a getItem(int i) {
+        if (this.eOt == null) {
             return null;
         }
-        return this.eHj.get(i);
+        return this.eOt.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -67,32 +67,32 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0898b c0898b;
-        a.C0897a item;
+        C0915b c0915b;
+        a.C0914a item;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.yuyin_sdk_banned_post_list_item, viewGroup, false);
-            C0898b c0898b2 = new C0898b();
-            c0898b2.nTG = (BannedPostItemView) view.findViewById(a.f.item);
-            view.setTag(c0898b2);
-            c0898b = c0898b2;
+            C0915b c0915b2 = new C0915b();
+            c0915b2.oiE = (BannedPostItemView) view.findViewById(a.f.item);
+            view.setTag(c0915b2);
+            c0915b = c0915b2;
         } else {
-            c0898b = (C0898b) view.getTag();
+            c0915b = (C0915b) view.getTag();
         }
-        if (c0898b != null && getItem(i) != null && (item = getItem(i)) != null) {
-            c0898b.nTG.setData(item, this.mLiveId, this.mGroupId, this.mRoomId, this.mType);
-            c0898b.nTG.setCallBack(new BannedPostItemView.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.b.1
+        if (c0915b != null && getItem(i) != null && (item = getItem(i)) != null) {
+            c0915b.oiE.setData(item, this.mLiveId, this.mGroupId, this.mRoomId, this.mType);
+            c0915b.oiE.setCallBack(new BannedPostItemView.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.b.1
                 @Override // com.baidu.tieba.yuyinala.charm.bannedpost.BannedPostItemView.a
-                public void UX(String str) {
-                    Iterator it = b.this.eHj.iterator();
+                public void Wm(String str) {
+                    Iterator it = b.this.eOt.iterator();
                     while (it.hasNext()) {
-                        a.C0897a c0897a = (a.C0897a) it.next();
-                        if (str.equals(c0897a.uk)) {
-                            b.this.eHj.remove(c0897a);
+                        a.C0914a c0914a = (a.C0914a) it.next();
+                        if (str.equals(c0914a.uk)) {
+                            b.this.eOt.remove(c0914a);
                         }
                     }
                     b.this.notifyDataSetChanged();
-                    if ((b.this.eHj == null || b.this.eHj.size() == 0) && b.this.nTE != null) {
-                        b.this.nTE.bOx();
+                    if ((b.this.eOt == null || b.this.eOt.size() == 0) && b.this.oiC != null) {
+                        b.this.oiC.bSi();
                     }
                 }
             });
@@ -103,14 +103,14 @@ public class b extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.yuyinala.charm.bannedpost.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0898b {
-        private BannedPostItemView nTG;
+    private class C0915b {
+        private BannedPostItemView oiE;
 
-        private C0898b() {
+        private C0915b() {
         }
     }
 
     public void a(a aVar) {
-        this.nTE = aVar;
+        this.oiC = aVar;
     }
 }

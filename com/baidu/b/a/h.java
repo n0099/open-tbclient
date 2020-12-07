@@ -2,15 +2,15 @@ package com.baidu.b.a;
 
 import com.baidu.b.a.e;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 final class h extends g {
-    private a acW;
+    private a adS;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Class<?> f1247a;
+        private Class<?> f1246a;
         private Method b;
         private Method c;
 
@@ -29,9 +29,9 @@ final class h extends g {
 
         private void a() {
             try {
-                this.f1247a = Class.forName(e.a(d.a()), true, Object.class.getClassLoader());
-                this.b = e.a(this.f1247a, e.a(d.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                this.c = e.a(this.f1247a, e.a(d.c()), null);
+                this.f1246a = Class.forName(e.a(d.a()), true, Object.class.getClassLoader());
+                this.b = e.a(this.f1246a, e.a(d.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                this.c = e.a(this.f1246a, e.a(d.c()), null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -48,26 +48,26 @@ final class h extends g {
 
         /* JADX INFO: Access modifiers changed from: private */
         public Object b() {
-            return this.f1247a.newInstance();
+            return this.f1246a.newInstance();
         }
     }
 
     public h(int i, int i2) {
-        this.f1246a = 1099511627775L;
+        this.f1245a = 1099511627775L;
         this.b = 4;
         this.c = 32;
         this.d = i;
         this.e = i2;
-        this.acW = new a();
+        this.adS = new a();
     }
 
     @Override // com.baidu.b.a.g
     public b i(byte[] bArr, int i, int i2) {
         long j = 4294967295L;
         try {
-            Object b = this.acW.b();
-            this.acW.a(b, bArr, i, i2);
-            j = this.acW.G(b);
+            Object b = this.adS.b();
+            this.adS.a(b, bArr, i, i2);
+            j = this.adS.G(b);
         } catch (Exception e) {
         }
         return b.a(new long[]{j});

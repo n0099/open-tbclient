@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.xiuba.JSResultData;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     private static final String INTERFACE_NAME = "CommonJSBridge";
     private static final String START_LOGIN_MODULE = "startLoginModule";

@@ -14,22 +14,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.util.q;
 import com.baidu.tieba.R;
-import com.baidu.webkit.internal.ETAG;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class l {
     private String c;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern mXD = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern nlB = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String mXB = null;
-    private SpannableStringBuilder mXC = null;
-    private boolean mXA = false;
+    private String nlz = null;
+    private SpannableStringBuilder nlA = null;
+    private boolean nly = false;
 
-    public static boolean du(int i, int i2) {
+    public static boolean dz(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
@@ -45,23 +44,23 @@ public class l {
         return this.text;
     }
 
-    public String dJz() {
+    public String dOQ() {
         return this.c;
     }
 
-    public SpannableStringBuilder dJA() {
-        return this.mXC;
+    public SpannableStringBuilder dOR() {
+        return this.nlA;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.mXC == null) {
-            this.mXC = new SpannableStringBuilder();
+        if (this.nlA == null) {
+            this.nlA = new SpannableStringBuilder();
         }
-        this.mXC.append((CharSequence) spannableString);
-        return this.mXC;
+        this.nlA.append((CharSequence) spannableString);
+        return this.nlA;
     }
 
-    public SpannableString fQ(Context context) {
+    public SpannableString gB(Context context) {
         String str;
         switch (this.type) {
             case 0:
@@ -78,23 +77,23 @@ public class l {
                         if (matcher.find()) {
                             try {
                                 String group = matcher.group();
-                                DY(group.substring(group.lastIndexOf("/") + 1));
+                                EL(group.substring(group.lastIndexOf("/") + 1));
                                 return;
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = l.mXD.matcher(l.this.link);
+                        Matcher matcher2 = l.nlB.matcher(l.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();
-                                DY(group2.substring(group2.lastIndexOf(ETAG.EQUAL) + 1));
+                                EL(group2.substring(group2.lastIndexOf("=") + 1));
                                 return;
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
                         }
-                        DX(l.this.link);
+                        EK(l.this.link);
                     }
                 }, 0, this.text.length() - 1, 33);
                 return spannableString;
@@ -141,7 +140,7 @@ public class l {
                 spannableString4.setSpan(new q(context) { // from class: com.baidu.tieba.tbadkCore.data.l.1
                     @Override // com.baidu.tbadk.util.q, android.text.style.ClickableSpan
                     public void onClick(View view) {
-                        DX(l.this.text);
+                        EK(l.this.text);
                     }
                 }, string.length(), str.length() - 1, 33);
                 return spannableString4;

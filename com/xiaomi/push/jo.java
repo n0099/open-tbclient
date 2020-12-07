@@ -24,9 +24,9 @@ public class jo extends je {
 
         @Override // com.xiaomi.push.je.a, com.xiaomi.push.jk
         public ji a(js jsVar) {
-            jo joVar = new jo(jsVar, this.f779a, this.b);
-            if (this.f4999a != 0) {
-                joVar.b(this.f4999a);
+            jo joVar = new jo(jsVar, this.f777a, this.b);
+            if (this.f4769a != 0) {
+                joVar.b(this.f4769a);
             }
             return joVar;
         }
@@ -73,10 +73,10 @@ public class jo extends je {
         if (a2 > e) {
             throw new jj(3, "Thrift string size " + a2 + " out of range!");
         }
-        if (this.f5003a.b() >= a2) {
+        if (this.f4773a.b() >= a2) {
             try {
-                String str = new String(this.f5003a.m499a(), this.f5003a.a(), a2, "UTF-8");
-                this.f5003a.a(a2);
+                String str = new String(this.f4773a.m489a(), this.f4773a.a(), a2, "UTF-8");
+                this.f4773a.a(a2);
                 return str;
             } catch (UnsupportedEncodingException e2) {
                 throw new jc("JVM DOES NOT SUPPORT UTF-8");
@@ -92,13 +92,13 @@ public class jo extends je {
             throw new jj(3, "Thrift binary size " + a2 + " out of range!");
         }
         c(a2);
-        if (this.f5003a.b() >= a2) {
-            ByteBuffer wrap = ByteBuffer.wrap(this.f5003a.m499a(), this.f5003a.a(), a2);
-            this.f5003a.a(a2);
+        if (this.f4773a.b() >= a2) {
+            ByteBuffer wrap = ByteBuffer.wrap(this.f4773a.m489a(), this.f4773a.a(), a2);
+            this.f4773a.a(a2);
             return wrap;
         }
         byte[] bArr = new byte[a2];
-        this.f5003a.b(bArr, 0, a2);
+        this.f4773a.b(bArr, 0, a2);
         return ByteBuffer.wrap(bArr);
     }
 }

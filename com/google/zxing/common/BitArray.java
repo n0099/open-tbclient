@@ -1,7 +1,7 @@
 package com.google.zxing.common;
 
 import java.util.Arrays;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class BitArray implements Cloneable {
     private int[] bits;
     private int size;
@@ -256,7 +256,7 @@ public final class BitArray implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BitArray m49clone() {
+    public BitArray m45clone() {
         return new BitArray((int[]) this.bits.clone(), this.size);
     }
 }

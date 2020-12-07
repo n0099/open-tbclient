@@ -4,14 +4,14 @@ public interface e {
 
     /* loaded from: classes.dex */
     public interface a {
-        void Fo(int i);
+        void Gd(int i);
 
         void onChange(boolean z);
 
-        void tn(boolean z);
+        void tP(boolean z);
     }
 
     void a(a aVar);
 
-    void ddy();
+    void diJ();
 }

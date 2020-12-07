@@ -6,44 +6,44 @@ import com.baidu.tieba.hottopic.controller.HotRanklistActivity;
 import com.baidu.tieba.hottopic.data.o;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> biN = new ArrayList();
-    private BdTypeListView ghN;
-    private d jNS;
-    private c jNT;
-    private m jNU;
+    private List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
+    private BdTypeListView gpX;
+    private d kbv;
+    private c kbw;
+    private m kbx;
 
     public b(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
         a(hotRanklistActivity, bdTypeListView);
     }
 
     private void a(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
-        this.jNS = new d(hotRanklistActivity, com.baidu.tieba.hottopic.data.c.jPJ);
-        this.jNT = new c(hotRanklistActivity, com.baidu.tieba.hottopic.data.b.jPI);
-        this.jNU = new m(hotRanklistActivity, o.jQO);
-        this.biN.add(this.jNS);
-        this.biN.add(this.jNT);
-        this.biN.add(this.jNU);
-        this.ghN = bdTypeListView;
-        this.ghN.addAdapters(this.biN);
+        this.kbv = new d(hotRanklistActivity, com.baidu.tieba.hottopic.data.c.kdm);
+        this.kbw = new c(hotRanklistActivity, com.baidu.tieba.hottopic.data.b.kdl);
+        this.kbx = new m(hotRanklistActivity, o.ker);
+        this.bnf.add(this.kbv);
+        this.bnf.add(this.kbw);
+        this.bnf.add(this.kbx);
+        this.gpX = bdTypeListView;
+        this.gpX.addAdapters(this.bnf);
     }
 
     public void a(com.baidu.tieba.hottopic.data.j jVar, String str) {
         ArrayList<q> arrayList;
-        if (jVar.cML() != null) {
-            arrayList = jVar.cML();
+        if (jVar.cRZ() != null) {
+            arrayList = jVar.cRZ();
         } else {
             arrayList = new ArrayList<>();
         }
-        if (this.jNU != null) {
-            this.jNU.cMb();
+        if (this.kbx != null) {
+            this.kbx.cRp();
         }
-        if (this.jNS != null) {
-            this.jNS.Lv(str);
+        if (this.kbv != null) {
+            this.kbv.MC(str);
         }
-        if (this.ghN != null) {
-            this.ghN.setData(arrayList);
+        if (this.gpX != null) {
+            this.gpX.setData(arrayList);
         }
     }
 }

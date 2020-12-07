@@ -4,8 +4,7 @@ import com.baidu.swan.videoplayer.SwanVideoView;
 /* loaded from: classes6.dex */
 public abstract class b implements a {
     @Override // com.baidu.swan.videoplayer.a.a
-    /* renamed from: if */
-    public void mo36if(boolean z) {
+    public void iu(boolean z) {
     }
 
     @Override // com.baidu.swan.videoplayer.a.a

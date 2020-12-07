@@ -10,52 +10,52 @@ import com.baidu.ar.bean.ARConfig;
 import com.baidu.ar.constants.ARConfigKey;
 import com.baidu.ar.constants.HttpConstants;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private String gp;
-    private String gq;
-    private String gr;
-    private String gs;
+    private String gC;
+    private String gD;
+    private String gE;
+    private String gF;
 
     public a(Context context) {
-        this.gr = "0";
-        this.gs = "0";
-        this.gp = new com.baidu.ar.g.g(context).gz().toString();
-        this.gq = com.baidu.ar.g.c.r(context);
+        this.gE = "0";
+        this.gF = "0";
+        this.gC = new com.baidu.ar.h.g(context).gz().toString();
+        this.gD = com.baidu.ar.h.c.s(context);
         for (Sensor sensor : ((SensorManager) context.getSystemService("sensor")).getSensorList(-1)) {
             if (sensor.getType() == 4) {
-                this.gr = "1";
+                this.gE = "1";
             }
             if (sensor.getType() == 11) {
-                this.gs = "1";
+                this.gF = "1";
             }
         }
     }
 
-    private void bu() {
+    private void br() {
         HashMap hashMap = new HashMap();
-        hashMap.put("app_version", String.valueOf(com.baidu.ar.g.c.getVersionCode()));
+        hashMap.put("app_version", String.valueOf(com.baidu.ar.h.c.getVersionCode()));
         hashMap.put("ar_key", ARConfig.getARKey());
         hashMap.put("ar_type", Integer.valueOf(ARConfig.getARType()));
         hashMap.put("os_version", String.valueOf(Build.VERSION.SDK_INT));
-        hashMap.put("device_id", this.gp);
+        hashMap.put("device_id", this.gC);
         hashMap.put(ARConfigKey.EXTRA_INFO, ARConfig.getARExtraInfo());
         hashMap.put(HttpConstants.HTTP_OS_TYPE, "android");
         hashMap.put(HttpConstants.DEVICE_TYPE, Build.BRAND);
-        hashMap.put("channel", this.gq);
+        hashMap.put("channel", this.gD);
         ARPScriptEnvironment.getInstance().setSharedEnvironmentKV(TableDefine.DB_TABLE_USERINFO, hashMap);
     }
 
-    private void bv() {
+    private void bs() {
         HashMap hashMap = new HashMap();
-        hashMap.put("android.sensor.gyroscope", this.gr);
-        hashMap.put("android.sensor.rotation_vector", this.gs);
+        hashMap.put("android.sensor.gyroscope", this.gE);
+        hashMap.put("android.sensor.rotation_vector", this.gF);
         ARPScriptEnvironment.getInstance().setSharedEnvironmentKV("deviceinfo", hashMap);
     }
 
-    public void bt() {
-        bu();
-        bv();
+    public void bq() {
+        br();
+        bs();
     }
 
     public void setDataPipKV(String str, Object obj) {

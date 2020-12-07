@@ -11,18 +11,18 @@ import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class b extends c<RegisterStatus> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Handler f4440a;
+    protected Handler f4210a;
     protected ScheduledExecutorService b;
     protected int c;
 
     public b(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, null, null, aVar, scheduledExecutorService);
         this.b = (ScheduledExecutorService) com.meizu.cloud.pushsdk.c.b.a.b.a();
-        this.f4440a = new Handler(context.getMainLooper()) { // from class: com.meizu.cloud.pushsdk.platform.b.b.1
+        this.f4210a = new Handler(context.getMainLooper()) { // from class: com.meizu.cloud.pushsdk.platform.b.b.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
@@ -51,7 +51,7 @@ public class b extends c<RegisterStatus> {
             @Override // java.lang.Runnable
             public void run() {
                 b.this.o();
-                b.this.f4440a.sendEmptyMessage(0);
+                b.this.f4210a.sendEmptyMessage(0);
             }
         }, j, TimeUnit.SECONDS);
     }

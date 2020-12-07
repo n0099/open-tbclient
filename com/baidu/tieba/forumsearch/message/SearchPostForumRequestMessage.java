@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.u;
 import tbclient.SearchPostForum.DataReq;
 import tbclient.SearchPostForum.SearchPostForumReqIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class SearchPostForumRequestMessage extends NetMessage {
     private String word;
 

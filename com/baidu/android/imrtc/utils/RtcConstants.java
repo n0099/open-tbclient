@@ -1,7 +1,7 @@
 package com.baidu.android.imrtc.utils;
 
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes18.dex */
+/* loaded from: classes12.dex */
 public class RtcConstants {
     public static final int ACTION_IM_RTC_ACK = 102;
     public static final int ACTION_IM_RTC_ANSWER = 84;
@@ -54,7 +54,7 @@ public class RtcConstants {
     public static volatile AtomicLong IM_RTC_SDK_SEQ_ID = new AtomicLong(-1);
     public static volatile long IM_RTC_SERVER_SEQ_ID = -1;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes12.dex */
     public enum RoomEventType {
         JOIN_ROOM(93),
         EXIT_ROOM(87),

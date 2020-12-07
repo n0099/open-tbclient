@@ -7,7 +7,7 @@ public class b {
         if (view == null || aVar == null || !aVar.ai(view)) {
             return false;
         }
-        aVar.onViewAdded(view);
+        aVar.aj(view);
         return true;
     }
 
@@ -15,7 +15,7 @@ public class b {
         if (view == null || aVar == null || !aVar.ai(view)) {
             return false;
         }
-        aVar.onViewRemoved(view);
+        aVar.ak(view);
         return true;
     }
 }

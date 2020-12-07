@@ -20,11 +20,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.LinearInterpolator;
-import com.baidu.k.a.a;
+import com.baidu.l.a.a;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.lang.ref.WeakReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class c extends View implements com.baidu.pass.ecommerce.d.d {
     private static final String O = "VoiceSinWaveView";
     private static final int P = 4097;
@@ -45,7 +45,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
     private boolean N;
 
     /* renamed from: a  reason: collision with root package name */
-    private float f2778a;
+    private float f2780a;
     private float b;
     private long c;
     private Paint d;
@@ -72,7 +72,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
     private ValueAnimator y;
     private ValueAnimator z;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes16.dex */
     class a implements ValueAnimator.AnimatorUpdateListener {
         a() {
         }
@@ -83,15 +83,15 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes16.dex */
     class b implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ int[] f2780a;
+        final /* synthetic */ int[] f2782a;
         final /* synthetic */ float[] b;
 
         b(int[] iArr, float[] fArr) {
-            this.f2780a = iArr;
+            this.f2782a = iArr;
             this.b = fArr;
         }
 
@@ -104,14 +104,14 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
                 }
                 c.this.D = true;
             }
-            c.this.g.setShader(new LinearGradient(c.this.K, 0.0f, c.this.q - c.this.K, 0.0f, this.f2780a, this.b, Shader.TileMode.MIRROR));
+            c.this.g.setShader(new LinearGradient(c.this.K, 0.0f, c.this.q - c.this.K, 0.0f, this.f2782a, this.b, Shader.TileMode.MIRROR));
         }
     }
 
     /* renamed from: com.baidu.pass.ecommerce.d.c$c  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    class C0276c extends AnimatorListenerAdapter {
-        C0276c() {
+    /* loaded from: classes16.dex */
+    class C0287c extends AnimatorListenerAdapter {
+        C0287c() {
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -123,7 +123,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes16.dex */
     class d implements ValueAnimator.AnimatorUpdateListener {
         d() {
         }
@@ -132,24 +132,24 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             c.this.b = ((Float) valueAnimator.getAnimatedValue()).floatValue();
             c cVar = c.this;
-            cVar.f2778a = cVar.b;
+            cVar.f2780a = cVar.b;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes16.dex */
     private static class e extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<c> f2783a;
+        private WeakReference<c> f2785a;
 
         public e(c cVar) {
-            this.f2783a = new WeakReference<>(cVar);
+            this.f2785a = new WeakReference<>(cVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             c cVar;
-            if (message.what != 4097 || (cVar = this.f2783a.get()) == null) {
+            if (message.what != 4097 || (cVar = this.f2785a.get()) == null) {
                 return;
             }
             cVar.g();
@@ -158,11 +158,11 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes16.dex */
     private static class f extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        private boolean f2784a = false;
+        private boolean f2786a = false;
         private WeakReference<c> b;
 
         public f(c cVar) {
@@ -170,7 +170,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
         }
 
         public synchronized void a(boolean z) {
-            this.f2784a = z;
+            this.f2786a = z;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -189,11 +189,11 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
         }
 
         public synchronized boolean a() {
-            return this.f2784a;
+            return this.f2786a;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes16.dex */
     public interface g {
         void a();
 
@@ -373,7 +373,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
     public void c() {
         Log.d(O, "reset.");
         this.b = 0.0f;
-        this.f2778a = 0.0f;
+        this.f2780a = 0.0f;
         this.c = 0L;
         this.w = 0.0f;
         this.x = 3.5f;
@@ -413,7 +413,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
 
     public c(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f2778a = 0.0f;
+        this.f2780a = 0.0f;
         this.b = 0.0f;
         this.c = 0L;
         this.k = 2;
@@ -470,7 +470,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
             this.z.setDuration(this.B);
             this.z.setInterpolator(new AccelerateInterpolator());
             this.z.addUpdateListener(new b(new int[]{0, ViewCompat.MEASURED_STATE_MASK, ViewCompat.MEASURED_STATE_MASK, ViewCompat.MEASURED_STATE_MASK, 0}, new float[]{0.0f, 0.2f, 0.5f, 0.8f, 1.0f}));
-            this.z.addListener(new C0276c());
+            this.z.addListener(new C0287c());
             this.z.start();
         }
     }
@@ -489,7 +489,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
                 valueAnimator.cancel();
                 this.y = null;
             }
-            this.y = ValueAnimator.ofFloat(this.f2778a, f2);
+            this.y = ValueAnimator.ofFloat(this.f2780a, f2);
             this.y.setDuration(j2);
             this.y.setInterpolator(this.M);
             this.y.addUpdateListener(new d());

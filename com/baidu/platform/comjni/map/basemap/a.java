@@ -1,7 +1,7 @@
 package com.baidu.platform.comjni.map.basemap;
 
 import android.os.Bundle;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public interface a {
     int a(Bundle bundle, long j, int i);
 

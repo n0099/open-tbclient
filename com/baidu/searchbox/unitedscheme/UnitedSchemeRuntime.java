@@ -1,22 +1,22 @@
 package com.baidu.searchbox.unitedscheme;
 
-import com.baidu.pyramid.a.a.a;
 import com.baidu.pyramid.a.a.b;
+import com.baidu.pyramid.a.a.d;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class UnitedSchemeRuntime {
-    b<UnitedSchemeBaseInterceptor> sInterceptChainList;
-    b<UnitedSchemeBaseDispatcher> sSubDispatchersList;
+    d<UnitedSchemeBaseInterceptor> sInterceptChainList;
+    d<UnitedSchemeBaseDispatcher> sSubDispatchersList;
 
     public void initsInterceptChainList() {
-        this.sInterceptChainList = a.acv();
-        this.sInterceptChainList.a(new UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider());
+        this.sInterceptChainList = b.afE();
+        this.sInterceptChainList.b(new UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider());
     }
 
     public void initsSubDispatchersList() {
-        this.sSubDispatchersList = a.acv();
-        this.sSubDispatchersList.a(new UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider());
+        this.sSubDispatchersList = b.afE();
+        this.sSubDispatchersList.b(new UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider());
     }
 
     public UnitedSchemeRuntime() {

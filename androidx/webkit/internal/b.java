@@ -2,39 +2,36 @@ package androidx.webkit.internal;
 
 import android.annotation.SuppressLint;
 import android.webkit.SafeBrowsingResponse;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 import org.chromium.support_lib_boundary.SafeBrowsingResponseBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
 import org.chromium.support_lib_boundary.util.Features;
-/* loaded from: classes7.dex */
+/* loaded from: classes19.dex */
 public class b extends androidx.webkit.a {
-    private SafeBrowsingResponse Af;
-    private SafeBrowsingResponseBoundaryInterface Ag;
+    private SafeBrowsingResponse AZ;
+    private SafeBrowsingResponseBoundaryInterface Ba;
 
-    public b(@NonNull InvocationHandler invocationHandler) {
-        this.Ag = (SafeBrowsingResponseBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(SafeBrowsingResponseBoundaryInterface.class, invocationHandler);
+    public b(InvocationHandler invocationHandler) {
+        this.Ba = (SafeBrowsingResponseBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(SafeBrowsingResponseBoundaryInterface.class, invocationHandler);
     }
 
-    public b(@NonNull SafeBrowsingResponse safeBrowsingResponse) {
-        this.Af = safeBrowsingResponse;
+    public b(SafeBrowsingResponse safeBrowsingResponse) {
+        this.AZ = safeBrowsingResponse;
     }
 
-    @RequiresApi(27)
     private SafeBrowsingResponse hP() {
-        if (this.Af == null) {
-            this.Af = d.hU().b(Proxy.getInvocationHandler(this.Ag));
+        if (this.AZ == null) {
+            this.AZ = d.hU().b(Proxy.getInvocationHandler(this.Ba));
         }
-        return this.Af;
+        return this.AZ;
     }
 
     private SafeBrowsingResponseBoundaryInterface hQ() {
-        if (this.Ag == null) {
-            this.Ag = (SafeBrowsingResponseBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(SafeBrowsingResponseBoundaryInterface.class, d.hU().a(this.Af));
+        if (this.Ba == null) {
+            this.Ba = (SafeBrowsingResponseBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(SafeBrowsingResponseBoundaryInterface.class, d.hU().a(this.AZ));
         }
-        return this.Ag;
+        return this.Ba;
     }
 
     @Override // androidx.webkit.a

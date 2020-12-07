@@ -2,23 +2,23 @@ package com.baidu.crabsdk.b;
 
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class i {
-    private static Locale aoJ;
+    private static Locale apB;
 
     public static void A() {
-        aoJ = Locale.getDefault();
+        apB = Locale.getDefault();
     }
 
     public static String B() {
-        return aoJ.getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aoJ.getCountry();
+        return apB.getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + apB.getCountry();
     }
 
     public static String getCountry() {
-        return aoJ.getCountry();
+        return apB.getCountry();
     }
 
     public static String getLanguage() {
-        return aoJ.getLanguage();
+        return apB.getLanguage();
     }
 }

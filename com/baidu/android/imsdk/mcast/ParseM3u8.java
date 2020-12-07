@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.support.media.ExifInterface;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -15,14 +14,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ParseM3u8 {
     private static final String TAG = ParseM3u8.class.getSimpleName();
     private int mDuration;
     private ArrayList<TS> mTslist = new ArrayList<>();
     private boolean mIsend = false;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class TS {
         public double duration;
         public long relativetime;
@@ -170,7 +169,7 @@ public class ParseM3u8 {
                 LogUtils.e(TAG, "parseTSattr exception 2.");
                 return;
             }
-            String replace = str2.substring(indexOf + 1).trim().replace(Constants.ACCEPT_TIME_SEPARATOR_SP, "");
+            String replace = str2.substring(indexOf + 1).trim().replace(",", "");
             try {
                 ts.duration = Double.valueOf(replace).doubleValue();
             } catch (Exception e2) {

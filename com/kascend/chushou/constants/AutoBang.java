@@ -1,7 +1,0 @@
-package com.kascend.chushou.constants;
-/* loaded from: classes6.dex */
-public class AutoBang {
-    public long bangTime;
-    public long currentTime;
-    public boolean isDone;
-}

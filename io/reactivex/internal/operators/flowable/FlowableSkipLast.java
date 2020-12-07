@@ -3,20 +3,21 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.ArrayDeque;
-/* loaded from: classes5.dex */
+import org.a.d;
+/* loaded from: classes9.dex */
 public final class FlowableSkipLast<T> extends a<T, T> {
     final int skip;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pOn.a((j) new SkipLastSubscriber(cVar, this.skip));
+        this.pFg.a((j) new SkipLastSubscriber(cVar, this.skip));
     }
 
-    /* loaded from: classes5.dex */
-    static final class SkipLastSubscriber<T> extends ArrayDeque<T> implements j<T>, org.a.d {
+    /* loaded from: classes9.dex */
+    static final class SkipLastSubscriber<T> extends ArrayDeque<T> implements j<T>, d {
         private static final long serialVersionUID = -3807491841935125653L;
         final org.a.c<? super T> actual;
-        org.a.d s;
+        d s;
         final int skip;
 
         SkipLastSubscriber(org.a.c<? super T> cVar, int i) {
@@ -26,7 +27,7 @@ public final class FlowableSkipLast<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);

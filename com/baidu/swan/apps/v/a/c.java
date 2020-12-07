@@ -5,61 +5,61 @@ import android.support.annotation.NonNull;
 import com.baidu.swan.apps.ap.ak;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class c implements com.baidu.swan.apps.v.a.a {
     @NonNull
-    private final List<com.baidu.swan.apps.v.a.a> cYb;
-    private Runnable cYc;
+    private final List<com.baidu.swan.apps.v.a.a> dfa;
+    private Runnable dfb;
     private volatile boolean mIsPaused;
 
     private c() {
         this.mIsPaused = false;
-        this.cYb = new ArrayList();
-        if (a.azt()) {
-            if (a.azv()) {
-                this.cYb.add(new d());
+        this.dfa = new ArrayList();
+        if (a.aCC()) {
+            if (a.aCE()) {
+                this.dfa.add(new d());
             }
-            if (a.azw()) {
-                this.cYb.add(new com.baidu.swan.apps.v.a.b());
+            if (a.aCF()) {
+                this.dfa.add(new com.baidu.swan.apps.v.a.b());
             }
         }
     }
 
-    public static com.baidu.swan.apps.v.a.a azs() {
-        return b.cYg;
+    public static com.baidu.swan.apps.v.a.a aCB() {
+        return b.dff;
     }
 
     @Override // com.baidu.swan.apps.v.a.a
     @AnyThread
     public void onPause() {
-        if (a.azt()) {
-            this.cYc = new Runnable() { // from class: com.baidu.swan.apps.v.a.c.1
+        if (a.aCC()) {
+            this.dfb = new Runnable() { // from class: com.baidu.swan.apps.v.a.c.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    for (com.baidu.swan.apps.v.a.a aVar : c.this.cYb) {
+                    for (com.baidu.swan.apps.v.a.a aVar : c.this.dfa) {
                         aVar.onPause();
                     }
                     c.this.mIsPaused = true;
-                    c.this.cYc = null;
+                    c.this.dfb = null;
                 }
             };
-            ak.c(this.cYc, a.azu() * 1000);
+            ak.c(this.dfb, a.aCD() * 1000);
         }
     }
 
     @Override // com.baidu.swan.apps.v.a.a
     @AnyThread
     public void onResume() {
-        if (a.azt()) {
+        if (a.aCC()) {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.v.a.c.2
                 @Override // java.lang.Runnable
                 public void run() {
                     if (c.this.mIsPaused) {
-                        if (c.this.cYc != null) {
-                            ak.l(c.this.cYc);
-                            c.this.cYc = null;
+                        if (c.this.dfb != null) {
+                            ak.l(c.this.dfb);
+                            c.this.dfb = null;
                         }
-                        for (com.baidu.swan.apps.v.a.a aVar : c.this.cYb) {
+                        for (com.baidu.swan.apps.v.a.a aVar : c.this.dfa) {
                             aVar.onResume();
                         }
                         c.this.mIsPaused = false;
@@ -69,40 +69,40 @@ public class c implements com.baidu.swan.apps.v.a.a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     private static class a {
-        private static int cYe = -2;
-        private static int cYf = -2;
+        private static int dfd = -2;
+        private static int dfe = -2;
 
-        public static boolean azt() {
-            if (cYe == -2) {
-                cYe = com.baidu.swan.apps.t.a.avV().getSwitch("swan_webview_backstage_optimize", -1);
+        public static boolean aCC() {
+            if (dfd == -2) {
+                dfd = com.baidu.swan.apps.t.a.azd().getSwitch("swan_webview_backstage_optimize", -1);
             }
-            return cYe > -1;
+            return dfd > -1;
         }
 
-        public static int azu() {
-            return cYe;
+        public static int aCD() {
+            return dfd;
         }
 
-        public static boolean azv() {
-            if (cYf == -2) {
-                cYf = com.baidu.swan.apps.t.a.avV().getSwitch("swan_webview_pause_control", 3);
+        public static boolean aCE() {
+            if (dfe == -2) {
+                dfe = com.baidu.swan.apps.t.a.azd().getSwitch("swan_webview_pause_control", 3);
             }
-            return (cYf & 1) == 1;
+            return (dfe & 1) == 1;
         }
 
-        public static boolean azw() {
-            if (cYf == -2) {
-                cYf = com.baidu.swan.apps.t.a.avV().getSwitch("swan_webview_pause_control", 3);
+        public static boolean aCF() {
+            if (dfe == -2) {
+                dfe = com.baidu.swan.apps.t.a.azd().getSwitch("swan_webview_pause_control", 3);
             }
-            return (cYf & 2) == 2;
+            return (dfe & 2) == 2;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static class b {
-        private static final c cYg = new c();
+        private static final c dff = new c();
     }
 }

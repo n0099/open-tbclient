@@ -22,7 +22,7 @@ import com.baidu.android.ext.widget.menu.BdMenu;
 import com.baidu.android.ext.widget.menu.BdMenuItem;
 import com.baidu.android.util.devices.DeviceUtil;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class BdActionBar extends RelativeLayout {
     public static final int TEXT_ALIGN_CENTER = 1;
     public static final int TEXT_ALIGN_LEFT = 0;
@@ -81,13 +81,13 @@ public class BdActionBar extends RelativeLayout {
     private float mTitleTxtShadowRadius;
     private TextView mTitleViewCenter;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public enum ActionbarTemplate {
         WHITE_TITLE_TEMPLATE,
         BALCK_TITLE_TEMPLATE
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public interface OnDoubleClickListener {
         void onDoubleClick(View view);
     }
@@ -788,7 +788,7 @@ public class BdActionBar extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public class GestureListener extends GestureDetector.SimpleOnGestureListener {
         private GestureListener() {
         }

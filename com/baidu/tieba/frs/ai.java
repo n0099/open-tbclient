@@ -1,71 +1,27 @@
 package com.baidu.tieba.frs;
 
+import android.text.TextUtils;
 import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
-/* loaded from: classes20.dex */
-public class ai extends SparseArray<ar> {
-    public BdUniqueId fsa = null;
+/* loaded from: classes.dex */
+public class ai {
+    private static ai iXx = new ai();
+    private final SparseArray<String> iXw = new SparseArray<>();
 
-    public void a(av avVar) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                ar valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(avVar);
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
+    private ai() {
     }
 
-    public void init() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                ar valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.init();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
+    public static ai cEi() {
+        return iXx;
     }
 
-    public void destory() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                ar valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(null);
-                    valueAt.bVo();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
+    public void Aj(int i) {
+        this.iXw.put(i, "1");
     }
 
-    public void a(int i, ar arVar) {
+    public boolean Ak(int i) {
         if (i > 100) {
             i = 100;
         }
-        put(i, arVar);
-    }
-
-    public ar zD(int i) {
-        if (i > 100) {
-            i = 100;
-        }
-        return get(i);
+        return !TextUtils.isEmpty(this.iXw.get(i));
     }
 }

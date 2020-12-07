@@ -1,25 +1,26 @@
 package com.baidu.tieba.signall;
 
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ah;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class d implements ah {
     private String avatar;
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int gpB;
+    private int gxK;
     private boolean isSigned;
-    private boolean mOA;
-    private boolean mOB;
-    private boolean mOC;
-    private int mOD;
-    private int mOx;
-    private int mOy;
-    private int mOz;
+    private int ncD;
+    private int ncE;
+    private int ncF;
+    private boolean ncG;
+    private boolean ncH;
+    private boolean ncI;
+    private int ncJ;
     private int userLevel;
 
     public int getForumId() {
@@ -34,82 +35,82 @@ public class d implements ah {
         return this.avatar;
     }
 
-    public int dHd() {
-        return this.mOx;
+    public int dMu() {
+        return this.ncD;
     }
 
-    public int dHe() {
-        return this.gpB;
+    public int dMv() {
+        return this.gxK;
     }
 
-    public int dHf() {
+    public int bLB() {
         return this.userLevel;
     }
 
-    public int dHg() {
-        return this.mOy;
+    public int dMw() {
+        return this.ncE;
     }
 
-    public int dHh() {
-        return this.mOz;
+    public int dMx() {
+        return this.ncF;
     }
 
-    public void JK(int i) {
-        this.mOx = i;
+    public void KB(int i) {
+        this.ncD = i;
     }
 
-    public void JL(int i) {
-        this.gpB = i;
+    public void KC(int i) {
+        this.gxK = i;
     }
 
-    public void JM(int i) {
+    public void setUserLevel(int i) {
         this.userLevel = i;
     }
 
-    public boolean bPe() {
+    public boolean bSP() {
         return this.isSigned;
     }
 
-    public void xh(boolean z) {
+    public void xL(boolean z) {
         this.isSigned = z;
-        this.mOx = 1;
+        this.ncD = 1;
     }
 
-    public boolean dHi() {
-        return this.mOB;
+    public boolean dMy() {
+        return this.ncH;
     }
 
-    public void xi(boolean z) {
-        this.mOB = z;
-        this.mOx = 0;
+    public void xM(boolean z) {
+        this.ncH = z;
+        this.ncD = 0;
     }
 
-    public boolean dHj() {
-        return this.mOC;
+    public boolean dMz() {
+        return this.ncI;
     }
 
-    public void xj(boolean z) {
-        this.mOC = z;
+    public void xN(boolean z) {
+        this.ncI = z;
     }
 
-    public int dHk() {
-        return this.mOD;
+    public int dMA() {
+        return this.ncJ;
     }
 
-    public void JN(int i) {
-        this.mOD = i;
+    public void KD(int i) {
+        this.ncJ = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean dHl() {
-        return this.mOA;
+    public boolean dMB() {
+        return this.ncG;
     }
 
-    public void xk(boolean z) {
-        this.mOA = z;
+    public void xO(boolean z) {
+        this.ncG = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -117,14 +118,14 @@ public class d implements ah {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.mOx = jSONObject.optInt("is_sign_in");
-            this.gpB = jSONObject.optInt("cont_sign_num");
-            this.userLevel = jSONObject.optInt("user_level");
-            this.mOy = jSONObject.optInt("user_exp");
-            this.mOz = jSONObject.optInt("need_exp");
-            if (this.mOx != 0) {
+            this.ncD = jSONObject.optInt("is_sign_in");
+            this.gxK = jSONObject.optInt("cont_sign_num");
+            this.userLevel = jSONObject.optInt(IntentConfig.USER_LEVEL);
+            this.ncE = jSONObject.optInt("user_exp");
+            this.ncF = jSONObject.optInt("need_exp");
+            if (this.ncD != 0) {
                 this.isSigned = true;
-                this.mOB = false;
+                this.ncH = false;
             }
         }
     }

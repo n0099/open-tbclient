@@ -15,47 +15,47 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static LinkedList<a> cNI = new LinkedList<>();
-    private static Map<String, c> cNJ = new TreeMap();
+    private static LinkedList<a> cUB = new LinkedList<>();
+    private static Map<String, c> cUC = new TreeMap();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static class a {
-        public c cNL;
-        public final ArrayList<InterfaceC0431b> cNM = new ArrayList<>();
-        public long cNN;
-        public long cNO;
+        public c cUE;
+        public final ArrayList<InterfaceC0443b> cUF = new ArrayList<>();
+        public long cUG;
+        public long cUH;
         public boolean isReady;
     }
 
     /* renamed from: com.baidu.swan.apps.core.slave.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0431b {
+    /* loaded from: classes25.dex */
+    public interface InterfaceC0443b {
         void onReady();
     }
 
-    public static void bZ(Context context) {
-        if (cNI.size() < 2) {
+    public static void cF(Context context) {
+        if (cUB.size() < 2) {
             if (DEBUG) {
                 Log.d("SwanAppSlavePool", "preloadSlaveManager do preload.");
             }
-            cNI.add(cb(ca(context)));
+            cUB.add(cH(cG(context)));
         } else if (DEBUG) {
             Log.e("SwanAppSlavePool", "preloadSlaveManager max size exceeded");
         }
         if (DEBUG) {
-            Log.d("SwanAppSlavePool", "preloadSlaveManager size: " + cNI.size());
+            Log.d("SwanAppSlavePool", "preloadSlaveManager size: " + cUB.size());
         }
     }
 
-    private static Context ca(Context context) {
+    private static Context cG(Context context) {
         if (context == null) {
-            return com.baidu.swan.apps.t.a.avS();
+            return com.baidu.swan.apps.t.a.aza();
         }
         if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
-            return com.baidu.swan.apps.t.a.avS();
+            return com.baidu.swan.apps.t.a.aza();
         }
         return context;
     }
@@ -64,14 +64,14 @@ public final class b {
         if (DEBUG) {
             Log.d("SwanAppSlavePool", "getPreloadSlaveManager");
         }
-        if (cNI.isEmpty()) {
-            return cb(ca(activity));
+        if (cUB.isEmpty()) {
+            return cH(cG(activity));
         }
         if (DEBUG) {
-            Log.d("SwanAppSlavePool", "getPreloadSlaveManager : " + cNI.getFirst());
+            Log.d("SwanAppSlavePool", "getPreloadSlaveManager : " + cUB.getFirst());
         }
-        a removeFirst = cNI.removeFirst();
-        c cVar = removeFirst.cNL;
+        a removeFirst = cUB.removeFirst();
+        c cVar = removeFirst.cUE;
         if (cVar != null && activity != null) {
             cVar.attachActivity(activity);
         }
@@ -85,7 +85,7 @@ public final class b {
                     if (b.DEBUG) {
                         Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next start.");
                     }
-                    b.bZ(f.azg().ayQ());
+                    b.cF(f.aCp().aBZ());
                     if (b.DEBUG) {
                         Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next end.");
                     }
@@ -100,37 +100,37 @@ public final class b {
         return f(activity, false);
     }
 
-    public static void a(a aVar, InterfaceC0431b interfaceC0431b) {
-        if (interfaceC0431b != null) {
+    public static void a(a aVar, InterfaceC0443b interfaceC0443b) {
+        if (interfaceC0443b != null) {
             if (aVar.isReady) {
-                interfaceC0431b.onReady();
+                interfaceC0443b.onReady();
             } else {
-                aVar.cNM.add(interfaceC0431b);
+                aVar.cUF.add(interfaceC0443b);
             }
         }
     }
 
-    private static a cb(Context context) {
+    private static a cH(Context context) {
         final a aVar = new a();
-        aVar.cNN = System.currentTimeMillis();
+        aVar.cUG = System.currentTimeMillis();
         aVar.isReady = false;
-        aVar.cNL = d.ara().a(context, new g() { // from class: com.baidu.swan.apps.core.slave.b.2
+        aVar.cUE = d.aui().a(context, new g() { // from class: com.baidu.swan.apps.core.slave.b.2
             @Override // com.baidu.swan.apps.core.g
-            public void hP(String str) {
+            public void it(String str) {
                 if (b.DEBUG) {
-                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + a.this.cNL.aib() + " url: " + str);
+                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + a.this.cUE.alj() + " url: " + str);
                 }
-                a.this.cNO = System.currentTimeMillis();
+                a.this.cUH = System.currentTimeMillis();
                 a.this.isReady = true;
-                if (!a.this.cNM.isEmpty()) {
-                    Iterator<InterfaceC0431b> it = a.this.cNM.iterator();
+                if (!a.this.cUF.isEmpty()) {
+                    Iterator<InterfaceC0443b> it = a.this.cUF.iterator();
                     while (it.hasNext()) {
-                        InterfaceC0431b next = it.next();
+                        InterfaceC0443b next = it.next();
                         if (next != null) {
                             next.onReady();
                         }
                     }
-                    a.this.cNM.clear();
+                    a.this.cUF.clear();
                 }
             }
         });
@@ -138,23 +138,23 @@ public final class b {
     }
 
     public static void a(@NonNull String str, c cVar) {
-        Map<String, c> map = cNJ;
+        Map<String, c> map = cUC;
         if (str == null) {
             str = "";
         }
         map.put(str, cVar);
     }
 
-    public static c nx(@NonNull String str) {
-        c cVar = cNJ.get(str != null ? str : "");
+    public static c oe(@NonNull String str) {
+        c cVar = cUC.get(str != null ? str : "");
         if (cVar != null) {
-            cNJ.remove(str);
+            cUC.remove(str);
         }
         return cVar;
     }
 
     public static void clearAll() {
-        cNI.clear();
-        cNJ.clear();
+        cUB.clear();
+        cUC.clear();
     }
 }

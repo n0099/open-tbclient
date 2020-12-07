@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMConstants implements ResponseCode, NoProGuard {
     public static final int ACCOUNT_ANON = 0;
     public static final int ACCOUNT_BAIDU = 1;
@@ -165,11 +165,14 @@ public class IMConstants implements ResponseCode, NoProGuard {
     public static final int IM_GROUP_JOINTYPE_QRCODE = 3;
     public static final int IM_GROUP_MEMBER = 2;
     public static final int IM_GROUP_TYPE_DISCUSS = 1;
+    public static final int IM_INT_STATUS_OFF = 0;
+    public static final int IM_INT_STATUS_ON = 1;
     public static final long IM_LOGIN_KEY_AT_LCP = 25000050;
     @Deprecated
     public static final int IM_LOGIN_MESSAGE = 0;
     public static final int IM_MARK_TOP = 1;
     public static final int IM_MARK_TOP_NOT = 0;
+    public static final int IM_MEDIA_ALL_READ_CONTACTER_TYPE = -1;
     public static final int IM_MEDIA_MARK_TOP = 2;
     public static final int IM_MEDIA_MARK_TOP_NOT = 1;
     public static final int IM_MSG_READED = 1;
@@ -181,10 +184,12 @@ public class IMConstants implements ResponseCode, NoProGuard {
     public static final int IM_MSG_STATUS_DRAFT = 3;
     public static final int IM_MSG_STATUS_SENDING = 1;
     public static final int IM_MSG_STATUS_SEND_FAIL = 2;
+    public static final int IM_MSG_STATUS_SEND_FAKE_SUCCESS = 3;
     public static final int IM_MSG_STATUS_SEND_SUCCESS = 0;
     public static final int IM_MSG_TYPE_ADD_MEMBERS = 1001;
     public static final int IM_MSG_TYPE_ALERT = 2001;
     public static final int IM_MSG_TYPE_AUDIO = 2;
+    public static final int IM_MSG_TYPE_BONUS = 30;
     public static final int IM_MSG_TYPE_CHANGE_GROUPINFO = 1005;
     public static final int IM_MSG_TYPE_CONFIG = 20;
     public static final int IM_MSG_TYPE_CONSULT_COUPON = 26;
@@ -274,6 +279,7 @@ public class IMConstants implements ResponseCode, NoProGuard {
     public static final int IM_TEMPLATE_TYPE_SERVICE_NOTIFY = 2;
     public static final int IM_TEMPLATE_TYPE_SMART = 4;
     public static final int IM_TEMPLATE_TYPE_SYSTEM_NOTIFY = 1;
+    public static final int IM_TRACK_UPLOAD_MAX_LENGTH = 307200;
     public static final int IM_UNSUBSCRIBE_TYPE = 0;
     public static final int INTERACTIVE_FOLLOW = 2;
     public static final int INTERACTIVE_REPLY = 0;
@@ -282,9 +288,11 @@ public class IMConstants implements ResponseCode, NoProGuard {
     public static final int INTERACTIVE_STATUS_SUCCESS = 1;
     public static final int INTERACTIVE_ZAN = 1;
     public static final String KEY_CONNECTION_STATE = "lcs";
+    public static final String KEY_TRACK_DB_DEFAULT_SIZE = "empty_track_db_size";
     public static final int LOGIN_SYNC = 0;
     public static final int LOGIN_SYNC_NOT = 1;
     public static final String LONG_CONNECTION_STATE = "com.baidu.android.imsdk.longconnection";
+    public static final int MAX_IMAGE_CACHE_DISC_SIZE = 31457280;
     public static final int MCAST_QUIZ_100_OPT = 100;
     public static final int MCAST_QUIZ_101_OPT = 101;
     public static final String MESSAGE = "messagelist";

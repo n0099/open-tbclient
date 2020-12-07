@@ -43,17 +43,17 @@ public class i extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bqU() {
+    public boolean bur() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bqV() {
+    public boolean bus() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int bqW() {
+    public int but() {
         return this.procType;
     }
 }

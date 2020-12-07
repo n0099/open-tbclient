@@ -1,10 +1,10 @@
 package kotlin.collections;
 
 import java.util.Iterator;
-@kotlin.h
-/* loaded from: classes9.dex */
-public abstract class m implements Iterator<Byte> {
-    public abstract byte nextByte();
+@kotlin.e
+/* loaded from: classes17.dex */
+public abstract class m implements Iterator<Character> {
+    public abstract char eDI();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -12,9 +12,9 @@ public abstract class m implements Iterator<Byte> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // java.util.Iterator
-    public final Byte next() {
-        return Byte.valueOf(nextByte());
+    /* renamed from: eDH */
+    public final Character next() {
+        return Character.valueOf(eDI());
     }
 }

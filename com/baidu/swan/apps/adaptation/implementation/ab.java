@@ -2,7 +2,7 @@ package com.baidu.swan.apps.adaptation.implementation;
 
 import android.content.Context;
 import com.baidu.swan.apps.adaptation.a.ay;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class ab implements ay {
     @Override // com.baidu.swan.apps.adaptation.a.ay
     public void a(Context context, com.baidu.swan.apps.ap.e.b<String> bVar) {

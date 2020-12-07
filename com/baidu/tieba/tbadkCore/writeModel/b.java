@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.bq;
+import com.baidu.tbadk.core.data.br;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.tieba.pb.data.ContriInfo;
@@ -17,10 +17,10 @@ public class b {
     private int isCopyTWZhibo;
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
-    private bq mReplyPrivacyTip;
+    private br mReplyPrivacyTip;
     private VideoEasterEggData mVideoEasterEggData;
-    private String nbY;
-    private String nbZ;
+    private String nqb;
+    private String nqc;
     private String preMsg;
     private String videoId;
     private String threadId = null;
@@ -37,19 +37,19 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean dLp() {
+    public boolean dQH() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean dLq() {
+    public boolean dQI() {
         return this.errorCode == 1990055;
     }
 
-    public boolean dLr() {
+    public boolean dQJ() {
         return this.errorCode == 3250012;
     }
 
-    public boolean dLs() {
+    public boolean dQK() {
         return this.errorCode == 227001;
     }
 
@@ -65,7 +65,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData cwP() {
+    public AntiData cBe() {
         return this.antiData;
     }
 
@@ -109,20 +109,20 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String dLt() {
-        return this.nbY;
+    public String dQL() {
+        return this.nqb;
     }
 
-    public void SR(String str) {
-        this.nbY = str;
+    public void Ug(String str) {
+        this.nqb = str;
     }
 
-    public String dLu() {
-        return this.nbZ;
+    public String dQM() {
+        return this.nqc;
     }
 
-    public void SS(String str) {
-        this.nbZ = str;
+    public void Uh(String str) {
+        this.nqc = str;
     }
 
     public CustomDialogData getActivityDialog() {
@@ -161,11 +161,11 @@ public class b {
         this.mContriInfo = contriInfo;
     }
 
-    public void setReplyPrivacyTip(bq bqVar) {
-        this.mReplyPrivacyTip = bqVar;
+    public void setReplyPrivacyTip(br brVar) {
+        this.mReplyPrivacyTip = brVar;
     }
 
-    public bq getReplyPrivacyTip() {
+    public br getReplyPrivacyTip() {
         return this.mReplyPrivacyTip;
     }
 

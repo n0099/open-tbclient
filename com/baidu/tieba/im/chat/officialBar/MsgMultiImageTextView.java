@@ -8,9 +8,9 @@ import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.a;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class MsgMultiImageTextView extends com.baidu.tieba.im.chat.g {
-    private MultiContentView jXU;
+    private MultiContentView klz;
 
     public MsgMultiImageTextView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_multi_pictext_view);
@@ -18,19 +18,19 @@ public class MsgMultiImageTextView extends com.baidu.tieba.im.chat.g {
     }
 
     private void init() {
-        this.gma = (TextView) findViewById(R.id.tex_msgitem_time);
-        this.jXU = (MultiContentView) findViewById(R.id.msg_content);
+        this.guj = (TextView) findViewById(R.id.tex_msgitem_time);
+        this.klz = (MultiContentView) findViewById(R.id.msg_content);
     }
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
             b(chatMessage);
-            List<a.C0766a> a2 = com.baidu.tieba.im.message.chat.a.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
-            this.jXU.setPosition(this.mPosition);
-            this.jXU.setOnItemViewLongClickListener(this.jWq);
-            this.jXU.setNeedNightMode(true);
-            this.jXU.setType(1);
-            this.jXU.setData(tbPageContext, a2, view);
+            List<a.C0782a> a2 = com.baidu.tieba.im.message.chat.a.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+            this.klz.setPosition(this.mPosition);
+            this.klz.setOnItemViewLongClickListener(this.kjW);
+            this.klz.setNeedNightMode(true);
+            this.klz.setType(1);
+            this.klz.setData(tbPageContext, a2, view);
         }
     }
 }

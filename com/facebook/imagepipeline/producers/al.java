@@ -1,11 +1,11 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes15.dex */
 public interface al {
-    void enk();
+    void ewC();
 
-    void era();
+    void ewD();
 
-    void erb();
+    void ewE();
 
-    void erc();
+    void ewF();
 }

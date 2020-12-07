@@ -1,17 +1,17 @@
 package com.baidu.minivideo.arface.utils;
 
 import com.baidu.minivideo.arface.utils.f;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public abstract class c implements f {
-    private f.a mCallback;
+    private f.a cfl;
     private int mState = 0;
 
     protected abstract void run();
 
-    public void start(f.a aVar) {
+    public void a(f.a aVar) {
         if (this.mState == 0 || 3 == this.mState || 2 == this.mState) {
             setState(1);
-            setCallback(aVar);
+            b(aVar);
             try {
                 run();
                 return;
@@ -21,31 +21,15 @@ public abstract class c implements f {
                 return;
             }
         }
-        setCallback(aVar);
-    }
-
-    public void cancel() {
-        setState(0);
-    }
-
-    public boolean isRunning() {
-        return 1 == this.mState;
-    }
-
-    public boolean isSuccess() {
-        return 2 == this.mState;
-    }
-
-    public boolean isFailed() {
-        return 3 == this.mState;
+        b(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setState(int i) {
         if (this.mState != i) {
             this.mState = i;
-            if (this.mCallback != null) {
-                this.mCallback.a(this.mState, this);
+            if (this.cfl != null) {
+                this.cfl.a(this.mState, this);
             }
         }
     }
@@ -54,10 +38,10 @@ public abstract class c implements f {
         return this.mState;
     }
 
-    public void setCallback(f.a aVar) {
-        this.mCallback = aVar;
-        if (this.mCallback != null) {
-            this.mCallback.a(getState(), this);
+    public void b(f.a aVar) {
+        this.cfl = aVar;
+        if (this.cfl != null) {
+            this.cfl.a(getState(), this);
         }
     }
 }

@@ -1,24 +1,60 @@
 package com.baidu.ar.arrender;
-
-import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class i extends com.baidu.ar.ability.c {
-    private HashMap<String, Object> hN;
-    private String mNodeName;
+    private String hS;
+    private String hT;
+    private Object hU;
+    private a hV;
 
-    public void M(String str) {
-        this.mNodeName = str;
+    /* loaded from: classes10.dex */
+    public enum a {
+        INT,
+        FLOAT,
+        FLOAT_ARRAY,
+        STRING
     }
 
-    public HashMap<String, Object> bU() {
-        return this.hN;
+    public void N(String str) {
+        this.hT = str;
     }
 
-    public String getNodeName() {
-        return this.mNodeName;
+    public void O(String str) {
+        this.hU = str;
+        this.hV = a.STRING;
     }
 
-    public void h(HashMap<String, Object> hashMap) {
-        this.hN = hashMap;
+    public void a(float f) {
+        this.hU = Float.valueOf(f);
+        this.hV = a.FLOAT;
+    }
+
+    public void a(float[] fArr) {
+        this.hU = fArr;
+        this.hV = a.FLOAT_ARRAY;
+    }
+
+    public String bQ() {
+        return this.hT;
+    }
+
+    public Object bR() {
+        return this.hU;
+    }
+
+    public a bS() {
+        return this.hV;
+    }
+
+    public String getFilterName() {
+        return this.hS;
+    }
+
+    public void r(int i) {
+        this.hU = Integer.valueOf(i);
+        this.hV = a.INT;
+    }
+
+    public void setFilterName(String str) {
+        this.hS = str;
     }
 }

@@ -22,15 +22,15 @@ import org.apache.http.HttpHost;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class ej extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference f3857a;
+    private final WeakReference f3860a;
     private String b;
 
     public ej(FeedbackInputActivity feedbackInputActivity) {
-        this.f3857a = new WeakReference(feedbackInputActivity);
+        this.f3860a = new WeakReference(feedbackInputActivity);
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(15:70|71|(2:73|74)(1:105)|75|76|(2:78|(7:87|88|89|(2:91|(1:96)(1:95))|97|(1:93)|96)(2:82|(1:86)))|101|(1:80)|87|88|89|(0)|97|(0)|96) */
@@ -286,7 +286,7 @@ public final class ej extends Handler {
     @Override // android.os.Handler
     public final void handleMessage(Message message) {
         super.handleMessage(message);
-        FeedbackInputActivity feedbackInputActivity = (FeedbackInputActivity) this.f3857a.get();
+        FeedbackInputActivity feedbackInputActivity = (FeedbackInputActivity) this.f3860a.get();
         if (feedbackInputActivity == null) {
             return;
         }
@@ -431,7 +431,7 @@ public final class ej extends Handler {
                 feedbackInputActivity.startActivity(intent);
                 return;
             case 11:
-                feedbackInputActivity.K.f3867a.setVisibility(8);
+                feedbackInputActivity.K.f3870a.setVisibility(8);
                 feedbackInputActivity.K.c.setBackgroundResource(R.drawable.dialog_btn_selector);
                 feedbackInputActivity.K.c.setTextColor(-1);
                 feedbackInputActivity.K.c.setClickable(true);

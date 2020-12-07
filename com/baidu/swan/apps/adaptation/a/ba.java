@@ -1,21 +1,21 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public interface ba {
-    com.baidu.swan.apps.adaptation.b.g bA(Context context);
+    com.baidu.swan.apps.adaptation.b.c ca(Context context);
 
-    com.baidu.swan.apps.adaptation.b.c bu(Context context);
+    com.baidu.swan.apps.adaptation.b.a cb(Context context);
 
-    com.baidu.swan.apps.adaptation.b.a bv(Context context);
+    com.baidu.swan.apps.adaptation.b.a cc(Context context);
 
-    com.baidu.swan.apps.adaptation.b.a bw(Context context);
+    com.baidu.swan.apps.adaptation.b.f cd(Context context);
 
-    com.baidu.swan.apps.adaptation.b.f bx(Context context);
+    com.baidu.swan.apps.adaptation.b.f ce(Context context);
 
-    com.baidu.swan.apps.adaptation.b.f by(Context context);
+    com.baidu.swan.apps.adaptation.b.f cf(Context context);
 
-    com.baidu.swan.apps.adaptation.b.f bz(Context context);
+    com.baidu.swan.apps.adaptation.b.g cg(Context context);
 
-    com.baidu.swan.apps.core.g.a h(Context context, int i);
+    com.baidu.swan.apps.core.g.a q(Context context, int i);
 }

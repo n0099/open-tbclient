@@ -17,14 +17,14 @@ import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private final b<com.baidu.adp.widget.ImageView.a> eJP = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
+    private final b<com.baidu.adp.widget.ImageView.a> eRb = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.e.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass1) aVar, str, i);
             if (a.this.mTabHost == null || aVar == null || !aVar.isValidNow()) {
-                a.this.bpz();
+                a.this.bsT();
                 return;
             }
             FragmentTabWidget fragmentTabWidget = a.this.mTabHost.getFragmentTabWidget();
@@ -56,29 +56,29 @@ public class a {
             String str = (String) pair.first;
             String str2 = (String) pair.second;
             if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
-                AZ(str2);
+                BG(str2);
             } else if (!TextUtils.isEmpty(str)) {
-                AZ(str);
+                BG(str);
             } else {
-                bpz();
+                bsT();
             }
         }
     }
 
-    private void AZ(String str) {
-        c.mS().a(str, 10, this.eJP, getBdUniqueId());
+    private void BG(String str) {
+        c.mS().a(str, 10, this.eRb, getBdUniqueId());
     }
 
     private BdUniqueId getBdUniqueId() {
-        e<?> I;
-        if (this.mTabHost == null || this.mTabHost.getContext() == null || (I = i.I(this.mTabHost.getContext())) == null) {
+        e<?> J;
+        if (this.mTabHost == null || this.mTabHost.getContext() == null || (J = i.J(this.mTabHost.getContext())) == null) {
             return null;
         }
-        return I.getUniqueId();
+        return J.getUniqueId();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bpz() {
+    public void bsT() {
         if (this.mTabHost != null && this.mTabHost.getFragmentTabWidget() != null) {
             this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.mBackgroundColorResId);
             ap.setBackgroundColor(this.mTabHost.getFragmentTabWidget(), this.mBackgroundColorResId);

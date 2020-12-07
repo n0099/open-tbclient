@@ -12,7 +12,7 @@ import com.airbnb.lottie.g;
 import com.baidu.adp.lib.util.BdLog;
 import io.flutter.view.TextureRegistry;
 @RequiresApi(api = 15)
-/* loaded from: classes18.dex */
+/* loaded from: classes20.dex */
 public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
     private e composition;
     private g drawable;
@@ -20,13 +20,13 @@ public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
     private boolean pausedButNotByUser;
 
     /* renamed from: plugin  reason: collision with root package name */
-    private final FluttiePlugin f5131plugin;
+    private final FluttiePlugin f4901plugin;
     private Surface surface;
     private final TextureRegistry.SurfaceTextureEntry surfaceTexture;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public FluttieAnimation(FluttiePlugin fluttiePlugin, TextureRegistry.SurfaceTextureEntry surfaceTextureEntry, e eVar, float f, String str) {
-        this.f5131plugin = fluttiePlugin;
+        this.f4901plugin = fluttiePlugin;
         this.surfaceTexture = surfaceTextureEntry;
         this.surface = new Surface(surfaceTextureEntry.surfaceTexture());
         Rect iu = eVar.iu();
@@ -37,7 +37,7 @@ public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
         this.composition = eVar;
         this.drawable.a(eVar);
         if (str != null) {
-            this.drawable.be("flutter_assets/" + str);
+            this.drawable.bh("flutter_assets/" + str);
         }
         this.drawable.addAnimatorUpdateListener(this);
         fluttiePlugin.getRenderingThreads().markDirty(this);
@@ -91,7 +91,7 @@ public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
 
     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
     public void onAnimationUpdate(@Nullable ValueAnimator valueAnimator) {
-        this.f5131plugin.getRenderingThreads().markDirty(this);
+        this.f4901plugin.getRenderingThreads().markDirty(this);
     }
 
     public boolean isPlaying() {

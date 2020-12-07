@@ -12,12 +12,14 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes14.dex */
 public final class Request {
-    protected final Map<String, String> chE;
-    private final e chF;
-    private final RequestError chG;
-    protected boolean chH;
-    protected boolean chI;
+
+    /* renamed from: com  reason: collision with root package name */
+    protected final Map<String, String> f3198com;
     private final Context context;
+    private final e coo;
+    private final RequestError cop;
+    protected boolean coq;
+    protected boolean cor;
     private final Handler handler;
     protected final Map<String, String> headers;
     protected final String method;
@@ -25,21 +27,21 @@ public final class Request {
     protected final URL url;
 
     private Request(a aVar) {
-        this.chG = aVar.chG;
+        this.cop = aVar.cop;
         this.context = aVar.context;
         this.handler = new Handler(this.context.getMainLooper());
         this.url = aVar.url;
         this.method = aVar.method;
         this.headers = aVar.headers;
-        this.chE = aVar.chE;
-        this.chH = aVar.chH;
+        this.f3198com = aVar.f3199com;
+        this.coq = aVar.coq;
         this.tag = aVar.tag != null ? aVar.tag : this;
-        this.chF = c.aW(this.context);
-        this.chI = aVar.chO;
+        this.coo = c.bC(this.context);
+        this.cor = aVar.cox;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static byte[] i(InputStream inputStream) {
+    public static byte[] j(InputStream inputStream) {
         if (inputStream == null) {
             return new byte[0];
         }
@@ -54,7 +56,7 @@ public final class Request {
                     }
                     byteArrayOutputStream.write(bArr, 0, read);
                 } catch (IOException e) {
-                    com.baidu.prologue.a.c.g.cfv.e("Request", "failed to read is", e);
+                    com.baidu.prologue.a.c.g.cmb.e("Request", "failed to read is", e);
                 }
             }
             return byteArrayOutputStream.toByteArray();
@@ -69,18 +71,18 @@ public final class Request {
     }
 
     public void a(final m mVar) {
-        if (this.chG != null) {
+        if (this.cop != null) {
             e(new Runnable() { // from class: com.baidu.prologue.service.network.Request.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    mVar.n(Request.this.chG);
+                    mVar.n(Request.this.cop);
                 }
             });
         } else {
-            this.chF.a(this, new l() { // from class: com.baidu.prologue.service.network.Request.2
+            this.coo.a(this, new l() { // from class: com.baidu.prologue.service.network.Request.2
                 @Override // com.baidu.prologue.service.network.l
                 public void a(long j, InputStream inputStream) {
-                    final String str = new String(Request.i(inputStream));
+                    final String str = new String(Request.j(inputStream));
                     Request.this.e(new Runnable() { // from class: com.baidu.prologue.service.network.Request.2.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -103,17 +105,19 @@ public final class Request {
     }
 
     public void a(l lVar) {
-        this.chF.a(this, lVar);
+        this.coo.a(this, lVar);
     }
 
     /* loaded from: classes14.dex */
     public static class a {
-        private Map<String, String> chE;
-        private RequestError chG;
-        private boolean chH;
-        private final String chN;
-        private boolean chO;
+
+        /* renamed from: com  reason: collision with root package name */
+        private Map<String, String> f3199com;
         private final Context context;
+        private RequestError cop;
+        private boolean coq;
+        private final String cow;
+        private boolean cox;
         private Map<String, String> headers;
         private String method;
         private Object tag;
@@ -121,52 +125,52 @@ public final class Request {
 
         public a(Context context, String str) {
             this.context = context.getApplicationContext();
-            this.chN = str;
+            this.cow = str;
         }
 
-        public Request acr() {
+        public Request afz() {
             if (this.method == null) {
-                acs();
+                afA();
             }
             if ("GET".equals(this.method)) {
                 try {
-                    this.url = new URL(b.c(this.url.toString(), this.chE));
+                    this.url = new URL(b.c(this.url.toString(), this.f3199com));
                 } catch (MalformedURLException e) {
-                    this.chG = new RequestError("Failed to create url", e);
+                    this.cop = new RequestError("Failed to create url", e);
                 } catch (URISyntaxException e2) {
-                    this.chG = new RequestError("Failed to add parameters to url", e2);
+                    this.cop = new RequestError("Failed to add parameters to url", e2);
                 }
             }
             return new Request(this);
         }
 
-        public a acs() {
+        public a afA() {
             if (this.url != null) {
-                this.chG = new RequestError("Method called twice");
+                this.cop = new RequestError("Method called twice");
             }
             try {
-                this.url = new URL(this.chN);
+                this.url = new URL(this.cow);
             } catch (MalformedURLException e) {
-                this.chG = new RequestError(e);
+                this.cop = new RequestError(e);
             }
             this.method = "GET";
             return this;
         }
 
-        public a act() {
+        public a afB() {
             if (this.url != null) {
-                this.chG = new RequestError("Method called twice");
+                this.cop = new RequestError("Method called twice");
             }
             try {
-                this.url = new URL(this.chN);
+                this.url = new URL(this.cow);
             } catch (MalformedURLException e) {
-                this.chG = new RequestError(e);
+                this.cop = new RequestError(e);
             }
             this.method = "POST";
             return this;
         }
 
-        public a bb(String str, String str2) {
+        public a bi(String str, String str2) {
             if (this.headers == null) {
                 this.headers = new HashMap();
             }
@@ -174,16 +178,16 @@ public final class Request {
             return this;
         }
 
-        public a bc(String str, String str2) {
-            if (this.chE == null) {
-                this.chE = new HashMap();
+        public a bj(String str, String str2) {
+            if (this.f3199com == null) {
+                this.f3199com = new HashMap();
             }
-            this.chE.put(str, str2);
+            this.f3199com.put(str, str2);
             return this;
         }
 
-        public a dQ(boolean z) {
-            this.chO = z;
+        public a eg(boolean z) {
+            this.cox = z;
             return this;
         }
     }

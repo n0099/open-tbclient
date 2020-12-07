@@ -5,7 +5,6 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -192,17 +191,17 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a implements Comparator<Map.Entry<String, Object>> {
-        private SORT Js;
+        private SORT Kk;
 
         public a(SORT sort) {
-            this.Js = null;
-            this.Js = sort;
+            this.Kk = null;
+            this.Kk = sort;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         public int compare(Map.Entry<String, Object> entry, Map.Entry<String, Object> entry2) {
-            return this.Js == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
+            return this.Kk == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
         }
     }
 
@@ -229,7 +228,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         HashMap hashMap = new HashMap();
         if (str != null && str2 != null) {
             for (String str3 : str.split(str2)) {
-                int indexOf = str3.indexOf(ETAG.EQUAL);
+                int indexOf = str3.indexOf("=");
                 if (indexOf != -1) {
                     String trim = str3.substring(0, indexOf).trim();
                     String trim2 = str3.substring(indexOf + 1).trim();

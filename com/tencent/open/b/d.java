@@ -2,11 +2,11 @@ package com.tencent.open.b;
 
 import android.os.SystemClock;
 import com.tencent.open.utils.j;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static d f4589a;
+    protected static d f4359a;
 
     protected d() {
     }
@@ -14,10 +14,10 @@ public class d {
     public static synchronized d a() {
         d dVar;
         synchronized (d.class) {
-            if (f4589a == null) {
-                f4589a = new d();
+            if (f4359a == null) {
+                f4359a = new d();
             }
-            dVar = f4589a;
+            dVar = f4359a;
         }
         return dVar;
     }

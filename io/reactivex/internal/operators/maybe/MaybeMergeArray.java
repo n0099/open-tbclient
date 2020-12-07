@@ -1,6 +1,7 @@
 package io.reactivex.internal.operators.maybe;
 
 import io.reactivex.g;
+import io.reactivex.internal.a.f;
 import io.reactivex.internal.subscriptions.BasicIntQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.AtomicThrowable;
@@ -12,20 +13,20 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 import org.a.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class MaybeMergeArray<T> extends g<T> {
     final o<? extends T>[] sources;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
-    public interface a<T> extends io.reactivex.internal.a.g<T> {
+    /* loaded from: classes9.dex */
+    public interface a<T> extends f<T> {
         int consumerIndex();
 
         void drop();
 
         T peek();
 
-        @Override // java.util.Queue, io.reactivex.internal.operators.maybe.MaybeMergeArray.a, io.reactivex.internal.a.g
+        @Override // java.util.Queue, io.reactivex.internal.operators.maybe.MaybeMergeArray.a, io.reactivex.internal.a.f
         T poll();
 
         int producerIndex();
@@ -36,7 +37,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         a clqSimpleQueue;
         o[] oVarArr = this.sources;
         int length = oVarArr.length;
-        if (length <= eAw()) {
+        if (length <= eCR()) {
             clqSimpleQueue = new MpscFillOnceSimpleQueue(length);
         } else {
             clqSimpleQueue = new ClqSimpleQueue();
@@ -53,7 +54,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class MergeMaybeObserver<T> extends BasicIntQueueSubscription<T> implements m<T> {
         private static final long serialVersionUID = -660395290758764731L;
         final c<? super T> actual;
@@ -81,7 +82,7 @@ public final class MaybeMergeArray<T> extends g<T> {
             return 0;
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public T poll() throws Exception {
             T t;
             do {
@@ -90,12 +91,12 @@ public final class MaybeMergeArray<T> extends g<T> {
             return t;
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public boolean isEmpty() {
             return this.queue.isEmpty();
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public void clear() {
             this.queue.clear();
         }
@@ -138,7 +139,7 @@ public final class MaybeMergeArray<T> extends g<T> {
                 drain();
                 return;
             }
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
 
         @Override // io.reactivex.m
@@ -243,7 +244,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class MpscFillOnceSimpleQueue<T> extends AtomicReferenceArray<T> implements a<T> {
         private static final long serialVersionUID = -7969063454040569579L;
         int consumerIndex;
@@ -254,9 +255,9 @@ public final class MaybeMergeArray<T> extends g<T> {
             this.producerIndex = new AtomicInteger();
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public boolean offer(T t) {
-            io.reactivex.internal.functions.a.l(t, "value is null");
+            io.reactivex.internal.functions.a.m(t, "value is null");
             int andIncrement = this.producerIndex.getAndIncrement();
             if (andIncrement < length()) {
                 lazySet(andIncrement, t);
@@ -269,7 +270,7 @@ public final class MaybeMergeArray<T> extends g<T> {
             throw new UnsupportedOperationException();
         }
 
-        @Override // io.reactivex.internal.operators.maybe.MaybeMergeArray.a, java.util.Queue, io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.operators.maybe.MaybeMergeArray.a, java.util.Queue, io.reactivex.internal.a.f
         public T poll() {
             int i = this.consumerIndex;
             if (i == length()) {
@@ -303,12 +304,12 @@ public final class MaybeMergeArray<T> extends g<T> {
             this.consumerIndex = i + 1;
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public boolean isEmpty() {
             return this.consumerIndex == producerIndex();
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public void clear() {
             while (poll() != null && !isEmpty()) {
             }
@@ -325,7 +326,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class ClqSimpleQueue<T> extends ConcurrentLinkedQueue<T> implements a<T> {
         private static final long serialVersionUID = -4025173261791142821L;
         int consumerIndex;
@@ -338,13 +339,13 @@ public final class MaybeMergeArray<T> extends g<T> {
             throw new UnsupportedOperationException();
         }
 
-        @Override // java.util.concurrent.ConcurrentLinkedQueue, java.util.Queue, io.reactivex.internal.a.g
+        @Override // java.util.concurrent.ConcurrentLinkedQueue, java.util.Queue, io.reactivex.internal.a.f
         public boolean offer(T t) {
             this.producerIndex.getAndIncrement();
             return super.offer(t);
         }
 
-        @Override // java.util.concurrent.ConcurrentLinkedQueue, java.util.Queue, io.reactivex.internal.operators.maybe.MaybeMergeArray.a, io.reactivex.internal.a.g
+        @Override // java.util.concurrent.ConcurrentLinkedQueue, java.util.Queue, io.reactivex.internal.operators.maybe.MaybeMergeArray.a, io.reactivex.internal.a.f
         public T poll() {
             T t = (T) super.poll();
             if (t != null) {

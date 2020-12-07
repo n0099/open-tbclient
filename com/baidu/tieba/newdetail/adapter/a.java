@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.h.f;
 import com.baidu.tieba.newdetail.view.HotTopicDetailSpecialItem;
-/* loaded from: classes20.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail.a.b, C0799a> {
-    private f<com.baidu.tieba.newdetail.a.b> jCl;
+/* loaded from: classes21.dex */
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail.a.b, C0815a> {
+    private f<com.baidu.tieba.newdetail.a.b> jPN;
 
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lcE);
-        this.jCl = new f<com.baidu.tieba.newdetail.a.b>() { // from class: com.baidu.tieba.newdetail.adapter.a.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lqe);
+        this.jPN = new f<com.baidu.tieba.newdetail.a.b>() { // from class: com.baidu.tieba.newdetail.adapter.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, com.baidu.tieba.newdetail.a.b bVar, int i, long j) {
@@ -32,49 +32,49 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bY */
-    public C0799a c(ViewGroup viewGroup) {
-        C0799a c0799a = new C0799a(new HotTopicDetailSpecialItem(viewGroup.getContext()));
-        c0799a.setOnItemCoverListener(this.jCl);
-        c0799a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return c0799a;
+    /* renamed from: cb */
+    public C0815a c(ViewGroup viewGroup) {
+        C0815a c0815a = new C0815a(new HotTopicDetailSpecialItem(viewGroup.getContext()));
+        c0815a.setOnItemCoverListener(this.jPN);
+        c0815a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        return c0815a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.newdetail.a.b bVar, C0799a c0799a) {
-        if (bVar == null || c0799a == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.newdetail.a.b bVar, C0815a c0815a) {
+        if (bVar == null || c0815a == null) {
             return null;
         }
-        c0799a.a(bVar);
-        c0799a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return c0799a.getView();
+        c0815a.a(bVar);
+        c0815a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        return c0815a.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.newdetail.adapter.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public static class C0799a extends af.a {
-        private HotTopicDetailSpecialItem lcg;
+    /* loaded from: classes21.dex */
+    public static class C0815a extends af.a {
+        private HotTopicDetailSpecialItem lpG;
 
-        C0799a(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
+        C0815a(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
             super(hotTopicDetailSpecialItem);
-            this.lcg = hotTopicDetailSpecialItem;
+            this.lpG = hotTopicDetailSpecialItem;
         }
 
         void a(com.baidu.tieba.newdetail.a.b bVar) {
             if (bVar != null) {
-                this.lcg.a(bVar);
+                this.lpG.a(bVar);
             }
         }
 
         public void setOnItemCoverListener(f<com.baidu.tieba.newdetail.a.b> fVar) {
-            this.lcg.setOnItemCoverListener(fVar);
+            this.lpG.setOnItemCoverListener(fVar);
         }
 
         void onChangeSkinType(int i) {
-            this.lcg.onChangeSkinType(i);
+            this.lpG.onChangeSkinType(i);
         }
     }
 }

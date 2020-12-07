@@ -9,28 +9,28 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class h {
-    private static h kcW;
+    private static h kqA;
 
-    public static h cQH() {
-        if (kcW == null) {
+    public static h cVV() {
+        if (kqA == null) {
             synchronized (h.class) {
-                if (kcW == null) {
-                    kcW = new h();
+                if (kqA == null) {
+                    kqA = new h();
                 }
             }
         }
-        return kcW;
+        return kqA;
     }
 
-    public void cQI() {
-        SQLiteDatabase cQF = g.cQF();
-        if (cQF != null) {
-            if (cQF.inTransaction()) {
+    public void cVW() {
+        SQLiteDatabase cVT = g.cVT();
+        if (cVT != null) {
+            if (cVT.inTransaction()) {
                 BdLog.e("there is exist transaction");
                 return;
             }
             try {
-                cQF.beginTransaction();
+                cVT.beginTransaction();
                 BdLog.i("db.beginTransaction");
             } catch (Exception e) {
                 TiebaStatic.printDBExceptionLog(e, "startTransaction", new Object[0]);
@@ -39,14 +39,14 @@ public class h {
         }
     }
 
-    public void cQJ() {
-        SQLiteDatabase cQF = g.cQF();
-        if (cQF != null) {
+    public void cVX() {
+        SQLiteDatabase cVT = g.cVT();
+        if (cVT != null) {
             BdLog.i("begin commit transaction");
-            if (cQF.inTransaction()) {
+            if (cVT.inTransaction()) {
                 try {
-                    cQF.setTransactionSuccessful();
-                    cQF.endTransaction();
+                    cVT.setTransactionSuccessful();
+                    cVT.endTransaction();
                     return;
                 } catch (Exception e) {
                     TiebaStatic.printDBExceptionLog(e, "endTransaction", new Object[0]);
@@ -58,13 +58,13 @@ public class h {
         }
     }
 
-    public boolean Mi(String str) {
-        SQLiteDatabase cQF = g.cQF();
-        if (cQF == null) {
+    public boolean Nq(String str) {
+        SQLiteDatabase cVT = g.cVT();
+        if (cVT == null) {
             return false;
         }
         try {
-            cQF.execSQL(str);
+            cVT.execSQL(str);
             return true;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -73,12 +73,12 @@ public class h {
     }
 
     public Cursor rawQuery(String str, String[] strArr) {
-        SQLiteDatabase cQF = g.cQF();
-        if (cQF == null) {
+        SQLiteDatabase cVT = g.cVT();
+        if (cVT == null) {
             return null;
         }
         try {
-            return cQF.rawQuery(str, strArr);
+            return cVT.rawQuery(str, strArr);
         } catch (Exception e) {
             BdLog.e(e.getMessage() + str);
             return null;
@@ -86,12 +86,12 @@ public class h {
     }
 
     public boolean a(String str, String str2, String[] strArr) {
-        SQLiteDatabase cQF = g.cQF();
-        if (cQF == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase cVT = g.cVT();
+        if (cVT == null || TextUtils.isEmpty(str)) {
             return false;
         }
         try {
-            return cQF.delete(str, str2, strArr) > 0;
+            return cVT.delete(str, str2, strArr) > 0;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
@@ -99,12 +99,12 @@ public class h {
     }
 
     public int a(String str, ContentValues contentValues, String str2, String[] strArr) {
-        SQLiteDatabase cQF = g.cQF();
-        if (cQF == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase cVT = g.cVT();
+        if (cVT == null || TextUtils.isEmpty(str)) {
             return -1;
         }
         try {
-            return cQF.update(str, contentValues, str2, strArr);
+            return cVT.update(str, contentValues, str2, strArr);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return -1;
@@ -124,25 +124,25 @@ public class h {
     }
 
     public long a(String str, String str2, ContentValues contentValues) {
-        SQLiteDatabase cQF = g.cQF();
-        if (cQF == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase cVT = g.cVT();
+        if (cVT == null || TextUtils.isEmpty(str)) {
             return -1L;
         }
         try {
-            return cQF.insert(str, str2, contentValues);
+            return cVT.insert(str, str2, contentValues);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return -1L;
         }
     }
 
-    public SQLiteStatement Mj(String str) {
-        SQLiteDatabase cQF;
-        if (TextUtils.isEmpty(str) || (cQF = g.cQF()) == null) {
+    public SQLiteStatement Nr(String str) {
+        SQLiteDatabase cVT;
+        if (TextUtils.isEmpty(str) || (cVT = g.cVT()) == null) {
             return null;
         }
         try {
-            return cQF.compileStatement(str);
+            return cVT.compileStatement(str);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;

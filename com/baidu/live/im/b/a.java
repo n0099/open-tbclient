@@ -7,21 +7,21 @@ public interface a {
 
     /* renamed from: com.baidu.live.im.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0186a {
-        void Lw();
+    public interface InterfaceC0193a {
+        void NJ();
     }
 
-    View Cb();
+    View DL();
 
-    void Cc();
+    void DM();
 
-    void Cd();
+    void DN();
 
     void a(w wVar);
 
     void a(w wVar, boolean z);
 
-    void a(InterfaceC0186a interfaceC0186a);
+    void a(InterfaceC0193a interfaceC0193a);
 
     void release();
 

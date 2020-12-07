@@ -20,7 +20,6 @@ import com.baidu.cyberplayer.sdk.n;
 import com.baidu.cyberplayer.sdk.statistics.DpNetworkUtils;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.sdk.VideoCloudSetting;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -36,11 +35,15 @@ public class CyberCfgManager {
     @Keep
     public static final String KEY_INT_DECODE_MODE = "decode_mode";
     @Keep
+    public static final String KEY_INT_ENABLE_BSO = "enable_bso";
+    @Keep
     public static final String KEY_INT_ENABLE_CRASHPAD = "enable_crashpad";
     @Keep
     public static final String KEY_INT_ENABLE_FILE_CACHE = "enable_file_cache";
     @Keep
     public static final String KEY_INT_ENABLE_HW_DECODE = "enable_hw_decode";
+    @Keep
+    public static final String KEY_INT_ENABLE_MEDIACODEC_OMX_GOOGLE_HEVC = "mediacodec_enable_omx_google_hevc";
     @Keep
     public static final String KEY_INT_ENABLE_MEDIACODEC_REUSE = "enable_mediacodec_reuse";
     @Keep
@@ -78,7 +81,7 @@ public class CyberCfgManager {
     private static int j = 86400000;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<String> f1377a = new ArrayList<>();
+    public static ArrayList<String> f1376a = new ArrayList<>();
     private static ArrayList<String> m = new ArrayList<>();
     private static ArrayList<String> n = new ArrayList<>();
     private static ArrayList<String> o = new ArrayList<>();
@@ -87,10 +90,10 @@ public class CyberCfgManager {
     private static ArrayList<String> r = new ArrayList<>();
 
     static {
-        f1377a.add("hwH60");
-        f1377a.add("hwp7");
-        f1377a.add("sp8830ec");
-        f1377a.add("Hisense M30T");
+        f1376a.add("hwH60");
+        f1376a.add("hwp7");
+        f1376a.add("sp8830ec");
+        f1376a.add("Hisense M30T");
         m.add("GT-I9500");
         m.add("GT-I9268");
         m.add("GT-I8268");
@@ -139,7 +142,6 @@ public class CyberCfgManager {
         m.add("MHA-AL00");
         m.add("Redmi 3S");
         m.add("Redmi 3X");
-        r.add("EML-TL00");
         r.add("HMA-AL00");
         r.add("ELE-AL00");
         r.add("ELE-TL00");
@@ -199,8 +201,8 @@ public class CyberCfgManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         this.d.clear();
-        c();
         d();
+        c();
         e();
         f();
         synchronized (this) {
@@ -371,7 +373,7 @@ public class CyberCfgManager {
             if (split == null || split.length != 2) {
                 return;
             }
-            for (String str : split[0].split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
+            for (String str : split[0].split(",")) {
                 if (Integer.parseInt(str) == Build.VERSION.SDK_INT) {
                     this.d.put("decode_mode", split[1]);
                     return;
@@ -393,7 +395,7 @@ public class CyberCfgManager {
             try {
                 String[] split = a2.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                 if (split != null && split.length == 2) {
-                    String[] split2 = split[0].split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split2 = split[0].split(",");
                     int i2 = 0;
                     while (true) {
                         if (i2 >= split2.length) {
@@ -449,7 +451,7 @@ public class CyberCfgManager {
     }
 
     private boolean n() {
-        if (Build.VERSION.SDK_INT >= 16 && !CfgItemParser.a(f1377a, m)) {
+        if (Build.VERSION.SDK_INT >= 16 && !CfgItemParser.a(f1376a, m)) {
             String a2 = a(this.d, "black_devices_for_hw", "");
             if (TextUtils.isEmpty(a2)) {
                 return false;
@@ -492,7 +494,7 @@ public class CyberCfgManager {
         try {
             PackageManager packageManager = b.getPackageManager();
             if (packageManager != null) {
-                n.a(sb, ETAG.KEY_APP_VERSION, packageManager.getPackageInfo(packageName, 0).versionName);
+                n.a(sb, "appversion", packageManager.getPackageInfo(packageName, 0).versionName);
             }
         } catch (PackageManager.NameNotFoundException e) {
         }

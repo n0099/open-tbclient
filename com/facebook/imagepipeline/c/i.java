@@ -1,35 +1,127 @@
 package com.facebook.imagepipeline.c;
 
-import android.app.ActivityManager;
-import android.os.Build;
-import android.support.v7.widget.ActivityChooserView;
-import com.baidu.tbadk.TbConfig;
+import android.content.Context;
+import com.facebook.common.g.b;
+import com.facebook.common.memory.PooledByteBuffer;
+import com.facebook.imagepipeline.b.p;
+import com.facebook.imagepipeline.c.h;
 /* loaded from: classes15.dex */
-public class i implements com.facebook.common.internal.j<q> {
-    private final ActivityManager dBE;
+public class i {
+    private final boolean plZ;
+    private final com.facebook.common.internal.j<Boolean> plz;
+    private final b.a pma;
+    private final boolean pmb;
+    private final com.facebook.common.g.b pmc;
+    private final boolean pmd;
+    private final boolean pme;
+    private final int pmf;
+    private final int pmg;
+    private boolean pmh;
+    private final boolean pmi;
+    private final c pmj;
 
-    public i(ActivityManager activityManager) {
-        this.dBE = activityManager;
+    /* loaded from: classes15.dex */
+    public interface c {
+        l a(Context context, com.facebook.common.memory.a aVar, com.facebook.imagepipeline.decoder.b bVar, com.facebook.imagepipeline.decoder.d dVar, boolean z, boolean z2, boolean z3, e eVar, com.facebook.common.memory.g gVar, p<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> pVar, p<com.facebook.cache.common.b, PooledByteBuffer> pVar2, com.facebook.imagepipeline.b.e eVar2, com.facebook.imagepipeline.b.e eVar3, com.facebook.imagepipeline.b.f fVar, com.facebook.imagepipeline.a.f fVar2, int i, int i2, boolean z4);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.common.internal.j
-    /* renamed from: enu */
-    public q get() {
-        return new q(env(), 256, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+    private i(a aVar) {
+        this.plZ = aVar.plZ;
+        this.pma = aVar.pma;
+        this.pmb = aVar.pmb;
+        this.pmc = aVar.pmc;
+        this.pmd = aVar.pmd;
+        this.pme = aVar.pme;
+        this.pmf = aVar.pmf;
+        this.pmg = aVar.pmg;
+        this.pmh = aVar.pmh;
+        this.pmi = aVar.pmi;
+        if (aVar.pmj == null) {
+            this.pmj = new b();
+        } else {
+            this.pmj = aVar.pmj;
+        }
+        this.plz = aVar.plz;
     }
 
-    private int env() {
-        int min = Math.min(this.dBE.getMemoryClass() * 1048576, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-        if (min < 33554432) {
-            return 4194304;
+    public boolean eul() {
+        return this.pmd;
+    }
+
+    public boolean eum() {
+        return this.plZ;
+    }
+
+    public boolean eun() {
+        return this.pmb;
+    }
+
+    public b.a euo() {
+        return this.pma;
+    }
+
+    public com.facebook.common.g.b eup() {
+        return this.pmc;
+    }
+
+    public boolean euq() {
+        return this.pme;
+    }
+
+    public int eur() {
+        return this.pmf;
+    }
+
+    public int eus() {
+        return this.pmg;
+    }
+
+    public boolean eut() {
+        return this.pmi;
+    }
+
+    public c euu() {
+        return this.pmj;
+    }
+
+    public boolean euv() {
+        return this.pmh;
+    }
+
+    public com.facebook.common.internal.j<Boolean> euw() {
+        return this.plz;
+    }
+
+    /* loaded from: classes15.dex */
+    public static class a {
+        public com.facebook.common.internal.j<Boolean> plz;
+        private b.a pma;
+        private com.facebook.common.g.b pmc;
+        private c pmj;
+        private final h.a pmk;
+        private boolean plZ = false;
+        private boolean pmb = false;
+        private boolean pmd = false;
+        private boolean pme = false;
+        private int pmf = 0;
+        private int pmg = 0;
+        public boolean pmh = false;
+        private boolean pmi = false;
+
+        public a(h.a aVar) {
+            this.pmk = aVar;
         }
-        if (min < 67108864) {
-            return TbConfig.THREAD_GIF_MIN_USE_MEMORY;
+
+        public i eux() {
+            return new i(this);
         }
-        if (Build.VERSION.SDK_INT < 11) {
-            return 8388608;
+    }
+
+    /* loaded from: classes15.dex */
+    public static class b implements c {
+        @Override // com.facebook.imagepipeline.c.i.c
+        public l a(Context context, com.facebook.common.memory.a aVar, com.facebook.imagepipeline.decoder.b bVar, com.facebook.imagepipeline.decoder.d dVar, boolean z, boolean z2, boolean z3, e eVar, com.facebook.common.memory.g gVar, p<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> pVar, p<com.facebook.cache.common.b, PooledByteBuffer> pVar2, com.facebook.imagepipeline.b.e eVar2, com.facebook.imagepipeline.b.e eVar3, com.facebook.imagepipeline.b.f fVar, com.facebook.imagepipeline.a.f fVar2, int i, int i2, boolean z4) {
+            return new l(context, aVar, bVar, dVar, z, z2, z3, eVar, gVar, pVar, pVar2, eVar2, eVar3, fVar, fVar2, i, i2, z4);
         }
-        return min / 4;
     }
 }

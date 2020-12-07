@@ -14,7 +14,7 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes15.dex */
 public class w extends z {
-    private static final String[] dvp = {IMConstants.MSG_ROW_ID, "_data"};
+    private static final String[] dCo = {IMConstants.MSG_ROW_ID, "_data"};
     private final ContentResolver mContentResolver;
 
     public w(Executor executor, com.facebook.common.memory.g gVar, ContentResolver contentResolver) {
@@ -23,41 +23,41 @@ public class w extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected com.facebook.imagepipeline.g.e g(ImageRequest imageRequest) throws IOException {
-        com.facebook.imagepipeline.g.e aa;
+    protected com.facebook.imagepipeline.f.e g(ImageRequest imageRequest) throws IOException {
+        com.facebook.imagepipeline.f.e ab;
         InputStream createInputStream;
-        Uri erL = imageRequest.erL();
-        if (!com.facebook.common.util.d.M(erL)) {
-            return (!com.facebook.common.util.d.N(erL) || (aa = aa(erL)) == null) ? e(this.mContentResolver.openInputStream(erL), -1) : aa;
+        Uri exl = imageRequest.exl();
+        if (!com.facebook.common.util.d.N(exl)) {
+            return (!com.facebook.common.util.d.O(exl) || (ab = ab(exl)) == null) ? e(this.mContentResolver.openInputStream(exl), -1) : ab;
         }
-        if (erL.toString().endsWith("/photo")) {
-            createInputStream = this.mContentResolver.openInputStream(erL);
-        } else if (erL.toString().endsWith("/display_photo")) {
+        if (exl.toString().endsWith("/photo")) {
+            createInputStream = this.mContentResolver.openInputStream(exl);
+        } else if (exl.toString().endsWith("/display_photo")) {
             try {
-                createInputStream = this.mContentResolver.openAssetFileDescriptor(erL, "r").createInputStream();
+                createInputStream = this.mContentResolver.openAssetFileDescriptor(exl, "r").createInputStream();
             } catch (IOException e) {
-                throw new IOException("Contact photo does not exist: " + erL);
+                throw new IOException("Contact photo does not exist: " + exl);
             }
         } else {
-            createInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, erL);
+            createInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, exl);
             if (createInputStream == null) {
-                throw new IOException("Contact photo does not exist: " + erL);
+                throw new IOException("Contact photo does not exist: " + exl);
             }
         }
         return e(createInputStream, -1);
     }
 
     @Nullable
-    private com.facebook.imagepipeline.g.e aa(Uri uri) throws IOException {
-        com.facebook.imagepipeline.g.e eVar = null;
-        Cursor query = this.mContentResolver.query(uri, dvp, null, null, null);
+    private com.facebook.imagepipeline.f.e ab(Uri uri) throws IOException {
+        com.facebook.imagepipeline.f.e eVar = null;
+        Cursor query = this.mContentResolver.query(uri, dCo, null, null, null);
         if (query != null) {
             try {
                 if (query.getCount() != 0) {
                     query.moveToFirst();
                     String string = query.getString(query.getColumnIndex("_data"));
                     if (string != null) {
-                        eVar = e(new FileInputStream(string), XZ(string));
+                        eVar = e(new FileInputStream(string), Zs(string));
                     }
                 }
             } finally {
@@ -67,7 +67,7 @@ public class w extends z {
         return eVar;
     }
 
-    private static int XZ(String str) {
+    private static int Zs(String str) {
         if (str == null) {
             return -1;
         }
@@ -75,7 +75,7 @@ public class w extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String erd() {
+    protected String ewG() {
         return "LocalContentUriFetchProducer";
     }
 }

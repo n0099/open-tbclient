@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class TabIndicator extends Drawable {
     private int mAlpha;
     private int mCount;

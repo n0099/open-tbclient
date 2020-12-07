@@ -21,7 +21,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes17.dex */
+/* loaded from: classes20.dex */
 public class LottieAnimationView extends ImageView {
     private static final String TAG = LottieAnimationView.class.getSimpleName();
     private String animationName;
@@ -149,7 +149,7 @@ public class LottieAnimationView extends ImageView {
         setProgress(obtainStyledAttributes.getFloat(p.a.LottieAnimationView_lottie_progress, 0.0f));
         enableMergePathsForKitKatAndAbove(obtainStyledAttributes.getBoolean(p.a.LottieAnimationView_lottie_enableMergePathsForKitKatAndAbove, false));
         if (obtainStyledAttributes.hasValue(p.a.LottieAnimationView_lottie_colorFilter)) {
-            addValueCallback(new com.tb.airbnb.lottie.model.e("**"), (com.tb.airbnb.lottie.model.e) k.Cs, (com.tb.airbnb.lottie.e.c<com.tb.airbnb.lottie.model.e>) new com.tb.airbnb.lottie.e.c(new q(obtainStyledAttributes.getColor(p.a.LottieAnimationView_lottie_colorFilter, 0))));
+            addValueCallback(new com.tb.airbnb.lottie.model.e("**"), (com.tb.airbnb.lottie.model.e) k.Do, (com.tb.airbnb.lottie.e.c<com.tb.airbnb.lottie.model.e>) new com.tb.airbnb.lottie.e.c(new q(obtainStyledAttributes.getColor(p.a.LottieAnimationView_lottie_colorFilter, 0))));
         }
         if (obtainStyledAttributes.hasValue(p.a.LottieAnimationView_lottie_scale)) {
             this.lottieDrawable.setScale(obtainStyledAttributes.getFloat(p.a.LottieAnimationView_lottie_scale, 1.0f));
@@ -201,8 +201,8 @@ public class LottieAnimationView extends ImageView {
         savedState.animationResId = this.animationResId;
         savedState.progress = this.lottieDrawable.getProgress();
         savedState.isAnimating = this.lottieDrawable.isAnimating();
-        savedState.Bf = this.lottieDrawable.getImageAssetsFolder();
-        savedState.Bg = this.lottieDrawable.getRepeatMode();
+        savedState.BV = this.lottieDrawable.getImageAssetsFolder();
+        savedState.BW = this.lottieDrawable.getRepeatMode();
         savedState.repeatCount = this.lottieDrawable.getRepeatCount();
         return savedState;
     }
@@ -227,8 +227,8 @@ public class LottieAnimationView extends ImageView {
         if (savedState.isAnimating) {
             playAnimation();
         }
-        this.lottieDrawable.be(savedState.Bf);
-        setRepeatMode(savedState.Bg);
+        this.lottieDrawable.bh(savedState.BV);
+        setRepeatMode(savedState.BW);
         setRepeatCount(savedState.repeatCount);
     }
 
@@ -290,13 +290,13 @@ public class LottieAnimationView extends ImageView {
     public void setAnimation(int i) {
         this.animationResId = i;
         this.animationName = null;
-        setCompositionTask(f.M(getContext(), i));
+        setCompositionTask(f.V(getContext(), i));
     }
 
     public void setAnimation(String str) {
         this.animationName = str;
         this.animationResId = 0;
-        setCompositionTask(f.bs(getContext(), str));
+        setCompositionTask(f.bw(getContext(), str));
     }
 
     @Deprecated
@@ -313,7 +313,7 @@ public class LottieAnimationView extends ImageView {
     }
 
     public void setAnimationFromUrl(String str) {
-        setCompositionTask(f.br(getContext(), str));
+        setCompositionTask(f.bv(getContext(), str));
     }
 
     private void setCompositionTask(m<e> mVar) {
@@ -463,7 +463,7 @@ public class LottieAnimationView extends ImageView {
     }
 
     public void setImageAssetsFolder(String str) {
-        this.lottieDrawable.be(str);
+        this.lottieDrawable.bh(str);
     }
 
     public String getImageAssetsFolder() {
@@ -579,12 +579,12 @@ public class LottieAnimationView extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes20.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.tb.airbnb.lottie.LottieAnimationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: au */
+            /* renamed from: ao */
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel);
             }
@@ -596,8 +596,8 @@ public class LottieAnimationView extends ImageView {
                 return new SavedState[i];
             }
         };
-        String Bf;
-        int Bg;
+        String BV;
+        int BW;
         String animationName;
         int animationResId;
         boolean isAnimating;
@@ -613,8 +613,8 @@ public class LottieAnimationView extends ImageView {
             this.animationName = parcel.readString();
             this.progress = parcel.readFloat();
             this.isAnimating = parcel.readInt() == 1;
-            this.Bf = parcel.readString();
-            this.Bg = parcel.readInt();
+            this.BV = parcel.readString();
+            this.BW = parcel.readInt();
             this.repeatCount = parcel.readInt();
         }
 
@@ -624,8 +624,8 @@ public class LottieAnimationView extends ImageView {
             parcel.writeString(this.animationName);
             parcel.writeFloat(this.progress);
             parcel.writeInt(this.isAnimating ? 1 : 0);
-            parcel.writeString(this.Bf);
-            parcel.writeInt(this.Bg);
+            parcel.writeString(this.BV);
+            parcel.writeInt(this.BW);
             parcel.writeInt(this.repeatCount);
         }
     }

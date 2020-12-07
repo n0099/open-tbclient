@@ -3,19 +3,19 @@ package com.baidu.ar.lua;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a implements c {
-    private boolean sC = false;
-    private boolean sD = false;
+    private boolean sT = false;
+    private boolean sU = false;
 
     @Override // com.baidu.ar.lua.c
     public void a(int i, int i2, HashMap<String, Object> hashMap) {
         switch (i) {
             case 103:
-                this.sD = true;
+                this.sU = true;
                 return;
             case 104:
-                this.sC = true;
+                this.sT = true;
                 return;
             default:
                 return;
@@ -26,9 +26,9 @@ public class a implements c {
         bVar.c(this);
     }
 
-    public void fk() {
-        this.sC = false;
-        this.sD = false;
+    public void fj() {
+        this.sT = false;
+        this.sU = false;
     }
 
     @Override // com.baidu.ar.lua.c
@@ -37,6 +37,6 @@ public class a implements c {
     }
 
     public void release() {
-        fk();
+        fj();
     }
 }

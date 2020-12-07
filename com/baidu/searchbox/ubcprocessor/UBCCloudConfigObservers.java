@@ -1,14 +1,14 @@
 package com.baidu.searchbox.ubcprocessor;
 
-import com.baidu.pyramid.a.a.a;
 import com.baidu.pyramid.a.a.b;
-/* loaded from: classes19.dex */
+import com.baidu.pyramid.a.a.d;
+/* loaded from: classes20.dex */
 public class UBCCloudConfigObservers {
-    b<UBCCloudConfigObserver> mObservers;
+    d<UBCCloudConfigObserver> mObservers;
 
     public void initmObservers() {
-        this.mObservers = a.acv();
-        this.mObservers.a(new UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider());
+        this.mObservers = b.afE();
+        this.mObservers.b(new UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider());
     }
 
     public UBCCloudConfigObservers() {

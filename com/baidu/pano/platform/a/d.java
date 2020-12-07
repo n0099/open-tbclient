@@ -1,17 +1,17 @@
 package com.baidu.pano.platform.a;
 
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ n f2650a;
+    final /* synthetic */ n f2652a;
     final /* synthetic */ c b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, n nVar) {
         this.b = cVar;
-        this.f2650a = nVar;
+        this.f2652a = nVar;
     }
 
     @Override // java.lang.Runnable
@@ -19,7 +19,7 @@ class d implements Runnable {
         BlockingQueue blockingQueue;
         try {
             blockingQueue = this.b.c;
-            blockingQueue.put(this.f2650a);
+            blockingQueue.put(this.f2652a);
         } catch (InterruptedException e) {
         }
     }

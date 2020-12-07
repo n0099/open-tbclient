@@ -6,7 +6,6 @@ import android.content.res.AssetManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FilenameFilter;
@@ -21,21 +20,16 @@ import java.util.Iterator;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class ResourceExtractor {
     private static final String[] SUPPORTED_ABIS = getSupportedAbis();
     private static final String TAG = "ResourceExtractor";
     private static final String TIMESTAMP_PREFIX = "res_timestamp-";
-    @NonNull
     private final AssetManager mAssetManager;
-    @NonNull
     private final String mDataDirPath;
     private ExtractTask mExtractTask;
-    @NonNull
     private final PackageManager mPackageManager;
-    @NonNull
     private final String mPackageName;
-    @NonNull
     private final HashSet<String> mResources = new HashSet<>();
 
     /* JADX DEBUG: Marked for inline */
@@ -50,24 +44,19 @@ public class ResourceExtractor {
         copy(inputStream, outputStream);
     }
 
-    static long getVersionCode(@NonNull PackageInfo packageInfo) {
+    static long getVersionCode(PackageInfo packageInfo) {
         return Build.VERSION.SDK_INT >= 28 ? packageInfo.getLongVersionCode() : packageInfo.versionCode;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     private static class ExtractTask extends AsyncTask<Void, Void, Void> {
-        @NonNull
         private final AssetManager mAssetManager;
-        @NonNull
         private final String mDataDirPath;
-        @NonNull
         private final PackageManager mPackageManager;
-        @NonNull
         private final String mPackageName;
-        @NonNull
         private final HashSet<String> mResources;
 
-        ExtractTask(@NonNull String str, @NonNull HashSet<String> hashSet, @NonNull String str2, @NonNull PackageManager packageManager, @NonNull AssetManager assetManager) {
+        ExtractTask(String str, HashSet<String> hashSet, String str2, PackageManager packageManager, AssetManager assetManager) {
             this.mDataDirPath = str;
             this.mResources = hashSet;
             this.mAssetManager = assetManager;
@@ -103,8 +92,7 @@ public class ResourceExtractor {
             	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
             */
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [102=4, 105=6] */
-        @androidx.annotation.WorkerThread
-        private boolean extractAPK(@androidx.annotation.NonNull java.io.File r8) {
+        private boolean extractAPK(java.io.File r8) {
             /*
                 r7 = this;
                 r2 = 0
@@ -234,19 +222,19 @@ public class ResourceExtractor {
         }
     }
 
-    ResourceExtractor(@NonNull String str, @NonNull String str2, @NonNull PackageManager packageManager, @NonNull AssetManager assetManager) {
+    ResourceExtractor(String str, String str2, PackageManager packageManager, AssetManager assetManager) {
         this.mDataDirPath = str;
         this.mPackageName = str2;
         this.mPackageManager = packageManager;
         this.mAssetManager = assetManager;
     }
 
-    ResourceExtractor addResource(@NonNull String str) {
+    ResourceExtractor addResource(String str) {
         this.mResources.add(str);
         return this;
     }
 
-    ResourceExtractor addResources(@NonNull Collection<String> collection) {
+    ResourceExtractor addResources(Collection<String> collection) {
         this.mResources.addAll(collection);
         return this;
     }
@@ -278,7 +266,7 @@ public class ResourceExtractor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void deleteFiles(@NonNull String str, @NonNull HashSet<String> hashSet) {
+    public static void deleteFiles(String str, HashSet<String> hashSet) {
         File file = new File(str);
         Iterator<String> it = hashSet.iterator();
         while (it.hasNext()) {
@@ -296,7 +284,7 @@ public class ResourceExtractor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String checkTimestamp(@NonNull File file, @NonNull PackageManager packageManager, @NonNull String str) {
+    public static String checkTimestamp(File file, PackageManager packageManager, String str) {
         PackageInfo packageInfo;
         try {
             if (packageManager.getPackageInfo(str, 0) == null) {
@@ -319,7 +307,7 @@ public class ResourceExtractor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void copy(@NonNull InputStream inputStream, @NonNull OutputStream outputStream) throws IOException {
+    public static void copy(InputStream inputStream, OutputStream outputStream) throws IOException {
         byte[] bArr = new byte[16384];
         while (true) {
             int read = inputStream.read(bArr);

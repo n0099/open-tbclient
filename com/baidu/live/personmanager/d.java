@@ -4,8 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
-import com.baidu.live.data.be;
-import com.baidu.live.data.bs;
+import com.baidu.live.data.bf;
+import com.baidu.live.data.bt;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
@@ -15,8 +15,8 @@ import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import com.baidu.live.tbadk.data.Config;
 /* loaded from: classes4.dex */
 public class d {
-    private a boB;
-    private b boC;
+    private a btK;
+    private b btL;
     private Context context;
     private boolean hasMore;
     private TbPageContext mTbPageContext;
@@ -26,7 +26,7 @@ public class d {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void a(bs bsVar);
+        void a(bt btVar);
 
         void onFail(String str);
     }
@@ -40,10 +40,10 @@ public class d {
         this.pn = i;
     }
 
-    public void c(int i, String str, String str2) {
+    public void e(int i, String str, String str2) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.boB != null) {
-                this.boB.onFail(this.context.getResources().getString(a.h.sdk_no_network));
+            if (this.btK != null) {
+                this.btK.onFail(this.context.getResources().getString(a.h.sdk_no_network));
                 return;
             }
             return;
@@ -55,12 +55,12 @@ public class d {
             this.url = TbConfig.SERVER_ADDRESS + "ala/user/followList";
         }
         this.pn++;
-        this.boC = new b();
-        this.boC.execute(str, str2);
+        this.btL = new b();
+        this.btL.execute(str, str2);
     }
 
     public void a(a aVar) {
-        this.boB = aVar;
+        this.btK = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -73,7 +73,7 @@ public class d {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public Object doInBackground(String... strArr) {
-            bs bsVar;
+            bt btVar;
             NetWork netWork = new NetWork(d.this.url);
             String str = strArr[0];
             String str2 = strArr[1];
@@ -97,35 +97,35 @@ public class d {
                 if (TextUtils.isEmpty(u)) {
                     return null;
                 }
-                bs bsVar2 = new bs();
-                bsVar2.parserJson(u);
-                d.this.hasMore = bsVar2.has_more == 1;
+                bt btVar2 = new bt();
+                btVar2.parserJson(u);
+                d.this.hasMore = btVar2.has_more == 1;
                 if (d.this.type == 1) {
-                    d.this.a(str, bsVar2);
+                    d.this.a(str, btVar2);
                 }
-                bsVar = bsVar2;
+                btVar = btVar2;
             } else {
-                bsVar = null;
+                btVar = null;
             }
-            return bsVar;
+            return btVar;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (d.this.boB != null) {
-                d.this.boB.a((bs) obj);
+            if (d.this.btK != null) {
+                d.this.btK.a((bt) obj);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, bs bsVar) {
-        if (bsVar != null && bsVar.user_list != null && !bsVar.user_list.isEmpty()) {
-            for (be beVar : bsVar.user_list) {
+    public void a(String str, bt btVar) {
+        if (btVar != null && btVar.user_list != null && !btVar.user_list.isEmpty()) {
+            for (bf bfVar : btVar.user_list) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.equals(str)) {
-                    beVar.aNb = 1;
+                    bfVar.aQa = 1;
                 }
             }
         }

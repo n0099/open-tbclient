@@ -17,7 +17,7 @@ public class ad extends RecyclerView.Adapter<af.a> implements u<q> {
     private SparseArray<Integer> mViewTypes = new SparseArray<>();
     private List<q> mLists = new ArrayList();
     private RecyclerView mRecyclerView = null;
-    private int Xx = -1;
+    private int Yu = -1;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -28,7 +28,7 @@ public class ad extends RecyclerView.Adapter<af.a> implements u<q> {
         if (this.mRecyclerView == null) {
             this.mRecyclerView = (RecyclerView) viewGroup;
         }
-        q item = getItem(this.Xx);
+        q item = getItem(this.Yu);
         if (this.mDelegateAdapters == null || (aVar = this.mDelegateAdapters.get(i)) == null) {
             return null;
         }
@@ -66,7 +66,7 @@ public class ad extends RecyclerView.Adapter<af.a> implements u<q> {
         q item;
         BdUniqueId type;
         Integer num;
-        this.Xx = i;
+        this.Yu = i;
         if (this.mDelegateAdapters == null || this.mDelegateAdapters.size() == 0 || (item = getItem(i)) == null || (type = item.getType()) == null || (num = this.mViewTypes.get(type.getId())) == null) {
             return -1;
         }
@@ -103,7 +103,7 @@ public class ad extends RecyclerView.Adapter<af.a> implements u<q> {
         return null;
     }
 
-    public void q(int i, int i2) {
+    public void r(int i, int i2) {
         if (i < this.mLists.size()) {
             this.mLists.remove(i);
             notifyItemRemoved(i + i2);
@@ -166,8 +166,8 @@ public class ad extends RecyclerView.Adapter<af.a> implements u<q> {
             } else {
                 aVar = this.mDelegateAdapters.valueAt(itemViewType);
             }
-            if (aVar != null && aVar.qN() != null) {
-                aVar.qN().a(view, item, aVar.getType(), viewGroup, i, j);
+            if (aVar != null && aVar.qP() != null) {
+                aVar.qP().a(view, item, aVar.getType(), viewGroup, i, j);
             }
         }
     }
@@ -184,10 +184,10 @@ public class ad extends RecyclerView.Adapter<af.a> implements u<q> {
         } else {
             aVar = this.mDelegateAdapters.valueAt(itemViewType);
         }
-        if (aVar == null || aVar.qO() == null) {
+        if (aVar == null || aVar.qQ() == null) {
             return false;
         }
-        return aVar.qO().b(view, item, aVar.getType(), viewGroup, i, j);
+        return aVar.qQ().b(view, item, aVar.getType(), viewGroup, i, j);
     }
 
     @Override // com.baidu.adp.widget.ListView.u

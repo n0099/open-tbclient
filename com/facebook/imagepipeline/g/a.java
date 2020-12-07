@@ -1,49 +1,57 @@
 package com.facebook.imagepipeline.g;
-/* loaded from: classes10.dex */
-public class a extends c {
-    private com.facebook.imagepipeline.animated.base.d oYs;
 
-    public a(com.facebook.imagepipeline.animated.base.d dVar) {
-        this.oYs = dVar;
-    }
-
-    @Override // com.facebook.imagepipeline.g.f
-    public synchronized int getWidth() {
-        return isClosed() ? 0 : this.oYs.enb().getWidth();
-    }
-
-    @Override // com.facebook.imagepipeline.g.f
-    public synchronized int getHeight() {
-        return isClosed() ? 0 : this.oYs.enb().getHeight();
-    }
-
-    @Override // com.facebook.imagepipeline.g.c, java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
-        synchronized (this) {
-            if (this.oYs != null) {
-                com.facebook.imagepipeline.animated.base.d dVar = this.oYs;
-                this.oYs = null;
-                dVar.dispose();
-            }
-        }
+import com.facebook.imagepipeline.f.e;
+import com.facebook.imagepipeline.request.ImageRequest;
+import java.util.Map;
+import javax.annotation.Nullable;
+/* loaded from: classes15.dex */
+public class a implements c {
+    @Override // com.facebook.imagepipeline.g.c
+    public void a(ImageRequest imageRequest, Object obj, String str, boolean z) {
     }
 
     @Override // com.facebook.imagepipeline.g.c
-    public synchronized boolean isClosed() {
-        return this.oYs == null;
+    public void a(ImageRequest imageRequest, String str, boolean z) {
     }
 
     @Override // com.facebook.imagepipeline.g.c
-    public synchronized int getSizeInBytes() {
-        return isClosed() ? 0 : this.oYs.enb().getSizeInBytes();
+    public void a(ImageRequest imageRequest, String str, Throwable th, boolean z) {
     }
 
     @Override // com.facebook.imagepipeline.g.c
-    public boolean isStateful() {
-        return true;
+    public void Zn(String str) {
     }
 
-    public synchronized com.facebook.imagepipeline.animated.base.d epN() {
-        return this.oYs;
+    @Override // com.facebook.imagepipeline.producers.am
+    public void hh(String str, String str2) {
+    }
+
+    @Override // com.facebook.imagepipeline.producers.am
+    public void aR(String str, String str2, String str3) {
+    }
+
+    @Override // com.facebook.imagepipeline.producers.am
+    public void a(String str, String str2, @Nullable Map<String, String> map) {
+    }
+
+    @Override // com.facebook.imagepipeline.producers.am
+    public void a(ImageRequest imageRequest, e eVar, Throwable th, @Nullable Map<String, String> map) {
+    }
+
+    @Override // com.facebook.imagepipeline.producers.am
+    public void a(String str, String str2, Throwable th, @Nullable Map<String, String> map) {
+    }
+
+    @Override // com.facebook.imagepipeline.producers.am
+    public void b(String str, String str2, @Nullable Map<String, String> map) {
+    }
+
+    @Override // com.facebook.imagepipeline.producers.am
+    public void J(String str, String str2, boolean z) {
+    }
+
+    @Override // com.facebook.imagepipeline.producers.am
+    public boolean Zq(String str) {
+        return false;
     }
 }

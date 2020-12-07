@@ -5,41 +5,39 @@ import android.support.media.ExifInterface;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.Set;
 import java.util.StringTokenizer;
-import kotlin.h;
-import kotlin.jvm.internal.q;
+import kotlin.jvm.internal.p;
 import kotlin.text.l;
-@h
-/* loaded from: classes17.dex */
+@kotlin.e
+/* loaded from: classes18.dex */
 public final class b {
-    private final String pGc;
-    private Path pGd;
+    private final String pzI;
+    private Path pzJ;
 
     public b(String str) {
-        q.n(str, "originValue");
-        this.pGc = l.a((CharSequence) str, (CharSequence) Constants.ACCEPT_TIME_SEPARATOR_SP, false, 2, (Object) null) ? l.a(str, Constants.ACCEPT_TIME_SEPARATOR_SP, " ", false, 4, (Object) null) : str;
+        p.o(str, "originValue");
+        this.pzI = l.a((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? l.a(str, ",", " ", false, 4, (Object) null) : str;
     }
 
     public final void a(Path path) {
         Set set;
-        q.n(path, "toPath");
-        Path path2 = this.pGd;
+        p.o(path, "toPath");
+        Path path2 = this.pzJ;
         if (path2 != null) {
             path.set(path2);
             return;
         }
         Path path3 = new Path();
-        StringTokenizer stringTokenizer = new StringTokenizer(this.pGc, "MLHVCSQRAZmlhvcsqraz", true);
+        StringTokenizer stringTokenizer = new StringTokenizer(this.pzI, "MLHVCSQRAZmlhvcsqraz", true);
         String str = "";
         while (stringTokenizer.hasMoreTokens()) {
             String nextToken = stringTokenizer.nextToken();
-            q.m(nextToken, "segment");
+            p.n(nextToken, "segment");
             if (!(nextToken.length() == 0)) {
-                set = c.pGe;
+                set = c.pzK;
                 if (set.contains(nextToken)) {
-                    if (q.l(nextToken, "Z") || q.l(nextToken, MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z)) {
+                    if (p.l(nextToken, "Z") || p.l(nextToken, MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z)) {
                         a(path3, nextToken, new StringTokenizer("", ""));
                     }
                 } else {
@@ -49,7 +47,7 @@ public final class b {
                 str = nextToken;
             }
         }
-        this.pGd = path3;
+        this.pzJ = path3;
         path.set(path3);
     }
 
@@ -65,7 +63,7 @@ public final class b {
         while (stringTokenizer.hasMoreTokens()) {
             try {
                 String nextToken = stringTokenizer.nextToken();
-                q.m(nextToken, "s");
+                p.n(nextToken, "s");
                 if (!(nextToken.length() == 0)) {
                     if (i == 0) {
                         f7 = Float.parseFloat(nextToken);
@@ -93,41 +91,41 @@ public final class b {
         }
         f = f7;
         com.opensource.svgaplayer.b.a aVar = new com.opensource.svgaplayer.b.a(0.0f, 0.0f, 0.0f);
-        if (q.l(str, "M")) {
+        if (p.l(str, "M")) {
             path.moveTo(f, f6);
             aVar = new com.opensource.svgaplayer.b.a(f, f6, 0.0f);
-        } else if (q.l(str, "m")) {
+        } else if (p.l(str, "m")) {
             path.rMoveTo(f, f6);
             aVar = new com.opensource.svgaplayer.b.a(aVar.getX() + f, aVar.getY() + f6, 0.0f);
         }
-        if (q.l(str, "L")) {
+        if (p.l(str, "L")) {
             path.lineTo(f, f6);
-        } else if (q.l(str, "l")) {
+        } else if (p.l(str, "l")) {
             path.rLineTo(f, f6);
         }
-        if (q.l(str, "C")) {
+        if (p.l(str, "C")) {
             path.cubicTo(f, f6, f5, f4, f3, f2);
-        } else if (q.l(str, "c")) {
+        } else if (p.l(str, "c")) {
             path.rCubicTo(f, f6, f5, f4, f3, f2);
         }
-        if (q.l(str, "Q")) {
+        if (p.l(str, "Q")) {
             path.quadTo(f, f6, f5, f4);
-        } else if (q.l(str, IXAdRequestInfo.COST_NAME)) {
+        } else if (p.l(str, IXAdRequestInfo.COST_NAME)) {
             path.rQuadTo(f, f6, f5, f4);
         }
-        if (q.l(str, IEruptionStrategyGroup.STRATEGY_MODIFIER_H)) {
+        if (p.l(str, IEruptionStrategyGroup.STRATEGY_MODIFIER_H)) {
             path.lineTo(f, aVar.getY());
-        } else if (q.l(str, "h")) {
+        } else if (p.l(str, "h")) {
             path.rLineTo(f, 0.0f);
         }
-        if (q.l(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
+        if (p.l(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
             path.lineTo(aVar.getX(), f);
-        } else if (q.l(str, "v")) {
+        } else if (p.l(str, "v")) {
             path.rLineTo(0.0f, f);
         }
-        if (q.l(str, "Z")) {
+        if (p.l(str, "Z")) {
             path.close();
-        } else if (q.l(str, MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z)) {
+        } else if (p.l(str, MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z)) {
             path.close();
         }
     }

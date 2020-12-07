@@ -4,90 +4,90 @@ import android.util.SparseArray;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 class v {
-    private boolean elq = false;
-    private JSONArray dly = new JSONArray();
-    private SparseArray<Integer> elm = new SparseArray<>();
-    private ArrayList<String> eln = new ArrayList<>();
-    private long elo = 0;
-    private long elp = 0;
-    private String ekr = "0";
+    private boolean ess = false;
+    private JSONArray dsz = new JSONArray();
+    private SparseArray<Integer> eso = new SparseArray<>();
+    private ArrayList<String> esp = new ArrayList<>();
+    private long esq = 0;
+    private long esr = 0;
+    private String eru = "0";
 
-    public final void dd(JSONObject jSONObject) {
-        this.dly.put(jSONObject);
+    public final void df(JSONObject jSONObject) {
+        this.dsz.put(jSONObject);
     }
 
-    public final SparseArray<Integer> bdv() {
-        return this.elm;
+    public final SparseArray<Integer> bgA() {
+        return this.eso;
     }
 
-    public final void aF(int i, int i2) {
-        this.elm.put(i, Integer.valueOf(i2));
+    public final void aH(int i, int i2) {
+        this.eso.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList bdw() {
-        return this.eln;
+    public final ArrayList bgB() {
+        return this.esp;
     }
 
-    public final void yY(String str) {
-        if (!this.eln.contains(str)) {
-            this.eln.add(str);
+    public final void zF(String str) {
+        if (!this.esp.contains(str)) {
+            this.esp.add(str);
         }
     }
 
     public final void r(long j, long j2) {
-        if ((j < this.elo || this.elo == 0) && j != 0) {
-            this.elo = j;
+        if ((j < this.esq || this.esq == 0) && j != 0) {
+            this.esq = j;
         }
-        if (j2 > this.elp) {
-            this.elp = j2;
+        if (j2 > this.esr) {
+            this.esr = j2;
         }
     }
 
-    public boolean nl(int i) {
-        return this.dly.toString().getBytes().length >= i;
+    public boolean nJ(int i) {
+        return this.dsz.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.dly.length() == 0;
+        return this.dsz.length() == 0;
     }
 
-    public JSONArray bdx() {
-        return this.dly;
+    public JSONArray bgC() {
+        return this.dsz;
     }
 
     public void clearData() {
-        this.elm.clear();
-        this.eln.clear();
-        this.dly = null;
+        this.eso.clear();
+        this.esp.clear();
+        this.dsz = null;
     }
 
-    public void yZ(String str) {
-        this.ekr = str;
+    public void zG(String str) {
+        this.eru = str;
     }
 
-    public String bdy() {
-        return this.ekr;
+    public String bgD() {
+        return this.eru;
     }
 
-    public long bdz() {
-        return this.elo;
+    public long bgE() {
+        return this.esq;
     }
 
     public long getMaxTime() {
-        return this.elp;
+        return this.esr;
     }
 
-    public JSONArray bdA() {
-        return this.dly;
+    public JSONArray bgF() {
+        return this.dsz;
     }
 
-    public boolean bdB() {
-        return this.elq;
+    public boolean bgG() {
+        return this.ess;
     }
 
-    public void id(boolean z) {
-        this.elq = z;
+    public void is(boolean z) {
+        this.ess = z;
     }
 }

@@ -27,47 +27,47 @@ public class aw {
     }
 
     public static void a(Context context, il ilVar) {
-        com.xiaomi.channel.commonutils.logger.b.m57a("need to update local info with: " + ilVar.m436a());
-        String str = ilVar.m436a().get(Constants.EXTRA_KEY_ACCEPT_TIME);
+        com.xiaomi.channel.commonutils.logger.b.m47a("need to update local info with: " + ilVar.m426a());
+        String str = ilVar.m426a().get(Constants.EXTRA_KEY_ACCEPT_TIME);
         if (str != null) {
             MiPushClient.removeAcceptTime(context);
             String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
             if (split.length == 2) {
                 MiPushClient.addAcceptTime(context, split[0], split[1]);
                 if ("00:00".equals(split[0]) && "00:00".equals(split[1])) {
-                    b.m97a(context).a(true);
+                    b.m87a(context).a(true);
                 } else {
-                    b.m97a(context).a(false);
+                    b.m87a(context).a(false);
                 }
             }
         }
-        String str2 = ilVar.m436a().get(Constants.EXTRA_KEY_ALIASES);
+        String str2 = ilVar.m426a().get(Constants.EXTRA_KEY_ALIASES);
         if (str2 != null) {
             MiPushClient.removeAllAliases(context);
             if (!"".equals(str2)) {
-                String[] split2 = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split2 = str2.split(",");
                 for (String str3 : split2) {
                     MiPushClient.addAlias(context, str3);
                 }
             }
         }
-        String str4 = ilVar.m436a().get("topics");
+        String str4 = ilVar.m426a().get("topics");
         if (str4 != null) {
             MiPushClient.removeAllTopics(context);
             if (!"".equals(str4)) {
-                String[] split3 = str4.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split3 = str4.split(",");
                 for (String str5 : split3) {
                     MiPushClient.addTopic(context, str5);
                 }
             }
         }
-        String str6 = ilVar.m436a().get(Constants.EXTRA_KEY_ACCOUNTS);
+        String str6 = ilVar.m426a().get(Constants.EXTRA_KEY_ACCOUNTS);
         if (str6 != null) {
             MiPushClient.removeAllAccounts(context);
             if ("".equals(str6)) {
                 return;
             }
-            String[] split4 = str6.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split4 = str6.split(",");
             for (String str7 : split4) {
                 MiPushClient.addAccount(context, str7);
             }
@@ -94,7 +94,7 @@ public class aw {
         String str = "";
         for (String str2 : arrayList) {
             if (!TextUtils.isEmpty(str)) {
-                str = str + Constants.ACCEPT_TIME_SEPARATOR_SP;
+                str = str + ",";
             }
             str = str + str2;
         }

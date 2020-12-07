@@ -11,7 +11,7 @@ import java.util.Observer;
 public class BankcardDetectionController extends Observable implements NoProguard, Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    private IDetectionListener f3915a;
+    private IDetectionListener f3918a;
 
     /* loaded from: classes10.dex */
     public interface IDetectionListener extends NoProguard {
@@ -28,17 +28,17 @@ public class BankcardDetectionController extends Observable implements NoProguar
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static BankcardDetectionController f3916a = new BankcardDetectionController();
+        private static BankcardDetectionController f3919a = new BankcardDetectionController();
     }
 
     public static BankcardDetectionController getInstance() {
-        return a.f3916a;
+        return a.f3919a;
     }
 
     public void gotoDetctionCard(Context context, IDetectionListener iDetectionListener) {
         PayStatisticsUtil.onEvent("takephotoPhotoread");
         if (iDetectionListener != null) {
-            this.f3915a = iDetectionListener;
+            this.f3918a = iDetectionListener;
             Intent intent = new Intent(context, BankCardDetectionActivity.class);
             if (!(context instanceof Activity)) {
                 intent.setFlags(268435456);
@@ -49,22 +49,22 @@ public class BankcardDetectionController extends Observable implements NoProguar
 
     @Override // java.util.Observer
     public void update(Observable observable, Object obj) {
-        if (this.f3915a != null) {
-            this.f3915a.onResult(obj == null ? "" : (String) obj);
-            this.f3915a = null;
+        if (this.f3918a != null) {
+            this.f3918a.onResult(obj == null ? "" : (String) obj);
+            this.f3918a = null;
         }
-        this.f3915a = null;
+        this.f3918a = null;
     }
 
     public void updateFail(int i, String str) {
-        if (this.f3915a != null) {
-            this.f3915a.onFail(i, str);
-            this.f3915a = null;
+        if (this.f3918a != null) {
+            this.f3918a.onFail(i, str);
+            this.f3918a = null;
         }
-        this.f3915a = null;
+        this.f3918a = null;
     }
 
     public void clearCardDetectionCallback() {
-        this.f3915a = null;
+        this.f3918a = null;
     }
 }

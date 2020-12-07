@@ -6,9 +6,9 @@ import android.animation.ValueAnimator;
 import android.view.View;
 /* loaded from: classes4.dex */
 public class j {
-    protected a ggn;
-    private ValueAnimator ggo;
-    private boolean mShowing;
+    private boolean bbP;
+    protected a gow;
+    private ValueAnimator gox;
     View view;
 
     /* loaded from: classes4.dex */
@@ -21,45 +21,45 @@ public class j {
     }
 
     public void show(boolean z) {
-        if (!this.mShowing) {
-            this.mShowing = true;
-            Ot();
+        if (!this.bbP) {
+            this.bbP = true;
+            QM();
             if (z) {
-                Dm();
+                EW();
             } else {
-                lw(isShowing());
+                lR(isShowing());
             }
         }
     }
 
     public boolean isShowing() {
-        return this.mShowing;
+        return this.bbP;
     }
 
     public void dismiss(boolean z) {
-        if (this.mShowing) {
-            this.mShowing = false;
+        if (this.bbP) {
+            this.bbP = false;
             onDismiss();
             if (z) {
-                bNL();
+                bRw();
             } else {
-                lw(isShowing());
+                lR(isShowing());
             }
         }
     }
 
-    private void bNL() {
-        this.ggo = z(0.0f, 1.0f);
+    private void bRw() {
+        this.gox = z(0.0f, 1.0f);
     }
 
-    private void Dm() {
-        lw(isShowing());
-        this.ggo = z(1.0f, 0.0f);
+    private void EW() {
+        lR(isShowing());
+        this.gox = z(1.0f, 0.0f);
     }
 
     private ValueAnimator z(float f, float f2) {
-        if (this.ggo != null && this.ggo.isRunning()) {
-            this.ggo.cancel();
+        if (this.gox != null && this.gox.isRunning()) {
+            this.gox.cancel();
         }
         ValueAnimator ofFloat = ValueAnimator.ofFloat(f, f2);
         ofFloat.setDuration(250L);
@@ -70,19 +70,19 @@ public class j {
             }
         });
         ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.alaar.view.j.2
-            boolean isCanceled;
+            boolean goz;
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 super.onAnimationCancel(animator);
-                this.isCanceled = true;
+                this.goz = true;
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                if (!this.isCanceled) {
-                    j.this.lw(j.this.isShowing());
+                if (!this.goz) {
+                    j.this.lR(j.this.isShowing());
                 }
             }
         });
@@ -93,17 +93,17 @@ public class j {
     protected void a(ValueAnimator valueAnimator) {
     }
 
-    protected void lw(boolean z) {
+    protected void lR(boolean z) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Ot() {
+    public void QM() {
     }
 
     protected void onDismiss() {
     }
 
     public void a(a aVar) {
-        this.ggn = aVar;
+        this.gow = aVar;
     }
 }

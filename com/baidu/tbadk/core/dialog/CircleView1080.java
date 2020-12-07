@@ -10,13 +10,13 @@ import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CircleView1080 extends View {
-    private static int eGw = EncoderTextureDrawer.X264_WIDTH;
-    private static int eGx = 100;
-    private int bAZ;
-    private RectF eGB;
-    private Paint eGz;
+    private int bGh;
+    private Paint eNC;
+    private RectF eNE;
     private int mValue;
     private int mWidth;
+    private static int eNz = EncoderTextureDrawer.X264_WIDTH;
+    private static int eNA = 100;
 
     public CircleView1080(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -43,18 +43,18 @@ public class CircleView1080 extends View {
 
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(R.dimen.tbds122);
-        this.bAZ = getResources().getDimensionPixelSize(R.dimen.tbds6);
-        this.eGz = new Paint();
-        this.eGz.setStrokeWidth(this.bAZ);
-        this.eGz.setColor(getResources().getColor(R.color.CAM_X0111));
-        this.eGz.setStyle(Paint.Style.STROKE);
-        this.eGz.setAntiAlias(true);
-        this.eGz.setStrokeCap(Paint.Cap.ROUND);
-        this.eGB = new RectF(this.bAZ / 2, this.bAZ / 2, this.mWidth + (this.bAZ / 2), this.mWidth + (this.bAZ / 2));
+        this.bGh = getResources().getDimensionPixelSize(R.dimen.tbds6);
+        this.eNC = new Paint();
+        this.eNC.setStrokeWidth(this.bGh);
+        this.eNC.setColor(getResources().getColor(R.color.CAM_X0111));
+        this.eNC.setStyle(Paint.Style.STROKE);
+        this.eNC.setAntiAlias(true);
+        this.eNC.setStrokeCap(Paint.Cap.ROUND);
+        this.eNE = new RectF(this.bGh / 2, this.bGh / 2, this.mWidth + (this.bGh / 2), this.mWidth + (this.bGh / 2));
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.eGB, 270.0f, (eGw * this.mValue) / eGx, false, this.eGz);
+        canvas.drawArc(this.eNE, 270.0f, (eNz * this.mValue) / eNA, false, this.eNC);
     }
 }

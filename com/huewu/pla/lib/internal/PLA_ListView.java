@@ -273,7 +273,7 @@ public class PLA_ListView extends PLA_AbsListView {
             this.mItemCount = this.mAdapter.getCount();
             this.mDataSetObserver = new PLA_AdapterView.b();
             this.mAdapter.registerDataSetObserver(this.mDataSetObserver);
-            this.mRecycler.fu(this.mAdapter.getViewTypeCount());
+            this.mRecycler.fS(this.mAdapter.getViewTypeCount());
         } else {
             this.mAreAllItemsSelectable = true;
         }
@@ -305,7 +305,7 @@ public class PLA_ListView extends PLA_AbsListView {
             for (int i = 0; i < size; i++) {
                 PLA_AbsListView.LayoutParams layoutParams = (PLA_AbsListView.LayoutParams) arrayList.get(i).view.getLayoutParams();
                 if (layoutParams != null) {
-                    layoutParams.byC = false;
+                    layoutParams.bDK = false;
                 }
             }
         }
@@ -441,8 +441,8 @@ public class PLA_ListView extends PLA_AbsListView {
             measureScrapChild(obtainView, 0, i);
             int measuredWidth = obtainView.getMeasuredWidth();
             i3 = obtainView.getMeasuredHeight();
-            if (recycleOnMeasure() && this.mRecycler.fv(((PLA_AbsListView.LayoutParams) obtainView.getLayoutParams()).byB)) {
-                this.mRecycler.el(obtainView);
+            if (recycleOnMeasure() && this.mRecycler.fT(((PLA_AbsListView.LayoutParams) obtainView.getLayoutParams()).bDJ)) {
+                this.mRecycler.em(obtainView);
             }
             i4 = measuredWidth;
         }
@@ -464,8 +464,8 @@ public class PLA_ListView extends PLA_AbsListView {
             layoutParams = new PLA_AbsListView.LayoutParams(-1, -2, 0);
             view.setLayoutParams(layoutParams);
         }
-        layoutParams.byB = this.mAdapter.getItemViewType(i);
-        layoutParams.byD = true;
+        layoutParams.bDJ = this.mAdapter.getItemViewType(i);
+        layoutParams.bDL = true;
         int childMeasureSpec = ViewGroup.getChildMeasureSpec(i2, this.mListPadding.left + this.mListPadding.right, layoutParams.width);
         int i3 = layoutParams.height;
         if (i3 > 0) {
@@ -500,9 +500,9 @@ public class PLA_ListView extends PLA_AbsListView {
             View obtainView = obtainView(i2, zArr);
             measureScrapChild(obtainView, i2, i);
             int i9 = i2 > 0 ? i7 + i8 : i7;
-            if (recycleOnMeasure && fVar.fv(((PLA_AbsListView.LayoutParams) obtainView.getLayoutParams()).byB)) {
+            if (recycleOnMeasure && fVar.fT(((PLA_AbsListView.LayoutParams) obtainView.getLayoutParams()).bDJ)) {
                 com.huewu.pla.lib.a.i("measureHeightOfChildren");
-                fVar.el(obtainView);
+                fVar.em(obtainView);
             }
             i7 = obtainView.getMeasuredHeight() + i9;
             if (i7 >= i4) {
@@ -664,10 +664,10 @@ public class PLA_ListView extends PLA_AbsListView {
                 PLA_AbsListView.f fVar = this.mRecycler;
                 if (z2) {
                     for (int i2 = childCount - 1; i2 >= 0; i2--) {
-                        fVar.el(getChildAt(i2));
+                        fVar.em(getChildAt(i2));
                     }
                 } else {
-                    fVar.L(childCount, i);
+                    fVar.K(childCount, i);
                 }
                 switch (this.mLayoutMode) {
                     case 1:
@@ -725,7 +725,7 @@ public class PLA_ListView extends PLA_AbsListView {
                         onLayoutSyncFinished(this.mSyncPosition);
                         break;
                 }
-                fVar.Sr();
+                fVar.UQ();
                 if (this.mTouchMode <= 0 || this.mTouchMode >= 3) {
                     this.mSelectedTop = 0;
                     this.mSelectorRect.setEmpty();
@@ -764,7 +764,7 @@ public class PLA_ListView extends PLA_AbsListView {
 
     private View makeAndAddView(int i, int i2, boolean z, boolean z2) {
         View obtainView;
-        if (!this.mDataChanged && (obtainView = this.mRecycler.fw(i)) != null) {
+        if (!this.mDataChanged && (obtainView = this.mRecycler.fU(i)) != null) {
             setupChild(obtainView, i, i2, z, getItemLeft(i), z2, true);
         } else {
             onItemAddedToList(i, z);
@@ -772,7 +772,7 @@ public class PLA_ListView extends PLA_AbsListView {
             com.huewu.pla.lib.a.i("makeAndAddView:" + i);
             obtainView = obtainView(i, this.mIsScrap);
             if (obtainView == null) {
-                com.huewu.pla.lib.a.Yp("child is null:" + i);
+                com.huewu.pla.lib.a.ZK("child is null:" + i);
             } else {
                 setupChild(obtainView, i, i2, z, itemLeft, z2, this.mIsScrap[0]);
             }
@@ -796,14 +796,14 @@ public class PLA_ListView extends PLA_AbsListView {
         if (layoutParams == null) {
             layoutParams = new PLA_AbsListView.LayoutParams(-1, -2, 0);
         }
-        layoutParams.byB = this.mAdapter.getItemViewType(i);
-        layoutParams.byE = i;
-        if ((z3 && !layoutParams.byD) || (layoutParams.byC && layoutParams.byB == -2)) {
+        layoutParams.bDJ = this.mAdapter.getItemViewType(i);
+        layoutParams.bDM = i;
+        if ((z3 && !layoutParams.bDL) || (layoutParams.bDK && layoutParams.bDJ == -2)) {
             attachViewToParent(view, z ? -1 : 0, layoutParams);
         } else {
-            layoutParams.byD = false;
-            if (layoutParams.byB == -2) {
-                layoutParams.byC = true;
+            layoutParams.bDL = false;
+            if (layoutParams.bDJ == -2) {
+                layoutParams.bDK = true;
             }
             addViewInLayout(view, z ? -1 : 0, layoutParams, true);
         }
@@ -985,9 +985,9 @@ public class PLA_ListView extends PLA_AbsListView {
             while (true) {
                 View view = childAt;
                 if (view.getBottom() < i3) {
-                    if (fVar.fv(((PLA_AbsListView.LayoutParams) view.getLayoutParams()).byB)) {
+                    if (fVar.fT(((PLA_AbsListView.LayoutParams) view.getLayoutParams()).bDJ)) {
                         detachViewFromParent(view);
-                        fVar.el(view);
+                        fVar.em(view);
                     } else {
                         removeViewInLayout(view);
                     }
@@ -1012,9 +1012,9 @@ public class PLA_ListView extends PLA_AbsListView {
                 int i4 = childCount2;
                 View view2 = childAt3;
                 if (view2.getTop() > height) {
-                    if (fVar.fv(((PLA_AbsListView.LayoutParams) view2.getLayoutParams()).byB)) {
+                    if (fVar.fT(((PLA_AbsListView.LayoutParams) view2.getLayoutParams()).bDJ)) {
                         detachViewFromParent(view2);
-                        fVar.el(view2);
+                        fVar.em(view2);
                     } else {
                         removeViewInLayout(view2);
                     }

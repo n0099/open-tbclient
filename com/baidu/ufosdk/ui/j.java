@@ -12,11 +12,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class j extends Dialog {
 
     /* renamed from: a */
-    private final int f3880a;
+    private final int f3883a;
     private final int b;
     private final int c;
     private final int d;
@@ -27,12 +27,12 @@ public final class j extends Dialog {
 
     public j(Context context) {
         super(context);
-        this.f3880a = R.xml.fileprovider_paths;
-        this.b = R.xml.network_security_config;
-        this.c = R.xml.null_network_security_config;
-        this.d = R.xml.pass_sdk_file_provider;
-        this.e = R.xml.tieba_file_paths;
-        this.f = R.xml.wallet_home_actionbar_back_color_selector;
+        this.f3883a = R.xml.fileprovider_paths;
+        this.b = R.xml.live_filepaths;
+        this.c = R.xml.nfc_tech_filter;
+        this.d = R.xml.null_network_security_config;
+        this.e = R.xml.pass_sdk_file_provider;
+        this.f = R.xml.tieba_file_paths;
         this.g = context;
     }
 
@@ -53,7 +53,7 @@ public final class j extends Dialog {
         relativeLayout.setId(R.xml.fileprovider_paths);
         relativeLayout.setBackgroundDrawable(gradientDrawable);
         TextView textView = new TextView(this.g);
-        textView.setId(R.xml.wallet_home_actionbar_back_color_selector);
+        textView.setId(R.xml.tieba_file_paths);
         textView.setTextColor(ViewCompat.MEASURED_STATE_MASK);
         textView.setTextSize(18.0f);
         textView.setText(com.baidu.ufosdk.f.s.a("57"));
@@ -64,7 +64,7 @@ public final class j extends Dialog {
         layoutParams.addRule(10);
         relativeLayout.addView(textView, layoutParams);
         TextView textView2 = new TextView(this.g);
-        textView2.setId(R.xml.network_security_config);
+        textView2.setId(R.xml.live_filepaths);
         textView2.setTextColor(com.baidu.ufosdk.b.J);
         textView2.setTextSize(16.0f);
         textView2.setText(com.baidu.ufosdk.f.s.a("58"));
@@ -75,12 +75,12 @@ public final class j extends Dialog {
         layoutParams2.addRule(3, textView.getId());
         relativeLayout.addView(textView2, layoutParams2);
         LinearLayout linearLayout = new LinearLayout(this.g);
-        linearLayout.setId(R.xml.null_network_security_config);
+        linearLayout.setId(R.xml.nfc_tech_filter);
         linearLayout.setOrientation(0);
         linearLayout.setBackgroundColor(0);
         linearLayout.setGravity(17);
         TextView textView3 = new TextView(this.g);
-        textView3.setId(R.xml.pass_sdk_file_provider);
+        textView3.setId(R.xml.null_network_security_config);
         textView3.setText(com.baidu.ufosdk.f.s.a("36"));
         textView3.setTextColor(-13421773);
         textView3.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(this.g, "ufo_confirm_cancel.9.png", "ufo_confirm_cancel_pressed.9.png"));
@@ -92,7 +92,7 @@ public final class j extends Dialog {
         layoutParams3.weight = 1.0f;
         linearLayout.addView(textView3, layoutParams3);
         TextView textView4 = new TextView(this.g);
-        textView4.setId(R.xml.tieba_file_paths);
+        textView4.setId(R.xml.pass_sdk_file_provider);
         textView4.setText(com.baidu.ufosdk.f.s.a(Constants.VIA_ACT_TYPE_TWENTY_EIGHT));
         textView4.setTextColor(-1);
         textView4.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(this.g, "ufo_confirm_ok.9.png", "ufo_confirm_ok_pressed.9.png"));

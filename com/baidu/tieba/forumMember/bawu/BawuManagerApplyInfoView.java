@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class BawuManagerApplyInfoView extends RelativeLayout {
-    private TextView iDn;
-    private TextView iDo;
-    private TextView iDp;
+    private TextView iOf;
+    private TextView iOg;
+    private TextView iOh;
     private Context mContext;
     private View mRoot;
 
@@ -38,31 +38,31 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
 
     private void initView() {
         this.mRoot = LayoutInflater.from(this.mContext).inflate(R.layout.bawu_manager_apply_layout, this);
-        this.iDn = (TextView) this.mRoot.findViewById(R.id.imageview_apply_btn);
-        this.iDo = (TextView) this.mRoot.findViewById(R.id.textview_manager_apply);
-        this.iDp = (TextView) this.mRoot.findViewById(R.id.textview_manager_left_num);
+        this.iOf = (TextView) this.mRoot.findViewById(R.id.imageview_apply_btn);
+        this.iOg = (TextView) this.mRoot.findViewById(R.id.textview_manager_apply);
+        this.iOh = (TextView) this.mRoot.findViewById(R.id.textview_manager_left_num);
     }
 
-    public void aN(String str, int i) {
-        this.iDo.setText(str);
-        this.iDn.setBackgroundDrawable(SvgManager.bqB().a(R.drawable.ic_icon_pure_ba_add_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS_DISABLE));
+    public void aO(String str, int i) {
+        this.iOg.setText(str);
+        this.iOf.setBackgroundDrawable(SvgManager.btW().a(R.drawable.ic_icon_pure_ba_add_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS_DISABLE));
         if (i > 0) {
-            this.iDp.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), au.numberUniformFormat(i)));
-            this.iDn.setEnabled(true);
-            this.iDn.setClickable(true);
-            ap.setViewTextColor(this.iDo, R.color.CAM_X0105, 1);
-            ap.setViewTextColor(this.iDp, R.color.CAM_X0305, 1);
+            this.iOh.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), au.numberUniformFormat(i)));
+            this.iOf.setEnabled(true);
+            this.iOf.setClickable(true);
+            ap.setViewTextColor(this.iOg, R.color.CAM_X0105, 1);
+            ap.setViewTextColor(this.iOh, R.color.CAM_X0305, 1);
             return;
         }
-        this.iDp.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-        this.iDn.setEnabled(false);
-        this.iDn.setClickable(false);
-        ap.setViewTextColor(this.iDo, R.color.CAM_X0109, 1);
-        ap.setViewTextColor(this.iDp, R.color.CAM_X0109, 1);
+        this.iOh.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+        this.iOf.setEnabled(false);
+        this.iOf.setClickable(false);
+        ap.setViewTextColor(this.iOg, R.color.CAM_X0109, 1);
+        ap.setViewTextColor(this.iOh, R.color.CAM_X0109, 1);
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.iDn.setOnClickListener(onClickListener);
+        this.iOf.setOnClickListener(onClickListener);
     }
 }

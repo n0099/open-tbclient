@@ -656,7 +656,7 @@ public class bj {
     private static String b(String str) {
         String a2 = ay.a().a(str);
         if (TextUtils.isEmpty(a2)) {
-            a2 = au.a().a(str, au.a.f2563a);
+            a2 = au.a().a(str, au.a.f2565a);
         }
         if (a2 == null) {
             return "";

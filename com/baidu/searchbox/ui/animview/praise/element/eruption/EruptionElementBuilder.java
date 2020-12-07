@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class EruptionElementBuilder implements IPraiseElementBuilder<BuildResult> {
     private static final float ERUPTION_RANDOM_DURATION_FACTOR = 0.6f;
     private static final int ERUPTION_STRATEGY_CNTS = 8;
@@ -25,7 +25,7 @@ public class EruptionElementBuilder implements IPraiseElementBuilder<BuildResult
     private IPraiseElementBuilder.PreBuildConfig mPreBuildConfig;
     private Map<String, List<BuildResult>> mResultMap = new HashMap();
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class BuildResult {
         public List<BaseAnimatedElement> eruptionElementList;
         public List<Float> eruptionRotateAngleList;
@@ -54,7 +54,7 @@ public class EruptionElementBuilder implements IPraiseElementBuilder<BuildResult
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static final class Holder {
         private static final EruptionElementBuilder sINSTANCE = new EruptionElementBuilder();
 

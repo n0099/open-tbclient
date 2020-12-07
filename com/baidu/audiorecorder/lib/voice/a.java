@@ -5,135 +5,135 @@ import android.os.Message;
 import com.baidu.adp.lib.voice.g;
 import com.baidu.adp.lib.voice.h;
 import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class a {
-    private static b aaJ;
-    private static String aaK;
-    private static g aaL;
-    private static int aaI = 0;
-    private static long aaM = 0;
+    private static b abG;
+    private static String abH;
+    private static g abI;
+    private static int abF = 0;
+    private static long abJ = 0;
     private static Handler mHandler = new Handler(new Handler.Callback() { // from class: com.baidu.audiorecorder.lib.voice.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    if (a.aaL != null) {
-                        a.aaL.m(a.aaK, message.arg1);
-                        g unused = a.aaL = null;
+                    if (a.abI != null) {
+                        a.abI.m(a.abH, message.arg1);
+                        g unused = a.abI = null;
                         break;
                     }
                     break;
                 case 1:
                 case 3:
-                    if (a.aaL != null) {
+                    if (a.abI != null) {
                         if (com.baidu.adp.lib.util.f.checkSDHasSpace()) {
-                            a.aaL.error(message.what, h.getString(R.string.voice_err_create_file_fail));
+                            a.abI.error(message.what, h.getString(R.string.voice_err_create_file_fail));
                         } else {
-                            a.aaL.error(message.what, h.getString(R.string.voice_err_sdcard_nospace));
+                            a.abI.error(message.what, h.getString(R.string.voice_err_sdcard_nospace));
                         }
-                        g unused2 = a.aaL = null;
+                        g unused2 = a.abI = null;
                         break;
                     }
                     break;
                 case 2:
-                    if (a.aaL != null) {
-                        a.aaL.error(message.what, h.getString(R.string.voice_err_file_fail));
-                        g unused3 = a.aaL = null;
+                    if (a.abI != null) {
+                        a.abI.error(message.what, h.getString(R.string.voice_err_file_fail));
+                        g unused3 = a.abI = null;
                         break;
                     }
                     break;
                 case 4:
-                    if (a.aaL != null) {
-                        a.aaL.aB(message.arg1);
+                    if (a.abI != null) {
+                        a.abI.aE(message.arg1);
                         break;
                     }
                     break;
                 case 5:
-                    if (a.aaL != null) {
-                        a.aaL.error(message.what, h.getString(R.string.voice_err_load_lib_fail));
-                        g unused4 = a.aaL = null;
+                    if (a.abI != null) {
+                        a.abI.error(message.what, h.getString(R.string.voice_err_load_lib_fail));
+                        g unused4 = a.abI = null;
                         break;
                     }
                     break;
                 case 6:
-                    if (a.aaL != null) {
-                        a.aaL.error(message.what, h.getString(R.string.voice_err_init_fail));
-                        g unused5 = a.aaL = null;
+                    if (a.abI != null) {
+                        a.abI.error(message.what, h.getString(R.string.voice_err_init_fail));
+                        g unused5 = a.abI = null;
                         break;
                     }
                     break;
                 case 7:
-                    if (a.aaL != null) {
-                        a.aaL.error(message.what, h.getString(R.string.voice_record_timeout_tip));
-                        g unused6 = a.aaL = null;
+                    if (a.abI != null) {
+                        a.abI.error(message.what, h.getString(R.string.voice_record_timeout_tip));
+                        g unused6 = a.abI = null;
                         break;
                     }
                     break;
                 case 8:
-                    if (a.aaL != null) {
-                        a.aaL.error(message.what, h.getString(R.string.voice_record_short_tip));
-                        g unused7 = a.aaL = null;
+                    if (a.abI != null) {
+                        a.abI.error(message.what, h.getString(R.string.voice_record_short_tip));
+                        g unused7 = a.abI = null;
                         break;
                     }
                     break;
                 case 9:
-                    if (a.aaL != null) {
-                        a.aaL.aC(message.arg1);
+                    if (a.abI != null) {
+                        a.abI.aF(message.arg1);
                         break;
                     }
                     break;
                 case 100:
-                    if (a.aaL != null) {
-                        a.aaL.ot();
+                    if (a.abI != null) {
+                        a.abI.os();
                         break;
                     }
                     break;
                 default:
-                    if (a.aaL != null) {
-                        a.aaL.error(message.what, h.getString(R.string.voice_err_other));
-                        g unused8 = a.aaL = null;
+                    if (a.abI != null) {
+                        a.abI.error(message.what, h.getString(R.string.voice_err_other));
+                        g unused8 = a.abI = null;
                         break;
                     }
                     break;
             }
-            int unused9 = a.aaI = 0;
+            int unused9 = a.abF = 0;
             return false;
         }
     });
 
     public static boolean a(String str, int i, g gVar) {
-        if (System.currentTimeMillis() - aaM < 1000) {
+        if (System.currentTimeMillis() - abJ < 1000) {
             return false;
         }
-        aaM = System.currentTimeMillis();
-        if (aaI == 0) {
-            if (aaJ == null) {
-                aaJ = new b(mHandler);
+        abJ = System.currentTimeMillis();
+        if (abF == 0) {
+            if (abG == null) {
+                abG = new b(mHandler);
             }
-            aaK = str;
-            aaL = gVar;
-            if (aaJ.q(str, i)) {
-                aaI = 3;
-                new Thread(aaJ).start();
+            abH = str;
+            abI = gVar;
+            if (abG.q(str, i)) {
+                abF = 3;
+                new Thread(abG).start();
                 return true;
             }
-            aaJ = null;
+            abG = null;
             return false;
         }
         return false;
     }
 
     public static void stop() {
-        if (aaJ != null) {
-            aaJ.stop();
+        if (abG != null) {
+            abG.stop();
         }
-        aaI = 0;
+        abF = 0;
     }
 
     public static void cancel() {
-        if (aaJ != null) {
-            aaJ.cancel();
+        if (abG != null) {
+            abG.cancel();
         }
-        aaI = 0;
+        abF = 0;
     }
 }

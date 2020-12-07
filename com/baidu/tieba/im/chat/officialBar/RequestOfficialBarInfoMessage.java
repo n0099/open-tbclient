@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryForumDetail.DataReq;
 import protobuf.QueryForumDetail.QueryForumDetailReqIdl;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class RequestOfficialBarInfoMessage extends TbSocketMessage {
     private int mForumId;
     private String mForumName;

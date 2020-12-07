@@ -22,7 +22,11 @@ public class RemotePlayerService extends Service {
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        CyberPlayerManager.install(getApplicationContext(), intent.getStringExtra("clientID"), null, intent.getIntExtra("installType", 1), null, (Map) intent.getSerializableExtra("installOpts"), null);
+        try {
+            CyberPlayerManager.install(getApplicationContext(), intent.getStringExtra("clientID"), null, intent.getIntExtra("installType", 1), null, (Map) intent.getSerializableExtra("installOpts"), null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return new g.a(this);
     }
 

@@ -15,37 +15,37 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.write.model.a;
 /* loaded from: classes3.dex */
 public class WriteUrlActivity extends BaseActivity<WriteUrlActivity> {
-    private com.baidu.tieba.write.model.a nQA;
-    private WriteUrlModel nQB;
-    private com.baidu.tieba.write.a.a nQC;
-    private l nQD;
-    private m nQz;
+    private m ofb;
+    private com.baidu.tieba.write.model.a ofc;
+    private WriteUrlModel ofd;
+    private com.baidu.tieba.write.a.a ofe;
+    private l ofg;
     private boolean isLoading = false;
-    private Runnable goY = new Runnable() { // from class: com.baidu.tieba.write.write.WriteUrlActivity.1
+    private Runnable gxh = new Runnable() { // from class: com.baidu.tieba.write.write.WriteUrlActivity.1
         @Override // java.lang.Runnable
         public void run() {
-            if (WriteUrlActivity.this.nQz != null) {
-                WriteUrlActivity.this.nQz.a(WriteUrlActivity.this.nQC, WriteUrlActivity.this.isLoading);
+            if (WriteUrlActivity.this.ofb != null) {
+                WriteUrlActivity.this.ofb.a(WriteUrlActivity.this.ofe, WriteUrlActivity.this.isLoading);
             }
         }
     };
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.WriteUrlActivity.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view != null && WriteUrlActivity.this.nQz != null) {
-                if (view == WriteUrlActivity.this.nQz.cUE()) {
-                    if (WriteUrlActivity.this.nQz == null || WriteUrlActivity.this.nQz.dWO() == null || WriteUrlActivity.this.nQz.dWO().getVisibility() != 0) {
-                        if (WriteUrlActivity.this.nQC != null || (WriteUrlActivity.this.nQz != null && !StringUtils.isNull(WriteUrlActivity.this.nQz.dWF()))) {
-                            WriteUrlActivity.this.dDY();
+            if (view != null && WriteUrlActivity.this.ofb != null) {
+                if (view == WriteUrlActivity.this.ofb.cZQ()) {
+                    if (WriteUrlActivity.this.ofb == null || WriteUrlActivity.this.ofb.ecl() == null || WriteUrlActivity.this.ofb.ecl().getVisibility() != 0) {
+                        if (WriteUrlActivity.this.ofe != null || (WriteUrlActivity.this.ofb != null && !StringUtils.isNull(WriteUrlActivity.this.ofb.ecc()))) {
+                            WriteUrlActivity.this.dJj();
                             return;
                         } else {
                             WriteUrlActivity.this.finish();
                             return;
                         }
                     }
-                    WriteUrlActivity.this.nQz.dWL();
-                } else if (view == WriteUrlActivity.this.nQz.dWG()) {
-                    if (WriteUrlActivity.this.nQC != null) {
+                    WriteUrlActivity.this.ofb.eci();
+                } else if (view == WriteUrlActivity.this.ofb.ecd()) {
+                    if (WriteUrlActivity.this.ofe != null) {
                         if (WriteUrlActivity.this.isLoading) {
                             WriteUrlActivity.this.showToast(R.string.tip_loading_to_publish);
                             return;
@@ -53,9 +53,9 @@ public class WriteUrlActivity extends BaseActivity<WriteUrlActivity> {
                         if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                             WriteUrlActivity.this.showToast(R.string.neterror);
                         }
-                        if (WriteUrlActivity.this.nQC.nIe != 2 || WriteUrlActivity.this.nQz.dWF().length() <= 31) {
-                            if (!WriteUrlActivity.this.nQD.dWA()) {
-                                WriteUrlActivity.this.nQD.coT();
+                        if (WriteUrlActivity.this.ofe.nWk != 2 || WriteUrlActivity.this.ofb.ecc().length() <= 31) {
+                            if (!WriteUrlActivity.this.ofg.ebX()) {
+                                WriteUrlActivity.this.ofg.cth();
                                 return;
                             }
                             return;
@@ -64,34 +64,34 @@ public class WriteUrlActivity extends BaseActivity<WriteUrlActivity> {
                         return;
                     }
                     WriteUrlActivity.this.showToast(R.string.tip_no_data_to_publish);
-                } else if (view == WriteUrlActivity.this.nQz.dWI() || view == WriteUrlActivity.this.nQz.dWJ()) {
-                    if (WriteUrlActivity.this.isLoading && WriteUrlActivity.this.nQA != null) {
-                        WriteUrlActivity.this.nQA.dTJ();
+                } else if (view == WriteUrlActivity.this.ofb.ecf() || view == WriteUrlActivity.this.ofb.ecg()) {
+                    if (WriteUrlActivity.this.isLoading && WriteUrlActivity.this.ofc != null) {
+                        WriteUrlActivity.this.ofc.dZd();
                     }
-                    WriteUrlActivity.this.nQC = null;
+                    WriteUrlActivity.this.ofe = null;
                     WriteUrlActivity.this.isLoading = false;
-                    WriteUrlActivity.this.nQz.a(null, WriteUrlActivity.this.isLoading);
-                    WriteUrlActivity.this.nQz.b((com.baidu.tieba.write.a.a) null);
+                    WriteUrlActivity.this.ofb.a(null, WriteUrlActivity.this.isLoading);
+                    WriteUrlActivity.this.ofb.b((com.baidu.tieba.write.a.a) null);
                     TiebaStatic.log(new ar("c12167"));
-                } else if (view == WriteUrlActivity.this.nQz.dWK()) {
-                    WriteUrlActivity.this.nQz.b(WriteUrlActivity.this.nQC);
-                } else if (view == WriteUrlActivity.this.nQz.getVideoContainer()) {
-                    if (WriteUrlActivity.this.nQC != null) {
+                } else if (view == WriteUrlActivity.this.ofb.ech()) {
+                    WriteUrlActivity.this.ofb.b(WriteUrlActivity.this.ofe);
+                } else if (view == WriteUrlActivity.this.ofb.getVideoContainer()) {
+                    if (WriteUrlActivity.this.ofe != null) {
                         if (!WriteUrlActivity.this.isLoading) {
-                            if (StringUtils.isNull(WriteUrlActivity.this.nQC.videoUrl)) {
+                            if (StringUtils.isNull(WriteUrlActivity.this.ofe.videoUrl)) {
                                 WriteUrlActivity.this.showToast(R.string.tip_play_video);
                                 return;
                             }
                             TiebaStatic.log("c12170");
-                            XiaoyingUtil.startPlayXiaoyingVideo(WriteUrlActivity.this.getPageContext().getPageActivity(), WriteUrlActivity.this.nQC.videoUrl, WriteUrlActivity.this.nQC.videoWidth, WriteUrlActivity.this.nQC.videoHeight, WriteUrlActivity.this.nQC.nIj);
+                            XiaoyingUtil.startPlayXiaoyingVideo(WriteUrlActivity.this.getPageContext().getPageActivity(), WriteUrlActivity.this.ofe.videoUrl, WriteUrlActivity.this.ofe.videoWidth, WriteUrlActivity.this.ofe.videoHeight, WriteUrlActivity.this.ofe.nWp);
                             return;
                         }
                         WriteUrlActivity.this.showToast(R.string.tip_loading_to_publish);
                         return;
                     }
                     WriteUrlActivity.this.showToast(R.string.tip_no_data_to_publish);
-                } else if (view == WriteUrlActivity.this.nQz.getRootView()) {
-                    com.baidu.adp.lib.util.l.showSoftKeyPad(WriteUrlActivity.this.getActivity(), WriteUrlActivity.this.nQz.dWH());
+                } else if (view == WriteUrlActivity.this.ofb.getRootView()) {
+                    com.baidu.adp.lib.util.l.showSoftKeyPad(WriteUrlActivity.this.getActivity(), WriteUrlActivity.this.ofb.ece());
                 }
             }
         }
@@ -102,50 +102,50 @@ public class WriteUrlActivity extends BaseActivity<WriteUrlActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        this.nQz = new m(this, this.mClickListener);
+        this.ofb = new m(this, this.mClickListener);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
-        this.nQA = new com.baidu.tieba.write.model.a(getUniqueId());
-        this.nQA.a(new a.InterfaceC0881a() { // from class: com.baidu.tieba.write.write.WriteUrlActivity.3
-            @Override // com.baidu.tieba.write.model.a.InterfaceC0881a
+        this.ofc = new com.baidu.tieba.write.model.a(getUniqueId());
+        this.ofc.a(new a.InterfaceC0897a() { // from class: com.baidu.tieba.write.write.WriteUrlActivity.3
+            @Override // com.baidu.tieba.write.model.a.InterfaceC0897a
             public void a(com.baidu.tieba.write.a.a aVar) {
-                WriteUrlActivity.this.nQC = aVar;
+                WriteUrlActivity.this.ofe = aVar;
                 WriteUrlActivity.this.isLoading = false;
-                if (WriteUrlActivity.this.nQz != null) {
-                    if (WriteUrlActivity.this.nQC.nIe == 1) {
-                        WriteUrlActivity.this.getSafeHandler().postDelayed(WriteUrlActivity.this.goY, 800L);
+                if (WriteUrlActivity.this.ofb != null) {
+                    if (WriteUrlActivity.this.ofe.nWk == 1) {
+                        WriteUrlActivity.this.getSafeHandler().postDelayed(WriteUrlActivity.this.gxh, 800L);
                     } else {
-                        WriteUrlActivity.this.nQz.a(aVar, WriteUrlActivity.this.isLoading);
+                        WriteUrlActivity.this.ofb.a(aVar, WriteUrlActivity.this.isLoading);
                     }
-                    if ((aVar.nIe == 2 || !TextUtils.isEmpty(aVar.videoUrl)) && WriteUrlActivity.this.nQD != null) {
-                        WriteUrlActivity.this.nQD.dKE();
+                    if ((aVar.nWk == 2 || !TextUtils.isEmpty(aVar.videoUrl)) && WriteUrlActivity.this.ofg != null) {
+                        WriteUrlActivity.this.ofg.dPW();
                     }
                 }
             }
         });
-        this.nQB = new WriteUrlModel(getPageContext());
-        this.nQB.au(getIntent());
-        this.nQD = new l(getPageContext(), this.nQz, this.nQA, this.nQB);
+        this.ofd = new WriteUrlModel(getPageContext());
+        this.ofd.au(getIntent());
+        this.ofg = new l(getPageContext(), this.ofb, this.ofc, this.ofd);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.nQz != null) {
-            this.nQz.onChangeSkinType(i);
+        if (this.ofb != null) {
+            this.ofb.onChangeSkinType(i);
         }
-        this.nQD.onChangeSkinType();
+        this.ofg.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.nQz != null && this.nQz.dWO() != null && this.nQz.dWO().getVisibility() == 0) {
-                this.nQz.dWL();
+            if (this.ofb != null && this.ofb.ecl() != null && this.ofb.ecl().getVisibility() == 0) {
+                this.ofb.eci();
                 return true;
-            } else if (this.nQC != null || (this.nQz != null && !StringUtils.isNull(this.nQz.dWF()))) {
-                dDY();
+            } else if (this.ofe != null || (this.ofb != null && !StringUtils.isNull(this.ofb.ecc()))) {
+                dJj();
                 return true;
             }
         }
@@ -153,9 +153,9 @@ public class WriteUrlActivity extends BaseActivity<WriteUrlActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dDY() {
+    public void dJj() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
-        aVar.os(R.string.tip_draft_no_publish);
+        aVar.oQ(R.string.tip_draft_no_publish);
         aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.write.write.WriteUrlActivity.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -170,7 +170,7 @@ public class WriteUrlActivity extends BaseActivity<WriteUrlActivity> {
             }
         });
         aVar.b(getPageContext());
-        aVar.bog();
+        aVar.brv();
     }
 
     public void setIsLoading(boolean z) {
@@ -181,16 +181,16 @@ public class WriteUrlActivity extends BaseActivity<WriteUrlActivity> {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.nQD.a(this, i, i2, intent);
+        this.ofg.a(this, i, i2, intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.nQD.destroy();
-        if (this.nQz != null) {
-            this.nQz.destroy();
+        this.ofg.destroy();
+        if (this.ofb != null) {
+            this.ofb.destroy();
         }
     }
 

@@ -1,5 +1,5 @@
 package com.baidubce;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class BceConfig {
     public static final String BCE_AUTH_VERSION = "bce-auth-v1";
     public static final String BOS_DELIMITER = "/";

@@ -2,7 +2,7 @@ package com.google.zxing.qrcode.decoder;
 
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.cyberplayer.sdk.rtc.RTCConst;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 final class FormatInformation {
     private final byte dataMask;
     private final ErrorCorrectionLevel errorCorrectionLevel;

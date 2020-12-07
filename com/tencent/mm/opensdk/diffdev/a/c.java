@@ -3,7 +3,7 @@ package com.tencent.mm.opensdk.diffdev.a;
 import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes9.dex */
 final class c implements Runnable {
     final /* synthetic */ b g;
 

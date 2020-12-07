@@ -4,23 +4,23 @@ import android.content.Context;
 import android.os.Process;
 import java.lang.ref.WeakReference;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class h implements Runnable {
     private Object mLock;
-    private int vO;
-    private volatile boolean vP;
-    private i[] vQ;
-    private WeakReference<Context> vz;
+    private int wC;
+    private volatile boolean wD;
+    private i[] wE;
+    private WeakReference<Context> wn;
 
     public h(Context context, Object obj, i[] iVarArr) {
         if (iVarArr == null) {
             throw new NullPointerException();
         }
-        this.vz = new WeakReference<>(context);
-        this.vO = 0;
-        this.vP = false;
+        this.wn = new WeakReference<>(context);
+        this.wC = 0;
+        this.wD = false;
         this.mLock = obj;
-        this.vQ = iVarArr;
+        this.wE = iVarArr;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:34:0x007b  */
@@ -34,12 +34,12 @@ class h implements Runnable {
         i iVar;
         int i;
         int i2;
-        if (this.vQ.length == 0) {
+        if (this.wE.length == 0) {
             return;
         }
         Process.setThreadPriority(19);
         while (!Thread.currentThread().isInterrupted()) {
-            i[] iVarArr = this.vQ;
+            i[] iVarArr = this.wE;
             int length = iVarArr.length;
             int i3 = 0;
             boolean z = false;
@@ -63,7 +63,7 @@ class h implements Runnable {
                 list = gn;
             }
             if (list != null && list.size() > 0 && iVar != null) {
-                Context context = this.vz.get();
+                Context context = this.wn.get();
                 if (context == null) {
                     break;
                 }
@@ -76,16 +76,16 @@ class h implements Runnable {
                         } catch (Exception e) {
                             e = e;
                             i = i2;
-                            this.vO++;
+                            this.wC++;
                             e.printStackTrace(System.out);
                             i2 = i;
                             if (i2 > 0) {
                             }
-                            if (this.vO <= 0) {
+                            if (this.wC <= 0) {
                             }
                         }
                     }
-                    this.vO = 0;
+                    this.wC = 0;
                 } catch (Exception e2) {
                     e = e2;
                     i = 0;
@@ -93,13 +93,13 @@ class h implements Runnable {
                 if (i2 > 0) {
                     iVar.update(i2);
                 }
-                if (this.vO <= 0) {
-                    if (this.vP) {
+                if (this.wC <= 0) {
+                    if (this.wD) {
                         break;
                     }
                     try {
-                        int i4 = this.vO * 2000;
-                        if (this.vO >= 7) {
+                        int i4 = this.wC * 2000;
+                        if (this.wC >= 7) {
                             i4 = 60000;
                         }
                         Thread.currentThread();
@@ -111,7 +111,7 @@ class h implements Runnable {
                 } else {
                     continue;
                 }
-            } else if (this.vP) {
+            } else if (this.wD) {
                 break;
             } else if (z) {
                 try {
@@ -132,12 +132,12 @@ class h implements Runnable {
                 }
             }
         }
-        for (i iVar3 : this.vQ) {
+        for (i iVar3 : this.wE) {
             iVar3.save();
         }
     }
 
     public void shutdown() {
-        this.vP = true;
+        this.wD = true;
     }
 }

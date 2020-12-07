@@ -1,27 +1,27 @@
 package com.baidu.platform.comapi.walknavi.g.d;
 
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3054a = -1;
+    public static int f3056a = -1;
     private static final int[] b = {500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 30, 20, 10};
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        static final a f3056a = new a();
+        static final a f3058a = new a();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public interface c {
         void a(int i, int i2);
     }
 
     public static a a() {
-        return b.f3056a;
+        return b.f3058a;
     }
 
     private a() {
@@ -67,18 +67,18 @@ public class a {
             i2 = 0;
             i3 = -1;
         } else {
-            C0290a b2 = b(i);
-            i3 = b2.f3055a;
+            C0301a b2 = b(i);
+            i3 = b2.f3057a;
             i2 = b2.b;
         }
-        if (f3054a != i3) {
+        if (f3056a != i3) {
             cVar.a(i3, i2);
         }
-        f3054a = i3;
+        f3056a = i3;
     }
 
-    private C0290a b(int i) {
-        C0290a c0290a = new C0290a();
+    private C0301a b(int i) {
+        C0301a c0301a = new C0301a();
         int i2 = (i / 10) * 10;
         int i3 = 0;
         while (true) {
@@ -87,12 +87,12 @@ public class a {
             } else if (i2 < b[i3] || i2 % b[i3] != 0) {
                 i3++;
             } else {
-                c0290a.f3055a = c(b[i3]);
-                c0290a.b = i2 / b[i3];
+                c0301a.f3057a = c(b[i3]);
+                c0301a.b = i2 / b[i3];
                 break;
             }
         }
-        return c0290a;
+        return c0301a;
     }
 
     private int c(int i) {
@@ -186,14 +186,14 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C0290a {
+    /* loaded from: classes26.dex */
+    public class C0301a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f3055a;
+        public int f3057a;
         public int b;
 
-        C0290a() {
+        C0301a() {
         }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMPaSubscribedMsg extends Message {
     private Context mContext;
     private long mPaId;
@@ -49,7 +49,7 @@ public class IMPaSubscribedMsg extends Message {
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:16:0x004d
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:16:0x0050
         	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
@@ -59,32 +59,33 @@ public class IMPaSubscribedMsg extends Message {
         /*
             r7 = this;
             r1 = 0
-            if (r10 != 0) goto L1b
+            if (r10 != 0) goto L1e
             java.lang.String r0 = "is_subscribe"
-            boolean r0 = r9.optBoolean(r0)     // Catch: java.lang.Exception -> L2e
+            boolean r0 = r9.optBoolean(r0)     // Catch: java.lang.Exception -> L31
         La:
             r6 = r0
             r3 = r11
             r2 = r10
         Ld:
+            super.handleMessageResult(r8, r9, r2, r3)
             com.baidu.android.imsdk.pubaccount.PaManagerImpl r0 = com.baidu.android.imsdk.pubaccount.PaManagerImpl.getInstance(r8)
             java.lang.String r1 = r7.getListenerKey()
             long r4 = r7.mPaId
             r0.onIsSubscribedResult(r1, r2, r3, r4, r6)
             return
-        L1b:
+        L1e:
             r0 = 1001(0x3e9, float:1.403E-42)
-            if (r0 != r10) goto L50
-            com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager r0 = com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager.getInstance(r8)     // Catch: java.lang.Exception -> L2e
-            long r2 = r7.mPaId     // Catch: java.lang.Exception -> L2e
-            boolean r0 = r0.isSubscribed(r2)     // Catch: java.lang.Exception -> L2e
+            if (r0 != r10) goto L53
+            com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager r0 = com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager.getInstance(r8)     // Catch: java.lang.Exception -> L31
+            long r2 = r7.mPaId     // Catch: java.lang.Exception -> L31
+            boolean r0 = r0.isSubscribed(r2)     // Catch: java.lang.Exception -> L31
             java.lang.String r11 = "query from local db"
             r10 = r1
             goto La
-        L2e:
+        L31:
             r0 = move-exception
             r2 = r10
-        L30:
+        L33:
             java.lang.String r3 = com.baidu.android.imsdk.utils.LogUtils.TAG
             java.lang.String r4 = "handleMessageResult:"
             com.baidu.android.imsdk.utils.LogUtils.e(r3, r4, r0)
@@ -97,11 +98,11 @@ public class IMPaSubscribedMsg extends Message {
             r6 = r1
             r3 = r11
             goto Ld
-        L4d:
+        L50:
             r0 = move-exception
             r2 = r1
-            goto L30
-        L50:
+            goto L33
+        L53:
             r0 = r1
             goto La
         */

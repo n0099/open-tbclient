@@ -6,41 +6,40 @@ import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.util.io.GZIP;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
 import com.baidu.webkit.internal.ETAG;
-import com.tencent.connect.common.Constants;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes15.dex */
 public abstract class a implements u {
     private static final boolean DEBUG = AppConfig.isDebug();
-    protected ad ors = new ad();
+    protected af oGn = new af();
 
-    public abstract ab a(String str, byte[] bArr, Map<String, String> map) throws IOException;
+    public abstract ad a(String str, byte[] bArr, Map<String, String> map) throws IOException;
 
     @Override // com.baidu.ubc.u
     public boolean i(JSONObject jSONObject, boolean z) {
-        return a("https://tcbox.baidu.com", jSONObject, z);
+        return a(BaseContentUploader.ONLINE_URL, jSONObject, z);
     }
 
     public boolean a(String str, JSONObject jSONObject, boolean z) {
         String str2;
-        boolean eds = this.ors.eds();
-        if (eds) {
+        boolean ejc = this.oGn.ejc();
+        if (ejc) {
             str2 = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc";
         } else {
             str2 = str + "/ztbox?action=zubc";
         }
-        String processUrl = com.baidu.e.c.b.uU().processUrl(str2);
-        if (eds && !TextUtils.isEmpty(processUrl)) {
+        String processUrl = com.baidu.e.c.b.uR().processUrl(str2);
+        if (ejc && !TextUtils.isEmpty(processUrl)) {
             processUrl = UrlUtil.addParam(processUrl, ETAG.KEY_DEBUG, "1");
         }
         if (z) {
             processUrl = UrlUtil.addParam(processUrl, "reallog", "1");
         }
-        if (g.ede().isBeta()) {
+        if (g.eiL().isBeta()) {
             processUrl = UrlUtil.addParam(processUrl, "beta", "1");
         }
         HashMap hashMap = new HashMap(2);
@@ -53,10 +52,12 @@ public abstract class a implements u {
             }
             gZip[0] = 117;
             gZip[1] = 123;
-            ab a2 = a(processUrl, gZip, hashMap);
+            ad a2 = a(processUrl, gZip, hashMap);
             if (!a2.isSuccessful()) {
                 if (DEBUG) {
                     Log.d("UploadManager", "postByteRequest, fail: " + a2.getMessage());
+                } else {
+                    ac.ejd().gY(a2.getMessage(), null);
                 }
                 a2.close();
                 return false;
@@ -68,48 +69,25 @@ public abstract class a implements u {
                         Log.d("UploadManager", "server error");
                     }
                     if (!DEBUG) {
-                        JSONObject jSONObject2 = new JSONObject();
-                        try {
-                            String ey = ey(jSONObject);
-                            jSONObject2.put("type", "sendFail");
-                            jSONObject2.put("error_no", i);
-                            if (!TextUtils.isEmpty(ey)) {
-                                jSONObject2.put("md5", ey);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        UBC.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, jSONObject2.toString());
+                        ac.ejd().OH(i);
                     }
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    Log.d("UploadManager", "body tostring fail:" + e2.getMessage());
+                    Log.d("UploadManager", "body tostring fail:" + e.getMessage());
+                } else {
+                    ac.ejd().XT(Log.getStackTraceString(e));
                 }
             }
             a2.close();
             return true;
-        } catch (Exception e3) {
+        } catch (Exception e2) {
             if (DEBUG) {
-                Log.d("UploadManager", "postByteRequest, Exception: ", e3);
+                Log.d("UploadManager", "postByteRequest, Exception: ", e2);
+            } else {
+                ac.ejd().gY(null, Log.getStackTraceString(e2));
             }
             return false;
-        }
-    }
-
-    protected String ey(JSONObject jSONObject) {
-        if (jSONObject == null || !jSONObject.has("metadata")) {
-            return "";
-        }
-        try {
-            JSONObject jSONObject2 = jSONObject.getJSONObject("metadata");
-            if (jSONObject2 == null || !jSONObject2.has("md5")) {
-                return "";
-            }
-            return jSONObject2.getString("md5");
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return "";
         }
     }
 }

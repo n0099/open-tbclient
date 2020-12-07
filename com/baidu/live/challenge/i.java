@@ -2,9 +2,9 @@ package com.baidu.live.challenge;
 
 import com.baidu.live.challenge.ChallenfeInfoData;
 import com.baidu.live.data.AlaPersonChallengeData;
-import com.baidu.live.data.aw;
-import com.baidu.live.data.az;
-import com.baidu.live.data.bd;
+import com.baidu.live.data.ax;
+import com.baidu.live.data.ba;
+import com.baidu.live.data.be;
 import com.baidu.live.data.w;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -19,18 +19,18 @@ public interface i {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void dK(int i);
+        void ed(int i);
     }
 
     /* loaded from: classes4.dex */
     public interface c {
-        void b(az azVar, bd bdVar, bd bdVar2);
+        void b(ba baVar, be beVar, be beVar2);
 
-        void c(az azVar, bd bdVar, bd bdVar2);
+        void c(ba baVar, be beVar, be beVar2);
 
-        void d(az azVar, bd bdVar, bd bdVar2);
+        void d(ba baVar, be beVar, be beVar2);
 
-        void e(az azVar, bd bdVar, bd bdVar2);
+        void e(ba baVar, be beVar, be beVar2);
     }
 
     /* loaded from: classes4.dex */
@@ -49,14 +49,14 @@ public interface i {
 
     /* loaded from: classes4.dex */
     public interface f {
-        int CX();
+        int EH();
     }
 
     /* loaded from: classes4.dex */
     public interface g {
         void k(int i, String str);
 
-        void x(List<com.baidu.live.challenge.d> list);
+        void y(List<com.baidu.live.challenge.d> list);
     }
 
     /* loaded from: classes4.dex */
@@ -68,7 +68,7 @@ public interface i {
 
     /* renamed from: com.baidu.live.challenge.i$i  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0175i {
+    public interface InterfaceC0180i {
         void a(com.baidu.live.challenge.b bVar, List<com.baidu.live.challenge.d> list);
 
         void m(int i, String str);
@@ -92,12 +92,12 @@ public interface i {
     public interface l {
         void o(int i, String str);
 
-        void y(List<com.baidu.live.challenge.d> list);
+        void z(List<com.baidu.live.challenge.d> list);
     }
 
     /* loaded from: classes4.dex */
     public interface m {
-        void CY();
+        void EI();
 
         void p(int i, String str);
     }
@@ -107,31 +107,31 @@ public interface i {
         void d(boolean z, String str);
     }
 
-    void CD();
+    void EA();
 
-    void CL();
+    void EB();
 
-    void CM();
+    ChallenfeInfoData.ChallengeStatus EC();
 
-    void CN();
+    boolean ED();
 
-    void CO();
+    void EE();
 
-    void CP();
+    long EF();
 
-    void CQ();
+    void EG();
 
-    void CR();
+    void En();
 
-    ChallenfeInfoData.ChallengeStatus CS();
+    void Ev();
 
-    boolean CT();
+    void Ew();
 
-    void CU();
+    void Ex();
 
-    long CV();
+    void Ey();
 
-    void CW();
+    void Ez();
 
     void a(long j2, long j3, long j4, int i, String str);
 
@@ -151,7 +151,7 @@ public interface i {
 
     void a(h hVar);
 
-    void a(InterfaceC0175i interfaceC0175i);
+    void a(InterfaceC0180i interfaceC0180i);
 
     void a(j jVar);
 
@@ -165,35 +165,35 @@ public interface i {
 
     void a(AlaPersonChallengeData alaPersonChallengeData);
 
-    void a(aw awVar);
+    void a(ax axVar);
 
-    void aj(long j2);
+    void aH(long j2);
 
-    void ak(long j2);
+    void aI(long j2);
 
-    void al(long j2);
+    void aJ(long j2);
 
-    void am(long j2);
+    void aK(long j2);
 
-    void bn(boolean z);
+    void bv(boolean z);
 
     void c(w wVar);
 
-    void dJ(int i);
-
     void e(long j2, long j3);
 
-    void f(int i, int i2, String str);
+    void ec(int i);
 
-    void gb(String str);
+    void g(int i, int i2, String str);
 
-    void gc(String str);
+    void gx(String str);
 
-    void gd(String str);
+    void gy(String str);
+
+    void gz(String str);
 
     void onDestroy();
 
     void setIsHost(boolean z);
 
-    void w(int i, int i2);
+    void y(int i, int i2);
 }

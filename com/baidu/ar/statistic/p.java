@@ -8,13 +8,13 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class p {
-    private static com.baidu.ar.lua.c we;
-    private static final List<String> wf = Arrays.asList(StatisticConstants.EVENT_FILTER_ADJUST, StatisticConstants.EVENT_FILTER_SWITCH, StatisticConstants.EVENT_BEAUTIFY_ADJUST);
+    private static com.baidu.ar.lua.c wS;
+    private static final List<String> wT = Arrays.asList(StatisticConstants.EVENT_FILTER_ADJUST, StatisticConstants.EVENT_FILTER_SWITCH, StatisticConstants.EVENT_BEAUTIFY_ADJUST);
 
     public static void b(com.baidu.ar.lua.b bVar) {
-        we = new com.baidu.ar.lua.c() { // from class: com.baidu.ar.statistic.p.1
+        wS = new com.baidu.ar.lua.c() { // from class: com.baidu.ar.statistic.p.1
             @Override // com.baidu.ar.lua.c
             public void a(int i, int i2, HashMap<String, Object> hashMap) {
                 if (i == 1801) {
@@ -32,15 +32,15 @@ public class p {
                 return arrayList;
             }
         };
-        bVar.c(we);
+        bVar.c(wS);
     }
 
     public static void c(com.baidu.ar.lua.b bVar) {
-        if (we != null) {
+        if (wS != null) {
             if (bVar != null) {
-                bVar.d(we);
+                bVar.d(wS);
             }
-            we = null;
+            wS = null;
         }
     }
 
@@ -78,7 +78,7 @@ public class p {
                     hashMap2.put("event_param", str);
                 }
             }
-            if (wf.contains(str2)) {
+            if (wT.contains(str2)) {
                 StatisticApi.onEventDebounce(str2, 200L, hashMap2);
             } else {
                 StatisticApi.onEvent(str2, hashMap2);

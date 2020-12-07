@@ -3,19 +3,19 @@ package com.baidu.swan.apps.adaptation.implementation;
 import android.content.Context;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class r implements com.baidu.swan.apps.adaptation.a.m {
     @Override // com.baidu.swan.apps.adaptation.a.m
-    public void be(String str, String str2) {
+    public void bl(String str, String str2) {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.m
-    public File R(Context context, String str) {
+    public File U(Context context, String str) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.m
-    public JSONObject S(Context context, String str) {
+    public JSONObject V(Context context, String str) {
         return null;
     }
 }

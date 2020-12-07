@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class a {
     protected static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
 
-    public static List<e> aX(String str, String str2) throws ParseError {
+    public static List<e> be(String str, String str2) throws ParseError {
         if (TextUtils.isEmpty(str)) {
             throw new ParseError(1, "afd/entry retun null");
         }
@@ -30,7 +30,7 @@ public class a {
 
     public static List<e> l(JSONObject jSONObject, String str) throws ParseError {
         List<e> list;
-        List<e> abN;
+        List<e> aeV;
         if (DEBUG) {
             Log.d("AfdResponseParser", "AFD response : " + jSONObject.toString());
         }
@@ -46,7 +46,7 @@ public class a {
         JSONArray optJSONArray = optJSONObject.optJSONArray(MapBundleKey.MapObjKey.OBJ_AD);
         if (optJSONObject2 != null) {
             String optString = optJSONObject2.optString("cmd");
-            SplashStyleRecorder.aq(optJSONObject2.optJSONObject("style_desc"));
+            SplashStyleRecorder.as(optJSONObject2.optJSONObject("style_desc"));
             if (TextUtils.equals(IMTrack.DbBuilder.ACTION_UPDATE, optString)) {
                 list = a(optJSONArray, str, false);
                 String optString2 = optJSONObject2.optString("empty_ext_info");
@@ -60,9 +60,9 @@ public class a {
                     list = a(optJSONArray, str, true);
                 } else {
                     String optString3 = optJSONObject2.optString("ukey");
-                    if (!TextUtils.isEmpty(optString3) && (abN = d.abN()) != null) {
-                        for (e eVar : abN) {
-                            if (TextUtils.equals(eVar.cfT, optString3)) {
+                    if (!TextUtils.isEmpty(optString3) && (aeV = d.aeV()) != null) {
+                        for (e eVar : aeV) {
+                            if (TextUtils.equals(eVar.cmA, optString3)) {
                                 arrayList.add(eVar);
                                 list = arrayList;
                                 break;
@@ -83,22 +83,22 @@ public class a {
         if (jSONArray == null || jSONArray.length() == 0) {
             return null;
         }
-        List<e> p = e.p(jSONArray);
+        List<e> q = e.q(jSONArray);
         if (z) {
-            for (e eVar : p) {
-                eVar.cgd = true;
+            for (e eVar : q) {
+                eVar.cmK = true;
             }
         } else {
             new ArrayList();
-            HashMap<String, e> abO = d.abO();
-            if (abO == null || abO.size() == 0) {
-                d.au(p);
+            HashMap<String, e> aeW = d.aeW();
+            if (aeW == null || aeW.size() == 0) {
+                d.ax(q);
             } else {
-                d.abM();
-                d.au(p);
+                d.aeU();
+                d.ax(q);
             }
-            d.av(p);
+            d.ay(q);
         }
-        return p;
+        return q;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.sofire.i;
 import android.annotation.SuppressLint;
 import android.net.TrafficStats;
 import android.os.Build;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class x {
     @SuppressLint({"NewApi"})
     public static void a() {

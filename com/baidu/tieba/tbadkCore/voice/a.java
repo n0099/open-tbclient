@@ -10,13 +10,13 @@ public interface a {
 
     boolean a(f fVar, int i);
 
-    void cY(String str);
+    void db(String str);
 
     void release();
 
-    void st();
-
     void stopRecord();
 
-    boolean su();
+    void sw();
+
+    boolean sx();
 }

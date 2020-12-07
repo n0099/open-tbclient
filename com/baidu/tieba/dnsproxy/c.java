@@ -7,7 +7,6 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.tieba.dnsproxy.DnsProxyResponseData;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -59,15 +58,15 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
             e.printStackTrace();
         }
         if (collectionArr != null && collectionArr.length == 1 && (collection = collectionArr[0]) != null) {
-            String cpv = new a().cpv();
+            String ctJ = new a().ctJ();
             StringBuilder sb3 = new StringBuilder();
             for (String str3 : collection) {
                 if (sb3.length() > 0) {
-                    sb3.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    sb3.append(",");
                 }
                 sb3.append(str3);
             }
-            String str4 = "http://" + cpv + "/domains/resolve?domains=" + ((Object) sb3) + "&t=" + System.currentTimeMillis();
+            String str4 = "http://" + ctJ + "/domains/resolve?domains=" + ((Object) sb3) + "&t=" + System.currentTimeMillis();
             com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
             com.baidu.adp.lib.network.http.c cVar = new com.baidu.adp.lib.network.http.c(eVar);
             eVar.mx().setUrl(str4);
@@ -102,7 +101,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                                 if (dnsProxyIpData != null) {
                                     hashSet.add(dnsProxyIpData.getIp());
                                     if (sb6.length() > 0) {
-                                        sb6.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                                        sb6.append(",");
                                     }
                                     sb6.append(dnsProxyIpData.getIp());
                                 }
@@ -117,7 +116,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                             }
                         }
                     }
-                    b.cpx().g(hashSet);
+                    b.ctL().g(hashSet);
                     publishProgress(hashMap3);
                     a2.setForever("dnsproxycachedata", str);
                     sb2 = sb5;
@@ -138,7 +137,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                     for (com.baidu.adp.lib.network.http.d dVar : mz) {
                         if (dVar != null && !TextUtils.isEmpty(dVar.exception)) {
                             if (sb7.length() > 0) {
-                                sb7.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                                sb7.append(",");
                             }
                             sb7.append(dVar.exception);
                         }

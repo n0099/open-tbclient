@@ -3,7 +3,7 @@ package com.baidu.megapp.ma;
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
-/* loaded from: classes16.dex */
+/* loaded from: classes10.dex */
 public abstract class MAActivity extends Activity {
     public static final String TAG = "MAActivity";
 

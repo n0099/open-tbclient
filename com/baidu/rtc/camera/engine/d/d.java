@@ -7,7 +7,7 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes11.dex */
 public class d extends Handler {
     private WeakReference<f> mWeakRenderThread;
 
@@ -41,7 +41,7 @@ public class d extends Handler {
                     fVar.surfaceDestroyed();
                     return;
                 case 4:
-                    fVar.adJ();
+                    fVar.agR();
                     return;
                 case 5:
                 case 7:
@@ -68,10 +68,10 @@ public class d extends Handler {
                     fVar.switchCamera();
                     return;
                 case 17:
-                    fVar.F((byte[]) message.obj);
+                    fVar.H((byte[]) message.obj);
                     return;
                 case 19:
-                    fVar.adK();
+                    fVar.agS();
                     return;
             }
         }

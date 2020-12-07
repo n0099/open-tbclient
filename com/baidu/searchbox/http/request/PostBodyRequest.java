@@ -3,7 +3,7 @@ package com.baidu.searchbox.http.request;
 import com.baidu.searchbox.http.AbstractHttpManager;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class PostBodyRequest extends HttpCommonRequest<PostBodyRequestBuilder> {
     public PostBodyRequest(PostBodyRequestBuilder postBodyRequestBuilder) {
         super(postBodyRequestBuilder);
@@ -26,7 +26,7 @@ public class PostBodyRequest extends HttpCommonRequest<PostBodyRequestBuilder> {
         return this.okRequestBuilder.post(requestBody).build();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public static class PostBodyRequestBuilder extends HttpCommonRequestBuilder<PostBodyRequestBuilder> {
         public PostBodyRequestBuilder(AbstractHttpManager abstractHttpManager) {
             super(abstractHttpManager);

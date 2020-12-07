@@ -6,24 +6,24 @@ import org.json.JSONObject;
 import tbclient.BookThread;
 /* loaded from: classes.dex */
 public class p {
-    public String eyj;
-    public long eyk;
-    public int eyl;
+    public String eFj;
+    public long eFk;
+    public int eFl;
 
     public void a(BookThread bookThread) {
         if (bookThread != null) {
-            this.eyj = bookThread.book_id;
-            this.eyk = bookThread.chapter_id.longValue();
-            this.eyl = bookThread.book_type.intValue();
+            this.eFj = bookThread.book_id;
+            this.eFk = bookThread.chapter_id.longValue();
+            this.eFl = bookThread.book_type.intValue();
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.eyj = jSONObject.optString("book_id", "0");
-                this.eyk = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
-                this.eyl = jSONObject.optInt("book_type", 0);
+                this.eFj = jSONObject.optString("book_id", "0");
+                this.eFk = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
+                this.eFl = jSONObject.optInt("book_type", 0);
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }

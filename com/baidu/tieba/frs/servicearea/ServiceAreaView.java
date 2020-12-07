@@ -11,80 +11,80 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tbadkCore.aa;
-import com.baidu.tieba.tbadkCore.z;
+import com.baidu.tieba.tbadkCore.ab;
 import java.util.ArrayList;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class ServiceAreaView extends FrameLayout {
-    private b jfJ;
-    private int jfK;
-    private boolean jfL;
+    private b jtm;
+    private int jtn;
+    private boolean jto;
 
     public ServiceAreaView(@NonNull Context context) {
         super(context);
-        this.jfK = ap.getColor(R.color.CAM_X0302);
+        this.jtn = ap.getColor(R.color.CAM_X0302);
     }
 
     public ServiceAreaView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jfK = ap.getColor(R.color.CAM_X0302);
+        this.jtn = ap.getColor(R.color.CAM_X0302);
     }
 
     public ServiceAreaView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jfK = ap.getColor(R.color.CAM_X0302);
+        this.jtn = ap.getColor(R.color.CAM_X0302);
     }
 
-    public void setData(z zVar, FrsViewData frsViewData) {
-        if (this.jfL) {
-            if (zVar == null) {
-                zVar = new z();
-                zVar.dataList = new ArrayList();
+    public void setData(aa aaVar, FrsViewData frsViewData) {
+        if (this.jto) {
+            if (aaVar == null) {
+                aaVar = new aa();
+                aaVar.dataList = new ArrayList();
             }
-            zVar.mWP++;
-            aa aaVar = new aa();
-            aaVar.name = getResources().getString(R.string.hot_user_rank);
-            aaVar.imageUrl = getResources().getString(R.string.hot_user_rank);
-            zVar.dataList.add(0, aaVar);
+            aaVar.nkN++;
+            ab abVar = new ab();
+            abVar.name = getResources().getString(R.string.hot_user_rank);
+            abVar.imageUrl = getResources().getString(R.string.hot_user_rank);
+            aaVar.dataList.add(0, abVar);
         }
-        if (zVar != null) {
+        if (aaVar != null) {
             int dimens = l.getDimens(getContext(), R.dimen.M_H_X001);
             int dimens2 = l.getDimens(getContext(), R.dimen.M_H_X001);
-            if (zVar.mWP >= 2) {
-                this.jfJ = new c(getContext());
-            } else if (zVar.mWP == 1) {
-                this.jfJ = new d(getContext());
+            if (aaVar.nkN >= 2) {
+                this.jtm = new c(getContext());
+            } else if (aaVar.nkN == 1) {
+                this.jtm = new d(getContext());
                 dimens2 = l.getDimens(getContext(), R.dimen.tbds12);
                 dimens = l.getDimens(getContext(), R.dimen.tbds5);
             }
             setPadding(0, dimens, 0, dimens2);
             removeAllViews();
-            addView(this.jfJ.getView(), -1, -2);
-            this.jfJ.setData(zVar, frsViewData);
-            if (this.jfJ instanceof a) {
-                ((a) this.jfJ).setThemeFontColor(this.jfK);
+            addView(this.jtm.getView(), -1, -2);
+            this.jtm.setData(aaVar, frsViewData);
+            if (this.jtm instanceof a) {
+                ((a) this.jtm).setThemeFontColor(this.jtn);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jfJ != null) {
-            this.jfJ.onChangeSkinType(i);
+        if (this.jtm != null) {
+            this.jtm.onChangeSkinType(i);
         }
     }
 
     public void setThemeFontColor(int i) {
-        this.jfK = i;
-        if (this.jfJ instanceof a) {
-            ((a) this.jfJ).setThemeFontColor(this.jfK);
+        this.jtn = i;
+        if (this.jtm instanceof a) {
+            ((a) this.jtm).setThemeFontColor(this.jtn);
         }
     }
 
     public void setHasHotRankList(boolean z) {
-        this.jfL = z;
+        this.jto = z;
     }
 
-    public boolean cEo() {
-        return this.jfL;
+    public boolean cJB() {
+        return this.jto;
     }
 }

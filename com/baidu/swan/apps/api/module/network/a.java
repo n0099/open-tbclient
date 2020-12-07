@@ -9,13 +9,13 @@ import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.runtime.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a extends d {
     public a(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b ajh() {
+    public com.baidu.swan.apps.api.c.b amp() {
         String networkClass = SwanAppNetworkUtils.getNetworkClass();
         if (TextUtils.isEmpty(networkClass)) {
             networkClass = "unknown";
@@ -37,16 +37,16 @@ public class a extends d {
         }
     }
 
-    public com.baidu.swan.apps.api.c.b le(String str) {
-        final e aGM = e.aGM();
-        if (aGM == null) {
+    public com.baidu.swan.apps.api.c.b lL(String str) {
+        final e aJU = e.aJU();
+        if (aJU == null) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Network", "swan app is null");
             }
             return new com.baidu.swan.apps.api.c.b(202, "swan app is null");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bi = com.baidu.swan.apps.api.d.b.bi("Api-Network", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bi.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bp = com.baidu.swan.apps.api.d.b.bp("Api-Network", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bp.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Network", "parse fail");
@@ -54,7 +54,7 @@ public class a extends d {
             }
             return bVar;
         }
-        final String optString = ((JSONObject) bi.second).optString("cb");
+        final String optString = ((JSONObject) bp.second).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Network", "callback is null");
@@ -64,7 +64,7 @@ public class a extends d {
         com.baidu.swan.apps.runtime.d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.api.module.network.a.1
             @Override // java.lang.Runnable
             public void run() {
-                aGM.aHa().b(a.this.aiQ().aiO(), optString);
+                aJU.aKi().b(a.this.alY().alW(), optString);
             }
         });
         return new com.baidu.swan.apps.api.c.b(0);

@@ -3,23 +3,23 @@ package com.cmic.sso.sdk.c.d;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4016a;
+    private int f4019a;
     private String b;
 
     private a(int i, String str) {
-        this.f4016a = i;
+        this.f4019a = i;
         this.b = str;
     }
 
     public int a() {
-        return this.f4016a;
+        return this.f4019a;
     }
 
     public String b() {
         return this.b;
     }
 
-    public static a OM(int i) {
+    public static a PK(int i) {
         switch (i) {
             case 102102:
                 return new a(102102, "网络异常");

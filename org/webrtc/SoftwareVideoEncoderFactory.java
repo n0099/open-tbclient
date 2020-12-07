@@ -3,7 +3,7 @@ package org.webrtc;
 import android.support.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class SoftwareVideoEncoderFactory implements VideoEncoderFactory {
     static VideoCodecInfo[] supportedCodecs() {
         ArrayList arrayList = new ArrayList();

@@ -13,7 +13,7 @@ import com.baidu.ala.recorder.video.hardware.TextureEncoder;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class VideoEncoderCore {
     private static final int DEFAULT_FRAME_RATE = 15;
     private static final int DEFAULT_IFRAME_INTERVAL = 2;
@@ -38,7 +38,7 @@ public class VideoEncoderCore {
     private int mH264MetaSize = 0;
     private byte[] mH264MetaBuff = null;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes9.dex */
     public interface OutputCallback {
         public static final int KEY_FRAME = 2;
         public static final int MC_ENCODER_CONFIGURE_ERR = 1;

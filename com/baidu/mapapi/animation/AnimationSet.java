@@ -3,7 +3,7 @@ package com.baidu.mapapi.animation;
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapsdkplatform.comapi.a.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class AnimationSet extends Animation {
     public AnimationSet() {
         this.bdAnimation = new d();

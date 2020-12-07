@@ -1,7 +1,7 @@
 package com.baidu.live.im;
 /* loaded from: classes4.dex */
 public class o {
-    public static long av(long j) {
+    public static long aT(long j) {
         return 1 + j;
     }
 }

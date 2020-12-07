@@ -7,11 +7,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.logging.Logger;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Logger f4351a = Logger.getLogger(g.class.getName());
+    private static final Logger f4121a = Logger.getLogger(g.class.getName());
 
     private g() {
     }
@@ -47,14 +47,14 @@ public final class g {
                 o.a(bVar.b, 0L, j);
                 while (j > 0) {
                     n.this.a();
-                    j jVar = bVar.f4347a;
+                    j jVar = bVar.f4117a;
                     int min = (int) Math.min(j, jVar.c - jVar.b);
-                    outputStream.write(jVar.f4357a, jVar.b, min);
+                    outputStream.write(jVar.f4127a, jVar.b, min);
                     jVar.b += min;
                     j -= min;
                     bVar.b -= min;
                     if (jVar.b == jVar.c) {
-                        bVar.f4347a = jVar.a();
+                        bVar.f4117a = jVar.a();
                         k.a(jVar);
                     }
                 }
@@ -105,7 +105,7 @@ public final class g {
                 }
                 n.this.a();
                 j c = bVar.c(1);
-                int read = inputStream.read(c.f4357a, c.c, (int) Math.min(j, 2048 - c.c));
+                int read = inputStream.read(c.f4127a, c.c, (int) Math.min(j, 2048 - c.c));
                 if (read == -1) {
                     return -1L;
                 }

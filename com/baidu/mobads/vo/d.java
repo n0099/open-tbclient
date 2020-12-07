@@ -17,7 +17,6 @@ import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.interfaces.utils.IXAdURIUitls;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.e;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes7.dex */
@@ -33,7 +32,7 @@ public abstract class d implements IXAdRequestInfo {
     protected String c = "TODO";
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2456a = "android";
+    private String f2458a = "android";
     private String j = "";
     private int m = XAdSDKFoundationFacade.getInstance().getAdConstants().getAdCreativeTypeImage();
     private String n = "LP,DL";
@@ -143,7 +142,7 @@ public abstract class d implements IXAdRequestInfo {
             hashMap.put(IXAdRequestInfo.WIFI, str3);
             hashMap.put("swi", "" + ("wifi".equals(systemUtils.getNetworkType(this.d)) ? 1 : 0));
             hashMap.put("tab", systemUtils.isTablet(this.d) ? "1" : "0");
-            hashMap.put("sdc", systemUtils.getAppSDC() + Constants.ACCEPT_TIME_SEPARATOR_SP + systemUtils.getMem());
+            hashMap.put("sdc", systemUtils.getAppSDC() + "," + systemUtils.getMem());
             hashMap.put("act", getAct());
             hashMap.put("prod", getProd());
             hashMap.put("os", "android");
@@ -190,11 +189,11 @@ public abstract class d implements IXAdRequestInfo {
     }
 
     public String f() {
-        return this.f2456a;
+        return this.f2458a;
     }
 
     public void a(String str) {
-        this.f2456a = str;
+        this.f2458a = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo

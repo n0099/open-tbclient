@@ -17,5 +17,10 @@ public class BlockPopInfoData implements Serializable {
     public String block_info;
     public Integer can_post;
     public String ok_info;
+    public String sub_block_info;
     public int win_type;
+
+    public boolean canPost() {
+        return this.can_post.intValue() == 1;
+    }
 }

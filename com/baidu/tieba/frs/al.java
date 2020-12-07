@@ -1,53 +1,120 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
-import com.baidu.tieba.frs.view.FrsTopItemInfoView;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import tbclient.ItemInfo;
-/* loaded from: classes21.dex */
+import android.content.Context;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import tbclient.FrsTabInfo;
+/* loaded from: classes.dex */
 public class al {
-    private BaseFragment iML;
-    private FrsTopItemInfoView iMM;
+    private String forumGameLabel;
+    private String forumId;
+    private String forumName;
+    private String hMF;
+    private List<FrsTabInfo> iSf;
+    private final List<com.baidu.tbadk.mainTab.b> iSg = new LinkedList();
+    private Context mContext;
 
-    public al(BaseFragment baseFragment) {
-        FrsViewData frsViewData;
-        if (baseFragment != null) {
-            this.iML = baseFragment;
-            this.iMM = new FrsTopItemInfoView(baseFragment.getContext());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            if (com.baidu.tbadk.a.d.bhw()) {
-                layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X002);
-            } else {
-                layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
+    public al(Context context, List<FrsTabInfo> list) {
+        this.iSf = list;
+        this.mContext = context;
+    }
+
+    public boolean Al(int i) {
+        if (i < 100 && !com.baidu.tbadk.core.util.y.isEmpty(this.iSf)) {
+            for (FrsTabInfo frsTabInfo : this.iSf) {
+                if (frsTabInfo.tab_id.intValue() == i) {
+                    return true;
+                }
             }
-            this.iMM.setLayoutParams(layoutParams);
-            onChangeSkinType();
-            if ((this.iML instanceof FrsCommonTabFragment) && (frsViewData = ((FrsCommonTabFragment) this.iML).iQW) != null && frsViewData.getForum() != null) {
-                ForumData forum = frsViewData.getForum();
-                this.iMM.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
+            return false;
+        }
+        return false;
+    }
+
+    public List<FrsTabInfo> bBY() {
+        return this.iSf;
+    }
+
+    public void b(com.baidu.tbadk.mainTab.b bVar) {
+        if (bVar != null && bVar.getFragmentTabStructure() != null) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.iSg) {
+                if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().type == bVar.getFragmentTabStructure().type) {
+                    return;
+                }
+            }
+            this.iSg.add(bVar);
+        }
+    }
+
+    public void cEo() {
+        boolean z;
+        LinkedList linkedList = new LinkedList();
+        LinkedList linkedList2 = new LinkedList();
+        for (FrsTabInfo frsTabInfo : this.iSf) {
+            Iterator<com.baidu.tbadk.mainTab.b> it = this.iSg.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    z = false;
+                    break;
+                }
+                com.baidu.tbadk.mainTab.b next = it.next();
+                if (next.getFragmentTabStructure() != null && frsTabInfo.tab_id.intValue() == next.getFragmentTabStructure().type) {
+                    linkedList.add(next);
+                    z = true;
+                    break;
+                }
+            }
+            if (!z) {
+                linkedList2.add(frsTabInfo);
             }
         }
-    }
-
-    public void setData(ItemInfo itemInfo) {
-        if (this.iMM != null) {
-            this.iMM.setData(itemInfo);
+        if (!com.baidu.tbadk.core.util.y.isEmpty(linkedList2)) {
+            this.iSf.removeAll(linkedList2);
+        }
+        this.iSg.clear();
+        if (!com.baidu.tbadk.core.util.y.isEmpty(linkedList)) {
+            this.iSg.addAll(linkedList);
         }
     }
 
-    public View getView() {
-        return this.iMM;
+    public Context getContext() {
+        return this.mContext;
     }
 
-    public void onChangeSkinType() {
-        if (this.iMM != null) {
-            this.iMM.onChangeSkinType();
-        }
+    public List<com.baidu.tbadk.mainTab.b> cBJ() {
+        return this.iSg;
+    }
+
+    public void setForumName(String str) {
+        this.forumName = str;
+    }
+
+    public String getForumName() {
+        return this.forumName;
+    }
+
+    public void setForumId(String str) {
+        this.forumId = str;
+    }
+
+    public String getForumId() {
+        return this.forumId;
+    }
+
+    public void setForumGameLabel(String str) {
+        this.forumGameLabel = str;
+    }
+
+    public String getForumGameLabel() {
+        return this.forumGameLabel;
+    }
+
+    public void IW(String str) {
+        this.hMF = str;
+    }
+
+    public String cEp() {
+        return this.hMF;
     }
 }

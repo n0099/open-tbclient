@@ -13,14 +13,14 @@ public class b extends f {
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        this.dyC = com.baidu.swan.apps.swancore.b.kD(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
-        this.dyE = SwanAppNetworkUtils.aBZ().type;
-        if (this.dyA == null) {
-            this.dyA = new JSONObject();
+        this.dFB = com.baidu.swan.apps.swancore.b.lb(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
+        this.dFD = SwanAppNetworkUtils.aFi().type;
+        if (this.dFz == null) {
+            this.dFz = new JSONObject();
         }
         try {
-            this.dyA.put("host", com.baidu.swan.apps.t.a.awE().getHostName());
-            this.dyA.put("package", this.packageName);
+            this.dFz.put("host", com.baidu.swan.apps.t.a.azM().getHostName());
+            this.dFz.put("package", this.packageName);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -38,18 +38,18 @@ public class b extends f {
             this.mFrom = aVar.mFrom;
             this.mAppId = aVar.mAppId;
             this.mSource = aVar.mSource;
-            this.dyF = aVar.dyF;
-            this.dyH = aVar.dyH;
+            this.dFE = aVar.dFE;
+            this.dFG = aVar.dFG;
             this.mScheme = aVar.mScheme;
-            this.dyK = aVar.dyK;
-            this.drE = aVar.drE;
+            this.dFJ = aVar.dFJ;
+            this.dyF = aVar.dyF;
             this.mAppVersion = aVar.mAppVersion;
-            this.dyD = aVar.dyD;
+            this.dFC = aVar.dFC;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String wb(String str) {
+    public static String wI(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

@@ -19,13 +19,11 @@ import com.baidu.android.imsdk.shield.IGetUserShieldListener;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.webkit.internal.ETAG;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class PaInfoDBManager extends DBBase {
     private static final String TAG = PaInfoDBManager.class.getSimpleName();
     private static PaInfoDBManager mInstance = null;
@@ -76,6 +74,7 @@ public class PaInfoDBManager extends DBBase {
         contentValues.put("vip_id", paInfo.getVipId());
         contentValues.put(TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE, Integer.valueOf(paInfo.getSubscribe()));
         contentValues.put(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, paInfo.getThirdExt());
+        contentValues.put(TableDefine.PaSubscribeColumns.COLUMN_REJECT_MENU, Integer.valueOf(paInfo.getRejectMenu()));
         synchronized (mSyncLock) {
             add = add(TableDefine.DB_TABLE_PA_SUBSCRIBE, new String[]{"paid"}, "paid=?", new String[]{String.valueOf(paInfo.getPaId())}, contentValues);
         }
@@ -153,7 +152,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class PaInfoParse implements CursorParse {
         PaInfo info = null;
 
@@ -177,7 +176,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class PaInfoListParse implements CursorParse {
         List<PaInfo> paList = null;
 
@@ -202,7 +201,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class PaidParse implements CursorParse {
         ArrayList<Long> paList = null;
 
@@ -258,6 +257,7 @@ public class PaInfoDBManager extends DBBase {
         long j6 = cursor.getLong(cursor.getColumnIndex("shield_time"));
         int i11 = cursor.getInt(cursor.getColumnIndex(TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE));
         String string13 = cursor.getString(cursor.getColumnIndex(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT));
+        int i12 = cursor.getInt(cursor.getColumnIndex(TableDefine.PaSubscribeColumns.COLUMN_REJECT_MENU));
         PaInfo paInfo = new PaInfo();
         paInfo.setPaId(j);
         paInfo.setNickName(string);
@@ -289,6 +289,7 @@ public class PaInfoDBManager extends DBBase {
         paInfo.setVipId(string11);
         paInfo.setSubscribe(i11);
         paInfo.setThirdExt(string13);
+        paInfo.setRejectMenu(i12);
         return paInfo;
     }
 
@@ -342,24 +343,24 @@ public class PaInfoDBManager extends DBBase {
     }
 
     public void updateMarkTopList(@NonNull final List<ChatSession> list) {
-        if (list.size() > 0) {
-            TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    synchronized (PaInfoDBManager.mSyncLock) {
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put("marktop", (Integer) 0);
-                        PaInfoDBManager.this.update(TableDefine.DB_TABLE_PA_SUBSCRIBE, "marktop=?", new String[]{String.valueOf(1)}, contentValues);
+        TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager.1
+            @Override // java.lang.Runnable
+            public void run() {
+                synchronized (PaInfoDBManager.mSyncLock) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("marktop", (Integer) 0);
+                    PaInfoDBManager.this.update(TableDefine.DB_TABLE_PA_SUBSCRIBE, "marktop=?", new String[]{String.valueOf(1)}, contentValues);
+                    if (list != null) {
                         for (ChatSession chatSession : list) {
                             PaInfoDBManager.this.updateMarkTop(chatSession.getContacter(), chatSession.getMarkTop(), chatSession.getMarkTopTime());
                         }
                     }
                 }
-            });
-        }
+            }
+        });
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [373=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [377=4] */
     /* JADX WARN: Removed duplicated region for block: B:14:0x0039 A[Catch: all -> 0x0064, TRY_ENTER, TryCatch #0 {, blocks: (B:4:0x0006, B:6:0x000c, B:14:0x0039, B:15:0x003c, B:31:0x006b, B:32:0x006e, B:22:0x005f, B:23:0x0062), top: B:37:0x0006 }] */
     /* JADX WARN: Removed duplicated region for block: B:31:0x006b A[Catch: all -> 0x0064, TRY_ENTER, TryCatch #0 {, blocks: (B:4:0x0006, B:6:0x000c, B:14:0x0039, B:15:0x003c, B:31:0x006b, B:32:0x006e, B:22:0x005f, B:23:0x0062), top: B:37:0x0006 }] */
     /*
@@ -470,7 +471,7 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [478=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [482=4] */
     /* JADX WARN: Removed duplicated region for block: B:38:0x00f3 A[Catch: all -> 0x00ed, TRY_ENTER, TryCatch #4 {, blocks: (B:4:0x000a, B:6:0x0010, B:28:0x00bb, B:32:0x00e9, B:27:0x00b8, B:38:0x00f3, B:39:0x00f6), top: B:47:0x000a }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -536,7 +537,7 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [549=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [554=4] */
     public void getShieldUserByPaId(@NonNull List<ChatSession> list, boolean z, @NonNull IGetUserShieldListener iGetUserShieldListener) {
         Cursor cursor;
         ChatSession chatSession;
@@ -740,17 +741,17 @@ public class PaInfoDBManager extends DBBase {
                 int keyAt = sparseArray.keyAt(i);
                 List<Integer> list = sparseArray.get(keyAt);
                 sb.append("(");
-                sb.append(TableDefine.PaSubscribeColumns.COLUMN_SUBTYPE);
-                sb.append(ETAG.EQUAL);
+                sb.append("paSubscribe.pasubtype");
+                sb.append("=");
                 sb.append(keyAt);
                 if (list != null && list.size() > 0) {
                     sb.append(" AND ");
-                    sb.append(TableDefine.PaSubscribeColumns.COLUMN_SUBSET_TYPE);
+                    sb.append("paSubscribe.subset_type");
                     sb.append(" in ");
                     sb.append("(");
                     for (Integer num : list) {
                         sb.append(num.intValue());
-                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                        sb.append(",");
                     }
                     sb.deleteCharAt(sb.length() - 1);
                     sb.append(")");
@@ -760,12 +761,13 @@ public class PaInfoDBManager extends DBBase {
             }
             sb.delete(sb.length() - " OR ".length(), sb.length());
             try {
-                cursor = openDatabase.rawQuery("select paid from paSubscribe where " + sb.toString(), null);
-                while (cursor != null) {
-                    if (!cursor.moveToNext()) {
-                        break;
+                String str = "SELECT paSubscribe.paid FROM " + TableDefine.DB_TABLE_PA_SUBSCRIBE + " INNER JOIN " + TableDefine.DB_TABLE_CHAT_SESSION + " ON chatrecord.contacter = paSubscribe.paid WHERE " + sb.toString();
+                LogUtils.d(TAG, "getPaidListByPainfos sql = " + str);
+                cursor = openDatabase.rawQuery(str, null);
+                if (cursor != null) {
+                    while (cursor.moveToNext()) {
+                        arrayList.add(Long.valueOf(cursor.getLong(cursor.getColumnIndex("paid"))));
                     }
-                    arrayList.add(Long.valueOf(cursor.getLong(cursor.getColumnIndex("paid"))));
                 }
                 if (cursor != null) {
                     cursor.close();
@@ -773,7 +775,7 @@ public class PaInfoDBManager extends DBBase {
                 return arrayList;
             } catch (Exception e) {
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                LogUtils.e(TAG, "getUnreadSessionByChatTypes:", e);
+                LogUtils.e(TAG, "getPaidListByPainfos:", e);
                 if (cursor != null) {
                     cursor.close();
                 }

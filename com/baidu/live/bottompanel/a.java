@@ -16,16 +16,16 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UrlManager;
 /* loaded from: classes4.dex */
 public class a {
-    private ImageView aEA;
-    private TextView aEB;
-    private AlaAudienceLiveRoomBottomPanelView.a aEC;
-    private e aED;
-    private FrameLayout aEz;
+    private FrameLayout aHf;
+    private ImageView aHg;
+    private TextView aHh;
+    private AlaAudienceLiveRoomBottomPanelView.a aHi;
+    private e aHj;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.live.bottompanel.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == a.this.aEA && a.this.aEC != null) {
-                a.this.aEC.Cz();
+            if (view == a.this.aHg && a.this.aHi != null) {
+                a.this.aHi.Ej();
             }
         }
     };
@@ -35,7 +35,7 @@ public class a {
 
     public a(Context context, AlaAudienceLiveRoomBottomPanelView.a aVar) {
         this.mContext = context;
-        this.aEC = aVar;
+        this.aHi = aVar;
         createView();
     }
 
@@ -43,21 +43,21 @@ public class a {
         if (this.mRootView == null) {
             this.mRootView = (ViewGroup) LayoutInflater.from(this.mContext).inflate(a.g.sdk_live_room_bottom_panel_shell_layout, (ViewGroup) null);
         }
-        this.aEz = (FrameLayout) this.mRootView.findViewById(a.f.ala_live_room_bottom_panel_top_layout);
-        this.aEA = (ImageView) this.mRootView.findViewById(a.f.ala_live_room_bottom_panel_back_btn);
-        this.aEA.setOnClickListener(this.mClickListener);
+        this.aHf = (FrameLayout) this.mRootView.findViewById(a.f.ala_live_room_bottom_panel_top_layout);
+        this.aHg = (ImageView) this.mRootView.findViewById(a.f.ala_live_room_bottom_panel_back_btn);
+        this.aHg.setOnClickListener(this.mClickListener);
         this.mTitleView = (TextView) this.mRootView.findViewById(a.f.ala_live_room_bottom_panel_title);
-        this.aEB = (TextView) this.mRootView.findViewById(a.f.ala_live_room_bottom_panel_entry);
+        this.aHh = (TextView) this.mRootView.findViewById(a.f.ala_live_room_bottom_panel_entry);
         if (this.mRootView.getParent() != null) {
             ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
         }
-        this.aEB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.bottompanel.a.2
+        this.aHh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.bottompanel.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.aED != null && !StringUtils.isNull(a.this.aED.KI())) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{a.this.aED.KI()}, true);
+                if (a.this.aHj != null && !StringUtils.isNull(a.this.aHj.MK())) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{a.this.aHj.MK()}, true);
                 } else {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{com.baidu.live.aa.a.Ph().bms.aKh}, true);
+                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{com.baidu.live.ae.a.RB().brA.aNc}, true);
                 }
             }
         });
@@ -68,9 +68,9 @@ public class a {
     }
 
     public void reset() {
-        if (this.aED != null && this.aED.getPanelView() != null && this.mRootView.indexOfChild(this.aED.getPanelView()) >= 0) {
-            this.mRootView.removeView(this.aED.getPanelView());
+        if (this.aHj != null && this.aHj.getPanelView() != null && this.mRootView.indexOfChild(this.aHj.getPanelView()) >= 0) {
+            this.mRootView.removeView(this.aHj.getPanelView());
         }
-        this.aED = null;
+        this.aHj = null;
     }
 }

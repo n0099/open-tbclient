@@ -15,8 +15,8 @@ import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
-public class ElasticConfig {
+/* loaded from: classes16.dex */
+public final class ElasticConfig {
     public static final boolean DEBUG = false;
     private static final String ELASTIC_CONFIG_FILE_DIR = "elastic_config";
     private static final String ELASTIC_CONFIG_FILE_NAME = "config_data";
@@ -55,6 +55,9 @@ public class ElasticConfig {
     private static volatile boolean elasticConfigUpdated = false;
     private static final Object elasticConfigMutex = new Object();
 
+    private ElasticConfig() {
+    }
+
     public static Object getElasticConfigMutex() {
         return elasticConfigMutex;
     }
@@ -79,7 +82,7 @@ public class ElasticConfig {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [225=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [232=4] */
     private static void updateFromConfigFile(Context context) {
         BufferedReader bufferedReader;
         File file = new File(context.getFilesDir().getAbsolutePath() + File.separator + ELASTIC_CONFIG_FILE_DIR + File.separator + ELASTIC_CONFIG_FILE_NAME);
@@ -190,7 +193,7 @@ public class ElasticConfig {
         new File(context.getFilesDir().getAbsolutePath() + File.separator + ELASTIC_CONFIG_FILE_DIR + File.separator + ELASTIC_CONFIG_FILE_NAME).delete();
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [452=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [459=4] */
     public static void saveConfigFile(String str) {
         Context appContext;
         FileWriter fileWriter;

@@ -9,7 +9,7 @@ import com.tencent.open.utils.d;
 import com.tencent.open.utils.e;
 import com.tencent.open.utils.j;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class QQToken {
     public static final int AUTH_QQ = 2;
     public static final int AUTH_QZONE = 3;
@@ -17,14 +17,14 @@ public class QQToken {
     private static SharedPreferences f;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4533a;
+    private String f4303a;
     private String b;
     private String c;
     private int d = 1;
     private long e = -1;
 
     public QQToken(String str) {
-        this.f4533a = str;
+        this.f4303a = str;
     }
 
     public boolean isSessionValid() {
@@ -32,11 +32,11 @@ public class QQToken {
     }
 
     public String getAppId() {
-        return this.f4533a;
+        return this.f4303a;
     }
 
     public void setAppId(String str) {
-        this.f4533a = str;
+        this.f4303a = str;
     }
 
     public String getAccessToken() {
@@ -73,7 +73,7 @@ public class QQToken {
 
     public void saveSession(JSONObject jSONObject) {
         try {
-            a(this.f4533a, jSONObject);
+            a(this.f4303a, jSONObject);
         } catch (Exception e) {
             f.c("QQToken", "login saveSession" + e.toString());
         }

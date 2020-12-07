@@ -6,9 +6,9 @@ import com.baidu.tbadk.editortools.m;
 public class b extends m {
     public b(Context context, int i) {
         super(context, (String) null, 11);
-        this.fns = true;
-        this.fnr = 6;
-        this.fmx = c.x(context, i);
-        this.fnt = new int[]{12, 13, 9};
+        this.fuW = true;
+        this.fuV = 6;
+        this.fub = c.G(context, i);
+        this.fuX = new int[]{12, 13, 9};
     }
 }

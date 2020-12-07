@@ -7,11 +7,11 @@ import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final i f4476a = new i("GET", 0, "GET");
+    public static final i f4246a = new i("GET", 0, "GET");
     public static final i b = new i("POST", 1, "POST");
     private static i c = new i(HttpPut.METHOD_NAME, 2, HttpPut.METHOD_NAME);
     private static i d = new i(HttpHead.METHOD_NAME, 3, HttpHead.METHOD_NAME);
@@ -24,7 +24,7 @@ public final class i {
     private final String k;
 
     static {
-        i[] iVarArr = {f4476a, b, c, d, e, f, g, h, i, j};
+        i[] iVarArr = {f4246a, b, c, d, e, f, g, h, i, j};
     }
 
     private i(String str, int i2, String str2) {

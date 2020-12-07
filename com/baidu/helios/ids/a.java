@@ -7,28 +7,28 @@ import com.baidu.helios.common.c.a;
 import com.baidu.helios.trusts.zone.TrustSubjectManager;
 import java.io.UnsupportedEncodingException;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public abstract class a {
-    protected a.C0151a awD;
-    protected C0152a awE;
+    protected a.C0149a axB;
+    protected C0150a axC;
     private String b;
 
     /* renamed from: com.baidu.helios.ids.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0152a {
+    /* loaded from: classes19.dex */
+    public static class C0150a {
         public Context applicationContext;
-        public ExecutorService auL;
-        public ExecutorService auM;
-        public com.baidu.helios.common.c.a avs;
-        public TrustSubjectManager.d awH;
+        public ExecutorService avJ;
+        public ExecutorService avK;
+        public com.baidu.helios.common.c.a awq;
+        public TrustSubjectManager.d axF;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public static class b {
-        public boolean awI = false;
+        public boolean axG = false;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public interface c<T> {
         void a(int i, Exception exc, Bundle bundle);
 
@@ -52,23 +52,19 @@ public abstract class a {
         return format + str3;
     }
 
-    public byte[] Aa() {
-        return null;
-    }
-
-    public final void a(C0152a c0152a) {
-        this.awE = c0152a;
-        this.awD = c0152a.avs.zU().fx("ids");
+    public final void a(C0150a c0150a) {
+        this.axC = c0150a;
+        this.axB = c0150a.awq.zO().fB("ids");
     }
 
     public abstract void a(b bVar);
 
     public void a(final c<String> cVar) {
-        final String zZ = zZ();
-        this.awE.auL.submit(new Runnable() { // from class: com.baidu.helios.ids.a.1
+        final String zT = zT();
+        this.axC.avJ.submit(new Runnable() { // from class: com.baidu.helios.ids.a.1
             @Override // java.lang.Runnable
             public void run() {
-                cVar.a(zZ, null);
+                cVar.a(zT, null);
             }
         });
     }
@@ -77,5 +73,9 @@ public abstract class a {
         return this.b;
     }
 
-    public abstract String zZ();
+    public abstract String zT();
+
+    public byte[] zU() {
+        return null;
+    }
 }

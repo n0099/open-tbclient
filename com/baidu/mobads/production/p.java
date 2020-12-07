@@ -30,7 +30,7 @@ import java.util.HashMap;
 public class p extends com.baidu.mobads.openad.c.c implements IXAdContainerContext {
 
     /* renamed from: a  reason: collision with root package name */
-    public IXAdContainerEventListener f2423a;
+    public IXAdContainerEventListener f2425a;
     private Context b;
     private Activity d;
     private RelativeLayout e;
@@ -64,7 +64,7 @@ public class p extends com.baidu.mobads.openad.c.c implements IXAdContainerConte
         this.d = activity;
         this.i = iXAdProdInfo;
         this.e = relativeLayout;
-        this.f2423a = iXAdContainerEventListener;
+        this.f2425a = iXAdContainerEventListener;
         this.f = iXAdResponseInfo;
         this.g = iXAdResponseInfo.getPrimaryAdInstanceInfo();
         this.h = view;
@@ -85,7 +85,7 @@ public class p extends com.baidu.mobads.openad.c.c implements IXAdContainerConte
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
     public IXAdContainerEventListener getAdContainerListener() {
-        return this.f2423a;
+        return this.f2425a;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext

@@ -3,8 +3,11 @@ package com.baidu.tieba.frs;
 import java.io.Serializable;
 import java.util.List;
 import tbclient.ItemInfo;
+import tbclient.ItemPoint;
 /* loaded from: classes.dex */
 public class SerializableItemInfo implements Serializable {
+    private static final String ALL = "all";
+    public double averageScore;
     public String brief;
     public double icon_size;
     public String icon_url;
@@ -13,6 +16,9 @@ public class SerializableItemInfo implements Serializable {
     public String name;
     public SerializableItemTableInfo score;
     public List<String> tags;
+
+    public SerializableItemInfo() {
+    }
 
     public SerializableItemInfo(ItemInfo itemInfo) {
         if (itemInfo != null) {
@@ -24,6 +30,14 @@ public class SerializableItemInfo implements Serializable {
             this.icon_size = itemInfo.icon_size.doubleValue();
             this.score = new SerializableItemTableInfo(itemInfo.score);
             this.isSchool = itemInfo.is_school.intValue();
+            if (itemInfo.score != null && itemInfo.score.item_point != null) {
+                for (ItemPoint itemPoint : itemInfo.score.item_point) {
+                    if (itemPoint.time_intval.equals("all")) {
+                        this.averageScore = itemPoint.point.doubleValue();
+                        return;
+                    }
+                }
+            }
         }
     }
 
@@ -89,5 +103,13 @@ public class SerializableItemInfo implements Serializable {
 
     public void setIsSchool(int i) {
         this.isSchool = i;
+    }
+
+    public void setAverageScore(double d) {
+        this.averageScore = d;
+    }
+
+    public double getAverageScore() {
+        return this.averageScore;
     }
 }

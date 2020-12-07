@@ -5,11 +5,11 @@ import android.view.View;
 public interface b {
     void a(boolean z, int i, boolean z2);
 
-    void by(View view);
+    void bB(View view);
 
     void h(View.OnClickListener onClickListener);
 
-    void qP(int i);
+    void rq(int i);
 
     void s(boolean z, int i);
 }

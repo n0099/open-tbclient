@@ -6,7 +6,7 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.TimeInterpolator;
 import android.view.View;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 class TranslationAnimationCreator {
     TranslationAnimationCreator() {
     }
@@ -35,7 +35,7 @@ class TranslationAnimationCreator {
         return ofPropertyValuesHolder;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private static class TransitionPositionListener extends AnimatorListenerAdapter {
         private final View mMovingView;
         private float mPausedX;

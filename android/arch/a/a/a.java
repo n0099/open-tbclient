@@ -4,9 +4,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import java.util.concurrent.Executor;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class a extends c {
-    private static volatile a yL;
+    private static volatile a zA;
     @NonNull
     private static final Executor sMainThreadExecutor = new Executor() { // from class: android.arch.a.a.a.1
         @Override // java.util.concurrent.Executor
@@ -15,45 +15,45 @@ public class a extends c {
         }
     };
     @NonNull
-    private static final Executor yO = new Executor() { // from class: android.arch.a.a.a.2
+    private static final Executor zD = new Executor() { // from class: android.arch.a.a.a.2
         @Override // java.util.concurrent.Executor
         public void execute(Runnable runnable) {
             a.hr().c(runnable);
         }
     };
     @NonNull
-    private c yN = new b();
+    private c zC = new b();
     @NonNull
-    private c yM = this.yN;
+    private c zB = this.zC;
 
     private a() {
     }
 
     @NonNull
     public static a hr() {
-        if (yL != null) {
-            return yL;
+        if (zA != null) {
+            return zA;
         }
         synchronized (a.class) {
-            if (yL == null) {
-                yL = new a();
+            if (zA == null) {
+                zA = new a();
             }
         }
-        return yL;
+        return zA;
     }
 
     @Override // android.arch.a.a.c
     public void c(Runnable runnable) {
-        this.yM.c(runnable);
+        this.zB.c(runnable);
     }
 
     @Override // android.arch.a.a.c
     public void d(Runnable runnable) {
-        this.yM.d(runnable);
+        this.zB.d(runnable);
     }
 
     @Override // android.arch.a.a.c
     public boolean isMainThread() {
-        return this.yM.isMainThread();
+        return this.zB.isMainThread();
     }
 }

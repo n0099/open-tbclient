@@ -4,17 +4,17 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.PointF;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes20.dex */
 public class i extends f<PointF> {
-    private final PointF DW;
-    private final float[] DX;
-    private PathMeasure DZ;
-    private h pKt;
+    private final PointF EM;
+    private final float[] EN;
+    private PathMeasure EP;
+    private h pBx;
 
     public i(List<? extends com.tb.airbnb.lottie.e.a<PointF>> list) {
         super(list);
-        this.DW = new PointF();
-        this.DX = new float[2];
+        this.EM = new PointF();
+        this.EN = new float[2];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,16 +28,16 @@ public class i extends f<PointF> {
         h hVar = (h) aVar;
         Path iW = hVar.iW();
         if (iW == null) {
-            return aVar.Hn;
+            return aVar.If;
         }
-        if (this.pKq == null || (pointF = (PointF) this.pKq.b(hVar.Bo, hVar.Hq.floatValue(), hVar.Hn, hVar.Ho, jj(), f, getProgress())) == null) {
-            if (this.pKt != hVar) {
-                this.DZ = new PathMeasure(iW, false);
-                this.pKt = hVar;
+        if (this.pBu == null || (pointF = (PointF) this.pBu.b(hVar.Ce, hVar.Ii.floatValue(), hVar.If, hVar.Ig, jj(), f, getProgress())) == null) {
+            if (this.pBx != hVar) {
+                this.EP = new PathMeasure(iW, false);
+                this.pBx = hVar;
             }
-            this.DZ.getPosTan(this.DZ.getLength() * f, this.DX, null);
-            this.DW.set(this.DX[0], this.DX[1]);
-            return this.DW;
+            this.EP.getPosTan(this.EP.getLength() * f, this.EN, null);
+            this.EM.set(this.EN[0], this.EN[1]);
+            return this.EM;
         }
         return pointF;
     }

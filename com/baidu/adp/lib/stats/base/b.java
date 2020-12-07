@@ -32,7 +32,7 @@ public class b {
         return listFiles2;
     }
 
-    public static ArrayList<d> at(boolean z) {
+    public static ArrayList<d> as(boolean z) {
         ArrayList<d> arrayList = new ArrayList<>();
         File[] c = c(z, true);
         if (c != null) {

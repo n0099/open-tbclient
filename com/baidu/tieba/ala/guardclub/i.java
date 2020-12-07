@@ -1,315 +1,182 @@
 package com.baidu.tieba.ala.guardclub;
 
-import android.support.annotation.NonNull;
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
+import android.view.animation.AlphaAnimation;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.live.adp.BdUniqueId;
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.listener.CustomMessageListener;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.adp.framework.message.Message;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.data.bg;
+import com.baidu.live.data.w;
 import com.baidu.live.sdk.a;
-import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.ViewHelper;
 import com.baidu.live.tbadk.core.view.HeadImageView;
-import com.baidu.live.tbadk.coreextra.message.UpdateAttentionMessage;
-import com.baidu.live.tbadk.log.LogConfig;
-import com.baidu.live.tbadk.log.LogManager;
+import com.baidu.live.tbadk.util.ScreenHelper;
 import com.baidu.live.tbadk.widget.TbImageView;
-import com.baidu.live.tieba.view.GradientTextView;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.tb.airbnb.lottie.LottieAnimationView;
 /* loaded from: classes4.dex */
-public class i extends BaseAdapter {
-    private boolean aIu;
-    private BaseActivity gFF;
-    private BdUniqueId gFG;
-    private boolean gGf;
-    private com.baidu.live.guardclub.f gGg;
-    private b gGh;
-    private List<com.baidu.live.guardclub.f> gGi;
-    private CustomMessageListener guJ = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.guardclub.i.4
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.live.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage instanceof UpdateAttentionMessage) {
-                UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
-                    if (updateAttentionMessage.getData().isSucc) {
-                        Message<?> message = updateAttentionMessage.getmOrginalMessage();
-                        if (message != null && message.getTag() != null && !TextUtils.isEmpty(updateAttentionMessage.getData().toUid)) {
-                            Iterator it = i.this.gGi.iterator();
-                            while (true) {
-                                if (!it.hasNext()) {
-                                    break;
-                                }
-                                com.baidu.live.guardclub.f fVar = (com.baidu.live.guardclub.f) it.next();
-                                if (updateAttentionMessage.getData().toUid.equals(fVar.userId)) {
-                                    fVar.isFollowed = updateAttentionMessage.getData().isAttention;
-                                    break;
-                                }
-                            }
-                            i.this.notifyDataSetChanged();
-                            if (message.getTag().equals(i.this.gFG)) {
-                                if (updateAttentionMessage.getData().isAttention) {
-                                    i.this.gFF.getPageContext().showToast(i.this.gFF.getResources().getString(a.h.sdk_attention_success_toast));
-                                    return;
-                                } else {
-                                    i.this.gFF.getPageContext().showToast(i.this.gFF.getResources().getString(a.h.sdk_unfollow_success_toast));
-                                    return;
-                                }
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    Message<?> message2 = updateAttentionMessage.getmOrginalMessage();
-                    if (message2 != null && message2.getTag() != null && message2.getTag().equals(i.this.gFG)) {
-                        i.this.gFF.showToast(updateAttentionMessage.getData().errorString);
-                    }
-                }
-            }
-        }
-    };
+public class i implements com.baidu.live.guardclub.k {
+    private Activity context;
+    private LottieAnimationView gJA;
+    private AlphaAnimation gPd;
+    private AnimatorSet gPe;
+    private AnimatorSet gPf;
     private String otherParams;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public interface b {
-        void d(com.baidu.live.guardclub.f fVar);
+    public i(Activity activity) {
+        this.context = activity;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(@NonNull BaseActivity baseActivity, BdUniqueId bdUniqueId, boolean z, boolean z2) {
-        this.gFF = baseActivity;
-        this.gFG = bdUniqueId;
-        this.aIu = z;
-        this.gGf = z2;
-        MessageManager.getInstance().registerListener(this.guJ);
-    }
-
+    @Override // com.baidu.live.guardclub.k
     public void setOtherParams(String str) {
         this.otherParams = str;
     }
 
-    public void a(com.baidu.live.guardclub.f fVar) {
-        this.gGg = fVar;
-    }
-
-    public void a(b bVar) {
-        this.gGh = bVar;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.gGi == null) {
-            return 0;
-        }
-        return this.gGi.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        a aVar;
-        if (view == null) {
-            view = LayoutInflater.from(this.gFF.getPageContext().getPageActivity()).inflate(a.g.item_guard_member_list, viewGroup, false);
-            aVar = new a();
-            aVar.gGl = (RelativeLayout) view.findViewById(a.f.layout_guard_member_list_rank);
-            aVar.gGm = view.findViewById(a.f.view_guard_club_list_rank);
-            aVar.gGn = (ImageView) view.findViewById(a.f.img_guard_club_list_rank);
-            aVar.gGo = (TextView) view.findViewById(a.f.tv_guard_club_list_rank);
-            aVar.gFL = (HeadImageView) view.findViewById(a.f.img_guard_club_list_header);
-            aVar.gGp = (TbImageView) view.findViewById(a.f.img_guard_club_list_medal);
-            aVar.bQJ = (TextView) view.findViewById(a.f.tv_guard_club_list_name);
-            aVar.gFN = (TextView) view.findViewById(a.f.tv_guard_club_list_num);
-            aVar.gGq = (GradientTextView) view.findViewById(a.f.tv_guard_club_list_followed);
-            aVar.gGr = (TextView) view.findViewById(a.f.tv_guard_club_list_un_followed);
-            view.setTag(aVar);
-        } else {
-            aVar = (a) view.getTag();
-        }
-        final com.baidu.live.guardclub.f fVar = this.gGi.get(i);
-        if (fVar != null) {
-            if (!this.gGf) {
-                try {
-                    if (i == 0) {
-                        a(aVar, a.e.gcb_icon_contribution_first);
-                    } else if (i == 1) {
-                        a(aVar, a.e.gcb_icon_contribution_second);
-                    } else if (i == 2) {
-                        a(aVar, a.e.gcb_icon_contribution_third);
-                    } else {
-                        aVar.gGo.setText(String.valueOf(i + 1));
-                        aVar.gGn.setVisibility(8);
-                        aVar.gGo.setVisibility(0);
-                    }
-                    aVar.gGm.setVisibility(8);
-                    aVar.gGl.setVisibility(0);
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                    aVar.gGl.setVisibility(8);
-                    aVar.gGm.setVisibility(0);
-                }
-            } else {
-                aVar.gGl.setVisibility(8);
-                aVar.gGm.setVisibility(0);
+    @Override // com.baidu.live.guardclub.k
+    @SuppressLint({"ClickableViewAccessibility"})
+    public void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, com.baidu.live.guardclub.a aVar, w wVar) {
+        if (viewGroup != null && this.context != null && wVar != null && wVar.aKr != null) {
+            String str = wVar.aKr.nickName;
+            if (TextUtils.isEmpty(str)) {
+                str = wVar.aKr.userName;
             }
-            aVar.gFL.setIsRound(true);
-            aVar.gFL.setAutoChangeStyle(false);
-            aVar.gFL.startLoad(fVar.bfc, 12, false);
-            String ex = com.baidu.live.guardclub.g.JW().ex(fVar.beE);
-            if (!TextUtils.isEmpty(ex)) {
-                aVar.gGp.startLoad(ex, 10, false);
-                aVar.gGp.setVisibility(0);
-            } else {
-                aVar.gGp.setVisibility(4);
-            }
-            aVar.gFL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.i.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    i.this.b(fVar);
-                }
-            });
-            aVar.bQJ.setText(fVar.userName);
-            aVar.gFN.setText(String.format(this.gFF.getResources().getString(a.h.guard_member_list_contribution), fVar.score));
-            if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                aVar.gGr.setBackgroundResource(a.e.gcb_attention_bg_bd_s);
-                aVar.gGq.setBackgroundResource(a.e.gcb_attention_bg_bd_selector);
-                aVar.gGr.setTextColor(this.gFF.getResources().getColor(a.c.sdk_white_alpha20));
-                aVar.gGq.setTextColor(this.gFF.getResources().getColor(a.c.sdk_white_alpha70));
-            }
-            a(aVar, fVar.isFollowed, fVar.userId);
-            aVar.gGq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.i.2
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    i.this.c(fVar);
-                    if (!i.this.aIu && (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo())) {
-                        LogManager.getGuardClubLogger().doClickFollowLog(null, null, null, i.this.gGf ? LogConfig.VALUE_LIVE_GUARD_MEMBER : "liveroom", i.this.gGf ? "guard_member" : "guard", i.this.otherParams);
-                    }
-                    if (TbadkCoreApplication.getInst().isHaokan()) {
-                        LogManager.getGuardClubLogger().doClickFollowLog(null, null, null, null, i.this.gGf ? "guardian_members_tooltip" : LogConfig.VALUE_LIVE_GUARDIAN_TOOLTIP, i.this.otherParams);
-                    }
-                }
-            });
-            aVar.gGr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.i.3
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    i.this.c(fVar);
-                }
-            });
-        }
-        return view;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(com.baidu.live.guardclub.f fVar) {
-        if (this.gGh != null) {
-            this.gGh.d(fVar);
+            a(viewGroup, layoutParams, wVar.aKr.portrait, str);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c(com.baidu.live.guardclub.f fVar) {
-        if (fVar != null) {
-            if (!BdUtilHelper.isNetOk()) {
-                BdUtilHelper.showToast(this.gFF, this.gFF.getResources().getString(a.h.sdk_neterror));
-            } else if (!TbadkCoreApplication.isLogin()) {
-                ViewHelper.skipToLoginActivity(this.gFF);
-            } else if (fVar.isFollowed) {
-                com.baidu.live.data.f fVar2 = new com.baidu.live.data.f(fVar.portrait, fVar.userId, "1", false, this.gFG);
-                fVar2.setFrom("source_guardian_club_member_list");
-                com.baidu.live.view.a.VO().a(fVar.userId, fVar2);
-            } else {
-                com.baidu.live.data.f fVar3 = new com.baidu.live.data.f(fVar.portrait, fVar.userId, "1", true, this.gFG);
-                fVar3.setFrom("source_guardian_club_member_list");
-                com.baidu.live.view.a.VO().a(fVar.userId, fVar3);
-            }
-        }
-    }
-
-    private void a(a aVar, boolean z, String str) {
-        if (this.gGg == null || !TextUtils.equals(str, this.gGg.userId)) {
-            if (z) {
-                aVar.gGq.setVisibility(8);
-                aVar.gGr.setVisibility(0);
+    public void a(final ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, String str, String str2) {
+        if (viewGroup != null && this.context != null) {
+            onDestory();
+            if (bWj()) {
+                String str3 = null;
+                bg Mb = com.baidu.live.guardclub.g.LZ().Mb();
+                if (Mb != null && !TextUtils.isEmpty(Mb.aQi)) {
+                    str3 = Mb.aQi;
+                }
+                if (str3 == null) {
+                    str3 = this.context.getString(a.h.guard_club_add_suc);
+                }
+                BdUtilHelper.getCustomToast().showToast(str3, 1);
                 return;
             }
-            aVar.gGr.setVisibility(8);
-            aVar.gGq.setVisibility(0);
-            return;
-        }
-        aVar.gGq.setVisibility(8);
-        aVar.gGr.setVisibility(4);
-    }
-
-    private void a(a aVar, int i) {
-        aVar.gGn.setImageResource(i);
-        aVar.gGo.setVisibility(8);
-        aVar.gGn.setVisibility(0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void cn(List<com.baidu.live.guardclub.f> list) {
-        if (list != null && !list.isEmpty()) {
-            this.gGi = new ArrayList(list);
-        } else {
-            this.gGi = new ArrayList();
-        }
-        notifyDataSetChanged();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void co(List<com.baidu.live.guardclub.f> list) {
-        if (list != null && !list.isEmpty()) {
-            if (this.gGi == null) {
-                this.gGi = new ArrayList();
+            final View inflate = LayoutInflater.from(this.context).inflate(a.g.view_guardclub_join_result, (ViewGroup) null);
+            inflate.setLayoutParams(layoutParams);
+            final View findViewById = inflate.findViewById(a.f.shape_view);
+            this.gPd = new AlphaAnimation(0.0f, 1.0f);
+            this.gPd.setDuration(100L);
+            this.gJA = (LottieAnimationView) inflate.findViewById(a.f.flowerAppear_lottieAnimationView);
+            this.gJA.loop(false);
+            if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
+                this.gJA.setAnimation("anim_shouhuhua.json");
             }
-            this.gGi.addAll(list);
-            notifyDataSetChanged();
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(a.f.head_layout);
+            TextView textView = (TextView) inflate.findViewById(a.f.name_textView);
+            HeadImageView headImageView = (HeadImageView) inflate.findViewById(a.f.head_imageView);
+            headImageView.setIsRound(true);
+            headImageView.setAutoChangeStyle(false);
+            headImageView.setDefaultBgResource(a.e.sdk_default_avatar);
+            int screenHeight = ((int) (ScreenHelper.getScreenHeight(this.context) * 0.38200003f)) - this.context.getResources().getDimensionPixelSize(a.d.sdk_ds40);
+            ViewGroup.LayoutParams layoutParams2 = this.gJA.getLayoutParams();
+            layoutParams2.height = screenHeight;
+            layoutParams2.width = (int) ((screenHeight / 50.0f) * 75.0f);
+            this.gJA.setLayoutParams(layoutParams2);
+            ((RelativeLayout.LayoutParams) linearLayout.getLayoutParams()).topMargin = screenHeight - this.context.getResources().getDimensionPixelSize(a.d.sdk_ds140);
+            this.gJA.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.guardclub.i.1
+                @Override // android.animation.Animator.AnimatorListener
+                public void onAnimationStart(Animator animator) {
+                }
+
+                @Override // android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator) {
+                    i.this.gJA.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.guardclub.i.1.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            if (viewGroup != null) {
+                                viewGroup.removeView(inflate);
+                            }
+                        }
+                    }, 100L);
+                }
+
+                @Override // android.animation.Animator.AnimatorListener
+                public void onAnimationCancel(Animator animator) {
+                    onAnimationEnd(animator);
+                }
+
+                @Override // android.animation.Animator.AnimatorListener
+                public void onAnimationRepeat(Animator animator) {
+                }
+            });
+            int dimensionPixelSize = this.context.getResources().getDimensionPixelSize(a.d.sdk_ds28);
+            new ObjectAnimator();
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(linearLayout, "translationY", dimensionPixelSize * (-1));
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(linearLayout, "alpha", 0.0f, 1.0f);
+            this.gPe = new AnimatorSet();
+            this.gPe.playTogether(ofFloat, ofFloat2);
+            this.gPe.setDuration(170L);
+            this.gPe.setStartDelay(830L);
+            new ObjectAnimator();
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(linearLayout, "translationY", dimensionPixelSize);
+            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(linearLayout, "alpha", 1.0f, 0.0f);
+            this.gPf = new AnimatorSet();
+            this.gPf.playTogether(ofFloat3, ofFloat4);
+            this.gPf.setDuration(210L);
+            this.gPf.setStartDelay(IMConnection.RETRY_DELAY_TIMES);
+            if (str2 == null) {
+                str2 = "";
+            }
+            textView.setText(str2);
+            headImageView.setEvent(new TbImageView.ImageViewEvent() { // from class: com.baidu.tieba.ala.guardclub.i.2
+                @Override // com.baidu.live.tbadk.widget.TbImageView.ImageViewEvent
+                public void onComplete(String str4, boolean z) {
+                    if (viewGroup != null && !i.this.context.isFinishing()) {
+                        viewGroup.addView(inflate);
+                        findViewById.startAnimation(i.this.gPd);
+                        i.this.gJA.playAnimation();
+                        i.this.gPe.start();
+                        i.this.gPf.start();
+                    }
+                }
+
+                @Override // com.baidu.live.tbadk.widget.TbImageView.ImageViewEvent
+                public void onCancel() {
+                }
+            });
+            TextView textView2 = (TextView) inflate.findViewById(a.f.desc_textView);
+            bg Mb2 = com.baidu.live.guardclub.g.LZ().Mb();
+            if (Mb2 != null && !TextUtils.isEmpty(Mb2.aQi)) {
+                textView2.setText(Mb2.aQi);
+            }
+            headImageView.startLoad(str, 12, false);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void bSy() {
-        MessageManager.getInstance().unRegisterListener(this.guJ);
+    @Override // com.baidu.live.guardclub.k
+    public void onDestory() {
+        if (this.gPd != null) {
+            this.gPd.cancel();
+        }
+        if (this.gJA != null) {
+            this.gJA.cancelAnimation();
+        }
+        if (this.gPe != null) {
+            this.gPe.cancel();
+        }
+        if (this.gPf != null) {
+            this.gPf.cancel();
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
-    public class a {
-        private TextView bQJ;
-        private HeadImageView gFL;
-        private TextView gFN;
-        private RelativeLayout gGl;
-        private View gGm;
-        private ImageView gGn;
-        private TextView gGo;
-        private TbImageView gGp;
-        private GradientTextView gGq;
-        private TextView gGr;
-
-        private a() {
-        }
+    private boolean bWj() {
+        return this.context.getRequestedOrientation() == 0;
     }
 }

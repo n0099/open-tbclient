@@ -1,17 +1,47 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.RecomPostTopic;
+import android.content.Intent;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class bh {
-    public long eAP;
-    public String recom_title;
-    public String recom_topic;
+    private String eHN;
+    private String recomExtra;
+    private String recomSource;
+    private String recomWeight;
 
-    public void a(RecomPostTopic recomPostTopic) {
-        if (recomPostTopic != null) {
-            this.recom_title = recomPostTopic.recom_title;
-            this.recom_topic = recomPostTopic.recom_topic;
-            this.eAP = recomPostTopic.uniq_topicid.longValue();
+    public void u(by byVar) {
+        if (byVar != null) {
+            this.recomWeight = byVar.mRecomWeight;
+            this.recomSource = byVar.mRecomSource;
+            this.eHN = byVar.mRecomAbTag;
+            this.recomExtra = byVar.mRecomExtra;
+        }
+    }
+
+    public void C(Intent intent) {
+        if (intent != null) {
+            this.recomWeight = intent.getStringExtra("recom_weight");
+            this.recomSource = intent.getStringExtra(IntentConfig.RECOM_SOURCE);
+            this.eHN = intent.getStringExtra("recom_abtag");
+            this.recomExtra = intent.getStringExtra("recom_extra");
+        }
+    }
+
+    public void D(Intent intent) {
+        if (intent != null) {
+            intent.putExtra("recom_weight", this.recomWeight);
+            intent.putExtra(IntentConfig.RECOM_SOURCE, this.recomSource);
+            intent.putExtra("recom_abtag", this.eHN);
+            intent.putExtra("recom_extra", this.recomExtra);
+        }
+    }
+
+    public void a(com.baidu.tieba.play.o oVar) {
+        if (oVar != null) {
+            oVar.myo = this.recomWeight;
+            oVar.mSource = this.recomSource;
+            oVar.mys = this.eHN;
+            oVar.mExtra = this.recomExtra;
         }
     }
 }

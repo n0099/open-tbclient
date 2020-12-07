@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.concern;
 
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.y;
@@ -10,46 +10,46 @@ import java.util.List;
 import tbclient.DiscoverHotForum;
 import tbclient.DiscoverTabCard;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c {
     public static void a(View view, com.baidu.tbadk.core.data.a aVar, int i) {
-        if (view != null && aVar != null && aVar.bjd() != null && !StringUtils.isNull(aVar.bjd().getTid())) {
+        if (view != null && aVar != null && aVar.bmn() != null && !StringUtils.isNull(aVar.bmn().getTid())) {
             ar arVar = new ar("c12352");
-            bx bjd = aVar.bjd();
-            if (bjd.isLinkThread()) {
-                arVar.ak("obj_type", 4);
-            } else if (bjd.isShareThread) {
-                arVar.ak("obj_type", 5);
-            } else if (bjd.bkk()) {
-                arVar.ak("obj_type", 6);
-            } else if (bjd.bnz()) {
-                arVar.ak("obj_type", 7);
-            } else if (bjd.bkl()) {
-                arVar.ak("obj_type", 8);
-            } else if (bjd.bnA()) {
-                arVar.ak("obj_type", 9);
-            } else if (bjd.getType() == bx.eBR) {
-                arVar.ak("obj_type", 1);
-            } else if (bjd.bki()) {
-                arVar.ak("obj_type", 2);
+            by bmn = aVar.bmn();
+            if (bmn.isLinkThread()) {
+                arVar.al("obj_type", 4);
+            } else if (bmn.isShareThread) {
+                arVar.al("obj_type", 5);
+            } else if (bmn.bnx()) {
+                arVar.al("obj_type", 6);
+            } else if (bmn.bqM()) {
+                arVar.al("obj_type", 7);
+            } else if (bmn.bny()) {
+                arVar.al("obj_type", 8);
+            } else if (bmn.bqN()) {
+                arVar.al("obj_type", 9);
+            } else if (bmn.getType() == by.eIS) {
+                arVar.al("obj_type", 1);
+            } else if (bmn.bnv()) {
+                arVar.al("obj_type", 2);
             }
-            arVar.ak("obj_locate", i);
-            arVar.dR("tid", aVar.bjd().getTid());
-            arVar.w("fid", aVar.bjd().getFid());
-            arVar.ak("obj_source", 1);
+            arVar.al("obj_locate", i);
+            arVar.dY("tid", aVar.bmn().getTid());
+            arVar.w("fid", aVar.bmn().getFid());
+            arVar.al("obj_source", 1);
             if (aVar instanceof com.baidu.tieba.card.data.b) {
-                arVar.ak("obj_param1", ((com.baidu.tieba.card.data.b) aVar).cok() ? 2 : 1);
+                arVar.al("obj_param1", ((com.baidu.tieba.card.data.b) aVar).csx() ? 2 : 1);
             }
-            if (aVar.bjd().blC() != null) {
-                arVar.dR("uid", aVar.bjd().blC().getUserId());
+            if (aVar.bmn().boP() != null) {
+                arVar.dY("uid", aVar.bmn().boP().getUserId());
             }
-            if (bjd.getBaijiahaoData() != null) {
-                arVar.dR("obj_id", bjd.getBaijiahaoData().oriUgcNid);
+            if (bmn.getBaijiahaoData() != null) {
+                arVar.dY("obj_id", bmn.getBaijiahaoData().oriUgcNid);
             } else {
-                arVar.dR("obj_id", bjd.getTid());
+                arVar.dY("obj_id", bmn.getTid());
             }
             TiebaStatic.log(arVar);
-            d(bjd, i);
+            d(bmn, i);
         }
     }
 
@@ -81,11 +81,11 @@ public class c {
         return false;
     }
 
-    private static void d(bx bxVar, int i) {
+    private static void d(by byVar, int i) {
         ar arVar = null;
         switch (i) {
             case 1:
-                arVar = com.baidu.tieba.t.a.a("c13692", bxVar, 3);
+                arVar = com.baidu.tieba.t.a.a("c13692", byVar, 3);
                 break;
         }
         TiebaStatic.log(arVar);

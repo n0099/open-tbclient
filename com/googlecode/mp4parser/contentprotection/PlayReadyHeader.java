@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public class PlayReadyHeader extends ProtectionSpecificHeader {
     public static UUID PROTECTION_SYSTEM_ID = UUID.fromString("9A04F079-9840-4286-AB92-E65BE0885F95");
     private long length;
@@ -74,7 +74,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
         return sb.toString();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes7.dex */
     public static abstract class PlayReadyRecord {
         int type;
 
@@ -123,7 +123,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             return sb.toString();
         }
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes7.dex */
         public static class RMHeader extends PlayReadyRecord {
             String header;
 
@@ -170,7 +170,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             }
         }
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes7.dex */
         public static class EmeddedLicenseStore extends PlayReadyRecord {
             ByteBuffer value;
 
@@ -198,7 +198,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             }
         }
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes7.dex */
         public static class DefaulPlayReadyRecord extends PlayReadyRecord {
             ByteBuffer value;
 

@@ -9,11 +9,11 @@ import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class l extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Animator f2200a = null;
+    private Animator f2202a = null;
     private long b = 0;
     private Interpolator c = null;
     private Animation.AnimationListener d = null;
@@ -22,7 +22,7 @@ public class l extends c {
     private Object[] g;
 
     @TargetApi(11)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public class a implements TypeEvaluator {
         public a() {
         }
@@ -36,7 +36,7 @@ public class l extends c {
     }
 
     @TargetApi(11)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public class b implements TypeEvaluator {
         public b() {
         }
@@ -85,10 +85,10 @@ public class l extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a() {
-        if (this.f2200a == null) {
+        if (this.f2202a == null) {
             return;
         }
-        this.f2200a.start();
+        this.f2202a.start();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -126,16 +126,16 @@ public class l extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a(Marker marker, Animation animation) {
-        this.f2200a = a(marker);
-        a(this.f2200a);
+        this.f2202a = a(marker);
+        a(this.f2202a);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void b() {
-        if (this.f2200a != null) {
-            this.f2200a.cancel();
-            this.f2200a = null;
+        if (this.f2202a != null) {
+            this.f2202a.cancel();
+            this.f2202a = null;
         }
     }
 

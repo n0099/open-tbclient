@@ -16,14 +16,14 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public abstract class a {
     private SearchType f;
     private AsyncHttpClient b = new AsyncHttpClient();
     private Handler c = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with root package name */
-    protected final Lock f2812a = new ReentrantLock();
+    protected final Lock f2814a = new ReentrantLock();
     private boolean d = true;
     private DistrictResult e = null;
 

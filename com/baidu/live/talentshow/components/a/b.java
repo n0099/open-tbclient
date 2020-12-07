@@ -10,36 +10,36 @@ import com.baidu.live.talentshow.components.a.a;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
 /* loaded from: classes4.dex */
 public class b {
-    private long btQ = 10;
-    private com.baidu.live.talentshow.components.a.a btR;
-    private BdAlertDialog btS;
-    private CountDownTimer btT;
+    private long bzb = 10;
+    private com.baidu.live.talentshow.components.a.a bzc;
+    private BdAlertDialog bzd;
+    private CountDownTimer bze;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void OZ();
+        void Rt();
 
-        void Pa();
+        void Ru();
     }
 
-    public void a(Activity activity, final a.InterfaceC0199a interfaceC0199a) {
-        if (this.btR == null) {
-            this.btR = new com.baidu.live.talentshow.components.a.a(activity);
+    public void a(Activity activity, final a.InterfaceC0209a interfaceC0209a) {
+        if (this.bzc == null) {
+            this.bzc = new com.baidu.live.talentshow.components.a.a(activity);
             if (Build.VERSION.SDK_INT >= 8) {
-                this.btR.setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.baidu.live.talentshow.components.a.b.1
+                this.bzc.setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.baidu.live.talentshow.components.a.b.1
                     @Override // android.content.DialogInterface.OnShowListener
                     public void onShow(DialogInterface dialogInterface) {
-                        com.baidu.live.talentshow.e.a.Sa();
+                        com.baidu.live.talentshow.e.a.Uy();
                     }
                 });
             }
         }
-        if (this.btT == null) {
-            this.btT = new CountDownTimer(this.btQ * 1000, 1000L) { // from class: com.baidu.live.talentshow.components.a.b.2
+        if (this.bze == null) {
+            this.bze = new CountDownTimer(this.bzb * 1000, 1000L) { // from class: com.baidu.live.talentshow.components.a.b.2
                 @Override // android.os.CountDownTimer
                 public void onTick(long j) {
-                    if (b.this.btR != null && b.this.btR.isShowing()) {
-                        b.this.btR.ih((((int) (j / 1000)) + 1) + "s");
+                    if (b.this.bzc != null && b.this.bzc.isShowing()) {
+                        b.this.bzc.iL((((int) (j / 1000)) + 1) + "s");
                         return;
                     }
                     cancel();
@@ -47,104 +47,104 @@ public class b {
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
-                    if (b.this.btR != null && b.this.btR.isShowing()) {
-                        interfaceC0199a.Qs();
-                        b.this.Qz();
+                    if (b.this.bzc != null && b.this.bzc.isShowing()) {
+                        interfaceC0209a.SQ();
+                        b.this.SX();
                     }
                 }
             };
         }
-        this.btR.a(new a.InterfaceC0199a() { // from class: com.baidu.live.talentshow.components.a.b.3
-            @Override // com.baidu.live.talentshow.components.a.a.InterfaceC0199a
-            public boolean Qr() {
-                if (interfaceC0199a.Qr()) {
-                    b.this.Qz();
+        this.bzc.a(new a.InterfaceC0209a() { // from class: com.baidu.live.talentshow.components.a.b.3
+            @Override // com.baidu.live.talentshow.components.a.a.InterfaceC0209a
+            public boolean SP() {
+                if (interfaceC0209a.SP()) {
+                    b.this.SX();
                     b.this.cancelTimer();
-                    com.baidu.live.talentshow.e.a.RZ();
+                    com.baidu.live.talentshow.e.a.Ux();
                     return true;
                 }
                 return true;
             }
 
-            @Override // com.baidu.live.talentshow.components.a.a.InterfaceC0199a
-            public void Qs() {
+            @Override // com.baidu.live.talentshow.components.a.a.InterfaceC0209a
+            public void SQ() {
             }
         });
-        if (!this.btR.isShowing()) {
-            this.btR.show();
+        if (!this.bzc.isShowing()) {
+            this.bzc.show();
         }
-        this.btR.ig(activity.getString(a.h.talent_start));
-        this.btR.fe(0);
-        this.btR.setCanceledOnTouchOutside(false);
+        this.bzc.iK(activity.getString(a.h.talent_start));
+        this.bzc.fC(0);
+        this.bzc.setCanceledOnTouchOutside(false);
         startTimer();
     }
 
-    public void Qz() {
-        if (this.btR != null && this.btR.isShowing()) {
-            this.btR.dismiss();
+    public void SX() {
+        if (this.bzc != null && this.bzc.isShowing()) {
+            this.bzc.dismiss();
         }
         cancelTimer();
-        this.btR = null;
+        this.bzc = null;
     }
 
     public void cancelTimer() {
-        if (this.btT != null) {
-            this.btT.cancel();
+        if (this.bze != null) {
+            this.bze.cancel();
         }
     }
 
     public void startTimer() {
-        if (this.btT != null) {
-            this.btT.start();
+        if (this.bze != null) {
+            this.bze.start();
         }
     }
 
     public void a(BdPageContext bdPageContext, String str, final a aVar) {
-        if (this.btS == null) {
-            this.btS = new BdAlertDialog(bdPageContext.getPageActivity());
+        if (this.bzd == null) {
+            this.bzd = new BdAlertDialog(bdPageContext.getPageActivity());
         }
-        this.btS.setAutoNight(false);
-        this.btS.setTitle((String) null);
-        this.btS.setMessage(str);
-        this.btS.setPositiveButton(a.h.sdk_dialog_ok, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.talentshow.components.a.b.4
+        this.bzd.setAutoNight(false);
+        this.bzd.setTitle((String) null);
+        this.bzd.setMessage(str);
+        this.bzd.setPositiveButton(a.h.sdk_dialog_ok, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.talentshow.components.a.b.4
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog) {
-                b.this.QA();
+                b.this.SY();
                 if (aVar != null) {
-                    aVar.OZ();
+                    aVar.Rt();
                 }
             }
         });
-        this.btS.setNegativeButton(a.h.sdk_dialog_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.talentshow.components.a.b.5
+        this.bzd.setNegativeButton(a.h.sdk_dialog_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.talentshow.components.a.b.5
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog) {
-                b.this.QA();
+                b.this.SY();
                 if (aVar != null) {
-                    aVar.Pa();
+                    aVar.Ru();
                 }
             }
         });
-        this.btS.setCanceledOnTouchOutside(false);
-        this.btS.setPositiveButtonTextColor(-55461);
-        this.btS.setNagetiveButtonTextColor(-14737633);
-        this.btS.create(bdPageContext).show();
+        this.bzd.setCanceledOnTouchOutside(false);
+        this.bzd.setPositiveButtonTextColor(-55461);
+        this.bzd.setNagetiveButtonTextColor(-14737633);
+        this.bzd.create(bdPageContext).show();
     }
 
-    public void QA() {
-        if (this.btS != null && this.btS.isShowing()) {
-            this.btS.dismiss();
+    public void SY() {
+        if (this.bzd != null && this.bzd.isShowing()) {
+            this.bzd.dismiss();
         }
-        this.btS = null;
+        this.bzd = null;
     }
 
     public void onDestroy() {
-        if (this.btR != null && this.btR.isShowing()) {
-            this.btR.dismiss();
+        if (this.bzc != null && this.bzc.isShowing()) {
+            this.bzc.dismiss();
         }
-        this.btR = null;
-        if (this.btS != null && this.btS.isShowing()) {
-            this.btS.dismiss();
+        this.bzc = null;
+        if (this.bzd != null && this.bzd.isShowing()) {
+            this.bzd.dismiss();
         }
-        this.btS = null;
+        this.bzd = null;
     }
 }

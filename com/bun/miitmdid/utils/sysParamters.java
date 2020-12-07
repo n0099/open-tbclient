@@ -8,12 +8,12 @@ import android.os.Build;
 import android.support.annotation.Keep;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class sysParamters {
-    private static volatile sysParamters oJZ;
+    private static volatile sysParamters oZf;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4000a;
+    private String f4003a;
     private String b;
     private String c;
     private String d = "Android";
@@ -44,15 +44,15 @@ public class sysParamters {
         return a2.versionName;
     }
 
-    public static sysParamters eiG() {
-        if (oJZ == null) {
+    public static sysParamters eow() {
+        if (oZf == null) {
             synchronized (sysParamters.class) {
-                if (oJZ == null) {
-                    oJZ = new sysParamters();
+                if (oZf == null) {
+                    oZf = new sysParamters();
                 }
             }
         }
-        return oJZ;
+        return oZf;
     }
 
     public static String f() {
@@ -69,11 +69,11 @@ public class sysParamters {
     }
 
     public String b() {
-        if (TextUtils.isEmpty(this.f4000a)) {
-            this.f4000a = a(b.a());
-            return this.f4000a;
+        if (TextUtils.isEmpty(this.f4003a)) {
+            this.f4003a = a(b.a());
+            return this.f4003a;
         }
-        return this.f4000a;
+        return this.f4003a;
     }
 
     public String c() {

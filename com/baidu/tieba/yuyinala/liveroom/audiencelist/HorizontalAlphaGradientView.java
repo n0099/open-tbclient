@@ -13,45 +13,45 @@ import android.view.View;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class HorizontalAlphaGradientView extends View {
-    private int bEZ;
-    private int bJP;
-    private int bJQ;
-    private Paint bkA;
+    private int bKi;
+    private int bOX;
+    private int bOY;
+    private Paint bpJ;
 
     public HorizontalAlphaGradientView(Context context) {
         super(context);
-        this.bEZ = 0;
-        this.bJQ = 0;
+        this.bKi = 0;
+        this.bOY = 0;
     }
 
     public HorizontalAlphaGradientView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bEZ = 0;
-        this.bJQ = 0;
+        this.bKi = 0;
+        this.bOY = 0;
     }
 
     public HorizontalAlphaGradientView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bEZ = 0;
-        this.bJQ = 0;
+        this.bKi = 0;
+        this.bOY = 0;
     }
 
     public void setColor(int i, int i2) {
-        this.bEZ = i;
-        this.bJQ = i2;
+        this.bKi = i;
+        this.bOY = i2;
     }
 
     public void setNeedAlphaShade(boolean z) {
         if (z) {
-            this.bJP = getResources().getDimensionPixelSize(a.d.sdk_ds28);
-            this.bkA = new Paint();
-            this.bkA.setStyle(Paint.Style.FILL_AND_STROKE);
-            setLayerType(0, this.bkA);
-            this.bkA.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
-            this.bkA.setShader(new LinearGradient(0.0f, 0.0f, this.bJP, 0.0f, this.bEZ, this.bJQ, Shader.TileMode.CLAMP));
+            this.bOX = getResources().getDimensionPixelSize(a.d.sdk_ds28);
+            this.bpJ = new Paint();
+            this.bpJ.setStyle(Paint.Style.FILL_AND_STROKE);
+            setLayerType(0, this.bpJ);
+            this.bpJ.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
+            this.bpJ.setShader(new LinearGradient(0.0f, 0.0f, this.bOX, 0.0f, this.bKi, this.bOY, Shader.TileMode.CLAMP));
         } else {
-            this.bJP = 0;
-            this.bkA = null;
+            this.bOX = 0;
+            this.bpJ = null;
         }
         invalidate();
     }
@@ -59,8 +59,8 @@ public class HorizontalAlphaGradientView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.bkA != null) {
-            canvas.drawRect(0.0f, 0.0f, this.bJP, getHeight(), this.bkA);
+        if (this.bpJ != null) {
+            canvas.drawRect(0.0f, 0.0f, this.bOX, getHeight(), this.bpJ);
         }
     }
 }

@@ -3,39 +3,30 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class am {
-    public int aLV;
-    public String aLW;
-    public int aLX;
-    public int aLY;
-    public ao aLZ;
-    public int aMa;
-    public String aMb;
-    public int status;
+    private int aOP;
+    private int aOQ;
+    private int aOR;
 
     public void parseJson(JSONObject jSONObject) {
-        this.aLV = jSONObject.optInt("taskid");
-        this.aLW = jSONObject.optString("taskname");
-        this.status = jSONObject.optInt("status");
-        this.aLX = jSONObject.optInt("cur_step");
-        this.aLY = jSONObject.optInt("total_step");
-        JSONObject optJSONObject = jSONObject.optJSONObject("param");
-        if (optJSONObject != null) {
-            this.aLZ = new ao();
-            this.aLZ.parseJson(optJSONObject);
+        if (jSONObject != null) {
+            this.aOP = jSONObject.optInt("category_select_switch", 0);
+            this.aOQ = jSONObject.optInt("im_audience_watch_switch", 0);
+            this.aOR = jSONObject.optInt("im_audience_watch_time", 60);
         }
-        this.aMa = jSONObject.optInt("award_num");
-        this.aMb = jSONObject.optString("taskdetail");
     }
 
-    public boolean DV() {
-        return this.aLV == 1;
+    public static boolean FD() {
+        return (com.baidu.live.ae.a.RB().brA == null || com.baidu.live.ae.a.RB().brA.aOE == null || com.baidu.live.ae.a.RB().brA.aOE.aOP != 1) ? false : true;
     }
 
-    public boolean DW() {
-        return this.aLV == 6;
+    public static boolean FE() {
+        return (com.baidu.live.ae.a.RB().brA == null || com.baidu.live.ae.a.RB().brA.aOE == null || com.baidu.live.ae.a.RB().brA.aOE.aOQ != 1) ? false : true;
     }
 
-    public boolean DX() {
-        return this.status == 2;
+    public static int FF() {
+        if (com.baidu.live.ae.a.RB().brA == null || com.baidu.live.ae.a.RB().brA.aOE == null) {
+            return 0;
+        }
+        return com.baidu.live.ae.a.RB().brA.aOE.aOR;
     }
 }

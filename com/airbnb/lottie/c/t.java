@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes7.dex */
 public class t {
     public static com.airbnb.lottie.e d(JsonReader jsonReader) throws IOException {
         float lb = com.airbnb.lottie.d.f.lb();
@@ -118,7 +118,7 @@ public class t {
                     case 5:
                         String[] split = jsonReader.nextString().split("\\.");
                         if (!com.airbnb.lottie.d.f.b(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]), 4, 4, 0)) {
-                            eVar.bc("Lottie only supports bodymovin >= 4.4.0");
+                            eVar.bf("Lottie only supports bodymovin >= 4.4.0");
                             break;
                         } else {
                             break;

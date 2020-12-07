@@ -3,6 +3,6 @@ package com.baidu.tbadk.b;
 public class h {
     public int errorCode = 0;
     public String errorString = null;
-    public String esx;
+    public String ezA;
     public boolean result;
 }

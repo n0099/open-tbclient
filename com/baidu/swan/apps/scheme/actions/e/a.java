@@ -13,7 +13,7 @@ import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/hideLoading");
@@ -29,25 +29,25 @@ public class a extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
             return false;
         }
-        f afe = ((SwanAppActivity) context).afe();
-        if (afe == null) {
+        f aim = ((SwanAppActivity) context).aim();
+        if (aim == null) {
             com.baidu.swan.apps.console.c.e("hideLoading", "none fragmentManger");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragmentManger");
             return false;
         }
-        com.baidu.swan.apps.core.d.c aot = afe.aot();
-        if (!(aot instanceof a.InterfaceC0468a)) {
+        com.baidu.swan.apps.core.d.c arB = aim.arB();
+        if (!(arB instanceof a.InterfaceC0480a)) {
             com.baidu.swan.apps.console.c.e("hideLoading", "fragment not support");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
             return false;
-        } else if (aot.getContext() == null) {
+        } else if (arB.getContext() == null) {
             com.baidu.swan.apps.console.c.e("hideLoading", "fragment has detached");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment has detached");
             return false;
         } else {
-            com.baidu.swan.apps.res.widget.floatlayer.a aeZ = ((a.InterfaceC0468a) aot).aeZ();
-            if (aeZ != null && (aeZ.getView() instanceof FrameLayout) && (((FrameLayout) aeZ.getView()).getChildAt(0) instanceof LoadingView)) {
-                aeZ.reset();
+            com.baidu.swan.apps.res.widget.floatlayer.a aih = ((a.InterfaceC0480a) arB).aih();
+            if (aih != null && (aih.getView() instanceof FrameLayout) && (((FrameLayout) aih.getView()).getChildAt(0) instanceof LoadingView)) {
+                aih.reset();
             }
             com.baidu.swan.apps.console.c.i("hideLoading", "hide loading success");
             unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);

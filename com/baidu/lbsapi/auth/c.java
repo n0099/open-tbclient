@@ -4,23 +4,23 @@ import android.content.Context;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1834a;
+    private Context f1836a;
     private HashMap<String, String> b = null;
     private a<String> c = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public interface a<Result> {
         void a(Result result);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context) {
-        this.f1834a = context;
+        this.f1836a = context;
     }
 
     private HashMap<String, String> a(HashMap<String, String> hashMap) {

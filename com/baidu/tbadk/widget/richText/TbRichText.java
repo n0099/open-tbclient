@@ -13,79 +13,79 @@ import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class TbRichText extends OrmObject {
     public int appendLength;
-    private ArrayList<TbRichTextImageInfo> fFq;
-    private ArrayList<TbRichTextItem> fHK;
-    private ArrayList<TbRichTextData> fHL;
-    private String fHM;
-    private String fHN;
-    private String fHO;
-    private int fHP;
-    private String fHQ;
+    private ArrayList<TbRichTextImageInfo> fNc;
+    private String fPA;
+    private String fPB;
+    private int fPC;
+    private String fPD;
+    private ArrayList<TbRichTextItem> fPx;
+    private ArrayList<TbRichTextData> fPy;
+    private String fPz;
     public boolean hasAppendTime;
     public boolean isChanged;
     private long postId;
 
     public String getAuthorId() {
-        return this.fHQ;
+        return this.fPD;
     }
 
     public void setAuthorId(String str) {
-        this.fHQ = str;
+        this.fPD = str;
     }
 
-    public void sW(int i) {
-        this.fHP = i;
+    public void tz(int i) {
+        this.fPC = i;
     }
 
     public TbRichText(Context context, JSONArray jSONArray, int i) {
         this.postId = -1L;
-        this.fHK = null;
-        this.fHL = null;
-        this.fHP = 0;
-        this.fHQ = "";
+        this.fPx = null;
+        this.fPy = null;
+        this.fPC = 0;
+        this.fPD = "";
         this.isChanged = false;
         a(context, jSONArray, i, false);
     }
 
     public TbRichText(Context context, List<PbContent> list, boolean z) {
         this.postId = -1L;
-        this.fHK = null;
-        this.fHL = null;
-        this.fHP = 0;
-        this.fHQ = "";
+        this.fPx = null;
+        this.fPy = null;
+        this.fPC = 0;
+        this.fPD = "";
         this.isChanged = false;
         a(context, list, -1, z);
     }
 
     public TbRichText(Context context, JSONArray jSONArray, boolean z) {
         this.postId = -1L;
-        this.fHK = null;
-        this.fHL = null;
-        this.fHP = 0;
-        this.fHQ = "";
+        this.fPx = null;
+        this.fPy = null;
+        this.fPC = 0;
+        this.fPD = "";
         this.isChanged = false;
         a(context, jSONArray, -1, z);
     }
 
     private void a(Context context, JSONArray jSONArray, int i, boolean z) {
         if (jSONArray != null) {
-            this.fHK = new ArrayList<>();
+            this.fPx = new ArrayList<>();
             int length = jSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
                 TbRichTextItem tbRichTextItem = new TbRichTextItem();
                 tbRichTextItem.parserJson(jSONArray.optJSONObject(i2));
                 if ((tbRichTextItem.getType() & i) != 0) {
-                    this.fHK.add(tbRichTextItem);
+                    this.fPx.add(tbRichTextItem);
                 }
             }
-            p(context, z);
-            eC(context);
+            u(context, z);
+            fi(context);
         }
     }
 
     private void a(Context context, List<PbContent> list, int i, boolean z) {
         if (list != null) {
-            this.fHK = new ArrayList<>();
+            this.fPx = new ArrayList<>();
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
                 PbContent pbContent = list.get(i2);
@@ -93,153 +93,153 @@ public class TbRichText extends OrmObject {
                     TbRichTextItem tbRichTextItem = new TbRichTextItem();
                     tbRichTextItem.a(pbContent);
                     if ((tbRichTextItem.getType() & i) != 0) {
-                        this.fHK.add(tbRichTextItem);
+                        this.fPx.add(tbRichTextItem);
                     }
                 }
             }
-            p(context, z);
-            eC(context);
+            u(context, z);
+            fi(context);
         }
     }
 
     public TbRichText(Context context, ArrayList<TbRichTextData> arrayList) {
         this.postId = -1L;
-        this.fHK = null;
-        this.fHL = null;
-        this.fHP = 0;
-        this.fHQ = "";
+        this.fPx = null;
+        this.fPy = null;
+        this.fPC = 0;
+        this.fPD = "";
         this.isChanged = false;
-        this.fHL = arrayList;
-        eC(context);
+        this.fPy = arrayList;
+        fi(context);
     }
 
-    private void eC(Context context) {
-        this.fHM = context.getString(R.string.pic_str);
-        this.fHN = context.getString(R.string.voice_str);
-        this.fHO = context.getString(R.string.video_text);
+    private void fi(Context context) {
+        this.fPz = context.getString(R.string.pic_str);
+        this.fPA = context.getString(R.string.voice_str);
+        this.fPB = context.getString(R.string.video_text);
     }
 
-    private void p(Context context, boolean z) {
-        if (this.fHK != null) {
-            this.fHL = new ArrayList<>();
-            if (this.fFq != null) {
-                this.fFq.clear();
+    private void u(Context context, boolean z) {
+        if (this.fPx != null) {
+            this.fPy = new ArrayList<>();
+            if (this.fNc != null) {
+                this.fNc.clear();
             } else {
-                this.fFq = new ArrayList<>();
+                this.fNc = new ArrayList<>();
             }
-            Iterator<TbRichTextItem> it = this.fHK.iterator();
+            Iterator<TbRichTextItem> it = this.fPx.iterator();
             TbRichTextData tbRichTextData = null;
             while (it.hasNext()) {
                 TbRichTextItem next = it.next();
                 if (next != null) {
                     if (next.getType() == 8) {
                         if (tbRichTextData != null) {
-                            this.fHL.add(tbRichTextData);
+                            this.fPy.add(tbRichTextData);
                             tbRichTextData = null;
                         }
                         TbRichTextData tbRichTextData2 = new TbRichTextData(8);
-                        tbRichTextData2.a(next.bFh());
-                        this.fHL.add(tbRichTextData2);
-                        this.fFq.add(next.bFh());
+                        tbRichTextData2.a(next.bII());
+                        this.fPy.add(tbRichTextData2);
+                        this.fNc.add(next.bII());
                     } else if (z && next.getType() == 32) {
                         if (tbRichTextData != null) {
-                            this.fHL.add(tbRichTextData);
+                            this.fPy.add(tbRichTextData);
                         }
                         TbRichTextData tbRichTextData3 = new TbRichTextData(32);
                         tbRichTextData3.setVideoUrl(next.getVideoUrl());
-                        tbRichTextData3.a(next.bFl());
-                        this.fHL.add(tbRichTextData3);
+                        tbRichTextData3.a(next.bIM());
+                        this.fPy.add(tbRichTextData3);
                         tbRichTextData = new TbRichTextData(1);
-                        CharSequence U = next.U(tbRichTextData.bFg());
+                        CharSequence U = next.U(tbRichTextData.bIH());
                         if (U != null) {
-                            tbRichTextData.p(U);
+                            tbRichTextData.q(U);
                         }
                     } else if (next.getType() == 512) {
                         if (tbRichTextData != null) {
-                            this.fHL.add(tbRichTextData);
+                            this.fPy.add(tbRichTextData);
                             tbRichTextData = null;
                         }
                         TbRichTextData tbRichTextData4 = new TbRichTextData(512);
-                        tbRichTextData4.a(next.bFj());
-                        this.fHL.add(tbRichTextData4);
+                        tbRichTextData4.a(next.bIK());
+                        this.fPy.add(tbRichTextData4);
                     } else if (next.getType() == 17) {
                         if (tbRichTextData != null) {
-                            this.fHL.add(tbRichTextData);
+                            this.fPy.add(tbRichTextData);
                             tbRichTextData = null;
                         }
                         TbRichTextData tbRichTextData5 = new TbRichTextData(17);
-                        tbRichTextData5.a(next.bFm());
-                        this.fHL.add(tbRichTextData5);
+                        tbRichTextData5.a(next.bIN());
+                        this.fPy.add(tbRichTextData5);
                     } else if (next.getType() == 20) {
                         if (tbRichTextData != null) {
-                            this.fHL.add(tbRichTextData);
+                            this.fPy.add(tbRichTextData);
                             tbRichTextData = null;
                         }
                         TbRichTextData tbRichTextData6 = new TbRichTextData(20);
-                        tbRichTextData6.a(next.bFn());
-                        this.fHL.add(tbRichTextData6);
+                        tbRichTextData6.a(next.bIO());
+                        this.fPy.add(tbRichTextData6);
                     } else if (next.getType() == 1280) {
                         if (tbRichTextData != null) {
-                            this.fHL.add(tbRichTextData);
+                            this.fPy.add(tbRichTextData);
                             tbRichTextData = null;
                         }
                         TbRichTextData tbRichTextData7 = new TbRichTextData(PlatformPlugin.DEFAULT_SYSTEM_UI);
-                        tbRichTextData7.a(next.bFp());
-                        this.fHL.add(tbRichTextData7);
+                        tbRichTextData7.a(next.bIQ());
+                        this.fPy.add(tbRichTextData7);
                     } else {
                         if (tbRichTextData == null) {
                             tbRichTextData = new TbRichTextData(1);
                         }
                         if (next.getType() == 1024) {
                             TbRichTextData tbRichTextData8 = new TbRichTextData(1024);
-                            tbRichTextData8.a(next.bFF());
-                            this.fHL.add(tbRichTextData8);
+                            tbRichTextData8.a(next.bJf());
+                            this.fPy.add(tbRichTextData8);
                         }
                         if (next.getType() == 18 || next.getType() == 2) {
-                            tbRichTextData.kV(true);
+                            tbRichTextData.lp(true);
                         }
-                        CharSequence U2 = next.U(tbRichTextData.bFg());
+                        CharSequence U2 = next.U(tbRichTextData.bIH());
                         if (U2 != null) {
-                            tbRichTextData.p(U2);
+                            tbRichTextData.q(U2);
                         }
                     }
                 }
             }
             if (tbRichTextData != null) {
-                this.fHL.add(tbRichTextData);
+                this.fPy.add(tbRichTextData);
             }
-            this.fHK.clear();
-            this.fHK = null;
+            this.fPx.clear();
+            this.fPx = null;
         }
     }
 
-    public ArrayList<TbRichTextData> bFb() {
-        return this.fHL;
+    public ArrayList<TbRichTextData> bIC() {
+        return this.fPy;
     }
 
     public String toString() {
-        if (this.fHL == null) {
+        if (this.fPy == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder(100);
-        int size = this.fHL.size();
+        int size = this.fPy.size();
         for (int i = 0; i < size; i++) {
-            TbRichTextData tbRichTextData = this.fHL.get(i);
+            TbRichTextData tbRichTextData = this.fPy.get(i);
             String tbRichTextData2 = tbRichTextData.toString();
-            if (tbRichTextData.getType() == 1 && tbRichTextData.bFo() > 0) {
-                tbRichTextData2 = tbRichTextData2.substring(tbRichTextData.bFo());
+            if (tbRichTextData.getType() == 1 && tbRichTextData.bIP() > 0) {
+                tbRichTextData2 = tbRichTextData2.substring(tbRichTextData.bIP());
             }
             if (i == size - 1 && tbRichTextData.getType() == 1 && this.hasAppendTime) {
                 sb.append(tbRichTextData2.substring(0, tbRichTextData2.length() - this.appendLength));
             } else if (tbRichTextData.getType() == 8) {
-                sb.append(this.fHM);
+                sb.append(this.fPz);
             } else if (tbRichTextData.getType() == 512) {
-                sb.append(this.fHN);
-            } else if (tbRichTextData.getType() == 32 && tbRichTextData.bFl() != null) {
-                if (StringUtils.isNull(tbRichTextData.bFl().bFT())) {
+                sb.append(this.fPA);
+            } else if (tbRichTextData.getType() == 32 && tbRichTextData.bIM() != null) {
+                if (StringUtils.isNull(tbRichTextData.bIM().bJt())) {
                     sb.append(tbRichTextData2);
                 } else {
-                    sb.append(this.fHO).append(tbRichTextData.bFl().bFT());
+                    sb.append(this.fPB).append(tbRichTextData.bIM().bJt());
                 }
             } else {
                 sb.append(tbRichTextData2);
@@ -256,14 +256,14 @@ public class TbRichText extends OrmObject {
         return this.postId;
     }
 
-    public int aAq() {
-        if (this.fFq == null) {
+    public int aDz() {
+        if (this.fNc == null) {
             return 0;
         }
-        return this.fFq.size();
+        return this.fNc.size();
     }
 
-    public ArrayList<TbRichTextImageInfo> bFc() {
-        return this.fFq;
+    public ArrayList<TbRichTextImageInfo> bID() {
+        return this.fNc;
     }
 }

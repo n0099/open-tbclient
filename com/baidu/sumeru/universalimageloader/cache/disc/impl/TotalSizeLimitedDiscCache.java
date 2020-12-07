@@ -5,7 +5,7 @@ import com.baidu.sumeru.universalimageloader.cache.disc.naming.FileNameGenerator
 import com.baidu.sumeru.universalimageloader.core.DefaultConfigurationFactory;
 import com.baidu.sumeru.universalimageloader.utils.L;
 import java.io.File;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class TotalSizeLimitedDiscCache extends LimitedDiscCache {
     private static final int MIN_NORMAL_CACHE_SIZE = 2097152;
     private static final int MIN_NORMAL_CACHE_SIZE_IN_MB = 2;

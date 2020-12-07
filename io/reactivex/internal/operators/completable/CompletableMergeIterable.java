@@ -7,16 +7,16 @@ import io.reactivex.e;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class CompletableMergeIterable extends a {
-    final Iterable<? extends e> pOj;
+    final Iterable<? extends e> pFc;
 
     @Override // io.reactivex.a
     public void b(c cVar) {
         io.reactivex.disposables.a aVar = new io.reactivex.disposables.a();
         cVar.onSubscribe(aVar);
         try {
-            Iterator it = (Iterator) io.reactivex.internal.functions.a.l(this.pOj.iterator(), "The source iterator returned is null");
+            Iterator it = (Iterator) io.reactivex.internal.functions.a.m(this.pFc.iterator(), "The source iterator returned is null");
             AtomicInteger atomicInteger = new AtomicInteger(1);
             MergeCompletableObserver mergeCompletableObserver = new MergeCompletableObserver(cVar, aVar, atomicInteger);
             while (!aVar.isDisposed()) {
@@ -24,7 +24,7 @@ public final class CompletableMergeIterable extends a {
                     if (it.hasNext()) {
                         if (!aVar.isDisposed()) {
                             try {
-                                e eVar = (e) io.reactivex.internal.functions.a.l(it.next(), "The iterator returned a null CompletableSource");
+                                e eVar = (e) io.reactivex.internal.functions.a.m(it.next(), "The iterator returned a null CompletableSource");
                                 if (!aVar.isDisposed()) {
                                     atomicInteger.getAndIncrement();
                                     eVar.a(mergeCompletableObserver);
@@ -57,7 +57,7 @@ public final class CompletableMergeIterable extends a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class MergeCompletableObserver extends AtomicBoolean implements c {
         private static final long serialVersionUID = -7730517613164279224L;
         final c actual;
@@ -81,7 +81,7 @@ public final class CompletableMergeIterable extends a {
             if (compareAndSet(false, true)) {
                 this.actual.onError(th);
             } else {
-                io.reactivex.e.a.onError(th);
+                io.reactivex.d.a.onError(th);
             }
         }
 

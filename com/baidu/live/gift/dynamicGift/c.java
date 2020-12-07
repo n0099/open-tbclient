@@ -3,8 +3,8 @@ package com.baidu.live.gift.dynamicGift;
 import android.graphics.Bitmap;
 /* loaded from: classes4.dex */
 public class c {
-    public int baL = 1;
-    public boolean baM = false;
+    public int ben = 1;
+    public boolean beo = false;
     public Bitmap bitmap;
     public String filePath;
 

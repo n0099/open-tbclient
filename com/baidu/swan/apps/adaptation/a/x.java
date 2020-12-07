@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.baidu.swan.apps.p.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public interface x {
     boolean D(@Nullable Activity activity);
 

@@ -16,13 +16,13 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public final class a {
-    private static HashMap<String, Integer> dCf = new HashMap<>();
-    private static HashMap<String, Integer> dCg = new HashMap<>();
-    private static HashMap<String, String> dCh = new HashMap<>();
-    private static HashMap<String, String> dCi = new HashMap<>();
-    private static final Pattern dCj;
+    private static HashMap<String, Integer> dJd = new HashMap<>();
+    private static HashMap<String, Integer> dJe = new HashMap<>();
+    private static HashMap<String, String> dJf = new HashMap<>();
+    private static HashMap<String, String> dJg = new HashMap<>();
+    private static final Pattern dJh;
 
     static {
         h("application/andrew-inset", "ez", 5);
@@ -343,26 +343,26 @@ public final class a {
         h("audio/aac", TranscoderPlugin.AUDIO_CODEC, 1);
         h("application/vnd.rn-realmedia", "rm", 0);
         h("message/rfc822", "mht", 11);
-        dCj = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        dJh = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void h(String str, String str2, int i) {
-        dCf.put(str2, Integer.valueOf(i));
-        dCg.put(str, Integer.valueOf(i));
-        dCh.put(str2, str);
-        if (!dCi.containsKey(str)) {
-            dCi.put(str, str2);
+        dJd.put(str2, Integer.valueOf(i));
+        dJe.put(str, Integer.valueOf(i));
+        dJf.put(str2, str);
+        if (!dJg.containsKey(str)) {
+            dJg.put(str, str2);
         }
     }
 
-    public static int eg(String str, String str2) {
-        return x(!TextUtils.isEmpty(str) ? str.toLowerCase() : "", str2, true);
+    public static int eo(String str, String str2) {
+        return y(!TextUtils.isEmpty(str) ? str.toLowerCase() : "", str2, true);
     }
 
-    public static int x(String str, String str2, boolean z) {
-        Integer num = dCg.get(str2);
+    public static int y(String str, String str2, boolean z) {
+        Integer num = dJe.get(str2);
         if (num == null) {
-            num = dCf.get(str);
+            num = dJd.get(str);
             if (num == null) {
                 num = 5;
             } else if (z && num.intValue() == 8) {
@@ -374,7 +374,7 @@ public final class a {
         return num.intValue();
     }
 
-    public static String ue(String str) {
+    public static String uL(String str) {
         int lastIndexOf;
         if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) {
             return "";
@@ -382,21 +382,21 @@ public final class a {
         return str.substring(lastIndexOf + 1);
     }
 
-    public static String ug(String str) {
+    public static String uN(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return dCh.get(str);
+        return dJf.get(str);
     }
 
-    public static String ER(String str) {
+    public static String FF(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return dCi.get(str);
+        return dJg.get(str);
     }
 
-    public static String ao(String str, String str2, String str3) {
+    public static String aq(String str, String str2, String str3) {
         String str4;
         String str5;
         int lastIndexOf;
@@ -405,7 +405,7 @@ public final class a {
         if (0 != 0 || str2 == null) {
             str4 = null;
         } else {
-            str4 = ES(str2);
+            str4 = FG(str2);
             if (str4 != null && (lastIndexOf2 = str4.lastIndexOf(File.separator) + 1) > 0) {
                 str4 = str4.substring(lastIndexOf2);
             }
@@ -452,14 +452,14 @@ public final class a {
         } else {
             if (str3 != null) {
                 String substring = str4.substring(str4.lastIndexOf(".") + 1);
-                String ER = ER(str3);
+                String FF = FF(str3);
                 String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str3);
                 String lowerCase = !TextUtils.isEmpty(substring) ? substring.toLowerCase() : "";
-                String lowerCase2 = !TextUtils.isEmpty(ER) ? ER.toLowerCase() : "";
+                String lowerCase2 = !TextUtils.isEmpty(FF) ? FF.toLowerCase() : "";
                 String lowerCase3 = !TextUtils.isEmpty(extensionFromMimeType) ? extensionFromMimeType.toLowerCase() : "";
-                String ug = ug(lowerCase);
+                String uN = uN(lowerCase);
                 String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lowerCase);
-                String lowerCase4 = !TextUtils.isEmpty(ug) ? ug.toLowerCase() : "";
+                String lowerCase4 = !TextUtils.isEmpty(uN) ? uN.toLowerCase() : "";
                 String lowerCase5 = !TextUtils.isEmpty(mimeTypeFromExtension) ? mimeTypeFromExtension.toLowerCase() : "";
                 if (TextUtils.equals(lowerCase4, lowerCase5)) {
                     if (!TextUtils.isEmpty(lowerCase2) && TextUtils.equals(lowerCase2, lowerCase3)) {
@@ -503,9 +503,9 @@ public final class a {
         return null;
     }
 
-    static String ES(String str) {
+    static String FG(String str) {
         try {
-            Matcher matcher = dCj.matcher(str);
+            Matcher matcher = dJh.matcher(str);
             if (matcher.find()) {
                 return matcher.group(2);
             }

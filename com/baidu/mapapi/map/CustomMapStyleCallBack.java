@@ -1,5 +1,5 @@
 package com.baidu.mapapi.map;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public interface CustomMapStyleCallBack {
     boolean onCustomMapStyleLoadFailed(int i, String str, String str2);
 

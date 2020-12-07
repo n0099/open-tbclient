@@ -1,55 +1,50 @@
 package com.baidu.live.ab;
 
-import android.view.ViewGroup;
-import com.baidu.live.data.w;
+import android.graphics.drawable.Drawable;
+import com.baidu.live.ai.a;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.util.IResourceAdapter;
+import com.baidu.live.tbadk.widget.CommonEmptyView;
 /* loaded from: classes4.dex */
-public interface a {
-
-    /* renamed from: com.baidu.live.ab.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0166a {
-        void J(Object obj);
-
-        void PC();
-
-        void PD();
-
-        int PE();
-
-        int PF();
-
-        int PG();
-
-        int getImMsgListViewHeight();
+public class a implements IResourceAdapter {
+    @Override // com.baidu.live.tbadk.util.IResourceAdapter
+    public Drawable getEmotionDrawable(CommonEmptyView.ImgType imgType, CommonEmptyView.StyleType styleType) {
+        int i = 0;
+        if (styleType == CommonEmptyView.StyleType.DARK) {
+            if (imgType == CommonEmptyView.ImgType.NO_NET) {
+                i = a.b.sdk_pic_live_empty01_d_tb;
+            } else if (imgType == CommonEmptyView.ImgType.SERVER_ERROR) {
+                i = a.b.sdk_pic_live_empty02_d_tb;
+            } else if (imgType == CommonEmptyView.ImgType.NO_DATA) {
+                i = a.b.sdk_pic_live_empty03_d_tb;
+            } else if (imgType == CommonEmptyView.ImgType.NO_RANK_LIST) {
+                i = a.b.sdk_pic_live_empty04_d_tb;
+            } else if (imgType == CommonEmptyView.ImgType.NO_FOLLOW) {
+                i = a.b.sdk_pic_live_empty05_d_tb;
+            } else if (imgType == CommonEmptyView.ImgType.NO_FAN) {
+                i = a.b.sdk_pic_live_empty06_d_tb;
+            }
+        } else if (imgType == CommonEmptyView.ImgType.NO_NET) {
+            i = a.b.sdk_pic_live_empty01_tb;
+        } else if (imgType == CommonEmptyView.ImgType.SERVER_ERROR) {
+            i = a.b.sdk_pic_live_empty02_tb;
+        } else if (imgType == CommonEmptyView.ImgType.NO_DATA) {
+            i = a.b.sdk_pic_live_empty03_tb;
+        } else if (imgType == CommonEmptyView.ImgType.NO_RANK_LIST) {
+            i = a.b.sdk_pic_live_empty04_tb;
+        } else if (imgType == CommonEmptyView.ImgType.NO_FOLLOW) {
+            i = a.b.sdk_pic_live_empty05_tb;
+        } else if (imgType == CommonEmptyView.ImgType.NO_FAN) {
+            i = a.b.sdk_pic_live_empty06_tb;
+        }
+        if (i == 0) {
+            return null;
+        }
+        try {
+            return TbadkCoreApplication.getInst().getResources().getDrawable(i);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
-
-    void PA();
-
-    void PB();
-
-    void a(InterfaceC0166a interfaceC0166a);
-
-    void a(com.baidu.live.g.a aVar);
-
-    void a(com.baidu.live.liveroom.b.a aVar);
-
-    void cz(boolean z);
-
-    void fa(int i);
-
-    void fb(int i);
-
-    void onDestroy();
-
-    void onKeyboardVisibilityChanged(boolean z);
-
-    void q(ViewGroup viewGroup);
-
-    void r(ViewGroup viewGroup);
-
-    void s(ViewGroup viewGroup);
-
-    void setLiveShowInfo(w wVar);
-
-    void setStickerCanOperate(boolean z);
 }

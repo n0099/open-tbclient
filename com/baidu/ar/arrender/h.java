@@ -1,60 +1,31 @@
 package com.baidu.ar.arrender;
-/* loaded from: classes12.dex */
-public class h extends com.baidu.ar.ability.c {
-    private String hE;
-    private String hF;
-    private Object hG;
-    private a hH;
+/* loaded from: classes10.dex */
+public class h {
+    private int hP;
+    private int hQ = 0;
+    private long hR = 0;
 
-    /* loaded from: classes12.dex */
-    public enum a {
-        INT,
-        FLOAT,
-        FLOAT_ARRAY,
-        STRING
+    public h(int i) {
+        this.hP = 33;
+        if (i > 0) {
+            this.hP = 1000 / i;
+        }
     }
 
-    public void K(String str) {
-        this.hF = str;
-    }
-
-    public void L(String str) {
-        this.hG = str;
-        this.hH = a.STRING;
-    }
-
-    public void b(float f) {
-        this.hG = Float.valueOf(f);
-        this.hH = a.FLOAT;
-    }
-
-    public void b(float[] fArr) {
-        this.hG = fArr;
-        this.hH = a.FLOAT_ARRAY;
-    }
-
-    public String bR() {
-        return this.hF;
-    }
-
-    public Object bS() {
-        return this.hG;
-    }
-
-    public a bT() {
-        return this.hH;
-    }
-
-    public String getFilterName() {
-        return this.hE;
-    }
-
-    public void p(int i) {
-        this.hG = Integer.valueOf(i);
-        this.hH = a.INT;
-    }
-
-    public void setFilterName(String str) {
-        this.hE = str;
+    public boolean bP() {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (this.hR == 0) {
+            this.hR = currentTimeMillis;
+        }
+        long j = currentTimeMillis % 1000;
+        if (currentTimeMillis / 1000 != this.hR / 1000) {
+            this.hR = currentTimeMillis;
+            this.hQ = 0;
+        }
+        if (this.hQ * this.hP < j) {
+            this.hQ++;
+            return true;
+        }
+        return false;
     }
 }

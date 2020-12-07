@@ -20,15 +20,15 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.postsearch.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class e extends BaseAdapter {
     private static final int MAX_SIZE = TbadkCoreApplication.getInst().getListItemRule().getMaxCache();
-    private TbPageContext<?> eGu;
-    private int hBg = -1;
+    private TbPageContext<?> eNx;
+    private int hKL = -1;
     private List<b.a> mData = new ArrayList();
 
     public e(TbPageContext<?> tbPageContext) {
-        this.eGu = tbPageContext;
+        this.eNx = tbPageContext;
     }
 
     public void setData(List<b.a> list) {
@@ -59,13 +59,13 @@ public class e extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = LayoutInflater.from(this.eGu.getPageActivity()).inflate(R.layout.post_search_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.eNx.getPageActivity()).inflate(R.layout.post_search_list_item, (ViewGroup) null);
             a aVar = new a();
-            aVar.mpd = (TextView) view.findViewById(R.id.title_text);
-            aVar.mpe = (TextView) view.findViewById(R.id.content_text);
-            aVar.mpf = (TextView) view.findViewById(R.id.label_text);
-            aVar.hBR = (TextView) view.findViewById(R.id.user_name);
-            aVar.mpg = (TextView) view.findViewById(R.id.time_text);
+            aVar.mDi = (TextView) view.findViewById(R.id.title_text);
+            aVar.mDj = (TextView) view.findViewById(R.id.content_text);
+            aVar.mDk = (TextView) view.findViewById(R.id.label_text);
+            aVar.hLw = (TextView) view.findViewById(R.id.user_name);
+            aVar.mDl = (TextView) view.findViewById(R.id.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
@@ -75,69 +75,69 @@ public class e extends BaseAdapter {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 str = "#99260f";
             }
-            aVar2.mpd.setText(Html.fromHtml(au.getHighLightString(aVar3.title, str)));
-            aVar2.mpe.setText(Html.fromHtml(au.getHighLightString(aVar3.content, str)));
-            aVar2.hBR.setText(aVar3.name_show);
-            aVar2.mpg.setText(au.getFormatTime(aVar3.time));
-            aVar2.mpf.setVisibility(0);
+            aVar2.mDi.setText(Html.fromHtml(au.getHighLightString(aVar3.title, str)));
+            aVar2.mDj.setText(Html.fromHtml(au.getHighLightString(aVar3.content, str)));
+            aVar2.hLw.setText(aVar3.name_show);
+            aVar2.mDl.setText(au.getFormatTime(aVar3.time));
+            aVar2.mDk.setVisibility(0);
             if (aVar3.is_floor == 1) {
-                aVar2.mpf.setText(R.string.floor_text);
-            } else if (aVar3.moC == 1) {
-                aVar2.mpf.setText(R.string.reply_post);
+                aVar2.mDk.setText(R.string.floor_text);
+            } else if (aVar3.mCG == 1) {
+                aVar2.mDk.setText(R.string.reply_post);
             } else {
-                aVar2.mpf.setVisibility(8);
+                aVar2.mDk.setVisibility(8);
             }
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (e.this.eGu != null) {
+                    if (e.this.eNx != null) {
                         e.this.a(aVar3);
                         if (aVar3.is_floor == 1) {
-                            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(e.this.eGu.getPageActivity()).createSubPbActivityConfig(aVar3.tid + "", aVar3.pid + "", "search_post", true);
+                            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(e.this.eNx.getPageActivity()).createSubPbActivityConfig(aVar3.tid + "", aVar3.pid + "", "search_post", true);
                             createSubPbActivityConfig.setKeyPageStartFrom(8);
-                            e.this.eGu.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createSubPbActivityConfig));
+                            e.this.eNx.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createSubPbActivityConfig));
                             return;
                         }
-                        PbActivityConfig createNormalCfg = new PbActivityConfig(e.this.eGu.getPageActivity()).createNormalCfg(aVar3.tid + "", aVar3.pid + "", "search_post");
+                        PbActivityConfig createNormalCfg = new PbActivityConfig(e.this.eNx.getPageActivity()).createNormalCfg(aVar3.tid + "", aVar3.pid + "", "search_post");
                         createNormalCfg.setStartFrom(8);
                         createNormalCfg.setSortType(0);
-                        e.this.eGu.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
+                        e.this.eNx.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
                     }
                 }
             });
             ap.setBackgroundColor(view, R.color.CAM_X0201);
-            com.baidu.tbadk.r.a.a(this.eGu, view);
+            com.baidu.tbadk.r.a.a(this.eNx, view);
         }
         return view;
     }
 
     public void setTabType(int i) {
-        this.hBg = i;
+        this.hKL = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b.a aVar) {
-        ar dR = new ar("c12405").dR("fname", aVar.fname).dR("uid", TbadkCoreApplication.getCurrentAccount());
-        if (this.hBg > 0) {
-            dR.ak("tab_id", this.hBg);
+        ar dY = new ar("c12405").dY("fname", aVar.fname).dY("uid", TbadkCoreApplication.getCurrentAccount());
+        if (this.hKL > 0) {
+            dY.al("tab_id", this.hKL);
         }
         if (aVar != null) {
-            if (aVar.is_floor == 1 || aVar.moC == 1) {
-                dR.w("pid", aVar.pid);
+            if (aVar.is_floor == 1 || aVar.mCG == 1) {
+                dY.w("pid", aVar.pid);
             } else {
-                dR.w("tid", aVar.tid);
+                dY.w("tid", aVar.tid);
             }
         }
-        TiebaStatic.log(dR);
+        TiebaStatic.log(dY);
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes24.dex */
     private static class a {
-        TextView hBR;
-        TextView mpd;
-        TextView mpe;
-        TextView mpf;
-        TextView mpg;
+        TextView hLw;
+        TextView mDi;
+        TextView mDj;
+        TextView mDk;
+        TextView mDl;
 
         private a() {
         }

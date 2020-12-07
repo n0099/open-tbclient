@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.b.c;
 
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public interface b {
-    void ax(JSONObject jSONObject);
+    void az(JSONObject jSONObject);
 
-    void hm(int i);
+    void hK(int i);
 }

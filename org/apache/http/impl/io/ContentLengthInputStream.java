@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import org.apache.http.io.SessionInputBuffer;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class ContentLengthInputStream extends InputStream {
     public ContentLengthInputStream(SessionInputBuffer sessionInputBuffer, long j) {
         throw new RuntimeException("Stub!");

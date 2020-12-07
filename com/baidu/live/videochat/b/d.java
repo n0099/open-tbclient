@@ -5,26 +5,26 @@ import com.baidu.live.data.AlaLiveUserInfoData;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
-    public AlaLiveUserInfoData aMK;
-    public AlaLiveInfoData aMY;
-    public a bGl;
+    public AlaLiveUserInfoData aPJ;
+    public AlaLiveInfoData aPX;
+    public a bLt;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
             if (optJSONObject != null) {
-                this.aMK = new AlaLiveUserInfoData();
-                this.aMK.parserJson(optJSONObject);
+                this.aPJ = new AlaLiveUserInfoData();
+                this.aPJ.parserJson(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("live_info");
             if (optJSONObject2 != null) {
-                this.aMY = new AlaLiveInfoData();
-                this.aMY.parserJson(optJSONObject2);
+                this.aPX = new AlaLiveInfoData();
+                this.aPX.parserJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("match_info");
             if (optJSONObject3 != null) {
-                this.bGl = new a();
-                this.bGl.parserJson(optJSONObject3);
+                this.bLt = new a();
+                this.bLt.parserJson(optJSONObject3);
             }
         }
     }

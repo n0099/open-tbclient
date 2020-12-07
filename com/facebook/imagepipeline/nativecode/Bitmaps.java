@@ -38,7 +38,7 @@ public class Bitmaps {
 
     @TargetApi(19)
     public static void a(Bitmap bitmap, int i, int i2, Bitmap.Config config) {
-        g.checkArgument(bitmap.getAllocationByteCount() >= (i * i2) * com.facebook.d.a.e(config));
+        g.checkArgument(bitmap.getAllocationByteCount() >= (i * i2) * com.facebook.d.a.d(config));
         bitmap.reconfigure(i, i2, config);
     }
 }

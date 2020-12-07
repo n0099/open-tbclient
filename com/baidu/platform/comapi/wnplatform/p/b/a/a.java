@@ -3,11 +3,11 @@ package com.baidu.platform.comapi.wnplatform.p.b.a;
 import android.content.Context;
 import android.os.Build;
 import android.util.DisplayMetrics;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3140a = -1;
+    private int f3142a = -1;
     private int b = -1;
     private float c = -1.0f;
     private int d = -1;
@@ -17,7 +17,7 @@ public class a {
 
     public void a(Context context) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        this.f3140a = displayMetrics.widthPixels;
+        this.f3142a = displayMetrics.widthPixels;
         this.b = displayMetrics.heightPixels;
         this.c = displayMetrics.density;
         this.d = (int) displayMetrics.xdpi;
@@ -40,10 +40,10 @@ public class a {
     }
 
     public int a() {
-        if (this.f3140a == -1) {
+        if (this.f3142a == -1) {
             a(com.baidu.platform.comapi.wnplatform.p.b.a.a());
         }
-        return this.f3140a;
+        return this.f3142a;
     }
 
     public int b() {

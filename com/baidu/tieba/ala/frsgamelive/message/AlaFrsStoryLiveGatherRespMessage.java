@@ -1,18 +1,18 @@
 package com.baidu.tieba.ala.frsgamelive.message;
 
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
     private boolean hasMore;
     private int liveCount;
-    private List<bx> liveList;
-    private List<bx> recommandList;
+    private List<by> liveList;
+    private List<by> recommandList;
 
     public AlaFrsStoryLiveGatherRespMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_FRS_STORY_LIVE_GATHER);
@@ -36,9 +36,9 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
             for (int i2 = 0; i2 < length; i2++) {
                 JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                 if (optJSONObject2 != null) {
-                    bx bxVar = new bx();
-                    bxVar.parserJson(optJSONObject2);
-                    this.liveList.add(bxVar);
+                    by byVar = new by();
+                    byVar.parserJson(optJSONObject2);
+                    this.liveList.add(byVar);
                 }
             }
         }
@@ -48,19 +48,19 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
             for (int i3 = 0; i3 < length2; i3++) {
                 JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                 if (optJSONObject3 != null) {
-                    bx bxVar2 = new bx();
-                    bxVar2.parserJson(optJSONObject3);
-                    this.recommandList.add(bxVar2);
+                    by byVar2 = new by();
+                    byVar2.parserJson(optJSONObject3);
+                    this.recommandList.add(byVar2);
                 }
             }
         }
     }
 
-    public List<bx> getLiveList() {
+    public List<by> getLiveList() {
         return this.liveList;
     }
 
-    public List<bx> getRecommandList() {
+    public List<by> getRecommandList() {
         return this.recommandList;
     }
 

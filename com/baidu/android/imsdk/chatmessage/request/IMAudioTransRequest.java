@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import android.webkit.CookieManager;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,7 +33,7 @@ import java.util.UUID;
 import org.apache.http.cookie.SM;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
     private static final String CHARSET = "utf-8";
     private static final String CONTENT_TYPE = "multipart/form-data";
@@ -71,7 +72,7 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                 str3 = jSONObject.optString("base64_file");
             } else {
                 i2 = jSONObject.getInt("error_code");
-                str2 = jSONObject.getString("error_msg");
+                str2 = jSONObject.getString(AlaRecorderLog.KEY_ERROR_MSG);
             }
         } catch (Exception e) {
             LogUtils.e(TAG, "deleteExpiredReliableMsgs :", e);
@@ -112,7 +113,7 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                 return "https://pim.baidu.com/rest/3.0/im/transcode";
             case 1:
             case 2:
-                return "http://cp01-ocean-749.epc.baidu.com:8111/rest/3.0/im/transcode";
+                return "http://rd-im-server.bcc-szth.baidu.com:8111/rest/3.0/im/transcode";
             case 3:
                 return "http://180.97.36.95:8080/rest/3.0/im/transcode";
             default:

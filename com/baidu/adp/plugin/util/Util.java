@@ -13,7 +13,6 @@ import com.baidu.adp.lib.util.s;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -38,7 +37,7 @@ public final class Util {
         public int step = 0;
     }
 
-    public static boolean qE() {
+    public static boolean qG() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -98,17 +97,17 @@ public final class Util {
         return ((short) ((bArr[i + 1] << 8) | (bArr[i] & 255))) & 65535;
     }
 
-    public static final boolean O(long j) {
-        long qG = qG();
+    public static final boolean M(long j) {
+        long qI = qI();
         if (j <= 0) {
-            return qG <= 0 || qG >= 31457280;
+            return qI <= 0 || qI >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < qG;
+        return (j2 <= 31457280 ? j2 : 31457280L) < qI;
     }
 
     public static a b(InputStream inputStream, File file) {
@@ -223,15 +222,15 @@ public final class Util {
         }
     }
 
-    public static File cV(String str) {
-        PluginSetting cA = PluginPackageManager.pT().cA(str);
-        if (cA == null || cA.apkPath == null || cA.apkPath.length() <= ".apk".length()) {
+    public static File cY(String str) {
+        PluginSetting cD = PluginPackageManager.pV().cD(str);
+        if (cD == null || cD.apkPath == null || cD.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(cA.apkPath.substring(0, cA.apkPath.length() - ".apk".length()));
+        return new File(cD.apkPath.substring(0, cD.apkPath.length() - ".apk".length()));
     }
 
-    public static File qF() {
+    public static File qH() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -262,7 +261,7 @@ public final class Util {
                 sb = new StringBuilder();
             }
             sb.append(string);
-            sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append(",");
             i = i2;
         }
         if (sb == null || sb.length() <= 0) {
@@ -354,7 +353,7 @@ public final class Util {
         return pluginSetting.packageName + ".apk" + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + pluginSetting.tempVersionCode;
     }
 
-    public static String cW(String str) {
+    public static String cZ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -365,10 +364,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return qF() + File.separator + e(pluginSetting);
+        return qH() + File.separator + e(pluginSetting);
     }
 
-    public static long qG() {
+    public static long qI() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

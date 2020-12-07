@@ -4,34 +4,34 @@ import android.util.SparseArray;
 import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private SparseArray<List<b>> aiM = new SparseArray<>();
+    private SparseArray<List<b>> ajL = new SparseArray<>();
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     public interface b {
-        boolean a(C0096a c0096a);
+        boolean a(C0097a c0097a);
     }
 
     public void b(int i, b bVar) {
-        if (this.aiM == null) {
-            this.aiM = new SparseArray<>();
+        if (this.ajL == null) {
+            this.ajL = new SparseArray<>();
         }
-        List<b> list = this.aiM.get(i);
+        List<b> list = this.ajL.get(i);
         if (list == null) {
             list = new ArrayList<>();
-            this.aiM.put(i, list);
+            this.ajL.put(i, list);
         }
         list.add(bVar);
     }
 
-    public boolean b(C0096a c0096a) {
-        List<b> list = this.aiM.get(c0096a.aiN);
+    public boolean b(C0097a c0097a) {
+        List<b> list = this.ajL.get(c0097a.ajM);
         if (y.isEmpty(list)) {
             return false;
         }
         for (b bVar : list) {
-            if (bVar != null && bVar.a(c0096a)) {
+            if (bVar != null && bVar.a(c0097a)) {
                 return true;
             }
         }
@@ -39,30 +39,30 @@ public class a {
     }
 
     /* renamed from: com.baidu.card.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public static class C0096a {
-        private int aiN;
-        private Object aiO;
+    /* loaded from: classes21.dex */
+    public static class C0097a {
+        private int ajM;
+        private Object ajN;
 
-        public C0096a(int i, Object obj) {
-            this.aiN = i;
-            this.aiO = obj;
+        public C0097a(int i, Object obj) {
+            this.ajM = i;
+            this.ajN = obj;
         }
 
-        public C0096a(int i) {
-            this.aiN = i;
+        public C0097a(int i) {
+            this.ajM = i;
         }
 
         public int getActionType() {
-            return this.aiN;
+            return this.ajM;
         }
 
         public void setExtraData(Object obj) {
-            this.aiO = obj;
+            this.ajN = obj;
         }
 
-        public Object ud() {
-            return this.aiO;
+        public Object ug() {
+            return this.ajN;
         }
     }
 }

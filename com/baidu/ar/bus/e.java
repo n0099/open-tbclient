@@ -2,26 +2,26 @@ package com.baidu.ar.bus;
 
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.lang.reflect.Method;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class e {
-    final Method kt;
-    final ThreadMode ku;
-    final Class<?> kv;
-    String kw;
+    final Method kI;
+    final ThreadMode kJ;
+    final Class<?> kK;
+    String kL;
 
     public e(Method method, Class<?> cls, ThreadMode threadMode) {
-        this.kt = method;
-        this.ku = threadMode;
-        this.kv = cls;
+        this.kI = method;
+        this.kJ = threadMode;
+        this.kK = cls;
     }
 
-    private synchronized void cJ() {
-        if (this.kw == null) {
+    private synchronized void cI() {
+        if (this.kL == null) {
             StringBuilder sb = new StringBuilder(64);
-            sb.append(this.kt.getDeclaringClass().getName());
-            sb.append(UgcConstant.TOPIC_PATTERN_TAG).append(this.kt.getName());
-            sb.append('(').append(this.kv.getName());
-            this.kw = sb.toString();
+            sb.append(this.kI.getDeclaringClass().getName());
+            sb.append(UgcConstant.TOPIC_PATTERN_TAG).append(this.kI.getName());
+            sb.append('(').append(this.kK.getName());
+            this.kL = sb.toString();
         }
     }
 
@@ -30,15 +30,15 @@ public class e {
             return true;
         }
         if (obj instanceof e) {
-            cJ();
+            cI();
             e eVar = (e) obj;
-            eVar.cJ();
-            return this.kw.equals(eVar.kw);
+            eVar.cI();
+            return this.kL.equals(eVar.kL);
         }
         return false;
     }
 
     public int hashCode() {
-        return this.kt.hashCode();
+        return this.kI.hashCode();
     }
 }

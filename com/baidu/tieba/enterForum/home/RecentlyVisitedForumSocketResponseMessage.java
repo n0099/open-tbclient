@@ -46,7 +46,7 @@ public class RecentlyVisitedForumSocketResponseMessage extends SocketResponsedMe
                     if (historyForumInfo2 != null && historyForumInfo2.forum_id != null) {
                         VisitedForumData visitedForumData = new VisitedForumData();
                         visitedForumData.a(historyForumInfo2);
-                        visitedForumData.jV(hashMap.containsKey(historyForumInfo2.forum_id));
+                        visitedForumData.kl(hashMap.containsKey(historyForumInfo2.forum_id));
                         this.mForumData.add(visitedForumData);
                     }
                 }

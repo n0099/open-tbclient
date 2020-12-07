@@ -11,7 +11,7 @@ import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.swan.apps.scheme.actions.k.j;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class PrefetchEvent extends SwanAppIPCData {
     public static final Parcelable.Creator<PrefetchEvent> CREATOR = new Parcelable.Creator<PrefetchEvent>() { // from class: com.baidu.swan.apps.core.prefetch.PrefetchEvent.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +23,7 @@ public class PrefetchEvent extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ik */
+        /* renamed from: iI */
         public PrefetchEvent[] newArray(int i) {
             return new PrefetchEvent[i];
         }
@@ -113,36 +113,36 @@ public class PrefetchEvent extends SwanAppIPCData {
         return new b(hashMap, str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static class a {
-        private PrefetchEvent cMH = new PrefetchEvent();
+        private PrefetchEvent cTA = new PrefetchEvent();
 
-        public a np(@NonNull String str) {
-            this.cMH.appId = str;
+        public a nW(@NonNull String str) {
+            this.cTA.appId = str;
             return this;
         }
 
-        public a nq(@NonNull String str) {
-            this.cMH.schema = str;
+        public a nX(@NonNull String str) {
+            this.cTA.schema = str;
             return this;
         }
 
-        public a nr(String str) {
-            this.cMH.state = str;
+        public a nY(String str) {
+            this.cTA.state = str;
             return this;
         }
 
-        public a ns(@NonNull String str) {
-            this.cMH.scene = str;
+        public a nZ(@NonNull String str) {
+            this.cTA.scene = str;
             return this;
         }
 
-        public PrefetchEvent aqg() {
-            return this.cMH;
+        public PrefetchEvent ato() {
+            return this.cTA;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static class b extends com.baidu.swan.apps.event.a.b {
         b(@Nullable Map<String, String> map, String str) {
             super(str, map);

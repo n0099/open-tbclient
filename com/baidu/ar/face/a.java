@@ -3,55 +3,55 @@ package com.baidu.ar.face;
 import android.text.TextUtils;
 import com.baidu.ar.d;
 import java.lang.ref.WeakReference;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a extends d implements IFace {
-    private String K;
-    private FaceListener na;
-    private WeakReference<IFace> nn;
+    private String L;
+    private WeakReference<IFace> nD;
+    private FaceListener nq;
 
     @Override // com.baidu.ar.d
     public void a(com.baidu.ar.c cVar) {
         if (cVar == null) {
-            if (this.nn != null) {
-                this.nn.clear();
-                this.nn = null;
+            if (this.nD != null) {
+                this.nD.clear();
+                this.nD = null;
                 return;
             }
             return;
         }
         if (cVar instanceof IFace) {
-            this.nn = new WeakReference<>((IFace) cVar);
-            if (!TextUtils.isEmpty(this.K)) {
-                this.nn.get().setFaceModelPath(this.K);
+            this.nD = new WeakReference<>((IFace) cVar);
+            if (!TextUtils.isEmpty(this.L)) {
+                this.nD.get().setFaceModelPath(this.L);
             }
         }
-        if (this.na != null) {
-            this.nn.get().setFaceListener(this.na);
+        if (this.nq != null) {
+            this.nD.get().setFaceListener(this.nq);
         }
     }
 
     @Override // com.baidu.ar.d
     public void release() {
-        if (this.nn != null) {
-            this.nn.clear();
-            this.nn = null;
+        if (this.nD != null) {
+            this.nD.clear();
+            this.nD = null;
         }
-        this.na = null;
+        this.nq = null;
     }
 
     @Override // com.baidu.ar.face.IFace
     public void setFaceListener(FaceListener faceListener) {
-        this.na = faceListener;
-        if (this.nn != null) {
-            this.nn.get().setFaceListener(this.na);
+        this.nq = faceListener;
+        if (this.nD != null) {
+            this.nD.get().setFaceListener(this.nq);
         }
     }
 
     @Override // com.baidu.ar.face.IFace
     public void setFaceModelPath(String str) {
-        this.K = str;
-        if (this.nn != null) {
-            this.nn.get().setFaceModelPath(str);
+        this.L = str;
+        if (this.nD != null) {
+            this.nD.get().setFaceModelPath(str);
         }
     }
 }

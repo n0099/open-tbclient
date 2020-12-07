@@ -2,7 +2,7 @@ package com.baidu.sumeru.universalimageloader.core.assist;
 
 import com.baidu.sumeru.universalimageloader.cache.disc.DiscCacheAware;
 import java.io.File;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public final class DiscCacheUtil {
     private DiscCacheUtil() {
     }

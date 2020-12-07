@@ -1,10 +1,10 @@
 package com.baidu.helios.bridge.multiprocess.providers.defaultproc;
 
 import com.baidu.helios.bridge.multiprocess.BaseIPCProvider;
-/* loaded from: classes17.dex */
+/* loaded from: classes8.dex */
 public class DefaultIPCProvider extends BaseIPCProvider {
     @Override // com.baidu.helios.bridge.multiprocess.BaseIPCProvider
-    public String zw() {
+    public String zo() {
         return ".helios.ipc.default";
     }
 }

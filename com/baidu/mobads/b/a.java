@@ -11,7 +11,7 @@ import com.baidu.mobads.utils.n;
 public class a extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final IXAdLogger f2318a = XAdSDKFoundationFacade.getInstance().getAdLogger();
+    protected final IXAdLogger f2320a = XAdSDKFoundationFacade.getInstance().getAdLogger();
     private com.baidu.mobads.command.a b;
 
     public a(com.baidu.mobads.command.a aVar) {
@@ -38,7 +38,7 @@ public class a extends BroadcastReceiver {
                         context.startActivity(launchIntentForPackage);
                         context.unregisterReceiver(this);
                     } catch (Exception e) {
-                        this.f2318a.d("InstallReceiver", e);
+                        this.f2320a.d("InstallReceiver", e);
                     }
                 }
             }

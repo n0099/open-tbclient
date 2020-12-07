@@ -1,13 +1,13 @@
 package com.baidu.tieba.ala.liveroom.a;
 /* loaded from: classes4.dex */
 public interface c {
-    void Hh(String str);
+    void HV(String str);
 
-    void aF(String str, int i);
+    void aG(String str, int i);
 
-    void dE(int i);
+    void dX(int i);
 
-    void e(long j, String str, String str2);
+    void f(long j, String str, String str2);
 
     void pause();
 

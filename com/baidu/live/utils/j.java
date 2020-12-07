@@ -40,18 +40,18 @@ public class j {
         return new SimpleDateFormat("mm:ss").format(new Date((l.longValue() * 1000) - 28800000));
     }
 
-    public static String ge(int i) {
+    public static String gD(int i) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHH");
         Date date = new Date();
         date.setHours(date.getHours() - i);
         return simpleDateFormat.format(date);
     }
 
-    public static String TU() {
+    public static String Wu() {
         return new SimpleDateFormat("HH").format(new Date());
     }
 
-    public static String TV() {
+    public static String Wv() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH");
         Date date = new Date();
         date.setHours(date.getHours() - 1);
@@ -71,20 +71,20 @@ public class j {
         return i4 > 0 ? formatter.format("%d:%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i3), Integer.valueOf(i2)).toString() : formatter.format("%02d:%02d", Integer.valueOf(i3), Integer.valueOf(i2)).toString();
     }
 
-    public static boolean ix(String str) {
+    public static boolean jb(String str) {
         if (str == null) {
             return false;
         }
         int length = str.length();
         for (int i = 0; i < length; i++) {
-            if (gf(Character.codePointAt(str, i))) {
+            if (gE(Character.codePointAt(str, i))) {
                 return true;
             }
         }
         return false;
     }
 
-    private static boolean gf(int i) {
+    private static boolean gE(int i) {
         return (128 <= i && i <= 687) || (768 <= i && i <= 1023) || ((1536 <= i && i <= 1791) || ((3072 <= i && i <= 3199) || ((7616 <= i && i <= 7679) || ((7680 <= i && i <= 7935) || ((8192 <= i && i <= 8351) || ((8400 <= i && i <= 8527) || ((8592 <= i && i <= 9215) || ((9312 <= i && i <= 9727) || ((9728 <= i && i <= 10223) || ((10496 <= i && i <= 10751) || ((11008 <= i && i <= 11263) || ((11360 <= i && i <= 11391) || ((11776 <= i && i <= 11903) || ((42128 <= i && i <= 42191) || ((57344 <= i && i <= 63743) || ((65024 <= i && i <= 65039) || ((65072 <= i && i <= 65103) || ((126976 <= i && i <= 127023) || ((127136 <= i && i <= 127231) || ((127232 <= i && i <= 128591) || ((128640 <= i && i <= 128767) || ((129296 <= i && i <= 129387) || (129408 <= i && i <= 129504)))))))))))))))))))))));
     }
 }

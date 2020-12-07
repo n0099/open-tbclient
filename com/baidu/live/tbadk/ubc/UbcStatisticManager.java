@@ -125,6 +125,14 @@ public class UbcStatisticManager {
         }
     }
 
+    public void logRecorderEvent(String str, JSONObject jSONObject, JSONObject jSONObject2) {
+        if (jSONObject != null && !TextUtils.isEmpty(str) && this.mUbcManager != null) {
+            UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(str, jSONObject.optString(UbcStatConstant.KEY_LIVE_TYPE), jSONObject.optString("page"), jSONObject.optString("value"));
+            ubcStatisticItem.setContentExt(jSONObject2);
+            logEvent(ubcStatisticItem);
+        }
+    }
+
     public void logLMSdkEvent(final UbcStatisticItem ubcStatisticItem) {
         JSONObject contentExt;
         if (!BdUtilHelper.isMainThread()) {
@@ -150,6 +158,26 @@ public class UbcStatisticManager {
         }
     }
 
+    public void logLMSdkEvent(final String str, final JSONObject jSONObject, final JSONObject jSONObject2) {
+        if (!BdUtilHelper.isMainThread()) {
+            this.mHandler.post(new Runnable() { // from class: com.baidu.live.tbadk.ubc.UbcStatisticManager.3
+                @Override // java.lang.Runnable
+                public void run() {
+                    UbcStatisticManager.this.logLMSdkEvent(str, jSONObject, jSONObject2);
+                }
+            });
+        } else if (!TextUtils.isEmpty(str) && this.mUbcManager != null && jSONObject != null) {
+            try {
+                jSONObject.put("from", "live");
+                jSONObject.put("source", TbConfig.getSubappType());
+                jSONObject.put("ext", jSONObject2);
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            this.mUbcManager.onEvent(str, jSONObject);
+        }
+    }
+
     public void logSendRequest(UbcStatisticItem ubcStatisticItem) {
         logSendRequest(ubcStatisticItem, true, true);
     }
@@ -157,7 +185,7 @@ public class UbcStatisticManager {
     public void logSendRequest(final UbcStatisticItem ubcStatisticItem, boolean z, boolean z2) {
         JSONObject contentExt;
         if (!BdUtilHelper.isMainThread()) {
-            this.mHandler.post(new Runnable() { // from class: com.baidu.live.tbadk.ubc.UbcStatisticManager.3
+            this.mHandler.post(new Runnable() { // from class: com.baidu.live.tbadk.ubc.UbcStatisticManager.4
                 @Override // java.lang.Runnable
                 public void run() {
                     UbcStatisticManager.this.logSendRequest(ubcStatisticItem);
@@ -196,7 +224,7 @@ public class UbcStatisticManager {
     public void logSendResponse(final UbcStatisticItem ubcStatisticItem, final HttpResponsedMessage httpResponsedMessage, final boolean z, final boolean z2) {
         JSONObject contentExt;
         if (!BdUtilHelper.isMainThread()) {
-            this.mHandler.post(new Runnable() { // from class: com.baidu.live.tbadk.ubc.UbcStatisticManager.4
+            this.mHandler.post(new Runnable() { // from class: com.baidu.live.tbadk.ubc.UbcStatisticManager.5
                 @Override // java.lang.Runnable
                 public void run() {
                     UbcStatisticManager.this.logSendResponse(ubcStatisticItem, httpResponsedMessage, z, z2);
@@ -316,7 +344,7 @@ public class UbcStatisticManager {
         if (!TextUtils.isEmpty(baiduSid)) {
             fillJson(jSONObject, UbcStatConstant.KEY_CONTENT_EXT_SID, baiduSid);
         }
-        if (ubcStatisticItem != null && ubcStatisticItem.getLoc() != null) {
+        if (ubcStatisticItem != null) {
             try {
                 jSONObject.put("loc", ubcStatisticItem.getLoc());
                 jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, ubcStatisticItem.getSubPage());
@@ -592,7 +620,7 @@ public class UbcStatisticManager {
                         contentExt.put(UbcStatConstant.KEY_CONTENT_EXT_IS_MIX, "1");
                     }
                 }
-                if (ubcStatisticItem.getLoc() != null) {
+                if (ubcStatisticItem != null) {
                     try {
                         contentExt.put("loc", ubcStatisticItem.getLoc());
                         contentExt.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, ubcStatisticItem.getSubPage());

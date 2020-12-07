@@ -1,18 +1,18 @@
 package com.baidu.live.talentshow.b;
 /* loaded from: classes4.dex */
 public class a {
-    private String bvR;
-    private String bvS;
+    private String bBb;
+    private String bBc;
 
-    public void ii(String str) {
-        this.bvR = str;
+    public void iM(String str) {
+        this.bBb = str;
     }
 
-    public String Rp() {
-        return this.bvS;
+    public String TN() {
+        return this.bBc;
     }
 
-    public void ij(String str) {
-        this.bvS = str;
+    public void iN(String str) {
+        this.bBc = str;
     }
 }

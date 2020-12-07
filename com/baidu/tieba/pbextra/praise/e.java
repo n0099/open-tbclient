@@ -18,184 +18,184 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class e extends com.baidu.adp.base.c<PraiseListActivity> {
-    private c lTS;
-    private PraiseListActivity lTT;
-    private View lTU;
-    private NavigationBar lTV;
-    private View lTW;
-    private NoDataView lTX;
-    private View lTY;
-    private TextView lTZ;
-    private BdListView lUa;
-    private View lUb;
-    private TextView lUc;
-    private TextView lUd;
-    private ProgressBar lUe;
-    private ProgressBar lUf;
+    private c mhX;
+    private PraiseListActivity mhY;
+    private View mhZ;
+    private NavigationBar mia;
+    private View mib;
+    private NoDataView mic;
+    private View mie;
+    private TextView mif;
+    private BdListView mig;
+    private View mih;
+    private TextView mii;
+    private TextView mij;
+    private ProgressBar mik;
+    private ProgressBar mil;
 
     public e(PraiseListActivity praiseListActivity, String str) {
         super(praiseListActivity.getPageContext());
-        this.lTS = null;
-        this.lTT = null;
-        this.lTU = null;
-        this.lTV = null;
-        this.lTW = null;
-        this.lTX = null;
-        this.lTY = null;
-        this.lTZ = null;
-        this.lUa = null;
-        this.lUb = null;
-        this.lUc = null;
-        this.lUd = null;
-        this.lUe = null;
-        this.lUf = null;
-        this.lTT = praiseListActivity;
+        this.mhX = null;
+        this.mhY = null;
+        this.mhZ = null;
+        this.mia = null;
+        this.mib = null;
+        this.mic = null;
+        this.mie = null;
+        this.mif = null;
+        this.mig = null;
+        this.mih = null;
+        this.mii = null;
+        this.mij = null;
+        this.mik = null;
+        this.mil = null;
+        this.mhY = praiseListActivity;
         praiseListActivity.setContentView(R.layout.zan_list_activity);
-        this.lTU = praiseListActivity.findViewById(R.id.zan_list_page_parent);
-        this.lTV = (NavigationBar) praiseListActivity.findViewById(R.id.zan_list_page_navigationbar);
-        this.lTW = praiseListActivity.findViewById(R.id.zan_list_page_frame);
-        this.lTX = NoDataViewFactory.a(this.lTT.getPageContext().getContext(), this.lTU, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.lTT.getActivity(), R.dimen.ds320)), NoDataViewFactory.d.qo(R.string.praise_list_no_data), null);
-        this.lUa = (BdListView) praiseListActivity.findViewById(R.id.zan_list_page_list);
-        TextView textView = new TextView(this.lTT.getActivity());
+        this.mhZ = praiseListActivity.findViewById(R.id.zan_list_page_parent);
+        this.mia = (NavigationBar) praiseListActivity.findViewById(R.id.zan_list_page_navigationbar);
+        this.mib = praiseListActivity.findViewById(R.id.zan_list_page_frame);
+        this.mic = NoDataViewFactory.a(this.mhY.getPageContext().getContext(), this.mhZ, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.mhY.getActivity(), R.dimen.ds320)), NoDataViewFactory.d.qP(R.string.praise_list_no_data), null);
+        this.mig = (BdListView) praiseListActivity.findViewById(R.id.zan_list_page_list);
+        TextView textView = new TextView(this.mhY.getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
-        this.lUa.addHeaderView(textView, 0);
-        this.lUe = (ProgressBar) praiseListActivity.findViewById(R.id.zan_list_page_progress);
-        this.lTS = new c(praiseListActivity);
-        this.lUa.setAdapter((ListAdapter) this.lTS);
-        this.lUa.setOnScrollListener(this.lTS);
-        this.lTV.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.lTV.setTitleText("");
-        this.lTY = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_head, (ViewGroup) null);
-        this.lTY.setOnClickListener(praiseListActivity);
-        this.lTZ = (TextView) this.lTY.findViewById(R.id.zan_list_head_text);
-        this.lTZ.setText(str);
-        this.lTY.setVisibility(8);
-        this.lUa.addHeaderView(this.lTY);
-        this.lUb = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_foot, (ViewGroup) null);
-        this.lUc = (TextView) this.lUb.findViewById(R.id.zan_list_foot_text_continue);
-        this.lUd = (TextView) this.lUb.findViewById(R.id.zan_list_foot_text_more);
-        this.lUf = (ProgressBar) this.lUb.findViewById(R.id.zan_list_foot_progress);
-        this.lUb.setVisibility(8);
-        this.lUc.setOnClickListener(praiseListActivity);
-        this.lUa.addFooterView(this.lUb);
-        this.lUa.setOnItemClickListener(praiseListActivity);
+        this.mig.addHeaderView(textView, 0);
+        this.mik = (ProgressBar) praiseListActivity.findViewById(R.id.zan_list_page_progress);
+        this.mhX = new c(praiseListActivity);
+        this.mig.setAdapter((ListAdapter) this.mhX);
+        this.mig.setOnScrollListener(this.mhX);
+        this.mia.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mia.setTitleText("");
+        this.mie = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_head, (ViewGroup) null);
+        this.mie.setOnClickListener(praiseListActivity);
+        this.mif = (TextView) this.mie.findViewById(R.id.zan_list_head_text);
+        this.mif.setText(str);
+        this.mie.setVisibility(8);
+        this.mig.addHeaderView(this.mie);
+        this.mih = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_foot, (ViewGroup) null);
+        this.mii = (TextView) this.mih.findViewById(R.id.zan_list_foot_text_continue);
+        this.mij = (TextView) this.mih.findViewById(R.id.zan_list_foot_text_more);
+        this.mil = (ProgressBar) this.mih.findViewById(R.id.zan_list_foot_progress);
+        this.mih.setVisibility(8);
+        this.mii.setOnClickListener(praiseListActivity);
+        this.mig.addFooterView(this.mih);
+        this.mig.setOnItemClickListener(praiseListActivity);
     }
 
-    public void cSa() {
-        if (this.lTS != null) {
-            this.lTS.notifyDataSetChanged();
+    public void cXm() {
+        if (this.mhX != null) {
+            this.mhX.notifyDataSetChanged();
         }
     }
 
-    public void vK(boolean z) {
+    public void wo(boolean z) {
         if (z) {
-            this.lUf.setVisibility(0);
+            this.mil.setVisibility(0);
         } else {
-            this.lUe.setVisibility(0);
+            this.mik.setVisibility(0);
         }
     }
 
-    public void dsH() {
-        this.lUe.setVisibility(8);
-        this.lUf.setVisibility(8);
+    public void dxZ() {
+        this.mik.setVisibility(8);
+        this.mil.setVisibility(8);
     }
 
     public boolean isLoading() {
-        return this.lUe.getVisibility() == 0 || this.lUf.getVisibility() == 0;
+        return this.mik.getVisibility() == 0 || this.mil.getVisibility() == 0;
     }
 
     public void b(int i, List<a> list, int i2, int i3) {
         String format;
         String format2;
-        this.lUe.setVisibility(8);
-        this.lUf.setVisibility(8);
-        this.lTY.setVisibility(0);
+        this.mik.setVisibility(8);
+        this.mil.setVisibility(8);
+        this.mie.setVisibility(0);
         if (i > 0) {
-            switch (this.lTT.pageType) {
+            switch (this.mhY.pageType) {
                 case 1:
-                    format2 = String.format(this.lTT.getResources().getString(R.string.graffiti_list_title_count), au.numFormatOverWan(i));
+                    format2 = String.format(this.mhY.getResources().getString(R.string.graffiti_list_title_count), au.numFormatOverWan(i));
                     break;
                 default:
-                    format2 = String.format(this.lTT.getResources().getString(R.string.praise_list_title_count), au.numFormatOverWan(i));
+                    format2 = String.format(this.mhY.getResources().getString(R.string.praise_list_title_count), au.numFormatOverWan(i));
                     break;
             }
-            this.lTV.setTitleText(format2);
+            this.mia.setTitleText(format2);
         } else {
-            this.lTV.setTitleText("");
+            this.mia.setTitleText("");
         }
         if (list == null || list.size() < 1) {
-            bA(null, this.lTT.pageType);
+            bC(null, this.mhY.pageType);
             return;
         }
-        this.lTW.setVisibility(0);
-        this.lTX.setVisibility(8);
-        this.lTS.fh(list);
-        this.lTS.notifyDataSetChanged();
+        this.mib.setVisibility(0);
+        this.mic.setVisibility(8);
+        this.mhX.ft(list);
+        this.mhX.notifyDataSetChanged();
         switch (i2) {
             case 1001:
-                this.lUb.setVisibility(0);
-                this.lUc.setVisibility(0);
-                this.lUd.setVisibility(8);
+                this.mih.setVisibility(0);
+                this.mii.setVisibility(0);
+                this.mij.setVisibility(8);
                 return;
             case 1002:
-                this.lUb.setVisibility(8);
+                this.mih.setVisibility(8);
                 return;
             case 1003:
-                this.lUb.setVisibility(0);
-                ap.setBackgroundResource(this.lUb, R.drawable.bg_pack);
-                this.lUc.setVisibility(8);
-                this.lUd.setVisibility(0);
-                switch (this.lTT.pageType) {
+                this.mih.setVisibility(0);
+                ap.setBackgroundResource(this.mih, R.drawable.bg_pack);
+                this.mii.setVisibility(8);
+                this.mij.setVisibility(0);
+                switch (this.mhY.pageType) {
                     case 1:
-                        format = String.format(this.lTT.getResources().getString(R.string.graffiti_list_title_count), au.numFormatOverWan(i));
+                        format = String.format(this.mhY.getResources().getString(R.string.graffiti_list_title_count), au.numFormatOverWan(i));
                         break;
                     default:
-                        format = String.format(this.lTT.getResources().getString(R.string.praise_item_more), au.numFormatOverWan(i));
+                        format = String.format(this.mhY.getResources().getString(R.string.praise_item_more), au.numFormatOverWan(i));
                         break;
                 }
-                this.lUd.setText(format);
+                this.mij.setText(format);
                 return;
             default:
-                this.lUb.setVisibility(8);
+                this.mih.setVisibility(8);
                 return;
         }
     }
 
-    public void bA(String str, int i) {
-        this.lUe.setVisibility(8);
-        this.lUf.setVisibility(8);
-        this.lTW.setVisibility(8);
-        this.lTX.setVisibility(0);
+    public void bC(String str, int i) {
+        this.mik.setVisibility(8);
+        this.mil.setVisibility(8);
+        this.mib.setVisibility(8);
+        this.mic.setVisibility(0);
         if (!StringUtils.isNull(str)) {
-            this.lTX.setTextOption(NoDataViewFactory.d.BQ(str));
+            this.mic.setTextOption(NoDataViewFactory.d.Cy(str));
         } else if (1 == i) {
-            this.lTX.setTextOption(NoDataViewFactory.d.qo(R.string.graffiti_list_no_data));
+            this.mic.setTextOption(NoDataViewFactory.d.qP(R.string.graffiti_list_no_data));
         } else {
-            this.lTX.setTextOption(NoDataViewFactory.d.qo(R.string.praise_list_no_data));
+            this.mic.setTextOption(NoDataViewFactory.d.qP(R.string.praise_list_no_data));
         }
     }
 
     public void a(com.baidu.tbadk.core.c cVar, int i) {
         if (cVar != null) {
             cVar.setNightMode(i == 1);
-            cVar.onModeChanged(this.lTU);
-            cVar.onModeChanged(this.lTY);
-            cVar.onModeChanged(this.lUb);
-            this.lTV.onChangeSkinType(this.lTT.getPageContext(), i);
-            ap.setBackgroundResource(this.lUb, R.drawable.bg_pack);
-            if (this.lTX != null) {
-                this.lTX.onChangeSkinType(this.lTT.getPageContext(), i);
+            cVar.onModeChanged(this.mhZ);
+            cVar.onModeChanged(this.mie);
+            cVar.onModeChanged(this.mih);
+            this.mia.onChangeSkinType(this.mhY.getPageContext(), i);
+            ap.setBackgroundResource(this.mih, R.drawable.bg_pack);
+            if (this.mic != null) {
+                this.mic.onChangeSkinType(this.mhY.getPageContext(), i);
             }
         }
     }
 
-    public View dsI() {
-        return this.lTY;
+    public View dya() {
+        return this.mie;
     }
 
-    public View dsJ() {
-        return this.lUc;
+    public View dyb() {
+        return this.mii;
     }
 }

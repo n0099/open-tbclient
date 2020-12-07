@@ -3,9 +3,9 @@ package com.facebook.common.internal;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public final class a {
-    public static long e(InputStream inputStream, OutputStream outputStream) throws IOException {
+    public static long copy(InputStream inputStream, OutputStream outputStream) throws IOException {
         g.checkNotNull(inputStream);
         g.checkNotNull(outputStream);
         byte[] bArr = new byte[4096];

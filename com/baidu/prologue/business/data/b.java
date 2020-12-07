@@ -9,36 +9,36 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public class b {
-    private final e cfK;
+    private final e cmr;
 
     public b(e eVar) {
-        this.cfK = eVar;
+        this.cmr = eVar;
     }
 
-    public void abF() {
-        abG();
-        abH();
+    public void aeN() {
+        aeO();
+        aeP();
     }
 
     public void a(@NonNull Als.Area area, String str) {
         b(area, str);
-        abI();
+        aeQ();
     }
 
-    public void abG() {
+    public void aeO() {
         Als.a aVar = new Als.a(Als.Type.SHOW);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.jH(this.cfK.ext);
+        aVar.ko(this.cmr.ext);
         Als.a(aVar);
     }
 
     public void b(@NonNull Als.Area area, String str) {
         Als.a aVar = new Als.a(Als.Type.CLICK);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.jH(this.cfK.ext);
+        aVar.ko(this.cmr.ext);
         aVar.b(area);
         if (!TextUtils.isEmpty(str)) {
-            aVar.jK(str);
+            aVar.kr(str);
         }
         Als.a(aVar);
     }
@@ -46,33 +46,33 @@ public class b {
     public void i(String str, long j) {
         Als.a aVar = new Als.a(Als.Type.CLOSE);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.jH(this.cfK.ext);
-        aVar.jJ(String.valueOf(j));
-        if (com.baidu.prologue.a.b.a.cft.get().abm()) {
-            aVar.jI("1");
+        aVar.ko(this.cmr.ext);
+        aVar.kq(String.valueOf(j));
+        if (com.baidu.prologue.a.b.a.clZ.get().aeu()) {
+            aVar.kp("1");
         } else {
-            aVar.jI("0");
+            aVar.kp("0");
         }
-        aVar.jK(str);
+        aVar.kr(str);
         Als.a(aVar);
     }
 
-    public void aY(String str, String str2) {
+    public void bf(String str, String str2) {
         Als.a aVar = new Als.a(Als.Type.DISCARD);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.jH(this.cfK.ext);
-        aVar.jI("10");
-        aVar.jJ(str);
-        aVar.jK(str2);
+        aVar.ko(this.cmr.ext);
+        aVar.kp("10");
+        aVar.kq(str);
+        aVar.kr(str2);
         Als.a(aVar);
     }
 
-    public void abH() {
+    public void aeP() {
         String[] strArr;
-        for (String str : this.cfK.cfY) {
+        for (String str : this.cmr.cmF) {
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    i.jL(new JSONObject(str).optString("url"));
+                    i.ks(new JSONObject(str).optString("url"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -82,12 +82,12 @@ public class b {
         }
     }
 
-    public void abI() {
+    public void aeQ() {
         String[] strArr;
-        for (String str : this.cfK.cfZ) {
+        for (String str : this.cmr.cmG) {
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    i.jL(new JSONObject(str).optString("url"));
+                    i.ks(new JSONObject(str).optString("url"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -97,12 +97,12 @@ public class b {
         }
     }
 
-    public static void abJ() {
+    public static void aeR() {
         String string = k.getString("empty_ext_info", "");
         if (!TextUtils.isEmpty(string)) {
             Als.a aVar = new Als.a(Als.Type.SHOW);
             aVar.a(Als.Page.NA_SPLASH);
-            aVar.jH(string);
+            aVar.ko(string);
             Als.a(aVar);
         }
     }

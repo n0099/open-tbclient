@@ -1,28 +1,21 @@
 package com.baidu.live.data;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class bd {
-    public AlaLiveUserInfoData aMK;
-    public AlaLiveInfoData aMY;
-    public ay aMZ;
+    public List<Long> aPW;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
-            if (optJSONObject != null) {
-                this.aMK = new AlaLiveUserInfoData();
-                this.aMK.parserJson(optJSONObject);
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("live_info");
-            if (optJSONObject2 != null) {
-                this.aMY = new AlaLiveInfoData();
-                this.aMY.parserJson(optJSONObject2);
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("rank_info");
-            if (optJSONObject3 != null) {
-                this.aMZ = new ay();
-                this.aMZ.parserJson(optJSONObject3);
+            this.aPW = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("id");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.aPW.add(Long.valueOf(optJSONArray.optLong(i)));
+                }
             }
         }
     }

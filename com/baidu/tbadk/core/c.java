@@ -21,7 +21,6 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -34,7 +33,7 @@ public class c {
     private Resources pluginRes;
     private boolean isNightMode = false;
     Map<String, b> viewModeInfos = new HashMap();
-    public boolean evv = false;
+    public boolean eCw = false;
 
     public void initModeInfos(String str, Context context, AttributeSet attributeSet) {
         int[] resID;
@@ -120,7 +119,7 @@ public class c {
                     z = true;
                 }
                 if (z && TbConfig.getDebugSwitch() && (i = com.baidu.adp.lib.f.b.toInt(attributeValue.substring(1), 0)) != 0) {
-                    bVar.appendTag(attributeName + ETAG.EQUAL + this.contextRes.getResourceName(i));
+                    bVar.appendTag(attributeName + "=" + this.contextRes.getResourceName(i));
                 }
             }
             if (z) {
@@ -297,7 +296,7 @@ public class c {
 
     private Drawable getDrawable(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.evv && skinType == 4)) {
+        if (skinType == 2 || (!this.eCw && skinType == 4)) {
             return ap.getDrawable(i);
         }
         if (!z) {
@@ -333,7 +332,7 @@ public class c {
 
     private int getColor(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.evv && skinType == 4)) {
+        if (skinType == 2 || (!this.eCw && skinType == 4)) {
             return ap.getColor(i);
         }
         if (!z) {
@@ -355,7 +354,7 @@ public class c {
 
     private ColorStateList getColorList(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.evv && skinType == 4)) {
+        if (skinType == 2 || (!this.eCw && skinType == 4)) {
             return ap.getColorList(i);
         }
         if (!z) {

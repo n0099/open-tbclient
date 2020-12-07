@@ -11,7 +11,6 @@ import com.baidu.sapi2.utils.SapiDataEncryptor;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
@@ -23,7 +22,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class SapiContext implements NoProguard {
     private static final String A = "one_key_login_js_code";
     private static final String B = "one_key_login_js_md5";
@@ -75,12 +74,12 @@ public final class SapiContext implements NoProguard {
     private static final String z = "touchid_login_record";
 
     /* renamed from: a  reason: collision with root package name */
-    private SharedPreferences f3233a;
+    private SharedPreferences f3236a;
     private Context b;
 
     private SapiContext(Context context) {
         this.b = context;
-        this.f3233a = context.getSharedPreferences("sapi_system", 0);
+        this.f3236a = context.getSharedPreferences("sapi_system", 0);
     }
 
     private void a(List<SapiAccount> list) {
@@ -115,7 +114,7 @@ public final class SapiContext implements NoProguard {
         if (TextUtils.isEmpty(string)) {
             put(z, str);
         } else if (!string.contains(str)) {
-            put(z, string + Constants.ACCEPT_TIME_SEPARATOR_SP + str);
+            put(z, string + "," + str);
         }
     }
 
@@ -152,7 +151,7 @@ public final class SapiContext implements NoProguard {
     }
 
     public boolean getBoolean(String str, boolean z2) {
-        return this.f3233a.getBoolean(str, z2);
+        return this.f3236a.getBoolean(str, z2);
     }
 
     public String getContactsVersionByUid() {
@@ -216,7 +215,7 @@ public final class SapiContext implements NoProguard {
         if (TextUtils.isEmpty(string)) {
             return new String[0];
         }
-        return string.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        return string.split(",");
     }
 
     public String[] getDeleteShareLoginList() {
@@ -224,7 +223,7 @@ public final class SapiContext implements NoProguard {
         if (TextUtils.isEmpty(string)) {
             return new String[0];
         }
-        return string.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        return string.split(",");
     }
 
     public String getDeviceInfo() {
@@ -243,7 +242,7 @@ public final class SapiContext implements NoProguard {
     }
 
     public int getInt(String str, int i2) {
-        return this.f3233a.getInt(str, i2);
+        return this.f3236a.getInt(str, i2);
     }
 
     public String getIqiyiAccesstoken() {
@@ -287,7 +286,7 @@ public final class SapiContext implements NoProguard {
     }
 
     public long getLong(String str, long j2) {
-        return this.f3233a.getLong(str, j2);
+        return this.f3236a.getLong(str, j2);
     }
 
     public boolean getModifiedDirExecPer() {
@@ -383,7 +382,7 @@ public final class SapiContext implements NoProguard {
     }
 
     public String getString(String str) {
-        return this.f3233a.getString(str, "");
+        return this.f3236a.getString(str, "");
     }
 
     public String getTid() {
@@ -407,7 +406,7 @@ public final class SapiContext implements NoProguard {
         if (TextUtils.isEmpty(string)) {
             return new ArrayList(0);
         }
-        return Arrays.asList(string.split(Constants.ACCEPT_TIME_SEPARATOR_SP));
+        return Arrays.asList(string.split(","));
     }
 
     public String getV2FaceLivingUnames() {
@@ -474,11 +473,11 @@ public final class SapiContext implements NoProguard {
         String[] deleteFaceLoginList = getDeleteFaceLoginList();
         StringBuilder sb = new StringBuilder();
         for (int length = deleteFaceLoginList.length + jSONArray.length() > 10 ? (deleteFaceLoginList.length + jSONArray.length()) - 10 : 0; length < deleteFaceLoginList.length; length++) {
-            sb.append(deleteFaceLoginList[length]).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append(deleteFaceLoginList[length]).append(",");
         }
         int length2 = jSONArray.length();
         for (int i2 = 0; i2 < length2; i2++) {
-            sb.append(URLDecoder.decode(jSONArray.optString(i2))).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append(URLDecoder.decode(jSONArray.optString(i2))).append(",");
         }
         put(w, sb.toString().substring(0, sb.toString().length() - 1));
     }
@@ -487,7 +486,7 @@ public final class SapiContext implements NoProguard {
         String[] deleteShareLoginList = getDeleteShareLoginList();
         StringBuilder sb = new StringBuilder();
         for (int length = deleteShareLoginList.length + 1 > 10 ? (deleteShareLoginList.length + 1) - 10 : 0; length < deleteShareLoginList.length; length++) {
-            sb.append(deleteShareLoginList[length]).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append(deleteShareLoginList[length]).append(",");
         }
         sb.append(str);
         put(v, sb.toString());
@@ -495,9 +494,9 @@ public final class SapiContext implements NoProguard {
 
     public void put(String str, String str2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.f3233a.edit().putString(str, str2).apply();
+            this.f3236a.edit().putString(str, str2).apply();
         } else {
-            this.f3233a.edit().putString(str, str2).commit();
+            this.f3236a.edit().putString(str, str2).commit();
         }
     }
 
@@ -655,9 +654,9 @@ public final class SapiContext implements NoProguard {
 
     public void put(String str, int i2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.f3233a.edit().putInt(str, i2).apply();
+            this.f3236a.edit().putInt(str, i2).apply();
         } else {
-            this.f3233a.edit().putInt(str, i2).commit();
+            this.f3236a.edit().putInt(str, i2).commit();
         }
     }
 
@@ -698,9 +697,9 @@ public final class SapiContext implements NoProguard {
 
     public void put(String str, long j2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.f3233a.edit().putLong(str, j2).apply();
+            this.f3236a.edit().putLong(str, j2).apply();
         } else {
-            this.f3233a.edit().putLong(str, j2).commit();
+            this.f3236a.edit().putLong(str, j2).commit();
         }
     }
 
@@ -727,9 +726,9 @@ public final class SapiContext implements NoProguard {
 
     public void put(String str, boolean z2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.f3233a.edit().putBoolean(str, z2).apply();
+            this.f3236a.edit().putBoolean(str, z2).apply();
         } else {
-            this.f3233a.edit().putBoolean(str, z2).commit();
+            this.f3236a.edit().putBoolean(str, z2).commit();
         }
     }
 

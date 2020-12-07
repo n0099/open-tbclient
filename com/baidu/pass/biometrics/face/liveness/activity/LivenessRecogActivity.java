@@ -56,7 +56,6 @@ import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
 import com.baidu.pass.biometrics.face.liveness.view.ConstrastLoadingView;
 import com.baidu.pass.biometrics.face.liveness.view.XfordView;
 import com.baidu.webkit.sdk.PermissionRequest;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.lang.ref.SoftReference;
@@ -69,12 +68,12 @@ import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 @TargetApi(3)
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LivenessRecogActivity extends LivenessBaseActivity implements Handler.Callback {
     public static final String EXTRA_TIME_POINT_START = "time_point_start";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2725a = "LivenessRecog";
+    private static final String f2727a = "LivenessRecog";
     private static final int b = 2002;
     private static final int c = 0;
     private static final int d = 1;
@@ -152,11 +151,11 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     private int xa = -1;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final int f2726a = 0;
+        static final int f2728a = 0;
         static final int b = 1;
         static final int c = 2;
         static final int d = 3;
@@ -172,7 +171,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class b extends AsyncTask<Void, Void, String> {
         private b() {
         }
@@ -203,11 +202,11 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        static final int f2728a = 0;
+        static final int f2730a = 0;
         static final int b = 1;
         static final int c = 2;
         static final int d = 3;
@@ -238,7 +237,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class d extends CountDownTimer {
         public d(long j, long j2) {
             super(j, j2);
@@ -275,7 +274,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                             LivenessRecogActivity.this.v.setImageBitmap(LivenessRecogActivity.this.b(R.drawable.pass_liveness_recog_face_failed));
                             LivenessRecogActivity.this.P.t = false;
                             LivenessRecogActivity.this.da.w = 0;
-                            Log.w(LivenessRecogActivity.f2725a, "STATE_START_RECOGNIZE, livenessStat.resetTimePoint()");
+                            Log.w(LivenessRecogActivity.f2727a, "STATE_START_RECOGNIZE, livenessStat.resetTimePoint()");
                             return;
                         } else if (PassBiometricUtil.isTooFarFromCamera(faceInfoArr[0].landmarks, LivenessRecogActivity.this.L)) {
                             LivenessRecogActivity.this.d(1);
@@ -312,7 +311,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                         LivenessRecogActivity.this.P.s = 1;
                         LivenessRecogActivity.this.v.setImageBitmap(LivenessRecogActivity.this.b(R.drawable.pass_liveness_recog_face_failed));
                         LivenessRecogActivity.this.da.a();
-                        Log.w(LivenessRecogActivity.f2725a, "STATE_FIND_FACE_SPECIAL_ANIM_DONE NO FACE, livenessStat.resetTimePoint()");
+                        Log.w(LivenessRecogActivity.f2727a, "STATE_FIND_FACE_SPECIAL_ANIM_DONE NO FACE, livenessStat.resetTimePoint()");
                         LivenessRecogActivity.this.P.t = false;
                         LivenessRecogActivity.this.da.w = 0;
                         LivenessRecogActivity.this.da.Z = System.currentTimeMillis();
@@ -329,7 +328,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                                 }
                                 LivenessRecogActivity.this.da.ba = System.currentTimeMillis();
                                 LivenessRecogActivity.this.da.da = System.currentTimeMillis();
-                                Log.w(LivenessRecogActivity.f2725a, "timePointLivingMouthStart" + LivenessRecogActivity.this.da.da);
+                                Log.w(LivenessRecogActivity.f2727a, "timePointLivingMouthStart" + LivenessRecogActivity.this.da.da);
                                 LivenessRecogActivity.this.c(faceInfoArr);
                                 long j2 = LivenessRecogActivity.this.Y * 1000;
                                 if (j2 < 20000) {
@@ -339,7 +338,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                                 LivenessRecogActivity.this.P.s = 1;
                                 LivenessRecogActivity.this.v.setImageBitmap(LivenessRecogActivity.this.b(R.drawable.pass_liveness_recog_face_failed));
                                 LivenessRecogActivity.this.da.a();
-                                Log.w(LivenessRecogActivity.f2725a, "STATE_FIND_FACE_SPECIAL_ANIM_DONE, livenessStat.resetTimePoint()");
+                                Log.w(LivenessRecogActivity.f2727a, "STATE_FIND_FACE_SPECIAL_ANIM_DONE, livenessStat.resetTimePoint()");
                                 LivenessRecogActivity.this.P.t = false;
                                 LivenessRecogActivity.this.da.w = 0;
                                 LivenessRecogActivity.this.da.Z = System.currentTimeMillis();
@@ -369,9 +368,9 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                         LivenessRecogActivity.this.Q.h = true;
                     }
                 }
-                Log.e(LivenessRecogActivity.f2725a, "state STATE_START_TRACK_BLICK state", Integer.valueOf(LivenessRecogActivity.this.P.s));
+                Log.e(LivenessRecogActivity.f2727a, "state STATE_START_TRACK_BLICK state", Integer.valueOf(LivenessRecogActivity.this.P.s));
                 if (LivenessRecogActivity.this.P.s == 6 || LivenessRecogActivity.this.P.s == 8) {
-                    Log.e(LivenessRecogActivity.f2725a, "state STATE_START_TRACK_BLICK");
+                    Log.e(LivenessRecogActivity.f2727a, "state STATE_START_TRACK_BLICK");
                     if (LivenessRecogActivity.this.n()) {
                         LivenessRecogActivity.this.i();
                         return;
@@ -436,7 +435,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                         return;
                     }
                 }
-                Log.w(LivenessRecogActivity.f2725a, "onTick|state" + LivenessRecogActivity.this.P.s + "|errcode|" + LivenessRecogActivity.this.M);
+                Log.w(LivenessRecogActivity.f2727a, "onTick|state" + LivenessRecogActivity.this.P.s + "|errcode|" + LivenessRecogActivity.this.M);
                 if (LivenessRecogActivity.this.b(faceInfoArr) && !LivenessRecogActivity.this.N) {
                     if ((LivenessRecogActivity.this.P.s == 9 || LivenessRecogActivity.this.P.s == 20) && LivenessRecogActivity.this.M == FaceTracker.ErrCode.OK) {
                         FaceVerifyData[] faceVerifyDataArr = LivenessRecogActivity.this.F.get_FaceVerifyData(0);
@@ -448,7 +447,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                         }
                         Object[] objArr = new Object[1];
                         objArr[0] = "livenessdone|faceVerifyDatas length|" + (faceVerifyDataArr != null ? Integer.valueOf(faceVerifyDataArr.length) : "0") + "|state|" + LivenessRecogActivity.this.P.s;
-                        Log.w(LivenessRecogActivity.f2725a, objArr);
+                        Log.w(LivenessRecogActivity.f2727a, objArr);
                         LivenessRecogActivity livenessRecogActivity4 = LivenessRecogActivity.this;
                         if (livenessRecogActivity4.b(faceInfoArr[0], livenessRecogActivity4.M) && faceVerifyDataArr != null && faceVerifyDataArr.length > 0) {
                             LivenessRecogActivity.this.P.s = 10;
@@ -706,7 +705,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean n() {
-        Log.e(f2725a, "processState.wholeProcessStartTime", Long.valueOf(this.P.v));
+        Log.e(f2727a, "processState.wholeProcessStartTime", Long.valueOf(this.P.v));
         long currentTimeMillis = System.currentTimeMillis();
         c cVar = this.P;
         long j2 = cVar.v;
@@ -729,11 +728,11 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         if (!a2) {
             u();
         } else {
-            a.C0270a c2 = this.U.c();
+            a.C0281a c2 = this.U.c();
             a(c2);
             this.U.a(this.va);
             this.C.a();
-            this.da.s = c2.b + Constants.ACCEPT_TIME_SEPARATOR_SP + c2.f2749a;
+            this.da.s = c2.b + "," + c2.f2751a;
         }
         this.C.setVisibility(0);
         return a2;
@@ -869,7 +868,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         }
         this.v.setImageBitmap(b(R.drawable.pass_liveness_recog_face_successed));
         this.da.aa = System.currentTimeMillis();
-        Log.w(f2725a, "livenessStat.timePointFindFaceDone:" + this.da.aa);
+        Log.w(f2727a, "livenessStat.timePointFindFaceDone:" + this.da.aa);
         com.baidu.pass.biometrics.face.liveness.c.a aVar = this.da;
         aVar.x++;
         aVar.w = 1;
@@ -895,7 +894,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                 this.M = this.F.face_verification(this.H, this.sa, this.ta, FaceSDK.ImgType.ARGB, r, "", "", "");
                 Object[] objArr = new Object[1];
                 objArr[0] = "errorcode:" + this.M;
-                Log.w(f2725a, objArr);
+                Log.w(f2727a, objArr);
                 this.G = this.F.get_TrackedFaceInfo();
                 int i2 = (this.G == null || this.G.length <= 0 || this.G[0] == null) ? 0 : this.G[0].face_id;
                 if (i2 != 0 && i2 != this.xa) {
@@ -921,7 +920,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                     long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                     Object[] objArr2 = new Object[1];
                     objArr2[0] = "idl tracker time" + currentTimeMillis2;
-                    Log.w(f2725a, objArr2);
+                    Log.w(f2727a, objArr2);
                     com.baidu.pass.biometrics.face.liveness.c.a aVar = this.da;
                     aVar.X = currentTimeMillis2 + aVar.X;
                     this.da.Y++;
@@ -932,9 +931,9 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         }
     }
 
-    private a.C0270a f() {
+    private a.C0281a f() {
         Display defaultDisplay = ((WindowManager) getSystemService("window")).getDefaultDisplay();
-        return new a.C0270a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(this));
+        return new a.C0281a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -955,9 +954,9 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             random.setSeed(System.currentTimeMillis());
             illumVlaueGray = random.nextInt(aBtestIllumList.size());
             LocalConfigOptions.getInstance(this).setIllumValueGray(illumVlaueGray);
-            Log.w(f2725a, "getOnlineIllum random" + illumVlaueGray);
+            Log.w(f2727a, "getOnlineIllum random" + illumVlaueGray);
         }
-        Log.w(f2725a, "getOnlineIllum" + illumVlaueGray);
+        Log.w(f2727a, "getOnlineIllum" + illumVlaueGray);
         return aBtestIllumList.get(illumVlaueGray).intValue();
     }
 
@@ -1023,27 +1022,27 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                 is_live_head_down = false;
                 break;
         }
-        Log.w(f2725a, "liveNessDetect|isLiveNess|" + is_live_head_down);
+        Log.w(f2727a, "liveNessDetect|isLiveNess|" + is_live_head_down);
         if (is_live_head_down) {
             if (is_live) {
                 com.baidu.pass.biometrics.face.liveness.c.a aVar = this.da;
                 aVar.y++;
                 aVar.ca = System.currentTimeMillis();
                 this.da.A = com.baidu.pass.biometrics.face.liveness.c.a.h;
-                Log.w(f2725a, "timePointLivingEyePass:" + this.da.ca);
+                Log.w(f2727a, "timePointLivingEyePass:" + this.da.ca);
             } else if (is_live_mouth) {
                 com.baidu.pass.biometrics.face.liveness.c.a aVar2 = this.da;
                 aVar2.z++;
                 aVar2.ea = System.currentTimeMillis();
                 this.da.A = com.baidu.pass.biometrics.face.liveness.c.a.i;
-                Log.w(f2725a, "timePointLivingMouthPass:" + this.da.ea);
+                Log.w(f2727a, "timePointLivingMouthPass:" + this.da.ea);
             }
             if (this.P.s < 7) {
                 this.da.F = com.baidu.pass.biometrics.face.liveness.c.a.h;
             } else {
                 this.da.F = com.baidu.pass.biometrics.face.liveness.c.a.i;
             }
-            Log.w(f2725a, "isLiveNess ProcessState:" + this.P.s);
+            Log.w(f2727a, "isLiveNess ProcessState:" + this.P.s);
             this.P.s = 9;
         }
     }
@@ -1097,8 +1096,8 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(int[] iArr) {
-        a.C0270a c2 = this.U.c();
-        Bitmap createBitmap = Bitmap.createBitmap(iArr, c2.b, c2.f2749a, Bitmap.Config.ARGB_8888);
+        a.C0281a c2 = this.U.c();
+        Bitmap createBitmap = Bitmap.createBitmap(iArr, c2.b, c2.f2751a, Bitmap.Config.ARGB_8888);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         createBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
         byte[] byteArray = byteArrayOutputStream.toByteArray();
@@ -1110,26 +1109,26 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         return new String(Base64Utils.encode(byteArray));
     }
 
-    private a.C0270a b(a.C0270a c0270a) {
-        if (c0270a == null) {
+    private a.C0281a b(a.C0281a c0281a) {
+        if (c0281a == null) {
             return null;
         }
-        a.C0270a f2 = f();
-        a.C0270a c0270a2 = new a.C0270a(c0270a.f2749a, c0270a.b);
-        float f3 = c0270a.f2749a / c0270a.b;
-        float f4 = f2.b / f2.f2749a;
+        a.C0281a f2 = f();
+        a.C0281a c0281a2 = new a.C0281a(c0281a.f2751a, c0281a.b);
+        float f3 = c0281a.f2751a / c0281a.b;
+        float f4 = f2.b / f2.f2751a;
         if (Math.abs(f3 - f4) > 0.02d) {
             if (f3 < f4) {
                 int i2 = f2.b;
-                c0270a2.f2749a = (c0270a.b * i2) / c0270a.f2749a;
-                c0270a2.b = i2;
-                return c0270a2;
+                c0281a2.f2751a = (c0281a.b * i2) / c0281a.f2751a;
+                c0281a2.b = i2;
+                return c0281a2;
             }
-            c0270a2.f2749a = f2.f2749a;
-            c0270a2.b = (f2.f2749a * c0270a.f2749a) / c0270a.b;
-            return c0270a2;
+            c0281a2.f2751a = f2.f2751a;
+            c0281a2.b = (f2.f2751a * c0281a.f2751a) / c0281a.b;
+            return c0281a2;
         }
-        return c0270a2;
+        return c0281a2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1430,11 +1429,11 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         d();
     }
 
-    private void a(a.C0270a c0270a) {
+    private void a(a.C0281a c0281a) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.C.getLayoutParams());
-        a.C0270a b2 = b(c0270a);
-        if (b2 != null && (b2.f2749a != c0270a.f2749a || b2.b != c0270a.b)) {
-            layoutParams.width = b2.f2749a;
+        a.C0281a b2 = b(c0281a);
+        if (b2 != null && (b2.f2751a != c0281a.f2751a || b2.b != c0281a.b)) {
+            layoutParams.width = b2.f2751a;
             layoutParams.height = b2.b;
         } else {
             layoutParams.width = -2;
@@ -1450,7 +1449,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(float f2) {
-        Log.w(f2725a, "whiteBgIllumThr" + this.oa);
+        Log.w(f2727a, "whiteBgIllumThr" + this.oa);
         return f2 <= ((float) this.oa);
     }
 
@@ -1479,7 +1478,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2) {
-        Log.w(f2725a, "activityFinish");
+        Log.w(f2727a, "activityFinish");
         this.da.fa = System.currentTimeMillis();
         PassFaceRecogDTO passFaceRecogDTO = this.passFaceRecogDTO;
         if (passFaceRecogDTO != null) {

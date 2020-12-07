@@ -3,28 +3,28 @@ package com.baidu.tieba.ala.guardthrone.a;
 import android.content.res.Configuration;
 import android.view.View;
 import android.widget.RelativeLayout;
-import com.baidu.live.h.b;
+import com.baidu.live.j.c;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes4.dex */
-public class a implements b {
-    private String aLy;
-    private String bme;
-    private com.baidu.tieba.ala.guardthrone.view.a gJA;
-    private com.baidu.tieba.ala.guardthrone.view.a gJz;
+public class a implements c {
+    private String aOt;
+    private String brl;
+    private com.baidu.tieba.ala.guardthrone.view.a gSK;
+    private com.baidu.tieba.ala.guardthrone.view.a gSL;
     private boolean mIsHost;
     private String mLiveId;
     private RelativeLayout mRootView;
     private int mTabId;
     private TbPageContext mTbPageContext;
 
-    @Override // com.baidu.live.h.b
+    @Override // com.baidu.live.j.c
     public void a(TbPageContext tbPageContext, String str, String str2, String str3, int i, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
-        this.bme = str2;
-        this.aLy = str3;
+        this.brl = str2;
+        this.aOt = str3;
         this.mTabId = i;
         this.mIsHost = z;
         initView();
@@ -32,69 +32,69 @@ public class a implements b {
 
     private void initView() {
         this.mRootView = new RelativeLayout(this.mTbPageContext.getPageActivity());
-        this.gJz = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, false, this.mIsHost);
-        this.gJz.d(this.mLiveId, this.bme, this.aLy, this.mTabId);
-        this.gJA = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, true, this.mIsHost);
-        this.gJA.d(this.mLiveId, this.bme, this.aLy, this.mTabId);
+        this.gSK = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, false, this.mIsHost);
+        this.gSK.d(this.mLiveId, this.brl, this.aOt, this.mTabId);
+        this.gSL = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, true, this.mIsHost);
+        this.gSL.d(this.mLiveId, this.brl, this.aOt, this.mTabId);
         if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) == 2) {
-            this.gJA.getRootView().setVisibility(0);
-            this.gJz.getRootView().setVisibility(8);
+            this.gSL.getRootView().setVisibility(0);
+            this.gSK.getRootView().setVisibility(8);
         } else {
-            this.gJA.getRootView().setVisibility(8);
-            this.gJz.getRootView().setVisibility(0);
+            this.gSL.getRootView().setVisibility(8);
+            this.gSK.getRootView().setVisibility(0);
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        this.mRootView.addView(this.gJz.getRootView(), layoutParams);
-        this.mRootView.addView(this.gJA.getRootView(), layoutParams);
+        this.mRootView.addView(this.gSK.getRootView(), layoutParams);
+        this.mRootView.addView(this.gSL.getRootView(), layoutParams);
     }
 
-    @Override // com.baidu.live.h.b
-    public void bS(boolean z) {
+    @Override // com.baidu.live.j.c
+    public void cb(boolean z) {
     }
 
-    @Override // com.baidu.live.h.b
+    @Override // com.baidu.live.j.c
     public String getTitle() {
         return this.mTbPageContext != null ? this.mTbPageContext.getResources().getString(a.h.guard_throne_title) : "";
     }
 
-    @Override // com.baidu.live.h.b
+    @Override // com.baidu.live.j.c
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.gJz != null && this.gJA != null) {
+        if (this.gSK != null && this.gSL != null) {
             if (configuration.orientation == 2) {
-                this.gJA.getRootView().setVisibility(0);
-                this.gJz.getRootView().setVisibility(8);
+                this.gSL.getRootView().setVisibility(0);
+                this.gSK.getRootView().setVisibility(8);
             } else {
-                this.gJA.getRootView().setVisibility(8);
-                this.gJz.getRootView().setVisibility(0);
+                this.gSL.getRootView().setVisibility(8);
+                this.gSK.getRootView().setVisibility(0);
             }
-            this.gJz.big();
-            this.gJA.big();
+            this.gSK.blq();
+            this.gSL.blq();
         }
     }
 
-    @Override // com.baidu.live.h.b
+    @Override // com.baidu.live.j.c
     public void onDestroy() {
-        if (this.gJz != null) {
-            this.gJz.bTx();
-            this.gJz.onDestroy();
+        if (this.gSK != null) {
+            this.gSK.bXh();
+            this.gSK.onDestroy();
         }
-        if (this.gJA != null) {
-            this.gJA.bTx();
-            this.gJA.onDestroy();
+        if (this.gSL != null) {
+            this.gSL.bXh();
+            this.gSL.onDestroy();
         }
     }
 
-    @Override // com.baidu.live.h.b
+    @Override // com.baidu.live.j.c
     public View getView() {
         return this.mRootView;
     }
 
-    @Override // com.baidu.live.h.b
-    public void Kd() {
+    @Override // com.baidu.live.j.c
+    public void Mf() {
     }
 
-    @Override // com.baidu.live.h.b
-    public void bT(boolean z) {
+    @Override // com.baidu.live.j.c
+    public void cc(boolean z) {
     }
 }

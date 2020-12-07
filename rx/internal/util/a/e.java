@@ -1,9 +1,9 @@
 package rx.internal.util.a;
 
 import rx.internal.util.atomic.LinkedQueueNode;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 abstract class e<E> extends c<E> {
-    protected static final long qkA = ae.l(e.class, "producerNode");
+    protected static final long pUB = ae.l(e.class, "producerNode");
     protected LinkedQueueNode<E> producerNode;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -12,7 +12,7 @@ abstract class e<E> extends c<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final LinkedQueueNode<E> eGh() {
-        return (LinkedQueueNode) ae.qkM.d(this, qkA);
+    public final LinkedQueueNode<E> eGi() {
+        return (LinkedQueueNode) ae.pUN.d(this, pUB);
     }
 }

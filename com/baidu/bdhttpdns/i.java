@@ -2,7 +2,6 @@ package com.baidu.bdhttpdns;
 
 import android.net.http.Headers;
 import com.baidu.android.imsdk.db.TableDefine;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -28,10 +27,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes19.dex */
+/* loaded from: classes5.dex */
 public final class i {
-    private static volatile i aep;
-    private static c aeq;
+    private static volatile i afk;
+    private static c afl;
     private static boolean b = true;
     private String d;
     private int o;
@@ -45,29 +44,29 @@ public final class i {
     private boolean n = false;
     private int p = 10;
     private final Object i = new Object();
-    private final HashSet<String> aer = new HashSet<>();
+    private final HashSet<String> afm = new HashSet<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(int i, d dVar, Map<String, e> map, String str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes5.dex */
     public class b implements Runnable {
-        private d aes;
-        private a aet;
+        private d afn;
+        private a afo;
         private String c;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f1278a = false;
+        public boolean f1277a = false;
         private boolean f = false;
 
         public b(String str, d dVar, a aVar) {
             this.c = str;
-            this.aes = dVar;
-            this.aet = aVar;
+            this.afn = dVar;
+            this.afo = aVar;
         }
 
         private String a(String str, d dVar) {
@@ -91,13 +90,13 @@ public final class i {
         }
 
         private void a() {
-            String a2 = a(this.c, this.aes);
+            String a2 = a(this.c, this.afn);
             if (a2 != null) {
                 a(a2);
                 return;
             }
-            this.aet.a(-1, this.aes, null, this.c);
-            l.a("Httpdns request failed for  %s(%s), get url error", this.aes.toString(), this.c);
+            this.afo.a(-1, this.afn, null, this.c);
+            l.a("Httpdns request failed for  %s(%s), get url error", this.afn.toString(), this.c);
         }
 
         /* JADX WARN: Multi-variable type inference failed */
@@ -119,7 +118,7 @@ public final class i {
                     if (i.this.f) {
                         HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) url.openConnection();
                         httpsURLConnection2.setRequestProperty("Host", "httpdns.baidubce.com");
-                        httpsURLConnection2.setHostnameVerifier(i.aeq);
+                        httpsURLConnection2.setHostnameVerifier(i.afl);
                         httpsURLConnection = httpsURLConnection2;
                     } else {
                         httpsURLConnection = (HttpURLConnection) url.openConnection();
@@ -163,8 +162,8 @@ public final class i {
                     if (a2 == null) {
                         Boolean bool2 = false;
                         i.this.a(Boolean.valueOf(this.f));
-                        l.a("Httpdns request failed for %s(%s), get empty response data", this.aes.toString(), this.c);
-                        this.aet.a(-1, this.aes, null, this.c);
+                        l.a("Httpdns request failed for %s(%s), get empty response data", this.afn.toString(), this.c);
+                        this.afo.a(-1, this.afn, null, this.c);
                         if (httpsURLConnection != null) {
                             httpsURLConnection.disconnect();
                         }
@@ -174,9 +173,9 @@ public final class i {
                         }
                         return;
                     }
-                    Map a3 = i.this.a(a2, this.c, this.aes);
+                    Map a3 = i.this.a(a2, this.c, this.afn);
                     if (a3.get("isSignExpired").equals(true)) {
-                        this.f1278a = true;
+                        this.f1277a = true;
                         if (httpsURLConnection != null) {
                             httpsURLConnection.disconnect();
                         }
@@ -189,15 +188,15 @@ public final class i {
                     if (a3.get("isMsgOK").equals(true) && responseCode == 200) {
                         map = i.this.N(a2, this.c);
                     } else {
-                        this.aet.a(-1, this.aes, null, this.c);
+                        this.afo.a(-1, this.afn, null, this.c);
                         map = hashMap;
                     }
                     hashMap = map;
                 } else {
                     bool = false;
                     i.this.a(Boolean.valueOf(this.f));
-                    l.a("Httpdns request failed for %s(%s), get null response stream", this.aes.toString(), this.c);
-                    this.aet.a(-1, this.aes, null, this.c);
+                    l.a("Httpdns request failed for %s(%s), get null response stream", this.afn.toString(), this.c);
+                    this.afo.a(-1, this.afn, null, this.c);
                 }
                 if (httpsURLConnection != null) {
                     httpsURLConnection.disconnect();
@@ -210,8 +209,8 @@ public final class i {
                 e.printStackTrace();
                 Boolean bool3 = false;
                 i.this.a(Boolean.valueOf(this.f));
-                l.a("Httpdns request failed for %s(%s), caught network IOException", this.aes.toString(), this.c);
-                this.aet.a(-1, this.aes, null, this.c);
+                l.a("Httpdns request failed for %s(%s), caught network IOException", this.afn.toString(), this.c);
+                this.afo.a(-1, this.afn, null, this.c);
                 if (httpsURLConnection != null) {
                     httpsURLConnection.disconnect();
                 }
@@ -220,14 +219,14 @@ public final class i {
                 }
                 if (hashMap != null) {
                 }
-                this.aet.a(-1, this.aes, null, this.c);
+                this.afo.a(-1, this.afn, null, this.c);
             } catch (ArrayIndexOutOfBoundsException e4) {
                 e = e4;
                 e.printStackTrace();
                 Boolean bool4 = false;
                 i.this.a(Boolean.valueOf(this.f));
-                l.a("Httpdns request failed for %s(%s), caught ArrayIndexOutOfBoundsException", this.aes.toString(), this.c);
-                this.aet.a(-1, this.aes, null, this.c);
+                l.a("Httpdns request failed for %s(%s), caught ArrayIndexOutOfBoundsException", this.afn.toString(), this.c);
+                this.afo.a(-1, this.afn, null, this.c);
                 if (httpsURLConnection != null) {
                     httpsURLConnection.disconnect();
                 }
@@ -236,32 +235,32 @@ public final class i {
                 }
                 if (hashMap != null) {
                 }
-                this.aet.a(-1, this.aes, null, this.c);
+                this.afo.a(-1, this.afn, null, this.c);
             }
             if (hashMap != null || hashMap.isEmpty()) {
-                this.aet.a(-1, this.aes, null, this.c);
+                this.afo.a(-1, this.afn, null, this.c);
             } else {
-                this.aet.a(0, this.aes, hashMap, this.c);
+                this.afo.a(0, this.afn, hashMap, this.c);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
             a();
-            if (this.f1278a) {
-                l.a("Retry for %s(%s).", this.aes.toString(), this.c);
+            if (this.f1277a) {
+                l.a("Retry for %s(%s).", this.afn.toString(), this.c);
                 a();
             }
             synchronized (i.this.i) {
-                if (!this.aes.equals(d.TAG_OF_HOSTS)) {
-                    for (String str : this.c.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-                        i.this.aer.remove(str);
+                if (!this.afn.equals(d.TAG_OF_HOSTS)) {
+                    for (String str : this.c.split(",")) {
+                        i.this.afm.remove(str);
                     }
                 }
             }
             synchronized (i.this.j) {
-                if (this.aes.equals(d.DNLIST_HOSTS)) {
-                    for (String str2 : this.c.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
+                if (this.afn.equals(d.DNLIST_HOSTS)) {
+                    for (String str2 : this.c.split(",")) {
                         i.this.k.remove(str2);
                     }
                 }
@@ -270,7 +269,7 @@ public final class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes5.dex */
     public class c implements HostnameVerifier {
         private c() {
         }
@@ -281,13 +280,13 @@ public final class i {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes5.dex */
     public enum d {
         DNLIST_HOSTS,
         TAG_OF_HOSTS
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes5.dex */
     public class e {
         private final ArrayList<String> b;
         private final long c;
@@ -307,7 +306,7 @@ public final class i {
     }
 
     private i() {
-        aeq = new c();
+        afl = new c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -400,15 +399,15 @@ public final class i {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static i tb() {
-        if (aep == null) {
+    public static i te() {
+        if (afk == null) {
             synchronized (i.class) {
-                if (aep == null) {
-                    aep = new i();
+                if (afk == null) {
+                    afk = new i();
                 }
             }
         }
-        return aep;
+        return afk;
     }
 
     Map N(String str, String str2) {
@@ -524,26 +523,26 @@ public final class i {
         synchronized (this.i) {
             if (dVar.equals(d.DNLIST_HOSTS)) {
                 ArrayList arrayList = new ArrayList();
-                arrayList.addAll(Arrays.asList(str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)));
+                arrayList.addAll(Arrays.asList(str.split(",")));
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     String str2 = (String) it.next();
-                    if (this.aer.contains(str2)) {
+                    if (this.afm.contains(str2)) {
                         l.a("Httpdns request request for host(%s) is in processing，will exclude it.", str2);
                         it.remove();
                     } else {
-                        this.aer.add(str2);
+                        this.afm.add(str2);
                     }
                 }
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < arrayList.size(); i++) {
-                    sb.append((String) arrayList.get(i)).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    sb.append((String) arrayList.get(i)).append(",");
                 }
                 str = sb.toString().replaceAll("^,*|,*$", "");
             }
             if (str != null && !str.isEmpty()) {
                 try {
-                    m.td().b().execute(new b(str, dVar, aVar));
+                    m.tg().b().execute(new b(str, dVar, aVar));
                 } catch (RejectedExecutionException e2) {
                     e2.printStackTrace();
                     l.a("Httpdns request failed, host(%s), async tasks has exceed the maximum thread limit.", str);
@@ -568,7 +567,7 @@ public final class i {
                     i = i4;
                     break;
                 }
-                str = str + ((String) arrayList2.get(i4)) + Constants.ACCEPT_TIME_SEPARATOR_SP;
+                str = str + ((String) arrayList2.get(i4)) + ",";
                 i3++;
                 i = i4;
             }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.video.editvideo.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class MusicData extends OrmObject {
     public static final int TYPE_CLOUD = 2;
     public static final int TYPE_MUSIC = 0;

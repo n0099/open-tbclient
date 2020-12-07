@@ -7,20 +7,20 @@ import java.util.Date;
 /* loaded from: classes17.dex */
 public final class b {
     private static boolean ad = false;
-    private static a.InterfaceC0933a osT;
-    private static a.InterfaceC0933a osU;
+    private static a.InterfaceC0950a oIc;
+    private static a.InterfaceC0950a oId;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static synchronized void c(Context context) {
         synchronized (b.class) {
             if (!ad) {
                 com.baidu.ubs.analytics.d.b.I(" ActivityLifeTask   add  " + new Date().toLocaleString());
-                osT = new c();
-                osU = new m();
-                a.edC().S();
-                a.edC().a(osU);
-                a.edC().a(osT);
-                a.edC().c(context);
+                oIc = new c();
+                oId = new m();
+                a.ejq().S();
+                a.ejq().a(oId);
+                a.ejq().a(oIc);
+                a.ejq().c(context);
                 ad = true;
             } else {
                 com.baidu.ubs.analytics.d.b.I(" ActivityLifeTask  is added  " + new Date().toLocaleString());

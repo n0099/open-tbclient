@@ -20,7 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.FrameLayout;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class BottomSheetDialog extends AppCompatDialog {
     private BottomSheetBehavior<FrameLayout> mBehavior;
     private BottomSheetBehavior.BottomSheetCallback mBottomSheetCallback;

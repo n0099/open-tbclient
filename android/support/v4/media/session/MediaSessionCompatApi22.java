@@ -3,7 +3,7 @@ package android.support.v4.media.session;
 import android.media.session.MediaSession;
 import android.support.annotation.RequiresApi;
 @RequiresApi(22)
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 class MediaSessionCompatApi22 {
     MediaSessionCompatApi22() {
     }

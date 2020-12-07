@@ -1,110 +1,110 @@
 package com.baidu.tieba.ala.livecard.vc;
 
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private int faf;
-    private List<bx> fal;
-    private List<bx> fam;
-    private boolean fan;
-    private boolean fao;
-    private int fap = 2;
-    private int faq = 1;
+    private int fhC;
+    private List<by> fhI;
+    private List<by> fhJ;
+    private boolean fhK;
+    private boolean fhL;
+    private int fhM = 2;
+    private int fhN = 1;
 
-    public b(List<bx> list, boolean z, int i) {
-        this.faf = 2;
-        this.fao = z;
-        this.faf = i;
-        cr(list);
+    public b(List<by> list, boolean z, int i) {
+        this.fhC = 2;
+        this.fhL = z;
+        this.fhC = i;
+        cv(list);
     }
 
-    public void cr(List<bx> list) {
+    public void cv(List<by> list) {
         if (list != null) {
-            this.fal = list;
-            if (list != null && list.size() >= this.fap && list.size() <= this.faf) {
-                this.fan = true;
-            } else if (list.size() > this.faf && this.fao) {
-                this.fan = true;
+            this.fhI = list;
+            if (list != null && list.size() >= this.fhM && list.size() <= this.fhC) {
+                this.fhK = true;
+            } else if (list.size() > this.fhC && this.fhL) {
+                this.fhK = true;
             } else {
-                this.fan = false;
+                this.fhK = false;
             }
-            this.fam = bte();
+            this.fhJ = bwE();
         }
     }
 
-    private List<bx> bte() {
+    private List<by> bwE() {
         ArrayList arrayList = new ArrayList();
-        if (this.fal != null) {
-            if (this.fan) {
-                if (this.fal.size() > this.faf && this.fal.size() >= this.faq) {
-                    arrayList.addAll(this.fal.subList(0, this.faf));
-                    arrayList.addAll(0, this.fal.subList(this.faf - this.faq, this.faf));
-                    arrayList.addAll(this.fal.subList(0, this.faq));
+        if (this.fhI != null) {
+            if (this.fhK) {
+                if (this.fhI.size() > this.fhC && this.fhI.size() >= this.fhN) {
+                    arrayList.addAll(this.fhI.subList(0, this.fhC));
+                    arrayList.addAll(0, this.fhI.subList(this.fhC - this.fhN, this.fhC));
+                    arrayList.addAll(this.fhI.subList(0, this.fhN));
                 } else {
-                    arrayList.addAll(this.fal);
-                    arrayList.addAll(0, this.fal.subList(this.fal.size() - this.faq, this.fal.size()));
-                    arrayList.addAll(this.fal.subList(0, this.faq));
+                    arrayList.addAll(this.fhI);
+                    arrayList.addAll(0, this.fhI.subList(this.fhI.size() - this.fhN, this.fhI.size()));
+                    arrayList.addAll(this.fhI.subList(0, this.fhN));
                 }
-            } else if (this.fal != null && this.fal.size() > 0 && this.fal.size() >= this.faq) {
-                arrayList.addAll(this.fal.subList(0, this.faq));
+            } else if (this.fhI != null && this.fhI.size() > 0 && this.fhI.size() >= this.fhN) {
+                arrayList.addAll(this.fhI.subList(0, this.fhN));
             }
         }
         return arrayList;
     }
 
-    public int qT(int i) {
-        if (this.fan) {
-            int size = this.fam.size();
+    public int ru(int i) {
+        if (this.fhK) {
+            int size = this.fhJ.size();
             if (i == 0) {
-                return (size - 1) - this.faq;
+                return (size - 1) - this.fhN;
             }
-            if (i == size - this.faq) {
-                return this.faq;
+            if (i == size - this.fhN) {
+                return this.fhN;
             }
             return i;
         }
         return i;
     }
 
-    public int qU(int i) {
-        if (this.fan) {
-            return i - this.faq;
+    public int rv(int i) {
+        if (this.fhK) {
+            return i - this.fhN;
         }
         return i;
     }
 
-    public int btf() {
-        if (this.fal == null) {
+    public int bwF() {
+        if (this.fhI == null) {
             return 0;
         }
-        return this.fal.size();
+        return this.fhI.size();
     }
 
-    public int btg() {
-        if (this.fan) {
-            return this.faq;
+    public int bwG() {
+        if (this.fhK) {
+            return this.fhN;
         }
         return 0;
     }
 
-    public void qV(int i) {
-        this.faf = i;
-        cr(this.fal);
+    public void rw(int i) {
+        this.fhC = i;
+        cv(this.fhI);
     }
 
-    public void qW(int i) {
-        this.fap = i;
-        cr(this.fal);
+    public void rx(int i) {
+        this.fhM = i;
+        cv(this.fhI);
     }
 
-    public List<bx> bth() {
-        return this.fam;
+    public List<by> bwH() {
+        return this.fhJ;
     }
 
-    public void qX(int i) {
-        this.faq = i;
-        cr(this.fal);
+    public void ry(int i) {
+        this.fhN = i;
+        cv(this.fhI);
     }
 }

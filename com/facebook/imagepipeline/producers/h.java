@@ -3,94 +3,94 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.common.internal.ImmutableMap;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes15.dex */
-public class h implements aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> {
-    private final com.facebook.imagepipeline.c.p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> oOo;
-    private final com.facebook.imagepipeline.c.f oWG;
-    private final aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> oZF;
+public class h implements aj<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> {
+    private final com.facebook.imagepipeline.b.p<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> pdv;
+    private final com.facebook.imagepipeline.b.f plv;
+    private final aj<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> pox;
 
-    public h(com.facebook.imagepipeline.c.p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> pVar, com.facebook.imagepipeline.c.f fVar, aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ajVar) {
-        this.oOo = pVar;
-        this.oWG = fVar;
-        this.oZF = ajVar;
+    public h(com.facebook.imagepipeline.b.p<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> pVar, com.facebook.imagepipeline.b.f fVar, aj<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> ajVar) {
+        this.pdv = pVar;
+        this.plv = fVar;
+        this.pox = ajVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public void c(k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> kVar, ak akVar) {
-        am eqU = akVar.eqU();
+    public void a(k<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> kVar, ak akVar) {
+        am eww = akVar.eww();
         String id = akVar.getId();
-        eqU.gZ(id, erd());
-        com.facebook.cache.common.b a2 = this.oWG.a(akVar.eqT(), akVar.elx());
-        com.facebook.common.references.a<com.facebook.imagepipeline.g.c> bv = this.oOo.bv(a2);
-        if (bv != null) {
-            boolean eqd = bv.get().epP().eqd();
-            if (eqd) {
-                eqU.a(id, erd(), eqU.XX(id) ? ImmutableMap.of("cached_value_found", "true") : null);
-                eqU.I(id, erd(), true);
-                kVar.aU(1.0f);
+        eww.hh(id, ewG());
+        com.facebook.cache.common.b a2 = this.plv.a(akVar.ewv(), akVar.erm());
+        com.facebook.common.references.a<com.facebook.imagepipeline.f.c> bu = this.pdv.bu(a2);
+        if (bu != null) {
+            boolean evI = bu.get().evu().evI();
+            if (evI) {
+                eww.a(id, ewG(), eww.Zq(id) ? ImmutableMap.of("cached_value_found", "true") : null);
+                eww.J(id, ewG(), true);
+                kVar.aV(1.0f);
             }
-            kVar.h(bv, b.Av(eqd));
-            bv.close();
-            if (eqd) {
+            kVar.h(bu, b.AW(evI));
+            bu.close();
+            if (evI) {
                 return;
             }
         }
-        if (akVar.eqV().getValue() >= ImageRequest.RequestLevel.BITMAP_MEMORY_CACHE.getValue()) {
-            eqU.a(id, erd(), eqU.XX(id) ? ImmutableMap.of("cached_value_found", "false") : null);
-            eqU.I(id, erd(), false);
+        if (akVar.ewx().getValue() >= ImageRequest.RequestLevel.BITMAP_MEMORY_CACHE.getValue()) {
+            eww.a(id, ewG(), eww.Zq(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+            eww.J(id, ewG(), false);
             kVar.h(null, 1);
             return;
         }
-        k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> a3 = a(kVar, a2, akVar.eqT().erS());
-        eqU.a(id, erd(), eqU.XX(id) ? ImmutableMap.of("cached_value_found", "false") : null);
-        this.oZF.c(a3, akVar);
+        k<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> a3 = a(kVar, a2, akVar.ewv().exs());
+        eww.a(id, ewG(), eww.Zq(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+        this.pox.a(a3, akVar);
     }
 
-    protected k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> a(k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> kVar, final com.facebook.cache.common.b bVar, final boolean z) {
-        return new n<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>, com.facebook.common.references.a<com.facebook.imagepipeline.g.c>>(kVar) { // from class: com.facebook.imagepipeline.producers.h.1
+    protected k<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> a(k<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> kVar, final com.facebook.cache.common.b bVar, final boolean z) {
+        return new n<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>, com.facebook.common.references.a<com.facebook.imagepipeline.f.c>>(kVar) { // from class: com.facebook.imagepipeline.producers.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.imagepipeline.producers.b
             /* renamed from: a */
-            public void g(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar, int i) {
-                com.facebook.common.references.a<com.facebook.imagepipeline.g.c> bv;
-                boolean Ql = Ql(i);
+            public void g(com.facebook.common.references.a<com.facebook.imagepipeline.f.c> aVar, int i) {
+                com.facebook.common.references.a<com.facebook.imagepipeline.f.c> bu;
+                boolean Rh = Rh(i);
                 if (aVar == null) {
-                    if (Ql) {
-                        erf().h(null, i);
+                    if (Rh) {
+                        ewI().h(null, i);
                     }
-                } else if (aVar.get().isStateful() || ea(i, 8)) {
-                    erf().h(aVar, i);
+                } else if (aVar.get().isStateful() || ef(i, 8)) {
+                    ewI().h(aVar, i);
                 } else {
-                    if (!Ql && (bv = h.this.oOo.bv(bVar)) != null) {
+                    if (!Rh && (bu = h.this.pdv.bu(bVar)) != null) {
                         try {
-                            com.facebook.imagepipeline.g.h epP = aVar.get().epP();
-                            com.facebook.imagepipeline.g.h epP2 = bv.get().epP();
-                            if (epP2.eqd() || epP2.eqb() >= epP.eqb()) {
-                                erf().h(bv, i);
+                            com.facebook.imagepipeline.f.h evu = aVar.get().evu();
+                            com.facebook.imagepipeline.f.h evu2 = bu.get().evu();
+                            if (evu2.evI() || evu2.evG() >= evu.evG()) {
+                                ewI().h(bu, i);
                                 return;
                             }
                         } finally {
-                            com.facebook.common.references.a.c(bv);
+                            com.facebook.common.references.a.c(bu);
                         }
                     }
-                    com.facebook.common.references.a<com.facebook.imagepipeline.g.c> a2 = z ? h.this.oOo.a(bVar, aVar) : null;
-                    if (Ql) {
+                    com.facebook.common.references.a<com.facebook.imagepipeline.f.c> a2 = z ? h.this.pdv.a(bVar, aVar) : null;
+                    if (Rh) {
                         try {
-                            erf().aU(1.0f);
+                            ewI().aV(1.0f);
                         } finally {
                             com.facebook.common.references.a.c(a2);
                         }
                     }
-                    k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> erf = erf();
+                    k<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> ewI = ewI();
                     if (a2 != null) {
                         aVar = a2;
                     }
-                    erf.h(aVar, i);
+                    ewI.h(aVar, i);
                 }
             }
         };
     }
 
-    protected String erd() {
+    protected String ewG() {
         return "BitmapMemoryCacheProducer";
     }
 }

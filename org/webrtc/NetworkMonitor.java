@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import org.webrtc.NetworkMonitorAutoDetect;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class NetworkMonitor {
     private static final String TAG = "NetworkMonitor";
     @Nullable
@@ -18,7 +18,7 @@ public class NetworkMonitor {
     private int numObservers;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class InstanceHolder {
         static final NetworkMonitor instance = new NetworkMonitor();
 
@@ -26,7 +26,7 @@ public class NetworkMonitor {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public interface NetworkObserver {
         void onConnectionTypeChanged(NetworkMonitorAutoDetect.ConnectionType connectionType);
     }

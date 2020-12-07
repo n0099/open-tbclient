@@ -21,7 +21,7 @@ import com.baidu.sapi2.shell.response.SapiAccountResponse;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.SocialType;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class ThirdPartyService implements AbstractThirdPartyService {
     private static final long MIN_INVOKE_INTER_TIME = 500;
     private long lastInvokeTime = 0;

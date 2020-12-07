@@ -1,6 +1,8 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.c.h;
+import io.reactivex.b.h;
+import io.reactivex.g;
+import io.reactivex.internal.a.f;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -10,11 +12,12 @@ import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
-public final class FlowableZip<T, R> extends io.reactivex.g<R> {
+import org.a.d;
+/* loaded from: classes9.dex */
+public final class FlowableZip<T, R> extends g<R> {
     final int bufferSize;
     final boolean delayError;
-    final Iterable<? extends org.a.b<? extends T>> pOo;
+    final Iterable<? extends org.a.b<? extends T>> pFh;
     final org.a.b<? extends T>[] sources;
     final h<? super Object[], ? extends R> zipper;
 
@@ -27,7 +30,7 @@ public final class FlowableZip<T, R> extends io.reactivex.g<R> {
         if (bVarArr3 == null) {
             int i = 0;
             org.a.b<? extends T>[] bVarArr4 = new org.a.b[8];
-            for (org.a.b<? extends T> bVar : this.pOo) {
+            for (org.a.b<? extends T> bVar : this.pFh) {
                 if (i == bVarArr4.length) {
                     bVarArr2 = new org.a.b[(i >> 2) + i];
                     System.arraycopy(bVarArr4, 0, bVarArr2, 0, i);
@@ -53,8 +56,8 @@ public final class FlowableZip<T, R> extends io.reactivex.g<R> {
         zipCoordinator.subscribe(bVarArr, length);
     }
 
-    /* loaded from: classes5.dex */
-    static final class ZipCoordinator<T, R> extends AtomicInteger implements org.a.d {
+    /* loaded from: classes9.dex */
+    static final class ZipCoordinator<T, R> extends AtomicInteger implements d {
         private static final long serialVersionUID = -2434867452883857743L;
         final org.a.c<? super R> actual;
         volatile boolean cancelled;
@@ -112,7 +115,7 @@ public final class FlowableZip<T, R> extends io.reactivex.g<R> {
                 drain();
                 return;
             }
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
 
         void cancelAll() {
@@ -286,8 +289,8 @@ public final class FlowableZip<T, R> extends io.reactivex.g<R> {
                                 if (objArr[i3] == null) {
                                     try {
                                         boolean z2 = zipSubscriber.done;
-                                        io.reactivex.internal.a.g<T> gVar = zipSubscriber.queue;
-                                        T poll = gVar != null ? gVar.poll() : null;
+                                        f<T> fVar = zipSubscriber.queue;
+                                        T poll = fVar != null ? fVar.poll() : null;
                                         boolean z3 = poll == null;
                                         if (z2 && z3) {
                                             cancelAll();
@@ -319,7 +322,7 @@ public final class FlowableZip<T, R> extends io.reactivex.g<R> {
                                 break;
                             }
                             try {
-                                cVar.onNext((Object) io.reactivex.internal.functions.a.l(this.zipper.apply(objArr.clone()), "The zipper returned a null value"));
+                                cVar.onNext((Object) io.reactivex.internal.functions.a.m(this.zipper.apply(objArr.clone()), "The zipper returned a null value"));
                                 j2 = 1 + j3;
                                 Arrays.fill(objArr, (Object) null);
                             } catch (Throwable th2) {
@@ -339,15 +342,15 @@ public final class FlowableZip<T, R> extends io.reactivex.g<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
-    public static final class ZipSubscriber<T, R> extends AtomicReference<org.a.d> implements j<T>, org.a.d {
+    /* loaded from: classes9.dex */
+    public static final class ZipSubscriber<T, R> extends AtomicReference<d> implements j<T>, d {
         private static final long serialVersionUID = -4627193790118206028L;
         volatile boolean done;
         final int limit;
         final ZipCoordinator<T, R> parent;
         final int prefetch;
         long produced;
-        io.reactivex.internal.a.g<T> queue;
+        f<T> queue;
         int sourceMode;
 
         ZipSubscriber(ZipCoordinator<T, R> zipCoordinator, int i) {
@@ -357,7 +360,7 @@ public final class FlowableZip<T, R> extends io.reactivex.g<R> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        public void onSubscribe(d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 if (dVar instanceof io.reactivex.internal.a.d) {
                     io.reactivex.internal.a.d dVar2 = (io.reactivex.internal.a.d) dVar;

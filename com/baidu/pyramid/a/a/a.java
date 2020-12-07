@@ -1,34 +1,32 @@
 package com.baidu.pyramid.a.a;
+/* loaded from: classes14.dex */
+public class a<T> implements c<T> {
+    public com.baidu.pyramid.a.a<T> coA;
+    public com.baidu.pyramid.a.a<T> coz;
+    public T t;
 
-import java.util.List;
-/* loaded from: classes18.dex */
-public class a<T> implements b<T> {
-    public com.baidu.pyramid.a.a<List<T>> chQ;
-    public com.baidu.pyramid.a.a<List<T>> chR;
-    public List<T> list;
-
-    @Override // com.baidu.pyramid.a.a.b
-    public List<T> getList() {
-        if (this.list != null) {
-            return this.list;
+    @Override // com.baidu.pyramid.a.a.c
+    public T get() {
+        if (this.t != null) {
+            return this.t;
         }
-        if (this.chQ != null) {
-            this.list = this.chQ.get();
-            return this.list;
-        } else if (this.chR != null) {
-            return this.chR.get();
+        if (this.coz != null) {
+            this.t = this.coz.get();
+            return this.t;
+        } else if (this.coA != null) {
+            return this.coA.get();
         } else {
             return null;
         }
     }
 
-    @Override // com.baidu.pyramid.a.a.b
-    public void a(com.baidu.pyramid.a.a<List<T>> aVar) {
-        this.chQ = aVar;
-        this.list = null;
+    @Override // com.baidu.pyramid.a.a.c
+    public void a(com.baidu.pyramid.a.a<T> aVar) {
+        this.coz = aVar;
+        this.t = null;
     }
 
-    public static a acv() {
+    public static a afD() {
         return new a();
     }
 }

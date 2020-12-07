@@ -3,7 +3,7 @@ package com.baidu.sapi2.activity.social;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.k.a.a.a;
+import com.baidu.l.a.a.a;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.ParamsUtil;
 import com.baidu.sapi2.utils.enums.SocialType;
@@ -13,7 +13,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import java.util.HashMap;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
     private final String TAG = "GoogleSSOLoginActivity";
     private final int SIGN_IN_REQUEST_CODE = 1000;

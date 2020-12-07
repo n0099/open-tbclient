@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class LimitedAgeMemoryCache<K, V> implements MemoryCacheAware<K, V> {
     private final MemoryCacheAware<K, V> cache;
     private final Map<K, Long> loadingDates = Collections.synchronizedMap(new HashMap());

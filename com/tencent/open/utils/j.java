@@ -35,12 +35,12 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Enumeration;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class j {
     private static String f;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4621a = "";
+    private static String f4391a = "";
     private static String b = "";
     private static String c = "";
     private static String d = "";
@@ -52,7 +52,7 @@ public class j {
         if (str != null) {
             try {
                 for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
-                    String[] split = str2.split(ETAG.EQUAL);
+                    String[] split = str2.split("=");
                     if (split.length == 2) {
                         bundle.putString(URLDecoder.decode(split[0]), URLDecoder.decode(split[1]));
                     }
@@ -71,7 +71,7 @@ public class j {
         }
         if (str != null) {
             for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
-                String[] split = str2.split(ETAG.EQUAL);
+                String[] split = str2.split("=");
                 if (split.length == 2) {
                     try {
                         split[0] = URLDecoder.decode(split[0]);
@@ -111,19 +111,19 @@ public class j {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f4622a;
+        public String f4392a;
         public long b;
         public long c;
 
         public a(String str, int i) {
-            this.f4622a = str;
+            this.f4392a = str;
             this.b = i;
-            if (this.f4622a != null) {
-                this.c = this.f4622a.length();
+            if (this.f4392a != null) {
+                this.c = this.f4392a.length();
             }
         }
     }
@@ -438,7 +438,7 @@ public class j {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
                 b = packageInfo.versionName;
-                f4621a = b.substring(0, b.lastIndexOf(46));
+                f4391a = b.substring(0, b.lastIndexOf(46));
                 d = b.substring(b.lastIndexOf(46) + 1, b.length());
                 e = packageInfo.versionCode;
             } catch (PackageManager.NameNotFoundException e2) {
@@ -462,7 +462,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f4621a;
+        return f4391a;
     }
 
     public static String e(Context context, String str) {

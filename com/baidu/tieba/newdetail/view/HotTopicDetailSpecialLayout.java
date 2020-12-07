@@ -9,25 +9,25 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.newdetail.adapter.a;
 import com.baidu.tieba.newdetail.adapter.b;
 import java.util.ArrayList;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
-    private int jCS;
+    private int jQu;
 
     public HotTopicDetailSpecialLayout(Context context) {
         super(context);
-        this.jCS = 3;
+        this.jQu = 3;
         initView();
     }
 
     public HotTopicDetailSpecialLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jCS = 3;
+        this.jQu = 3;
         initView();
     }
 
     public HotTopicDetailSpecialLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jCS = 3;
+        this.jQu = 3;
         initView();
     }
 
@@ -44,9 +44,9 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jCS != i) {
+        if (this.jQu != i) {
             getListAdapter().notifyDataSetChanged();
-            this.jCS = i;
+            this.jQu = i;
         }
     }
 }

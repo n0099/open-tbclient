@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ChatUserDBManager extends DBBase {
     private static final String TAG = ChatUserDBManager.class.getSimpleName();
     private static ChatUserDBManager mInstance = null;
@@ -598,21 +598,21 @@ public class ChatUserDBManager extends DBBase {
     }
 
     public void updateMarkTopList(@NonNull final List<ChatSession> list) {
-        if (list.size() > 0) {
-            TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    synchronized (ChatUserDBManager.mSyncLock) {
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put("marktop", (Integer) 0);
-                        ChatUserDBManager.this.update(TableDefine.DB_TABLE_PA_SUBSCRIBE, "marktop=?", new String[]{String.valueOf(1)}, contentValues);
+        TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.1
+            @Override // java.lang.Runnable
+            public void run() {
+                synchronized (ChatUserDBManager.mSyncLock) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("marktop", (Integer) 0);
+                    ChatUserDBManager.this.update(TableDefine.DB_TABLE_USERINFO, "marktop=?", new String[]{String.valueOf(1)}, contentValues);
+                    if (list != null) {
                         for (ChatSession chatSession : list) {
                             ChatUserDBManager.this.updateMarkTop(chatSession.getContacter(), chatSession.getMarkTop(), chatSession.getMarkTopTime());
                         }
                     }
                 }
-            });
-        }
+            }
+        });
     }
 
     public boolean updateShield(@NonNull ChatSession chatSession, boolean z) {
@@ -657,7 +657,7 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [614=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [613=4] */
     public List<ChatSession> getShieldUsers() {
         Cursor cursor;
         Cursor cursor2 = null;
@@ -706,7 +706,7 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [687=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [686=4] */
     public void getShieldUserByUids(@NonNull List<ChatSession> list, boolean z, @NonNull IGetUserShieldListener iGetUserShieldListener) {
         Cursor cursor;
         ChatSession chatSession;

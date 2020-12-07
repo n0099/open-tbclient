@@ -29,7 +29,7 @@ public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
             this.mEmotionList = new ArrayList();
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
-                    this.mEmotionList.add(c.m39do(jSONArray.getJSONObject(i)));
+                    this.mEmotionList.add(c.dp(jSONArray.getJSONObject(i)));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

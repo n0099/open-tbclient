@@ -11,7 +11,7 @@ import java.io.File;
 public class b extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final IXAdLogger f2319a;
+    protected final IXAdLogger f2321a;
     private a d;
     private String e;
     private File f;
@@ -19,7 +19,7 @@ public class b extends d {
 
     public b(Context context, String str, File file, boolean z) {
         super(context);
-        this.f2319a = XAdSDKFoundationFacade.getInstance().getAdLogger();
+        this.f2321a = XAdSDKFoundationFacade.getInstance().getAdLogger();
         this.e = str;
         this.f = file;
         this.g = Boolean.valueOf(z);
@@ -38,7 +38,7 @@ public class b extends d {
             }
             XAdSDKFoundationFacade.getInstance().getPackageUtils().b(this.b, this.f);
         } catch (Exception e) {
-            this.f2319a.e("XAdInstallController", "");
+            this.f2321a.e("XAdInstallController", "");
         }
     }
 }

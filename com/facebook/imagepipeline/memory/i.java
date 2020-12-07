@@ -4,28 +4,28 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes15.dex */
 public class i {
-    private final com.facebook.common.references.c<byte[]> oMT;
-    final a oYX;
+    private final com.facebook.common.references.c<byte[]> pcb;
+    final a pnM;
 
     public i(com.facebook.common.memory.c cVar, r rVar) {
-        com.facebook.common.internal.g.checkArgument(rVar.oZu > 0);
-        this.oYX = new a(cVar, rVar, n.eqx());
-        this.oMT = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
+        com.facebook.common.internal.g.checkArgument(rVar.pok > 0);
+        this.pnM = new a(cVar, rVar, n.evZ());
+        this.pcb = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c
-            /* renamed from: an */
+            /* renamed from: ap */
             public void release(byte[] bArr) {
-                i.this.an(bArr);
+                i.this.ap(bArr);
             }
         };
     }
 
-    public com.facebook.common.references.a<byte[]> PC(int i) {
-        return com.facebook.common.references.a.a(this.oYX.get(i), this.oMT);
+    public com.facebook.common.references.a<byte[]> Qy(int i) {
+        return com.facebook.common.references.a.a(this.pnM.get(i), this.pcb);
     }
 
-    public void an(byte[] bArr) {
-        this.oYX.release(bArr);
+    public void ap(byte[] bArr) {
+        this.pnM.release(bArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -36,8 +36,8 @@ public class i {
         }
 
         @Override // com.facebook.imagepipeline.memory.BasePool
-        d<byte[]> PW(int i) {
-            return new o(PT(i), this.oYF.oZu, 0);
+        d<byte[]> QS(int i) {
+            return new o(QP(i), this.pnu.pok, 0);
         }
     }
 }

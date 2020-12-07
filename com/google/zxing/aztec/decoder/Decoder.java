@@ -8,6 +8,7 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.face.liveness.d.b;
 import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.ugc.model.PublishType;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import com.baidu.webkit.internal.ETAG;
@@ -20,17 +21,17 @@ import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Arrays;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class Decoder {
     private AztecDetectorResult ddata;
     private static final String[] UPPER_TABLE = {"CTRL_PS", " ", ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, "B", "C", "D", ExifInterface.LONGITUDE_EAST, "F", "G", IEruptionStrategyGroup.STRATEGY_MODIFIER_H, "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", ExifInterface.LATITUDE_SOUTH, ExifInterface.GPS_DIRECTION_TRUE, "U", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ExifInterface.LONGITUDE_WEST, "X", "Y", "Z", "CTRL_LL", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
-    private static final String[] LOWER_TABLE = {"CTRL_PS", " ", "a", b.f2753a, "c", "d", "e", "f", IXAdRequestInfo.GPS, "h", "i", "j", "k", "l", "m", "n", Config.OS, "p", IXAdRequestInfo.COST_NAME, "r", "s", "t", "u", "v", "w", "x", "y", MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
+    private static final String[] LOWER_TABLE = {"CTRL_PS", " ", "a", b.f2755a, "c", "d", "e", "f", IXAdRequestInfo.GPS, "h", "i", "j", "k", "l", "m", "n", Config.OS, "p", IXAdRequestInfo.COST_NAME, "r", "s", "t", "u", "v", "w", "x", "y", MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
     private static final String[] MIXED_TABLE = {"CTRL_PS", " ", "\u0001", "\u0002", "\u0003", "\u0004", "\u0005", "\u0006", "\u0007", "\b", "\t", "\n", "\u000b", "\f", "\r", "\u001b", "\u001c", "\u001d", "\u001e", "\u001f", UgcConstant.AT_RULE_TAG, IStringUtil.WINDOWS_FOLDER_SEPARATOR, "^", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, "`", "|", Constants.WAVE_SEPARATOR, "\u007f", "CTRL_LL", "CTRL_UL", "CTRL_PL", "CTRL_BS"};
-    private static final String[] PUNCT_TABLE = {"", "\r", "\r\n", ". ", ", ", ": ", "!", "\"", "#", "$", "%", ETAG.ITEM_SEPARATOR, "'", "(", ")", "*", "+", Constants.ACCEPT_TIME_SEPARATOR_SP, Constants.ACCEPT_TIME_SEPARATOR_SERVER, ".", "/", ":", ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, "<", ETAG.EQUAL, ">", "?", "[", "]", "{", "}", "CTRL_UL"};
-    private static final String[] DIGIT_TABLE = {"CTRL_PS", " ", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", Constants.ACCEPT_TIME_SEPARATOR_SP, ".", "CTRL_UL", "CTRL_US"};
+    private static final String[] PUNCT_TABLE = {"", "\r", "\r\n", ". ", ", ", ": ", "!", "\"", "#", "$", "%", ETAG.ITEM_SEPARATOR, "'", "(", ")", "*", "+", ",", Constants.ACCEPT_TIME_SEPARATOR_SERVER, ".", "/", ":", ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, "<", "=", ">", "?", "[", "]", "{", "}", "CTRL_UL"};
+    private static final String[] DIGIT_TABLE = {"CTRL_PS", " ", "0", "1", "2", "3", "4", "5", "6", "7", "8", PublishType.TYPE_VIDEO_SHARE, ",", ".", "CTRL_UL", "CTRL_US"};
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public enum Table {
         UPPER,
         LOWER,

@@ -9,46 +9,46 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class AlaChallengeShowAllJinzhuPagerAdapter extends PagerAdapter {
-    private long bmk;
-    private long fXY;
-    private ArrayList<d> gJx = new ArrayList<>();
-    private long gYW;
+    private long brr;
+    private ArrayList<d> gSI = new ArrayList<>();
+    private long ggj;
+    private long hiF;
     private boolean mIsHost;
     private TbPageContext mTbPageContext;
 
     public AlaChallengeShowAllJinzhuPagerAdapter(TbPageContext tbPageContext, long j, long j2, long j3, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mIsHost = z;
-        this.gYW = j;
-        this.bmk = j2;
-        this.fXY = j3;
-        bTk();
+        this.hiF = j;
+        this.brr = j2;
+        this.ggj = j3;
+        bWU();
     }
 
-    private void bTk() {
+    private void bWU() {
         com.baidu.tieba.ala.liveroom.challenge.view.b bVar = new com.baidu.tieba.ala.liveroom.challenge.view.b(this.mTbPageContext, 1, this.mIsHost);
-        bVar.e(this.gYW, this.bmk, this.fXY);
-        this.gJx.add(bVar);
+        bVar.e(this.hiF, this.brr, this.ggj);
+        this.gSI.add(bVar);
         com.baidu.tieba.ala.liveroom.challenge.view.b bVar2 = new com.baidu.tieba.ala.liveroom.challenge.view.b(this.mTbPageContext, 2, this.mIsHost);
-        bVar2.e(this.gYW, this.bmk, this.fXY);
-        this.gJx.add(bVar2);
+        bVar2.e(this.hiF, this.brr, this.ggj);
+        this.gSI.add(bVar2);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.gJx != null) {
-            return this.gJx.size();
+        if (this.gSI != null) {
+            return this.gSI.size();
         }
         return 0;
     }
 
     public ArrayList<d> getDataList() {
-        return this.gJx;
+        return this.gSI;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        d dVar = (d) ListUtils.getItem(this.gJx, i);
+        d dVar = (d) ListUtils.getItem(this.gSI, i);
         if (dVar != null && dVar.getPanelView() != null) {
             View panelView = dVar.getPanelView();
             if (panelView.getParent() != null) {

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GuessLikeThreadInfo;
 import tbclient.PbPage.GuessLikeStruct;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class CardHListViewData extends BaseCardInfo implements Serializable {
     private static final int MAX_COUNT = 9;
     private static final int MIN_COUNT = 3;

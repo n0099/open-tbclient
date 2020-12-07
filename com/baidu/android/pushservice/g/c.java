@@ -5,7 +5,7 @@ import android.text.TextUtils;
 public abstract class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1092a;
+    private String f1090a;
     private short b;
 
     public c() {
@@ -14,7 +14,7 @@ public abstract class c implements Runnable {
 
     public c(String str, short s) {
         this.b = (short) 99;
-        this.f1092a = str;
+        this.f1090a = str;
         this.b = s;
     }
 
@@ -25,7 +25,7 @@ public abstract class c implements Runnable {
     }
 
     public void c(String str) {
-        this.f1092a = str;
+        this.f1090a = str;
     }
 
     public short d() {
@@ -34,8 +34,8 @@ public abstract class c implements Runnable {
 
     @Override // java.lang.Runnable
     public final void run() {
-        if (!TextUtils.isEmpty(this.f1092a)) {
-            Thread.currentThread().setName(this.f1092a);
+        if (!TextUtils.isEmpty(this.f1090a)) {
+            Thread.currentThread().setName(this.f1090a);
         }
         a();
     }

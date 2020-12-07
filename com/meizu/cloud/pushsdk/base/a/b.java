@@ -2,11 +2,11 @@ package com.meizu.cloud.pushsdk.base.a;
 
 import com.meizu.cloud.pushsdk.base.h;
 import java.lang.reflect.Constructor;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4365a = "ReflectConstructor";
+    private String f4135a = "ReflectConstructor";
     private a b;
     private Class<?>[] c;
 
@@ -22,9 +22,9 @@ public class b {
             Constructor<?> declaredConstructor = this.b.a().getDeclaredConstructor(this.c);
             declaredConstructor.setAccessible(true);
             dVar.b = (T) declaredConstructor.newInstance(objArr);
-            dVar.f4367a = true;
+            dVar.f4137a = true;
         } catch (Exception e) {
-            h.b().a(this.f4365a, "newInstance", e);
+            h.b().a(this.f4135a, "newInstance", e);
         }
         return dVar;
     }

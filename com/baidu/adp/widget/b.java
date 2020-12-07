@@ -11,9 +11,9 @@ import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class b extends ImageSpan {
+    private int VT;
+    private int VU;
     private WeakReference<Drawable> mDrawableRef;
-    private int mPaddingLeft;
-    private int mPaddingRight;
     private int offset;
 
     public b(Context context, Bitmap bitmap, int i) {
@@ -30,7 +30,7 @@ public class b extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.mPaddingLeft + this.mPaddingRight;
+        return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.VU + this.VT;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
@@ -38,7 +38,7 @@ public class b extends ImageSpan {
         Drawable cachedDrawable = getCachedDrawable();
         canvas.save();
         int i6 = paint.getFontMetricsInt().top;
-        canvas.translate(this.mPaddingLeft + f, ((i5 - cachedDrawable.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - i6) / 2) - ((cachedDrawable.getBounds().top + cachedDrawable.getBounds().bottom) / 2))) + this.offset);
+        canvas.translate(this.VU + f, ((i5 - cachedDrawable.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - i6) / 2) - ((cachedDrawable.getBounds().top + cachedDrawable.getBounds().bottom) / 2))) + this.offset);
         cachedDrawable.draw(canvas);
         canvas.restore();
     }
@@ -57,7 +57,7 @@ public class b extends ImageSpan {
         return drawable;
     }
 
-    public void aH(int i) {
-        this.mPaddingLeft = i;
+    public void aL(int i) {
+        this.VU = i;
     }
 }

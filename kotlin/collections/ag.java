@@ -1,5 +1,5 @@
 package kotlin.collections;
-@kotlin.h
-/* loaded from: classes9.dex */
-class ag {
+@kotlin.e
+/* loaded from: classes17.dex */
+public final class ag extends ai {
 }

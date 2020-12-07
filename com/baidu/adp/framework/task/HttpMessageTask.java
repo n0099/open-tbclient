@@ -1,8 +1,10 @@
 package com.baidu.adp.framework.task;
 
+import android.net.Uri;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.d.e;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class HttpMessageTask extends MessageTask {
     private e mConnectTimeOut;
@@ -28,6 +30,7 @@ public class HttpMessageTask extends MessageTask {
         this.mIsImm = false;
         this.mDownloadTask = null;
         this.mUrl = str;
+        addProtobufSuffix();
         this.mPriority = 1;
     }
 
@@ -38,7 +41,17 @@ public class HttpMessageTask extends MessageTask {
     public String setUrl(String str) {
         String str2 = this.mUrl;
         this.mUrl = str;
+        addProtobufSuffix();
         return str2;
+    }
+
+    private void addProtobufSuffix() {
+        if (!StringUtils.isNull(this.mUrl)) {
+            Uri parse = Uri.parse(this.mUrl);
+            if (!StringUtils.isNull(parse.getQueryParameter("cmd")) && StringUtils.isNull(parse.getQueryParameter("format"))) {
+                this.mUrl = parse.buildUpon().appendQueryParameter("format", "protobuf").toString();
+            }
+        }
     }
 
     public HTTP_METHOD getMethod() {

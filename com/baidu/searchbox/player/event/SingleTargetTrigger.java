@@ -3,7 +3,7 @@ package com.baidu.searchbox.player.event;
 import android.support.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.message.IMessenger;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public abstract class SingleTargetTrigger implements IEventTrigger {
     protected IMessenger mIMessenger;
 

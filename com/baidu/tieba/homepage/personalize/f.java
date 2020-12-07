@@ -2,18 +2,18 @@ package com.baidu.tieba.homepage.personalize;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class f {
-    private static volatile List<Long> gms = new ArrayList();
+    private static volatile List<Long> guB = new ArrayList();
 
-    public static void fU(long j) {
-        if (gms.size() > 300) {
-            gms.remove(0);
+    public static void gz(long j) {
+        if (guB.size() > 300) {
+            guB.remove(0);
         }
-        gms.add(Long.valueOf(j));
+        guB.add(Long.valueOf(j));
     }
 
-    public static boolean fV(long j) {
-        return gms.contains(Long.valueOf(j));
+    public static boolean gA(long j) {
+        return guB.contains(Long.valueOf(j));
     }
 }

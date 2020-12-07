@@ -1,15 +1,15 @@
 package kotlin.sequences;
 
 import kotlin.jvm.internal.Lambda;
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 final class SequencesKt___SequencesKt$requireNoNulls$1 extends Lambda implements kotlin.jvm.a.b<T, T> {
-    final /* synthetic */ c $this_requireNoNulls;
+    final /* synthetic */ c receiver$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     SequencesKt___SequencesKt$requireNoNulls$1(c cVar) {
         super(1);
-        this.$this_requireNoNulls = cVar;
+        this.receiver$0 = cVar;
     }
 
     @Override // kotlin.jvm.a.b
@@ -17,6 +17,6 @@ final class SequencesKt___SequencesKt$requireNoNulls$1 extends Lambda implements
         if (t != 0) {
             return t;
         }
-        throw new IllegalArgumentException("null element found in " + this.$this_requireNoNulls + '.');
+        throw new IllegalArgumentException("null element found in " + this.receiver$0 + '.');
     }
 }

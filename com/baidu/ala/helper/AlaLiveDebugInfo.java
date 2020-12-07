@@ -1,7 +1,7 @@
 package com.baidu.ala.helper;
 
 import java.io.Serializable;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class AlaLiveDebugInfo implements Serializable {
     private static final long serialVersionUID = 5698793191517772253L;
     public long bandWidth;
@@ -24,8 +24,10 @@ public class AlaLiveDebugInfo implements Serializable {
     public int fpsMin;
     public long fpsTimestamp;
     public int monitorInterval;
+    public long sendAudioBitrate;
     public long sendAudioCount;
     public long sendAudioFailure;
+    public long sendVideoBitrate;
     public long sendVideoCount;
     public long sendVideoFailure;
     public int statusCode;
@@ -54,6 +56,8 @@ public class AlaLiveDebugInfo implements Serializable {
             this.currentDropP = alaLiveDebugInfo.currentDropP;
             this.currentPlaySppedCount = alaLiveDebugInfo.currentPlaySppedCount;
             this.dataFlow = alaLiveDebugInfo.dataFlow;
+            this.sendVideoBitrate = alaLiveDebugInfo.sendVideoBitrate;
+            this.sendAudioBitrate = alaLiveDebugInfo.sendAudioBitrate;
             this.elapsedMilli = alaLiveDebugInfo.elapsedMilli;
             this.monitorInterval = alaLiveDebugInfo.monitorInterval;
             this.timeStamp = alaLiveDebugInfo.timeStamp;
@@ -89,6 +93,8 @@ public class AlaLiveDebugInfo implements Serializable {
             this.currentDropP = alaLiveDebugInfo.currentDropP;
             this.currentPlaySppedCount = alaLiveDebugInfo.currentPlaySppedCount;
             this.dataFlow = alaLiveDebugInfo.dataFlow;
+            this.sendVideoBitrate = alaLiveDebugInfo.sendVideoBitrate;
+            this.sendAudioBitrate = alaLiveDebugInfo.sendAudioBitrate;
             this.elapsedMilli = alaLiveDebugInfo.elapsedMilli;
             this.monitorInterval = alaLiveDebugInfo.monitorInterval;
             this.timeStamp = alaLiveDebugInfo.timeStamp;

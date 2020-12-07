@@ -14,11 +14,11 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.platform.PlatformView;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class a implements MethodChannel.MethodCallHandler, PlatformView {
-    private View anH;
-    private String anI;
-    private com.baidu.tieba.square.a anJ;
+    private View aov;
+    private String aow;
+    private com.baidu.tieba.square.a aox;
     private final MethodChannel methodChannel;
     private int viewId;
 
@@ -49,19 +49,19 @@ public class a implements MethodChannel.MethodCallHandler, PlatformView {
             if (obj4 != null) {
                 Double.valueOf(obj4.toString()).doubleValue();
             }
-            this.anI = String.valueOf(map.get("persistentViewId"));
+            this.aow = String.valueOf(map.get("persistentViewId"));
             if ("BarSquare".equals(String.valueOf(map.get("nativeViewType")))) {
-                this.anJ = new com.baidu.tieba.square.a(TbadkApplication.getInst().getCurrentActivity(), ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
-                this.anJ.dHM();
-                this.anJ.startLoadData();
-                this.anH = this.anJ.mQr.getRootLayout();
+                this.aox = new com.baidu.tieba.square.a(TbadkApplication.getInst().getCurrentActivity(), ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
+                this.aox.dNc();
+                this.aox.startLoadData();
+                this.aov = this.aox.f5new.getRootLayout();
             }
         }
     }
 
     @Override // io.flutter.plugin.platform.PlatformView
     public View getView() {
-        return this.anH;
+        return this.aov;
     }
 
     @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
@@ -69,12 +69,12 @@ public class a implements MethodChannel.MethodCallHandler, PlatformView {
         if (methodCall.method.equals("getPlatformVersion")) {
             result.success("Android " + Build.VERSION.RELEASE);
         } else if (methodCall.method.equals("removePlatformView")) {
-            b.bG(this.viewId);
+            b.bK(this.viewId);
             result.success(true);
         } else if (methodCall.method.equals("selectForumCategory")) {
             String str = (String) methodCall.arguments;
-            if (this.anJ != null && !TextUtils.isEmpty(str)) {
-                this.anJ.RU(str);
+            if (this.aox != null && !TextUtils.isEmpty(str)) {
+                this.aox.Ti(str);
             }
             result.success(null);
         } else {

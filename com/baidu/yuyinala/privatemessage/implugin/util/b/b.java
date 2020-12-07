@@ -7,27 +7,27 @@ import android.os.Looper;
 import android.preference.PreferenceManager;
 /* loaded from: classes4.dex */
 public class b {
-    public static String z(Context context, String str, String str2) {
+    public static String B(Context context, String str, String str2) {
         return PreferenceManager.getDefaultSharedPreferences(context).getString(str, str2);
     }
 
-    public static void A(Context context, String str, String str2) {
+    public static void C(Context context, String str, String str2) {
         commitEditor(PreferenceManager.getDefaultSharedPreferences(context).edit().putString(str, str2));
     }
 
-    public static boolean h(Context context, String str, boolean z) {
+    public static boolean i(Context context, String str, boolean z) {
         return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(str, z);
     }
 
-    public static void i(Context context, String str, boolean z) {
+    public static void j(Context context, String str, boolean z) {
         commitEditor(PreferenceManager.getDefaultSharedPreferences(context).edit().putBoolean(str, z));
     }
 
-    public static void h(Context context, String str, int i) {
+    public static void i(Context context, String str, int i) {
         commitEditor(PreferenceManager.getDefaultSharedPreferences(context).edit().putInt(str, i));
     }
 
-    public static int i(Context context, String str, int i) {
+    public static int j(Context context, String str, int i) {
         return PreferenceManager.getDefaultSharedPreferences(context).getInt(str, i);
     }
 

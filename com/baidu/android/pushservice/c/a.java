@@ -17,13 +17,13 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static e f1027a = null;
+    private static e f1025a = null;
     private static final Object b = new Object();
     private static int c = 200;
 
     /* renamed from: com.baidu.android.pushservice.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    enum EnumC0044a {
+    enum EnumC0046a {
         alarmMsgInfoId,
         msgId,
         sendtime,
@@ -140,10 +140,10 @@ public class a {
     public static class e extends SQLiteOpenHelper {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f1037a = "CREATE TABLE StatisticsInfo (" + i.info_id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + i.packageName.name() + " TEXT NOT NULL, " + i.open_type.name() + " TEXT NOT NULL, " + i.msgid.name() + " TEXT, " + i.app_open_time.name() + " TEXT NOT NULL, " + i.app_close_time.name() + " TEXT NOT NULL, " + i.use_duration.name() + " TEXT NOT NULL, " + i.extra.name() + " TEXT);";
+        private static final String f1035a = "CREATE TABLE StatisticsInfo (" + i.info_id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + i.packageName.name() + " TEXT NOT NULL, " + i.open_type.name() + " TEXT NOT NULL, " + i.msgid.name() + " TEXT, " + i.app_open_time.name() + " TEXT NOT NULL, " + i.app_close_time.name() + " TEXT NOT NULL, " + i.use_duration.name() + " TEXT NOT NULL, " + i.extra.name() + " TEXT);";
         private static final String b = "CREATE TABLE PushBehavior (" + c.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.actionName.name() + " TEXT NOT NULL, " + c.timeStamp.name() + " LONG NOT NULL, " + c.networkStatus.name() + " TEXT, " + c.msgType.name() + " INTEGER, " + c.msgId.name() + " TEXT, " + c.msgLen.name() + " INTEGER, " + c.errorMsg.name() + " TEXT, " + c.requestId.name() + " TEXT, " + c.stableHeartInterval.name() + " INTEGER, " + c.errorCode.name() + " INTEGER, " + c.appid.name() + " TEXT, " + c.channel.name() + " TEXT, " + c.packageName.name() + " TEXT, " + c.openByPackageName.name() + " TEXT);";
         private static final String c = "CREATE TABLE MsgArriveApp (" + g.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + g.msgId.name() + " TEXT NOT NULL, " + g.timeStamp.name() + " LONG NOT NULL);";
-        private static final String d = "CREATE TABLE AlarmMsgInfo (" + EnumC0044a.alarmMsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0044a.msgId.name() + " TEXT NOT NULL, " + EnumC0044a.sendtime.name() + " LONG NOT NULL, " + EnumC0044a.showtime.name() + " LONG NOT NULL, " + EnumC0044a.expiretime.name() + " LONG NOT NULL, " + EnumC0044a.msgEnable.name() + " INTEGER, " + EnumC0044a.isAlarm.name() + " INTEGER);";
+        private static final String d = "CREATE TABLE AlarmMsgInfo (" + EnumC0046a.alarmMsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0046a.msgId.name() + " TEXT NOT NULL, " + EnumC0046a.sendtime.name() + " LONG NOT NULL, " + EnumC0046a.showtime.name() + " LONG NOT NULL, " + EnumC0046a.expiretime.name() + " LONG NOT NULL, " + EnumC0046a.msgEnable.name() + " INTEGER, " + EnumC0046a.isAlarm.name() + " INTEGER);";
         private static final String e = "CREATE TABLE AppInfo (" + b.appInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.appid.name() + " TEXT, " + b.appType.name() + " INTEGER, " + b.packageName.name() + " TEXT UNIQUE, " + b.appName.name() + " TEXT, " + b.cFrom.name() + " TEXT, " + b.versionCode.name() + " TEXT, " + b.versionName.name() + " TEXT, " + b.intergratedPushVersion.name() + " TEXT);";
         private static final String f = "CREATE TABLE FileDownloadingInfo (" + f.belongTo.name() + " TEXT, " + f.downloadUrl.name() + " TEXT PRIMARY KEY, " + f.savePath.name() + " TEXT NOT NULL, " + f.title.name() + " TEXT, " + f.description.name() + " TEXT, " + f.fileName.name() + " TEXT NOT NULL, " + f.downloadBytes.name() + " INTEGER NOT NULL, " + f.totalBytes.name() + " INTEGER NOT NULL, " + f.downloadStatus.name() + " INTEGER NOT NULL," + f.timeStamp.name() + " INTEGER NOT NULL);";
         private static final String g = "CREATE TABLE NoDisturb (" + h.pkgName.name() + " TEXT NOT NULL, " + h.startHour.name() + " INTEGER, " + h.startMinute.name() + " INTEGER, " + h.endHour.name() + " INTEGER, " + h.endMinute.name() + " INTEGER);";
@@ -172,7 +172,7 @@ public class a {
         @Override // android.database.sqlite.SQLiteOpenHelper
         public void onCreate(SQLiteDatabase sQLiteDatabase) {
             try {
-                sQLiteDatabase.execSQL(f1037a);
+                sQLiteDatabase.execSQL(f1035a);
                 sQLiteDatabase.execSQL(b);
                 sQLiteDatabase.execSQL(c);
                 sQLiteDatabase.execSQL(d);
@@ -300,12 +300,12 @@ public class a {
     public static void a() {
         synchronized (b) {
             try {
-                if (f1027a != null) {
-                    f1027a.close();
-                    f1027a = null;
+                if (f1025a != null) {
+                    f1025a.close();
+                    f1025a = null;
                 }
             } catch (Exception e2) {
-                f1027a = null;
+                f1025a = null;
             }
         }
     }
@@ -394,17 +394,17 @@ public class a {
 
     private static e b(Context context) {
         synchronized (b) {
-            if (f1027a == null) {
+            if (f1025a == null) {
                 String path = context.getDatabasePath("pushstat_6.9.13.db").getPath();
                 a("pushstat_6.9.13.db", context);
                 if (Build.VERSION.SDK_INT >= 11) {
-                    f1027a = new e(context, path, 2, new d());
+                    f1025a = new e(context, path, 2, new d());
                 } else {
-                    f1027a = new e(context, path, 2);
+                    f1025a = new e(context, path, 2);
                 }
             }
         }
-        return f1027a;
+        return f1025a;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00cf */

@@ -6,23 +6,23 @@ import android.content.Intent;
 class dt implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f4866a;
+    final /* synthetic */ Context f4636a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ Intent f230a;
+    final /* synthetic */ Intent f228a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ ds f231a;
+    final /* synthetic */ ds f229a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dt(ds dsVar, Context context, Intent intent) {
-        this.f231a = dsVar;
-        this.f4866a = context;
-        this.f230a = intent;
+        this.f229a = dsVar;
+        this.f4636a = context;
+        this.f228a = intent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f231a.b(this.f4866a, this.f230a);
+        this.f229a.b(this.f4636a, this.f228a);
     }
 }

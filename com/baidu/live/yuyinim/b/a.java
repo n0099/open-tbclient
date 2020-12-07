@@ -2,6 +2,8 @@ package com.baidu.live.yuyinim.b;
 
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.db.DBResource;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
@@ -10,9 +12,10 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.safe.SafeHandler;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.al.b;
-import com.baidu.live.data.cg;
+import com.baidu.live.data.ci;
+import com.baidu.live.data.w;
 import com.baidu.live.im.data.ImSendMsgData;
+import com.baidu.live.im.data.b;
 import com.baidu.live.im.j;
 import com.baidu.live.im.k;
 import com.baidu.live.sdk.a;
@@ -35,51 +38,51 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements k {
-    private final ALaImMsgView bRT;
-    private final ALALiveTextView bRU;
-    private List<String> bjH;
-    private List<String> bjI;
-    private k.a bjJ;
+    private final ALaImMsgView bXj;
+    private final ALALiveTextView bXk;
+    private k.a boA;
+    private List<String> box;
+    private List<String> boy;
     private String mGroupId;
     private TbPageContext mPageContext;
-    private boolean aSp = false;
-    private Set<Long> bRV = new HashSet();
-    private CustomMessageListener bhg = new CustomMessageListener(2913038) { // from class: com.baidu.live.yuyinim.b.a.1
+    private boolean aVr = false;
+    private Set<Long> bXl = new HashSet();
+    private CustomMessageListener blv = new CustomMessageListener(2913038) { // from class: com.baidu.live.yuyinim.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof List)) {
                 List list = (List) customResponsedMessage.getData();
-                a.this.V(list);
+                a.this.W(list);
+                a.this.ar(list);
                 a.this.ap(list);
-                a.this.an(list);
-                a.this.ao(list);
-                List ar = a.this.ar(list);
-                a.this.d((List<com.baidu.live.im.data.a>) list, true);
-                a.this.h(list, ar);
+                a.this.aq(list);
+                List at = a.this.at(list);
+                a.this.d((List<b>) list, true);
+                a.this.h(list, at);
             }
         }
     };
-    private CustomMessageListener bhh = new CustomMessageListener(2913037) { // from class: com.baidu.live.yuyinim.b.a.3
+    private CustomMessageListener blw = new CustomMessageListener(2913037) { // from class: com.baidu.live.yuyinim.b.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.live.im.data.a)) {
-                com.baidu.live.im.data.a aVar = (com.baidu.live.im.data.a) customResponsedMessage.getData();
-                if (!a.this.aSp && aVar != null && (aVar.LF() instanceof com.baidu.live.data.a)) {
-                    aVar.LF().aFU = -1;
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof b)) {
+                b bVar = (b) customResponsedMessage.getData();
+                if (!a.this.aVr && bVar != null && (bVar.NU() instanceof com.baidu.live.data.a)) {
+                    bVar.NU().aIC = -1;
                 }
-                a.this.t(aVar);
+                a.this.t(bVar);
             }
         }
     };
-    private CustomMessageListener bjK = new CustomMessageListener(2913044) { // from class: com.baidu.live.yuyinim.b.a.4
+    private CustomMessageListener boB = new CustomMessageListener(2913044) { // from class: com.baidu.live.yuyinim.b.a.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         }
     };
-    private CustomMessageListener bjL = new CustomMessageListener(2913095) { // from class: com.baidu.live.yuyinim.b.a.5
+    private CustomMessageListener boC = new CustomMessageListener(2913095) { // from class: com.baidu.live.yuyinim.b.a.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -88,32 +91,32 @@ public class a implements k {
                 if (str == null) {
                     str = "";
                 }
-                if (a.this.bRU != null) {
-                    a.this.bRU.hG(str);
+                if (a.this.bXk != null) {
+                    a.this.bXk.ij(str);
                 }
             }
         }
     };
-    private final a.InterfaceC0230a bjM = new a.InterfaceC0230a() { // from class: com.baidu.live.yuyinim.b.a.6
-        @Override // com.baidu.live.view.input.a.InterfaceC0230a
-        public boolean Ld() {
-            return a.this.bjJ != null && a.this.bjJ.Ld();
+    private final a.InterfaceC0239a boE = new a.InterfaceC0239a() { // from class: com.baidu.live.yuyinim.b.a.6
+        @Override // com.baidu.live.view.input.a.InterfaceC0239a
+        public boolean Nh() {
+            return a.this.boA != null && a.this.boA.Nh();
         }
 
-        @Override // com.baidu.live.view.input.a.InterfaceC0230a
-        public void s(String str, boolean z) {
+        @Override // com.baidu.live.view.input.a.InterfaceC0239a
+        public void t(String str, boolean z) {
             Log.i("i", "@@@ localText nmpanctr sdhdl 1");
-            if (a.this.bjJ != null) {
-                if (a.this.bjJ.Ld()) {
+            if (a.this.boA != null) {
+                if (a.this.boA.Nh()) {
                     ImSendMsgData imSendMsgData = new ImSendMsgData(str);
-                    if (a.this.bRU != null && a.this.bRU.Mt()) {
-                        cg barrageInfo = a.this.bRU.getBarrageInfo();
+                    if (a.this.bXk != null && a.this.bXk.OO()) {
+                        ci barrageInfo = a.this.bXk.getBarrageInfo();
                         if (barrageInfo != null) {
-                            if (barrageInfo.type == 16 && !a.this.bjJ.Lh()) {
+                            if (barrageInfo.type == 16 && !a.this.boA.Nl()) {
                                 BdUtilHelper.showToast(a.this.mPageContext.getPageActivity(), a.h.sdk_throne_disabled_alert);
                                 return;
-                            } else if (barrageInfo.type == 17 && barrageInfo.aPG > a.this.bjJ.Li()) {
-                                if (barrageInfo.aPG == 7) {
+                            } else if (barrageInfo.type == 17 && barrageInfo.aSI > a.this.boA.Nm()) {
+                                if (barrageInfo.aSI == 7) {
                                     BdUtilHelper.showToast(a.this.mPageContext.getPageActivity(), a.h.sdk_noble_king_disabled_alert);
                                     return;
                                 } else {
@@ -132,90 +135,94 @@ public class a implements k {
                     }
                     Log.i("i", "@@@ localText nmpanctr sdhdl cmd");
                     MessageManager.getInstance().sendMessage(new CustomMessage(2913100, imSendMsgData));
-                    if (!z && a.this.bRU != null) {
-                        a.this.bRU.Mx();
+                    if (!z && a.this.bXk != null) {
+                        a.this.bXk.OS();
                     }
                 } else if (!z) {
                     Log.i("i", "@@@ localText nmpanctr sdhdl nolg");
-                    a.this.bjJ.Le();
+                    a.this.boA.Ni();
                 }
                 if (z) {
-                    a.this.bjJ.hD(str);
+                    a.this.boA.id(str);
                 }
             }
         }
 
-        @Override // com.baidu.live.view.input.a.InterfaceC0230a
-        public void Lf() {
-            if (a.this.bjJ != null) {
-                a.this.bjJ.Lf();
+        @Override // com.baidu.live.view.input.a.InterfaceC0239a
+        public void Nj() {
+            if (a.this.boA != null) {
+                a.this.boA.Nj();
             }
         }
 
-        @Override // com.baidu.live.view.input.a.InterfaceC0230a
-        public void Lg() {
-            if (a.this.bjJ != null) {
-                a.this.bjJ.Lg();
+        @Override // com.baidu.live.view.input.a.InterfaceC0239a
+        public void Nk() {
+            if (a.this.boA != null) {
+                a.this.boA.Nk();
             }
         }
 
-        @Override // com.baidu.live.view.input.a.InterfaceC0230a
-        public boolean Lh() {
-            return a.this.bjJ != null && a.this.bjJ.Lh();
+        @Override // com.baidu.live.view.input.a.InterfaceC0239a
+        public boolean Nl() {
+            return a.this.boA != null && a.this.boA.Nl();
         }
 
-        @Override // com.baidu.live.view.input.a.InterfaceC0230a
-        public int Li() {
-            if (a.this.bjJ != null) {
-                return a.this.bjJ.Li();
+        @Override // com.baidu.live.view.input.a.InterfaceC0239a
+        public int Nm() {
+            if (a.this.boA != null) {
+                return a.this.boA.Nm();
             }
             return 0;
         }
     };
-    private Runnable bjN = new Runnable() { // from class: com.baidu.live.yuyinim.b.a.2
+    private Runnable boG = new Runnable() { // from class: com.baidu.live.yuyinim.b.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.bRT.ME();
+            a.this.bXj.ZW();
         }
     };
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.bRT = new ALaImMsgView(tbPageContext.getPageActivity());
-        this.bRT.setPageContext(this.mPageContext);
-        this.bRT.setNeedTopAlphaShade(true);
-        this.bRT.setMode(false);
-        this.bRU = new ALALiveTextView(tbPageContext.getPageActivity(), tbPageContext);
-        this.bRU.setMsHandler(this.bjM);
-        this.bRU.setBdPageContext(tbPageContext);
-        this.bjH = new ArrayList();
-        this.bjI = new ArrayList();
-        this.bjH.add("allin");
+        this.bXj = new ALaImMsgView(tbPageContext.getPageActivity());
+        this.bXj.setPageContext(this.mPageContext);
+        this.bXj.setNeedTopAlphaShade(true);
+        this.bXj.setMode(false);
+        this.bXk = new ALALiveTextView(tbPageContext.getPageActivity(), tbPageContext);
+        this.bXk.setMsHandler(this.boE);
+        this.bXk.setBdPageContext(tbPageContext);
+        this.box = new ArrayList();
+        this.boy = new ArrayList();
+        this.box.add("allin");
     }
 
     @Override // com.baidu.live.im.k
     public void setFromMaster(boolean z) {
-        this.aSp = z;
-        if (this.bRT != null) {
-            this.bRT.setFromMaster(z);
+        this.aVr = z;
+        if (this.bXj != null) {
+            this.bXj.setFromMaster(z);
         }
-        if (this.bRU != null) {
-            this.bRU.setFromMaster(z);
+        if (this.bXk != null) {
+            this.bXk.setFromMaster(z);
         }
     }
 
+    @Override // com.baidu.live.im.k
+    public void a(ViewGroup viewGroup, w wVar, List<String> list, RelativeLayout.LayoutParams layoutParams) {
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public void d(List<com.baidu.live.im.data.a> list, boolean z) {
-        if (this.bRT != null) {
-            boolean as = this.bRT.as(list);
-            this.bRT.setMsgData(list);
-            if (as) {
-                this.bRT.MD();
+    public void d(List<b> list, boolean z) {
+        if (this.bXj != null) {
+            boolean au = this.bXj.au(list);
+            this.bXj.setMsgData(list);
+            if (au) {
+                this.bXj.OZ();
                 if (z) {
-                    this.bRT.postDelayed(new Runnable() { // from class: com.baidu.live.yuyinim.b.a.7
+                    this.bXj.postDelayed(new Runnable() { // from class: com.baidu.live.yuyinim.b.a.7
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.bRT.KZ();
+                            a.this.bXj.Nc();
                         }
                     }, 350L);
                 }
@@ -224,16 +231,16 @@ public class a implements k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(List<com.baidu.live.im.data.a> list, com.baidu.live.im.data.a aVar) {
-        if (aVar != null && list != null) {
-            list.add(aVar);
-            if (this.bRT != null) {
-                this.bRT.setMsgData(list);
-                this.bRT.MD();
-                this.bRT.postDelayed(new Runnable() { // from class: com.baidu.live.yuyinim.b.a.8
+    public void a(List<b> list, b bVar) {
+        if (bVar != null && list != null) {
+            list.add(bVar);
+            if (this.bXj != null) {
+                this.bXj.setMsgData(list);
+                this.bXj.OZ();
+                this.bXj.postDelayed(new Runnable() { // from class: com.baidu.live.yuyinim.b.a.8
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.bRT.KZ();
+                        a.this.bXj.Nc();
                     }
                 }, 350L);
             }
@@ -241,15 +248,15 @@ public class a implements k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void t(com.baidu.live.im.data.a aVar) {
+    public void t(b bVar) {
         String str;
         JSONObject jSONObject;
-        if (aVar.getMsgType() == 13 || aVar.getMsgType() == 12) {
+        if (bVar.getMsgType() == 13 || bVar.getMsgType() == 12) {
             try {
-                if (aVar.getObjContent() instanceof JSONObject) {
-                    jSONObject = (JSONObject) aVar.getObjContent();
+                if (bVar.getObjContent() instanceof JSONObject) {
+                    jSONObject = (JSONObject) bVar.getObjContent();
                 } else {
-                    jSONObject = new JSONObject(aVar.getContent());
+                    jSONObject = new JSONObject(bVar.getContent());
                 }
                 str = jSONObject.optString("content_type");
                 try {
@@ -259,81 +266,86 @@ public class a implements k {
             } catch (JSONException e2) {
                 str = null;
             }
-            if ("enter_live".equals(str) && com.baidu.live.entereffect.a.Ex().h(aVar)) {
-                this.bRT.y(aVar);
+            if ("enter_live".equals(str) && com.baidu.live.entereffect.a.Gi().h(bVar)) {
+                this.bXj.z(bVar);
             }
         }
     }
 
     @Override // com.baidu.live.im.k
-    public j La() {
-        return this.bRT;
+    public j Nd() {
+        return this.bXj;
     }
 
     @Override // com.baidu.live.im.k
-    public com.baidu.live.view.input.a Lb() {
-        return this.bRU;
+    public com.baidu.live.view.input.a Ne() {
+        return this.bXk;
+    }
+
+    @Override // com.baidu.live.im.k
+    public com.baidu.live.view.input.b Nf() {
+        return null;
     }
 
     @Override // com.baidu.live.im.k
     public void setLogData(String str, String str2) {
-        if (this.bRU != null) {
-            this.bRU.setLogData(str, str2);
+        if (this.bXk != null) {
+            this.bXk.setLogData(str, str2);
         }
-        if (this.bRT != null) {
-            this.bRT.setLogData(str, str2);
+        if (this.bXj != null) {
+            this.bXj.setLogData(str, str2);
         }
     }
 
     @Override // com.baidu.live.im.k
-    public void a(String str, String str2, String str3, String str4, String str5, boolean z) {
+    public void a(String str, String str2, String str3, String str4, String str5, boolean z, String str6) {
         this.mGroupId = str;
-        MessageManager.getInstance().registerListener(this.bhg);
-        MessageManager.getInstance().registerListener(this.bhh);
-        MessageManager.getInstance().registerListener(this.bjK);
-        MessageManager.getInstance().registerListener(this.bjL);
-        this.bRV.clear();
-        this.bRT.Kj();
-        this.bRT.b(str, str4, !StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str3), str3);
-        MessageManager.getInstance().registerListener(this.bRU.blf);
-        MessageManager.getInstance().registerListener(this.bRU.bcy);
+        MessageManager.getInstance().registerListener(this.blv);
+        MessageManager.getInstance().registerListener(this.blw);
+        MessageManager.getInstance().registerListener(this.boB);
+        MessageManager.getInstance().registerListener(this.boC);
+        this.bXl.clear();
+        this.bXj.Ml();
+        this.bXj.a(str, str4, !StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str3), str3, str6);
+        MessageManager.getInstance().registerListener(this.bXk.bon);
+        MessageManager.getInstance().registerListener(this.bXk.bgy);
     }
 
     @Override // com.baidu.live.im.k
-    public void Cd() {
-        MessageManager.getInstance().unRegisterListener(this.bhg);
-        MessageManager.getInstance().unRegisterListener(this.bhh);
-        MessageManager.getInstance().unRegisterListener(this.bjK);
-        MessageManager.getInstance().unRegisterListener(this.bjL);
-        this.bRV.clear();
-        if (this.bRT != null) {
-            this.bRT.Mn();
+    public void DN() {
+        MessageManager.getInstance().unRegisterListener(this.blv);
+        MessageManager.getInstance().unRegisterListener(this.blw);
+        MessageManager.getInstance().unRegisterListener(this.boB);
+        MessageManager.getInstance().unRegisterListener(this.boC);
+        this.bXl.clear();
+        if (this.bXj != null) {
+            this.bXj.OI();
         }
-        if (this.bRU != null) {
-            this.bRU.Mx();
-            MessageManager.getInstance().unRegisterListener(this.bRU.blf);
-            MessageManager.getInstance().unRegisterListener(this.bRU.bcy);
+        if (this.bXk != null) {
+            this.bXk.OS();
+            MessageManager.getInstance().unRegisterListener(this.bXk.bon);
+            MessageManager.getInstance().unRegisterListener(this.bXk.bgy);
         }
         LiveTimerManager.getInstance().removeLiveTimerTask("live_show_tag_view", true);
-        SafeHandler.getInst().removeCallbacks(this.bjN);
+        SafeHandler.getInst().removeCallbacks(this.boG);
     }
 
     @Override // com.baidu.live.im.k
     public void g(Map<String, Integer> map) {
-        if (this.bRU != null) {
-            this.bRU.g(map);
+        if (this.bXk != null) {
+            this.bXk.g(map);
         }
     }
 
     @Override // com.baidu.live.im.k
     public void a(k.a aVar) {
-        this.bjJ = aVar;
+        this.boA = aVar;
     }
 
     @Override // com.baidu.live.im.k
     public void a(boolean z, int i, int i2, String str) {
-        if (this.bRU != null) {
-            this.bRU.b(z, i, i2, str);
+        if (this.bXk != null) {
+            this.bXk.b(z, i, i2, str);
         }
     }
 
@@ -348,7 +360,7 @@ public class a implements k {
     }
 
     @Override // com.baidu.live.im.k
-    public int Lc() {
+    public int Ng() {
         return 0;
     }
 
@@ -358,26 +370,26 @@ public class a implements k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void an(List<com.baidu.live.im.data.a> list) {
+    public void ap(List<b> list) {
         if (!ListUtils.isEmpty(list)) {
             ArrayList arrayList = null;
-            for (com.baidu.live.im.data.a aVar : list) {
-                if (aVar != null && TextUtils.equals("switch_activity_stage", w(aVar))) {
+            for (b bVar : list) {
+                if (bVar != null && TextUtils.equals("switch_activity_stage", x(bVar))) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
                     }
-                    arrayList.add(aVar);
+                    arrayList.add(bVar);
                 }
             }
             if (!ListUtils.isEmpty(arrayList)) {
                 try {
-                    com.baidu.live.im.data.a aVar2 = (com.baidu.live.im.data.a) arrayList.get(arrayList.size() - 1);
+                    b bVar2 = (b) arrayList.get(arrayList.size() - 1);
                     boolean z = false;
-                    if (D(aVar2) == 2) {
+                    if (E(bVar2) == 2) {
                         BdUtilHelper.showToast(DBResource.getContext(), "无成功匹配，本轮约会结束");
                         z = true;
                     }
-                    if (!z && C(aVar2) == 0) {
+                    if (!z && D(bVar2) == 0) {
                         BdUtilHelper.showToast(DBResource.getContext(), "本轮约会结束");
                     }
                 } catch (Exception e) {
@@ -389,15 +401,15 @@ public class a implements k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ao(List<com.baidu.live.im.data.a> list) {
+    public void aq(List<b> list) {
         if (!ListUtils.isEmpty(list)) {
             ArrayList arrayList = null;
-            for (com.baidu.live.im.data.a aVar : list) {
-                if (aVar != null && TextUtils.equals("audio_link_online", w(aVar))) {
+            for (b bVar : list) {
+                if (bVar != null && TextUtils.equals("audio_link_online", x(bVar))) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
                     }
-                    arrayList.add(aVar);
+                    arrayList.add(bVar);
                 }
             }
             if (!ListUtils.isEmpty(arrayList)) {
@@ -408,42 +420,42 @@ public class a implements k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ap(List<com.baidu.live.im.data.a> list) {
+    public void ar(List<b> list) {
         if (!ListUtils.isEmpty(list)) {
             ArrayList arrayList = null;
-            for (com.baidu.live.im.data.a aVar : list) {
-                if (aVar != null && TextUtils.equals("sync_audio_speeker_status", w(aVar))) {
+            for (b bVar : list) {
+                if (bVar != null && TextUtils.equals("sync_audio_speeker_status", x(bVar))) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
                     }
-                    arrayList.add(aVar);
+                    arrayList.add(bVar);
                 }
             }
             if (!ListUtils.isEmpty(arrayList)) {
                 list.removeAll(arrayList);
-                aq(arrayList);
+                as(arrayList);
             }
         }
     }
 
-    private void aq(List<com.baidu.live.im.data.a> list) {
+    private void as(List<b> list) {
         JSONObject jSONObject;
         if (!ListUtils.isEmpty(list)) {
             HashMap hashMap = new HashMap();
             HashMap hashMap2 = new HashMap();
-            for (com.baidu.live.im.data.a aVar : list) {
-                if (aVar != null && (!StringUtils.isNull(aVar.getContent()) || aVar.getObjContent() != null)) {
+            for (b bVar : list) {
+                if (bVar != null && (!StringUtils.isNull(bVar.getContent()) || bVar.getObjContent() != null)) {
                     try {
-                        if (aVar.getObjContent() instanceof JSONObject) {
-                            jSONObject = (JSONObject) aVar.getObjContent();
+                        if (bVar.getObjContent() instanceof JSONObject) {
+                            jSONObject = (JSONObject) bVar.getObjContent();
                         } else {
-                            jSONObject = new JSONObject(aVar.getContent());
+                            jSONObject = new JSONObject(bVar.getContent());
                         }
                         String optString = jSONObject.optString("uk");
                         long optLong = jSONObject.optLong("timestamp");
                         if (!hashMap.containsKey(optString) || (hashMap.containsKey(optString) && ((Long) hashMap.get(optString)).longValue() < optLong)) {
                             hashMap.put(optString, Long.valueOf(optLong));
-                            hashMap2.put(optString, aVar.getContent());
+                            hashMap2.put(optString, bVar.getContent());
                         }
                     } catch (JSONException e) {
                     }
@@ -452,7 +464,7 @@ public class a implements k {
             if (!ListUtils.isEmpty(hashMap2)) {
                 for (Map.Entry entry : hashMap2.entrySet()) {
                     if (!StringUtils.isNull((String) entry.getValue(), true)) {
-                        if (!b.Wy().iP(b.Wy().WD())) {
+                        if (!com.baidu.live.ap.b.YX().jt(com.baidu.live.ap.b.YX().Zc())) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501026, entry.getValue()));
                         } else {
                             try {
@@ -472,24 +484,24 @@ public class a implements k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void V(List<com.baidu.live.im.data.a> list) {
+    public void W(List<b> list) {
         if (!ListUtils.isEmpty(list)) {
             ArrayList arrayList = new ArrayList();
-            if (this.aSp) {
-                if (ListUtils.isEmpty(this.bjH)) {
+            if (this.aVr) {
+                if (ListUtils.isEmpty(this.box)) {
                     return;
                 }
-            } else if (ListUtils.isEmpty(this.bjI)) {
+            } else if (ListUtils.isEmpty(this.boy)) {
                 return;
             }
-            for (com.baidu.live.im.data.a aVar : list) {
-                if (aVar != null && (aVar.getMsgType() == 13 || aVar.getMsgType() == 26 || aVar.getMsgType() == 27 || aVar.getMsgType() == 12)) {
-                    if (this.aSp) {
-                        if (this.bjH.contains(w(aVar))) {
-                            arrayList.add(aVar);
+            for (b bVar : list) {
+                if (bVar != null && (bVar.getMsgType() == 13 || bVar.getMsgType() == 26 || bVar.getMsgType() == 27 || bVar.getMsgType() == 12)) {
+                    if (this.aVr) {
+                        if (this.box.contains(x(bVar))) {
+                            arrayList.add(bVar);
                         }
-                    } else if (this.bjI.contains(w(aVar))) {
-                        arrayList.add(aVar);
+                    } else if (this.boy.contains(x(bVar))) {
+                        arrayList.add(bVar);
                     }
                 }
             }
@@ -498,15 +510,15 @@ public class a implements k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.live.im.data.a> ar(List<com.baidu.live.im.data.a> list) {
+    public List<b> at(List<b> list) {
         if (ListUtils.isEmpty(list)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (com.baidu.live.im.data.a aVar : list) {
-            if (aVar != null && "audio_emoticon".equals(w(aVar)) && !this.bRV.contains(Long.valueOf(aVar.getMsgId())) && (b.Wy().iP(ExtraParamsManager.getEncryptionUserId(aVar.getUserId() + "")) || !StringUtils.isNull(E(aVar), true))) {
-                arrayList.add(aVar);
-                this.bRV.add(Long.valueOf(aVar.getMsgId()));
+        for (b bVar : list) {
+            if (bVar != null && "audio_emoticon".equals(x(bVar)) && !this.bXl.contains(Long.valueOf(bVar.getMsgId())) && (com.baidu.live.ap.b.YX().jt(ExtraParamsManager.getEncryptionUserId(bVar.getUserId() + "")) || !StringUtils.isNull(F(bVar), true))) {
+                arrayList.add(bVar);
+                this.bXl.add(Long.valueOf(bVar.getMsgId()));
             }
         }
         list.removeAll(arrayList);
@@ -514,13 +526,13 @@ public class a implements k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void h(final List<com.baidu.live.im.data.a> list, List<com.baidu.live.im.data.a> list2) {
+    public void h(final List<b> list, List<b> list2) {
         if (list != null && !ListUtils.isEmpty(list2)) {
             final String str = this.mGroupId;
-            for (final com.baidu.live.im.data.a aVar : list2) {
-                if (aVar != null) {
+            for (final b bVar : list2) {
+                if (bVar != null) {
                     try {
-                        JSONObject jSONObject = new JSONObject(aVar.getContent());
+                        JSONObject jSONObject = new JSONObject(bVar.getContent());
                         JSONObject optJSONObject = jSONObject.optJSONObject("emoticon_info");
                         optJSONObject.optString("compression_img");
                         final String optString = optJSONObject.optString("prototype_img");
@@ -531,11 +543,11 @@ public class a implements k {
                         final String optString3 = jSONObject.optString("user_uk");
                         AlaEmoticonView.a(optString, optString2, new AlaEmoticonView.b() { // from class: com.baidu.live.yuyinim.b.a.9
                             @Override // com.baidu.live.tieba.view.AlaEmoticonView.b
-                            public void SN() {
+                            public void Vn() {
                                 if (str == a.this.mGroupId) {
-                                    a.this.a(list, aVar);
-                                    if (!aVar.LI()) {
-                                        a.this.C(optString, optString2, optString3);
+                                    a.this.a(list, bVar);
+                                    if (!bVar.NX()) {
+                                        a.this.F(optString, optString2, optString3);
                                     }
                                 }
                             }
@@ -553,7 +565,7 @@ public class a implements k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void C(String str, String str2, String str3) {
+    public void F(String str, String str2, String str3) {
         if (!StringUtils.isNull(str, true) && !StringUtils.isNull(str3, true)) {
             HashMap hashMap = new HashMap();
             hashMap.put("user_uk", str3);
@@ -563,13 +575,13 @@ public class a implements k {
         }
     }
 
-    private String w(com.baidu.live.im.data.a aVar) {
+    private String x(b bVar) {
         JSONObject jSONObject;
         try {
-            if (aVar.getObjContent() instanceof JSONObject) {
-                jSONObject = (JSONObject) aVar.getObjContent();
+            if (bVar.getObjContent() instanceof JSONObject) {
+                jSONObject = (JSONObject) bVar.getObjContent();
             } else {
-                jSONObject = new JSONObject(aVar.getContent());
+                jSONObject = new JSONObject(bVar.getContent());
             }
             return jSONObject.optString("content_type");
         } catch (JSONException e) {
@@ -577,13 +589,13 @@ public class a implements k {
         }
     }
 
-    private int C(com.baidu.live.im.data.a aVar) {
+    private int D(b bVar) {
         JSONObject jSONObject;
         try {
-            if (aVar.getObjContent() instanceof JSONObject) {
-                jSONObject = (JSONObject) aVar.getObjContent();
+            if (bVar.getObjContent() instanceof JSONObject) {
+                jSONObject = (JSONObject) bVar.getObjContent();
             } else {
-                jSONObject = new JSONObject(aVar.getContent());
+                jSONObject = new JSONObject(bVar.getContent());
             }
             return jSONObject.optInt("activity_stage");
         } catch (JSONException e) {
@@ -591,13 +603,13 @@ public class a implements k {
         }
     }
 
-    private int D(com.baidu.live.im.data.a aVar) {
+    private int E(b bVar) {
         JSONObject jSONObject;
         try {
-            if (aVar.getObjContent() instanceof JSONObject) {
-                jSONObject = (JSONObject) aVar.getObjContent();
+            if (bVar.getObjContent() instanceof JSONObject) {
+                jSONObject = (JSONObject) bVar.getObjContent();
             } else {
-                jSONObject = new JSONObject(aVar.getContent());
+                jSONObject = new JSONObject(bVar.getContent());
             }
             return jSONObject.optInt("confession");
         } catch (JSONException e) {
@@ -605,13 +617,13 @@ public class a implements k {
         }
     }
 
-    private String E(com.baidu.live.im.data.a aVar) {
+    private String F(b bVar) {
         JSONObject jSONObject;
         try {
-            if (aVar.getObjContent() instanceof JSONObject) {
-                jSONObject = (JSONObject) aVar.getObjContent();
+            if (bVar.getObjContent() instanceof JSONObject) {
+                jSONObject = (JSONObject) bVar.getObjContent();
             } else {
-                jSONObject = new JSONObject(aVar.getContent());
+                jSONObject = new JSONObject(bVar.getContent());
             }
             return jSONObject.optJSONObject("emoticon_info").optString("result_img");
         } catch (Exception e) {

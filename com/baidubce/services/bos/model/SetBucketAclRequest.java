@@ -2,7 +2,7 @@ package com.baidubce.services.bos.model;
 
 import com.baidubce.auth.BceCredentials;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class SetBucketAclRequest extends GenericBucketRequest {
     private List<Grant> accessControlList;
     private CannedAccessControlList cannedAcl;

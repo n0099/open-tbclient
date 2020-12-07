@@ -3,17 +3,17 @@ package com.baidu.swan.apps.adaptation.b;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.swan.apps.adaptation.b.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public interface a<T extends d> extends e<T> {
-    void ahO();
+    void akW();
 
-    void ahP();
+    void akX();
 
-    void ap(View view);
+    void ar(View view);
 
-    void bf(String str, String str2);
+    void bm(String str, String str2);
 
-    void eq(boolean z);
+    void eF(boolean z);
 
     void z(ViewGroup viewGroup);
 }

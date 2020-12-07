@@ -46,7 +46,7 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.pJ().init();
+        com.baidu.adp.plugin.c.a.pL().init();
     }
 
     public static BdBaseApplication getInst() {
@@ -105,7 +105,7 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.d.oi().initial(this.mContext);
+        com.baidu.adp.lib.util.d.oh().initial(this.mContext);
     }
 
     public void onAppMemoryLow() {

@@ -4,16 +4,16 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.sofire.j.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class b implements com.baidu.sofire.j.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3668a;
+    private Context f3671a;
     private a b;
 
     @Override // com.baidu.sofire.j.b
     public final void a(Context context, c cVar) {
-        this.f3668a = context;
+        this.f3671a = context;
         this.b = new a();
         a aVar = this.b;
         aVar.c = null;
@@ -21,7 +21,7 @@ public final class b implements com.baidu.sofire.j.b {
         aVar.e = null;
         try {
             aVar.b = Class.forName("com.android.id.impl.IdProviderImpl");
-            aVar.f3667a = aVar.b.newInstance();
+            aVar.f3670a = aVar.b.newInstance();
         } catch (Exception e) {
             Log.d("IdentifierManager", "reflect exception!", e);
         }
@@ -45,7 +45,7 @@ public final class b implements com.baidu.sofire.j.b {
     @Override // com.baidu.sofire.j.b
     public final String b() {
         a aVar = this.b;
-        Context context = this.f3668a;
+        Context context = this.f3671a;
         if (TextUtils.isEmpty(aVar.f)) {
             aVar.f = aVar.a(context, aVar.c);
         }

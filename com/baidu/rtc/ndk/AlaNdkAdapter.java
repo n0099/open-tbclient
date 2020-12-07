@@ -1,5 +1,5 @@
 package com.baidu.rtc.ndk;
-/* loaded from: classes16.dex */
+/* loaded from: classes11.dex */
 public class AlaNdkAdapter {
     public static final int CONVERT_TYPE_BGRA_YUV420P = 82448;
     public static final int CONVERT_TYPE_BGRA_YUV420SP = 16912;

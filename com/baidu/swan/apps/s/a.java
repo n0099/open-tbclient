@@ -15,7 +15,7 @@ import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.charset.Charset;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a {
     public static final boolean DEBUG = b.DEBUG;
 
@@ -25,7 +25,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized boolean m(String str, String str2, boolean z) {
+    public static synchronized boolean n(String str, String str2, boolean z) {
         boolean z2;
         FileChannel fileChannel;
         boolean z3;
@@ -149,7 +149,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized String oQ(String str) {
+    public static synchronized String px(String str) {
         FileLock fileLock;
         BufferedReader bufferedReader;
         Throwable th;

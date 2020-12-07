@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public class Mp4TrackImpl extends AbstractTrack {
     private List<CompositionTimeToSample.Entry> compositionTimeEntries;
     private long[] decodingTimes;

@@ -15,37 +15,37 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
-    private BubbleLayout aWS;
-    private PopupWindow aWT;
-    private AdapterView.OnItemClickListener aWU;
-    private ListView aWV;
-    private b bOp;
+    private b bTz;
+    private BubbleLayout bag;
+    private PopupWindow bah;
+    private AdapterView.OnItemClickListener bai;
+    private ListView baj;
     private TbPageContext mPageContext;
     private int mType;
 
     public c(TbPageContext<AlaGiftTabActivity> tbPageContext, int i, AdapterView.OnItemClickListener onItemClickListener) {
         this.mPageContext = tbPageContext;
         this.mType = i;
-        this.aWU = onItemClickListener;
+        this.bai = onItemClickListener;
     }
 
     public void a(View view, List<j> list, boolean z, PopupWindow.OnDismissListener onDismissListener) {
         Resources resources = this.mPageContext.getPageActivity().getResources();
-        if (this.aWS == null) {
-            this.aWS = (BubbleLayout) View.inflate(this.mPageContext.getPageActivity(), a.g.ala_gift_num_list, null);
-            this.aWV = (ListView) this.aWS.findViewById(a.f.gift_num_list);
-            this.aWV.setOnItemClickListener(this.aWU);
-            J(list);
-            this.aWT = new PopupWindow((View) this.aWS, resources.getDimensionPixelSize(a.d.sdk_ds200), (int) ((this.bOp.getCount() * (resources.getDimensionPixelSize(a.d.sdk_ds64) + resources.getDimensionPixelOffset(a.d.sdk_ds1))) + this.aWS.getArrowHeight() + 1.0f), true);
-            this.aWT.setTouchable(true);
-            this.aWT.setBackgroundDrawable(resources.getDrawable(a.e.sdk_transparent_bg));
-            this.aWT.setOnDismissListener(onDismissListener);
+        if (this.bag == null) {
+            this.bag = (BubbleLayout) View.inflate(this.mPageContext.getPageActivity(), a.g.ala_gift_num_list, null);
+            this.baj = (ListView) this.bag.findViewById(a.f.gift_num_list);
+            this.baj.setOnItemClickListener(this.bai);
+            K(list);
+            this.bah = new PopupWindow((View) this.bag, resources.getDimensionPixelSize(a.d.sdk_ds200), (int) ((this.bTz.getCount() * (resources.getDimensionPixelSize(a.d.sdk_ds64) + resources.getDimensionPixelOffset(a.d.sdk_ds1))) + this.bag.getArrowHeight() + 1.0f), true);
+            this.bah.setTouchable(true);
+            this.bah.setBackgroundDrawable(resources.getDrawable(a.e.sdk_transparent_bg));
+            this.bah.setOnDismissListener(onDismissListener);
         }
-        this.aWS.t(resources.getDimensionPixelSize(a.d.sdk_ds40));
-        ShowUtil.showPopupWindowAsDropDown(this.aWT, view, 0, -this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds12));
+        this.bag.s(resources.getDimensionPixelSize(a.d.sdk_ds40));
+        ShowUtil.showPopupWindowAsDropDown(this.bah, view, 0, -this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds12));
     }
 
-    public void J(List<j> list) {
+    public void K(List<j> list) {
         ArrayList arrayList = new ArrayList();
         if (list != null && list.size() > 0) {
             for (j jVar : list) {
@@ -57,17 +57,17 @@ public class c {
             }
             list.removeAll(arrayList);
         }
-        this.bOp = new b(this.mPageContext.getPageActivity(), this.mType);
-        this.bOp.I(list);
-        this.aWV.setAdapter((ListAdapter) this.bOp);
+        this.bTz = new b(this.mPageContext.getPageActivity(), this.mType);
+        this.bTz.J(list);
+        this.baj.setAdapter((ListAdapter) this.bTz);
     }
 
     public void dismiss() {
-        if (this.aWT != null && this.aWT.isShowing()) {
+        if (this.bah != null && this.bah.isShowing()) {
             if (this.mPageContext == null) {
-                ShowUtil.dismissPopupWindow(this.aWT);
+                ShowUtil.dismissPopupWindow(this.bah);
             } else {
-                ShowUtil.dismissPopupWindow(this.aWT, this.mPageContext.getPageActivity());
+                ShowUtil.dismissPopupWindow(this.bah, this.mPageContext.getPageActivity());
             }
         }
     }

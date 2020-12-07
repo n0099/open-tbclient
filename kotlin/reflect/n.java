@@ -1,5 +1,5 @@
 package kotlin.reflect;
-@kotlin.h
-/* loaded from: classes9.dex */
-public interface n extends a {
+@kotlin.e
+/* loaded from: classes17.dex */
+public interface n {
 }

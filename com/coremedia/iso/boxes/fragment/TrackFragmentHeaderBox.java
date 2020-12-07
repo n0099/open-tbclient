@@ -11,31 +11,31 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public class TrackFragmentHeaderBox extends AbstractFullBox {
     public static final String TYPE = "tfhd";
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_16 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_17 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_18 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_19 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_20 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_21 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_16 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_17 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_18 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_19 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_20 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_21 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_9 = null;
     private long baseDataOffset;
     private boolean defaultBaseIsMoof;
     private long defaultSampleDuration;
@@ -61,7 +61,7 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
         ajc$tjp_15 = bVar.a("method-execution", bVar.d("1", "setSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "sampleDescriptionIndex", "", "void"), 191);
         ajc$tjp_16 = bVar.a("method-execution", bVar.d("1", "setDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "defaultSampleDuration", "", "void"), 200);
         ajc$tjp_17 = bVar.a("method-execution", bVar.d("1", "setDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "defaultSampleSize", "", "void"), 205);
-        ajc$tjp_18 = bVar.a("method-execution", bVar.d("1", "setDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "com.coremedia.iso.boxes.fragment.SampleFlags", "defaultSampleFlags", "", "void"), Constants.METHOD_IM_SEND_QUIZ_ANSWER_CAST);
+        ajc$tjp_18 = bVar.a("method-execution", bVar.d("1", "setDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "com.coremedia.iso.boxes.fragment.SampleFlags", "defaultSampleFlags", "", "void"), 210);
         ajc$tjp_19 = bVar.a("method-execution", bVar.d("1", "setDurationIsEmpty", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "boolean", "durationIsEmpty", "", "void"), 215);
         ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "hasDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 134);
         ajc$tjp_20 = bVar.a("method-execution", bVar.d("1", "setDefaultBaseIsMoof", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "boolean", "defaultBaseIsMoof", "", "void"), 220);
@@ -215,12 +215,12 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
     }
 
     public void setTrackId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.iv(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.iI(j)));
         this.trackId = j;
     }
 
     public void setBaseDataOffset(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.iv(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.iI(j)));
         if (j == -1) {
             setFlags(getFlags() & 2147483646);
         } else {
@@ -230,7 +230,7 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
     }
 
     public void setSampleDescriptionIndex(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.iv(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.iI(j)));
         if (j == -1) {
             setFlags(getFlags() & 2147483645);
         } else {
@@ -240,13 +240,13 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
     }
 
     public void setDefaultSampleDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.iv(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.iI(j)));
         setFlags(getFlags() | 8);
         this.defaultSampleDuration = j;
     }
 
     public void setDefaultSampleSize(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.iv(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.iI(j)));
         setFlags(getFlags() | 16);
         this.defaultSampleSize = j;
     }
@@ -258,13 +258,13 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
     }
 
     public void setDurationIsEmpty(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_19, this, this, org.aspectj.a.a.a.Bp(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_19, this, this, org.aspectj.a.a.a.Bq(z)));
         setFlags(getFlags() | 65536);
         this.durationIsEmpty = z;
     }
 
     public void setDefaultBaseIsMoof(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_20, this, this, org.aspectj.a.a.a.Bp(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_20, this, this, org.aspectj.a.a.a.Bq(z)));
         setFlags(getFlags() | 131072);
         this.defaultBaseIsMoof = z;
     }

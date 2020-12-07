@@ -10,83 +10,83 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.be;
 import com.baidu.tieba.frs.q;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a {
-    private int cso;
-    private TextView iXB;
-    private final FrsFragment jdH;
-    private be jda;
-    private boolean jfM;
-    private int jfN = -1;
+    private int czk;
+    private TextView jla;
+    private be jqD;
+    private final FrsFragment jrk;
+    private boolean jtp;
+    private int jtq = -1;
 
     public a(FrsFragment frsFragment) {
-        this.cso = 0;
+        this.czk = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.jdH = frsFragment;
+        this.jrk = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.cso = UtilHelper.getStatusBarHeight();
+            this.czk = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void cEq() {
-        if (this.jfM && this.jfN >= 0) {
-            AC(this.jfN);
+    public void cJD() {
+        if (this.jtp && this.jtq >= 0) {
+            Bq(this.jtq);
         }
-        this.jfM = false;
+        this.jtp = false;
     }
 
-    public void AB(int i) {
+    public void Bp(int i) {
         if (i >= 0) {
-            qr(true);
-            AD(i);
+            qS(true);
+            Br(i);
             return;
         }
-        qr(false);
-        AD(i);
+        qS(false);
+        Br(i);
     }
 
-    private void AC(int i) {
+    private void Bq(int i) {
         FrameLayout frameLayout;
         String string;
-        q cxO = this.jdH.cxO();
-        if (cxO != null && cxO.getListView() != null && (frameLayout = (FrameLayout) cxO.czo()) != null) {
-            if (this.iXB == null && this.jdH.getPageContext() != null) {
-                this.iXB = new TextView(this.jdH.getPageContext().getPageActivity());
-                this.iXB.setTextSize(0, this.jdH.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-                this.iXB.setGravity(17);
+        q cCe = this.jrk.cCe();
+        if (cCe != null && cCe.getListView() != null && (frameLayout = (FrameLayout) cCe.cDF()) != null) {
+            if (this.jla == null && this.jrk.getPageContext() != null) {
+                this.jla = new TextView(this.jrk.getPageContext().getPageActivity());
+                this.jla.setTextSize(0, this.jrk.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+                this.jla.setGravity(17);
             }
-            if (this.iXB != null) {
+            if (this.jla != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(R.string.smart_frs_refresh_nodata);
                 }
-                this.iXB.setText(string);
+                this.jla.setText(string);
             }
-            ap.setBackgroundResource(this.iXB, R.color.CAM_X0302);
-            ap.setViewTextColor(this.iXB, R.color.CAM_X0112);
+            ap.setBackgroundResource(this.jla, R.color.CAM_X0302);
+            ap.setViewTextColor(this.jla, R.color.CAM_X0112);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds56));
-            if (this.jda == null) {
-                this.jda = new be();
+            if (this.jqD == null) {
+                this.jqD = new be();
             }
-            this.jda.a(this.iXB, frameLayout, layoutParams, 2000);
-            this.jfN = -1;
+            this.jqD.a(this.jla, frameLayout, layoutParams, 2000);
+            this.jtq = -1;
         }
     }
 
-    public void qr(boolean z) {
-        this.jfM = z;
+    public void qS(boolean z) {
+        this.jtp = z;
     }
 
-    public void AD(int i) {
-        this.jfN = i;
+    public void Br(int i) {
+        this.jtq = i;
     }
 
     public void onDestroy() {
-        if (this.jda != null) {
-            this.jda.onDestroy();
+        if (this.jqD != null) {
+            this.jqD.onDestroy();
         }
     }
 }

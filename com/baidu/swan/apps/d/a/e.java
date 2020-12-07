@@ -7,82 +7,82 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.support.v4.app.FragmentActivity;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class e extends com.baidu.swan.apps.core.d.i {
     @Override // com.baidu.swan.apps.core.d.i
-    public com.baidu.swan.apps.adaptation.b.f ahS() {
-        return com.baidu.swan.apps.core.turbo.d.ara().arb().by(getContext());
+    public com.baidu.swan.apps.adaptation.b.f ala() {
+        return com.baidu.swan.apps.core.turbo.d.aui().auj().ce(getContext());
     }
 
     @Override // com.baidu.swan.apps.core.d.i
-    protected com.baidu.swan.apps.core.f.d ait() {
+    protected com.baidu.swan.apps.core.f.d alB() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.d.a.e.1
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public boolean iK(String str) {
-                return super.iK(str);
+            public boolean jo(String str) {
+                return super.jo(str);
             }
         };
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
-    protected void ar(View view) {
-        super.ar(view);
-        this.cIr.setRightZoneVisibility(true);
+    protected void at(View view) {
+        super.at(view);
+        this.cPk.setRightZoneVisibility(true);
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
-    protected void aiA() {
-        FragmentActivity bca = bca();
-        if (bca != null && this.cIs == null) {
-            this.cIs = new com.baidu.swan.menu.h(bca, this.cIr, aiB(), com.baidu.swan.apps.t.a.avW(), new com.baidu.swan.apps.view.c.b());
-            new com.baidu.swan.apps.menu.a(this.cIs, this).aAV();
+    protected void alI() {
+        FragmentActivity bff = bff();
+        if (bff != null && this.cPl == null) {
+            this.cPl = new com.baidu.swan.menu.h(bff, this.cPk, alJ(), com.baidu.swan.apps.t.a.aze(), new com.baidu.swan.apps.view.c.b());
+            new com.baidu.swan.apps.menu.a(this.cPl, this).aEe();
         }
     }
 
-    private int aiB() {
-        return anR() ? 18 : 12;
+    private int alJ() {
+        return aqZ() ? 18 : 12;
     }
 
     /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.swan.apps.adaptation.b.d] */
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
-        ar(inflate);
-        this.cJz = ahS();
-        this.cJz.a(ait());
-        this.csU = this.cJz.ahZ();
-        this.cJz.loadUrl(this.mUrl);
+        at(inflate);
+        this.cQs = ala();
+        this.cQs.a(alB());
+        this.czQ = this.cQs.alh();
+        this.cQs.loadUrl(this.mUrl);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
-        this.cJz.b(frameLayout, this.csU.covertToView());
+        this.cQs.b(frameLayout, this.czQ.covertToView());
         e(frameLayout);
         return immersionEnabled() ? initImmersion(inflate) : inflate;
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
-    protected boolean aiu() {
+    protected boolean alC() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
-    public boolean ahT() {
-        if (this.csU != null && this.csU.canGoBack()) {
-            this.csU.goBack();
+    public boolean alb() {
+        if (this.czQ != null && this.czQ.canGoBack()) {
+            this.czQ.goBack();
             return true;
         }
-        aiC();
+        alK();
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
-        aiC();
+        alK();
         super.onDestroy();
     }
 
-    private void aiC() {
-        com.baidu.swan.apps.a.a aiD;
-        if (!f.cva.aiF() && (aiD = f.cva.aiD()) != null) {
-            aiD.onResult(-2);
+    private void alK() {
+        com.baidu.swan.apps.a.a alL;
+        if (!f.cBS.alN() && (alL = f.cBS.alL()) != null) {
+            alL.onResult(-2);
         }
     }
 }

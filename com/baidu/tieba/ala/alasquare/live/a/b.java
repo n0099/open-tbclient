@@ -9,56 +9,56 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.subtablist.c.i;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private final List<com.baidu.adp.widget.ListView.a> biN = new ArrayList();
-    private e eGT;
-    private BdTypeListView ghN;
-    private a ghO;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.a ghP;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.b ghQ;
+    private final List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
+    private e eNZ;
+    private BdTypeListView gpX;
+    private a gpY;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.a gpZ;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.b gqa;
 
     public b(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.eGT = tbPageContext;
-        this.ghN = bdTypeListView;
-        Lp();
+        this.eNZ = tbPageContext;
+        this.gpX = bdTypeListView;
+        Nt();
     }
 
-    private void Lp() {
-        this.ghQ = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.eGT);
-        this.ghQ.setFrom(1);
-        this.ghP = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.eGT);
-        this.ghP.setFrom(1);
-        this.ghO = new a((TbPageContext) this.eGT, com.baidu.tieba.ala.alasquare.live.b.b.ghU);
-        this.biN.add(this.ghQ);
-        this.biN.add(this.ghP);
-        this.biN.add(this.ghO);
-        this.ghN.addAdapters(this.biN);
+    private void Nt() {
+        this.gqa = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.eNZ);
+        this.gqa.setFrom(1);
+        this.gpZ = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.eNZ);
+        this.gpZ.setFrom(1);
+        this.gpY = new a((TbPageContext) this.eNZ, com.baidu.tieba.ala.alasquare.live.b.b.gqe);
+        this.bnf.add(this.gqa);
+        this.bnf.add(this.gpZ);
+        this.bnf.add(this.gpY);
+        this.gpX.addAdapters(this.bnf);
     }
 
     public void setDatas(List<q> list) {
-        if (this.ghN != null) {
-            this.ghN.setData(list);
+        if (this.gpX != null) {
+            this.gpX.setData(list);
         }
     }
 
-    public void uq(int i) {
-        this.ghQ.uq(i);
-        this.ghP.uq(i);
+    public void uU(int i) {
+        this.gqa.uU(i);
+        this.gpZ.uU(i);
     }
 
     public void notifyDataSetChanged() {
-        if (this.ghN != null && (this.ghN.getAdapter() instanceof BaseAdapter)) {
-            this.ghN.getAdapter().notifyDataSetChanged();
+        if (this.gpX != null && (this.gpX.getAdapter() instanceof BaseAdapter)) {
+            this.gpX.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.ghO.a(iAlaSquareTabController);
+        this.gpY.a(iAlaSquareTabController);
     }
 
     public void a(i iVar) {
-        this.ghQ.b(iVar);
-        this.ghP.b(iVar);
+        this.gqa.b(iVar);
+        this.gpZ.b(iVar);
     }
 }

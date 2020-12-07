@@ -22,17 +22,17 @@ public class ew implements et {
     }
 
     private void b(Context context, ep epVar) {
-        String m269a = epVar.m269a();
+        String m259a = epVar.m259a();
         String b = epVar.b();
         String d = epVar.d();
         int a2 = epVar.a();
-        if (context == null || TextUtils.isEmpty(m269a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
+        if (context == null || TextUtils.isEmpty(m259a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
             if (TextUtils.isEmpty(d)) {
                 em.a(context, "service", 1008, "argument error");
             } else {
                 em.a(context, d, 1008, "argument error");
             }
-        } else if (!com.xiaomi.push.service.f.a(context, m269a, b)) {
+        } else if (!com.xiaomi.push.service.f.a(context, m259a, b)) {
             em.a(context, d, 1003, "B is not ready");
         } else {
             em.a(context, d, 1002, "B is ready");
@@ -40,9 +40,9 @@ public class ew implements et {
             try {
                 Intent intent = new Intent();
                 intent.setAction(b);
-                intent.setPackage(m269a);
+                intent.setPackage(m259a);
                 intent.putExtra("awake_info", el.a(d));
-                if (a2 == 1 && !eq.m270a(context)) {
+                if (a2 == 1 && !eq.m260a(context)) {
                     em.a(context, d, 1008, "A not in foreground");
                 } else if (context.startService(intent) != null) {
                     em.a(context, d, 1005, "A is successful");

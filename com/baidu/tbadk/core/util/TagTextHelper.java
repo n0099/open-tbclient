@@ -44,19 +44,19 @@ public final class TagTextHelper {
         }
     }
 
-    public static String t(@NonNull Context context, int i) {
+    public static String C(@NonNull Context context, int i) {
         HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i);
         return hotTopicTag != null ? context.getString(hotTopicTag.tagStrRes) : "";
     }
 
     @ColorRes
-    public static int pz(int i) {
+    public static int pZ(int i) {
         HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i);
         return hotTopicTag != null ? hotTopicTag.tagColorRes : R.color.transparent;
     }
 
     @ColorRes
-    public static int pA(int i) {
+    public static int qa(int i) {
         switch (i) {
             case 1:
                 return R.color.CAM_X0301;

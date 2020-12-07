@@ -8,9 +8,9 @@ public class d extends com.baidu.swan.pms.node.a {
     @Override // com.baidu.swan.pms.node.a, com.baidu.swan.pms.node.d
     public void a(JSONObject jSONObject, g gVar, @Nullable g gVar2, @Nullable g gVar3) {
         JSONObject optJSONObject;
-        a cO;
-        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("base_info")) != null && (cO = a.cO(optJSONObject)) != null) {
-            b.bbO().a(cO);
+        a cQ;
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("base_info")) != null && (cQ = a.cQ(optJSONObject)) != null) {
+            b.beT().a(cQ);
         }
     }
 }

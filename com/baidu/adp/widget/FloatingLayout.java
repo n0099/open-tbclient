@@ -240,7 +240,7 @@ public class FloatingLayout extends LinearLayout {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
-    /* renamed from: qI */
+    /* renamed from: qK */
     public LayoutParams generateDefaultLayoutParams() {
         return new LayoutParams(-2, -2, 0);
     }

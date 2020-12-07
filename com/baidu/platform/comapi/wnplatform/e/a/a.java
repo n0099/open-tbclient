@@ -1,66 +1,65 @@
 package com.baidu.platform.comapi.wnplatform.e.a;
 
-import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private StringBuilder f3106a = new StringBuilder();
+    private StringBuilder f3108a = new StringBuilder();
     private boolean b = false;
 
     public a a() {
         d();
-        this.f3106a.append("{");
+        this.f3108a.append("{");
         e();
         return this;
     }
 
     public a b() {
-        this.f3106a.append("}");
+        this.f3108a.append("}");
         f();
         return this;
     }
 
     public a a(String str) {
         d();
-        this.f3106a.append(JSONObject.quote(str));
-        this.f3106a.append(":");
+        this.f3108a.append(JSONObject.quote(str));
+        this.f3108a.append(":");
         e();
         return this;
     }
 
     public a a(boolean z) {
         d();
-        this.f3106a.append(z);
+        this.f3108a.append(z);
         f();
         return this;
     }
 
     public a a(int i) {
         d();
-        this.f3106a.append(i);
+        this.f3108a.append(i);
         f();
         return this;
     }
 
     public a a(long j) {
         d();
-        this.f3106a.append(j);
+        this.f3108a.append(j);
         f();
         return this;
     }
 
     public a a(double d) {
         d();
-        this.f3106a.append(String.format("%f", Double.valueOf(d)));
+        this.f3108a.append(String.format("%f", Double.valueOf(d)));
         f();
         return this;
     }
 
     public a b(String str) {
         d();
-        this.f3106a.append(JSONObject.quote(str));
+        this.f3108a.append(JSONObject.quote(str));
         f();
         return this;
     }
@@ -92,7 +91,7 @@ public class a {
 
     private void d() {
         if (this.b) {
-            this.f3106a.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            this.f3108a.append(",");
         }
     }
 
@@ -105,7 +104,7 @@ public class a {
     }
 
     public String c() {
-        return this.f3106a.toString();
+        return this.f3108a.toString();
     }
 
     public String toString() {

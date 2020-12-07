@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class MzNotifyActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1186a;
+    private String f1184a;
     private String b;
     private String c;
     private String d;
@@ -46,7 +46,7 @@ public class MzNotifyActivity extends Activity {
                     for (int i = 0; i < jSONArray.length(); i++) {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                         if (!jSONObject2.isNull("Msgid")) {
-                            this.f1186a = jSONObject2.getString("Msgid");
+                            this.f1184a = jSONObject2.getString("Msgid");
                         }
                         if (!jSONObject2.isNull("msgBody")) {
                             this.c = jSONObject2.getString("msgBody");
@@ -65,7 +65,7 @@ public class MzNotifyActivity extends Activity {
                         }
                     }
                 }
-                if (f.a(this, this.b, (this.f1186a + this.d).replaceAll("\\\\", ""))) {
+                if (f.a(this, this.b, (this.f1184a + this.d).replaceAll("\\\\", ""))) {
                     if (TextUtils.isEmpty(this.e)) {
                         Intent intent2 = new Intent();
                         intent2.setClassName(getPackageName(), a(this, getPackageName()));

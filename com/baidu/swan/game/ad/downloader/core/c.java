@@ -8,60 +8,60 @@ import com.baidu.swan.game.ad.downloader.e;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 public class c implements d.a {
-    private final com.baidu.swan.game.ad.downloader.c.d dKM;
-    private final DownloadInfo dKS;
-    private final a dKT;
+    private final com.baidu.swan.game.ad.downloader.c.d dRK;
+    private final DownloadInfo dRP;
+    private final a dRQ;
     private final ExecutorService mExecutorService;
     private long mLastRefreshTime = System.currentTimeMillis();
-    private volatile AtomicBoolean dKU = new AtomicBoolean(false);
+    private volatile AtomicBoolean dRR = new AtomicBoolean(false);
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes14.dex */
     public interface a {
         void k(DownloadInfo downloadInfo);
     }
 
     public c(ExecutorService executorService, com.baidu.swan.game.ad.downloader.c.d dVar, DownloadInfo downloadInfo, a aVar) {
         this.mExecutorService = executorService;
-        this.dKM = dVar;
-        this.dKS = downloadInfo;
-        this.dKT = aVar;
+        this.dRK = dVar;
+        this.dRP = downloadInfo;
+        this.dRQ = aVar;
     }
 
     public void start() {
-        this.mExecutorService.submit(new d(this.dKM, this.dKS, this));
+        this.mExecutorService.submit(new d(this.dRK, this.dRP, this));
     }
 
     @Override // com.baidu.swan.game.ad.downloader.core.d.a
-    public void aPJ() {
-        if (!this.dKU.get()) {
+    public void aSO() {
+        if (!this.dRR.get()) {
             synchronized (this) {
-                if (!this.dKU.get()) {
-                    this.dKU.set(true);
+                if (!this.dRR.get()) {
+                    this.dRR.set(true);
                     long currentTimeMillis = System.currentTimeMillis();
                     if (currentTimeMillis - this.mLastRefreshTime > 1000) {
-                        this.dKM.l(this.dKS);
+                        this.dRK.l(this.dRP);
                         this.mLastRefreshTime = currentTimeMillis;
                     }
-                    this.dKU.set(false);
+                    this.dRR.set(false);
                 }
             }
         }
     }
 
     @Override // com.baidu.swan.game.ad.downloader.core.d.a
-    public void aPD() {
-        if (this.dKS.getProgress() == this.dKS.getSize()) {
-            String ak = e.ak(AppRuntime.getAppContext(), this.dKS.getPath());
+    public void aSI() {
+        if (this.dRP.getProgress() == this.dRP.getSize()) {
+            String an = e.an(AppRuntime.getAppContext(), this.dRP.getPath());
             if (com.baidu.swan.apps.b.DEBUG) {
-                Log.d("AdDownload", "解析包名" + ak);
+                Log.d("AdDownload", "解析包名" + an);
             }
-            this.dKS.setPackageName(ak);
-            this.dKS.setStatus(SwanAdDownloadState.DOWNLOADED.value());
-            this.dKM.l(this.dKS);
-            if (this.dKT != null) {
-                this.dKT.k(this.dKS);
+            this.dRP.setPackageName(an);
+            this.dRP.setStatus(SwanAdDownloadState.DOWNLOADED.value());
+            this.dRK.l(this.dRP);
+            if (this.dRQ != null) {
+                this.dRQ.k(this.dRP);
             }
         }
     }

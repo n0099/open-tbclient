@@ -13,11 +13,11 @@ import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class CustomSuccessView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1745a;
+    private int f1747a;
     private float b;
     private float c;
     private Paint d;
@@ -42,7 +42,7 @@ public class CustomSuccessView extends View {
     public CustomSuccessView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.CustomSuccessView, i, 0);
-        this.f1745a = obtainStyledAttributes.getColor(R.styleable.CustomSuccessView_load_success_color, ContextCompat.getColor(context, R.color.rim_base_white));
+        this.f1747a = obtainStyledAttributes.getColor(R.styleable.CustomSuccessView_load_success_color, ContextCompat.getColor(context, R.color.rim_base_white));
         this.b = obtainStyledAttributes.getDimension(R.styleable.CustomSuccessView_progress_width, 2.0f);
         this.c = obtainStyledAttributes.getDimension(R.styleable.CustomSuccessView_progress_radius, 35.0f);
         obtainStyledAttributes.recycle();
@@ -76,7 +76,7 @@ public class CustomSuccessView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.translate(getPaddingLeft(), getPaddingTop());
-        this.d.setColor(this.f1745a);
+        this.d.setColor(this.f1747a);
         RectF rectF = new RectF();
         rectF.left = (getWidth() / 2) - this.c;
         rectF.top = (getWidth() / 2) - this.c;

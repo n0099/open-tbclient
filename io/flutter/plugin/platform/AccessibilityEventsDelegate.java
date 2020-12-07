@@ -2,15 +2,13 @@ package io.flutter.plugin.platform;
 
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import io.flutter.view.AccessibilityBridge;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class AccessibilityEventsDelegate {
     private AccessibilityBridge accessibilityBridge;
 
-    public boolean requestSendAccessibilityEvent(@NonNull View view, @NonNull View view2, @NonNull AccessibilityEvent accessibilityEvent) {
+    public boolean requestSendAccessibilityEvent(View view, View view2, AccessibilityEvent accessibilityEvent) {
         if (this.accessibilityBridge == null) {
             return false;
         }
@@ -18,7 +16,7 @@ public class AccessibilityEventsDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void setAccessibilityBridge(@Nullable AccessibilityBridge accessibilityBridge) {
+    public void setAccessibilityBridge(AccessibilityBridge accessibilityBridge) {
         this.accessibilityBridge = accessibilityBridge;
     }
 }

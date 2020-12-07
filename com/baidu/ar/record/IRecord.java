@@ -1,9 +1,13 @@
 package com.baidu.ar.record;
-/* loaded from: classes12.dex */
+
+import com.baidu.ar.bean.Watermark;
+/* loaded from: classes10.dex */
 public interface IRecord {
     void pauseRecord();
 
     void resumeRecord();
+
+    void setRecordWatermark(Watermark watermark);
 
     void startRecord(String str, long j, RecordCallback recordCallback);
 

@@ -4,17 +4,17 @@ import android.support.media.ExifInterface;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
-import com.baidu.ar.g.s;
+import com.baidu.ar.h.s;
 import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.IHttpResponse;
 import java.io.IOException;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class b {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void e(byte[] bArr);
     }
@@ -40,7 +40,7 @@ public class b {
         }
     }
 
-    private String v(int i) {
+    private String x(int i) {
         switch (i) {
             case -90:
                 return "HR";
@@ -59,10 +59,10 @@ public class b {
         String gV = s.gV();
         HashMap hashMap = new HashMap();
         String encodeToString = Base64.encodeToString(bArr, 0);
-        String v = v(i);
+        String x = x(i);
         hashMap.put("image", encodeToString);
         hashMap.put("svc_name", "child-face");
-        hashMap.put("vid", v);
+        hashMap.put("vid", x);
         com.baidu.ar.child.b.a.a(gV, hashMap, new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.child.b.b.1
             @Override // com.baidu.ar.ihttp.a
             public void a(HttpException httpException) {

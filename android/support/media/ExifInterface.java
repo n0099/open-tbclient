@@ -12,7 +12,6 @@ import android.util.Pair;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.idl.authority.AuthorityState;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.Closeable;
@@ -45,7 +44,7 @@ import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes14.dex */
+/* loaded from: classes9.dex */
 public class ExifInterface {
     public static final short ALTITUDE_ABOVE_SEA_LEVEL = 0;
     public static final short ALTITUDE_BELOW_SEA_LEVEL = 1;
@@ -483,7 +482,7 @@ public class ExifInterface {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public @interface IfdType {
     }
 
@@ -509,7 +508,7 @@ public class ExifInterface {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public static class Rational {
         public final long denominator;
         public final long numerator;
@@ -538,7 +537,7 @@ public class ExifInterface {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public static class ExifAttribute {
         public final byte[] bytes;
         public final int format;
@@ -1004,7 +1003,7 @@ public class ExifInterface {
                 while (i < jArr.length) {
                     sb.append(jArr[i]);
                     if (i + 1 != jArr.length) {
-                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                        sb.append(",");
                     }
                     i++;
                 }
@@ -1014,7 +1013,7 @@ public class ExifInterface {
                 while (i < iArr.length) {
                     sb.append(iArr[i]);
                     if (i + 1 != iArr.length) {
-                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                        sb.append(",");
                     }
                     i++;
                 }
@@ -1024,7 +1023,7 @@ public class ExifInterface {
                 while (i < dArr.length) {
                     sb.append(dArr[i]);
                     if (i + 1 != dArr.length) {
-                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                        sb.append(",");
                     }
                     i++;
                 }
@@ -1036,7 +1035,7 @@ public class ExifInterface {
                     sb.append('/');
                     sb.append(rationalArr[i].denominator);
                     if (i + 1 != rationalArr.length) {
-                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                        sb.append(",");
                     }
                     i++;
                 }
@@ -1052,7 +1051,7 @@ public class ExifInterface {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public static class ExifTag {
         public final String name;
         public final int number;
@@ -1251,7 +1250,7 @@ public class ExifInterface {
                                 this.mAttributes[i3].put(str, ExifAttribute.createString(str2));
                                 continue;
                             case 3:
-                                String[] split = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                                String[] split = str2.split(",");
                                 int[] iArr = new int[split.length];
                                 for (int i4 = 0; i4 < split.length; i4++) {
                                     iArr[i4] = Integer.parseInt(split[i4]);
@@ -1259,7 +1258,7 @@ public class ExifInterface {
                                 this.mAttributes[i3].put(str, ExifAttribute.createUShort(iArr, this.mExifByteOrder));
                                 continue;
                             case 4:
-                                String[] split2 = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                                String[] split2 = str2.split(",");
                                 long[] jArr = new long[split2.length];
                                 for (int i5 = 0; i5 < split2.length; i5++) {
                                     jArr[i5] = Long.parseLong(split2[i5]);
@@ -1267,7 +1266,7 @@ public class ExifInterface {
                                 this.mAttributes[i3].put(str, ExifAttribute.createULong(jArr, this.mExifByteOrder));
                                 continue;
                             case 5:
-                                String[] split3 = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                                String[] split3 = str2.split(",");
                                 Rational[] rationalArr = new Rational[split3.length];
                                 for (int i6 = 0; i6 < split3.length; i6++) {
                                     String[] split4 = split3[i6].split("/");
@@ -1282,7 +1281,7 @@ public class ExifInterface {
                                 Log.w(TAG, "Data format isn't one of expected formats: " + i);
                                 continue;
                             case 9:
-                                String[] split5 = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                                String[] split5 = str2.split(",");
                                 int[] iArr2 = new int[split5.length];
                                 for (int i7 = 0; i7 < split5.length; i7++) {
                                     iArr2[i7] = Integer.parseInt(split5[i7]);
@@ -1290,7 +1289,7 @@ public class ExifInterface {
                                 this.mAttributes[i3].put(str, ExifAttribute.createSLong(iArr2, this.mExifByteOrder));
                                 continue;
                             case 10:
-                                String[] split6 = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                                String[] split6 = str2.split(",");
                                 Rational[] rationalArr2 = new Rational[split6.length];
                                 for (int i8 = 0; i8 < split6.length; i8++) {
                                     String[] split7 = split6[i8].split("/");
@@ -1299,7 +1298,7 @@ public class ExifInterface {
                                 this.mAttributes[i3].put(str, ExifAttribute.createSRational(rationalArr2, this.mExifByteOrder));
                                 continue;
                             case 12:
-                                String[] split8 = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                                String[] split8 = str2.split(",");
                                 double[] dArr = new double[split8.length];
                                 for (int i9 = 0; i9 < split8.length; i9++) {
                                     dArr[i9] = Double.parseDouble(split8[i9]);
@@ -1783,7 +1782,7 @@ public class ExifInterface {
 
     private static double convertRationalLatLonToDouble(String str, String str2) {
         try {
-            String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split = str.split(",");
             String[] split2 = split[0].split("/");
             double parseDouble = Double.parseDouble(split2[0].trim()) / Double.parseDouble(split2[1].trim());
             String[] split3 = split[1].split("/");
@@ -2671,8 +2670,8 @@ public class ExifInterface {
     private static Pair<Integer, Integer> guessDataFormat(String str) {
         Pair<Integer, Integer> pair;
         Pair<Integer, Integer> pair2;
-        if (str.contains(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        if (str.contains(",")) {
+            String[] split = str.split(",");
             Pair<Integer, Integer> guessDataFormat = guessDataFormat(split[0]);
             if (((Integer) guessDataFormat.first).intValue() == 2) {
                 return guessDataFormat;
@@ -2732,7 +2731,7 @@ public class ExifInterface {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public static class ByteOrderedDataInputStream extends InputStream implements DataInput {
         private ByteOrder mByteOrder;
         private DataInputStream mDataInputStream;
@@ -2972,7 +2971,7 @@ public class ExifInterface {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public static class ByteOrderedDataOutputStream extends FilterOutputStream {
         private ByteOrder mByteOrder;
         private final OutputStream mOutputStream;

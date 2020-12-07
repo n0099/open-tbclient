@@ -1,29 +1,29 @@
 package io.reactivex.internal.observers;
 
-import io.reactivex.c.g;
+import io.reactivex.b.g;
 import io.reactivex.exceptions.OnErrorNotImplementedException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
-public final class CallbackCompletableObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.c, g<Throwable>, io.reactivex.disposables.b {
+/* loaded from: classes9.dex */
+public final class CallbackCompletableObserver extends AtomicReference<io.reactivex.disposables.b> implements g<Throwable>, io.reactivex.c, io.reactivex.disposables.b {
     private static final long serialVersionUID = -4361286194466301354L;
-    final io.reactivex.c.a onComplete;
+    final io.reactivex.b.a onComplete;
     final g<? super Throwable> onError;
 
-    public CallbackCompletableObserver(io.reactivex.c.a aVar) {
+    public CallbackCompletableObserver(io.reactivex.b.a aVar) {
         this.onError = this;
         this.onComplete = aVar;
     }
 
-    public CallbackCompletableObserver(g<? super Throwable> gVar, io.reactivex.c.a aVar) {
+    public CallbackCompletableObserver(g<? super Throwable> gVar, io.reactivex.b.a aVar) {
         this.onError = gVar;
         this.onComplete = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // io.reactivex.c.g
+    @Override // io.reactivex.b.g
     public void accept(Throwable th) {
-        io.reactivex.e.a.onError(new OnErrorNotImplementedException(th));
+        io.reactivex.d.a.onError(new OnErrorNotImplementedException(th));
     }
 
     @Override // io.reactivex.c
@@ -32,7 +32,7 @@ public final class CallbackCompletableObserver extends AtomicReference<io.reacti
             this.onComplete.run();
         } catch (Throwable th) {
             io.reactivex.exceptions.a.J(th);
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
         lazySet(DisposableHelper.DISPOSED);
     }
@@ -43,7 +43,7 @@ public final class CallbackCompletableObserver extends AtomicReference<io.reacti
             this.onError.accept(th);
         } catch (Throwable th2) {
             io.reactivex.exceptions.a.J(th2);
-            io.reactivex.e.a.onError(th2);
+            io.reactivex.d.a.onError(th2);
         }
         lazySet(DisposableHelper.DISPOSED);
     }

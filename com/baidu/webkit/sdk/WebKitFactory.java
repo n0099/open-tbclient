@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class WebKitFactory {
     private static final String ARCH_ARM = "armv";
     private static final int ARCH_ARM_INT = 7;
@@ -82,7 +82,7 @@ public final class WebKitFactory {
     private static boolean sEnableIntegratedCrashpad = true;
     private static SwitchState sEnableMultipleProcess = SwitchState.Invalid;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     private static class DelayedInitTask extends Thread {
         private boolean mResult;
 
@@ -191,11 +191,11 @@ public final class WebKitFactory {
             if (!WebSettingsGlobalBlink.getHttpDnsUpdateEnabled() && (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) == null || !WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals("false"))) {
                 HttpDnsCache.tryToUpdateHttpDnsCache(WebViewFactory.getContext());
             }
-            ZeusLogUploader.UploadLogDirectory(WebViewFactory.getContext().getDir(WebViewFactory.getDataDirectorySuffix() != null ? "webview_baidu" + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + WebViewFactory.getDataDirectorySuffix() : "webview_baidu", 0).getPath() + "/nr/", ZeusLogUploader.NR_LOG, true, null);
+            ZeusLogUploader.UploadLogDirectory(WebViewFactory.getContext().getDir(WebViewFactory.getDataDirectorySuffix() != null ? "webview_baidu" + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + WebViewFactory.getDataDirectorySuffix() : "webview_baidu", 0).getPath() + "/nr/", "nrlog", true, null);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public interface IForceInitZeusListener {
         @Keep
         void onForceInitZeusFinish(boolean z);
@@ -204,14 +204,14 @@ public final class WebKitFactory {
         void onForceInitZeusStart();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public enum SwitchState {
         Invalid,
         On,
         Off
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public interface WebkitInstallListener {
         public static final int RET_CANCELED = 3;
         public static final int RET_FAILED_ALREADY_RUNNING = 8;

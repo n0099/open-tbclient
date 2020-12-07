@@ -77,13 +77,13 @@ public class u {
                 }
                 builder.pversion = "1.0.3";
                 builder.lego_lib_version = TbConfig.getLegoLibVersion();
-                if (com.baidu.tbadk.core.sharedPref.b.bpu().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
+                if (com.baidu.tbadk.core.sharedPref.b.bsO().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
                     builder.z_id = TbadkCoreApplication.getInst().getZid();
                 }
                 builder.net_type = Integer.valueOf(com.baidu.adp.lib.util.j.netType());
-                builder.oaid = com.baidu.helios.b.aj(TbadkCoreApplication.getInst()).zr();
+                builder.oaid = com.baidu.helios.b.al(TbadkCoreApplication.getInst()).zj();
                 builder.sample_id = TbSingleton.getInstance().getSampleId();
-                builder.is_teenager = Integer.valueOf(com.baidu.tbadk.youngster.b.c.bGL() ? 1 : 0);
+                builder.is_teenager = Integer.valueOf(com.baidu.tbadk.youngster.b.c.bKl() ? 1 : 0);
                 builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
                 builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
                 builder.swan_game_ver = TbadkCoreApplication.getInst().getSwan_game_ver();

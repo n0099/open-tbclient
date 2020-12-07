@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.mapapi.BMapManager;
@@ -29,7 +30,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.platform.comapi.map.MapTextureView;
 import com.baidu.webkit.net.BdNetTask;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class TextureMapView extends ViewGroup {
     private static String i;
     private int A;
@@ -57,7 +58,7 @@ public final class TextureMapView extends ViewGroup {
     private int z;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2049a = TextureMapView.class.getSimpleName();
+    private static final String f2051a = TextureMapView.class.getSimpleName();
     private static int j = 0;
     private static int k = 0;
     private static final SparseArray<Integer> q = new SparseArray<>();
@@ -66,7 +67,7 @@ public final class TextureMapView extends ViewGroup {
         q.append(3, 2000000);
         q.append(4, Integer.valueOf((int) MessageConfig.BASE_SEGMENT_LENGTH));
         q.append(5, 500000);
-        q.append(6, 200000);
+        q.append(6, Integer.valueOf((int) AlaRecorderLog.ErrCodeSeg.ERROR_BASE_RTMP));
         q.append(7, 100000);
         q.append(8, Integer.valueOf((int) IMConstants.ERROR_BASE));
         q.append(9, Integer.valueOf((int) BdNetTask.TIMEOUT_READ));
@@ -197,13 +198,13 @@ public final class TextureMapView extends ViewGroup {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            Log.e(f2049a, "customStyleFilePath is empty or null, please check!");
+            Log.e(f2051a, "customStyleFilePath is empty or null, please check!");
         } else if (!str.endsWith(".sty")) {
-            Log.e(f2049a, "customStyleFile format is incorrect , please check!");
+            Log.e(f2051a, "customStyleFile format is incorrect , please check!");
         } else if (new File(str).exists()) {
             this.b.getBaseMap().a(str, i2);
         } else {
-            Log.e(f2049a, "customStyleFile does not exist , please check!");
+            Log.e(f2051a, "customStyleFile does not exist , please check!");
         }
     }
 
@@ -225,9 +226,9 @@ public final class TextureMapView extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.f.a()) {
-            float f = this.b.getBaseMap().B().f2242a;
+            float f = this.b.getBaseMap().B().f2244a;
             this.f.b(f > this.b.getBaseMap().b);
-            this.f.a(f < this.b.getBaseMap().f2224a);
+            this.f.a(f < this.b.getBaseMap().f2226a);
         }
     }
 
@@ -332,7 +333,7 @@ public final class TextureMapView extends ViewGroup {
     }
 
     public final int getMapLevel() {
-        return q.get((int) this.b.getBaseMap().B().f2242a).intValue();
+        return q.get((int) this.b.getBaseMap().B().f2244a).intValue();
     }
 
     public int getScaleControlViewHeight() {
@@ -470,7 +471,7 @@ public final class TextureMapView extends ViewGroup {
                     ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                     if (layoutParams instanceof MapViewLayoutParams) {
                         MapViewLayoutParams mapViewLayoutParams = (MapViewLayoutParams) layoutParams;
-                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.b : this.b.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.f2026a));
+                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.b : this.b.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.f2028a));
                         a(childAt);
                         int measuredWidth2 = childAt.getMeasuredWidth();
                         int measuredHeight3 = childAt.getMeasuredHeight();

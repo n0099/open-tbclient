@@ -25,11 +25,11 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f3719a;
+    private static SimpleDateFormat f3722a;
 
     public static int a() {
         return Build.VERSION.SDK_INT;
@@ -83,10 +83,10 @@ public final class i {
     }
 
     public static String a(long j) {
-        if (f3719a == null) {
-            f3719a = new SimpleDateFormat("MM-dd HH:mm");
+        if (f3722a == null) {
+            f3722a = new SimpleDateFormat("MM-dd HH:mm");
         }
-        return f3719a.format(new Date(j));
+        return f3722a.format(new Date(j));
     }
 
     public static void a(Context context, TextView textView) {
@@ -155,7 +155,7 @@ public final class i {
         rotateAnimation.setRepeatCount(-1);
         rotateAnimation.setInterpolator(linearInterpolator);
         progressBar.startAnimation(rotateAnimation);
-        progressBar.setId(R.raw.lottie_tab_forum);
+        progressBar.setId(R.raw.lottie_tab_category_1);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(a(context, 17.0f), a(context, 17.0f));
         layoutParams.addRule(15);
         layoutParams.setMargins(a(context, 3.0f), 0, 0, 0);
@@ -176,10 +176,10 @@ public final class i {
     }
 
     public static String b(long j) {
-        if (f3719a == null) {
-            f3719a = new SimpleDateFormat("yy-MM-dd");
+        if (f3722a == null) {
+            f3722a = new SimpleDateFormat("yy-MM-dd");
         }
-        return f3719a.format(new Date(j));
+        return f3722a.format(new Date(j));
     }
 
     public static boolean b(String str) {
@@ -191,9 +191,9 @@ public final class i {
 
     public static String c(long j) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm");
-        f3719a = simpleDateFormat;
+        f3722a = simpleDateFormat;
         String format = simpleDateFormat.format(new Date(j));
-        f3719a = null;
+        f3722a = null;
         return format.split(" ")[1];
     }
 

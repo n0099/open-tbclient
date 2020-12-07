@@ -1,17 +1,17 @@
 package com.baidu.ar.objdetect;
 
 import com.baidu.ar.d.b;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a extends b {
-    float[] sN;
+    float[] tA;
 
     public a(String str, float[] fArr, long j) {
-        T(str);
+        W(str);
         setTimestamp(j);
-        this.sN = fArr;
+        this.tA = fArr;
     }
 
-    public float[] fo() {
-        return this.sN;
+    public float[] fn() {
+        return this.tA;
     }
 }

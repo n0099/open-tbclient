@@ -13,7 +13,7 @@ import com.baidu.android.imrtc.utils.RtcConstants;
 import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes12.dex */
 public class BIMRtcNotifyMsg {
     private static final String TAG = "IMRtcNotifyMsg";
 
@@ -26,7 +26,7 @@ public class BIMRtcNotifyMsg {
             LogUtils.d(TAG, "parseJson :" + jSONObject.toString());
             int optInt = jSONObject.optInt("method");
             int optInt2 = jSONObject.optInt("action");
-            String optString = jSONObject.optString(RtcConstants.EXTRA_RTC_ROOM_ID);
+            String optString = jSONObject.optString("rtc_room_id");
             RtcUtility.setRtcRoomId(context, optString);
             if (optInt == 231) {
                 JSONObject jSONObject2 = new JSONObject(jSONObject.optString(RtcConstants.EXTRA_RTC_INFO, ""));

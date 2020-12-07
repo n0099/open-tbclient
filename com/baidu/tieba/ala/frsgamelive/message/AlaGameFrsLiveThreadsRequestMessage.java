@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlaGameFrsLiveThreadsRequestMessage extends HttpMessage {
     private String forumGameLabel;
     private String forumId;

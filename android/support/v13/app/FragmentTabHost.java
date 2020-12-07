@@ -16,7 +16,7 @@ import android.widget.TabHost;
 import android.widget.TabWidget;
 import java.util.ArrayList;
 @Deprecated
-/* loaded from: classes17.dex */
+/* loaded from: classes19.dex */
 public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListener {
     private boolean mAttached;
     private int mContainerId;
@@ -28,7 +28,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     private final ArrayList<TabInfo> mTabs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes19.dex */
     public static final class TabInfo {
         final Bundle args;
         final Class<?> clss;
@@ -42,7 +42,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes19.dex */
     static class DummyTabFactory implements TabHost.TabContentFactory {
         private final Context mContext;
 
@@ -60,7 +60,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes19.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: android.support.v13.app.FragmentTabHost.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

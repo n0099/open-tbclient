@@ -5,12 +5,12 @@ import com.baidu.mapapi.map.t;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class WeightedLatLng extends t.a {
     public static final double DEFAULT_INTENSITY = 1.0d;
 
     /* renamed from: a  reason: collision with root package name */
-    private Point f2057a;
+    private Point f2059a;
     public final double intensity;
     public final LatLng latLng;
 
@@ -24,7 +24,7 @@ public class WeightedLatLng extends t.a {
         }
         this.latLng = latLng;
         GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
-        this.f2057a = new Point((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6());
+        this.f2059a = new Point((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6());
         if (d > 0.0d) {
             this.intensity = d;
         } else {
@@ -35,6 +35,6 @@ public class WeightedLatLng extends t.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.t.a
     public Point a() {
-        return this.f2057a;
+        return this.f2059a;
     }
 }

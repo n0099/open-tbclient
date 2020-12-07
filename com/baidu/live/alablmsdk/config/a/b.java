@@ -35,7 +35,7 @@ public class b {
         return false;
     }
 
-    public boolean AK() {
+    public boolean Cs() {
         return this.mWidth == 0 || this.mHeight == 0;
     }
 }

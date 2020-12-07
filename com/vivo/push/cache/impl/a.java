@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import com.vivo.push.cache.c;
 import com.vivo.push.model.SubscribeAppInfo;
 import com.vivo.push.util.p;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -50,7 +49,7 @@ public abstract class a extends c<SubscribeAppInfo> {
         HashSet hashSet = new HashSet();
         if (!TextUtils.isEmpty(str)) {
             for (String str2 : str.trim().split(SPILTE_TAG)) {
-                String[] split = str2.trim().trim().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split = str2.trim().trim().split(",");
                 if (split.length >= 3) {
                     try {
                         hashSet.add(new SubscribeAppInfo(split[0], Integer.parseInt(split[1]), Integer.parseInt(split[2])));
@@ -92,9 +91,9 @@ public abstract class a extends c<SubscribeAppInfo> {
         StringBuffer stringBuffer = new StringBuffer();
         for (SubscribeAppInfo subscribeAppInfo : set) {
             stringBuffer.append(subscribeAppInfo.getName());
-            stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            stringBuffer.append(",");
             stringBuffer.append(subscribeAppInfo.getTargetStatus());
-            stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            stringBuffer.append(",");
             stringBuffer.append(subscribeAppInfo.getActualStatus());
             stringBuffer.append(SPILTE_TAG);
         }

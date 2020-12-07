@@ -7,7 +7,7 @@ import android.util.Log;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @RequiresApi(21)
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 class AudioAttributesCompatApi21 {
     private static final String TAG = "AudioAttributesCompat";
     private static Method sAudioAttributesToLegacyStreamType;
@@ -29,7 +29,7 @@ class AudioAttributesCompatApi21 {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static final class Wrapper {
         private AudioAttributes mWrapped;
 

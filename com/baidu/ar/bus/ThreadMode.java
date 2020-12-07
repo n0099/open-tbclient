@@ -1,5 +1,5 @@
 package com.baidu.ar.bus;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public enum ThreadMode {
     POSTING,
     MAIN,

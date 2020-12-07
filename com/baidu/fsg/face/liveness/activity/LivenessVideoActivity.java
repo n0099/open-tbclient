@@ -61,7 +61,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class LivenessVideoActivity extends LivenessCameraBaseActivity {
     private static final String b = "CONSTRASTBEANTAG";
     private static final String c = "LivenessVideoActivity";
@@ -266,7 +266,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         rect.top = iArr[1];
         rect.right = this.j.getWidth() - rect.left;
         rect.bottom = rect.top + rect.width();
-        this.faceRectGroup.f1583a = rect;
+        this.faceRectGroup.f1585a = rect;
         this.j.setFocusViewRect(rect);
         ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
         layoutParams.width = rect.width();
@@ -446,7 +446,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     private class a extends AsyncTask<Void, Void, String> {
         private a() {
         }

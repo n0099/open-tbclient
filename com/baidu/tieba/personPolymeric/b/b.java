@@ -1,13 +1,13 @@
 package com.baidu.tieba.personPolymeric.b;
 
 import com.baidu.tieba.personPolymeric.view.p;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public interface b {
-    void PY(String str);
+    void Rh(String str);
 
-    void PZ(String str);
+    void Ri(String str);
 
-    void duH();
+    p dAa();
 
-    p duI();
+    void dzZ();
 }

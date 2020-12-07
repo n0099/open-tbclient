@@ -1,23 +1,23 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
 import com.baidu.tieba.homepage.framework.e;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b {
-    private int jAM = -1;
-    private boolean jAN = false;
-    private boolean jAO = false;
+    private int jOo = -1;
+    private boolean jOp = false;
+    private boolean jOq = false;
 
     public void a(e eVar) {
-        this.jAN = true;
-        if (this.jAM != -1 && this.jAO) {
-            eVar.BR(this.jAM);
+        this.jOp = true;
+        if (this.jOo != -1 && this.jOq) {
+            eVar.CG(this.jOo);
         }
     }
 
     public void a(int i, e eVar) {
-        this.jAM = i;
-        if (this.jAN && this.jAO) {
-            eVar.BR(this.jAM);
+        this.jOo = i;
+        if (this.jOp && this.jOq) {
+            eVar.CG(this.jOo);
         }
     }
 }

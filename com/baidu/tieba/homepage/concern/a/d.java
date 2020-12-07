@@ -3,59 +3,59 @@ package com.baidu.tieba.homepage.concern.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.card.data.k;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class d implements q {
-    public String aGz;
-    public String jxR;
-    public boolean jxS;
-    public a[] jxT = new a[3];
+    public String aJj;
+    public String jLt;
+    public boolean jLu;
+    public a[] jLv = new a[3];
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return k.icp;
+        return k.inm;
     }
 
-    public String cID() {
+    public String cNS() {
         StringBuilder sb = new StringBuilder();
-        for (a aVar : this.jxT) {
+        for (a aVar : this.jLv) {
             sb.append(aVar.getForumId()).append(',');
         }
         sb.delete(sb.length() - 1, sb.length());
         return sb.toString();
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public static class a implements q {
         private long forumId;
-        private String inQ;
-        private String jaW;
-        private long jdR;
-        private String jxU;
-        private int jxV;
-        private int jxW;
-        private boolean jxX;
+        private String iyI;
+        private String jLw;
+        private int jLx;
+        private int jLy;
+        private boolean jLz;
+        private String jow;
+        private long jru;
         private String slogan;
 
         @Override // com.baidu.adp.widget.ListView.q
         public BdUniqueId getType() {
-            return k.icp;
+            return k.inm;
         }
 
-        public String cIE() {
-            return this.jaW;
+        public String cNT() {
+            return this.jow;
         }
 
-        public a Lf(String str) {
-            this.jaW = str;
+        public a Mm(String str) {
+            this.jow = str;
             return this;
         }
 
-        public String cIF() {
-            return this.jxU;
+        public String cNU() {
+            return this.jLw;
         }
 
-        public a Lg(String str) {
-            this.jxU = str;
+        public a Mn(String str) {
+            this.jLw = str;
             return this;
         }
 
@@ -63,44 +63,44 @@ public class d implements q {
             return this.slogan;
         }
 
-        public a Lh(String str) {
+        public a Mo(String str) {
             this.slogan = str;
             return this;
         }
 
-        public String cIG() {
-            return this.inQ;
+        public String cNV() {
+            return this.iyI;
         }
 
-        public a Li(String str) {
-            this.inQ = str;
+        public a Mp(String str) {
+            this.iyI = str;
             return this;
         }
 
-        public int cIH() {
-            return this.jxV;
+        public int cNW() {
+            return this.jLx;
         }
 
-        public a BK(int i) {
-            this.jxV = i;
+        public a Cz(int i) {
+            this.jLx = i;
             return this;
         }
 
-        public int cII() {
-            return this.jxW;
+        public int cNX() {
+            return this.jLy;
         }
 
-        public a BL(int i) {
-            this.jxW = i;
+        public a CA(int i) {
+            this.jLy = i;
             return this;
         }
 
-        public boolean cIJ() {
-            return this.jxX;
+        public boolean cNY() {
+            return this.jLz;
         }
 
-        public a qS(boolean z) {
-            this.jxX = z;
+        public a rt(boolean z) {
+            this.jLz = z;
             return this;
         }
 
@@ -117,12 +117,12 @@ public class d implements q {
             return this;
         }
 
-        public long cqN() {
-            return this.jdR;
+        public long cvb() {
+            return this.jru;
         }
 
-        public a fT(long j) {
-            this.jdR = j;
+        public a gy(long j) {
+            this.jru = j;
             return this;
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.internal;
 
 import android.content.Context;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class BaseManager {
     public static final String TAG = BaseManager.class.getSimpleName();
 

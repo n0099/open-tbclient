@@ -7,7 +7,7 @@ import android.widget.OverScroller;
 /* loaded from: classes4.dex */
 public class a extends d {
     protected final OverScroller mScroller;
-    private boolean oEW = false;
+    private boolean oUc = false;
 
     public a(Context context) {
         this.mScroller = new OverScroller(context);
@@ -15,9 +15,9 @@ public class a extends d {
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.c.d
     public boolean computeScrollOffset() {
-        if (this.oEW) {
+        if (this.oUc) {
             this.mScroller.computeScrollOffset();
-            this.oEW = false;
+            this.oUc = false;
         }
         return this.mScroller.computeScrollOffset();
     }
@@ -28,7 +28,7 @@ public class a extends d {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.c.d
-    public void Ab(boolean z) {
+    public void AF(boolean z) {
         this.mScroller.forceFinished(z);
     }
 

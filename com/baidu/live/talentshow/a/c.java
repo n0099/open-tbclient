@@ -8,57 +8,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.widget.FrameLayout;
-import com.baidu.ala.helper.AlaLiveDebugInfo;
 import com.baidu.ala.recorder.AlaLiveRecorder;
 import com.baidu.ala.recorder.RecorderCallback;
 import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
 import com.baidu.ala.recorder.video.VideoBeautyType;
 import com.baidu.ala.recorder.video.VideoRecorderType;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.bl;
+import com.baidu.live.data.bm;
 import com.baidu.live.recorder.helper.LiveRecorderConfigHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.platform.comapi.UIMsg;
 import com.baidu.tbadk.TbConfig;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    private AlaLiveRecorder bvF;
-    private VideoBeautyType bvP;
+    private AlaLiveRecorder bAP;
+    private VideoBeautyType bAZ;
     private TbPageContext mPageContext;
     private RecorderCallback mRecorderCallback = new RecorderCallback() { // from class: com.baidu.live.talentshow.a.c.1
-        @Override // com.baidu.ala.recorder.RecorderCallback
-        public void flashLightSwitched(boolean z) {
-        }
-
-        @Override // com.baidu.ala.recorder.RecorderCallback
-        public void cameraSwitched(boolean z) {
-        }
-
-        @Override // com.baidu.ala.recorder.RecorderCallback
-        public void streamLostPackageRateReceived(double d) {
-        }
-
-        @Override // com.baidu.ala.recorder.RecorderCallback
-        public void streamStateReceived(int i, boolean z, int i2, boolean z2) {
-        }
-
-        @Override // com.baidu.ala.recorder.RecorderCallback
-        public void onVideoCollectionStart(boolean z, int i, int i2) {
-        }
-
-        @Override // com.baidu.ala.recorder.RecorderCallback
-        public void onVideoCollectionStop() {
-        }
-
-        @Override // com.baidu.ala.recorder.RecorderCallback
-        public void onAudioOpened(boolean z) {
-        }
-
-        @Override // com.baidu.ala.recorder.RecorderCallback
-        public void onDebugInfo(AlaLiveDebugInfo alaLiveDebugInfo) {
-        }
-
         @Override // com.baidu.ala.recorder.RecorderCallback
         public void onError(int i, String str) {
             BdLog.d("BCVideoChat video chat rtc error=" + i + "|msg=" + str);
@@ -70,15 +39,8 @@ public class c {
         }
 
         @Override // com.baidu.ala.recorder.RecorderCallback
-        public void onRtcConnected(int i) {
-        }
-
-        @Override // com.baidu.ala.recorder.RecorderCallback
-        public void onPKPlayerFirstFrame() {
-        }
-
-        @Override // com.baidu.ala.recorder.RecorderCallback
-        public void onFaceUnityEvent(int i, int i2, Object obj) {
+        public void onLogReport(String str, JSONObject jSONObject, JSONObject jSONObject2) {
+            UbcStatisticManager.getInstance().logRecorderEvent(str, jSONObject, jSONObject2);
         }
     };
 
@@ -86,33 +48,33 @@ public class c {
         this.mPageContext = tbPageContext;
     }
 
-    public AlaLiveRecorder Rk() {
-        if (this.bvF == null) {
-            Rl();
+    public AlaLiveRecorder TI() {
+        if (this.bAP == null) {
+            TJ();
         }
-        return this.bvF;
+        return this.bAP;
     }
 
-    private void Rl() {
-        this.bvP = bl.b(com.baidu.live.aa.a.Ph().bsh) ? VideoBeautyType.DUMIX_AR : VideoBeautyType.BEAUTY_NONE;
-        if (this.bvF == null) {
-            AlaLiveVideoConfig d = LiveRecorderConfigHelper.OE().d(4, 1, false);
+    private void TJ() {
+        this.bAZ = bm.b(com.baidu.live.ae.a.RB().bxq) ? VideoBeautyType.DUMIX_AR : VideoBeautyType.BEAUTY_NONE;
+        if (this.bAP == null) {
+            AlaLiveVideoConfig d = LiveRecorderConfigHelper.QY().d(4, 1, false);
             d.setOutputWidth(UIMsg.MsgDefine.MSG_NETWORK_CHANNEL);
             d.setOutputHeight(TbConfig.HEAD_IMG_SIZE);
-            this.bvF = new AlaLiveRecorder(this.mPageContext.getPageActivity(), d, VideoRecorderType.CAMERA, this.bvP);
-            this.bvF.addRecorderCallback(this.mRecorderCallback);
+            this.bAP = new AlaLiveRecorder(this.mPageContext.getPageActivity(), d, VideoRecorderType.CAMERA, this.bAZ);
+            this.bAP.addRecorderCallback(this.mRecorderCallback);
         }
     }
 
     public void t(ViewGroup viewGroup) {
-        Rk();
-        this.bvF.getPreview().setEnabled(false);
-        Rn();
-        ab(this.bvF.getPreview());
-        viewGroup.addView(this.bvF.getPreview(), 0, Rm());
+        TI();
+        this.bAP.getPreview().setEnabled(false);
+        TL();
+        ab(this.bAP.getPreview());
+        viewGroup.addView(this.bAP.getPreview(), 0, TK());
     }
 
-    private FrameLayout.LayoutParams Rm() {
+    private FrameLayout.LayoutParams TK() {
         return new FrameLayout.LayoutParams(-1, -1);
     }
 
@@ -136,9 +98,9 @@ public class c {
         view.setClipToOutline(true);
     }
 
-    public void Rn() {
+    public void TL() {
         View preview;
-        if (this.bvF != null && (preview = this.bvF.getPreview()) != null) {
+        if (this.bAP != null && (preview = this.bAP.getPreview()) != null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 n(preview, 0.0f);
             }
@@ -149,22 +111,22 @@ public class c {
     }
 
     public void startPreview() {
-        if (this.bvF != null) {
-            this.bvF.startRecord();
+        if (this.bAP != null) {
+            this.bAP.startRecord();
         }
     }
 
-    public void Ro() {
-        if (this.bvF != null) {
-            this.bvF.stopRecord();
+    public void TM() {
+        if (this.bAP != null) {
+            this.bAP.stopRecord();
         }
     }
 
     public void onDestroy() {
-        if (this.bvF != null) {
-            this.bvF.stopRecord();
-            this.bvF.release();
-            this.bvF = null;
+        if (this.bAP != null) {
+            this.bAP.stopRecord();
+            this.bAP.release();
+            this.bAP = null;
         }
     }
 }

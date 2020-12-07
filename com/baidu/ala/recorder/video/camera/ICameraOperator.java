@@ -5,7 +5,7 @@ import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
 import com.baidu.ala.recorder.video.VideoFormat;
 import com.baidu.ala.recorder.video.gles.EglCore;
 import com.baidu.ala.recorder.video.listener.ImageFilter;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public interface ICameraOperator {
     ImageFilter getImageFilter();
 

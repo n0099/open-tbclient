@@ -1,22 +1,22 @@
 package com.baidu.ar.seg;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a {
     private int height;
     private int orientation;
-    private boolean pr;
-    private byte[] vc;
+    private boolean pH;
+    private byte[] vQ;
     private int width;
 
     public a(byte[] bArr, int i, int i2, int i3, boolean z) {
-        this.vc = bArr;
+        this.vQ = bArr;
         this.width = i;
         this.height = i2;
         this.orientation = i3;
-        this.pr = z;
+        this.pH = z;
     }
 
     public byte[] gc() {
-        return this.vc;
+        return this.vQ;
     }
 
     public int getHeight() {
@@ -32,7 +32,7 @@ public class a {
     }
 
     public boolean isFrontCamera() {
-        return this.pr;
+        return this.pH;
     }
 
     public void setHeight(int i) {

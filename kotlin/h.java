@@ -1,12 +1,13 @@
 package kotlin;
+@e
+/* loaded from: classes17.dex */
+public final class h {
+    public static final h pJY = new h();
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-@Target({ElementType.TYPE})
-@Retention(RetentionPolicy.RUNTIME)
-@h
-/* loaded from: classes9.dex */
-public @interface h {
+    private h() {
+    }
+
+    public String toString() {
+        return "kotlin.Unit";
+    }
 }

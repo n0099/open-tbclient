@@ -6,7 +6,7 @@ import android.util.Log;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class RomUtils {
     private static final String KEY_VERSION_EMUI = "ro.build.version.emui";
     private static final String KEY_VERSION_GIONEE = "ro.gn.sv.version";
@@ -276,7 +276,7 @@ public class RomUtils {
         return sRomName;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [233=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [278=4] */
     /* JADX WARN: Removed duplicated region for block: B:33:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -338,5 +338,29 @@ public class RomUtils {
     public static boolean isFlymeQuickly() {
         String str = Build.DISPLAY;
         return !TextUtils.isEmpty(str) && str.toUpperCase().contains(ROM_FLYME);
+    }
+
+    public static String getDeviceBrand() {
+        return Build.BRAND;
+    }
+
+    public static String getManufacturer() {
+        return Build.MANUFACTURER;
+    }
+
+    public static String getDeviceModel() {
+        return Build.MODEL;
+    }
+
+    public static String getDeviceName() {
+        return Build.PRODUCT;
+    }
+
+    public static boolean isMiBox2Device() {
+        return Build.MANUFACTURER.equalsIgnoreCase("Xiaomi") && Build.PRODUCT.equalsIgnoreCase("dredd");
+    }
+
+    public static boolean isMagicBoxDevice() {
+        return Build.MANUFACTURER.equalsIgnoreCase("MagicBox") && Build.PRODUCT.equalsIgnoreCase("MagicBox");
     }
 }

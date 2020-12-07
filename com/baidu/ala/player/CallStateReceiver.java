@@ -3,7 +3,7 @@ package com.baidu.ala.player;
 import android.content.Context;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class CallStateReceiver {
     private Callback mCallback;
     private boolean mIsRegisted = false;
@@ -41,7 +41,7 @@ public class CallStateReceiver {
         }
     };
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes9.dex */
     public interface Callback {
         void onInterruptionBegin();
 

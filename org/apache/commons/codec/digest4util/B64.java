@@ -1,7 +1,8 @@
 package org.apache.commons.codec.digest4util;
 
+import android.support.v4.view.ViewCompat;
 import java.util.Random;
-/* loaded from: classes17.dex */
+/* loaded from: classes14.dex */
 class B64 {
     static final String B64T = "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
@@ -10,7 +11,7 @@ class B64 {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void b64from24bit(byte b, byte b2, byte b3, int i, StringBuilder sb) {
-        int i2 = ((b << 16) & 16777215) | ((b2 << 8) & 65535) | (b3 & 255);
+        int i2 = ((b << 16) & ViewCompat.MEASURED_SIZE_MASK) | ((b2 << 8) & 65535) | (b3 & 255);
         while (true) {
             int i3 = i - 1;
             if (i > 0) {

@@ -1,13 +1,13 @@
 package com.baidu.ar.child.a;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class c extends com.baidu.ar.d.b {
-    private byte[] lO;
+    private byte[] md;
 
-    public byte[] cX() {
-        return this.lO;
+    public byte[] cW() {
+        return this.md;
     }
 
     public void g(byte[] bArr) {
-        this.lO = bArr;
+        this.md = bArr;
     }
 }

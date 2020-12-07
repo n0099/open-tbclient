@@ -3,7 +3,7 @@ package com.baidu.sapi2.ecommerce.dto;
 import com.baidu.pass.permissions.PermissionsDTO;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.dto.SapiWebDTO;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class AddressManageDTO extends SapiWebDTO implements NoProguard {
     public static final String ADDRESS_EDIT = "1";
     public static final String ADDRESS_LIST = "0";

@@ -40,7 +40,7 @@ public class b {
     public static class a extends SSLSocketFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        private HostnameVerifier f1079a = HttpsURLConnection.getDefaultHostnameVerifier();
+        private HostnameVerifier f1077a = HttpsURLConnection.getDefaultHostnameVerifier();
         private HttpsURLConnection b;
 
         a(HttpsURLConnection httpsURLConnection) {
@@ -93,7 +93,7 @@ public class b {
                 } catch (Throwable th) {
                 }
             }
-            if (this.f1079a.verify(str, sSLSocket.getSession())) {
+            if (this.f1077a.verify(str, sSLSocket.getSession())) {
                 return sSLSocket;
             }
             throw new SSLPeerUnverifiedException("Cannot verify hostname: " + str);
@@ -183,7 +183,7 @@ public class b {
             }
             String key = next.getKey();
             if (!TextUtils.isEmpty(key)) {
-                stringBuffer.append(key).append(ETAG.EQUAL);
+                stringBuffer.append(key).append("=");
                 String value = next.getValue();
                 if (TextUtils.isEmpty(value)) {
                     stringBuffer.append(URLEncoder.encode("", "UTF-8"));

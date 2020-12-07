@@ -8,11 +8,11 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class MethodUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<String, Method> f1531a = new HashMap();
+    private static Map<String, Method> f1533a = new HashMap();
 
     private static String a(Class<?> cls, String str, Class<?>... clsArr) {
         StringBuilder sb = new StringBuilder();
@@ -80,8 +80,8 @@ public class MethodUtils {
     public static Method getAccessibleMethod(Class<?> cls, String str, Class<?>... clsArr) throws NoSuchMethodException {
         Method method;
         String a2 = a(cls, str, clsArr);
-        synchronized (f1531a) {
-            method = f1531a.get(a2);
+        synchronized (f1533a) {
+            method = f1533a.get(a2);
         }
         if (method != null) {
             if (!method.isAccessible()) {
@@ -89,8 +89,8 @@ public class MethodUtils {
             }
         } else {
             method = a(cls.getMethod(str, clsArr));
-            synchronized (f1531a) {
-                f1531a.put(a2, method);
+            synchronized (f1533a) {
+                f1533a.put(a2, method);
             }
         }
         return method;
@@ -101,8 +101,8 @@ public class MethodUtils {
         Method[] methods;
         Method a2;
         String a3 = a(cls, str, clsArr);
-        synchronized (f1531a) {
-            method = f1531a.get(a3);
+        synchronized (f1533a) {
+            method = f1533a.get(a3);
         }
         if (method != null) {
             if (!method.isAccessible()) {
@@ -112,8 +112,8 @@ public class MethodUtils {
             try {
                 method = cls.getMethod(str, clsArr);
                 MemberUtils.a((AccessibleObject) method);
-                synchronized (f1531a) {
-                    f1531a.put(a3, method);
+                synchronized (f1533a) {
+                    f1533a.put(a3, method);
                 }
             } catch (NoSuchMethodException e) {
                 method = null;
@@ -125,8 +125,8 @@ public class MethodUtils {
                 if (method != null) {
                     MemberUtils.a((AccessibleObject) method);
                 }
-                synchronized (f1531a) {
-                    f1531a.put(a3, method);
+                synchronized (f1533a) {
+                    f1533a.put(a3, method);
                 }
             }
         }

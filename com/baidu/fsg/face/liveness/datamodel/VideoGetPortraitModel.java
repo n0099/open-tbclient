@@ -6,12 +6,11 @@ import android.text.TextUtils;
 import com.baidu.fsg.base.restnet.beans.IBeanResponse;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class VideoGetPortraitModel implements IBeanResponse, Serializable {
     public String cutTimePoints;
     public String display_name;
@@ -34,7 +33,7 @@ public class VideoGetPortraitModel implements IBeanResponse, Serializable {
         int i = 0;
         ArrayList arrayList = new ArrayList();
         if (!TextUtils.isEmpty(this.cutTimePoints)) {
-            String[] split = this.cutTimePoints.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split = this.cutTimePoints.split(",");
             if (split.length > 0) {
                 for (String str : split) {
                     try {

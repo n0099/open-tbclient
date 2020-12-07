@@ -8,9 +8,9 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ThemeManager {
-    private static ThemeMode oFP = ThemeMode.DAY;
-    private static List<a> oFQ = new LinkedList();
-    private static HashMap<String, HashMap<String, Integer>> oFR = new HashMap<>();
+    private static ThemeMode oUV = ThemeMode.DAY;
+    private static List<a> oUW = new LinkedList();
+    private static HashMap<String, HashMap<String, Integer>> oUX = new HashMap<>();
 
     /* loaded from: classes4.dex */
     public enum ThemeMode {
@@ -22,12 +22,12 @@ public class ThemeManager {
     public interface a {
     }
 
-    public static int L(Context context, int i) {
+    public static int U(Context context, int i) {
         try {
-            if (ehY() != ThemeMode.DAY && context != null) {
+            if (enN() != ThemeMode.DAY && context != null) {
                 String resourceEntryName = context.getResources().getResourceEntryName(i);
                 String resourceTypeName = context.getResources().getResourceTypeName(i);
-                HashMap<String, Integer> hashMap = oFR.get(resourceTypeName);
+                HashMap<String, Integer> hashMap = oUX.get(resourceTypeName);
                 HashMap<String, Integer> hashMap2 = hashMap == null ? new HashMap<>() : hashMap;
                 Integer num = hashMap2.get(resourceEntryName + "_night");
                 if (num != null && num.intValue() != 0) {
@@ -36,7 +36,7 @@ public class ThemeManager {
                 try {
                     int identifier = context.getResources().getIdentifier(resourceEntryName + "_night", resourceTypeName, "com.baidu.sumeru.implugin");
                     hashMap2.put(resourceEntryName + "_night", Integer.valueOf(identifier));
-                    oFR.put(resourceTypeName, hashMap2);
+                    oUX.put(resourceTypeName, hashMap2);
                     return identifier;
                 } catch (Resources.NotFoundException e) {
                     e.printStackTrace();
@@ -51,18 +51,18 @@ public class ThemeManager {
     }
 
     public static void a(a aVar) {
-        if (!oFQ.contains(aVar)) {
-            oFQ.add(aVar);
+        if (!oUW.contains(aVar)) {
+            oUW.add(aVar);
         }
     }
 
     public static void b(a aVar) {
-        if (oFQ.contains(aVar)) {
-            oFQ.remove(aVar);
+        if (oUW.contains(aVar)) {
+            oUW.remove(aVar);
         }
     }
 
-    public static ThemeMode ehY() {
-        return oFP;
+    public static ThemeMode enN() {
+        return oUV;
     }
 }

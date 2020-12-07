@@ -15,22 +15,22 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaLinkCallBackHttpRespon
 import com.baidu.tieba.yuyinala.liveroom.wheat.model.h;
 /* loaded from: classes4.dex */
 public class h {
-    private static h ofG;
-    private TbPageContext oey;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e ofH;
-    private boolean ofI;
-    private boolean ofJ;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.model.h ofd;
+    private static h ouG;
+    private TbPageContext oty;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e ouH;
+    private boolean ouI;
+    private boolean ouJ;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.model.h oud;
 
-    public static h dZo() {
-        if (ofG == null) {
-            ofG = new h();
+    public static h eeS() {
+        if (ouG == null) {
+            ouG = new h();
         }
-        return ofG;
+        return ouG;
     }
 
     public void a(TbPageContext tbPageContext, AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage) {
-        if (tbPageContext != null && alaLinkCallBackHttpResponseMessage != null && alaLinkCallBackHttpResponseMessage.eah() && dZo().dZp()) {
+        if (tbPageContext != null && alaLinkCallBackHttpResponseMessage != null && alaLinkCallBackHttpResponseMessage.efM() && eeS().eeT()) {
             Activity pageActivity = tbPageContext.getPageActivity();
             if (Build.VERSION.SDK_INT >= 17) {
                 if (pageActivity == null || pageActivity.isFinishing() || pageActivity.isDestroyed()) {
@@ -39,31 +39,31 @@ public class h {
             } else if (pageActivity == null || pageActivity.isFinishing()) {
                 return;
             }
-            if (tbPageContext != null && tbPageContext != this.oey) {
-                this.oey = tbPageContext;
+            if (tbPageContext != null && tbPageContext != this.oty) {
+                this.oty = tbPageContext;
                 hide();
             }
-            if (this.ofH == null) {
-                this.ofI = false;
-                this.ofH = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e(tbPageContext);
-                this.ofH.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.1
+            if (this.ouH == null) {
+                this.ouI = false;
+                this.ouH = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e(tbPageContext);
+                this.ouH.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.1
                     @Override // android.content.DialogInterface.OnDismissListener
                     public void onDismiss(DialogInterface dialogInterface) {
-                        h.this.ofI = false;
-                        h.this.ofH = null;
+                        h.this.ouI = false;
+                        h.this.ouH = null;
                     }
                 });
             }
-            this.ofH.show();
+            this.ouH.show();
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo != null) {
-                this.ofH.c(currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow(), alaLinkCallBackHttpResponseMessage.eai(), alaLinkCallBackHttpResponseMessage.cWr(), alaLinkCallBackHttpResponseMessage.eaj());
+                this.ouH.c(currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow(), alaLinkCallBackHttpResponseMessage.efN(), alaLinkCallBackHttpResponseMessage.dbD(), alaLinkCallBackHttpResponseMessage.efO());
             }
         }
     }
 
     public void a(TbPageContext tbPageContext, AlaEndConnectionWheatHttpResponseMessage alaEndConnectionWheatHttpResponseMessage) {
-        if (tbPageContext != null && alaEndConnectionWheatHttpResponseMessage != null && alaEndConnectionWheatHttpResponseMessage.eah() && dZo().dZp()) {
+        if (tbPageContext != null && alaEndConnectionWheatHttpResponseMessage != null && alaEndConnectionWheatHttpResponseMessage.efM() && eeS().eeT()) {
             Activity pageActivity = tbPageContext.getPageActivity();
             if (Build.VERSION.SDK_INT >= 17) {
                 if (pageActivity == null || pageActivity.isFinishing() || pageActivity.isDestroyed()) {
@@ -72,37 +72,37 @@ public class h {
             } else if (pageActivity == null || pageActivity.isFinishing()) {
                 return;
             }
-            if (tbPageContext != null && tbPageContext != this.oey) {
-                this.oey = tbPageContext;
+            if (tbPageContext != null && tbPageContext != this.oty) {
+                this.oty = tbPageContext;
                 hide();
             }
-            if (this.ofH == null) {
-                this.ofI = false;
-                this.ofH = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e(tbPageContext);
-                this.ofH.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.2
+            if (this.ouH == null) {
+                this.ouI = false;
+                this.ouH = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e(tbPageContext);
+                this.ouH.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.2
                     @Override // android.content.DialogInterface.OnDismissListener
                     public void onDismiss(DialogInterface dialogInterface) {
-                        h.this.ofI = false;
-                        h.this.ofH = null;
+                        h.this.ouI = false;
+                        h.this.ouH = null;
                     }
                 });
             }
-            this.ofH.show();
+            this.ouH.show();
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo != null) {
-                this.ofH.c(currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow(), alaEndConnectionWheatHttpResponseMessage.eai(), alaEndConnectionWheatHttpResponseMessage.cWr(), alaEndConnectionWheatHttpResponseMessage.eaj());
+                this.ouH.c(currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow(), alaEndConnectionWheatHttpResponseMessage.efN(), alaEndConnectionWheatHttpResponseMessage.dbD(), alaEndConnectionWheatHttpResponseMessage.efO());
             }
         }
     }
 
-    public void zh(boolean z) {
-        this.ofJ = z;
-        if (this.ofd == null) {
-            this.ofd = new com.baidu.tieba.yuyinala.liveroom.wheat.model.h(null, new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.3
+    public void zL(boolean z) {
+        this.ouJ = z;
+        if (this.oud == null) {
+            this.oud = new com.baidu.tieba.yuyinala.liveroom.wheat.model.h(null, new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.3
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.h.a
                 public void a(AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage) {
-                    h.this.a(o.dZz().dZE(), alaLinkCallBackHttpResponseMessage);
-                    if (h.this.ofJ) {
+                    h.this.a(o.efd().efi(), alaLinkCallBackHttpResponseMessage);
+                    if (h.this.ouJ) {
                         BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_hung_up_text)).show();
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009));
@@ -116,26 +116,26 @@ public class h {
                 }
             });
         }
-        this.ofd.request("end");
+        this.oud.request("end");
     }
 
     public void hide() {
-        if (this.ofH != null) {
-            this.ofH.dismiss();
-            this.ofH = null;
+        if (this.ouH != null) {
+            this.ouH.dismiss();
+            this.ouH = null;
         }
     }
 
-    public h zi(boolean z) {
-        this.ofI = z;
+    public h zM(boolean z) {
+        this.ouI = z;
         return this;
     }
 
-    public boolean dZp() {
-        return this.ofI;
+    public boolean eeT() {
+        return this.ouI;
     }
 
     public void onDestroy() {
-        e.dZj().onDestroy();
+        e.eeN().onDestroy();
     }
 }

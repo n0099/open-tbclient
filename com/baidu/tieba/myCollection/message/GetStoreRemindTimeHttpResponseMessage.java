@@ -5,7 +5,7 @@ import com.squareup.wire.Wire;
 import java.util.Collections;
 import java.util.List;
 import tbclient.GetStoreRemindTime.GetStoreRemindTimeResIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class GetStoreRemindTimeHttpResponseMessage extends TbHttpResponsedMessage {
     public List<String> timeList;
 

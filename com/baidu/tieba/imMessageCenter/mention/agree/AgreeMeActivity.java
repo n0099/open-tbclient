@@ -26,84 +26,84 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.agree.a;
 import com.baidu.tieba.imMessageCenter.mention.agree.b;
 import java.util.ArrayList;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class AgreeMeActivity extends BaseActivity implements BdListView.e {
-    private b kwF;
-    private a kwG;
+    private b kJZ;
+    private a kKa;
     private int mSkinType = 3;
-    private a.InterfaceC0775a kwH = new a.InterfaceC0775a() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.1
-        @Override // com.baidu.tieba.imMessageCenter.mention.agree.a.InterfaceC0775a
-        public void cmn() {
-            if (AgreeMeActivity.this.kwF != null) {
-                AgreeMeActivity.this.kwF.bOb();
+    private a.InterfaceC0791a kKb = new a.InterfaceC0791a() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.1
+        @Override // com.baidu.tieba.imMessageCenter.mention.agree.a.InterfaceC0791a
+        public void cqA() {
+            if (AgreeMeActivity.this.kJZ != null) {
+                AgreeMeActivity.this.kJZ.bRM();
             }
         }
 
-        @Override // com.baidu.tieba.imMessageCenter.mention.agree.a.InterfaceC0775a
-        public void cAW() {
-            if (AgreeMeActivity.this.kwF != null) {
-                AgreeMeActivity.this.kwF.cAW();
+        @Override // com.baidu.tieba.imMessageCenter.mention.agree.a.InterfaceC0791a
+        public void cFm() {
+            if (AgreeMeActivity.this.kJZ != null) {
+                AgreeMeActivity.this.kJZ.cFm();
             }
         }
     };
-    private b.a kwI = new b.a() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.2
+    private b.a kKc = new b.a() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.2
         @Override // com.baidu.tieba.imMessageCenter.mention.agree.b.a
-        public void ay(ArrayList<q> arrayList) {
-            if (AgreeMeActivity.this.kwG != null) {
-                AgreeMeActivity.this.kwG.c(AgreeMeActivity.this.kwF.hasMore, arrayList);
-                AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.kwG.bOL());
-                AgreeMeActivity.this.hideNetRefreshView(AgreeMeActivity.this.kwG.getRootView());
-                if (AgreeMeActivity.this.kwG.glp != null) {
-                    AgreeMeActivity.this.kwG.glp.setVisibility(0);
+        public void az(ArrayList<q> arrayList) {
+            if (AgreeMeActivity.this.kKa != null) {
+                AgreeMeActivity.this.kKa.c(AgreeMeActivity.this.kJZ.hasMore, arrayList);
+                AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.kKa.bSw());
+                AgreeMeActivity.this.hideNetRefreshView(AgreeMeActivity.this.kKa.getRootView());
+                if (AgreeMeActivity.this.kKa.gty != null) {
+                    AgreeMeActivity.this.kKa.gty.setVisibility(0);
                 }
             }
         }
 
         @Override // com.baidu.tieba.imMessageCenter.mention.agree.b.a
         public void onFailed(String str) {
-            com.baidu.tbadk.coreExtra.messageCenter.b.bvi().rg(0);
-            if (AgreeMeActivity.this.kwG != null) {
-                AgreeMeActivity.this.kwG.sB(false);
-                if (y.isEmpty(AgreeMeActivity.this.kwG.getDatas())) {
-                    AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.kwG.bOL());
-                    AgreeMeActivity.this.showNetRefreshView(AgreeMeActivity.this.kwG.getRootView(), AgreeMeActivity.this.getResources().getString(R.string.refresh_view_title_text), null, AgreeMeActivity.this.getResources().getString(R.string.refresh_view_button_text), true, AgreeMeActivity.this.getNetRefreshListener());
+            com.baidu.tbadk.coreExtra.messageCenter.b.byI().rH(0);
+            if (AgreeMeActivity.this.kKa != null) {
+                AgreeMeActivity.this.kKa.td(false);
+                if (y.isEmpty(AgreeMeActivity.this.kKa.getDatas())) {
+                    AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.kKa.bSw());
+                    AgreeMeActivity.this.showNetRefreshView(AgreeMeActivity.this.kKa.getRootView(), AgreeMeActivity.this.getResources().getString(R.string.refresh_view_title_text), null, AgreeMeActivity.this.getResources().getString(R.string.refresh_view_button_text), true, AgreeMeActivity.this.getNetRefreshListener());
                     AgreeMeActivity.this.setNetRefreshViewEmotionMarginTop(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds530));
-                    if (AgreeMeActivity.this.kwG.glp != null) {
-                        AgreeMeActivity.this.kwG.glp.setVisibility(8);
+                    if (AgreeMeActivity.this.kKa.gty != null) {
+                        AgreeMeActivity.this.kKa.gty.setVisibility(8);
                         return;
                     }
                     return;
                 }
-                AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.kwG.bOL());
+                AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.kKa.bSw());
                 AgreeMeActivity.this.showToast(str);
             }
         }
     };
-    private ab kwB = new ab() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.3
+    private ab kJV = new ab() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.3
         @Override // com.baidu.adp.widget.ListView.ab
         public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             if (qVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
                 com.baidu.tieba.imMessageCenter.mention.base.a aVar = (com.baidu.tieba.imMessageCenter.mention.base.a) qVar;
-                if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.kwS) {
+                if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.kKm) {
                     AgreeMeActivity.this.a(aVar);
                 } else {
                     AgreeMeActivity.this.e(aVar);
                 }
-                if (aVar.cWE() != null) {
-                    ar ak = new ar(aVar.cWE()).ak("obj_locate", 1);
-                    if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.kwT) {
-                        ak.ak("obj_type", 2);
+                if (aVar.dbQ() != null) {
+                    ar al = new ar(aVar.dbQ()).al("obj_locate", 1);
+                    if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.kKn) {
+                        al.al("obj_type", 2);
                     } else {
-                        ak.ak("obj_type", 1);
+                        al.al("obj_type", 1);
                     }
-                    TiebaStatic.log(ak);
+                    TiebaStatic.log(al);
                 }
                 if (aVar != null) {
                     ar arVar = new ar("c13784");
                     arVar.w("uid", TbadkApplication.getCurrentAccountId());
-                    arVar.dR("tid", aVar.getThread_id());
-                    arVar.dR("fname", aVar.getFname());
-                    arVar.ak("obj_type", 2);
+                    arVar.dY("tid", aVar.getThread_id());
+                    arVar.dY("fname", aVar.getFname());
+                    arVar.al("obj_type", 2);
                     TiebaStatic.log(arVar);
                 }
             }
@@ -116,21 +116,21 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.e {
         super.onCreate(bundle);
         View inflate = getLayoutInflater().inflate(R.layout.agree_me_activity, (ViewGroup) null);
         setContentView(inflate);
-        this.kwG = new a(getPageContext(), inflate);
-        this.kwG.a(this.kwH);
-        this.kwG.e(this.kwB);
-        this.kwF = new b(getPageContext(), this.kwI);
-        showLoadingView(this.kwG.bOL());
-        this.kwG.sB(false);
-        this.kwF.cIf();
+        this.kKa = new a(getPageContext(), inflate);
+        this.kKa.a(this.kKb);
+        this.kKa.e(this.kJV);
+        this.kJZ = new b(getPageContext(), this.kKc);
+        showLoadingView(this.kKa.bSw());
+        this.kKa.td(false);
+        this.kJZ.cNu();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.kwG != null) {
-            this.kwG.onDestroy();
+        if (this.kKa != null) {
+            this.kKa.onDestroy();
         }
     }
 
@@ -139,26 +139,26 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.e {
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            if (this.kwG != null) {
-                this.kwG.changeSkinType(i);
+            if (this.kKa != null) {
+                this.kKa.changeSkinType(i);
             }
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.kwF != null) {
-            this.kwF.bOb();
+        if (this.kJZ != null) {
+            this.kJZ.bRM();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (j.isNetWorkAvailable() && this.kwF != null && this.kwG != null) {
-            hideNetRefreshView(this.kwG.getRootView());
-            showLoadingView(this.kwG.bOL(), true);
-            this.kwF.cIf();
+        if (j.isNetWorkAvailable() && this.kJZ != null && this.kKa != null) {
+            hideNetRefreshView(this.kKa.getRootView());
+            showLoadingView(this.kKa.bSw(), true);
+            this.kJZ.cNu();
         }
     }
 
@@ -187,7 +187,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.e {
             String thread_id = aVar.getThread_id();
             String post_id = aVar.getPost_id();
             String userName = aVar.getReplyer() == null ? "" : aVar.getReplyer().getUserName();
-            if (TextUtils.isEmpty(aVar.cWD()) || "0".equals(aVar.cWD())) {
+            if (TextUtils.isEmpty(aVar.dbP()) || "0".equals(aVar.dbP())) {
                 SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(thread_id, post_id, "mention", false, userName, false, post_id, 0);
                 createSubPbActivityConfig.setKeyPageStartFrom(13);
                 createSubPbActivityConfig.setBjhData(aVar.getBaijiahaoData());
@@ -196,12 +196,17 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.e {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createSubPbActivityConfig));
                 return;
             }
-            SubPbActivityConfig createSubPbActivityConfig2 = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(thread_id, aVar.cWD(), "mention", false, userName, false, aVar.cWD(), 0);
+            SubPbActivityConfig createSubPbActivityConfig2 = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(thread_id, aVar.dbP(), "mention", false, userName, false, aVar.dbP(), 0);
             createSubPbActivityConfig2.setKeyPageStartFrom(13);
             createSubPbActivityConfig2.setBjhData(aVar.getBaijiahaoData());
             createSubPbActivityConfig2.setHighLightPostId(post_id);
             createSubPbActivityConfig2.setKeyOriUgcTopPid(post_id);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createSubPbActivityConfig2));
         }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a
+    public String getCurrentPageKey() {
+        return "a079";
     }
 }

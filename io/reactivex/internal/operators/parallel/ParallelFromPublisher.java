@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.parallel;
 
 import io.reactivex.exceptions.MissingBackpressureException;
-import io.reactivex.internal.a.g;
+import io.reactivex.internal.a.f;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
@@ -11,15 +11,15 @@ import java.util.concurrent.atomic.AtomicLongArray;
 import org.a.b;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class ParallelFromPublisher<T> extends a<T> {
-    final int pQt;
+    final int pHh;
     final int prefetch;
     final b<? extends T> source;
 
     @Override // io.reactivex.parallel.a
-    public int eAM() {
-        return this.pQt;
+    public int eDd() {
+        return this.pHh;
     }
 
     @Override // io.reactivex.parallel.a
@@ -29,7 +29,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class ParallelDispatcher<T> extends AtomicInteger implements j<T> {
         private static final long serialVersionUID = -4470634016609963609L;
         volatile boolean cancelled;
@@ -40,7 +40,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
         final int limit;
         final int prefetch;
         int produced;
-        g<T> queue;
+        f<T> queue;
         final AtomicLongArray requests;
         d s;
         int sourceMode;
@@ -95,7 +95,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes9.dex */
         public final class a implements d {
             final int j;
             final int m;
@@ -116,7 +116,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                         } else {
                             return;
                         }
-                    } while (!atomicLongArray.compareAndSet(this.j, j2, io.reactivex.internal.util.b.O(j2, j)));
+                    } while (!atomicLongArray.compareAndSet(this.j, j2, io.reactivex.internal.util.b.N(j2, j)));
                     if (ParallelDispatcher.this.subscriberCount.get() == this.m) {
                         ParallelDispatcher.this.drain();
                     }
@@ -168,7 +168,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
             int i;
             Throwable th;
             int i2 = 1;
-            g<T> gVar = this.queue;
+            f<T> fVar = this.queue;
             c<? super T>[] cVarArr = this.subscribers;
             AtomicLongArray atomicLongArray = this.requests;
             long[] jArr = this.emissions;
@@ -182,13 +182,13 @@ public final class ParallelFromPublisher<T> extends a<T> {
                 while (!this.cancelled) {
                     boolean z = this.done;
                     if (z && (th = this.error) != null) {
-                        gVar.clear();
+                        fVar.clear();
                         for (c<? super T> cVar : cVarArr) {
                             cVar.onError(th);
                         }
                         return;
                     }
-                    boolean isEmpty = gVar.isEmpty();
+                    boolean isEmpty = fVar.isEmpty();
                     if (z && isEmpty) {
                         for (c<? super T> cVar2 : cVarArr) {
                             cVar2.onComplete();
@@ -203,7 +203,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                         long j2 = jArr[i5];
                         if (j != j2 && atomicLongArray.get(length + i5) == 0) {
                             try {
-                                T poll = gVar.poll();
+                                T poll = fVar.poll();
                                 if (poll == null) {
                                     i4 = i6;
                                     i3 = i5;
@@ -253,7 +253,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                         i2 = i9;
                     }
                 }
-                gVar.clear();
+                fVar.clear();
                 return;
             }
         }
@@ -282,7 +282,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
         */
         void drainSync() {
             int i = 1;
-            g<T> gVar = this.queue;
+            f<T> fVar = this.queue;
             c<? super T>[] cVarArr = this.subscribers;
             AtomicLongArray atomicLongArray = this.requests;
             long[] jArr = this.emissions;
@@ -294,14 +294,14 @@ public final class ParallelFromPublisher<T> extends a<T> {
                     int i4 = i2;
                     int i5 = i3;
                     if (this.cancelled) {
-                        gVar.clear();
+                        fVar.clear();
                         return;
-                    } else if (!gVar.isEmpty()) {
+                    } else if (!fVar.isEmpty()) {
                         long j = atomicLongArray.get(i4);
                         long j2 = jArr[i4];
                         if (j != j2 && atomicLongArray.get(length + i4) == 0) {
                             try {
-                                T poll = gVar.poll();
+                                T poll = fVar.poll();
                                 if (poll == null) {
                                     for (c<? super T> cVar : cVarArr) {
                                         cVar.onComplete();

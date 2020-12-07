@@ -1,35 +1,35 @@
 package com.baidu.ar.statistic;
 
 import java.lang.reflect.Constructor;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class o implements f {
-    private f wd;
+    private f wR;
 
     public o() {
-        Constructor<?> a2 = com.baidu.ar.g.n.a("com.baidu.ar.statistic.performance.PerformanceStatisticApi", new Class[0]);
+        Constructor<?> a2 = com.baidu.ar.h.n.a("com.baidu.ar.statistic.performance.PerformanceStatisticApi", new Class[0]);
         if (a2 != null) {
-            this.wd = (f) com.baidu.ar.g.n.a(a2, new Object[0]);
+            this.wR = (f) com.baidu.ar.h.n.a(a2, new Object[0]);
         }
     }
 
     @Override // com.baidu.ar.statistic.f
     public void onFrameIn() {
-        if (this.wd != null) {
-            this.wd.onFrameIn();
+        if (this.wR != null) {
+            this.wR.onFrameIn();
         }
     }
 
     @Override // com.baidu.ar.statistic.f
     public void onFrameOut() {
-        if (this.wd != null) {
-            this.wd.onFrameOut();
+        if (this.wR != null) {
+            this.wR.onFrameOut();
         }
     }
 
     @Override // com.baidu.ar.statistic.f
     public void recordAlgoTimeCost(String str, String str2, long j, int i) {
-        if (this.wd != null) {
-            this.wd.recordAlgoTimeCost(str, str2, j, i);
+        if (this.wR != null) {
+            this.wR.recordAlgoTimeCost(str, str2, j, i);
         }
     }
 }

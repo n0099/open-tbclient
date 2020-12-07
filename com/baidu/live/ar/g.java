@@ -3,10 +3,10 @@ package com.baidu.live.ar;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class g {
-    private String aCH;
-    private String aDa;
-    private String aDb;
-    private String aDc;
+    private String aFG;
+    private String aFH;
+    private String aFI;
+    private String aFn;
     private String mFile;
     private String mId;
     private String mName;
@@ -16,20 +16,20 @@ public class g {
         if (jSONObject != null) {
             this.mId = jSONObject.optString("id");
             this.mName = jSONObject.optString("name");
-            this.aDa = jSONObject.optString("bgurl");
+            this.aFG = jSONObject.optString("bgurl");
             this.mType = jSONObject.optString("type");
-            this.aDb = jSONObject.optString("current");
+            this.aFH = jSONObject.optString("current");
             this.mFile = jSONObject.optString("feature_file");
-            this.aDc = jSONObject.optString("feature_file_token");
-            this.aCH = jSONObject.optString("thinface_value");
+            this.aFI = jSONObject.optString("feature_file_token");
+            this.aFn = jSONObject.optString("thinface_value");
         }
     }
 
-    public String BK() {
-        return this.aDa;
+    public String Du() {
+        return this.aFG;
     }
 
-    public String BL() {
+    public String Dv() {
         return this.mFile;
     }
 
@@ -41,11 +41,11 @@ public class g {
         return this.mType;
     }
 
-    public String BM() {
-        return this.aDb;
+    public String Dw() {
+        return this.aFH;
     }
 
-    public String BN() {
-        return this.aCH;
+    public String Dx() {
+        return this.aFn;
     }
 }

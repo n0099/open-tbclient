@@ -2,7 +2,7 @@ package org.apache.http;
 
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public interface HttpResponseFactory {
     HttpResponse newHttpResponse(ProtocolVersion protocolVersion, int i, HttpContext httpContext);
 

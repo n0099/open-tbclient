@@ -6,7 +6,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.util.EntityUtils;
-/* loaded from: classes17.dex */
+/* loaded from: classes9.dex */
 public final class e {
     public static byte[] a(String str, int i) {
         if (str == null || str.length() == 0) {

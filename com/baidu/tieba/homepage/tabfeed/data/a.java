@@ -2,9 +2,9 @@ package com.baidu.tieba.homepage.tabfeed.data;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.aj;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.data.bp;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bq;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.data.l;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
@@ -18,105 +18,105 @@ import tbclient.ActivityPage.SpecialColumnList;
 import tbclient.BannerImage;
 import tbclient.Page;
 import tbclient.ThreadInfo;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a {
-    private ArrayList<bx> iqz;
-    private l jJl;
-    private aj jJm;
-    private bk jJn;
-    private bp jJo;
-    private b jJp;
-    private SpecialColumnListData jJq;
+    private ArrayList<by> iBr;
+    private l jWO;
+    private aj jWP;
+    private bl jWQ;
+    private bq jWR;
+    private b jWS;
+    private SpecialColumnListData jWT;
     private boolean hasMore = true;
-    private int jJk = 1;
+    private int jWN = 1;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             Page page = dataRes.page_info;
             if (page != null) {
-                this.jJk = page.current_page.intValue();
+                this.jWN = page.current_page.intValue();
                 this.hasMore = page.has_more.intValue() == 1;
             }
-            this.iqz = new ArrayList<>(y.getCount(dataRes.thread_list));
+            this.iBr = new ArrayList<>(y.getCount(dataRes.thread_list));
             for (ThreadInfo threadInfo : dataRes.thread_list) {
-                bx bxVar = new bx();
-                bxVar.a(threadInfo);
-                bxVar.ble();
-                this.iqz.add(bxVar);
+                by byVar = new by();
+                byVar.a(threadInfo);
+                byVar.bor();
+                this.iBr.add(byVar);
             }
             List<BannerImage> list = dataRes.banner_image;
             if (!y.isEmpty(list)) {
-                this.jJl = new l();
-                this.jJl.parserProtobuf(list);
+                this.jWO = new l();
+                this.jWO.parserProtobuf(list);
             }
             List<BannerImage> list2 = dataRes.grid;
             if (y.getCount(list2) >= 4) {
-                this.jJm = new aj();
-                this.jJm.parserProtobuf(list2);
+                this.jWP = new aj();
+                this.jWP.parserProtobuf(list2);
             }
             RecommendForumList recommendForumList = dataRes.recommend_forum;
             if (recommendForumList != null && y.getCount(recommendForumList.forum_list) >= 5) {
-                this.jJn = new bk();
-                this.jJn.bj(recommendForumList.forum_list);
-                this.jJn.className = recommendForumList.class_name;
-                this.jJn.floorPosition = recommendForumList.floor_position.intValue();
-                this.jJn.title = TbadkCoreApplication.getInst().getString(R.string.recommend_forum_list_title);
-                this.jJn.eAT = R.color.CAM_X0108;
+                this.jWQ = new bl();
+                this.jWQ.bm(recommendForumList.forum_list);
+                this.jWQ.className = recommendForumList.class_name;
+                this.jWQ.floorPosition = recommendForumList.floor_position.intValue();
+                this.jWQ.title = TbadkCoreApplication.getInst().getString(R.string.recommend_forum_list_title);
+                this.jWQ.eHT = R.color.CAM_X0108;
             }
             RecommendUserList recommendUserList = dataRes.recommend_user;
             if (recommendUserList != null && y.getCount(recommendUserList.user_list) >= 4) {
-                this.jJo = new bp();
-                this.jJo.bk(recommendUserList.user_list);
-                this.jJo.floorPosition = recommendUserList.floor_position.intValue();
-                this.jJo.title = TbadkCoreApplication.getInst().getString(R.string.recommend_user_list_title);
-                this.jJo.eAT = R.color.CAM_X0108;
+                this.jWR = new bq();
+                this.jWR.bn(recommendUserList.user_list);
+                this.jWR.floorPosition = recommendUserList.floor_position.intValue();
+                this.jWR.title = TbadkCoreApplication.getInst().getString(R.string.recommend_user_list_title);
+                this.jWR.eHT = R.color.CAM_X0108;
             }
             HotTopic hotTopic = dataRes.hot_topic;
             if (hotTopic != null && y.getCount(hotTopic.topic_list) >= 4) {
-                this.jJp = new b();
-                this.jJp.a(hotTopic);
+                this.jWS = new b();
+                this.jWS.a(hotTopic);
             }
             SpecialColumnList specialColumnList = dataRes.special_column;
             if (specialColumnList != null && y.getCount(specialColumnList.item_list) >= 3) {
-                this.jJq = new SpecialColumnListData();
-                this.jJq.a(specialColumnList);
+                this.jWT = new SpecialColumnListData();
+                this.jWT.a(specialColumnList);
             }
         }
     }
 
-    public int cLr() {
-        return this.jJk;
+    public int cQF() {
+        return this.jWN;
     }
 
     public boolean hasMore() {
         return this.hasMore;
     }
 
-    public ArrayList<bx> csx() {
-        return this.iqz;
+    public ArrayList<by> cwM() {
+        return this.iBr;
     }
 
-    public bk cLs() {
-        return this.jJn;
+    public bl cQG() {
+        return this.jWQ;
     }
 
-    public bp cLt() {
-        return this.jJo;
+    public bq cQH() {
+        return this.jWR;
     }
 
-    public l cLu() {
-        return this.jJl;
+    public l cQI() {
+        return this.jWO;
     }
 
-    public aj cLv() {
-        return this.jJm;
+    public aj cQJ() {
+        return this.jWP;
     }
 
-    public b cLw() {
-        return this.jJp;
+    public b cQK() {
+        return this.jWS;
     }
 
-    public SpecialColumnListData cLx() {
-        return this.jJq;
+    public SpecialColumnListData cQL() {
+        return this.jWT;
     }
 }

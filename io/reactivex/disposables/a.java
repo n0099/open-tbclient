@@ -4,10 +4,10 @@ import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.internal.util.g;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class a implements b, io.reactivex.internal.disposables.a {
     volatile boolean disposed;
-    g<b> pNN;
+    g<b> pEG;
 
     @Override // io.reactivex.disposables.b
     public void dispose() {
@@ -15,8 +15,8 @@ public final class a implements b, io.reactivex.internal.disposables.a {
             synchronized (this) {
                 if (!this.disposed) {
                     this.disposed = true;
-                    g<b> gVar = this.pNN;
-                    this.pNN = null;
+                    g<b> gVar = this.pEG;
+                    this.pEG = null;
                     a(gVar);
                 }
             }
@@ -30,14 +30,14 @@ public final class a implements b, io.reactivex.internal.disposables.a {
 
     @Override // io.reactivex.internal.disposables.a
     public boolean a(b bVar) {
-        io.reactivex.internal.functions.a.l(bVar, "d is null");
+        io.reactivex.internal.functions.a.m(bVar, "d is null");
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    g<b> gVar = this.pNN;
+                    g<b> gVar = this.pEG;
                     if (gVar == null) {
                         gVar = new g<>();
-                        this.pNN = gVar;
+                        this.pEG = gVar;
                     }
                     gVar.add(bVar);
                     return true;
@@ -60,11 +60,11 @@ public final class a implements b, io.reactivex.internal.disposables.a {
     @Override // io.reactivex.internal.disposables.a
     public boolean c(b bVar) {
         boolean z = false;
-        io.reactivex.internal.functions.a.l(bVar, "Disposable item is null");
+        io.reactivex.internal.functions.a.m(bVar, "Disposable item is null");
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    g<b> gVar = this.pNN;
+                    g<b> gVar = this.pEG;
                     if (gVar != null && gVar.remove(bVar)) {
                         z = true;
                     }
@@ -78,7 +78,7 @@ public final class a implements b, io.reactivex.internal.disposables.a {
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    g<b> gVar = this.pNN;
+                    g<b> gVar = this.pEG;
                     r0 = gVar != null ? gVar.size() : 0;
                 }
             }
@@ -87,10 +87,10 @@ public final class a implements b, io.reactivex.internal.disposables.a {
     }
 
     void a(g<b> gVar) {
-        Object[] eBb;
+        Object[] eDs;
         if (gVar != null) {
             ArrayList arrayList = null;
-            for (Object obj : gVar.eBb()) {
+            for (Object obj : gVar.eDs()) {
                 if (obj instanceof b) {
                     try {
                         ((b) obj).dispose();

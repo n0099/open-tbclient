@@ -11,7 +11,7 @@ import android.view.WindowManager;
 import io.flutter.plugin.platform.PlatformPlugin;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes15.dex */
+/* loaded from: classes7.dex */
 public final class StatusBarUtil {
     View actionBarView;
     boolean lightStatusBar;
@@ -157,7 +157,7 @@ public final class StatusBarUtil {
         return true;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder {
         private View actionBarView;
         private boolean lightStatusBar = false;

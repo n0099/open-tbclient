@@ -2,15 +2,15 @@ package com.baidu.swan.apps.adaptation.b;
 
 import android.view.View;
 import com.baidu.swan.apps.adaptation.b.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public interface g<T extends d> extends e<T> {
-    boolean ahQ();
+    boolean akY();
 
-    void aig();
+    void alo();
 
-    void aih();
+    void alp();
 
-    void e(View.OnClickListener onClickListener);
+    void eG(boolean z);
 
-    void er(boolean z);
+    void setOnCloseListener(View.OnClickListener onClickListener);
 }

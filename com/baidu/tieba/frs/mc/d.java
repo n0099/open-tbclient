@@ -9,13 +9,13 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.at;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.au;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.ag;
+import com.baidu.tieba.frs.af;
 import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
 import com.baidu.tieba.frs.good.FrsGoodFragment;
 import com.baidu.tieba.frs.vc.FrsTabViewController;
@@ -31,16 +31,16 @@ import tbclient.GetMyPost.GetMyPostResIdl;
 import tbclient.GetMyPost.User_Info;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class d extends j {
-    private final CustomMessageListener iRb;
-    private final com.baidu.adp.framework.listener.a ifq;
-    private final CustomMessageListener jep;
-    private final CustomMessageListener jeq;
+    private final com.baidu.adp.framework.listener.a iqk;
+    private final CustomMessageListener jbT;
+    private final CustomMessageListener jrS;
+    private final CustomMessageListener jrT;
 
     public d(FrsFragment frsFragment) {
         super(frsFragment);
-        this.jep = new CustomMessageListener(CmdConfigCustom.CMD_VIDEO_WRITE_POST_SUCCESS) { // from class: com.baidu.tieba.frs.mc.d.1
+        this.jrS = new CustomMessageListener(CmdConfigCustom.CMD_VIDEO_WRITE_POST_SUCCESS) { // from class: com.baidu.tieba.frs.mc.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -49,53 +49,53 @@ public class d extends j {
                 }
             }
         };
-        this.iRb = new CustomMessageListener(CmdConfigCustom.PB_DELETE_THREAD) { // from class: com.baidu.tieba.frs.mc.d.2
+        this.jbT = new CustomMessageListener(CmdConfigCustom.PB_DELETE_THREAD) { // from class: com.baidu.tieba.frs.mc.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                     String str = (String) customResponsedMessage.getData();
-                    if (!StringUtils.isNull(str) && d.this.jdH.cys() != null) {
-                        FrsViewData cys = d.this.jdH.cys();
-                        cys.removeThread(str);
-                        d.this.iId.a(cys.getThreadList(), cys);
-                        if (com.baidu.tieba.tbadkCore.e.dIP() != null) {
-                            com.baidu.tieba.tbadkCore.e.dIP().bc(d.this.jdH.getForumName(), false);
+                    if (!StringUtils.isNull(str) && d.this.jrk.cCJ() != null) {
+                        FrsViewData cCJ = d.this.jrk.cCJ();
+                        cCJ.removeThread(str);
+                        d.this.iSV.a(cCJ.getThreadList(), cCJ);
+                        if (com.baidu.tieba.tbadkCore.e.dOf() != null) {
+                            com.baidu.tieba.tbadkCore.e.dOf().bd(d.this.jrk.getForumName(), false);
                         }
                     }
                 }
             }
         };
-        this.jeq = new CustomMessageListener(CmdConfigCustom.CMD_THREAD_MANAGE) { // from class: com.baidu.tieba.frs.mc.d.3
+        this.jrT = new CustomMessageListener(CmdConfigCustom.CMD_THREAD_MANAGE) { // from class: com.baidu.tieba.frs.mc.d.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Multi-variable type inference failed */
             /* JADX WARN: Type inference failed for: r0v19, types: [java.util.List] */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 ForumManageModel.e eVar;
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ForumManageModel.e) && d.this.jdH != null && d.this.iId != null && d.this.iIx != null && (eVar = (ForumManageModel.e) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(eVar.threadId) && d.this.jdH.cys() != null) {
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ForumManageModel.e) && d.this.jrk != null && d.this.iSV != null && d.this.iTo != null && (eVar = (ForumManageModel.e) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(eVar.threadId) && d.this.jrk.cCJ() != null) {
                     String str = eVar.threadId;
                     String str2 = eVar.forumId;
                     String str3 = eVar.forumName;
-                    if (eVar.naG == 4) {
-                        FrsViewData cys = d.this.jdH.cys();
-                        bx threadDataById = cys.getThreadDataById(str);
-                        cys.removeThreadData(threadDataById);
-                        List<q> topThreadList = cys.getTopThreadList();
+                    if (eVar.noJ == 4) {
+                        FrsViewData cCJ = d.this.jrk.cCJ();
+                        by threadDataById = cCJ.getThreadDataById(str);
+                        cCJ.removeThreadData(threadDataById);
+                        List<q> topThreadList = cCJ.getTopThreadList();
                         if (topThreadList == null) {
                             topThreadList = new ArrayList<>();
                         }
                         topThreadList.add(0, threadDataById);
-                        d.this.iId.a(cys.getThreadList(), cys);
-                        d.this.iIx.j(cys);
+                        d.this.iSV.a(cCJ.getThreadList(), cCJ);
+                        d.this.iTo.j(cCJ);
                     }
-                    if (TextUtils.equals(d.this.jdH.getForumName(), str3)) {
-                        com.baidu.tieba.tbadkCore.e.dIP().bc(d.this.jdH.getForumName(), false);
+                    if (TextUtils.equals(d.this.jrk.getForumName(), str3)) {
+                        com.baidu.tieba.tbadkCore.e.dOf().bd(d.this.jrk.getForumName(), false);
                     }
                 }
             }
         };
-        this.ifq = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.frs.mc.d.4
+        this.iqk = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.frs.mc.d.4
             /* JADX WARN: Removed duplicated region for block: B:11:0x0021  */
             /* JADX WARN: Removed duplicated region for block: B:23:0x0074  */
             @Override // com.baidu.adp.framework.listener.a
@@ -113,7 +113,7 @@ public class d extends j {
                         if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
                             GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                             if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                                errorString2 = d.this.jdH.getResources().getString(R.string.neterror);
+                                errorString2 = d.this.jrk.getResources().getString(R.string.neterror);
                             } else {
                                 errorString2 = getMyPostHttpResponseMessage.getErrorString();
                             }
@@ -126,7 +126,7 @@ public class d extends j {
                         } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                             GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                             if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                                errorString = d.this.jdH.getResources().getString(R.string.neterror);
+                                errorString = d.this.jrk.getResources().getString(R.string.neterror);
                             } else {
                                 errorString = getMyPostSocketResponseMessage.getErrorString();
                             }
@@ -146,24 +146,24 @@ public class d extends j {
                 }
             }
         };
-        this.ifq.getSocketMessageListener().setSelfListener(true);
-        this.ifq.getHttpMessageListener().setSelfListener(true);
-        this.iRb.setSelfListener(false);
-        this.jdH.registerListener(this.iRb);
-        this.jdH.registerListener(this.ifq);
-        this.jdH.registerListener(this.jep);
-        this.jdH.registerListener(this.jeq);
+        this.iqk.getSocketMessageListener().setSelfListener(true);
+        this.iqk.getHttpMessageListener().setSelfListener(true);
+        this.jbT.setSelfListener(false);
+        this.jrk.registerListener(this.jbT);
+        this.jrk.registerListener(this.iqk);
+        this.jrk.registerListener(this.jrS);
+        this.jrk.registerListener(this.jrT);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str, GetMyPostResIdl getMyPostResIdl, int i2) {
         if (i != 0) {
-            this.jdH.showToast(str);
+            this.jrk.showToast(str);
             return;
         }
-        FrsViewData cys = this.jdH.cys();
-        if (cys != null && cys.getForum() != null && getMyPostResIdl != null && this.iId != null && this.iIw != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
-            at atVar = new at();
+        FrsViewData cCJ = this.jrk.cCJ();
+        if (cCJ != null && cCJ.getForum() != null && getMyPostResIdl != null && this.iSV != null && this.iTn != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
+            au auVar = new au();
             ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
             User.Builder builder2 = new User.Builder(builder.author);
             a(builder2, getMyPostResIdl.data.user_info);
@@ -174,74 +174,67 @@ public class d extends j {
                 builder.author = builder2.build(true);
             }
             builder.cheak_repeat = 1;
-            builder.fname = cys.getForum().getName();
-            builder.fid = Long.valueOf(com.baidu.adp.lib.f.b.toLong(cys.getForum().getId(), 0L));
-            atVar.a(builder.build(true));
+            builder.fname = cCJ.getForum().getName();
+            builder.fid = Long.valueOf(com.baidu.adp.lib.f.b.toLong(cCJ.getForum().getId(), 0L));
+            auVar.a(builder.build(true));
             if (i2 == 1) {
-                FrsTabViewController.b cFX = this.jdH.cxM().cFX();
-                if (cFX != null && (cFX.fragment instanceof FrsCommonTabFragment)) {
-                    ((FrsCommonTabFragment) cFX.fragment).ap(atVar);
+                FrsTabViewController.b cLm = this.jrk.cCc().cLm();
+                if (cLm != null && (cLm.fragment instanceof FrsCommonTabFragment)) {
+                    ((FrsCommonTabFragment) cLm.fragment).ap(auVar);
                 }
             } else if (i2 == 2) {
-                FrsTabViewController.b Bc = this.jdH.cxM().Bc(301);
-                if (Bc != null && (Bc.fragment instanceof FrsGoodFragment)) {
-                    this.jeR.tE(301);
-                    ((FrsGoodFragment) Bc.fragment).a(atVar);
+                FrsTabViewController.b BQ = this.jrk.cCc().BQ(301);
+                if (BQ != null && (BQ.fragment instanceof FrsGoodFragment)) {
+                    this.jsu.ui(301);
+                    ((FrsGoodFragment) BQ.fragment).a(auVar);
                 }
-            } else if (atVar.getTabId() > 0) {
-                FrsTabViewController.b Bc2 = this.jdH.cxM().Bc(atVar.getTabId());
-                if (Bc2 != null && (Bc2.fragment instanceof FrsCommonTabFragment)) {
-                    this.jeR.tE(atVar.getTabId());
-                    ((FrsCommonTabFragment) Bc2.fragment).ap(atVar);
+            } else if (auVar.getTabId() > 0) {
+                FrsTabViewController.b BQ2 = this.jrk.cCc().BQ(auVar.getTabId());
+                if (BQ2 != null && (BQ2.fragment instanceof FrsCommonTabFragment)) {
+                    this.jsu.ui(auVar.getTabId());
+                    ((FrsCommonTabFragment) BQ2.fragment).ap(auVar);
                 }
             } else {
-                if (!y.isEmpty(atVar.bnI())) {
-                    atVar.ble();
-                    int cFT = this.jdH.cxM().cFT();
-                    FrsTabViewController.b Bc3 = this.jdH.cxM().Bc(cFT);
-                    if (Bc3 != null && (Bc3.fragment instanceof FrsCommonTabFragment)) {
-                        this.jeR.tE(cFT);
-                        ((FrsCommonTabFragment) Bc3.fragment).ap(atVar);
-                        return;
-                    }
+                if (!y.isEmpty(auVar.bqW())) {
+                    auVar.bor();
                 }
-                int cFS = this.jdH.cxM().cFS();
-                FrsTabViewController.b Bc4 = this.jdH.cxM().Bc(cFS);
-                if (Bc4 != null) {
-                    this.jeR.tE(cFS);
-                    if (Bc4.fragment instanceof FrsNewAreaFragment) {
-                        a(atVar, (FrsNewAreaFragment) Bc4.fragment);
+                int cLi = this.jrk.cCc().cLi();
+                FrsTabViewController.b BQ3 = this.jrk.cCc().BQ(cLi);
+                if (BQ3 != null) {
+                    this.jsu.ui(cLi);
+                    if (BQ3.fragment instanceof FrsNewAreaFragment) {
+                        a(auVar, (FrsNewAreaFragment) BQ3.fragment);
                     } else {
-                        b(atVar);
+                        b(auVar);
                     }
                 }
             }
         }
     }
 
-    private void b(at atVar) {
+    private void b(au auVar) {
         ArrayList<q> a2;
-        FrsViewData cys = this.jdH.cys();
-        if (cys != null) {
-            this.iIw.addMyNewThread(atVar);
-            if (this.iIw.cEa()) {
+        FrsViewData cCJ = this.jrk.cCJ();
+        if (cCJ != null) {
+            this.iTn.addMyNewThread(auVar);
+            if (this.iTn.cJn()) {
                 ArrayList<q> arrayList = new ArrayList<>();
-                arrayList.add(atVar);
-                a2 = this.jeT.a(false, true, arrayList, null, true);
+                arrayList.add(auVar);
+                a2 = this.jsw.a(false, true, arrayList, null, true);
             } else {
-                a2 = this.jeT.a(false, true, cys.getThreadList(), null, true);
+                a2 = this.jsw.a(false, true, cCJ.getThreadList(), null, true);
             }
             if (a2 != null) {
-                cys.setThreadList(a2);
-                cys.checkLiveStageInThreadList();
-                this.iId.a(a2, cys);
-                this.iId.zs(0);
+                cCJ.setThreadList(a2);
+                cCJ.checkLiveStageInThreadList();
+                this.iSV.a(a2, cCJ);
+                this.iSV.zX(0);
             }
         }
     }
 
-    private void a(bx bxVar, FrsNewAreaFragment frsNewAreaFragment) {
-        frsNewAreaFragment.ap(bxVar);
+    private void a(by byVar, FrsNewAreaFragment frsNewAreaFragment) {
+        frsNewAreaFragment.ap(byVar);
     }
 
     private void a(User.Builder builder, User_Info user_Info) {
@@ -266,14 +259,14 @@ public class d extends j {
     }
 
     public void f(final PostWriteCallBackData postWriteCallBackData) {
-        if (this.iIw != null) {
-            boolean z = this.iIw.cDr() != null && this.iIw.cDr().getIsBrandForum();
-            int cDV = this.iIw.cDV();
-            if (cDV == 2 || cDV == 3 || cDV == 7 || cDV == 8 || z) {
-                if ((ag.czR().zC(1) != null ? this.iIw.cDO() : 0) == 0 && postWriteCallBackData != null) {
+        if (this.iTn != null) {
+            boolean z = this.iTn.cIE() != null && this.iTn.cIE().getIsBrandForum();
+            int cJi = this.iTn.cJi();
+            if (cJi == 2 || cJi == 3 || cJi == 7 || cJi == 8 || z) {
+                if ((af.cEh().Ah(1) != null ? this.iTn.cJb() : 0) == 0 && postWriteCallBackData != null) {
                     final long j = com.baidu.adp.lib.f.b.toLong(postWriteCallBackData.getPostId(), 0L);
                     final long j2 = com.baidu.adp.lib.f.b.toLong(postWriteCallBackData.getThreadId(), 0L);
-                    final long j3 = com.baidu.adp.lib.f.b.toLong(this.jdH.getForumId(), 0L);
+                    final long j3 = com.baidu.adp.lib.f.b.toLong(this.jrk.getForumId(), 0L);
                     if (j != 0 && j2 != 0 && j3 != 0) {
                         com.baidu.adp.lib.f.e.mY().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.mc.d.5
                             @Override // java.lang.Runnable
@@ -282,13 +275,13 @@ public class d extends j {
                                 int equipmentHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst());
                                 float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                                 int i = 1;
-                                if (av.bqC().bqD()) {
+                                if (av.btX().btY()) {
                                     i = 2;
                                 }
                                 RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
                                 requestGetMyPostNetMessage.setProZone(postWriteCallBackData.getProZone());
                                 requestGetMyPostNetMessage.setParams(j2, j, j3, equipmentWidth, equipmentHeight, f, i);
-                                d.this.jdH.sendMessage(requestGetMyPostNetMessage);
+                                d.this.jrk.sendMessage(requestGetMyPostNetMessage);
                             }
                         }, 1000L);
                     }

@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class GetWheatListHttpResponseMessage extends JsonHttpResponsedMessage {
-    public AlaWheatInfoDataWrapper aIe;
+    public AlaWheatInfoDataWrapper aKQ;
 
     public GetWheatListHttpResponseMessage() {
         super(1031084);
@@ -19,7 +19,7 @@ public class GetWheatListHttpResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && i == 1031084 && (optString = jSONObject.optString("data")) != null) {
             JSONObject jSONObject2 = new JSONObject(optString);
             if (jSONObject2.has("user_info_list") && (optString2 = jSONObject2.optString("user_info_list")) != null) {
-                this.aIe = new AlaWheatInfoDataWrapper(optString2);
+                this.aKQ = new AlaWheatInfoDataWrapper(optString2);
             }
         }
     }

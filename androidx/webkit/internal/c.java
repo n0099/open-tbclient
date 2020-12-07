@@ -2,39 +2,36 @@ package androidx.webkit.internal;
 
 import android.annotation.SuppressLint;
 import android.webkit.WebResourceError;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 import org.chromium.support_lib_boundary.WebResourceErrorBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
 import org.chromium.support_lib_boundary.util.Features;
-/* loaded from: classes7.dex */
+/* loaded from: classes19.dex */
 public class c extends androidx.webkit.b {
-    private WebResourceError Ah;
-    private WebResourceErrorBoundaryInterface Ai;
+    private WebResourceError Bb;
+    private WebResourceErrorBoundaryInterface Bc;
 
-    public c(@NonNull InvocationHandler invocationHandler) {
-        this.Ai = (WebResourceErrorBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebResourceErrorBoundaryInterface.class, invocationHandler);
+    public c(InvocationHandler invocationHandler) {
+        this.Bc = (WebResourceErrorBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebResourceErrorBoundaryInterface.class, invocationHandler);
     }
 
-    public c(@NonNull WebResourceError webResourceError) {
-        this.Ah = webResourceError;
+    public c(WebResourceError webResourceError) {
+        this.Bb = webResourceError;
     }
 
-    @RequiresApi(23)
     private WebResourceError hR() {
-        if (this.Ah == null) {
-            this.Ah = d.hU().a(Proxy.getInvocationHandler(this.Ai));
+        if (this.Bb == null) {
+            this.Bb = d.hU().a(Proxy.getInvocationHandler(this.Bc));
         }
-        return this.Ah;
+        return this.Bb;
     }
 
     private WebResourceErrorBoundaryInterface hS() {
-        if (this.Ai == null) {
-            this.Ai = (WebResourceErrorBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebResourceErrorBoundaryInterface.class, d.hU().a(this.Ah));
+        if (this.Bc == null) {
+            this.Bc = (WebResourceErrorBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebResourceErrorBoundaryInterface.class, d.hU().a(this.Bb));
         }
-        return this.Ai;
+        return this.Bc;
     }
 
     @Override // androidx.webkit.b
@@ -51,7 +48,6 @@ public class c extends androidx.webkit.b {
     }
 
     @Override // androidx.webkit.b
-    @NonNull
     @SuppressLint({"NewApi"})
     public CharSequence getDescription() {
         WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature(Features.WEB_RESOURCE_ERROR_GET_DESCRIPTION);

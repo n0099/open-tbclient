@@ -1,7 +1,7 @@
 package org.webrtc;
 
 import com.baidu.lbsapi.panoramaview.PanoramaView;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class Size {
     public int height;
     public int width;

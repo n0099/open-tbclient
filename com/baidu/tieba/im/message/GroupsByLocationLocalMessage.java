@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class GroupsByLocationLocalMessage extends CustomMessage<Object> {
     public GroupsByLocationLocalMessage() {
         super(CmdConfigCustom.CMD_REQUEST_GROUP_BY_LOCATION_LOCAL);

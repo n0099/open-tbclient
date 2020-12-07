@@ -3,7 +3,7 @@ package org.webrtc;
 import android.support.annotation.Nullable;
 import java.nio.ByteBuffer;
 import org.webrtc.VideoEncoder;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 class VideoEncoderWrapper {
     VideoEncoderWrapper() {
     }

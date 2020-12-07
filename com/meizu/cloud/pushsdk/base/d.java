@@ -1,11 +1,9 @@
 package com.meizu.cloud.pushsdk.base;
-
-import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f4373a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+    private static final char[] f4143a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
     private static final char b = (char) Integer.parseInt("00000011", 2);
     private static final char c = (char) Integer.parseInt("00001111", 2);
     private static final char d = (char) Integer.parseInt("00111111", 2);
@@ -19,10 +17,10 @@ class d {
     }
 
     private void a() {
-        char[] cArr = new char[f4373a.length];
+        char[] cArr = new char[f4143a.length];
         this.g = this.e.charAt(0) % '\r';
-        for (int i = 0; i < f4373a.length; i++) {
-            cArr[i] = f4373a[(this.g + i) % f4373a.length];
+        for (int i = 0; i < f4143a.length; i++) {
+            cArr[i] = f4143a[(this.g + i) % f4143a.length];
         }
         this.f = cArr;
     }
@@ -52,7 +50,7 @@ class d {
                 sb.append(this.f[i3 >>> 2]);
                 sb.append(this.f[((b & i3) << 4) | (i5 >>> 4)]);
                 sb.append(this.f[(c & i5) << 2]);
-                sb.append(ETAG.EQUAL);
+                sb.append("=");
                 break;
             }
             i = i4 + 1;

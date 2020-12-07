@@ -1,5 +1,5 @@
 package org.webrtc;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class IceCandidate {
     public final String sdp;
     public final int sdpMLineIndex;

@@ -1,9 +1,12 @@
 package okhttp3;
 
+import android.annotation.TargetApi;
+import java.io.IOException;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.net.Socket;
 import java.security.GeneralSecurityException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -29,6 +32,7 @@ import okhttp3.internal.connection.RealConnection;
 import okhttp3.internal.connection.RouteDatabase;
 import okhttp3.internal.connection.StreamAllocation;
 import okhttp3.internal.platform.Platform;
+import okhttp3.internal.proxy.NullProxySelector;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.OkHostnameVerifier;
 import okhttp3.internal.ws.RealWebSocket;
@@ -38,7 +42,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
     final Authenticator authenticator;
     @Nullable
     final Cache cache;
-    @Nullable
+    final int callTimeout;
     final CertificateChainCleaner certificateChainCleaner;
     final CertificatePinner certificatePinner;
     final int connectTimeout;
@@ -65,7 +69,6 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
     final int readTimeout;
     final boolean retryOnConnectionFailure;
     final SocketFactory socketFactory;
-    @Nullable
     final SSLSocketFactory sslSocketFactory;
     final int writeTimeout;
     static final List<Protocol> DEFAULT_PROTOCOLS = Util.immutableList(Protocol.HTTP_2, Protocol.HTTP_1_1);
@@ -139,6 +142,12 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             }
 
             @Override // okhttp3.internal.Internal
+            @Nullable
+            public IOException timeoutExit(Call call, @Nullable IOException iOException) {
+                return ((RealCall) call).timeoutExit(iOException);
+            }
+
+            @Override // okhttp3.internal.Internal
             public Call newWebSocketCall(OkHttpClient okHttpClient, Request request) {
                 return RealCall.newRealCall(okHttpClient, request, true);
             }
@@ -187,6 +196,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         this.followSslRedirects = builder.followSslRedirects;
         this.followRedirects = builder.followRedirects;
         this.retryOnConnectionFailure = builder.retryOnConnectionFailure;
+        this.callTimeout = builder.callTimeout;
         this.connectTimeout = builder.connectTimeout;
         this.readTimeout = builder.readTimeout;
         this.writeTimeout = builder.writeTimeout;
@@ -208,6 +218,10 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         } catch (GeneralSecurityException e) {
             throw Util.assertionError("No System TLS", e);
         }
+    }
+
+    public int callTimeoutMillis() {
+        return this.callTimeout;
     }
 
     public int connectTimeoutMillis() {
@@ -236,6 +250,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         }
     }
 
+    @Nullable
     public Proxy proxy() {
         return this.proxy;
     }
@@ -347,6 +362,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         Authenticator authenticator;
         @Nullable
         Cache cache;
+        int callTimeout;
         @Nullable
         CertificateChainCleaner certificateChainCleaner;
         CertificatePinner certificatePinner;
@@ -386,6 +402,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             this.connectionSpecs = OkHttpClient.DEFAULT_CONNECTION_SPECS;
             this.eventListenerFactory = EventListener.factory(EventListener.NONE);
             this.proxySelector = ProxySelector.getDefault();
+            if (this.proxySelector == null) {
+                this.proxySelector = new NullProxySelector();
+            }
             this.cookieJar = CookieJar.NO_COOKIES;
             this.socketFactory = SocketFactory.getDefault();
             this.hostnameVerifier = OkHostnameVerifier.INSTANCE;
@@ -397,6 +416,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             this.followSslRedirects = true;
             this.followRedirects = true;
             this.retryOnConnectionFailure = true;
+            this.callTimeout = 0;
             this.connectTimeout = 10000;
             this.readTimeout = 10000;
             this.writeTimeout = 10000;
@@ -430,6 +450,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             this.followSslRedirects = okHttpClient.followSslRedirects;
             this.followRedirects = okHttpClient.followRedirects;
             this.retryOnConnectionFailure = okHttpClient.retryOnConnectionFailure;
+            this.callTimeout = okHttpClient.callTimeout;
             this.connectTimeout = okHttpClient.connectTimeout;
             this.readTimeout = okHttpClient.readTimeout;
             this.writeTimeout = okHttpClient.writeTimeout;
@@ -437,8 +458,25 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             this.fallbackConnectDelayMs = okHttpClient.fallbackConnectDelayMs;
         }
 
+        public Builder callTimeout(long j, TimeUnit timeUnit) {
+            this.callTimeout = Util.checkDuration("timeout", j, timeUnit);
+            return this;
+        }
+
+        @TargetApi(26)
+        public Builder callTimeout(Duration duration) {
+            this.callTimeout = Util.checkDuration("timeout", duration.toMillis(), TimeUnit.MILLISECONDS);
+            return this;
+        }
+
         public Builder connectTimeout(long j, TimeUnit timeUnit) {
             this.connectTimeout = Util.checkDuration("timeout", j, timeUnit);
+            return this;
+        }
+
+        @TargetApi(26)
+        public Builder connectTimeout(Duration duration) {
+            this.connectTimeout = Util.checkDuration("timeout", duration.toMillis(), TimeUnit.MILLISECONDS);
             return this;
         }
 
@@ -447,13 +485,31 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             return this;
         }
 
+        @TargetApi(26)
+        public Builder readTimeout(Duration duration) {
+            this.readTimeout = Util.checkDuration("timeout", duration.toMillis(), TimeUnit.MILLISECONDS);
+            return this;
+        }
+
         public Builder writeTimeout(long j, TimeUnit timeUnit) {
             this.writeTimeout = Util.checkDuration("timeout", j, timeUnit);
             return this;
         }
 
+        @TargetApi(26)
+        public Builder writeTimeout(Duration duration) {
+            this.writeTimeout = Util.checkDuration("timeout", duration.toMillis(), TimeUnit.MILLISECONDS);
+            return this;
+        }
+
         public Builder pingInterval(long j, TimeUnit timeUnit) {
             this.pingInterval = Util.checkDuration("interval", j, timeUnit);
+            return this;
+        }
+
+        @TargetApi(26)
+        public Builder pingInterval(Duration duration) {
+            this.pingInterval = Util.checkDuration("timeout", duration.toMillis(), TimeUnit.MILLISECONDS);
             return this;
         }
 
@@ -468,6 +524,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         }
 
         public Builder proxySelector(ProxySelector proxySelector) {
+            if (proxySelector == null) {
+                throw new NullPointerException("proxySelector == null");
+            }
             this.proxySelector = proxySelector;
             return this;
         }

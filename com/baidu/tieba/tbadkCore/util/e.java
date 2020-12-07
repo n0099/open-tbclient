@@ -1,17 +1,17 @@
 package com.baidu.tieba.tbadkCore.util;
 /* loaded from: classes.dex */
 public class e {
-    private static boolean naY = false;
+    private static boolean npb = false;
 
-    public static void dLc() {
-        naY = true;
+    public static void dQu() {
+        npb = true;
     }
 
-    public static void dLd() {
-        naY = false;
+    public static void dQv() {
+        npb = false;
     }
 
-    public static boolean dLe() {
-        return naY;
+    public static boolean dQw() {
+        return npb;
     }
 }

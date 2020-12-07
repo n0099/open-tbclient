@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.pyramid.runtime.service.c;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.ubc.Flow;
-import com.baidu.ubc.aa;
+import com.baidu.ubc.ab;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -442,7 +442,7 @@ public class UgcUBCUtils {
     public static Flow ugcBeginFlow(String str) {
         if (checkValid(str)) {
             print(str, "beginFlow", null);
-            aa uBCManager = getUBCManager();
+            ab uBCManager = getUBCManager();
             if (uBCManager != null) {
                 return uBCManager.beginFlow(str);
             }
@@ -453,7 +453,7 @@ public class UgcUBCUtils {
 
     public static void ugcOnEvent(String str, String str2) {
         if (checkValid(str)) {
-            aa uBCManager = getUBCManager();
+            ab uBCManager = getUBCManager();
             if (uBCManager != null) {
                 uBCManager.onEvent(str, str2);
             }
@@ -462,7 +462,7 @@ public class UgcUBCUtils {
     }
 
     public static void ugcEndFlow(String str, Flow flow, String str2) {
-        aa uBCManager = getUBCManager();
+        ab uBCManager = getUBCManager();
         if (uBCManager != null) {
             uBCManager.flowSetValueWithDuration(flow, str2);
             uBCManager.flowEnd(flow);
@@ -470,8 +470,8 @@ public class UgcUBCUtils {
         print(str, "endFlow", str2);
     }
 
-    public static aa getUBCManager() {
-        return (aa) c.a(aa.SERVICE_REFERENCE);
+    public static ab getUBCManager() {
+        return (ab) c.a(ab.SERVICE_REFERENCE);
     }
 
     public static boolean checkValid(String str) {

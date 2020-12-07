@@ -1,10 +1,10 @@
 package kotlin.collections;
 
 import java.util.Iterator;
-@kotlin.h
-/* loaded from: classes9.dex */
-public abstract class z implements Iterator<Double> {
-    public abstract double nextDouble();
+@kotlin.e
+/* loaded from: classes17.dex */
+public abstract class z implements Iterator<Long> {
+    public abstract long eyG();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -13,8 +13,8 @@ public abstract class z implements Iterator<Double> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: eBz */
-    public final Double next() {
-        return Double.valueOf(nextDouble());
+    /* renamed from: eDQ */
+    public final Long next() {
+        return Long.valueOf(eyG());
     }
 }

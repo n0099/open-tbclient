@@ -16,42 +16,42 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class c implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a.InterfaceC0411a cFf;
-    private LocalServerSocket cFg;
-    com.baidu.swan.apps.console.v8inspector.a.a cFh;
-    private String cFi;
+    private a.InterfaceC0423a cLZ;
+    private LocalServerSocket cMa;
+    com.baidu.swan.apps.console.v8inspector.a.a cMb;
+    private String cMc;
     private boolean mRunning;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static class a {
-        String cFj;
-        boolean cFk;
+        String cMd;
+        boolean cMe;
         Map<String, String> headers = new HashMap();
         String method;
         String uri;
     }
 
-    public c(String str, a.InterfaceC0411a interfaceC0411a) {
-        this.cFi = str;
-        this.cFf = interfaceC0411a;
+    public c(String str, a.InterfaceC0423a interfaceC0423a) {
+        this.cMc = str;
+        this.cLZ = interfaceC0423a;
     }
 
     @Override // com.baidu.swan.apps.console.v8inspector.a.b
     public void start() {
         if (!this.mRunning) {
             try {
-                this.cFg = new LocalServerSocket(this.cFi);
+                this.cMa = new LocalServerSocket(this.cMc);
                 this.mRunning = true;
                 int i = 0;
                 while (this.mRunning) {
-                    LocalSocket accept = this.cFg.accept();
-                    this.cFh = new com.baidu.swan.apps.console.v8inspector.a.a(accept.getInputStream(), accept.getOutputStream());
-                    this.cFh.b(this.cFf);
-                    ExecutorUtilsExt.postOnSerial(this.cFh, "V8InspectorServer");
-                    if (com.baidu.swan.apps.ad.a.a.aEj() && (i = i + 1) > 10) {
+                    LocalSocket accept = this.cMa.accept();
+                    this.cMb = new com.baidu.swan.apps.console.v8inspector.a.a(accept.getInputStream(), accept.getOutputStream());
+                    this.cMb.b(this.cLZ);
+                    ExecutorUtilsExt.postOnSerial(this.cMb, "V8InspectorServer");
+                    if (com.baidu.swan.apps.ad.a.a.aHr() && (i = i + 1) > 10) {
                         if (DEBUG) {
                             Log.e("V8InspectorServer", "v8 inspector handshake exceeding the maximum limit");
                             return;
@@ -68,31 +68,31 @@ public class c implements a.b {
     @Override // com.baidu.swan.apps.console.v8inspector.a.b
     public void stop() {
         this.mRunning = false;
-        if (this.cFg != null) {
+        if (this.cMa != null) {
             try {
-                this.cFg.close();
+                this.cMa.close();
             } catch (IOException e) {
                 com.baidu.swan.apps.console.c.e("V8InspectorServer", "stop local server fail", e);
             }
-            this.cFg = null;
+            this.cMa = null;
         }
-        if (this.cFh != null) {
-            this.cFh.close();
-            this.cFh = null;
+        if (this.cMb != null) {
+            this.cMb.close();
+            this.cMb = null;
         }
-        this.cFf = null;
+        this.cLZ = null;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static abstract class b {
-        a cFl;
+        a cMf;
 
-        abstract Map<String, String> alE();
+        abstract Map<String, String> aoM();
 
-        abstract String alF();
+        abstract String aoN();
 
         public b(a aVar) {
-            this.cFl = aVar;
+            this.cMf = aVar;
         }
 
         protected String getContent() {
@@ -103,12 +103,12 @@ public class c implements a.b {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, d MMM yyyy HH:mm:ss 'GMT'", Locale.US);
             simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
             PrintWriter printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream)));
-            printWriter.append("HTTP/1.1").append(' ').append((CharSequence) alF()).append(" \r\n");
+            printWriter.append("HTTP/1.1").append(' ').append((CharSequence) aoN()).append(" \r\n");
             a(printWriter, "Date", simpleDateFormat.format(new Date()));
             printWriter.print("Content-Length: " + getContent().getBytes().length + "\r\n");
-            Map<String, String> alE = alE();
-            if (alE != null && alE.size() > 0) {
-                for (Map.Entry<String, String> entry : alE().entrySet()) {
+            Map<String, String> aoM = aoM();
+            if (aoM != null && aoM.size() > 0) {
+                for (Map.Entry<String, String> entry : aoM().entrySet()) {
                     a(printWriter, entry.getKey(), entry.getValue());
                 }
             }

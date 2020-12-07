@@ -1,9 +1,8 @@
 package com.opensource.svgaplayer;
 
 import android.graphics.BitmapFactory;
-import kotlin.h;
-@h
-/* loaded from: classes17.dex */
+@kotlin.e
+/* loaded from: classes18.dex */
 public final class g {
-    private static final BitmapFactory.Options pFJ = new BitmapFactory.Options();
+    private static final BitmapFactory.Options pzp = new BitmapFactory.Options();
 }

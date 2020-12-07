@@ -1,16 +1,16 @@
 package com.baidu.platform.comapi.wnplatform.model;
 
 import android.os.Bundle;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class b extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private e f3130a;
+    private e f3132a;
     private d b;
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
-        this.f3130a = null;
+        this.f3132a = null;
         this.b = null;
     }
 
@@ -20,10 +20,10 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public e a() {
-        if (this.f3130a == null) {
-            this.f3130a = new e();
+        if (this.f3132a == null) {
+            this.f3132a = new e();
         }
-        return this.f3130a;
+        return this.f3132a;
     }
 
     public void a(Bundle bundle, int i) {

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Matrix;
 import android.view.WindowManager;
 import org.webrtc.VideoFrame;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public final /* synthetic */ class CameraSession_CC {
     public static VideoFrame.TextureBuffer createTextureBufferWithModifiedTransformMatrix(TextureBufferImpl textureBufferImpl, boolean z, int i) {
         Matrix matrix = new Matrix();

@@ -1,12 +1,12 @@
 package com.baidu.swan.apps.camera.d;
 
-import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
+import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class c extends com.baidu.swan.apps.component.b.b {
+    public String cGI;
     public String cameraId;
-    public String czQ;
 
     public c(String str) {
         super(PixelReadParams.DEFAULT_FILTER_ID, "cameraId");
@@ -21,6 +21,6 @@ public class c extends com.baidu.swan.apps.component.b.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
         this.cameraId = jSONObject.optString("cameraId");
-        this.czQ = jSONObject.optString("quality");
+        this.cGI = jSONObject.optString("quality");
     }
 }

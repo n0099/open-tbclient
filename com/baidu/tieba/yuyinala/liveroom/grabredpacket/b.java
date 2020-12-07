@@ -8,8 +8,8 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class b extends BdBaseModel {
-    private final HttpMessageListener bst;
-    private a nXx;
+    private final HttpMessageListener bxC;
+    private a omv;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -24,21 +24,21 @@ public class b extends BdBaseModel {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(LootGiftHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.bst = new HttpMessageListener(1031083) { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.b.1
+        this.bxC = new HttpMessageListener(1031083) { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof LootGiftHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.nXx != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof LootGiftHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.omv != null) {
                     LootGiftHttpResponseMessage lootGiftHttpResponseMessage = (LootGiftHttpResponseMessage) httpResponsedMessage;
                     if (lootGiftHttpResponseMessage.getError() != 0 || !lootGiftHttpResponseMessage.isSuccess()) {
-                        b.this.nXx.onFail(lootGiftHttpResponseMessage.getError(), lootGiftHttpResponseMessage.getErrorString());
+                        b.this.omv.onFail(lootGiftHttpResponseMessage.getError(), lootGiftHttpResponseMessage.getErrorString());
                     } else {
-                        b.this.nXx.a(lootGiftHttpResponseMessage);
+                        b.this.omv.a(lootGiftHttpResponseMessage);
                     }
                 }
             }
         };
-        registerListener(this.bst);
+        registerListener(this.bxC);
     }
 
     public void i(String str, String str2, String str3, String str4, String str5, String str6) {
@@ -56,6 +56,6 @@ public class b extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.nXx = aVar;
+        this.omv = aVar;
     }
 }

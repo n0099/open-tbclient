@@ -7,11 +7,11 @@ import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.beans.business.BaseBean;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class a extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1469a = "/risk/init/stat";
+    public static final String f1471a = "/risk/init/stat";
     public static final int b = 1;
     private Context c;
     private String d;
@@ -47,7 +47,7 @@ public class a extends BaseBean {
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public String getUrl() {
-        return EnvConfig.getInstance(this.c).getRimHttpsHost() + f1469a;
+        return EnvConfig.getInstance(this.c).getRimHttpsHost() + f1471a;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean

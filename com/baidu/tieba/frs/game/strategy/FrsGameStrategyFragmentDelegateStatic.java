@@ -13,8 +13,8 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.am;
-/* loaded from: classes21.dex */
+import com.baidu.tieba.frs.al;
+/* loaded from: classes22.dex */
 public class FrsGameStrategyFragmentDelegateStatic extends b {
     public static String Tag = "tag";
 
@@ -25,12 +25,12 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 c fragmentTabStructure;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null) {
-                    am amVar = (am) customResponsedMessage.getData();
+                    al alVar = (al) customResponsedMessage.getData();
                     FrsGameStrategyFragmentDelegateStatic frsGameStrategyFragmentDelegateStatic = new FrsGameStrategyFragmentDelegateStatic();
-                    amVar.b(frsGameStrategyFragmentDelegateStatic);
-                    if (amVar.getContext() != null && (fragmentTabStructure = frsGameStrategyFragmentDelegateStatic.getFragmentTabStructure()) != null) {
+                    alVar.b(frsGameStrategyFragmentDelegateStatic);
+                    if (alVar.getContext() != null && (fragmentTabStructure = frsGameStrategyFragmentDelegateStatic.getFragmentTabStructure()) != null) {
                         Bundle bundle = new Bundle();
-                        bundle.putString("name", amVar.getForumName());
+                        bundle.putString("name", alVar.getForumName());
                         bundle.putString("from", "game_frs");
                         bundle.putBoolean("back_special", false);
                         bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());

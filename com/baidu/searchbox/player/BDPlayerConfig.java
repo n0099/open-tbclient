@@ -13,7 +13,7 @@ import com.baidu.searchbox.player.message.MessengerFactory;
 import com.baidu.searchbox.player.remote.BDRemotePlayerService;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class BDPlayerConfig {
     private static Context sApplication;
     private static IKernelFactory sKernelFactory;

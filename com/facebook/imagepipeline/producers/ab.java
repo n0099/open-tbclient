@@ -15,7 +15,7 @@ public class ab extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected com.facebook.imagepipeline.g.e g(ImageRequest imageRequest) throws IOException {
+    protected com.facebook.imagepipeline.f.e g(ImageRequest imageRequest) throws IOException {
         return e(this.mResources.openRawResource(j(imageRequest)), h(imageRequest));
     }
 
@@ -62,11 +62,11 @@ public class ab extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String erd() {
+    protected String ewG() {
         return "LocalResourceFetchProducer";
     }
 
     private static int j(ImageRequest imageRequest) {
-        return Integer.parseInt(imageRequest.erL().getPath().substring(1));
+        return Integer.parseInt(imageRequest.exl().getPath().substring(1));
     }
 }

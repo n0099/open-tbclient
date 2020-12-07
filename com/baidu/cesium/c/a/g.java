@@ -1,22 +1,22 @@
 package com.baidu.cesium.c.a;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile byte[] f1309a;
+    private static volatile byte[] f1308a;
 
     public static byte[] a() {
-        if (f1309a == null) {
+        if (f1308a == null) {
             synchronized (g.class) {
-                if (f1309a == null) {
+                if (f1308a == null) {
                     byte[] bArr = new byte[16];
                     System.arraycopy(com.baidu.cesium.c.c.b.b(), 0, bArr, 0, 16);
                     c cVar = new c();
                     cVar.a(2, bArr, bArr);
-                    f1309a = cVar.a(new byte[]{-71, -100, -115, 26, 39, -124, 14, 14, -31, -46, -56, 1, 25, -127, -99, -107, -54, 51, 46, 14, 68, -68, -19, 28, 66, 19, -113, 5, 25, -11, -123, 50});
+                    f1308a = cVar.a(new byte[]{-71, -100, -115, 26, 39, -124, 14, 14, -31, -46, -56, 1, 25, -127, -99, -107, -54, 51, 46, 14, 68, -68, -19, 28, 66, 19, -113, 5, 25, -11, -123, 50});
                 }
             }
         }
-        return f1309a;
+        return f1308a;
     }
 }

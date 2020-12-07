@@ -9,15 +9,15 @@ import android.os.Message;
 import android.os.Messenger;
 import android.util.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class b implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LocationClient f1862a;
+    final /* synthetic */ LocationClient f1864a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(LocationClient locationClient) {
-        this.f1862a = locationClient;
+        this.f1864a = locationClient;
     }
 
     @Override // android.content.ServiceConnection
@@ -25,29 +25,29 @@ public class b implements ServiceConnection {
         boolean z;
         Bundle c;
         Boolean bool;
-        this.f1862a.g = new Messenger(iBinder);
-        if (this.f1862a.g == null) {
+        this.f1864a.g = new Messenger(iBinder);
+        if (this.f1864a.g == null) {
             return;
         }
-        this.f1862a.e = true;
+        this.f1864a.e = true;
         Log.d("baidu_location_client", "baidu location connected ...");
-        z = this.f1862a.x;
+        z = this.f1864a.x;
         if (z) {
-            this.f1862a.h.obtainMessage(2).sendToTarget();
+            this.f1864a.h.obtainMessage(2).sendToTarget();
             return;
         }
         try {
             Message obtain = Message.obtain((Handler) null, 11);
-            obtain.replyTo = this.f1862a.i;
-            c = this.f1862a.c();
+            obtain.replyTo = this.f1864a.i;
+            c = this.f1864a.c();
             obtain.setData(c);
-            this.f1862a.g.send(obtain);
-            this.f1862a.e = true;
-            if (this.f1862a.c != null) {
-                bool = this.f1862a.A;
+            this.f1864a.g.send(obtain);
+            this.f1864a.e = true;
+            if (this.f1864a.c != null) {
+                bool = this.f1864a.A;
                 if (bool.booleanValue()) {
                 }
-                this.f1862a.h.obtainMessage(4).sendToTarget();
+                this.f1864a.h.obtainMessage(4).sendToTarget();
             }
         } catch (Exception e) {
         }
@@ -55,7 +55,7 @@ public class b implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.f1862a.g = null;
-        this.f1862a.e = false;
+        this.f1864a.g = null;
+        this.f1864a.e = false;
     }
 }

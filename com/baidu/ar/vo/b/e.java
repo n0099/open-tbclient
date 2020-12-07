@@ -4,20 +4,20 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import com.baidu.ar.arplay.core.engine.pixel.FramePixels;
-import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
-import com.baidu.ar.arplay.core.engine.pixel.PixelType;
+import com.baidu.ar.arplay.core.pixel.FramePixels;
+import com.baidu.ar.arplay.core.pixel.PixelReadParams;
+import com.baidu.ar.arplay.core.pixel.PixelType;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.d.j;
 import io.flutter.plugin.platform.PlatformPlugin;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class e extends j {
     private static final String TAG = e.class.getSimpleName();
-    private HandlerThread lx;
-    private a ye;
-    private b yf;
+    private HandlerThread lM;
+    private a yT;
+    private b yU;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     private static final class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -48,67 +48,67 @@ public class e extends j {
     }
 
     public e(com.baidu.ar.vo.a.b bVar, b bVar2) {
-        this.yf = bVar2;
-        this.mU = new PixelReadParams(PixelType.NV21);
-        this.mU.setOutputWidth(PlatformPlugin.DEFAULT_SYSTEM_UI);
-        this.mU.setOutputHeight(720);
+        this.yU = bVar2;
+        this.nk = new PixelReadParams(PixelType.NV21);
+        this.nk.setOutputWidth(PlatformPlugin.DEFAULT_SYSTEM_UI);
+        this.nk.setOutputHeight(720);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void n(FramePixels framePixels) {
-        if (this.yf != null) {
-            this.yf.a(framePixels, new ICallbackWith<f>() { // from class: com.baidu.ar.vo.b.e.3
+    public void m(FramePixels framePixels) {
+        if (this.yU != null) {
+            this.yU.a(framePixels, new ICallbackWith<f>() { // from class: com.baidu.ar.vo.b.e.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.ar.callback.ICallbackWith
                 /* renamed from: a */
                 public void run(f fVar) {
-                    if (e.this.mg == null || e.this.yf == null) {
+                    if (e.this.mv == null || e.this.yU == null) {
                         return;
                     }
                     if (fVar != null) {
-                        fVar.T(e.this.getName());
+                        fVar.W(e.this.getName());
                     }
-                    e.this.mg.a(fVar);
+                    e.this.mv.a(fVar);
                 }
             });
         }
     }
 
     @Override // com.baidu.ar.d.j
-    protected void am() {
-        this.lx = new HandlerThread(TAG);
-        this.lx.start();
-        this.ye = new a(this.lx.getLooper());
-        this.ye.a(1001, new Runnable() { // from class: com.baidu.ar.vo.b.e.1
+    protected void ao() {
+        this.lM = new HandlerThread(TAG);
+        this.lM.start();
+        this.yT = new a(this.lM.getLooper());
+        this.yT.a(1001, new Runnable() { // from class: com.baidu.ar.vo.b.e.1
             @Override // java.lang.Runnable
             public void run() {
-                e.this.yf.init();
+                e.this.yU.init();
             }
         });
     }
 
     @Override // com.baidu.ar.d.j
-    protected void ao() {
-        if (this.ye != null) {
-            this.ye.release();
-            this.ye = null;
+    protected void aq() {
+        if (this.yT != null) {
+            this.yT.release();
+            this.yT = null;
         }
-        if (this.yf != null) {
-            this.yf = null;
+        if (this.yU != null) {
+            this.yU = null;
         }
-        if (this.lx != null) {
-            this.lx.quit();
-            this.lx = null;
+        if (this.lM != null) {
+            this.lM.quit();
+            this.lM = null;
         }
     }
 
     @Override // com.baidu.ar.d.j
     protected boolean c(final FramePixels framePixels) {
-        if (this.yf != null) {
-            this.ye.a(1002, new Runnable() { // from class: com.baidu.ar.vo.b.e.2
+        if (this.yU != null) {
+            this.yT.a(1002, new Runnable() { // from class: com.baidu.ar.vo.b.e.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    e.this.n(framePixels);
+                    e.this.m(framePixels);
                 }
             });
             return true;

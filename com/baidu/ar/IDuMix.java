@@ -2,13 +2,20 @@ package com.baidu.ar;
 
 import android.graphics.SurfaceTexture;
 import android.view.View;
-/* loaded from: classes12.dex */
+import com.baidu.ar.arrender.FrameRenderListener;
+/* loaded from: classes10.dex */
 public interface IDuMix extends View.OnTouchListener {
+    void addFrameRenderListener(FrameRenderListener frameRenderListener);
+
+    void addOutput(DuMixOutput duMixOutput);
+
     void changeInputSize(int i, int i2);
 
     void changeInputSize(SurfaceTexture surfaceTexture, int i, int i2);
 
     void changeOutput(DuMixOutput duMixOutput);
+
+    void changeOutputObject(Object obj, int i, int i2);
 
     void changeOutputSize(int i, int i2);
 
@@ -23,6 +30,10 @@ public interface IDuMix extends View.OnTouchListener {
     void pauseScene();
 
     void release();
+
+    void removeFrameRenderListener(FrameRenderListener frameRenderListener);
+
+    void removeOutput(DuMixOutput duMixOutput);
 
     void resume();
 

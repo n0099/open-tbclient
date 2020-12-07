@@ -2,13 +2,13 @@ package kotlin.collections;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State pTw = State.NotReady;
-    private T pTx;
+    private State pJZ = State.NotReady;
+    private T pKa;
 
-    protected abstract void eBu();
+    protected abstract void eDF();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -17,14 +17,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (this.pTw != State.Failed) {
-            switch (this.pTw) {
+        if (!kotlin.jvm.internal.p.l(this.pJZ, State.Failed)) {
+            switch (this.pJZ) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return eBt();
+                    return eDE();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -33,26 +33,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.pTw = State.NotReady;
-            return this.pTx;
+            this.pJZ = State.NotReady;
+            return this.pKa;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean eBt() {
-        this.pTw = State.Failed;
-        eBu();
-        return this.pTw == State.Ready;
+    private final boolean eDE() {
+        this.pJZ = State.Failed;
+        eDF();
+        return kotlin.jvm.internal.p.l(this.pJZ, State.Ready);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void bU(T t) {
-        this.pTx = t;
-        this.pTw = State.Ready;
+    public final void bO(T t) {
+        this.pKa = t;
+        this.pJZ = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.pTw = State.Done;
+        this.pJZ = State.Done;
     }
 }

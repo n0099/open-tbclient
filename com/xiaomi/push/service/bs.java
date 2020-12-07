@@ -6,18 +6,18 @@ import com.xiaomi.push.service.ap;
 class bs implements ap.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XMPushService f5092a;
+    final /* synthetic */ XMPushService f4862a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bs(XMPushService xMPushService) {
-        this.f5092a = xMPushService;
+        this.f4862a = xMPushService;
     }
 
     @Override // com.xiaomi.push.service.ap.a
     public void a() {
-        this.f5092a.e();
-        if (ap.a().m546a() <= 0) {
-            this.f5092a.a(new XMPushService.f(12, null));
+        this.f4862a.e();
+        if (ap.a().m536a() <= 0) {
+            this.f4862a.a(new XMPushService.f(12, null));
         }
     }
 }

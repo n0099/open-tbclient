@@ -3,7 +3,7 @@ package com.baidu.searchbox.ui.animview.praise.guide;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class ControlShowData {
     private boolean open = true;
     private int sessionMaxCount = 1;

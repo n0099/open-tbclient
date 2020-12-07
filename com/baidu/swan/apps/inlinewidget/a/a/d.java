@@ -3,11 +3,11 @@ package com.baidu.swan.apps.inlinewidget.a.a;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.ap.ah;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class d extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.a.c> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String auS() {
+    public String aya() {
         return "pageScrollUp";
     }
 
@@ -19,6 +19,6 @@ public class d extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
         int i2 = command.arg3;
         int i3 = command.arg4;
         a(cVar, command.what, "(top, inputHeight, keyboardHeight, cursorSpacing) " + i + ", " + M + ", " + i2 + ", " + i3, false);
-        cVar.j(i, M, i2, i3);
+        cVar.m(i, M, i2, i3);
     }
 }

@@ -1,16 +1,12 @@
 package kotlin.internal;
 
-import kotlin.h;
-import kotlin.jvm.internal.q;
-@h
-/* loaded from: classes9.dex */
+import kotlin.e;
+import kotlin.jvm.internal.p;
+@e
+/* loaded from: classes17.dex */
 public class b {
-    public void addSuppressed(Throwable th, Throwable th2) {
-        q.n(th, "cause");
-        q.n(th2, "exception");
-    }
-
-    public kotlin.random.d eBM() {
-        return new kotlin.random.b();
+    public void a(Throwable th, Throwable th2) {
+        p.o(th, "cause");
+        p.o(th2, "exception");
     }
 }

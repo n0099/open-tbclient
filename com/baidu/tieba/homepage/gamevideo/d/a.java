@@ -3,13 +3,13 @@ package com.baidu.tieba.homepage.gamevideo.d;
 import android.util.LongSparseArray;
 import android.util.SparseArray;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.y;
 import java.util.List;
 import tbclient.RecomVertical.DataRes;
 import tbclient.RecomVertical.DislikeReason;
 import tbclient.RecomVertical.ThreadPersonalized;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a {
     public static void a(DataRes dataRes, List<q> list) {
         b(dataRes, list);
@@ -17,7 +17,7 @@ public class a {
 
     private static void b(DataRes dataRes, List<q> list) {
         com.baidu.tieba.card.data.b bVar;
-        bx bjd;
+        by bmn;
         ThreadPersonalized threadPersonalized;
         if (dataRes != null && list != null) {
             LongSparseArray longSparseArray = new LongSparseArray();
@@ -29,15 +29,15 @@ public class a {
             int count = y.getCount(list);
             for (int i = 0; i < count; i++) {
                 q qVar = (q) y.getItem(list, i);
-                if ((qVar instanceof com.baidu.tieba.card.data.b) && (bjd = (bVar = (com.baidu.tieba.card.data.b) qVar).bjd()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.f.b.toLong(bjd.getTid(), 0L))) != null) {
+                if ((qVar instanceof com.baidu.tieba.card.data.b) && (bmn = (bVar = (com.baidu.tieba.card.data.b) qVar).bmn()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.f.b.toLong(bmn.getTid(), 0L))) != null) {
                     bVar.setSource(threadPersonalized.source);
                     bVar.setWeight(threadPersonalized.weight);
-                    bVar.IC(threadPersonalized.abtest_tag);
-                    bjd.mRecomAbTag = threadPersonalized.abtest_tag;
-                    bjd.mRecomSource = threadPersonalized.source;
-                    bjd.mRecomWeight = threadPersonalized.weight;
-                    if (bjd.blU() != null) {
-                        bVar.n(bjd.blU().is_vertical);
+                    bVar.Js(threadPersonalized.abtest_tag);
+                    bmn.mRecomAbTag = threadPersonalized.abtest_tag;
+                    bmn.mRecomSource = threadPersonalized.source;
+                    bmn.mRecomWeight = threadPersonalized.weight;
+                    if (bmn.bph() != null) {
+                        bVar.n(bmn.bph().is_vertical);
                     }
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {

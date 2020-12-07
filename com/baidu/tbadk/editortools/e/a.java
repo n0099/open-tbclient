@@ -8,10 +8,10 @@ import com.baidu.tieba.R;
 public class a extends m {
     public a(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.pb_vote_text), 32, i);
-        this.fnk = R.drawable.ic_icon_pure_more_vote60_svg;
-        this.fnm = R.drawable.icon_pure_post_more_vote64;
-        this.fnn = false;
-        this.fnp = true;
-        this.fnt = new int[]{22};
+        this.fuO = R.drawable.ic_icon_pure_more_vote60_svg;
+        this.fuQ = R.drawable.icon_pure_post_more_vote64;
+        this.fuR = false;
+        this.fuT = true;
+        this.fuX = new int[]{22};
     }
 }

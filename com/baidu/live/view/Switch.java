@@ -27,7 +27,7 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class Switch extends CompoundButton {
     private static final int[] CHECKED_STATE_SET = {16842912};
-    private static final a<Switch> bLe = new a<Switch>("thumbPos") { // from class: com.baidu.live.view.Switch.1
+    private static final a<Switch> bQj = new a<Switch>("thumbPos") { // from class: com.baidu.live.view.Switch.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         /* renamed from: b */
@@ -37,8 +37,7 @@ public class Switch extends CompoundButton {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.view.Switch.a
-        /* renamed from: b */
-        public void setValue(Switch r1, float f) {
+        public void b(Switch r1, float f) {
             r1.setThumbPosition(f);
         }
     };
@@ -360,7 +359,7 @@ public class Switch extends CompoundButton {
                         } else {
                             f = f3 > 0.0f ? 1.0f : -1.0f;
                         }
-                        if (We()) {
+                        if (YE()) {
                             f = -f;
                         }
                         if (this.mThumbPosition + f < 0.0f) {
@@ -403,7 +402,7 @@ public class Switch extends CompoundButton {
             this.mVelocityTracker.computeCurrentVelocity(1000);
             float xVelocity = this.mVelocityTracker.getXVelocity();
             if (Math.abs(xVelocity) > this.mMinFlingVelocity) {
-                if (We()) {
+                if (YE()) {
                     if (xVelocity >= 0.0f) {
                         z = false;
                     }
@@ -421,7 +420,7 @@ public class Switch extends CompoundButton {
     }
 
     private void animateThumbToCheckedState(boolean z) {
-        this.mPositionAnimator = ObjectAnimator.ofFloat(this, bLe, z ? 1.0f : 0.0f);
+        this.mPositionAnimator = ObjectAnimator.ofFloat(this, bQj, z ? 1.0f : 0.0f);
         this.mPositionAnimator.setDuration(250L);
         this.mPositionAnimator.start();
     }
@@ -484,7 +483,7 @@ public class Switch extends CompoundButton {
                 rect.setEmpty();
             }
         }
-        if (We()) {
+        if (YE()) {
             i5 = getPaddingLeft() + 0;
             width = ((this.mSwitchWidth + i5) - 0) - 0;
         } else {
@@ -582,7 +581,7 @@ public class Switch extends CompoundButton {
 
     @Override // android.widget.CompoundButton, android.widget.TextView
     public int getCompoundPaddingLeft() {
-        if (!We()) {
+        if (!YE()) {
             return super.getCompoundPaddingLeft();
         }
         int compoundPaddingLeft = super.getCompoundPaddingLeft() + this.mSwitchWidth;
@@ -594,7 +593,7 @@ public class Switch extends CompoundButton {
 
     @Override // android.widget.CompoundButton, android.widget.TextView
     public int getCompoundPaddingRight() {
-        if (We()) {
+        if (YE()) {
             return super.getCompoundPaddingRight();
         }
         int compoundPaddingRight = super.getCompoundPaddingRight() + this.mSwitchWidth;
@@ -606,7 +605,7 @@ public class Switch extends CompoundButton {
 
     private int getThumbOffset() {
         float f;
-        if (We()) {
+        if (YE()) {
             f = 1.0f - this.mThumbPosition;
         } else {
             f = this.mThumbPosition;
@@ -688,14 +687,14 @@ public class Switch extends CompoundButton {
         }
     }
 
-    private boolean We() {
+    private boolean YE() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static abstract class a<T> extends Property<T, Float> {
-        public abstract void setValue(T t, float f);
+        public abstract void b(T t, float f);
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -711,7 +710,7 @@ public class Switch extends CompoundButton {
 
         /* renamed from: set  reason: avoid collision after fix types in other method */
         public final void set2(T t, Float f) {
-            setValue(t, f.floatValue());
+            b(t, f.floatValue());
         }
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.IMediaGetContactorPauidListener;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,7 +15,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
     private static final String TAG = "IMMediaGetContactorPauidRequest";
     private long mContacter;
@@ -100,7 +101,7 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             int optInt = jSONObject.optInt("error_code", 0);
-            str = jSONObject.optString("error_msg");
+            str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
             j = jSONObject.optLong("pa_uid", -1L);
             i3 = jSONObject.optInt("is_buser", -1);
             i2 = optInt;

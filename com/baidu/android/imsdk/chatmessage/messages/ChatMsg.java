@@ -20,7 +20,7 @@ import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class ChatMsg implements Parcelable, NoProGuard {
     public static final int MSG_FORM_OTHER_DEVICE = 2;
     public static final int MSG_FROM_SAME_DEVICE = 1;
@@ -468,15 +468,15 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return this.mjsonContent;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:28:0x008c A[ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00ac  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0092 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00b2  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public String getSendMsgContent() {
         JSONObject jSONObject;
         try {
-            if ((this.mChatType == 7 || this.mChatType == 16 || this.mChatType == 25) && !TextUtils.isEmpty(this.mExtraContent)) {
+            if ((this.mChatType == 7 || this.mChatType == 16 || this.mChatType == 25 || this.mType == 18) && !TextUtils.isEmpty(this.mExtraContent)) {
                 jSONObject = new JSONObject(this.mExtraContent);
             } else if (this.mjsonContent != null) {
                 jSONObject = new JSONObject(this.mjsonContent);
@@ -554,7 +554,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                     jSONObject.put("tobuid", this.toBduid);
                 }
                 JSONObject jSONObject2 = new JSONObject();
-                if (this.mjsonContent.contains("ext")) {
+                if (jSONObject.has("ext")) {
                     jSONObject2 = new JSONObject(jSONObject.optString("ext"));
                 }
                 jSONObject2.put("sub_app_identity", String.valueOf(this.mChatType));

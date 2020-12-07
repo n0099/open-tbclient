@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class a {
-    private float cuT;
-    private InterfaceC0604a fMd;
-    private long fMe;
-    private long fMf;
-    private boolean fMg;
-    private boolean fMh;
+    private float cBL;
+    private InterfaceC0617a fTO;
+    private long fTP;
+    private long fTQ;
+    private boolean fTR;
+    private boolean fTS;
     private float mDownX;
     private int mMaximumVelocity;
     private int mMinimumVelocity;
@@ -21,10 +21,10 @@ public class a {
 
     /* renamed from: com.baidu.tbadk.widget.viewpager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0604a {
-        void bGy();
+    public interface InterfaceC0617a {
+        void bJY();
 
-        void bGz();
+        void bJZ();
 
         void y(float f, float f2);
     }
@@ -47,41 +47,41 @@ public class a {
         switch (motionEvent.getAction()) {
             case 0:
                 this.mDownX = motionEvent.getX();
-                this.cuT = motionEvent.getY();
-                this.fMe = System.currentTimeMillis();
-                this.fMg = true;
+                this.cBL = motionEvent.getY();
+                this.fTP = System.currentTimeMillis();
+                this.fTR = true;
                 break;
             case 1:
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.fMe < 100 && currentTimeMillis - this.fMf < 500) {
-                    this.fMh = true;
+                if (currentTimeMillis - this.fTP < 100 && currentTimeMillis - this.fTQ < 500) {
+                    this.fTS = true;
                 } else {
-                    this.fMh = false;
+                    this.fTS = false;
                 }
                 VelocityTracker velocityTracker = this.mVelocityTracker;
                 velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
-                if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.cuT - motionEvent.getY()) > 50.0f) {
-                    this.fMh = false;
-                    this.fMg = false;
+                if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.cBL - motionEvent.getY()) > 50.0f) {
+                    this.fTS = false;
+                    this.fTR = false;
                 }
-                if (this.fMh) {
-                    if (this.fMd != null) {
-                        this.fMd.y(motionEvent.getRawX(), motionEvent.getRawY());
+                if (this.fTS) {
+                    if (this.fTO != null) {
+                        this.fTO.y(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.cuT - motionEvent.getY()) && this.fMd != null) {
-                    this.fMd.bGz();
+                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.cBL - motionEvent.getY()) && this.fTO != null) {
+                    this.fTO.bJZ();
                 }
-                if (!this.fMh && this.fMg && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.cuT - motionEvent.getY()) < 30.0f) {
+                if (!this.fTS && this.fTR && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.cBL - motionEvent.getY()) < 30.0f) {
                     this.mView.postDelayed(new Runnable() { // from class: com.baidu.tbadk.widget.viewpager.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!a.this.fMh && a.this.fMg && a.this.fMd != null) {
-                                a.this.fMd.bGy();
+                            if (!a.this.fTS && a.this.fTR && a.this.fTO != null) {
+                                a.this.fTO.bJY();
                             }
                         }
                     }, 300L);
                 }
-                this.fMf = currentTimeMillis;
+                this.fTQ = currentTimeMillis;
                 releaseVelocityTracker();
                 break;
             case 3:
@@ -91,8 +91,8 @@ public class a {
         return true;
     }
 
-    public void setEventListener(InterfaceC0604a interfaceC0604a) {
-        this.fMd = interfaceC0604a;
+    public void setEventListener(InterfaceC0617a interfaceC0617a) {
+        this.fTO = interfaceC0617a;
     }
 
     private void releaseVelocityTracker() {

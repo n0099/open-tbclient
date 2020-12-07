@@ -4,23 +4,24 @@ import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+import org.a.d;
+/* loaded from: classes9.dex */
 public final class FlowableTake<T> extends a<T, T> {
     final long limit;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pOn.a((j) new TakeSubscriber(cVar, this.limit));
+        this.pFg.a((j) new TakeSubscriber(cVar, this.limit));
     }
 
-    /* loaded from: classes5.dex */
-    static final class TakeSubscriber<T> extends AtomicBoolean implements j<T>, org.a.d {
+    /* loaded from: classes9.dex */
+    static final class TakeSubscriber<T> extends AtomicBoolean implements j<T>, d {
         private static final long serialVersionUID = -5636543848937116287L;
         final org.a.c<? super T> actual;
         boolean done;
         final long limit;
         long remaining;
-        org.a.d subscription;
+        d subscription;
 
         TakeSubscriber(org.a.c<? super T> cVar, long j) {
             this.actual = cVar;
@@ -29,7 +30,7 @@ public final class FlowableTake<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.subscription, dVar)) {
                 this.subscription = dVar;
                 if (this.limit == 0) {

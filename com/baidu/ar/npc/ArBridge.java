@@ -10,11 +10,11 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class ArBridge {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ArBridge f1198a = null;
+    private static ArBridge f1196a = null;
     private WeakReference<BaiduArView> b;
     private Handler d;
     private List<a> e;
@@ -28,27 +28,27 @@ public class ArBridge {
     private HandlerThread c = new HandlerThread("msg_callback_thread");
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1200a;
+        public int f1198a;
         public int b;
         public HashMap<String, Object> c;
         public int d;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public interface c {
         void a(Bitmap bitmap);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public interface d {
         void a(int i, int i2, HashMap<String, Object> hashMap);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public enum e {
         SCREEN_ORIENTATION_PORTRAIT,
         SCREEN_ORIENTATION_LANDSCAPE,
@@ -57,7 +57,7 @@ public class ArBridge {
         SCREEN_ORIENTATION_NOT_DEFINED
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public interface f {
         void a(String str, int i, String str2);
     }
@@ -137,10 +137,10 @@ public class ArBridge {
     public static synchronized ArBridge getInstance() {
         ArBridge arBridge;
         synchronized (ArBridge.class) {
-            if (f1198a == null) {
-                f1198a = new ArBridge();
+            if (f1196a == null) {
+                f1196a = new ArBridge();
             }
-            arBridge = f1198a;
+            arBridge = f1196a;
         }
         return arBridge;
     }
@@ -214,25 +214,25 @@ public class ArBridge {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b bVar) {
         for (a aVar : this.e) {
-            if (aVar.f1199a == 0 || bVar.f1200a == aVar.f1199a) {
+            if (aVar.f1197a == 0 || bVar.f1198a == aVar.f1197a) {
                 if (-1 == aVar.b || bVar.d == aVar.b) {
-                    aVar.c.a(bVar.f1200a, bVar.b, bVar.c);
+                    aVar.c.a(bVar.f1198a, bVar.b, bVar.c);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1199a;
+        public int f1197a;
         public int b;
         public d c;
 
         public a(int i, int i2, d dVar) {
-            this.f1199a = i;
+            this.f1197a = i;
             this.b = i2;
             this.c = dVar;
         }

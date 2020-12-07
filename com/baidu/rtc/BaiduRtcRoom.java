@@ -6,29 +6,29 @@ import com.baidu.rtc.RtcParameterSettings;
 import com.baidu.rtc.g;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public abstract class BaiduRtcRoom {
-    private static ArrayList<com.baidu.rtc.b.a> cir = new ArrayList<>();
+    private static ArrayList<com.baidu.rtc.b.a> coZ = new ArrayList<>();
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public enum RtcLiveTransferMode {
         RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION,
         RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public enum RtcSoundMode {
         RTC_SOUND_MODE_SPEAKER,
         RTC_SOUND_MODE_EAR
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public enum RtcVideoFormat {
         RTC_VIDEO_FORMAT_YUV420,
         RTC_VIDEO_FORMAT_RGBA
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public interface a {
         void onErrorInfoUpdate(int i);
 
@@ -39,26 +39,26 @@ public abstract class BaiduRtcRoom {
         void onRoomEventUpdate(int i, long j, String str);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public interface b {
         void a(l lVar, long j);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class c {
         public long userId = 0;
         public String nicName = "";
         public int volumeLevel = 0;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class d {
         public String attribute;
         public long userId;
         public String userName;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class e {
     }
 
@@ -67,7 +67,7 @@ public abstract class BaiduRtcRoom {
             if (context != null) {
                 try {
                     com.baidu.rtc.b.a aVar = new com.baidu.rtc.b.a(context, str, str2, str3, z);
-                    cir.add(aVar);
+                    coZ.add(aVar);
                     return aVar;
                 } finally {
                 }
@@ -76,8 +76,8 @@ public abstract class BaiduRtcRoom {
         }
     }
 
-    public static void dR(boolean z) {
-        com.baidu.rtc.b.a.dR(z);
+    public static void eh(boolean z) {
+        com.baidu.rtc.b.a.eh(z);
     }
 
     public static BaiduRtcRoom p(Context context, String str, String str2) {
@@ -100,17 +100,13 @@ public abstract class BaiduRtcRoom {
 
     public abstract boolean a(a aVar);
 
-    public abstract boolean a(String str, long j, String str2, boolean z);
-
     public abstract boolean a(String str, boolean z, boolean z2, String str2, RtcLiveTransferMode rtcLiveTransferMode);
 
-    public abstract void acS();
+    public abstract c[] agc();
 
-    public abstract c[] acT();
+    public abstract d[] agd();
 
-    public abstract d[] acU();
-
-    public abstract void bk(long j);
+    public abstract void bJ(long j);
 
     public abstract void c(boolean z, boolean z2, String str);
 
@@ -118,15 +114,13 @@ public abstract class BaiduRtcRoom {
 
     public abstract void d(long j, boolean z);
 
-    public abstract void dS(boolean z);
-
     public void destroy() {
         synchronized (this) {
-            if (cir.size() > 0) {
+            if (coZ.size() > 0) {
                 if (this instanceof com.baidu.rtc.b.a) {
                     ((com.baidu.rtc.b.a) this).doDestroy();
                 }
-                cir.remove(this);
+                coZ.remove(this);
                 System.gc();
             }
         }
@@ -134,11 +128,17 @@ public abstract class BaiduRtcRoom {
 
     public abstract void destroyExternalSurface(long j, Surface surface);
 
+    public abstract void disbandRoom();
+
+    public abstract void ei(boolean z);
+
     public abstract void enableExternalVideoCapturer(boolean z);
 
-    public abstract void j(boolean z, String str);
+    public abstract void enableStatsToServer(boolean z, String str);
 
-    public abstract boolean jO(String str);
+    public abstract boolean kv(String str);
+
+    public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z);
 
     public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z, boolean z2);
 

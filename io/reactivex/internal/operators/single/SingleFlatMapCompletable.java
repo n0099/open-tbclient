@@ -1,13 +1,13 @@
 package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
+import io.reactivex.b.h;
 import io.reactivex.c;
-import io.reactivex.c.h;
 import io.reactivex.e;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class SingleFlatMapCompletable<T> extends io.reactivex.a {
     final h<? super T, ? extends e> mapper;
     final aa<T> source;
@@ -19,7 +19,7 @@ public final class SingleFlatMapCompletable<T> extends io.reactivex.a {
         this.source.a(flatMapCompletableObserver);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class FlatMapCompletableObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements c, io.reactivex.disposables.b, y<T> {
         private static final long serialVersionUID = -2177128922851101253L;
         final c actual;
@@ -48,7 +48,7 @@ public final class SingleFlatMapCompletable<T> extends io.reactivex.a {
         @Override // io.reactivex.y
         public void onSuccess(T t) {
             try {
-                e eVar = (e) io.reactivex.internal.functions.a.l(this.mapper.apply(t), "The mapper returned a null CompletableSource");
+                e eVar = (e) io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper returned a null CompletableSource");
                 if (!isDisposed()) {
                     eVar.a(this);
                 }

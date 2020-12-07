@@ -15,21 +15,21 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class a extends Dialog implements DialogInterface {
-    private View dZY;
-    private TextView kun;
+    private View egY;
+    private TextView kHH;
     private Context mContext;
     private TextView mTitle;
-    private String oCA;
-    private String oCB;
-    private String oCC;
-    private String oCD;
-    private RelativeLayout oCE;
-    private View oCF;
-    private View oCG;
-    private View oCH;
-    private AnimationSet oCx;
-    private TextView oCy;
-    private TextView oCz;
+    private AnimationSet oRD;
+    private TextView oRE;
+    private TextView oRF;
+    private String oRG;
+    private String oRH;
+    private String oRI;
+    private String oRJ;
+    private RelativeLayout oRK;
+    private View oRL;
+    private View oRM;
+    private View oRN;
 
     protected a(Context context) {
         super(context, a.i.NoTitleDialog);
@@ -42,10 +42,10 @@ public class a extends Dialog implements DialogInterface {
     public a(Context context, String str, String str2, String str3, String str4) {
         this(context);
         this.mContext = context;
-        this.oCA = str;
-        this.oCB = str2;
-        this.oCC = str3;
-        this.oCD = str4;
+        this.oRG = str;
+        this.oRH = str2;
+        this.oRI = str3;
+        this.oRJ = str4;
     }
 
     private void initAnimation() {
@@ -60,8 +60,8 @@ public class a extends Dialog implements DialogInterface {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                a.this.dZY.setVisibility(8);
-                a.this.dZY.post(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a.1.1
+                a.this.egY.setVisibility(8);
+                a.this.egY.post(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
                         a.super.cancel();
@@ -69,60 +69,60 @@ public class a extends Dialog implements DialogInterface {
                 });
             }
         };
-        this.oCx = (AnimationSet) com.baidu.yuyinala.privatemessage.implugin.ui.material.c.a.J(getContext(), a.C0195a.bd_im_modal_out);
-        this.oCx.setAnimationListener(animationListener);
+        this.oRD = (AnimationSet) com.baidu.yuyinala.privatemessage.implugin.ui.material.c.a.S(getContext(), a.C0205a.bd_im_modal_out);
+        this.oRD.setAnimationListener(animationListener);
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(a.g.bd_im_alert_select_dialog);
-        this.dZY = getWindow().getDecorView().findViewById(16908290);
-        ViewGroup.LayoutParams layoutParams = this.dZY.getLayoutParams();
+        this.egY = getWindow().getDecorView().findViewById(16908290);
+        ViewGroup.LayoutParams layoutParams = this.egY.getLayoutParams();
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindow().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         layoutParams.width = displayMetrics.widthPixels;
-        this.dZY.setLayoutParams(layoutParams);
-        this.oCE = (RelativeLayout) findViewById(a.f.searchbox_alert_dialog);
-        this.oCy = (TextView) findViewById(a.f.bd_im_dialog_cancel);
-        this.oCz = (TextView) findViewById(a.f.bd_im_dialog_ensure);
+        this.egY.setLayoutParams(layoutParams);
+        this.oRK = (RelativeLayout) findViewById(a.f.searchbox_alert_dialog);
+        this.oRE = (TextView) findViewById(a.f.bd_im_dialog_cancel);
+        this.oRF = (TextView) findViewById(a.f.bd_im_dialog_ensure);
         this.mTitle = (TextView) findViewById(a.f.bd_im_dialog_title);
-        this.kun = (TextView) findViewById(a.f.bd_im_dialog_content);
-        this.oCF = findViewById(a.f.bd_im_dialog_divider2);
-        this.oCG = findViewById(a.f.bd_im_dialog_divider3);
-        this.oCH = findViewById(a.f.bd_im_dialog_divider4);
-        if (!TextUtils.isEmpty(this.oCA)) {
-            this.mTitle.setText(this.oCA);
+        this.kHH = (TextView) findViewById(a.f.bd_im_dialog_content);
+        this.oRL = findViewById(a.f.bd_im_dialog_divider2);
+        this.oRM = findViewById(a.f.bd_im_dialog_divider3);
+        this.oRN = findViewById(a.f.bd_im_dialog_divider4);
+        if (!TextUtils.isEmpty(this.oRG)) {
+            this.mTitle.setText(this.oRG);
         }
-        if (!TextUtils.isEmpty(this.oCB)) {
-            this.kun.setText(this.oCB);
+        if (!TextUtils.isEmpty(this.oRH)) {
+            this.kHH.setText(this.oRH);
         }
-        if (!TextUtils.isEmpty(this.oCC)) {
-            this.oCz.setText(this.oCC);
+        if (!TextUtils.isEmpty(this.oRI)) {
+            this.oRF.setText(this.oRI);
         }
-        if (!TextUtils.isEmpty(this.oCD)) {
-            this.oCy.setText(this.oCD);
+        if (!TextUtils.isEmpty(this.oRJ)) {
+            this.oRE.setText(this.oRJ);
         }
-        egS();
+        emG();
     }
 
-    public void egR() {
+    public void emF() {
         super.cancel();
-        zX(true);
+        AB(true);
     }
 
-    private void zX(boolean z) {
-        this.dZY.startAnimation(this.oCx);
+    private void AB(boolean z) {
+        this.egY.startAnimation(this.oRD);
     }
 
     public void a(final View.OnClickListener onClickListener, final View.OnClickListener onClickListener2) {
-        this.oCy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a.2
+        this.oRE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 onClickListener.onClick(view);
             }
         });
-        this.oCz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a.3
+        this.oRF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 onClickListener2.onClick(view);
@@ -130,6 +130,6 @@ public class a extends Dialog implements DialogInterface {
         });
     }
 
-    private void egS() {
+    private void emG() {
     }
 }

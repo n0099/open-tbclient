@@ -10,24 +10,24 @@ import android.util.Base64;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class j extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cAB;
+    private String cHu;
     private Bitmap mBitmap;
     private Matrix mMatrix;
 
     public j(String str) {
-        this.cAB = str;
+        this.cHu = str;
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
     }
 
-    public int ajU() {
+    public int anc() {
         try {
-            JSONObject jSONObject = new JSONObject(this.cAB);
+            JSONObject jSONObject = new JSONObject(this.cHu);
             int M = com.baidu.swan.apps.ap.ah.M((float) jSONObject.optDouble("x"));
             int M2 = com.baidu.swan.apps.ap.ah.M((float) jSONObject.optDouble("y"));
             int optInt = jSONObject.optInt("width");

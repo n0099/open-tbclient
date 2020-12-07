@@ -4,7 +4,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.favrite.FavSyncPoi;
 import com.baidu.platform.comapi.basestruct.Point;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static FavoritePoiInfo a(FavSyncPoi favSyncPoi) {
@@ -12,7 +12,7 @@ class a {
             return null;
         }
         FavoritePoiInfo favoritePoiInfo = new FavoritePoiInfo();
-        favoritePoiInfo.f1990a = favSyncPoi.f2217a;
+        favoritePoiInfo.f1992a = favSyncPoi.f2219a;
         favoritePoiInfo.b = favSyncPoi.b;
         favoritePoiInfo.c = new LatLng(favSyncPoi.c.y / 1000000.0d, favSyncPoi.c.x / 1000000.0d);
         favoritePoiInfo.e = favSyncPoi.e;
@@ -37,7 +37,7 @@ class a {
         favoritePoiInfo.d = jSONObject.optString("addr");
         favoritePoiInfo.f = jSONObject.optString("uspoiuid");
         favoritePoiInfo.e = jSONObject.optString("ncityid");
-        favoritePoiInfo.f1990a = jSONObject.optString("key");
+        favoritePoiInfo.f1992a = jSONObject.optString("key");
         return favoritePoiInfo;
     }
 

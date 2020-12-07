@@ -1,9 +1,9 @@
 package com.baidu.ar.c;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public abstract class a<T> implements Runnable {
     private int mPriority = 5;
 
-    public abstract T ax();
+    public abstract T ay();
 
     public abstract String getTag();
 
@@ -11,7 +11,7 @@ public abstract class a<T> implements Runnable {
     public final void run() {
         Thread.currentThread().setPriority(this.mPriority);
         try {
-            c.ce().c(ax());
+            c.cd().c(ay());
         } catch (Throwable th) {
             th.printStackTrace();
         }

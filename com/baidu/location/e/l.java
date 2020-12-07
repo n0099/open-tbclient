@@ -35,12 +35,12 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class l {
     public static double[] aI;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1957a = false;
+    public static boolean f1959a = false;
     public static boolean b = false;
     public static boolean c = false;
     public static int d = 0;

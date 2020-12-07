@@ -1,15 +1,15 @@
 package com.baidu.tieba.ala.personcenter.c;
 
 import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class b extends BaseCardInfo {
-    private c hDE;
+    private c hNl;
 
     public void a(c cVar) {
-        this.hDE = cVar;
+        this.hNl = cVar;
     }
 
     public c getPersonCenterData() {
-        return this.hDE;
+        return this.hNl;
     }
 }

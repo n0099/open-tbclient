@@ -1,13 +1,13 @@
 package com.facebook.common.file;
 
 import java.io.File;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class a {
-    public static String oMF = null;
+    public static String pbN = null;
 
     public static void a(File file, b bVar) {
         File[] b;
-        bVar.ak(file);
+        bVar.am(file);
         try {
             b = file.listFiles();
         } catch (OutOfMemoryError e) {
@@ -19,19 +19,19 @@ public class a {
                 if (file2.isDirectory()) {
                     a(file2, bVar);
                 } else {
-                    bVar.al(file2);
+                    bVar.an(file2);
                     String path = file2.getPath();
                     if (path != null) {
-                        if (oMF == null) {
-                            oMF = path;
-                        } else if (path.length() > oMF.length()) {
-                            oMF = path;
+                        if (pbN == null) {
+                            pbN = path;
+                        } else if (path.length() > pbN.length()) {
+                            pbN = path;
                         }
                     }
                 }
             }
         }
-        bVar.am(file);
+        bVar.ao(file);
     }
 
     public static boolean deleteContents(File file) {
@@ -41,15 +41,15 @@ public class a {
             int length = listFiles.length;
             int i = 0;
             while (i < length) {
-                boolean as = as(listFiles[i]) & z;
+                boolean au = au(listFiles[i]) & z;
                 i++;
-                z = as;
+                z = au;
             }
         }
         return z;
     }
 
-    public static boolean as(File file) {
+    public static boolean au(File file) {
         if (file.isDirectory()) {
             deleteContents(file);
         }
@@ -68,19 +68,19 @@ public class a {
         int length = strArr.length;
         File[] fileArr = new File[length];
         for (int i = 0; i < length; i++) {
-            fileArr[i] = new File(gW(path, strArr[i]));
+            fileArr[i] = new File(he(path, strArr[i]));
         }
         return fileArr;
     }
 
-    private static String gW(String str, String str2) {
+    private static String he(String str, String str2) {
         if (str.isEmpty()) {
             return str2;
         }
-        return str2.isEmpty() ? str : gX(str, str2);
+        return str2.isEmpty() ? str : hf(str, str2);
     }
 
-    private static String gX(String str, String str2) {
+    private static String hf(String str, String str2) {
         boolean z = true;
         int length = str.length();
         boolean z2 = length > 0 && str.charAt(length + (-1)) == File.separatorChar;

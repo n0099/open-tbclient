@@ -1,38 +1,39 @@
 package com.baidu.ar.auth.a;
 
 import android.content.Context;
+import com.baidu.ar.auth.ARAuth;
 import com.baidu.ar.auth.AuthJni;
 import com.baidu.ar.auth.IAuthenticateCallback;
 import com.baidu.ar.auth.IAuthenticator;
-import com.baidu.ar.g.d;
-/* loaded from: classes12.dex */
+import com.baidu.ar.h.d;
+/* loaded from: classes10.dex */
 public class a implements IAuthenticator {
-    private static volatile a jT;
-    private d jS;
-    private String jd;
-    private String je;
+    private static volatile a ki;
+    private String js;
+    private String jt;
+    private d kh;
     private String mSecretKey;
 
     private a(String str, String str2, String str3) {
-        this.jd = str;
-        this.je = str2;
+        this.js = str;
+        this.jt = str2;
         this.mSecretKey = str3;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, byte[] bArr, IAuthenticateCallback iAuthenticateCallback) {
-        b.cF().init(context, bArr, iAuthenticateCallback);
+        b.cE().init(context, bArr, iAuthenticateCallback);
     }
 
     public static a b(String str, String str2, String str3) {
-        if (jT == null) {
-            jT = new a(str, str2, str3);
+        if (ki == null) {
+            ki = new a(str, str2, str3);
         } else {
-            jT.jd = str;
-            jT.je = str2;
-            jT.mSecretKey = str3;
+            ki.js = str;
+            ki.jt = str2;
+            ki.mSecretKey = str3;
         }
-        return jT;
+        return ki;
     }
 
     @Override // com.baidu.ar.auth.IAuthenticator
@@ -42,13 +43,14 @@ public class a implements IAuthenticator {
 
     @Override // com.baidu.ar.auth.IAuthenticator
     public void init(final Context context, final byte[] bArr, final IAuthenticateCallback iAuthenticateCallback) {
-        com.baidu.ar.auth.a.setAuthLicense(bArr, this.jd, this.je, this.mSecretKey);
-        if (this.jS == null) {
-            this.jS = new d("AsyncAuthenticator");
-            this.jS.start();
+        com.baidu.ar.libloader.a.load(context, null);
+        ARAuth.setAuthLicense(bArr, this.js, this.jt, this.mSecretKey);
+        if (this.kh == null) {
+            this.kh = new d("AsyncAuthenticator");
+            this.kh.start();
         }
         AuthJni.init();
-        this.jS.execute(new Runnable() { // from class: com.baidu.ar.auth.a.a.1
+        this.kh.execute(new Runnable() { // from class: com.baidu.ar.auth.a.a.1
             @Override // java.lang.Runnable
             public void run() {
                 a.this.a(context, bArr, iAuthenticateCallback);
@@ -58,6 +60,6 @@ public class a implements IAuthenticator {
 
     @Override // com.baidu.ar.auth.IAuthenticator
     public void release() {
-        com.baidu.ar.auth.a.release();
+        ARAuth.release();
     }
 }

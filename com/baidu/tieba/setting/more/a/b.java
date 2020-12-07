@@ -13,41 +13,41 @@ import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class b extends Thread {
-    private a mKa;
-    private final String mKd;
-    private Process mKe;
-    private FileOutputStream mKg;
+    private a mYc;
+    private final String mYf;
+    private Process mYg;
+    private FileOutputStream mYi;
     private boolean mRunning = true;
-    private BufferedReader mKf = null;
+    private BufferedReader mYh = null;
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes26.dex */
     public interface a {
-        void dFn();
+        void dKy();
     }
 
     public b(String str, String str2, boolean z) {
-        this.mKg = null;
+        this.mYi = null;
         try {
-            this.mKg = new FileOutputStream(new File(str, str2 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH).format(new Date()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION), true);
+            this.mYi = new FileOutputStream(new File(str, str2 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH).format(new Date()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION), true);
         } catch (FileNotFoundException e) {
             BdLog.e(Log.getStackTraceString(e));
         }
         if (z) {
-            this.mKd = "logcat -v threadtime *:v -d";
+            this.mYf = "logcat -v threadtime *:v -d";
         } else {
-            this.mKd = "logcat -v threadtime *:v";
+            this.mYf = "logcat -v threadtime *:v";
         }
     }
 
     public void a(a aVar) {
-        this.mKa = aVar;
+        this.mYc = aVar;
     }
 
-    public void dFo() {
+    public void dKz() {
         this.mRunning = false;
-        closeAll();
+        dKA();
         interrupt();
     }
 
@@ -55,44 +55,44 @@ public class b extends Thread {
     public void run() {
         String readLine;
         try {
-            this.mKe = Runtime.getRuntime().exec(this.mKd);
-            this.mKf = new BufferedReader(new InputStreamReader(this.mKe.getInputStream()), 1024);
-            while (this.mRunning && (readLine = this.mKf.readLine()) != null && this.mRunning) {
-                if (readLine.length() != 0 && this.mKg != null) {
-                    this.mKg.write((readLine + "\n").getBytes());
+            this.mYg = Runtime.getRuntime().exec(this.mYf);
+            this.mYh = new BufferedReader(new InputStreamReader(this.mYg.getInputStream()), 1024);
+            while (this.mRunning && (readLine = this.mYh.readLine()) != null && this.mRunning) {
+                if (readLine.length() != 0 && this.mYi != null) {
+                    this.mYi.write((readLine + "\n").getBytes());
                 }
             }
             BdLog.d("collector complete.");
         } catch (IOException e) {
             BdLog.e(Log.getStackTraceString(e));
         } finally {
-            closeAll();
+            dKA();
         }
     }
 
-    private void closeAll() {
-        if (this.mKe != null) {
-            this.mKe.destroy();
-            this.mKe = null;
+    private void dKA() {
+        if (this.mYg != null) {
+            this.mYg.destroy();
+            this.mYg = null;
         }
-        if (this.mKf != null) {
+        if (this.mYh != null) {
             try {
-                this.mKf.close();
-                this.mKf = null;
+                this.mYh.close();
+                this.mYh = null;
             } catch (IOException e) {
                 BdLog.e(Log.getStackTraceString(e));
             }
         }
-        if (this.mKg != null) {
+        if (this.mYi != null) {
             try {
-                this.mKg.close();
+                this.mYi.close();
             } catch (IOException e2) {
                 BdLog.e(Log.getStackTraceString(e2));
             }
-            this.mKg = null;
+            this.mYi = null;
         }
-        if (this.mKa != null) {
-            this.mKa.dFn();
+        if (this.mYc != null) {
+            this.mYc.dKy();
         }
     }
 }

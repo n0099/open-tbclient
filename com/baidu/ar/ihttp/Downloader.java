@@ -1,20 +1,20 @@
 package com.baidu.ar.ihttp;
 
 import com.baidu.ar.callback.ICallbackWith;
-import com.baidu.ar.g.i;
-import com.baidu.ar.g.k;
+import com.baidu.ar.h.i;
+import com.baidu.ar.h.k;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
 import org.apache.http.client.methods.HttpHead;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public final class Downloader {
-    private String rc;
-    private int rd = 0;
+    private String rs;
+    private int rt = 0;
 
     public Downloader(String str) {
-        this.rc = str;
+        this.rs = str;
     }
 
     private static void a(InputStream inputStream, String str, int i, IProgressCallback iProgressCallback) {
@@ -64,7 +64,7 @@ public final class Downloader {
 
     public int download(String str, IProgressCallback iProgressCallback) {
         int fileSize = getFileSize();
-        IHttpResponse execute = HttpFactory.newRequest().setUrl(this.rc).setMethod("GET").execute();
+        IHttpResponse execute = HttpFactory.newRequest().setUrl(this.rs).setMethod("GET").execute();
         if (execute.isSuccess()) {
             a(execute.getStream(), str, fileSize, iProgressCallback);
             return fileSize;
@@ -72,9 +72,13 @@ public final class Downloader {
         throw new HttpException(4, "下载失败");
     }
 
-    public IHttpRequest downloadAsync(final String str, final ICallbackWith<Integer> iCallbackWith, final ICallbackWith<Exception> iCallbackWith2) {
+    public IHttpRequest downloadAsync(String str, ICallbackWith<Integer> iCallbackWith, ICallbackWith<Exception> iCallbackWith2) {
+        return downloadAsync(str, iCallbackWith, iCallbackWith2, null);
+    }
+
+    public IHttpRequest downloadAsync(final String str, final ICallbackWith<Integer> iCallbackWith, final ICallbackWith<Exception> iCallbackWith2, final IProgressCallback iProgressCallback) {
         IHttpRequest newRequest = HttpFactory.newRequest();
-        newRequest.setUrl(this.rc).setMethod(HttpHead.METHOD_NAME).enqueue(new a() { // from class: com.baidu.ar.ihttp.Downloader.1
+        newRequest.setUrl(this.rs).setMethod(HttpHead.METHOD_NAME).enqueue(new a() { // from class: com.baidu.ar.ihttp.Downloader.1
             @Override // com.baidu.ar.ihttp.a
             public void a(HttpException httpException) {
                 iCallbackWith2.run(httpException);
@@ -82,10 +86,10 @@ public final class Downloader {
 
             @Override // com.baidu.ar.ihttp.a
             public void a(IHttpResponse iHttpResponse) {
-                Downloader.this.rd = iHttpResponse.getContentLength();
+                Downloader.this.rt = iHttpResponse.getContentLength();
                 try {
-                    Downloader.this.download(str, null);
-                    iCallbackWith.run(Integer.valueOf(Downloader.this.rd));
+                    Downloader.this.download(str, iProgressCallback);
+                    iCallbackWith.run(Integer.valueOf(Downloader.this.rt));
                 } catch (Exception e) {
                     e.printStackTrace();
                     iCallbackWith2.run(e);
@@ -96,9 +100,9 @@ public final class Downloader {
     }
 
     public int getFileSize() {
-        if (this.rd == 0) {
-            this.rd = getNetFileSize(this.rc);
+        if (this.rt == 0) {
+            this.rt = getNetFileSize(this.rs);
         }
-        return this.rd;
+        return this.rt;
     }
 }

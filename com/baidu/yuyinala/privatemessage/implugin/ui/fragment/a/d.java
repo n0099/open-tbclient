@@ -4,67 +4,67 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes4.dex */
 public class d {
-    private static d oCr;
-    private b oCs;
-    private b oCt;
-    private a oCu;
-    private String oCv = "";
-    private ConcurrentHashMap<String, c> oCw = new ConcurrentHashMap<>(4);
+    private static d oRx;
+    private a oRA;
+    private b oRy;
+    private b oRz;
+    private String oRB = "";
+    private ConcurrentHashMap<String, c> oRC = new ConcurrentHashMap<>(4);
     private AtomicInteger mOpenCounter = new AtomicInteger();
 
-    public static d egL() {
-        if (oCr == null) {
+    public static d emz() {
+        if (oRx == null) {
             synchronized (d.class) {
-                if (oCr == null) {
-                    oCr = new d();
+                if (oRx == null) {
+                    oRx = new d();
                 }
             }
         }
-        return oCr;
+        return oRx;
     }
 
-    public c Xp(String str) {
-        return this.oCw.get(str);
+    public c YK(String str) {
+        return this.oRC.get(str);
     }
 
-    public String egM() {
-        return this.oCv;
+    public String emA() {
+        return this.oRB;
     }
 
     public void a(String str, c cVar) {
-        this.oCv = str;
+        this.oRB = str;
         if (cVar != null) {
-            this.oCw.put(str, cVar);
+            this.oRC.put(str, cVar);
         }
     }
 
-    public void Xq(String str) {
-        if (this.oCw.containsKey(str)) {
-            this.oCw.remove(str);
+    public void YL(String str) {
+        if (this.oRC.containsKey(str)) {
+            this.oRC.remove(str);
         }
     }
 
-    public b egN() {
-        return this.oCs;
+    public b emB() {
+        return this.oRy;
     }
 
     public void a(b bVar) {
-        this.oCs = bVar;
+        this.oRy = bVar;
     }
 
-    public b egO() {
-        return this.oCt;
+    public b emC() {
+        return this.oRz;
     }
 
     public void b(b bVar) {
-        this.oCt = bVar;
+        this.oRz = bVar;
     }
 
-    public static void egP() {
-        oCr = null;
+    public static void emD() {
+        oRx = null;
     }
 
-    public a egQ() {
-        return this.oCu;
+    public a emE() {
+        return this.oRA;
     }
 }

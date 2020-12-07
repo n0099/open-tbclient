@@ -18,12 +18,12 @@ import java.io.RandomAccessFile;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class s extends com.baidu.location.e.f {
     private static s q = null;
 
     /* renamed from: a  reason: collision with root package name */
-    String f1911a = null;
+    String f1913a = null;
     String b = null;
     String c = null;
     String d = null;
@@ -128,7 +128,7 @@ public class s extends com.baidu.location.e.f {
         try {
             File file = new File(com.baidu.location.e.l.j() + "/grtcfrsa.dat");
             if (!file.exists()) {
-                File file2 = new File(com.baidu.location.e.k.f1956a);
+                File file2 = new File(com.baidu.location.e.k.f1958a);
                 if (!file2.exists()) {
                     file2.mkdirs();
                 }
@@ -170,7 +170,7 @@ public class s extends com.baidu.location.e.f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        if (this.f1911a == null) {
+        if (this.f1913a == null) {
             return;
         }
         new w(this).start();
@@ -181,22 +181,22 @@ public class s extends com.baidu.location.e.f {
         if (this.c == null) {
             return true;
         }
-        if (this.c.contains("../")) {
+        if (this.c.contains(com.baidu.android.imsdk.retrieve.Constants.PATH_PARENT)) {
             return false;
         }
         if (new File(com.baidu.location.e.l.j() + File.separator + this.c).exists()) {
             return true;
         }
-        return a(SapiUtils.COOKIE_HTTPS_URL_PREFIX + this.f1911a + "/" + this.c, this.c);
+        return a(SapiUtils.COOKIE_HTTPS_URL_PREFIX + this.f1913a + "/" + this.c, this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (this.b == null || this.b.contains("../")) {
+        if (this.b == null || this.b.contains(com.baidu.android.imsdk.retrieve.Constants.PATH_PARENT)) {
             return;
         }
         File file = new File(com.baidu.location.e.l.j() + File.separator + this.b);
-        if (file.exists() || !a(SapiUtils.COOKIE_HTTPS_URL_PREFIX + this.f1911a + "/" + this.b, this.b)) {
+        if (file.exists() || !a(SapiUtils.COOKIE_HTTPS_URL_PREFIX + this.f1913a + "/" + this.b, this.b)) {
             return;
         }
         String a2 = com.baidu.location.e.l.a(file, "SHA-256");
@@ -228,7 +228,7 @@ public class s extends com.baidu.location.e.f {
         stringBuffer.append(2);
         if (com.baidu.location.e.b.a().c == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(com.baidu.location.e.b.a().f1945a);
+            stringBuffer.append(com.baidu.location.e.b.a().f1947a);
         } else {
             stringBuffer.append("&cu=");
             stringBuffer.append(com.baidu.location.e.b.a().c);
@@ -273,7 +273,7 @@ public class s extends com.baidu.location.e.f {
                 JSONObject jSONObject = new JSONObject(this.j);
                 if (MapBundleKey.OfflineMapKey.OFFLINE_UPDATE.equals(jSONObject.getString("res"))) {
                     if (jSONObject.has("upath")) {
-                        this.f1911a = jSONObject.getString("upath");
+                        this.f1913a = jSONObject.getString("upath");
                     }
                     if (jSONObject.has("u1")) {
                         this.b = jSONObject.getString("u1");

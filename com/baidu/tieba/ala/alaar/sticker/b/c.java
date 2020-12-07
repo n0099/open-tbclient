@@ -21,10 +21,10 @@ public class c {
     }
 
     public static boolean copyFile(String str, String str2) throws IOException {
-        return h(new FileInputStream(str), str2);
+        return g(new FileInputStream(str), str2);
     }
 
-    public static boolean h(InputStream inputStream, String str) throws IOException {
+    public static boolean g(InputStream inputStream, String str) throws IOException {
         int i = 0;
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(str);

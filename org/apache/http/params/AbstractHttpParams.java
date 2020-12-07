@@ -1,6 +1,6 @@
 package org.apache.http.params;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public abstract class AbstractHttpParams implements HttpParams {
     /* JADX INFO: Access modifiers changed from: protected */
     public AbstractHttpParams() {

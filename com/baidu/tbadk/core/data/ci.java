@@ -1,35 +1,49 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.AlaPersonCenterFansActivityConfig;
 import org.json.JSONObject;
-import tbclient.FrsPage.Yule;
+import tbclient.FrsPage.YuleActivity;
 /* loaded from: classes.dex */
 public class ci {
-    private int eFW = 0;
-    private ch eFX = new ch();
+    private int aVJ;
+    private String activity_all_icon;
+    private String activity_half_icon;
+    private String activity_url;
+    private long eER;
 
-    public boolean bnX() {
-        return this.eFW != 0;
+    public String getActivityUrl() {
+        return this.activity_url;
     }
 
-    public ch bnY() {
-        return this.eFX;
+    public String brk() {
+        return this.activity_all_icon;
     }
 
-    public void a(Yule yule) {
-        if (yule != null) {
-            this.eFW = yule.activity_show.intValue();
-            this.eFX.a(yule.yule_activity);
+    public String brl() {
+        return this.activity_half_icon;
+    }
+
+    public void a(YuleActivity yuleActivity) {
+        if (yuleActivity != null) {
+            this.eER = yuleActivity.activity_id.longValue();
+            this.aVJ = yuleActivity.activity_type.intValue();
+            this.activity_url = yuleActivity.activity_url;
+            this.activity_all_icon = yuleActivity.activity_all_icon;
+            this.activity_half_icon = yuleActivity.activity_half_icon;
         }
     }
 
-    public void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.eFW = jSONObject.optInt("activity_show");
-                this.eFX.parserJson(jSONObject.optJSONObject("yule_activity"));
+                this.eER = jSONObject.optLong("activity_id");
+                this.aVJ = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
+                this.activity_url = jSONObject.optString("activity_url");
+                this.activity_all_icon = jSONObject.optString("activity_all_icon");
+                this.activity_half_icon = jSONObject.optString("activity_half_icon");
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                BdLog.e(e.toString());
             }
         }
     }

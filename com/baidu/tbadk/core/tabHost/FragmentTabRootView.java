@@ -55,9 +55,9 @@ public class FragmentTabRootView extends LinearLayout {
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
+        super.draw(canvas);
         canvas.save();
         canvas.concat(this.mMatrix);
-        super.draw(canvas);
         canvas.drawRect(this.mRect, this.mPaint);
         canvas.restore();
     }

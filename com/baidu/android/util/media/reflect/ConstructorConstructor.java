@@ -2,7 +2,7 @@ package com.baidu.android.util.media.reflect;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class ConstructorConstructor {
     public <T> ObjectConstructor<T> get(Class<? super T> cls) {
         return newDefaultConstructor(cls);

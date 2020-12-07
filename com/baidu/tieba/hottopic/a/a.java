@@ -6,35 +6,35 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a extends af.a {
-    public int ajv;
-    public TextView jRa;
-    public TextView jRb;
-    public TextView jRc;
-    public TextView jRd;
-    public View jRe;
-    public View jRf;
-    public TbImageView jRg;
-    public LinearLayout jRh;
+    public int aku;
+    public TextView keE;
+    public TextView keF;
+    public TextView keG;
+    public TextView keH;
+    public View keI;
+    public View keJ;
+    public TbImageView keK;
+    public LinearLayout keL;
 
     public a(View view) {
         super(view);
-        this.ajv = 3;
-        this.jRa = null;
-        this.jRb = null;
-        this.jRc = null;
-        this.jRd = null;
-        this.jRe = null;
-        this.jRf = null;
-        this.jRg = null;
-        this.jRh = null;
-        this.jRa = (TextView) view.findViewById(R.id.topic_module);
-        this.jRc = (TextView) view.findViewById(R.id.topic_desc);
-        this.jRb = (TextView) view.findViewById(R.id.topic_title);
-        this.jRg = (TbImageView) view.findViewById(R.id.topic_pic);
-        this.jRe = view.findViewById(R.id.devide_line_top);
-        this.jRf = view.findViewById(R.id.devide_line_bottom);
-        this.jRh = (LinearLayout) view.findViewById(R.id.topic_manual_item);
+        this.aku = 3;
+        this.keE = null;
+        this.keF = null;
+        this.keG = null;
+        this.keH = null;
+        this.keI = null;
+        this.keJ = null;
+        this.keK = null;
+        this.keL = null;
+        this.keE = (TextView) view.findViewById(R.id.topic_module);
+        this.keG = (TextView) view.findViewById(R.id.topic_desc);
+        this.keF = (TextView) view.findViewById(R.id.topic_title);
+        this.keK = (TbImageView) view.findViewById(R.id.topic_pic);
+        this.keI = view.findViewById(R.id.devide_line_top);
+        this.keJ = view.findViewById(R.id.devide_line_bottom);
+        this.keL = (LinearLayout) view.findViewById(R.id.topic_manual_item);
     }
 }

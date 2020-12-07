@@ -1,5 +1,5 @@
 package com.baidu.ala.ndk;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class AlaNDKRecorderAdapter {
     public static final int NATIVE_COMMON_MODE = 1;
     public static final int NATIVE_RTC_MODE = 2;
@@ -38,6 +38,8 @@ public class AlaNDKRecorderAdapter {
     private native int sendPCMDataNative2(long j, byte[] bArr, int i, long j2, long j3);
 
     private native void setDebugMonitor(long j, boolean z, int i);
+
+    private native void setPreDetectedBestDnsNative(long j, String str, String str2);
 
     private native int setRtcConfig(long j, int i, int i2, int i3, int i4);
 
@@ -89,6 +91,10 @@ public class AlaNDKRecorderAdapter {
 
     public void setDebugMonitor(boolean z, int i) {
         setDebugMonitor(this.mNativeObject, z, i);
+    }
+
+    public void setPreDetectedBestDns(String str, String str2) {
+        setPreDetectedBestDnsNative(this.mNativeObject, str, str2);
     }
 
     public int startNative(String str, int i, String str2) {

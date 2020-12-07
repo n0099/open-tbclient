@@ -7,11 +7,11 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class FieldUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<String, Field> f1529a = new HashMap();
+    private static Map<String, Field> f1531a = new HashMap();
 
     private static String a(Class<?> cls, String str) {
         StringBuilder sb = new StringBuilder();
@@ -26,8 +26,8 @@ public class FieldUtils {
         Validate.a(cls != null, "The class must not be null", new Object[0]);
         Validate.a(!TextUtils.isEmpty(str), "The field name must not be blank/empty", new Object[0]);
         String a2 = a(cls, str);
-        synchronized (f1529a) {
-            field = f1529a.get(a2);
+        synchronized (f1531a) {
+            field = f1531a.get(a2);
         }
         if (field != null) {
             if (z && !field.isAccessible()) {
@@ -48,8 +48,8 @@ public class FieldUtils {
                     declaredField.setAccessible(true);
                 }
             }
-            synchronized (f1529a) {
-                f1529a.put(a2, declaredField);
+            synchronized (f1531a) {
+                f1531a.put(a2, declaredField);
             }
             return declaredField;
         }
@@ -63,8 +63,8 @@ public class FieldUtils {
             }
             field3 = field2;
         }
-        synchronized (f1529a) {
-            f1529a.put(a2, field3);
+        synchronized (f1531a) {
+            f1531a.put(a2, field3);
         }
         return field3;
     }

@@ -41,17 +41,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private w aDh;
+    private w aFN;
     private AlaLiveInfoData mLiveInfo;
     private TbPageContext mTbPageContext;
     private View mView;
-    private h nUY;
+    private h ojW;
     private boolean isFollowed = false;
     private String mPortrait = "";
     private String otherParams = "";
-    private AlaLiveAudienceEndView.a nUZ = new AlaLiveAudienceEndView.a() { // from class: com.baidu.tieba.yuyinala.endliveroom.a.1
+    private AlaLiveAudienceEndView.a ojX = new AlaLiveAudienceEndView.a() { // from class: com.baidu.tieba.yuyinala.endliveroom.a.1
         @Override // com.baidu.tieba.yuyinala.endliveroom.AlaLiveAudienceEndView.a
-        public void Nd() {
+        public void Pv() {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913086));
         }
 
@@ -99,18 +99,18 @@ public class a {
         }
 
         @Override // com.baidu.tieba.yuyinala.endliveroom.AlaLiveAudienceEndView.a
-        public void mf(final boolean z) {
+        public void mA(final boolean z) {
             if (!TbadkCoreApplication.isLogin()) {
                 ViewHelper.skipToLoginActivity(a.this.mTbPageContext.getPageActivity());
                 return;
             }
             if (a.this.mView instanceof AlaLiveAudienceEndView) {
-                ((AlaLiveAudienceEndView) a.this.mView).mg(!z);
+                ((AlaLiveAudienceEndView) a.this.mView).mB(!z);
             }
             a.this.isFollowed = !z;
             if (BdUtilHelper.isNetOk()) {
-                if (a.this.aDh != null && a.this.aDh.aHZ != null && a.this.aDh.aHZ.aRe != null) {
-                    a.this.nUY.a(new h.a() { // from class: com.baidu.tieba.yuyinala.endliveroom.a.1.1
+                if (a.this.aFN != null && a.this.aFN.aKL != null && a.this.aFN.aKL.aUg != null) {
+                    a.this.ojW.a(new h.a() { // from class: com.baidu.tieba.yuyinala.endliveroom.a.1.1
                         @Override // com.baidu.tieba.yuyinala.liveroom.roomcard.h.a
                         public void a(AlaGetCollectRoomHttpResponseMessage alaGetCollectRoomHttpResponseMessage) {
                             if (z) {
@@ -121,7 +121,7 @@ public class a {
                             JSONObject jSONObject = new JSONObject();
                             try {
                                 jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, a.this.aDh.aHZ.croom_id);
+                                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, a.this.aFN.aKL.croom_id);
                             } catch (Exception e) {
                                 BdLog.e(e);
                             }
@@ -132,8 +132,8 @@ public class a {
                         public void onFail(int i, String str) {
                         }
                     });
-                    if (a.this.aDh != null && a.this.aDh.aHZ != null) {
-                        a.this.nUY.w(a.this.aDh.aHZ.aRe, a.this.aDh.aHZ.live_id, z ? 0 : 1);
+                    if (a.this.aFN != null && a.this.aFN.aKL != null) {
+                        a.this.ojW.w(a.this.aFN.aKL.aUg, a.this.aFN.aKL.live_id, z ? 0 : 1);
                     }
                     if (!z && TbadkCoreApplication.getInst().isHaokan()) {
                         AlaStaticItem alaStaticItem = new AlaStaticItem(HKStaticKeys.HK_STATIC_FOLLOW_CLICK);
@@ -142,7 +142,7 @@ public class a {
                             alaStaticItem.addParams("room_id", a.this.mLiveInfo.room_id + "");
                             alaStaticItem.addParams("feed_id", a.this.mLiveInfo.feed_id + "");
                         }
-                        alaStaticItem.addParams("other_params", a.this.LU());
+                        alaStaticItem.addParams("other_params", a.this.Oj());
                         AlaStaticsManager.getInst().onStatic(alaStaticItem);
                     }
                     if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
@@ -153,7 +153,7 @@ public class a {
                             alaStaticItem2.addParams("feed_id", a.this.mLiveInfo.feed_id + "");
                         }
                         alaStaticItem2.addParams("loc", "live_end");
-                        alaStaticItem2.addParams("other_params", a.this.LU());
+                        alaStaticItem2.addParams("other_params", a.this.Oj());
                         AlaStaticsManager.getInst().onStatic(alaStaticItem2);
                         return;
                     }
@@ -168,7 +168,7 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.nUY = new h(this.mTbPageContext.getPageActivity());
+        this.ojW = new h(this.mTbPageContext.getPageActivity());
     }
 
     public View getView() {
@@ -177,19 +177,19 @@ public class a {
 
     public void a(AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout, View view, w wVar, boolean z, ArrayList<AlaLiveInfoData> arrayList) {
         if (wVar != null) {
-            boolean z2 = wVar.aHZ != null ? wVar.aHZ.is_followed : false;
+            boolean z2 = wVar.aKL != null ? wVar.aKL.is_followed : false;
             String str = "";
-            if (wVar.aHZ != null) {
-                str = wVar.aHZ.cover;
+            if (wVar.aKL != null) {
+                str = wVar.aKL.cover;
             }
             this.mLiveInfo = wVar.mLiveInfo;
-            this.aDh = wVar;
+            this.aFN = wVar;
             this.mPortrait = str;
             this.isFollowed = z2;
             if (this.mLiveInfo == null) {
                 this.mLiveInfo = new AlaLiveInfoData();
             }
-            bRz();
+            bVj();
             TiebaInitialize.log(new StatisticItem("c11888"));
             JSONObject jSONObject = new JSONObject();
             try {
@@ -204,9 +204,9 @@ public class a {
             }
             this.mView.setId(a.f.ala_liveroom_audience_end_view);
             if (this.mView instanceof AlaLiveAudienceEndView) {
-                ((AlaLiveAudienceEndView) this.mView).setCallback(this.nUZ);
-                ((AlaLiveAudienceEndView) this.mView).setData(this.mTbPageContext, wVar, z, this.isFollowed, this.mPortrait, LU());
-                ((AlaLiveAudienceEndView) this.mView).ac(arrayList);
+                ((AlaLiveAudienceEndView) this.mView).setCallback(this.ojX);
+                ((AlaLiveAudienceEndView) this.mView).setData(this.mTbPageContext, wVar, z, this.isFollowed, this.mPortrait, Oj());
+                ((AlaLiveAudienceEndView) this.mView).ad(arrayList);
             }
             if (this.mView != null) {
                 int[] screenFullSize = ViewCommonUtil.getScreenFullSize(this.mTbPageContext.getPageActivity());
@@ -215,23 +215,23 @@ public class a {
         }
     }
 
-    public void ac(ArrayList<AlaLiveInfoData> arrayList) {
+    public void ad(ArrayList<AlaLiveInfoData> arrayList) {
         if (this.mView instanceof AlaLiveAudienceEndView) {
-            ((AlaLiveAudienceEndView) this.mView).ac(arrayList);
+            ((AlaLiveAudienceEndView) this.mView).ad(arrayList);
         }
     }
 
-    public void bRz() {
+    public void bVj() {
         if (this.mView != null && this.mView.getParent() != null) {
             ((ViewGroup) this.mView).removeView(this.mView);
         }
     }
 
-    public boolean bRA() {
+    public boolean bVk() {
         return (getView() == null || getView().getParent() == null) ? false : true;
     }
 
-    public void D(int i, int i2) {
+    public void C(int i, int i2) {
         if ((this.mView instanceof AlaLiveAudienceEndView) && this.mView.getParent() != null) {
             this.mView.setLayoutParams(new FrameLayout.LayoutParams(i, i2));
             int virtualBarHeight = l.getVirtualBarHeight(this.mTbPageContext.getPageActivity());
@@ -248,14 +248,14 @@ public class a {
         if (this.mView instanceof AlaLiveAudienceEndView) {
             ((AlaLiveAudienceEndView) this.mView).onDestory();
         }
-        if (this.nUY != null) {
-            this.nUY.onDestroy();
+        if (this.ojW != null) {
+            this.ojW.onDestroy();
         }
         this.mView = null;
         this.mTbPageContext = null;
     }
 
-    public String LU() {
+    public String Oj() {
         return this.otherParams;
     }
 

@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class c extends com.meizu.cloud.pushsdk.handler.a.a<RegisterStatus> {
     public c(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);

@@ -134,7 +134,7 @@ public class BrowserHelper {
                 if (pair != null && !TextUtils.isEmpty((CharSequence) pair.first)) {
                     sb.append(ETAG.ITEM_SEPARATOR);
                     sb.append((String) pair.first);
-                    sb.append(ETAG.EQUAL);
+                    sb.append("=");
                     sb.append((String) pair.second);
                 }
             }

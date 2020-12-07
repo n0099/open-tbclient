@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes19.dex */
 public interface Lifecycle {
     @NonNull
-    public static final AtomicReference<Object> Ac = new AtomicReference<>();
+    public static final AtomicReference<Object> AX = new AtomicReference<>();
 
     /* loaded from: classes19.dex */
     public enum State {

@@ -3,37 +3,37 @@ package com.baidu.swan.apps.console.debugger.b;
 import android.os.Bundle;
 import com.baidu.swan.apps.ap.u;
 import com.baidu.swan.apps.runtime.e;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class d implements com.baidu.swan.apps.console.debugger.a {
-    private static String Qg;
+    private static String Ra;
 
-    public static String alu() {
-        return Qg;
+    public static String aoC() {
+        return Ra;
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
-    public String akR() {
-        return b.akY().getPath();
+    public String anZ() {
+        return b.aog().getPath();
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
     public void n(Bundle bundle) {
-        Qg = u.g(bundle, "extraWSUrl");
-        com.baidu.swan.apps.console.debugger.b.mn(u.g(bundle, "masterPreload"));
-        com.baidu.swan.apps.console.debugger.b.mo(u.g(bundle, "slavePreload"));
+        Ra = u.g(bundle, "extraWSUrl");
+        com.baidu.swan.apps.console.debugger.b.mU(u.g(bundle, "masterPreload"));
+        com.baidu.swan.apps.console.debugger.b.mV(u.g(bundle, "slavePreload"));
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
     public void o(Bundle bundle) {
-        bundle.putString("extraWSUrl", Qg);
-        bundle.putString("slavePreload", com.baidu.swan.apps.console.debugger.b.akT());
-        bundle.putString("masterPreload", com.baidu.swan.apps.console.debugger.b.akS());
+        bundle.putString("extraWSUrl", Ra);
+        bundle.putString("slavePreload", com.baidu.swan.apps.console.debugger.b.aob());
+        bundle.putString("masterPreload", com.baidu.swan.apps.console.debugger.b.aoa());
     }
 
-    public static void alv() {
-        e aGM = e.aGM();
-        if (aGM != null) {
-            com.baidu.swan.apps.ap.e.M(aGM.getActivity());
+    public static void aoD() {
+        e aJU = e.aJU();
+        if (aJU != null) {
+            com.baidu.swan.apps.ap.e.M(aJU.getActivity());
             System.exit(0);
         }
     }

@@ -6,7 +6,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractSampleEntry extends AbstractContainerBox implements SampleEntry {
     protected int dataReferenceIndex;
 

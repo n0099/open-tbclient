@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.e;
+import com.baidu.adp.base.h;
 import com.baidu.adp.base.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -26,7 +27,6 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.n.h;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.a.c;
@@ -40,28 +40,25 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     private static Method mDestroyLayerWithParamMethod;
     private static Method mResetDisplayListMethod;
     private static HashMap<String, SoftReference<com.baidu.adp.widget.ImageView.a>> sDefaultBdImageCache;
-    protected c akv;
+    protected b alw;
     protected boolean canLogPerf;
-    protected final com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a> eJP;
-    protected a fAi;
-    protected boolean fAj;
-    protected boolean fAk;
-    protected boolean fAl;
-    protected float fAm;
-    protected float fAn;
-    private com.baidu.tieba.pb.a.c fAo;
-    protected h fAp;
-    private boolean fAq;
-    private RectF fAr;
-    private Path fAs;
-    private RectF fAt;
-    private com.baidu.tbadk.widget.c fAu;
-    protected int fAv;
-    private boolean fAw;
-    private b fAx;
-    private final com.baidu.tieba.pb.a.c fAy;
-    a.InterfaceC0025a fAz;
-    private TbRichTextView.g fqT;
+    protected final com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a> eRb;
+    protected a fHX;
+    protected boolean fHY;
+    protected boolean fHZ;
+    protected boolean fIa;
+    protected float fIb;
+    protected float fIc;
+    private com.baidu.tieba.pb.a.c fId;
+    private RectF fIe;
+    private Path fIf;
+    private RectF fIg;
+    private c fIh;
+    protected int fIi;
+    private boolean fIj;
+    private final com.baidu.tieba.pb.a.c fIk;
+    a.InterfaceC0025a fIl;
+    private TbRichTextView.g fyJ;
     protected boolean isLongPic;
     private boolean isPageIdRegisterMessage;
     private int lastSkinType;
@@ -99,26 +96,21 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
 
     /* loaded from: classes.dex */
     public interface b {
-        void bDX();
-    }
-
-    /* loaded from: classes.dex */
-    public interface c {
         void a(TbImageView tbImageView, Canvas canvas);
 
         void b(TbImageView tbImageView, Canvas canvas);
     }
 
     public void setDispatchTouchListener(TbRichTextView.g gVar) {
-        this.fqT = gVar;
+        this.fyJ = gVar;
     }
 
     public void setEvent(a aVar) {
-        this.fAi = aVar;
+        this.fHX = aVar;
     }
 
-    public void setOnDrawListener(c cVar) {
-        this.akv = cVar;
+    public void setOnDrawListener(b bVar) {
+        this.alw = bVar;
     }
 
     @Deprecated
@@ -135,13 +127,13 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         setDefaultResource(ap.getColor(R.color.CAM_X0202));
         switch (i) {
             case 0:
-                setDefaultBgResource(ap.ps(R.drawable.transparent_bg));
+                setDefaultBgResource(ap.pS(R.drawable.transparent_bg));
                 return;
             case 1:
-                setDefaultBgResource(ap.ps(R.drawable.pic_use_header_28_n));
+                setDefaultBgResource(ap.pS(R.drawable.pic_use_header_28_n));
                 return;
             default:
-                setDefaultBgResource(ap.ps(R.drawable.pic_use_header_40_n));
+                setDefaultBgResource(ap.pS(R.drawable.pic_use_header_40_n));
                 return;
         }
     }
@@ -161,10 +153,6 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         }
     }
 
-    public void setLoadImageErrorListener(b bVar) {
-        this.fAx = bVar;
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void e(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
@@ -172,50 +160,43 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f(com.baidu.adp.widget.ImageView.a aVar) {
-    }
-
     @Override // android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.fqT != null) {
-            this.fqT.L(motionEvent);
+        if (this.fyJ != null) {
+            this.fyJ.L(motionEvent);
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     public TbImageView(Context context) {
         super(context);
-        this.fAi = null;
         this.mDefaultId = R.color.transparent;
         this.mLoadingDefaultId = R.drawable.img_loading;
         this.mDefaultBgId = R.color.CAM_X0205;
-        this.fAj = false;
+        this.fHY = false;
         this.mIsGif = false;
         this.isLongPic = false;
-        this.fAk = false;
-        this.fAl = false;
+        this.fHZ = false;
+        this.fIa = false;
         this.mType = 10;
         this.mAutoChangeStyle = true;
         this.mMatrix = new Matrix();
         this.mSupportNoImage = false;
-        this.fAp = null;
-        this.fAq = false;
-        this.fAr = new RectF();
-        this.fAs = new Path();
-        this.fAt = new RectF();
+        this.fIe = new RectF();
+        this.fIf = new Path();
+        this.fIg = new RectF();
         this.lastSkinType = 3;
         this.requestTime = 0L;
         this.mLoadedWidth = 0;
         this.mLoadedHeight = 0;
         this.isPageIdRegisterMessage = false;
-        this.fAw = false;
-        this.fAy = new com.baidu.tieba.pb.a.c(new c.a() { // from class: com.baidu.tbadk.widget.TbImageView.1
+        this.fIj = false;
+        this.fIk = new com.baidu.tieba.pb.a.c(new c.a() { // from class: com.baidu.tbadk.widget.TbImageView.1
             @Override // com.baidu.tieba.pb.a.c.a
             public boolean onDoubleTap(View view, MotionEvent motionEvent) {
-                if (TbImageView.this.fAo != null) {
-                    TbImageView.this.fAo.ad(view);
-                    return TbImageView.this.fAo.onDoubleTap(motionEvent);
+                if (TbImageView.this.fId != null) {
+                    TbImageView.this.fId.ad(view);
+                    return TbImageView.this.fId.onDoubleTap(motionEvent);
                 }
                 return false;
             }
@@ -231,19 +212,19 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                     if (TbImageView.this.mOnClickListener != null) {
                         TbImageView.this.mOnClickListener.onClick(view);
                         return true;
-                    } else if (TbImageView.this.fAo != null) {
-                        TbImageView.this.fAo.ad(view);
-                        return TbImageView.this.fAo.onSingleTapConfirmed(motionEvent);
+                    } else if (TbImageView.this.fId != null) {
+                        TbImageView.this.fId.ad(view);
+                        return TbImageView.this.fId.onSingleTapConfirmed(motionEvent);
                     } else {
                         return false;
                     }
                 }
                 TbImageView.this.startLoading();
-                com.baidu.adp.lib.e.c.mS().a(TbImageView.this.mUrl, TbImageView.this.mType, TbImageView.this.eJP, TbImageView.this.mWidth, TbImageView.this.mHeight, TbImageView.this.mPageId, new Object[0]);
+                com.baidu.adp.lib.e.c.mS().a(TbImageView.this.mUrl, TbImageView.this.mType, TbImageView.this.eRb, TbImageView.this.mWidth, TbImageView.this.mHeight, TbImageView.this.mPageId, new Object[0]);
                 return true;
             }
         });
-        this.eJP = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.TbImageView.2
+        this.eRb = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.TbImageView.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.b
@@ -253,27 +234,9 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                     TbImageView.this.mLoadedHeight = aVar.getHeight();
                 }
                 TbImageView.this.stopLoading();
-                if (aVar == null) {
-                    if (TbImageView.this.fAx != null) {
-                        TbImageView.this.fAx.bDX();
-                    }
-                } else {
-                    TbImageView.this.e(aVar);
-                    TbImageView.this.f(aVar);
-                }
-                if (TbImageView.this.fAi != null) {
-                    TbImageView.this.fAi.onComplete(str, aVar != null);
-                }
-                if (aVar != null) {
-                    if (aVar.Vo != null) {
-                        TbImageView.this.fAp.resourceFromType = aVar.Vo.resourceFromType;
-                        TbImageView.this.fAp.isSuccess = aVar.Vo.isScuess;
-                        TbImageView.this.fAp.costTime = aVar.Vo.costTime;
-                    }
-                } else {
-                    TbImageView.this.fAp.resourceFromType = "net";
-                    TbImageView.this.fAp.isSuccess = false;
-                    TbImageView.this.fAp.costTime = System.currentTimeMillis() - TbImageView.this.requestTime;
+                TbImageView.this.e(aVar);
+                if (TbImageView.this.fHX != null) {
+                    TbImageView.this.fHX.onComplete(str, aVar != null);
                 }
                 TbImageView.this.startLogPerf();
             }
@@ -289,15 +252,15 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
             public void onCancelled(String str) {
                 super.onCancelled(str);
                 TbImageView.this.stopLoading();
-                if (TbImageView.this.fAi != null) {
-                    TbImageView.this.fAi.onCancel();
+                if (TbImageView.this.fHX != null) {
+                    TbImageView.this.fHX.onCancel();
                 }
             }
         };
-        this.fAz = new a.InterfaceC0025a() { // from class: com.baidu.tbadk.widget.TbImageView.3
+        this.fIl = new a.InterfaceC0025a() { // from class: com.baidu.tbadk.widget.TbImageView.3
             @Override // com.baidu.adp.newwidget.ImageView.a.InterfaceC0025a
             public boolean a(Canvas canvas, Drawable drawable) {
-                if (TbImageView.this.getBdImage() == null && TbImageView.this.fAw) {
+                if (TbImageView.this.getBdImage() == null && TbImageView.this.fIj) {
                     TbImageView.this.b(canvas, drawable);
                     return true;
                 }
@@ -313,7 +276,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                     String genCacheKey = com.baidu.adp.lib.e.c.mS().genCacheKey(TbImageView.this.mUrl, TbImageView.this.mType);
                     if (genCacheKey != null && genCacheKey.equals(str)) {
                         TbImageView.this.destroyDrawingCache();
-                        bDW();
+                        bHy();
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodNoParam(TbImageView.mDestroyLayerMethod, TbImageView.this, TbImageView.class);
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodParam(TbImageView.mDestroyLayerWithParamMethod, TbImageView.this, TbImageView.class, false);
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodNoParam(TbImageView.mClearDisplayListMethod, TbImageView.this, TbImageView.class);
@@ -323,7 +286,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                 }
             }
 
-            private void bDW() {
+            private void bHy() {
                 if (TbImageView.mDestroyLayerMethod == null) {
                     Method unused = TbImageView.mDestroyLayerMethod = com.baidu.adp.lib.OrmObject.a.a.findMethod(TbImageView.class, "destroyLayer", new Object[0]);
                 }
@@ -343,36 +306,33 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
 
     public TbImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fAi = null;
         this.mDefaultId = R.color.transparent;
         this.mLoadingDefaultId = R.drawable.img_loading;
         this.mDefaultBgId = R.color.CAM_X0205;
-        this.fAj = false;
+        this.fHY = false;
         this.mIsGif = false;
         this.isLongPic = false;
-        this.fAk = false;
-        this.fAl = false;
+        this.fHZ = false;
+        this.fIa = false;
         this.mType = 10;
         this.mAutoChangeStyle = true;
         this.mMatrix = new Matrix();
         this.mSupportNoImage = false;
-        this.fAp = null;
-        this.fAq = false;
-        this.fAr = new RectF();
-        this.fAs = new Path();
-        this.fAt = new RectF();
+        this.fIe = new RectF();
+        this.fIf = new Path();
+        this.fIg = new RectF();
         this.lastSkinType = 3;
         this.requestTime = 0L;
         this.mLoadedWidth = 0;
         this.mLoadedHeight = 0;
         this.isPageIdRegisterMessage = false;
-        this.fAw = false;
-        this.fAy = new com.baidu.tieba.pb.a.c(new c.a() { // from class: com.baidu.tbadk.widget.TbImageView.1
+        this.fIj = false;
+        this.fIk = new com.baidu.tieba.pb.a.c(new c.a() { // from class: com.baidu.tbadk.widget.TbImageView.1
             @Override // com.baidu.tieba.pb.a.c.a
             public boolean onDoubleTap(View view, MotionEvent motionEvent) {
-                if (TbImageView.this.fAo != null) {
-                    TbImageView.this.fAo.ad(view);
-                    return TbImageView.this.fAo.onDoubleTap(motionEvent);
+                if (TbImageView.this.fId != null) {
+                    TbImageView.this.fId.ad(view);
+                    return TbImageView.this.fId.onDoubleTap(motionEvent);
                 }
                 return false;
             }
@@ -388,19 +348,19 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                     if (TbImageView.this.mOnClickListener != null) {
                         TbImageView.this.mOnClickListener.onClick(view);
                         return true;
-                    } else if (TbImageView.this.fAo != null) {
-                        TbImageView.this.fAo.ad(view);
-                        return TbImageView.this.fAo.onSingleTapConfirmed(motionEvent);
+                    } else if (TbImageView.this.fId != null) {
+                        TbImageView.this.fId.ad(view);
+                        return TbImageView.this.fId.onSingleTapConfirmed(motionEvent);
                     } else {
                         return false;
                     }
                 }
                 TbImageView.this.startLoading();
-                com.baidu.adp.lib.e.c.mS().a(TbImageView.this.mUrl, TbImageView.this.mType, TbImageView.this.eJP, TbImageView.this.mWidth, TbImageView.this.mHeight, TbImageView.this.mPageId, new Object[0]);
+                com.baidu.adp.lib.e.c.mS().a(TbImageView.this.mUrl, TbImageView.this.mType, TbImageView.this.eRb, TbImageView.this.mWidth, TbImageView.this.mHeight, TbImageView.this.mPageId, new Object[0]);
                 return true;
             }
         });
-        this.eJP = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.TbImageView.2
+        this.eRb = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.TbImageView.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.b
@@ -410,27 +370,9 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                     TbImageView.this.mLoadedHeight = aVar.getHeight();
                 }
                 TbImageView.this.stopLoading();
-                if (aVar == null) {
-                    if (TbImageView.this.fAx != null) {
-                        TbImageView.this.fAx.bDX();
-                    }
-                } else {
-                    TbImageView.this.e(aVar);
-                    TbImageView.this.f(aVar);
-                }
-                if (TbImageView.this.fAi != null) {
-                    TbImageView.this.fAi.onComplete(str, aVar != null);
-                }
-                if (aVar != null) {
-                    if (aVar.Vo != null) {
-                        TbImageView.this.fAp.resourceFromType = aVar.Vo.resourceFromType;
-                        TbImageView.this.fAp.isSuccess = aVar.Vo.isScuess;
-                        TbImageView.this.fAp.costTime = aVar.Vo.costTime;
-                    }
-                } else {
-                    TbImageView.this.fAp.resourceFromType = "net";
-                    TbImageView.this.fAp.isSuccess = false;
-                    TbImageView.this.fAp.costTime = System.currentTimeMillis() - TbImageView.this.requestTime;
+                TbImageView.this.e(aVar);
+                if (TbImageView.this.fHX != null) {
+                    TbImageView.this.fHX.onComplete(str, aVar != null);
                 }
                 TbImageView.this.startLogPerf();
             }
@@ -446,15 +388,15 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
             public void onCancelled(String str) {
                 super.onCancelled(str);
                 TbImageView.this.stopLoading();
-                if (TbImageView.this.fAi != null) {
-                    TbImageView.this.fAi.onCancel();
+                if (TbImageView.this.fHX != null) {
+                    TbImageView.this.fHX.onCancel();
                 }
             }
         };
-        this.fAz = new a.InterfaceC0025a() { // from class: com.baidu.tbadk.widget.TbImageView.3
+        this.fIl = new a.InterfaceC0025a() { // from class: com.baidu.tbadk.widget.TbImageView.3
             @Override // com.baidu.adp.newwidget.ImageView.a.InterfaceC0025a
             public boolean a(Canvas canvas, Drawable drawable) {
-                if (TbImageView.this.getBdImage() == null && TbImageView.this.fAw) {
+                if (TbImageView.this.getBdImage() == null && TbImageView.this.fIj) {
                     TbImageView.this.b(canvas, drawable);
                     return true;
                 }
@@ -470,7 +412,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                     String genCacheKey = com.baidu.adp.lib.e.c.mS().genCacheKey(TbImageView.this.mUrl, TbImageView.this.mType);
                     if (genCacheKey != null && genCacheKey.equals(str)) {
                         TbImageView.this.destroyDrawingCache();
-                        bDW();
+                        bHy();
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodNoParam(TbImageView.mDestroyLayerMethod, TbImageView.this, TbImageView.class);
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodParam(TbImageView.mDestroyLayerWithParamMethod, TbImageView.this, TbImageView.class, false);
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodNoParam(TbImageView.mClearDisplayListMethod, TbImageView.this, TbImageView.class);
@@ -480,7 +422,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                 }
             }
 
-            private void bDW() {
+            private void bHy() {
                 if (TbImageView.mDestroyLayerMethod == null) {
                     Method unused = TbImageView.mDestroyLayerMethod = com.baidu.adp.lib.OrmObject.a.a.findMethod(TbImageView.class, "destroyLayer", new Object[0]);
                 }
@@ -503,13 +445,12 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     }
 
     private void init(Context context, AttributeSet attributeSet) {
-        this.fAu = new com.baidu.tbadk.widget.c(this);
+        this.fIh = new c(this);
         updateNight();
         this.mLoadingFrameIncrement = 30.0f;
-        this.fAp = new h();
         setConrers(0);
-        if (this.RA != null) {
-            this.RA.a(this.fAz);
+        if (this.Su != null) {
+            this.Su.a(this.fIl);
         }
     }
 
@@ -537,15 +478,14 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                 aVar = null;
             } else {
                 String str = (String) tag;
-                com.baidu.adp.widget.ImageView.a DA = com.baidu.tbadk.imageManager.c.bAt().DA(str);
-                aVar = DA == null ? com.baidu.tbadk.imageManager.c.bAt().Dz(str) : DA;
+                com.baidu.adp.widget.ImageView.a Ei = com.baidu.tbadk.imageManager.c.bDV().Ei(str);
+                aVar = Ei == null ? com.baidu.tbadk.imageManager.c.bDV().Eh(str) : Ei;
             }
         } else {
             aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.e.c.mS().loadResourceFromMemery(this.mUrl, this.mType, new Object[0]);
         }
         if (aVar != null) {
             e(aVar);
-            f(aVar);
         }
         return aVar;
     }
@@ -621,10 +561,10 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     public void a(String str, int i, int i2, int i3, boolean z) {
         BdUniqueId bdUniqueId = null;
         boolean z2 = false;
-        com.baidu.adp.base.h G = i.G(getContext());
-        if (G != null) {
-            BdUniqueId uniqueId = this.mPageId != null ? this.mPageId : G.getUniqueId();
-            z2 = G.isScroll();
+        h H = i.H(getContext());
+        if (H != null) {
+            BdUniqueId uniqueId = this.mPageId != null ? this.mPageId : H.getUniqueId();
+            z2 = H.isScroll();
             bdUniqueId = uniqueId;
         }
         a(str, i, i2, i3, z, bdUniqueId, z2);
@@ -632,9 +572,9 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
 
     public void a(String str, int i, int i2, int i3, boolean z, boolean z2) {
         BdUniqueId bdUniqueId = null;
-        com.baidu.adp.base.h G = i.G(getContext());
-        if (G != null) {
-            bdUniqueId = this.mPageId != null ? this.mPageId : G.getUniqueId();
+        h H = i.H(getContext());
+        if (H != null) {
+            bdUniqueId = this.mPageId != null ? this.mPageId : H.getUniqueId();
         }
         a(str, i, i2, i3, z, bdUniqueId, z2);
     }
@@ -650,17 +590,14 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         }
         boolean z3 = str.equals(this.mUrl) && i == this.mType && bdUniqueId == this.mPageId;
         if (!z3) {
-            bDP();
+            bHr();
             this.mNeedRecomputeMatrix = true;
             this.mIsGif = false;
             requestLayout();
         } else if (getBdImage() != null) {
-            this.fAp.resourceFromType = "memory";
-            this.fAp.isSuccess = true;
-            this.fAp.costTime = 0L;
             invalidate();
-            if (this.fAi != null) {
-                this.fAi.onComplete(str, true);
+            if (this.fHX != null) {
+                this.fHX.onComplete(str, true);
                 return;
             }
             return;
@@ -673,36 +610,33 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         this.mNeedRecomputeMatrix = true;
         if (z2) {
             invalidate();
-        } else if (!com.baidu.adp.lib.e.c.mS().at(this.mType) && this.mSupportNoImage) {
+        } else if (!com.baidu.adp.lib.e.c.mS().aw(this.mType) && this.mSupportNoImage) {
             invalidate();
         } else if (z3 && !j.isNetWorkAvailable()) {
-            this.fAp.resourceFromType = "memory";
-            this.fAp.isSuccess = false;
-            this.fAp.costTime = 0L;
             invalidate();
-            if (this.fAi != null) {
-                this.fAi.onComplete(str, false);
+            if (this.fHX != null) {
+                this.fHX.onComplete(str, false);
             }
         } else {
             if (z) {
                 startLoading();
             }
             this.requestTime = System.currentTimeMillis();
-            com.baidu.adp.lib.e.c.mS().a(this.mUrl, this.mType, this.eJP, i2, i3, this.mPageId, new Object[0]);
+            com.baidu.adp.lib.e.c.mS().a(this.mUrl, this.mType, this.eRb, i2, i3, this.mPageId, new Object[0]);
         }
     }
 
     public void stopLoad() {
         if (!TextUtils.isEmpty(this.mUrl)) {
-            com.baidu.adp.lib.e.c.mS().a(this.mUrl, this.mType, this.eJP);
+            com.baidu.adp.lib.e.c.mS().a(this.mUrl, this.mType, this.eRb);
             stopLoading();
         }
     }
 
-    public void bDP() {
+    public void bHr() {
         if (!TextUtils.isEmpty(this.mUrl)) {
-            com.baidu.adp.lib.e.c.mS().a(this.mUrl, this.mType, this.eJP);
-            if (TextUtils.isEmpty(this.mUrl) || bDQ()) {
+            com.baidu.adp.lib.e.c.mS().a(this.mUrl, this.mType, this.eRb);
+            if (TextUtils.isEmpty(this.mUrl) || bHs()) {
                 stopLoading();
             }
         }
@@ -712,12 +646,12 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     @Override // android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        e<?> I = i.I(getContext());
+        e<?> J = i.J(getContext());
         if (this.mPageId != null) {
             this.isPageIdRegisterMessage = true;
         }
-        if (I != null) {
-            this.listener.setTag(this.mPageId != null ? this.mPageId : I.getUniqueId());
+        if (J != null) {
+            this.listener.setTag(this.mPageId != null ? this.mPageId : J.getUniqueId());
         }
         MessageManager.getInstance().registerListener(this.listener);
     }
@@ -751,33 +685,33 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     @Override // com.baidu.adp.newwidget.ImageView.BDImageView
     public void setDrawerType(int i) {
         super.setDrawerType(i);
-        if (this.RA != null) {
-            this.RA.a(this.fAz);
+        if (this.Su != null) {
+            this.Su.a(this.fIl);
         }
     }
 
     protected void b(Canvas canvas, Drawable drawable) {
         canvas.save();
-        this.fAs.reset();
-        this.fAr.right = getWidth();
-        this.fAr.bottom = getHeight();
-        this.fAs.addRoundRect(this.fAr, this.Rz.mRadius, Path.Direction.CW);
-        int i = this.fAv ^ 15;
+        this.fIf.reset();
+        this.fIe.right = getWidth();
+        this.fIe.bottom = getHeight();
+        this.fIf.addRoundRect(this.fIe, this.St.mRadius, Path.Direction.CW);
+        int i = this.fIi ^ 15;
         RectF rectF = new RectF(0.0f, 0.0f, getWidth(), getHeight());
         if ((i & 1) != 0) {
-            this.fAs.addRect(0.0f, 0.0f, this.Rz.mRadius[0], this.Rz.mRadius[1], Path.Direction.CW);
+            this.fIf.addRect(0.0f, 0.0f, this.St.mRadius[0], this.St.mRadius[1], Path.Direction.CW);
         }
         if ((i & 2) != 0) {
-            this.fAs.addRect(rectF.right - this.Rz.mRadius[2], 0.0f, rectF.right, this.Rz.mRadius[3], Path.Direction.CW);
+            this.fIf.addRect(rectF.right - this.St.mRadius[2], 0.0f, rectF.right, this.St.mRadius[3], Path.Direction.CW);
         }
         if ((i & 4) != 0) {
-            this.fAs.addRect(0.0f, rectF.bottom - this.Rz.mRadius[5], this.Rz.mRadius[4], rectF.bottom, Path.Direction.CW);
+            this.fIf.addRect(0.0f, rectF.bottom - this.St.mRadius[5], this.St.mRadius[4], rectF.bottom, Path.Direction.CW);
         }
         if ((i & 8) != 0) {
-            this.fAs.addRect(rectF.right - this.Rz.mRadius[6], rectF.bottom - this.Rz.mRadius[7], rectF.right, rectF.bottom, Path.Direction.CW);
+            this.fIf.addRect(rectF.right - this.St.mRadius[6], rectF.bottom - this.St.mRadius[7], rectF.right, rectF.bottom, Path.Direction.CW);
         }
         if (!canvas.isHardwareAccelerated() || !UtilHelper.isHuaWeiU9508Device()) {
-            canvas.clipPath(this.fAs);
+            canvas.clipPath(this.fIf);
         }
         drawable.draw(canvas);
         canvas.restore();
@@ -795,11 +729,11 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     }
 
     private void notifiyOnDrawListener(boolean z, Canvas canvas) {
-        if (this.akv != null) {
+        if (this.alw != null) {
             if (z) {
-                this.akv.a(this, canvas);
+                this.alw.a(this, canvas);
             } else {
-                this.akv.b(this, canvas);
+                this.alw.b(this, canvas);
             }
         }
     }
@@ -807,18 +741,18 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     @Override // com.baidu.adp.newwidget.ImageView.BDImageView
     public void drawContentTag(Canvas canvas, ImageView imageView) {
         super.drawContentTag(canvas, imageView);
-        if (this.fAu != null && this.Rz != null) {
-            if (this.Rz.mIsShowGifIcon && (this.fAj || isGif())) {
-                this.fAu.a(canvas, getContext().getString(R.string.icon_tag_gif), true);
-            } else if (this.Rz.mIsShowLongIcon && isLongPic()) {
-                this.fAu.a(canvas, getContext().getString(R.string.icon_tag_long), true);
+        if (this.fIh != null && this.St != null) {
+            if (this.St.mIsShowGifIcon && (this.fHY || isGif())) {
+                this.fIh.a(canvas, getContext().getString(R.string.icon_tag_gif), true);
+            } else if (this.St.mIsShowLongIcon && isLongPic()) {
+                this.fIh.a(canvas, getContext().getString(R.string.icon_tag_long), true);
             } else if (this.mTagStr != null) {
-                this.fAu.a(canvas, this.mTagStr, false);
+                this.fIh.a(canvas, this.mTagStr, false);
             }
-            if (this.Rz.RF == com.baidu.adp.newwidget.ImageView.b.RD) {
-                this.fAu.a(canvas, getContext().getString(R.string.wonderful_comment), R.color.CAM_X0305);
-            } else if (this.Rz.RF == com.baidu.adp.newwidget.ImageView.b.RC) {
-                this.fAu.a(canvas, getContext().getString(R.string.god_level_comment), R.color.CAM_X0310);
+            if (this.St.Sz == com.baidu.adp.newwidget.ImageView.b.Sx) {
+                this.fIh.a(canvas, getContext().getString(R.string.wonderful_comment), R.color.CAM_X0305);
+            } else if (this.St.Sz == com.baidu.adp.newwidget.ImageView.b.Sw) {
+                this.fIh.a(canvas, getContext().getString(R.string.god_level_comment), R.color.CAM_X0310);
             }
         }
     }
@@ -836,38 +770,38 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     }
 
     public void setIsGifPic(boolean z) {
-        this.fAj = z;
+        this.fHY = z;
     }
 
     public void setIsBitmapPic(boolean z) {
-        this.fAk = z;
+        this.fHZ = z;
     }
 
     public boolean isSmartCrop() {
-        return this.fAl;
+        return this.fIa;
     }
 
     public void setIsSmartCrop(boolean z) {
-        this.fAl = z;
+        this.fIa = z;
     }
 
     public float getSmartCropCenterPointWidthRatio() {
-        return this.fAm;
+        return this.fIb;
     }
 
     public void setSmartCropCenterPointWidthRatio(float f) {
-        this.fAm = f;
+        this.fIb = f;
     }
 
     public float getSmartCropCenterPointHeightRatio() {
-        return this.fAn;
+        return this.fIc;
     }
 
     public void setSmartCropCenterPointHeightRatio(float f) {
-        this.fAn = f;
+        this.fIc = f;
     }
 
-    public boolean bDQ() {
+    public boolean bHs() {
         return this.mShowLoading;
     }
 
@@ -910,14 +844,13 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
             if (TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4) {
                 z = true;
             }
-            this.Rz.mIsNight = z;
+            this.St.mIsNight = z;
         } else {
-            this.Rz.mIsNight = false;
+            this.St.mIsNight = false;
         }
-        int i = this.mCurrentDefaultId;
-        int i2 = this.mShowLoading ? this.mLoadingDefaultId : this.mDefaultId;
-        if (i2 != this.mCurrentDefaultId) {
-            this.mCurrentDefaultId = i2;
+        int i = this.mShowLoading ? this.mLoadingDefaultId : this.mDefaultId;
+        if (i != this.mCurrentDefaultId) {
+            this.mCurrentDefaultId = i;
             this.mNeedRecomputeMatrix = true;
         }
         this.mCurrentDefaultBgId = this.mDefaultBgId;
@@ -931,7 +864,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
             setDefaultBg(null);
         }
         if (this.mAutoChangeStyle) {
-            this.fAu.sw(TbadkCoreApplication.getInst().getSkinType());
+            this.fIh.sZ(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -940,10 +873,6 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
             this.mDefaultId = i;
             invalidate();
         }
-    }
-
-    public int getDefaultBgResource() {
-        return this.mDefaultBgId;
     }
 
     @Deprecated
@@ -984,12 +913,12 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         this.mUrl = null;
         this.mIsGif = false;
         this.isLongPic = false;
-        this.fAj = false;
+        this.fHY = false;
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        super.setOnTouchListener(this.fAy);
+        super.setOnTouchListener(this.fIk);
         if (!isClickable()) {
             setClickable(true);
         }
@@ -997,8 +926,8 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     }
 
     public void setTbGestureDetector(com.baidu.tieba.pb.a.c cVar) {
-        super.setOnTouchListener(this.fAy);
-        this.fAo = cVar;
+        super.setOnTouchListener(this.fIk);
+        this.fId = cVar;
     }
 
     public void setInterceptOnClick(boolean z) {
@@ -1012,22 +941,22 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     public void onClick(View view) {
         if (getBdImage() == null && getDrawable() == null && this.mInterceptOnClick) {
             startLoading();
-            com.baidu.adp.lib.e.c.mS().a(this.mUrl, this.mType, this.eJP, this.mWidth, this.mHeight, this.mPageId, new Object[0]);
+            com.baidu.adp.lib.e.c.mS().a(this.mUrl, this.mType, this.eRb, this.mWidth, this.mHeight, this.mPageId, new Object[0]);
         } else if (this.mOnClickListener != null) {
             this.mOnClickListener.onClick(view);
         }
     }
 
     public int getGifIconWidth() {
-        if (this.fAu != null) {
-            return (int) this.fAu.getTagWidth(getContext().getString(R.string.icon_tag_gif));
+        if (this.fIh != null) {
+            return (int) this.fIh.getTagWidth(getContext().getString(R.string.icon_tag_gif));
         }
         return -1;
     }
 
     public int getGifIconHeight() {
-        if (this.fAu != null) {
-            return (int) this.fAu.getTagHeight(getContext().getString(R.string.icon_tag_gif));
+        if (this.fIh != null) {
+            return (int) this.fIh.getTagHeight(getContext().getString(R.string.icon_tag_gif));
         }
         return -1;
     }
@@ -1036,15 +965,9 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         this.mSupportNoImage = z;
     }
 
-    public h getPerfLog() {
-        return this.fAp;
-    }
-
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.fAp != null && this.fAp.fup) {
-            this.fAp.bBG();
         }
     }
 
@@ -1054,14 +977,14 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     }
 
     public void setTagPaddingDis(int i, int i2) {
-        if (this.fAu != null) {
-            this.fAu.setTagPaddingDis(i, i2);
+        if (this.fIh != null) {
+            this.fIh.setTagPaddingDis(i, i2);
         }
     }
 
     public void setTagTextSize(int i) {
-        if (this.fAu != null) {
-            this.fAu.setTagTextSize(i);
+        if (this.fIh != null) {
+            this.fIh.setTagTextSize(i);
         }
     }
 
@@ -1070,79 +993,79 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     }
 
     public void setTagColor(int i) {
-        if (this.fAu != null) {
-            this.fAu.setTagTextColor(i);
+        if (this.fIh != null) {
+            this.fIh.setTagTextColor(i);
         }
     }
 
     public void setConrers(int i) {
-        this.fAv = i;
+        this.fIi = i;
     }
 
-    public void sv(int i) {
-        this.fAv |= i;
+    public void sY(int i) {
+        this.fIi |= i;
     }
 
-    public void bDR() {
-        this.fAv = 0;
+    public void bHt() {
+        this.fIi = 0;
     }
 
     public void setDrawCorner(boolean z) {
-        this.fAw = z;
+        this.fIj = z;
     }
 
     public boolean getDrawCorner() {
-        return this.fAw;
+        return this.fIj;
     }
 
     private void M(Canvas canvas) {
-        if (this.fAk || getBdImage() != null) {
-            if (this.fAv != 0 || getDrawCorner()) {
+        if (this.fHZ || getBdImage() != null) {
+            if (this.fIi != 0 || getDrawCorner()) {
                 setDrawerType(1);
-                int i = this.fAv ^ 15;
-                this.fAt.set(0.0f, 0.0f, getWidth(), getHeight());
+                int i = this.fIi ^ 15;
+                this.fIg.set(0.0f, 0.0f, getWidth(), getHeight());
                 if ((i & 1) != 0) {
-                    canvas.drawRect(0.0f, 0.0f, this.Rz.mRadius[0], this.Rz.mRadius[1], this.RA.mPaint);
+                    canvas.drawRect(0.0f, 0.0f, this.St.mRadius[0], this.St.mRadius[1], this.Su.mPaint);
                 }
                 if ((i & 2) != 0) {
-                    canvas.drawRect(this.fAt.right - this.Rz.mRadius[2], 0.0f, this.fAt.right, this.Rz.mRadius[3], this.RA.mPaint);
+                    canvas.drawRect(this.fIg.right - this.St.mRadius[2], 0.0f, this.fIg.right, this.St.mRadius[3], this.Su.mPaint);
                 }
                 if ((i & 4) != 0) {
-                    canvas.drawRect(0.0f, this.fAt.bottom - this.Rz.mRadius[5], this.Rz.mRadius[4], this.fAt.bottom, this.RA.mPaint);
+                    canvas.drawRect(0.0f, this.fIg.bottom - this.St.mRadius[5], this.St.mRadius[4], this.fIg.bottom, this.Su.mPaint);
                 }
                 if ((i & 8) != 0) {
-                    canvas.drawRect(this.fAt.right - this.Rz.mRadius[6], this.fAt.bottom - this.Rz.mRadius[7], this.fAt.right, this.fAt.bottom, this.RA.mPaint);
+                    canvas.drawRect(this.fIg.right - this.St.mRadius[6], this.fIg.bottom - this.St.mRadius[7], this.fIg.right, this.fIg.bottom, this.Su.mPaint);
                 }
             }
         }
     }
 
     public float[] getRadius() {
-        return this.Rz == null ? n(0.0f) : this.Rz.mRadius;
+        return this.St == null ? m(0.0f) : this.St.mRadius;
     }
 
     private void N(Canvas canvas) {
-        if (this.fAk || getBdImage() != null) {
-            if (this.fAv != 0 || getDrawBorder()) {
+        if (this.fHZ || getBdImage() != null) {
+            if (this.fIi != 0 || getDrawBorder()) {
                 setDrawerType(1);
-                int i = this.fAv ^ 15;
-                this.fAt.set(0.0f, 0.0f, getWidth(), getHeight());
-                this.RA.mBorderPaint.setStrokeWidth(this.RA.mBorderPaint.getStrokeWidth());
+                int i = this.fIi ^ 15;
+                this.fIg.set(0.0f, 0.0f, getWidth(), getHeight());
+                this.Su.mBorderPaint.setStrokeWidth(this.Su.mBorderPaint.getStrokeWidth());
                 if ((i & 1) != 0) {
-                    canvas.drawLine(0.0f, 0.0f, this.Rz.mRadius[0], 0.0f, this.RA.mBorderPaint);
-                    canvas.drawLine(0.0f, 0.0f, 0.0f, this.Rz.mRadius[1], this.RA.mBorderPaint);
+                    canvas.drawLine(0.0f, 0.0f, this.St.mRadius[0], 0.0f, this.Su.mBorderPaint);
+                    canvas.drawLine(0.0f, 0.0f, 0.0f, this.St.mRadius[1], this.Su.mBorderPaint);
                 }
                 if ((i & 2) != 0) {
-                    canvas.drawLine(this.fAt.right - this.Rz.mRadius[2], 0.0f, this.fAt.right, 0.0f, this.RA.mBorderPaint);
-                    canvas.drawLine(this.fAt.right, 0.0f, this.fAt.right, this.Rz.mRadius[3], this.RA.mBorderPaint);
+                    canvas.drawLine(this.fIg.right - this.St.mRadius[2], 0.0f, this.fIg.right, 0.0f, this.Su.mBorderPaint);
+                    canvas.drawLine(this.fIg.right, 0.0f, this.fIg.right, this.St.mRadius[3], this.Su.mBorderPaint);
                 }
                 if ((i & 4) != 0) {
-                    canvas.drawLine(0.0f, this.fAt.bottom - this.Rz.mRadius[5], 0.0f, this.fAt.bottom, this.RA.mBorderPaint);
-                    canvas.drawLine(0.0f, this.fAt.bottom, this.Rz.mRadius[4], this.fAt.bottom, this.RA.mBorderPaint);
+                    canvas.drawLine(0.0f, this.fIg.bottom - this.St.mRadius[5], 0.0f, this.fIg.bottom, this.Su.mBorderPaint);
+                    canvas.drawLine(0.0f, this.fIg.bottom, this.St.mRadius[4], this.fIg.bottom, this.Su.mBorderPaint);
                 }
                 if ((i & 8) != 0) {
-                    canvas.drawLine(this.fAt.right - this.Rz.mRadius[6], this.fAt.bottom, this.fAt.right, this.fAt.bottom, this.RA.mBorderPaint);
-                    canvas.drawLine(this.fAt.right, this.fAt.bottom, this.fAt.right, this.fAt.bottom - this.Rz.mRadius[7], this.RA.mBorderPaint);
+                    canvas.drawLine(this.fIg.right - this.St.mRadius[6], this.fIg.bottom, this.fIg.right, this.fIg.bottom, this.Su.mBorderPaint);
+                    canvas.drawLine(this.fIg.right, this.fIg.bottom, this.fIg.right, this.fIg.bottom - this.St.mRadius[7], this.Su.mBorderPaint);
                 }
             }
         }

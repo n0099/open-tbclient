@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import com.baidu.spswitch.a.a;
 /* loaded from: classes6.dex */
 public class SPSwitchFSPanelLinearLayout extends LinearLayout {
-    private a csp;
+    private a czl;
 
     public SPSwitchFSPanelLinearLayout(Context context) {
         this(context, null);
@@ -23,6 +23,6 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout {
     }
 
     private void init() {
-        this.csp = new a(this);
+        this.czl = new a(this);
     }
 }

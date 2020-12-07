@@ -137,7 +137,7 @@ public class QuanminLiveCloseLogger implements ILiveCloseLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", "live_end");
-            jSONObject.put("k", LogConfig.KEY_NOTICE);
+            jSONObject.put("k", "notice");
             jSONObject.put("v", LogConfig.VALUE_STAYTIME);
             jSONObject.put("tag", "");
             jSONObject.put("time", j + "");

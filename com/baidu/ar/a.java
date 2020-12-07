@@ -1,11 +1,11 @@
 package com.baidu.ar;
 
 import com.baidu.ar.audio.IEasyAudio;
-import com.baidu.ar.g.n;
-/* loaded from: classes12.dex */
+import com.baidu.ar.h.n;
+/* loaded from: classes10.dex */
 public class a {
     public static com.baidu.ar.imu.c a() {
-        return (com.baidu.ar.imu.c) n.aS("com.baidu.ar.imu.IMUController");
+        return (com.baidu.ar.imu.c) n.aV("com.baidu.ar.imu.IMUController");
     }
 
     public static com.baidu.ar.record.b b() {

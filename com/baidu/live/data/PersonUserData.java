@@ -8,21 +8,23 @@ public class PersonUserData implements Serializable {
     public static final int PERSON_FANS_TYPE = 0;
     public static final int PERSON_FOLLOWS_TYPE = 1;
     public static final int PERSON_PLAYBACKS_TYPE = 2;
+    public int hadPoked;
     public AlaLiveInfoData live_info;
     public AlaLocationData location_info;
-    public aq login_user_info;
-    public d mAnchorTagData;
+    public ar login_user_info;
+    public c mAnchorTagData;
     public YuyinAlaSdkData mYuyinAlaSdkData;
     public YuyinAlaPersonManagerData mYuyinBanMangerData;
     public AlaRelationData relation_info;
-    public aq topContributionUserInfo;
-    public aq user_info;
+    public ar topContributionUserInfo;
+    public ar user_info;
 
     public void parserJson(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
         if (optJSONObject != null) {
-            this.user_info = new aq();
+            this.user_info = new ar();
             this.user_info.parserJson(optJSONObject);
+            this.hadPoked = optJSONObject.optInt("poke_flag", 0);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject(CashierData.SDK);
         if (optJSONObject != null) {
@@ -31,7 +33,7 @@ public class PersonUserData implements Serializable {
         }
         JSONObject optJSONObject3 = jSONObject.optJSONObject("login_user_info");
         if (optJSONObject3 != null) {
-            this.login_user_info = new aq();
+            this.login_user_info = new ar();
             this.login_user_info.parserJson(optJSONObject3);
         }
         JSONObject optJSONObject4 = jSONObject.optJSONObject("location_info");
@@ -51,12 +53,12 @@ public class PersonUserData implements Serializable {
         }
         JSONObject optJSONObject7 = jSONObject.optJSONObject("top_contribution");
         if (optJSONObject7 != null) {
-            this.topContributionUserInfo = new aq();
+            this.topContributionUserInfo = new ar();
             this.topContributionUserInfo.parserJson(optJSONObject7);
         }
         JSONObject optJSONObject8 = jSONObject.optJSONObject("anchor_tags");
         if (optJSONObject8 != null) {
-            this.mAnchorTagData = new d();
+            this.mAnchorTagData = new c();
             this.mAnchorTagData.parse(optJSONObject8);
         }
         JSONObject optJSONObject9 = jSONObject.optJSONObject("user_manager");
@@ -75,11 +77,11 @@ public class PersonUserData implements Serializable {
     }
 
     public boolean isChatOnceBan() {
-        return this.user_info != null && this.user_info.aMs == 1;
+        return this.user_info != null && this.user_info.aPr == 1;
     }
 
     public boolean isChatForeverBan() {
-        return this.user_info != null && this.user_info.aMs == 2;
+        return this.user_info != null && this.user_info.aPr == 2;
     }
 
     public boolean isLandScapeLive() {

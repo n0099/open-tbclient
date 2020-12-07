@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.shield.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
     private static final String TAG = "IMGetShieldAndTopListRequest";
     private int mFilterType;
@@ -76,7 +77,7 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             i2 = jSONObject.getInt("error_code");
-            str = jSONObject.optString("error_msg", "");
+            str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
             JSONArray optJSONArray = jSONObject.optJSONArray("uks");
             if (optJSONArray != null) {
                 for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
@@ -115,7 +116,7 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
             }
         } else if (this.mSubBusiness == 2) {
             if (this.mFilterType == 1) {
-                ShieldAndTopManager.getInstance(this.mContext).onMsgMarkTopListResult(i2, str, arrayList, arrayList2);
+                ShieldAndTopManager.getInstance(this.mContext).onMsgMarkTopListResult(i2, str, arrayList, arrayList2, arrayList3);
             }
         } else if (this.mSubBusiness == 3 && this.mFilterType == 1 && !TextUtils.isEmpty(this.mKey)) {
             ((IGetDisturbListListener) ListenerManager.getInstance().removeListener(this.mKey)).onDisturbList(i, str, str2);
@@ -145,6 +146,7 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
         LogUtils.d(TAG, "IMGetShieldAndTopListRequest onFailure :" + transErrorCode.first);
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
+        ArrayList arrayList3 = new ArrayList();
         if (this.mSubBusiness == 1) {
             if (this.mFilterType == 1 || this.mFilterType == 0) {
                 ShieldAndTopManager.getInstance(this.mContext).onMsgShieldListResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, arrayList, arrayList2, this.mKey);
@@ -153,7 +155,7 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
             }
         } else if (this.mSubBusiness == 2) {
             if (this.mFilterType == 1) {
-                ShieldAndTopManager.getInstance(this.mContext).onMsgMarkTopListResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, arrayList, arrayList2);
+                ShieldAndTopManager.getInstance(this.mContext).onMsgMarkTopListResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, arrayList, arrayList2, arrayList3);
             }
         } else if (this.mSubBusiness == 3 && this.mFilterType == 1 && !TextUtils.isEmpty(this.mKey)) {
             ((IGetDisturbListListener) ListenerManager.getInstance().removeListener(this.mKey)).onDisturbList(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, bArr == null ? null : new String(bArr));

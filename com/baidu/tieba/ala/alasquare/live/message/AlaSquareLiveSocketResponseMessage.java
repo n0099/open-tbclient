@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import tbclient.LiveSquare.FunctionListInfo;
 import tbclient.LiveSquare.HeadLiveInfo;
 import tbclient.LiveSquare.LiveSquareResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlaSquareLiveSocketResponseMessage extends SocketResponsedMessage {
     private LinkedList<a> categoryList;
     private LinkedList<FunctionListInfo> functionList;
@@ -35,7 +35,7 @@ public class AlaSquareLiveSocketResponseMessage extends SocketResponsedMessage {
         if (!hasError()) {
             this.functionList = new LinkedList<>();
             this.categoryList = new LinkedList<>();
-            this.categoryList.addAll(b.bV(liveSquareResIdl.data.live_with_category));
+            this.categoryList.addAll(b.bZ(liveSquareResIdl.data.live_with_category));
             this.functionList.addAll(liveSquareResIdl.data.function_list_info);
             this.headLiveInfo = liveSquareResIdl.data.head_live_info;
             this.isSmallFollow = liveSquareResIdl.data.is_small_follow.intValue();

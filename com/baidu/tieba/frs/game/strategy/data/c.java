@@ -1,27 +1,27 @@
 package com.baidu.tieba.frs.game.strategy.data;
 
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.y;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c {
     public boolean hasMore;
-    public int iWw;
-    public List<q> iWx;
+    public int jjV;
+    public List<q> jjW;
     public String key;
     public int labelId;
     public int pn;
 
-    public int di(List<q> list) {
+    public int dr(List<q> list) {
         boolean z;
         if (y.isEmpty(list)) {
             return 0;
         }
-        if (y.isEmpty(this.iWx)) {
-            this.iWx = new LinkedList();
-            this.iWx.addAll(list);
+        if (y.isEmpty(this.jjW)) {
+            this.jjW = new LinkedList();
+            this.jjW.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,15 +29,15 @@ public class c {
             q qVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.iWx.size()) {
+                if (i2 >= this.jjW.size()) {
                     z = false;
                     break;
                 }
-                q qVar2 = this.iWx.get(i2);
+                q qVar2 = this.jjW.get(i2);
                 if (qVar != null && (qVar instanceof b) && qVar2 != null && (qVar2 instanceof b)) {
-                    bx bjd = ((b) qVar).bjd();
-                    bx bjd2 = ((b) qVar2).bjd();
-                    if (bjd != null && bjd2 != null && bjd.getTid() != null && bjd2.getTid() != null && bjd.getTid().equals(bjd2.getTid())) {
+                    by bmn = ((b) qVar).bmn();
+                    by bmn2 = ((b) qVar2).bmn();
+                    if (bmn != null && bmn2 != null && bmn.getTid() != null && bmn2.getTid() != null && bmn.getTid().equals(bmn2.getTid())) {
                         z = true;
                         break;
                     }
@@ -49,7 +49,7 @@ public class c {
             }
         }
         if (linkedList.size() != 0) {
-            y.addAll(this.iWx, 0, linkedList);
+            y.addAll(this.jjW, 0, linkedList);
         }
         return linkedList.size();
     }

@@ -6,69 +6,69 @@ import android.util.Log;
 import com.baidu.swan.apps.ap.u;
 import com.baidu.swan.apps.console.debugger.b.d;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b {
-    private static a cDy;
+    private static a cKt;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String cDw = "";
-    private static String cDx = "";
-    private static int cDz = 0;
+    private static String cKr = "";
+    private static String cKs = "";
+    private static int cKu = 0;
 
-    public static void mn(String str) {
-        cDw = str;
+    public static void mU(String str) {
+        cKr = str;
     }
 
-    public static void mo(String str) {
-        cDx = str;
+    public static void mV(String str) {
+        cKs = str;
     }
 
-    public static String akS() {
-        return cDw;
+    public static String aoa() {
+        return cKr;
     }
 
-    public static String akT() {
-        return cDx;
+    public static String aob() {
+        return cKs;
     }
 
-    public static String akU() {
-        return cDy != null ? cDy.akR() + File.separator + cDx : "";
+    public static String aoc() {
+        return cKt != null ? cKt.anZ() + File.separator + cKs : "";
     }
 
-    public static String akV() {
-        return cDy != null ? cDy.akR() + File.separator + cDw : "";
+    public static String aod() {
+        return cKt != null ? cKt.anZ() + File.separator + cKr : "";
     }
 
-    public static boolean akW() {
-        return cDz == 2;
+    public static boolean aoe() {
+        return cKu == 2;
     }
 
-    public static boolean akX() {
-        return cDz == 1;
+    public static boolean aof() {
+        return cKu == 1;
     }
 
     public static void n(Bundle bundle) {
         String g = u.g(bundle, "extraWSUrl");
         String g2 = u.g(bundle, "adb_debug_path");
         if (!TextUtils.isEmpty(g)) {
-            cDy = new d();
-            cDz = 1;
+            cKt = new d();
+            cKu = 1;
         } else if (!TextUtils.isEmpty(g2)) {
-            cDy = new com.baidu.swan.apps.console.debugger.adbdebug.b();
-            cDz = 2;
+            cKt = new com.baidu.swan.apps.console.debugger.adbdebug.b();
+            cKu = 2;
         } else {
             if (DEBUG) {
                 Log.d("UserDebugParams", "not debug mode");
             }
-            cDz = 0;
-            cDy = null;
+            cKu = 0;
+            cKt = null;
             return;
         }
-        cDy.n(bundle);
+        cKt.n(bundle);
     }
 
     public static void o(Bundle bundle) {
-        if (cDy != null) {
-            cDy.o(bundle);
+        if (cKt != null) {
+            cKt.o(bundle);
         }
     }
 }

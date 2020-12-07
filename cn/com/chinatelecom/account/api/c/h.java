@@ -8,12 +8,12 @@ import java.util.ArrayList;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String[] f988a = {"android.permission.READ_PHONE_STATE"};
+    public static String[] f986a = {"android.permission.READ_PHONE_STATE"};
 
     public static boolean a(Context context) {
         if (Build.VERSION.SDK_INT >= 23) {
             try {
-                if (a(context, f988a)) {
+                if (a(context, f986a)) {
                     return false;
                 }
             } catch (Exception e) {

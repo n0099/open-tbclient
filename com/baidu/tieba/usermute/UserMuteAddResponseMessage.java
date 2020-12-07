@@ -1,6 +1,7 @@
 package com.baidu.tieba.usermute;
 
 import com.baidu.adp.lib.f.b;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -26,7 +27,7 @@ public class UserMuteAddResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (getStatusCode() == 200 && jSONObject != null) {
             this.errorNo = jSONObject.optString("error_code");
-            this.muteMsg = jSONObject.optString("error_msg");
+            this.muteMsg = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
         }
     }
 }

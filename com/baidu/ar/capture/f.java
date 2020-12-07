@@ -9,7 +9,7 @@ import com.baidu.ar.databasic.AlgoHandleController;
 import com.baidu.ar.databasic.ReserveHandleData;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class f {
     public static long a(AlgoHandleController algoHandleController, Bitmap[] bitmapArr, int i) {
         if (bitmapArr == null || bitmapArr.length == 0) {
@@ -45,7 +45,7 @@ class f {
             iArr[i3] = width;
             iArr2[i3] = height;
             iArr3[i3] = 2;
-            arrayList.add(b(bitmap));
+            arrayList.add(a(bitmap));
             Log.d("ChildLook", "image w: " + width + " h: " + height);
             i2 = i3 + 1;
         }
@@ -68,7 +68,7 @@ class f {
         return a2;
     }
 
-    private static byte[] b(Bitmap bitmap) {
+    private static byte[] a(Bitmap bitmap) {
         byte[] bArr = new byte[bitmap.getWidth() * bitmap.getHeight() * 4];
         bitmap.copyPixelsToBuffer(ByteBuffer.wrap(bArr));
         return bArr;

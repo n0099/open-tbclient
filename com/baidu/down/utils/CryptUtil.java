@@ -3,7 +3,7 @@ package com.baidu.down.utils;
 import android.content.Context;
 import android.util.Base64;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class CryptUtil {
     private static native byte[] decrypt(Context context, byte[] bArr);
 

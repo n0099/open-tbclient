@@ -12,7 +12,7 @@ import java.io.StringWriter;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes19.dex */
+/* loaded from: classes18.dex */
 public final class Log {
     public static final int FILE_LIMETE = 10485760;
     public static final int FILE_NUMBER = 2;

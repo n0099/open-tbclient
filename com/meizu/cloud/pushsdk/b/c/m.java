@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f4340a = new byte[0];
+    public static final byte[] f4110a = new byte[0];
     public static final String[] b = new String[0];
     public static final Charset c = Charset.forName("UTF-8");
     public static final TimeZone d = TimeZone.getTimeZone("GMT");

@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 public final class EmptySet implements Serializable, Set {
     public static final EmptySet INSTANCE = new EmptySet();
     private static final long serialVersionUID = 3406603774387020532L;
@@ -94,19 +94,19 @@ public final class EmptySet implements Serializable, Set {
     }
 
     public boolean contains(Void r2) {
-        kotlin.jvm.internal.q.n(r2, "element");
+        kotlin.jvm.internal.p.o(r2, "element");
         return false;
     }
 
     @Override // java.util.Set, java.util.Collection
     public boolean containsAll(Collection collection) {
-        kotlin.jvm.internal.q.n(collection, "elements");
+        kotlin.jvm.internal.p.o(collection, "elements");
         return collection.isEmpty();
     }
 
     @Override // java.util.Set, java.util.Collection, java.lang.Iterable
     public Iterator iterator() {
-        return aa.pTG;
+        return v.pKi;
     }
 
     private final Object readResolve() {

@@ -4,8 +4,7 @@ import android.content.Context;
 import android.media.AudioManager;
 import org.webrtc.JniCommon;
 import org.webrtc.Logging;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class JavaAudioDeviceModule implements AudioDeviceModule {
     private static final String TAG = "JavaAudioDeviceModule";
     private final WebRtcAudioRecord audioInput;
@@ -18,7 +17,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     private final boolean useStereoInput;
     private final boolean useStereoOutput;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public interface AudioRecordErrorCallback {
         void onWebRtcAudioRecordError(String str);
 
@@ -27,13 +26,13 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         void onWebRtcAudioRecordStartError(AudioRecordStartErrorCode audioRecordStartErrorCode, String str);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public enum AudioRecordStartErrorCode {
         AUDIO_RECORD_START_EXCEPTION,
         AUDIO_RECORD_START_STATE_MISMATCH
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class AudioSamples {
         private final int audioFormat;
         private final int channelCount;
@@ -64,7 +63,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public interface AudioTrackErrorCallback {
         void onWebRtcAudioTrackError(String str);
 
@@ -73,13 +72,13 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         void onWebRtcAudioTrackStartError(AudioTrackStartErrorCode audioTrackStartErrorCode, String str);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public enum AudioTrackStartErrorCode {
         AUDIO_TRACK_START_EXCEPTION,
         AUDIO_TRACK_START_STATE_MISMATCH
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class Builder {
         private final AudioManager audioManager;
         private AudioRecordErrorCallback audioRecordErrorCallback;
@@ -100,7 +99,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
             this.useHardwareAcousticEchoCanceler = JavaAudioDeviceModule.isBuiltInAcousticEchoCancelerSupported();
             this.useHardwareNoiseSuppressor = JavaAudioDeviceModule.isBuiltInNoiseSuppressorSupported();
             this.context = context;
-            this.audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            this.audioManager = (AudioManager) context.getSystemService("audio");
             this.sampleRate = WebRtcAudioManager.getSampleRate(this.audioManager);
         }
 
@@ -190,17 +189,17 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public interface ExternalSamplesReadyCallback {
         void onWebRtcAudioExternalSamplesReady(AudioSamples audioSamples);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public interface RemoteSamplesReadyCallback {
         void onWebRtcAudioRemoteSamplesReady(AudioSamples audioSamples);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public interface SamplesReadyCallback {
         void onWebRtcAudioRecordSamplesReady(AudioSamples audioSamples);
     }

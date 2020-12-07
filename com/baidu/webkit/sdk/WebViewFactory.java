@@ -28,12 +28,11 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class WebViewFactory {
     private static final String CHROMIUM_HOST_APP = "com.baidu.browser.apps";
     private static final String CHROMIUM_LIBS_PATH = "files/zeus/libs";
@@ -68,7 +67,7 @@ public final class WebViewFactory {
     private static int sIsPreInitWebViewEnable = -1;
     private static final Object sProviderLock = new Object();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public interface WebKitUnzipCallback {
         void unzipFinished();
     }
@@ -79,7 +78,7 @@ public final class WebViewFactory {
         if (Build.VERSION.SDK_INT != 19) {
             return;
         }
-        if (d.a(mContext).f3928a.a()) {
+        if (d.a(mContext).f3931a.a()) {
             String str = aVar.d + GlobalConstants.LIB_ZEUS_CHROMIUM;
             File file = new File(str);
             if (GlobalConstants.FILE_SIZE_LIB_ZEUS_WEBVIEW_CHROMIUM != -1) {
@@ -111,7 +110,7 @@ public final class WebViewFactory {
             if (isVersionMatched(str, zeusNativeLibraryVersion, true) && isVersionMatched(str, zeusJarVersion, true) && isVersionMatched(sdkVersionCode, str, false)) {
                 return;
             }
-            SevenZipUtils.getInstance().clearTimestamp(d.a(mContext).f3928a.d);
+            SevenZipUtils.getInstance().clearTimestamp(d.a(mContext).f3931a.d);
             throw new Exception("sdk and native library dismatch " + str + ", " + zeusJarVersion + ", " + zeusNativeLibraryVersion);
         } catch (Exception e) {
             e.printStackTrace();
@@ -344,7 +343,7 @@ public final class WebViewFactory {
         try {
             ApplicationInfo applicationInfo = context.getApplicationInfo();
             d a2 = d.a(context);
-            d.a aVar = a2.f3928a;
+            d.a aVar = a2.f3931a;
             mIsInstallUpdate = false;
             String str = applicationInfo.nativeLibraryDir + SPLASH + "libcom.baidu.zeus.so";
             String downloadLibPath = UtilsBlink.getDownloadLibPath(context);
@@ -355,7 +354,7 @@ public final class WebViewFactory {
                     str = str2;
                 }
             }
-            if (!a2.f3928a.a() && !EngineManager.getInstance().isInstalled()) {
+            if (!a2.f3931a.a() && !EngineManager.getInstance().isInstalled()) {
                 LoadErrorCode.getInstance().trace(513);
             }
             packageInfo = context.getPackageManager().getPackageArchiveInfo(str, IMPushPb.PushImClient.ACTIONS_FIELD_NUMBER);
@@ -524,7 +523,7 @@ public final class WebViewFactory {
                 EngineManager.getInstance().setNeedKillProcess(true);
             }
             if (LoadErrorCode.getInstance().getInt() == 0) {
-                LoadErrorCode.getInstance().set(6, "6:" + shouldUseSystemWebView + Constants.ACCEPT_TIME_SEPARATOR_SP + (mPackageInfo != null));
+                LoadErrorCode.getInstance().set(6, "6:" + shouldUseSystemWebView + "," + (mPackageInfo != null));
             }
             fetchSystemPackageInfo();
             try {
@@ -932,13 +931,13 @@ public final class WebViewFactory {
 
     public static void setUsingLzma(Context context, boolean z, WebKitUnzipCallback webKitUnzipCallback) {
         d a2 = d.a(context);
-        a2.f3928a.a(z);
+        a2.f3931a.a(z);
         if (!z || isRendererProcess()) {
             return;
         }
         synchronized (d.e) {
             if (context != null) {
-                if (a2.f3928a != null && a2.b == null) {
+                if (a2.f3931a != null && a2.b == null) {
                     a2.b = new d.b(context);
                 }
             }
@@ -958,7 +957,7 @@ public final class WebViewFactory {
         boolean z2;
         boolean z3;
         if ((sUsingSystemWebView && !z) || !WebKitFactory.isPlatformSupported()) {
-            LoadErrorCode.getInstance().trace("511:" + sUsingSystemWebView + Constants.ACCEPT_TIME_SEPARATOR_SP + WebKitFactory.isPlatformSupported() + Constants.ACCEPT_TIME_SEPARATOR_SP + WebKitFactory.isZeusSupported());
+            LoadErrorCode.getInstance().trace("511:" + sUsingSystemWebView + "," + WebKitFactory.isPlatformSupported() + "," + WebKitFactory.isZeusSupported());
             return true;
         }
         initCloudSetting();

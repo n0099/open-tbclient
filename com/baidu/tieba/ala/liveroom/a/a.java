@@ -8,138 +8,138 @@ import com.baidu.live.tbadk.ala.AlaLastLiveroomInfo;
 import com.baidu.live.view.web.g;
 /* loaded from: classes4.dex */
 public class a implements c {
-    private String aMS;
-    private String aMT;
-    private boolean aRw;
-    private CustomMessageListener bMq;
-    private long bmk;
-    private long fXY;
-    private b gUk;
-    private com.baidu.tieba.ala.liveroom.n.a gUl;
+    private String aPR;
+    private String aPS;
+    private boolean aUy;
+    private CustomMessageListener bRw;
+    private long brr;
+    private long ggj;
+    private b hdx;
+    private com.baidu.tieba.ala.liveroom.m.a hdy;
     private Activity mActivity;
 
     public a(Activity activity) {
         this.mActivity = activity;
-        Wp();
+        YP();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void setHost(boolean z) {
-        this.aRw = z;
+        this.aUy = z;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
-    public void e(long j, String str, String str2) {
-        this.fXY = j;
-        this.aMS = str;
-        if (this.aMS == null) {
-            this.aMS = "";
+    public void f(long j, String str, String str2) {
+        this.ggj = j;
+        this.aPR = str;
+        if (this.aPR == null) {
+            this.aPR = "";
         }
-        this.aMT = str2;
+        this.aPS = str2;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void setLiveId(long j) {
-        this.bmk = j;
+        this.brr = j;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
-    public void aF(String str, int i) {
+    public void aG(String str, int i) {
         if (this.mActivity != null && !this.mActivity.isFinishing() && !this.mActivity.isDestroyed()) {
-            this.gUk = new b(this.mActivity);
+            this.hdx = new b(this.mActivity);
             g gVar = new g();
             AlaLastLiveroomInfo alaLastLiveroomInfo = new AlaLastLiveroomInfo();
-            alaLastLiveroomInfo.setLastLiveId(this.bmk);
-            alaLastLiveroomInfo.setLastAnchorUname(this.aMS);
-            alaLastLiveroomInfo.setLastAnchorUid(String.valueOf(this.fXY));
-            alaLastLiveroomInfo.setLastAnchorPortrait(this.aMT);
+            alaLastLiveroomInfo.setLastLiveId(this.brr);
+            alaLastLiveroomInfo.setLastAnchorUname(this.aPR);
+            alaLastLiveroomInfo.setLastAnchorUid(String.valueOf(this.ggj));
+            alaLastLiveroomInfo.setLastAnchorPortrait(this.aPS);
             alaLastLiveroomInfo.setFrom(AlaLastLiveroomInfo.TYPE_FROM_HALF_WEBVIEW);
-            gVar.x(this.mActivity).a(this.gUk).a(this.gUk.Wq().getSchemeCallback()).bc(this.fXY).iM(this.aMS).dm(this.aRw).bd(this.bmk).a(alaLastLiveroomInfo);
-            com.baidu.live.view.web.a[] Wo = gVar.Wo();
-            for (com.baidu.live.view.web.a aVar : Wo) {
-                this.gUk.Wq().addJavascriptInterface(aVar, aVar.getName());
+            gVar.x(this.mActivity).a(this.hdx).a(this.hdx.getWebView().getSchemeCallback()).bA(this.ggj).jq(this.aPR).dA(this.aUy).bB(this.brr).a(alaLastLiveroomInfo);
+            com.baidu.live.view.web.a[] YO = gVar.YO();
+            for (com.baidu.live.view.web.a aVar : YO) {
+                this.hdx.getWebView().addJavascriptInterface(aVar, aVar.getName());
             }
-            this.gUk.aG(str, i);
+            this.hdx.aH(str, i);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
-    public void Hh(String str) {
+    public void HV(String str) {
         if (this.mActivity != null && !this.mActivity.isFinishing() && !this.mActivity.isDestroyed()) {
-            if (this.gUl != null) {
-                if (this.gUl.isShowing()) {
-                    this.gUl.dismiss();
+            if (this.hdy != null) {
+                if (this.hdy.isShowing()) {
+                    this.hdy.dismiss();
                 }
-                this.gUl.release();
-                this.gUl = null;
+                this.hdy.release();
+                this.hdy = null;
             }
-            this.gUl = new com.baidu.tieba.ala.liveroom.n.a(this.mActivity);
+            this.hdy = new com.baidu.tieba.ala.liveroom.m.a(this.mActivity);
             AlaLastLiveroomInfo alaLastLiveroomInfo = new AlaLastLiveroomInfo();
-            alaLastLiveroomInfo.setLastLiveId(this.bmk);
-            alaLastLiveroomInfo.setLastAnchorUname(this.aMS);
-            alaLastLiveroomInfo.setLastAnchorUid(String.valueOf(this.fXY));
-            alaLastLiveroomInfo.setLastAnchorPortrait(this.aMT);
+            alaLastLiveroomInfo.setLastLiveId(this.brr);
+            alaLastLiveroomInfo.setLastAnchorUname(this.aPR);
+            alaLastLiveroomInfo.setLastAnchorUid(String.valueOf(this.ggj));
+            alaLastLiveroomInfo.setLastAnchorPortrait(this.aPS);
             alaLastLiveroomInfo.setFrom(AlaLastLiveroomInfo.TYPE_FROM_FULL_SCREEN_WEBVIEW);
-            this.gUl.a(this.fXY, this.aMS, this.bmk, alaLastLiveroomInfo, this.aRw);
-            this.gUl.FO(str);
+            this.hdy.a(this.ggj, this.aPR, this.brr, alaLastLiveroomInfo, this.aUy);
+            this.hdy.GD(str);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void resume() {
-        if (this.gUk != null && this.gUk.isShowing()) {
-            this.gUk.Wq().onResume();
+        if (this.hdx != null && this.hdx.isShowing()) {
+            this.hdx.getWebView().onResume();
         }
-        if (this.gUl != null && this.gUl.isShowing()) {
-            this.gUl.onResume();
+        if (this.hdy != null && this.hdy.isShowing()) {
+            this.hdy.onResume();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void pause() {
-        if (this.gUk != null && this.gUk.isShowing()) {
-            this.gUk.Wq().onPause();
+        if (this.hdx != null && this.hdx.isShowing()) {
+            this.hdx.getWebView().onPause();
         }
-        if (this.gUl != null && this.gUl.isShowing()) {
-            this.gUl.onPause();
+        if (this.hdy != null && this.hdy.isShowing()) {
+            this.hdy.onPause();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
-    public void dE(int i) {
-        if (this.gUk != null && this.gUk.isShowing()) {
-            this.gUk.dE(i);
+    public void dX(int i) {
+        if (this.hdx != null && this.hdx.isShowing()) {
+            this.hdx.dX(i);
         }
-        if (this.gUl != null && this.gUl.isShowing()) {
-            this.gUl.dE(i);
+        if (this.hdy != null && this.hdy.isShowing()) {
+            this.hdy.dX(i);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void release() {
-        this.fXY = 0L;
-        this.aMS = "";
-        MessageManager.getInstance().unRegisterListener(this.bMq);
-        if (this.gUk != null) {
-            this.gUk.Wq().release();
-            this.gUk.Wr();
+        this.ggj = 0L;
+        this.aPR = "";
+        MessageManager.getInstance().unRegisterListener(this.bRw);
+        if (this.hdx != null) {
+            this.hdx.getWebView().release();
+            this.hdx.YQ();
         }
-        if (this.gUl != null) {
-            this.gUl.release();
-            this.gUl.dismiss();
+        if (this.hdy != null) {
+            this.hdy.release();
+            this.hdy.dismiss();
         }
     }
 
-    private void Wp() {
-        this.bMq = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.a.a.1
+    private void YP() {
+        this.bRw = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (a.this.gUk != null && a.this.gUk.isShowing()) {
-                    a.this.gUk.dismiss();
+                if (a.this.hdx != null && a.this.hdx.isShowing()) {
+                    a.this.hdx.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bMq);
+        MessageManager.getInstance().registerListener(this.bRw);
     }
 }

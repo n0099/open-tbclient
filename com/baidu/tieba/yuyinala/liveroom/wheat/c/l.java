@@ -8,44 +8,44 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.dialog.BdToast;
 /* loaded from: classes4.dex */
 public class l {
-    private static l ofW;
-    private TbPageContext oey;
+    private static l ouW;
+    private TbPageContext oty;
 
-    public static l dZv() {
-        if (ofW == null) {
-            ofW = new l();
+    public static l eeZ() {
+        if (ouW == null) {
+            ouW = new l();
         }
-        return ofW;
+        return ouW;
     }
 
     public l i(TbPageContext tbPageContext) {
-        this.oey = tbPageContext;
+        this.oty = tbPageContext;
         return this;
     }
 
-    public void MY(int i) {
-        o.dZz().zk(false);
+    public void NQ(int i) {
+        o.efd().zO(false);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501036, true));
         if (i == 3) {
-            dZw();
-            if (!o.dZz().dYR()) {
-                e.dZj().dZk().h(this.oey);
+            efa();
+            if (!o.efd().eev()) {
+                e.eeN().eeO().h(this.oty);
             }
         } else if (i == 2) {
-            com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("auth_success_host_2", true);
-            o.dZz().zm(true);
-            dZw();
+            com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bk("auth_success_host_2", true);
+            o.efd().zQ(true);
+            efa();
         } else if (i == 4) {
-            dZw();
-            if (!o.dZz().dYR()) {
-                e.dZj().dZk().h(this.oey);
+            efa();
+            if (!o.efd().eev()) {
+                e.eeN().eeO().h(this.oty);
             }
         }
     }
 
-    private void dZw() {
-        if (com.baidu.tieba.yuyinala.liveroom.wheat.e.a.gg(TbadkCoreApplication.getInst())) {
+    private void efa() {
+        if (com.baidu.tieba.yuyinala.liveroom.wheat.e.a.gQ(TbadkCoreApplication.getInst())) {
             BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_apply_succ_1_text)).show();
         } else {
             BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_apply_succ_2_text)).show();

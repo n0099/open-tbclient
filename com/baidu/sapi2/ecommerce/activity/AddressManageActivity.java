@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.k.a.a;
+import com.baidu.l.a.a;
 import com.baidu.pass.ecommerce.d.b;
 import com.baidu.pass.permissions.PassPermissions;
 import com.baidu.pass.permissions.PermissionsCallback;
@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class AddressManageActivity extends SlideActiviy {
     private static final String ADDRESS_MANAGE_ACTIVITY = "AddressManageActivity";
     private static final String CREATE_EXTRA = "create_extra";
@@ -332,7 +332,7 @@ public class AddressManageActivity extends SlideActiviy {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
-                            jSONObject.put("name", aVar.f2764a);
+                            jSONObject.put("name", aVar.f2766a);
                             jSONObject.put("phone", aVar.b);
                         } catch (Exception e) {
                             Log.e(e);

@@ -26,7 +26,12 @@ public class AlaLiveMarkData implements Serializable {
     public static final int TYPE_USER_NOBLE = 105;
     public static final int TYPE_USER_TB_ACTIVITY = 4;
     public String anchor_user_id;
+    private int guardGold;
+    public int guardGoldenType;
+    public int guardLevel;
+    public String guardName;
     public int height;
+    public int level;
     public int levelHeight;
     public String levelPic;
     public int levelWidth;
@@ -41,6 +46,18 @@ public class AlaLiveMarkData implements Serializable {
     public boolean isWidthAutoFit = false;
     public int limitedHeight = 0;
 
+    public boolean isGold() {
+        return this.guardGold == 1;
+    }
+
+    public boolean isLevelType() {
+        return 1 == this.type;
+    }
+
+    public boolean isGuardType() {
+        return 102 == this.type;
+    }
+
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.type = jSONObject.optInt("type");
@@ -51,6 +68,19 @@ public class AlaLiveMarkData implements Serializable {
             this.markPicBak = this.mark_pic;
             this.width = jSONObject.optInt("width");
             this.height = jSONObject.optInt("height");
+            this.level = jSONObject.optInt("level", 0);
+            JSONObject optJSONObject = jSONObject.optJSONObject("guard_club");
+            if (optJSONObject != null) {
+                this.guardName = optJSONObject.optString("guard_name");
+                this.guardLevel = optJSONObject.optInt("member_guard_level");
+                this.guardGold = optJSONObject.optInt("guard_show_golden_icon");
+                this.guardGoldenType = optJSONObject.optInt("guard_golden_type");
+            } else {
+                this.guardName = jSONObject.optString("guard_name");
+                this.guardLevel = jSONObject.optInt("member_guard_level");
+                this.guardGold = jSONObject.optInt("guard_show_golden_icon");
+                this.guardGoldenType = jSONObject.optInt("guard_golden_type");
+            }
             this.royalLevel = jSONObject.optInt("royal_level");
             this.levelPic = jSONObject.optString("level_pic");
             this.levelWidth = jSONObject.optInt("level_width");
@@ -68,6 +98,12 @@ public class AlaLiveMarkData implements Serializable {
             jSONObject.put("mark_name", this.mark_name);
             jSONObject.put("mark_pic", this.markPicBak);
             jSONObject.put("width", this.width);
+            jSONObject.put("level", this.level);
+            jSONObject.put("guard_name", this.guardName);
+            jSONObject.put("member_guard_level", this.guardLevel);
+            jSONObject.put("guard_show_golden_icon", this.guardGold);
+            jSONObject.put("guard_golden_type", this.guardGoldenType);
+            jSONObject.put("guard_name", this.guardName);
             jSONObject.put("height", this.height);
             jSONObject.put("royal_level", this.royalLevel);
             jSONObject.put("level_pic", this.levelPic);
@@ -88,7 +124,7 @@ public class AlaLiveMarkData implements Serializable {
                     this.width = this.levelWidth;
                     this.height = this.levelHeight;
                 }
-            } else if (com.baidu.live.aa.a.Ph().bms != null && (str = com.baidu.live.aa.a.Ph().bms.aLR.get(Integer.valueOf(this.userLevel))) != null) {
+            } else if (com.baidu.live.ae.a.RB().brA != null && (str = com.baidu.live.ae.a.RB().brA.aOO.get(Integer.valueOf(this.userLevel))) != null) {
                 this.mark_pic = str;
                 this.height = 48;
                 if (this.userLevel <= 9) {

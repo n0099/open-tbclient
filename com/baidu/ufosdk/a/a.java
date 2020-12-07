@@ -5,11 +5,11 @@ import android.content.Intent;
 import com.baidu.ufosdk.UfoSDK;
 import com.baidu.ufosdk.b.d;
 import com.baidu.ufosdk.f.c;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class a extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3698a;
+    private Context f3701a;
     private String b;
     private String c;
     private boolean d = false;
@@ -20,7 +20,7 @@ public final class a extends Thread {
     public a(Context context, String str, String str2) {
         this.b = "";
         this.c = "";
-        this.f3698a = context;
+        this.f3701a = context;
         this.b = str;
         this.c = str2;
     }
@@ -50,13 +50,13 @@ public final class a extends Thread {
                 c.a("Interrupted!", e);
             }
             if (!this.e && this.b != null && !this.b.equals("newMessage")) {
-                if (d.c(this.f3698a)) {
-                    Context context = this.f3698a;
+                if (d.c(this.f3701a)) {
+                    Context context = this.f3701a;
                     String str = UfoSDK.clientid;
                     com.baidu.ufosdk.e.a.a(context, this.b, this.c);
                 } else {
-                    this.f3698a.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
-                    this.f3698a.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
+                    this.f3701a.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
+                    this.f3701a.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
                 }
             }
             try {

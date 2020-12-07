@@ -17,7 +17,7 @@ public class aw {
     private static aw b = new aw();
 
     /* renamed from: a  reason: collision with root package name */
-    public a f2564a;
+    public a f2566a;
     private Handler d;
     private volatile int e;
     private int f;
@@ -188,7 +188,7 @@ public class aw {
             } catch (Exception e7) {
             }
             try {
-                jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f2563a));
+                jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f2565a));
             } catch (Exception e8) {
             }
             try {
@@ -232,7 +232,7 @@ public class aw {
             jSONObject.put(Config.FEED_LIST_PART, new JSONArray(this.j.toString()));
             jSONObject.put("sv", new JSONArray(this.k.toString()));
             jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.b));
-            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f2563a));
+            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f2565a));
             jSONObject.put("sd", au.a().a(au.a.c));
         } catch (Exception e) {
         }
@@ -289,9 +289,9 @@ public class aw {
 
     private void b(Context context, String str) {
         LogSender.instance().saveLogData(context, str, true);
-        if (this.f2564a != null) {
+        if (this.f2566a != null) {
             try {
-                this.f2564a.a(new JSONObject(str));
+                this.f2566a.a(new JSONObject(str));
             } catch (Exception e) {
             }
         }

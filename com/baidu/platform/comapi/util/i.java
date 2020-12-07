@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.util;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public abstract class i extends Handler {
     public i(Looper looper) {
         super(looper);

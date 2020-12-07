@@ -10,7 +10,7 @@ import android.support.v4.media.MediaMetadataCompat;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public interface IMediaControllerCallback extends IInterface {
     void onCaptioningEnabledChanged(boolean z) throws RemoteException;
 
@@ -38,7 +38,7 @@ public interface IMediaControllerCallback extends IInterface {
 
     void onVolumeInfoChanged(ParcelableVolumeInfo parcelableVolumeInfo) throws RemoteException;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static abstract class Stub extends Binder implements IMediaControllerCallback {
         private static final String DESCRIPTOR = "android.support.v4.media.session.IMediaControllerCallback";
         static final int TRANSACTION_onCaptioningEnabledChanged = 11;
@@ -138,7 +138,7 @@ public interface IMediaControllerCallback extends IInterface {
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes19.dex */
         private static class Proxy implements IMediaControllerCallback {
             private IBinder mRemote;
 

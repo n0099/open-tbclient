@@ -26,12 +26,12 @@ import java.util.zip.ZipFile;
 /* loaded from: classes.dex */
 public final class a {
     private static final String SECONDARY_FOLDER_NAME = "code_cache" + File.separator + "secondary-dexes";
-    private static final Set<String> installedApk = new HashSet();
-    private static final boolean IS_VM_MULTIDEX_CAPABLE = isVMMultidexCapable(System.getProperty("java.vm.version"));
+    private static final Set<String> lmh = new HashSet();
+    private static final boolean lmi = Pv(System.getProperty("java.vm.version"));
 
-    public static void install(Context context) {
+    public static void gl(Context context) {
         Log.i("MultiDex", Config.INPUT_INSTALLED_PKG);
-        if (IS_VM_MULTIDEX_CAPABLE) {
+        if (lmi) {
             Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
         } else if (Build.VERSION.SDK_INT < 4) {
             throw new RuntimeException("Multi dex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
@@ -39,11 +39,11 @@ public final class a {
             try {
                 ApplicationInfo applicationInfo = getApplicationInfo(context);
                 if (applicationInfo != null) {
-                    Set<String> set = installedApk;
-                    synchronized (installedApk) {
+                    Set<String> set = lmh;
+                    synchronized (lmh) {
                         String str = applicationInfo.sourceDir;
-                        if (!installedApk.contains(str)) {
-                            installedApk.add(str);
+                        if (!lmh.contains(str)) {
+                            lmh.add(str);
                             if (Build.VERSION.SDK_INT > 20) {
                                 Log.w("MultiDex", "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
                             }
@@ -53,18 +53,18 @@ public final class a {
                                     Log.e("MultiDex", "Context class loader is null. Must be running in test mode. Skip patching.");
                                     return;
                                 }
-                                clearOldDexDir(context);
+                                gm(context);
                                 File file = new File(applicationInfo.dataDir, SECONDARY_FOLDER_NAME);
                                 List<File> a2 = com.baidu.tieba.n.b.a(context, applicationInfo, file, false);
-                                if (eL(a2)) {
-                                    installSecondaryDexes(classLoader, file, a2);
+                                if (eW(a2)) {
+                                    a(classLoader, file, a2);
                                 } else {
                                     Log.w("MultiDex", "Files were not valid zip files.  Forcing a reload.");
                                     List<File> a3 = com.baidu.tieba.n.b.a(context, applicationInfo, file, true);
-                                    if (!eL(a3)) {
+                                    if (!eW(a3)) {
                                         throw new RuntimeException("Zip files were not valid.");
                                     }
-                                    installSecondaryDexes(classLoader, file, a3);
+                                    a(classLoader, file, a3);
                                 }
                                 Log.i("MultiDex", "install done");
                             } catch (RuntimeException e) {
@@ -94,7 +94,7 @@ public final class a {
         }
     }
 
-    static boolean isVMMultidexCapable(String str) {
+    static boolean Pv(String str) {
         boolean z = false;
         if (str != null) {
             Matcher matcher = Pattern.compile("(\\d+)\\.(\\d+)(\\.\\d+)?").matcher(str);
@@ -113,24 +113,24 @@ public final class a {
         return z;
     }
 
-    private static void installSecondaryDexes(ClassLoader classLoader, File file, List<File> list) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException, IOException {
+    private static void a(ClassLoader classLoader, File file, List<File> list) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException, IOException {
         if (!list.isEmpty()) {
             if (Build.VERSION.SDK_INT < 19) {
                 if (Build.VERSION.SDK_INT < 14) {
-                    c.install(classLoader, list);
+                    c.a(classLoader, list);
                     return;
                 } else {
-                    C0797a.install(classLoader, list, file);
+                    C0813a.a(classLoader, list, file);
                     return;
                 }
             }
-            b.install(classLoader, list, file);
+            b.a(classLoader, list, file);
         }
     }
 
-    private static boolean eL(List<File> list) {
+    private static boolean eW(List<File> list) {
         for (File file : list) {
-            if (!com.baidu.tieba.n.b.ac(file)) {
+            if (!com.baidu.tieba.n.b.ae(file)) {
                 return false;
             }
         }
@@ -153,7 +153,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static Method findMethod(Object obj, String str, Class... clsArr) throws NoSuchMethodException {
+    public static Method c(Object obj, String str, Class... clsArr) throws NoSuchMethodException {
         for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
             try {
                 Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
@@ -168,7 +168,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void expandFieldArray(Object obj, String str, Object[] objArr) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+    public static void c(Object obj, String str, Object[] objArr) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         Field findField = findField(obj, str);
         Object[] objArr2 = (Object[]) findField.get(obj);
         Object[] objArr3 = (Object[]) Array.newInstance(objArr2.getClass().getComponentType(), objArr2.length + objArr.length);
@@ -177,7 +177,7 @@ public final class a {
         findField.set(obj, objArr3);
     }
 
-    private static void clearOldDexDir(Context context) throws Exception {
+    private static void gm(Context context) throws Exception {
         File file = new File(context.getFilesDir(), "secondary-dexes");
         if (file.isDirectory()) {
             Log.i("MultiDex", "Clearing old secondary dex dir (" + file.getPath() + ").");
@@ -206,7 +206,7 @@ public final class a {
     /* loaded from: classes.dex */
     public static final class c {
         /* JADX INFO: Access modifiers changed from: private */
-        public static void install(ClassLoader classLoader, List<File> list) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, IOException {
+        public static void a(ClassLoader classLoader, List<File> list) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, IOException {
             int size = list.size();
             Field findField = a.findField(classLoader, "path");
             StringBuilder sb = new StringBuilder((String) findField.get(classLoader));
@@ -226,25 +226,25 @@ public final class a {
                 dexFileArr[previousIndex] = DexFile.loadDex(absolutePath, absolutePath + ".dex", 0);
             }
             findField.set(classLoader, sb.toString());
-            a.expandFieldArray(classLoader, "mPaths", strArr);
-            a.expandFieldArray(classLoader, "mFiles", fileArr);
-            a.expandFieldArray(classLoader, "mZips", zipFileArr);
-            a.expandFieldArray(classLoader, "mDexs", dexFileArr);
+            a.c(classLoader, "mPaths", strArr);
+            a.c(classLoader, "mFiles", fileArr);
+            a.c(classLoader, "mZips", zipFileArr);
+            a.c(classLoader, "mDexs", dexFileArr);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0797a {
+    public static final class C0813a {
         /* JADX INFO: Access modifiers changed from: private */
-        public static void install(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
+        public static void a(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
             Object obj = a.findField(classLoader, "pathList").get(classLoader);
-            a.expandFieldArray(obj, "dexElements", makeDexElements(obj, new ArrayList(list), file));
+            a.c(obj, "dexElements", a(obj, new ArrayList(list), file));
         }
 
-        private static Object[] makeDexElements(Object obj, ArrayList<File> arrayList, File file) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-            return (Object[]) a.findMethod(obj, "makeDexElements", ArrayList.class, File.class).invoke(obj, arrayList, file);
+        private static Object[] a(Object obj, ArrayList<File> arrayList, File file) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+            return (Object[]) a.c(obj, "makeDexElements", ArrayList.class, File.class).invoke(obj, arrayList, file);
         }
     }
 
@@ -252,11 +252,11 @@ public final class a {
     /* loaded from: classes.dex */
     public static final class b {
         /* JADX INFO: Access modifiers changed from: private */
-        public static void install(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
+        public static void a(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
             IOException[] iOExceptionArr;
             Object obj = a.findField(classLoader, "pathList").get(classLoader);
             ArrayList arrayList = new ArrayList();
-            a.expandFieldArray(obj, "dexElements", makeDexElements(obj, new ArrayList(list), file, arrayList));
+            a.c(obj, "dexElements", a(obj, new ArrayList(list), file, arrayList));
             if (arrayList.size() > 0) {
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
@@ -276,8 +276,8 @@ public final class a {
             }
         }
 
-        private static Object[] makeDexElements(Object obj, ArrayList<File> arrayList, File file, ArrayList<IOException> arrayList2) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-            return (Object[]) a.findMethod(obj, "makeDexElements", ArrayList.class, File.class, ArrayList.class).invoke(obj, arrayList, file, arrayList2);
+        private static Object[] a(Object obj, ArrayList<File> arrayList, File file, ArrayList<IOException> arrayList2) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+            return (Object[]) a.c(obj, "makeDexElements", ArrayList.class, File.class, ArrayList.class).invoke(obj, arrayList, file, arrayList2);
         }
     }
 }

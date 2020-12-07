@@ -7,7 +7,7 @@ import com.baidu.ar.slam.TrackParams;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class ARVOJniClient {
     private static List<String> sModelIds;
     private static int sTrackerId;

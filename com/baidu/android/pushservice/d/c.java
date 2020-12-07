@@ -10,7 +10,7 @@ public abstract class c extends a {
 
     @Override // com.baidu.android.pushservice.d.a
     public boolean c() {
-        String a2 = com.baidu.android.pushservice.j.a(this.f1058a).a();
+        String a2 = com.baidu.android.pushservice.j.a(this.f1056a).a();
         if (TextUtils.isEmpty(a2)) {
             a2 = "channel";
         }

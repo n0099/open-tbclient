@@ -14,14 +14,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
-    private Map<Integer, Boolean> bCI = new HashMap();
-    private AlbumActivity bCw;
+    private AlbumActivity bHE;
+    private Map<Integer, Boolean> bHQ = new HashMap();
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mList;
 
     public AlbumImagePagerAdapter(AlbumActivity albumActivity) {
-        this.bCw = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.bCw.getPageContext().getPageActivity());
+        this.bHE = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.bHE.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -44,15 +44,15 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         viewGroup.removeView((View) obj);
     }
 
-    public ImageFileInfo fT(int i) {
+    public ImageFileInfo gs(int i) {
         return (ImageFileInfo) ListUtils.getItem(this.mList, i);
     }
 
-    public boolean fU(int i) {
-        if (this.bCI.get(Integer.valueOf(i)) == null) {
+    public boolean gt(int i) {
+        if (this.bHQ.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.bCI.get(Integer.valueOf(i)).booleanValue();
+        return this.bHQ.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -65,10 +65,10 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         tbImageView.setDefaultErrorResource(0);
         tbImageView.setGifIconSupport(false);
         tbImageView.setLongIconSupport(false);
-        ImageFileInfo fT = fT(i);
-        if (fT != null) {
-            tbImageView.startLoad(fT.getFilePath(), 35, false, false);
-            this.bCI.put(Integer.valueOf(i), true);
+        ImageFileInfo gs = gs(i);
+        if (gs != null) {
+            tbImageView.startLoad(gs.getFilePath(), 35, false, false);
+            this.bHQ.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
         SkinManager.setBackgroundColor(inflate, a.c.sdk_cp_bg_line_d);

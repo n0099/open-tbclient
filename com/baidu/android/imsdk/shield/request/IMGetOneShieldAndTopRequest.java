@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.shield.request;
 
 import android.content.Context;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -17,7 +18,7 @@ import java.security.NoSuchAlgorithmException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     private static final String TAG = "IMGetOneShieldAndTopRequest";
     private int mChatType;
@@ -86,7 +87,7 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             int optInt = jSONObject.optInt("error_code");
-            String optString = jSONObject.optString("error_msg");
+            String optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
             JSONArray optJSONArray = jSONObject.optJSONArray("contacter");
             if (optJSONArray != null) {
                 for (int i3 = 0; i3 < optJSONArray.length(); i3++) {

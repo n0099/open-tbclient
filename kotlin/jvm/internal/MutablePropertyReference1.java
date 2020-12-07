@@ -2,7 +2,7 @@ package kotlin.jvm.internal;
 
 import kotlin.reflect.h;
 import kotlin.reflect.l;
-/* loaded from: classes9.dex */
+/* loaded from: classes17.dex */
 public abstract class MutablePropertyReference1 extends MutablePropertyReference implements kotlin.reflect.h {
     public MutablePropertyReference1() {
     }
@@ -13,7 +13,7 @@ public abstract class MutablePropertyReference1 extends MutablePropertyReference
 
     @Override // kotlin.jvm.internal.CallableReference
     protected kotlin.reflect.b computeReflected() {
-        return t.a(this);
+        return s.a(this);
     }
 
     @Override // kotlin.jvm.a.b

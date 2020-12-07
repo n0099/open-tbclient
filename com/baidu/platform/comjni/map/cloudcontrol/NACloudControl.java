@@ -1,7 +1,7 @@
 package com.baidu.platform.comjni.map.cloudcontrol;
 
 import com.baidu.platform.comjni.NativeComponent;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class NACloudControl extends NativeComponent {
     public NACloudControl() {
         create();

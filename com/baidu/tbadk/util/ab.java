@@ -19,17 +19,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ab {
-    private static Point fys;
-    private b fyu;
-    private long fyv;
-    private a fyw;
-    private a fyx;
+    private static Point fGh;
+    private b fGj;
+    private long fGk;
+    private a fGl;
+    private a fGm;
     private Context mContext;
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
-    private static final String[] fyp = {"_data", "datetaken"};
-    private static final String[] fyq = {"_data", "datetaken", "width", "height"};
-    private static final String[] fyr = {StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
-    private static final List<String> fyt = new ArrayList();
+    private static final String[] fGe = {"_data", "datetaken"};
+    private static final String[] fGf = {"_data", "datetaken", "width", "height"};
+    private static final String[] fGg = {StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
+    private static final List<String> fGi = new ArrayList();
 
     /* loaded from: classes.dex */
     public interface b {
@@ -38,10 +38,10 @@ public class ab {
 
     public ab(Context context) {
         this.mContext = context;
-        if (fys == null) {
-            fys = bDn();
-            if (fys != null) {
-                BdLog.d("ScreenShotListenManager: Screen Real Size: " + fys.x + " * " + fys.y);
+        if (fGh == null) {
+            fGh = bGO();
+            if (fGh != null) {
+                BdLog.d("ScreenShotListenManager: Screen Real Size: " + fGh.x + " * " + fGh.y);
             } else {
                 BdLog.d("ScreenShotListenManager: Get screen real size failed.");
             }
@@ -49,61 +49,61 @@ public class ab {
     }
 
     public void startListen() {
-        if (bDo()) {
-            this.fyv = System.currentTimeMillis();
-            this.fyw = new a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.mUiHandler);
-            this.fyx = new a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.mUiHandler);
+        if (bGP()) {
+            this.fGk = System.currentTimeMillis();
+            this.fGl = new a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.mUiHandler);
+            this.fGm = new a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.mUiHandler);
             if (Build.VERSION.SDK_INT >= 29) {
-                this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, true, this.fyw);
-                this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.fyx);
+                this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, true, this.fGl);
+                this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.fGm);
                 return;
             }
-            this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.fyw);
-            this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.fyx);
+            this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.fGl);
+            this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.fGm);
         }
     }
 
     public void stopListen() {
-        if (bDo()) {
-            if (this.fyw != null) {
+        if (bGP()) {
+            if (this.fGl != null) {
                 try {
-                    this.mContext.getContentResolver().unregisterContentObserver(this.fyw);
+                    this.mContext.getContentResolver().unregisterContentObserver(this.fGl);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                this.fyw = null;
+                this.fGl = null;
             }
-            if (this.fyx != null) {
+            if (this.fGm != null) {
                 try {
-                    this.mContext.getContentResolver().unregisterContentObserver(this.fyx);
+                    this.mContext.getContentResolver().unregisterContentObserver(this.fGm);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                this.fyx = null;
+                this.fGm = null;
             }
-            this.fyv = 0L;
-            this.fyu = null;
+            this.fGk = 0L;
+            this.fGj = null;
         }
     }
 
-    private boolean Ea(String str) {
-        if (fyt.contains(str)) {
+    private boolean EN(String str) {
+        if (fGi.contains(str)) {
             BdLog.d("ScreenShotListenManager: ScreenShot: imgPath has done; imagePath = " + str);
             return true;
         }
-        if (fyt.size() >= 20) {
+        if (fGi.size() >= 20) {
             for (int i = 0; i < 5; i++) {
-                fyt.remove(0);
+                fGi.remove(0);
             }
         }
-        fyt.add(str);
+        fGi.add(str);
         return false;
     }
 
-    private Point bDn() {
+    private Point bGO() {
         Point point;
         Point point2 = null;
-        if (!bDo() || this.mContext == null) {
+        if (!bGP() || this.mContext == null) {
             return null;
         }
         try {
@@ -143,7 +143,7 @@ public class ab {
         Cursor cursor2 = null;
         try {
             try {
-                Cursor query = this.mContext.getContentResolver().query(uri, Build.VERSION.SDK_INT < 16 ? fyp : fyq, null, null, "date_added desc limit 1");
+                Cursor query = this.mContext.getContentResolver().query(uri, Build.VERSION.SDK_INT < 16 ? fGe : fGf, null, null, "date_added desc limit 1");
                 if (query == null) {
                     if (query == null || query.isClosed()) {
                         return;
@@ -170,9 +170,9 @@ public class ab {
                     String string = query.getString(columnIndex);
                     long j = query.getLong(columnIndex2);
                     if (i4 < 0 || i < 0) {
-                        Point Eb = Eb(string);
-                        i2 = Eb.x;
-                        i3 = Eb.y;
+                        Point EO = EO(string);
+                        i2 = EO.x;
+                        i3 = EO.y;
                     } else {
                         i2 = query.getInt(i4);
                         i3 = query.getInt(i);
@@ -213,7 +213,7 @@ public class ab {
         }
     }
 
-    private Point Eb(String str) {
+    private Point EO(String str) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);
@@ -223,8 +223,8 @@ public class ab {
     private void a(String str, long j, int i, int i2) {
         if (b(str, j, i, i2)) {
             BdLog.d("ScreenShotListenManager: ScreenShot: path = " + str + "; size = " + i + " * " + i2 + "; date = " + j);
-            if (this.fyu != null && !Ea(str)) {
-                this.fyu.onShot(str);
+            if (this.fGj != null && !EN(str)) {
+                this.fGj.onShot(str);
                 return;
             }
             return;
@@ -233,12 +233,12 @@ public class ab {
     }
 
     private boolean b(String str, long j, int i, int i2) {
-        if (j < this.fyv || System.currentTimeMillis() - j > 10000) {
+        if (j < this.fGk || System.currentTimeMillis() - j > 10000) {
             return false;
         }
-        if ((fys == null || ((i <= fys.x && i2 <= fys.y) || (i2 <= fys.x && i <= fys.y))) && !TextUtils.isEmpty(str)) {
+        if ((fGh == null || ((i <= fGh.x && i2 <= fGh.y) || (i2 <= fGh.x && i <= fGh.y))) && !TextUtils.isEmpty(str)) {
             String lowerCase = str.toLowerCase();
-            for (String str2 : fyr) {
+            for (String str2 : fGg) {
                 if (lowerCase.contains(str2)) {
                     return true;
                 }
@@ -248,12 +248,12 @@ public class ab {
         return false;
     }
 
-    private static boolean bDo() {
+    private static boolean bGP() {
         return Looper.myLooper() == Looper.getMainLooper();
     }
 
     public void a(b bVar) {
-        this.fyu = bVar;
+        this.fGj = bVar;
     }
 
     /* loaded from: classes.dex */

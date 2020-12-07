@@ -9,9 +9,9 @@ import android.util.AttributeSet;
 import com.facebook.common.b.i;
 import com.facebook.common.references.a;
 import com.facebook.drawee.a.a.c;
-import com.facebook.imagepipeline.e.b;
+import com.facebook.imagepipeline.d.b;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 public class AdImageVIew extends AppCompatImageView {
     public AdImageVIew(Context context) {
         super(context);
@@ -26,8 +26,8 @@ public class AdImageVIew extends AppCompatImageView {
     }
 
     public void setImageUrl(String str) {
-        c.ekS().e(ImageRequestBuilder.ae(Uri.parse(str)).erW(), getContext()).a(new b() { // from class: com.baidu.swan.game.ad.component.AdImageVIew.1
-            @Override // com.facebook.imagepipeline.e.b
+        c.eqH().e(ImageRequestBuilder.af(Uri.parse(str)).exw(), getContext()).a(new b() { // from class: com.baidu.swan.game.ad.component.AdImageVIew.1
+            @Override // com.facebook.imagepipeline.d.b
             protected void e(@Nullable Bitmap bitmap) {
                 if (bitmap != null) {
                     AdImageVIew.this.setImageBitmap(bitmap);
@@ -35,8 +35,8 @@ public class AdImageVIew extends AppCompatImageView {
             }
 
             @Override // com.facebook.datasource.a
-            protected void a(com.facebook.datasource.b<a<com.facebook.imagepipeline.g.c>> bVar) {
+            protected void a(com.facebook.datasource.b<a<com.facebook.imagepipeline.f.c>> bVar) {
             }
-        }, i.ejY());
+        }, i.epN());
     }
 }

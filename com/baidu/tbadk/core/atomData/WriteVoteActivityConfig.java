@@ -16,7 +16,7 @@ public class WriteVoteActivityConfig extends IntentConfig {
     }
 
     public void setExtraData(Serializable serializable) {
-        getIntent().putExtra(EXTRA_DATA_KEY, serializable);
+        getIntent().putExtra("extra_data", serializable);
     }
 
     public void setExtraTitle(String str) {

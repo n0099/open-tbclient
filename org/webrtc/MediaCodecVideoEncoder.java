@@ -27,7 +27,7 @@ import org.webrtc.EglBase14;
 import org.webrtc.VideoFrame;
 @TargetApi(19)
 @Deprecated
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class MediaCodecVideoEncoder {
     private static final int BITRATE_ADJUSTMENT_FPS = 30;
     private static final double BITRATE_CORRECTION_MAX_SCALE = 4.0d;
@@ -94,7 +94,7 @@ public class MediaCodecVideoEncoder {
     private static final MediaCodecProperties qcomH264HwProperties = new MediaCodecProperties("OMX.qcom.", 19, BitrateAdjustmentType.NO_ADJUSTMENT);
     private static final MediaCodecProperties exynosH264HwProperties = new MediaCodecProperties("OMX.Exynos.", 21, BitrateAdjustmentType.FRAMERATE_ADJUSTMENT);
     private static final MediaCodecProperties FreescaH264HwProperties = new MediaCodecProperties("OMX.Freesca", 21, BitrateAdjustmentType.NO_ADJUSTMENT);
-    private static final MediaCodecProperties hisiH264HwProperties = new MediaCodecProperties("OMX.hisi.", 21, BitrateAdjustmentType.NO_ADJUSTMENT);
+    private static final MediaCodecProperties hisiH264HwProperties = new MediaCodecProperties("OMX.hisi.", 21, BitrateAdjustmentType.DYNAMIC_ADJUSTMENT);
     private static final MediaCodecProperties myMTKH264HwProperties = new MediaCodecProperties("OMX.MTK.", 21, BitrateAdjustmentType.NO_ADJUSTMENT);
     private static final MediaCodecProperties RockchipH264HwProperties = new MediaCodecProperties("OMX.rk.", 21, BitrateAdjustmentType.NO_ADJUSTMENT);
     private static final MediaCodecProperties AllwinnerH264HwProperties = new MediaCodecProperties("OMX.allwinner.", 21, BitrateAdjustmentType.NO_ADJUSTMENT);
@@ -104,7 +104,10 @@ public class MediaCodecVideoEncoder {
     private static final MediaCodecProperties sprdH264HwProperties = new MediaCodecProperties("OMX.sprd.", 21, BitrateAdjustmentType.NO_ADJUSTMENT);
     private static final MediaCodecProperties amlogicH264HwProperties = new MediaCodecProperties("OMX.amlogic.", 21, BitrateAdjustmentType.NO_ADJUSTMENT);
     private static final MediaCodecProperties exynosH264HighProfileHwProperties = new MediaCodecProperties("OMX.Exynos.", 23, BitrateAdjustmentType.FRAMERATE_ADJUSTMENT);
-    private static final MediaCodecProperties[] h264HighProfileHwList = {exynosH264HighProfileHwProperties};
+    private static final MediaCodecProperties qcomH264HighProfileHwProperties = new MediaCodecProperties("OMX.qcom.", 21, BitrateAdjustmentType.NO_ADJUSTMENT);
+    private static final MediaCodecProperties hisiH264HighProfileHwProperties = new MediaCodecProperties("OMX.hisi.", 23, BitrateAdjustmentType.DYNAMIC_ADJUSTMENT);
+    private static final MediaCodecProperties myMTKH264HighProfileHwProperties = new MediaCodecProperties("OMX.MTK.", 27, BitrateAdjustmentType.NO_ADJUSTMENT);
+    private static final MediaCodecProperties[] h264HighProfileHwList = {exynosH264HighProfileHwProperties, qcomH264HighProfileHwProperties, hisiH264HighProfileHwProperties, myMTKH264HighProfileHwProperties};
     private static final String[] H264_HW_EXCEPTION_MODELS = {"SAMSUNG-SGH-I337", "Nexus 7", "Nexus 4"};
     private static final int COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m = 2141391876;
     private static final int[] supportedColorList = {19, 21, 2141391872, COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m};
@@ -114,7 +117,7 @@ public class MediaCodecVideoEncoder {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: org.webrtc.MediaCodecVideoEncoder$1CaughtException  reason: invalid class name */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public class C1CaughtException {
         Exception e;
 
@@ -122,14 +125,14 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public enum BitrateAdjustmentType {
         NO_ADJUSTMENT,
         FRAMERATE_ADJUSTMENT,
         DYNAMIC_ADJUSTMENT
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class EncoderProperties {
         public final BitrateAdjustmentType bitrateAdjustmentType;
         public final String codecName;
@@ -142,7 +145,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public enum H264Profile {
         CONSTRAINED_BASELINE(0),
         BASELINE(1),
@@ -162,7 +165,7 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class HwEncoderFactory implements VideoEncoderFactory {
         private final VideoCodecInfo[] supportedHardwareCodecs = getSupportedHardwareCodecs();
 
@@ -237,7 +240,7 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class MediaCodecProperties {
         public final BitrateAdjustmentType bitrateAdjustmentType;
         public final String codecPrefix;
@@ -250,12 +253,12 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public interface MediaCodecVideoEncoderErrorCallback {
         void onMediaCodecVideoEncoderCriticalError(int i);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     static class OutputBufferInfo {
         public final ByteBuffer buffer;
         public final int index;
@@ -290,7 +293,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public enum VideoCodecType {
         VIDEO_CODEC_UNKNOWN,
         VIDEO_CODEC_VP8,
@@ -460,6 +463,10 @@ public class MediaCodecVideoEncoder {
         arrayList.add(qcomH264HwProperties);
         arrayList.add(exynosH264HwProperties);
         arrayList.add(FreescaH264HwProperties);
+        if (PeerConnectionFactory.fieldTrialsFindFullName("BRTC.HisiH264HW").equals(PeerConnectionFactory.TRIAL_ENABLED)) {
+            Logging.v(TAG, "enable hisiH264HW");
+            arrayList.add(hisiH264HwProperties);
+        }
         arrayList.add(myMTKH264HwProperties);
         arrayList.add(RockchipH264HwProperties);
         arrayList.add(AllwinnerH264HwProperties);

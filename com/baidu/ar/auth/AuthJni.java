@@ -1,27 +1,27 @@
 package com.baidu.ar.auth;
 
-import com.baidu.ar.g.r;
-import com.baidu.ar.libloader.a;
+import com.baidu.ar.h.r;
+import com.baidu.ar.libloader.ILibLoader;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class AuthJni {
-    private static volatile AuthJni jn;
-    private final List<Runnable> jp = new ArrayList();
-    private boolean jo = false;
+    private static volatile AuthJni jC;
+    private final List<Runnable> jE = new ArrayList();
+    private boolean jD = false;
 
     private AuthJni() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cz() {
-        for (Runnable runnable : this.jp) {
+    public void cy() {
+        for (Runnable runnable : this.jE) {
             runnable.run();
         }
-        this.jp.clear();
+        this.jE.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -34,22 +34,22 @@ public class AuthJni {
     }
 
     public static void init() {
-        jn = new AuthJni();
-        com.baidu.ar.libloader.b.as("ardatabasic2");
-        com.baidu.ar.libloader.b.a("ardatabasic2", new a.c() { // from class: com.baidu.ar.auth.AuthJni.1
-            @Override // com.baidu.ar.libloader.a.c
+        jC = new AuthJni();
+        com.baidu.ar.libloader.a.require("ardatabasic2");
+        com.baidu.ar.libloader.a.setLibReadyListener("ardatabasic2", new ILibLoader.c() { // from class: com.baidu.ar.auth.AuthJni.1
+            @Override // com.baidu.ar.libloader.ILibLoader.c
             public void onReady() {
                 r.runOnUiThread(new Runnable() { // from class: com.baidu.ar.auth.AuthJni.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (AuthJni.jn != null) {
+                        if (AuthJni.jC != null) {
                             try {
-                                AuthJni.jn.nativeInit();
-                                AuthJni.jn.jo = true;
-                                AuthJni.jn.cz();
+                                AuthJni.jC.nativeInit();
+                                AuthJni.jC.jD = true;
+                                AuthJni.jC.cy();
                             } catch (Throwable th) {
                                 th.printStackTrace();
-                                AuthJni.d(AuthJni.jn.getVersionStr(), th.getMessage());
+                                AuthJni.d(AuthJni.jC.getVersionStr(), th.getMessage());
                             }
                         }
                     }
@@ -59,43 +59,49 @@ public class AuthJni {
     }
 
     public static void release() {
-        if (jn != null) {
-            jn.jp.clear();
+        if (jC != null) {
+            jC.jE.clear();
             r.runOnUiThread(new Runnable() { // from class: com.baidu.ar.auth.AuthJni.3
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        AuthJni.jn.nativeDestroy();
+                        AuthJni.jC.nativeDestroy();
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
-                    AuthJni unused = AuthJni.jn = null;
+                    AuthJni unused = AuthJni.jC = null;
                 }
             });
         }
     }
 
     public static void setGrantedFeatures(final int[] iArr) {
-        if (jn == null) {
+        if (jC == null) {
             return;
         }
         Runnable runnable = new Runnable() { // from class: com.baidu.ar.auth.AuthJni.2
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (AuthJni.jn != null) {
-                        AuthJni.jn.nativeSetGrantedFeatures(iArr);
-                        AuthJni.jn.nativePutGrantedFeatures(iArr);
+                    if (AuthJni.jC != null) {
+                        AuthJni.jC.nativeSetGrantedFeatures(iArr);
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
+                try {
+                    if (AuthJni.jC != null) {
+                        AuthJni.jC.nativePutGrantedFeatures(iArr);
+                    }
+                } catch (Throwable th2) {
+                    th2.printStackTrace();
+                }
             }
         };
-        if (jn.jo) {
+        if (jC.jD) {
             r.runOnUiThread(runnable);
         } else {
-            jn.jp.add(runnable);
+            jC.jE.add(runnable);
         }
     }
 
@@ -119,6 +125,6 @@ public class AuthJni {
     native void nativeSetGrantedFeatures(int[] iArr);
 
     public void sendAuthFailMessageFromNative(int i) {
-        a.receiveAuthFailMessage(i);
+        ARAuth.receiveAuthFailMessage(i);
     }
 }

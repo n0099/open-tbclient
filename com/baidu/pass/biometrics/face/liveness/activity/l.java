@@ -11,17 +11,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class l extends AsyncTask<Void, Void, PassFaceRecogResult> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ContrastPortraitResult f2741a;
+    final /* synthetic */ ContrastPortraitResult f2743a;
     final /* synthetic */ LivenessRecogActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(LivenessRecogActivity livenessRecogActivity, ContrastPortraitResult contrastPortraitResult) {
         this.b = livenessRecogActivity;
-        this.f2741a = contrastPortraitResult;
+        this.f2743a = contrastPortraitResult;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,14 +43,14 @@ public class l extends AsyncTask<Void, Void, PassFaceRecogResult> {
         ArrayList arrayList5;
         int i = 0;
         PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-        if (this.f2741a.isProcessPass()) {
+        if (this.f2743a.isProcessPass()) {
             this.b.da.H = com.baidu.pass.biometrics.face.liveness.c.a.o;
             passFaceRecogResult.setResultCode(0);
         } else {
             this.b.da.H = "fail";
             passFaceRecogResult.setResultCode(-302);
         }
-        ContrastPortraitResult contrastPortraitResult = this.f2741a;
+        ContrastPortraitResult contrastPortraitResult = this.f2743a;
         passFaceRecogResult.callbackkey = contrastPortraitResult.callbackkey;
         if (!TextUtils.isEmpty(contrastPortraitResult.imgdigests)) {
             arrayList = this.b.ga;
@@ -66,7 +66,7 @@ public class l extends AsyncTask<Void, Void, PassFaceRecogResult> {
                         }
                         arrayList5 = this.b.ga;
                         byte[] bArr = (byte[]) ((HashMap) arrayList5.get(i)).get("digest");
-                        if (bArr != null && this.f2741a.imgdigests.equals(new String(bArr))) {
+                        if (bArr != null && this.f2743a.imgdigests.equals(new String(bArr))) {
                             break;
                         }
                         i++;
@@ -91,13 +91,13 @@ public class l extends AsyncTask<Void, Void, PassFaceRecogResult> {
                             if (bArr2 != null && (encode = Base64Utils.encode(bArr2)) != null) {
                                 passFaceRecogResult.faceimage = new String(encode);
                             }
-                            passFaceRecogResult.imgdigests = new String(this.f2741a.imgdigests);
+                            passFaceRecogResult.imgdigests = new String(this.f2743a.imgdigests);
                         }
                     }
                 }
             }
         }
-        passFaceRecogResult.authSid = this.f2741a.authsid;
+        passFaceRecogResult.authSid = this.f2743a.authsid;
         return passFaceRecogResult;
     }
 
@@ -109,7 +109,7 @@ public class l extends AsyncTask<Void, Void, PassFaceRecogResult> {
         PassFaceRecogCallback passFaceRecogCallback;
         PassFaceRecogCallback passFaceRecogCallback2;
         super.onPostExecute(passFaceRecogResult);
-        if (this.f2741a.isProcessPass()) {
+        if (this.f2743a.isProcessPass()) {
             passFaceRecogCallback2 = this.b.t;
             passFaceRecogCallback2.onSuccess(passFaceRecogResult);
         } else {

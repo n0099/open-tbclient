@@ -1,19 +1,11 @@
 package com.baidu.live.data;
-
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class bi {
-    public JSONObject aNw;
-    public JSONObject aNx;
+public interface bi {
+    String replaceFlvUrl(String str);
 
-    public bi(JSONObject jSONObject) {
-        parseData(jSONObject);
-    }
+    String replaceHslUrl(String str);
 
-    private void parseData(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.aNw = jSONObject.optJSONObject("bubble_effect");
-            this.aNx = jSONObject.optJSONObject("nickname_effect");
-        }
-    }
+    String replacePushUrl(String str);
+
+    String replaceRtmpUrl(String str);
 }

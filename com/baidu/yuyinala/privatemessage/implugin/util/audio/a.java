@@ -3,7 +3,6 @@ package com.baidu.yuyinala.privatemessage.implugin.util.audio;
 import android.content.Context;
 import android.media.AudioManager;
 import com.baidu.yuyinala.privatemessage.implugin.util.c;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes4.dex */
 public class a implements AudioManager.OnAudioFocusChangeListener {
     private AudioManager mAudioManager;
@@ -11,14 +10,14 @@ public class a implements AudioManager.OnAudioFocusChangeListener {
 
     public a(Context context) {
         this.mContext = context;
-        this.mAudioManager = (AudioManager) this.mContext.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        this.mAudioManager = (AudioManager) this.mContext.getSystemService("audio");
     }
 
     public boolean requestFocus() {
         return 1 == this.mAudioManager.requestAudioFocus(this, 3, 2);
     }
 
-    public boolean eie() {
+    public boolean enT() {
         return 1 == this.mAudioManager.abandonAudioFocus(this);
     }
 

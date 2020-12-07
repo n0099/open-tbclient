@@ -8,13 +8,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.ala.alaar.makeup.b.a {
-    public String aCl;
-    public BdUniqueId aCt;
-    private boolean eyn;
-    protected b gbA;
-    protected boolean gbo;
-    private boolean gby;
-    private boolean gbz;
+    public String aER;
+    public BdUniqueId aEZ;
+    private boolean eFm;
+    private boolean gjJ;
+    private boolean gjK;
+    protected b gjL;
+    protected boolean gjz;
     private File mFolder;
 
     public c() {
@@ -25,71 +25,71 @@ public class c extends com.baidu.tieba.ala.alaar.makeup.b.a {
     }
 
     public String getSign() {
-        return this.gbA.getSign();
+        return this.gjL.getSign();
     }
 
     public int getPosition() {
-        return this.gbA.getPosition();
+        return this.gjL.getPosition();
     }
 
     public void setPosition(int i) {
-        this.gbA.setPosition(i);
+        this.gjL.setPosition(i);
     }
 
     public void setData(List<d> list) {
-        this.gbA.setData(list);
+        this.gjL.setData(list);
     }
 
-    public b bMv() {
-        return this.gbA;
+    public b bQg() {
+        return this.gjL;
     }
 
-    public boolean bMw() {
-        return this.gby;
+    public boolean bQh() {
+        return this.gjJ;
     }
 
-    public boolean BJ() {
-        return this.eyn;
+    public boolean Dt() {
+        return this.eFm;
     }
 
     public int size() {
-        if (this.gbA == null) {
+        if (this.gjL == null) {
             return 0;
         }
-        return this.gbA.size();
+        return this.gjL.size();
     }
 
-    public boolean bMx() {
-        return this.gbz;
+    public boolean bQi() {
+        return this.gjK;
     }
 
-    public void lt(boolean z) {
-        this.gbz = z;
+    public void lO(boolean z) {
+        this.gjK = z;
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.b.b
-    public boolean dt(JSONObject jSONObject) {
+    public boolean du(JSONObject jSONObject) {
         if (jSONObject == null || jSONObject.length() == 0) {
             return false;
         }
-        this.eyn = jSONObject.optInt("switch", 0) == 1;
-        this.gby = jSONObject.optInt("red_dot_switch", 0) == 1;
-        this.gbz = jSONObject.optInt("is_user_clicked", 0) == 1;
-        this.gbo = jSONObject.optInt("is_male", 0) == 1;
+        this.eFm = jSONObject.optInt("switch", 0) == 1;
+        this.gjJ = jSONObject.optInt("red_dot_switch", 0) == 1;
+        this.gjK = jSONObject.optInt("is_user_clicked", 0) == 1;
+        this.gjz = jSONObject.optInt("is_male", 0) == 1;
         JSONObject optJSONObject = jSONObject.optJSONObject("beauty_conf");
-        this.gbA = new b();
-        this.gbA.X(this.mFolder);
-        return optJSONObject != null && this.gbA.dt(optJSONObject);
+        this.gjL = new b();
+        this.gjL.W(this.mFolder);
+        return optJSONObject != null && this.gjL.du(optJSONObject);
     }
 
     public JSONObject toJson() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("switch", this.eyn ? 1 : 0);
-            jSONObject.put("red_dot_switch", this.gby ? 1 : 0);
-            jSONObject.put("is_user_clicked", this.gbz ? 1 : 0);
-            jSONObject.put("is_male", this.gbo ? 1 : 0);
-            jSONObject.put("beauty_conf", this.gbA != null ? this.gbA.toJson() : null);
+            jSONObject.put("switch", this.eFm ? 1 : 0);
+            jSONObject.put("red_dot_switch", this.gjJ ? 1 : 0);
+            jSONObject.put("is_user_clicked", this.gjK ? 1 : 0);
+            jSONObject.put("is_male", this.gjz ? 1 : 0);
+            jSONObject.put("beauty_conf", this.gjL != null ? this.gjL.toJson() : null);
             return jSONObject;
         } catch (JSONException e) {
             e.printStackTrace();

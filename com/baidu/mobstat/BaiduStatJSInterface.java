@@ -50,13 +50,13 @@ public class BaiduStatJSInterface {
     public static class CustomWebViewClient extends WebViewClient {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<Context> f2487a;
+        private WeakReference<Context> f2489a;
         private WebViewClient b;
         private IWebviewPageLoadCallback c;
         private bl d;
 
         public CustomWebViewClient(Context context, WebViewClient webViewClient, IWebviewPageLoadCallback iWebviewPageLoadCallback, bl blVar) {
-            this.f2487a = new WeakReference<>(context);
+            this.f2489a = new WeakReference<>(context);
             this.b = webViewClient;
             this.c = iWebviewPageLoadCallback;
             this.d = blVar;
@@ -99,7 +99,7 @@ public class BaiduStatJSInterface {
             JSONObject jSONObject4 = new JSONObject(str);
             String string = jSONObject4.getString("action");
             JSONObject jSONObject5 = jSONObject4.getJSONObject(MapBundleKey.MapObjKey.OBJ_SL_OBJ);
-            Context context = this.f2487a.get();
+            Context context = this.f2489a.get();
             if (context != null) {
                 if ("onPageStart".equals(string)) {
                     String string2 = jSONObject5.getString("page");
@@ -326,14 +326,14 @@ public class BaiduStatJSInterface {
     public static class CustomWebChromeViewClient extends WebChromeClient {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<Context> f2486a;
+        private WeakReference<Context> f2488a;
         private WebChromeClient b;
         private ArrayList<IWebviewPageLoadCallback> c;
         private bl d;
         private int e = 0;
 
         public CustomWebChromeViewClient(Context context, WebChromeClient webChromeClient, ArrayList<IWebviewPageLoadCallback> arrayList, bl blVar) {
-            this.f2486a = new WeakReference<>(context);
+            this.f2488a = new WeakReference<>(context);
             this.b = webChromeClient;
             this.c = arrayList;
             this.d = blVar;

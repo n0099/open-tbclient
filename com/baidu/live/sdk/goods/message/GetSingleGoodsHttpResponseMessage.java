@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class GetSingleGoodsHttpResponseMessage extends JsonHttpResponsedMessage {
-    public com.baidu.live.sdk.goods.a.a bqS;
+    public com.baidu.live.sdk.goods.a.a bwd;
 
     public GetSingleGoodsHttpResponseMessage() {
         super(1021201);
@@ -15,7 +15,7 @@ public class GetSingleGoodsHttpResponseMessage extends JsonHttpResponsedMessage 
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("result")) != null && getError() == 0) {
-            this.bqS = com.baidu.live.sdk.goods.a.a.N(optJSONObject);
+            this.bwd = com.baidu.live.sdk.goods.a.a.P(optJSONObject);
         }
     }
 }

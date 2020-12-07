@@ -51,7 +51,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 @ViewPager.DecorView
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class TabLayout extends HorizontalScrollView {
     private static final int ANIMATION_DURATION = 300;
     static final int DEFAULT_GAP_TEXT_ICON = 8;
@@ -99,11 +99,11 @@ public class TabLayout extends HorizontalScrollView {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public @interface Mode {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public interface OnTabSelectedListener {
         void onTabReselected(Tab tab);
 
@@ -114,7 +114,7 @@ public class TabLayout extends HorizontalScrollView {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public @interface TabGravity {
     }
 
@@ -762,7 +762,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static final class Tab {
         public static final int INVALID_POSITION = -1;
         private CharSequence mContentDesc;
@@ -906,7 +906,7 @@ public class TabLayout extends HorizontalScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public class TabView extends LinearLayout {
         private ImageView mCustomIconView;
         private TextView mCustomTextView;
@@ -1123,7 +1123,7 @@ public class TabLayout extends HorizontalScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public class SlidingTabStrip extends LinearLayout {
         private ValueAnimator mIndicatorAnimator;
         private int mIndicatorLeft;
@@ -1382,7 +1382,7 @@ public class TabLayout extends HorizontalScrollView {
         return this.mTabMaxWidth;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class TabLayoutOnPageChangeListener implements ViewPager.OnPageChangeListener {
         private int mPreviousScrollState;
         private int mScrollState;
@@ -1425,7 +1425,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class ViewPagerOnTabSelectedListener implements OnTabSelectedListener {
         private final ViewPager mViewPager;
 
@@ -1448,7 +1448,7 @@ public class TabLayout extends HorizontalScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public class PagerAdapterObserver extends DataSetObserver {
         PagerAdapterObserver() {
         }
@@ -1465,7 +1465,7 @@ public class TabLayout extends HorizontalScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public class AdapterChangeListener implements ViewPager.OnAdapterChangeListener {
         private boolean mAutoRefresh;
 

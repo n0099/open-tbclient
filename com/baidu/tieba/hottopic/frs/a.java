@@ -4,23 +4,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.x;
 import com.baidu.tieba.card.y;
 import com.baidu.tieba.frs.k;
-/* loaded from: classes20.dex */
-public class a extends k<bx, com.baidu.tieba.card.a.a<x>> implements y {
-    private ab<bx> gkY;
+/* loaded from: classes21.dex */
+public class a extends k<by, com.baidu.tieba.card.a.a<x>> implements y {
+    private ab<by> gth;
     private String mFrom;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.gkY = new ab<bx>() { // from class: com.baidu.tieba.hottopic.frs.a.1
+        this.gth = new ab<by>() { // from class: com.baidu.tieba.hottopic.frs.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
-            public void a(View view, bx bxVar, Object obj) {
+            public void a(View view, by byVar, Object obj) {
             }
         };
         this.mPageContext = tbPageContext;
@@ -36,7 +36,7 @@ public class a extends k<bx, com.baidu.tieba.card.a.a<x>> implements y {
     }
 
     @Override // com.baidu.tieba.card.y
-    public String abq() {
+    public String aey() {
         return "FrsHottopicVideoDelegateAdapter";
     }
 
@@ -51,12 +51,12 @@ public class a extends k<bx, com.baidu.tieba.card.a.a<x>> implements y {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bx bxVar, com.baidu.tieba.card.a.a<x> aVar) {
-        if (aVar == null || aVar.coz() == null) {
+    public View a(int i, View view, ViewGroup viewGroup, by byVar, com.baidu.tieba.card.a.a<x> aVar) {
+        if (aVar == null || aVar.csM() == null) {
             return null;
         }
-        aVar.coz().c(this.gkY);
-        aVar.coz().a(bxVar);
+        aVar.csM().c(this.gth);
+        aVar.csM().a(byVar);
         return aVar.getView();
     }
 

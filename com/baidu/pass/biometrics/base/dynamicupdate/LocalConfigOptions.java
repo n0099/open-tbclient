@@ -20,7 +20,7 @@ public class LocalConfigOptions {
     public static final int DEFAULT_ZIP_GRAY_THRESHOLD = 100;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2695a = ".BD_SAPI_CACHE";
+    private static final String f2697a = ".BD_SAPI_CACHE";
     private static final String b = "pass_face_sdk";
     private static final String c = "illum_gray";
     private static LocalConfigOptions d;
@@ -38,7 +38,7 @@ public class LocalConfigOptions {
     }
 
     public static String getExternalZipPath(String str) {
-        return Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + f2695a + "/" + b + "/" + SdkConfigOptions.HOST_VERSION + Constants.ACCEPT_TIME_SEPARATOR_SERVER + str + ".zip";
+        return Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + f2697a + "/" + b + "/" + SdkConfigOptions.HOST_VERSION + Constants.ACCEPT_TIME_SEPARATOR_SERVER + str + ".zip";
     }
 
     public static LocalConfigOptions getInstance(Context context) {

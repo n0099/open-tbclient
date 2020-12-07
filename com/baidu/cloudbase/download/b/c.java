@@ -1,5 +1,5 @@
 package com.baidu.cloudbase.download.b;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class c {
     public static void d(String str, String str2) {
     }

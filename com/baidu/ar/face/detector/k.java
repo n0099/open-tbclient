@@ -1,106 +1,104 @@
 package com.baidu.ar.face.detector;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class k {
-    private int pa = 300;
-    private int pb = 0;
-    private int pc = 0;
-    private int pd = 0;
-    private int pe = 0;
-    private int pf = 0;
-    private int pg = 0;
-    private double ph;
-    private double pi;
-    private double pj;
-    private double pk;
-
-    /* renamed from: pl  reason: collision with root package name */
-    private double f1195pl;
-    private double pm;
+    private double pA;
+    private double pB;
+    private double pC;
+    private int pq = 300;
+    private int pr = 0;
+    private int ps = 0;
+    private int pt = 0;
+    private int pu = 0;
+    private int pv = 0;
+    private int pw = 0;
+    private double px;
+    private double py;
+    private double pz;
 
     public void a(double d) {
-        if (this.pb < this.pa) {
-            this.pb++;
-            this.pi = (((this.pb - 1) * this.pi) + d) / this.pb;
+        if (this.pr < this.pq) {
+            this.pr++;
+            this.py = (((this.pr - 1) * this.py) + d) / this.pr;
             return;
         }
-        if (this.pb == this.pa) {
-            this.pb++;
+        if (this.pr == this.pq) {
+            this.pr++;
         }
-        this.pb = 0;
-        this.pi = 0.0d;
+        this.pr = 0;
+        this.py = 0.0d;
     }
 
     public void b(double d) {
-        if (this.pc < this.pa) {
-            this.pc++;
-            this.ph = (((this.pc - 1) * this.ph) + d) / this.pc;
+        if (this.ps < this.pq) {
+            this.ps++;
+            this.px = (((this.ps - 1) * this.px) + d) / this.ps;
             return;
         }
-        if (this.pc == this.pa) {
-            this.pc++;
+        if (this.ps == this.pq) {
+            this.ps++;
         }
-        this.pc = 0;
-        this.ph = 0.0d;
+        this.ps = 0;
+        this.px = 0.0d;
     }
 
     public void c(double d) {
-        if (this.pd < this.pa) {
-            this.pd++;
-            this.pj = (((this.pd - 1) * this.pj) + d) / this.pd;
+        if (this.pt < this.pq) {
+            this.pt++;
+            this.pz = (((this.pt - 1) * this.pz) + d) / this.pt;
             return;
         }
-        if (this.pd == this.pa) {
-            this.pd++;
+        if (this.pt == this.pq) {
+            this.pt++;
         }
-        this.pd = 0;
-        this.pj = 0.0d;
+        this.pt = 0;
+        this.pz = 0.0d;
     }
 
     public void d(double d) {
-        if (this.pe < this.pa) {
-            this.pe++;
-            this.pk = (((this.pe - 1) * this.pk) + d) / this.pe;
+        if (this.pu < this.pq) {
+            this.pu++;
+            this.pA = (((this.pu - 1) * this.pA) + d) / this.pu;
             return;
         }
-        if (this.pe == this.pa) {
-            this.pe++;
+        if (this.pu == this.pq) {
+            this.pu++;
         }
-        this.pe = 0;
-        this.pk = 0.0d;
+        this.pu = 0;
+        this.pA = 0.0d;
     }
 
     public void e(double d) {
-        if (this.pf < this.pa) {
-            this.pf++;
-            this.f1195pl = (((this.pf - 1) * this.f1195pl) + d) / this.pf;
+        if (this.pv < this.pq) {
+            this.pv++;
+            this.pB = (((this.pv - 1) * this.pB) + d) / this.pv;
             return;
         }
-        if (this.pf == this.pa) {
-            this.pf++;
+        if (this.pv == this.pq) {
+            this.pv++;
         }
-        this.pf = 0;
-        this.f1195pl = 0.0d;
+        this.pv = 0;
+        this.pB = 0.0d;
     }
 
-    public void eA() {
-        this.pb = 0;
-        this.pc = 0;
-        this.pd = 0;
-        this.pe = 0;
-        this.pf = 0;
-        this.pg = 0;
+    public void ez() {
+        this.pr = 0;
+        this.ps = 0;
+        this.pt = 0;
+        this.pu = 0;
+        this.pv = 0;
+        this.pw = 0;
     }
 
     public void f(double d) {
-        if (this.pg < this.pa) {
-            this.pg++;
-            this.pm = (((this.pg - 1) * this.pm) + d) / this.pg;
+        if (this.pw < this.pq) {
+            this.pw++;
+            this.pC = (((this.pw - 1) * this.pC) + d) / this.pw;
             return;
         }
-        if (this.pg == this.pa) {
-            this.pg++;
+        if (this.pw == this.pq) {
+            this.pw++;
         }
-        this.pg = 0;
-        this.pm = 0.0d;
+        this.pw = 0;
+        this.pC = 0.0d;
     }
 }

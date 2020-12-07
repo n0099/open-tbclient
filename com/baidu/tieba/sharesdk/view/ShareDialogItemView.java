@@ -11,17 +11,17 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class ShareDialogItemView extends LinearLayout {
-    public static final int mMC = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
-    private static final int mMD = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-    private static final int mME = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
-    private static final int mMF = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+    public static final int naF = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+    private static final int naG = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+    private static final int naH = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+    private static final int naI = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X09);
     private Context context;
-    private ImageView mMG;
-    private EMTextView mMH;
-    private LinearLayout.LayoutParams mMI;
-    private LinearLayout.LayoutParams mMJ;
+    private ImageView naJ;
+    private EMTextView naK;
+    private LinearLayout.LayoutParams naL;
+    private LinearLayout.LayoutParams naM;
 
     public ShareDialogItemView(Context context) {
         this(context, null);
@@ -37,65 +37,65 @@ public class ShareDialogItemView extends LinearLayout {
     }
 
     public void setItemIcon(com.baidu.tbadk.core.util.d.a aVar) {
-        this.mMG = new ImageView(this.context);
-        setTag(Integer.valueOf(aVar.eHH));
+        this.naJ = new ImageView(this.context);
+        setTag(Integer.valueOf(aVar.eOR));
         if (aVar instanceof com.baidu.tbadk.core.util.d.c) {
-            com.baidu.tbadk.core.util.e.a.brc().pF(1).pG(R.color.CAM_X0213).bn(this.mMG);
+            com.baidu.tbadk.core.util.e.a.buz().qf(1).qg(R.color.CAM_X0213).bq(this.naJ);
         }
-        this.mMG.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.mMG.setImageDrawable(aVar.getDrawable());
-        dGa();
+        this.naJ.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.naJ.setImageDrawable(aVar.getDrawable());
+        dLo();
     }
 
     public void setItemIcon(int i, int i2) {
-        this.mMG = new ImageView(this.context);
+        this.naJ = new ImageView(this.context);
         setTag(Integer.valueOf(i));
-        this.mMG.setScaleType(ImageView.ScaleType.FIT_XY);
-        com.baidu.tbadk.core.util.e.a.brc().pF(1).pG(R.color.CAM_X0207).bn(this.mMG);
-        this.mMG.setImageDrawable(WebPManager.a(i, i2, (WebPManager.ResourceStateType) null));
-        dGa();
+        this.naJ.setScaleType(ImageView.ScaleType.FIT_XY);
+        com.baidu.tbadk.core.util.e.a.buz().qf(1).qg(R.color.CAM_X0207).bq(this.naJ);
+        this.naJ.setImageDrawable(WebPManager.a(i, i2, (WebPManager.ResourceStateType) null));
+        dLo();
     }
 
     public void setItemIcon(int i, int i2, int i3) {
-        this.mMG = new ImageView(this.context);
+        this.naJ = new ImageView(this.context);
         setTag(Integer.valueOf(i3));
-        this.mMG.setScaleType(ImageView.ScaleType.FIT_XY);
-        com.baidu.tbadk.core.util.e.a.brc().pF(1).pG(R.color.CAM_X0207).bn(this.mMG);
-        this.mMG.setImageDrawable(WebPManager.a(i, i2, (WebPManager.ResourceStateType) null));
-        dGa();
+        this.naJ.setScaleType(ImageView.ScaleType.FIT_XY);
+        com.baidu.tbadk.core.util.e.a.buz().qf(1).qg(R.color.CAM_X0207).bq(this.naJ);
+        this.naJ.setImageDrawable(WebPManager.a(i, i2, (WebPManager.ResourceStateType) null));
+        dLo();
     }
 
     public void setItemIcon(com.baidu.tbadk.core.util.d.a aVar, int i) {
-        this.mMG = new ImageView(this.context);
+        this.naJ = new ImageView(this.context);
         setTag(Integer.valueOf(i));
         if (aVar instanceof com.baidu.tbadk.core.util.d.c) {
-            com.baidu.tbadk.core.util.e.a.brc().pF(1).pG(R.color.CAM_X0213).bn(this.mMG);
+            com.baidu.tbadk.core.util.e.a.buz().qf(1).qg(R.color.CAM_X0213).bq(this.naJ);
         }
-        this.mMG.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.mMG.setImageDrawable(aVar.getDrawable());
-        dGa();
+        this.naJ.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.naJ.setImageDrawable(aVar.getDrawable());
+        dLo();
     }
 
-    private void dGa() {
-        this.mMI = new LinearLayout.LayoutParams(mMC, mMC);
-        this.mMI.topMargin = mMD;
-        this.mMI.bottomMargin = mME;
-        this.mMI.gravity = 1;
+    private void dLo() {
+        this.naL = new LinearLayout.LayoutParams(naF, naF);
+        this.naL.topMargin = naG;
+        this.naL.bottomMargin = naH;
+        this.naL.gravity = 1;
     }
 
     public void setItemName(int i) {
-        this.mMH = new EMTextView(this.context);
-        this.mMH.setTextSize(0, mMF);
-        this.mMH.setText(i);
-        ap.setViewTextColor(this.mMH, R.color.CAM_X0107);
-        this.mMJ = new LinearLayout.LayoutParams(-2, -2);
-        this.mMJ.gravity = 1;
+        this.naK = new EMTextView(this.context);
+        this.naK.setTextSize(0, naI);
+        this.naK.setText(i);
+        ap.setViewTextColor(this.naK, R.color.CAM_X0107);
+        this.naM = new LinearLayout.LayoutParams(-2, -2);
+        this.naM.gravity = 1;
     }
 
-    public ShareDialogItemView dGb() {
+    public ShareDialogItemView dLp() {
         setOrientation(1);
-        addView(this.mMG, this.mMI);
-        addView(this.mMH, this.mMJ);
+        addView(this.naJ, this.naL);
+        addView(this.naK, this.naM);
         return this;
     }
 }

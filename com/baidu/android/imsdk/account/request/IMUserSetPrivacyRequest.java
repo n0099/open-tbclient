@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.account.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatuser.request.IMUserBaseHttpRequest;
@@ -13,7 +14,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMUserSetPrivacyRequest extends IMUserBaseHttpRequest {
     private long mAppid;
     private String mKey;
@@ -55,10 +56,10 @@ public class IMUserSetPrivacyRequest extends IMUserBaseHttpRequest {
             JSONObject jSONObject = new JSONObject(str2);
             if (jSONObject.has("response_params")) {
                 i2 = jSONObject.getJSONObject("response_params").getInt("error_code");
-                str = jSONObject.optString("error_msg", Constants.ERROR_MSG_SUCCESS);
+                str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, Constants.ERROR_MSG_SUCCESS);
             } else {
                 i2 = jSONObject.getInt("error_code");
-                str = jSONObject.optString("error_msg", "");
+                str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
             }
         } catch (JSONException e) {
             LogUtils.e("IMUserSetPrivacyRequest", "JSONException", e);

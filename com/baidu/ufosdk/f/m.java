@@ -7,7 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.StateListDrawable;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class m {
     /* JADX WARN: Removed duplicated region for block: B:37:0x0047 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*

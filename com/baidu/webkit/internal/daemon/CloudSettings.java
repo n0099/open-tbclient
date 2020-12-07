@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class CloudSettings implements INoProGuard, INetListener {
     private static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
     private static final String CLOUD_SETTING_URL_HTTP = "http://browserkernel.baidu.com/config/t5config?cmd=1&";
@@ -41,11 +41,11 @@ public class CloudSettings implements INoProGuard, INetListener {
     private int mNetres = -1;
     private ByteArrayOutputStream mData = null;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f3937a;
+        public long f3940a;
         public int b = -1;
         public boolean c;
 
@@ -59,7 +59,7 @@ public class CloudSettings implements INoProGuard, INetListener {
 
         final void a(long j) {
             Log.w(CloudSettings.LOG_TAG, "setNetTime " + j);
-            this.f3937a = j;
+            this.f3940a = j;
         }
 
         final void a(boolean z) {
@@ -73,7 +73,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             sb.append(ETAG.ITEM_SEPARATOR);
         }
         sb.append(str);
-        sb.append(ETAG.EQUAL);
+        sb.append("=");
         sb.append(j);
     }
 
@@ -82,7 +82,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             sb.append(ETAG.ITEM_SEPARATOR);
         }
         sb.append(str);
-        sb.append(ETAG.EQUAL);
+        sb.append("=");
         sb.append(str2);
     }
 
@@ -91,7 +91,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             sb.append(ETAG.ITEM_SEPARATOR);
         }
         sb.append(str);
-        sb.append(ETAG.EQUAL);
+        sb.append("=");
         sb.append(z);
     }
 
@@ -122,7 +122,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             addRawLogItem(sb, "appid", WebKitFactory.getAppIdString());
         }
         if (WebKitFactory.getAppVersionString() != null) {
-            addRawLogItem(sb, ETAG.KEY_APP_VERSION, WebKitFactory.getAppVersionString());
+            addRawLogItem(sb, "appversion", WebKitFactory.getAppVersionString());
         }
         addRawLogItem(sb, ETAG.KEY_DEV_VER, Build.VERSION.SDK_INT);
         addRawLogItem(sb, "net_type", ConectivityUtils.getNetType(context));

@@ -15,16 +15,16 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.newinterest.b.a;
 import com.baidu.tieba.newinterest.data.b;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class InterestedForumFragment extends BaseFragment {
-    private BdRecyclerView hRt;
-    private TBSpecificationBtn liH;
-    private FrameLayout liO;
-    private TextView liV;
-    private TextView liW;
-    private a liX;
-    private List<b> liY;
-    private TBSpecificationBtn liZ;
+    private BdRecyclerView icn;
+    private TBSpecificationBtn lwg;
+    private FrameLayout lwn;
+    private TextView lwu;
+    private TextView lwv;
+    private a lww;
+    private List<b> lwx;
+    private TBSpecificationBtn lwy;
     private View mRootView;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -36,44 +36,44 @@ public class InterestedForumFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mRootView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_interested_forum_layout, viewGroup, false);
         initUI();
-        cBW();
+        cGp();
         initData();
         return this.mRootView;
     }
 
     private void initUI() {
-        this.liW = (TextView) this.mRootView.findViewById(R.id.interested_desc);
-        this.liV = (TextView) this.mRootView.findViewById(R.id.interested_title);
-        this.liV.setTypeface(Typeface.DEFAULT_BOLD);
-        ap.setViewTextColor(this.liV, R.color.CAM_X0105);
-        ap.setViewTextColor(this.liW, R.color.CAM_X0107);
-        this.hRt = (BdRecyclerView) this.mRootView.findViewById(R.id.interested_forum_list_view);
-        this.liO = (FrameLayout) this.mRootView.findViewById(R.id.bottom_select_layout);
+        this.lwv = (TextView) this.mRootView.findViewById(R.id.interested_desc);
+        this.lwu = (TextView) this.mRootView.findViewById(R.id.interested_title);
+        this.lwu.setTypeface(Typeface.DEFAULT_BOLD);
+        ap.setViewTextColor(this.lwu, R.color.CAM_X0105);
+        ap.setViewTextColor(this.lwv, R.color.CAM_X0107);
+        this.icn = (BdRecyclerView) this.mRootView.findViewById(R.id.interested_forum_list_view);
+        this.lwn = (FrameLayout) this.mRootView.findViewById(R.id.bottom_select_layout);
         com.baidu.tbadk.core.view.commonBtn.a aVar = new com.baidu.tbadk.core.view.commonBtn.a();
-        this.liZ = (TBSpecificationBtn) this.mRootView.findViewById(R.id.interest_forum_selected_btn);
-        this.liZ.setTextSize(R.dimen.tbds42);
-        this.liZ.setConfig(aVar);
-        this.liZ.setText(getResources().getString(R.string.try_to_select));
-        this.liZ.setEnabled(false);
-        this.liZ.setOnClickListener(this);
-        this.liH = (TBSpecificationBtn) this.mRootView.findViewById(R.id.select_all_btn);
-        this.liH.setText(getString(R.string.select_all));
-        this.liX = new a(this, this.hRt, this.liZ, this.liH, getPageContext(), new com.baidu.tieba.newinterest.c.b(getUniqueId()));
+        this.lwy = (TBSpecificationBtn) this.mRootView.findViewById(R.id.interest_forum_selected_btn);
+        this.lwy.setTextSize(R.dimen.tbds42);
+        this.lwy.setConfig(aVar);
+        this.lwy.setText(getResources().getString(R.string.try_to_select));
+        this.lwy.setEnabled(false);
+        this.lwy.setOnClickListener(this);
+        this.lwg = (TBSpecificationBtn) this.mRootView.findViewById(R.id.select_all_btn);
+        this.lwg.setText(getString(R.string.select_all));
+        this.lww = new a(this, this.icn, this.lwy, this.lwg, getPageContext(), new com.baidu.tieba.newinterest.c.b(getUniqueId()));
     }
 
-    private void cBW() {
-        this.liH.setOnClickListener(this);
+    private void cGp() {
+        this.lwg.setOnClickListener(this);
     }
 
     private void initData() {
-        this.liX.eU(this.liY);
+        this.lww.ff(this.lwx);
         showLoadingView(this.mRootView);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.liH) {
-            this.liX.dgh();
+        if (view == this.lwg) {
+            this.lww.dlt();
         }
     }
 
@@ -81,13 +81,13 @@ public class InterestedForumFragment extends BaseFragment {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        ap.setBackgroundColor(this.liO, R.color.CAM_X0201);
-        ap.setViewTextColor(this.liV, R.color.CAM_X0105);
-        ap.setViewTextColor(this.liW, R.color.CAM_X0107);
+        ap.setBackgroundColor(this.lwn, R.color.CAM_X0201);
+        ap.setViewTextColor(this.lwu, R.color.CAM_X0105);
+        ap.setViewTextColor(this.lwv, R.color.CAM_X0107);
     }
 
-    public void eW(List<b> list) {
-        this.liY = list;
+    public void fh(List<b> list) {
+        this.lwx = list;
     }
 
     public void onError(String str) {
@@ -95,7 +95,7 @@ public class InterestedForumFragment extends BaseFragment {
         showNetRefreshView(this.mRootView, str, false);
     }
 
-    public void dgk() {
+    public void dlw() {
         hideLoadingView(this.mRootView);
     }
 
@@ -103,7 +103,7 @@ public class InterestedForumFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         hideNetRefreshView(this.mRootView);
-        this.liX.eU(this.liY);
+        this.lww.ff(this.lwx);
         showLoadingView(this.mRootView);
     }
 }

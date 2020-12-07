@@ -10,12 +10,12 @@ public class e implements com.baidu.live.liveroom.d.d {
     private String mLiveId;
     private String mRoomId;
     private int mType;
-    private d nTR;
-    private YuyinBannedPostListActivity nTS;
-    private c nTT;
+    private d oiP;
+    private YuyinBannedPostListActivity oiQ;
+    private c oiR;
 
     public e(YuyinBannedPostListActivity yuyinBannedPostListActivity, String str, String str2, String str3, int i) {
-        this.nTS = yuyinBannedPostListActivity;
+        this.oiQ = yuyinBannedPostListActivity;
         this.mType = i;
         this.mRoomId = str3;
         this.mLiveId = str;
@@ -23,37 +23,37 @@ public class e implements com.baidu.live.liveroom.d.d {
     }
 
     public void createView() {
-        this.nTR = new d(this.nTS, this.mLiveId, this.mGroupId, this.mRoomId, this.mType);
+        this.oiP = new d(this.oiQ, this.mLiveId, this.mGroupId, this.mRoomId, this.mType);
         loadData();
     }
 
     public void loadData() {
-        if (this.nTT == null) {
-            this.nTT = new c(this.nTS.getPageContext().getContext());
-            this.nTT.a(new c.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.e.1
+        if (this.oiR == null) {
+            this.oiR = new c(this.oiQ.getPageContext().getContext());
+            this.oiR.a(new c.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.e.1
                 @Override // com.baidu.tieba.yuyinala.charm.bannedpost.c.a
                 public void a(a aVar) {
-                    if (e.this.nTR != null) {
-                        if (aVar == null || aVar.aGq == null || aVar.aGq.size() == 0) {
-                            e.this.nTR.ds(true);
+                    if (e.this.oiP != null) {
+                        if (aVar == null || aVar.aIZ == null || aVar.aIZ.size() == 0) {
+                            e.this.oiP.dG(true);
                             return;
                         }
-                        e.this.nTR.VB();
-                        e.this.nTR.gj(aVar.aGq);
+                        e.this.oiP.Yb();
+                        e.this.oiP.gx(aVar.aIZ);
                     }
                 }
 
                 @Override // com.baidu.tieba.yuyinala.charm.bannedpost.c.a
                 public void t(int i, String str) {
-                    if (e.this.nTR != null) {
-                        e.this.nTR.ds(false);
-                        e.this.nTR.m(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.e.1.1
+                    if (e.this.oiP != null) {
+                        e.this.oiP.dG(false);
+                        e.this.oiP.m(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.e.1.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 if (BdNetTypeUtil.isNetWorkAvailable()) {
                                     e.this.loadData();
                                 } else {
-                                    e.this.nTS.getPageContext().showToast(e.this.nTS.getResources().getString(a.h.sdk_no_network_guide));
+                                    e.this.oiQ.getPageContext().showToast(e.this.oiQ.getResources().getString(a.h.sdk_no_network_guide));
                                 }
                             }
                         });
@@ -61,15 +61,15 @@ public class e implements com.baidu.live.liveroom.d.d {
                 }
             });
         }
-        this.nTT.K(this.mLiveId, this.mGroupId, this.mRoomId, this.mType + "");
+        this.oiR.K(this.mLiveId, this.mGroupId, this.mRoomId, this.mType + "");
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.nTR == null) {
+        if (this.oiP == null) {
             return null;
         }
-        return this.nTR.getRootView();
+        return this.oiP.getRootView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -78,12 +78,12 @@ public class e implements com.baidu.live.liveroom.d.d {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String KI() {
+    public String MK() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short KJ() {
+    public short ML() {
         return (short) 0;
     }
 
@@ -97,8 +97,8 @@ public class e implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.nTT != null) {
-            this.nTT.onDestroy();
+        if (this.oiR != null) {
+            this.oiR.onDestroy();
         }
     }
 

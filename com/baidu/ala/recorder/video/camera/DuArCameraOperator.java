@@ -32,7 +32,6 @@ import com.baidu.ala.recorder.video.listener.ImageFilter;
 import com.baidu.ala.recorder.video.listener.TextureViewListener;
 import com.baidu.ar.DuMixInput;
 import com.baidu.ar.DuMixOutput;
-import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.minivideo.arface.b;
 import com.baidu.minivideo.arface.bean.BeautyType;
@@ -45,7 +44,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 @TargetApi(16)
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
     private static final int AR_OUTPUT_FPS = 15;
     private static final String EFFECT_NONE = "none";
@@ -54,7 +53,7 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
     private static final int MIN_SURFACE_CHANGE = 10;
     private static final String TAG = "AlaLiveRecorder_AR";
     private boolean hasProcessFirstFrame;
-    private ARProcessor mARProcessor;
+    private volatile ARProcessor mARProcessor;
     private WeakReference<Activity> mActivityReference;
     private SurfaceTexture mCameraTexture;
     private AlaLiveVideoConfig mConfig;
@@ -93,7 +92,7 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
     private int mOffscreenTexture = 0;
     private volatile boolean mIsMirror = false;
     private ConcurrentHashMap<String, Object> mBeautyParams = new ConcurrentHashMap<>();
-    private Camera.PreviewCallback mPreviewCallback = new Camera.PreviewCallback() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.2
+    private Camera.PreviewCallback mPreviewCallback = new Camera.PreviewCallback() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.1
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(byte[] bArr, Camera camera) {
             camera.addCallbackBuffer(bArr);
@@ -102,7 +101,7 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
     boolean isSetup = false;
     private int mSetFilterNum = 10;
     private ImageFilter.Output mImageFilterOutput = null;
-    private ImageFilter mImageFilter = new ImageFilter() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.5
+    private ImageFilter mImageFilter = new ImageFilter() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.4
         @Override // com.baidu.ala.recorder.video.listener.ImageFilter
         public void setupImageOutput(ImageFilter.Output output) {
             DuArCameraOperator.this.mImageFilterOutput = output;
@@ -136,12 +135,6 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
         this.mMirrorIdentityMatrix = new float[16];
         this.mPreviewVertex = new float[8];
         this.mVideoModelFit = false;
-        recorderHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.1
-            @Override // java.lang.Runnable
-            public void run() {
-                DuArCameraOperator.this.d("mRecorderHandler ------");
-            }
-        });
         initARConfig();
         AlaLiveUtilHelper.getTextureMatrix(this.mMirrorIdentityMatrix, 0.0f, false);
     }
@@ -320,9 +313,9 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
     private void initARConfig() {
         if (!isSetupConfig) {
             isSetupConfig = true;
-            if (b.Zs() != null) {
-                b.Zs();
-                FILTER_DEFAULT = c.Zx();
+            if (b.abY() != null) {
+                b.abY();
+                FILTER_DEFAULT = c.acf();
             }
         }
     }
@@ -332,7 +325,7 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
             if (this.mARProcessor == null) {
                 this.hasProcessFirstFrame = false;
                 this.mSetFilterNum = 10;
-                this.mARProcessor = new ARProcessor(this.mActivityReference.get().getApplicationContext(), new SurfaceTexture.OnFrameAvailableListener() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.3
+                this.mARProcessor = new ARProcessor(this.mActivityReference.get().getApplicationContext(), new SurfaceTexture.OnFrameAvailableListener() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.2
                     @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
                     public void onFrameAvailable(SurfaceTexture surfaceTexture) {
                         DuArCameraOperator.this.d(" ar->onFrameAvailable surfaceTexture = " + surfaceTexture);
@@ -359,7 +352,7 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
                 } else {
                     this.mARProcessor.setLandscape(isLandscape());
                 }
-                this.mARProcessor.setCallback(new ARProcessor.CallbackAdapter() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.4
+                this.mARProcessor.setCallback(new ARProcessor.CallbackAdapter() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.3
                     @Override // com.baidu.ala.dumixar.ARProcessor.CallbackAdapter, com.baidu.ar.DuMixCallback
                     public void onSetup(boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {
                         DuArCameraOperator.this.d("onSetup: " + z);
@@ -369,11 +362,14 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
                             DuArCameraOperator.this.setBeautyJsonPath(DuArCameraOperator.this.mFaceFilePath);
                         }
                         if (DuArCameraOperator.this.mARProcessor != null) {
-                            com.baidu.minivideo.arface.bean.b Zt = b.Zt();
-                            if (DuArCameraOperator.this.isDebug() && Zt != null) {
+                            com.baidu.minivideo.arface.bean.b acb = b.acb();
+                            if (DuArCameraOperator.this.isDebug() && acb != null) {
                                 Log.d("ArUpdate", "onSetup setQulaityParm ------------ ");
                             }
-                            DuArCameraOperator.this.mARProcessor.setQulaityParm(Zt);
+                            try {
+                                DuArCameraOperator.this.mARProcessor.setQulaityParm(acb);
+                            } catch (NullPointerException e) {
+                            }
                         }
                     }
                 });
@@ -427,7 +423,7 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
     public void surfaceChanged(int i, int i2) {
         d("surfaceChanged");
         if (this.mEglCore == null) {
-            BdLog.e("surfaceChanged, mEglCore = null ?");
+            d("surfaceChanged, mEglCore = null ?");
         } else if (Math.abs(this.mWindowSurfaceHeight - i2) >= 10 || Math.abs(this.mWindowSurfaceWidth - i) >= 10) {
             if (this.mWindowSurfaceHeight > this.mWindowSurfaceWidth && i2 > i && this.mWindowSurfaceWidth > 0) {
                 this.mWindowSurfaceHeight = i2;
@@ -530,8 +526,8 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
     public void setVideoConfig(AlaLiveVideoConfig alaLiveVideoConfig) {
-        d("setVideoConfig");
         this.mConfig = new AlaLiveVideoConfig(alaLiveVideoConfig);
+        d("setVideoConfig-" + alaLiveVideoConfig.getInfo().toString());
     }
 
     @Override // com.baidu.ala.recorder.IFaceUnityOperator
@@ -578,9 +574,10 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
         this.mFilterDisplayName = str;
         this.mFilterName = str2;
         this.mFilterLevel = f;
-        if (this.mARProcessor != null) {
-            this.mARProcessor.setBeautyValue(BeautyType.lutFile, str2);
-            this.mARProcessor.setBeautyValue(BeautyType.lutIntensity, f);
+        ARProcessor aRProcessor = this.mARProcessor;
+        if (aRProcessor != null) {
+            aRProcessor.setBeautyValue(BeautyType.lutFile, str2);
+            aRProcessor.setBeautyValue(BeautyType.lutIntensity, f);
         }
     }
 

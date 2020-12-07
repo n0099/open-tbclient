@@ -26,69 +26,69 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes16.dex */
+/* loaded from: classes7.dex */
 public class g extends Drawable implements Animatable, Drawable.Callback {
     private static final String TAG = g.class.getSimpleName();
     @Nullable
-    private com.airbnb.lottie.b.b BC;
+    private String BV;
     @Nullable
-    private c BD;
+    private com.airbnb.lottie.b.b Cs;
     @Nullable
-    private com.airbnb.lottie.b.a BE;
+    private c Ct;
     @Nullable
-    b BF;
+    private com.airbnb.lottie.b.a Cu;
     @Nullable
-    r BG;
-    private boolean BH;
+    b Cv;
     @Nullable
-    private com.airbnb.lottie.model.layer.b BI;
-    private boolean BJ;
+    r Cw;
+    private boolean Cx;
     @Nullable
-    private String Bf;
+    private com.airbnb.lottie.model.layer.b Cy;
+    private boolean Cz;
     private e composition;
     private final Matrix matrix = new Matrix();
-    private final com.airbnb.lottie.d.c Bz = new com.airbnb.lottie.d.c();
+    private final com.airbnb.lottie.d.c Cp = new com.airbnb.lottie.d.c();
     private float scale = 1.0f;
-    private final Set<Object> BA = new HashSet();
-    private final ArrayList<a> BB = new ArrayList<>();
+    private final Set<Object> Cq = new HashSet();
+    private final ArrayList<a> Cr = new ArrayList<>();
     private int alpha = 255;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void b(e eVar);
     }
 
     public g() {
-        this.Bz.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.airbnb.lottie.g.1
+        this.Cp.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.airbnb.lottie.g.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (g.this.BI != null) {
-                    g.this.BI.setProgress(g.this.Bz.kV());
+                if (g.this.Cy != null) {
+                    g.this.Cy.setProgress(g.this.Cp.kV());
                 }
             }
         });
     }
 
     public boolean hasMasks() {
-        return this.BI != null && this.BI.hasMasks();
+        return this.Cy != null && this.Cy.hasMasks();
     }
 
     public boolean hasMatte() {
-        return this.BI != null && this.BI.hasMatte();
+        return this.Cy != null && this.Cy.hasMatte();
     }
 
     public boolean iG() {
-        return this.BH;
+        return this.Cx;
     }
 
     public void enableMergePathsForKitKatAndAbove(boolean z) {
-        if (this.BH != z) {
+        if (this.Cx != z) {
             if (Build.VERSION.SDK_INT < 19) {
                 Log.w(TAG, "Merge paths are not supported pre-Kit Kat.");
                 return;
             }
-            this.BH = z;
+            this.Cx = z;
             if (this.composition != null) {
                 iH();
             }
@@ -96,21 +96,21 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public boolean isMergePathsEnabledForKitKatAndAbove() {
-        return this.BH;
+        return this.Cx;
     }
 
-    public void be(@Nullable String str) {
-        this.Bf = str;
+    public void bh(@Nullable String str) {
+        this.BV = str;
     }
 
     @Nullable
     public String getImageAssetsFolder() {
-        return this.Bf;
+        return this.BV;
     }
 
     public void recycleBitmaps() {
-        if (this.BC != null) {
-            this.BC.recycleBitmaps();
+        if (this.Cs != null) {
+            this.Cs.recycleBitmaps();
         }
     }
 
@@ -121,22 +121,22 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
         clearComposition();
         this.composition = eVar;
         iH();
-        this.Bz.setComposition(eVar);
-        setProgress(this.Bz.getAnimatedFraction());
+        this.Cp.setComposition(eVar);
+        setProgress(this.Cp.getAnimatedFraction());
         setScale(this.scale);
         iK();
-        Iterator it = new ArrayList(this.BB).iterator();
+        Iterator it = new ArrayList(this.Cr).iterator();
         while (it.hasNext()) {
             ((a) it.next()).b(eVar);
             it.remove();
         }
-        this.BB.clear();
-        eVar.setPerformanceTrackingEnabled(this.BJ);
+        this.Cr.clear();
+        eVar.setPerformanceTrackingEnabled(this.Cz);
         return true;
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
-        this.BJ = z;
+        this.Cz = z;
         if (this.composition != null) {
             this.composition.setPerformanceTrackingEnabled(z);
         }
@@ -151,18 +151,18 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
     }
 
     private void iH() {
-        this.BI = new com.airbnb.lottie.model.layer.b(this, s.c(this.composition), this.composition.iz(), this.composition);
+        this.Cy = new com.airbnb.lottie.model.layer.b(this, s.c(this.composition), this.composition.iz(), this.composition);
     }
 
     public void clearComposition() {
         recycleBitmaps();
-        if (this.Bz.isRunning()) {
-            this.Bz.cancel();
+        if (this.Cp.isRunning()) {
+            this.Cp.cancel();
         }
         this.composition = null;
-        this.BI = null;
-        this.BC = null;
-        this.Bz.clearComposition();
+        this.Cy = null;
+        this.Cs = null;
+        this.Cp.clearComposition();
         invalidateSelf();
     }
 
@@ -199,7 +199,7 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
         float f;
         float f2;
         d.beginSection("Drawable#draw");
-        if (this.BI != null) {
+        if (this.Cy != null) {
             float f3 = this.scale;
             float d = d(canvas);
             if (f3 > d) {
@@ -221,8 +221,8 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
             }
             this.matrix.reset();
             this.matrix.preScale(f2, f2);
-            this.BI.a(canvas, this.matrix, this.alpha);
-            d.bb("Drawable#draw");
+            this.Cy.a(canvas, this.matrix, this.alpha);
+            d.be("Drawable#draw");
             if (i > 0) {
                 canvas.restoreToCount(i);
             }
@@ -248,58 +248,58 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
 
     @MainThread
     public void playAnimation() {
-        if (this.BI == null) {
-            this.BB.add(new a() { // from class: com.airbnb.lottie.g.6
+        if (this.Cy == null) {
+            this.Cr.add(new a() { // from class: com.airbnb.lottie.g.6
                 @Override // com.airbnb.lottie.g.a
                 public void b(e eVar) {
                     g.this.playAnimation();
                 }
             });
         } else {
-            this.Bz.playAnimation();
+            this.Cp.playAnimation();
         }
     }
 
     @MainThread
     public void endAnimation() {
-        this.BB.clear();
-        this.Bz.endAnimation();
+        this.Cr.clear();
+        this.Cp.endAnimation();
     }
 
     @MainThread
     public void resumeAnimation() {
-        if (this.BI == null) {
-            this.BB.add(new a() { // from class: com.airbnb.lottie.g.7
+        if (this.Cy == null) {
+            this.Cr.add(new a() { // from class: com.airbnb.lottie.g.7
                 @Override // com.airbnb.lottie.g.a
                 public void b(e eVar) {
                     g.this.resumeAnimation();
                 }
             });
         } else {
-            this.Bz.resumeAnimation();
+            this.Cp.resumeAnimation();
         }
     }
 
     public void setMinFrame(final int i) {
         if (this.composition == null) {
-            this.BB.add(new a() { // from class: com.airbnb.lottie.g.8
+            this.Cr.add(new a() { // from class: com.airbnb.lottie.g.8
                 @Override // com.airbnb.lottie.g.a
                 public void b(e eVar) {
                     g.this.setMinFrame(i);
                 }
             });
         } else {
-            this.Bz.setMinFrame(i);
+            this.Cp.setMinFrame(i);
         }
     }
 
     public float getMinFrame() {
-        return this.Bz.getMinFrame();
+        return this.Cp.getMinFrame();
     }
 
     public void setMinProgress(final float f) {
         if (this.composition == null) {
-            this.BB.add(new a() { // from class: com.airbnb.lottie.g.9
+            this.Cr.add(new a() { // from class: com.airbnb.lottie.g.9
                 @Override // com.airbnb.lottie.g.a
                 public void b(e eVar) {
                     g.this.setMinProgress(f);
@@ -312,24 +312,24 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
 
     public void setMaxFrame(final int i) {
         if (this.composition == null) {
-            this.BB.add(new a() { // from class: com.airbnb.lottie.g.10
+            this.Cr.add(new a() { // from class: com.airbnb.lottie.g.10
                 @Override // com.airbnb.lottie.g.a
                 public void b(e eVar) {
                     g.this.setMaxFrame(i);
                 }
             });
         } else {
-            this.Bz.setMaxFrame(i);
+            this.Cp.setMaxFrame(i);
         }
     }
 
     public float getMaxFrame() {
-        return this.Bz.getMaxFrame();
+        return this.Cp.getMaxFrame();
     }
 
     public void setMaxProgress(@FloatRange(from = 0.0d, to = 1.0d) final float f) {
         if (this.composition == null) {
-            this.BB.add(new a() { // from class: com.airbnb.lottie.g.11
+            this.Cr.add(new a() { // from class: com.airbnb.lottie.g.11
                 @Override // com.airbnb.lottie.g.a
                 public void b(e eVar) {
                     g.this.setMaxProgress(f);
@@ -342,20 +342,20 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
 
     public void setMinAndMaxFrame(final int i, final int i2) {
         if (this.composition == null) {
-            this.BB.add(new a() { // from class: com.airbnb.lottie.g.12
+            this.Cr.add(new a() { // from class: com.airbnb.lottie.g.12
                 @Override // com.airbnb.lottie.g.a
                 public void b(e eVar) {
                     g.this.setMinAndMaxFrame(i, i2);
                 }
             });
         } else {
-            this.Bz.k(i, i2);
+            this.Cp.l(i, i2);
         }
     }
 
     public void setMinAndMaxProgress(@FloatRange(from = 0.0d, to = 1.0d) final float f, @FloatRange(from = 0.0d, to = 1.0d) final float f2) {
         if (this.composition == null) {
-            this.BB.add(new a() { // from class: com.airbnb.lottie.g.13
+            this.Cr.add(new a() { // from class: com.airbnb.lottie.g.13
                 @Override // com.airbnb.lottie.g.a
                 public void b(e eVar) {
                     g.this.setMinAndMaxProgress(f, f2);
@@ -367,61 +367,61 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void reverseAnimationSpeed() {
-        this.Bz.reverseAnimationSpeed();
+        this.Cp.reverseAnimationSpeed();
     }
 
     public void setSpeed(float f) {
-        this.Bz.setSpeed(f);
+        this.Cp.setSpeed(f);
     }
 
     public float getSpeed() {
-        return this.Bz.getSpeed();
+        return this.Cp.getSpeed();
     }
 
     public void addAnimatorUpdateListener(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
-        this.Bz.addUpdateListener(animatorUpdateListener);
+        this.Cp.addUpdateListener(animatorUpdateListener);
     }
 
     public void a(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
-        this.Bz.removeUpdateListener(animatorUpdateListener);
+        this.Cp.removeUpdateListener(animatorUpdateListener);
     }
 
     public void removeAllUpdateListeners() {
-        this.Bz.removeAllUpdateListeners();
+        this.Cp.removeAllUpdateListeners();
     }
 
     public void addAnimatorListener(Animator.AnimatorListener animatorListener) {
-        this.Bz.addListener(animatorListener);
+        this.Cp.addListener(animatorListener);
     }
 
     public void removeAnimatorListener(Animator.AnimatorListener animatorListener) {
-        this.Bz.removeListener(animatorListener);
+        this.Cp.removeListener(animatorListener);
     }
 
     public void removeAllAnimatorListeners() {
-        this.Bz.removeAllListeners();
+        this.Cp.removeAllListeners();
     }
 
     public void setFrame(final int i) {
         if (this.composition == null) {
-            this.BB.add(new a() { // from class: com.airbnb.lottie.g.2
+            this.Cr.add(new a() { // from class: com.airbnb.lottie.g.2
                 @Override // com.airbnb.lottie.g.a
                 public void b(e eVar) {
                     g.this.setFrame(i);
                 }
             });
         } else {
-            this.Bz.setFrame(i);
+            this.Cp.setFrame(i);
         }
     }
 
     public int getFrame() {
-        return (int) this.Bz.kW();
+        return (int) this.Cp.kW();
     }
 
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) final float f) {
         if (this.composition == null) {
-            this.BB.add(new a() { // from class: com.airbnb.lottie.g.3
+            this.Cr.add(new a() { // from class: com.airbnb.lottie.g.3
                 @Override // com.airbnb.lottie.g.a
                 public void b(e eVar) {
                     g.this.setProgress(f);
@@ -433,23 +433,23 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void setRepeatMode(int i) {
-        this.Bz.setRepeatMode(i);
+        this.Cp.setRepeatMode(i);
     }
 
     public int getRepeatMode() {
-        return this.Bz.getRepeatMode();
+        return this.Cp.getRepeatMode();
     }
 
     public void setRepeatCount(int i) {
-        this.Bz.setRepeatCount(i);
+        this.Cp.setRepeatCount(i);
     }
 
     public int getRepeatCount() {
-        return this.Bz.getRepeatCount();
+        return this.Cp.getRepeatCount();
     }
 
     public boolean isAnimating() {
-        return this.Bz.isRunning();
+        return this.Cp.isRunning();
     }
 
     public void setScale(float f) {
@@ -458,30 +458,30 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void setImageAssetDelegate(c cVar) {
-        this.BD = cVar;
-        if (this.BC != null) {
-            this.BC.a(cVar);
+        this.Ct = cVar;
+        if (this.Cs != null) {
+            this.Cs.a(cVar);
         }
     }
 
     public void setFontAssetDelegate(b bVar) {
-        this.BF = bVar;
-        if (this.BE != null) {
-            this.BE.a(bVar);
+        this.Cv = bVar;
+        if (this.Cu != null) {
+            this.Cu.a(bVar);
         }
     }
 
     public void setTextDelegate(r rVar) {
-        this.BG = rVar;
+        this.Cw = rVar;
     }
 
     @Nullable
     public r iI() {
-        return this.BG;
+        return this.Cw;
     }
 
     public boolean iJ() {
-        return this.BG == null && this.composition.iA().size() > 0;
+        return this.Cw == null && this.composition.iA().size() > 0;
     }
 
     public float getScale() {
@@ -500,18 +500,18 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void cancelAnimation() {
-        this.BB.clear();
-        this.Bz.cancel();
+        this.Cr.clear();
+        this.Cp.cancel();
     }
 
     public void pauseAnimation() {
-        this.BB.clear();
-        this.Bz.pauseAnimation();
+        this.Cr.clear();
+        this.Cp.pauseAnimation();
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public float getProgress() {
-        return this.Bz.kV();
+        return this.Cp.kV();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -531,19 +531,19 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public List<com.airbnb.lottie.model.e> resolveKeyPath(com.airbnb.lottie.model.e eVar) {
-        if (this.BI == null) {
+        if (this.Cy == null) {
             Log.w("LOTTIE", "Cannot resolve KeyPath. Composition is not set yet.");
             return Collections.emptyList();
         }
         ArrayList arrayList = new ArrayList();
-        this.BI.a(eVar, 0, arrayList, new com.airbnb.lottie.model.e(new String[0]));
+        this.Cy.a(eVar, 0, arrayList, new com.airbnb.lottie.model.e(new String[0]));
         return arrayList;
     }
 
     public <T> void addValueCallback(final com.airbnb.lottie.model.e eVar, final T t, final com.airbnb.lottie.e.c<T> cVar) {
         boolean z = true;
-        if (this.BI == null) {
-            this.BB.add(new a() { // from class: com.airbnb.lottie.g.4
+        if (this.Cy == null) {
+            this.Cr.add(new a() { // from class: com.airbnb.lottie.g.4
                 @Override // com.airbnb.lottie.g.a
                 public void b(e eVar2) {
                     g.this.addValueCallback(eVar, (com.airbnb.lottie.model.e) t, (com.airbnb.lottie.e.c<com.airbnb.lottie.model.e>) cVar);
@@ -562,7 +562,7 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
         }
         if (z) {
             invalidateSelf();
-            if (t == k.Cr) {
+            if (t == k.Dn) {
                 setProgress(getProgress());
             }
         }
@@ -591,10 +591,10 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
     }
 
     @Nullable
-    public Bitmap bf(String str) {
+    public Bitmap bi(String str) {
         com.airbnb.lottie.b.b iL = iL();
         if (iL != null) {
-            return iL.bj(str);
+            return iL.bm(str);
         }
         return null;
     }
@@ -603,14 +603,14 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
         if (getCallback() == null) {
             return null;
         }
-        if (this.BC != null && !this.BC.F(getContext())) {
-            this.BC.recycleBitmaps();
-            this.BC = null;
+        if (this.Cs != null && !this.Cs.G(getContext())) {
+            this.Cs.recycleBitmaps();
+            this.Cs = null;
         }
-        if (this.BC == null) {
-            this.BC = new com.airbnb.lottie.b.b(getCallback(), this.Bf, this.BD, this.composition.iC());
+        if (this.Cs == null) {
+            this.Cs = new com.airbnb.lottie.b.b(getCallback(), this.BV, this.Ct, this.composition.iC());
         }
-        return this.BC;
+        return this.Cs;
     }
 
     @Nullable
@@ -626,10 +626,10 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
         if (getCallback() == null) {
             return null;
         }
-        if (this.BE == null) {
-            this.BE = new com.airbnb.lottie.b.a(getCallback(), this.BF);
+        if (this.Cu == null) {
+            this.Cu = new com.airbnb.lottie.b.a(getCallback(), this.Cv);
         }
-        return this.BE;
+        return this.Cu;
     }
 
     @Nullable

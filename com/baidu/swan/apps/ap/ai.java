@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 import org.apache.http.HttpHost;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class ai {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -39,7 +39,7 @@ public final class ai {
         StringBuilder sb2;
         String str4 = null;
         if (!TextUtils.isEmpty(str)) {
-            String str5 = str2 + ETAG.EQUAL;
+            String str5 = str2 + "=";
             int indexOf = str.indexOf("?");
             if (indexOf < 0) {
                 int indexOf2 = str.indexOf("#");
@@ -127,7 +127,7 @@ public final class ai {
         }
         StringBuilder sb = new StringBuilder();
         for (String str2 : split) {
-            String[] split2 = str2.split(ETAG.EQUAL);
+            String[] split2 = str2.split("=");
             if (split2.length > 0 && !set.contains(split2[0])) {
                 sb.append(str2).append(ETAG.ITEM_SEPARATOR);
             }
@@ -147,7 +147,7 @@ public final class ai {
         return str;
     }
 
-    public static String up(String str) {
+    public static String uW(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (str.startsWith(File.separator)) {
                 str = str.substring(1);
@@ -160,8 +160,8 @@ public final class ai {
         return str;
     }
 
-    public static String uq(String str) {
-        return up(delAllParamsFromUrl(str));
+    public static String uX(String str) {
+        return uW(delAllParamsFromUrl(str));
     }
 
     public static String getParams(String str) {
@@ -197,7 +197,7 @@ public final class ai {
                 }
             }
             sb.append(encode);
-            sb.append(ETAG.EQUAL);
+            sb.append("=");
             sb.append(str2 != null ? URLEncoder.encode(str2, "UTF-8") : "");
         }
         return sb.toString();
@@ -209,14 +209,14 @@ public final class ai {
         }
         HashMap hashMap = new HashMap();
         for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
-            String[] split = str2.split(ETAG.EQUAL);
+            String[] split = str2.split("=");
             hashMap.put(decodeWithUTF8(split[0]), split.length > 1 ? decodeWithUTF8(split[1]) : "");
         }
         return hashMap;
     }
 
     public static String getCookieStr(String str, String str2, String str3, long j) {
-        return str2 + ETAG.EQUAL + str3 + ";domain=" + str + ";path=/;max-age=" + j + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
+        return str2 + "=" + str3 + ";domain=" + str + ";path=/;max-age=" + j + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
     }
 
     public static boolean isUrlAuxiliary(String str) {
@@ -260,7 +260,7 @@ public final class ai {
         int length = split.length;
         for (int i = 0; i != length; i++) {
             String trim = split[i].trim();
-            String[] split2 = trim.split(ETAG.EQUAL);
+            String[] split2 = trim.split("=");
             if (split2.length >= 2 && TextUtils.equals(str2, split2[0])) {
                 if (split2.length == 2) {
                     return split2[1];
@@ -319,7 +319,7 @@ public final class ai {
         return z;
     }
 
-    public static String cH(String str, String str2) {
+    public static String cO(String str, String str2) {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("errcode", str);

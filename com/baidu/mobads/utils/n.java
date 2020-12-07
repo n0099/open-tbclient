@@ -19,7 +19,6 @@ import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.interfaces.utils.IXAdURIUitls;
 import com.baidu.mobads.openad.FileProvider;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.util.List;
 /* loaded from: classes7.dex */
@@ -266,7 +265,7 @@ public class n implements IXAdPackageUtils {
                 if (i4 == 0) {
                     str3 = str3 + "&p=" + resolveInfo.activityInfo.packageName;
                 } else {
-                    str3 = str3 + Constants.ACCEPT_TIME_SEPARATOR_SP + resolveInfo.activityInfo.packageName;
+                    str3 = str3 + "," + resolveInfo.activityInfo.packageName;
                 }
                 if (str2.equals(resolveInfo.activityInfo.packageName)) {
                     int i5 = -1;

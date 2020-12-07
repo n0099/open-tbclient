@@ -3,5 +3,5 @@ package com.baidu.adp.plugin.install;
 public interface b {
     void A(String str, String str2);
 
-    void cr(String str);
+    void cu(String str);
 }

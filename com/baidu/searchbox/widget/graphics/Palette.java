@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes18.dex */
+/* loaded from: classes12.dex */
 public final class Palette {
     static final int DEFAULT_CALCULATE_NUMBER_COLORS = 16;
     static final Filter DEFAULT_FILTER = new Filter() { // from class: com.baidu.searchbox.widget.graphics.Palette.1
@@ -54,12 +54,12 @@ public final class Palette {
     private final Map<Target, Swatch> mSelectedSwatches = new ArrayMap();
     private final Swatch mDominantSwatch = findDominantSwatch();
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes12.dex */
     public interface Filter {
         boolean isAllowed(int i, float[] fArr);
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes12.dex */
     public interface PaletteAsyncListener {
         void onGenerated(Palette palette);
     }
@@ -269,7 +269,7 @@ public final class Palette {
         return fArr;
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes12.dex */
     public static final class Swatch {
         private final int mBlue;
         private int mBodyTextColor;
@@ -387,7 +387,7 @@ public final class Palette {
         }
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes12.dex */
     public static final class Builder {
         private final Bitmap mBitmap;
         private Rect mRegion;

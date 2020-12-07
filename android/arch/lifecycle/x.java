@@ -6,8 +6,8 @@ import android.support.annotation.NonNull;
 import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes14.dex */
 public class x {
+    private final b AU;
     private final z mViewModelStore;
-    private final b zZ;
 
     /* loaded from: classes14.dex */
     public interface b {
@@ -16,7 +16,7 @@ public class x {
     }
 
     public x(@NonNull z zVar, @NonNull b bVar) {
-        this.zZ = bVar;
+        this.AU = bVar;
         this.mViewModelStore = zVar;
     }
 
@@ -33,11 +33,11 @@ public class x {
     @NonNull
     @MainThread
     public <T extends w> T b(@NonNull String str, @NonNull Class<T> cls) {
-        T t = (T) this.mViewModelStore.aX(str);
+        T t = (T) this.mViewModelStore.ba(str);
         if (!cls.isInstance(t)) {
             if (t != null) {
             }
-            T t2 = (T) this.zZ.create(cls);
+            T t2 = (T) this.AU.create(cls);
             this.mViewModelStore.a(str, t2);
             return t2;
         }
@@ -61,15 +61,15 @@ public class x {
 
     /* loaded from: classes14.dex */
     public static class a extends c {
-        private static a Aa;
+        private static a AV;
         private Application mApplication;
 
         @NonNull
         public static a c(@NonNull Application application) {
-            if (Aa == null) {
-                Aa = new a(application);
+            if (AV == null) {
+                AV = new a(application);
             }
-            return Aa;
+            return AV;
         }
 
         public a(@NonNull Application application) {

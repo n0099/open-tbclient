@@ -5,11 +5,11 @@ import android.os.IBinder;
 import com.asus.msa.sdid.SupplementaryDIDManager;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    private SupplierListener f3980a;
+    private SupplierListener f3983a;
     private SupplementaryDIDManager f;
     private String b = "";
     private String c = "";
@@ -19,14 +19,14 @@ public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
     private boolean h = false;
 
     public a(Context context, SupplierListener supplierListener) {
-        this.f3980a = supplierListener;
+        this.f3983a = supplierListener;
         this.f = new SupplementaryDIDManager(context);
     }
 
     @Override // com.asus.msa.sdid.a
     public void a() {
-        if (this.f3980a != null) {
-            this.f3980a.OnSupport(false, this);
+        if (this.f3983a != null) {
+            this.f3983a.OnSupport(false, this);
         }
     }
 
@@ -65,8 +65,8 @@ public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
         } catch (Exception e5) {
         }
         this.g = true;
-        if (this.f3980a != null) {
-            this.f3980a.OnSupport(this.h, this);
+        if (this.f3983a != null) {
+            this.f3983a.OnSupport(this.h, this);
         }
     }
 

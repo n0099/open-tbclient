@@ -1,5 +1,5 @@
 package com.baidu.searchbox.websocket;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.websocket";
     public static final String BUILD_TYPE = "release";

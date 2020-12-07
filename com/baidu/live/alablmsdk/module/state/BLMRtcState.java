@@ -5,6 +5,7 @@ public enum BLMRtcState {
     JOINING,
     JOINED,
     STREAM,
+    STREAM_NO,
     FAIL,
     LEAVE
 }

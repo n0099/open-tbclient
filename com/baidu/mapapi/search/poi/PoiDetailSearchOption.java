@@ -1,14 +1,14 @@
 package com.baidu.mapapi.search.poi;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class PoiDetailSearchOption {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2119a = "";
+    private String f2121a = "";
     private String b = "";
     private boolean c = false;
 
     public String getUid() {
-        return this.f2119a;
+        return this.f2121a;
     }
 
     public String getUids() {
@@ -21,7 +21,7 @@ public class PoiDetailSearchOption {
 
     public PoiDetailSearchOption poiUid(String str) {
         this.c = false;
-        this.f2119a = str;
+        this.f2121a = str;
         return this;
     }
 

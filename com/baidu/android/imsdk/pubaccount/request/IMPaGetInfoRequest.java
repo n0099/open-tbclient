@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.db.TableDefine;
@@ -21,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMPaGetInfoRequest extends PaBaseHttpRequest {
     private static final String TAG = IMPaGetInfoRequest.class.getSimpleName();
     private long mAppid;
@@ -76,7 +77,7 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             int i3 = jSONObject.getInt("error_code");
-            String optString = jSONObject.optString("error_msg", "");
+            String optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
             if (i3 == 0) {
                 if (!jSONObject.has("response_params")) {
                     list = null;

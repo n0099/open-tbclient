@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.util;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes.dex */
 public class m {
     private StringBuilder builder;
@@ -17,12 +16,12 @@ public class m {
                 if (this.builder == null) {
                     this.builder = new StringBuilder();
                     this.builder.append(str);
-                    this.builder.append(ETAG.EQUAL);
+                    this.builder.append("=");
                     this.builder.append(obj.toString());
                 } else {
                     this.builder.append("|");
                     this.builder.append(str);
-                    this.builder.append(ETAG.EQUAL);
+                    this.builder.append("=");
                     this.builder.append(obj.toString());
                 }
             } catch (Exception e) {

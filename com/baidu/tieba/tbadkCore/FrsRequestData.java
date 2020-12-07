@@ -31,10 +31,10 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private String lastId;
     private int loadCount;
     private long mLastClickTid;
-    private String mWc;
-    private String mWd;
     private boolean needCache;
     private int netError;
+    private String nka;
+    private String nkb;
     private int pn;
     private int qType;
     private int refreshCount;
@@ -46,14 +46,14 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int updateType;
     private int withGroup;
     private int rn = 90;
-    private int mWb = 30;
-    private String eVL = "";
+    private int njZ = 30;
+    private String fdi = "";
     private int mSortType = -1;
-    private int fFv = 1;
-    private int mWe = 0;
+    private int fNh = 1;
+    private int nkc = 0;
     private int callFrom = 0;
     private HashMap<String, String> headers = null;
-    private long mWf = 0;
+    private long nkd = 0;
     private int isDefaultNavTab = 0;
     private String mSchemeUrl = "";
 
@@ -134,11 +134,11 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public int getLoadType() {
-        return this.fFv;
+        return this.fNh;
     }
 
     public void setLoadType(int i) {
-        this.fFv = i;
+        this.fNh = i;
     }
 
     public boolean isNeedCache() {
@@ -158,7 +158,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void setYuelaouLocate(String str) {
-        this.eVL = str;
+        this.fdi = str;
     }
 
     public void setLastId(String str) {
@@ -185,23 +185,23 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.refreshCount = i;
     }
 
-    public void Si(String str) {
-        this.mWc = str;
+    public void Tw(String str) {
+        this.nka = str;
     }
 
     public void setObjSource(String str) {
-        this.mWd = str;
+        this.nkb = str;
     }
 
-    public void JZ(int i) {
-        this.mWe = i;
+    public void KP(int i) {
+        this.nkc = i;
     }
 
     public void setCallFrom(int i) {
         this.callFrom = i;
     }
 
-    public void Ka(int i) {
+    public void KQ(int i) {
         this.isDefaultNavTab = i;
     }
 
@@ -210,16 +210,16 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> bAO() {
+    public HashMap<String, Object> bEq() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> bAP() {
+    public HashMap<String, String> bEr() {
         return this.headers;
     }
 
-    public void go(String str, String str2) {
+    public void gt(String str, String str2) {
         if (this.headers == null) {
             this.headers = new HashMap<>();
         }
@@ -229,12 +229,12 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     @Override // com.baidu.tbadk.mvc.b.l
-    public Object ks(boolean z) {
+    public Object kL(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.kw = this.kw;
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
-        builder.rn_need = Integer.valueOf(this.mWb);
+        builder.rn_need = Integer.valueOf(this.njZ);
         builder.with_group = Integer.valueOf(this.withGroup);
         builder.is_good = Integer.valueOf(this.isGood);
         builder.cid = Integer.valueOf(this.cid);
@@ -249,25 +249,25 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
-        builder.yuelaou_locate = this.eVL;
+        builder.yuelaou_locate = this.fdi;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.dAG().dAK();
-        builder.load_type = Integer.valueOf(this.fFv);
-        builder.obj_locate = this.mWc;
-        builder.obj_source = this.mWd;
-        builder.is_selection = Integer.valueOf(this.mWe);
+        builder.app_pos = com.baidu.tieba.recapp.d.a.dFX().dGb();
+        builder.load_type = Integer.valueOf(this.fNh);
+        builder.obj_locate = this.nka;
+        builder.obj_source = this.nkb;
+        builder.is_selection = Integer.valueOf(this.nkc);
         builder.call_from = Integer.valueOf(this.callFrom);
-        builder.hot_thread_id = Long.valueOf(this.mWf);
+        builder.hot_thread_id = Long.valueOf(this.nkd);
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
         builder2.load_count = Integer.valueOf(this.loadCount);
         builder2.yoga_lib_version = "";
         builder.ad_param = builder2.build(false);
         builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
-        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dAN().dAP();
+        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dGe().Sm("tag_frs_tab");
         builder.up_schema = this.mSchemeUrl;
-        builder.ad_ext_params = AdExtParam.a.bCw().bCx();
+        builder.ad_ext_params = AdExtParam.a.bFX().bFY();
         com.baidu.tbadk.util.u.a(builder, true, false, true);
         FrsPageReqIdl.Builder builder3 = new FrsPageReqIdl.Builder();
         builder3.data = builder.build(false);
@@ -275,16 +275,16 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String bAL() {
+    public String bEn() {
         return null;
     }
 
-    public void hb(long j) {
-        this.mWf = j;
+    public void hG(long j) {
+        this.nkd = j;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean bAM() {
+    public boolean bEo() {
         return false;
     }
 

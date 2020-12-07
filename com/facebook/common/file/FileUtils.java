@@ -4,9 +4,9 @@ import com.facebook.common.internal.g;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class FileUtils {
-    public static void at(File file) throws CreateDirectoryException {
+    public static void av(File file) throws CreateDirectoryException {
         if (file.exists()) {
             if (!file.isDirectory()) {
                 if (!file.delete()) {
@@ -39,7 +39,7 @@ public class FileUtils {
         throw new RenameException("Unknown error renaming " + file.getAbsolutePath() + " to " + file2.getAbsolutePath(), th);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public static class CreateDirectoryException extends IOException {
         public CreateDirectoryException(String str) {
             super(str);
@@ -51,21 +51,21 @@ public class FileUtils {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public static class ParentDirNotFoundException extends FileNotFoundException {
         public ParentDirNotFoundException(String str) {
             super(str);
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public static class FileDeleteException extends IOException {
         public FileDeleteException(String str) {
             super(str);
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public static class RenameException extends IOException {
         public RenameException(String str) {
             super(str);

@@ -3,60 +3,60 @@ package com.baidu.tieba.i;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String aZj;
-    private String bJJ;
-    private String fRa;
-    private String jqi;
-    private String jqj;
-    private String jqk;
+    private String bOR;
+    private String bcG;
+    private String fZj;
+    private String jDI;
+    private String jDJ;
+    private String jDK;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.jqi = String.valueOf(esportRank.rank);
-            this.aZj = esportRank.text;
-            this.fRa = esportRank.url;
+            this.jDI = String.valueOf(esportRank.rank);
+            this.bcG = esportRank.text;
+            this.fZj = esportRank.url;
             if (esportRank.user != null) {
-                this.jqj = esportRank.user.steam_name;
-                this.jqk = esportRank.user.steam_portrait;
+                this.jDJ = esportRank.user.steam_name;
+                this.jDK = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String cGS() {
+    public String cGK() {
         return this.mTitle;
     }
 
-    public String cGT() {
-        return this.jqi;
+    public String cMh() {
+        return this.jDI;
     }
 
-    public String cGU() {
-        return this.aZj;
+    public String cMi() {
+        return this.bcG;
     }
 
-    public String cGV() {
-        return this.jqj;
+    public String cMj() {
+        return this.jDJ;
     }
 
-    public String cGW() {
-        return this.jqk;
+    public String cMk() {
+        return this.jDK;
     }
 
-    public String cGX() {
-        return this.bJJ;
+    public String cMl() {
+        return this.bOR;
     }
 
-    public void KG(String str) {
-        this.bJJ = str;
+    public void LN(String str) {
+        this.bOR = str;
     }
 
-    public String cGY() {
-        return this.fRa;
+    public String cMm() {
+        return this.fZj;
     }
 
-    public void KH(String str) {
-        this.fRa = str;
+    public void LO(String str) {
+        this.fZj = str;
     }
 }

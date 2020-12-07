@@ -1,13 +1,13 @@
 package com.baidu.b.c.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class c {
-    private b adG = new b(32);
+    private b aeC = new b(32);
 
     public byte[] a(byte[] bArr) {
-        return this.adG.a(bArr);
+        return this.aeC.a(bArr);
     }
 
     public byte[] b(byte[] bArr) {
-        return this.adG.b(bArr);
+        return this.aeC.b(bArr);
     }
 }

@@ -10,7 +10,7 @@ import android.widget.Scroller;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class BdBaseViewPager extends ViewPager {
-    private boolean eZP;
+    private boolean fhm;
     private int mActivePointerId;
     private int mDuration;
     private float mInitialMotionX;
@@ -23,7 +23,7 @@ public class BdBaseViewPager extends ViewPager {
     public BdBaseViewPager(Context context) {
         super(context);
         this.mIsDisallowIntercept = false;
-        this.eZP = false;
+        this.fhm = false;
         this.mActivePointerId = -1;
         this.mDuration = 600;
         initViewPager();
@@ -32,7 +32,7 @@ public class BdBaseViewPager extends ViewPager {
     public BdBaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mIsDisallowIntercept = false;
-        this.eZP = false;
+        this.fhm = false;
         this.mActivePointerId = -1;
         this.mDuration = 600;
         initViewPager();
@@ -69,7 +69,7 @@ public class BdBaseViewPager extends ViewPager {
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         int findPointerIndex;
-        if (this.eZP) {
+        if (this.fhm) {
             return false;
         }
         if (isInvalidPointer(motionEvent)) {
@@ -114,7 +114,7 @@ public class BdBaseViewPager extends ViewPager {
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int findPointerIndex;
-        if (this.eZP) {
+        if (this.fhm) {
             return false;
         }
         switch (motionEvent.getAction() & 255) {
@@ -191,7 +191,7 @@ public class BdBaseViewPager extends ViewPager {
     }
 
     public void setmDisallowSlip(boolean z) {
-        this.eZP = z;
+        this.fhm = z;
     }
 
     public int getScrollState() {
@@ -207,21 +207,21 @@ public class BdBaseViewPager extends ViewPager {
 
     /* loaded from: classes.dex */
     public class a extends Scroller {
-        private int byK;
+        private int bDS;
 
         public a(Context context) {
             super(context);
-            this.byK = 1000;
+            this.bDS = 1000;
         }
 
         @Override // android.widget.Scroller
         public void startScroll(int i, int i2, int i3, int i4, int i5) {
-            super.startScroll(i, i2, i3, i4, this.byK);
+            super.startScroll(i, i2, i3, i4, this.bDS);
         }
 
         @Override // android.widget.Scroller
         public void startScroll(int i, int i2, int i3, int i4) {
-            super.startScroll(i, i2, i3, i4, this.byK);
+            super.startScroll(i, i2, i3, i4, this.bDS);
         }
 
         public void initViewPagerScroll(ViewPager viewPager) {
@@ -234,8 +234,8 @@ public class BdBaseViewPager extends ViewPager {
             }
         }
 
-        public void qR(int i) {
-            this.byK = i;
+        public void rs(int i) {
+            this.bDS = i;
         }
     }
 }

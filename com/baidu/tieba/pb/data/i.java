@@ -2,31 +2,31 @@ package com.baidu.tieba.pb.data;
 
 import android.support.v7.widget.ActivityChooserView;
 import tbclient.PbPage.ForumHeadlineImgInfo;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class i {
-    private long ezc = 0;
-    private String ezd = "";
+    private long eGb = 0;
+    private String eGc = "";
     private String imgUrl = "";
-    private int loj = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    private String lok = "";
-    private String aMQ = "";
+    private int lBH = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private String lBI = "";
+    private String aPP = "";
 
     public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         if (forumHeadlineImgInfo != null) {
-            this.ezc = forumHeadlineImgInfo.img_user_id.longValue();
-            this.ezd = forumHeadlineImgInfo.img_user_name;
+            this.eGb = forumHeadlineImgInfo.img_user_id.longValue();
+            this.eGc = forumHeadlineImgInfo.img_user_name;
             this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.loj = forumHeadlineImgInfo.rank_num.intValue();
-            this.lok = forumHeadlineImgInfo.rank_up_info;
-            this.aMQ = forumHeadlineImgInfo.rank_url;
+            this.lBH = forumHeadlineImgInfo.rank_num.intValue();
+            this.lBI = forumHeadlineImgInfo.rank_up_info;
+            this.aPP = forumHeadlineImgInfo.rank_url;
         }
     }
 
-    public String dip() {
-        return this.aMQ;
+    public String dnE() {
+        return this.aPP;
     }
 
-    public String bjy() {
+    public String bmL() {
         return this.imgUrl;
     }
 }

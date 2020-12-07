@@ -1,11 +1,11 @@
 package com.baidu.tbadk.editortools.noConflictPanel;
 /* loaded from: classes.dex */
 public interface a {
-    void aeI();
+    void ahQ();
 
-    void aeJ();
+    void ahR();
 
-    boolean bzm();
+    boolean bCM();
 
     boolean isVisible();
 }

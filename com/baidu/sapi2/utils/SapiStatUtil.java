@@ -13,13 +13,12 @@ import com.baidu.sapi2.share.b;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidubce.AbstractBceClient;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class SapiStatUtil {
     public static final int CLOUND_SHARE_ACCOUNT_STAT_INVOKE_START = 3;
     public static final int CLOUND_SHARE_ACCOUNT_STAT_LOGIN_FAIL = 5;
@@ -162,8 +161,8 @@ public class SapiStatUtil {
         HashMap hashMap = new HashMap();
         buildStatExtraMap(hashMap, list2);
         hashMap.put("account_size", list.size() + "");
-        hashMap.put("account_tpls", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList));
-        hashMap.put("account_apps", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList2));
+        hashMap.put("account_tpls", TextUtils.join(",", arrayList));
+        hashMap.put("account_apps", TextUtils.join(",", arrayList2));
         k.a("share_v1_account_open", hashMap);
     }
 
@@ -174,7 +173,7 @@ public class SapiStatUtil {
     public static void statShareV2Click(b.c cVar, List<PassNameValuePair> list) {
         HashMap hashMap = new HashMap();
         buildStatExtraMap(hashMap, list);
-        hashMap.put("index", cVar.f3516a + "");
+        hashMap.put("index", cVar.f3519a + "");
         hashMap.put(b.c.f, cVar.b);
         hashMap.put(b.c.g, cVar.c);
         k.a("share_account_click", hashMap);
@@ -212,8 +211,8 @@ public class SapiStatUtil {
         }
         hashMap.put(Config.DEVICE_PART, Build.MODEL);
         hashMap.put("account_size", list.size() + "");
-        hashMap.put("account_tpls", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList));
-        hashMap.put("account_apps", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList2));
+        hashMap.put("account_tpls", TextUtils.join(",", arrayList));
+        hashMap.put("account_apps", TextUtils.join(",", arrayList2));
         k.a("share_account_open", hashMap);
     }
 

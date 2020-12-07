@@ -1,5 +1,5 @@
 package com.baidu.swan.bdprivate.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public interface ab {
     void a(z zVar);
 

@@ -6,8 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.RandomAccess;
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 public final class EmptyList implements Serializable, List, RandomAccess {
     public static final EmptyList INSTANCE = new EmptyList();
     private static final long serialVersionUID = -7390468764508069838L;
@@ -145,13 +145,13 @@ public final class EmptyList implements Serializable, List, RandomAccess {
     }
 
     public boolean contains(Void r2) {
-        kotlin.jvm.internal.q.n(r2, "element");
+        kotlin.jvm.internal.p.o(r2, "element");
         return false;
     }
 
     @Override // java.util.List, java.util.Collection
     public boolean containsAll(Collection collection) {
-        kotlin.jvm.internal.q.n(collection, "elements");
+        kotlin.jvm.internal.p.o(collection, "elements");
         return collection.isEmpty();
     }
 
@@ -162,23 +162,23 @@ public final class EmptyList implements Serializable, List, RandomAccess {
     }
 
     public int indexOf(Void r2) {
-        kotlin.jvm.internal.q.n(r2, "element");
+        kotlin.jvm.internal.p.o(r2, "element");
         return -1;
     }
 
     public int lastIndexOf(Void r2) {
-        kotlin.jvm.internal.q.n(r2, "element");
+        kotlin.jvm.internal.p.o(r2, "element");
         return -1;
     }
 
     @Override // java.util.List, java.util.Collection, java.lang.Iterable
     public Iterator iterator() {
-        return aa.pTG;
+        return v.pKi;
     }
 
     @Override // java.util.List
     public ListIterator listIterator() {
-        return aa.pTG;
+        return v.pKi;
     }
 
     @Override // java.util.List
@@ -186,7 +186,7 @@ public final class EmptyList implements Serializable, List, RandomAccess {
         if (i != 0) {
             throw new IndexOutOfBoundsException("Index: " + i);
         }
-        return aa.pTG;
+        return v.pKi;
     }
 
     @Override // java.util.List

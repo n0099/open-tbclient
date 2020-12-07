@@ -55,7 +55,6 @@ import com.alibaba.fastjson.util.JavaBeanInfo;
 import com.alibaba.fastjson.util.ServiceLoader;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.Closeable;
 import java.io.File;
 import java.io.Serializable;
@@ -108,7 +107,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Pattern;
 import javax.sql.DataSource;
 import javax.xml.datatype.XMLGregorianCalendar;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class ParserConfig {
     public static final String AUTOTYPE_ACCEPT = "fastjson.parser.autoTypeAccept";
     private static final String[] AUTO_TYPE_ACCEPT_LIST;
@@ -168,7 +167,7 @@ public class ParserConfig {
         this.asmEnable = !ASMUtils.IS_ANDROID;
         this.symbolTable = new SymbolTable(4096);
         this.autoTypeSupport = AUTO_SUPPORT;
-        this.denyList = "bsh,com.mchange,com.sun.,java.lang.Thread,java.net.Socket,java.rmi,javax.xml,org.apache.bcel,org.apache.commons.beanutils,org.apache.commons.collections.Transformer,org.apache.commons.collections.functors,org.apache.commons.collections4.comparators,org.apache.commons.fileupload,org.apache.myfaces.context.servlet,org.apache.tomcat,org.apache.wicket.util,org.apache.xalan,org.codehaus.groovy.runtime,org.hibernate,org.jboss,org.mozilla.javascript,org.python.core,org.springframework".split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        this.denyList = "bsh,com.mchange,com.sun.,java.lang.Thread,java.net.Socket,java.rmi,javax.xml,org.apache.bcel,org.apache.commons.beanutils,org.apache.commons.collections.Transformer,org.apache.commons.collections.functors,org.apache.commons.collections4.comparators,org.apache.commons.fileupload,org.apache.myfaces.context.servlet,org.apache.tomcat,org.apache.wicket.util,org.apache.xalan,org.codehaus.groovy.runtime,org.hibernate,org.jboss,org.mozilla.javascript,org.python.core,org.springframework".split(",");
         this.acceptList = AUTO_TYPE_ACCEPT_LIST;
         this.compatibleWithJavaBean = TypeUtils.compatibleWithJavaBean;
         this.fieldBased = z;
@@ -268,7 +267,7 @@ public class ParserConfig {
         if (str == null || str.length() <= 0) {
             return null;
         }
-        return str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        return str.split(",");
     }
 
     public void configFromPropety(Properties properties) {

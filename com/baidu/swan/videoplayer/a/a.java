@@ -5,8 +5,7 @@ import com.baidu.swan.videoplayer.SwanVideoView;
 public interface a {
     void h(SwanVideoView swanVideoView);
 
-    /* renamed from: if  reason: not valid java name */
-    void mo36if(boolean z);
+    void iu(boolean z);
 
     void onBufferingUpdate(int i);
 

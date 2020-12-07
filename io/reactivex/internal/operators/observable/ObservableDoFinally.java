@@ -3,25 +3,25 @@ package io.reactivex.internal.operators.observable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.observers.BasicIntQueueDisposable;
 import io.reactivex.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class ObservableDoFinally<T> extends a<T, T> {
-    final io.reactivex.c.a onFinally;
+    final io.reactivex.b.a onFinally;
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
         this.source.subscribe(new DoFinallyObserver(uVar, this.onFinally));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class DoFinallyObserver<T> extends BasicIntQueueDisposable<T> implements u<T> {
         private static final long serialVersionUID = 4109457741734051389L;
         final u<? super T> actual;
         io.reactivex.disposables.b d;
-        final io.reactivex.c.a onFinally;
+        final io.reactivex.b.a onFinally;
         io.reactivex.internal.a.b<T> qd;
         boolean syncFused;
 
-        DoFinallyObserver(u<? super T> uVar, io.reactivex.c.a aVar) {
+        DoFinallyObserver(u<? super T> uVar, io.reactivex.b.a aVar) {
             this.actual = uVar;
             this.onFinally = aVar;
         }
@@ -78,17 +78,17 @@ public final class ObservableDoFinally<T> extends a<T, T> {
             return requestFusion;
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public void clear() {
             this.qd.clear();
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public boolean isEmpty() {
             return this.qd.isEmpty();
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public T poll() throws Exception {
             T poll = this.qd.poll();
             if (poll == null && this.syncFused) {
@@ -103,7 +103,7 @@ public final class ObservableDoFinally<T> extends a<T, T> {
                     this.onFinally.run();
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.J(th);
-                    io.reactivex.e.a.onError(th);
+                    io.reactivex.d.a.onError(th);
                 }
             }
         }

@@ -1,7 +1,7 @@
 package com.baidu.platform.comjni.base.networkdetect;
 
 import com.baidu.platform.comjni.NativeComponent;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class NANetworkDetect extends NativeComponent {
     public NANetworkDetect() {
         create();

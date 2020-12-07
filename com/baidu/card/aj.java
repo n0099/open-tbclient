@@ -11,15 +11,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
-public class aj extends d implements p<bx> {
-    private TbImageView ahi;
+/* loaded from: classes21.dex */
+public class aj extends d implements p<by> {
+    private TbImageView aii;
     private TbPageContext mPageContext;
     private int mType = 0;
-    private boolean aga = true;
+    private boolean agZ = true;
 
     public aj(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -29,35 +29,35 @@ public class aj extends d implements p<bx> {
         layoutParams.topMargin = com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds30);
         layoutParams.rightMargin = com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds30);
         a(layoutParams);
-        this.ahi = new TbImageView(tbPageContext.getPageActivity());
-        H((View) this.ahi);
+        this.aii = new TbImageView(tbPageContext.getPageActivity());
+        H((View) this.aii);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: a */
-    public void H(bx bxVar) {
-        b(bxVar);
+    public void H(by byVar) {
+        b(byVar);
     }
 
-    public void b(bx bxVar) {
-        MetaData blC;
-        if (bxVar != null && this.ahi != null && (blC = bxVar.blC()) != null) {
-            final ThemeCardInUserData themeCard = blC.getThemeCard();
-            if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid()) || bxVar.eFc) {
-                this.ahi.setVisibility(8);
+    public void b(by byVar) {
+        MetaData boP;
+        if (byVar != null && this.aii != null && (boP = byVar.boP()) != null) {
+            final ThemeCardInUserData themeCard = boP.getThemeCard();
+            if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid()) || byVar.eMe) {
+                this.aii.setVisibility(8);
                 return;
             }
-            if (this.aga && (this.ahi.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ahi.getLayoutParams();
+            if (this.agZ && (this.aii.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aii.getLayoutParams();
                 layoutParams.rightMargin = com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds106);
-                this.ahi.setLayoutParams(layoutParams);
+                this.aii.setLayoutParams(layoutParams);
             }
-            this.ahi.setVisibility(0);
+            this.aii.setVisibility(0);
             this.mType = 1;
-            this.ahi.setImageDrawable(null);
-            this.ahi.startLoad(themeCard.getCardImageUrlAndroid(), 10, false);
-            this.ahi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.aj.1
+            this.aii.setImageDrawable(null);
+            this.aii.startLoad(themeCard.getCardImageUrlAndroid(), 10, false);
+            this.aii.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.aj.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(aj.this.mPageContext.getPageActivity(), themeCard.getCardId())));
@@ -66,11 +66,11 @@ public class aj extends d implements p<bx> {
         }
     }
 
-    public void aL(boolean z) {
-        this.aga = z;
+    public void aK(boolean z) {
+        this.agZ = z;
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.ahi.setPageId(bdUniqueId);
+        this.aii.setPageId(bdUniqueId);
     }
 }

@@ -6,7 +6,7 @@ import io.reactivex.m;
 import io.reactivex.o;
 import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class MaybeSubscribeOn<T> extends io.reactivex.internal.operators.maybe.a<T, T> {
     final v scheduler;
 
@@ -14,26 +14,26 @@ public final class MaybeSubscribeOn<T> extends io.reactivex.internal.operators.m
     protected void b(m<? super T> mVar) {
         SubscribeOnMaybeObserver subscribeOnMaybeObserver = new SubscribeOnMaybeObserver(mVar);
         mVar.onSubscribe(subscribeOnMaybeObserver);
-        subscribeOnMaybeObserver.task.replace(this.scheduler.H(new a(subscribeOnMaybeObserver, this.source)));
+        subscribeOnMaybeObserver.task.replace(this.scheduler.G(new a(subscribeOnMaybeObserver, this.source)));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class a<T> implements Runnable {
-        final m<? super T> pPF;
+        final m<? super T> pGt;
         final o<T> source;
 
         a(m<? super T> mVar, o<T> oVar) {
-            this.pPF = mVar;
+            this.pGt = mVar;
             this.source = oVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.source.a(this.pPF);
+            this.source.a(this.pGt);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class SubscribeOnMaybeObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = 8571289934935992137L;
         final m<? super T> actual;

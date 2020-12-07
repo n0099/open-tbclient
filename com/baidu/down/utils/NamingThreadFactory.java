@@ -3,7 +3,7 @@ package com.baidu.down.utils;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class NamingThreadFactory implements ThreadFactory {
     private final ThreadFactory mBackingFactory;
     private final AtomicInteger mCount;

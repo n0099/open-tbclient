@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ai;
 /* loaded from: classes.dex */
 public class g extends f {
-    private boolean eVb;
-    private CustomMessageListener eVc;
+    private boolean fcy;
+    private CustomMessageListener fcz;
     protected boolean isDone;
     private CustomMessageListener listener;
     protected boolean mApplyImage;
@@ -20,7 +20,7 @@ public class g extends f {
     public g(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.isDone = true;
-        this.eVb = false;
+        this.fcy = false;
         this.listener = new CustomMessageListener(CmdConfigCustom.CMD_PULL_IMAGE_CHANGE) { // from class: com.baidu.tbadk.core.view.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -30,11 +30,11 @@ public class g extends f {
                 }
             }
         };
-        this.eVc = new CustomMessageListener(CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE) { // from class: com.baidu.tbadk.core.view.g.2
+        this.fcz = new CustomMessageListener(CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE) { // from class: com.baidu.tbadk.core.view.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                g.this.mPullRoot.setBackgroundColor(ai.bql().getPullViewBackgroundColor(TbadkCoreApplication.getInst().getSkinType()));
+                g.this.mPullRoot.setBackgroundColor(ai.btG().getPullViewBackgroundColor(TbadkCoreApplication.getInst().getSkinType()));
             }
         };
         h(tbPageContext);
@@ -71,20 +71,20 @@ public class g extends f {
         super.changeSkin(i);
         if (this.mPullRoot != null && this.mPullImage != null) {
             this.mApplyImage = false;
-            if (!bqm()) {
-                this.mAnimImage = ai.bql().getAnimationDrawable(i);
+            if (!btH()) {
+                this.mAnimImage = ai.btG().getAnimationDrawable(i);
                 if (this.mAnimImage != null) {
                     this.mApplyImage = true;
                 } else {
                     this.mAnimImage = new AnimationDrawable();
                 }
                 if (!this.mApplyImage) {
-                    this.mAnimImage = ai.bql().getDefaultAnimationDrawable(i);
+                    this.mAnimImage = ai.btG().getDefaultAnimationDrawable(i);
                 }
                 this.mAnimImage.setOneShot(false);
                 this.mPullImage.setBackgroundDrawable(this.mAnimImage);
             }
-            if (this.eVb) {
+            if (this.fcy) {
                 this.mPullRoot.setBackgroundColor(0);
             }
         }
@@ -92,28 +92,28 @@ public class g extends f {
 
     private void h(TbPageContext<?> tbPageContext) {
         this.listener.setTag(tbPageContext.getUniqueId());
-        this.eVc.setTag(tbPageContext.getUniqueId());
+        this.fcz.setTag(tbPageContext.getUniqueId());
         tbPageContext.registerListener(this.listener);
-        tbPageContext.registerListener(this.eVc);
+        tbPageContext.registerListener(this.fcz);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
         if (this.listener != null) {
             this.listener.setTag(bdUniqueId);
         }
-        if (this.eVc != null) {
-            this.eVc.setTag(bdUniqueId);
+        if (this.fcz != null) {
+            this.fcz.setTag(bdUniqueId);
         }
         MessageManager.getInstance().registerListener(this.listener);
-        MessageManager.getInstance().registerListener(this.eVc);
+        MessageManager.getInstance().registerListener(this.fcz);
     }
 
     public void release() {
         MessageManager.getInstance().unRegisterListener(this.listener);
-        MessageManager.getInstance().unRegisterListener(this.eVc);
+        MessageManager.getInstance().unRegisterListener(this.fcz);
     }
 
-    public void jo(boolean z) {
-        this.eVb = z;
+    public void jE(boolean z) {
+        this.fcy = z;
     }
 }

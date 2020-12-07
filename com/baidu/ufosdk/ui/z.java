@@ -4,16 +4,16 @@ import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.EditText;
 import com.baidu.android.imsdk.internal.IMConnection;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class z implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackEditActivity f3895a;
+    final /* synthetic */ FeedbackEditActivity f3898a;
     private long b = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(FeedbackEditActivity feedbackEditActivity) {
-        this.f3895a = feedbackEditActivity;
+        this.f3898a = feedbackEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,22 +26,22 @@ final class z implements View.OnClickListener {
         if (System.currentTimeMillis() - this.b < IMConnection.RETRY_DELAY_TIMES) {
             return;
         }
-        z = this.f3895a.v;
+        z = this.f3898a.v;
         if (z) {
             return;
         }
         this.b = System.currentTimeMillis();
-        editText = this.f3895a.n;
+        editText = this.f3898a.n;
         String obj = editText.getText().toString();
         if (obj == null || obj.trim().length() <= 0) {
-            editor = this.f3895a.b;
+            editor = this.f3898a.b;
             editor.putString("cryptContactData", "");
         } else {
-            editor3 = this.f3895a.b;
+            editor3 = this.f3898a.b;
             editor3.putString("cryptContactData", com.baidu.ufosdk.f.k.a(obj));
         }
-        editor2 = this.f3895a.b;
+        editor2 = this.f3898a.b;
         editor2.commit();
-        FeedbackEditActivity.h(this.f3895a);
+        FeedbackEditActivity.h(this.f3898a);
     }
 }

@@ -4,18 +4,16 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private static volatile b iq;
-    private c in;
-
-    /* renamed from: io  reason: collision with root package name */
-    private HandlerThread f1193io;
-    private Handler ip;
+    private static volatile b iF;
+    private c iC;
+    private HandlerThread iD;
+    private Handler iE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -28,16 +26,16 @@ public class b {
                     b.this.a((AudioParams) message.obj);
                     return;
                 case 1002:
-                    b.this.cl();
+                    b.this.ck();
                     return;
                 case 1003:
-                    b.this.cm();
+                    b.this.cl();
                     return;
                 case 1004:
-                    b.this.cn();
+                    b.this.cm();
                     return;
                 case 1005:
-                    b.this.co();
+                    b.this.cn();
                     return;
                 default:
                     return;
@@ -50,116 +48,116 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AudioParams audioParams) {
-        if (this.in != null) {
-            this.in.b(audioParams);
+        if (this.iC != null) {
+            this.iC.b(audioParams);
         }
     }
 
-    public static b cg() {
-        if (iq == null) {
+    public static b cf() {
+        if (iF == null) {
             synchronized (b.class) {
-                if (iq == null) {
-                    iq = new b();
+                if (iF == null) {
+                    iF = new b();
                 }
             }
         }
-        return iq;
+        return iF;
     }
 
-    private void ch() {
-        this.f1193io = new HandlerThread("AudioHandlerThread");
-        this.f1193io.start();
-        this.ip = new a(this.f1193io.getLooper());
+    private void cg() {
+        this.iD = new HandlerThread("AudioHandlerThread");
+        this.iD.start();
+        this.iE = new a(this.iD.getLooper());
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ck() {
+        if (this.iC != null) {
+            this.iC.co();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cl() {
-        if (this.in != null) {
-            this.in.cp();
+        if (this.iC != null) {
+            this.iC.cp();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cm() {
-        if (this.in != null) {
-            this.in.cq();
+        if (this.iC != null) {
+            this.iC.cq();
         }
+        this.iC = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cn() {
-        if (this.in != null) {
-            this.in.cr();
-        }
-        this.in = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void co() {
         releaseInstance();
-        if (this.ip != null) {
-            this.ip.removeCallbacksAndMessages(null);
-            this.ip = null;
+        if (this.iE != null) {
+            this.iE.removeCallbacksAndMessages(null);
+            this.iE = null;
         }
-        if (this.f1193io != null) {
-            this.f1193io.quit();
-            this.f1193io = null;
+        if (this.iD != null) {
+            this.iD.quit();
+            this.iD = null;
         }
     }
 
     private static void releaseInstance() {
-        iq = null;
+        iF = null;
     }
 
     public boolean a(AudioParams audioParams, com.baidu.ar.audio.a aVar) {
         if (isRunning()) {
-            com.baidu.ar.g.b.b(TAG, "setupAudio error! As last audio thread is alive!");
+            com.baidu.ar.h.b.b(TAG, "setupAudio error! As last audio thread is alive!");
             return false;
         }
-        if (this.in == null) {
-            this.in = new c();
+        if (this.iC == null) {
+            this.iC = new c();
         }
-        this.in.a(aVar);
-        ch();
-        this.ip.sendMessage(this.ip.obtainMessage(1001, audioParams));
+        this.iC.a(aVar);
+        cg();
+        this.iE.sendMessage(this.iE.obtainMessage(1001, audioParams));
         return true;
     }
 
-    public void ci() {
-        cm();
+    public void ch() {
+        cl();
     }
 
-    public void cj() {
-        if (this.ip != null) {
-            this.ip.removeCallbacksAndMessages(null);
-            this.ip.sendMessage(this.ip.obtainMessage(1004));
-            this.ip.sendMessage(this.ip.obtainMessage(1005));
+    public void ci() {
+        if (this.iE != null) {
+            this.iE.removeCallbacksAndMessages(null);
+            this.iE.sendMessage(this.iE.obtainMessage(1004));
+            this.iE.sendMessage(this.iE.obtainMessage(1005));
         }
     }
 
-    public AudioParams ck() {
-        if (this.in != null) {
-            return this.in.ck();
+    public AudioParams cj() {
+        if (this.iC != null) {
+            return this.iC.cj();
         }
         return null;
     }
 
     public boolean isRunning() {
-        return this.f1193io != null && this.f1193io.isAlive();
+        return this.iD != null && this.iD.isAlive();
     }
 
     public void setVolumeListener(VolumeListener volumeListener) {
         if (volumeListener != null) {
-            if (this.in == null) {
-                this.in = new c();
+            if (this.iC == null) {
+                this.iC = new c();
             }
-            this.in.setVolumeListener(volumeListener);
+            this.iC.setVolumeListener(volumeListener);
         }
     }
 
     public void startAudio() {
-        if (this.ip != null) {
-            this.ip.sendMessage(this.ip.obtainMessage(1002));
+        if (this.iE != null) {
+            this.iE.sendMessage(this.iE.obtainMessage(1002));
         }
     }
 }

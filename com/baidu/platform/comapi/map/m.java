@@ -5,12 +5,12 @@ import android.view.SurfaceHolder;
 import com.baidu.platform.comjni.map.basemap.AppBaseMap;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class m implements ak {
     public static boolean d = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2925a;
+    public int f2927a;
     public int b;
     private af g;
     private WeakReference<MapSurfaceView> h;

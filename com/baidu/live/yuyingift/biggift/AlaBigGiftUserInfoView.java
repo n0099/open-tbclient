@@ -15,11 +15,11 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes4.dex */
 public class AlaBigGiftUserInfoView extends RelativeLayout {
-    public HeadImageView aVk;
-    public TextView aVl;
-    public TextView aVm;
-    private RelativeLayout aVo;
-    private com.baidu.live.yuyingift.a.c bNS;
+    public HeadImageView aYv;
+    public TextView aYw;
+    public TextView aYx;
+    private RelativeLayout aYz;
+    private com.baidu.live.yuyingift.a.c bSY;
 
     public AlaBigGiftUserInfoView(Context context) {
         super(context);
@@ -38,53 +38,53 @@ public class AlaBigGiftUserInfoView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(getContext()).inflate(a.g.popup_user_info_layout, this);
-        this.aVo = (RelativeLayout) findViewById(a.f.sender_user_info);
-        this.aVk = (HeadImageView) findViewById(a.f.sender_avatar);
-        this.aVk.setIsRound(true);
-        this.aVk.setAutoChangeStyle(false);
-        this.aVk.setDefaultBgResource(a.e.sdk_default_avatar);
-        this.aVl = (TextView) findViewById(a.f.sender_name);
-        this.aVm = (TextView) findViewById(a.f.gift_name);
+        this.aYz = (RelativeLayout) findViewById(a.f.sender_user_info);
+        this.aYv = (HeadImageView) findViewById(a.f.sender_avatar);
+        this.aYv.setIsRound(true);
+        this.aYv.setAutoChangeStyle(false);
+        this.aYv.setDefaultBgResource(a.e.sdk_default_avatar);
+        this.aYw = (TextView) findViewById(a.f.sender_name);
+        this.aYx = (TextView) findViewById(a.f.gift_name);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyingift.biggift.AlaBigGiftUserInfoView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaBigGiftUserInfoView.this.GS();
+                AlaBigGiftUserInfoView.this.IJ();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void GS() {
-        if (this.bNS != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(getContext(), String.valueOf(this.bNS.userId), this.bNS.userName, this.bNS.portrait, this.bNS.sex, this.bNS.aZs, this.bNS.location, this.bNS.description, 0L, this.bNS.fansCount, this.bNS.aZt, this.bNS.userStatus, this.bNS.liveId, this.bNS.groupId, this.bNS.aZy, this.bNS.aZz, this.bNS.appId, this.bNS.userName, "")));
+    public void IJ() {
+        if (this.bSY != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(getContext(), String.valueOf(this.bSY.userId), this.bSY.userName, this.bSY.portrait, this.bSY.sex, this.bSY.bcP, this.bSY.location, this.bSY.description, 0L, this.bSY.bcR, this.bSY.bcQ, this.bSY.userStatus, this.bSY.liveId, this.bSY.groupId, this.bSY.bcX, this.bSY.bcY, this.bSY.appId, this.bSY.userName, "")));
         }
     }
 
     public void setData(com.baidu.live.yuyingift.a.c cVar) {
         if (cVar != null) {
-            this.bNS = cVar;
+            this.bSY = cVar;
             if (cVar.portrait != null) {
-                this.aVk.startLoad(cVar.portrait, 12, false);
+                this.aYv.startLoad(cVar.portrait, 12, false);
             }
-            hf(cVar.userName);
-            if (cVar.aZq != null) {
-                this.aVm.setText(cVar.aZq.Fl());
+            hA(cVar.userName);
+            if (cVar.bcN != null) {
+                this.aYx.setText(cVar.bcN.GY());
             }
         }
     }
 
-    private void hf(String str) {
-        this.aVl.setTag(Long.valueOf(System.currentTimeMillis()));
+    private void hA(String str) {
+        this.aYw.setTag(Long.valueOf(System.currentTimeMillis()));
         if (!TextUtils.isEmpty(str)) {
-            this.aVl.setText(str);
+            this.aYw.setText(str);
         }
     }
 
     public void setSenderUserInfoMarginLeftZero() {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aVo.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aYz.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.leftMargin = 0;
-            this.aVo.setLayoutParams(layoutParams);
+            this.aYz.setLayoutParams(layoutParams);
         }
     }
 }

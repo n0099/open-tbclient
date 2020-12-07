@@ -5,11 +5,11 @@ import android.content.Intent;
 import android.net.Uri;
 /* loaded from: classes4.dex */
 public class d {
-    private static int bES = 0;
-    private static boolean bET = false;
-    private static boolean bEU = false;
+    private static int bKb = 0;
+    private static boolean bKc = false;
+    private static boolean bKd = false;
 
-    public static boolean aB(Context context) {
+    public static boolean bf(Context context) {
         return new Intent("android.intent.action.VIEW", Uri.parse("alipays://platformapi/startApp")).resolveActivity(context.getPackageManager()) != null;
     }
 }

@@ -8,13 +8,13 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes17.dex */
 final class a {
-    private static final a osR = new a();
+    private static final a oIa = new a();
     private boolean ac;
-    private final Set<InterfaceC0933a> osS = new LinkedHashSet();
+    private final Set<InterfaceC0950a> oIb = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
-    public interface InterfaceC0933a {
+    public interface InterfaceC0950a {
         void T();
 
         void U();
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a edC() {
-        return osR;
+    public static a ejq() {
+        return oIa;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0933a> edD() {
-        return this.osS;
+    public final Set<InterfaceC0950a> ejr() {
+        return this.oIb;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0933a interfaceC0933a) {
-        synchronized (this.osS) {
-            this.osS.add(interfaceC0933a);
+    public final void a(InterfaceC0950a interfaceC0950a) {
+        synchronized (this.oIb) {
+            this.oIb.add(interfaceC0950a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void S() {
-        synchronized (this.osS) {
-            this.osS.clear();
+        synchronized (this.oIb) {
+            this.oIb.clear();
         }
     }
 

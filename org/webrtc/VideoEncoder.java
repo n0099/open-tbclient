@@ -2,10 +2,10 @@ package org.webrtc;
 
 import android.support.annotation.Nullable;
 import org.webrtc.EncodedImage;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public interface VideoEncoder {
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class BitrateAllocation {
         public final int[][] bitratesBbs;
 
@@ -31,28 +31,28 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public interface Callback {
         void onEncodedFrame(EncodedImage encodedImage, CodecSpecificInfo codecSpecificInfo);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class CodecSpecificInfo {
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class CodecSpecificInfoH264 extends CodecSpecificInfo {
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class CodecSpecificInfoVP8 extends CodecSpecificInfo {
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class CodecSpecificInfoVP9 extends CodecSpecificInfo {
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class EncodeInfo {
         public final EncodedImage.FrameType[] frameTypes;
 
@@ -62,7 +62,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class ScalingSettings {
         public static final ScalingSettings OFF = new ScalingSettings();
         @Nullable
@@ -105,7 +105,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class Settings {
         public final boolean automaticResizeOn;
         public final int height;

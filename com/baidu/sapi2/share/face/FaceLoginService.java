@@ -19,7 +19,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class FaceLoginService {
     private static final String b = "FaceLoginService";
     private static final String c = "face_login_model_v2";
@@ -27,7 +27,7 @@ public class FaceLoginService {
     private static final int e = 10;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3521a = SapiAccountManager.getInstance().getConfignation().context;
+    private Context f3524a = SapiAccountManager.getInstance().getConfignation().context;
 
     private String a(Map<String, Long> map) {
         JSONObject jSONObject = new JSONObject();
@@ -119,8 +119,8 @@ public class FaceLoginService {
         }
         Collections.sort(list);
         for (a aVar : list) {
-            if (!linkedHashMap.containsKey(aVar.f3522a)) {
-                linkedHashMap.put(aVar.f3522a, Long.valueOf(aVar.b));
+            if (!linkedHashMap.containsKey(aVar.f3525a)) {
+                linkedHashMap.put(aVar.f3525a, Long.valueOf(aVar.b));
             }
         }
         if (linkedHashMap.size() > 10) {
@@ -137,7 +137,7 @@ public class FaceLoginService {
     private List<a> a() {
         ArrayList arrayList = new ArrayList();
         if (SapiContext.getInstance().shareLivingunameEnable()) {
-            List<Intent> c2 = e.c(this.f3521a);
+            List<Intent> c2 = e.c(this.f3524a);
             if (c2.isEmpty()) {
                 return arrayList;
             }

@@ -7,9 +7,7 @@ import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public final class DrawableSplashScreen implements SplashScreen {
     private final long crossfadeDurationInMillis;
     private final Drawable drawable;
@@ -26,26 +24,25 @@ public final class DrawableSplashScreen implements SplashScreen {
         return SplashScreen$$CC.saveSplashScreenState(this);
     }
 
-    public DrawableSplashScreen(@NonNull Drawable drawable) {
+    public DrawableSplashScreen(Drawable drawable) {
         this(drawable, ImageView.ScaleType.FIT_XY, 500L);
     }
 
-    public DrawableSplashScreen(@NonNull Drawable drawable, @NonNull ImageView.ScaleType scaleType, long j) {
+    public DrawableSplashScreen(Drawable drawable, ImageView.ScaleType scaleType, long j) {
         this.drawable = drawable;
         this.scaleType = scaleType;
         this.crossfadeDurationInMillis = j;
     }
 
     @Override // io.flutter.embedding.android.SplashScreen
-    @Nullable
-    public View createSplashView(@NonNull Context context, @Nullable Bundle bundle) {
+    public View createSplashView(Context context, Bundle bundle) {
         this.splashView = new DrawableSplashScreenView(context);
         this.splashView.setSplashDrawable(this.drawable, this.scaleType);
         return this.splashView;
     }
 
     @Override // io.flutter.embedding.android.SplashScreen
-    public void transitionToFlutter(@NonNull final Runnable runnable) {
+    public void transitionToFlutter(final Runnable runnable) {
         if (this.splashView == null) {
             runnable.run();
         } else {
@@ -71,25 +68,25 @@ public final class DrawableSplashScreen implements SplashScreen {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class DrawableSplashScreenView extends ImageView {
-        public DrawableSplashScreenView(@NonNull Context context) {
+        public DrawableSplashScreenView(Context context) {
             this(context, null, 0);
         }
 
-        public DrawableSplashScreenView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        public DrawableSplashScreenView(Context context, AttributeSet attributeSet) {
             this(context, attributeSet, 0);
         }
 
-        public DrawableSplashScreenView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        public DrawableSplashScreenView(Context context, AttributeSet attributeSet, int i) {
             super(context, attributeSet, i);
         }
 
-        public void setSplashDrawable(@Nullable Drawable drawable) {
+        public void setSplashDrawable(Drawable drawable) {
             setSplashDrawable(drawable, ImageView.ScaleType.FIT_XY);
         }
 
-        public void setSplashDrawable(@Nullable Drawable drawable, @NonNull ImageView.ScaleType scaleType) {
+        public void setSplashDrawable(Drawable drawable, ImageView.ScaleType scaleType) {
             setScaleType(scaleType);
             setImageDrawable(drawable);
         }

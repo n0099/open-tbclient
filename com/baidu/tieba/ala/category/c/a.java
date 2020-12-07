@@ -15,44 +15,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0636a guA;
-    private HttpMessageListener guB;
-    private List<IAdapterData> guu;
+    private List<IAdapterData> gDd;
+    private InterfaceC0648a gDj;
+    private HttpMessageListener gDk;
 
     /* renamed from: com.baidu.tieba.ala.category.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0636a {
+    public interface InterfaceC0648a {
         void aC(int i, String str);
 
-        void aRf();
+        void aUk();
     }
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.guu = new ArrayList();
-        this.guB = new HttpMessageListener(1021187, true) { // from class: com.baidu.tieba.ala.category.c.a.1
+        this.gDd = new ArrayList();
+        this.gDk = new HttpMessageListener(1021187, true) { // from class: com.baidu.tieba.ala.category.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaCategoryResponseMessage) {
                     AlaCategoryResponseMessage alaCategoryResponseMessage = (AlaCategoryResponseMessage) httpResponsedMessage;
-                    com.baidu.tieba.ala.category.b.b bQp = alaCategoryResponseMessage.bQp();
-                    if (!alaCategoryResponseMessage.isSuccess() || bQp == null || ListUtils.isEmpty(bQp.bQl())) {
-                        if (a.this.guA != null) {
-                            a.this.guA.aC(alaCategoryResponseMessage.getError(), alaCategoryResponseMessage.getErrorString());
+                    com.baidu.tieba.ala.category.b.b bTZ = alaCategoryResponseMessage.bTZ();
+                    if (!alaCategoryResponseMessage.isSuccess() || bTZ == null || ListUtils.isEmpty(bTZ.bTV())) {
+                        if (a.this.gDj != null) {
+                            a.this.gDj.aC(alaCategoryResponseMessage.getError(), alaCategoryResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    a.this.guu = bQp.bQl();
-                    if (a.this.guA != null) {
-                        a.this.guA.aRf();
+                    a.this.gDd = bTZ.bTV();
+                    if (a.this.gDj != null) {
+                        a.this.gDj.aUk();
                     }
                 }
             }
         };
         registerTask();
-        registerListener(this.guB);
+        registerListener(this.gDk);
     }
 
     private void registerTask() {
@@ -64,7 +64,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bQq() {
+    public void bUa() {
         loadData();
     }
 
@@ -80,11 +80,11 @@ public class a extends BdBaseModel {
         return true;
     }
 
-    public void a(InterfaceC0636a interfaceC0636a) {
-        this.guA = interfaceC0636a;
+    public void a(InterfaceC0648a interfaceC0648a) {
+        this.gDj = interfaceC0648a;
     }
 
-    public List<IAdapterData> bQl() {
-        return this.guu;
+    public List<IAdapterData> bTV() {
+        return this.gDd;
     }
 }

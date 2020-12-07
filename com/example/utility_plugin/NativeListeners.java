@@ -13,6 +13,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.f.b;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -21,18 +22,18 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.a.g;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
-import com.baidu.tbadk.data.m;
+import com.baidu.tbadk.data.n;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.baidu.tieba.q.a;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.e;
-import com.baidu.tieba.tbadkCore.v;
+import com.baidu.tieba.tbadkCore.w;
 import io.flutter.Log;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class NativeListeners {
     public MethodChannel mMethodChannel;
     private int mLastMainTabIndex = -1;
@@ -63,18 +64,21 @@ public class NativeListeners {
     private final String kTBCBroadcastPublishSuccess = "kTBCBroadcastPublishSuccess";
     private final String kTBCBroadcastEdditPageResume = "kTBCBroadcastEdditPageResume";
     private final String AutoRefreshBarEntry = "AutoRefreshBarEntry";
+    private final String WritePostSuccess = "WritePostSuccess";
     private final String AutoRefreshCategory = "AutoRefreshCategory";
     private final String AccountInfoUpdated = "AccountInfoUpdated";
+    private final String kUIApplicationEnterPersonalCenterByClickNotification = "kUIApplicationEnterPersonalCenterByClickNotification";
+    private final String kUIApplicationSwitchTabNotification = "kUIApplicationSwitchTabNotification";
     private final CustomMessageListener bookMarksGiftAndFansListener = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.example.utility_plugin.NativeListeners.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (a.dBC().dBy()) {
+                if (a.dGN().dGJ()) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("uniqueKey", "FansCountUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-                } else if (a.dBC().dBz()) {
+                } else if (a.dGN().dGK()) {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("uniqueKey", "BookMarkUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);
@@ -251,7 +255,7 @@ public class NativeListeners {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof m)) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof n)) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("uniqueKey", "ChangeUserProfile");
                 NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
@@ -276,7 +280,16 @@ public class NativeListeners {
             NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
         }
     };
-    private CustomMessageListener mUpdateShareNumListener = new CustomMessageListener(2921417) { // from class: com.example.utility_plugin.NativeListeners.17
+    private CustomMessageListener mWritePostSuccessListener = new CustomMessageListener(CmdConfigCustom.CMD_NEW_WRITE_POST_SUCCESS) { // from class: com.example.utility_plugin.NativeListeners.17
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("uniqueKey", "WritePostSuccess");
+            NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
+        }
+    };
+    private CustomMessageListener mUpdateShareNumListener = new CustomMessageListener(2921417) { // from class: com.example.utility_plugin.NativeListeners.18
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -293,7 +306,7 @@ public class NativeListeners {
             }
         }
     };
-    private CustomMessageListener mThreadWriteReplyListener = new CustomMessageListener(CmdConfigCustom.CMD_FORCE_UPDATE_PREPARE_LOCATION_INFO) { // from class: com.example.utility_plugin.NativeListeners.18
+    private CustomMessageListener mThreadWriteReplyListener = new CustomMessageListener(CmdConfigCustom.CMD_FORCE_UPDATE_PREPARE_LOCATION_INFO) { // from class: com.example.utility_plugin.NativeListeners.19
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -324,7 +337,7 @@ public class NativeListeners {
             NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap3);
         }
     };
-    private CustomMessageListener mMainTabClickListener = new CustomMessageListener(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK) { // from class: com.example.utility_plugin.NativeListeners.19
+    private CustomMessageListener mMainTabClickListener = new CustomMessageListener(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK) { // from class: com.example.utility_plugin.NativeListeners.20
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -340,6 +353,34 @@ public class NativeListeners {
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);
                 }
                 NativeListeners.this.mLastMainTabIndex = num.intValue();
+            }
+        }
+    };
+    private CustomMessageListener mSendPrePageKeyToFlutterWhenTabChangedListener = new CustomMessageListener(2921520) { // from class: com.example.utility_plugin.NativeListeners.21
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && !StringUtil.isEmpty((String) customResponsedMessage.getData())) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("obj_pre_page", (String) customResponsedMessage.getData());
+                HashMap hashMap2 = new HashMap();
+                hashMap2.put("uniqueKey", "kUIApplicationSwitchTabNotification");
+                hashMap2.put("data", hashMap);
+                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);
+            }
+        }
+    };
+    private CustomMessageListener mSendPrePageKeyToPersonCenterFlutterPage = new CustomMessageListener(2921521) { // from class: com.example.utility_plugin.NativeListeners.22
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && !StringUtil.isEmpty((String) customResponsedMessage.getData())) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("obj_pre_page", (String) customResponsedMessage.getData());
+                HashMap hashMap2 = new HashMap();
+                hashMap2.put("uniqueKey", "kUIApplicationEnterPersonalCenterByClickNotification");
+                hashMap2.put("data", hashMap);
+                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);
             }
         }
     };
@@ -461,10 +502,10 @@ public class NativeListeners {
         switch (c) {
             case 0:
                 String str2 = (String) argument(obj, "payload");
-                v vVar = new v();
-                vVar.setFid(str2);
-                vVar.setLike(1);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, vVar));
+                w wVar = new w();
+                wVar.setFid(str2);
+                wVar.setLike(1);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, wVar));
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = b.toLong(str2, 0L);
                 aVar.isSuccess = true;
@@ -472,10 +513,10 @@ public class NativeListeners {
                 break;
             case 1:
                 String str3 = (String) argument(obj, "payload");
-                v vVar2 = new v();
-                vVar2.setFid(str3);
-                vVar2.setLike(0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, vVar2));
+                w wVar2 = new w();
+                wVar2.setFid(str3);
+                wVar2.setLike(0);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, wVar2));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CANCLE_LIKE_FRS, str3));
                 break;
             case 2:
@@ -509,9 +550,15 @@ public class NativeListeners {
     private MessageListener<?> getListererFromKey(String str) {
         char c = 65535;
         switch (str.hashCode()) {
+            case -2135388668:
+                if (str.equals("WritePostSuccess")) {
+                    c = 18;
+                    break;
+                }
+                break;
             case -2111678678:
                 if (str.equals("AutoRefreshCategory")) {
-                    c = 19;
+                    c = 20;
                     break;
                 }
                 break;
@@ -569,6 +616,12 @@ public class NativeListeners {
                     break;
                 }
                 break;
+            case 220510267:
+                if (str.equals("kUIApplicationSwitchTabNotification")) {
+                    c = 21;
+                    break;
+                }
+                break;
             case 353880651:
                 if (str.equals("AutoRefreshBarEntry")) {
                     c = 17;
@@ -578,6 +631,12 @@ public class NativeListeners {
             case 401543534:
                 if (str.equals("ChangeUserProfile")) {
                     c = '\f';
+                    break;
+                }
+                break;
+            case 438746368:
+                if (str.equals("kUIApplicationEnterPersonalCenterByClickNotification")) {
+                    c = 22;
                     break;
                 }
                 break;
@@ -619,7 +678,7 @@ public class NativeListeners {
                 break;
             case 1599848416:
                 if (str.equals("AccountInfoUpdated")) {
-                    c = 18;
+                    c = 19;
                     break;
                 }
                 break;
@@ -677,9 +736,15 @@ public class NativeListeners {
             case 17:
                 return this.mMainTabClickListener;
             case 18:
-                return this.mAccountChangedListener;
+                return this.mWritePostSuccessListener;
             case 19:
+                return this.mAccountChangedListener;
+            case 20:
                 return this.mMainTabClickListener;
+            case 21:
+                return this.mSendPrePageKeyToFlutterWhenTabChangedListener;
+            case 22:
+                return this.mSendPrePageKeyToPersonCenterFlutterPage;
             default:
                 return null;
         }

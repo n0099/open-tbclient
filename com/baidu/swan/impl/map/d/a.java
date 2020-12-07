@@ -7,12 +7,11 @@ import android.support.annotation.NonNull;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.tieba.R;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class a extends c {
     public a(@NonNull Context context) {
         super("BaiduMap", context.getString(R.string.openlocation_bottommenu_baidumap), "com.baidu.BaiduMap");
-        this.edH = true;
+        this.ekI = true;
     }
 
     @Override // com.baidu.swan.impl.map.d.c
@@ -20,8 +19,8 @@ public class a extends c {
         if (latLng != null && latLng2 != null) {
             Intent intent = new Intent();
             Uri.Builder buildUpon = Uri.parse("baidumap://map/direction?").buildUpon();
-            buildUpon.appendQueryParameter("origin", "name:" + str + "|latlng:" + latLng.latitude + Constants.ACCEPT_TIME_SEPARATOR_SP + latLng.longitude);
-            buildUpon.appendQueryParameter("destination", "name:" + str2 + "|latlng:" + latLng2.latitude + Constants.ACCEPT_TIME_SEPARATOR_SP + latLng2.longitude);
+            buildUpon.appendQueryParameter("origin", "name:" + str + "|latlng:" + latLng.latitude + "," + latLng.longitude);
+            buildUpon.appendQueryParameter("destination", "name:" + str2 + "|latlng:" + latLng2.latitude + "," + latLng2.longitude);
             buildUpon.appendQueryParameter(UbcStatConstant.KEY_CONTENT_EXT_MODE, "driving");
             buildUpon.appendQueryParameter("target", "1");
             buildUpon.appendQueryParameter("src", context.getPackageName());

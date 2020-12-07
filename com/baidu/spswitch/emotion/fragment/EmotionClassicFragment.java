@@ -12,21 +12,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class EmotionClassicFragment extends EmotionBaseFragment {
-    private BDEmotionBagLayout crL;
-    private List<String> crM = new ArrayList();
+    private BDEmotionBagLayout cyH;
+    private List<String> cyI = new ArrayList();
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        this.crL = new BDEmotionBagLayout(getContext());
-        this.crL.setLayoutParams(new ViewGroup.LayoutParams(-1, dip2px(getContext(), 260.0f)));
+        this.cyH = new BDEmotionBagLayout(getContext());
+        this.cyH.setLayoutParams(new ViewGroup.LayoutParams(-1, dip2px(getContext(), 260.0f)));
         initData();
-        this.crL.setEmotionList(this.crM);
-        return this.crL;
+        this.cyH.setEmotionList(this.cyI);
+        return this.cyH;
     }
 
     private void initData() {
-        this.crM = b.bd(getContext()).aeM();
+        this.cyI = b.bJ(getContext()).ahU();
     }
 
     public static int dip2px(Context context, float f) {

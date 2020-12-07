@@ -8,7 +8,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class NetworkUtil {
     public static final int NETYPE_2G = 2;
     public static final int NETYPE_3G = 3;

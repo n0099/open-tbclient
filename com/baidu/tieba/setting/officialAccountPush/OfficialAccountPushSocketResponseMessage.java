@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.GetOfficialSwitch.GetOfficialSwitchResIdl;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class OfficialAccountPushSocketResponseMessage extends SocketResponsedMessage {
     public ArrayList<OfficialAccountPushInfo> official_list;
 

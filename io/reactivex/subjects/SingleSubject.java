@@ -4,31 +4,31 @@ import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class SingleSubject<T> extends w<T> implements y<T> {
-    static final SingleDisposable[] pTj = new SingleDisposable[0];
-    static final SingleDisposable[] pTk = new SingleDisposable[0];
+    static final SingleDisposable[] pJT = new SingleDisposable[0];
+    static final SingleDisposable[] pJU = new SingleDisposable[0];
     Throwable error;
     T value;
     final AtomicBoolean once = new AtomicBoolean();
-    final AtomicReference<SingleDisposable<T>[]> observers = new AtomicReference<>(pTj);
+    final AtomicReference<SingleDisposable<T>[]> observers = new AtomicReference<>(pJT);
 
     SingleSubject() {
     }
 
     @Override // io.reactivex.y
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.observers.get() == pTk) {
+        if (this.observers.get() == pJU) {
             bVar.dispose();
         }
     }
 
     @Override // io.reactivex.y
     public void onSuccess(T t) {
-        io.reactivex.internal.functions.a.l(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
+        io.reactivex.internal.functions.a.m(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (this.once.compareAndSet(false, true)) {
             this.value = t;
-            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(pTk)) {
+            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(pJU)) {
                 singleDisposable.actual.onSuccess(t);
             }
         }
@@ -36,15 +36,15 @@ public final class SingleSubject<T> extends w<T> implements y<T> {
 
     @Override // io.reactivex.y
     public void onError(Throwable th) {
-        io.reactivex.internal.functions.a.l(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
+        io.reactivex.internal.functions.a.m(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (this.once.compareAndSet(false, true)) {
             this.error = th;
-            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(pTk)) {
+            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(pJU)) {
                 singleDisposable.actual.onError(th);
             }
             return;
         }
-        io.reactivex.e.a.onError(th);
+        io.reactivex.d.a.onError(th);
     }
 
     /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: T, ? super T */
@@ -72,7 +72,7 @@ public final class SingleSubject<T> extends w<T> implements y<T> {
         SingleDisposable<T>[] singleDisposableArr2;
         do {
             singleDisposableArr = this.observers.get();
-            if (singleDisposableArr == pTk) {
+            if (singleDisposableArr == pJU) {
                 return false;
             }
             int length = singleDisposableArr.length;
@@ -104,7 +104,7 @@ public final class SingleSubject<T> extends w<T> implements y<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        singleDisposableArr2 = pTj;
+                        singleDisposableArr2 = pJT;
                     } else {
                         singleDisposableArr2 = new SingleDisposable[length - 1];
                         System.arraycopy(singleDisposableArr, 0, singleDisposableArr2, 0, i);
@@ -120,7 +120,7 @@ public final class SingleSubject<T> extends w<T> implements y<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class SingleDisposable<T> extends AtomicReference<SingleSubject<T>> implements io.reactivex.disposables.b {
         private static final long serialVersionUID = -7650903191002190468L;
         final y<? super T> actual;

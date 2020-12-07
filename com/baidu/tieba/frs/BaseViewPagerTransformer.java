@@ -2,26 +2,26 @@ package com.baidu.tieba.frs;
 
 import android.support.v4.view.ViewPager;
 import android.view.View;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public abstract class BaseViewPagerTransformer implements ViewPager.PageTransformer {
-    protected abstract void o(View view, float f);
+    protected abstract void p(View view, float f);
 
     @Override // android.support.v4.view.ViewPager.PageTransformer
     public void transformPage(View view, float f) {
-        p(view, f);
-        o(view, f);
         q(view, f);
+        p(view, f);
+        r(view, f);
     }
 
-    protected boolean cwV() {
+    protected boolean cBk() {
         return true;
     }
 
-    protected boolean cwW() {
+    protected boolean cBl() {
         return false;
     }
 
-    protected void p(View view, float f) {
+    protected void q(View view, float f) {
         float f2 = 0.0f;
         float width = view.getWidth();
         view.setRotationX(0.0f);
@@ -32,8 +32,8 @@ public abstract class BaseViewPagerTransformer implements ViewPager.PageTransfor
         view.setPivotX(0.0f);
         view.setPivotY(0.0f);
         view.setTranslationY(0.0f);
-        view.setTranslationX(cwW() ? 0.0f : (-width) * f);
-        if (cwV()) {
+        view.setTranslationX(cBl() ? 0.0f : (-width) * f);
+        if (cBk()) {
             if (f > -1.0f && f < 1.0f) {
                 f2 = 1.0f;
             }
@@ -45,6 +45,6 @@ public abstract class BaseViewPagerTransformer implements ViewPager.PageTransfor
         view.setAlpha(1.0f);
     }
 
-    protected void q(View view, float f) {
+    protected void r(View view, float f) {
     }
 }

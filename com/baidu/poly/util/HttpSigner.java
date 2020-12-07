@@ -5,7 +5,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class HttpSigner {
     static {
         System.loadLibrary("hs");
@@ -30,12 +30,12 @@ public class HttpSigner {
             for (String str : arrayList) {
                 String str2 = map.get(str);
                 if (!TextUtils.isEmpty(str2)) {
-                    sb.append(str).append(ETAG.EQUAL).append(str2).append(ETAG.ITEM_SEPARATOR);
+                    sb.append(str).append("=").append(str2).append(ETAG.ITEM_SEPARATOR);
                 }
             }
             bVar.g("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
             sb.append(nativeGetCommissionSk()).append(ETAG.ITEM_SEPARATOR).append(bVar.get("timestamp"));
-            bVar.g("sign", com.baidu.poly.a.g.b.dM(sb.toString()));
+            bVar.g("sign", com.baidu.poly.a.g.b.dO(sb.toString()));
         }
     }
 
@@ -50,10 +50,10 @@ public class HttpSigner {
         for (String str2 : arrayList) {
             String str3 = map.get(str2);
             if (!TextUtils.isEmpty(str3)) {
-                sb.append(str2).append(ETAG.EQUAL).append(str3).append(ETAG.ITEM_SEPARATOR);
+                sb.append(str2).append("=").append(str3).append(ETAG.ITEM_SEPARATOR);
             }
         }
-        sb.append(str).append(ETAG.EQUAL).append(nativeGetStatisticsKey(i));
-        return com.baidu.poly.a.g.b.dM(sb.toString());
+        sb.append(str).append("=").append(nativeGetStatisticsKey(i));
+        return com.baidu.poly.a.g.b.dO(sb.toString());
     }
 }

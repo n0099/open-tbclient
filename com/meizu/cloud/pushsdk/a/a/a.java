@@ -29,7 +29,7 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class a {
     private static a b;
     private static final Object c = new Object();
@@ -45,7 +45,7 @@ public class a {
     private long l = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    String f4302a = "88&*5a9*4&a122ek";
+    String f4072a = "88&*5a9*4&a122ek";
 
     private a(Context context) {
         this.m = context;

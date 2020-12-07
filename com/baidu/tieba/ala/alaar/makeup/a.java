@@ -9,14 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public abstract class a<T> {
-    private List<InterfaceC0624a<T>> gaJ;
-    private Runnable gaK;
-    private List<b> gaI = new ArrayList();
+    private List<InterfaceC0636a<T>> giU;
+    private Runnable giV;
+    private List<b> giT = new ArrayList();
     private Handler mHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.baidu.tieba.ala.alaar.makeup.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0624a<T> {
+    public interface InterfaceC0636a<T> {
         void b(a<T> aVar);
     }
 
@@ -26,12 +26,12 @@ public abstract class a<T> {
         void c(a<T> aVar);
     }
 
-    protected abstract boolean bLT();
+    protected abstract boolean bPC();
 
-    protected abstract boolean bLU();
+    protected abstract boolean bPD();
 
     public void a(final b bVar) {
-        if (!bLT()) {
+        if (!bPC()) {
             this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.makeup.a.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -48,46 +48,46 @@ public abstract class a<T> {
         }
         synchronized (this) {
             if (bVar != null) {
-                this.gaI.add(bVar);
+                this.giT.add(bVar);
             }
-            if (this.gaK == null) {
-                this.gaK = new Runnable() { // from class: com.baidu.tieba.ala.alaar.makeup.a.2
+            if (this.giV == null) {
+                this.giV = new Runnable() { // from class: com.baidu.tieba.ala.alaar.makeup.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (!a.this.bLU()) {
-                            a.this.bLV();
+                        if (!a.this.bPD()) {
+                            a.this.bPE();
                         }
                     }
                 };
-                ThreadPool.ZG().execute(this.gaK);
+                ThreadPool.acO().execute(this.giV);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bLV() {
-        this.gaK = null;
+    public void bPE() {
+        this.giV = null;
         this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.makeup.a.3
             @Override // java.lang.Runnable
             public void run() {
-                for (b bVar : a.this.gaI) {
+                for (b bVar : a.this.giT) {
                     bVar.c(a.this);
                 }
-                a.this.gaI.clear();
+                a.this.giT.clear();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bLW() {
-        if (this.gaJ != null && !this.gaJ.isEmpty()) {
+    public void bPF() {
+        if (this.giU != null && !this.giU.isEmpty()) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.gaJ.size()) {
-                    InterfaceC0624a<T> interfaceC0624a = this.gaJ.get(i2);
-                    if (interfaceC0624a != null) {
-                        interfaceC0624a.b(this);
+                if (i2 < this.giU.size()) {
+                    InterfaceC0636a<T> interfaceC0636a = this.giU.get(i2);
+                    if (interfaceC0636a != null) {
+                        interfaceC0636a.b(this);
                     }
                     i = i2 + 1;
                 } else {

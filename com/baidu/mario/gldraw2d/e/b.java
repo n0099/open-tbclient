@@ -6,7 +6,7 @@ import com.baidu.mario.gldraw2d.d.c;
 import com.baidu.mario.gldraw2d.d.d;
 import com.baidu.mario.gldraw2d.params.MirrorType;
 import com.baidu.mario.gldraw2d.params.ScaleType;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
 
@@ -82,7 +82,7 @@ public class b {
         Matrix.translateM(fArr, 0, f, f2, 1.0f);
     }
 
-    public static void v(float[] fArr) {
+    public static void u(float[] fArr) {
         Matrix.setIdentityM(fArr, 0);
     }
 }

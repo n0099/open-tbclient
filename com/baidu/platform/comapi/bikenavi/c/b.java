@@ -23,11 +23,11 @@ import com.baidu.platform.comapi.wnplatform.i.e;
 import com.baidu.platform.comapi.wnplatform.p.g;
 import com.baidu.tieba.R;
 import java.math.BigDecimal;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class b extends com.baidu.platform.comapi.wnplatform.o.a {
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f2830a;
+    LatLng f2832a;
     LatLng b;
     private View e;
     private Activity f;
@@ -86,10 +86,10 @@ public class b extends com.baidu.platform.comapi.wnplatform.o.a {
     }
 
     private LatLng y() {
-        if (this.f2830a == null) {
-            this.f2830a = com.baidu.platform.comapi.walknavi.b.a().O();
+        if (this.f2832a == null) {
+            this.f2832a = com.baidu.platform.comapi.walknavi.b.a().O();
         }
-        return this.f2830a;
+        return this.f2832a;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.o.a
@@ -204,16 +204,16 @@ public class b extends com.baidu.platform.comapi.wnplatform.o.a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public class a extends CountDownTimer {
 
         /* renamed from: a  reason: collision with root package name */
-        Activity f2831a;
+        Activity f2833a;
         com.baidu.platform.comapi.walknavi.widget.a b;
 
         public a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
             super(j, j2);
-            this.f2831a = activity;
+            this.f2833a = activity;
             this.b = aVar;
         }
 
@@ -227,7 +227,7 @@ public class b extends com.baidu.platform.comapi.wnplatform.o.a {
         @Override // android.os.CountDownTimer
         public void onFinish() {
             b.this.q();
-            if (this.f2831a != null && !this.f2831a.isFinishing()) {
+            if (this.f2833a != null && !this.f2833a.isFinishing()) {
                 this.b.dismiss();
             }
         }
@@ -481,7 +481,7 @@ public class b extends com.baidu.platform.comapi.wnplatform.o.a {
                 return;
             }
             com.baidu.platform.comapi.walknavi.widget.a b2 = new com.baidu.platform.comapi.walknavi.widget.a(this.f).a(true).b(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.raw.ala_play));
-            if (com.baidu.platform.comapi.walknavi.g.b.b.f3019a == 2) {
+            if (com.baidu.platform.comapi.walknavi.g.b.b.f3021a == 2) {
                 b = com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, i);
             } else {
                 b = com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, i);

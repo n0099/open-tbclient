@@ -1,11 +1,11 @@
 package io.reactivex.internal.queue;
 
-import io.reactivex.internal.a.f;
+import io.reactivex.internal.a.e;
 import io.reactivex.internal.util.h;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes5.dex */
-public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements f<E> {
+/* loaded from: classes9.dex */
+public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements e<E> {
     private static final Integer MAX_LOOK_AHEAD_STEP = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     private static final long serialVersionUID = -1296597691183856449L;
     final AtomicLong consumerIndex;
@@ -22,7 +22,7 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
         this.lookAheadStep = Math.min(i / 4, MAX_LOOK_AHEAD_STEP.intValue());
     }
 
-    @Override // io.reactivex.internal.a.g
+    @Override // io.reactivex.internal.a.f
     public boolean offer(E e) {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
@@ -47,7 +47,7 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
         return offer(e) && offer(e2);
     }
 
-    @Override // io.reactivex.internal.a.f, io.reactivex.internal.a.g
+    @Override // io.reactivex.internal.a.e, io.reactivex.internal.a.f
     public E poll() {
         long j = this.consumerIndex.get();
         int calcElementOffset = calcElementOffset(j);
@@ -60,7 +60,7 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
         return lvElement;
     }
 
-    @Override // io.reactivex.internal.a.g
+    @Override // io.reactivex.internal.a.f
     public boolean isEmpty() {
         return this.producerIndex.get() == this.consumerIndex.get();
     }
@@ -73,7 +73,7 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
         this.consumerIndex.lazySet(j);
     }
 
-    @Override // io.reactivex.internal.a.g
+    @Override // io.reactivex.internal.a.f
     public void clear() {
         while (true) {
             if (poll() == null && isEmpty()) {

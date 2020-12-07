@@ -3,18 +3,18 @@ package com.baidu.swan.apps.event.a;
 import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public final String cKx;
+    public final String cRq;
     public final String mData;
 
     public d(String str, String str2) {
-        this.cKx = str;
+        this.cRq = str;
         this.mData = str2;
     }
 
-    public static d oe(String str) {
+    public static d oN(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             return new d(jSONObject.optString("webviewid"), jSONObject.optString("message"));

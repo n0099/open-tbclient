@@ -3,7 +3,7 @@ package com.baidu.ala.recorder.video.gles;
 import android.graphics.Bitmap;
 import android.graphics.RectF;
 import android.opengl.Matrix;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class Sticker {
     private Bitmap mBmp;
     private int mCameraHeight;

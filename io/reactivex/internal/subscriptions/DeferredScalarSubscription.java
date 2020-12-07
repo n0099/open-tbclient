@@ -1,7 +1,7 @@
 package io.reactivex.internal.subscriptions;
 
 import org.a.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> {
     static final int CANCELLED = 4;
     static final int FUSED_CONSUMED = 32;
@@ -92,7 +92,7 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
         return 0;
     }
 
-    @Override // io.reactivex.internal.a.g
+    @Override // io.reactivex.internal.a.f
     public final T poll() {
         if (get() == 16) {
             lazySet(32);
@@ -103,12 +103,12 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
         return null;
     }
 
-    @Override // io.reactivex.internal.a.g
+    @Override // io.reactivex.internal.a.f
     public final boolean isEmpty() {
         return get() != 16;
     }
 
-    @Override // io.reactivex.internal.a.g
+    @Override // io.reactivex.internal.a.f
     public final void clear() {
         lazySet(32);
         this.value = null;

@@ -1,5 +1,5 @@
 package com.facebook.fresco.animation.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public interface b {
     void a(a aVar);
 

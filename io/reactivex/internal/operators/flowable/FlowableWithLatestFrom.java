@@ -4,36 +4,37 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+import org.a.d;
+/* loaded from: classes9.dex */
 public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
-    final io.reactivex.c.c<? super T, ? super U, ? extends R> combiner;
-    final org.a.b<? extends U> pOM;
+    final io.reactivex.b.c<? super T, ? super U, ? extends R> combiner;
+    final org.a.b<? extends U> pFA;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(bVar, this.combiner);
         bVar.onSubscribe(withLatestFromSubscriber);
-        this.pOM.subscribe(new a(withLatestFromSubscriber));
-        this.pOn.a((j) withLatestFromSubscriber);
+        this.pFA.subscribe(new a(withLatestFromSubscriber));
+        this.pFg.a((j) withLatestFromSubscriber);
     }
 
-    /* loaded from: classes5.dex */
-    static final class WithLatestFromSubscriber<T, U, R> extends AtomicReference<U> implements io.reactivex.internal.a.a<T>, org.a.d {
+    /* loaded from: classes9.dex */
+    static final class WithLatestFromSubscriber<T, U, R> extends AtomicReference<U> implements io.reactivex.internal.a.a<T>, d {
         private static final long serialVersionUID = -312246233408980075L;
         final org.a.c<? super R> actual;
-        final io.reactivex.c.c<? super T, ? super U, ? extends R> combiner;
-        final AtomicReference<org.a.d> s = new AtomicReference<>();
+        final io.reactivex.b.c<? super T, ? super U, ? extends R> combiner;
+        final AtomicReference<d> s = new AtomicReference<>();
         final AtomicLong requested = new AtomicLong();
-        final AtomicReference<org.a.d> other = new AtomicReference<>();
+        final AtomicReference<d> other = new AtomicReference<>();
 
-        WithLatestFromSubscriber(org.a.c<? super R> cVar, io.reactivex.c.c<? super T, ? super U, ? extends R> cVar2) {
+        WithLatestFromSubscriber(org.a.c<? super R> cVar, io.reactivex.b.c<? super T, ? super U, ? extends R> cVar2) {
             this.actual = cVar;
             this.combiner = cVar2;
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        public void onSubscribe(d dVar) {
             SubscriptionHelper.deferredSetOnce(this.s, this.requested, dVar);
         }
 
@@ -49,7 +50,7 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
             U u = get();
             if (u != null) {
                 try {
-                    this.actual.onNext(io.reactivex.internal.functions.a.l(this.combiner.apply(t, u), "The combiner returned a null value"));
+                    this.actual.onNext(io.reactivex.internal.functions.a.m(this.combiner.apply(t, u), "The combiner returned a null value"));
                     return true;
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.J(th);
@@ -84,7 +85,7 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
             SubscriptionHelper.cancel(this.other);
         }
 
-        public boolean setOther(org.a.d dVar) {
+        public boolean setOther(d dVar) {
             return SubscriptionHelper.setOnce(this.other, dVar);
         }
 
@@ -94,29 +95,29 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     final class a implements j<U> {
-        private final WithLatestFromSubscriber<T, U, R> pPn;
+        private final WithLatestFromSubscriber<T, U, R> pGb;
 
         a(WithLatestFromSubscriber<T, U, R> withLatestFromSubscriber) {
-            this.pPn = withLatestFromSubscriber;
+            this.pGb = withLatestFromSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
-            if (this.pPn.setOther(dVar)) {
+        public void onSubscribe(d dVar) {
+            if (this.pGb.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(U u) {
-            this.pPn.lazySet(u);
+            this.pGb.lazySet(u);
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.pPn.otherError(th);
+            this.pGb.otherError(th);
         }
 
         @Override // org.a.c

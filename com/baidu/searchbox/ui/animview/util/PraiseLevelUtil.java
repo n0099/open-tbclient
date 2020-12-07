@@ -5,7 +5,7 @@ import com.baidu.searchbox.ui.animview.base.IResourceProvider;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class PraiseLevelUtil {
     private static Set<IResourceProvider.PraiseLevelConfig> sLevelConfigSet;
 

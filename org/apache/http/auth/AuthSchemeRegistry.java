@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public final class AuthSchemeRegistry {
     public AuthSchemeRegistry() {
         throw new RuntimeException("Stub!");

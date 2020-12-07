@@ -2,9 +2,9 @@ package com.baidu.tieba.recapp.report;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.y;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,111 +12,55 @@ import tbclient.Abstract;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class b {
-    private static b myO;
-    private List<JSONObject> myP;
-    private List<JSONObject> myQ;
-    private List<JSONObject> myR;
+    private static b mNa;
+    private ConcurrentHashMap<String, List<JSONObject>> mNb = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, Integer> mNc = new ConcurrentHashMap<>();
 
-    public static b dAN() {
-        if (myO == null) {
+    private b() {
+    }
+
+    public static b dGe() {
+        if (mNa == null) {
             synchronized (b.class) {
-                if (myO == null) {
-                    myO = new b();
+                if (mNa == null) {
+                    mNa = new b();
                 }
             }
         }
-        return myO;
+        return mNa;
     }
 
-    public synchronized void fy(List<JSONObject> list) {
-        if (this.myP == null) {
-            this.myP = new ArrayList();
-        }
-        this.myP.clear();
-        this.myP.addAll(list);
+    public void q(String str, List<JSONObject> list) {
+        ArrayList arrayList = new ArrayList();
+        arrayList.addAll(list);
+        this.mNb.put(str, arrayList);
     }
 
-    public String dAO() {
-        synchronized (this) {
-            if (y.isEmpty(this.myP)) {
-                return "";
-            }
-            JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.myP) {
-                if (jSONObject != null) {
-                    jSONArray.put(jSONObject);
-                }
-            }
-            try {
-                return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes("UTF-8"));
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
+    public String Sm(String str) {
+        return fO(this.mNb.get(str));
     }
 
-    public synchronized void fz(List<JSONObject> list) {
-        if (this.myQ == null) {
-            this.myQ = new ArrayList();
-        }
-        this.myQ.clear();
-        this.myQ.addAll(list);
+    public void Sn(String str) {
+        this.mNb.put(str, new ArrayList());
     }
 
-    public String dAP() {
-        synchronized (this) {
-            if (y.isEmpty(this.myQ)) {
-                return "";
-            }
-            JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.myQ) {
-                if (jSONObject != null) {
-                    jSONArray.put(jSONObject);
-                }
-            }
-            try {
-                return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes("UTF-8"));
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
+    public void bG(String str, int i) {
+        this.mNc.put(str, Integer.valueOf(i));
     }
 
-    public synchronized void fA(List<JSONObject> list) {
-        if (this.myR == null) {
-            this.myR = new ArrayList();
+    public int So(String str) {
+        Integer num = this.mNc.get(str);
+        if (num == null) {
+            return 0;
         }
-        this.myR.clear();
-        this.myR.addAll(list);
+        return num.intValue();
     }
 
-    public String dAQ() {
-        synchronized (this) {
-            if (y.isEmpty(this.myR)) {
-                return "";
-            }
-            JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.myR) {
-                if (jSONObject != null) {
-                    jSONArray.put(jSONObject);
-                }
-            }
-            try {
-                return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes("UTF-8"));
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return "";
-            }
+    public static JSONObject f(ThreadInfo threadInfo) {
+        if (threadInfo == null) {
+            return null;
         }
-    }
-
-    public synchronized void dAR() {
-        if (this.myR != null) {
-            this.myR.clear();
-            this.myR = null;
-        }
+        return a(threadInfo, threadInfo.fname);
     }
 
     public static JSONObject a(ThreadInfo threadInfo, String str) {
@@ -140,8 +84,9 @@ public class b {
                 if (i2 >= list.size()) {
                     break;
                 }
-                if (list.get(i2) != null && list.get(i2).type.intValue() == 0) {
-                    sb.append(list.get(i2).text);
+                Abstract r0 = (Abstract) com.baidu.tieba.lego.card.d.a.l(list, i2);
+                if (r0 != null && r0.type.intValue() == 0) {
+                    sb.append(r0.text);
                 }
                 i = i2 + 1;
             }
@@ -168,10 +113,20 @@ public class b {
         return jSONObject;
     }
 
-    public static JSONObject f(ThreadInfo threadInfo) {
-        if (threadInfo == null) {
-            return null;
+    private String fO(List<JSONObject> list) {
+        try {
+            if (y.isEmpty(list)) {
+                return "";
+            }
+            JSONArray jSONArray = new JSONArray();
+            for (JSONObject jSONObject : list) {
+                if (jSONObject != null) {
+                    jSONArray.put(jSONObject);
+                }
+            }
+            return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes("UTF-8"));
+        } catch (Exception e) {
+            return "";
         }
-        return a(threadInfo, threadInfo.fname);
     }
 }

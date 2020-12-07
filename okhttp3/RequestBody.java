@@ -79,7 +79,7 @@ public abstract class RequestBody {
 
     public static RequestBody create(@Nullable final MediaType mediaType, final File file) {
         if (file == null) {
-            throw new NullPointerException("content == null");
+            throw new NullPointerException("file == null");
         }
         return new RequestBody() { // from class: okhttp3.RequestBody.3
             @Override // okhttp3.RequestBody

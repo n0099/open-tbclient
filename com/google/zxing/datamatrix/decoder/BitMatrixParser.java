@@ -2,7 +2,7 @@ package com.google.zxing.datamatrix.decoder;
 
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 final class BitMatrixParser {
     private final BitMatrix mappingBitMatrix;
     private final BitMatrix readMappingMatrix;

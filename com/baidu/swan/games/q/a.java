@@ -3,35 +3,36 @@ package com.baidu.swan.games.q;
 import com.baidu.swan.apps.core.d.j;
 import com.baidu.swan.apps.v.f;
 import com.baidu.swan.games.binding.model.c;
+import com.baidu.swan.menu.h;
 import java.util.ArrayList;
 import java.util.Iterator;
-import kotlin.h;
-import kotlin.jvm.internal.q;
-@h
-/* loaded from: classes7.dex */
+import kotlin.e;
+import kotlin.jvm.internal.p;
+@e
+/* loaded from: classes25.dex */
 public final class a {
-    private final ArrayList<Integer> dVA = new ArrayList<>();
+    private final ArrayList<Integer> ecy = new ArrayList<>();
 
     public final void i(c cVar) {
         if (cVar != null) {
-            df(cVar.optString("action"), cVar.optString("menuItemName"));
+            dm(cVar.optString("action"), cVar.optString("menuItemName"));
         }
     }
 
-    private final boolean df(String str, String str2) {
+    private final boolean dm(String str, String str2) {
         if (str != null) {
             switch (str.hashCode()) {
                 case 3202370:
                     if (str.equals("hide")) {
-                        f azg = f.azg();
-                        q.m(azg, "SwanAppController.getInstance()");
-                        com.baidu.swan.apps.core.d.f afe = azg.afe();
-                        j jVar = afe != null ? (j) afe.q(j.class) : null;
-                        com.baidu.swan.menu.h aoU = jVar != null ? jVar.aoU() : null;
-                        if (aoU != null && jVar != null) {
-                            jVar.eV(true);
+                        f aCp = f.aCp();
+                        p.n(aCp, "SwanAppController.getInstance()");
+                        com.baidu.swan.apps.core.d.f aim = aCp.aim();
+                        j jVar = aim != null ? (j) aim.q(j.class) : null;
+                        h asc = jVar != null ? jVar.asc() : null;
+                        if (asc != null && jVar != null) {
+                            jVar.fk(true);
                         }
-                        return a(aoU, str2);
+                        return a(asc, str2);
                     }
                     break;
             }
@@ -39,28 +40,28 @@ public final class a {
         return false;
     }
 
-    private final boolean a(com.baidu.swan.menu.h hVar, String str) {
-        Integer xk = b.xk(str);
-        if (xk != null) {
-            if (!this.dVA.contains(xk)) {
-                this.dVA.add(xk);
+    private final boolean a(h hVar, String str) {
+        Integer xR = b.xR(str);
+        if (xR != null) {
+            if (!this.ecy.contains(xR)) {
+                this.ecy.add(xR);
             }
             if (hVar != null) {
-                hVar.mz(xk.intValue());
+                hVar.mX(xR.intValue());
             }
             return true;
         }
         return false;
     }
 
-    public final void a(com.baidu.swan.menu.h hVar) {
-        if (!this.dVA.isEmpty()) {
-            Iterator<Integer> it = this.dVA.iterator();
+    public final void a(h hVar) {
+        if (!this.ecy.isEmpty()) {
+            Iterator<Integer> it = this.ecy.iterator();
             while (it.hasNext()) {
                 Integer next = it.next();
                 if (hVar != null) {
-                    q.m(next, "id");
-                    hVar.mz(next.intValue());
+                    p.n(next, "id");
+                    hVar.mX(next.intValue());
                 }
             }
         }

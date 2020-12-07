@@ -1,48 +1,48 @@
 package com.baidu.ar.capture;
 
-import com.baidu.ar.arplay.core.engine.pixel.FramePixels;
-import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
-import com.baidu.ar.arplay.core.engine.pixel.PixelType;
+import com.baidu.ar.arplay.core.pixel.FramePixels;
+import com.baidu.ar.arplay.core.pixel.PixelReadParams;
+import com.baidu.ar.arplay.core.pixel.PixelType;
 import com.baidu.ar.d.j;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class d extends j {
     private static final String TAG = d.class.getSimpleName();
-    private volatile boolean kO = false;
+    private volatile boolean ld = false;
 
     public d(String str, int i, int i2) {
-        this.mU = new PixelReadParams(PixelType.RGBA);
-        this.mU.setPreFilterID(str);
-        this.mU.setOutputWidth(i);
-        this.mU.setOutputHeight(i2);
+        this.nk = new PixelReadParams(PixelType.RGBA);
+        this.nk.setPreFilterID(str);
+        this.nk.setOutputWidth(i);
+        this.nk.setOutputHeight(i2);
         if (PixelReadParams.DEFAULT_FILTER_ID.equals(str)) {
-            this.mU.setIsPortrait(true);
+            this.nk.setIsPortrait(true);
         }
-    }
-
-    @Override // com.baidu.ar.d.j
-    protected void am() {
     }
 
     @Override // com.baidu.ar.d.j
     protected void ao() {
-        this.kO = false;
+    }
+
+    @Override // com.baidu.ar.d.j
+    protected void aq() {
+        this.ld = false;
     }
 
     @Override // com.baidu.ar.d.j
     protected boolean c(FramePixels framePixels) {
-        if (!this.kO || this.mg == null) {
+        if (!this.ld || this.mv == null) {
             return true;
         }
         c cVar = new c();
-        cVar.T(TAG);
+        cVar.W(TAG);
         cVar.setTimestamp(framePixels.getTimestamp());
         cVar.setData(framePixels.getPixelData());
-        this.mg.a(cVar);
+        this.mv.a(cVar);
         return true;
     }
 
-    public String cM() {
-        return this.mU.getPreFilterID();
+    public String cL() {
+        return this.nk.getPreFilterID();
     }
 
     @Override // com.baidu.ar.d.k
@@ -50,7 +50,7 @@ class d extends j {
         return TAG;
     }
 
-    public void u(boolean z) {
-        this.kO = z;
+    public void s(boolean z) {
+        this.ld = z;
     }
 }

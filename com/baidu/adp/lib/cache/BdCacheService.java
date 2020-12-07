@@ -12,9 +12,9 @@ import com.baidu.live.adp.lib.cache.BdCacheNSItem;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class BdCacheService extends CustomMessageListener {
-    private static volatile BdCacheService KL;
-    private com.baidu.adp.base.a.b KE;
-    private p KM;
+    private static volatile BdCacheService LD;
+    private p LH;
+    private com.baidu.adp.base.a.b Lw;
     private HashMap<String, l<byte[]>> blobCaches;
     private Context context;
     private final String databaseFile;
@@ -54,45 +54,45 @@ public class BdCacheService extends CustomMessageListener {
     }
 
     public static BdCacheService lZ() {
-        if (KL == null) {
+        if (LD == null) {
             synchronized (BdCacheService.class) {
-                if (KL == null) {
-                    KL = new BdCacheService("baidu_adp.db");
+                if (LD == null) {
+                    LD = new BdCacheService("baidu_adp.db");
                 }
             }
         }
-        return KL;
+        return LD;
     }
 
-    public static BdCacheService bA(String str) {
+    public static BdCacheService bD(String str) {
         return new BdCacheService(str);
     }
 
     public synchronized String a(c<?> cVar, String str, String str2, int i) {
-        h bC;
+        h bF;
         int cacheVersion = cVar.getCacheVersion();
         p ma = ma();
-        bC = ma.bC(str);
-        if (bC == null) {
-            bC = new h();
-            bC.nameSpace = str;
-            bC.cacheVersion = cacheVersion;
-            bC.cacheType = str2;
-            bC.maxSize = i;
-            bC.lastActiveTime = System.currentTimeMillis();
-            bC.tableName = cVar.onNewNameSpaceCreated(str);
-            ma.a(bC);
-        } else if (!str2.equalsIgnoreCase(bC.cacheType)) {
-            throw new IllegalArgumentException("nameSpace [" + str + "] is already taken by cacheType:" + bC.cacheType);
+        bF = ma.bF(str);
+        if (bF == null) {
+            bF = new h();
+            bF.nameSpace = str;
+            bF.cacheVersion = cacheVersion;
+            bF.cacheType = str2;
+            bF.maxSize = i;
+            bF.lastActiveTime = System.currentTimeMillis();
+            bF.tableName = cVar.onNewNameSpaceCreated(str);
+            ma.a(bF);
+        } else if (!str2.equalsIgnoreCase(bF.cacheType)) {
+            throw new IllegalArgumentException("nameSpace [" + str + "] is already taken by cacheType:" + bF.cacheType);
         } else {
-            bC.maxSize = i;
-            bC.lastActiveTime = System.currentTimeMillis();
-            if (cacheVersion != bC.cacheVersion) {
-                cVar.onNameSpaceUpgraded(str, bC.tableName, cacheVersion, bC.cacheVersion);
+            bF.maxSize = i;
+            bF.lastActiveTime = System.currentTimeMillis();
+            if (cacheVersion != bF.cacheVersion) {
+                cVar.onNameSpaceUpgraded(str, bF.tableName, cacheVersion, bF.cacheVersion);
             }
-            ma.a(bC);
+            ma.a(bF);
         }
-        return bC.tableName;
+        return bF.tableName;
     }
 
     public synchronized l<String> a(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
@@ -225,17 +225,17 @@ public class BdCacheService extends CustomMessageListener {
     }
 
     public p ma() {
-        if (this.KM == null) {
-            this.KM = new p(getContext(), lV());
+        if (this.LH == null) {
+            this.LH = new p(getContext(), lV());
         }
-        return this.KM;
+        return this.LH;
     }
 
     public com.baidu.adp.base.a.b lV() {
-        if (this.KE == null) {
-            this.KE = new com.baidu.adp.base.a.b(new i(getContext(), this.databaseFile));
+        if (this.Lw == null) {
+            this.Lw = new com.baidu.adp.base.a.b(new i(getContext(), this.databaseFile));
         }
-        return this.KE;
+        return this.Lw;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

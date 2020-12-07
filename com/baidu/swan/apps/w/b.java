@@ -4,14 +4,14 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b {
-    private CallbackHandler cSD;
-    private UnitedSchemeEntity cYi;
+    private CallbackHandler cZx;
+    private UnitedSchemeEntity dfh;
 
     private b(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        this.cYi = unitedSchemeEntity;
-        this.cSD = callbackHandler;
+        this.dfh = unitedSchemeEntity;
+        this.cZx = callbackHandler;
     }
 
     public static b b(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
@@ -19,18 +19,18 @@ public class b {
     }
 
     public void onError(int i) {
-        this.cYi.result = UnitedSchemeUtility.wrapCallbackParams(i);
+        this.dfh.result = UnitedSchemeUtility.wrapCallbackParams(i);
     }
 
-    public void ay(JSONObject jSONObject) {
-        this.cYi.result = UnitedSchemeUtility.callCallback(this.cSD, this.cYi, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+    public void aA(JSONObject jSONObject) {
+        this.dfh.result = UnitedSchemeUtility.callCallback(this.cZx, this.dfh, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
     }
 
     public void j(String str, int i, String str2) {
-        UnitedSchemeUtility.safeCallback(this.cSD, this.cYi, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
+        UnitedSchemeUtility.safeCallback(this.cZx, this.dfh, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
     }
 
     public void f(String str, JSONObject jSONObject) {
-        UnitedSchemeUtility.safeCallback(this.cSD, this.cYi, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+        UnitedSchemeUtility.safeCallback(this.cZx, this.dfh, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
     }
 }

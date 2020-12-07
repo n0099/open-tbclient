@@ -6,9 +6,9 @@ import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class h {
-    public static String aoI = null;
+    public static String apA = null;
     private static Context mContext = null;
 
     public static String a(String str) {
@@ -53,15 +53,15 @@ public final class h {
     }
 
     public static String z() {
-        if (aoI != null) {
-            return aoI;
+        if (apA != null) {
+            return apA;
         }
         try {
-            aoI = a(Settings.Secure.getString(mContext.getContentResolver(), "android_id"));
+            apA = a(Settings.Secure.getString(mContext.getContentResolver(), "android_id"));
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.a("getCUID failed!", e);
-            aoI = "N/A";
+            apA = "N/A";
         }
-        return aoI;
+        return apA;
     }
 }

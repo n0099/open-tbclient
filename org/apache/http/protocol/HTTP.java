@@ -1,6 +1,6 @@
 package org.apache.http.protocol;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public final class HTTP {
     public static final String ASCII = "ASCII";
     public static final String CHARSET_PARAM = "; charset=";

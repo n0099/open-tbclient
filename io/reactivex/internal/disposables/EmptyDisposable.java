@@ -3,7 +3,7 @@ package io.reactivex.internal.disposables;
 import io.reactivex.m;
 import io.reactivex.u;
 import io.reactivex.y;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public enum EmptyDisposable implements io.reactivex.internal.a.b<Object> {
     INSTANCE,
     NEVER;
@@ -52,7 +52,7 @@ public enum EmptyDisposable implements io.reactivex.internal.a.b<Object> {
         mVar.onError(th);
     }
 
-    @Override // io.reactivex.internal.a.g
+    @Override // io.reactivex.internal.a.f
     public boolean offer(Object obj) {
         throw new UnsupportedOperationException("Should not be called!");
     }
@@ -61,17 +61,17 @@ public enum EmptyDisposable implements io.reactivex.internal.a.b<Object> {
         throw new UnsupportedOperationException("Should not be called!");
     }
 
-    @Override // io.reactivex.internal.a.g
+    @Override // io.reactivex.internal.a.f
     public Object poll() throws Exception {
         return null;
     }
 
-    @Override // io.reactivex.internal.a.g
+    @Override // io.reactivex.internal.a.f
     public boolean isEmpty() {
         return true;
     }
 
-    @Override // io.reactivex.internal.a.g
+    @Override // io.reactivex.internal.a.f
     public void clear() {
     }
 

@@ -5,101 +5,101 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.card.t;
 import com.baidu.tieba.card.z;
-/* loaded from: classes21.dex */
-public class b implements CustomMessageTask.CustomRunnable<bx>, z {
-    private int iRX = 3;
-    private com.baidu.tieba.frs.d.b jdk;
-    private int jdl;
+/* loaded from: classes22.dex */
+public class b implements CustomMessageTask.CustomRunnable<by>, z {
+    private int jcR = 3;
+    private com.baidu.tieba.frs.d.b jqN;
+    private int jqO;
     private BdUniqueId mPageId;
     private TbPageTag mTbPageTag;
 
     public b(com.baidu.tieba.frs.d.b bVar, TbPageTag tbPageTag, BdUniqueId bdUniqueId) {
-        this.jdk = null;
+        this.jqN = null;
         this.mTbPageTag = null;
-        this.jdk = bVar;
+        this.jqN = bVar;
         this.mTbPageTag = tbPageTag;
         this.mPageId = bdUniqueId;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<bx> customMessage) {
-        if (customMessage != null && (customMessage.getData() instanceof bx)) {
-            bx data = customMessage.getData();
+    public CustomResponsedMessage<?> run(CustomMessage<by> customMessage) {
+        if (customMessage != null && (customMessage.getData() instanceof by)) {
+            by data = customMessage.getData();
             if (customMessage.getCmd() == 2921018) {
                 av(data);
-                com.baidu.tieba.frs.d.c.cEu().a(this.jdk, data, 1);
-                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.jdk, this.mTbPageTag);
+                com.baidu.tieba.frs.d.c.cJH().a(this.jqN, data, 1);
+                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.jqN, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921016) {
                 av(data);
-                com.baidu.tieba.frs.d.c.cEu().a(this.jdk, data, 2);
-                com.baidu.tieba.frs.d.a.a(data, 2, this.mPageId, this.jdk, this.mTbPageTag);
+                com.baidu.tieba.frs.d.c.cJH().a(this.jqN, data, 2);
+                com.baidu.tieba.frs.d.a.a(data, 2, this.mPageId, this.jqN, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921019) {
                 av(data);
-                com.baidu.tieba.frs.d.c.cEu().a(this.jdk, data, 4);
-                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.jdk, this.mTbPageTag);
+                com.baidu.tieba.frs.d.c.cJH().a(this.jqN, data, 4);
+                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.jqN, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921017) {
                 aw(data);
-                com.baidu.tieba.frs.d.c.cEu().a(this.jdk, data);
-                com.baidu.tieba.frs.d.a.a(data, this.mPageId, this.jdk, this.mTbPageTag);
+                com.baidu.tieba.frs.d.c.cJH().a(this.jqN, data);
+                com.baidu.tieba.frs.d.a.a(data, this.mPageId, this.jqN, this.mTbPageTag);
             }
         }
         return null;
     }
 
-    private void av(bx bxVar) {
-        if (bxVar != null && bxVar.blC() != null && bxVar.blW() != null) {
+    private void av(by byVar) {
+        if (byVar != null && byVar.boP() != null && byVar.bpj() != null) {
             long j = 0;
-            if (bxVar.blW().user_info != null) {
-                j = bxVar.blW().user_info.ala_id;
+            if (byVar.bpj().user_info != null) {
+                j = byVar.bpj().user_info.ala_id;
             }
             ar arVar = new ar("c13615");
-            arVar.dR("uid", bxVar.blC().getUserId());
-            arVar.w("fid", bxVar.getFid());
-            arVar.dR("ab_tag", bxVar.mRecomAbTag);
-            arVar.ak("obj_type", bxVar.blW().isChushou ? 2 : 1);
-            arVar.dR("tid", bxVar.getTid());
-            arVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, bxVar.blW().live_id);
+            arVar.dY("uid", byVar.boP().getUserId());
+            arVar.w("fid", byVar.getFid());
+            arVar.dY("ab_tag", byVar.mRecomAbTag);
+            arVar.al("obj_type", byVar.bpj().isChushou ? 2 : 1);
+            arVar.dY("tid", byVar.getTid());
+            arVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, byVar.bpj().live_id);
             arVar.w("star_id", j);
-            arVar.dR("extra", bxVar.mRecomExtra);
-            arVar.dR("source_from", bxVar.mRecomSource);
-            if (this.jdl == 14) {
-                arVar.ak("obj_locate", 1);
-            } else if (this.jdl == 13) {
-                arVar.ak("obj_locate", 2);
+            arVar.dY("extra", byVar.mRecomExtra);
+            arVar.dY("source_from", byVar.mRecomSource);
+            if (this.jqO == 14) {
+                arVar.al("obj_locate", 1);
+            } else if (this.jqO == 13) {
+                arVar.al("obj_locate", 2);
             }
             TiebaStatic.log(arVar);
         }
     }
 
-    private void aw(bx bxVar) {
-        if (bxVar != null && bxVar.blC() != null && bxVar.blW() != null) {
+    private void aw(by byVar) {
+        if (byVar != null && byVar.boP() != null && byVar.bpj() != null) {
             long j = 0;
-            if (bxVar.blW().user_info != null) {
-                j = bxVar.blW().user_info.ala_id;
+            if (byVar.bpj().user_info != null) {
+                j = byVar.bpj().user_info.ala_id;
             }
             ar arVar = new ar("c13614");
-            arVar.dR("uid", bxVar.blC().getUserId());
-            arVar.w("fid", bxVar.getFid());
-            arVar.dR("ab_tag", bxVar.mRecomAbTag);
-            arVar.ak("obj_type", bxVar.blW().isChushou ? 2 : 1);
-            arVar.dR("tid", bxVar.getTid());
-            arVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, bxVar.blW().live_id);
+            arVar.dY("uid", byVar.boP().getUserId());
+            arVar.w("fid", byVar.getFid());
+            arVar.dY("ab_tag", byVar.mRecomAbTag);
+            arVar.al("obj_type", byVar.bpj().isChushou ? 2 : 1);
+            arVar.dY("tid", byVar.getTid());
+            arVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, byVar.bpj().live_id);
             arVar.w("star_id", j);
-            arVar.dR("extra", bxVar.mRecomExtra);
-            arVar.dR("source_from", bxVar.mRecomSource);
-            if (this.jdl == 14) {
-                arVar.ak("obj_locate", 1);
-            } else if (this.jdl == 13) {
-                arVar.ak("obj_locate", 2);
+            arVar.dY("extra", byVar.mRecomExtra);
+            arVar.dY("source_from", byVar.mRecomSource);
+            if (this.jqO == 14) {
+                arVar.al("obj_locate", 1);
+            } else if (this.jqO == 13) {
+                arVar.al("obj_locate", 2);
             }
-            t.cnT().e(arVar);
+            t.csg().e(arVar);
         }
     }
 
@@ -108,11 +108,11 @@ public class b implements CustomMessageTask.CustomRunnable<bx>, z {
     }
 
     @Override // com.baidu.tieba.card.z
-    public void vB(int i) {
-        this.iRX = i;
+    public void wi(int i) {
+        this.jcR = i;
     }
 
-    public void Au(int i) {
-        this.jdl = i;
+    public void Bi(int i) {
+        this.jqO = i;
     }
 }

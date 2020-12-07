@@ -1,6 +1,5 @@
 package com.baidu.mobads.interfaces;
 
-import com.baidu.fsg.face.base.b.c;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 /* loaded from: classes7.dex */
 public interface IXAdConstants4PDK {
@@ -20,20 +19,20 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2357a;
+        private final String f2359a;
 
         VideoAssetPlayMode(String str) {
-            this.f2357a = str;
+            this.f2359a = str;
         }
 
         public String getValue() {
-            return this.f2357a;
+            return this.f2359a;
         }
 
         public static VideoAssetPlayMode parse(String str) {
             VideoAssetPlayMode[] values;
             for (VideoAssetPlayMode videoAssetPlayMode : values()) {
-                if (videoAssetPlayMode.f2357a.equalsIgnoreCase(str)) {
+                if (videoAssetPlayMode.f2359a.equalsIgnoreCase(str)) {
                     return videoAssetPlayMode;
                 }
             }
@@ -48,20 +47,20 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2354a;
+        private final String f2356a;
 
         ScreenSizeMode(String str) {
-            this.f2354a = str;
+            this.f2356a = str;
         }
 
         public String getValue() {
-            return this.f2354a;
+            return this.f2356a;
         }
 
         public static ScreenSizeMode parse(String str) {
             ScreenSizeMode[] values;
             for (ScreenSizeMode screenSizeMode : values()) {
-                if (screenSizeMode.f2354a.equalsIgnoreCase(str)) {
+                if (screenSizeMode.f2356a.equalsIgnoreCase(str)) {
                     return screenSizeMode;
                 }
             }
@@ -78,20 +77,20 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2358a;
+        private final String f2360a;
 
         VideoState(String str) {
-            this.f2358a = str;
+            this.f2360a = str;
         }
 
         public String getValue() {
-            return this.f2358a;
+            return this.f2360a;
         }
 
         public static VideoState parse(String str) {
             VideoState[] values;
             for (VideoState videoState : values()) {
-                if (videoState.f2358a.equalsIgnoreCase(str)) {
+                if (videoState.f2360a.equalsIgnoreCase(str)) {
                     return videoState;
                 }
             }
@@ -111,20 +110,20 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2353a;
+        private final String f2355a;
 
         ActivityState(String str) {
-            this.f2353a = str;
+            this.f2355a = str;
         }
 
         public String getValue() {
-            return this.f2353a;
+            return this.f2355a;
         }
 
         public static ActivityState parse(String str) {
             ActivityState[] values;
             for (ActivityState activityState : values()) {
-                if (activityState.f2353a.equalsIgnoreCase(str)) {
+                if (activityState.f2355a.equalsIgnoreCase(str)) {
                     return activityState;
                 }
             }
@@ -144,20 +143,20 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2355a;
+        private final String f2357a;
 
         SlotState(String str) {
-            this.f2355a = str;
+            this.f2357a = str;
         }
 
         public String getValue() {
-            return this.f2355a;
+            return this.f2357a;
         }
 
         public static SlotState parse(String str) {
             SlotState[] values;
             for (SlotState slotState : values()) {
-                if (slotState.f2355a.equalsIgnoreCase(str)) {
+                if (slotState.f2357a.equalsIgnoreCase(str)) {
                     return slotState;
                 }
             }
@@ -168,7 +167,7 @@ public interface IXAdConstants4PDK {
     /* loaded from: classes7.dex */
     public enum SlotType {
         SLOT_TYPE_JSSDK("jssdk"),
-        SLOT_TYPE_CPU(c.i),
+        SLOT_TYPE_CPU("cpu"),
         SLOT_TYPE_BANNER("banner"),
         SLOT_TYPE_SPLASH("rsplash"),
         SLOT_TYPE_INTERSTITIAL("int"),
@@ -181,20 +180,20 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2356a;
+        private final String f2358a;
 
         SlotType(String str) {
-            this.f2356a = str;
+            this.f2358a = str;
         }
 
         public String getValue() {
-            return this.f2356a;
+            return this.f2358a;
         }
 
         public static SlotType parse(String str) {
             SlotType[] values;
             for (SlotType slotType : values()) {
-                if (slotType.f2356a.equalsIgnoreCase(str)) {
+                if (slotType.f2358a.equalsIgnoreCase(str)) {
                     return slotType;
                 }
             }
@@ -209,20 +208,20 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2359a;
+        private final String f2361a;
 
         VisitorAction(String str) {
-            this.f2359a = str;
+            this.f2361a = str;
         }
 
         public String getValue() {
-            return this.f2359a;
+            return this.f2361a;
         }
 
         public static VisitorAction parse(String str) {
             VisitorAction[] values;
             for (VisitorAction visitorAction : values()) {
-                if (visitorAction.f2359a.equalsIgnoreCase(str)) {
+                if (visitorAction.f2361a.equalsIgnoreCase(str)) {
                     return visitorAction;
                 }
             }

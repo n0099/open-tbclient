@@ -1,8 +1,8 @@
 package kotlin.sequences;
 
 import kotlin.jvm.internal.Lambda;
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 final class SequencesKt___SequencesKt$elementAt$1 extends Lambda implements kotlin.jvm.a.b {
     final /* synthetic */ int $index;
 

@@ -664,8 +664,12 @@ public final class HttpUrl {
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.scheme);
-            sb.append("://");
+            if (this.scheme != null) {
+                sb.append(this.scheme);
+                sb.append("://");
+            } else {
+                sb.append("//");
+            }
             if (!this.encodedUsername.isEmpty() || !this.encodedPassword.isEmpty()) {
                 sb.append(this.encodedUsername);
                 if (!this.encodedPassword.isEmpty()) {
@@ -674,17 +678,21 @@ public final class HttpUrl {
                 }
                 sb.append(UgcConstant.AT_PATTERN_TAG);
             }
-            if (this.host.indexOf(58) != -1) {
-                sb.append('[');
-                sb.append(this.host);
-                sb.append(']');
-            } else {
-                sb.append(this.host);
+            if (this.host != null) {
+                if (this.host.indexOf(58) != -1) {
+                    sb.append('[');
+                    sb.append(this.host);
+                    sb.append(']');
+                } else {
+                    sb.append(this.host);
+                }
             }
-            int effectivePort = effectivePort();
-            if (effectivePort != HttpUrl.defaultPort(this.scheme)) {
-                sb.append(':');
-                sb.append(effectivePort);
+            if (this.port != -1 || this.scheme != null) {
+                int effectivePort = effectivePort();
+                if (this.scheme == null || effectivePort != HttpUrl.defaultPort(this.scheme)) {
+                    sb.append(':');
+                    sb.append(effectivePort);
+                }
             }
             HttpUrl.pathSegmentsToString(sb, this.encodedPathSegments);
             if (this.encodedQueryNamesAndValues != null) {

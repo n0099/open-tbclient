@@ -3,7 +3,7 @@ package com.google.protobuf.micro;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class CodedOutputStreamMicro {
     public static final int DEFAULT_BUFFER_SIZE = 4096;
     public static final int LITTLE_ENDIAN_32_SIZE = 4;
@@ -413,7 +413,7 @@ public final class CodedOutputStreamMicro {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class OutOfSpaceException extends IOException {
         private static final long serialVersionUID = -6947486886997889499L;
 

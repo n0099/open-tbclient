@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
 import android.util.Log;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.chatmessage.BindStateManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -15,7 +16,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMUnBindPushRequest extends BaseHttpRequest {
     private Long mAppid;
     private String mBduss;
@@ -51,7 +52,7 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
             if (i2 == 0) {
                 str = Constants.ERROR_MSG_SUCCESS;
             } else {
-                str = jSONObject.optString("error_msg");
+                str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
             }
             if (i2 == 0) {
                 BindStateManager.clearUnBindInfo(this.mContext);

@@ -6,7 +6,7 @@ import java.util.HashMap;
 public final class y implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final HashMap<String, Integer> f4712a = new HashMap<>();
+    private static final HashMap<String, Integer> f4482a = new HashMap<>();
     private static final HashMap<String, Long> b = new HashMap<>();
     private static final HashMap<String, String> c = new HashMap<>();
     private static y d;

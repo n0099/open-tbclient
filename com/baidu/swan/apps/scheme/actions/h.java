@@ -20,7 +20,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class h extends aa {
     public h(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/downloadPackages");
@@ -44,7 +44,7 @@ public class h extends aa {
         if (TextUtils.isEmpty(optString)) {
             optString = "0";
         }
-        if (!com.baidu.swan.apps.core.a.a.a.mF(optString)) {
+        if (!com.baidu.swan.apps.core.a.a.a.nm(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Network limitation");
             return false;
         }
@@ -66,7 +66,7 @@ public class h extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
             return false;
         } else {
-            eVar.aGY().b(context, "mapp_pre_download", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.h.2
+            eVar.aKg().b(context, "mapp_pre_download", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.h.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: a */
@@ -137,10 +137,10 @@ public class h extends aa {
                 public void run() {
                     List<String> g = com.baidu.swan.apps.core.pms.d.a.g(arrayList);
                     if (!g.isEmpty()) {
-                        com.baidu.swan.pms.c.d.b bVar = new com.baidu.swan.pms.c.d.b((Collection<String>) g, (com.baidu.swan.pms.utils.a) am.aMw());
-                        bVar.yw(str);
-                        bVar.yv("1");
-                        com.baidu.swan.pms.c.a(bVar, new com.baidu.swan.apps.core.pms.d().ig(5));
+                        com.baidu.swan.pms.c.d.b bVar = new com.baidu.swan.pms.c.d.b((Collection<String>) g, (com.baidu.swan.pms.utils.a) am.aPC());
+                        bVar.zd(str);
+                        bVar.zc("1");
+                        com.baidu.swan.pms.c.a(bVar, new com.baidu.swan.apps.core.pms.d().iE(5));
                     }
                 }
             }, "小程序端能力-批量下载");

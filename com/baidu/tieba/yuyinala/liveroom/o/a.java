@@ -11,18 +11,18 @@ public class a {
         if (z) {
             return (int) ((BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) * 0.3f) + TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_tbds64));
         }
-        int wheatHeight = o.dZz().getWheatHeight();
+        int wheatHeight = o.efd().getWheatHeight();
         if (wheatHeight <= 0) {
             if (i == 1) {
                 wheatHeight = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds935);
             } else {
-                wheatHeight = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds900);
+                wheatHeight = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds856);
             }
         }
         return ((BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) - UtilHelper.getStatusBarHeight()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds20)) - wheatHeight;
     }
 
-    public static int cW(boolean z) {
+    public static int dk(boolean z) {
         return z ? TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds132) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds16) : TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds120);
     }
 }

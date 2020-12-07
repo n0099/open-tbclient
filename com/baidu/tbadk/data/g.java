@@ -1,31 +1,32 @@
 package com.baidu.tbadk.data;
+
+import com.baidu.adp.lib.util.BdLog;
+import tbclient.Lbs;
 /* loaded from: classes.dex */
 public class g {
-    private int activityId;
-    private String activityNum;
-    private int flp;
+    private String fsK;
+    private String lat;
+    private String lng;
+    private String name = null;
 
-    public int getActivityId() {
-        return this.activityId;
+    public String getDistance() {
+        return this.fsK;
     }
 
-    public void setActivityId(int i) {
-        this.activityId = i;
+    public String getName() {
+        return this.name;
     }
 
-    public int byi() {
-        return this.flp;
-    }
-
-    public void rA(int i) {
-        this.flp = i;
-    }
-
-    public String byj() {
-        return this.activityNum;
-    }
-
-    public void CT(String str) {
-        this.activityNum = str;
+    public void a(Lbs lbs) {
+        if (lbs != null) {
+            try {
+                this.name = lbs.name;
+                this.lat = lbs.lat;
+                this.lng = lbs.lng;
+                this.fsK = lbs.distance;
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
     }
 }

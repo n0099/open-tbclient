@@ -6,6 +6,7 @@ import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.BufferedInputStream;
@@ -29,7 +30,7 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class d {
     private static String sCacheDir = null;
     private static int INVALID_INDEX = -1;
@@ -252,13 +253,13 @@ public final class d {
 
     public static String readFileData(File file) {
         try {
-            return readInputStream(new FileInputStream(file));
+            return a(new FileInputStream(file));
         } catch (FileNotFoundException e) {
             return "";
         }
     }
 
-    public static byte[] L(File file) {
+    public static byte[] K(File file) {
         FileInputStream fileInputStream;
         Throwable th;
         FileInputStream fileInputStream2;
@@ -290,7 +291,7 @@ public final class d {
         }
     }
 
-    private static String readInputStream(FileInputStream fileInputStream) {
+    private static String a(FileInputStream fileInputStream) {
         if (fileInputStream == null) {
             return "";
         }
@@ -313,7 +314,7 @@ public final class d {
         }
     }
 
-    public static boolean za(String str) {
+    public static boolean zH(String str) {
         return !TextUtils.isEmpty(str) && safeDeleteFile(new File(str));
     }
 
@@ -357,11 +358,11 @@ public final class d {
     }
 
     public static boolean unzipFile(String str, String str2) {
-        return dx(str, str2) == null;
+        return dE(str, str2) == null;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [975=4] */
-    public static Exception dx(String str, String str2) {
+    public static Exception dE(String str, String str2) {
         ZipFile zipFile;
         BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream;
@@ -385,7 +386,7 @@ public final class d {
                 while (entries.hasMoreElements()) {
                     try {
                         ZipEntry nextElement = entries.nextElement();
-                        if (!TextUtils.isEmpty(nextElement.getName()) && !zd(nextElement.getName())) {
+                        if (!TextUtils.isEmpty(nextElement.getName()) && !zK(nextElement.getName())) {
                             File file = new File(str2 + "/" + nextElement.getName());
                             if (!nextElement.isDirectory()) {
                                 if (!file.exists()) {
@@ -490,7 +491,7 @@ public final class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1045=4] */
-    public static boolean dy(String str, String str2) {
+    public static boolean dF(String str, String str2) {
         ZipInputStream zipInputStream;
         InputStream inputStream;
         InputStream inputStream2;
@@ -529,7 +530,7 @@ public final class d {
                     closeSafely(inputStream);
                     closeSafely(zipInputStream);
                     return true;
-                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !zd(nextEntry.getName())) {
+                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !zK(nextEntry.getName())) {
                     File file2 = new File(str2 + File.separator + nextEntry.getName());
                     if (nextEntry.isDirectory()) {
                         if (!file2.exists()) {
@@ -594,7 +595,7 @@ public final class d {
 
     @CheckResult
     @Nullable
-    public static String zb(@Nullable String str) {
+    public static String zI(@Nullable String str) {
         int lastIndexOf;
         if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(46)) <= -1 || lastIndexOf >= str.length() - 1) {
             return null;
@@ -614,7 +615,7 @@ public final class d {
         return str;
     }
 
-    public static String zc(String str) {
+    public static String zJ(String str) {
         int lastIndexOf;
         String fileNameFromPath = getFileNameFromPath(str);
         if (TextUtils.isEmpty(fileNameFromPath) || (lastIndexOf = fileNameFromPath.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == fileNameFromPath.length() - 1) {
@@ -721,24 +722,24 @@ public final class d {
         }
     }
 
-    public static boolean zd(String str) {
-        return str.contains("../");
+    public static boolean zK(String str) {
+        return str.contains(Constants.PATH_PARENT);
     }
 
-    public static boolean M(File file) {
+    public static boolean L(File file) {
         return file != null && file.exists() && file.isFile();
     }
 
-    public static List<String> N(File file) {
+    public static List<String> M(File file) {
         try {
-            return a(new FileInputStream(file));
+            return b(new FileInputStream(file));
         } catch (FileNotFoundException e) {
             return new ArrayList();
         }
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
-    private static List<String> a(FileInputStream fileInputStream) {
+    private static List<String> b(FileInputStream fileInputStream) {
         ArrayList arrayList = new ArrayList();
         try {
             if (fileInputStream != null) {
@@ -821,7 +822,7 @@ public final class d {
         }
     }
 
-    public static long ze(String str) {
+    public static long zL(String str) {
         long j = -1;
         if (!TextUtils.isEmpty(str)) {
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();

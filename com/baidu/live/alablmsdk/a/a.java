@@ -14,7 +14,7 @@ public class a {
         return list.size();
     }
 
-    public static int s(List<Integer> list) {
+    public static int t(List<Integer> list) {
         if (isEmpty(list)) {
             return 0;
         }

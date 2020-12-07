@@ -17,7 +17,7 @@ import java.net.URLEncoder;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public abstract class a<T> {
     protected int aj = 0;
     private boolean ak = false;
@@ -78,7 +78,7 @@ public abstract class a<T> {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, Object> entry : map.entrySet()) {
             try {
-                sb.append(entry.getKey() + ETAG.EQUAL + URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
+                sb.append(entry.getKey() + "=" + URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
                 sb.append(ETAG.ITEM_SEPARATOR);
             } catch (UnsupportedEncodingException e) {
                 return null;

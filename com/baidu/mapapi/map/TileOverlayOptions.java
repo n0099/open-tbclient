@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class TileOverlayOptions {
     private static Bundle c;
     private static final String j = TileOverlayOptions.class.getSimpleName();
@@ -14,7 +14,7 @@ public final class TileOverlayOptions {
     public String urlString;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2051a = 209715200;
+    private int f2053a = 209715200;
     private int d = 20;
     private int e = 3;
     private int f = 15786414;
@@ -42,7 +42,7 @@ public final class TileOverlayOptions {
         c.putInt("datasource", this.datasource);
         c.putInt("maxDisplay", this.d);
         c.putInt("minDisplay", this.e);
-        c.putInt("sdktiletmpmax", this.f2051a);
+        c.putInt("sdktiletmpmax", this.f2053a);
         return c;
     }
 
@@ -52,7 +52,7 @@ public final class TileOverlayOptions {
     }
 
     public TileOverlayOptions setMaxTileTmp(int i) {
-        this.f2051a = i;
+        this.f2053a = i;
         return this;
     }
 

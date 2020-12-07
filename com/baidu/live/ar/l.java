@@ -7,18 +7,18 @@ public interface l {
 
     /* loaded from: classes4.dex */
     public interface a {
-        Object BV();
+        Object DF();
 
         String getType();
 
         void setValue(float f);
     }
 
-    void BS();
+    void DC();
 
-    void BT();
+    void DD();
 
-    void BU();
+    void DE();
 
     void a(float f, AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey);
 
@@ -30,11 +30,11 @@ public interface l {
 
     void onFilterSelected(String str, String str2, float f);
 
-    void s(int i, int i2);
-
     void t(int i, int i2);
 
     void u(int i, int i2);
 
     void v(int i, int i2);
+
+    void w(int i, int i2);
 }

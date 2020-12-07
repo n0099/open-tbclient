@@ -3,7 +3,7 @@ package com.squareup.wire;
 import com.squareup.wire.ExtendableMessage;
 import com.squareup.wire.Message;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 public final class Extension<T extends ExtendableMessage<?>, E> implements Comparable<Extension<?, ?>> {
     private final Message.Datatype datatype;
     private final Class<? extends ProtoEnum> enumType;
@@ -13,7 +13,7 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
     private final String name;
     private final int tag;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder<T extends ExtendableMessage<?>, E> {
         private final Message.Datatype datatype;
         private final Class<? extends ProtoEnum> enumType;

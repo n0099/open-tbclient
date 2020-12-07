@@ -2,7 +2,7 @@ package com.baidu.swan.support.v4.a;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 class c {
     public static ColorStateList getColorStateList(Context context, int i) {
         return context.getColorStateList(i);

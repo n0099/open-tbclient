@@ -3,27 +3,27 @@ package com.baidu.tieba.yuyinala.liveroom.roomcard;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class e {
-    public int oaS;
-    public int oaT;
-    public String oaU;
-    public int oaV;
-    public ArrayList<a> oaW;
-    public ArrayList<a> oaX;
-    public int oaY;
-    public int oaZ;
-    public String oba;
+    public int opT;
+    public int opU;
+    public String opV;
+    public int opW;
+    public ArrayList<a> opX;
+    public ArrayList<a> opY;
+    public int opZ;
+    public int oqa;
+    public String oqb;
     public String room_name;
 
     /* loaded from: classes4.dex */
     public static class a {
-        public int obb;
-        public String obc;
-        public boolean obd;
+        public int oqc;
+        public String oqd;
+        public boolean oqe;
         public String user_name;
         public String user_uk;
 
-        public String dYr() {
-            switch (this.obb) {
+        public String edV() {
+            switch (this.oqc) {
                 case 1:
                     return "房主";
                 case 2:

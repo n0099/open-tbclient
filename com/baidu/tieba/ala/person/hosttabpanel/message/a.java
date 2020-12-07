@@ -4,8 +4,8 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.mobstat.Config;
 /* loaded from: classes4.dex */
 public class a extends HttpMessage {
-    private long fXY;
-    private int hAi;
+    private long ggj;
+    private int hJN;
     private long mGroupId;
     private int mPn;
     private long mUserId;
@@ -13,18 +13,18 @@ public class a extends HttpMessage {
     public a(int i, int i2, long j, long j2, long j3) {
         super(1021076);
         this.mPn = i;
-        this.hAi = i2;
+        this.hJN = i2;
         this.mUserId = j;
-        this.fXY = j2;
+        this.ggj = j2;
         this.mGroupId = j3;
         setHttpParams();
     }
 
     private void setHttpParams() {
         addParam("user_id", this.mUserId);
-        addParam("anchor_id", this.fXY);
+        addParam("anchor_id", this.ggj);
         addParam("group_id", this.mGroupId);
         addParam(Config.PACKAGE_NAME, this.mPn);
-        addParam("ps", this.hAi);
+        addParam("ps", this.hJN);
     }
 }

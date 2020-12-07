@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class PolygonOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2036a;
+    int f2038a;
     Bundle c;
     private Stroke d;
     private List<LatLng> f;
@@ -24,14 +24,14 @@ public final class PolygonOptions extends OverlayOptions {
     public Overlay a() {
         Polygon polygon = new Polygon();
         polygon.B = this.b;
-        polygon.A = this.f2036a;
+        polygon.A = this.f2038a;
         polygon.C = this.c;
         if (this.f == null || this.f.size() < 2) {
             throw new IllegalStateException("BDMapSDKException: when you add polyline, you must at least supply 2 points");
         }
         polygon.c = this.f;
         polygon.b = this.e;
-        polygon.f2034a = this.d;
+        polygon.f2036a = this.d;
         polygon.d = this.g;
         polygon.e = this.h;
         polygon.f = this.i;
@@ -86,7 +86,7 @@ public final class PolygonOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2036a;
+        return this.f2038a;
     }
 
     public boolean isVisible() {
@@ -135,7 +135,7 @@ public final class PolygonOptions extends OverlayOptions {
     }
 
     public PolygonOptions zIndex(int i) {
-        this.f2036a = i;
+        this.f2038a = i;
         return this;
     }
 }

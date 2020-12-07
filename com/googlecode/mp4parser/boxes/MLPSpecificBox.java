@@ -8,17 +8,17 @@ import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BitWriterBuffer;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public class MLPSpecificBox extends AbstractBox {
     public static final String TYPE = "dmlp";
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_7 = null;
     int format_info;
     int peak_data_rate;
     int reserved;
@@ -73,7 +73,7 @@ public class MLPSpecificBox extends AbstractBox {
     }
 
     public void setFormat_info(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Sg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.RZ(i)));
         this.format_info = i;
     }
 
@@ -83,7 +83,7 @@ public class MLPSpecificBox extends AbstractBox {
     }
 
     public void setPeak_data_rate(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Sg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.RZ(i)));
         this.peak_data_rate = i;
     }
 
@@ -93,7 +93,7 @@ public class MLPSpecificBox extends AbstractBox {
     }
 
     public void setReserved(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Sg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.RZ(i)));
         this.reserved = i;
     }
 
@@ -103,7 +103,7 @@ public class MLPSpecificBox extends AbstractBox {
     }
 
     public void setReserved2(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.Sg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.RZ(i)));
         this.reserved2 = i;
     }
 }

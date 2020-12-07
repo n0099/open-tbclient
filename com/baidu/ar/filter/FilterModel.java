@@ -1,33 +1,33 @@
 package com.baidu.ar.filter;
 
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class FilterModel {
-    private String hE;
-    private String pX;
-    private List<Object> pY;
+    private String hS;
+    private String qn;
+    private List<Object> qo;
 
     public String getFilterName() {
-        return this.hE;
+        return this.hS;
     }
 
     public String getFilterType() {
-        return this.pX;
+        return this.qn;
     }
 
     public List<Object> getUniformList() {
-        return this.pY;
+        return this.qo;
     }
 
     public void setFilterName(String str) {
-        this.hE = str;
+        this.hS = str;
     }
 
     public void setFilterType(String str) {
-        this.pX = str;
+        this.qn = str;
     }
 
     public void setUniformList(List<Object> list) {
-        this.pY = list;
+        this.qo = list;
     }
 }

@@ -6,56 +6,56 @@ import android.util.Log;
 import com.baidu.swan.apps.extcore.d.b;
 import com.baidu.swan.apps.extcore.e.a;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public abstract class b<P extends com.baidu.swan.apps.extcore.d.b, R extends com.baidu.swan.apps.extcore.e.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
-    private P cRT;
+    private P cYM;
     @NonNull
-    private R cRU;
+    private R cYN;
 
     @Nullable
-    public abstract ExtensionCore arw();
+    public abstract ExtensionCore auE();
 
     public b(@NonNull P p, @NonNull R r) {
-        this.cRT = p;
-        this.cRU = r;
+        this.cYM = p;
+        this.cYN = r;
     }
 
     public void n(@Nullable com.baidu.swan.apps.ap.e.b<Exception> bVar) {
-        this.cRT.o(bVar);
+        this.cYM.o(bVar);
     }
 
-    public void atq() {
-        this.cRT.atq();
+    public void awy() {
+        this.cYM.awy();
     }
 
     public <T extends com.baidu.swan.apps.extcore.model.a> Exception a(T t) {
-        return t == null ? new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo") : this.cRU.b(t);
+        return t == null ? new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo") : this.cYN.b(t);
     }
 
     @NonNull
-    public P atr() {
-        return this.cRT;
+    public P awz() {
+        return this.cYM;
     }
 
     @NonNull
-    public R ats() {
-        return this.cRU;
+    public R awA() {
+        return this.cYN;
     }
 
     @NonNull
-    public ExtensionCore att() {
+    public ExtensionCore awB() {
         String path;
-        int atE = this.cRT.cRS.atE();
-        if (com.baidu.swan.apps.extcore.f.a.iB(atE)) {
+        int awM = this.cYM.cYL.awM();
+        if (com.baidu.swan.apps.extcore.f.a.iZ(awM)) {
             ExtensionCore extensionCore = new ExtensionCore();
             extensionCore.extensionCoreVersionCode = 0L;
-            extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.f.a.bF(0L);
-            if (atE == 1) {
-                path = com.baidu.swan.games.h.a.b.atx().getPath();
+            extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.f.a.ce(0L);
+            if (awM == 1) {
+                path = com.baidu.swan.games.h.a.b.awF().getPath();
             } else {
-                path = com.baidu.swan.apps.extcore.c.b.atx().getPath();
+                path = com.baidu.swan.apps.extcore.c.b.awF().getPath();
             }
             extensionCore.extensionCorePath = path;
             extensionCore.extensionCoreType = 2;
@@ -64,18 +64,18 @@ public abstract class b<P extends com.baidu.swan.apps.extcore.d.b, R extends com
             }
             return extensionCore;
         }
-        ExtensionCore atG = this.cRT.atG();
-        ExtensionCore atG2 = this.cRU.atG();
-        if (atG.extensionCoreVersionCode >= atG2.extensionCoreVersionCode) {
+        ExtensionCore awO = this.cYM.awO();
+        ExtensionCore awO2 = this.cYN.awO();
+        if (awO.extensionCoreVersionCode >= awO2.extensionCoreVersionCode) {
             if (DEBUG) {
-                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + atG.toString());
-                return atG;
+                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + awO.toString());
+                return awO;
             }
-            return atG;
+            return awO;
         }
         if (DEBUG) {
-            Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + atG2.toString());
+            Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + awO2.toString());
         }
-        return atG2;
+        return awO2;
     }
 }

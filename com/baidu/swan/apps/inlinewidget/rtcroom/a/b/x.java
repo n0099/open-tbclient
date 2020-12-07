@@ -4,11 +4,11 @@ import android.support.annotation.NonNull;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class x extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String auS() {
+    public String aya() {
         return "setRemoteAudioPlayState";
     }
 
@@ -21,7 +21,7 @@ public class x extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
             if (jSONObject.has("status") && jSONObject.has(TbEnum.SystemMessage.KEY_USER_ID)) {
                 long optLong = jSONObject.optLong(TbEnum.SystemMessage.KEY_USER_ID, -1L);
                 boolean optBoolean = jSONObject.optBoolean("status");
-                if (com.baidu.swan.apps.inlinewidget.rtcroom.b.a.bG(optLong)) {
+                if (com.baidu.swan.apps.inlinewidget.rtcroom.b.a.cf(optLong)) {
                     bVar.f(optLong, optBoolean);
                 }
             }

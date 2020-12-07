@@ -16,7 +16,7 @@ import java.util.HashMap;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f2452a;
+    public long f2454a;
     public String b;
     public String c;
     public String d;
@@ -30,29 +30,29 @@ public abstract class a {
     protected Context l;
     protected e m;
     protected IXAdSystemUtils n;
-    private C0263a o;
+    private C0273a o;
 
     protected abstract HashMap<String, String> b();
 
     /* renamed from: com.baidu.mobads.vo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0263a {
+    public static class C0273a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f2453a;
+        String f2455a;
         String b;
         String c;
         String d;
         String e;
 
-        public C0263a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
-            this.f2453a = "";
+        public C0273a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
+            this.f2455a = "";
             this.b = "";
             this.c = "";
             this.d = "";
             this.e = "";
             if (iXAdInstanceInfo != null) {
-                this.f2453a = iXAdInstanceInfo.getAdId();
+                this.f2455a = iXAdInstanceInfo.getAdId();
                 this.b = iXAdInstanceInfo.getQueryKey();
                 this.d = iXAdInstanceInfo.getCreativeType().getValue();
             }
@@ -63,9 +63,9 @@ public abstract class a {
         }
     }
 
-    public a(C0263a c0263a) {
-        this(c0263a.f2453a, c0263a.b, c0263a.c);
-        this.o = c0263a;
+    public a(C0273a c0273a) {
+        this(c0273a.f2455a, c0273a.b, c0273a.c);
+        this.o = c0273a;
     }
 
     @Deprecated
@@ -83,7 +83,7 @@ public abstract class a {
         this.m = XAdSDKFoundationFacade.getInstance().getCommonUtils();
         this.n = XAdSDKFoundationFacade.getInstance().getSystemUtils();
         this.l = XAdSDKFoundationFacade.getInstance().getApplicationContext();
-        this.f2452a = System.currentTimeMillis();
+        this.f2454a = System.currentTimeMillis();
         this.b = str;
         this.c = str2;
         this.e = this.m.getAppSec(this.l);
@@ -106,7 +106,7 @@ public abstract class a {
         hashMap.put("pack", this.d);
         hashMap.put("qk", this.c);
         hashMap.put(IXAdRequestInfo.SN, this.h);
-        hashMap.put("ts", "" + this.f2452a);
+        hashMap.put("ts", "" + this.f2454a);
         hashMap.put("v", this.g);
         hashMap.put("os", this.i);
         hashMap.put("prod", this.j);
@@ -142,8 +142,8 @@ public abstract class a {
                 if (str != null && str2 != null) {
                     String a2 = a(str);
                     String a3 = a(str2);
-                    sb.append(a2 + ETAG.EQUAL + a3 + ETAG.ITEM_SEPARATOR);
-                    sb2.append(a3 + Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    sb.append(a2 + "=" + a3 + ETAG.ITEM_SEPARATOR);
+                    sb2.append(a3 + ",");
                 }
             }
             sb2.append("mobads,");

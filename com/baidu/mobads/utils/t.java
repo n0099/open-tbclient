@@ -80,14 +80,14 @@ public class t implements IXAdURIUitls {
                 int i2 = i + 1;
                 String str4 = hashMap.get(str3);
                 if (i2 == 1) {
-                    sb2.append(str3).append(ETAG.EQUAL).append(str4);
+                    sb2.append(str3).append("=").append(str4);
                 } else {
-                    sb2.append(ETAG.ITEM_SEPARATOR).append(str3).append(ETAG.EQUAL).append(str4);
+                    sb2.append(ETAG.ITEM_SEPARATOR).append(str3).append("=").append(str4);
                 }
                 i = i2;
             }
         }
-        if (com.baidu.mobads.a.b.f2316a.booleanValue()) {
+        if (com.baidu.mobads.a.b.f2318a.booleanValue()) {
             if (hashMap != null) {
                 for (String str5 : hashMap.keySet()) {
                     try {
@@ -104,7 +104,7 @@ public class t implements IXAdURIUitls {
         } else {
             str2 = str + "?code2=" + xAdSDKFoundationFacade.getBase64().encode(sb2.toString() + "&b" + System.currentTimeMillis() + "=1");
         }
-        new StringBuilder().append("&b" + System.currentTimeMillis()).append(ETAG.EQUAL).append("1");
+        new StringBuilder().append("&b" + System.currentTimeMillis()).append("=").append("1");
         return str2 + sb.toString();
     }
 
@@ -115,9 +115,9 @@ public class t implements IXAdURIUitls {
         String fixedString = getFixedString(str);
         String queryString = getQueryString(str);
         if (!XAdSDKFoundationFacade.getInstance().getCommonUtils().isStringAvailable(queryString)) {
-            str4 = str2 + ETAG.EQUAL + str3;
+            str4 = str2 + "=" + str3;
         } else {
-            str4 = queryString + ETAG.ITEM_SEPARATOR + str2 + ETAG.EQUAL + str3;
+            str4 = queryString + ETAG.ITEM_SEPARATOR + str2 + "=" + str3;
         }
         return fixedString + "?" + str4;
     }
@@ -132,7 +132,7 @@ public class t implements IXAdURIUitls {
         for (Map.Entry<String, String> entry : hashMap.entrySet()) {
             try {
                 sb.append(entry.getKey());
-                sb.append(ETAG.EQUAL);
+                sb.append("=");
                 sb.append(entry.getValue());
                 sb.append(ETAG.ITEM_SEPARATOR);
             } catch (Exception e) {

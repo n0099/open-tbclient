@@ -1,5 +1,5 @@
 package com.baidu.ar.statistic;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class StatisticConstants {
     public static final String AUTH_FAILURE = "event_auth_fail";
     public static final String CLOUD_SEARCH_SUCCESS = "cloud_imgsearch_success";
@@ -75,6 +75,15 @@ public class StatisticConstants {
     public static final String USER_MIC_PERMISSION_TYPE_IKNOW = "user_mic_permission_type_iknow";
     public static final String USER_MIC_PERMISSION_TYPE_SETTING = "user_mic_permission_type_setting";
     public static final String VPS_BESTAREA_OUT = "vps_bestarea_out";
+    public static final String VPS_GET_LOC_DURATION = "get_loc_duration";
+    public static final String VPS_INDOOR_GET_LOC_DURATION = "vps_indoor_get_loc_duration";
+    public static final String VPS_INDOOR_NAVIGATE_DURATION = "vps_indoor_navigate_duration";
+    public static final String VPS_INDOOR_SDK_RECALL_SUCCESS = "vps_indoor_service_create";
+    public static final String VPS_INDOOR_SERVICE_DURATION = "vps_indoor_service_duration";
+    public static final String VPS_INDOOR_SUCCESS_RESULT = "vps_indoor_get_loc_success";
+    public static final String VPS_NAVIGATE_DURATION = "navigate_duration";
     public static final String VPS_SDKRECALL_SUCCESS = "vps_sdkrecall_success";
+    public static final String VPS_SESSION_ID = "session_id";
+    public static final String VPS_SUB_INDOOR_SERVICE_DURATION = "indoor_service_duration";
     public static final String VPS_TRACK_ON = "vps_track_on";
 }

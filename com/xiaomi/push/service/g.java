@@ -6,31 +6,31 @@ import java.util.concurrent.RejectedExecutionException;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f5100a;
+    private static long f4870a;
     private static long b;
     private static long c;
 
     /* renamed from: a  reason: collision with other field name */
-    private final a f906a;
+    private final a f904a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final c f907a;
+    private final c f905a;
 
     /* loaded from: classes18.dex */
     private static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final c f5101a;
+        private final c f4871a;
 
         a(c cVar) {
-            this.f5101a = cVar;
+            this.f4871a = cVar;
         }
 
         protected void finalize() {
             try {
-                synchronized (this.f5101a) {
-                    this.f5101a.c = true;
-                    this.f5101a.notify();
+                synchronized (this.f4871a) {
+                    this.f4871a.c = true;
+                    this.f4871a.notify();
                 }
             } finally {
                 super.finalize();
@@ -42,10 +42,10 @@ public class g {
     public static abstract class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        protected int f5102a;
+        protected int f4872a;
 
         public b(int i) {
-            this.f5102a = i;
+            this.f4872a = i;
         }
     }
 
@@ -54,42 +54,42 @@ public class g {
     public static final class c extends Thread {
 
         /* renamed from: b  reason: collision with other field name */
-        private boolean f910b;
+        private boolean f908b;
         private boolean c;
 
         /* renamed from: a  reason: collision with root package name */
-        private volatile long f5103a = 0;
+        private volatile long f4873a = 0;
 
         /* renamed from: a  reason: collision with other field name */
-        private volatile boolean f909a = false;
+        private volatile boolean f907a = false;
         private long b = 50;
 
         /* renamed from: a  reason: collision with other field name */
-        private a f908a = new a();
+        private a f906a = new a();
 
         /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes18.dex */
         public static final class a {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f5104a;
+            private int f4874a;
 
             /* renamed from: a  reason: collision with other field name */
-            private d[] f911a;
+            private d[] f909a;
             private int b;
             private int c;
 
             private a() {
-                this.f5104a = 256;
-                this.f911a = new d[this.f5104a];
+                this.f4874a = 256;
+                this.f909a = new d[this.f4874a];
                 this.b = 0;
                 this.c = 0;
             }
 
             /* JADX INFO: Access modifiers changed from: private */
             public int a(d dVar) {
-                for (int i = 0; i < this.f911a.length; i++) {
-                    if (this.f911a[i] == dVar) {
+                for (int i = 0; i < this.f909a.length; i++) {
+                    if (this.f909a[i] == dVar) {
                         return i;
                     }
                 }
@@ -98,10 +98,10 @@ public class g {
 
             private void c() {
                 int i = this.b - 1;
-                for (int i2 = (i - 1) / 2; this.f911a[i].f912a < this.f911a[i2].f912a; i2 = (i2 - 1) / 2) {
-                    d dVar = this.f911a[i];
-                    this.f911a[i] = this.f911a[i2];
-                    this.f911a[i2] = dVar;
+                for (int i2 = (i - 1) / 2; this.f909a[i].f910a < this.f909a[i2].f910a; i2 = (i2 - 1) / 2) {
+                    d dVar = this.f909a[i];
+                    this.f909a[i] = this.f909a[i2];
+                    this.f909a[i2] = dVar;
                     i = i2;
                 }
             }
@@ -109,32 +109,32 @@ public class g {
             private void c(int i) {
                 int i2 = (i * 2) + 1;
                 while (i2 < this.b && this.b > 0) {
-                    int i3 = (i2 + 1 >= this.b || this.f911a[i2 + 1].f912a >= this.f911a[i2].f912a) ? i2 : i2 + 1;
-                    if (this.f911a[i].f912a < this.f911a[i3].f912a) {
+                    int i3 = (i2 + 1 >= this.b || this.f909a[i2 + 1].f910a >= this.f909a[i2].f910a) ? i2 : i2 + 1;
+                    if (this.f909a[i].f910a < this.f909a[i3].f910a) {
                         return;
                     }
-                    d dVar = this.f911a[i];
-                    this.f911a[i] = this.f911a[i3];
-                    this.f911a[i3] = dVar;
+                    d dVar = this.f909a[i];
+                    this.f909a[i] = this.f909a[i3];
+                    this.f909a[i3] = dVar;
                     i2 = (i3 * 2) + 1;
                     i = i3;
                 }
             }
 
             public d a() {
-                return this.f911a[0];
+                return this.f909a[0];
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public void m576a() {
-                this.f911a = new d[this.f5104a];
+            public void m566a() {
+                this.f909a = new d[this.f4874a];
                 this.b = 0;
             }
 
             public void a(int i) {
                 for (int i2 = 0; i2 < this.b; i2++) {
-                    if (this.f911a[i2].f5105a == i) {
-                        this.f911a[i2].a();
+                    if (this.f909a[i2].f4875a == i) {
+                        this.f909a[i2].a();
                     }
                 }
                 b();
@@ -142,21 +142,21 @@ public class g {
 
             public void a(int i, b bVar) {
                 for (int i2 = 0; i2 < this.b; i2++) {
-                    if (this.f911a[i2].f913a == bVar) {
-                        this.f911a[i2].a();
+                    if (this.f909a[i2].f911a == bVar) {
+                        this.f909a[i2].a();
                     }
                 }
                 b();
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public void m577a(d dVar) {
-                if (this.f911a.length == this.b) {
+            public void m567a(d dVar) {
+                if (this.f909a.length == this.b) {
                     d[] dVarArr = new d[this.b * 2];
-                    System.arraycopy(this.f911a, 0, dVarArr, 0, this.b);
-                    this.f911a = dVarArr;
+                    System.arraycopy(this.f909a, 0, dVarArr, 0, this.b);
+                    this.f909a = dVarArr;
                 }
-                d[] dVarArr2 = this.f911a;
+                d[] dVarArr2 = this.f909a;
                 int i = this.b;
                 this.b = i + 1;
                 dVarArr2[i] = dVar;
@@ -164,14 +164,14 @@ public class g {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public boolean m578a() {
+            public boolean m568a() {
                 return this.b == 0;
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public boolean m579a(int i) {
+            public boolean m569a(int i) {
                 for (int i2 = 0; i2 < this.b; i2++) {
-                    if (this.f911a[i2].f5105a == i) {
+                    if (this.f909a[i2].f4875a == i) {
                         return true;
                     }
                 }
@@ -181,7 +181,7 @@ public class g {
             public void b() {
                 int i = 0;
                 while (i < this.b) {
-                    if (this.f911a[i].f915a) {
+                    if (this.f909a[i].f913a) {
                         this.c++;
                         b(i);
                         i--;
@@ -194,12 +194,12 @@ public class g {
                 if (i < 0 || i >= this.b) {
                     return;
                 }
-                d[] dVarArr = this.f911a;
-                d[] dVarArr2 = this.f911a;
+                d[] dVarArr = this.f909a;
+                d[] dVarArr2 = this.f909a;
                 int i2 = this.b - 1;
                 this.b = i2;
                 dVarArr[i] = dVarArr2[i2];
-                this.f911a[this.b] = null;
+                this.f909a[this.b] = null;
                 c(i);
             }
         }
@@ -212,27 +212,27 @@ public class g {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(d dVar) {
-            this.f908a.m577a(dVar);
+            this.f906a.m567a(dVar);
             notify();
         }
 
         public synchronized void a() {
-            this.f910b = true;
-            this.f908a.m576a();
+            this.f908b = true;
+            this.f906a.m566a();
             notify();
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m575a() {
-            return this.f909a && SystemClock.uptimeMillis() - this.f5103a > 600000;
+        public boolean m565a() {
+            return this.f907a && SystemClock.uptimeMillis() - this.f4873a > 600000;
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         /* JADX WARN: Code restructure failed: missing block: B:58:0x00a4, code lost:
-            r8.f5103a = android.os.SystemClock.uptimeMillis();
-            r8.f909a = true;
-            r2.f913a.run();
-            r8.f909a = false;
+            r8.f4873a = android.os.SystemClock.uptimeMillis();
+            r8.f907a = true;
+            r2.f911a.run();
+            r8.f907a = false;
          */
         /* JADX WARN: Code restructure failed: missing block: B:60:0x00b7, code lost:
             r0 = move-exception;
@@ -241,7 +241,7 @@ public class g {
             monitor-enter(r8);
          */
         /* JADX WARN: Code restructure failed: missing block: B:63:0x00ba, code lost:
-            r8.f910b = true;
+            r8.f908b = true;
          */
         /* JADX WARN: Code restructure failed: missing block: B:65:0x00bd, code lost:
             throw r0;
@@ -253,17 +253,17 @@ public class g {
         public void run() {
             while (true) {
                 synchronized (this) {
-                    if (this.f910b) {
+                    if (this.f908b) {
                         return;
                     }
-                    if (!this.f908a.m578a()) {
+                    if (!this.f906a.m568a()) {
                         long a2 = g.a();
-                        d a3 = this.f908a.a();
-                        synchronized (a3.f914a) {
-                            if (a3.f915a) {
-                                this.f908a.b(0);
+                        d a3 = this.f906a.a();
+                        synchronized (a3.f912a) {
+                            if (a3.f913a) {
+                                this.f906a.b(0);
                             } else {
-                                long j = a3.f912a - a2;
+                                long j = a3.f910a - a2;
                                 if (j > 0) {
                                     if (j > this.b) {
                                         j = this.b;
@@ -278,14 +278,14 @@ public class g {
                                     }
                                 } else {
                                     this.b = 50L;
-                                    synchronized (a3.f914a) {
-                                        int a4 = this.f908a.a().f912a != a3.f912a ? this.f908a.a(a3) : 0;
-                                        if (a3.f915a) {
-                                            this.f908a.b(this.f908a.a(a3));
+                                    synchronized (a3.f912a) {
+                                        int a4 = this.f906a.a().f910a != a3.f910a ? this.f906a.a(a3) : 0;
+                                        if (a3.f913a) {
+                                            this.f906a.b(this.f906a.a(a3));
                                         } else {
-                                            a3.a(a3.f912a);
-                                            this.f908a.b(a4);
-                                            a3.f912a = 0L;
+                                            a3.a(a3.f910a);
+                                            this.f906a.b(a4);
+                                            a3.f910a = 0L;
                                         }
                                     }
                                 }
@@ -309,43 +309,43 @@ public class g {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        int f5105a;
+        int f4875a;
 
         /* renamed from: a  reason: collision with other field name */
-        long f912a;
+        long f910a;
 
         /* renamed from: a  reason: collision with other field name */
-        b f913a;
+        b f911a;
 
         /* renamed from: a  reason: collision with other field name */
-        final Object f914a = new Object();
+        final Object f912a = new Object();
 
         /* renamed from: a  reason: collision with other field name */
-        boolean f915a;
+        boolean f913a;
         private long b;
 
         d() {
         }
 
         void a(long j) {
-            synchronized (this.f914a) {
+            synchronized (this.f912a) {
                 this.b = j;
             }
         }
 
         public boolean a() {
             boolean z = true;
-            synchronized (this.f914a) {
-                z = (this.f915a || this.f912a <= 0) ? false : false;
-                this.f915a = true;
+            synchronized (this.f912a) {
+                z = (this.f913a || this.f910a <= 0) ? false : false;
+                this.f913a = true;
             }
             return z;
         }
     }
 
     static {
-        f5100a = SystemClock.elapsedRealtime() > 0 ? SystemClock.elapsedRealtime() : 0L;
-        b = f5100a;
+        f4870a = SystemClock.elapsedRealtime() > 0 ? SystemClock.elapsedRealtime() : 0L;
+        b = f4870a;
     }
 
     public g() {
@@ -360,8 +360,8 @@ public class g {
         if (str == null) {
             throw new NullPointerException("name == null");
         }
-        this.f907a = new c(str, z);
-        this.f906a = new a(this.f907a);
+        this.f905a = new c(str, z);
+        this.f904a = new a(this.f905a);
     }
 
     public g(boolean z) {
@@ -373,10 +373,10 @@ public class g {
         synchronized (g.class) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (elapsedRealtime > b) {
-                f5100a += elapsedRealtime - b;
+                f4870a += elapsedRealtime - b;
             }
             b = elapsedRealtime;
-            j = f5100a;
+            j = f4870a;
         }
         return j;
     }
@@ -391,8 +391,8 @@ public class g {
     }
 
     private void b(b bVar, long j) {
-        synchronized (this.f907a) {
-            if (this.f907a.f910b) {
+        synchronized (this.f905a) {
+            if (this.f905a.f908b) {
                 throw new IllegalStateException("Timer was canceled");
             }
             long a2 = a() + j;
@@ -400,32 +400,32 @@ public class g {
                 throw new IllegalArgumentException("Illegal delay to start the TimerTask: " + a2);
             }
             d dVar = new d();
-            dVar.f5105a = bVar.f5102a;
-            dVar.f913a = bVar;
-            dVar.f912a = a2;
-            this.f907a.a(dVar);
+            dVar.f4875a = bVar.f4872a;
+            dVar.f911a = bVar;
+            dVar.f910a = a2;
+            this.f905a.a(dVar);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m570a() {
-        this.f907a.a();
+    public void m560a() {
+        this.f905a.a();
     }
 
     public void a(int i) {
-        synchronized (this.f907a) {
-            this.f907a.f908a.a(i);
+        synchronized (this.f905a) {
+            this.f905a.f906a.a(i);
         }
     }
 
     public void a(int i, b bVar) {
-        synchronized (this.f907a) {
-            this.f907a.f908a.a(i, bVar);
+        synchronized (this.f905a) {
+            this.f905a.f906a.a(i, bVar);
         }
     }
 
     public void a(b bVar) {
-        if (com.xiaomi.channel.commonutils.logger.b.a() >= 1 || Thread.currentThread() == this.f907a) {
+        if (com.xiaomi.channel.commonutils.logger.b.a() >= 1 || Thread.currentThread() == this.f905a) {
             bVar.run();
         } else {
             com.xiaomi.channel.commonutils.logger.b.d("run job outside job job thread");
@@ -441,23 +441,23 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m571a() {
-        return this.f907a.m575a();
+    public boolean m561a() {
+        return this.f905a.m565a();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m572a(int i) {
-        boolean m579a;
-        synchronized (this.f907a) {
-            m579a = this.f907a.f908a.m579a(i);
+    public boolean m562a(int i) {
+        boolean m569a;
+        synchronized (this.f905a) {
+            m569a = this.f905a.f906a.m569a(i);
         }
-        return m579a;
+        return m569a;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m573b() {
-        synchronized (this.f907a) {
-            this.f907a.f908a.m576a();
+    public void m563b() {
+        synchronized (this.f905a) {
+            this.f905a.f906a.m566a();
         }
     }
 }

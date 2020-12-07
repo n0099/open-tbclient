@@ -9,8 +9,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
-    public String gbw;
-    private int gbx;
+    public String gjH;
+    private int gjI;
     private List<d> mData;
     private File mFolder;
     private int mPosition;
@@ -45,25 +45,25 @@ public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
         return this.mSign;
     }
 
-    public void X(File file) {
+    public void W(File file) {
         this.mFolder = file;
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.b.b
-    public boolean dt(JSONObject jSONObject) {
+    public boolean du(JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
-        this.gbx = jSONObject.optInt("ar_version");
-        this.gbw = jSONObject.optString("version");
+        this.gjI = jSONObject.optInt("ar_version");
+        this.gjH = jSONObject.optString("version");
         this.mPosition = jSONObject.optInt("position");
         JSONArray optJSONArray = jSONObject.optJSONArray("makeup_category");
         this.mData = new ArrayList();
         for (int i = 0; i < optJSONArray.length(); i++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
             d dVar = new d();
-            dVar.X(this.mFolder);
-            if (dVar.dt(optJSONObject)) {
+            dVar.W(this.mFolder);
+            if (dVar.du(optJSONObject)) {
                 this.mData.add(dVar);
             }
         }
@@ -74,8 +74,8 @@ public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
         JSONObject json;
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("ar_version", this.gbx);
-            jSONObject.put("version", this.gbw);
+            jSONObject.put("ar_version", this.gjI);
+            jSONObject.put("version", this.gjH);
             jSONObject.put("position", this.mPosition);
             JSONArray jSONArray = new JSONArray();
             if (this.mData != null && this.mData.size() > 0) {

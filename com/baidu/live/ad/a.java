@@ -1,14 +1,23 @@
 package com.baidu.live.ad;
 
+import android.view.ViewGroup;
 import com.baidu.live.data.w;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface a {
-    void P(JSONObject jSONObject);
+    void Do();
 
-    void cH(boolean z);
+    boolean N(JSONObject jSONObject);
 
-    void i(w wVar);
+    void a(ViewGroup viewGroup, String str);
+
+    void a(w wVar);
+
+    void cL(boolean z);
 
     void onDestroy();
+
+    void setCanVisible(boolean z);
+
+    void setIsHost(boolean z);
 }

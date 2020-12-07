@@ -7,11 +7,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class MapFragment extends Fragment {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2019a = MapFragment.class.getSimpleName();
+    private static final String f2021a = MapFragment.class.getSimpleName();
     private MapView b;
     private BaiduMapOptions c;
 

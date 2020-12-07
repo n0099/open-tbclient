@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -23,7 +22,7 @@ public class ag {
         if (Build.VERSION.SDK_INT < 23 || g.c(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
             try {
                 File file = new File(new File(Environment.getExternalStorageDirectory(), "/.vdevdir/"), "lcfp.lock");
-                y.m593a(file);
+                y.m583a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     try {
@@ -86,7 +85,7 @@ public class ag {
         File file = new File(new File(Environment.getExternalStorageDirectory(), "/.vdevdir/"), "lcfp");
         ArrayList<String> arrayList = new ArrayList();
         long currentTimeMillis = System.currentTimeMillis();
-        String str2 = str + ":" + context.getPackageName() + Constants.ACCEPT_TIME_SEPARATOR_SP + currentTimeMillis;
+        String str2 = str + ":" + context.getPackageName() + "," + currentTimeMillis;
         if (file.exists()) {
             BufferedReader bufferedReader2 = null;
             try {
@@ -101,7 +100,7 @@ public class ag {
                         String[] split = readLine.split(":");
                         if (split.length == 2) {
                             if (TextUtils.equals(split[0], String.valueOf(str))) {
-                                String[] split2 = split[1].split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                                String[] split2 = split[1].split(",");
                                 if (split2.length == 2) {
                                     long parseLong = Long.parseLong(split2[1]);
                                     if (!TextUtils.equals(split2[0], context.getPackageName()) && ((float) Math.abs(currentTimeMillis - parseLong)) < ((float) (1000 * j)) * 0.9f) {
@@ -156,7 +155,7 @@ public class ag {
                 bufferedReader = null;
                 th = th5;
             }
-        } else if (!y.m593a(file)) {
+        } else if (!y.m583a(file)) {
             return true;
         }
         arrayList.add(str2);

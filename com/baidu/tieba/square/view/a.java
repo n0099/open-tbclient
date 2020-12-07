@@ -10,7 +10,7 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SingleSquareActivityConfig;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tbadk.core.flow.CoverFlowView;
 import com.baidu.tbadk.core.flow.a.d;
 import com.baidu.tbadk.core.flow.a.e;
@@ -22,73 +22,73 @@ import com.baidu.tieba.square.square.i;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class a extends BaseAdapter {
-    private TbPageContext<?> eGu;
-    private CoverFlowView<i> mUy;
-    private HashSet<String> mUx = new HashSet<>();
+    private TbPageContext<?> eNx;
+    private CoverFlowView<i> nix;
+    private HashSet<String> niw = new HashSet<>();
     private ArrayList<i> datas = new ArrayList<>();
-    private d<i> eIr = new d<i>() { // from class: com.baidu.tieba.square.view.a.1
+    private d<i> ePC = new d<i>() { // from class: com.baidu.tieba.square.view.a.1
         @Override // com.baidu.tbadk.core.flow.a.d
         public void e(int i, String str) {
             String makeStatisticsParam = SingleSquareActivityConfig.makeStatisticsParam("carousel_recommend", String.valueOf(i));
             i iVar = (i) y.getItem(a.this.datas, i);
-            String dIF = iVar != null ? iVar.dIF() : null;
-            if (bf.bqF().b(a.this.eGu, new String[]{str, null, makeStatisticsParam}) && i == 2 && !TextUtils.isEmpty(dIF)) {
-                TiebaStatic.eventStat(a.this.eGu.getPageActivity(), "tbanner", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK", "task", "tbanner", "obj_id", String.valueOf(dIF), "obj_name", String.valueOf(dIF), "obj_cpid", 0, TiebaInitialize.Params.OBJ_URL, str, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE, "log_ver", "1.1");
+            String dNV = iVar != null ? iVar.dNV() : null;
+            if (bf.bua().b(a.this.eNx, new String[]{str, null, makeStatisticsParam}) && i == 2 && !TextUtils.isEmpty(dNV)) {
+                TiebaStatic.eventStat(a.this.eNx.getPageActivity(), "tbanner", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK", "task", "tbanner", "obj_id", String.valueOf(dNV), "obj_name", String.valueOf(dNV), "obj_cpid", 0, TiebaInitialize.Params.OBJ_URL, str, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE, "log_ver", "1.1");
             }
-            TiebaStatic.eventStat(a.this.eGu.getPageActivity(), "square_banner_picture", "click", 1, "loc", (i - 1) + "");
+            TiebaStatic.eventStat(a.this.eNx.getPageActivity(), "square_banner_picture", "click", 1, "loc", (i - 1) + "");
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.core.flow.a.d
         public void a(int i, i iVar) {
             if (iVar != null) {
-                String dIF = iVar.dIF();
-                if (i == 2 && !TextUtils.isEmpty(dIF) && a.this.mUx.add(dIF)) {
-                    TiebaStatic.eventStat(TbadkCoreApplication.getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE", "task", "tbanner", "obj_id", String.valueOf(dIF), "obj_name", String.valueOf(dIF), "obj_cpid", 0, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE);
+                String dNV = iVar.dNV();
+                if (i == 2 && !TextUtils.isEmpty(dNV) && a.this.niw.add(dNV)) {
+                    TiebaStatic.eventStat(TbadkCoreApplication.getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE", "task", "tbanner", "obj_id", String.valueOf(dNV), "obj_name", String.valueOf(dNV), "obj_cpid", 0, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE);
                 }
             }
         }
     };
 
     public a(final TbPageContext<?> tbPageContext) {
-        this.mUy = null;
-        this.eGu = tbPageContext;
-        this.mUy = new CoverFlowView<>(tbPageContext.getPageActivity());
-        this.mUy.setCoverFlowFactory(new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.square.view.a.2
+        this.nix = null;
+        this.eNx = tbPageContext;
+        this.nix = new CoverFlowView<>(tbPageContext.getPageActivity());
+        this.nix.setCoverFlowFactory(new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.square.view.a.2
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public e uf() {
+            public e ui() {
                 e eVar = new e();
                 eVar.setHeight(tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds330));
                 return eVar;
             }
 
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public com.baidu.tbadk.core.flow.a.c ug() {
-                com.baidu.tbadk.core.flow.a.c ug = super.ug();
-                if (ug != null) {
-                    ug.setGravity(85);
-                    ug.pi(R.dimen.ds20);
-                    ug.pj(R.dimen.ds30);
+            public com.baidu.tbadk.core.flow.a.c uj() {
+                com.baidu.tbadk.core.flow.a.c uj = super.uj();
+                if (uj != null) {
+                    uj.setGravity(85);
+                    uj.pJ(R.dimen.ds20);
+                    uj.pK(R.dimen.ds30);
                 }
-                return ug;
+                return uj;
             }
         });
-        this.mUy.setCallback(this.eIr);
+        this.nix.setCallback(this.ePC);
     }
 
-    public void setData(ArrayList<bu> arrayList) {
+    public void setData(ArrayList<bv> arrayList) {
         ArrayList<i> arrayList2 = new ArrayList<>();
-        Iterator<bu> it = arrayList.iterator();
+        Iterator<bv> it = arrayList.iterator();
         while (it.hasNext()) {
-            bu next = it.next();
+            bv next = it.next();
             if (next != null) {
                 arrayList2.add(new i(next));
             }
         }
         this.datas = arrayList2;
-        this.mUy.setData(arrayList2);
+        this.nix.setData(arrayList2);
         notifyDataSetChanged();
     }
 
@@ -109,16 +109,16 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.mUy;
+        return this.nix;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.mUy != null) {
-            this.mUy.onChangeSkinType();
+        if (this.nix != null) {
+            this.nix.onChangeSkinType();
         }
     }
 
-    public CoverFlowView<i> dIM() {
-        return this.mUy;
+    public CoverFlowView<i> dOc() {
+        return this.nix;
     }
 }

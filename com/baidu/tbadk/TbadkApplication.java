@@ -26,11 +26,11 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.core.util.j;
-import com.baidu.tbadk.n.n;
+import com.baidu.tbadk.data.e;
+import com.baidu.tbadk.n.m;
 import com.baidu.tbadk.o.d;
 import com.baidu.tbadk.switchs.PluginClassChangeSwitch;
 import com.baidu.tieba.service.SignAlertReceiver;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Map;
@@ -91,14 +91,14 @@ public class TbadkApplication extends TbadkCoreApplication {
                     boolean z3 = Build.VERSION.SDK_INT < 28 ? z2 : false;
                     if (!this.isKeepLiveProcess) {
                         if (!this.mPluginIsInited) {
-                            PluginPackageManager.pT().a(com.baidu.tbadk.o.c.bCb(), new d(), z3, (Object) null);
+                            PluginPackageManager.pV().a(com.baidu.tbadk.o.c.bFC(), new d(), z3, (Object) null);
                         }
-                        PluginSettings qs = com.baidu.adp.plugin.packageManager.pluginSettings.c.qv().qs();
-                        if (qs != null) {
-                            String containerVersion = qs.getContainerVersion();
+                        PluginSettings qu = com.baidu.adp.plugin.packageManager.pluginSettings.c.qx().qu();
+                        if (qu != null) {
+                            String containerVersion = qu.getContainerVersion();
                             if (!TextUtils.isEmpty(containerVersion) && Util.K(containerVersion, str) == Util.VersionCompare.EQUAL) {
-                                n.bBO().kB(z3);
-                                n.bBO().dM(System.currentTimeMillis() - currentTimeMillis);
+                                m.bFp().kU(z3);
+                                m.bFp().el(System.currentTimeMillis() - currentTimeMillis);
                             }
                         }
                     }
@@ -120,17 +120,17 @@ public class TbadkApplication extends TbadkCoreApplication {
                         NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.2
                             @Override // com.baidu.appsearchlib.NASLib.NASCallBack
                             public void callback(String str2, String str3) {
-                                bf.bqF().b(null, new String[]{str3});
+                                bf.bua().b(null, new String[]{str3});
                             }
                         });
-                        n.bBO().dW(System.currentTimeMillis() - currentTimeMillis2);
+                        m.bFp().ev(System.currentTimeMillis() - currentTimeMillis2);
                     }
                     this.mAppInitHandler.sendEmptyMessage(9);
                     return;
                 case 9:
-                    j.bpI();
+                    j.btc();
                     if (this.isRemoteProcess) {
-                        n.bBO().ee(System.currentTimeMillis() - this.processCreateTime);
+                        m.bFp().eD(System.currentTimeMillis() - this.processCreateTime);
                         return;
                     }
                     return;
@@ -208,7 +208,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     }
 
     protected Intent createIntentForSignAlarm() {
-        Intent intent = new Intent(com.baidu.tbadk.data.d.getBroadcastActionSignAlert());
+        Intent intent = new Intent(e.getBroadcastActionSignAlert());
         intent.setData(Uri.parse("tieba_sign://alert"));
         intent.setClass(getInst().getContext(), SignAlertReceiver.class);
         return intent;
@@ -237,7 +237,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     }
 
     public void loginShareRemove() {
-        com.baidu.tbadk.core.sharedPref.b.bpu().remove(SharedPrefConfig.ACCOUNT_SHARE);
+        com.baidu.tbadk.core.sharedPref.b.bsO().remove(SharedPrefConfig.ACCOUNT_SHARE);
     }
 
     public String loginShareRead() {
@@ -276,12 +276,12 @@ public class TbadkApplication extends TbadkCoreApplication {
     public void loadPatchs() {
         if (!this.isKeepLiveProcess) {
             super.loadPatchs();
-            int i = com.baidu.tbadk.core.sharedPref.b.bpu().getInt(SharedPrefConfig.PATCH_FATAL_ERROR_COUNT, 0);
-            PluginPackageManager.pT().aF(i);
-            if (checkSyncPatchBlacklist() && com.baidu.adp.plugin.install.d.pB() && i == 0 && PluginPackageManager.pT().pX()) {
+            int i = com.baidu.tbadk.core.sharedPref.b.bsO().getInt(SharedPrefConfig.PATCH_FATAL_ERROR_COUNT, 0);
+            PluginPackageManager.pV().aJ(i);
+            if (checkSyncPatchBlacklist() && com.baidu.adp.plugin.install.d.pD() && i == 0 && PluginPackageManager.pV().pZ()) {
                 long currentTimeMillis = System.currentTimeMillis();
-                PluginPackageManager.pT().pY();
-                n.bBO().dL(System.currentTimeMillis() - currentTimeMillis);
+                PluginPackageManager.pV().qa();
+                m.bFp().ek(System.currentTimeMillis() - currentTimeMillis);
             }
         }
     }
@@ -291,11 +291,11 @@ public class TbadkApplication extends TbadkCoreApplication {
         Map<String, PluginSetting> plugins;
         PluginSetting pluginSetting;
         try {
-            plugins = com.baidu.adp.plugin.packageManager.pluginSettings.c.qv().qs().getPlugins();
+            plugins = com.baidu.adp.plugin.packageManager.pluginSettings.c.qx().qu().getPlugins();
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
         }
-        if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.qv().qs().hasPatch() || plugins == null || plugins.isEmpty()) {
+        if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.qx().qu().hasPatch() || plugins == null || plugins.isEmpty()) {
             return false;
         }
         Iterator<PluginSetting> it = plugins.values().iterator();
@@ -315,7 +315,7 @@ public class TbadkApplication extends TbadkCoreApplication {
         if (!TextUtils.isEmpty(pluginSetting.ext)) {
             String string = new JSONObject(pluginSetting.ext).getString("patch_blacklist_models");
             if (!TextUtils.isEmpty(string)) {
-                this.mPatchWhiteList = string.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                this.mPatchWhiteList = string.split(",");
             }
         }
         if (this.mPatchWhiteList == null || this.mPatchWhiteList.length == 0) {

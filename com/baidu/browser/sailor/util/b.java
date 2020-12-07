@@ -16,11 +16,11 @@ import java.io.FileInputStream;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f1287a = null;
+    private static SimpleDateFormat f1286a = null;
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x0044 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*

@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class d {
     public static String getImei(Context context) {
         String str;
@@ -30,19 +30,19 @@ public class d {
         return Build.MODEL;
     }
 
-    public static String bJM() {
+    public static String bNu() {
         return Build.VERSION.RELEASE;
     }
 
-    public static Integer eJ(Context context) {
+    public static Integer fp(Context context) {
         return Integer.valueOf(context.getResources().getDisplayMetrics().heightPixels);
     }
 
-    public static Integer eK(Context context) {
+    public static Integer fq(Context context) {
         return Integer.valueOf(context.getResources().getDisplayMetrics().widthPixels);
     }
 
-    public static Integer eL(Context context) {
+    public static Integer fr(Context context) {
         int value;
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         Integer valueOf = Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());

@@ -20,75 +20,75 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes17.dex */
+/* loaded from: classes20.dex */
 public class b {
     private final Context appContext;
-    private final a pLO;
+    private final a pCS;
     private final String url;
 
-    public static m<e> bu(Context context, String str) {
-        return new b(context, str).ezC();
+    public static m<e> by(Context context, String str) {
+        return new b(context, str).eBY();
     }
 
     private b(Context context, String str) {
         this.appContext = context.getApplicationContext();
         this.url = str;
-        this.pLO = new a(this.appContext, str);
+        this.pCS = new a(this.appContext, str);
     }
 
-    private m<e> ezC() {
+    private m<e> eBY() {
         return new m<>(new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.network.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: eyy */
+            /* renamed from: eAU */
             public l<e> call() throws Exception {
-                return b.this.ezD();
+                return b.this.eBZ();
             }
         });
     }
 
     @WorkerThread
-    public l<e> ezD() {
-        e ezE = ezE();
-        if (ezE != null) {
-            return new l<>(ezE);
+    public l<e> eBZ() {
+        e eCa = eCa();
+        if (eCa != null) {
+            return new l<>(eCa);
         }
         d.debug("Animation for " + this.url + " not found in cache. Fetching from network.");
-        return ezF();
+        return eCb();
     }
 
     @WorkerThread
     @Nullable
-    private e ezE() {
-        l<e> k;
-        Pair<FileExtension, InputStream> kL = this.pLO.kL();
+    private e eCa() {
+        l<e> j;
+        Pair<FileExtension, InputStream> kL = this.pCS.kL();
         if (kL == null) {
             return null;
         }
         FileExtension fileExtension = kL.first;
         InputStream inputStream = kL.second;
         if (fileExtension == FileExtension.Zip) {
-            k = f.c(new ZipInputStream(inputStream), this.url);
+            j = f.c(new ZipInputStream(inputStream), this.url);
         } else {
-            k = f.k(inputStream, this.url);
+            j = f.j(inputStream, this.url);
         }
-        if (k.getValue() != null) {
-            return k.getValue();
+        if (j.getValue() != null) {
+            return j.getValue();
         }
         return null;
     }
 
     @WorkerThread
-    private l<e> ezF() {
+    private l<e> eCb() {
         try {
-            return ezG();
+            return eCc();
         } catch (IOException e) {
             return new l<>(e);
         }
     }
 
     @WorkerThread
-    private l ezG() throws IOException {
+    private l eCc() throws IOException {
         FileExtension fileExtension;
         l<e> c;
         d.debug("Fetching " + this.url);
@@ -127,16 +127,16 @@ public class b {
                 case 0:
                     d.debug("Handling zip response.");
                     fileExtension = FileExtension.Zip;
-                    c = f.c(new ZipInputStream(new FileInputStream(this.pLO.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
+                    c = f.c(new ZipInputStream(new FileInputStream(this.pCS.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
                     break;
                 default:
                     d.debug("Received json response.");
                     fileExtension = FileExtension.Json;
-                    c = f.k(new FileInputStream(new File(this.pLO.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
+                    c = f.j(new FileInputStream(new File(this.pCS.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
                     break;
             }
             if (c.getValue() != null) {
-                this.pLO.a(fileExtension);
+                this.pCS.a(fileExtension);
             }
             d.debug("Completed fetch from network. Success: " + (c.getValue() != null));
             return c;

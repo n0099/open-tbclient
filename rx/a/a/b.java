@@ -1,15 +1,15 @@
 package rx.a.a;
 
 import rx.g;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class b {
-    private static final b qfn = new b();
+    private static final b pPp = new b();
 
-    public static b eFx() {
-        return qfn;
+    public static b eFw() {
+        return pPp;
     }
 
-    public g eFy() {
+    public g eFx() {
         return null;
     }
 

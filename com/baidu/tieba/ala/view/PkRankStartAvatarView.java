@@ -16,9 +16,9 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes4.dex */
 public class PkRankStartAvatarView extends RelativeLayout {
-    private HeadImageView hOK;
-    private TextView hOL;
-    private AnimatorSet hOM;
+    private HeadImageView hZB;
+    private TextView hZC;
+    private AnimatorSet hZD;
 
     public PkRankStartAvatarView(Context context) {
         super(context);
@@ -26,85 +26,85 @@ public class PkRankStartAvatarView extends RelativeLayout {
     }
 
     public void setData(String str, CharSequence charSequence) {
-        if (this.hOK != null) {
-            HeadImageView headImageView = this.hOK;
+        if (this.hZB != null) {
+            HeadImageView headImageView = this.hZB;
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
             headImageView.startLoad(str, 12, false, false);
         }
-        if (this.hOL != null) {
-            TextView textView = this.hOL;
+        if (this.hZC != null) {
+            TextView textView = this.hZC;
             if (TextUtils.isEmpty(charSequence)) {
                 charSequence = "";
             }
             textView.setText(charSequence);
-            this.hOL.setVisibility(4);
+            this.hZC.setVisibility(4);
         }
     }
 
     public Animator getStreakAnim() {
-        if (this.hOL == null || TextUtils.isEmpty(this.hOL.getText())) {
+        if (this.hZC == null || TextUtils.isEmpty(this.hZC.getText())) {
             return null;
         }
-        if (this.hOM != null) {
-            this.hOM.cancel();
+        if (this.hZD != null) {
+            this.hZD.cancel();
         }
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.hOL, "scaleX", 0.0f, 1.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.hZC, "scaleX", 0.0f, 1.0f);
         ofFloat.setEvaluator(new com.baidu.tieba.ala.a.a());
         ofFloat.setRepeatCount(0);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.hOL, "scaleY", 0.0f, 1.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.hZC, "scaleY", 0.0f, 1.0f);
         ofFloat2.setEvaluator(new com.baidu.tieba.ala.a.a());
         ofFloat2.setRepeatCount(0);
-        if (this.hOM == null) {
-            this.hOM = new AnimatorSet();
+        if (this.hZD == null) {
+            this.hZD = new AnimatorSet();
         }
-        this.hOM.setDuration(440L);
-        this.hOM.setInterpolator(new LinearInterpolator());
-        this.hOM.playTogether(ofFloat, ofFloat2);
-        this.hOM.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.PkRankStartAvatarView.1
+        this.hZD.setDuration(440L);
+        this.hZD.setInterpolator(new LinearInterpolator());
+        this.hZD.playTogether(ofFloat, ofFloat2);
+        this.hZD.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.PkRankStartAvatarView.1
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                PkRankStartAvatarView.this.hOL.setPivotX(PkRankStartAvatarView.this.hOL.getWidth() * 0.5f);
-                PkRankStartAvatarView.this.hOL.setPivotY(PkRankStartAvatarView.this.hOL.getHeight());
-                PkRankStartAvatarView.this.hOL.setVisibility(0);
+                PkRankStartAvatarView.this.hZC.setPivotX(PkRankStartAvatarView.this.hZC.getWidth() * 0.5f);
+                PkRankStartAvatarView.this.hZC.setPivotY(PkRankStartAvatarView.this.hZC.getHeight());
+                PkRankStartAvatarView.this.hZC.setVisibility(0);
             }
         });
-        return this.hOM;
+        return this.hZD;
     }
 
     public void release() {
-        if (this.hOM != null) {
-            this.hOM.cancel();
+        if (this.hZD != null) {
+            this.hZD.cancel();
         }
-        if (this.hOK != null) {
-            this.hOK.stopLoad();
+        if (this.hZB != null) {
+            this.hZB.stopLoad();
         }
     }
 
     private void init() {
         setBackgroundColor(0);
         LayoutInflater.from(getContext()).inflate(a.g.sdk_pk_rank_start_avatar, (ViewGroup) this, true);
-        this.hOK = (HeadImageView) findViewById(a.f.iv_pk_rank_start_avatar);
-        this.hOL = (TextView) findViewById(a.f.tv_pk_rank_start_streak);
-        clS();
-        clT();
+        this.hZB = (HeadImageView) findViewById(a.f.iv_pk_rank_start_avatar);
+        this.hZC = (TextView) findViewById(a.f.tv_pk_rank_start_streak);
+        cqf();
+        cqg();
     }
 
-    private void clS() {
-        this.hOK.setAutoChangeStyle(false);
-        this.hOK.setIsRound(true);
-        this.hOK.setBorderWidth(getResources().getDimensionPixelOffset(a.d.sdk_ds4));
-        this.hOK.setBorderColor(-1275068417);
-        this.hOK.setDefaultBgResource(a.e.sdk_default_avatar);
+    private void cqf() {
+        this.hZB.setAutoChangeStyle(false);
+        this.hZB.setIsRound(true);
+        this.hZB.setBorderWidth(getResources().getDimensionPixelOffset(a.d.sdk_ds4));
+        this.hZB.setBorderColor(-1275068417);
+        this.hZB.setDefaultBgResource(a.e.sdk_default_avatar);
     }
 
-    private void clT() {
+    private void cqg() {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);
         gradientDrawable.setColor(-1072425964);
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.d.sdk_ds26));
-        this.hOL.setBackgroundDrawable(gradientDrawable);
+        this.hZC.setBackgroundDrawable(gradientDrawable);
     }
 }

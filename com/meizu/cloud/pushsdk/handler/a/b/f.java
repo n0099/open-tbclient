@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class f implements Parcelable {
     public static final Parcelable.Creator<f> CREATOR = new Parcelable.Creator<f>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.f.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +23,7 @@ public class f implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4420a;
+    private String f4190a;
     private String b;
     private boolean c;
     private String d;
@@ -35,7 +35,7 @@ public class f implements Parcelable {
 
     protected f(Parcel parcel) {
         this.c = false;
-        this.f4420a = parcel.readString();
+        this.f4190a = parcel.readString();
         this.b = parcel.readString();
         this.c = parcel.readByte() != 0;
         this.d = parcel.readString();
@@ -65,11 +65,11 @@ public class f implements Parcelable {
     }
 
     public String a() {
-        return this.f4420a;
+        return this.f4190a;
     }
 
     public void a(String str) {
-        this.f4420a = str;
+        this.f4190a = str;
     }
 
     public void a(boolean z) {
@@ -110,12 +110,12 @@ public class f implements Parcelable {
     }
 
     public String toString() {
-        return "Statics{taskId='" + this.f4420a + "', time='" + this.b + "', pushExtra=" + this.c + ", deviceId='" + this.d + "', seqId='" + this.e + "'}";
+        return "Statics{taskId='" + this.f4190a + "', time='" + this.b + "', pushExtra=" + this.c + ", deviceId='" + this.d + "', seqId='" + this.e + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f4420a);
+        parcel.writeString(this.f4190a);
         parcel.writeString(this.b);
         parcel.writeByte((byte) (this.c ? 1 : 0));
         parcel.writeString(this.d);

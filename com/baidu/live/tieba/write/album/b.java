@@ -19,21 +19,21 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends BaseAdapter {
-    private String bCJ;
-    private int bCK;
-    private AlbumActivity bCw;
+    private AlbumActivity bHE;
+    private String bHR;
+    private int bHS;
     private LayoutInflater mLayoutInflater;
     private List<AlbumData> mList;
 
     public b(AlbumActivity albumActivity) {
-        this.bCw = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.bCw.getPageContext().getPageActivity());
-        this.bCK = BdUtilHelper.getEquipmentWidth(this.bCw.getPageContext().getPageActivity()) / 2;
+        this.bHE = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.bHE.getPageContext().getPageActivity());
+        this.bHS = BdUtilHelper.getEquipmentWidth(this.bHE.getPageContext().getPageActivity()) / 2;
     }
 
     public void c(List<AlbumData> list, String str) {
         this.mList = list;
-        this.bCJ = str;
+        this.bHR = str;
     }
 
     @Override // android.widget.Adapter
@@ -43,7 +43,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: fV */
+    /* renamed from: gu */
     public AlbumData getItem(int i) {
         return (AlbumData) ListUtils.getItem(this.mList, i);
     }
@@ -61,11 +61,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(a.g.sdk_ph_album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.bCL = (TbImageView) view.findViewById(a.f.item_head);
-            aVar.bCM = (TextView) view.findViewById(a.f.item_name);
-            aVar.bCN = (ImageView) view.findViewById(a.f.item_arrow);
-            aVar.bCL.setGifIconSupport(false);
-            aVar.bCL.setLongIconSupport(false);
+            aVar.bHT = (TbImageView) view.findViewById(a.f.item_head);
+            aVar.bHU = (TextView) view.findViewById(a.f.item_name);
+            aVar.bHV = (ImageView) view.findViewById(a.f.item_arrow);
+            aVar.bHT.setGifIconSupport(false);
+            aVar.bHT.setLongIconSupport(false);
             view.setTag(aVar);
         }
         AlbumData item = getItem(i);
@@ -74,24 +74,24 @@ public class b extends BaseAdapter {
         } else {
             view.setVisibility(0);
             if (!TextUtils.isEmpty(item.getName())) {
-                aVar.bCM.setText(BdUtilHelper.getTextOmit(aVar.bCM.getPaint(), item.getName(), this.bCK) + "(" + item.getCount() + ")");
+                aVar.bHU.setText(BdUtilHelper.getTextOmit(aVar.bHU.getPaint(), item.getName(), this.bHS) + "(" + item.getCount() + ")");
             } else {
-                aVar.bCM.setText("");
+                aVar.bHU.setText("");
             }
             String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.bCJ)) {
-                SkinManager.setImageResource(aVar.bCN, a.e.sdk_ph_icon_list_select_ok_n);
-                aVar.bCN.setVisibility(0);
+            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.bHR)) {
+                SkinManager.setImageResource(aVar.bHV, a.e.sdk_ph_icon_list_select_ok_n);
+                aVar.bHV.setVisibility(0);
             } else {
-                aVar.bCN.setVisibility(8);
+                aVar.bHV.setVisibility(8);
             }
             MediaFileInfo mediaFileInfo = item.getMediaFileInfo();
             if (mediaFileInfo instanceof VideoFileInfo) {
-                aVar.bCL.startLoad(TbImageView.getUrlWithResizeTag(((VideoFileInfo) mediaFileInfo).videoPath, 200, 200), 37, false);
+                aVar.bHT.startLoad(TbImageView.getUrlWithResizeTag(((VideoFileInfo) mediaFileInfo).videoPath, 200, 200), 37, false);
             } else if (mediaFileInfo instanceof ImageFileInfo) {
-                aVar.bCL.startLoad(TbImageView.getUrlWithResizeTag(((ImageFileInfo) mediaFileInfo).getFilePath(), 200, 200), 35, false);
+                aVar.bHT.startLoad(TbImageView.getUrlWithResizeTag(((ImageFileInfo) mediaFileInfo).getFilePath(), 200, 200), 35, false);
             }
-            SkinManager.setViewTextColor(aVar.bCM, a.c.sdk_cp_cont_b);
+            SkinManager.setViewTextColor(aVar.bHU, a.c.sdk_cp_cont_b);
             SkinManager.setBackgroundResource(view, a.e.sdk_ph_addresslist_item_bg);
         }
         return view;
@@ -99,9 +99,9 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     private class a {
-        TbImageView bCL;
-        TextView bCM;
-        ImageView bCN;
+        TbImageView bHT;
+        TextView bHU;
+        ImageView bHV;
 
         private a() {
         }

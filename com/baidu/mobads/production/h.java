@@ -6,13 +6,13 @@ import android.content.Context;
 public class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f2414a;
+    final /* synthetic */ Context f2416a;
     final /* synthetic */ b b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(b bVar, Context context) {
         this.b = bVar;
-        this.f2414a = context;
+        this.f2416a = context;
     }
 
     @Override // java.lang.Runnable

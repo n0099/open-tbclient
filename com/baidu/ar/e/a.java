@@ -2,41 +2,41 @@ package com.baidu.ar.e;
 
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.callback.IError;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public abstract class a<InT, OutT> implements b<InT, OutT> {
-    private boolean qr;
-    private a<OutT, ?> sQ;
-    private OutT sR;
-    private boolean sS;
-    private boolean sT;
-    private boolean sU;
-    private int sV;
-    private String sW;
+    private boolean qH;
+    private a<OutT, ?> tD;
+    private OutT tE;
+    private boolean tF;
+    private boolean tG;
+    private boolean tH;
+    private int tI;
+    private String tJ;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str) {
-        this.sU = true;
-        this.sV = i;
-        this.sW = str;
+        this.tH = true;
+        this.tI = i;
+        this.tJ = str;
     }
 
-    private void fp() {
-        if (this.qr || !this.sS || this.sQ == null) {
+    private void fo() {
+        if (this.qH || !this.tF || this.tD == null) {
             return;
         }
-        if (this.sU) {
-            this.sQ.b(this.sV, this.sW);
-        } else if (this.sT) {
+        if (this.tH) {
+            this.tD.b(this.tI, this.tJ);
+        } else if (this.tG) {
         } else {
-            this.sQ.h(this.sR);
+            this.tD.h(this.tE);
         }
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.ar.e.a<OutT, T> */
     /* JADX WARN: Multi-variable type inference failed */
     public <T> b<OutT, T> a(a<OutT, T> aVar) {
-        this.sQ = aVar;
-        fp();
+        this.tD = aVar;
+        fo();
         return aVar;
     }
 
@@ -49,41 +49,41 @@ public abstract class a<InT, OutT> implements b<InT, OutT> {
     protected abstract void a(InT r1, ICallbackWith<OutT> iCallbackWith, IError iError);
 
     protected final void b(int i, String str) {
-        this.sS = true;
-        this.sT = true;
+        this.tF = true;
+        this.tG = true;
         a(i, str, new IError() { // from class: com.baidu.ar.e.a.3
             @Override // com.baidu.ar.callback.IError
             public void onError(int i2, String str2, Exception exc) {
                 a.this.a(i2, str2);
-                if (a.this.qr || a.this.sQ == null) {
+                if (a.this.qH || a.this.tD == null) {
                     return;
                 }
-                a.this.sQ.b(i2, str2);
+                a.this.tD.b(i2, str2);
             }
         });
     }
 
     @Override // com.baidu.ar.callback.ICancellable
     public void cancel() {
-        this.qr = true;
-        fq();
+        this.qH = true;
+        fp();
     }
 
-    protected abstract void fq();
+    protected abstract void fp();
 
     public final void h(InT r3) {
-        if (this.qr) {
+        if (this.qH) {
             return;
         }
         a((a<InT, OutT>) r3, new ICallbackWith<OutT>() { // from class: com.baidu.ar.e.a.1
             @Override // com.baidu.ar.callback.ICallbackWith
             public void run(OutT outt) {
-                a.this.sS = true;
-                a.this.sR = outt;
-                if (a.this.qr || a.this.sQ == null) {
+                a.this.tF = true;
+                a.this.tE = outt;
+                if (a.this.qH || a.this.tD == null) {
                     return;
                 }
-                a.this.sQ.h(outt);
+                a.this.tD.h(outt);
             }
         }, new IError() { // from class: com.baidu.ar.e.a.2
             @Override // com.baidu.ar.callback.IError

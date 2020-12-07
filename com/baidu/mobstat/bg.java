@@ -15,14 +15,14 @@ import java.util.ArrayList;
 public class bg {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f2582a;
+    private static volatile boolean f2584a;
     private static volatile boolean b;
     private static volatile boolean c;
 
     private static boolean a(int i) {
         switch (i) {
             case 0:
-                return f2582a;
+                return f2584a;
             case 1:
                 return b;
             case 2:
@@ -35,7 +35,7 @@ public class bg {
     private static void a(int i, boolean z) {
         switch (i) {
             case 0:
-                f2582a = z;
+                f2584a = z;
                 return;
             case 1:
                 b = z;
@@ -179,9 +179,9 @@ public class bg {
                 String encode = URLEncoder.encode(((String) pair.first).toString(), "UTF-8");
                 String encode2 = URLEncoder.encode(((String) pair.second).toString(), "UTF-8");
                 if (TextUtils.isEmpty(sb.toString())) {
-                    sb.append(encode + ETAG.EQUAL + encode2);
+                    sb.append(encode + "=" + encode2);
                 } else {
-                    sb.append(ETAG.ITEM_SEPARATOR + encode + ETAG.EQUAL + encode2);
+                    sb.append(ETAG.ITEM_SEPARATOR + encode + "=" + encode2);
                 }
             } catch (Exception e) {
             }
@@ -208,9 +208,9 @@ public class bg {
                 String encode = URLEncoder.encode(((String) pair.first).toString(), "UTF-8");
                 String encode2 = URLEncoder.encode(((String) pair.second).toString(), "UTF-8");
                 if (TextUtils.isEmpty(sb.toString())) {
-                    sb.append(encode + ETAG.EQUAL + encode2);
+                    sb.append(encode + "=" + encode2);
                 } else {
-                    sb.append(ETAG.ITEM_SEPARATOR + encode + ETAG.EQUAL + encode2);
+                    sb.append(ETAG.ITEM_SEPARATOR + encode + "=" + encode2);
                 }
             } catch (Exception e) {
             }

@@ -2,17 +2,17 @@ package com.baidu.tieba.ala.gamelist.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.ala.AlaCmdConfigSocket;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.squareup.wire.Wire;
 import java.util.LinkedList;
 import tbclient.LiveLabelInfo;
 import tbclient.LiveTabliveSubTab.LiveTabliveSubTabResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlaSubListGameLiveSocketResponseMessage extends SocketResponsedMessage {
     private LinkedList<LiveLabelInfo> entryList;
     private boolean mHasMore;
-    private LinkedList<bx> threadList;
+    private LinkedList<by> threadList;
 
     public AlaSubListGameLiveSocketResponseMessage() {
         super(AlaCmdConfigSocket.CMD_ALA_SUB_LIVE_LIST);
@@ -30,16 +30,16 @@ public class AlaSubListGameLiveSocketResponseMessage extends SocketResponsedMess
             this.entryList.addAll(liveTabliveSubTabResIdl.data.label);
             for (ThreadInfo threadInfo : liveTabliveSubTabResIdl.data.live) {
                 if (threadInfo.thread_type.intValue() == 49) {
-                    bx bxVar = new bx();
-                    bxVar.a(threadInfo);
-                    this.threadList.add(bxVar);
+                    by byVar = new by();
+                    byVar.a(threadInfo);
+                    this.threadList.add(byVar);
                 }
             }
             this.mHasMore = liveTabliveSubTabResIdl.data.has_more.intValue() == 1;
         }
     }
 
-    public LinkedList<bx> getThreadLiveList() {
+    public LinkedList<by> getThreadLiveList() {
         return this.threadList;
     }
 

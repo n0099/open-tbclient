@@ -1,10 +1,10 @@
 package com.meizu.cloud.pushsdk.b.g;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    final byte[] f4357a;
+    final byte[] f4127a;
     int b;
     int c;
     boolean d;
@@ -14,19 +14,19 @@ public final class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j() {
-        this.f4357a = new byte[2048];
+        this.f4127a = new byte[2048];
         this.e = true;
         this.d = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(j jVar) {
-        this(jVar.f4357a, jVar.b, jVar.c);
+        this(jVar.f4127a, jVar.b, jVar.c);
         jVar.d = true;
     }
 
     j(byte[] bArr, int i, int i2) {
-        this.f4357a = bArr;
+        this.f4127a = bArr;
         this.b = i;
         this.c = i2;
         this.e = false;
@@ -72,11 +72,11 @@ public final class j {
             if ((jVar.c + i) - jVar.b > 2048) {
                 throw new IllegalArgumentException();
             }
-            System.arraycopy(jVar.f4357a, jVar.b, jVar.f4357a, 0, jVar.c - jVar.b);
+            System.arraycopy(jVar.f4127a, jVar.b, jVar.f4127a, 0, jVar.c - jVar.b);
             jVar.c -= jVar.b;
             jVar.b = 0;
         }
-        System.arraycopy(this.f4357a, this.b, jVar.f4357a, jVar.c, i);
+        System.arraycopy(this.f4127a, this.b, jVar.f4127a, jVar.c, i);
         jVar.c += i;
         this.b += i;
     }

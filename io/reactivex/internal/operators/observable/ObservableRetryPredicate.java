@@ -1,12 +1,12 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.c.j;
+import io.reactivex.b.j;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class ObservableRetryPredicate<T> extends a<T, T> {
     final long count;
     final j<? super Throwable> predicate;
@@ -18,7 +18,7 @@ public final class ObservableRetryPredicate<T> extends a<T, T> {
         new RepeatObserver(uVar, this.count, this.predicate, sequentialDisposable, this.source).subscribeNext();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class RepeatObserver<T> extends AtomicInteger implements u<T> {
         private static final long serialVersionUID = -7098360935104053232L;
         final u<? super T> actual;

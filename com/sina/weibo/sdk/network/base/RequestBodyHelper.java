@@ -42,7 +42,7 @@ public class RequestBodyHelper {
                     sb.append(ETAG.ITEM_SEPARATOR);
                 }
                 try {
-                    sb.append(URLEncoder.encode(str2, "UTF-8")).append(ETAG.EQUAL).append(URLEncoder.encode(String.valueOf(postBundle.get(str2)), "UTF-8"));
+                    sb.append(URLEncoder.encode(str2, "UTF-8")).append("=").append(URLEncoder.encode(String.valueOf(postBundle.get(str2)), "UTF-8"));
                 } catch (Exception e) {
                 }
             }

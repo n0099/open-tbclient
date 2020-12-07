@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMMarkMsgReadedMsg extends Message {
     public static final String TAG = IMMarkMsgReadedMsg.class.getSimpleName();
     private long mCategory;
@@ -114,18 +114,19 @@ public class IMMarkMsgReadedMsg extends Message {
         if (i == 0) {
             DBManager.getInstance(context).deleteCmdMsg(getUUID());
             setNeedReSend(false);
-            return;
-        }
-        if (i == 1004 || i == 1001 || i == 4001) {
-            setNeedReSend(false);
-            LoginManager.getInstance(context).triggleLogoutListener(i, str);
-        } else if (this.mReSendCount >= 3) {
-            setNeedReSend(false);
-            DBManager.getInstance(context).deleteCmdMsg(getUUID());
         } else {
-            this.mReSendCount++;
-            setNeedReSend(true);
+            if (i == 1004 || i == 1001 || i == 4001) {
+                setNeedReSend(false);
+                LoginManager.getInstance(context).triggleLogoutListener(i, str);
+            } else if (this.mReSendCount >= 3) {
+                setNeedReSend(false);
+                DBManager.getInstance(context).deleteCmdMsg(getUUID());
+            } else {
+                this.mReSendCount++;
+                setNeedReSend(true);
+            }
+            DBManager.getInstance(context).updateCmdMsgSendStatus(getUUID(), 1);
         }
-        DBManager.getInstance(context).updateCmdMsgSendStatus(getUUID(), 1);
+        super.handleMessageResult(context, jSONObject, i, str);
     }
 }

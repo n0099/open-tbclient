@@ -8,17 +8,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 import com.baidu.searchbox.dns.util.DnsUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public class a {
     private static volatile a b;
     private boolean d;
     private ConnectivityManager e;
-    private C0349a f;
+    private C0360a f;
     private boolean g = false;
     private Context mContext;
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f3584a = 5000;
+    private static long f3587a = 5000;
     private static String c = "android.net.conn.CONNECTIVITY_CHANGE";
 
     private a(Context context) {
@@ -42,7 +42,7 @@ public class a {
             this.e = (ConnectivityManager) this.mContext.getSystemService("connectivity");
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(c);
-            this.f = new C0349a();
+            this.f = new C0360a();
             this.mContext.registerReceiver(this.f, intentFilter);
             this.g = true;
         }
@@ -67,9 +67,9 @@ public class a {
     }
 
     /* renamed from: com.baidu.searchbox.dns.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    private class C0349a extends BroadcastReceiver {
-        private C0349a() {
+    /* loaded from: classes11.dex */
+    private class C0360a extends BroadcastReceiver {
+        private C0360a() {
         }
 
         @Override // android.content.BroadcastReceiver

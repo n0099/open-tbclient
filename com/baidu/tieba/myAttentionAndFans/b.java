@@ -2,26 +2,26 @@ package com.baidu.tieba.myAttentionAndFans;
 
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.be;
 import java.util.ArrayList;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public abstract class b extends BaseAdapter {
-    protected ArrayList<UserData> eHj = null;
-    boolean gQc = false;
+    protected ArrayList<UserData> eOt = null;
+    boolean gZp = false;
     private boolean mHasMore = false;
 
-    public abstract void a(bd bdVar);
+    public abstract void a(be beVar);
 
-    public abstract boolean gH(long j);
+    public abstract boolean hm(long j);
 
     public void resetData() {
-        this.eHj.clear();
+        this.eOt.clear();
     }
 
-    public void bUT() {
-        this.gQc = false;
-        if (this.eHj != null && this.eHj.size() == 0) {
-            this.gQc = true;
+    public void bYC() {
+        this.gZp = false;
+        if (this.eOt != null && this.eOt.size() == 0) {
+            this.gZp = true;
         }
     }
 

@@ -4,35 +4,35 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.heytap.mcssdk.mode.Message;
 import java.nio.ByteBuffer;
 import java.util.Map;
-import kotlin.h;
-import kotlin.jvm.internal.q;
+import kotlin.e;
+import kotlin.jvm.internal.p;
 import org.json.JSONObject;
-@h
-/* loaded from: classes12.dex */
+@e
+/* loaded from: classes19.dex */
 public final class WebSocketTask implements IWebSocketClient {
     private final String taskId;
     private final IWebSocketClient webSocketClient;
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
     public void close(int i, String str) {
-        q.n(str, TiebaInitialize.LogFields.REASON);
+        p.o(str, TiebaInitialize.LogFields.REASON);
         this.webSocketClient.close(i, str);
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
     public void send(String str) {
-        q.n(str, "message");
+        p.o(str, "message");
         this.webSocketClient.send(str);
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
     public void send(ByteBuffer byteBuffer) {
-        q.n(byteBuffer, "data");
+        p.o(byteBuffer, "data");
         this.webSocketClient.send(byteBuffer);
     }
 
     public WebSocketTask(IWebSocketClient iWebSocketClient) {
-        q.n(iWebSocketClient, "webSocketClient");
+        p.o(iWebSocketClient, "webSocketClient");
         this.webSocketClient = iWebSocketClient;
         this.taskId = "WebSocketTask-" + System.currentTimeMillis();
     }
@@ -49,27 +49,27 @@ public final class WebSocketTask implements IWebSocketClient {
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
     public void connect(WebSocketRequest webSocketRequest, final IWebSocketListener iWebSocketListener) {
-        q.n(webSocketRequest, "request");
-        q.n(iWebSocketListener, "listener");
+        p.o(webSocketRequest, "request");
+        p.o(iWebSocketListener, "listener");
         this.webSocketClient.connect(webSocketRequest, new IWebSocketListener(iWebSocketListener) { // from class: com.baidu.searchbox.websocket.WebSocketTask$connect$1
             private final /* synthetic */ IWebSocketListener $$delegate_0;
             final /* synthetic */ IWebSocketListener $listener;
 
             @Override // com.baidu.searchbox.websocket.IWebSocketListener
             public void onMessage(String str) {
-                q.n(str, "message");
+                p.o(str, "message");
                 this.$$delegate_0.onMessage(str);
             }
 
             @Override // com.baidu.searchbox.websocket.IWebSocketListener
             public void onMessage(ByteBuffer byteBuffer) {
-                q.n(byteBuffer, "data");
+                p.o(byteBuffer, "data");
                 this.$$delegate_0.onMessage(byteBuffer);
             }
 
             @Override // com.baidu.searchbox.websocket.IWebSocketListener
             public void onOpen(Map<String, String> map) {
-                q.n(map, "headers");
+                p.o(map, "headers");
                 this.$$delegate_0.onOpen(map);
             }
 
@@ -90,7 +90,7 @@ public final class WebSocketTask implements IWebSocketClient {
 
             @Override // com.baidu.searchbox.websocket.IWebSocketListener
             public void onError(Throwable th, JSONObject jSONObject) {
-                q.n(th, "t");
+                p.o(th, "t");
                 IWebSocketListener iWebSocketListener2 = this.$listener;
                 if (jSONObject == null) {
                     jSONObject = new JSONObject();

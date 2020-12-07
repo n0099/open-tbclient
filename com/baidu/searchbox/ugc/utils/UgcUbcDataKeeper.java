@@ -2,12 +2,12 @@ package com.baidu.searchbox.ugc.utils;
 
 import android.text.TextUtils;
 import com.baidu.fsg.face.liveness.video.f;
-import org.webrtc.MediaStreamTrack;
+import com.baidu.searchbox.ugc.model.PublishType;
 /* loaded from: classes9.dex */
 public class UgcUbcDataKeeper {
     private static String voteSourceFrom = "default";
     private static String naShareSourceFrom = "default";
-    private static String naSharePublishType = "9";
+    private static String naSharePublishType = PublishType.TYPE_VIDEO_SHARE;
     private static String videoUploadVideoMime = f.b;
     private static String videoUploadAudioMime = "audio/mp4a-latm";
     private static int videoIndex = -1;
@@ -56,7 +56,7 @@ public class UgcUbcDataKeeper {
         if (!TextUtils.isEmpty(str)) {
             if (str.startsWith("video")) {
                 setVideoUploadVideoMime(str);
-            } else if (str.startsWith(MediaStreamTrack.AUDIO_TRACK_KIND)) {
+            } else if (str.startsWith("audio")) {
                 setVideoUploadAudioMime(str);
             }
         }

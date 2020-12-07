@@ -8,9 +8,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.lifecycle.Lifecycle;
 import io.flutter.Log;
 import io.flutter.embedding.engine.FlutterEngine;
@@ -20,14 +17,11 @@ import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 final class FlutterActivityAndFragmentDelegate {
     private static final String TAG = "FlutterActivityAndFragmentDelegate";
-    @Nullable
     private FlutterEngine flutterEngine;
-    @Nullable
     private FlutterSplashView flutterSplashView;
-    @NonNull
     private final FlutterUiDisplayListener flutterUiDisplayListener = new FlutterUiDisplayListener() { // from class: io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.1
         @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
         public void onFlutterUiDisplayed() {
@@ -39,68 +33,52 @@ final class FlutterActivityAndFragmentDelegate {
             FlutterActivityAndFragmentDelegate.this.host.onFlutterUiNoLongerDisplayed();
         }
     };
-    @Nullable
     private FlutterView flutterView;
-    @NonNull
     private Host host;
     private boolean isFlutterEngineFromHost;
-    @Nullable
     private PlatformPlugin platformPlugin;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface Host extends FlutterEngineConfigurator, FlutterEngineProvider, SplashScreenProvider {
         @Override // io.flutter.embedding.android.FlutterEngineConfigurator
-        void cleanUpFlutterEngine(@NonNull FlutterEngine flutterEngine);
+        void cleanUpFlutterEngine(FlutterEngine flutterEngine);
 
         @Override // io.flutter.embedding.android.FlutterEngineConfigurator
-        void configureFlutterEngine(@NonNull FlutterEngine flutterEngine);
+        void configureFlutterEngine(FlutterEngine flutterEngine);
 
-        @Nullable
         Activity getActivity();
 
-        @NonNull
         String getAppBundlePath();
 
-        @Nullable
         String getCachedEngineId();
 
-        @NonNull
         Context getContext();
 
-        @NonNull
         String getDartEntrypointFunctionName();
 
-        @NonNull
         FlutterShellArgs getFlutterShellArgs();
 
-        @Nullable
         String getInitialRoute();
 
-        @NonNull
         Lifecycle getLifecycle();
 
-        @NonNull
         RenderMode getRenderMode();
 
-        @NonNull
         TransparencyMode getTransparencyMode();
 
-        void onFlutterSurfaceViewCreated(@NonNull FlutterSurfaceView flutterSurfaceView);
+        void onFlutterSurfaceViewCreated(FlutterSurfaceView flutterSurfaceView);
 
-        void onFlutterTextureViewCreated(@NonNull FlutterTextureView flutterTextureView);
+        void onFlutterTextureViewCreated(FlutterTextureView flutterTextureView);
 
         void onFlutterUiDisplayed();
 
         void onFlutterUiNoLongerDisplayed();
 
-        @Nullable
-        FlutterEngine provideFlutterEngine(@NonNull Context context);
+        FlutterEngine provideFlutterEngine(Context context);
 
-        @Nullable
-        PlatformPlugin providePlatformPlugin(@Nullable Activity activity, @NonNull FlutterEngine flutterEngine);
+        PlatformPlugin providePlatformPlugin(Activity activity, FlutterEngine flutterEngine);
 
-        @Nullable
         SplashScreen provideSplashScreen();
 
         boolean shouldAttachEngineToActivity();
@@ -109,7 +87,7 @@ final class FlutterActivityAndFragmentDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public FlutterActivityAndFragmentDelegate(@NonNull Host host) {
+    public FlutterActivityAndFragmentDelegate(Host host) {
         this.host = host;
     }
 
@@ -122,7 +100,6 @@ final class FlutterActivityAndFragmentDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    @Nullable
     public FlutterEngine getFlutterEngine() {
         return this.flutterEngine;
     }
@@ -133,7 +110,7 @@ final class FlutterActivityAndFragmentDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void onAttach(@NonNull Context context) {
+    public void onAttach(Context context) {
         ensureAlive();
         if (this.flutterEngine == null) {
             setupFlutterEngine();
@@ -146,7 +123,6 @@ final class FlutterActivityAndFragmentDelegate {
         this.host.configureFlutterEngine(this.flutterEngine);
     }
 
-    @VisibleForTesting
     void setupFlutterEngine() {
         Log.v(TAG, "Setting up FlutterEngine.");
         String cachedEngineId = this.host.getCachedEngineId();
@@ -169,8 +145,7 @@ final class FlutterActivityAndFragmentDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    @NonNull
-    public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         Log.v(TAG, "Creating FlutterView.");
         ensureAlive();
         if (this.host.getRenderMode() == RenderMode.surface) {
@@ -196,7 +171,7 @@ final class FlutterActivityAndFragmentDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void onActivityCreated(@Nullable Bundle bundle) {
+    public void onActivityCreated(Bundle bundle) {
         Log.v(TAG, "onActivityCreated. Giving plugins an opportunity to restore state.");
         ensureAlive();
         if (this.host.shouldAttachEngineToActivity()) {
@@ -265,7 +240,7 @@ final class FlutterActivityAndFragmentDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void onSaveInstanceState(@Nullable Bundle bundle) {
+    public void onSaveInstanceState(Bundle bundle) {
         Log.v(TAG, "onSaveInstanceState. Giving plugins an opportunity to save state.");
         ensureAlive();
         if (this.host.shouldAttachEngineToActivity()) {
@@ -312,7 +287,7 @@ final class FlutterActivityAndFragmentDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         ensureAlive();
         if (this.flutterEngine != null) {
             Log.v(TAG, "Forwarding onRequestPermissionsResult() to FlutterEngine:\nrequestCode: " + i + "\npermissions: " + Arrays.toString(strArr) + "\ngrantResults: " + Arrays.toString(iArr));
@@ -323,7 +298,7 @@ final class FlutterActivityAndFragmentDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void onNewIntent(@NonNull Intent intent) {
+    public void onNewIntent(Intent intent) {
         ensureAlive();
         if (this.flutterEngine != null) {
             Log.v(TAG, "Forwarding onNewIntent() to FlutterEngine.");

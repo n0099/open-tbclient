@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMPaAcceptPushMsg extends Message {
     private boolean mAcceptPush;
     private Context mContext;
@@ -66,6 +66,7 @@ public class IMPaAcceptPushMsg extends Message {
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
+        super.handleMessageResult(context, jSONObject, i, str);
         PaManagerImpl.getInstance(context).onAcceptPaPushResult(getListenerKey(), i, str, this.mPaId);
     }
 }

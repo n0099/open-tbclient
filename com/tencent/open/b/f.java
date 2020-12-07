@@ -16,11 +16,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class f extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final String[] f4590a = {"key"};
+    protected static final String[] f4360a = {"key"};
     protected static f b;
 
     public static synchronized f a() {

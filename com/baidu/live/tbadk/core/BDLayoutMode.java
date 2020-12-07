@@ -21,7 +21,6 @@ import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.searchbox.ugc.model.UgcConstant;
-import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -131,7 +130,7 @@ public class BDLayoutMode {
                     z = true;
                 }
                 if (z && TbConfig.getDebugSwitch() && (i = JavaTypesHelper.toInt(attributeValue.substring(1), 0)) != 0) {
-                    bDLayoutInfo.appendTag(attributeName + ETAG.EQUAL + this.contextRes.getResourceName(i));
+                    bDLayoutInfo.appendTag(attributeName + "=" + this.contextRes.getResourceName(i));
                 }
             }
             if (z && !TextUtils.isEmpty(bDLayoutInfo.getId()) && this.viewModeInfos != null && !this.viewModeInfos.containsKey(bDLayoutInfo.getId())) {

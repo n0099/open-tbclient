@@ -3,7 +3,7 @@ package io.reactivex.internal.operators.observable;
 import io.reactivex.internal.observers.BasicIntQueueDisposable;
 import io.reactivex.q;
 import io.reactivex.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class ObservableRange extends q<Integer> {
     private final long end;
     private final int start;
@@ -15,7 +15,7 @@ public final class ObservableRange extends q<Integer> {
         rangeDisposable.run();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class RangeDisposable extends BasicIntQueueDisposable<Integer> {
         private static final long serialVersionUID = 396518478098735504L;
         final u<? super Integer> actual;
@@ -44,7 +44,7 @@ public final class ObservableRange extends q<Integer> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public Integer poll() throws Exception {
             long j = this.index;
             if (j != this.end) {
@@ -55,12 +55,12 @@ public final class ObservableRange extends q<Integer> {
             return null;
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public boolean isEmpty() {
             return this.index == this.end;
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public void clear() {
             this.index = this.end;
             lazySet(1);

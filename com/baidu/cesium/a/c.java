@@ -1,7 +1,7 @@
 package com.baidu.cesium.a;
 
 import java.util.Arrays;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 class c {
     public static void a(byte[] bArr, byte[] bArr2, int i) {
         if (i < 0) {

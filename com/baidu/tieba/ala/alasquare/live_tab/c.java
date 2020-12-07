@@ -12,15 +12,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.R;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static final void a(TbPageContext tbPageContext, String str, String str2) {
-        bf.bqF().b(tbPageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + ETAG.ITEM_SEPARATOR + "livetype" + ETAG.EQUAL + str2});
+        bf.bua().b(tbPageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + ETAG.ITEM_SEPARATOR + "livetype=" + str2});
     }
 
     public static void a(Context context, SdkLiveInfoData sdkLiveInfoData) {
@@ -45,34 +45,34 @@ public class c {
         }
     }
 
-    public static void a(TbPageContext tbPageContext, SdkLiveInfoData sdkLiveInfoData) {
+    public static void a(TbPageContext tbPageContext, SdkLiveInfoData sdkLiveInfoData, String str) {
         if (tbPageContext != null && sdkLiveInfoData != null) {
-            bf.bqF().b(tbPageContext, new String[]{"bdtiebalive://video/live?room_id=" + sdkLiveInfoData.roomId + "&live_id=" + sdkLiveInfoData.liveId + "&enterroom_type=1"});
+            bf.bua().b(tbPageContext, new String[]{"bdtiebalive://video/live?room_id=" + sdkLiveInfoData.roomId + "&live_id=" + sdkLiveInfoData.liveId + "&enterroom_type=1&from=" + str});
         }
     }
 
-    public static void a(Context context, bx bxVar) {
-        b(context, bxVar, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_TAB_MY_CONCERN);
+    public static void a(Context context, by byVar) {
+        b(context, byVar, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_TAB_MY_CONCERN);
     }
 
-    private static void b(Context context, bx bxVar, String str) {
+    private static void b(Context context, by byVar, String str) {
         if (!j.isNetWorkAvailable()) {
             l.showLongToast(context, context.getString(R.string.no_network_guide));
-        } else if (context != null && bxVar != null && bxVar.blC() != null && bxVar.blW() != null) {
+        } else if (context != null && byVar != null && byVar.boP() != null && byVar.bpj() != null) {
             boolean z = false;
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bxVar.blC().getUserId();
+                String userId = byVar.boP().getUserId();
                 str2 = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str2);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bxVar.blW());
+            alaLiveInfoCoreData.fillWithInfoData(byVar.bpj());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, null, str, str2, z, null, null)));
         }
     }
 
-    public static int[] eX(Context context) {
+    public static int[] fD(Context context) {
         int dimensionPixelSize = l.getScreenDimensions(context)[0] - (context.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
         return new int[]{dimensionPixelSize, (int) ((dimensionPixelSize * 9.0d) / 16.0d)};
     }

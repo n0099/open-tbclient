@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.Base64;
 import com.baidu.live.data.AlaWheatInfoData;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +24,7 @@ public class r {
         }
     }
 
-    public static List<a> iB(String str) {
+    public static List<a> jf(String str) {
         ArrayList arrayList = new ArrayList();
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -43,7 +42,7 @@ public class r {
         return arrayList;
     }
 
-    public static String ah(List<AlaWheatInfoData> list) {
+    public static String aj(List<AlaWheatInfoData> list) {
         JSONArray jSONArray = new JSONArray();
         if (list != null && list.size() > 0) {
             for (AlaWheatInfoData alaWheatInfoData : list) {
@@ -60,11 +59,11 @@ public class r {
         return jSONArray.toString();
     }
 
-    public static String A(String str, String str2, String str3) {
+    public static String D(String str, String str2, String str3) {
         return str + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str3;
     }
 
-    public static final String iC(String str) {
-        return !TextUtils.isEmpty(str) ? Base64.encodeBytes(str.getBytes()).replace("+", Constants.ACCEPT_TIME_SEPARATOR_SERVER).replace("/", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).replace(ETAG.EQUAL, "") : "";
+    public static final String jg(String str) {
+        return !TextUtils.isEmpty(str) ? Base64.encodeBytes(str.getBytes()).replace("+", Constants.ACCEPT_TIME_SEPARATOR_SERVER).replace("/", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).replace("=", "") : "";
     }
 }

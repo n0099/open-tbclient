@@ -16,7 +16,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.b.a.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class a extends BaseAdapter {
     private Context context;
     private List<com.baidu.tieba.pb.b.a.d> list = new ArrayList();
@@ -24,9 +24,9 @@ public class a extends BaseAdapter {
     private int padding;
 
     /* renamed from: com.baidu.tieba.pb.chosen.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    public static class C0812a {
-        TbImageView aab;
+    /* loaded from: classes23.dex */
+    public static class C0828a {
+        TbImageView aaX;
     }
 
     public a(Context context) {
@@ -45,7 +45,7 @@ public class a extends BaseAdapter {
         return this.list.size();
     }
 
-    public void fb(List<com.baidu.tieba.pb.b.a.d> list) {
+    public void fm(List<com.baidu.tieba.pb.b.a.d> list) {
         this.list.clear();
         if (list != null && list.size() > 0) {
             this.list.addAll(list);
@@ -54,7 +54,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: FY */
+    /* renamed from: GN */
     public com.baidu.tieba.pb.b.a.d getItem(int i) {
         if (this.list == null || this.list.size() <= 0) {
             return null;
@@ -110,33 +110,33 @@ public class a extends BaseAdapter {
     }
 
     private View h(int i, View view) {
-        C0812a c0812a;
-        if (view == null || !(view.getTag() instanceof C0812a)) {
+        C0828a c0828a;
+        if (view == null || !(view.getTag() instanceof C0828a)) {
             view = LayoutInflater.from(this.context).inflate(R.layout.chosen_pb_image_item, (ViewGroup) null);
-            c0812a = new C0812a();
-            c0812a.aab = (TbImageView) view.findViewById(R.id.pb_chosen_list_image);
-            view.setTag(c0812a);
+            c0828a = new C0828a();
+            c0828a.aaX = (TbImageView) view.findViewById(R.id.pb_chosen_list_image);
+            view.setTag(c0828a);
         } else {
-            c0812a = (C0812a) view.getTag();
+            c0828a = (C0828a) view.getTag();
         }
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.b.a.e) {
             com.baidu.tieba.pb.b.a.e eVar = (com.baidu.tieba.pb.b.a.e) item;
-            if (StringUtils.isNull(eVar.lKG) || "1".equals(eVar.lKG)) {
-                c0812a.aab.setVisibility(8);
+            if (StringUtils.isNull(eVar.lYE) || "1".equals(eVar.lYE)) {
+                c0828a.aaX.setVisibility(8);
             } else {
-                c0812a.aab.setVisibility(0);
-                ViewGroup.LayoutParams layoutParams = c0812a.aab.getLayoutParams();
+                c0828a.aaX.setVisibility(0);
+                ViewGroup.LayoutParams layoutParams = c0828a.aaX.getLayoutParams();
                 int i2 = this.maxWidth;
-                int GU = eVar.GU(i2);
+                int HL = eVar.HL(i2);
                 if (layoutParams == null) {
-                    layoutParams = new AbsListView.LayoutParams(i2, GU);
+                    layoutParams = new AbsListView.LayoutParams(i2, HL);
                 } else {
-                    layoutParams.height = GU;
+                    layoutParams.height = HL;
                     layoutParams.width = i2;
                 }
-                c0812a.aab.setLayoutParams(layoutParams);
-                c0812a.aab.startLoad(eVar.getSrc(), 17, false);
+                c0828a.aaX.setLayoutParams(layoutParams);
+                c0828a.aaX.startLoad(eVar.getSrc(), 17, false);
             }
         }
         return view;
@@ -156,8 +156,8 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof g) {
             g gVar = (g) item;
-            textView.setText(gVar.dpP());
-            switch (gVar.dpR()) {
+            textView.setText(gVar.dvi());
+            switch (gVar.dvk()) {
                 case 1:
                     textView.setGravity(17);
                     break;
@@ -168,8 +168,8 @@ public class a extends BaseAdapter {
                     textView.setGravity(3);
                     break;
             }
-            if (!StringUtils.isNull(gVar.dpS())) {
-                if (!ap.setViewTextColor(textView, gVar.dpS())) {
+            if (!StringUtils.isNull(gVar.dvl())) {
+                if (!ap.setViewTextColor(textView, gVar.dvl())) {
                     ap.setViewTextColor(textView, R.color.CAM_X0105, 1);
                 }
             } else {

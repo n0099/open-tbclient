@@ -8,9 +8,9 @@ public interface a {
 
     void B(int i, String str);
 
-    void Uk();
+    void WM();
 
-    void Ul();
+    void WN();
 
     void a(long j, View view, View view2);
 
@@ -20,13 +20,14 @@ public interface a {
 
     void a(boolean z, int i, String str);
 
-    void aY(long j);
-
     void b(boolean z, int i, String str);
 
-    void cZ(boolean z);
+    void bw(long j);
 
-    void da(boolean z);
+    void dn(boolean z);
+
+    /* renamed from: do  reason: not valid java name */
+    void m22do(boolean z);
 
     void z(int i, String str);
 }

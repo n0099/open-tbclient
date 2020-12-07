@@ -10,8 +10,8 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class AlaGiftMicrophoneOpBtn extends TextView {
-    private LinearGradient bQd;
-    private LinearGradient bQe;
+    private LinearGradient bVn;
+    private LinearGradient bVo;
 
     public AlaGiftMicrophoneOpBtn(Context context) {
         this(context, null);
@@ -25,8 +25,8 @@ public class AlaGiftMicrophoneOpBtn extends TextView {
         setPadding(dimension, dimension2, dimension, dimension2);
         setTextSize(0, dimension3);
         setGravity(17);
-        this.bQd = new LinearGradient(0.0f, 0.0f, 0.0f, getPaint().getTextSize(), Color.parseColor("#FF6619"), Color.parseColor("#FF1E66"), Shader.TileMode.CLAMP);
-        this.bQe = new LinearGradient(0.0f, 0.0f, 0.0f, getPaint().getTextSize(), Color.parseColor("#FFFFFF"), Color.parseColor("#FFFFFF"), Shader.TileMode.CLAMP);
+        this.bVn = new LinearGradient(0.0f, 0.0f, 0.0f, getPaint().getTextSize(), Color.parseColor("#FF6619"), Color.parseColor("#FF1E66"), Shader.TileMode.CLAMP);
+        this.bVo = new LinearGradient(0.0f, 0.0f, 0.0f, getPaint().getTextSize(), Color.parseColor("#FFFFFF"), Color.parseColor("#FFFFFF"), Shader.TileMode.CLAMP);
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -34,12 +34,12 @@ public class AlaGiftMicrophoneOpBtn extends TextView {
         super.setSelected(z);
         if (z) {
             setBackgroundDrawable(getResources().getDrawable(a.e.yuyin_ala_gift_radius_60_solid_red));
-            getPaint().setShader(this.bQe);
+            getPaint().setShader(this.bVo);
             invalidate();
             return;
         }
         setBackgroundDrawable(getResources().getDrawable(a.e.yuyin_ala_gift_radius_60_hollow_red));
-        getPaint().setShader(this.bQd);
+        getPaint().setShader(this.bVn);
         invalidate();
     }
 }

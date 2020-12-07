@@ -1,13 +1,12 @@
 package com.opensource.svgaplayer.entities;
 
 import android.graphics.Path;
-import kotlin.h;
-@h
-/* loaded from: classes17.dex */
+@kotlin.e
+/* loaded from: classes18.dex */
 public final class e {
-    private static final Path pFT = new Path();
+    private static final Path pzz = new Path();
 
-    public static final Path exw() {
-        return pFT;
+    public static final Path eAt() {
+        return pzz;
     }
 }

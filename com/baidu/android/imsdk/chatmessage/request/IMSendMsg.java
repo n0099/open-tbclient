@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
-import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.DuzhanUpMsgCreator;
@@ -22,7 +21,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMSendMsg extends Message {
     private static final String TAG = "IMSendMsg";
     private List<Long> mAtUsers;
@@ -54,7 +53,7 @@ public class IMSendMsg extends Message {
         if (intent.hasExtra(Constants.EXTRA_SEND_MSG) && (chatMsg = (ChatMsg) intent.getParcelableExtra(Constants.EXTRA_SEND_MSG)) != null) {
             int chatType = chatMsg.getChatType();
             int msgType = chatMsg.getMsgType();
-            if (chatType == 7 || chatType == 16 || chatType == 25) {
+            if (chatType == 7 || chatType == 16 || chatType == 25 || msgType == 18) {
                 DuzhanUpMsgCreator.reCreateChatMsg(chatType, chatMsg);
                 msgType = 80;
             }
@@ -154,19 +153,13 @@ public class IMSendMsg extends Message {
         } catch (Exception e) {
             LogUtils.e(TAG, "handle IMSendMsg exception :", e);
         }
-        if (i == 0) {
-            if (!z) {
-                str = Constants.ERROR_MSG_SERVER_INTERNAL_ERROR;
-                i2 = 1015;
-                LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str);
-                getChatMsg().setTipsCode(i2);
-                getChatMsg().setTips(str2);
-                ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(i2, getChatMsg(), j, getListenerKey());
-            }
-        } else if (i == 4001) {
-            LoginManager.getInstance(this.mContext).triggleLogoutListener(i, str);
+        if (i != 0 || z) {
+            i2 = i;
+        } else {
+            str = Constants.ERROR_MSG_SERVER_INTERNAL_ERROR;
+            i2 = 1015;
         }
-        i2 = i;
+        super.handleMessageResult(context, jSONObject, i2, str);
         LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str);
         getChatMsg().setTipsCode(i2);
         getChatMsg().setTips(str2);

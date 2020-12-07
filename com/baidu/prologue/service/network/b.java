@@ -1,7 +1,6 @@
 package com.baidu.prologue.service.network;
 
 import android.text.TextUtils;
-import com.baidu.webkit.internal.ETAG;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Map;
@@ -18,7 +17,7 @@ public abstract class b implements e {
             }
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 sb.append(entry.getKey());
-                sb.append(ETAG.EQUAL);
+                sb.append("=");
                 sb.append(entry.getValue());
                 sb.append('&');
             }

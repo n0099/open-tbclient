@@ -2,22 +2,22 @@ package com.airbnb.lottie.model.content;
 
 import android.graphics.Path;
 import android.support.annotation.Nullable;
-/* loaded from: classes16.dex */
+/* loaded from: classes7.dex */
 public class i implements b {
     @Nullable
-    private final com.airbnb.lottie.model.a.a EP;
+    private final com.airbnb.lottie.model.a.a FG;
     @Nullable
-    private final com.airbnb.lottie.model.a.d EY;
-    private final boolean FF;
-    private final Path.FillType Ff;
+    private final com.airbnb.lottie.model.a.d FO;
+    private final Path.FillType FX;
+    private final boolean Gx;
     private final String name;
 
     public i(String str, boolean z, Path.FillType fillType, @Nullable com.airbnb.lottie.model.a.a aVar, @Nullable com.airbnb.lottie.model.a.d dVar) {
         this.name = str;
-        this.FF = z;
-        this.Ff = fillType;
-        this.EP = aVar;
-        this.EY = dVar;
+        this.Gx = z;
+        this.FX = fillType;
+        this.FG = aVar;
+        this.FO = dVar;
     }
 
     public String getName() {
@@ -26,16 +26,16 @@ public class i implements b {
 
     @Nullable
     public com.airbnb.lottie.model.a.a kp() {
-        return this.EP;
+        return this.FG;
     }
 
     @Nullable
     public com.airbnb.lottie.model.a.d jJ() {
-        return this.EY;
+        return this.FO;
     }
 
     public Path.FillType jQ() {
-        return this.Ff;
+        return this.FX;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -44,6 +44,6 @@ public class i implements b {
     }
 
     public String toString() {
-        return "ShapeFill{color=, fillEnabled=" + this.FF + '}';
+        return "ShapeFill{color=, fillEnabled=" + this.Gx + '}';
     }
 }

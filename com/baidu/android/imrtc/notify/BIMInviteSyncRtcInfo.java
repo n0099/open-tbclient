@@ -3,7 +3,7 @@ package com.baidu.android.imrtc.notify;
 import android.support.annotation.NonNull;
 import com.baidu.android.imrtc.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes12.dex */
 public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
     private static final String TAG = "IMInviteRtcInfo";
     private int mMediaType;

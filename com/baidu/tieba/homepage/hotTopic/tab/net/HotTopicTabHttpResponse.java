@@ -7,7 +7,7 @@ import com.baidu.tieba.homepage.hotTopic.tab.c;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements a {
     private HotThreadListResIdl mData;
     private List<q> mHotTopicDataList;

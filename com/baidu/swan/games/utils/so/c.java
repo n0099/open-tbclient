@@ -8,23 +8,23 @@ import com.baidu.swan.games.utils.so.SoUtils;
 import java.io.File;
 import java.util.Arrays;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class c implements SoUtils.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.games.utils.so.SoUtils.a
     public void onEvent(String str, String str2) {
         if (!TextUtils.isEmpty(str2)) {
-            String str3 = Arrays.toString(new String[]{Build.CPU_ABI, Build.CPU_ABI2}) + "\n" + com.baidu.swan.apps.c.getVersion() + "\n" + xO("v8.engine") + "\n" + xO("zeusv8") + "\n" + str2;
+            String str3 = Arrays.toString(new String[]{Build.CPU_ABI, Build.CPU_ABI2}) + "\n" + com.baidu.swan.apps.c.getVersion() + "\n" + yv("v8.engine") + "\n" + yv("zeusv8") + "\n" + str2;
             if (DEBUG) {
                 Log.d("SoUbcDefaultImpl", "reportSoLoadInfo: " + str3);
             }
-            new c.a(10007).sQ(str).sS(str3).sR(com.baidu.swan.apps.runtime.e.aGO()).atj();
+            new c.a(10007).tx(str).tz(str3).ty(com.baidu.swan.apps.runtime.e.aJW()).awr();
         }
     }
 
-    private String xO(String str) {
-        File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(com.baidu.swan.apps.t.a.avS(), str);
+    private String yv(String str) {
+        File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(com.baidu.swan.apps.t.a.aza(), str);
         return String.format(Locale.CHINA, "[%s:%s,size:%d]", str, findSoFilesInLibrary == null ? null : findSoFilesInLibrary.getAbsolutePath(), Long.valueOf(findSoFilesInLibrary == null ? 0L : findSoFilesInLibrary.length()));
     }
 }

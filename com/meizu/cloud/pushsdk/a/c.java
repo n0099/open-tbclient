@@ -12,24 +12,24 @@ import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f4306a = c.class.getSimpleName();
+    public static final String f4076a = c.class.getSimpleName();
     private HashMap<String, String> b;
     private HashMap<String, String> c;
     private HashMap<String, Object> d;
     private HashMap<String, Object> e;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f4307a = null;
+        private Context f4077a = null;
 
         public a a(Context context) {
-            this.f4307a = context;
+            this.f4077a = context;
             return this;
         }
 
@@ -44,10 +44,10 @@ public class c {
         this.d = new HashMap<>();
         this.e = new HashMap<>();
         e();
-        if (aVar.f4307a != null) {
-            a(aVar.f4307a);
+        if (aVar.f4077a != null) {
+            a(aVar.f4077a);
         }
-        com.meizu.cloud.a.a.i(f4306a, "Subject created successfully.");
+        com.meizu.cloud.a.a.i(f4076a, "Subject created successfully.");
     }
 
     private void a(Context context, long j) {
@@ -108,7 +108,7 @@ public class c {
     private void e(Context context) {
         Location c = e.c(context);
         if (c == null) {
-            com.meizu.cloud.a.a.e(f4306a, "Location information not available.");
+            com.meizu.cloud.a.a.e(f4076a, "Location information not available.");
             return;
         }
         b(b.B, Double.valueOf(c.getLongitude()));
@@ -162,11 +162,11 @@ public class c {
                 display.getSize(point);
                 a(point.x, point.y);
             } catch (Exception e) {
-                com.meizu.cloud.a.a.e(f4306a, "Display.getSize isn't available on older devices.");
+                com.meizu.cloud.a.a.e(f4076a, "Display.getSize isn't available on older devices.");
                 if (display != null) {
                     a(display.getWidth(), display.getHeight());
                 } else {
-                    com.meizu.cloud.a.a.e(f4306a, "error get display");
+                    com.meizu.cloud.a.a.e(f4076a, "error get display");
                 }
             }
         } catch (Exception e2) {

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
-import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.upload.action.IMTrack;
@@ -13,7 +12,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMSyncPushMsg extends Message {
     public static final String TAG = IMSyncPushMsg.class.getSimpleName();
     private String mChannelId;
@@ -82,8 +81,6 @@ public class IMSyncPushMsg extends Message {
             return;
         }
         setNeedReSend(false);
-        if (i == 4001) {
-            LoginManager.getInstance(this.mContext).triggleLogoutListener(i, str);
-        }
+        super.handleMessageResult(context, jSONObject, i, str);
     }
 }

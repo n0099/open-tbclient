@@ -1,25 +1,25 @@
 package kotlin;
 
 import java.io.Serializable;
-import kotlin.jvm.internal.q;
-@h
-/* loaded from: classes9.dex */
-public final class UnsafeLazyImpl<T> implements Serializable, d<T> {
+import kotlin.jvm.internal.p;
+@e
+/* loaded from: classes17.dex */
+public final class UnsafeLazyImpl<T> implements Serializable, c<T> {
     private Object _value;
     private kotlin.jvm.a.a<? extends T> initializer;
 
     public UnsafeLazyImpl(kotlin.jvm.a.a<? extends T> aVar) {
-        q.n(aVar, "initializer");
+        p.o(aVar, "initializer");
         this.initializer = aVar;
-        this._value = k.pTu;
+        this._value = g.pJX;
     }
 
-    @Override // kotlin.d
+    @Override // kotlin.c
     public T getValue() {
-        if (this._value == k.pTu) {
+        if (this._value == g.pJX) {
             kotlin.jvm.a.a<? extends T> aVar = this.initializer;
             if (aVar == null) {
-                q.eBQ();
+                p.eDZ();
             }
             this._value = aVar.invoke();
             this.initializer = null;
@@ -28,7 +28,7 @@ public final class UnsafeLazyImpl<T> implements Serializable, d<T> {
     }
 
     public boolean isInitialized() {
-        return this._value != k.pTu;
+        return this._value != g.pJX;
     }
 
     public String toString() {

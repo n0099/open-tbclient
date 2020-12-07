@@ -1,7 +1,6 @@
 package com.baidu.fsg.base.restnet.b;
 
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
@@ -12,15 +11,15 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class c implements HostnameVerifier {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f1465a;
+    final /* synthetic */ b f1467a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f1465a = bVar;
+        this.f1467a = bVar;
     }
 
     @Override // javax.net.ssl.HostnameVerifier
@@ -28,7 +27,7 @@ public class c implements HostnameVerifier {
         e eVar;
         try {
             Certificate[] peerCertificates = sSLSession.getPeerCertificates();
-            eVar = this.f1465a.e;
+            eVar = this.f1467a.e;
             String v = eVar.b().v();
             if (!TextUtils.isEmpty(v) && peerCertificates != null && peerCertificates.length > 0) {
                 X509Certificate x509Certificate = (X509Certificate) peerCertificates[0];
@@ -49,7 +48,7 @@ public class c implements HostnameVerifier {
                     String name = x509Certificate.getSubjectDN().getName();
                     if (!TextUtils.isEmpty(name) && name.contains("CN=")) {
                         int indexOf = name.indexOf("CN=") + 3;
-                        int indexOf2 = name.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP, indexOf);
+                        int indexOf2 = name.indexOf(",", indexOf);
                         if (v.equals(indexOf2 > indexOf ? name.substring(indexOf, indexOf2) : name.substring(indexOf))) {
                             return true;
                         }

@@ -3,33 +3,33 @@ package rx.a.b;
 import android.os.Looper;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.g;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public final class a {
-    private static final AtomicReference<a> qfo = new AtomicReference<>();
-    private final g qfp;
+    private static final AtomicReference<a> pPq = new AtomicReference<>();
+    private final g pPr;
 
-    private static a eFz() {
+    private static a eFy() {
         a aVar;
         do {
-            aVar = qfo.get();
+            aVar = pPq.get();
             if (aVar != null) {
                 break;
             }
             aVar = new a();
-        } while (!qfo.compareAndSet(null, aVar));
+        } while (!pPq.compareAndSet(null, aVar));
         return aVar;
     }
 
     private a() {
-        g eFy = rx.a.a.a.eFv().eFw().eFy();
-        if (eFy != null) {
-            this.qfp = eFy;
+        g eFx = rx.a.a.a.eFu().eFv().eFx();
+        if (eFx != null) {
+            this.pPr = eFx;
         } else {
-            this.qfp = new b(Looper.getMainLooper());
+            this.pPr = new b(Looper.getMainLooper());
         }
     }
 
-    public static g eFA() {
-        return eFz().qfp;
+    public static g eFz() {
+        return eFy().pPr;
     }
 }

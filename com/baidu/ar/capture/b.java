@@ -3,73 +3,73 @@ package com.baidu.ar.capture;
 import android.graphics.Bitmap;
 import com.baidu.ar.callback.ICallbackWith;
 import java.lang.ref.WeakReference;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.ar.d implements ICapture {
-    private WeakReference<ICapture> kL;
-    private ICaptureAbilityListener kM;
+    private WeakReference<ICapture> la;
+    private ICaptureAbilityListener lb;
 
     @Override // com.baidu.ar.d
     public void a(com.baidu.ar.c cVar) {
         if (cVar == null) {
-            if (this.kL != null) {
-                this.kL.clear();
-                this.kL = null;
+            if (this.la != null) {
+                this.la.clear();
+                this.la = null;
             }
         } else if (cVar instanceof ICapture) {
-            this.kL = new WeakReference<>((ICapture) cVar);
-            if (this.kM != null) {
-                this.kL.get().setAbilityListener(this.kM);
+            this.la = new WeakReference<>((ICapture) cVar);
+            if (this.lb != null) {
+                this.la.get().setAbilityListener(this.lb);
             }
         }
     }
 
     @Override // com.baidu.ar.capture.ICapture
     public void capture(ICallbackWith<ICaptureResult> iCallbackWith) {
-        if (this.kL == null || this.kL.get() == null || iCallbackWith == null) {
+        if (this.la == null || this.la.get() == null || iCallbackWith == null) {
             return;
         }
-        this.kL.get().capture(iCallbackWith);
+        this.la.get().capture(iCallbackWith);
     }
 
     @Override // com.baidu.ar.d
     public void release() {
-        this.kM = null;
-        if (this.kL != null) {
-            this.kL.clear();
-            this.kL = null;
+        this.lb = null;
+        if (this.la != null) {
+            this.la.clear();
+            this.la = null;
         }
     }
 
     @Override // com.baidu.ar.capture.ICapture
     public void sendBase64ImageToLua(String... strArr) {
-        if (this.kL == null || this.kL.get() == null || strArr == null || strArr.length <= 0) {
+        if (this.la == null || this.la.get() == null || strArr == null || strArr.length <= 0) {
             return;
         }
-        this.kL.get().sendBase64ImageToLua(strArr);
+        this.la.get().sendBase64ImageToLua(strArr);
     }
 
     @Override // com.baidu.ar.capture.ICapture
     public void sendImageToLua(Bitmap... bitmapArr) {
-        if (this.kL == null || this.kL.get() == null || bitmapArr == null || bitmapArr.length <= 0) {
+        if (this.la == null || this.la.get() == null || bitmapArr == null || bitmapArr.length <= 0) {
             return;
         }
-        this.kL.get().sendImageToLua(bitmapArr);
+        this.la.get().sendImageToLua(bitmapArr);
     }
 
     @Override // com.baidu.ar.capture.ICapture
     public void setAbilityListener(ICaptureAbilityListener iCaptureAbilityListener) {
-        if (this.kL == null || this.kL.get() == null) {
-            this.kM = iCaptureAbilityListener;
+        if (this.la == null || this.la.get() == null) {
+            this.lb = iCaptureAbilityListener;
         } else {
-            this.kL.get().setAbilityListener(iCaptureAbilityListener);
+            this.la.get().setAbilityListener(iCaptureAbilityListener);
         }
     }
 
     @Override // com.baidu.ar.capture.ICapture
     public void setCaptureCallback(ICallbackWith<ICaptureResult> iCallbackWith) {
-        if (this.kL == null || this.kL.get() == null || iCallbackWith == null) {
+        if (this.la == null || this.la.get() == null || iCallbackWith == null) {
             return;
         }
-        this.kL.get().setCaptureCallback(iCallbackWith);
+        this.la.get().setCaptureCallback(iCallbackWith);
     }
 }

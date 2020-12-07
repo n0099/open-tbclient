@@ -14,7 +14,7 @@ import android.webkit.ValueCallback;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.k.a.a;
+import com.baidu.l.a.a;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
@@ -52,7 +52,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class BaseActivity extends TitleActivity {
     public static final String EXTRA_PARAM_BUSINESS_FROM = "extra_params_business_from";
     public static final int EXTRA_PARAM_FROM_ACCOUNT_CENTER = 2003;
@@ -71,7 +71,7 @@ public class BaseActivity extends TitleActivity {
     private static final int o = 1003;
 
     /* renamed from: a  reason: collision with root package name */
-    private ValueCallback<Uri> f3320a;
+    private ValueCallback<Uri> f3323a;
     private ValueCallback<Uri[]> b;
     private SapiWebView.PickPhotoResult c;
     private SapiWebView.BiometricsIdentifyResult d;
@@ -155,9 +155,9 @@ public class BaseActivity extends TitleActivity {
             a2.onActivityResult(i, i2, intent);
         }
         if (i == 1010) {
-            if (this.f3320a != null) {
-                this.f3320a.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
-                this.f3320a = null;
+            if (this.f3323a != null) {
+                this.f3323a.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
+                this.f3323a = null;
             }
         } else if (i == 1011) {
             if (this.b != null) {
@@ -488,7 +488,7 @@ public class BaseActivity extends TitleActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ValueCallback<Uri> valueCallback) {
-        this.f3320a = valueCallback;
+        this.f3323a = valueCallback;
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");

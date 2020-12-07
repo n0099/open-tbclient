@@ -6,11 +6,11 @@ import com.baidu.ala.recorder.AlaLiveRecorder;
 import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
 public interface a {
-    boolean Rt();
+    boolean TR();
 
-    boolean Ru();
+    boolean TS();
 
-    boolean Rv();
+    boolean TT();
 
     int a(com.baidu.live.talentshow.d.a.b bVar);
 
@@ -18,21 +18,25 @@ public interface a {
 
     void a(f fVar);
 
-    int aJ(long j);
+    int bh(long j);
 
-    View aK(long j);
+    View bi(long j);
 
-    boolean aL(long j);
+    boolean bj(long j);
 
-    String aM(long j);
+    String bk(long j);
 
-    long fk(int i);
+    long fI(int i);
 
     void init(Context context);
 
     boolean isFull();
 
+    void onBackground();
+
     void onDestroy();
+
+    void onForeground();
 
     void setLiveShowData(w wVar);
 

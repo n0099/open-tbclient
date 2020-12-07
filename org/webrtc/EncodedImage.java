@@ -2,7 +2,7 @@ package org.webrtc;
 
 import java.nio.ByteBuffer;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class EncodedImage {
     public final ByteBuffer buffer;
     public final long captureTimeMs;
@@ -14,7 +14,7 @@ public class EncodedImage {
     public final Integer qp;
     public final int rotation;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class Builder {
         private ByteBuffer buffer;
         private long captureTimeNs;
@@ -79,7 +79,7 @@ public class EncodedImage {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public enum FrameType {
         EmptyFrame(0),
         VideoFrameKey(3),

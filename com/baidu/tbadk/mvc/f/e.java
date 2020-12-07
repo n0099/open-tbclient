@@ -8,19 +8,19 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.mvc.d.b;
-import com.baidu.tieba.tbadkCore.s;
+import com.baidu.tieba.tbadkCore.t;
 /* loaded from: classes.dex */
-public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements s {
+public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements t {
     private D data;
-    private S fsP;
-    private final ViewEventCenter ftu;
+    private S fAC;
+    private final ViewEventCenter fBg;
     private TbPageContext<?> pageContext;
     private final View rootView;
 
     public e(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         this.pageContext = tbPageContext;
         this.rootView = view;
-        this.ftu = viewEventCenter;
+        this.fBg = viewEventCenter;
     }
 
     public View getRootView() {
@@ -28,8 +28,8 @@ public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements s {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ViewEventCenter bBn() {
-        return this.ftu;
+    public ViewEventCenter bEP() {
+        return this.fBg;
     }
 
     public void a(D d, S s) {
@@ -41,8 +41,8 @@ public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements s {
         return this.data;
     }
 
-    public S bAT() {
-        return this.fsP;
+    public S bEv() {
+        return this.fAC;
     }
 
     public void au(D d) {
@@ -50,7 +50,7 @@ public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements s {
     }
 
     public void b(S s) {
-        this.fsP = s;
+        this.fAC = s;
     }
 
     public TbPageContext<?> getPageContext() {

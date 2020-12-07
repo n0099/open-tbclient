@@ -1,23 +1,18 @@
 package com.facebook.imagepipeline.b;
 
-import android.annotation.TargetApi;
-import android.graphics.Bitmap;
-import com.facebook.imagepipeline.nativecode.Bitmaps;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
-@TargetApi(21)
-/* loaded from: classes15.dex */
-public class a extends f {
-    private final com.facebook.imagepipeline.memory.c oUV;
-
-    public a(com.facebook.imagepipeline.memory.c cVar) {
-        this.oUV = cVar;
-    }
-
-    @Override // com.facebook.imagepipeline.b.f
-    public com.facebook.common.references.a<Bitmap> c(int i, int i2, Bitmap.Config config) {
-        Bitmap bitmap = this.oUV.get(com.facebook.d.a.e(i, i2, config));
-        Bitmaps.a(bitmap, i, i2, config);
-        return com.facebook.common.references.a.a(bitmap, this.oUV);
+import com.facebook.imagepipeline.b.h;
+/* loaded from: classes7.dex */
+public class a {
+    public static h<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> a(com.facebook.common.internal.j<q> jVar, com.facebook.common.memory.c cVar, h.a aVar) {
+        h<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> hVar = new h<>(new v<com.facebook.imagepipeline.f.c>() { // from class: com.facebook.imagepipeline.b.a.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.facebook.imagepipeline.b.v
+            /* renamed from: e */
+            public int bq(com.facebook.imagepipeline.f.c cVar2) {
+                return cVar2.getSizeInBytes();
+            }
+        }, aVar, jVar);
+        cVar.a(hVar);
+        return hVar;
     }
 }

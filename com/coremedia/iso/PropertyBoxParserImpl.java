@@ -1,7 +1,6 @@
 package com.coremedia.iso;
 
 import com.coremedia.iso.boxes.Box;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
@@ -10,7 +9,7 @@ import java.util.Enumeration;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public class PropertyBoxParserImpl extends AbstractBoxParser {
     static String[] EMPTY_STRING_ARRAY = new String[0];
     String clazzName;
@@ -133,7 +132,7 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
         if (matcher.group(2).length() == 0) {
             this.param = EMPTY_STRING_ARRAY;
         } else {
-            this.param = matcher.group(2).length() > 0 ? matcher.group(2).split(Constants.ACCEPT_TIME_SEPARATOR_SP) : new String[0];
+            this.param = matcher.group(2).length() > 0 ? matcher.group(2).split(",") : new String[0];
         }
     }
 }

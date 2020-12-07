@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class DuPaBInfoMsg extends ChatMsg {
     private static final String B_ACTION = "action";
     public static final int B_ACTION_ENTER = 1;

@@ -5,12 +5,12 @@ import android.support.v4.view.ViewCompat;
 import android.support.v7.recyclerview.R;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-/* loaded from: classes8.dex */
+/* loaded from: classes14.dex */
 class ItemTouchUIUtilImpl {
     ItemTouchUIUtilImpl() {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes14.dex */
     static class Api21Impl extends BaseImpl {
         @Override // android.support.v7.widget.helper.ItemTouchUIUtilImpl.BaseImpl, android.support.v7.widget.helper.ItemTouchUIUtil
         public void onDraw(Canvas canvas, RecyclerView recyclerView, View view, float f, float f2, int i, boolean z) {
@@ -48,7 +48,7 @@ class ItemTouchUIUtilImpl {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes14.dex */
     static class BaseImpl implements ItemTouchUIUtil {
         @Override // android.support.v7.widget.helper.ItemTouchUIUtil
         public void clearView(View view) {

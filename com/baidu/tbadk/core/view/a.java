@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private TbPageContext<?> eGu;
+    private TbPageContext<?> eNx;
     private boolean isAutoSetCancelable;
     private Activity mActivity;
     private DialogInterface.OnCancelListener mOnCancelListner;
@@ -21,19 +21,19 @@ public class a {
     private String tipString;
 
     public a(TbPageContext<?> tbPageContext) {
-        this.eGu = null;
+        this.eNx = null;
         this.mActivity = null;
         this.tipString = null;
         this.mTipView = null;
         this.isAutoSetCancelable = true;
-        this.eGu = tbPageContext;
-        if (this.eGu != null && this.eGu.getPageActivity() != null) {
-            this.mActivity = this.eGu.getPageActivity();
+        this.eNx = tbPageContext;
+        if (this.eNx != null && this.eNx.getPageActivity() != null) {
+            this.mActivity = this.eNx.getPageActivity();
         }
     }
 
     public a(Activity activity) {
-        this.eGu = null;
+        this.eNx = null;
         this.mActivity = null;
         this.tipString = null;
         this.mTipView = null;

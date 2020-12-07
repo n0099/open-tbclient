@@ -14,22 +14,22 @@ import com.baidu.tieba.R;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.SmartApp;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class h extends RecyclerView.Adapter<a> {
     private Context mContext;
     private List<SmartApp> mDataList;
     private View.OnClickListener mOnItemClickListener;
-    private View.OnLongClickListener maX;
+    private View.OnLongClickListener mpd;
 
     public h(Context context) {
         this.mContext = context;
     }
 
-    public void bi(List<SmartApp> list) {
+    public void bl(List<SmartApp> list) {
         this.mDataList = list;
     }
 
-    public SmartApp PX(String str) {
+    public SmartApp Rg(String str) {
         if (y.isEmpty(this.mDataList)) {
             return null;
         }
@@ -49,17 +49,17 @@ public class h extends RecyclerView.Adapter<a> {
     }
 
     public void d(View.OnLongClickListener onLongClickListener) {
-        this.maX = onLongClickListener;
+        this.mpd = onLongClickListener;
     }
 
-    private SmartApp Hy(int i) {
+    private SmartApp Ip(int i) {
         return (SmartApp) y.getItem(this.mDataList, i);
     }
 
     public void a(SmartApp smartApp) {
-        SmartApp PX = PX(smartApp.id);
-        if (PX != null && this.mDataList != null) {
-            y.add(this.mDataList, 0, PX);
+        SmartApp Rg = Rg(smartApp.id);
+        if (Rg != null && this.mDataList != null) {
+            y.add(this.mDataList, 0, Rg);
         }
     }
 
@@ -74,11 +74,11 @@ public class h extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        SmartApp Hy;
-        if (aVar != null && (Hy = Hy(i)) != null) {
-            aVar.b(Hy);
+        SmartApp Ip;
+        if (aVar != null && (Ip = Ip(i)) != null) {
+            aVar.b(Ip);
             aVar.setOnClickListener(this.mOnItemClickListener);
-            aVar.setOnLongClickListener(this.maX);
+            aVar.setOnLongClickListener(this.mpd);
             aVar.onChangeSkinType();
         }
     }
@@ -88,28 +88,28 @@ public class h extends RecyclerView.Adapter<a> {
         return y.getCount(this.mDataList);
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes24.dex */
     public static class a extends RecyclerView.ViewHolder {
-        private HeadImageView kxx;
+        private HeadImageView kKQ;
         private TextView mName;
         private View mRootView;
-        private SmartApp maY;
+        private SmartApp mpe;
 
         public a(View view) {
             super(view);
             this.mRootView = view;
-            this.kxx = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
-            this.kxx.setIsRound(true);
-            this.kxx.setPlaceHolder(1);
+            this.kKQ = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
+            this.kKQ.setIsRound(true);
+            this.kKQ.setPlaceHolder(1);
             this.mName = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
         }
 
         public void b(SmartApp smartApp) {
-            this.maY = smartApp;
+            this.mpe = smartApp;
             this.mRootView.setTag(smartApp);
             if (!au.isEmpty(smartApp.avatar)) {
-                this.kxx.setPlaceHolder(1);
-                this.kxx.startLoad(smartApp.avatar, 10, false, false);
+                this.kKQ.setPlaceHolder(1);
+                this.kKQ.startLoad(smartApp.avatar, 10, false, false);
             }
             if (!au.isEmpty(smartApp.name)) {
                 this.mName.setText(smartApp.name);

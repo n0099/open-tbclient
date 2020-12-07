@@ -19,25 +19,25 @@ import com.baidu.prologue.business.data.SplashStyleRecorder;
 import java.io.File;
 /* loaded from: classes14.dex */
 public class a {
-    private static final boolean DEBUG = com.baidu.prologue.a.b.a.cft.get().abk();
-    private RelativeLayout cgf;
-    private ImageView cgg;
-    private com.baidu.prologue.b.a cgh;
-    private FrameLayout cgi;
-    private String cgj;
-    private InterfaceC0317a cgk;
-    private boolean cgl = false;
-    private boolean cgm = false;
-    private View cgn;
-    private b cgo;
-    private boolean cgp;
+    private static final boolean DEBUG = com.baidu.prologue.a.b.a.clZ.get().aes();
+    private RelativeLayout cmM;
+    private ImageView cmN;
+    private com.baidu.prologue.b.a cmO;
+    private FrameLayout cmP;
+    private String cmQ;
+    private InterfaceC0328a cmR;
+    private boolean cmS = false;
+    private boolean cmT = false;
+    private View cmU;
+    private b cmV;
+    private boolean cmW;
     private Activity mActivity;
     private View mRootView;
 
     /* renamed from: com.baidu.prologue.business.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes14.dex */
-    public interface InterfaceC0317a {
-        void jy(String str);
+    public interface InterfaceC0328a {
+        void kf(String str);
     }
 
     public a(Activity activity) {
@@ -46,96 +46,96 @@ public class a {
         initPlayer();
     }
 
-    public void a(File file, String str, b bVar, String str2, InterfaceC0317a interfaceC0317a, final a.InterfaceC0315a interfaceC0315a, boolean z) {
+    public void a(File file, String str, b bVar, String str2, InterfaceC0328a interfaceC0328a, final a.InterfaceC0326a interfaceC0326a, boolean z) {
         if (file == null || !file.exists() || !file.isFile()) {
-            this.cgl = false;
-            interfaceC0315a.gU(4);
+            this.cmS = false;
+            interfaceC0326a.hs(4);
             return;
         }
         if (DEBUG) {
             Log.d("SplashVideoDecoration", "begin setupPlayer!");
         }
-        this.cgh.a(bVar);
-        this.cgh.a(new a.InterfaceC0315a() { // from class: com.baidu.prologue.business.a.a.1
-            @Override // com.baidu.prologue.b.a.InterfaceC0315a
-            public void gU(int i) {
+        this.cmO.a(bVar);
+        this.cmO.a(new a.InterfaceC0326a() { // from class: com.baidu.prologue.business.a.a.1
+            @Override // com.baidu.prologue.b.a.InterfaceC0326a
+            public void hs(int i) {
                 if (a.DEBUG) {
                     throw new IllegalStateException("MediaPlayer set video file Error!");
                 }
-                interfaceC0315a.gU(i);
+                interfaceC0326a.hs(i);
             }
         });
-        this.cgh.a(c.b(file, str));
-        this.cgo = bVar;
-        this.cgk = interfaceC0317a;
-        this.cgp = z;
-        this.cgj = str2;
+        this.cmO.a(c.b(file, str));
+        this.cmV = bVar;
+        this.cmR = interfaceC0328a;
+        this.cmW = z;
+        this.cmQ = str2;
         if (TextUtils.equals(str2, "1")) {
-            I("1", false);
-        } else if (TextUtils.equals(this.cgj, "0")) {
-            I("0", false);
+            J("1", false);
+        } else if (TextUtils.equals(this.cmQ, "0")) {
+            J("0", false);
         } else {
-            I("-1", false);
+            J("-1", false);
         }
-        this.cgm = false;
-        this.cgl = true;
+        this.cmT = false;
+        this.cmS = true;
     }
 
     public void prepare() {
-        if (this.cgl) {
-            if (this.cgm) {
-                this.cgo.onPrepared();
-            } else if (this.cgh != null) {
-                this.cgh.prepareAsync();
+        if (this.cmS) {
+            if (this.cmT) {
+                this.cmV.onPrepared();
+            } else if (this.cmO != null) {
+                this.cmO.prepareAsync();
             }
         }
     }
 
     public void pause() {
-        if (this.cgh != null) {
-            this.cgh.pause();
+        if (this.cmO != null) {
+            this.cmO.pause();
         }
     }
 
     public void play() {
-        if (this.cgh != null) {
-            this.cgh.start();
+        if (this.cmO != null) {
+            this.cmO.start();
         }
     }
 
-    public boolean abT() {
-        return this.cgh != null && this.cgh.abT();
+    public boolean afb() {
+        return this.cmO != null && this.cmO.afb();
     }
 
-    public View abU() {
-        return this.cgn;
+    public View afc() {
+        return this.cmU;
     }
 
     @SuppressLint({"InflateParams"})
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mActivity).inflate(b.c.splash_ad_video_decoration, (ViewGroup) null);
-        this.cgn = this.mRootView.findViewById(b.C0316b.video_splash_clickable);
-        this.cgi = (FrameLayout) this.mRootView.findViewById(b.C0316b.video_splash_view_fl);
-        this.cgf = (RelativeLayout) this.mRootView.findViewById(b.C0316b.video_splash_voice_click);
-        e.a(this.cgf, SplashStyleRecorder.SplashElements.VOICE, this.cgp);
-        this.cgg = (ImageView) this.mRootView.findViewById(b.C0316b.iv_video_splash_voice);
-        this.cgf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.prologue.business.a.a.2
+        this.cmU = this.mRootView.findViewById(b.C0327b.video_splash_clickable);
+        this.cmP = (FrameLayout) this.mRootView.findViewById(b.C0327b.video_splash_view_fl);
+        this.cmM = (RelativeLayout) this.mRootView.findViewById(b.C0327b.video_splash_voice_click);
+        e.a(this.cmM, SplashStyleRecorder.SplashElements.VOICE, this.cmW);
+        this.cmN = (ImageView) this.mRootView.findViewById(b.C0327b.iv_video_splash_voice);
+        this.cmM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.prologue.business.a.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.I(TextUtils.equals(a.this.cgj, "0") ? "1" : "0", true);
+                a.this.J(TextUtils.equals(a.this.cmQ, "0") ? "1" : "0", true);
             }
         });
     }
 
     private void initPlayer() {
-        this.cgh = new com.baidu.prologue.b.a(this.mActivity);
-        this.cgh.y(this.cgi);
+        this.cmO = new com.baidu.prologue.b.a(this.mActivity);
+        this.cmO.y(this.cmP);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void I(String str, boolean z) {
-        if (this.cgf != null && this.cgg != null && this.cgh != null) {
-            this.cgj = str;
+    public void J(String str, boolean z) {
+        if (this.cmM != null && this.cmN != null && this.cmO != null) {
+            this.cmQ = str;
             char c = 65535;
             switch (str.hashCode()) {
                 case 48:
@@ -159,24 +159,24 @@ public class a {
             }
             switch (c) {
                 case 0:
-                    this.cgf.setVisibility(8);
-                    this.cgh.setMute(true);
+                    this.cmM.setVisibility(8);
+                    this.cmO.setMute(true);
                     return;
                 case 1:
-                    this.cgf.setVisibility(0);
-                    this.cgg.setImageResource(b.a.splash_video_mute);
-                    this.cgh.setMute(true);
-                    if (this.cgk != null && z) {
-                        this.cgk.jy("0");
+                    this.cmM.setVisibility(0);
+                    this.cmN.setImageResource(b.a.splash_video_mute);
+                    this.cmO.setMute(true);
+                    if (this.cmR != null && z) {
+                        this.cmR.kf("0");
                         return;
                     }
                     return;
                 case 2:
-                    this.cgf.setVisibility(0);
-                    this.cgg.setImageResource(b.a.splash_video_unmute);
-                    this.cgh.setMute(false);
-                    if (this.cgk != null && z) {
-                        this.cgk.jy("1");
+                    this.cmM.setVisibility(0);
+                    this.cmN.setImageResource(b.a.splash_video_unmute);
+                    this.cmO.setMute(false);
+                    if (this.cmR != null && z) {
+                        this.cmR.kf("1");
                         return;
                     }
                     return;
@@ -186,14 +186,14 @@ public class a {
         }
     }
 
-    public View tG() {
+    public View tJ() {
         return this.mRootView;
     }
 
     public void release() {
-        if (this.cgh != null) {
-            this.cgh.release();
-            this.cgh = null;
+        if (this.cmO != null) {
+            this.cmO.release();
+            this.cmO = null;
         }
     }
 }

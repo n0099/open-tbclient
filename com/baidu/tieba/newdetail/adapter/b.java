@@ -14,16 +14,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.newdetail.a.c;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lcF);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lqf);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bZ */
+    /* renamed from: cc */
     public a c(ViewGroup viewGroup) {
         LinearLayout linearLayout = new LinearLayout(viewGroup.getContext());
         linearLayout.setOrientation(1);
@@ -58,31 +58,31 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     public static class a extends af.a {
-        private View eHl;
-        private TextView etx;
-        private int jCS;
+        private TextView eAz;
+        private View eOv;
+        private int jQu;
 
         a(View view, TextView textView, View view2) {
             super(view);
-            this.jCS = 3;
-            this.etx = textView;
-            this.eHl = view2;
+            this.jQu = 3;
+            this.eAz = textView;
+            this.eOv = view2;
         }
 
         void a(c cVar) {
             if (cVar != null) {
-                this.etx.setText(cVar.title);
-                this.eHl.setVisibility(cVar.kPO ? 0 : 8);
+                this.eAz.setText(cVar.title);
+                this.eOv.setVisibility(cVar.ldg ? 0 : 8);
             }
         }
 
         void onChangeSkinType(int i) {
-            if (this.jCS != i) {
-                ap.setViewTextColor(this.etx, R.color.CAM_X0105);
-                ap.setBackgroundColor(this.eHl, R.color.CAM_X0204);
-                this.jCS = i;
+            if (this.jQu != i) {
+                ap.setViewTextColor(this.eAz, R.color.CAM_X0105);
+                ap.setBackgroundColor(this.eOv, R.color.CAM_X0204);
+                this.jQu = i;
             }
         }
     }

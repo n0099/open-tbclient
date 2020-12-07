@@ -3,48 +3,48 @@ package com.baidu.tieba.signall;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import org.json.JSONObject;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class i {
     private int forumId;
     private String forumName;
-    private a mOs = new a();
-    private int mPF;
-    private int mPG;
-    private int mPH;
-    private int mPI;
+    private a ncy = new a();
+    private int ndJ;
+    private int ndK;
+    private int ndL;
+    private int ndM;
     private int signed;
 
     public int getForumId() {
         return this.forumId;
     }
 
-    public int dHx() {
+    public int dMN() {
         return this.signed;
     }
 
-    public int dHy() {
-        return this.mPH;
+    public int dMO() {
+        return this.ndL;
     }
 
     public int getCurScore() {
-        return this.mPI;
+        return this.ndM;
     }
 
-    public a dGT() {
-        return this.mOs;
+    public a dMk() {
+        return this.ncy;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.mOs.parserJson(jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR));
+                this.ncy.parserJson(jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR));
                 this.forumId = jSONObject.optInt("forum_id");
                 this.forumName = jSONObject.optString("forum_name");
                 this.signed = jSONObject.optInt("signed");
-                this.mPF = jSONObject.optInt("is_on");
-                this.mPG = jSONObject.optInt("is_filter");
-                this.mPH = jSONObject.optInt("sign_day_count");
-                this.mPI = jSONObject.optInt("cur_score");
+                this.ndJ = jSONObject.optInt("is_on");
+                this.ndK = jSONObject.optInt("is_filter");
+                this.ndL = jSONObject.optInt("sign_day_count");
+                this.ndM = jSONObject.optInt("cur_score");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

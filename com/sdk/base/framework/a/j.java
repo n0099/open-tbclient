@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class j<T> implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4477a = j.class.getName();
+    private static final String f4247a = j.class.getName();
     private static final Boolean b = Boolean.valueOf(com.sdk.base.framework.c.f.b);
     private String d;
     private TreeMap<String, Object> e;
@@ -20,7 +20,7 @@ public class j<T> implements Serializable {
     private HashMap<String, Object> g;
     private com.sdk.base.framework.b.b<T> i;
     private com.sdk.base.framework.f.h.g j;
-    private String c = i.f4476a.toString();
+    private String c = i.f4246a.toString();
     private int h = 0;
 
     public static String b(TreeMap<String, Object> treeMap) {
@@ -34,13 +34,13 @@ public class j<T> implements Serializable {
                     if (value != null && com.sdk.base.framework.a.a.c.b(key).booleanValue()) {
                         String encode = URLEncoder.encode(value.toString(), "UTF-8");
                         boolean z = com.sdk.base.framework.c.f.e;
-                        sb2.append(key).append(ETAG.EQUAL).append(encode).append(ETAG.ITEM_SEPARATOR);
+                        sb2.append(key).append("=").append(encode).append(ETAG.ITEM_SEPARATOR);
                     }
                 }
                 sb2.deleteCharAt(sb2.length() - 1);
                 sb = sb2;
             } catch (Exception e) {
-                com.sdk.base.framework.a.a.c.b(f4477a, e.getMessage(), b);
+                com.sdk.base.framework.a.a.c.b(f4247a, e.getMessage(), b);
                 throw new Exception("http请求参数出错");
             }
         } else {

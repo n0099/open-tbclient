@@ -18,11 +18,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2793a = "PassHttpClientRequest";
+    private static final String f2795a = "PassHttpClientRequest";
     private static final String b = "Set-Cookie";
     private static final char[] c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     private static final String d = "User-Agent";
@@ -105,7 +105,7 @@ public class d implements Runnable {
 
     private void d() throws IOException, InterruptedException, IllegalArgumentException {
         byte[] bArr;
-        int i = c.f2792a[this.k.ordinal()];
+        int i = c.f2794a[this.k.ordinal()];
         if (i == 1) {
             String a2 = a(this.j.paramsMap);
             if (!TextUtils.isEmpty(a2)) {
@@ -137,7 +137,7 @@ public class d implements Runnable {
         int responseCode = this.l.getResponseCode();
         byte[] a3 = a(inputStream);
         if (a3 != null) {
-            f.a(f2793a, "responseBody:" + new String(a3));
+            f.a(f2795a, "responseBody:" + new String(a3));
         }
         HashMap<String, String> a4 = a(this.l);
         e.a(this.h, this.l, this.j);
@@ -193,8 +193,8 @@ public class d implements Runnable {
         for (int i = 0; i < size; i++) {
             String headerFieldKey = httpURLConnection.getHeaderFieldKey(i);
             String headerField = httpURLConnection.getHeaderField(i);
-            if ("Set-Cookie".equals(headerFieldKey) && !TextUtils.isEmpty(headerField) && headerField.contains(ETAG.EQUAL)) {
-                headerFieldKey = headerField.substring(0, headerField.indexOf(ETAG.EQUAL));
+            if ("Set-Cookie".equals(headerFieldKey) && !TextUtils.isEmpty(headerField) && headerField.contains("=")) {
+                headerFieldKey = headerField.substring(0, headerField.indexOf("="));
             }
             hashMap.put(headerFieldKey, headerField);
         }
@@ -261,7 +261,7 @@ public class d implements Runnable {
             for (Map.Entry entry : httpHashMap.getMap().entrySet()) {
                 if (!TextUtils.isEmpty((CharSequence) entry.getKey()) && !TextUtils.isEmpty((CharSequence) entry.getValue())) {
                     try {
-                        sb.append(URLEncoder.encode((String) entry.getKey(), "UTF-8")).append(ETAG.EQUAL).append(URLEncoder.encode((String) entry.getValue(), "UTF-8"));
+                        sb.append(URLEncoder.encode((String) entry.getKey(), "UTF-8")).append("=").append(URLEncoder.encode((String) entry.getValue(), "UTF-8"));
                         sb.append(ETAG.ITEM_SEPARATOR);
                     } catch (UnsupportedEncodingException e2) {
                         f.a(e2.getMessage());
@@ -318,7 +318,7 @@ public class d implements Runnable {
                 }
             }
             MultipartHashMap.a aVar = ((MultipartHashMap) passHttpParamDTO.paramsMap).fileWrapper;
-            a(byteArrayOutputStream, aVar.f2788a, aVar.b, aVar.d, aVar.c);
+            a(byteArrayOutputStream, aVar.f2790a, aVar.b, aVar.d, aVar.c);
             a(byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();
         } else if (httpHashMap instanceof HttpHashMap) {

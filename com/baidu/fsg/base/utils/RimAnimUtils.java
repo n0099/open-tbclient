@@ -2,11 +2,11 @@ package com.baidu.fsg.base.utils;
 
 import android.app.Activity;
 import android.content.Context;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class RimAnimUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f1526a;
+    private static int f1528a;
     private static int b;
     private static int c;
     private static int d;
@@ -16,12 +16,12 @@ public final class RimAnimUtils {
 
     public static void startActivityAnim(Context context) {
         if (context != null) {
-            if (f1526a == 0 || b == 0) {
-                f1526a = ResUtils.anim(context, "rim_base_slide_from_right");
+            if (f1528a == 0 || b == 0) {
+                f1528a = ResUtils.anim(context, "rim_base_slide_from_right");
                 b = ResUtils.anim(context, "rim_base_slide_to_left");
             }
             if (context instanceof Activity) {
-                ((Activity) context).overridePendingTransition(f1526a, b);
+                ((Activity) context).overridePendingTransition(f1528a, b);
             }
         }
     }

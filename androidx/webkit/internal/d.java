@@ -7,26 +7,26 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import org.chromium.support_lib_boundary.WebViewProviderFactoryBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes19.dex */
 public class d {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes19.dex */
     private static class a {
-        static final g Ak = new g(d.hT().hN());
+        static final g Be = new g(d.hT().hN());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes19.dex */
     public static class b {
-        static final e Al = d.hW();
+        static final e Bf = d.hW();
     }
 
     public static e hT() {
-        return b.Al;
+        return b.Bf;
     }
 
     public static g hU() {
-        return a.Ak;
+        return a.Be;
     }
 
     private static InvocationHandler hV() throws IllegalAccessException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException {

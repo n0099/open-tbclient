@@ -1,55 +1,56 @@
 package com.baidu.ubs.analytics.c;
 
 import android.app.Activity;
+import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import java.lang.ref.WeakReference;
 import java.util.Stack;
 /* loaded from: classes17.dex */
 public final class d {
-    private Stack<WeakReference<Activity>> osV;
+    private Stack<WeakReference<Activity>> oIe;
 
     /* synthetic */ d(byte b) {
         this();
     }
 
     private d() {
-        this.osV = new Stack<>();
+        this.oIe = new Stack<>();
     }
 
-    public final Stack<WeakReference<Activity>> edE() {
-        return this.osV;
+    public final Stack<WeakReference<Activity>> ejs() {
+        return this.oIe;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(WeakReference<Activity> weakReference) {
-        this.osV.add(weakReference);
+        this.oIe.add(weakReference);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(Activity activity) {
-        if (this.osV != null) {
+        if (this.oIe != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.osV.size()) {
+                if (i2 >= this.oIe.size()) {
                     break;
                 }
-                if (this.osV.get(i2).get() == activity) {
-                    this.osV.remove(this.osV.get(i2));
+                if (this.oIe.get(i2).get() == activity) {
+                    this.oIe.remove(this.oIe.get(i2));
                 }
                 i = i2 + 1;
             }
         }
-        aaK();
+        adS();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final String aaK() {
+    public final String adS() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < this.osV.size(); i++) {
-            Activity activity = this.osV.get(i).get();
+        for (int i = 0; i < this.oIe.size(); i++) {
+            Activity activity = this.oIe.get(i).get();
             if (activity != null) {
                 sb.append(activity.getClass().getSimpleName());
-                sb.append("->");
+                sb.append(PerfFrameTrackUIUtil.SEPERATOR_ARROR);
             }
         }
         return sb.length() > 0 ? sb.substring(0, sb.length() - 2) : "没有路径了";
@@ -58,6 +59,6 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes17.dex */
     public static class a {
-        private static final d osW = new d((byte) 0);
+        private static final d oIf = new d((byte) 0);
     }
 }

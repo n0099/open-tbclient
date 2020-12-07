@@ -10,8 +10,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class AlaAudioSession {
     private static final String TAG = AlaAudioSession.class.getSimpleName();
     private Context mContext;
@@ -78,7 +77,7 @@ public class AlaAudioSession {
         if (this.mContext != null) {
             try {
                 if (this.mAudioManager == null) {
-                    this.mAudioManager = (AudioManager) this.mContext.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+                    this.mAudioManager = (AudioManager) this.mContext.getSystemService("audio");
                 }
             } catch (Exception e) {
                 e.printStackTrace();

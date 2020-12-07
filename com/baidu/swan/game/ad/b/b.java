@@ -1,88 +1,88 @@
 package com.baidu.swan.game.ad.b;
 
 import com.baidu.swan.apps.ap.ah;
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 public class b {
-    private int Zx;
-    private String dLB;
-    private String dLC;
-    private String dLD;
-    private int dLE;
-    private int dLF;
+    private int aat;
+    private String dSA;
+    private int dSB;
+    private int dSC;
+    private String dSy;
+    private String dSz;
 
     private b(a aVar) {
-        this.dLC = aVar.dLC;
-        this.dLB = aVar.dLB;
-        this.dLE = aVar.dLE;
-        this.dLF = aVar.dLF;
-        this.dLD = aVar.dLD;
-        this.Zx = aVar.Zx;
+        this.dSz = aVar.dSz;
+        this.dSy = aVar.dSy;
+        this.dSB = aVar.dSB;
+        this.dSC = aVar.dSC;
+        this.dSA = aVar.dSA;
+        this.aat = aVar.aat;
     }
 
-    public int aQj() {
-        return this.dLE;
+    public int aTo() {
+        return this.dSB;
     }
 
-    public int aQk() {
-        return this.dLF;
+    public int aTp() {
+        return this.dSC;
     }
 
     public String getAppSid() {
-        return this.dLC;
+        return this.dSz;
     }
 
-    public String aQl() {
-        return this.dLB;
+    public String aTq() {
+        return this.dSy;
     }
 
-    public String aQm() {
-        return this.dLD;
+    public String aTr() {
+        return this.dSA;
     }
 
-    public int rT() {
-        return this.Zx;
+    public int rV() {
+        return this.aat;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes14.dex */
     public static class a {
-        private int Zx;
-        private String dLB;
-        private String dLC;
-        private String dLD;
-        private int dLE;
-        private int dLF;
+        private int aat;
+        private String dSA;
+        private int dSB;
+        private int dSC;
+        private String dSy;
+        private String dSz;
 
-        public a vD(String str) {
-            this.dLC = str;
+        public a wk(String str) {
+            this.dSz = str;
             return this;
         }
 
-        public a vE(String str) {
-            this.dLB = str;
+        public a wl(String str) {
+            this.dSy = str;
             return this;
         }
 
-        public a vF(String str) {
-            this.dLD = str;
+        public a wm(String str) {
+            this.dSA = str;
             return this;
         }
 
-        public a lL(int i) {
-            this.dLE = ah.M(i);
+        public a mj(int i) {
+            this.dSB = ah.M(i);
             return this;
         }
 
-        public a lM(int i) {
-            this.dLF = ah.M(i);
+        public a mk(int i) {
+            this.dSC = ah.M(i);
             return this;
         }
 
-        public a lN(int i) {
-            this.Zx = i;
+        public a ml(int i) {
+            this.aat = i;
             return this;
         }
 
-        public b aQn() {
+        public b aTs() {
             return new b(this);
         }
     }

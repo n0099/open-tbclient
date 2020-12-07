@@ -8,21 +8,21 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.extcore.a;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.a, com.baidu.swan.games.h.d.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c cRP;
+    private static volatile c cYI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c ato() {
-        if (cRP == null) {
+    public static c aww() {
+        if (cYI == null) {
             synchronized (c.class) {
-                if (cRP == null) {
-                    cRP = new c();
+                if (cYI == null) {
+                    cYI = new c();
                 }
             }
         }
-        return cRP;
+        return cYI;
     }
 
     private c() {
@@ -31,9 +31,9 @@ public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.
 
     @Override // com.baidu.swan.apps.extcore.b.b
     @Nullable
-    public ExtensionCore arw() {
+    public ExtensionCore auE() {
         if (ProcessUtils.isMainProcess()) {
-            return att();
+            return awB();
         }
         Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
         bundle.setClassLoader(ExtensionCore.class.getClassLoader());
@@ -45,13 +45,13 @@ public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.
         return extensionCore;
     }
 
-    /* loaded from: classes7.dex */
-    private static class a extends a.C0438a {
+    /* loaded from: classes25.dex */
+    private static class a extends a.C0450a {
         private a() {
         }
 
-        @Override // com.baidu.swan.apps.extcore.a.C0438a
-        protected int aeW() {
+        @Override // com.baidu.swan.apps.extcore.a.C0450a
+        protected int aie() {
             return 1;
         }
     }

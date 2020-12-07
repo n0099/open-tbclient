@@ -2,18 +2,18 @@ package com.baidu.ar.d;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class c extends b {
-    private ArrayList<b> mm;
+    private ArrayList<b> mB;
 
     public c() {
-        T("DetectorGroup");
+        W("DetectorGroup");
     }
 
-    public boolean U(String str) {
-        Iterator<b> it = this.mm.iterator();
+    public boolean X(String str) {
+        Iterator<b> it = this.mB.iterator();
         while (it.hasNext()) {
-            if (it.next().dd().equals(str)) {
+            if (it.next().dc().equals(str)) {
                 return true;
             }
         }
@@ -21,13 +21,13 @@ public class c extends b {
     }
 
     public void c(b bVar) {
-        if (this.mm == null) {
-            this.mm = new ArrayList<>();
+        if (this.mB == null) {
+            this.mB = new ArrayList<>();
         }
-        this.mm.add(bVar);
+        this.mB.add(bVar);
     }
 
-    public ArrayList<b> dg() {
-        return this.mm;
+    public ArrayList<b> df() {
+        return this.mB;
     }
 }

@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.c.h;
-import io.reactivex.internal.a.g;
+import io.reactivex.b.h;
+import io.reactivex.internal.a.f;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.observers.InnerQueuedObserver;
 import io.reactivex.internal.observers.c;
@@ -11,7 +11,7 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.ArrayDeque;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class ObservableConcatMapEager<T, R> extends a<T, R> {
     final ErrorMode errorMode;
     final h<? super T, ? extends t<? extends R>> mapper;
@@ -23,7 +23,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
         this.source.subscribe(new ConcatMapEagerMainObserver(uVar, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class ConcatMapEagerMainObserver<T, R> extends AtomicInteger implements io.reactivex.disposables.b, c<R>, u<T> {
         private static final long serialVersionUID = 8080567949447303262L;
         int activeCount;
@@ -36,7 +36,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
         final h<? super T, ? extends t<? extends R>> mapper;
         final int maxConcurrency;
         final int prefetch;
-        g<T> queue;
+        f<T> queue;
         int sourceMode;
         final AtomicThrowable error = new AtomicThrowable();
         final ArrayDeque<InnerQueuedObserver<R>> observers = new ArrayDeque<>();
@@ -90,7 +90,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
                 drain();
                 return;
             }
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
 
         @Override // io.reactivex.u
@@ -143,7 +143,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
                 drain();
                 return;
             }
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
 
         @Override // io.reactivex.internal.observers.c
@@ -332,7 +332,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
         */
         public void drain() {
             if (getAndIncrement() == 0) {
-                g<T> gVar = this.queue;
+                f<T> fVar = this.queue;
                 ArrayDeque<InnerQueuedObserver<R>> arrayDeque = this.observers;
                 u<? super R> uVar = this.actual;
                 ErrorMode errorMode = this.errorMode;
@@ -344,21 +344,21 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
                         if (i3 == this.maxConcurrency) {
                             break;
                         } else if (this.cancelled) {
-                            gVar.clear();
+                            fVar.clear();
                             disposeAll();
                             return;
                         } else if (errorMode == ErrorMode.IMMEDIATE && this.error.get() != null) {
-                            gVar.clear();
+                            fVar.clear();
                             disposeAll();
                             uVar.onError(this.error.terminate());
                             return;
                         } else {
                             try {
-                                T poll = gVar.poll();
+                                T poll = fVar.poll();
                                 if (poll == null) {
                                     break;
                                 }
-                                t tVar = (t) io.reactivex.internal.functions.a.l(this.mapper.apply(poll), "The mapper returned a null ObservableSource");
+                                t tVar = (t) io.reactivex.internal.functions.a.m(this.mapper.apply(poll), "The mapper returned a null ObservableSource");
                                 InnerQueuedObserver<R> innerQueuedObserver = new InnerQueuedObserver<>(this, this.prefetch);
                                 arrayDeque.offer(innerQueuedObserver);
                                 tVar.subscribe(innerQueuedObserver);
@@ -366,7 +366,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
                             } catch (Throwable th) {
                                 io.reactivex.exceptions.a.J(th);
                                 this.d.dispose();
-                                gVar.clear();
+                                fVar.clear();
                                 disposeAll();
                                 this.error.addThrowable(th);
                                 uVar.onError(this.error.terminate());

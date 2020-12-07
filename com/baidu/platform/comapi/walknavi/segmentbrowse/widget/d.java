@@ -4,18 +4,17 @@ import android.os.Bundle;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.platform.comapi.wnplatform.p.g;
 import com.baidu.searchbox.ugc.model.UgcConstant;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f3089a;
+    private static int f3091a;
     private static int b = 0;
 
     public static void a(int i) {
-        f3089a = i;
+        f3091a = i;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.util.ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.b> */
@@ -225,7 +224,7 @@ public class d {
             arrayList.remove(0);
             arrayList.add(0, a2);
         }
-        if (arrayList.size() >= 2 && arrayList.get(1).c.length > f3089a) {
+        if (arrayList.size() >= 2 && arrayList.get(1).c.length > f3091a) {
             com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "guide enter new branch2!!!");
             b bVar2 = arrayList.get(1);
             if (arrayList.size() < 3) {
@@ -233,8 +232,8 @@ public class d {
             } else {
                 bVar = arrayList.get(2);
             }
-            b a3 = b.a(arrayList.get(1), f3089a);
-            b b2 = b.b(arrayList.get(1), f3089a);
+            b a3 = b.a(arrayList.get(1), f3091a);
+            b b2 = b.b(arrayList.get(1), f3091a);
             b = b2.c.length;
             com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "headSecondText:" + String.valueOf(a3.c));
             com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "tailSecondText:" + String.valueOf(b2.c));
@@ -255,7 +254,7 @@ public class d {
             arrayList.remove(0);
             arrayList.remove(0);
             arrayList.add(0, a2);
-            if (arrayList.get(0).c.length > f3089a) {
+            if (arrayList.get(0).c.length > f3091a) {
                 com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "poi enter new branch2!!!");
                 b bVar2 = arrayList.get(0);
                 if (arrayList.size() < 2) {
@@ -263,8 +262,8 @@ public class d {
                 } else {
                     bVar = arrayList.get(1);
                 }
-                b a3 = b.a(arrayList.get(0), f3089a);
-                b b2 = b.b(arrayList.get(0), f3089a);
+                b a3 = b.a(arrayList.get(0), f3091a);
+                b b2 = b.b(arrayList.get(0), f3091a);
                 com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "headSecondText:" + String.valueOf(a3.c));
                 com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "tailSecondText:" + String.valueOf(b2.c));
                 b a4 = arrayList.size() >= 2 ? b.a(b2, arrayList.get(1)) : b2;
@@ -283,17 +282,17 @@ public class d {
         String str2 = "";
         String str3 = "";
         for (int i = 0; i < iArr.length; i++) {
-            str3 = str3 + iArr[i] + Constants.ACCEPT_TIME_SEPARATOR_SP;
+            str3 = str3 + iArr[i] + ",";
         }
         for (int i2 = 0; i2 < iArr2.length; i2++) {
-            str = str + iArr2[i2] + Constants.ACCEPT_TIME_SEPARATOR_SP;
+            str = str + iArr2[i2] + ",";
         }
         for (int i3 = 0; i3 < iArr3.length; i3++) {
-            str2 = str2 + iArr3[i3] + Constants.ACCEPT_TIME_SEPARATOR_SP;
+            str2 = str2 + iArr3[i3] + ",";
         }
         String str4 = "";
         for (int i4 = 0; i4 < zArr.length; i4++) {
-            str4 = str4 + zArr[i4] + Constants.ACCEPT_TIME_SEPARATOR_SP;
+            str4 = str4 + zArr[i4] + ",";
         }
         com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "unIdxString:" + str3);
         com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "unWordCntString:" + str);

@@ -10,21 +10,21 @@ import com.squareup.wire2.internal.a;
 import java.io.IOException;
 import java.util.List;
 import okio.ByteString;
-/* loaded from: classes17.dex */
+/* loaded from: classes18.dex */
 public final class FrameEntity extends Message<FrameEntity, Builder> {
     public static final ProtoAdapter<FrameEntity> ADAPTER = new ProtoAdapter_FrameEntity();
     public static final Float DEFAULT_ALPHA = Float.valueOf(0.0f);
     public static final String DEFAULT_CLIPPATH = "";
     private static final long serialVersionUID = 0;
-    @WireField(eyt = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(eAP = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float alpha;
-    @WireField(eyt = "com.squareup.wire.ProtoAdapter#STRING", tag = 4)
+    @WireField(eAP = "com.squareup.wire.ProtoAdapter#STRING", tag = 4)
     public final String clipPath;
-    @WireField(eyt = "com.opensource.svgaplayer.proto.Layout#ADAPTER", tag = 2)
+    @WireField(eAP = "com.opensource.svgaplayer.proto.Layout#ADAPTER", tag = 2)
     public final Layout layout;
-    @WireField(eyt = "com.opensource.svgaplayer.proto.ShapeEntity#ADAPTER", eyu = WireField.Label.REPEATED, tag = 5)
+    @WireField(eAP = "com.opensource.svgaplayer.proto.ShapeEntity#ADAPTER", eAQ = WireField.Label.REPEATED, tag = 5)
     public final List<ShapeEntity> shapes;
-    @WireField(eyt = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
+    @WireField(eAP = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
     public final Transform transform;
 
     public FrameEntity(Float f, Layout layout, Transform transform, String str, List<ShapeEntity> list) {
@@ -97,12 +97,12 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         return sb.replace(0, 2, "FrameEntity{").append('}').toString();
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes18.dex */
     public static final class Builder extends Message.a<FrameEntity, Builder> {
         public Float alpha;
         public String clipPath;
         public Layout layout;
-        public List<ShapeEntity> shapes = a.eyw();
+        public List<ShapeEntity> shapes = a.eAS();
         public Transform transform;
 
         public Builder alpha(Float f) {
@@ -126,7 +126,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         }
 
         public Builder shapes(List<ShapeEntity> list) {
-            a.gJ(list);
+            a.gX(list);
             this.shapes = list;
             return this;
         }
@@ -139,7 +139,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes18.dex */
     private static final class ProtoAdapter_FrameEntity extends ProtoAdapter<FrameEntity> {
         ProtoAdapter_FrameEntity() {
             super(FieldEncoding.LENGTH_DELIMITED, FrameEntity.class);
@@ -175,11 +175,11 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public FrameEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long eyl = cVar.eyl();
+            long eAH = cVar.eAH();
             while (true) {
-                int eym = cVar.eym();
-                if (eym != -1) {
-                    switch (eym) {
+                int eAI = cVar.eAI();
+                if (eAI != -1) {
+                    switch (eAI) {
                         case 1:
                             builder.alpha(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -196,12 +196,12 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                             builder.shapes.add(ShapeEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding eyn = cVar.eyn();
-                            builder.addUnknownField(eym, eyn, eyn.rawProtoAdapter().decode(cVar));
+                            FieldEncoding eAJ = cVar.eAJ();
+                            builder.addUnknownField(eAI, eAJ, eAJ.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.ie(eyl);
+                    cVar.iE(eAH);
                     return builder.build();
                 }
             }

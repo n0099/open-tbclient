@@ -2,7 +2,7 @@ package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.k.a.a;
+import com.baidu.l.a.a;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
@@ -16,7 +16,7 @@ import com.baidu.sapi2.result.NormalizeGuestAccountResult;
 import com.baidu.sapi2.utils.b;
 import com.baidu.sapi2.utils.enums.SocialType;
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class NormalizeGuestAccountActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     private NormalizeGuestAccountResult p = new NormalizeGuestAccountResult() { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.1

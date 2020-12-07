@@ -4,7 +4,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class InflaterSource implements Source {
     private int bufferBytesHeldByInflater;
     private boolean closed;
@@ -63,7 +63,7 @@ public final class InflaterSource implements Source {
         throw new EOFException("source exhausted prematurely");
     }
 
-    public boolean refill() throws IOException {
+    public final boolean refill() throws IOException {
         if (this.inflater.needsInput()) {
             releaseInflatedBytes();
             if (this.inflater.getRemaining() != 0) {

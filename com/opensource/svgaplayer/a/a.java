@@ -7,45 +7,45 @@ import com.opensource.svgaplayer.entities.g;
 import com.opensource.svgaplayer.f;
 import java.util.ArrayList;
 import java.util.List;
-import kotlin.h;
-import kotlin.jvm.internal.q;
-@h
-/* loaded from: classes17.dex */
+import kotlin.e;
+import kotlin.jvm.internal.p;
+@e
+/* loaded from: classes18.dex */
 public class a {
-    private final f pEM;
-    private final d pFK;
+    private final f pys;
+    private final d pzq;
 
     public a(f fVar) {
-        q.n(fVar, "videoItem");
-        this.pEM = fVar;
-        this.pFK = new d();
+        p.o(fVar, "videoItem");
+        this.pys = fVar;
+        this.pzq = new d();
     }
 
-    public final f ewD() {
-        return this.pEM;
+    public final f ezA() {
+        return this.pys;
     }
 
-    public final d ewZ() {
-        return this.pFK;
+    public final d ezW() {
+        return this.pzq;
     }
 
-    @h
+    @e
     /* renamed from: com.opensource.svgaplayer.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes17.dex */
-    public final class C1034a {
+    /* loaded from: classes18.dex */
+    public final class C1013a {
         private final String imageKey;
-        private final g pFL;
-        final /* synthetic */ a pFM;
+        private final g pzr;
+        final /* synthetic */ a pzs;
 
-        public C1034a(a aVar, String str, g gVar) {
-            q.n(gVar, "frameEntity");
-            this.pFM = aVar;
+        public C1013a(a aVar, String str, g gVar) {
+            p.o(gVar, "frameEntity");
+            this.pzs = aVar;
             this.imageKey = str;
-            this.pFL = gVar;
+            this.pzr = gVar;
         }
 
-        public final g exa() {
-            return this.pFL;
+        public final g ezX() {
+            return this.pzr;
         }
 
         public final String getImageKey() {
@@ -53,25 +53,25 @@ public class a {
         }
     }
 
-    public final List<C1034a> RA(int i) {
-        C1034a c1034a;
+    public final List<C1013a> RC(int i) {
+        C1013a c1013a;
         ArrayList arrayList = new ArrayList();
-        for (com.opensource.svgaplayer.entities.f fVar : this.pEM.ewU()) {
-            if (i < 0 || i >= fVar.exx().size()) {
-                c1034a = null;
+        for (com.opensource.svgaplayer.entities.f fVar : this.pys.ezR()) {
+            if (i < 0 || i >= fVar.eAu().size()) {
+                c1013a = null;
             } else {
-                c1034a = fVar.exx().get(i).exy() <= 0.0d ? null : new C1034a(this, fVar.getImageKey(), fVar.exx().get(i));
+                c1013a = fVar.eAu().get(i).eAv() <= 0.0d ? null : new C1013a(this, fVar.getImageKey(), fVar.eAu().get(i));
             }
-            if (c1034a != null) {
-                arrayList.add(c1034a);
+            if (c1013a != null) {
+                arrayList.add(c1013a);
             }
         }
         return arrayList;
     }
 
     public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
-        q.n(canvas, "canvas");
-        q.n(scaleType, "scaleType");
-        this.pFK.a(canvas.getWidth(), canvas.getHeight(), (float) this.pEM.ewS().getWidth(), (float) this.pEM.ewS().getHeight(), scaleType);
+        p.o(canvas, "canvas");
+        p.o(scaleType, "scaleType");
+        this.pzq.a(canvas.getWidth(), canvas.getHeight(), (float) this.pys.ezP().getWidth(), (float) this.pys.ezP().getHeight(), scaleType);
     }
 }

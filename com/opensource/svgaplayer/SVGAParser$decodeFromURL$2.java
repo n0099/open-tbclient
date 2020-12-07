@@ -6,12 +6,11 @@ import java.io.InputStream;
 import java.net.URL;
 import kotlin.h;
 import kotlin.jvm.internal.Lambda;
-import kotlin.jvm.internal.q;
-import kotlin.l;
+import kotlin.jvm.internal.p;
 /* JADX INFO: Access modifiers changed from: package-private */
-@h
-/* loaded from: classes17.dex */
-public final class SVGAParser$decodeFromURL$2 extends Lambda implements kotlin.jvm.a.b<InputStream, l> {
+@kotlin.e
+/* loaded from: classes18.dex */
+public final class SVGAParser$decodeFromURL$2 extends Lambda implements kotlin.jvm.a.b<InputStream, h> {
     final /* synthetic */ d.c $callback;
     final /* synthetic */ URL $url;
     final /* synthetic */ d this$0;
@@ -28,14 +27,14 @@ public final class SVGAParser$decodeFromURL$2 extends Lambda implements kotlin.j
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.a.b
-    public /* bridge */ /* synthetic */ l invoke(InputStream inputStream) {
+    public /* bridge */ /* synthetic */ h invoke(InputStream inputStream) {
         invoke2(inputStream);
-        return l.pTv;
+        return h.pJY;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(InputStream inputStream) {
-        q.n(inputStream, AdvanceSetting.NETWORK_TYPE);
+        p.o(inputStream, AdvanceSetting.NETWORK_TYPE);
         d.a(this.this$0, inputStream, this.this$0.d(this.$url), this.$callback, false, 8, null);
     }
 }

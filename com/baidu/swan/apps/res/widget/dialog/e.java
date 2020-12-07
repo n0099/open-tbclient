@@ -7,102 +7,102 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.BdMultiPicker;
 import com.baidu.swan.apps.res.widget.dialog.h;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class e extends h {
-    private JSONArray dly;
-    private JSONArray dlz;
-    private BdMultiPicker dpX;
-    private BdMultiPicker.a dpY;
-    private boolean dpZ;
+    private JSONArray dsA;
+    private JSONArray dsz;
+    private BdMultiPicker dwY;
+    private BdMultiPicker.a dwZ;
+    private boolean dxa;
 
     public e(Context context) {
         super(context, a.i.NoTitleDialog);
     }
 
-    private void aGn() {
-        this.dpX = new BdMultiPicker(getContext());
+    private void aJv() {
+        this.dwY = new BdMultiPicker(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 1;
-        this.dpX.setLayoutParams(layoutParams);
-        this.dpX.setMultiWheelData(this.dly, this.dlz);
-        if (!this.dpZ) {
-            this.dpX.setMultiSelectedListener(this.dpY);
+        this.dwY.setLayoutParams(layoutParams);
+        this.dwY.setMultiWheelData(this.dsz, this.dsA);
+        if (!this.dxa) {
+            this.dwY.setMultiSelectedListener(this.dwZ);
         }
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
-        aGn();
-        aGu().aB(this.dpX);
+        aJv();
+        aJC().aD(this.dwY);
     }
 
     public void setDataArray(JSONArray jSONArray) {
-        this.dly = jSONArray;
+        this.dsz = jSONArray;
     }
 
     public void setDataIndex(JSONArray jSONArray) {
-        this.dlz = jSONArray;
+        this.dsA = jSONArray;
     }
 
-    public void gq(boolean z) {
-        this.dpZ = z;
+    public void gF(boolean z) {
+        this.dxa = z;
     }
 
     public void setMultiSelectedListener(BdMultiPicker.a aVar) {
-        this.dpY = aVar;
+        this.dwZ = aVar;
     }
 
     public JSONArray getCurrentIndex() {
-        return this.dpX.getCurrentIndex();
+        return this.dwY.getCurrentIndex();
     }
 
     public void a(int i, JSONArray jSONArray, int i2) {
-        this.dpX.a(i, jSONArray, i2);
+        this.dwY.a(i, jSONArray, i2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static class a extends h.a {
-        public JSONArray dqa;
-        public JSONArray dqb;
-        public boolean dqc;
-        public BdMultiPicker.a dqd;
+        public JSONArray dxb;
+        public JSONArray dxc;
+        public boolean dxd;
+        public BdMultiPicker.a dxe;
 
         public a(Context context) {
             super(context);
         }
 
-        public a E(JSONArray jSONArray) {
-            this.dqa = jSONArray;
-            return this;
-        }
-
         public a F(JSONArray jSONArray) {
-            this.dqb = jSONArray;
+            this.dxb = jSONArray;
             return this;
         }
 
-        public a gr(boolean z) {
-            this.dqc = z;
+        public a G(JSONArray jSONArray) {
+            this.dxc = jSONArray;
+            return this;
+        }
+
+        public a gG(boolean z) {
+            this.dxd = z;
             return this;
         }
 
         public a a(BdMultiPicker.a aVar) {
-            this.dqd = aVar;
+            this.dxe = aVar;
             return this;
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.h.a
-        protected h cs(Context context) {
+        protected h cY(Context context) {
             return new e(context);
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.h.a
-        public h aGm() {
-            e eVar = (e) super.aGm();
-            eVar.setDataArray(this.dqa);
-            eVar.setDataIndex(this.dqb);
-            eVar.gq(this.dqc);
-            eVar.setMultiSelectedListener(this.dqd);
+        public h aJu() {
+            e eVar = (e) super.aJu();
+            eVar.setDataArray(this.dxb);
+            eVar.setDataIndex(this.dxc);
+            eVar.gF(this.dxd);
+            eVar.setMultiSelectedListener(this.dxe);
             return eVar;
         }
     }

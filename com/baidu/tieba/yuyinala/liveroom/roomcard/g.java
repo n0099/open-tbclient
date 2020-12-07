@@ -9,9 +9,9 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class g extends BdBaseModel {
-    private Context bEC;
-    private final HttpMessageListener bst;
-    private a obz;
+    private Context bJK;
+    private final HttpMessageListener bxC;
+    private a oqz;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -21,31 +21,31 @@ public class g extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.obz = aVar;
+        this.oqz = aVar;
     }
 
     public g(Context context) {
-        this.bEC = context;
+        this.bJK = context;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031019, TbConfig.SERVER_ADDRESS + "ala/audio/room/showInfo");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(AlaGetRoomCardInfoHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.bst = new HttpMessageListener(1031019) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.g.1
+        this.bxC = new HttpMessageListener(1031019) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomCardInfoHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == g.this.getUniqueId() && g.this.obz != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomCardInfoHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == g.this.getUniqueId() && g.this.oqz != null) {
                     AlaGetRoomCardInfoHttpResponseMessage alaGetRoomCardInfoHttpResponseMessage = (AlaGetRoomCardInfoHttpResponseMessage) httpResponsedMessage;
                     if (alaGetRoomCardInfoHttpResponseMessage.getError() != 0 || !alaGetRoomCardInfoHttpResponseMessage.isSuccess()) {
-                        g.this.obz.onFail(alaGetRoomCardInfoHttpResponseMessage.getError(), alaGetRoomCardInfoHttpResponseMessage.getErrorString());
+                        g.this.oqz.onFail(alaGetRoomCardInfoHttpResponseMessage.getError(), alaGetRoomCardInfoHttpResponseMessage.getErrorString());
                     } else {
-                        g.this.obz.b(alaGetRoomCardInfoHttpResponseMessage);
+                        g.this.oqz.b(alaGetRoomCardInfoHttpResponseMessage);
                     }
                 }
             }
         };
-        registerListener(this.bst);
+        registerListener(this.bxC);
     }
 
     public void request(String str) {

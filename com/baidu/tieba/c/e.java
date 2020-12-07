@@ -5,76 +5,76 @@ import android.support.annotation.RestrictTo;
 import com.baidu.tieba.c.b;
 /* loaded from: classes.dex */
 public final class e {
-    private double hQA;
-    private double hQB;
-    private final b.a hQC;
-    double hQu;
-    double hQv;
-    private double hQw;
-    private double hQx;
-    private double hQy;
-    private double hQz;
+    double ibo;
+    double ibp;
+    private double ibq;
+    private double ibr;
+    private double ibs;
+    private double ibt;
+    private double ibu;
+    private double ibv;
+    private final b.a ibw;
     private boolean mInitialized;
 
     public e() {
-        this.hQu = Math.sqrt(1500.0d);
-        this.hQv = 0.5d;
+        this.ibo = Math.sqrt(1500.0d);
+        this.ibp = 0.5d;
         this.mInitialized = false;
-        this.hQB = Double.MAX_VALUE;
-        this.hQC = new b.a();
+        this.ibv = Double.MAX_VALUE;
+        this.ibw = new b.a();
     }
 
     public e(float f) {
-        this.hQu = Math.sqrt(1500.0d);
-        this.hQv = 0.5d;
+        this.ibo = Math.sqrt(1500.0d);
+        this.ibp = 0.5d;
         this.mInitialized = false;
-        this.hQB = Double.MAX_VALUE;
-        this.hQC = new b.a();
-        this.hQB = f;
+        this.ibv = Double.MAX_VALUE;
+        this.ibw = new b.a();
+        this.ibv = f;
     }
 
-    public e az(@FloatRange(from = 0.0d, fromInclusive = false) float f) {
+    public e aA(@FloatRange(from = 0.0d, fromInclusive = false) float f) {
         if (f <= 0.0f) {
             throw new IllegalArgumentException("Spring stiffness constant must be positive.");
         }
-        this.hQu = Math.sqrt(f);
+        this.ibo = Math.sqrt(f);
         this.mInitialized = false;
         return this;
     }
 
-    public e aA(@FloatRange(from = 0.0d) float f) {
+    public e aB(@FloatRange(from = 0.0d) float f) {
         if (f < 0.0f) {
             throw new IllegalArgumentException("Damping ratio must be non-negative");
         }
-        this.hQv = f;
+        this.ibp = f;
         this.mInitialized = false;
         return this;
     }
 
-    public e aB(float f) {
-        this.hQB = f;
+    public e aC(float f) {
+        this.ibv = f;
         return this;
     }
 
-    public float cmk() {
-        return (float) this.hQB;
+    public float cqx() {
+        return (float) this.ibv;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean C(float f, float f2) {
-        return ((double) Math.abs(f2)) < this.hQx && ((double) Math.abs(f - cmk())) < this.hQw;
+        return ((double) Math.abs(f2)) < this.ibr && ((double) Math.abs(f - cqx())) < this.ibq;
     }
 
     private void init() {
         if (!this.mInitialized) {
-            if (this.hQB == Double.MAX_VALUE) {
+            if (this.ibv == Double.MAX_VALUE) {
                 throw new IllegalStateException("Error: Final position of the spring must be set before the animation starts");
             }
-            if (this.hQv > 1.0d) {
-                this.hQy = ((-this.hQv) * this.hQu) + (this.hQu * Math.sqrt((this.hQv * this.hQv) - 1.0d));
-                this.hQz = ((-this.hQv) * this.hQu) - (this.hQu * Math.sqrt((this.hQv * this.hQv) - 1.0d));
-            } else if (this.hQv >= 0.0d && this.hQv < 1.0d) {
-                this.hQA = this.hQu * Math.sqrt(1.0d - (this.hQv * this.hQv));
+            if (this.ibp > 1.0d) {
+                this.ibs = ((-this.ibp) * this.ibo) + (this.ibo * Math.sqrt((this.ibp * this.ibp) - 1.0d));
+                this.ibt = ((-this.ibp) * this.ibo) - (this.ibo * Math.sqrt((this.ibp * this.ibp) - 1.0d));
+            } else if (this.ibp >= 0.0d && this.ibp < 1.0d) {
+                this.ibu = this.ibo * Math.sqrt(1.0d - (this.ibp * this.ibp));
             }
             this.mInitialized = true;
         }
@@ -86,29 +86,29 @@ public final class e {
         double cos;
         init();
         double d3 = j / 1000.0d;
-        double d4 = d - this.hQB;
-        if (this.hQv > 1.0d) {
-            double d5 = d4 - (((this.hQz * d4) - d2) / (this.hQz - this.hQy));
-            double d6 = ((this.hQz * d4) - d2) / (this.hQz - this.hQy);
-            pow = (Math.pow(2.718281828459045d, this.hQz * d3) * d5) + (Math.pow(2.718281828459045d, this.hQy * d3) * d6);
-            cos = (Math.pow(2.718281828459045d, d3 * this.hQy) * d6 * this.hQy) + (d5 * this.hQz * Math.pow(2.718281828459045d, this.hQz * d3));
-        } else if (this.hQv == 1.0d) {
-            double d7 = d2 + (this.hQu * d4);
-            pow = ((d7 * d3) + d4) * Math.pow(2.718281828459045d, (-this.hQu) * d3);
-            cos = (Math.pow(2.718281828459045d, d3 * (-this.hQu)) * d7) + ((d4 + (d7 * d3)) * Math.pow(2.718281828459045d, (-this.hQu) * d3) * (-this.hQu));
+        double d4 = d - this.ibv;
+        if (this.ibp > 1.0d) {
+            double d5 = d4 - (((this.ibt * d4) - d2) / (this.ibt - this.ibs));
+            double d6 = ((this.ibt * d4) - d2) / (this.ibt - this.ibs);
+            pow = (Math.pow(2.718281828459045d, this.ibt * d3) * d5) + (Math.pow(2.718281828459045d, this.ibs * d3) * d6);
+            cos = (Math.pow(2.718281828459045d, d3 * this.ibs) * d6 * this.ibs) + (d5 * this.ibt * Math.pow(2.718281828459045d, this.ibt * d3));
+        } else if (this.ibp == 1.0d) {
+            double d7 = d2 + (this.ibo * d4);
+            pow = ((d7 * d3) + d4) * Math.pow(2.718281828459045d, (-this.ibo) * d3);
+            cos = (Math.pow(2.718281828459045d, d3 * (-this.ibo)) * d7) + ((d4 + (d7 * d3)) * Math.pow(2.718281828459045d, (-this.ibo) * d3) * (-this.ibo));
         } else {
-            double d8 = ((this.hQv * this.hQu * d4) + d2) * (1.0d / this.hQA);
-            pow = Math.pow(2.718281828459045d, (-this.hQv) * this.hQu * d3) * ((Math.cos(this.hQA * d3) * d4) + (Math.sin(this.hQA * d3) * d8));
-            cos = (((Math.cos(d3 * this.hQA) * d8 * this.hQA) + (d4 * (-this.hQA) * Math.sin(this.hQA * d3))) * Math.pow(2.718281828459045d, (-this.hQv) * this.hQu * d3)) + ((-this.hQu) * pow * this.hQv);
+            double d8 = ((this.ibp * this.ibo * d4) + d2) * (1.0d / this.ibu);
+            pow = Math.pow(2.718281828459045d, (-this.ibp) * this.ibo * d3) * ((Math.cos(this.ibu * d3) * d4) + (Math.sin(this.ibu * d3) * d8));
+            cos = (((Math.cos(d3 * this.ibu) * d8 * this.ibu) + (d4 * (-this.ibu) * Math.sin(this.ibu * d3))) * Math.pow(2.718281828459045d, (-this.ibp) * this.ibo * d3)) + ((-this.ibo) * pow * this.ibp);
         }
-        this.hQC.mValue = (float) (pow + this.hQB);
-        this.hQC.hQk = (float) cos;
-        return this.hQC;
+        this.ibw.mValue = (float) (pow + this.ibv);
+        this.ibw.ibb = (float) cos;
+        return this.ibw;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void A(double d) {
-        this.hQw = Math.abs(d);
-        this.hQx = this.hQw * 62.5d;
+    public void B(double d) {
+        this.ibq = Math.abs(d);
+        this.ibr = this.ibq * 62.5d;
     }
 }

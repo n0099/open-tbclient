@@ -1,14 +1,13 @@
 package kotlin.reflect;
 
-import kotlin.jvm.a.q;
 import kotlin.reflect.f;
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 public interface i<D, E, R> extends f<R>, m<D, E, R> {
 
-    @kotlin.h
-    /* loaded from: classes9.dex */
-    public interface a<D, E, R> extends q<D, E, R, kotlin.l>, f.a<R> {
+    @kotlin.e
+    /* loaded from: classes17.dex */
+    public interface a<D, E, R> extends f.a<R> {
     }
 
     a<D, E, R> getSetter();

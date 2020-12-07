@@ -535,6 +535,7 @@ public final class DiskLruCache implements Closeable, Flushable {
             @Override // java.util.Iterator
             public boolean hasNext() {
                 boolean z;
+                Snapshot snapshot;
                 if (this.nextSnapshot != null) {
                     return true;
                 }
@@ -545,8 +546,8 @@ public final class DiskLruCache implements Closeable, Flushable {
                                 z = false;
                                 break;
                             }
-                            Snapshot snapshot = this.delegate.next().snapshot();
-                            if (snapshot != null) {
+                            Entry next = this.delegate.next();
+                            if (next.readable && (snapshot = next.snapshot()) != null) {
                                 this.nextSnapshot = snapshot;
                                 z = true;
                                 break;

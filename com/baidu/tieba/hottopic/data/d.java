@@ -2,10 +2,10 @@ package com.baidu.tieba.hottopic.data;
 
 import android.support.annotation.NonNull;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.data.aw;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.ax;
+import com.baidu.tbadk.core.data.bl;
 import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.ArrayList;
@@ -14,13 +14,13 @@ import java.util.List;
 import tbclient.GetTopicRelateThread.DataRes;
 import tbclient.Hottopic.HotThread;
 import tbclient.ThreadInfo;
-/* loaded from: classes20.dex */
-public class d extends bx {
-    public List<com.baidu.tieba.card.data.b> fNt;
-    public String jPM;
+/* loaded from: classes21.dex */
+public class d extends by {
+    public List<com.baidu.tieba.card.data.b> fVe;
+    public String kdp;
     public long lastId;
     public List<q> list = new ArrayList();
-    public aw pageData;
+    public ax pageData;
     public int sortType;
 
     public d() {
@@ -35,47 +35,47 @@ public class d extends bx {
 
     public void a(HotThread hotThread) {
         if (hotThread != null) {
-            this.jPM = hotThread.hot_title;
+            this.kdp = hotThread.hot_title;
             if (hotThread.thread_list != null) {
-                this.fNt = new ArrayList();
+                this.fVe = new ArrayList();
                 for (ThreadInfo threadInfo : hotThread.thread_list) {
                     if (threadInfo != null) {
-                        bx bxVar = new bx();
-                        bxVar.a(threadInfo);
-                        bxVar.oe(5);
+                        by byVar = new by();
+                        byVar.a(threadInfo);
+                        byVar.oC(5);
                         com.baidu.tieba.card.data.k kVar = null;
-                        if (bxVar.isShareThread) {
+                        if (byVar.isShareThread) {
                             com.baidu.tieba.card.data.k kVar2 = new com.baidu.tieba.card.data.k();
-                            kVar2.evQ = bxVar;
+                            kVar2.eCR = byVar;
                             kVar = kVar2;
-                        } else if (com.baidu.tieba.card.data.l.ad(bxVar)) {
-                            kVar = new com.baidu.tieba.card.data.l(bxVar);
-                        } else if (com.baidu.tieba.card.data.k.ad(bxVar)) {
+                        } else if (com.baidu.tieba.card.data.l.ad(byVar)) {
+                            kVar = new com.baidu.tieba.card.data.l(byVar);
+                        } else if (com.baidu.tieba.card.data.k.ad(byVar)) {
                             com.baidu.tieba.card.data.k kVar3 = new com.baidu.tieba.card.data.k();
-                            kVar3.evQ = bxVar;
+                            kVar3.eCR = byVar;
                             kVar = kVar3;
                         }
                         if (kVar != null && kVar.isValid()) {
-                            kVar.ID("c10816");
-                            this.fNt.add(kVar);
+                            kVar.Jt("c10816");
+                            this.fVe.add(kVar);
                         }
                     }
                 }
-                dT(this.fNt);
-                dU(hotThread.thread_list);
+                ee(this.fVe);
+                ef(hotThread.thread_list);
             }
             if (hotThread.page != null) {
-                this.pageData = new aw();
+                this.pageData = new ax();
                 this.pageData.a(hotThread.page);
             }
         }
     }
 
-    private void dT(List<com.baidu.tieba.card.data.b> list) {
+    private void ee(List<com.baidu.tieba.card.data.b> list) {
         if (!y.isEmpty(list)) {
             com.baidu.tieba.card.data.b bVar = list.get(list.size() - 1);
-            if (bVar.bjd() != null) {
-                this.lastId = com.baidu.adp.lib.f.b.toLong(bVar.bjd().getTid(), 0L);
+            if (bVar.bmn() != null) {
+                this.lastId = com.baidu.adp.lib.f.b.toLong(bVar.bmn().getTid(), 0L);
             }
         }
     }
@@ -83,48 +83,48 @@ public class d extends bx {
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (dataRes.thread_list != null) {
-                this.fNt = new ArrayList();
+                this.fVe = new ArrayList();
                 for (ThreadInfo threadInfo : dataRes.thread_list) {
                     if (threadInfo != null) {
-                        bx bxVar = new bx();
-                        bxVar.a(threadInfo);
-                        bxVar.oe(5);
+                        by byVar = new by();
+                        byVar.a(threadInfo);
+                        byVar.oC(5);
                         com.baidu.tieba.card.data.l lVar = null;
-                        if (com.baidu.tieba.card.data.l.ad(bxVar)) {
-                            lVar = new com.baidu.tieba.card.data.l(bxVar);
-                        } else if (com.baidu.tieba.card.data.k.ad(bxVar)) {
+                        if (com.baidu.tieba.card.data.l.ad(byVar)) {
+                            lVar = new com.baidu.tieba.card.data.l(byVar);
+                        } else if (com.baidu.tieba.card.data.k.ad(byVar)) {
                             com.baidu.tieba.card.data.k kVar = new com.baidu.tieba.card.data.k();
-                            kVar.evQ = bxVar;
+                            kVar.eCR = byVar;
                             lVar = kVar;
                         }
                         if (lVar != null && lVar.isValid()) {
-                            lVar.ID("c10816");
-                            this.fNt.add(lVar);
+                            lVar.Jt("c10816");
+                            this.fVe.add(lVar);
                         }
                     }
                 }
-                dT(this.fNt);
-                dU(dataRes.thread_list);
+                ee(this.fVe);
+                ef(dataRes.thread_list);
             }
             if (dataRes.page != null) {
-                this.pageData = new aw();
+                this.pageData = new ax();
                 this.pageData.a(dataRes.page);
             }
         }
     }
 
-    private void dU(@NonNull List<ThreadInfo> list) {
+    private void ef(@NonNull List<ThreadInfo> list) {
         for (ThreadInfo threadInfo : list) {
-            bx bxVar = new bx();
-            bxVar.a(threadInfo);
-            bxVar.ble();
-            this.list.add(bxVar);
+            by byVar = new by();
+            byVar.a(threadInfo);
+            byVar.bor();
+            this.list.add(byVar);
         }
     }
 
-    private void a(ArrayList<q> arrayList, bk bkVar) {
+    private void a(ArrayList<q> arrayList, bl blVar) {
         int i;
-        if (bkVar != null && !y.isEmpty(bkVar.bkI())) {
+        if (blVar != null && !y.isEmpty(blVar.bnV())) {
             int size = arrayList.size();
             int i2 = 0;
             int i3 = 0;
@@ -132,10 +132,10 @@ public class d extends bx {
                 if (i2 >= size) {
                     break;
                 }
-                if (!(arrayList.get(i2) instanceof bx)) {
+                if (!(arrayList.get(i2) instanceof by)) {
                     i = i3;
-                } else if (bkVar.floorPosition == i3) {
-                    y.add(arrayList, i2, bkVar);
+                } else if (blVar.floorPosition == i3) {
+                    y.add(arrayList, i2, blVar);
                     break;
                 } else {
                     i = i3 + 1;
@@ -144,100 +144,100 @@ public class d extends bx {
                 i3 = i;
             }
             if (size == 2) {
-                y.add(arrayList, bkVar);
+                y.add(arrayList, blVar);
             }
         }
     }
 
-    public ArrayList<q> e(bk bkVar) {
+    public ArrayList<q> e(bl blVar) {
         ArrayList<q> arrayList = new ArrayList<>(this.list);
-        a(arrayList, bkVar);
+        a(arrayList, blVar);
         ArrayList<q> arrayList2 = new ArrayList<>();
         Iterator<q> it = arrayList.iterator();
         int i = 0;
         while (it.hasNext()) {
             q next = it.next();
-            if (next instanceof bx) {
-                bx bxVar = (bx) next;
-                int[] imageWidthAndHeight = bxVar.getImageWidthAndHeight();
-                if (bxVar.getType() == bx.eBR) {
-                    bw bwVar = new bw();
-                    bwVar.evQ = bxVar;
-                    bwVar.position = i;
-                    bwVar.eBx = true;
-                    arrayList2.add(bwVar);
-                    bw bwVar2 = new bw();
-                    bwVar2.evQ = bxVar;
-                    bwVar2.position = i;
-                    if (bxVar.bnz()) {
-                        bwVar2.eBC = true;
-                    } else if (bxVar.bmK() == 1) {
-                        bwVar2.eBA = true;
-                        bwVar2.eBO = imageWidthAndHeight[0];
-                        bwVar2.eBP = imageWidthAndHeight[1];
-                    } else if (bxVar.bmK() >= 2) {
-                        bwVar2.eBB = true;
-                    } else {
-                        bwVar2.eBy = true;
-                    }
-                    arrayList2.add(bwVar2);
-                    if (bxVar.bnH() != null) {
-                        bw bwVar3 = new bw();
-                        bwVar3.eBJ = true;
-                        bwVar3.evQ = bxVar;
-                        bwVar3.position = i;
-                        arrayList2.add(bwVar3);
-                    }
-                    bw bwVar4 = new bw();
-                    bwVar4.eBI = true;
-                    bwVar4.evQ = bxVar;
-                    bwVar4.position = i;
-                    arrayList2.add(bwVar4);
-                    bw bwVar5 = new bw();
-                    bwVar5.eBD = true;
-                    bwVar5.evQ = bxVar;
-                    bwVar5.position = i;
-                    arrayList2.add(bwVar5);
-                } else if (bxVar.getType() == bx.eCo) {
-                    bw bwVar6 = new bw();
-                    bwVar6.evQ = bxVar;
-                    bwVar6.position = i;
-                    bwVar6.eBx = true;
-                    arrayList2.add(bwVar6);
-                    bw bwVar7 = new bw();
-                    bwVar7.evQ = bxVar;
-                    bwVar7.position = i;
-                    bwVar7.eBF = true;
-                    arrayList2.add(bwVar7);
-                    if (bxVar.bnH() != null) {
-                        bw bwVar8 = new bw();
-                        bwVar8.eBJ = true;
-                        bwVar8.evQ = bxVar;
-                        bwVar8.position = i;
-                        arrayList2.add(bwVar8);
-                    }
-                    bw bwVar9 = new bw();
-                    bwVar9.eBI = true;
-                    bwVar9.evQ = bxVar;
-                    bwVar9.position = i;
-                    arrayList2.add(bwVar9);
-                    bw bwVar10 = new bw();
-                    bwVar10.eBD = true;
-                    bwVar10.evQ = bxVar;
-                    bwVar10.position = i;
-                    arrayList2.add(bwVar10);
-                } else if (bxVar.getType() == bx.eCg && bxVar.bkk()) {
+            if (next instanceof by) {
+                by byVar = (by) next;
+                int[] imageWidthAndHeight = byVar.getImageWidthAndHeight();
+                if (byVar.getType() == by.eIS) {
+                    bx bxVar = new bx();
+                    bxVar.eCR = byVar;
                     bxVar.position = i;
+                    bxVar.eIy = true;
                     arrayList2.add(bxVar);
-                } else if (com.baidu.tieba.card.data.j.ad(bxVar)) {
-                    com.baidu.tieba.card.data.j jVar = new com.baidu.tieba.card.data.j(bxVar);
-                    jVar.tid = bxVar.getTid();
+                    bx bxVar2 = new bx();
+                    bxVar2.eCR = byVar;
+                    bxVar2.position = i;
+                    if (byVar.bqM()) {
+                        bxVar2.eID = true;
+                    } else if (byVar.bpX() == 1) {
+                        bxVar2.eIB = true;
+                        bxVar2.eIP = imageWidthAndHeight[0];
+                        bxVar2.eIQ = imageWidthAndHeight[1];
+                    } else if (byVar.bpX() >= 2) {
+                        bxVar2.eIC = true;
+                    } else {
+                        bxVar2.eIz = true;
+                    }
+                    arrayList2.add(bxVar2);
+                    if (byVar.bqV() != null) {
+                        bx bxVar3 = new bx();
+                        bxVar3.eIK = true;
+                        bxVar3.eCR = byVar;
+                        bxVar3.position = i;
+                        arrayList2.add(bxVar3);
+                    }
+                    bx bxVar4 = new bx();
+                    bxVar4.eIJ = true;
+                    bxVar4.eCR = byVar;
+                    bxVar4.position = i;
+                    arrayList2.add(bxVar4);
+                    bx bxVar5 = new bx();
+                    bxVar5.eIE = true;
+                    bxVar5.eCR = byVar;
+                    bxVar5.position = i;
+                    arrayList2.add(bxVar5);
+                } else if (byVar.getType() == by.eJq) {
+                    bx bxVar6 = new bx();
+                    bxVar6.eCR = byVar;
+                    bxVar6.position = i;
+                    bxVar6.eIy = true;
+                    arrayList2.add(bxVar6);
+                    bx bxVar7 = new bx();
+                    bxVar7.eCR = byVar;
+                    bxVar7.position = i;
+                    bxVar7.eIG = true;
+                    arrayList2.add(bxVar7);
+                    if (byVar.bqV() != null) {
+                        bx bxVar8 = new bx();
+                        bxVar8.eIK = true;
+                        bxVar8.eCR = byVar;
+                        bxVar8.position = i;
+                        arrayList2.add(bxVar8);
+                    }
+                    bx bxVar9 = new bx();
+                    bxVar9.eIJ = true;
+                    bxVar9.eCR = byVar;
+                    bxVar9.position = i;
+                    arrayList2.add(bxVar9);
+                    bx bxVar10 = new bx();
+                    bxVar10.eIE = true;
+                    bxVar10.eCR = byVar;
+                    bxVar10.position = i;
+                    arrayList2.add(bxVar10);
+                } else if (byVar.getType() == by.eJh && byVar.bnx()) {
+                    byVar.position = i;
+                    arrayList2.add(byVar);
+                } else if (com.baidu.tieba.card.data.j.ad(byVar)) {
+                    com.baidu.tieba.card.data.j jVar = new com.baidu.tieba.card.data.j(byVar);
+                    jVar.tid = byVar.getTid();
                     arrayList2.add(jVar);
                 } else {
-                    bw bwVar11 = new bw();
-                    bwVar11.evQ = bxVar;
-                    bwVar11.position = i;
-                    arrayList2.add(bwVar11);
+                    bx bxVar11 = new bx();
+                    bxVar11.eCR = byVar;
+                    bxVar11.position = i;
+                    arrayList2.add(bxVar11);
                 }
             } else if (next instanceof BaseCardInfo) {
                 ((BaseCardInfo) next).position = i;
@@ -247,7 +247,7 @@ public class d extends bx {
             }
             i++;
         }
-        com.baidu.tbadk.a.a.a.be(arrayList2);
+        com.baidu.tbadk.a.a.a.bh(arrayList2);
         return arrayList2;
     }
 }

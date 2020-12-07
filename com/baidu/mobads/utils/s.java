@@ -6,11 +6,11 @@ import java.util.Comparator;
 class s implements Comparator<ScanResult> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ p f2449a;
+    final /* synthetic */ p f2451a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(p pVar) {
-        this.f2449a = pVar;
+        this.f2451a = pVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -7,19 +7,19 @@ import com.baidu.swan.apps.ap.ak;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String mTitle = "background";
     private static String mType = "page";
     private static String mUrl = "runtime/index.js";
-    private static String cEP = "ws://localhost:4000";
+    private static String cLJ = "ws://localhost:4000";
     private String mId = String.valueOf(System.currentTimeMillis());
-    private String cEQ = "http://chrome-devtools-frontend.appspot.com/serve_rev/@793eb32f50bafcb87fb5d1a0fd3f44e66470e580/inspector.html?ws=localhost:4000";
+    private String cLK = "http://chrome-devtools-frontend.appspot.com/serve_rev/@793eb32f50bafcb87fb5d1a0fd3f44e66470e580/inspector.html?ws=localhost:4000";
     private boolean mAttached = false;
-    private boolean cER = true;
-    private int cES = 0;
-    private int cET = 0;
+    private boolean cLL = true;
+    private int cLM = 0;
+    private int cLN = 0;
     private boolean mVisible = true;
 
     public String toString() {
@@ -30,15 +30,15 @@ public class b {
             jSONObject.putOpt("title", mTitle);
             jSONObject.putOpt("type", mType);
             jSONObject.putOpt("url", mUrl);
-            jSONObject.putOpt("webSocketDebuggerUrl", cEP);
+            jSONObject.putOpt("webSocketDebuggerUrl", cLJ);
             jSONObject.putOpt("id", this.mId);
-            jSONObject.putOpt("devtoolsFrontendUrl", this.cEQ);
-            jSONObject.putOpt("swanJsVersion", com.baidu.swan.apps.swancore.b.kB(0));
+            jSONObject.putOpt("devtoolsFrontendUrl", this.cLK);
+            jSONObject.putOpt("swanJsVersion", com.baidu.swan.apps.swancore.b.kZ(0));
             jSONObject.putOpt("appVersion", ak.getVersionName());
             jSONObject2.putOpt("attached", Boolean.valueOf(this.mAttached));
-            jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.cER));
-            jSONObject2.putOpt("screenX", Integer.valueOf(this.cES));
-            jSONObject2.putOpt("screenY", Integer.valueOf(this.cET));
+            jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.cLL));
+            jSONObject2.putOpt("screenX", Integer.valueOf(this.cLM));
+            jSONObject2.putOpt("screenY", Integer.valueOf(this.cLN));
             jSONObject2.putOpt(MapBundleKey.MapObjKey.OBJ_SL_VISI, Boolean.valueOf(this.mVisible));
             jSONObject.putOpt("description", jSONObject2.toString());
             jSONArray.put(jSONObject);

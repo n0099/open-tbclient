@@ -4,7 +4,7 @@ import java.io.IOException;
 import org.apache.http.client.HttpRequestRetryHandler;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class DefaultHttpRequestRetryHandler implements HttpRequestRetryHandler {
     public DefaultHttpRequestRetryHandler(int i, boolean z) {
         throw new RuntimeException("Stub!");

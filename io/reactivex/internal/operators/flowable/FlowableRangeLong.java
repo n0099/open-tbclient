@@ -1,9 +1,10 @@
 package io.reactivex.internal.operators.flowable;
 
+import io.reactivex.g;
 import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
-/* loaded from: classes5.dex */
-public final class FlowableRangeLong extends io.reactivex.g<Long> {
+/* loaded from: classes9.dex */
+public final class FlowableRangeLong extends g<Long> {
     final long end;
     final long start;
 
@@ -16,7 +17,7 @@ public final class FlowableRangeLong extends io.reactivex.g<Long> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static abstract class BaseRangeSubscription extends BasicQueueSubscription<Long> {
         private static final long serialVersionUID = -2252972430506210021L;
         volatile boolean cancelled;
@@ -38,7 +39,7 @@ public final class FlowableRangeLong extends io.reactivex.g<Long> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public final Long poll() {
             long j = this.index;
             if (j == this.end) {
@@ -48,12 +49,12 @@ public final class FlowableRangeLong extends io.reactivex.g<Long> {
             return Long.valueOf(j);
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public final boolean isEmpty() {
             return this.index == this.end;
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public final void clear() {
             this.index = this.end;
         }
@@ -75,7 +76,7 @@ public final class FlowableRangeLong extends io.reactivex.g<Long> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class RangeSubscription extends BaseRangeSubscription {
         private static final long serialVersionUID = 2587302975077663557L;
         final org.a.c<? super Long> actual;
@@ -139,7 +140,7 @@ public final class FlowableRangeLong extends io.reactivex.g<Long> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class RangeConditionalSubscription extends BaseRangeSubscription {
         private static final long serialVersionUID = 2587302975077663557L;
         final io.reactivex.internal.a.a<? super Long> actual;

@@ -10,11 +10,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f2859a = new b();
+    public static final b f2861a = new b();
     private c b = new c(com.baidu.platform.comapi.b.e(), "res.json");
 
     private b() {

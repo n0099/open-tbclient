@@ -7,25 +7,29 @@ import com.baidu.live.data.w;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface a {
-    int RE();
+    int Uc();
 
-    void Va();
+    void WG();
 
-    com.baidu.live.alablmsdk.module.c Vb();
+    void WH();
 
-    JSONObject Vc();
+    void XA();
 
-    void Z(JSONObject jSONObject);
+    com.baidu.live.alablmsdk.module.c XB();
+
+    JSONObject XC();
 
     void a(AlaLiveRecorder alaLiveRecorder);
 
     void a(f fVar);
 
-    void aa(JSONObject jSONObject);
+    void ab(JSONObject jSONObject);
+
+    void ac(JSONObject jSONObject);
 
     boolean b(com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject);
 
-    void de(boolean z);
+    void ds(boolean z);
 
     View getPlayerView();
 

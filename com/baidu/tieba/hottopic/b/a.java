@@ -1,9 +1,9 @@
 package com.baidu.tieba.hottopic.b;
 
 import com.baidu.tbadk.core.util.au;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a {
-    public static String aU(String str, int i) {
-        return com.baidu.tbadk.plugins.b.DO(au.cutStringWithEllipsisNew(str, i));
+    public static String aV(String str, int i) {
+        return com.baidu.tbadk.plugins.b.Ez(au.cutStringWithEllipsisNew(str, i));
     }
 }

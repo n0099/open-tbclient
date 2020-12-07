@@ -1,31 +1,31 @@
 package com.baidu.ar.child.a;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private float[] lK;
-    private long lQ;
-    private float[] lR;
+    private float[] lZ;
+    private long mf;
+    private float[] mg;
 
-    public float[] cW() {
-        return this.lK;
+    public float[] cV() {
+        return this.lZ;
     }
 
-    public long cZ() {
-        return this.lQ;
+    public long cY() {
+        return this.mf;
     }
 
-    public float[] da() {
-        return this.lR;
+    public float[] cZ() {
+        return this.mg;
+    }
+
+    public void d(float[] fArr) {
+        this.lZ = fArr;
     }
 
     public void e(float[] fArr) {
-        this.lK = fArr;
+        this.mg = fArr;
     }
 
-    public void f(float[] fArr) {
-        this.lR = fArr;
-    }
-
-    public void i(long j) {
-        this.lQ = j;
+    public void g(long j) {
+        this.mf = j;
     }
 }

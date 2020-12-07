@@ -5,11 +5,11 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import com.baidu.pano.platform.comapi.a.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class ImageMarker extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Drawable f1847a;
+    private Drawable f1849a;
     private Bitmap b;
     private String c;
 
@@ -25,9 +25,9 @@ public class ImageMarker extends a {
     }
 
     public void setMarker(Drawable drawable) {
-        this.f1847a = drawable;
+        this.f1849a = drawable;
         if (drawable != null) {
-            this.b = ((BitmapDrawable) this.f1847a).getBitmap();
+            this.b = ((BitmapDrawable) this.f1849a).getBitmap();
             if (this.b == null) {
                 throw new IllegalStateException("when add an overlay item, it must have image info, can not be null");
             }
@@ -42,7 +42,7 @@ public class ImageMarker extends a {
     }
 
     public Drawable getMarkerDrawable() {
-        return this.f1847a;
+        return this.f1849a;
     }
 
     public Bitmap getMarkerBitmap() {

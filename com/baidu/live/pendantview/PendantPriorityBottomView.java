@@ -22,11 +22,11 @@ public class PendantPriorityBottomView extends PendantPriorityView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (getOrientation() == 1) {
-            eS(i4 - i2);
+            fq(i4 - i2);
         }
     }
 
-    private void eS(int i) {
+    private void fq(int i) {
         boolean z;
         int i2;
         int paddingBottom = i - getPaddingBottom();

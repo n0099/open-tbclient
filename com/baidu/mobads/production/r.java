@@ -9,7 +9,7 @@ import java.util.TimerTask;
 public class r extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IXAdPackageUtils f2426a;
+    final /* synthetic */ IXAdPackageUtils f2428a;
     final /* synthetic */ Context b;
     final /* synthetic */ String c;
     final /* synthetic */ Timer d;
@@ -19,7 +19,7 @@ public class r extends TimerTask {
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar, IXAdPackageUtils iXAdPackageUtils, Context context, String str, Timer timer, String str2) {
         this.f = qVar;
-        this.f2426a = iXAdPackageUtils;
+        this.f2428a = iXAdPackageUtils;
         this.b = context;
         this.c = str;
         this.d = timer;
@@ -39,16 +39,16 @@ public class r extends TimerTask {
             i3 = this.f.g;
             i4 = this.f.i;
             if (i3 < i4) {
-                if (!this.f2426a.isForeground(this.b, this.c)) {
+                if (!this.f2428a.isForeground(this.b, this.c)) {
                     this.d.cancel();
-                    IXAdPackageUtils iXAdPackageUtils = this.f2426a;
+                    IXAdPackageUtils iXAdPackageUtils = this.f2428a;
                     Context context = this.b;
                     i5 = this.f.g;
                     iXAdPackageUtils.sendAPOIsSuccess(context, false, i5, this.e, this.c);
                 }
             } else {
                 this.d.cancel();
-                this.f2426a.sendAPOIsSuccess(this.b, true, 0, this.e, this.c);
+                this.f2428a.sendAPOIsSuccess(this.b, true, 0, this.e, this.c);
             }
         }
         q.d(this.f);

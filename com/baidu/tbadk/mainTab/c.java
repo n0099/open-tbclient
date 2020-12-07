@@ -7,7 +7,7 @@ public class c {
     public int backgroundId;
     public int drawableResId;
     public Fragment frag;
-    public String fsd;
+    public String fzR;
     public int showIconType = SHOWICON;
     public String text;
     public int textResId;
@@ -15,5 +15,5 @@ public class c {
     public static int SHOWICON = 1;
     public static int SHOWTEXT = 2;
     public static int SHOWBOTH = 3;
-    public static int fse = 4;
+    public static int fzS = 4;
 }

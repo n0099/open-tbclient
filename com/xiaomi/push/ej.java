@@ -10,23 +10,23 @@ public final class ej {
     public static final class a extends e {
 
         /* renamed from: a  reason: collision with other field name */
-        private boolean f238a;
+        private boolean f236a;
 
         /* renamed from: b  reason: collision with other field name */
-        private boolean f239b;
+        private boolean f237b;
         private boolean d;
         private boolean e;
 
         /* renamed from: a  reason: collision with root package name */
-        private int f4877a = 0;
+        private int f4647a = 0;
 
         /* renamed from: c  reason: collision with other field name */
-        private boolean f240c = false;
+        private boolean f238c = false;
         private int b = 0;
         private boolean f = false;
 
         /* renamed from: a  reason: collision with other field name */
-        private List<String> f237a = Collections.emptyList();
+        private List<String> f235a = Collections.emptyList();
         private int c = -1;
 
         public static a a(byte[] bArr) {
@@ -46,8 +46,8 @@ public final class ej {
         }
 
         public a a(int i) {
-            this.f238a = true;
-            this.f4877a = i;
+            this.f236a = true;
+            this.f4647a = i;
             return this;
         }
 
@@ -55,27 +55,27 @@ public final class ej {
         @Override // com.xiaomi.push.e
         public a a(b bVar) {
             while (true) {
-                int m147a = bVar.m147a();
-                switch (m147a) {
+                int m137a = bVar.m137a();
+                switch (m137a) {
                     case 0:
                         break;
                     case 8:
                         a(bVar.c());
                         break;
                     case 16:
-                        a(bVar.m153a());
+                        a(bVar.m143a());
                         break;
                     case 24:
-                        b(bVar.m156b());
+                        b(bVar.m146b());
                         break;
                     case 32:
-                        b(bVar.m153a());
+                        b(bVar.m143a());
                         break;
                     case 42:
-                        a(bVar.m150a());
+                        a(bVar.m140a());
                         break;
                     default:
-                        if (!a(bVar, m147a)) {
+                        if (!a(bVar, m137a)) {
                             break;
                         } else {
                             break;
@@ -89,59 +89,59 @@ public final class ej {
             if (str == null) {
                 throw new NullPointerException();
             }
-            if (this.f237a.isEmpty()) {
-                this.f237a = new ArrayList();
+            if (this.f235a.isEmpty()) {
+                this.f235a = new ArrayList();
             }
-            this.f237a.add(str);
+            this.f235a.add(str);
             return this;
         }
 
         public a a(boolean z) {
-            this.f239b = true;
-            this.f240c = z;
+            this.f237b = true;
+            this.f238c = z;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public List<String> a() {
-            return this.f237a;
+            return this.f235a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(c cVar) {
             if (a()) {
-                cVar.m194b(1, c());
+                cVar.m184b(1, c());
             }
-            if (m241c()) {
-                cVar.m186a(2, b());
+            if (m231c()) {
+                cVar.m176a(2, b());
             }
-            if (m242d()) {
-                cVar.m181a(3, d());
+            if (m232d()) {
+                cVar.m171a(3, d());
             }
             if (f()) {
-                cVar.m186a(4, m243e());
+                cVar.m176a(4, m233e());
             }
             for (String str : a()) {
-                cVar.m185a(5, str);
+                cVar.m175a(5, str);
             }
         }
 
         @Override // com.xiaomi.push.e
         public boolean a() {
-            return this.f238a;
+            return this.f236a;
         }
 
         @Override // com.xiaomi.push.e
         public int b() {
             int i = 0;
             int b = a() ? c.b(1, c()) + 0 : 0;
-            if (m241c()) {
+            if (m231c()) {
                 b += c.a(2, b());
             }
-            if (m242d()) {
+            if (m232d()) {
                 b += c.a(3, d());
             }
-            int a2 = f() ? b + c.a(4, m243e()) : b;
+            int a2 = f() ? b + c.a(4, m233e()) : b;
             for (String str : a()) {
                 i += c.a(str);
             }
@@ -164,16 +164,16 @@ public final class ej {
 
         @Override // com.xiaomi.push.e
         public boolean b() {
-            return this.f240c;
+            return this.f238c;
         }
 
         public int c() {
-            return this.f4877a;
+            return this.f4647a;
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m241c() {
-            return this.f239b;
+        public boolean m231c() {
+            return this.f237b;
         }
 
         public int d() {
@@ -181,16 +181,16 @@ public final class ej {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m242d() {
+        public boolean m232d() {
             return this.d;
         }
 
         public int e() {
-            return this.f237a.size();
+            return this.f235a.size();
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m243e() {
+        public boolean m233e() {
             return this.f;
         }
 

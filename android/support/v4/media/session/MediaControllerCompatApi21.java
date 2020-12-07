@@ -17,10 +17,10 @@ import android.view.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 @RequiresApi(21)
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 class MediaControllerCompatApi21 {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface Callback {
         void onAudioInfoChanged(int i, int i2, int i3, int i4, int i5);
 
@@ -134,7 +134,7 @@ class MediaControllerCompatApi21 {
         return ((MediaController) obj).getPackageName();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static class TransportControls {
         public static void play(Object obj) {
             ((MediaController.TransportControls) obj).play();
@@ -189,7 +189,7 @@ class MediaControllerCompatApi21 {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static class PlaybackInfo {
         private static final int FLAG_SCO = 4;
         private static final int STREAM_BLUETOOTH_SCO = 6;
@@ -253,7 +253,7 @@ class MediaControllerCompatApi21 {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     static class CallbackProxy<T extends Callback> extends MediaController.Callback {
         protected final T mCallback;
 

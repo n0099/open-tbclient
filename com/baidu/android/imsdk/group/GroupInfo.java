@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.PinYinUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObject {
     public static final Parcelable.Creator<GroupInfo> CREATOR = new Parcelable.Creator<GroupInfo>() { // from class: com.baidu.android.imsdk.group.GroupInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -31,6 +31,8 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
     private String mGroupId;
     private String mGroupName;
     private String mHeadUrl;
+    private int mMarkTop;
+    private long mMarkTopTime;
     private long mMembersVersion;
     private int mNum;
     private String mPinYin;
@@ -78,10 +80,12 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         this.mActiveState = parcel.readInt();
         this.mMembersVersion = parcel.readLong();
         this.brief = parcel.readInt();
+        this.mMarkTop = parcel.readInt();
+        this.mMarkTopTime = parcel.readLong();
     }
 
     public String toString() {
-        return "GroupInfo [mGroupId=" + this.mGroupId + ", mGroupName=" + this.mGroupName + ", mDescription=" + this.mDescription + ", mType=" + this.mType + ", mPinYin=" + this.mPinYin + ", mCreateTime=" + this.mCreateTime + ", mBduid=" + this.mBduid + ", mUk=" + this.mUk + ", mNum=" + this.mNum + ", mMembersVersion=" + this.mMembersVersion + ", mDisturb=" + this.mDisturb + ", state=" + this.state + ", activeState=" + this.mActiveState + "]";
+        return "GroupInfo [mGroupId=" + this.mGroupId + ", mGroupName=" + this.mGroupName + ", mDescription=" + this.mDescription + ", mType=" + this.mType + ", mPinYin=" + this.mPinYin + ", mCreateTime=" + this.mCreateTime + ", mBduid=" + this.mBduid + ", mUk=" + this.mUk + ", mNum=" + this.mNum + ", mMembersVersion=" + this.mMembersVersion + ", mDisturb=" + this.mDisturb + ", state=" + this.state + ", activeState=" + this.mActiveState + " marktop = " + this.mMarkTop + " martTime = " + this.mMarkTopTime + "]";
     }
 
     @Override // android.os.Parcelable
@@ -104,6 +108,8 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         parcel.writeInt(this.mActiveState);
         parcel.writeLong(this.mMembersVersion);
         parcel.writeInt(this.brief);
+        parcel.writeInt(this.mMarkTop);
+        parcel.writeLong(this.mMarkTopTime);
     }
 
     public String getGroupId() {
@@ -196,6 +202,22 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
 
     public void setActiveState(int i) {
         this.mActiveState = i;
+    }
+
+    public void setMarkTop(int i) {
+        this.mMarkTop = i;
+    }
+
+    public int getMarkTop() {
+        return this.mMarkTop;
+    }
+
+    public void setMarkTopTime(long j) {
+        this.mMarkTopTime = j;
+    }
+
+    public long getMarkTopTime() {
+        return this.mMarkTopTime;
     }
 
     @Override // com.baidu.android.imsdk.utils.PinYinUtils.PinYinObject

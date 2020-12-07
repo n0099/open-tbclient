@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.live.data.am;
+import com.baidu.live.data.an;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ListUtils;
@@ -16,40 +16,40 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class b extends BaseAdapter {
-    private com.baidu.tieba.ala.tasklist.a.a hJU;
+    private com.baidu.tieba.ala.tasklist.a.a hUO;
     private Context mActivity;
-    private int hJV = -1;
-    private ArrayList<am> eHj = new ArrayList<>();
+    private int hUP = -1;
+    private ArrayList<an> eOt = new ArrayList<>();
 
     public b(Context context, com.baidu.tieba.ala.tasklist.a.a aVar) {
         this.mActivity = context;
-        this.hJU = aVar;
+        this.hUO = aVar;
     }
 
-    public void setData(ArrayList<am> arrayList) {
+    public void setData(ArrayList<an> arrayList) {
         if (arrayList != null) {
-            this.eHj.clear();
-            this.eHj.addAll(arrayList);
+            this.eOt.clear();
+            this.eOt.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eHj == null) {
+        if (this.eOt == null) {
             return 0;
         }
-        return this.eHj.size();
+        return this.eOt.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: xe */
-    public am getItem(int i) {
-        if (this.eHj == null) {
+    /* renamed from: xK */
+    public an getItem(int i) {
+        if (this.eOt == null) {
             return null;
         }
-        return this.eHj.get(i);
+        return this.eOt.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -71,45 +71,45 @@ public class b extends BaseAdapter {
         return view;
     }
 
-    private void a(a aVar, final am amVar) {
-        if (amVar != null) {
-            aVar.hJY.setText(amVar.aLW);
-            aVar.hJZ.setText(amVar.aMb);
-            aVar.hKa.setText(this.mActivity.getResources().getString(a.h.ala_task_title_reward_mode, Integer.valueOf(amVar.aMa)));
-            if (amVar.status == 3) {
-                aVar.hKa.setVisibility(8);
+    private void a(a aVar, final an anVar) {
+        if (anVar != null) {
+            aVar.hUS.setText(anVar.aOT);
+            aVar.hUT.setText(anVar.aOY);
+            aVar.hUU.setText(this.mActivity.getResources().getString(a.h.ala_task_title_reward_mode, Integer.valueOf(anVar.aOX)));
+            if (anVar.status == 3) {
+                aVar.hUU.setVisibility(8);
             } else {
-                aVar.hKa.setVisibility(0);
+                aVar.hUU.setVisibility(0);
             }
-            aVar.hKb.setTag(Integer.valueOf(amVar.aLV));
-            if (amVar.status == 2) {
+            aVar.hUV.setTag(Integer.valueOf(anVar.aOS));
+            if (anVar.status == 2) {
                 b(aVar);
-            } else if (amVar.status == 3) {
+            } else if (anVar.status == 3) {
                 a(aVar, this.mActivity.getString(a.h.ala_task_status_success));
             } else {
-                b(aVar, amVar);
+                b(aVar, anVar);
             }
-            aVar.hKb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.a.b.1
+            aVar.hUV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (amVar.status == 2 && b.this.hJU != null) {
-                        b.this.hJU.xc(amVar.aLV);
+                    if (anVar.status == 2 && b.this.hUO != null) {
+                        b.this.hUO.xI(anVar.aOS);
                     }
                 }
             });
         }
     }
 
-    private void b(a aVar, am amVar) {
+    private void b(a aVar, an anVar) {
         String string;
-        if (amVar.DV()) {
-            if (this.hJV < 0) {
-                if (amVar.aLZ != null) {
-                    this.hJV = amVar.aLZ.aMe;
+        if (anVar.FG()) {
+            if (this.hUP < 0) {
+                if (anVar.aOW != null) {
+                    this.hUP = anVar.aOW.aPb;
                 }
                 a(aVar);
                 return;
-            } else if (this.hJV == 0) {
+            } else if (this.hUP == 0) {
                 b(aVar);
                 return;
             } else {
@@ -117,8 +117,8 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        if (amVar.DW()) {
-            string = this.mActivity.getResources().getString(a.h.ala_task_level_up_to_level_num, Integer.valueOf(amVar.aLZ.aMf));
+        if (anVar.FH()) {
+            string = this.mActivity.getResources().getString(a.h.ala_task_level_up_to_level_num, Integer.valueOf(anVar.aOW.aPc));
         } else {
             string = this.mActivity.getString(a.h.ala_task_status_not_over);
         }
@@ -126,32 +126,32 @@ public class b extends BaseAdapter {
     }
 
     private void a(a aVar) {
-        aVar.hKb.setText(StringHelper.formatSecondsTime(this.hJV * 1000));
-        aVar.hKb.setBackgroundResource(a.e.ala_bg_rectangle_stroke_blue);
-        aVar.hKb.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_common_color_10260));
-        b(aVar.hKb, true);
+        aVar.hUV.setText(StringHelper.formatSecondsTime(this.hUP * 1000));
+        aVar.hUV.setBackgroundResource(a.e.ala_bg_rectangle_stroke_blue);
+        aVar.hUV.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_common_color_10260));
+        b(aVar.hUV, true);
     }
 
     private void a(a aVar, String str) {
-        aVar.hKb.setText(str);
-        aVar.hKb.setBackgroundResource(a.e.sdk_transparent_bg);
-        aVar.hKb.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_cp_cont_d));
-        b(aVar.hKb, false);
+        aVar.hUV.setText(str);
+        aVar.hUV.setBackgroundResource(a.e.sdk_transparent_bg);
+        aVar.hUV.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_cp_cont_d));
+        b(aVar.hUV, false);
     }
 
     private void b(a aVar) {
-        aVar.hKb.setText(this.mActivity.getString(a.h.ala_task_status_can_get));
+        aVar.hUV.setText(this.mActivity.getString(a.h.ala_task_status_can_get));
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            aVar.hKb.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_hk);
+            aVar.hUV.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_hk);
         } else if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-            aVar.hKb.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_qm);
+            aVar.hUV.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_qm);
         } else if (TbadkCoreApplication.getInst().isTieba()) {
-            aVar.hKb.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_qm);
+            aVar.hUV.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_qm);
         } else {
-            aVar.hKb.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue);
+            aVar.hUV.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue);
         }
-        aVar.hKb.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_cp_cont_g));
-        b(aVar.hKb, true);
+        aVar.hUV.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_cp_cont_g));
+        b(aVar.hUV, true);
     }
 
     public void b(TextView textView, boolean z) {
@@ -171,26 +171,26 @@ public class b extends BaseAdapter {
     }
 
     public void m(Integer num) {
-        this.hJV = num.intValue();
-        am DZ = DZ();
-        if (DZ != null) {
-            if (this.hJV == 0) {
-                DZ.status = 2;
-            } else if (this.hJV > 0) {
-                DZ.status = 1;
+        this.hUP = num.intValue();
+        an FK = FK();
+        if (FK != null) {
+            if (this.hUP == 0) {
+                FK.status = 2;
+            } else if (this.hUP > 0) {
+                FK.status = 1;
             } else {
-                DZ.status = 3;
+                FK.status = 3;
             }
         }
         notifyDataSetChanged();
     }
 
-    public am DZ() {
-        if (!ListUtils.isEmpty(this.eHj)) {
-            Iterator<am> it = this.eHj.iterator();
+    public an FK() {
+        if (!ListUtils.isEmpty(this.eOt)) {
+            Iterator<an> it = this.eOt.iterator();
             while (it.hasNext()) {
-                am next = it.next();
-                if (next.DV()) {
+                an next = it.next();
+                if (next.FG()) {
                     return next;
                 }
             }
@@ -200,20 +200,20 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     public static class a {
-        public View eHl;
-        public TextView hJY;
-        public TextView hJZ;
-        public TextView hKa;
-        public TextView hKb;
+        public View eOv;
+        public TextView hUS;
+        public TextView hUT;
+        public TextView hUU;
+        public TextView hUV;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.hJY = (TextView) view.findViewById(a.f.tvTaskTitle);
-            this.hJZ = (TextView) view.findViewById(a.f.tvTaskSubTitle);
-            this.hKa = (TextView) view.findViewById(a.f.tvTaskRewardNum);
-            this.hKb = (TextView) view.findViewById(a.f.tvTaskStatus);
-            this.eHl = view.findViewById(a.f.divider);
+            this.hUS = (TextView) view.findViewById(a.f.tvTaskTitle);
+            this.hUT = (TextView) view.findViewById(a.f.tvTaskSubTitle);
+            this.hUU = (TextView) view.findViewById(a.f.tvTaskRewardNum);
+            this.hUV = (TextView) view.findViewById(a.f.tvTaskStatus);
+            this.eOv = view.findViewById(a.f.divider);
         }
     }
 }

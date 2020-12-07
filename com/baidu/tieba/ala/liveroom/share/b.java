@@ -7,18 +7,18 @@ import com.baidu.live.data.w;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class b {
-    private Dialog hsl;
+    private Dialog hBP;
     private TbPageContext mContext;
 
     public b(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
     }
 
-    public void M(w wVar) {
+    public void R(w wVar) {
         if (wVar != null && this.mContext != null) {
             dismiss();
-            this.hsl = new a(this.mContext.getPageActivity(), this.mContext, wVar, this);
-            this.hsl.show();
+            this.hBP = new a(this.mContext.getPageActivity(), this.mContext, wVar, this);
+            this.hBP.show();
         }
     }
 
@@ -27,23 +27,23 @@ public class b {
     }
 
     public void dismiss() {
-        if (cgw()) {
-            GM();
-            this.hsl = null;
+        if (ckq()) {
+            ID();
+            this.hBP = null;
         }
     }
 
-    private void GM() {
-        if (this.hsl != null && this.hsl.isShowing()) {
+    private void ID() {
+        if (this.hBP != null && this.hBP.isShowing()) {
             try {
-                this.hsl.dismiss();
+                this.hBP.dismiss();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private boolean cgw() {
+    private boolean ckq() {
         if (this.mContext == null || this.mContext.getPageActivity() == null) {
             return false;
         }

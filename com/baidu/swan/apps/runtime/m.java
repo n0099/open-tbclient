@@ -5,108 +5,108 @@ import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.apps.runtime.i;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class m extends a {
-    public final h drL;
+    public final h dyM;
 
     public m() {
         this(null);
     }
 
     public m(h hVar) {
-        this.drL = hVar == null ? d.aGI() : hVar;
+        this.dyM = hVar == null ? d.aJQ() : hVar;
     }
 
-    public SwanAppProcessInfo aET() {
-        return aHx().aET();
+    public SwanAppProcessInfo aIb() {
+        return aKF().aIb();
     }
 
     public String getAppId() {
-        return aHx().getAppId();
+        return aKF().getAppId();
     }
 
-    public boolean aEV() {
-        return aHx().aEV();
+    public boolean aId() {
+        return aKF().aId();
     }
 
-    public boolean aEU() {
-        return aHx().aEU();
+    public boolean aIc() {
+        return aKF().aIc();
     }
 
-    public SwanAppCores aEW() {
-        return aHx().aEW();
+    public SwanAppCores aIe() {
+        return aKF().aIe();
     }
 
-    public int aeW() {
-        return aHx().aeW();
+    public int aie() {
+        return aKF().aie();
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public com.baidu.swan.apps.process.messaging.client.a aGD() {
-        return aHx().aGD();
+    public com.baidu.swan.apps.process.messaging.client.a aJL() {
+        return aKF().aJL();
     }
 
-    public e aGE() {
-        return aHx().aGE();
+    public e aJM() {
+        return aKF().aJM();
     }
 
     @Override // com.baidu.swan.apps.runtime.h
     public String y(String... strArr) {
-        return aHx().y(strArr);
+        return aKF().y(strArr);
     }
 
     @Override // com.baidu.swan.apps.runtime.h
     public void e(Bundle bundle, String str) {
-        aHx().e(bundle, str);
+        aKF().e(bundle, str);
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public com.baidu.swan.apps.adaptation.a aGK() {
-        return aHx().aGK();
+    public com.baidu.swan.apps.adaptation.a aJS() {
+        return aKF().aJS();
     }
 
     @Override // com.baidu.swan.apps.runtime.h
     public void v(com.baidu.swan.apps.ap.e.b<i.a> bVar) {
-        aHx().v(bVar);
+        aKF().v(bVar);
     }
 
     @Override // com.baidu.swan.apps.runtime.h
     public void w(com.baidu.swan.apps.ap.e.b<i.a> bVar) {
-        aHx().w(bVar);
+        aKF().w(bVar);
     }
 
-    public void rN(String str) {
-        aHx().rN(str);
+    public void sv(String str) {
+        aKF().sv(str);
     }
 
     public void f(String str, Bundle bundle) {
-        aHx().f(str, bundle);
+        aKF().f(str, bundle);
     }
 
     public void i(i.a aVar) {
-        aHx().i(aVar);
+        aKF().i(aVar);
     }
 
-    public void aGF() {
-        aHx().aGF();
+    public void aJN() {
+        aKF().aJN();
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppActivity aGG() {
-        return aHx().aGG();
+    public SwanAppActivity aJO() {
+        return aKF().aJO();
     }
 
     @Override // com.baidu.swan.apps.runtime.h
     public void j(SwanAppActivity swanAppActivity) {
-        aHx().j(swanAppActivity);
+        aKF().j(swanAppActivity);
     }
 
     @Override // com.baidu.swan.apps.runtime.h
     public void k(SwanAppActivity swanAppActivity) {
-        aHx().k(swanAppActivity);
+        aKF().k(swanAppActivity);
     }
 
-    public h aHx() {
-        return this.drL;
+    public h aKF() {
+        return this.dyM;
     }
 }

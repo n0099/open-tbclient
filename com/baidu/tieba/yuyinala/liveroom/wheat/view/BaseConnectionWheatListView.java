@@ -16,22 +16,22 @@ import com.baidu.live.tbadk.widget.CommonEmptyView;
 import com.baidu.live.view.SafeFrameLayout;
 /* loaded from: classes4.dex */
 public abstract class BaseConnectionWheatListView extends SafeFrameLayout implements View.OnClickListener {
-    public CommonEmptyView bnY;
-    public TbPageContext oey;
-    public AlaConnectionWheatListView ogE;
-    public TextView ogI;
-    public LinearLayout ogJ;
-    public int ogL;
-    public TextView oiY;
-    public RelativeLayout oiZ;
+    public CommonEmptyView btg;
+    public TbPageContext oty;
+    public AlaConnectionWheatListView ovE;
+    public TextView ovI;
+    public LinearLayout ovJ;
+    public int ovL;
+    public TextView oxZ;
+    public RelativeLayout oya;
 
-    protected abstract void dxy();
+    protected abstract void dCP();
 
     public abstract int getCount();
 
     protected abstract void initListener();
 
-    public abstract void zq(boolean z);
+    public abstract void zU(boolean z);
 
     public BaseConnectionWheatListView(@NonNull Context context) {
         this(context, null);
@@ -45,17 +45,17 @@ public abstract class BaseConnectionWheatListView extends SafeFrameLayout implem
         super(context, attributeSet, i);
         initView();
         initListener();
-        dxy();
+        dCP();
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyin_layout_dialog_connnection_wheat_item, this);
-        this.ogE = (AlaConnectionWheatListView) findViewById(a.f.listView);
-        this.bnY = (CommonEmptyView) findViewById(a.f.empty_view);
-        this.oiY = (TextView) findViewById(a.f.tv_online_user_num);
-        this.oiZ = (RelativeLayout) findViewById(a.f.loading_view_container);
-        this.ogJ = (LinearLayout) findViewById(a.f.ll_apply_btn);
-        this.ogI = (TextView) findViewById(a.f.tv_apply_btn);
+        this.ovE = (AlaConnectionWheatListView) findViewById(a.f.listView);
+        this.btg = (CommonEmptyView) findViewById(a.f.empty_view);
+        this.oxZ = (TextView) findViewById(a.f.tv_online_user_num);
+        this.oya = (RelativeLayout) findViewById(a.f.loading_view_container);
+        this.ovJ = (LinearLayout) findViewById(a.f.ll_apply_btn);
+        this.ovI = (TextView) findViewById(a.f.tv_apply_btn);
     }
 
     public String getNoDataStr() {
@@ -66,61 +66,61 @@ public abstract class BaseConnectionWheatListView extends SafeFrameLayout implem
     public void onClick(View view) {
     }
 
-    public void dZP() {
+    public void efu() {
         if (getCount() != 0) {
-            this.ogE.setVisibility(0);
-            this.bnY.setVisibility(8);
+            this.ovE.setVisibility(0);
+            this.btg.setVisibility(8);
             return;
         }
-        this.ogE.setVisibility(8);
-        this.bnY.setVisibility(0);
-        this.bnY.reset();
-        this.bnY.setTitle(getNoDataStr());
-        this.bnY.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
-        this.bnY.setTextColor(getContext().getResources().getColor(a.c.sdk_color_525252));
+        this.ovE.setVisibility(8);
+        this.btg.setVisibility(0);
+        this.btg.reset();
+        this.btg.setTitle(getNoDataStr());
+        this.btg.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
+        this.btg.setTextColor(getContext().getResources().getColor(a.c.sdk_color_525252));
     }
 
-    public void dZQ() {
-        this.oiY.setVisibility(8);
-        this.ogE.setVisibility(8);
-        this.bnY.setVisibility(0);
+    public void efv() {
+        this.oxZ.setVisibility(8);
+        this.ovE.setVisibility(8);
+        this.btg.setVisibility(0);
         if (this instanceof ConnectionWheatApplyListView) {
-            this.ogJ.setVisibility(8);
+            this.ovJ.setVisibility(8);
         }
-        this.bnY.reset();
-        this.bnY.setRefreshButton(a.h.yuyin_ala_connection_wheat_refresh_load_text, new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView.1
+        this.btg.reset();
+        this.btg.setRefreshButton(a.h.yuyin_ala_connection_wheat_refresh_load_text, new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                BaseConnectionWheatListView.this.zq(true);
+                BaseConnectionWheatListView.this.zU(true);
             }
         });
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            this.bnY.setTitle(a.h.yuyin_ala_connection_wheat_data_load_fail_text);
-            this.bnY.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
+            this.btg.setTitle(a.h.yuyin_ala_connection_wheat_data_load_fail_text);
+            this.btg.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
         } else {
-            this.bnY.setTitle(a.h.yuyin_ala_connection_wheat_net_load_fail_text);
-            this.bnY.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+            this.btg.setTitle(a.h.yuyin_ala_connection_wheat_net_load_fail_text);
+            this.btg.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
         }
-        this.bnY.setTextColor(getContext().getResources().getColor(a.c.sdk_color_525252));
+        this.btg.setTextColor(getContext().getResources().getColor(a.c.sdk_color_525252));
     }
 
     public void setTbPageContext(TbPageContext tbPageContext) {
-        this.oey = tbPageContext;
+        this.oty = tbPageContext;
     }
 
     public void setApplyPosition(int i) {
-        this.ogL = i;
+        this.ovL = i;
     }
 
     public void showLoading() {
-        if (this.oiZ != null) {
-            this.oiZ.setVisibility(0);
+        if (this.oya != null) {
+            this.oya.setVisibility(0);
         }
     }
 
     public void hideLoading() {
-        if (this.oiZ != null) {
-            this.oiZ.setVisibility(8);
+        if (this.oya != null) {
+            this.oya.setVisibility(8);
         }
     }
 }

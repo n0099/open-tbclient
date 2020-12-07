@@ -3,7 +3,7 @@ package com.alibaba.fastjson.serializer;
 import com.google.common.collect.Multimap;
 import java.io.IOException;
 import java.lang.reflect.Type;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class GuavaCodec implements ObjectSerializer {
     public static GuavaCodec instance = new GuavaCodec();
 

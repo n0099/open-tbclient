@@ -21,7 +21,7 @@ import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
 import com.baidu.tieba.myCollection.history.PbHistoryActivity;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusHttpResponseMessage;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class Static {
     public static String Tag = "tag";
 
@@ -49,9 +49,9 @@ public class Static {
                     aVar.setThreadId(historyMessage.threadId);
                     aVar.setForumName(historyMessage.forumName);
                     aVar.setThreadName(historyMessage.threadName);
-                    aVar.Os(historyMessage.postID);
-                    aVar.tz(historyMessage.isHostOnly);
-                    aVar.tA(historyMessage.isSquence);
+                    aVar.PA(historyMessage.postID);
+                    aVar.ub(historyMessage.isHostOnly);
+                    aVar.uc(historyMessage.isSquence);
                     aVar.setThreadType(historyMessage.threadType);
                     aVar.setCartoonId(historyMessage.cartoonId);
                     aVar.setChapterId(historyMessage.chapterId);
@@ -98,11 +98,11 @@ public class Static {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        com.baidu.tieba.myCollection.a.a.deG().destroy();
+                        com.baidu.tieba.myCollection.a.a.djS().destroy();
                     } else if (TbadkCoreApplication.isLogin()) {
-                        com.baidu.tieba.myCollection.a.a.deG().start();
+                        com.baidu.tieba.myCollection.a.a.djS().start();
                     } else {
-                        com.baidu.tieba.myCollection.a.a.deG().destroy();
+                        com.baidu.tieba.myCollection.a.a.djS().destroy();
                     }
                 }
             }
@@ -112,9 +112,9 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin()) {
-                    com.baidu.tieba.myCollection.a.a.deG().restart();
+                    com.baidu.tieba.myCollection.a.a.djS().restart();
                 } else {
-                    com.baidu.tieba.myCollection.a.a.deG().destroy();
+                    com.baidu.tieba.myCollection.a.a.djS().destroy();
                 }
             }
         });
@@ -123,8 +123,8 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark() > 0) {
-                    b.deg().dej();
-                    b.deg().tt(true);
+                    b.djs().djv();
+                    b.djs().tV(true);
                 }
             }
         });

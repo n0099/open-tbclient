@@ -5,7 +5,7 @@ import com.baidu.ufosdk.f.c;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class a {
     @SuppressLint({"NewApi"})
     public static String a(Map map) {

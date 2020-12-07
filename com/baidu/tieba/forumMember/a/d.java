@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.util.ae;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.k;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class d extends k<e, f> {
     private View.OnClickListener mOnItemClickListener;
 
@@ -51,21 +51,21 @@ public class d extends k<e, f> {
         if (eVar != null && fVar != null) {
             if (fVar.mSkinType != this.mSkinType) {
                 ap.setBackgroundResource(fVar.getView(), R.drawable.frs_member_manito_bg);
-                ap.setViewTextColor(fVar.dZV, R.color.CAM_X0106, 1);
-                ap.setViewTextColor(fVar.iDX, R.color.CAM_X0109, 1);
+                ap.setViewTextColor(fVar.egV, R.color.CAM_X0106, 1);
+                ap.setViewTextColor(fVar.iOP, R.color.CAM_X0109, 1);
                 ap.setBackgroundColor(fVar.dividerLine, R.color.CAM_X0204);
-                ap.setViewTextColor(fVar.iDY, R.color.CAM_X0109, 1);
+                ap.setViewTextColor(fVar.iOQ, R.color.CAM_X0109, 1);
             }
-            fVar.iDW.startLoad(eVar.getHeadUrl(), 12, false);
-            fVar.dZV.setText(ae.interceptString(eVar.getNameShow(), 16));
+            fVar.iOO.startLoad(eVar.getHeadUrl(), 12, false);
+            fVar.egV.setText(ae.interceptString(eVar.getNameShow(), 16));
             if (StringUtils.isNull(eVar.getIntro())) {
-                fVar.iDX.setText(R.string.god_intro_default);
+                fVar.iOP.setText(R.string.god_intro_default);
             } else {
-                fVar.iDX.setText(ae.interceptString(eVar.getIntro(), 30));
+                fVar.iOP.setText(ae.interceptString(eVar.getIntro(), 30));
             }
             int color = ap.getColor(R.color.CAM_X0301);
             String numberUniformFormat = au.numberUniformFormat(eVar.getFansNum());
-            fVar.iDY.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
+            fVar.iOQ.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
             fVar.getView().setTag(eVar);
             fVar.getView().setOnClickListener(this.mOnItemClickListener);
             fVar.mSkinType = this.mSkinType;

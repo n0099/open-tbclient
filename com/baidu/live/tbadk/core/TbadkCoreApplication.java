@@ -86,7 +86,6 @@ import com.baidu.live.tbadk.task.TbSocketMessageTask;
 import com.baidu.live.tbadk.util.DaemonServiceManager;
 import com.baidu.live.tbadk.util.NetworkChangedManager;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -1097,7 +1096,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         try {
             String loadString = TbadkSettings.getInst().loadString(SharedPrefConfig.SOCKET_RECONN_STRATEGY, "");
             if (loadString != null && !TextUtils.isEmpty(loadString)) {
-                String[] split = loadString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split = loadString.split(",");
                 iArr = new int[split.length];
                 for (int i = 0; i < split.length; i++) {
                     iArr[i] = Integer.valueOf(split[i]).intValue();
@@ -1302,7 +1301,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         try {
             String loadString = TbadkSettings.getInst().loadString(SharedPrefConfig.SOCKET_HEARTBEAT_STRATEGY, "");
             if (loadString != null && !TextUtils.isEmpty(loadString)) {
-                String[] split = loadString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split = loadString.split(",");
                 iArr = new int[split.length];
                 for (int i = 0; i < split.length; i++) {
                     iArr[i] = Integer.valueOf(split[i]).intValue();

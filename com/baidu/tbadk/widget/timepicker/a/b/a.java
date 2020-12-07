@@ -5,102 +5,102 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.widget.timepicker.a.d.e;
 import com.baidu.tbadk.widget.timepicker.a.f.b;
 import java.util.Calendar;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private com.baidu.tbadk.widget.timepicker.a.c.a fKc = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
+    private com.baidu.tbadk.widget.timepicker.a.c.a fRN = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
 
     public a(Context context, e eVar) {
-        this.fKc.context = context;
-        this.fKc.fKd = eVar;
+        this.fRN.context = context;
+        this.fRN.fRO = eVar;
     }
 
     public a a(boolean[] zArr) {
-        this.fKc.fKk = zArr;
+        this.fRN.fRV = zArr;
         return this;
     }
 
-    public a kX(boolean z) {
-        this.fKc.fKR = z;
+    public a lr(boolean z) {
+        this.fRN.fSC = z;
         return this;
     }
 
     public a G(ViewGroup viewGroup) {
-        this.fKc.decorView = viewGroup;
+        this.fRN.decorView = viewGroup;
         return this;
     }
 
-    public a tf(int i) {
-        this.fKc.fKM = i;
+    public a tI(int i) {
+        this.fRN.fSx = i;
         return this;
     }
 
-    public a tg(int i) {
-        this.fKc.fKQ = i;
+    public a tJ(int i) {
+        this.fRN.fSB = i;
         return this;
     }
 
     public a a(Calendar calendar) {
-        this.fKc.fKl = calendar;
+        this.fRN.fRW = calendar;
         return this;
     }
 
     public a a(int i, com.baidu.tbadk.widget.timepicker.a.d.a aVar) {
-        this.fKc.fKE = i;
-        this.fKc.fKf = aVar;
+        this.fRN.fSp = i;
+        this.fRN.fRQ = aVar;
         return this;
     }
 
-    public a ar(float f) {
-        this.fKc.lineSpacingMultiplier = f;
+    public a as(float f) {
+        this.fRN.lineSpacingMultiplier = f;
         return this;
     }
 
-    public a th(int i) {
-        this.fKc.dividerColor = i;
+    public a tK(int i) {
+        this.fRN.dividerColor = i;
         return this;
     }
 
-    public a ti(int i) {
-        this.fKc.backgroundId = i;
+    public a tL(int i) {
+        this.fRN.backgroundId = i;
         return this;
     }
 
-    public a tj(int i) {
-        this.fKc.textColorCenter = i;
+    public a tM(int i) {
+        this.fRN.textColorCenter = i;
         return this;
     }
 
-    public a tk(int i) {
-        this.fKc.textColorOut = i;
+    public a tN(int i) {
+        this.fRN.textColorOut = i;
         return this;
     }
 
     public a c(String str, String str2, String str3, String str4, String str5, String str6) {
-        this.fKc.fKs = str;
-        this.fKc.fKt = str2;
-        this.fKc.fKu = str3;
-        this.fKc.fKv = str4;
-        this.fKc.fKw = str5;
-        this.fKc.fKx = str6;
+        this.fRN.fSd = str;
+        this.fRN.fSe = str2;
+        this.fRN.fSf = str3;
+        this.fRN.fSg = str4;
+        this.fRN.fSh = str5;
+        this.fRN.fSi = str6;
         return this;
     }
 
-    public a f(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.fKc.fKy = i;
-        this.fKc.fKz = i2;
-        this.fKc.fKA = i3;
-        this.fKc.fKB = i4;
-        this.fKc.fKC = i5;
-        this.fKc.fKD = i6;
+    public a g(int i, int i2, int i3, int i4, int i5, int i6) {
+        this.fRN.fSj = i;
+        this.fRN.fSk = i2;
+        this.fRN.fSl = i3;
+        this.fRN.fSm = i4;
+        this.fRN.fSn = i5;
+        this.fRN.fSo = i6;
         return this;
     }
 
-    public a kY(boolean z) {
-        this.fKc.isCenterLabel = z;
+    public a ls(boolean z) {
+        this.fRN.isCenterLabel = z;
         return this;
     }
 
-    public b bGe() {
-        return new b(this.fKc);
+    public b bJE() {
+        return new b(this.fRN);
     }
 }

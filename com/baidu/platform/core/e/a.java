@@ -4,7 +4,7 @@ import com.baidu.mapapi.search.share.LocationShareURLOption;
 import com.baidu.mapapi.search.share.OnGetShareUrlResultListener;
 import com.baidu.mapapi.search.share.PoiDetailShareURLOption;
 import com.baidu.mapapi.search.share.RouteShareURLOption;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public interface a {
     void a();
 

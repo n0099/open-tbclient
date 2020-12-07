@@ -2,40 +2,41 @@ package com.baidu.cloudbase.b;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class b {
-    public static String ank;
-    public static String anl;
-
-    public static String Y(Context context) {
-        return z(context, "rtc");
-    }
+    public static String aoj;
+    public static String aok;
 
     public static String Z(Context context) {
-        if (TextUtils.isEmpty(ank)) {
-            uH();
-        }
-        return y(context, ank) + File.separator + "jniLibs" + File.separator + getCPUType();
+        return z(context, AlaRecorderLog.Protocol.RTC);
     }
 
-    public static void dw(String str) {
+    public static String aa(Context context) {
+        if (TextUtils.isEmpty(aoj)) {
+            uK();
+        }
+        return y(context, aoj) + File.separator + "jniLibs" + File.separator + getCPUType();
+    }
+
+    public static void dz(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "armeabi-v7a";
         }
-        anl = str;
+        aok = str;
     }
 
     public static String getCPUType() {
-        return TextUtils.isEmpty(anl) ? "armeabi-v7a" : anl;
+        return TextUtils.isEmpty(aok) ? "armeabi-v7a" : aok;
     }
 
     public static String m(Context context, String str, String str2) {
         if (TextUtils.isEmpty(str2)) {
-            str2 = Y(context);
+            str2 = Z(context);
         }
         return str2 + File.separator + md5(str);
     }
@@ -68,17 +69,17 @@ public class b {
         return com.baidu.cloudbase.d.a.isExists(m + File.separator + "jniLibs" + File.separator + getCPUType() + File.separator + "libjingle_peerconnection_so.so");
     }
 
-    public static String uH() {
-        ank = "https://b.bdstatic.com/searchbox/androidvideo/" + uI();
-        return ank;
+    public static String uK() {
+        aoj = "https://b.bdstatic.com/searchbox/androidvideo/" + uL();
+        return aoj;
     }
 
-    public static String uI() {
-        return getCPUType() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "rtc" + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "5.4.14.zip";
+    public static String uL() {
+        return getCPUType() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + AlaRecorderLog.Protocol.RTC + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "5.4.14.zip";
     }
 
     public static String y(Context context, String str) {
-        return m(context, str, Y(context));
+        return m(context, str, Z(context));
     }
 
     public static String z(Context context, String str) {

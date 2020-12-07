@@ -1,29 +1,29 @@
 package com.baidu.swan.apps.d.a;
 
-import kotlin.jvm.internal.q;
+import kotlin.jvm.internal.p;
 import org.json.JSONObject;
-@kotlin.h
-/* loaded from: classes7.dex */
+@kotlin.e
+/* loaded from: classes25.dex */
 public final class h {
-    private static String cvc;
-    public static final h cvd = new h();
+    private static String cBU;
+    public static final h cBV = new h();
 
     private h() {
     }
 
     public final void d(int i, JSONObject jSONObject) {
-        q.n(jSONObject, "jsonObject");
+        p.o(jSONObject, "jsonObject");
         if (i == 0) {
-            az(jSONObject);
+            aB(jSONObject);
         }
     }
 
-    private final void az(JSONObject jSONObject) {
-        com.baidu.swan.apps.storage.c.h.aKk().putString("alliance_login_uk", jSONObject.optString("uk"));
+    private final void aB(JSONObject jSONObject) {
+        com.baidu.swan.apps.storage.c.h.aNr().putString("alliance_login_uk", jSONObject.optString("uk"));
     }
 
-    public final void aiK() {
-        com.baidu.swan.apps.storage.c.h.aKk().putString("alliance_login_uk", "");
-        cvc = null;
+    public final void alS() {
+        com.baidu.swan.apps.storage.c.h.aNr().putString("alliance_login_uk", "");
+        cBU = null;
     }
 }

@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class GoodsMsg extends NormalMsg {
     public static final Parcelable.Creator<GoodsMsg> CREATOR = new Parcelable.Creator<GoodsMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GoodsMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -40,6 +40,7 @@ public class GoodsMsg extends NormalMsg {
     }
 
     public GoodsMsg(Parcel parcel) {
+        super(parcel);
         this.mSales = -1;
         this.mCoupon = -1.0d;
         this.mTitle = parcel.readString();
@@ -69,7 +70,7 @@ public class GoodsMsg extends NormalMsg {
             this.mJumpName = jSONObject.optString("des_source");
             return true;
         } catch (JSONException e) {
-            LogUtils.e("SignleGraphicTextMsg", "parseJsonString JSONException", e);
+            LogUtils.e(TAG, "parseJsonString JSONException", e);
             return false;
         }
     }
@@ -87,7 +88,7 @@ public class GoodsMsg extends NormalMsg {
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public String getRecommendDescription() {
-        return "[收到一个商品]";
+        return "好货来袭，快来看看吧！";
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable

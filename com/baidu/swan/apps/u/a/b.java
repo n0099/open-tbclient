@@ -3,29 +3,29 @@ package com.baidu.swan.apps.u.a;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.LruCache;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final LruCache<String, Object> cWy;
+    private final LruCache<String, Object> ddw;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     private static class a {
-        static final b cWz = new b();
+        static final b ddx = new b();
     }
 
     private b() {
-        this.cWy = new LruCache<>(10);
+        this.ddw = new LruCache<>(10);
     }
 
-    public static b axC() {
-        return a.cWz;
+    public static b aAL() {
+        return a.ddx;
     }
 
-    public synchronized <RESULT> RESULT oU(String str) {
+    public synchronized <RESULT> RESULT pB(String str) {
         RESULT result = null;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                Object obj = this.cWy.get(str);
+                Object obj = this.ddw.get(str);
                 if (obj == null) {
                     if (DEBUG) {
                         Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
@@ -47,27 +47,27 @@ public final class b {
         return result;
     }
 
-    public synchronized <RESULT> void p(String str, RESULT result) {
+    public synchronized <RESULT> void o(String str, RESULT result) {
         if (!TextUtils.isEmpty(str) && result != null) {
             if (DEBUG) {
                 Log.d("SwanAppLaunchCache", "putConfig key: " + str);
             }
-            this.cWy.put(str, result);
+            this.ddw.put(str, result);
         }
     }
 
-    public synchronized void oV(String str) {
+    public synchronized void pC(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
             }
-            this.cWy.remove(str);
+            this.ddw.remove(str);
         }
     }
 
     public synchronized void clear() {
-        if (this.cWy != null) {
-            this.cWy.evictAll();
+        if (this.ddw != null) {
+            this.ddw.evictAll();
         }
     }
 }

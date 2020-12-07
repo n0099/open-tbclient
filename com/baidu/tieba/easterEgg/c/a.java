@@ -8,15 +8,15 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.easterEgg.c;
 import com.google.gson.Gson;
 import java.util.HashMap;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class a extends d {
-    private Gson euH;
-    private c ihi;
-    private HashMap<String, String> ihj;
+    private Gson eBJ;
+    private c isc;
+    private HashMap<String, String> isd;
 
     public a(int i) {
         super(i);
-        this.euH = new Gson();
+        this.eBJ = new Gson();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,39 +24,39 @@ public class a extends d {
     /* renamed from: d */
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         String json;
-        String IP = IP(httpMessageTask.getUrl());
-        if (IP != null && this.ihi != null) {
+        String JF = JF(httpMessageTask.getUrl());
+        if (JF != null && this.isc != null) {
             if (httpMessage.getExtra() instanceof NetMessage) {
                 NetMessage netMessage = (NetMessage) httpMessage.getExtra();
                 if (netMessage.getSocketMessage() == null) {
                     json = "";
                 } else {
-                    json = this.euH.toJson(netMessage.getSocketMessage().getData());
+                    json = this.eBJ.toJson(netMessage.getSocketMessage().getData());
                 }
             } else {
-                json = this.euH.toJson(httpMessage.getParams());
+                json = this.eBJ.toJson(httpMessage.getParams());
             }
-            this.ihi.az(httpMessageTask.getUrl(), this.euH.toJson(IP), this.euH.toJson(json));
+            this.isc.aB(httpMessageTask.getUrl(), this.eBJ.toJson(JF), this.eBJ.toJson(json));
         }
         return httpMessage;
     }
 
-    public String IP(String str) {
+    public String JF(String str) {
         if (str.contains("?")) {
             str = str.split("[?]")[0];
         }
         String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-        if (this.ihj != null) {
-            return this.ihj.get(replace);
+        if (this.isd != null) {
+            return this.isd.get(replace);
         }
         return null;
     }
 
     public void F(HashMap<String, String> hashMap) {
-        this.ihj = hashMap;
+        this.isd = hashMap;
     }
 
     public void a(c cVar) {
-        this.ihi = cVar;
+        this.isc = cVar;
     }
 }

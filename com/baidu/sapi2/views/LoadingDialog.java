@@ -6,28 +6,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.k.a.a;
+import com.baidu.l.a.a;
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class LoadingDialog extends Dialog implements NoProguard {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class Builder implements NoProguard {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f3565a;
+        private Context f3568a;
         private String b;
         private boolean c = true;
         private boolean d = false;
         private boolean e = false;
 
         public Builder(Context context) {
-            this.f3565a = context;
+            this.f3568a = context;
         }
 
         public LoadingDialog createDialog() {
-            View inflate = LayoutInflater.from(this.f3565a).inflate(a.f.layout_sapi_sdk_loading_dialog, (ViewGroup) null);
-            LoadingDialog loadingDialog = new LoadingDialog(this.f3565a, a.h.sapi_sdk_loading_dialog);
+            View inflate = LayoutInflater.from(this.f3568a).inflate(a.f.layout_sapi_sdk_loading_dialog, (ViewGroup) null);
+            LoadingDialog loadingDialog = new LoadingDialog(this.f3568a, a.h.sapi_sdk_loading_dialog);
             TextView textView = (TextView) inflate.findViewById(a.e.tipTextView);
             if (this.c) {
                 textView.setText(this.b);

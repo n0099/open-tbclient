@@ -1,5 +1,16 @@
 package com.baidu.live.c;
+
+import android.view.ViewGroup;
+import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
 public interface a {
-    void a(boolean z, boolean z2, long j);
+    void Do();
+
+    void b(ViewGroup viewGroup, w wVar);
+
+    void onDestroy();
+
+    void onStart();
+
+    void setCanVisible(boolean z);
 }

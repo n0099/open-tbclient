@@ -17,7 +17,7 @@ public class GameShareData implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: nQ */
+        /* renamed from: oo */
         public GameShareData[] newArray(int i) {
             return new GameShareData[i];
         }

@@ -31,7 +31,7 @@ import okhttp3.Dns;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public abstract class AbstractHttpManager {
     private static final String TAG = "HttpManager";
     private static String sClientIP;
@@ -229,6 +229,9 @@ public abstract class AbstractHttpManager {
             if (HttpRuntime.getHttpContext() != null && HttpRuntime.getHttpContext().getFallbackConnectDelayMs() > 0) {
                 builder.fallbackConnectDelayMs(HttpRuntime.getHttpContext().getFallbackConnectDelayMs());
             }
+            if (HttpRuntime.getHttpContext() != null && HttpRuntime.getHttpContext().getEventListener() != null) {
+                builder.eventListener(HttpRuntime.getHttpContext().getEventListener());
+            }
         } catch (IllegalArgumentException e) {
             Log.e(TAG, " set timeout illegal exception, we will use the 10_000 mills default", e);
         }
@@ -287,12 +290,21 @@ public abstract class AbstractHttpManager {
     }
 
     public static String getClientIP() {
-        return sClientIP;
+        IClientIPProvider clientIPProvider;
+        return (HttpRuntime.getHttpContext() == null || (clientIPProvider = HttpRuntime.getHttpContext().getClientIPProvider()) == null) ? sClientIP : clientIPProvider.getClientIP();
     }
 
     public static void updateClientIP(String str) {
+        IClientIPProvider clientIPProvider;
+        if (HttpRuntime.getHttpContext() != null && (clientIPProvider = HttpRuntime.getHttpContext().getClientIPProvider()) != null) {
+            clientIPProvider.notifyChanged(str);
+        }
         if (!TextUtils.isEmpty(str)) {
             sClientIP = str;
         }
+    }
+
+    protected void setOkHttpClient(OkHttpClient okHttpClient) {
+        this.okHttpClient = okHttpClient;
     }
 }

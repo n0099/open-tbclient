@@ -1,5 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.BaijiahaoData;
@@ -7,9 +8,11 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.write.upload.ForwardUploadData;
 import com.baidu.tieba.write.upload.ImageTextUploadData;
 import com.baidu.tieba.write.upload.VideoUploadData;
+import com.google.gson.Gson;
 import java.io.File;
 import java.io.Serializable;
 import java.net.URLEncoder;
@@ -22,6 +25,7 @@ public class WriteData extends OrmObject implements Serializable {
     public static final String CALL_FROM_TWO = "2";
     public static final int NEW = 0;
     public static final int NEW_DRUFTING_BOTTLE = 7;
+    public static final int NEW_EVALUATION = 11;
     public static final int NEW_PHOTO_LIVE = 4;
     public static final int NEW_RECORD = 10;
     public static final int NEW_TEXT = 9;
@@ -42,6 +46,7 @@ public class WriteData extends OrmObject implements Serializable {
     private boolean isAd;
     private boolean isBJHPost;
     private boolean isBabaoPosted;
+    public boolean isForumBusinessAccount;
     private int isGeneralTab;
     private boolean isLinkThread;
     private boolean isPrivacy;
@@ -62,6 +67,8 @@ public class WriteData extends OrmObject implements Serializable {
     public ForwardUploadData mDynamicForwardData;
     public ImageTextUploadData mDynamicImageTextData;
     public VideoUploadData mDynamicVideoData;
+    private TbRichTextEvaluateItemInfo mEvaluateItemInfo;
+    private int mEvaluationStar;
     private String mFirstDir;
     private String mFloor;
     private int mFloorNum;
@@ -290,7 +297,7 @@ public class WriteData extends OrmObject implements Serializable {
         try {
             jSONObject.put("mType", this.mType);
             jSONObject.put("mTitle", this.mTitle);
-            jSONObject.put("mContent", this.mSpanGroupManager == null ? this.mContent : this.mSpanGroupManager.bsJ());
+            jSONObject.put("mContent", this.mSpanGroupManager == null ? this.mContent : this.mSpanGroupManager.bwj());
             jSONObject.put("mReplyUid", this.mReplyUid);
             jSONObject.put("mThreadId", this.mThreadId);
             jSONObject.put("mIsInterviewLive", this.mIsInterviewLivew);
@@ -320,6 +327,10 @@ public class WriteData extends OrmObject implements Serializable {
             jSONObject.put("mUniversitySubjectComment", this.mUniversitySubjectComment);
             jSONObject.put("other_grade", this.mOtherGrade);
             jSONObject.put("other_comment", this.mOtherComment);
+            if (this.mEvaluateItemInfo != null) {
+                jSONObject.put("item_info", new Gson().toJson(this.mEvaluateItemInfo));
+                jSONObject.put("evaluation_star", this.mEvaluationStar);
+            }
         } catch (Exception e) {
         }
         return jSONObject.toString();
@@ -366,6 +377,11 @@ public class WriteData extends OrmObject implements Serializable {
             writeData.mUniversitySubjectComment = jSONObject.optString("mUniversitySubjectComment", "");
             writeData.mOtherGrade = jSONObject.optInt("other_grade", 0);
             writeData.mOtherComment = jSONObject.optString("other_comment", "");
+            String optString = jSONObject.optString("item_info", "");
+            if (!TextUtils.isEmpty(optString)) {
+                writeData.mEvaluateItemInfo = (TbRichTextEvaluateItemInfo) new Gson().fromJson(optString, (Class<Object>) TbRichTextEvaluateItemInfo.class);
+            }
+            writeData.mEvaluationStar = jSONObject.optInt("evaluation_star");
             return writeData;
         } catch (Exception e) {
             return null;
@@ -1195,5 +1211,25 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void setSpanGroupString(String str) {
         this.mSpanGroupString = str;
+    }
+
+    public void setIsForumBusinessAccount(boolean z) {
+        this.isForumBusinessAccount = z;
+    }
+
+    public void setItemInfo(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo) {
+        this.mEvaluateItemInfo = tbRichTextEvaluateItemInfo;
+    }
+
+    public TbRichTextEvaluateItemInfo getItemInfo() {
+        return this.mEvaluateItemInfo;
+    }
+
+    public void setEvaluationStar(int i) {
+        this.mEvaluationStar = i;
+    }
+
+    public int getEvaluationStar() {
+        return this.mEvaluationStar;
     }
 }

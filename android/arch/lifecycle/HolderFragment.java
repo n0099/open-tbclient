@@ -13,9 +13,9 @@ import android.util.Log;
 import java.util.HashMap;
 import java.util.Map;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class HolderFragment extends Fragment implements aa {
-    private static final a zj = new a();
+    private static final a zZ = new a();
     private z mViewModelStore = new z();
 
     public HolderFragment() {
@@ -25,7 +25,7 @@ public class HolderFragment extends Fragment implements aa {
     @Override // android.support.v4.app.Fragment
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
-        zj.a(this);
+        zZ.a(this);
     }
 
     @Override // android.support.v4.app.Fragment
@@ -47,27 +47,27 @@ public class HolderFragment extends Fragment implements aa {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static HolderFragment a(FragmentActivity fragmentActivity) {
-        return zj.a(fragmentActivity);
+        return zZ.a(fragmentActivity);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     static class a {
-        private Map<Activity, HolderFragment> zk = new HashMap();
-        private Map<Fragment, HolderFragment> zl = new HashMap();
-        private Application.ActivityLifecycleCallbacks zm = new d() { // from class: android.arch.lifecycle.HolderFragment.a.1
+        private Map<Activity, HolderFragment> Aa = new HashMap();
+        private Map<Fragment, HolderFragment> Ab = new HashMap();
+        private Application.ActivityLifecycleCallbacks Ac = new d() { // from class: android.arch.lifecycle.HolderFragment.a.1
             @Override // android.arch.lifecycle.d, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityDestroyed(Activity activity) {
-                if (((HolderFragment) a.this.zk.remove(activity)) != null) {
+                if (((HolderFragment) a.this.Aa.remove(activity)) != null) {
                     Log.e("ViewModelStores", "Failed to save a ViewModel for " + activity);
                 }
             }
         };
-        private boolean zn = false;
-        private FragmentManager.FragmentLifecycleCallbacks zo = new FragmentManager.FragmentLifecycleCallbacks() { // from class: android.arch.lifecycle.HolderFragment.a.2
+        private boolean Ae = false;
+        private FragmentManager.FragmentLifecycleCallbacks Af = new FragmentManager.FragmentLifecycleCallbacks() { // from class: android.arch.lifecycle.HolderFragment.a.2
             @Override // android.support.v4.app.FragmentManager.FragmentLifecycleCallbacks
             public void onFragmentDestroyed(FragmentManager fragmentManager, Fragment fragment) {
                 super.onFragmentDestroyed(fragmentManager, fragment);
-                if (((HolderFragment) a.this.zl.remove(fragment)) != null) {
+                if (((HolderFragment) a.this.Ab.remove(fragment)) != null) {
                     Log.e("ViewModelStores", "Failed to save a ViewModel for " + fragment);
                 }
             }
@@ -79,11 +79,11 @@ public class HolderFragment extends Fragment implements aa {
         void a(Fragment fragment) {
             Fragment parentFragment = fragment.getParentFragment();
             if (parentFragment != null) {
-                this.zl.remove(parentFragment);
-                parentFragment.getFragmentManager().unregisterFragmentLifecycleCallbacks(this.zo);
+                this.Ab.remove(parentFragment);
+                parentFragment.getFragmentManager().unregisterFragmentLifecycleCallbacks(this.Af);
                 return;
             }
-            this.zk.remove(fragment.getActivity());
+            this.Aa.remove(fragment.getActivity());
         }
 
         private static HolderFragment a(FragmentManager fragmentManager) {
@@ -107,14 +107,14 @@ public class HolderFragment extends Fragment implements aa {
             FragmentManager supportFragmentManager = fragmentActivity.getSupportFragmentManager();
             HolderFragment a2 = a(supportFragmentManager);
             if (a2 == null) {
-                HolderFragment holderFragment = this.zk.get(fragmentActivity);
+                HolderFragment holderFragment = this.Aa.get(fragmentActivity);
                 if (holderFragment == null) {
-                    if (!this.zn) {
-                        this.zn = true;
-                        fragmentActivity.getApplication().registerActivityLifecycleCallbacks(this.zm);
+                    if (!this.Ae) {
+                        this.Ae = true;
+                        fragmentActivity.getApplication().registerActivityLifecycleCallbacks(this.Ac);
                     }
                     HolderFragment b = b(supportFragmentManager);
-                    this.zk.put(fragmentActivity, b);
+                    this.Aa.put(fragmentActivity, b);
                     return b;
                 }
                 return holderFragment;

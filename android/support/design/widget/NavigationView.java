@@ -32,7 +32,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class NavigationView extends ScrimInsetsFrameLayout {
     private static final int[] CHECKED_STATE_SET = {16842912};
     private static final int[] DISABLED_STATE_SET = {-16842910};
@@ -43,7 +43,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     private MenuInflater mMenuInflater;
     private final NavigationMenuPresenter mPresenter;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public interface OnNavigationItemSelectedListener {
         boolean onNavigationItemSelected(@NonNull MenuItem menuItem);
     }
@@ -253,7 +253,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         return null;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.design.widget.NavigationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

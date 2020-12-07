@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.group.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.db.DBGroupTableManager;
 import com.baidu.android.imsdk.db.DBOperation;
@@ -21,14 +22,14 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMQueryGroupListRequest extends GroupBaseHttpRequest {
     private static final String TAG = IMQueryGroupListRequest.class.getSimpleName();
     private long mAppid;
     private String mBuid;
     private String mKey;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);
@@ -42,7 +43,7 @@ public class IMQueryGroupListRequest extends GroupBaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
                 i = jSONObject.getInt("error_code");
-                str = jSONObject.optString("error_msg", "");
+                str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
                 if (i == 0 && jSONObject.has("response_params")) {
                     JSONArray jSONArray = jSONObject.getJSONObject("response_params").getJSONArray("groups");
                     DBOperation newDb = DBOperationFactory.getNewDb(IMQueryGroupListRequest.this.mContext);

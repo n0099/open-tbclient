@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.s;
 import com.baidu.tieba.frs.t;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a extends com.baidu.adp.widget.ListView.a<s, t> {
-    private final int geh;
+    private final int gmq;
 
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), s.iLy);
-        this.geh = (l.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
+        super(tbPageContext.getPageActivity(), s.iWr);
+        this.gmq = (l.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,7 +27,7 @@ public class a extends com.baidu.adp.widget.ListView.a<s, t> {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
         ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
         generateLayoutParamsByParent.width = -1;
-        generateLayoutParamsByParent.height = this.geh;
+        generateLayoutParamsByParent.height = this.gmq;
         inflate.setLayoutParams(generateLayoutParamsByParent);
         return new t(inflate, viewGroup);
     }
@@ -36,9 +36,9 @@ public class a extends com.baidu.adp.widget.ListView.a<s, t> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, s sVar, t tVar) {
-        tVar.iLB.setText(R.string.no_data_common_txt);
-        ap.setViewTextColor(tVar.iLB, R.color.CAM_X0107, 1);
-        ap.setImageResource(tVar.iLC, R.drawable.new_pic_emotion_06);
+        tVar.iWu.setText(R.string.no_data_common_txt);
+        ap.setViewTextColor(tVar.iWu, R.color.CAM_X0107, 1);
+        ap.setImageResource(tVar.iWv, R.drawable.new_pic_emotion_06);
         return view;
     }
 }

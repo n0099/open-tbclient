@@ -15,26 +15,26 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class a extends BaseAdapter {
-    private e eGT;
-    private List<CloudMusicData.MusicTagList.MusicList> nnW = new ArrayList();
-    private b nnX;
+    private e eNZ;
+    private List<CloudMusicData.MusicTagList.MusicList> nBZ = new ArrayList();
+    private b nCa;
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public interface b {
         void a(View view, String str, int i);
     }
 
     public a(e eVar) {
-        this.eGT = eVar;
+        this.eNZ = eVar;
     }
 
-    public void fQ(List<CloudMusicData.MusicTagList.MusicList> list) {
+    public void ge(List<CloudMusicData.MusicTagList.MusicList> list) {
         if (list != null) {
             for (CloudMusicData.MusicTagList.MusicList musicList : list) {
-                if (!this.nnW.contains(musicList)) {
-                    this.nnW.add(musicList);
+                if (!this.nBZ.contains(musicList)) {
+                    this.nBZ.add(musicList);
                 }
             }
             notifyDataSetChanged();
@@ -43,14 +43,14 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.nnW.size();
+        return this.nBZ.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Li */
+    /* renamed from: Ma */
     public CloudMusicData.MusicTagList.MusicList getItem(int i) {
-        return this.nnW.get(i);
+        return this.nBZ.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -60,67 +60,67 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(final int i, View view, ViewGroup viewGroup) {
-        C0861a c0861a;
+        C0877a c0877a;
         if (view == null) {
-            view = LayoutInflater.from(this.eGT.getPageActivity()).inflate(R.layout.cloud_music_item, viewGroup, false);
-            c0861a = new C0861a();
-            c0861a.noa = (TbImageView) view.findViewById(R.id.music_state);
-            c0861a.nnZ = (TbImageView) view.findViewById(R.id.music_image);
-            c0861a.nnZ.setDrawerType(1);
-            c0861a.nnZ.setIsRound(true);
-            c0861a.nnZ.setDefaultErrorResource(R.drawable.bg_video_cloudmusic);
-            c0861a.nnZ.setDefaultResource(R.drawable.bg_video_cloudmusic);
-            c0861a.nnZ.setDefaultBgResource(R.color.transparent);
-            c0861a.nnZ.setBorderWidth(l.getDimens(this.eGT.getPageActivity(), R.dimen.ds4));
-            c0861a.nnZ.setBorderColor(ap.getColor(R.color.CAM_X0302));
-            c0861a.nnZ.setConrers(15);
-            c0861a.nob = view.findViewById(R.id.music_loading);
-            c0861a.noc = (TextView) view.findViewById(R.id.music_title);
-            c0861a.nod = (TextView) view.findViewById(R.id.music_author_name);
-            c0861a.noe = (TextView) view.findViewById(R.id.music_duration);
-            c0861a.nof = (TextView) view.findViewById(R.id.music_choose);
-            c0861a.hFk = view.findViewById(R.id.line);
-            view.setTag(c0861a);
+            view = LayoutInflater.from(this.eNZ.getPageActivity()).inflate(R.layout.cloud_music_item, viewGroup, false);
+            c0877a = new C0877a();
+            c0877a.nCd = (TbImageView) view.findViewById(R.id.music_state);
+            c0877a.nCc = (TbImageView) view.findViewById(R.id.music_image);
+            c0877a.nCc.setDrawerType(1);
+            c0877a.nCc.setIsRound(true);
+            c0877a.nCc.setDefaultErrorResource(R.drawable.bg_video_cloudmusic);
+            c0877a.nCc.setDefaultResource(R.drawable.bg_video_cloudmusic);
+            c0877a.nCc.setDefaultBgResource(R.color.transparent);
+            c0877a.nCc.setBorderWidth(l.getDimens(this.eNZ.getPageActivity(), R.dimen.ds4));
+            c0877a.nCc.setBorderColor(ap.getColor(R.color.CAM_X0302));
+            c0877a.nCc.setConrers(15);
+            c0877a.nCe = view.findViewById(R.id.music_loading);
+            c0877a.nCf = (TextView) view.findViewById(R.id.music_title);
+            c0877a.nCg = (TextView) view.findViewById(R.id.music_author_name);
+            c0877a.nCh = (TextView) view.findViewById(R.id.music_duration);
+            c0877a.nCi = (TextView) view.findViewById(R.id.music_choose);
+            c0877a.hOR = view.findViewById(R.id.line);
+            view.setTag(c0877a);
         } else {
-            c0861a = (C0861a) view.getTag();
+            c0877a = (C0877a) view.getTag();
         }
-        c0861a.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
-        final CloudMusicData.MusicTagList.MusicList musicList = this.nnW.get(i);
+        c0877a.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+        final CloudMusicData.MusicTagList.MusicList musicList = this.nBZ.get(i);
         if (musicList != null) {
-            c0861a.noc.setText(musicList.name);
-            c0861a.nnZ.startLoad(musicList.image, 10, false);
-            c0861a.nod.setText(musicList.author);
-            c0861a.noe.setText(au.stringForVideoTime(musicList.duration * 1000));
+            c0877a.nCf.setText(musicList.name);
+            c0877a.nCc.startLoad(musicList.image, 10, false);
+            c0877a.nCg.setText(musicList.author);
+            c0877a.nCh.setText(au.stringForVideoTime(musicList.duration * 1000));
             if (musicList.isLoading) {
-                c0861a.nob.setVisibility(0);
+                c0877a.nCe.setVisibility(0);
             } else {
-                c0861a.nob.setVisibility(4);
+                c0877a.nCe.setVisibility(4);
             }
-            if (musicList.equals(com.baidu.tieba.video.cloudmusic.data.a.dOI().dOJ())) {
-                c0861a.noa.setImageResource(R.drawable.btn_icon_stop_video);
-                c0861a.nnZ.setDrawBorder(true);
-                c0861a.nof.setVisibility(0);
-                c0861a.nob.setVisibility(4);
+            if (musicList.equals(com.baidu.tieba.video.cloudmusic.data.a.dUa().dUb())) {
+                c0877a.nCd.setImageResource(R.drawable.btn_icon_stop_video);
+                c0877a.nCc.setDrawBorder(true);
+                c0877a.nCi.setVisibility(0);
+                c0877a.nCe.setVisibility(4);
                 musicList.isLoading = false;
-                c0861a.nof.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.cloudmusic.a.a.1
+                c0877a.nCi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.cloudmusic.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (a.this.nnX != null) {
-                            a.this.nnX.a(view2, musicList.resource, i);
+                        if (a.this.nCa != null) {
+                            a.this.nCa.a(view2, musicList.resource, i);
                         }
                     }
                 });
             } else {
-                c0861a.noa.setImageResource(R.drawable.btn_icon_play_video_n);
-                c0861a.nnZ.setDrawBorder(false);
-                c0861a.nof.setVisibility(8);
+                c0877a.nCd.setImageResource(R.drawable.btn_icon_play_video_n);
+                c0877a.nCc.setDrawBorder(false);
+                c0877a.nCi.setVisibility(8);
             }
         }
         return view;
     }
 
     public void a(b bVar) {
-        this.nnX = bVar;
+        this.nCa = bVar;
     }
 
     public void aj(int i, boolean z) {
@@ -129,25 +129,25 @@ public class a extends BaseAdapter {
     }
 
     /* renamed from: com.baidu.tieba.video.cloudmusic.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    public static class C0861a {
-        private View hFk;
-        public TbImageView nnZ;
-        public TbImageView noa;
-        public View nob;
-        public TextView noc;
-        public TextView nod;
-        public TextView noe;
-        public TextView nof;
+    /* loaded from: classes23.dex */
+    public static class C0877a {
+        private View hOR;
+        public TbImageView nCc;
+        public TbImageView nCd;
+        public View nCe;
+        public TextView nCf;
+        public TextView nCg;
+        public TextView nCh;
+        public TextView nCi;
 
         public void onChangeSkin(int i) {
-            ap.setViewTextColor(this.noc, R.color.CAM_X0105);
-            ap.setViewTextColor(this.nod, R.color.CAM_X0107);
-            ap.setViewTextColor(this.noe, R.color.CAM_X0107);
-            ap.setViewTextColor(this.nof, R.color.common_color_10140);
-            ap.setBackgroundResource(this.nof, R.drawable.bg_music_choose);
-            ap.setBackgroundColor(this.hFk, R.color.CAM_X0204);
-            ap.setImageResource(this.noa, R.drawable.btn_icon_play_video_n);
+            ap.setViewTextColor(this.nCf, R.color.CAM_X0105);
+            ap.setViewTextColor(this.nCg, R.color.CAM_X0107);
+            ap.setViewTextColor(this.nCh, R.color.CAM_X0107);
+            ap.setViewTextColor(this.nCi, R.color.common_color_10140);
+            ap.setBackgroundResource(this.nCi, R.drawable.bg_music_choose);
+            ap.setBackgroundColor(this.hOR, R.color.CAM_X0204);
+            ap.setImageResource(this.nCd, R.drawable.btn_icon_play_video_n);
         }
     }
 }

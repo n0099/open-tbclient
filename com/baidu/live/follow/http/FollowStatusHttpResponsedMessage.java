@@ -4,14 +4,14 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class FollowStatusHttpResponsedMessage extends JsonHttpResponsedMessage {
-    private boolean aSl;
+    private boolean aVn;
 
     public FollowStatusHttpResponsedMessage() {
         super(1021196);
     }
 
-    public boolean EP() {
-        return this.aSl;
+    public boolean GA() {
+        return this.aVn;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -19,7 +19,7 @@ public class FollowStatusHttpResponsedMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.aSl = optJSONObject.optInt("is_follow", 0) == 1;
+            this.aVn = optJSONObject.optInt("is_follow", 0) == 1;
         }
     }
 }

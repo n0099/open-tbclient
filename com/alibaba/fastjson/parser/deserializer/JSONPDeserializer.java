@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONPObject;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.JSONLexerBase;
 import java.lang.reflect.Type;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class JSONPDeserializer implements ObjectDeserializer {
     public static final JSONPDeserializer instance = new JSONPDeserializer();
 

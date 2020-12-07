@@ -2,53 +2,53 @@ package com.baidu.live.yuyingift.container;
 
 import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.data.j;
-import com.baidu.live.data.y;
+import com.baidu.live.data.z;
 import com.baidu.live.gift.h;
 import com.baidu.live.yuyingift.giftlist.b;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class e {
-    private ArrayList<h> aXD;
-    private ArrayList<com.baidu.live.data.h> aXE;
-    private ArrayList<j> aXF;
-    private com.baidu.live.yuyingift.giftlist.b bOA;
-    private a bOB;
-    private b.a bOC = new b.a() { // from class: com.baidu.live.yuyingift.container.e.1
+    private com.baidu.live.yuyingift.giftlist.b bTK;
+    private a bTL;
+    private b.a bTM = new b.a() { // from class: com.baidu.live.yuyingift.container.e.1
         @Override // com.baidu.live.yuyingift.giftlist.b.a
-        public void a(int i, String str, boolean z, ArrayList<h> arrayList, ArrayList<com.baidu.live.data.h> arrayList2, ArrayList<j> arrayList3, y yVar) {
+        public void a(int i, String str, boolean z, ArrayList<h> arrayList, ArrayList<com.baidu.live.data.h> arrayList2, ArrayList<j> arrayList3, z zVar) {
             if (i == 0) {
-                e.this.aXD = arrayList;
-                e.this.aXE = arrayList2;
-                e.this.aXF = arrayList3;
+                e.this.baV = arrayList;
+                e.this.baW = arrayList2;
+                e.this.baX = arrayList3;
             }
-            if (e.this.bOB != null) {
-                e.this.bOB.b(i, str, true, e.this.aXD, e.this.aXE, e.this.aXF, yVar);
+            if (e.this.bTL != null) {
+                e.this.bTL.b(i, str, true, e.this.baV, e.this.baW, e.this.baX, zVar);
             }
         }
     };
+    private ArrayList<h> baV;
+    private ArrayList<com.baidu.live.data.h> baW;
+    private ArrayList<j> baX;
     private BdPageContext mContext;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void b(int i, String str, boolean z, ArrayList<h> arrayList, ArrayList<com.baidu.live.data.h> arrayList2, ArrayList<j> arrayList3, y yVar);
+        void b(int i, String str, boolean z, ArrayList<h> arrayList, ArrayList<com.baidu.live.data.h> arrayList2, ArrayList<j> arrayList3, z zVar);
     }
 
     public e(BdPageContext bdPageContext, boolean z) {
         this.mContext = bdPageContext;
-        this.bOA = new com.baidu.live.yuyingift.giftlist.b(this.mContext);
-        this.bOA.a(this.bOC);
+        this.bTK = new com.baidu.live.yuyingift.giftlist.b(this.mContext);
+        this.bTK.a(this.bTM);
     }
 
-    public void hi(String str) {
+    public void hD(String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        this.bOA.a(str, com.baidu.live.d.Aq().getLong("ala_sdk_get_gift_list_req_time", currentTimeMillis) - currentTimeMillis <= 0, "open", "gift_panel");
+        this.bTK.a(str, com.baidu.live.d.BM().getLong("ala_sdk_get_gift_list_req_time", currentTimeMillis) - currentTimeMillis <= 0, "open", "gift_panel");
     }
 
-    public void hj(String str) {
-        this.bOA.o(str, "open", "gift_panel");
+    public void hE(String str) {
+        this.bTK.q(str, "open", "gift_panel");
     }
 
     public void a(a aVar) {
-        this.bOB = aVar;
+        this.bTL = aVar;
     }
 }

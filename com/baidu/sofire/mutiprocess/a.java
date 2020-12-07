@@ -6,7 +6,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface a extends IInterface {
     Bundle a(Bundle bundle) throws RemoteException;
 
@@ -15,9 +15,9 @@ public interface a extends IInterface {
     Bundle b(Bundle bundle) throws RemoteException;
 
     /* renamed from: com.baidu.sofire.mutiprocess.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static abstract class AbstractBinderC0361a extends Binder implements a {
-        public AbstractBinderC0361a() {
+    /* loaded from: classes8.dex */
+    public static abstract class AbstractBinderC0373a extends Binder implements a {
+        public AbstractBinderC0373a() {
             attachInterface(this, "com.baidu.sofire.mutiprocess.IMutiProcessHandler");
         }
 
@@ -29,7 +29,7 @@ public interface a extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
                 return (a) queryLocalInterface;
             }
-            return new C0362a(iBinder);
+            return new C0374a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -83,14 +83,14 @@ public interface a extends IInterface {
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.sofire.mutiprocess.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public static class C0362a implements a {
+        /* loaded from: classes8.dex */
+        public static class C0374a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            public static a f3665a;
+            public static a f3668a;
             private IBinder b;
 
-            C0362a(IBinder iBinder) {
+            C0374a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -112,8 +112,8 @@ public interface a extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.b.transact(1, obtain, obtain2, 0) && AbstractBinderC0361a.a() != null) {
-                        bundle2 = AbstractBinderC0361a.a().a(bundle);
+                    if (!this.b.transact(1, obtain, obtain2, 0) && AbstractBinderC0373a.a() != null) {
+                        bundle2 = AbstractBinderC0373a.a().a(bundle);
                     } else {
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
@@ -142,8 +142,8 @@ public interface a extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.b.transact(2, obtain, obtain2, 0) && AbstractBinderC0361a.a() != null) {
-                        bundle2 = AbstractBinderC0361a.a().b(bundle);
+                    if (!this.b.transact(2, obtain, obtain2, 0) && AbstractBinderC0373a.a() != null) {
+                        bundle2 = AbstractBinderC0373a.a().b(bundle);
                     } else {
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
@@ -167,8 +167,8 @@ public interface a extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.sofire.mutiprocess.IMutiProcessHandler");
                     obtain.writeString(str);
-                    if (!this.b.transact(3, obtain, obtain2, 0) && AbstractBinderC0361a.a() != null) {
-                        bundle = AbstractBinderC0361a.a().a(str);
+                    if (!this.b.transact(3, obtain, obtain2, 0) && AbstractBinderC0373a.a() != null) {
+                        bundle = AbstractBinderC0373a.a().a(str);
                     } else {
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
@@ -186,7 +186,7 @@ public interface a extends IInterface {
         }
 
         public static a a() {
-            return C0362a.f3665a;
+            return C0374a.f3668a;
         }
     }
 }

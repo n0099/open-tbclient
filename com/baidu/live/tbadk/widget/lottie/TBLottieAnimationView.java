@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.widget.lottie.TBLottieAnimationLoader;
-import com.baidu.m.a.a;
+import com.baidu.n.a.a;
 import com.tb.airbnb.lottie.LottieAnimationView;
 import com.tb.airbnb.lottie.e;
 import com.tb.airbnb.lottie.f;
@@ -131,7 +131,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
             cancelAnimation();
             InputStream animationInputStream = getAnimationInputStream(str, JSON_FILE);
             if (animationInputStream != null) {
-                f.j(animationInputStream, str).a(new i<e>() { // from class: com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView.2
+                f.i(animationInputStream, str).a(new i<e>() { // from class: com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.tb.airbnb.lottie.i
                     public void onResult(e eVar) {

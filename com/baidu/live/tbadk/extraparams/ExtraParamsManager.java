@@ -47,10 +47,11 @@ public class ExtraParamsManager {
     public static final String PARAM_LOG_ISPACKAGE = "log_isPackageLog";
     public static final String PARAM_LOG_TYPE = "log_type";
     private static String WALLET_SDK_UA;
-    private static List<ResultCallback> enterBuyTBeanCallbackList = new ArrayList();
-    private static List<ResultCallback> loginCallbackList = new ArrayList();
     private IExtraParams mExtraParams;
     private IExtraParamsBuilder mExtraParamsBuilder;
+    private static List<ResultCallback> enterBuyTBeanCallbackList = new ArrayList();
+    private static List<ResultCallback> loginCallbackList = new ArrayList();
+    private static List<ResultCallback> h5SendTagGiftCallbackList = new ArrayList();
 
     public static ExtraParamsManager getInstance() {
         return InstanceHolder.sInst;
@@ -181,12 +182,22 @@ public class ExtraParamsManager {
         }
     }
 
+    public static void handleH5SendTagGiftResultCallback(JSONObject jSONObject) {
+        if (!h5SendTagGiftCallbackList.isEmpty()) {
+            onCallH5SendTagGiftCallback(jSONObject);
+        }
+    }
+
     public static void addEnterBuyTBeanCallback(ResultCallback resultCallback) {
         enterBuyTBeanCallbackList.add(resultCallback);
     }
 
     public static void addLoginCallback(ResultCallback resultCallback) {
         loginCallbackList.add(resultCallback);
+    }
+
+    public static void addH5SendTagGiftCallback(ResultCallback resultCallback) {
+        h5SendTagGiftCallbackList.add(resultCallback);
     }
 
     public static void onCallEnterBuyTBeanCallback(Intent intent) {
@@ -229,6 +240,20 @@ public class ExtraParamsManager {
                 i = i2 + 1;
             } else {
                 loginCallbackList.clear();
+                return;
+            }
+        }
+    }
+
+    public static void onCallH5SendTagGiftCallback(JSONObject jSONObject) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < h5SendTagGiftCallbackList.size()) {
+                h5SendTagGiftCallbackList.get(i2).onCallback(jSONObject);
+                i = i2 + 1;
+            } else {
+                h5SendTagGiftCallbackList.clear();
                 return;
             }
         }

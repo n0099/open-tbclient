@@ -13,15 +13,15 @@ import android.util.Log;
 import com.baidu.helios.bridge.a;
 import com.baidu.helios.bridge.multiprocess.e;
 import com.baidu.helios.bridge.multiprocess.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class h extends com.baidu.helios.bridge.a implements IBinder.DeathRecipient {
-    private ContentProviderClient avm;
-    private e avn;
-    private c avo;
+    private ContentProviderClient awk;
+    private e awl;
+    private c awm;
     private String i;
 
     public h(c cVar, String str) {
-        this.avo = cVar;
+        this.awm = cVar;
         this.i = str;
     }
 
@@ -76,7 +76,7 @@ public class h extends com.baidu.helios.bridge.a implements IBinder.DeathRecipie
                 bundle = a(acquireContentProviderClient, uri);
             }
             if (bundle != null) {
-                this.avm = acquireContentProviderClient;
+                this.awk = acquireContentProviderClient;
                 break;
             }
             try {
@@ -109,7 +109,7 @@ public class h extends com.baidu.helios.bridge.a implements IBinder.DeathRecipie
         }
     }
 
-    private e ak(Context context) {
+    private e am(Context context) {
         IBinder j;
         Bundle a2 = a(context, false, Uri.parse("content://" + a(context)), "_method_get_bridge");
         Log.i("Helios-mul", new StringBuilder().append("remote bridge bundle result is ").append(a2).toString() == null ? "null" : "non-null");
@@ -139,7 +139,7 @@ public class h extends com.baidu.helios.bridge.a implements IBinder.DeathRecipie
     @Override // com.baidu.helios.bridge.a
     public void a(String str, Bundle bundle, final a.c<String> cVar) {
         try {
-            this.avn.a(str, bundle, new f.a() { // from class: com.baidu.helios.bridge.multiprocess.g.1
+            this.awl.a(str, bundle, new f.a() { // from class: com.baidu.helios.bridge.multiprocess.g.1
                 @Override // com.baidu.helios.bridge.multiprocess.f
                 public void a(int i, Bundle bundle2) {
                     cVar.a(i, null, bundle2);
@@ -156,23 +156,23 @@ public class h extends com.baidu.helios.bridge.a implements IBinder.DeathRecipie
     }
 
     public boolean a() {
-        return this.avn != null;
+        return this.awl != null;
     }
 
     @Override // com.baidu.helios.bridge.a
     public void b(a.b bVar) {
-        this.avn = ak(this.auH.applicationContext);
+        this.awl = am(this.avF.applicationContext);
     }
 
     @Override // android.os.IBinder.DeathRecipient
     public void binderDied() {
-        this.avo.a();
+        this.awm.a();
     }
 
     @Override // com.baidu.helios.bridge.a
     public a.d c(String str, Bundle bundle) {
         try {
-            Bundle a2 = this.avn.a(str, bundle);
+            Bundle a2 = this.awl.a(str, bundle);
             if (a2 != null) {
                 return i(a2);
             }
@@ -182,9 +182,9 @@ public class h extends com.baidu.helios.bridge.a implements IBinder.DeathRecipie
     }
 
     @Override // com.baidu.helios.bridge.a
-    public boolean fr(String str) {
+    public boolean fv(String str) {
         try {
-            return this.avn.a(str);
+            return this.awl.a(str);
         } catch (RemoteException e) {
             return false;
         }

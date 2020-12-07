@@ -1,12 +1,12 @@
 package com.baidu.searchbox.floating.utils;
 
 import android.view.ViewConfiguration;
-import kotlin.h;
+import kotlin.e;
 import kotlin.jvm.a.a;
 import kotlin.jvm.internal.Lambda;
-import kotlin.jvm.internal.q;
-@h
-/* loaded from: classes9.dex */
+import kotlin.jvm.internal.p;
+@e
+/* loaded from: classes16.dex */
 final class TouchHelper$mTouchSlop$2 extends Lambda implements a<Integer> {
     final /* synthetic */ TouchHelper this$0;
 
@@ -29,7 +29,7 @@ final class TouchHelper$mTouchSlop$2 extends Lambda implements a<Integer> {
     @Override // kotlin.jvm.a.a
     public final Integer invoke() {
         ViewConfiguration viewConfiguration = ViewConfiguration.get(this.this$0.getContext());
-        q.m(viewConfiguration, "ViewConfiguration.get(context)");
+        p.n(viewConfiguration, "ViewConfiguration.get(context)");
         return viewConfiguration.getScaledTouchSlop();
     }
 }

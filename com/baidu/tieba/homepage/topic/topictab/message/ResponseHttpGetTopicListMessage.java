@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicList.NewTopicList;
 import tbclient.NewTopicList.NewTopicListResIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
     private List<q> mTopicDataList;
 
@@ -42,13 +42,13 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
                         aVar.a(newTopicList);
                         this.mTopicDataList.add(aVar);
                         c cVar = new c();
-                        cVar.iob = R.dimen.tbds1;
-                        cVar.eHJ = R.color.CAM_X0203;
+                        cVar.iyT = R.dimen.tbds1;
+                        cVar.eOT = R.color.CAM_X0203;
                         this.mTopicDataList.add(cVar);
                         i2++;
                     }
                 }
-                ((c) y.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).iob = 0;
+                ((c) y.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).iyT = 0;
             }
         }
     }

@@ -5,10 +5,10 @@ import android.os.Environment;
 import android.os.StatFs;
 import java.io.File;
 import java.text.SimpleDateFormat;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class d {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class a {
         public static final boolean a(int i, int i2) {
             return i2 == (i & i2);
@@ -16,15 +16,15 @@ public class d {
     }
 
     /* renamed from: com.tencent.open.a.d$d  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static final class C1052d {
+    /* loaded from: classes12.dex */
+    public static final class C1030d {
         @SuppressLint({"SimpleDateFormat"})
         public static SimpleDateFormat a(String str) {
             return new SimpleDateFormat(str);
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class b {
         public static boolean a() {
             String externalStorageState = Environment.getExternalStorageState();
@@ -39,20 +39,20 @@ public class d {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        private File f4578a;
+        private File f4348a;
         private long b;
         private long c;
 
         public File a() {
-            return this.f4578a;
+            return this.f4348a;
         }
 
         public void a(File file) {
-            this.f4578a = file;
+            this.f4348a = file;
         }
 
         public long b() {

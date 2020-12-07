@@ -1,22 +1,22 @@
 package bolts;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class h<TResult> {
-    private final g<TResult> AW = new g<>();
+    private final g<TResult> BM = new g<>();
 
     public g<TResult> iq() {
-        return this.AW;
+        return this.BM;
     }
 
     public boolean ip() {
-        return this.AW.ip();
+        return this.BM.ip();
     }
 
     public boolean m(TResult tresult) {
-        return this.AW.m(tresult);
+        return this.BM.m(tresult);
     }
 
     public boolean g(Exception exc) {
-        return this.AW.g(exc);
+        return this.BM.g(exc);
     }
 
     public void ir() {

@@ -7,37 +7,37 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.swan.apps.c;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String dBt;
+    private static String dIr;
 
-    public static String aLn() {
-        return tX("swan");
+    public static String aOu() {
+        return uE("swan");
     }
 
-    public static String ass() {
-        return tX("swangame");
+    public static String avA() {
+        return uE("swangame");
     }
 
-    private static String tX(String str) {
-        String hostName = com.baidu.swan.apps.t.a.awE().getHostName();
+    private static String uE(String str) {
+        String hostName = com.baidu.swan.apps.t.a.azM().getHostName();
         a aVar = new a();
-        aVar.tY(str).tZ(c.getVersion()).ua(hostName).ub(getVersionName()).uc(getOSVersion());
-        return aVar.aLo();
+        aVar.uF(str).uG(c.getVersion()).uH(hostName).uI(getVersionName()).uJ(getOSVersion());
+        return aVar.aOv();
     }
 
     private static Context getContext() {
-        return com.baidu.swan.apps.t.a.avS();
+        return com.baidu.swan.apps.t.a.aza();
     }
 
     public static String getVersionName() {
-        if (!TextUtils.isEmpty(dBt)) {
-            return dBt;
+        if (!TextUtils.isEmpty(dIr)) {
+            return dIr;
         }
         try {
-            dBt = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-            return dBt;
+            dIr = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+            return dIr;
         } catch (PackageManager.NameNotFoundException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -54,56 +54,56 @@ public class b {
         return str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static class a {
-        private String anB;
-        private String dBu;
-        private String dBv;
-        private String dBw;
-        private String dBx;
-        private static String dBy = "%s/%s";
-        private static String dBz = "%s-%s/%s";
-        private static String dBA = "(Baidu; P1 %s)";
-        private static String dBB = "%s/%s";
+        private static String dIw = "%s/%s";
+        private static String dIx = "%s-%s/%s";
+        private static String dIy = "(Baidu; P1 %s)";
+        private static String dIz = "%s/%s";
+        private String dIs;
+        private String dIt;
+        private String dIu;
+        private String dIv;
+        private String mOSVersion;
 
-        public a tY(String str) {
-            this.dBu = str;
+        public a uF(String str) {
+            this.dIs = str;
             return this;
         }
 
-        public a tZ(String str) {
-            this.dBv = str;
+        public a uG(String str) {
+            this.dIt = str;
             return this;
         }
 
-        public a ua(String str) {
-            this.dBw = str;
+        public a uH(String str) {
+            this.dIu = str;
             return this;
         }
 
-        public a ub(String str) {
-            this.dBx = str;
+        public a uI(String str) {
+            this.dIv = str;
             return this;
         }
 
-        public a uc(String str) {
-            this.anB = str;
+        public a uJ(String str) {
+            this.mOSVersion = str;
             return this;
         }
 
-        public String aLo() {
-            String format = String.format(dBy, this.dBu, this.dBv);
-            String format2 = String.format(dBz, this.dBu, this.dBw, this.dBx);
-            String format3 = String.format(dBB, this.dBw, this.dBx);
-            String format4 = String.format(dBA, this.anB);
-            if (aLp()) {
+        public String aOv() {
+            String format = String.format(dIw, this.dIs, this.dIt);
+            String format2 = String.format(dIx, this.dIs, this.dIu, this.dIv);
+            String format3 = String.format(dIz, this.dIu, this.dIv);
+            String format4 = String.format(dIy, this.mOSVersion);
+            if (aOw()) {
                 return String.format("%s %s %s %s", format, format2, format3, format4);
             }
             return String.format("%s %s %s", format, format2, format4);
         }
 
-        private boolean aLp() {
-            return TextUtils.equals("baiduboxapp", this.dBw);
+        private boolean aOw() {
+            return TextUtils.equals("baiduboxapp", this.dIu);
         }
     }
 }

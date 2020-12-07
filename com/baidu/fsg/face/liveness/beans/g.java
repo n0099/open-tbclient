@@ -9,11 +9,11 @@ import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class g extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1714a = "bduss";
+    private static final String f1716a = "bduss";
     private static final String b = "certinfo";
     private static final String c = "authtoken";
     private static final String d = "outer";

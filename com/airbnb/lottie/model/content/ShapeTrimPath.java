@@ -1,15 +1,15 @@
 package com.airbnb.lottie.model.content;
 
 import com.airbnb.lottie.a.a.r;
-/* loaded from: classes16.dex */
+/* loaded from: classes7.dex */
 public class ShapeTrimPath implements b {
-    private final Type DI;
-    private final com.airbnb.lottie.model.a.b FB;
-    private final com.airbnb.lottie.model.a.b FJ;
-    private final com.airbnb.lottie.model.a.b FK;
+    private final Type EA;
+    private final com.airbnb.lottie.model.a.b GC;
+    private final com.airbnb.lottie.model.a.b GD;
+    private final com.airbnb.lottie.model.a.b Gt;
     private final String name;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes7.dex */
     public enum Type {
         Simultaneously,
         Individually;
@@ -28,10 +28,10 @@ public class ShapeTrimPath implements b {
 
     public ShapeTrimPath(String str, Type type, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.DI = type;
-        this.FJ = bVar;
-        this.FK = bVar2;
-        this.FB = bVar3;
+        this.EA = type;
+        this.GC = bVar;
+        this.GD = bVar2;
+        this.Gt = bVar3;
     }
 
     public String getName() {
@@ -39,19 +39,19 @@ public class ShapeTrimPath implements b {
     }
 
     public Type jd() {
-        return this.DI;
+        return this.EA;
     }
 
     public com.airbnb.lottie.model.a.b kr() {
-        return this.FK;
+        return this.GD;
     }
 
     public com.airbnb.lottie.model.a.b ks() {
-        return this.FJ;
+        return this.GC;
     }
 
     public com.airbnb.lottie.model.a.b kl() {
-        return this.FB;
+        return this.Gt;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.FJ + ", end: " + this.FK + ", offset: " + this.FB + "}";
+        return "Trim Path: {start: " + this.GC + ", end: " + this.GD + ", offset: " + this.Gt + "}";
     }
 }

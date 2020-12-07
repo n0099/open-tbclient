@@ -17,23 +17,22 @@ import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.db.IResultParse;
 import com.baidu.android.imsdk.db.ITransaction;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class GroupMessageDAOImpl {
     public static final String TAG = "GroupMessageDAOImpl";
     private static ChatMsgParse sGroupChatMsgParse = new ChatMsgParse();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public enum MSGTYPEEXPLAN {
         EQUAL,
         UNEQUAL
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public enum MessageType {
         DRAFT2SENDING,
         SENDING2FAIL,
@@ -41,7 +40,7 @@ public class GroupMessageDAOImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class ChatMsgParse implements IResultParse<ChatMsg> {
         Context mContext;
 
@@ -63,7 +62,7 @@ public class GroupMessageDAOImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class LocalChatMsgParse implements IResultParse<ChatMsg> {
         Context mContext;
 
@@ -82,7 +81,7 @@ public class GroupMessageDAOImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class GroupChatMsgParse implements IResultParse<ChatMsg> {
         Context mContext;
 
@@ -350,7 +349,7 @@ public class GroupMessageDAOImpl {
             }
             String str6 = " ( " + jArr[0];
             for (int i2 = 1; i2 < jArr.length; i2++) {
-                str6 = str6 + Constants.ACCEPT_TIME_SEPARATOR_SP + jArr[i2];
+                str6 = str6 + "," + jArr[i2];
             }
             str4 = str4 + " AND type" + str5 + (str6 + " )");
         }
@@ -474,7 +473,7 @@ public class GroupMessageDAOImpl {
         }
         String str2 = " ( " + jArr[0];
         for (int i = 1; i < jArr.length; i++) {
-            str2 = str2 + Constants.ACCEPT_TIME_SEPARATOR_SP + jArr[i];
+            str2 = str2 + "," + jArr[i];
         }
         return newDb.delete(DBTableDefine.getGroupMessageTableName(str), "msgid in " + (str2 + " )"), null).intValue();
     }

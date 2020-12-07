@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,7 +15,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMFetchConfigMsg extends Message {
     private static final int MAX_COUNT = 50;
     public static final String TAG = IMFetchConfigMsg.class.getSimpleName();
@@ -73,10 +72,11 @@ public class IMFetchConfigMsg extends Message {
 
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+        super.handleMessageResult(context, jSONObject, i, str);
         TaskManager.getInstance(this.mContext).submitForNetWork(new FetchConfigTask(context, jSONObject, i, str));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     private class FetchConfigTask extends TaskManager.Task {
         private Context mContext;
         private int mErrorCode;
@@ -116,8 +116,6 @@ public class IMFetchConfigMsg extends Message {
                     LogUtils.e(IMFetchConfigMsg.TAG, "Exception ", e);
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 }
-            } else if (this.mErrorCode == 4001) {
-                LoginManager.getInstance(this.mContext).triggleLogoutListener(this.mErrorCode, this.mStrMsg);
             }
         }
     }

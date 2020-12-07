@@ -4,28 +4,28 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class b {
-    private a awJ;
+    private a axH;
     private Map<String, com.baidu.helios.ids.a> b = new HashMap();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public interface a {
-        List<com.baidu.helios.ids.a> Ac();
+        List<com.baidu.helios.ids.a> zW();
     }
 
     public b(a aVar) {
-        this.awJ = aVar;
-        for (com.baidu.helios.ids.a aVar2 : aVar.Ac()) {
+        this.axH = aVar;
+        for (com.baidu.helios.ids.a aVar2 : aVar.zW()) {
             this.b.put(aVar2.getName(), aVar2);
         }
     }
 
-    public List<com.baidu.helios.ids.a> Ab() {
-        return new ArrayList(this.b.values());
+    public com.baidu.helios.ids.a fC(String str) {
+        return this.b.get(str);
     }
 
-    public com.baidu.helios.ids.a fy(String str) {
-        return this.b.get(str);
+    public List<com.baidu.helios.ids.a> zV() {
+        return new ArrayList(this.b.values());
     }
 }

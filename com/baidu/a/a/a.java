@@ -1,6 +1,7 @@
 package com.baidu.a.a;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.retrieve.Constants;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,11 +11,11 @@ import java.util.zip.ZipInputStream;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f990a;
+    private String f988a;
 
     public a(File file) {
-        this.f990a = null;
-        this.f990a = file.getAbsolutePath();
+        this.f988a = null;
+        this.f988a = file.getAbsolutePath();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:43:0x0082 A[Catch: Exception -> 0x0086, TRY_LEAVE, TryCatch #5 {Exception -> 0x0086, blocks: (B:41:0x007d, B:43:0x0082), top: B:63:0x007d }] */
@@ -27,10 +28,10 @@ public class a {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2 = null;
         boolean z = true;
-        if (TextUtils.isEmpty(this.f990a)) {
+        if (TextUtils.isEmpty(this.f988a)) {
             return false;
         }
-        File file = new File(this.f990a);
+        File file = new File(this.f988a);
         new StringBuilder();
         try {
             fileInputStream = new FileInputStream(file);
@@ -51,7 +52,7 @@ public class a {
                             if (fileInputStream != null) {
                                 fileInputStream.close();
                             }
-                        } else if (!nextEntry.isDirectory() && nextEntry.getName().contains("../")) {
+                        } else if (!nextEntry.isDirectory() && nextEntry.getName().contains(Constants.PATH_PARENT)) {
                             if (zipInputStream != null) {
                                 try {
                                     zipInputStream.close();

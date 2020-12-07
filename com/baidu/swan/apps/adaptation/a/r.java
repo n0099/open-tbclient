@@ -4,78 +4,78 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import com.baidu.searchbox.http.request.HttpRequest;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public interface r {
-    String agA();
+    boolean ajD();
 
-    String agB();
+    String ajE();
 
-    String agC();
+    String ajF();
 
-    String agD();
+    String ajG();
 
-    String agE();
+    String ajH();
 
-    String agF();
+    String ajI();
 
-    String agG();
+    String ajJ();
 
-    String agH();
+    String ajK();
 
-    String agI();
+    String ajL();
 
-    String agJ();
+    String ajM();
 
-    String agK();
+    String ajN();
 
-    String agL();
+    String ajO();
 
-    String agM();
+    String ajP();
+
+    String ajQ();
+
+    String ajR();
+
+    String ajS();
+
+    String ajT();
+
+    String ajU();
 
     @Nullable
-    String agN();
+    String ajV();
 
-    long agO();
+    long ajW();
 
-    String agP();
+    String ajX();
 
-    String agQ();
+    String ajY();
 
-    String agR();
+    String ajZ();
 
-    boolean agv();
+    String akA();
 
-    String agw();
+    String akB();
 
-    String agx();
+    boolean akC();
 
-    String agy();
+    int akD();
 
-    String agz();
+    String akE();
 
-    String ahA();
+    String akF();
 
-    void ahq();
+    String akG();
 
-    void ahr();
+    String akH();
 
-    String ahs();
+    String akI();
 
-    String aht();
+    void aky();
 
-    boolean ahu();
+    void akz();
 
-    int ahv();
-
-    String ahw();
-
-    String ahx();
-
-    String ahy();
-
-    String ahz();
-
-    String bs(Context context);
+    String bY(Context context);
 
     HttpRequest e(Context context, Map<String, String> map);
 
@@ -93,5 +93,5 @@ public interface r {
 
     HttpRequest k(Context context, Map<String, String> map);
 
-    String kp(String str);
+    String kW(String str);
 }

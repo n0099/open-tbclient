@@ -1,46 +1,46 @@
 package com.baidu.ar.child;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class c {
     private int angle;
     private int height;
-    private float lI;
-    private float[] lJ;
-    private float[] lK;
-    private boolean lL;
-    private long lM;
-    private byte[] lN;
+    private float lX;
+    private float[] lY;
+    private float[] lZ;
+    private boolean ma;
+    private long mb;
+    private byte[] mc;
     private int width;
 
+    public void c(float f) {
+        this.lX = f;
+    }
+
+    public void c(float[] fArr) {
+        this.lY = fArr;
+    }
+
+    public float[] cU() {
+        return this.lY;
+    }
+
     public float[] cV() {
-        return this.lJ;
-    }
-
-    public float[] cW() {
-        return this.lK;
-    }
-
-    public void d(float f) {
-        this.lI = f;
+        return this.lZ;
     }
 
     public void d(float[] fArr) {
-        this.lJ = fArr;
-    }
-
-    public void e(float[] fArr) {
-        this.lK = fArr;
+        this.lZ = fArr;
     }
 
     public void f(byte[] bArr) {
-        this.lN = bArr;
+        this.mc = bArr;
     }
 
     public long getHandle() {
-        return this.lM;
+        return this.mb;
     }
 
     public void setHandle(long j) {
-        this.lM = j;
+        this.mb = j;
     }
 
     public void setHeight(int i) {
@@ -51,11 +51,11 @@ public class c {
         this.width = i;
     }
 
-    public void u(int i) {
-        this.angle = i;
+    public void u(boolean z) {
+        this.ma = z;
     }
 
-    public void w(boolean z) {
-        this.lL = z;
+    public void w(int i) {
+        this.angle = i;
     }
 }

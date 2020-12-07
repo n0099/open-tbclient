@@ -11,18 +11,18 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.fsg.face.liveness.view.LrcView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class LrcTipTextview extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1767a;
+    private boolean f1769a;
     private TextView b;
     private TextView c;
     private TextView d;
     private int e;
     private int f;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     interface a {
         void a();
     }

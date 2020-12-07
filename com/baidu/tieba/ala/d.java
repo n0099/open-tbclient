@@ -3,7 +3,7 @@ package com.baidu.tieba.ala;
 import android.os.CountDownTimer;
 /* loaded from: classes4.dex */
 public class d extends CountDownTimer {
-    private a gae;
+    private a giq;
     private boolean isRunning;
 
     /* loaded from: classes4.dex */
@@ -20,15 +20,15 @@ public class d extends CountDownTimer {
 
     @Override // android.os.CountDownTimer
     public void onTick(long j) {
-        if (this.gae != null) {
-            this.gae.onTick(j);
+        if (this.giq != null) {
+            this.giq.onTick(j);
         }
     }
 
     @Override // android.os.CountDownTimer
     public void onFinish() {
-        if (this.gae != null) {
-            this.gae.onFinish();
+        if (this.giq != null) {
+            this.giq.onFinish();
         }
     }
 
@@ -47,6 +47,6 @@ public class d extends CountDownTimer {
     }
 
     public void a(a aVar) {
-        this.gae = aVar;
+        this.giq = aVar;
     }
 }

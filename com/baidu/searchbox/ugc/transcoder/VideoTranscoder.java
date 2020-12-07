@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicReference;
 @TargetApi(18)
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class VideoTranscoder {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final int MAX_WIDTH = 640;
@@ -47,7 +47,7 @@ public class VideoTranscoder {
     private int mWidth;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public interface StateCallback {
         void onError();
 
@@ -99,7 +99,7 @@ public class VideoTranscoder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public class ChangerWrapper implements Runnable {
         private static final int TRY_MAX = 2;
         private VideoTranscoder mChanger;

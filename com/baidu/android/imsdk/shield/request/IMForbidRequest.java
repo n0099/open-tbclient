@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.shield.request;
 
 import android.content.Context;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.messages.AudioMsg;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
@@ -22,7 +23,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMForbidRequest extends IMSettingBaseHttpRequest {
     private static final String TAG = "IMForbidRequest";
     private List<ChatMsg> chatMsgs;
@@ -85,7 +86,7 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str3);
             i2 = jSONObject.optInt("error_code");
-            str = jSONObject.optString("error_msg");
+            str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
             z = jSONObject.optBoolean("display_toast", false);
             if (z) {
                 str4 = jSONObject.optString("toast", "");
@@ -170,7 +171,7 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
                 return "https://pim.baidu.com/";
             case 1:
             case 2:
-                return "http://cp01-ocean-749.epc.baidu.com:8111/";
+                return "http://rd-im-server.bcc-szth.baidu.com:8111/";
             case 3:
                 return Constants.URL_HTTP_BOX;
             default:

@@ -2,15 +2,15 @@ package com.baidu.platform.comapi.wnplatform.i;
 
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class i implements com.baidu.platform.comapi.wnplatform.c.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f3122a;
+    final /* synthetic */ f f3124a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(f fVar) {
-        this.f3122a = fVar;
+        this.f3124a = fVar;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.c.b

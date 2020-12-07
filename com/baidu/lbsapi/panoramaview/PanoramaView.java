@@ -16,7 +16,7 @@ import com.baidu.pano.platform.comapi.map.InnerPanoramaView;
 import com.baidu.pano.platform.plugin.indooralbum.IndoorAlbumPlugin;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class PanoramaView extends FrameLayout {
     public static final int COORDTYPE_BD09LL = 2;
     public static final int COORDTYPE_BD09MC = 3;
@@ -26,7 +26,7 @@ public class PanoramaView extends FrameLayout {
     public static final int PANOTYPE_STREET = 65538;
 
     /* renamed from: a  reason: collision with root package name */
-    private InnerPanoramaView f1849a;
+    private InnerPanoramaView f1851a;
     private PanoramaViewListener b;
 
     public PanoramaView(Context context) {
@@ -45,42 +45,42 @@ public class PanoramaView extends FrameLayout {
 
     private void a(Context context) {
         setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        this.f1849a = new InnerPanoramaView(context);
-        addView(this.f1849a, new FrameLayout.LayoutParams(-1, -1));
+        this.f1851a = new InnerPanoramaView(context);
+        addView(this.f1851a, new FrameLayout.LayoutParams(-1, -1));
         a.a(getContext());
     }
 
     public void setPoiEntranceBitMap(Bitmap bitmap) {
-        a.f2667a = bitmap;
+        a.f2669a = bitmap;
     }
 
     public void setPanorama(String str) {
-        this.f1849a.a(str);
+        this.f1851a.a(str);
     }
 
     public void setPanorama(int i, int i2) {
-        this.f1849a.a(i, i2);
+        this.f1851a.a(i, i2);
     }
 
     public void setPanorama(double d, double d2) {
-        this.f1849a.a(d, d2);
+        this.f1851a.a(d, d2);
     }
 
     public void setPanorama(double d, double d2, int i) {
         switch (i) {
             case 0:
                 Point converter = CoordinateConverter.converter(CoordinateConverter.COOR_TYPE.COOR_TYPE_WGS84, new Point(d, d2));
-                this.f1849a.a(converter.x, converter.y);
+                this.f1851a.a(converter.x, converter.y);
                 return;
             case 1:
                 Point converter2 = CoordinateConverter.converter(CoordinateConverter.COOR_TYPE.COOR_TYPE_GCJ02, new Point(d, d2));
-                this.f1849a.a(converter2.x, converter2.y);
+                this.f1851a.a(converter2.x, converter2.y);
                 return;
             case 2:
-                this.f1849a.a(d, d2);
+                this.f1851a.a(d, d2);
                 return;
             case 3:
-                this.f1849a.a((int) d, (int) d2);
+                this.f1851a.a((int) d, (int) d2);
                 return;
             default:
                 return;
@@ -127,15 +127,15 @@ public class PanoramaView extends FrameLayout {
                                                     PanoramaView.this.setPanorama(optString4);
                                                     break;
                                                 } else {
-                                                    PanoramaView.this.b.onLoadPanoramaError(PanoramaView.this.f1849a.a(202));
+                                                    PanoramaView.this.b.onLoadPanoramaError(PanoramaView.this.f1851a.a(202));
                                                     break;
                                                 }
                                             } else {
-                                                PanoramaView.this.b.onLoadPanoramaError(PanoramaView.this.f1849a.a(201));
+                                                PanoramaView.this.b.onLoadPanoramaError(PanoramaView.this.f1851a.a(201));
                                                 break;
                                             }
                                         } else {
-                                            PanoramaView.this.b.onLoadPanoramaError(PanoramaView.this.f1849a.a(201));
+                                            PanoramaView.this.b.onLoadPanoramaError(PanoramaView.this.f1851a.a(201));
                                             break;
                                         }
                                     case PanoramaView.PANOTYPE_STREET /* 65538 */:
@@ -144,17 +144,17 @@ public class PanoramaView extends FrameLayout {
                                             b bVar = new b(PanoramaView.this.getContext(), z, optString3);
                                             bVar.setMarkerPosition(new Point(optDouble, optDouble2));
                                             bVar.setMarkerHeight(2.0f);
-                                            PanoramaView.this.f1849a.a(str, optString2, PanoramaView.this, bVar);
-                                            PanoramaView.this.f1849a.b(str);
+                                            PanoramaView.this.f1851a.a(str, optString2, PanoramaView.this, bVar);
+                                            PanoramaView.this.f1851a.b(str);
                                             break;
                                         } else {
-                                            PanoramaView.this.b.onLoadPanoramaError(PanoramaView.this.f1849a.a(201));
+                                            PanoramaView.this.b.onLoadPanoramaError(PanoramaView.this.f1851a.a(201));
                                             break;
                                         }
                                 }
                             }
                         } else {
-                            PanoramaView.this.b.onLoadPanoramaError(PanoramaView.this.f1849a.a(201));
+                            PanoramaView.this.b.onLoadPanoramaError(PanoramaView.this.f1851a.a(201));
                         }
                         return;
                     } catch (JSONException e) {
@@ -162,7 +162,7 @@ public class PanoramaView extends FrameLayout {
                         return;
                     }
                 }
-                PanoramaView.this.b.onLoadPanoramaError(PanoramaView.this.f1849a.a(201));
+                PanoramaView.this.b.onLoadPanoramaError(PanoramaView.this.f1851a.a(201));
             }
         }.execute(str, i + "");
     }
@@ -201,7 +201,7 @@ public class PanoramaView extends FrameLayout {
                                     b bVar = new b(PanoramaView.this.getContext(), z, optString2);
                                     bVar.setMarkerPosition(new Point(optDouble, optDouble2));
                                     bVar.setMarkerHeight(2.0f);
-                                    PanoramaView.this.f1849a.a(str, optString, PanoramaView.this, bVar);
+                                    PanoramaView.this.f1851a.a(str, optString, PanoramaView.this, bVar);
                                     PanoramaView.this.setPanorama(str2);
                                 }
                             }
@@ -223,111 +223,111 @@ public class PanoramaView extends FrameLayout {
     }
 
     public void setPanoramaPitch(float f) {
-        this.f1849a.a(f);
+        this.f1851a.a(f);
     }
 
     public float getPanoramaPitch() {
-        return this.f1849a.a();
+        return this.f1851a.a();
     }
 
     public void setPanoramaHeading(float f) {
-        this.f1849a.b(f);
+        this.f1851a.b(f);
     }
 
     public float getPanoramaHeading() {
-        return this.f1849a.b();
+        return this.f1851a.b();
     }
 
     @Deprecated
     public void setPanoramaLevel(int i) {
-        this.f1849a.b(i);
+        this.f1851a.b(i);
     }
 
     public void setPanoramaZoomLevel(int i) {
-        this.f1849a.b(i);
+        this.f1851a.b(i);
     }
 
     @Deprecated
     public float getPanoramaLevel() {
-        return this.f1849a.c();
+        return this.f1851a.c();
     }
 
     public float getPanoramaZoomLevel() {
-        return this.f1849a.c();
+        return this.f1851a.c();
     }
 
     public void setPanoramaImageLevel(ImageDefinition imageDefinition) {
-        this.f1849a.a(imageDefinition);
+        this.f1851a.a(imageDefinition);
     }
 
     public boolean setArrowTextureByBitmap(Bitmap bitmap) {
-        return this.f1849a.a(bitmap);
+        return this.f1851a.a(bitmap);
     }
 
     public boolean setArrowTextureByUrl(String str) {
-        return this.f1849a.c(str);
+        return this.f1851a.c(str);
     }
 
     public void setShowTopoLink(boolean z) {
-        this.f1849a.a(z);
+        this.f1851a.a(z);
     }
 
     public void setArrowTexture(Bitmap bitmap) {
-        this.f1849a.b(bitmap);
+        this.f1851a.b(bitmap);
     }
 
     public void destroy() {
-        this.f1849a.d();
+        this.f1851a.d();
     }
 
     public void setCustomMarkerShow(boolean z) {
-        this.f1849a.b(z);
+        this.f1851a.b(z);
     }
 
     public boolean addMarker(com.baidu.pano.platform.comapi.a.a aVar) {
-        return this.f1849a.a(aVar);
+        return this.f1851a.a(aVar);
     }
 
     public boolean addMarker(String str, double d, double d2, double d3, Bitmap bitmap) {
-        return this.f1849a.a(str, d, d2, d3, bitmap);
+        return this.f1851a.a(str, d, d2, d3, bitmap);
     }
 
     public void setCustomMarkerAnchor(String str, float f, float f2) {
-        if (this.f1849a != null) {
-            this.f1849a.a(str, f, f2);
+        if (this.f1851a != null) {
+            this.f1851a.a(str, f, f2);
         }
     }
 
     public boolean removeMarker(com.baidu.pano.platform.comapi.a.a aVar) {
-        return this.f1849a.b(aVar);
+        return this.f1851a.b(aVar);
     }
 
     public boolean removeAllMarker() {
-        return this.f1849a.e();
+        return this.f1851a.e();
     }
 
     public void setPoiMarkerVisibility(boolean z) {
-        this.f1849a.c(z);
+        this.f1851a.c(z);
     }
 
     public void removePOIMarker() {
-        this.f1849a.f();
+        this.f1851a.f();
     }
 
     public void enableFastMove(boolean z) {
-        this.f1849a.d(z);
+        this.f1851a.d(z);
     }
 
     public double[] screenPt2Mercator(float f, float f2) {
-        return this.f1849a.a(f, f2);
+        return this.f1851a.a(f, f2);
     }
 
     public void setPanoramaViewListener(PanoramaViewListener panoramaViewListener) {
         this.b = panoramaViewListener;
-        this.f1849a.a(this.b);
+        this.f1851a.a(this.b);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public enum ImageDefinition {
         ImageDefinitionLow(3),
         ImageDefinitionMiddle(4),
@@ -345,14 +345,14 @@ public class PanoramaView extends FrameLayout {
     }
 
     public void onResume() {
-        this.f1849a.onResume();
+        this.f1851a.onResume();
     }
 
     public void onPause() {
-        this.f1849a.onPause();
+        this.f1851a.onPause();
     }
 
     public void setStatisticsCallback(StatisticsCallback statisticsCallback) {
-        this.f1849a.a(statisticsCallback);
+        this.f1851a.a(statisticsCallback);
     }
 }

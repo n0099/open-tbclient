@@ -61,10 +61,10 @@ public class UegTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         return false;
     }
 
-    public com.baidu.tieba.tbadkCore.e.a.b callNativeSMS(String str, String str2) {
-        com.baidu.tieba.tbadkCore.e.a.b bVar = new com.baidu.tieba.tbadkCore.e.a.b();
+    public com.baidu.tieba.tbadkCore.e.a.c callNativeSMS(String str, String str2) {
+        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
         UtilHelper.smsTo(this.mTbPageContext.getPageActivity(), str, str2);
-        return bVar;
+        return cVar;
     }
 
     private void copyToClipboard(String str) {
@@ -75,8 +75,8 @@ public class UegTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         }
     }
 
-    public com.baidu.tieba.tbadkCore.e.a.b setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
-        com.baidu.tieba.tbadkCore.e.a.b bVar = new com.baidu.tieba.tbadkCore.e.a.b();
+    public com.baidu.tieba.tbadkCore.e.a.c setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
         try {
             BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
             builder.can_post = Integer.valueOf(i);
@@ -91,12 +91,12 @@ public class UegTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return bVar;
+        return cVar;
     }
 
     private void bindingMobileNumber(String str) {
         try {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, j.btP()));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, j.bxp()));
         } catch (Exception e) {
             e.printStackTrace();
         }

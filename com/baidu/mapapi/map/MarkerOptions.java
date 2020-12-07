@@ -4,11 +4,11 @@ import android.graphics.Point;
 import android.os.Bundle;
 import com.baidu.mapapi.model.LatLng;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class MarkerOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2030a;
+    int f2032a;
     Bundle c;
     private LatLng d;
     private BitmapDescriptor e;
@@ -32,7 +32,7 @@ public final class MarkerOptions extends OverlayOptions {
     private boolean v = true;
     boolean b = true;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public enum MarkerAnimateType {
         none,
         drop,
@@ -45,12 +45,12 @@ public final class MarkerOptions extends OverlayOptions {
     public Overlay a() {
         Marker marker = new Marker();
         marker.B = this.b;
-        marker.A = this.f2030a;
+        marker.A = this.f2032a;
         marker.C = this.c;
         if (this.d == null) {
             throw new IllegalStateException("BDMapSDKException: when you add marker, you must set the position");
         }
-        marker.f2029a = this.d;
+        marker.f2031a = this.d;
         if (this.e == null && this.n == null) {
             throw new IllegalStateException("BDMapSDKException: when you add marker, you must set the icon or icons");
         }
@@ -184,7 +184,7 @@ public final class MarkerOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2030a;
+        return this.f2032a;
     }
 
     public MarkerOptions icon(BitmapDescriptor bitmapDescriptor) {
@@ -206,7 +206,7 @@ public final class MarkerOptions extends OverlayOptions {
                 if (i2 >= arrayList.size()) {
                     this.n = arrayList;
                     break;
-                } else if (arrayList.get(i2) == null || arrayList.get(i2).f1999a == null) {
+                } else if (arrayList.get(i2) == null || arrayList.get(i2).f2001a == null) {
                     break;
                 } else {
                     i = i2 + 1;
@@ -297,7 +297,7 @@ public final class MarkerOptions extends OverlayOptions {
     }
 
     public MarkerOptions zIndex(int i) {
-        this.f2030a = i;
+        this.f2032a = i;
         return this;
     }
 }

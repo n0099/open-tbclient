@@ -1,7 +1,7 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.aw;
+import com.baidu.tbadk.core.data.ax;
 import com.baidu.tbadk.core.util.y;
 import com.squareup.wire.Message;
 import java.util.ArrayList;
@@ -11,18 +11,18 @@ import org.json.JSONObject;
 import tbclient.ReplyMe.DataRes;
 import tbclient.ReplyMe.ReplyList;
 import tbclient.ReplyMe.ReplyMeResIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
     protected boolean isSucc;
-    protected ArrayList<FeedData> kvR = new ArrayList<>();
-    protected aw page = new aw();
-    protected h kvS = new h();
+    protected ArrayList<FeedData> kJl = new ArrayList<>();
+    protected ax page = new ax();
+    protected h kJm = new h();
 
-    public ArrayList<FeedData> cWv() {
-        return this.kvR;
+    public ArrayList<FeedData> dbH() {
+        return this.kJl;
     }
 
-    public aw getPage() {
+    public ax getPage() {
         return this.page;
     }
 
@@ -35,13 +35,13 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.kvR.add(feedData);
+                    this.kJl.add(feedData);
                     if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && y.getCount(feedData.getPraiseList()) == 0) {
-                        this.kvR.remove(feedData);
+                        this.kJl.remove(feedData);
                     }
                 }
             }
-            this.kvS.parserJson(jSONObject.optJSONObject("message"));
+            this.kJm.parserJson(jSONObject.optJSONObject("message"));
             this.page.parserJson(jSONObject.optJSONObject("page"));
             this.isSucc = true;
         } catch (Exception e) {
@@ -60,9 +60,9 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.kvR.add(feedData);
+                        this.kJl.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && y.getCount(feedData.getPraiseList()) == 0) {
-                            this.kvR.remove(feedData);
+                            this.kJl.remove(feedData);
                         }
                     }
                 }

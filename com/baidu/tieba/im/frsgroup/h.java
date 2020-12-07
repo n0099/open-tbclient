@@ -3,66 +3,66 @@ package com.baidu.tieba.im.frsgroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class h implements q {
-    public static final BdUniqueId kge = BdUniqueId.gen();
-    private Object aiO;
-    private NoDataViewFactory.ImgType kgf;
-    private String kgg;
-    private String kgh;
-    private String kgi;
-    private int kgj;
+    public static final BdUniqueId ktC = BdUniqueId.gen();
+    private Object ajN;
+    private NoDataViewFactory.ImgType ktD;
+    private String ktE;
+    private String ktF;
+    private String ktG;
+    private int ktH;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return kge;
+        return ktC;
     }
 
-    public String cRC() {
-        return this.kgg;
+    public String cWO() {
+        return this.ktE;
     }
 
-    public void Mo(String str) {
-        this.kgg = str;
+    public void Nw(String str) {
+        this.ktE = str;
     }
 
-    public String cRD() {
-        return this.kgh;
+    public String cWP() {
+        return this.ktF;
     }
 
-    public void Mp(String str) {
-        this.kgh = str;
+    public void Nx(String str) {
+        this.ktF = str;
     }
 
-    public String cRE() {
-        return this.kgi;
+    public String cWQ() {
+        return this.ktG;
     }
 
-    public void Mq(String str) {
-        this.kgi = str;
+    public void Ny(String str) {
+        this.ktG = str;
     }
 
-    public int cRF() {
-        return this.kgj;
+    public int cWR() {
+        return this.ktH;
     }
 
-    public void Ds(int i) {
-        this.kgj = i;
+    public void Eh(int i) {
+        this.ktH = i;
     }
 
-    public Object ud() {
-        return this.aiO;
+    public Object ug() {
+        return this.ajN;
     }
 
     public void setExtraData(Object obj) {
-        this.aiO = obj;
+        this.ajN = obj;
     }
 
-    public NoDataViewFactory.ImgType cRG() {
-        return this.kgf;
+    public NoDataViewFactory.ImgType cWS() {
+        return this.ktD;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.kgf = imgType;
+        this.ktD = imgType;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.minivideo.arface.bean;
 
 import java.io.File;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public class Filter extends BaseBeautyItem {
     public static final int DATA_TYPE_DU_SINGLE = 1;
     private int mDataType;

@@ -1,10 +1,10 @@
 package kotlin.reflect;
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 public interface f<R> extends j<R> {
 
-    @kotlin.h
-    /* loaded from: classes9.dex */
-    public interface a<R> extends e<kotlin.l> {
+    @kotlin.e
+    /* loaded from: classes17.dex */
+    public interface a<R> extends e<kotlin.h> {
     }
 }

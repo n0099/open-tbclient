@@ -5,7 +5,7 @@ import org.apache.http.HeaderElement;
 import org.apache.http.HeaderElementIterator;
 import org.apache.http.HeaderIterator;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class BasicHeaderElementIterator implements HeaderElementIterator {
     public BasicHeaderElementIterator(HeaderIterator headerIterator, HeaderValueParser headerValueParser) {
         throw new RuntimeException("Stub!");

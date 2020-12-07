@@ -7,8 +7,6 @@ import android.content.ContentProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
 import io.flutter.Log;
 import io.flutter.embedding.engine.loader.FlutterLoader;
@@ -33,43 +31,28 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityControlSurface, BroadcastReceiverControlSurface, ContentProviderControlSurface, ServiceControlSurface {
     private static final String TAG = "FlutterEnginePluginRegistry";
-    @Nullable
     private Activity activity;
-    @Nullable
     private FlutterEngineActivityPluginBinding activityPluginBinding;
-    @Nullable
     private BroadcastReceiver broadcastReceiver;
-    @Nullable
     private FlutterEngineBroadcastReceiverPluginBinding broadcastReceiverPluginBinding;
-    @Nullable
     private ContentProvider contentProvider;
-    @Nullable
     private FlutterEngineContentProviderPluginBinding contentProviderPluginBinding;
-    @NonNull
     private final FlutterEngine flutterEngine;
-    @NonNull
     private final FlutterPlugin.FlutterPluginBinding pluginBinding;
-    @Nullable
     private Service service;
-    @Nullable
     private FlutterEngineServicePluginBinding servicePluginBinding;
-    @NonNull
     private final Map<Class<? extends FlutterPlugin>, FlutterPlugin> plugins = new HashMap();
-    @NonNull
     private final Map<Class<? extends FlutterPlugin>, ActivityAware> activityAwarePlugins = new HashMap();
     private boolean isWaitingForActivityReattachment = false;
-    @NonNull
     private final Map<Class<? extends FlutterPlugin>, ServiceAware> serviceAwarePlugins = new HashMap();
-    @NonNull
     private final Map<Class<? extends FlutterPlugin>, BroadcastReceiverAware> broadcastReceiverAwarePlugins = new HashMap();
-    @NonNull
     private final Map<Class<? extends FlutterPlugin>, ContentProviderAware> contentProviderAwarePlugins = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public FlutterEnginePluginRegistry(@NonNull Context context, @NonNull FlutterEngine flutterEngine, @NonNull FlutterLoader flutterLoader) {
+    public FlutterEnginePluginRegistry(Context context, FlutterEngine flutterEngine, FlutterLoader flutterLoader) {
         this.flutterEngine = flutterEngine;
         this.pluginBinding = new FlutterPlugin.FlutterPluginBinding(context, flutterEngine, flutterEngine.getDartExecutor(), flutterEngine.getRenderer(), flutterEngine.getPlatformViewsController().getRegistry(), new DefaultFlutterAssets(flutterLoader));
     }
@@ -88,7 +71,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: io.flutter.embedding.engine.FlutterEnginePluginRegistry */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // io.flutter.embedding.engine.plugins.PluginRegistry
-    public void add(@NonNull FlutterPlugin flutterPlugin) {
+    public void add(FlutterPlugin flutterPlugin) {
         if (has(flutterPlugin.getClass())) {
             Log.w(TAG, "Attempted to register plugin (" + flutterPlugin + ") but it was already registered with this FlutterEngine (" + this.flutterEngine + ").");
             return;
@@ -127,24 +110,24 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     @Override // io.flutter.embedding.engine.plugins.PluginRegistry
-    public void add(@NonNull Set<FlutterPlugin> set) {
+    public void add(Set<FlutterPlugin> set) {
         for (FlutterPlugin flutterPlugin : set) {
             add(flutterPlugin);
         }
     }
 
     @Override // io.flutter.embedding.engine.plugins.PluginRegistry
-    public boolean has(@NonNull Class<? extends FlutterPlugin> cls) {
+    public boolean has(Class<? extends FlutterPlugin> cls) {
         return this.plugins.containsKey(cls);
     }
 
     @Override // io.flutter.embedding.engine.plugins.PluginRegistry
-    public FlutterPlugin get(@NonNull Class<? extends FlutterPlugin> cls) {
+    public FlutterPlugin get(Class<? extends FlutterPlugin> cls) {
         return this.plugins.get(cls);
     }
 
     @Override // io.flutter.embedding.engine.plugins.PluginRegistry
-    public void remove(@NonNull Class<? extends FlutterPlugin> cls) {
+    public void remove(Class<? extends FlutterPlugin> cls) {
         FlutterPlugin flutterPlugin = this.plugins.get(cls);
         if (flutterPlugin != null) {
             Log.v(TAG, "Removing plugin: " + flutterPlugin);
@@ -178,7 +161,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     @Override // io.flutter.embedding.engine.plugins.PluginRegistry
-    public void remove(@NonNull Set<Class<? extends FlutterPlugin>> set) {
+    public void remove(Set<Class<? extends FlutterPlugin>> set) {
         for (Class<? extends FlutterPlugin> cls : set) {
             remove(cls);
         }
@@ -207,7 +190,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     @Override // io.flutter.embedding.engine.plugins.activity.ActivityControlSurface
-    public void attachToActivity(@NonNull Activity activity, @NonNull Lifecycle lifecycle) {
+    public void attachToActivity(Activity activity, Lifecycle lifecycle) {
         Log.v(TAG, "Attaching to an Activity: " + activity + "." + (this.isWaitingForActivityReattachment ? " This is after a config change." : ""));
         detachFromAndroidComponent();
         this.activity = activity;
@@ -255,7 +238,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     @Override // io.flutter.embedding.engine.plugins.activity.ActivityControlSurface
-    public boolean onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+    public boolean onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Log.v(TAG, "Forwarding onRequestPermissionsResult() to plugins.");
         if (isAttachedToActivity()) {
             return this.activityPluginBinding.onRequestPermissionsResult(i, strArr, iArr);
@@ -265,7 +248,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     @Override // io.flutter.embedding.engine.plugins.activity.ActivityControlSurface
-    public boolean onActivityResult(int i, int i2, @Nullable Intent intent) {
+    public boolean onActivityResult(int i, int i2, Intent intent) {
         Log.v(TAG, "Forwarding onActivityResult() to plugins.");
         if (isAttachedToActivity()) {
             return this.activityPluginBinding.onActivityResult(i, i2, intent);
@@ -275,7 +258,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     @Override // io.flutter.embedding.engine.plugins.activity.ActivityControlSurface
-    public void onNewIntent(@NonNull Intent intent) {
+    public void onNewIntent(Intent intent) {
         Log.v(TAG, "Forwarding onNewIntent() to plugins.");
         if (isAttachedToActivity()) {
             this.activityPluginBinding.onNewIntent(intent);
@@ -295,7 +278,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     @Override // io.flutter.embedding.engine.plugins.activity.ActivityControlSurface
-    public void onSaveInstanceState(@NonNull Bundle bundle) {
+    public void onSaveInstanceState(Bundle bundle) {
         Log.v(TAG, "Forwarding onSaveInstanceState() to plugins.");
         if (isAttachedToActivity()) {
             this.activityPluginBinding.onSaveInstanceState(bundle);
@@ -305,7 +288,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     @Override // io.flutter.embedding.engine.plugins.activity.ActivityControlSurface
-    public void onRestoreInstanceState(@Nullable Bundle bundle) {
+    public void onRestoreInstanceState(Bundle bundle) {
         Log.v(TAG, "Forwarding onRestoreInstanceState() to plugins.");
         if (isAttachedToActivity()) {
             this.activityPluginBinding.onRestoreInstanceState(bundle);
@@ -319,7 +302,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     @Override // io.flutter.embedding.engine.plugins.service.ServiceControlSurface
-    public void attachToService(@NonNull Service service, @Nullable Lifecycle lifecycle, boolean z) {
+    public void attachToService(Service service, Lifecycle lifecycle, boolean z) {
         Log.v(TAG, "Attaching to a Service: " + service);
         detachFromAndroidComponent();
         this.service = service;
@@ -364,7 +347,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     @Override // io.flutter.embedding.engine.plugins.broadcastreceiver.BroadcastReceiverControlSurface
-    public void attachToBroadcastReceiver(@NonNull BroadcastReceiver broadcastReceiver, @NonNull Lifecycle lifecycle) {
+    public void attachToBroadcastReceiver(BroadcastReceiver broadcastReceiver, Lifecycle lifecycle) {
         Log.v(TAG, "Attaching to BroadcastReceiver: " + broadcastReceiver);
         detachFromAndroidComponent();
         this.broadcastReceiver = broadcastReceiver;
@@ -391,7 +374,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     @Override // io.flutter.embedding.engine.plugins.contentprovider.ContentProviderControlSurface
-    public void attachToContentProvider(@NonNull ContentProvider contentProvider, @NonNull Lifecycle lifecycle) {
+    public void attachToContentProvider(ContentProvider contentProvider, Lifecycle lifecycle) {
         Log.v(TAG, "Attaching to ContentProvider: " + contentProvider);
         detachFromAndroidComponent();
         this.contentProvider = contentProvider;
@@ -413,81 +396,72 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
         Log.e(TAG, "Attempted to detach plugins from a ContentProvider when no ContentProvider was attached.");
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     private static class DefaultFlutterAssets implements FlutterPlugin.FlutterAssets {
         final FlutterLoader flutterLoader;
 
-        private DefaultFlutterAssets(@NonNull FlutterLoader flutterLoader) {
+        private DefaultFlutterAssets(FlutterLoader flutterLoader) {
             this.flutterLoader = flutterLoader;
         }
 
         @Override // io.flutter.embedding.engine.plugins.FlutterPlugin.FlutterAssets
-        public String getAssetFilePathByName(@NonNull String str) {
+        public String getAssetFilePathByName(String str) {
             return this.flutterLoader.getLookupKeyForAsset(str);
         }
 
         @Override // io.flutter.embedding.engine.plugins.FlutterPlugin.FlutterAssets
-        public String getAssetFilePathByName(@NonNull String str, @NonNull String str2) {
+        public String getAssetFilePathByName(String str, String str2) {
             return this.flutterLoader.getLookupKeyForAsset(str, str2);
         }
 
         @Override // io.flutter.embedding.engine.plugins.FlutterPlugin.FlutterAssets
-        public String getAssetFilePathBySubpath(@NonNull String str) {
+        public String getAssetFilePathBySubpath(String str) {
             return this.flutterLoader.getLookupKeyForAsset(str);
         }
 
         @Override // io.flutter.embedding.engine.plugins.FlutterPlugin.FlutterAssets
-        public String getAssetFilePathBySubpath(@NonNull String str, @NonNull String str2) {
+        public String getAssetFilePathBySubpath(String str, String str2) {
             return this.flutterLoader.getLookupKeyForAsset(str, str2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class FlutterEngineActivityPluginBinding implements ActivityPluginBinding {
-        @NonNull
         private final Activity activity;
-        @NonNull
         private final HiddenLifecycleReference hiddenLifecycleReference;
-        @NonNull
         private final Set<PluginRegistry.RequestPermissionsResultListener> onRequestPermissionsResultListeners = new HashSet();
-        @NonNull
         private final Set<PluginRegistry.ActivityResultListener> onActivityResultListeners = new HashSet();
-        @NonNull
         private final Set<PluginRegistry.NewIntentListener> onNewIntentListeners = new HashSet();
-        @NonNull
         private final Set<PluginRegistry.UserLeaveHintListener> onUserLeaveHintListeners = new HashSet();
-        @NonNull
         private final Set<ActivityPluginBinding.OnSaveInstanceStateListener> onSaveInstanceStateListeners = new HashSet();
 
-        public FlutterEngineActivityPluginBinding(@NonNull Activity activity, @NonNull Lifecycle lifecycle) {
+        public FlutterEngineActivityPluginBinding(Activity activity, Lifecycle lifecycle) {
             this.activity = activity;
             this.hiddenLifecycleReference = new HiddenLifecycleReference(lifecycle);
         }
 
         @Override // io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-        @NonNull
         public Activity getActivity() {
             return this.activity;
         }
 
         @Override // io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-        @NonNull
         public Object getLifecycle() {
             return this.hiddenLifecycleReference;
         }
 
         @Override // io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-        public void addRequestPermissionsResultListener(@NonNull PluginRegistry.RequestPermissionsResultListener requestPermissionsResultListener) {
+        public void addRequestPermissionsResultListener(PluginRegistry.RequestPermissionsResultListener requestPermissionsResultListener) {
             this.onRequestPermissionsResultListeners.add(requestPermissionsResultListener);
         }
 
         @Override // io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-        public void removeRequestPermissionsResultListener(@NonNull PluginRegistry.RequestPermissionsResultListener requestPermissionsResultListener) {
+        public void removeRequestPermissionsResultListener(PluginRegistry.RequestPermissionsResultListener requestPermissionsResultListener) {
             this.onRequestPermissionsResultListeners.remove(requestPermissionsResultListener);
         }
 
-        boolean onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+        boolean onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
             boolean z = false;
             for (PluginRegistry.RequestPermissionsResultListener requestPermissionsResultListener : this.onRequestPermissionsResultListeners) {
                 z = requestPermissionsResultListener.onRequestPermissionsResult(i, strArr, iArr) || z;
@@ -496,16 +470,16 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
         }
 
         @Override // io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-        public void addActivityResultListener(@NonNull PluginRegistry.ActivityResultListener activityResultListener) {
+        public void addActivityResultListener(PluginRegistry.ActivityResultListener activityResultListener) {
             this.onActivityResultListeners.add(activityResultListener);
         }
 
         @Override // io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-        public void removeActivityResultListener(@NonNull PluginRegistry.ActivityResultListener activityResultListener) {
+        public void removeActivityResultListener(PluginRegistry.ActivityResultListener activityResultListener) {
             this.onActivityResultListeners.remove(activityResultListener);
         }
 
-        boolean onActivityResult(int i, int i2, @Nullable Intent intent) {
+        boolean onActivityResult(int i, int i2, Intent intent) {
             boolean z = false;
             for (PluginRegistry.ActivityResultListener activityResultListener : this.onActivityResultListeners) {
                 z = activityResultListener.onActivityResult(i, i2, intent) || z;
@@ -514,38 +488,38 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
         }
 
         @Override // io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-        public void addOnNewIntentListener(@NonNull PluginRegistry.NewIntentListener newIntentListener) {
+        public void addOnNewIntentListener(PluginRegistry.NewIntentListener newIntentListener) {
             this.onNewIntentListeners.add(newIntentListener);
         }
 
         @Override // io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-        public void removeOnNewIntentListener(@NonNull PluginRegistry.NewIntentListener newIntentListener) {
+        public void removeOnNewIntentListener(PluginRegistry.NewIntentListener newIntentListener) {
             this.onNewIntentListeners.remove(newIntentListener);
         }
 
-        void onNewIntent(@Nullable Intent intent) {
+        void onNewIntent(Intent intent) {
             for (PluginRegistry.NewIntentListener newIntentListener : this.onNewIntentListeners) {
                 newIntentListener.onNewIntent(intent);
             }
         }
 
         @Override // io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-        public void addOnUserLeaveHintListener(@NonNull PluginRegistry.UserLeaveHintListener userLeaveHintListener) {
+        public void addOnUserLeaveHintListener(PluginRegistry.UserLeaveHintListener userLeaveHintListener) {
             this.onUserLeaveHintListeners.add(userLeaveHintListener);
         }
 
         @Override // io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-        public void removeOnUserLeaveHintListener(@NonNull PluginRegistry.UserLeaveHintListener userLeaveHintListener) {
+        public void removeOnUserLeaveHintListener(PluginRegistry.UserLeaveHintListener userLeaveHintListener) {
             this.onUserLeaveHintListeners.remove(userLeaveHintListener);
         }
 
         @Override // io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-        public void addOnSaveStateListener(@NonNull ActivityPluginBinding.OnSaveInstanceStateListener onSaveInstanceStateListener) {
+        public void addOnSaveStateListener(ActivityPluginBinding.OnSaveInstanceStateListener onSaveInstanceStateListener) {
             this.onSaveInstanceStateListeners.add(onSaveInstanceStateListener);
         }
 
         @Override // io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-        public void removeOnSaveStateListener(@NonNull ActivityPluginBinding.OnSaveInstanceStateListener onSaveInstanceStateListener) {
+        public void removeOnSaveStateListener(ActivityPluginBinding.OnSaveInstanceStateListener onSaveInstanceStateListener) {
             this.onSaveInstanceStateListeners.remove(onSaveInstanceStateListener);
         }
 
@@ -555,13 +529,13 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
             }
         }
 
-        void onSaveInstanceState(@NonNull Bundle bundle) {
+        void onSaveInstanceState(Bundle bundle) {
             for (ActivityPluginBinding.OnSaveInstanceStateListener onSaveInstanceStateListener : this.onSaveInstanceStateListeners) {
                 onSaveInstanceStateListener.onSaveInstanceState(bundle);
             }
         }
 
-        void onRestoreInstanceState(@Nullable Bundle bundle) {
+        void onRestoreInstanceState(Bundle bundle) {
             for (ActivityPluginBinding.OnSaveInstanceStateListener onSaveInstanceStateListener : this.onSaveInstanceStateListeners) {
                 onSaveInstanceStateListener.onRestoreInstanceState(bundle);
             }
@@ -569,39 +543,34 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class FlutterEngineServicePluginBinding implements ServicePluginBinding {
-        @Nullable
         private final HiddenLifecycleReference hiddenLifecycleReference;
-        @NonNull
         private final Set<ServiceAware.OnModeChangeListener> onModeChangeListeners = new HashSet();
-        @NonNull
         private final Service service;
 
-        FlutterEngineServicePluginBinding(@NonNull Service service, @Nullable Lifecycle lifecycle) {
+        FlutterEngineServicePluginBinding(Service service, Lifecycle lifecycle) {
             this.service = service;
             this.hiddenLifecycleReference = lifecycle != null ? new HiddenLifecycleReference(lifecycle) : null;
         }
 
         @Override // io.flutter.embedding.engine.plugins.service.ServicePluginBinding
-        @NonNull
         public Service getService() {
             return this.service;
         }
 
         @Override // io.flutter.embedding.engine.plugins.service.ServicePluginBinding
-        @Nullable
         public Object getLifecycle() {
             return this.hiddenLifecycleReference;
         }
 
         @Override // io.flutter.embedding.engine.plugins.service.ServicePluginBinding
-        public void addOnModeChangeListener(@NonNull ServiceAware.OnModeChangeListener onModeChangeListener) {
+        public void addOnModeChangeListener(ServiceAware.OnModeChangeListener onModeChangeListener) {
             this.onModeChangeListeners.add(onModeChangeListener);
         }
 
         @Override // io.flutter.embedding.engine.plugins.service.ServicePluginBinding
-        public void removeOnModeChangeListener(@NonNull ServiceAware.OnModeChangeListener onModeChangeListener) {
+        public void removeOnModeChangeListener(ServiceAware.OnModeChangeListener onModeChangeListener) {
             this.onModeChangeListeners.remove(onModeChangeListener);
         }
 
@@ -619,34 +588,30 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class FlutterEngineBroadcastReceiverPluginBinding implements BroadcastReceiverPluginBinding {
-        @NonNull
         private final BroadcastReceiver broadcastReceiver;
 
-        FlutterEngineBroadcastReceiverPluginBinding(@NonNull BroadcastReceiver broadcastReceiver) {
+        FlutterEngineBroadcastReceiverPluginBinding(BroadcastReceiver broadcastReceiver) {
             this.broadcastReceiver = broadcastReceiver;
         }
 
         @Override // io.flutter.embedding.engine.plugins.broadcastreceiver.BroadcastReceiverPluginBinding
-        @NonNull
         public BroadcastReceiver getBroadcastReceiver() {
             return this.broadcastReceiver;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class FlutterEngineContentProviderPluginBinding implements ContentProviderPluginBinding {
-        @NonNull
         private final ContentProvider contentProvider;
 
-        FlutterEngineContentProviderPluginBinding(@NonNull ContentProvider contentProvider) {
+        FlutterEngineContentProviderPluginBinding(ContentProvider contentProvider) {
             this.contentProvider = contentProvider;
         }
 
         @Override // io.flutter.embedding.engine.plugins.contentprovider.ContentProviderPluginBinding
-        @NonNull
         public ContentProvider getContentProvider() {
             return this.contentProvider;
         }

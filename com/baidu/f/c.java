@@ -2,7 +2,7 @@ package com.baidu.f;
 
 import android.support.annotation.NonNull;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class c implements FlutterPlugin {
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {

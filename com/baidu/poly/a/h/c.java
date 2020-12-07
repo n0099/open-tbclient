@@ -6,13 +6,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class c {
-    private static String md = "https://etrade.baidu.com/sgw/common/pingd/trace";
+    private static String chy = "https://etrade.baidu.com/sgw/common/pingd/trace";
 
     static {
         if (com.baidu.poly.a.b.a.q() != 1) {
-            md = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
+            chy = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
         }
     }
 
@@ -20,7 +20,7 @@ public class c {
     public void a(com.baidu.poly.a.a.c cVar, com.baidu.poly.a.a.b bVar, com.baidu.poly.a.a.a aVar) {
         DataOutputStream dataOutputStream;
         try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(md).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(chy).openConnection();
             for (Map.Entry<String, String> entry : cVar.p().entrySet()) {
                 httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
             }
@@ -32,7 +32,7 @@ public class c {
             httpURLConnection.setReadTimeout(5000);
             StringBuilder sb = new StringBuilder();
             for (Map.Entry<String, String> entry2 : bVar.p().entrySet()) {
-                sb.append(entry2.getKey()).append(ETAG.EQUAL).append(URLEncoder.encode(entry2.getValue(), "utf-8")).append(ETAG.ITEM_SEPARATOR);
+                sb.append(entry2.getKey()).append("=").append(URLEncoder.encode(entry2.getValue(), "utf-8")).append(ETAG.ITEM_SEPARATOR);
             }
             byte[] bytes = sb.toString().getBytes();
             httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));

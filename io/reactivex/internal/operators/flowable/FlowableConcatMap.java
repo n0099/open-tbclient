@@ -1,6 +1,7 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.c.h;
+import io.reactivex.b.h;
+import io.reactivex.internal.a.f;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.SubscriptionArbiter;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -9,13 +10,14 @@ import io.reactivex.internal.util.ErrorMode;
 import io.reactivex.j;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+import org.a.d;
+/* loaded from: classes9.dex */
 public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final ErrorMode errorMode;
     final h<? super T, ? extends org.a.b<? extends R>> mapper;
     final int prefetch;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     interface a<T> {
         void innerComplete();
 
@@ -37,14 +39,14 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        if (!g.a(this.pOn, cVar, this.mapper)) {
-            this.pOn.subscribe(a(cVar, this.mapper, this.prefetch, this.errorMode));
+        if (!c.a(this.pFg, cVar, this.mapper)) {
+            this.pFg.subscribe(a(cVar, this.mapper, this.prefetch, this.errorMode));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
-    public static abstract class BaseConcatMapSubscriber<T, R> extends AtomicInteger implements a<R>, j<T>, org.a.d {
+    /* loaded from: classes9.dex */
+    public static abstract class BaseConcatMapSubscriber<T, R> extends AtomicInteger implements a<R>, j<T>, d {
         private static final long serialVersionUID = -3511336836796789179L;
         volatile boolean active;
         volatile boolean cancelled;
@@ -53,8 +55,8 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
         final int limit;
         final h<? super T, ? extends org.a.b<? extends R>> mapper;
         final int prefetch;
-        io.reactivex.internal.a.g<T> queue;
-        org.a.d s;
+        f<T> queue;
+        d s;
         int sourceMode;
         final ConcatMapInner<R> inner = new ConcatMapInner<>(this);
         final AtomicThrowable errors = new AtomicThrowable();
@@ -70,7 +72,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
         }
 
         @Override // io.reactivex.j, org.a.c
-        public final void onSubscribe(org.a.d dVar) {
+        public final void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 if (dVar instanceof io.reactivex.internal.a.d) {
@@ -121,7 +123,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class ConcatMapImmediate<T, R> extends BaseConcatMapSubscriber<T, R> {
         private static final long serialVersionUID = 7898995095634264146L;
         final org.a.c<? super R> actual;
@@ -148,7 +150,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
                 }
                 return;
             }
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableConcatMap.a
@@ -171,7 +173,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
                 }
                 return;
             }
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
 
         @Override // org.a.d
@@ -202,7 +204,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
                                 return;
                             } else if (!z2) {
                                 try {
-                                    org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.l(this.mapper.apply(poll), "The mapper returned a null Publisher");
+                                    org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.m(this.mapper.apply(poll), "The mapper returned a null Publisher");
                                     if (this.sourceMode != 1) {
                                         int i = this.consumed + 1;
                                         if (i == this.limit) {
@@ -265,8 +267,8 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
-    public static final class b<T> implements org.a.d {
+    /* loaded from: classes9.dex */
+    public static final class b<T> implements d {
         final org.a.c<? super T> actual;
         boolean once;
         final T value;
@@ -293,7 +295,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class ConcatMapDelayed<T, R> extends BaseConcatMapSubscriber<T, R> {
         private static final long serialVersionUID = -2945777694260521066L;
         final org.a.c<? super R> actual;
@@ -317,7 +319,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
                 drain();
                 return;
             }
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableConcatMap.a
@@ -336,7 +338,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
                 drain();
                 return;
             }
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
 
         @Override // org.a.d
@@ -377,7 +379,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
                                 }
                             } else if (!z2) {
                                 try {
-                                    org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.l(this.mapper.apply(poll), "The mapper returned a null Publisher");
+                                    org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.m(this.mapper.apply(poll), "The mapper returned a null Publisher");
                                     if (this.sourceMode != 1) {
                                         int i = this.consumed + 1;
                                         if (i == this.limit) {
@@ -434,7 +436,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class ConcatMapInner<R> extends SubscriptionArbiter implements j<R> {
         private static final long serialVersionUID = 897683679971470653L;
         final a<R> parent;
@@ -445,7 +447,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        public void onSubscribe(d dVar) {
             setSubscription(dVar);
         }
 

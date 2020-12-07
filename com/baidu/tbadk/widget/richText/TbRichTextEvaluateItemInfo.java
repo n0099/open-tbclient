@@ -5,7 +5,7 @@ import java.util.List;
 import tbclient.Item;
 /* loaded from: classes.dex */
 public class TbRichTextEvaluateItemInfo extends OrmObject {
-    private String fIi;
+    private String fPU;
     private double mIconSize;
     private String mIconUrl;
     private double mScore;
@@ -17,7 +17,7 @@ public class TbRichTextEvaluateItemInfo extends OrmObject {
     }
 
     public TbRichTextEvaluateItemInfo(Item item) {
-        this.fIi = String.valueOf(item.item_id.intValue());
+        this.fPU = String.valueOf(item.item_id.intValue());
         this.mIconUrl = item.icon_url;
         this.mTitle = item.item_name;
         this.mTags = item.tags;
@@ -30,27 +30,55 @@ public class TbRichTextEvaluateItemInfo extends OrmObject {
         return this.mIconUrl;
     }
 
+    public void setIconUrl(String str) {
+        this.mIconUrl = str;
+    }
+
     public String getTitle() {
         return this.mTitle;
+    }
+
+    public void setTitle(String str) {
+        this.mTitle = str;
     }
 
     public List<String> getTags() {
         return this.mTags;
     }
 
-    public double bFs() {
+    public void setTags(List<String> list) {
+        this.mTags = list;
+    }
+
+    public double bIS() {
         return this.mScore;
+    }
+
+    public void y(double d) {
+        this.mScore = d;
     }
 
     public int getStar() {
         return this.mStar;
     }
 
+    public void setStar(int i) {
+        this.mStar = i;
+    }
+
     public double getIconSize() {
         return this.mIconSize;
     }
 
-    public String bFt() {
-        return this.fIi;
+    public void setIconSize(double d) {
+        this.mIconSize = d;
+    }
+
+    public String bIT() {
+        return this.fPU;
+    }
+
+    public void ET(String str) {
+        this.fPU = str;
     }
 }

@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class bj {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f5083a = new Object();
+    public static final Object f4853a = new Object();
 
     public static void a(Context context, hq hqVar) {
         if (bi.a(hqVar.e())) {
@@ -26,13 +26,13 @@ public class bj {
         String a2 = com.xiaomi.push.p.a(context).a("mipush", "td_key", "");
         if (TextUtils.isEmpty(a2)) {
             a2 = com.xiaomi.push.bf.a(20);
-            com.xiaomi.push.p.a(context).m506a("mipush", "td_key", a2);
+            com.xiaomi.push.p.a(context).m496a("mipush", "td_key", a2);
         }
         return a(a2);
     }
 
     private static byte[] a(String str) {
-        byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bc.m165a(str), 16);
+        byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bc.m155a(str), 16);
         copyOf[0] = 68;
         copyOf[15] = 84;
         return copyOf;
@@ -66,11 +66,11 @@ public class bj {
             throw th;
         }
         if (b == null || b.length < 1) {
-            com.xiaomi.channel.commonutils.logger.b.m57a("TinyData write to cache file failed case encryption fail item:" + hqVar.d() + "  ts:" + System.currentTimeMillis());
+            com.xiaomi.channel.commonutils.logger.b.m47a("TinyData write to cache file failed case encryption fail item:" + hqVar.d() + "  ts:" + System.currentTimeMillis());
             com.xiaomi.push.y.a((Closeable) null);
             com.xiaomi.push.y.a((Closeable) null);
         } else if (b.length > 10240) {
-            com.xiaomi.channel.commonutils.logger.b.m57a("TinyData write to cache file failed case too much data content item:" + hqVar.d() + "  ts:" + System.currentTimeMillis());
+            com.xiaomi.channel.commonutils.logger.b.m47a("TinyData write to cache file failed case too much data content item:" + hqVar.d() + "  ts:" + System.currentTimeMillis());
             com.xiaomi.push.y.a((Closeable) null);
             com.xiaomi.push.y.a((Closeable) null);
         } else {

@@ -1,8 +1,8 @@
 package com.baidu.platform.comapi.walknavi.d.a.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2982a;
+    public String f2984a;
     public String b;
 }

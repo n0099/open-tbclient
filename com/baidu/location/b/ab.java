@@ -11,21 +11,21 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class ab {
     private int B;
 
     /* renamed from: a  reason: collision with root package name */
-    long f1869a = 0;
+    long f1871a = 0;
     private a z;
     private static ArrayList<String> b = new ArrayList<>();
     private static ArrayList<String> c = new ArrayList<>();
     private static ArrayList<String> d = new ArrayList<>();
-    private static String e = com.baidu.location.e.k.f1956a + "/yo.dat";
-    private static String f = com.baidu.location.e.k.f1956a + "/yoh.dat";
-    private static String g = com.baidu.location.e.k.f1956a + "/yom.dat";
-    private static String h = com.baidu.location.e.k.f1956a + "/yol.dat";
-    private static String i = com.baidu.location.e.k.f1956a + "/yor.dat";
+    private static String e = com.baidu.location.e.k.f1958a + "/yo.dat";
+    private static String f = com.baidu.location.e.k.f1958a + "/yoh.dat";
+    private static String g = com.baidu.location.e.k.f1958a + "/yom.dat";
+    private static String h = com.baidu.location.e.k.f1958a + "/yol.dat";
+    private static String i = com.baidu.location.e.k.f1958a + "/yor.dat";
     private static File j = null;
     private static int k = 8;
     private static int l = 8;
@@ -45,11 +45,11 @@ public class ab {
     private static ab A = null;
     private static long C = 0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     private class a extends com.baidu.location.e.f {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f1870a = false;
+        boolean f1872a = false;
         int b = 0;
         int c = 0;
         private ArrayList<String> e = new ArrayList<>();
@@ -99,16 +99,16 @@ public class ab {
             if (this.k != null) {
                 this.k.clear();
             }
-            this.f1870a = false;
+            this.f1872a = false;
         }
 
         public synchronized void b() {
             int i = 0;
             synchronized (this) {
-                if (!this.f1870a) {
+                if (!this.f1872a) {
                     if (p <= 4 || this.c >= p) {
                         this.c = 0;
-                        this.f1870a = true;
+                        this.f1872a = true;
                         this.b = 0;
                         try {
                             if (this.e == null || this.e.size() < 1) {
@@ -143,7 +143,7 @@ public class ab {
                                 if (this.e != null) {
                                     this.e.clear();
                                 }
-                                this.f1870a = false;
+                                this.f1872a = false;
                             } else if (this.b != 1) {
                                 ExecutorService c = z.a().c();
                                 if (c != null) {
@@ -520,7 +520,7 @@ public class ab {
     }
 
     private static boolean a(Location location, com.baidu.location.c.h hVar) {
-        if (location == null || hVar == null || hVar.f1937a == null || hVar.f1937a.isEmpty() || hVar.b(y)) {
+        if (location == null || hVar == null || hVar.f1939a == null || hVar.f1939a.isEmpty() || hVar.b(y)) {
             return false;
         }
         if (x == null) {
@@ -605,7 +605,7 @@ public class ab {
             if (file.exists()) {
                 return;
             }
-            File file2 = new File(com.baidu.location.e.k.f1956a);
+            File file2 = new File(com.baidu.location.e.k.f1958a);
             if (!file2.exists()) {
                 file2.mkdirs();
             }

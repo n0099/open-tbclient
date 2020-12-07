@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 @ControllerAdvice
 @Order
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class FastJsonViewResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     /* renamed from: beforeBodyWrite  reason: collision with other method in class */
-    public /* bridge */ /* synthetic */ Object m9beforeBodyWrite(Object obj, MethodParameter methodParameter, MediaType mediaType, Class cls, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
+    public /* bridge */ /* synthetic */ Object m8beforeBodyWrite(Object obj, MethodParameter methodParameter, MediaType mediaType, Class cls, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
         return beforeBodyWrite(obj, methodParameter, mediaType, (Class<? extends HttpMessageConverter<?>>) cls, serverHttpRequest, serverHttpResponse);
     }
 

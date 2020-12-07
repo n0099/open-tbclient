@@ -19,11 +19,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes11.dex */
 public abstract class AsyncTask<Params, Progress, Result> {
-    public static final Executor aeY;
-    public static final Executor aeZ;
-    private static final b afa;
+    public static final Executor afT;
+    public static final Executor afU;
+    private static final b afV;
     private static volatile Executor sDefaultExecutor;
-    private volatile Status afb;
+    private volatile Status afW;
     private final AtomicBoolean mCancelled;
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final int CORE_POOL_SIZE = CPU_COUNT + 1;
@@ -48,48 +48,48 @@ public abstract class AsyncTask<Params, Progress, Result> {
 
     /* loaded from: classes11.dex */
     private static class a<Data> {
-        final AsyncTask afc;
+        final AsyncTask afX;
         final Data[] mData;
     }
 
     static {
-        aeY = Build.VERSION.SDK_INT >= 11 ? new c() : Executors.newSingleThreadExecutor(sThreadFactory);
-        aeZ = Executors.newFixedThreadPool(2, sThreadFactory);
-        afa = new b(Looper.getMainLooper());
-        sDefaultExecutor = aeY;
+        afT = Build.VERSION.SDK_INT >= 11 ? new c() : Executors.newSingleThreadExecutor(sThreadFactory);
+        afU = Executors.newFixedThreadPool(2, sThreadFactory);
+        afV = new b(Looper.getMainLooper());
+        sDefaultExecutor = afT;
     }
 
     @TargetApi(11)
     /* loaded from: classes11.dex */
     private static class c implements Executor {
-        final ArrayDeque<Runnable> afd;
-        Runnable afe;
+        final ArrayDeque<Runnable> afY;
+        Runnable afZ;
 
         private c() {
-            this.afd = new ArrayDeque<>();
+            this.afY = new ArrayDeque<>();
         }
 
         @Override // java.util.concurrent.Executor
         public synchronized void execute(final Runnable runnable) {
-            this.afd.offer(new Runnable() { // from class: com.baidu.browser.core.async.AsyncTask.c.1
+            this.afY.offer(new Runnable() { // from class: com.baidu.browser.core.async.AsyncTask.c.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
                         runnable.run();
                     } finally {
-                        c.this.tr();
+                        c.this.tu();
                     }
                 }
             });
-            if (this.afe == null) {
-                tr();
+            if (this.afZ == null) {
+                tu();
             }
         }
 
-        protected synchronized void tr() {
-            this.afe = this.afd.poll();
-            if (this.afe != null) {
-                AsyncTask.THREAD_POOL_EXECUTOR.execute(this.afe);
+        protected synchronized void tu() {
+            this.afZ = this.afY.poll();
+            if (this.afZ != null) {
+                AsyncTask.THREAD_POOL_EXECUTOR.execute(this.afZ);
             }
         }
     }
@@ -126,7 +126,7 @@ public abstract class AsyncTask<Params, Progress, Result> {
         } catch (Throwable th) {
             Log.w("AsyncTask", th);
         }
-        this.afb = Status.FINISHED;
+        this.afW = Status.FINISHED;
     }
 
     /* loaded from: classes11.dex */
@@ -140,10 +140,10 @@ public abstract class AsyncTask<Params, Progress, Result> {
             a aVar = (a) message.obj;
             switch (message.what) {
                 case 1:
-                    aVar.afc.finish(aVar.mData[0]);
+                    aVar.afX.finish(aVar.mData[0]);
                     return;
                 case 2:
-                    aVar.afc.onProgressUpdate(aVar.mData);
+                    aVar.afX.onProgressUpdate(aVar.mData);
                     return;
                 default:
                     return;

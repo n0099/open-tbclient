@@ -16,12 +16,12 @@ public class c extends a<d> {
     @Override // com.baidu.prologue.business.b.a
     public void a(d dVar) {
         super.a((c) dVar);
-        dVar.jF(this.cgt.md5).b(new com.baidu.prologue.business.a.a((Activity) this.mContext)).dM(true).dN(true).jG("-1");
-        File aZ = com.baidu.prologue.business.data.d.aZ(this.cgt.url, this.cgt.md5);
-        if (aZ.exists()) {
-            dVar.v(aZ);
+        dVar.km(this.cna.md5).b(new com.baidu.prologue.business.a.a((Activity) this.mContext)).ec(true).ed(true).kn("-1");
+        File bg = com.baidu.prologue.business.data.d.bg(this.cna.url, this.cna.md5);
+        if (bg.exists()) {
+            dVar.t(bg);
         } else {
-            dVar.jE(this.cgt.url);
+            dVar.kl(this.cna.url);
         }
     }
 }

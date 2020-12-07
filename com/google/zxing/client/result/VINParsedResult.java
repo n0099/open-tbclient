@@ -1,5 +1,5 @@
 package com.google.zxing.client.result;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class VINParsedResult extends ParsedResult {
     private final String countryCode;
     private final int modelYear;

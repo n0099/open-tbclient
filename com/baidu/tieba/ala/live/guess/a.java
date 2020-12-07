@@ -11,66 +11,66 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public void r(long j, int i) {
-        d.Aq().putLong("live_guess_last_question", j);
-        d.Aq().putInt("live_guess_last_answer", i);
+    public void t(long j, int i) {
+        d.BM().putLong("live_guess_last_question", j);
+        d.BM().putInt("live_guess_last_answer", i);
     }
 
     public Long getId() {
-        return Long.valueOf(d.Aq().getLong("live_guess_last_question", -1L));
+        return Long.valueOf(d.BM().getLong("live_guess_last_question", -1L));
     }
 
-    public int eJ(long j) {
-        return d.Aq().getInt("live_guess_last_answer", -1);
+    public int fn(long j) {
+        return d.BM().getInt("live_guess_last_answer", -1);
     }
 
-    public void bTS() {
-        a(ap(UbcStatisticLiveKey.KEY_ID_1394, "display", "missguess_show"));
+    public void bXB() {
+        a(ar(UbcStatisticLiveKey.KEY_ID_1394, "display", "missguess_show"));
     }
 
-    public void bTT() {
-        a(ap(UbcStatisticLiveKey.KEY_ID_1394, "display", "wrongguess_show"));
+    public void bXC() {
+        a(ar(UbcStatisticLiveKey.KEY_ID_1394, "display", "wrongguess_show"));
     }
 
-    public void bTU() {
-        a(ap(UbcStatisticLiveKey.KEY_ID_1394, "display", "rightguess_show"));
+    public void bXD() {
+        a(ar(UbcStatisticLiveKey.KEY_ID_1394, "display", "rightguess_show"));
     }
 
-    public void bTV() {
-        a(ap(UbcStatisticLiveKey.KEY_ID_1396, "click", "guessflw_clk"));
+    public void bXE() {
+        a(ar(UbcStatisticLiveKey.KEY_ID_1396, "click", "guessflw_clk"));
     }
 
-    public void bTW() {
-        a(ap(UbcStatisticLiveKey.KEY_ID_1394, "display", "guessflw_show"));
+    public void bXF() {
+        a(ar(UbcStatisticLiveKey.KEY_ID_1394, "display", "guessflw_show"));
     }
 
-    public void bTX() {
-        a(ap(UbcStatisticLiveKey.KEY_ID_1396, "click", "getticket_clk"));
+    public void bXG() {
+        a(ar(UbcStatisticLiveKey.KEY_ID_1396, "click", "getticket_clk"));
     }
 
-    public void bTY() {
-        a(ap(UbcStatisticLiveKey.KEY_ID_1394, "display", "ticketlack_show"));
+    public void bXH() {
+        a(ar(UbcStatisticLiveKey.KEY_ID_1394, "display", "ticketlack_show"));
     }
 
-    public void bTZ() {
+    public void bXI() {
         a(w(UbcStatisticLiveKey.KEY_ID_1395, "click", "guessing_succ", ""));
     }
 
-    public void vn(int i) {
+    public void vU(int i) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("status", i);
         } catch (JSONException e) {
             BdLog.e(e);
         }
-        a(ap(UbcStatisticLiveKey.KEY_ID_1396, "click", "guesschoice_clk").setContentExt(jSONObject));
+        a(ar(UbcStatisticLiveKey.KEY_ID_1396, "click", "guesschoice_clk").setContentExt(jSONObject));
     }
 
-    public void bUa() {
-        a(ap(UbcStatisticLiveKey.KEY_ID_1394, "display", "guesspop_show"));
+    public void bXJ() {
+        a(ar(UbcStatisticLiveKey.KEY_ID_1394, "display", "guesspop_show"));
     }
 
-    public UbcStatisticItem ap(String str, String str2, String str3) {
+    public UbcStatisticItem ar(String str, String str2, String str3) {
         return w(str, str2, str3, "popup");
     }
 

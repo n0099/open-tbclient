@@ -4,8 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import com.baidu.android.imsdk.account.AccountManager;
-import com.baidu.android.imsdk.account.LoginManager;
-import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
+import com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.GroupMemberQuitMsg;
 import com.baidu.android.imsdk.chatmessage.sync.DialogRecordDBManager;
@@ -21,7 +20,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMSyncDialog extends Message {
     public static final String TAG = IMDelMsg.class.getSimpleName();
     private Context mContext;
@@ -55,7 +54,7 @@ public class IMSyncDialog extends Message {
         }
     }
 
-    /* JADX WARN: Type inference failed for: r2v9, types: [T, java.lang.Long] */
+    /* JADX WARN: Type inference failed for: r2v6, types: [T, java.lang.Long] */
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         long j;
@@ -112,16 +111,16 @@ public class IMSyncDialog extends Message {
                         e = e2;
                         j2 = j3;
                         LogUtils.e(TAG, "handle IMSyncMsg exception :", e);
-                        ChatMsgManagerImpl.getInstance(this.mContext).onSyncDialogResult(i, str, getListenerKey(), j2, arrayList);
+                        super.handleMessageResult(context, jSONObject, i, str);
+                        ChatSessionManagerImpl.getInstance(this.mContext).onSyncDialogResult(i, str, getListenerKey(), j2, arrayList);
                     }
                 }
                 j2 = j3;
             } catch (Exception e3) {
                 e = e3;
             }
-        } else if (i == 4001) {
-            LoginManager.getInstance(this.mContext).triggleLogoutListener(i, str);
         }
-        ChatMsgManagerImpl.getInstance(this.mContext).onSyncDialogResult(i, str, getListenerKey(), j2, arrayList);
+        super.handleMessageResult(context, jSONObject, i, str);
+        ChatSessionManagerImpl.getInstance(this.mContext).onSyncDialogResult(i, str, getListenerKey(), j2, arrayList);
     }
 }

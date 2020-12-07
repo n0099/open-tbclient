@@ -12,8 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import io.flutter.Log;
@@ -22,65 +20,58 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.plugin.platform.PlatformPlugin;
 import io.flutter.view.FlutterMain;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class FlutterFragmentActivity extends FragmentActivity implements FlutterEngineConfigurator, FlutterEngineProvider, SplashScreenProvider {
     private static final int FRAGMENT_CONTAINER_ID = 609893468;
     private static final String TAG = "FlutterFragmentActivity";
     private static final String TAG_FLUTTER_FRAGMENT = "flutter_fragment";
-    @Nullable
     private FlutterFragment flutterFragment;
 
-    @NonNull
-    public static Intent createDefaultIntent(@NonNull Context context) {
+    public static Intent createDefaultIntent(Context context) {
         return withNewEngine().build(context);
     }
 
-    @NonNull
     public static NewEngineIntentBuilder withNewEngine() {
         return new NewEngineIntentBuilder(FlutterFragmentActivity.class);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class NewEngineIntentBuilder {
         private final Class<? extends FlutterFragmentActivity> activityClass;
         private String initialRoute = "/";
         private String backgroundMode = FlutterActivityLaunchConfigs.DEFAULT_BACKGROUND_MODE;
 
-        protected NewEngineIntentBuilder(@NonNull Class<? extends FlutterFragmentActivity> cls) {
+        protected NewEngineIntentBuilder(Class<? extends FlutterFragmentActivity> cls) {
             this.activityClass = cls;
         }
 
-        @NonNull
-        public NewEngineIntentBuilder initialRoute(@NonNull String str) {
+        public NewEngineIntentBuilder initialRoute(String str) {
             this.initialRoute = str;
             return this;
         }
 
-        @NonNull
-        public NewEngineIntentBuilder backgroundMode(@NonNull FlutterActivityLaunchConfigs.BackgroundMode backgroundMode) {
+        public NewEngineIntentBuilder backgroundMode(FlutterActivityLaunchConfigs.BackgroundMode backgroundMode) {
             this.backgroundMode = backgroundMode.name();
             return this;
         }
 
-        @NonNull
-        public Intent build(@NonNull Context context) {
+        public Intent build(Context context) {
             return new Intent(context, this.activityClass).putExtra("route", this.initialRoute).putExtra("background_mode", this.backgroundMode).putExtra("destroy_engine_with_activity", true);
         }
     }
 
-    @NonNull
-    public static CachedEngineIntentBuilder withCachedEngine(@NonNull String str) {
+    public static CachedEngineIntentBuilder withCachedEngine(String str) {
         return new CachedEngineIntentBuilder(FlutterFragmentActivity.class, str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class CachedEngineIntentBuilder {
         private final Class<? extends FlutterFragmentActivity> activityClass;
         private final String cachedEngineId;
         private boolean destroyEngineWithActivity = false;
         private String backgroundMode = FlutterActivityLaunchConfigs.DEFAULT_BACKGROUND_MODE;
 
-        protected CachedEngineIntentBuilder(@NonNull Class<? extends FlutterFragmentActivity> cls, @NonNull String str) {
+        protected CachedEngineIntentBuilder(Class<? extends FlutterFragmentActivity> cls, String str) {
             this.activityClass = cls;
             this.cachedEngineId = str;
         }
@@ -90,19 +81,17 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
             return this;
         }
 
-        @NonNull
-        public CachedEngineIntentBuilder backgroundMode(@NonNull FlutterActivityLaunchConfigs.BackgroundMode backgroundMode) {
+        public CachedEngineIntentBuilder backgroundMode(FlutterActivityLaunchConfigs.BackgroundMode backgroundMode) {
             this.backgroundMode = backgroundMode.name();
             return this;
         }
 
-        @NonNull
-        public Intent build(@NonNull Context context) {
+        public Intent build(Context context) {
             return new Intent(context, this.activityClass).putExtra("cached_engine_id", this.cachedEngineId).putExtra("destroy_engine_with_activity", this.destroyEngineWithActivity).putExtra("background_mode", this.backgroundMode);
         }
     }
 
-    protected void onCreate(@Nullable Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         switchLaunchThemeForNormalTheme();
         super.onCreate(bundle);
         configureWindowForTransparency();
@@ -128,7 +117,6 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
     }
 
     @Override // io.flutter.embedding.android.SplashScreenProvider
-    @Nullable
     public SplashScreen provideSplashScreen() {
         Drawable splashScreenFromManifest = getSplashScreenFromManifest();
         if (splashScreenFromManifest != null) {
@@ -137,7 +125,6 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
         return null;
     }
 
-    @Nullable
     private Drawable getSplashScreenFromManifest() {
         try {
             Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), 128).metaData;
@@ -162,7 +149,6 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: io.flutter.embedding.android.FlutterFragmentActivity */
     /* JADX WARN: Multi-variable type inference failed */
-    @NonNull
     private View createFragmentContainer() {
         FrameLayout frameLayout = new FrameLayout(this);
         frameLayout.setId(FRAGMENT_CONTAINER_ID);
@@ -179,7 +165,6 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
         }
     }
 
-    @NonNull
     protected FlutterFragment createFlutterFragment() {
         FlutterActivityLaunchConfigs.BackgroundMode backgroundMode = getBackgroundMode();
         RenderMode renderMode = backgroundMode == FlutterActivityLaunchConfigs.BackgroundMode.opaque ? RenderMode.surface : RenderMode.texture;
@@ -206,7 +191,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
         this.flutterFragment.onPostResume();
     }
 
-    protected void onNewIntent(@NonNull Intent intent) {
+    protected void onNewIntent(Intent intent) {
         this.flutterFragment.onNewIntent(intent);
         super.onNewIntent(intent);
     }
@@ -215,7 +200,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
         this.flutterFragment.onBackPressed();
     }
 
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         this.flutterFragment.onRequestPermissionsResult(i, strArr, iArr);
     }
@@ -234,7 +219,6 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
         this.flutterFragment.onActivityResult(i, i2, intent);
     }
 
-    @Nullable
     protected FlutterEngine getFlutterEngine() {
         return this.flutterFragment.getFlutterEngine();
     }
@@ -248,26 +232,23 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
     }
 
     @Override // io.flutter.embedding.android.FlutterEngineProvider
-    @Nullable
-    public FlutterEngine provideFlutterEngine(@NonNull Context context) {
+    public FlutterEngine provideFlutterEngine(Context context) {
         return null;
     }
 
     @Override // io.flutter.embedding.android.FlutterEngineConfigurator
-    public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
+    public void configureFlutterEngine(FlutterEngine flutterEngine) {
     }
 
     @Override // io.flutter.embedding.android.FlutterEngineConfigurator
-    public void cleanUpFlutterEngine(@NonNull FlutterEngine flutterEngine) {
+    public void cleanUpFlutterEngine(FlutterEngine flutterEngine) {
     }
 
-    @NonNull
     protected String getAppBundlePath() {
         String dataString;
         return (isDebuggable() && "android.intent.action.RUN".equals(getIntent().getAction()) && (dataString = getIntent().getDataString()) != null) ? dataString : FlutterMain.findAppBundlePath();
     }
 
-    @NonNull
     public String getDartEntrypointFunctionName() {
         try {
             Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), 128).metaData;
@@ -281,7 +262,6 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
         }
     }
 
-    @NonNull
     protected String getInitialRoute() {
         if (getIntent().hasExtra("route")) {
             return getIntent().getStringExtra("route");
@@ -295,12 +275,10 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
         }
     }
 
-    @Nullable
     protected String getCachedEngineId() {
         return getIntent().getStringExtra("cached_engine_id");
     }
 
-    @NonNull
     protected FlutterActivityLaunchConfigs.BackgroundMode getBackgroundMode() {
         return getIntent().hasExtra("background_mode") ? FlutterActivityLaunchConfigs.BackgroundMode.valueOf(getIntent().getStringExtra("background_mode")) : FlutterActivityLaunchConfigs.BackgroundMode.opaque;
     }

@@ -1,19 +1,19 @@
 package com.baidu.adp.lib.network.http;
 /* loaded from: classes.dex */
 public abstract class a {
-    private static a Ln = null;
+    private static a Ml = null;
 
     public abstract void a(e eVar);
 
-    public abstract String bI(String str);
+    public abstract String bL(String str);
 
     public static final a ml() {
-        return Ln;
+        return Ml;
     }
 
     public static final void a(a aVar) {
         synchronized (a.class) {
-            Ln = aVar;
+            Ml = aVar;
         }
     }
 }

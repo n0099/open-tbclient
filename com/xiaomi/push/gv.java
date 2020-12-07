@@ -5,17 +5,17 @@ import com.xiaomi.push.al;
 public class gv {
 
     /* renamed from: a  reason: collision with root package name */
-    private static al f4935a = new al(true, 20);
+    private static al f4705a = new al(true, 20);
 
     public static void a(al.b bVar) {
-        f4935a.a(bVar);
+        f4705a.a(bVar);
     }
 
     public static void a(al.b bVar, long j) {
-        f4935a.a(bVar, j);
+        f4705a.a(bVar, j);
     }
 
     public static void a(Runnable runnable) {
-        f4935a.a(new gw(runnable));
+        f4705a.a(new gw(runnable));
     }
 }

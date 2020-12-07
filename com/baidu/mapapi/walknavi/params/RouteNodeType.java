@@ -1,18 +1,18 @@
 package com.baidu.mapapi.walknavi.params;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public enum RouteNodeType {
     LOCATION(1),
     KEYWORD(2);
     
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2181a;
+    private int f2183a;
 
     RouteNodeType(int i) {
-        this.f2181a = i;
+        this.f2183a = i;
     }
 
     public int getNativeType() {
-        return this.f2181a;
+        return this.f2183a;
     }
 }

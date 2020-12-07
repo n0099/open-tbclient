@@ -11,7 +11,7 @@ public class b extends HttpMessage {
         addParam("user_id", j);
     }
 
-    public void eF(int i) {
+    public void fb(int i) {
         addParam("ques_id", i);
     }
 }

@@ -1,7 +1,9 @@
 package okhttp3.internal.http;
 
 import android.support.v7.widget.ActivityChooserView;
+import com.baidu.searchbox.http.response.ResponseException;
 import com.baidubce.http.Headers;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.net.HttpRetryException;
@@ -100,9 +102,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
                     }
                 }
                 if (followUpRequest == null) {
-                    if (!this.forWebSocket) {
-                        streamAllocation3.release();
-                    }
+                    streamAllocation3.release();
                     return proceed;
                 }
                 Util.closeQuietly(proceed.body());
@@ -135,7 +135,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
             }
         }
         streamAllocation3.release();
-        throw new IOException("Canceled");
+        throw new IOException(ResponseException.CANCELED);
     }
 
     private Address createAddress(HttpUrl httpUrl) {
@@ -156,9 +156,13 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
     private boolean recover(IOException iOException, StreamAllocation streamAllocation, boolean z, Request request) {
         streamAllocation.streamFailed(iOException);
         if (this.client.retryOnConnectionFailure()) {
-            return !(z && (request.body() instanceof UnrepeatableRequestBody)) && isRecoverable(iOException, z) && streamAllocation.hasMoreRoutes();
+            return !(z && requestIsUnrepeatable(iOException, request)) && isRecoverable(iOException, z) && streamAllocation.hasMoreRoutes();
         }
         return false;
+    }
+
+    private boolean requestIsUnrepeatable(IOException iOException, Request request) {
+        return (request.body() instanceof UnrepeatableRequestBody) || (iOException instanceof FileNotFoundException);
     }
 
     private boolean isRecoverable(IOException iOException, boolean z) {
@@ -179,7 +183,6 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
     private Request followUpRequest(Response response, Route route) throws IOException {
         String header;
         HttpUrl resolve;
-        Proxy proxy;
         if (response == null) {
             throw new IllegalStateException();
         }
@@ -192,7 +195,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
             case 303:
                 break;
             case 307:
-            case 308:
+            case StatusLine.HTTP_PERM_REDIRECT /* 308 */:
                 if (!method.equals("GET") && !method.equals(HttpHead.METHOD_NAME)) {
                     return null;
                 }
@@ -200,12 +203,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
             case 401:
                 return this.client.authenticator().authenticate(route, response);
             case 407:
-                if (route != null) {
-                    proxy = route.proxy();
-                } else {
-                    proxy = this.client.proxy();
-                }
-                if (proxy.type() != Proxy.Type.HTTP) {
+                if (route.proxy().type() != Proxy.Type.HTTP) {
                     throw new ProtocolException("Received HTTP_PROXY_AUTH (407) code while not using proxy");
                 }
                 return this.client.proxyAuthenticator().authenticate(route, response);

@@ -18,14 +18,14 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public class gr {
 
     /* renamed from: a  reason: collision with root package name */
-    private static XmlPullParser f4933a = null;
+    private static XmlPullParser f4703a = null;
 
     public static gg a(String str, String str2, XmlPullParser xmlPullParser) {
-        Object m324a = gq.a().m324a("all", "xm:chat");
-        if (m324a == null || !(m324a instanceof com.xiaomi.push.service.e)) {
+        Object m314a = gq.a().m314a("all", "xm:chat");
+        if (m314a == null || !(m314a instanceof com.xiaomi.push.service.e)) {
             return null;
         }
-        return ((com.xiaomi.push.service.e) m324a).b(xmlPullParser);
+        return ((com.xiaomi.push.service.e) m314a).b(xmlPullParser);
     }
 
     public static gh a(XmlPullParser xmlPullParser, fs fsVar) {
@@ -48,7 +48,7 @@ public class gr {
                 String name = xmlPullParser.getName();
                 String namespace = xmlPullParser.getNamespace();
                 if (name.equals(BdStatsConstant.StatsType.ERROR)) {
-                    gnVar = m328a(xmlPullParser);
+                    gnVar = m318a(xmlPullParser);
                 } else {
                     ghVar = new gh();
                     ghVar.a(a(name, namespace, xmlPullParser));
@@ -61,7 +61,7 @@ public class gr {
             z = z;
         }
         if (ghVar == null) {
-            if (gh.a.f4923a == a2 || gh.a.b == a2) {
+            if (gh.a.f4693a == a2 || gh.a.b == a2) {
                 gs gsVar = new gs();
                 gsVar.k(attributeValue);
                 gsVar.m(attributeValue3);
@@ -119,13 +119,13 @@ public class gr {
                         giVar.k(attributeValue2);
                         giVar.f(attributeValue5);
                         gg ggVar = new gg("s", null, null, null);
-                        ggVar.m316a(text);
+                        ggVar.m306a(text);
                         giVar.a(ggVar);
                         return giVar;
                     }
                     a(com.xiaomi.push.service.ay.a(com.xiaomi.push.service.ay.a(a3.h, attributeValue2), text));
-                    f4933a.next();
-                    gjVar = a(f4933a);
+                    f4703a.next();
+                    gjVar = a(f4703a);
                 } else if (next == 3 && xmlPullParser.getName().equals("message")) {
                     z = true;
                 }
@@ -199,21 +199,21 @@ public class gr {
                 if (name.equals("subject")) {
                     if (b(xmlPullParser) == null) {
                     }
-                    giVar2.g(m329a(xmlPullParser));
+                    giVar2.g(m319a(xmlPullParser));
                 } else if (name.equals("body")) {
                     String attributeValue11 = xmlPullParser.getAttributeValue("", "encode");
-                    String m329a = m329a(xmlPullParser);
+                    String m319a = m319a(xmlPullParser);
                     if (TextUtils.isEmpty(attributeValue11)) {
-                        giVar2.h(m329a);
+                        giVar2.h(m319a);
                     } else {
-                        giVar2.a(m329a, attributeValue11);
+                        giVar2.a(m319a, attributeValue11);
                     }
                 } else if (name.equals("thread")) {
                     if (str2 == null) {
                         str2 = xmlPullParser.nextText();
                     }
                 } else if (name.equals(BdStatsConstant.StatsType.ERROR)) {
-                    giVar2.a(m328a(xmlPullParser));
+                    giVar2.a(m318a(xmlPullParser));
                 } else {
                     giVar2.a(a(name, namespace, xmlPullParser));
                 }
@@ -226,7 +226,7 @@ public class gr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gl m326a(XmlPullParser xmlPullParser) {
+    public static gl m316a(XmlPullParser xmlPullParser) {
         gl.b bVar = gl.b.available;
         String attributeValue = xmlPullParser.getAttributeValue("", "type");
         if (attributeValue != null && !attributeValue.equals("")) {
@@ -268,7 +268,7 @@ public class gr {
                         System.err.println("Found invalid presence mode " + nextText);
                     }
                 } else if (name.equals(BdStatsConstant.StatsType.ERROR)) {
-                    glVar.a(m328a(xmlPullParser));
+                    glVar.a(m318a(xmlPullParser));
                 } else {
                     glVar.a(a(name, namespace, xmlPullParser));
                 }
@@ -280,7 +280,7 @@ public class gr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gm m327a(XmlPullParser xmlPullParser) {
+    public static gm m317a(XmlPullParser xmlPullParser) {
         gm gmVar = null;
         boolean z = false;
         while (!z) {
@@ -295,7 +295,7 @@ public class gr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gn m328a(XmlPullParser xmlPullParser) {
+    public static gn m318a(XmlPullParser xmlPullParser) {
         ArrayList arrayList = new ArrayList();
         String str = null;
         String str2 = null;
@@ -340,7 +340,7 @@ public class gr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static String m329a(XmlPullParser xmlPullParser) {
+    private static String m319a(XmlPullParser xmlPullParser) {
         String str = "";
         int depth = xmlPullParser.getDepth();
         while (true) {
@@ -352,15 +352,15 @@ public class gr {
     }
 
     private static void a(byte[] bArr) {
-        if (f4933a == null) {
+        if (f4703a == null) {
             try {
-                f4933a = XmlPullParserFactory.newInstance().newPullParser();
-                f4933a.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
+                f4703a = XmlPullParserFactory.newInstance().newPullParser();
+                f4703a.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
             } catch (XmlPullParserException e) {
                 e.printStackTrace();
             }
         }
-        f4933a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
+        f4703a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
     }
 
     private static String b(XmlPullParser xmlPullParser) {

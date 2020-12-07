@@ -11,20 +11,20 @@ import com.baidu.swan.apps.performance.i;
 import com.baidu.swan.apps.performance.j;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a extends com.baidu.swan.apps.api.a.d {
     public a(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b ll(String str) {
+    public com.baidu.swan.apps.api.c.b lS(String str) {
         if (DEBUG) {
             Log.d("Api-NavigateBack", "handle: " + str);
         }
         String uuid = UUID.randomUUID().toString();
-        j.qR(uuid);
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bi = com.baidu.swan.apps.api.d.b.bi("Api-NavigateBack", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bi.first;
+        j.ry(uuid);
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bp = com.baidu.swan.apps.api.d.b.bp("Api-NavigateBack", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bp.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-NavigateBack", "parse fail");
@@ -32,47 +32,47 @@ public class a extends com.baidu.swan.apps.api.a.d {
             }
             return bVar;
         }
-        int optInt = ((JSONObject) bi.second).optInt("delta", 1);
-        final f afe = com.baidu.swan.apps.v.f.azg().afe();
-        if (afe == null) {
+        int optInt = ((JSONObject) bp.second).optInt("delta", 1);
+        final f aim = com.baidu.swan.apps.v.f.aCp().aim();
+        if (aim == null) {
             com.baidu.swan.apps.console.c.e("Api-NavigateBack", "manager is null");
             return new com.baidu.swan.apps.api.c.b(1001, "manager is null");
         }
         if (DEBUG) {
             Log.d("Api-NavigateBack", "back delta: " + optInt);
         }
-        final int aow = afe.aow();
+        final int arE = aim.arE();
         if (DEBUG) {
-            Log.d("Api-NavigateBack", "fragment count " + aow);
+            Log.d("Api-NavigateBack", "fragment count " + arE);
         }
-        if (aow == 1) {
+        if (arE == 1) {
             com.baidu.swan.apps.console.c.e("Api-NavigateBack", "navigateBack api can only work when slave's count greater than 1");
             return new com.baidu.swan.apps.api.c.b(1001, "navigateBack api can only work when slave's count greater than 1");
         }
-        if (optInt >= aow) {
-            optInt = aow - 1;
+        if (optInt >= arE) {
+            optInt = arE - 1;
         }
         if (DEBUG) {
             Log.d("Api-NavigateBack", "real back delta: " + optInt);
         }
-        final f.b hX = afe.mV("navigateBack").al(f.cJk, f.cJj).hX(optInt);
+        final f.b iv = aim.nC("navigateBack").an(f.cQd, f.cQc).iv(optInt);
         ak.m(new Runnable() { // from class: com.baidu.swan.apps.api.module.g.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (aow > 1) {
-                    com.baidu.swan.apps.ap.f.a(afe, a.this.getContext(), 1);
+                if (arE > 1) {
+                    com.baidu.swan.apps.ap.f.a(aim, a.this.getContext(), 1);
                 }
-                hX.commit();
+                iv.commit();
             }
         });
-        i.ce("route", uuid).f(new UbcFlowEvent("na_push_page_end"));
+        i.cl("route", uuid).f(new UbcFlowEvent("na_push_page_end"));
         j.al(1, uuid);
-        j.qS(uuid);
-        if (!(afe.aot() instanceof e)) {
+        j.rz(uuid);
+        if (!(aim.arB() instanceof e)) {
             com.baidu.swan.apps.console.c.e("Api-NavigateBack", "top fragment error");
             return new com.baidu.swan.apps.api.c.b(1001, "top fragment error");
         }
-        e eVar = (e) afe.aot();
-        return new com.baidu.swan.apps.api.c.b(0, com.baidu.swan.apps.scheme.actions.k.a.sB(eVar != null ? eVar.aod() : ""));
+        e eVar = (e) aim.arB();
+        return new com.baidu.swan.apps.api.c.b(0, com.baidu.swan.apps.scheme.actions.k.a.ti(eVar != null ? eVar.arl() : ""));
     }
 }

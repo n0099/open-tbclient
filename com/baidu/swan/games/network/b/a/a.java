@@ -11,64 +11,64 @@ import com.baidu.swan.games.network.a.d;
 import com.baidu.swan.games.network.b.e;
 import java.io.File;
 import okhttp3.Request;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a extends com.baidu.swan.games.network.a.b implements com.baidu.swan.games.network.b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private e dVS;
+    private e ecR;
 
     public a(com.baidu.swan.games.f.b bVar, c cVar) {
         super(bVar, cVar);
-        this.dVS = new e(this);
+        this.ecR = new e(this);
     }
 
     @Override // com.baidu.swan.games.network.a
     public void j(c cVar) {
         super.j(cVar);
-        this.dVS.aVL();
+        this.ecR.aYQ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a.b
     public void a(Request request, String str, String str2, com.baidu.swan.games.network.b bVar, d dVar) {
-        if (this.dVB != null && !xm(str)) {
-            String optString = this.dVB.optString("url");
+        if (this.ecA != null && !xT(str)) {
+            String optString = this.ecA.optString("url");
             if (DEBUG) {
                 Log.d("PreDownloadTask", "doDownload start: " + optString);
             }
-            com.baidu.swan.games.network.b.d.aVK().a(optString, this);
+            com.baidu.swan.games.network.b.d.aYP().a(optString, this);
             super.a(request, str, str2, bVar, dVar);
         }
     }
 
     @Override // com.baidu.swan.games.network.a.b
     @Nullable
-    protected String xl(@NonNull String str) {
+    protected String xS(@NonNull String str) {
         File parentFile;
-        String tC = f.azg().ayM().tC(str);
-        if (tC == null || tC.endsWith(File.separator) || (parentFile = new File(tC).getParentFile()) == null) {
+        String uj = f.aCp().aBV().uj(str);
+        if (uj == null || uj.endsWith(File.separator) || (parentFile = new File(uj).getParentFile()) == null) {
             return null;
         }
         if (!parentFile.exists()) {
             parentFile.mkdirs();
         }
-        return tC;
+        return uj;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a
     public void onSuccess(Object obj) {
-        this.dVS.onSuccess(obj);
+        this.ecR.onSuccess(obj);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a.b, com.baidu.swan.games.network.a
     public void l(String str, int i, String str2) {
-        this.dVS.l(str, i, str2);
+        this.ecR.l(str, i, str2);
     }
 
     @Override // com.baidu.swan.games.network.a, com.baidu.searchbox.v8engine.event.EventTargetImpl, com.baidu.searchbox.v8engine.event.EventTarget
     public boolean dispatchEvent(JSEvent jSEvent) {
-        return this.dVS.b(jSEvent);
+        return this.ecR.b(jSEvent);
     }
 
     @Override // com.baidu.swan.games.network.b.a
@@ -94,11 +94,11 @@ public class a extends com.baidu.swan.games.network.a.b implements com.baidu.swa
         }
     }
 
-    private boolean xm(String str) {
-        String tC = f.azg().ayM().tC(str);
-        if (TextUtils.isEmpty(tC)) {
+    private boolean xT(String str) {
+        String uj = f.aCp().aBV().uj(str);
+        if (TextUtils.isEmpty(uj)) {
             return false;
         }
-        return new File(tC).exists();
+        return new File(uj).exists();
     }
 }

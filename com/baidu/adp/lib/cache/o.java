@@ -9,7 +9,7 @@ public class o<T> implements l<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.l
-    public l.b<T> bB(String str) {
+    public l.b<T> bE(String str) {
         return null;
     }
 

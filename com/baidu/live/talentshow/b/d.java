@@ -6,9 +6,9 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d extends BaseData {
     public String appid;
-    public String bwt;
-    public String bwu;
-    public int bwv = -1;
+    public String bBD;
+    public String bBE;
+    public int bBF = -1;
     public String cuid;
     public String nickName;
     public String portrait;
@@ -26,13 +26,13 @@ public class d extends BaseData {
             this.status = jSONObject.optInt("status");
             this.appid = jSONObject.optString("appid");
             this.cuid = jSONObject.optString("cuid");
-            this.bwt = jSONObject.optString("im_uk");
-            this.bwu = jSONObject.optString(HttpRequest.SUBAPP_VERSION);
+            this.bBD = jSONObject.optString("im_uk");
+            this.bBE = jSONObject.optString(HttpRequest.SUBAPP_VERSION);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: Rq */
+    /* renamed from: TO */
     public d clone() {
         try {
             return (d) super.clone();

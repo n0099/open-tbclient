@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import com.baidu.sumeru.universalimageloader.core.assist.ImageSize;
 import com.baidu.sumeru.universalimageloader.core.assist.ViewScaleType;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class ImageNonViewAware implements ImageAware {
     protected final ImageSize imageSize;
     protected final String imageUri;

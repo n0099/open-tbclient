@@ -2,42 +2,38 @@ package io.flutter.embedding.engine.plugins.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import io.flutter.plugin.common.PluginRegistry;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public interface ActivityPluginBinding {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface OnSaveInstanceStateListener {
-        void onRestoreInstanceState(@Nullable Bundle bundle);
+        void onRestoreInstanceState(Bundle bundle);
 
-        void onSaveInstanceState(@NonNull Bundle bundle);
+        void onSaveInstanceState(Bundle bundle);
     }
 
-    void addActivityResultListener(@NonNull PluginRegistry.ActivityResultListener activityResultListener);
+    void addActivityResultListener(PluginRegistry.ActivityResultListener activityResultListener);
 
-    void addOnNewIntentListener(@NonNull PluginRegistry.NewIntentListener newIntentListener);
+    void addOnNewIntentListener(PluginRegistry.NewIntentListener newIntentListener);
 
-    void addOnSaveStateListener(@NonNull OnSaveInstanceStateListener onSaveInstanceStateListener);
+    void addOnSaveStateListener(OnSaveInstanceStateListener onSaveInstanceStateListener);
 
-    void addOnUserLeaveHintListener(@NonNull PluginRegistry.UserLeaveHintListener userLeaveHintListener);
+    void addOnUserLeaveHintListener(PluginRegistry.UserLeaveHintListener userLeaveHintListener);
 
-    void addRequestPermissionsResultListener(@NonNull PluginRegistry.RequestPermissionsResultListener requestPermissionsResultListener);
+    void addRequestPermissionsResultListener(PluginRegistry.RequestPermissionsResultListener requestPermissionsResultListener);
 
-    @NonNull
     Activity getActivity();
 
-    @NonNull
     Object getLifecycle();
 
-    void removeActivityResultListener(@NonNull PluginRegistry.ActivityResultListener activityResultListener);
+    void removeActivityResultListener(PluginRegistry.ActivityResultListener activityResultListener);
 
-    void removeOnNewIntentListener(@NonNull PluginRegistry.NewIntentListener newIntentListener);
+    void removeOnNewIntentListener(PluginRegistry.NewIntentListener newIntentListener);
 
-    void removeOnSaveStateListener(@NonNull OnSaveInstanceStateListener onSaveInstanceStateListener);
+    void removeOnSaveStateListener(OnSaveInstanceStateListener onSaveInstanceStateListener);
 
-    void removeOnUserLeaveHintListener(@NonNull PluginRegistry.UserLeaveHintListener userLeaveHintListener);
+    void removeOnUserLeaveHintListener(PluginRegistry.UserLeaveHintListener userLeaveHintListener);
 
-    void removeRequestPermissionsResultListener(@NonNull PluginRegistry.RequestPermissionsResultListener requestPermissionsResultListener);
+    void removeRequestPermissionsResultListener(PluginRegistry.RequestPermissionsResultListener requestPermissionsResultListener);
 }

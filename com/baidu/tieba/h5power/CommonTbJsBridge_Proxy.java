@@ -4,13 +4,16 @@ import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.ala.live.walletconfig.CashierData;
+import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.baidu.tieba.tbadkCore.e.a.a;
 import com.baidu.tieba.tbadkCore.e.a.b;
-import com.baidu.tieba.tbadkCore.e.a.d;
+import com.baidu.tieba.tbadkCore.e.a.c;
+import com.baidu.tieba.tbadkCore.e.a.e;
 import com.vivo.push.PushClientConstants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
@@ -20,8 +23,9 @@ public class CommonTbJsBridge_Proxy extends a {
 
     public CommonTbJsBridge_Proxy(CommonTbJsBridge commonTbJsBridge) {
         this.mJsBridge = commonTbJsBridge;
-        this.mAsyncCallBackNameList = new LinkedHashMap();
+        this.mAsyncCallBackMethodList = new LinkedHashMap();
         this.mNotificationNameList = new HashSet<>();
+        this.mNotificationNameList.add("saveImageSuccess");
         this.mNotificationNameList.add("changeSkinType");
         this.mNotificationNameList.add("ShareSuccessNotification");
         this.mNotificationNameList.add("thirdPartyLoginResultToH5");
@@ -31,249 +35,256 @@ public class CommonTbJsBridge_Proxy extends a {
     }
 
     @Override // com.baidu.tieba.tbadkCore.e.a.a
-    public b dispatch(d dVar, b bVar) {
-        if (bVar == null) {
-            bVar = new b();
+    public c dispatch(e eVar, c cVar) {
+        if (cVar == null) {
+            cVar = new c();
         }
-        String dKA = dVar.dKA();
-        JSONObject dKy = dVar.dKy();
-        if (dKA.equals("account/startLoginModule")) {
-            bVar.xz(true);
-            b startLoginModule = this.mJsBridge.startLoginModule(dKy.optString("cssUrl"));
+        String dPS = eVar.dPS();
+        JSONObject dPQ = eVar.dPQ();
+        if (dPS.equals("account/startLoginModule")) {
+            cVar.ye(true);
+            c startLoginModule = this.mJsBridge.startLoginModule(dPQ.optString("cssUrl"));
             if (startLoginModule != null) {
-                bVar.setStatus(startLoginModule.getStatus());
-                bVar.setMessage(startLoginModule.getMessage());
-                bVar.setData(startLoginModule.getData());
+                cVar.setStatus(startLoginModule.getStatus());
+                cVar.setMessage(startLoginModule.getMessage());
+                cVar.setData(startLoginModule.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("router/finishThisPage")) {
-            bVar.xz(true);
-            b finishPage = this.mJsBridge.finishPage();
+            cVar.Ld(0);
+        } else if (dPS.equals("router/finishThisPage")) {
+            cVar.ye(true);
+            c finishPage = this.mJsBridge.finishPage();
             if (finishPage != null) {
-                bVar.setStatus(finishPage.getStatus());
-                bVar.setMessage(finishPage.getMessage());
-                bVar.setData(finishPage.getData());
+                cVar.setStatus(finishPage.getStatus());
+                cVar.setMessage(finishPage.getMessage());
+                cVar.setData(finishPage.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("toast/toastPopupView")) {
-            bVar.xz(true);
-            b showLowerHairHint = this.mJsBridge.showLowerHairHint(dKy.optInt("showType"), dKy.optInt("aheadType"), dKy.optString("message"), dKy.optString("btnText"), dKy.optInt("toastDuration"), dKy.optString("schema"), dKy.optString("token"), dKy.optDouble("opacity"), dKy.optString("imgUrl"), dKy.optString("url"), dKy.optInt("missionId"), dKy.optString("btnColor"), dKy.optString("messageColor"), dKy.optString("btnTextColor"));
+            cVar.Ld(0);
+        } else if (dPS.equals("toast/toastPopupView")) {
+            cVar.ye(true);
+            c showLowerHairHint = this.mJsBridge.showLowerHairHint(dPQ.optInt("showType"), dPQ.optInt("aheadType"), dPQ.optString("message"), dPQ.optString("btnText"), dPQ.optInt("toastDuration"), dPQ.optString("schema"), dPQ.optString("token"), dPQ.optDouble("opacity"), dPQ.optString("imgUrl"), dPQ.optString("url"), dPQ.optInt("missionId"), dPQ.optString("btnColor"), dPQ.optString("messageColor"), dPQ.optString("btnTextColor"));
             if (showLowerHairHint != null) {
-                bVar.setStatus(showLowerHairHint.getStatus());
-                bVar.setMessage(showLowerHairHint.getMessage());
-                bVar.setData(showLowerHairHint.getData());
+                cVar.setStatus(showLowerHairHint.getStatus());
+                cVar.setMessage(showLowerHairHint.getMessage());
+                cVar.setData(showLowerHairHint.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("router/goToMyPost")) {
-            bVar.xz(true);
-            b handleGoToMyPost = this.mJsBridge.handleGoToMyPost(dKy.optString("uid"));
-            if (handleGoToMyPost != null) {
-                bVar.setStatus(handleGoToMyPost.getStatus());
-                bVar.setMessage(handleGoToMyPost.getMessage());
-                bVar.setData(handleGoToMyPost.getData());
+            cVar.Ld(0);
+        } else if (dPS.equals("router/goToBarDetail")) {
+            cVar.ye(true);
+            c handleGoToBarDetail = this.mJsBridge.handleGoToBarDetail(dPQ.optString(TbTitleActivityConfig.FORUM_ID));
+            if (handleGoToBarDetail != null) {
+                cVar.setStatus(handleGoToBarDetail.getStatus());
+                cVar.setMessage(handleGoToBarDetail.getMessage());
+                cVar.setData(handleGoToBarDetail.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("router/goToMyLive")) {
-            bVar.xz(true);
-            b handleGoToMyLive = this.mJsBridge.handleGoToMyLive(dKy.optString("uid"));
-            if (handleGoToMyLive != null) {
-                bVar.setStatus(handleGoToMyLive.getStatus());
-                bVar.setMessage(handleGoToMyLive.getMessage());
-                bVar.setData(handleGoToMyLive.getData());
+            cVar.Ld(0);
+        } else if (dPS.equals("system/saveImage")) {
+            cVar.ye(true);
+            c handleSaveImage = this.mJsBridge.handleSaveImage(dPQ.optString("imgUrl"));
+            this.mNotificationNameList.add("saveImageSuccess");
+            if (handleSaveImage != null) {
+                cVar.setStatus(handleSaveImage.getStatus());
+                cVar.setMessage(handleSaveImage.getMessage());
+                cVar.setData(handleSaveImage.getData());
+                if (!cVar.isError()) {
+                    cVar.yg(false);
+                    addObserver("saveImageSuccess", cVar, false);
+                }
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("system/playSound")) {
-            bVar.xz(true);
-            b playSound = this.mJsBridge.playSound(dKy.optString("soundUrl"));
+            cVar.Ld(0);
+        } else if (dPS.equals("system/playSound")) {
+            cVar.ye(true);
+            c playSound = this.mJsBridge.playSound(dPQ.optString("soundUrl"));
             if (playSound != null) {
-                bVar.setStatus(playSound.getStatus());
-                bVar.setMessage(playSound.getMessage());
-                bVar.setData(playSound.getData());
+                cVar.setStatus(playSound.getStatus());
+                cVar.setMessage(playSound.getMessage());
+                cVar.setData(playSound.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("system/playVibrate")) {
-            bVar.xz(true);
-            b playVibrate = this.mJsBridge.playVibrate();
+            cVar.Ld(0);
+        } else if (dPS.equals("system/playVibrate")) {
+            cVar.ye(true);
+            c playVibrate = this.mJsBridge.playVibrate();
             if (playVibrate != null) {
-                bVar.setStatus(playVibrate.getStatus());
-                bVar.setMessage(playVibrate.getMessage());
-                bVar.setData(playVibrate.getData());
+                cVar.setStatus(playVibrate.getStatus());
+                cVar.setMessage(playVibrate.getMessage());
+                cVar.setData(playVibrate.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("account/loadThirdPartyLogin")) {
-            bVar.xz(true);
-            b jumpLoginActivity = this.mJsBridge.jumpLoginActivity(dKy.optInt("socialType"), dKy.optString("activityId"));
+            cVar.Ld(0);
+        } else if (dPS.equals("account/loadThirdPartyLogin")) {
+            cVar.ye(true);
+            c jumpLoginActivity = this.mJsBridge.jumpLoginActivity(dPQ.optInt("socialType"), dPQ.optString("activityId"));
             if (jumpLoginActivity != null) {
-                bVar.setStatus(jumpLoginActivity.getStatus());
-                bVar.setMessage(jumpLoginActivity.getMessage());
-                bVar.setData(jumpLoginActivity.getData());
+                cVar.setStatus(jumpLoginActivity.getStatus());
+                cVar.setMessage(jumpLoginActivity.getMessage());
+                cVar.setData(jumpLoginActivity.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("device/getZid")) {
-            bVar.xz(true);
-            b zid = this.mJsBridge.getZid();
+            cVar.Ld(0);
+        } else if (dPS.equals("device/getZid")) {
+            cVar.ye(true);
+            c zid = this.mJsBridge.getZid();
             if (zid != null) {
-                bVar.setStatus(zid.getStatus());
-                bVar.setMessage(zid.getMessage());
-                bVar.setData(zid.getData());
+                cVar.setStatus(zid.getStatus());
+                cVar.setMessage(zid.getMessage());
+                cVar.setData(zid.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("share/registerShareDataNew")) {
-            bVar.xz(true);
-            b shareInfo = this.mJsBridge.setShareInfo(dKy.optString("title"), dKy.optString("desc"), dKy.optString("img"), dKy.optString("url"), dKy.optString("topic"), dKy.optString("wbtitle"), dKy.optString("wbcontent"), dKy.optString("isShowMoreForum"), dKy.optInt("shareimg"), dKy.optString("extdata"));
+            cVar.Ld(0);
+        } else if (dPS.equals("share/registerShareDataNew")) {
+            cVar.ye(true);
+            c shareInfo = this.mJsBridge.setShareInfo(dPQ.optString("title"), dPQ.optString("desc"), dPQ.optString("img"), dPQ.optString("url"), dPQ.optString("topic"), dPQ.optString("wbtitle"), dPQ.optString("wbcontent"), dPQ.optString("isShowMoreForum"), dPQ.optInt("shareimg"), dPQ.optString("extdata"));
             if (shareInfo != null) {
-                bVar.setStatus(shareInfo.getStatus());
-                bVar.setMessage(shareInfo.getMessage());
-                bVar.setData(shareInfo.getData());
+                cVar.setStatus(shareInfo.getStatus());
+                cVar.setMessage(shareInfo.getMessage());
+                cVar.setData(shareInfo.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("share/share")) {
-            bVar.xz(true);
-            b share = this.mJsBridge.share(dKy.optInt("channel"), dKy.optInt("shareImg"), dKy.optString("img"), dKy.optString("isShowMoreForum"), dKy.optString("url"), dKy.optString("title"), dKy.optString("desc"), dKy.optString("topic"), dKy.optString("wbtitle"), dKy.optString("wbcontent"), dKy.optInt("weixinDisable"), dKy.optString(CashierData.EXT_DATA));
+            cVar.Ld(0);
+        } else if (dPS.equals("share/share")) {
+            cVar.ye(true);
+            c share = this.mJsBridge.share(dPQ.optInt("channel"), dPQ.optInt("shareImg"), dPQ.optString("img"), dPQ.optString("isShowMoreForum"), dPQ.optString("url"), dPQ.optString("title"), dPQ.optString("desc"), dPQ.optString("topic"), dPQ.optString("wbtitle"), dPQ.optString("wbcontent"), dPQ.optInt("weixinDisable"), dPQ.optString(CashierData.EXT_DATA));
             if (share != null) {
-                bVar.setStatus(share.getStatus());
-                bVar.setMessage(share.getMessage());
-                bVar.setData(share.getData());
+                cVar.setStatus(share.getStatus());
+                cVar.setMessage(share.getMessage());
+                cVar.setData(share.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("clipper/getClipperInformation")) {
-            bVar.xz(true);
-            b clipperInformation = this.mJsBridge.getClipperInformation();
+            cVar.Ld(0);
+        } else if (dPS.equals("clipper/getClipperInformation")) {
+            cVar.ye(true);
+            c clipperInformation = this.mJsBridge.getClipperInformation();
             if (clipperInformation != null) {
-                bVar.setStatus(clipperInformation.getStatus());
-                bVar.setMessage(clipperInformation.getMessage());
-                bVar.setData(clipperInformation.getData());
+                cVar.setStatus(clipperInformation.getStatus());
+                cVar.setMessage(clipperInformation.getMessage());
+                cVar.setData(clipperInformation.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("clipper/setClipperInformation")) {
-            bVar.xz(true);
-            b clipperInformation2 = this.mJsBridge.setClipperInformation(dKy.optString(DocumentOpenUtil.TXT));
+            cVar.Ld(0);
+        } else if (dPS.equals("clipper/setClipperInformation")) {
+            cVar.ye(true);
+            c clipperInformation2 = this.mJsBridge.setClipperInformation(dPQ.optString(DocumentOpenUtil.TXT));
             if (clipperInformation2 != null) {
-                bVar.setStatus(clipperInformation2.getStatus());
-                bVar.setMessage(clipperInformation2.getMessage());
-                bVar.setData(clipperInformation2.getData());
+                cVar.setStatus(clipperInformation2.getStatus());
+                cVar.setMessage(clipperInformation2.getMessage());
+                cVar.setData(clipperInformation2.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("system/checkAppInstall")) {
-            bVar.xz(true);
-            b checkAppInstall = this.mJsBridge.checkAppInstall(dKy.optString(PushClientConstants.TAG_PKG_NAME));
+            cVar.Ld(0);
+        } else if (dPS.equals("system/checkAppInstall")) {
+            cVar.ye(true);
+            c checkAppInstall = this.mJsBridge.checkAppInstall(dPQ.optString(PushClientConstants.TAG_PKG_NAME));
             if (checkAppInstall != null) {
-                bVar.setStatus(checkAppInstall.getStatus());
-                bVar.setMessage(checkAppInstall.getMessage());
-                bVar.setData(checkAppInstall.getData());
+                cVar.setStatus(checkAppInstall.getStatus());
+                cVar.setMessage(checkAppInstall.getMessage());
+                cVar.setData(checkAppInstall.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("system/startApp")) {
-            bVar.xz(true);
-            b startApp = this.mJsBridge.startApp(dKy.optString(PushClientConstants.TAG_PKG_NAME), dKy.optString("schema"));
+            cVar.Ld(0);
+        } else if (dPS.equals("system/startApp")) {
+            cVar.ye(true);
+            c startApp = this.mJsBridge.startApp(dPQ.optString(PushClientConstants.TAG_PKG_NAME), dPQ.optString("schema"));
             if (startApp != null) {
-                bVar.setStatus(startApp.getStatus());
-                bVar.setMessage(startApp.getMessage());
-                bVar.setData(startApp.getData());
+                cVar.setStatus(startApp.getStatus());
+                cVar.setMessage(startApp.getMessage());
+                cVar.setData(startApp.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("system/hasNotificationPermission")) {
-            bVar.xz(true);
-            b hasNotificationPermission = this.mJsBridge.hasNotificationPermission();
+            cVar.Ld(0);
+        } else if (dPS.equals("system/hasNotificationPermission")) {
+            cVar.ye(true);
+            c hasNotificationPermission = this.mJsBridge.hasNotificationPermission();
             if (hasNotificationPermission != null) {
-                bVar.setStatus(hasNotificationPermission.getStatus());
-                bVar.setMessage(hasNotificationPermission.getMessage());
-                bVar.setData(hasNotificationPermission.getData());
+                cVar.setStatus(hasNotificationPermission.getStatus());
+                cVar.setMessage(hasNotificationPermission.getMessage());
+                cVar.setData(hasNotificationPermission.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("system/goToNotificationSetting")) {
-            bVar.xz(true);
-            b goToNotificationSetting = this.mJsBridge.goToNotificationSetting();
+            cVar.Ld(0);
+        } else if (dPS.equals("system/goToNotificationSetting")) {
+            cVar.ye(true);
+            c goToNotificationSetting = this.mJsBridge.goToNotificationSetting();
             if (goToNotificationSetting != null) {
-                bVar.setStatus(goToNotificationSetting.getStatus());
-                bVar.setMessage(goToNotificationSetting.getMessage());
-                bVar.setData(goToNotificationSetting.getData());
+                cVar.setStatus(goToNotificationSetting.getStatus());
+                cVar.setMessage(goToNotificationSetting.getMessage());
+                cVar.setData(goToNotificationSetting.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("account/startDownloadCss")) {
-            bVar.xz(true);
-            b startDownloadCss = this.mJsBridge.startDownloadCss(dKy.optString("downloadUrl"));
+            cVar.Ld(0);
+        } else if (dPS.equals("account/startDownloadCss")) {
+            cVar.ye(true);
+            c startDownloadCss = this.mJsBridge.startDownloadCss(dPQ.optString("downloadUrl"));
             if (startDownloadCss != null) {
-                bVar.setStatus(startDownloadCss.getStatus());
-                bVar.setMessage(startDownloadCss.getMessage());
-                bVar.setData(startDownloadCss.getData());
+                cVar.setStatus(startDownloadCss.getStatus());
+                cVar.setMessage(startDownloadCss.getMessage());
+                cVar.setData(startDownloadCss.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("navigationBar/isDisableGoBack")) {
-            bVar.xz(true);
-            b disableGoBack = this.mJsBridge.setDisableGoBack();
+            cVar.Ld(0);
+        } else if (dPS.equals("navigationBar/isDisableGoBack")) {
+            cVar.ye(true);
+            c disableGoBack = this.mJsBridge.setDisableGoBack();
             if (disableGoBack != null) {
-                bVar.setStatus(disableGoBack.getStatus());
-                bVar.setMessage(disableGoBack.getMessage());
-                bVar.setData(disableGoBack.getData());
+                cVar.setStatus(disableGoBack.getStatus());
+                cVar.setMessage(disableGoBack.getMessage());
+                cVar.setData(disableGoBack.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("device/getSupplementInfo")) {
-            bVar.xz(true);
-            b supplementInfo = this.mJsBridge.getSupplementInfo();
+            cVar.Ld(0);
+        } else if (dPS.equals("device/getSupplementInfo")) {
+            cVar.ye(true);
+            c supplementInfo = this.mJsBridge.getSupplementInfo();
             if (supplementInfo != null) {
-                bVar.setStatus(supplementInfo.getStatus());
-                bVar.setMessage(supplementInfo.getMessage());
-                bVar.setData(supplementInfo.getData());
+                cVar.setStatus(supplementInfo.getStatus());
+                cVar.setMessage(supplementInfo.getMessage());
+                cVar.setData(supplementInfo.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("device/getDeviceInfo")) {
-            bVar.xz(true);
-            b deviceInfo = this.mJsBridge.getDeviceInfo();
+            cVar.Ld(0);
+        } else if (dPS.equals("device/getDeviceInfo")) {
+            cVar.ye(true);
+            c deviceInfo = this.mJsBridge.getDeviceInfo();
             if (deviceInfo != null) {
-                bVar.setStatus(deviceInfo.getStatus());
-                bVar.setMessage(deviceInfo.getMessage());
-                bVar.setData(deviceInfo.getData());
+                cVar.setStatus(deviceInfo.getStatus());
+                cVar.setMessage(deviceInfo.getMessage());
+                cVar.setData(deviceInfo.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("activity/completeTask")) {
-            bVar.xz(true);
-            b sendCompleteTaskReqMsg = this.mJsBridge.sendCompleteTaskReqMsg(dKy.optString("activityId"), dKy.optString("missionId"));
+            cVar.Ld(0);
+        } else if (dPS.equals("activity/completeTask")) {
+            cVar.ye(true);
+            c sendCompleteTaskReqMsg = this.mJsBridge.sendCompleteTaskReqMsg(dPQ.optString("activityId"), dPQ.optString("missionId"));
             if (sendCompleteTaskReqMsg != null) {
-                bVar.setStatus(sendCompleteTaskReqMsg.getStatus());
-                bVar.setMessage(sendCompleteTaskReqMsg.getMessage());
-                bVar.setData(sendCompleteTaskReqMsg.getData());
+                cVar.setStatus(sendCompleteTaskReqMsg.getStatus());
+                cVar.setMessage(sendCompleteTaskReqMsg.getMessage());
+                cVar.setData(sendCompleteTaskReqMsg.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("toast/showTipToast")) {
-            bVar.xz(true);
-            b showTipToast = this.mJsBridge.showTipToast(dKy.optString("content"), dKy.optString("linkUrl"), dKy.optString("key"), dKy.optInt("maxTimes"));
+            cVar.Ld(0);
+        } else if (dPS.equals("toast/showTipToast")) {
+            cVar.ye(true);
+            c showTipToast = this.mJsBridge.showTipToast(dPQ.optString("content"), dPQ.optString("linkUrl"), dPQ.optString("key"), dPQ.optInt("maxTimes"));
             if (showTipToast != null) {
-                bVar.setStatus(showTipToast.getStatus());
-                bVar.setMessage(showTipToast.getMessage());
-                bVar.setData(showTipToast.getData());
+                cVar.setStatus(showTipToast.getStatus());
+                cVar.setMessage(showTipToast.getMessage());
+                cVar.setData(showTipToast.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("router/jumpToHTMLPage")) {
-            bVar.xz(true);
-            b jumpToHtmlPage = this.mJsBridge.jumpToHtmlPage(dKy.optString("url"), dKy.optInt("finishThisPage"));
+            cVar.Ld(0);
+        } else if (dPS.equals("router/jumpToHTMLPage")) {
+            cVar.ye(true);
+            c jumpToHtmlPage = this.mJsBridge.jumpToHtmlPage(dPQ.optString("url"), dPQ.optInt("finishThisPage"));
             if (jumpToHtmlPage != null) {
-                bVar.setStatus(jumpToHtmlPage.getStatus());
-                bVar.setMessage(jumpToHtmlPage.getMessage());
-                bVar.setData(jumpToHtmlPage.getData());
+                cVar.setStatus(jumpToHtmlPage.getStatus());
+                cVar.setMessage(jumpToHtmlPage.getMessage());
+                cVar.setData(jumpToHtmlPage.getData());
             }
-            bVar.Kn(0);
-        } else if (dKA.equals("router/goToHotTrend")) {
-            bVar.xz(true);
-            b jumpToHotTrendPage = this.mJsBridge.jumpToHotTrendPage();
+            cVar.Ld(0);
+        } else if (dPS.equals("router/goToHotTrend")) {
+            cVar.ye(true);
+            c jumpToHotTrendPage = this.mJsBridge.jumpToHotTrendPage();
             if (jumpToHotTrendPage != null) {
-                bVar.setStatus(jumpToHotTrendPage.getStatus());
-                bVar.setMessage(jumpToHotTrendPage.getMessage());
-                bVar.setData(jumpToHotTrendPage.getData());
+                cVar.setStatus(jumpToHotTrendPage.getStatus());
+                cVar.setMessage(jumpToHotTrendPage.getMessage());
+                cVar.setData(jumpToHotTrendPage.getData());
             }
-            bVar.Kn(0);
+            cVar.Ld(0);
         }
-        return bVar;
+        return cVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.e.a.a
-    public List<b> processNotification(String str, HashMap hashMap) {
-        b dealClickGoBackToH5;
+    public List<c> processNotification(String str, HashMap hashMap) {
+        c dealClickGoBackToH5;
         if (au.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        if (str.equals("changeSkinType")) {
+        if (str.equals("saveImageSuccess")) {
+            dealClickGoBackToH5 = this.mJsBridge.saveImageSuccess(hashMap);
+        } else if (str.equals("changeSkinType")) {
             dealClickGoBackToH5 = this.mJsBridge.changeSkinTypeInH5(hashMap);
         } else if (str.equals("ShareSuccessNotification")) {
             dealClickGoBackToH5 = this.mJsBridge.shareSuccessNotification(hashMap);
@@ -287,17 +298,22 @@ public class CommonTbJsBridge_Proxy extends a {
             dealClickGoBackToH5 = str.equals("clickGoBackToH5") ? this.mJsBridge.dealClickGoBackToH5(hashMap) : null;
         }
         if (dealClickGoBackToH5 != null) {
-            dealClickGoBackToH5.Kn(0);
+            dealClickGoBackToH5.Ld(0);
         }
-        List<String> list = this.mAsyncCallBackNameList.get(str);
+        List<b> list = this.mAsyncCallBackMethodList.get(str);
         if (dealClickGoBackToH5 != null && list != null) {
-            for (String str2 : list) {
-                b bVar = new b();
-                bVar.Su(str2);
-                bVar.setStatus(dealClickGoBackToH5.getStatus());
-                bVar.setMessage(dealClickGoBackToH5.getMessage());
-                bVar.setData(dealClickGoBackToH5.getData());
-                arrayList.add(bVar);
+            Iterator<b> it = list.iterator();
+            while (it.hasNext()) {
+                b next = it.next();
+                c cVar = new c();
+                cVar.TI(next.getName());
+                cVar.setStatus(dealClickGoBackToH5.getStatus());
+                cVar.setMessage(dealClickGoBackToH5.getMessage());
+                cVar.setData(dealClickGoBackToH5.getData());
+                arrayList.add(cVar);
+                if (!next.dPJ()) {
+                    it.remove();
+                }
             }
         }
         return arrayList;

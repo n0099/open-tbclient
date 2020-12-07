@@ -19,80 +19,80 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes17.dex */
+/* loaded from: classes20.dex */
 public class f {
-    private static final Map<String, m<e>> Bs = new HashMap();
+    private static final Map<String, m<e>> Ci = new HashMap();
 
-    public static m<e> br(Context context, String str) {
-        return com.tb.airbnb.lottie.network.b.bu(context, str);
+    public static m<e> bv(Context context, String str) {
+        return com.tb.airbnb.lottie.network.b.by(context, str);
     }
 
-    public static m<e> bs(Context context, final String str) {
+    public static m<e> bw(Context context, final String str) {
         final Context applicationContext = context.getApplicationContext();
         return b(str, new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: eyy */
+            /* renamed from: eAU */
             public l<e> call() {
-                return f.bt(applicationContext, str);
+                return f.bx(applicationContext, str);
             }
         });
     }
 
     @WorkerThread
-    public static l<e> bt(Context context, String str) {
-        l<e> k;
+    public static l<e> bx(Context context, String str) {
+        l<e> j;
         try {
             String str2 = "asset_" + str;
             if (str.endsWith(".zip")) {
-                k = c(new ZipInputStream(context.getAssets().open(str)), str2);
+                j = c(new ZipInputStream(context.getAssets().open(str)), str2);
             } else {
-                k = k(context.getAssets().open(str), str2);
+                j = j(context.getAssets().open(str), str2);
             }
-            return k;
+            return j;
         } catch (IOException e) {
             return new l<>(e);
         }
     }
 
-    public static m<e> M(Context context, @RawRes final int i) {
+    public static m<e> V(Context context, @RawRes final int i) {
         final Context applicationContext = context.getApplicationContext();
-        return b(U(i), new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.f.3
+        return b(X(i), new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.f.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: eyy */
+            /* renamed from: eAU */
             public l<e> call() {
-                return f.N(applicationContext, i);
+                return f.W(applicationContext, i);
             }
         });
     }
 
     @WorkerThread
-    public static l<e> N(Context context, @RawRes int i) {
+    public static l<e> W(Context context, @RawRes int i) {
         try {
-            return k(context.getResources().openRawResource(i), U(i));
+            return j(context.getResources().openRawResource(i), X(i));
         } catch (Resources.NotFoundException e) {
             return new l<>(e);
         }
     }
 
-    private static String U(@RawRes int i) {
+    private static String X(@RawRes int i) {
         return "rawRes_" + i;
     }
 
-    public static m<e> j(final InputStream inputStream, @Nullable final String str) {
+    public static m<e> i(final InputStream inputStream, @Nullable final String str) {
         return b(str, new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.f.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: eyy */
+            /* renamed from: eAU */
             public l<e> call() {
-                return f.k(inputStream, str);
+                return f.j(inputStream, str);
             }
         });
     }
 
     @WorkerThread
-    public static l<e> k(InputStream inputStream, @Nullable String str) {
+    public static l<e> j(InputStream inputStream, @Nullable String str) {
         return b(inputStream, str, true);
     }
 
@@ -111,7 +111,7 @@ public class f {
         return b(str, new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.f.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: eyy */
+            /* renamed from: eAU */
             public l<e> call() {
                 return f.d(jsonReader, str);
             }
@@ -122,7 +122,7 @@ public class f {
     public static l<e> d(JsonReader jsonReader, @Nullable String str) {
         try {
             e g = t.g(jsonReader);
-            com.tb.airbnb.lottie.model.g.eyL().a(str, g);
+            com.tb.airbnb.lottie.model.g.eBh().a(str, g);
             return new l<>(g);
         } catch (Exception e) {
             return new l<>(e);
@@ -176,7 +176,7 @@ public class f {
                     return new l<>(new IllegalStateException("There is no image for " + entry2.getValue().getFileName()));
                 }
             }
-            com.tb.airbnb.lottie.model.g.eyL().a(str, eVar2);
+            com.tb.airbnb.lottie.model.g.eBh().a(str, eVar2);
             return new l<>(eVar2);
         } catch (IOException e) {
             return new l<>(e);
@@ -194,20 +194,20 @@ public class f {
     }
 
     private static m<e> b(@Nullable final String str, Callable<l<e>> callable) {
-        final e YX = com.tb.airbnb.lottie.model.g.eyL().YX(str);
-        if (YX != null) {
+        final e ZU = com.tb.airbnb.lottie.model.g.eBh().ZU(str);
+        if (ZU != null) {
             return new m<>(new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.f.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
-                /* renamed from: eyy */
+                /* renamed from: eAU */
                 public l<e> call() {
                     Log.d("Gabe", "call\treturning from cache");
                     return new l<>(e.this);
                 }
             });
         }
-        if (Bs.containsKey(str)) {
-            return Bs.get(str);
+        if (Ci.containsKey(str)) {
+            return Ci.get(str);
         }
         m<e> mVar = new m<>(callable);
         mVar.a(new i<e>() { // from class: com.tb.airbnb.lottie.f.7
@@ -215,19 +215,19 @@ public class f {
             @Override // com.tb.airbnb.lottie.i
             public void onResult(e eVar) {
                 if (str != null) {
-                    com.tb.airbnb.lottie.model.g.eyL().a(str, eVar);
+                    com.tb.airbnb.lottie.model.g.eBh().a(str, eVar);
                 }
-                f.Bs.remove(str);
+                f.Ci.remove(str);
             }
         });
         mVar.c(new i<Throwable>() { // from class: com.tb.airbnb.lottie.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.tb.airbnb.lottie.i
             public void onResult(Throwable th) {
-                f.Bs.remove(str);
+                f.Ci.remove(str);
             }
         });
-        Bs.put(str, mVar);
+        Ci.put(str, mVar);
         return mVar;
     }
 }

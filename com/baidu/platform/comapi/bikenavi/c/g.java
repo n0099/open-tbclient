@@ -3,30 +3,30 @@ package com.baidu.platform.comapi.bikenavi.c;
 import com.baidu.platform.comapi.bikenavi.c.b;
 import com.baidu.platform.comapi.walknavi.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
-public class g implements a.InterfaceC0291a {
+/* loaded from: classes26.dex */
+public class g implements a.InterfaceC0302a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f2836a;
+    final /* synthetic */ b f2838a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(b bVar) {
-        this.f2836a = bVar;
+        this.f2838a = bVar;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0291a
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0302a
     public void a() {
         b.a aVar;
         b.a aVar2;
         b.a aVar3;
-        aVar = this.f2836a.v;
+        aVar = this.f2838a.v;
         if (aVar != null) {
-            aVar2 = this.f2836a.v;
+            aVar2 = this.f2838a.v;
             aVar2.onFinish();
-            aVar3 = this.f2836a.v;
+            aVar3 = this.f2838a.v;
             aVar3.cancel();
             return;
         }
-        this.f2836a.q();
+        this.f2838a.q();
     }
 }

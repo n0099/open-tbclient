@@ -1,4 +1,4 @@
 package com.alibaba.fastjson.parser.deserializer;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public interface ParseProcess {
 }

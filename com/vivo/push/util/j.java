@@ -8,23 +8,23 @@ import android.support.v4.view.ViewCompat;
 public final class j implements BaseNotifyLayoutAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Resources f4702a;
+    private Resources f4472a;
     private String b;
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final void init(Context context) {
         this.b = context.getPackageName();
-        this.f4702a = context.getResources();
+        this.f4472a = context.getResources();
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final int getNotificationLayout() {
-        return this.f4702a.getIdentifier("push_notify", "layout", this.b);
+        return this.f4472a.getIdentifier("push_notify", "layout", this.b);
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final int getSuitIconId() {
-        return k.g ? this.f4702a.getIdentifier("notify_icon_rom30", "id", this.b) : k.f ? this.f4702a.getIdentifier("notify_icon_rom20", "id", this.b) : this.f4702a.getIdentifier("notify_icon", "id", this.b);
+        return k.g ? this.f4472a.getIdentifier("notify_icon_rom30", "id", this.b) : k.f ? this.f4472a.getIdentifier("notify_icon_rom20", "id", this.b) : this.f4472a.getIdentifier("notify_icon", "id", this.b);
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
@@ -37,7 +37,7 @@ public final class j implements BaseNotifyLayoutAdapter {
             i = 0;
         }
         if (i > 0) {
-            return this.f4702a.getColor(i);
+            return this.f4472a.getColor(i);
         }
         if (k.g) {
             return -1;

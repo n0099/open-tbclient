@@ -2,11 +2,11 @@ package com.baidu.mapapi.walknavi.model;
 
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class WalkNaviDisplayOption implements com.baidu.mapapi.walknavi.adapter.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Bitmap f2177a = null;
+    private Bitmap f2179a = null;
     private Bitmap b = null;
     private Bitmap c = null;
     private Bitmap d = null;
@@ -22,7 +22,7 @@ public class WalkNaviDisplayOption implements com.baidu.mapapi.walknavi.adapter.
 
     /* JADX DEBUG: Method merged with bridge method */
     public WalkNaviDisplayOption imageToAr(Bitmap bitmap) {
-        this.f2177a = bitmap;
+        this.f2179a = bitmap;
         return this;
     }
 
@@ -76,7 +76,7 @@ public class WalkNaviDisplayOption implements com.baidu.mapapi.walknavi.adapter.
     }
 
     public Bitmap getImageToAR() {
-        return this.f2177a;
+        return this.f2179a;
     }
 
     public Bitmap getImageToNormal() {

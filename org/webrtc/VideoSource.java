@@ -1,5 +1,5 @@
 package org.webrtc;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class VideoSource extends MediaSource {
     private final NativeCapturerObserver capturerObserver;
 

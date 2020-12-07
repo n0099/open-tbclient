@@ -2,14 +2,14 @@ package com.baidu.platform.core.e;
 
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.search.share.PoiDetailShareURLOption;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class c extends com.baidu.platform.base.e {
     public c(PoiDetailShareURLOption poiDetailShareURLOption) {
         a(poiDetailShareURLOption);
     }
 
     private void a(PoiDetailShareURLOption poiDetailShareURLOption) {
-        this.f2816a.a("url", ("http://wapmap.baidu.com/s?tn=Detail&pid=" + poiDetailShareURLOption.mUid + "&smsf=3") + HttpClient.getPhoneInfo());
+        this.f2818a.a("url", ("http://wapmap.baidu.com/s?tn=Detail&pid=" + poiDetailShareURLOption.mUid + "&smsf=3") + HttpClient.getPhoneInfo());
         b(false);
         a(false);
     }

@@ -1,9 +1,16 @@
 package com.baidu.live.gift;
 
-import com.baidu.live.tbadk.TbPageContext;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes4.dex */
-public class ai {
-    public boolean aSp;
-    public String fromType;
-    public TbPageContext pageContext;
+public interface ai {
+    void HO();
+
+    void ID();
+
+    void a(int i, int i2, Intent intent, com.baidu.live.data.w wVar, String str);
+
+    void a(Context context, long j, String str, long j2, String str2, String str3);
+
+    void bF(boolean z);
 }

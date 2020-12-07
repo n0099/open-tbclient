@@ -5,15 +5,15 @@ import com.baidu.searchbox.websocket.WebSocketTask;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import kotlin.jvm.internal.o;
-import kotlin.jvm.internal.q;
-@kotlin.h
-/* loaded from: classes7.dex */
+import kotlin.jvm.internal.p;
+@kotlin.e
+/* loaded from: classes25.dex */
 public final class k {
-    public static final a dfL = new a(null);
-    private volatile Set<String> dfK;
+    public static final a dmK = new a(null);
+    private volatile Set<String> dmJ;
 
-    @kotlin.h
-    /* loaded from: classes7.dex */
+    @kotlin.e
+    /* loaded from: classes25.dex */
     public static final class a {
         private a() {
         }
@@ -24,26 +24,26 @@ public final class k {
     }
 
     public final synchronized void a(WebSocketTask webSocketTask) {
-        q.n(webSocketTask, "task");
-        if (this.dfK == null) {
-            this.dfK = new LinkedHashSet();
+        p.o(webSocketTask, "task");
+        if (this.dmJ == null) {
+            this.dmJ = new LinkedHashSet();
         }
-        Set<String> set = this.dfK;
+        Set<String> set = this.dmJ;
         if (set != null) {
             set.add(webSocketTask.getTaskId());
         }
     }
 
-    public final synchronized void qt(String str) {
-        q.n(str, "taskId");
-        Set<String> set = this.dfK;
+    public final synchronized void ra(String str) {
+        p.o(str, "taskId");
+        Set<String> set = this.dmJ;
         if (set != null) {
             set.remove(str);
         }
     }
 
     public final synchronized void release() {
-        Set<String> set = this.dfK;
+        Set<String> set = this.dmJ;
         if (set != null) {
             for (String str : set) {
                 try {
@@ -53,16 +53,16 @@ public final class k {
                 }
             }
         }
-        Set<String> set2 = this.dfK;
+        Set<String> set2 = this.dmJ;
         if (set2 != null) {
             set2.clear();
         }
     }
 
-    public final synchronized boolean aCb() {
+    public final synchronized boolean aFk() {
         boolean z;
         synchronized (this) {
-            Set<String> set = this.dfK;
+            Set<String> set = this.dmJ;
             z = (set != null ? set.size() : 0) < 5;
         }
         return z;

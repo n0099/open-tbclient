@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import tbclient.ForumMenu.ForumMenuResIdl;
 import tbclient.ForumMenu.Menu;
 import tbclient.ForumMenu.SubMenu;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<Object> {
     private c officialBarMenuDatas;
 
@@ -33,37 +33,37 @@ public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<
                 setOfficialBarMenuDatas(new c());
                 if (forumMenuResIdl.data != null) {
                     getOfficialBarMenuDatas().setUpdate_time(forumMenuResIdl.data.update_time.intValue());
-                    getOfficialBarMenuDatas().Dj(forumMenuResIdl.data.has_menu.intValue());
-                    getOfficialBarMenuDatas().ec(new ArrayList());
+                    getOfficialBarMenuDatas().DY(forumMenuResIdl.data.has_menu.intValue());
+                    getOfficialBarMenuDatas().en(new ArrayList());
                     int size = forumMenuResIdl.data.parent_menu.size();
                     for (int i2 = 0; i2 < size; i2++) {
                         com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
                         Menu menu = forumMenuResIdl.data.parent_menu.get(i2);
-                        bVar.Di(menu.action_type.intValue());
+                        bVar.DX(menu.action_type.intValue());
                         bVar.setContent(menu.content);
                         bVar.setCreate_time(menu.create_time.intValue());
                         bVar.setForum_id(menu.forum_id + "");
                         bVar.setId(menu.id + "");
                         bVar.setLevel(menu.level.intValue());
                         bVar.setName(menu.name);
-                        bVar.eb(new ArrayList());
+                        bVar.em(new ArrayList());
                         if (menu.sub_menu != null) {
                             int size2 = menu.sub_menu.size();
                             for (int i3 = 0; i3 < size2; i3++) {
                                 SubMenu subMenu = menu.sub_menu.get(i3);
                                 com.baidu.tieba.im.data.b bVar2 = new com.baidu.tieba.im.data.b();
-                                bVar2.Di(subMenu.action_type.intValue());
+                                bVar2.DX(subMenu.action_type.intValue());
                                 bVar2.setContent(subMenu.content);
                                 bVar2.setForum_id(subMenu.forum_id + "");
                                 bVar2.setId(subMenu.id + "");
                                 bVar2.setLevel(subMenu.level.intValue());
                                 bVar2.setName(subMenu.name);
-                                bVar2.Dh(subMenu.parent_id.intValue());
+                                bVar2.DW(subMenu.parent_id.intValue());
                                 bVar2.setUpdate_time(subMenu.update_time.intValue());
-                                bVar.cQt().add(bVar2);
+                                bVar.cVH().add(bVar2);
                             }
                         }
-                        getOfficialBarMenuDatas().cQv().add(bVar);
+                        getOfficialBarMenuDatas().cVJ().add(bVar);
                     }
                 }
             }

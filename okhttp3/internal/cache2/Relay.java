@@ -115,7 +115,6 @@ final class Relay {
             this.fileOperator = new FileOperator(Relay.this.file.getChannel());
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [335=4] */
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         /* JADX WARN: Code restructure failed: missing block: B:24:0x0040, code lost:
             if (r0 != 2) goto L23;
@@ -220,24 +219,28 @@ final class Relay {
                 while (true) {
                     long j2 = this.sourcePos;
                     long j3 = Relay.this.upstreamPos;
-                    if (j2 != j3) {
+                    if (j2 == j3) {
+                        if (!Relay.this.complete) {
+                            if (Relay.this.upstreamReader != null) {
+                                this.timeout.waitUntilNotified(Relay.this);
+                            } else {
+                                Relay.this.upstreamReader = Thread.currentThread();
+                                c = 1;
+                                break;
+                            }
+                        } else {
+                            return -1L;
+                        }
+                    } else {
                         long size = j3 - Relay.this.buffer.size();
-                        if (this.sourcePos >= size) {
+                        if (this.sourcePos < size) {
+                            c = 2;
+                        } else {
                             long min = Math.min(j, j3 - this.sourcePos);
                             Relay.this.buffer.copyTo(buffer, this.sourcePos - size, min);
                             this.sourcePos += min;
                             return min;
                         }
-                        c = 2;
-                    } else if (!Relay.this.complete) {
-                        if (Relay.this.upstreamReader == null) {
-                            Relay.this.upstreamReader = Thread.currentThread();
-                            c = 1;
-                            break;
-                        }
-                        this.timeout.waitUntilNotified(Relay.this);
-                    } else {
-                        return -1L;
                     }
                 }
             }

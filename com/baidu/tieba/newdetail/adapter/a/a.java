@@ -4,20 +4,20 @@ import android.content.Context;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.adp.widget.ListView.af.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public abstract class a<T, V extends af.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    private boolean lch;
+    private boolean lpH;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
     }
 
-    public void tD(boolean z) {
-        this.lch = z;
+    public void uf(boolean z) {
+        this.lpH = z;
     }
 
-    public boolean deW() {
-        return this.lch;
+    public boolean dki() {
+        return this.lpH;
     }
 }

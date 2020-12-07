@@ -1,16 +1,16 @@
 package com.baidu.ar.imu;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public enum b {
     WORLD(0),
     RELATIVE(1);
     
-    private int ro;
+    private int rF;
 
     b(int i) {
-        this.ro = i;
+        this.rF = i;
     }
 
-    public static b J(int i) {
+    public static b L(int i) {
         b[] values;
         for (b bVar : values()) {
             if (bVar.getTypeValue() == i) {
@@ -21,6 +21,6 @@ public enum b {
     }
 
     public int getTypeValue() {
-        return this.ro;
+        return this.rF;
     }
 }

@@ -1,38 +1,38 @@
 package rx;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public final class Notification<T> {
-    private static final Notification<Void> qfa = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind qeY;
-    private final Throwable qeZ;
+    private static final Notification<Void> pPc = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind pPa;
+    private final Throwable pPb;
     private final T value;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public enum Kind {
         OnNext,
         OnError,
         OnCompleted
     }
 
-    public static <T> Notification<T> cd(T t) {
+    public static <T> Notification<T> bT(T t) {
         return new Notification<>(Kind.OnNext, t, null);
     }
 
-    public static <T> Notification<T> S(Throwable th) {
+    public static <T> Notification<T> Q(Throwable th) {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> eFj() {
-        return (Notification<T>) qfa;
+    public static <T> Notification<T> eFi() {
+        return (Notification<T>) pPc;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.qeZ = th;
-        this.qeY = kind;
+        this.pPb = th;
+        this.pPa = kind;
     }
 
-    public Throwable eFk() {
-        return this.qeZ;
+    public Throwable eFj() {
+        return this.pPb;
     }
 
     public T getValue() {
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return eFo() && this.value != null;
+        return eFn() && this.value != null;
     }
 
-    public boolean eFl() {
-        return eAy() && this.qeZ != null;
+    public boolean eFk() {
+        return eCS() && this.pPb != null;
     }
 
-    public Kind eFm() {
-        return this.qeY;
+    public Kind eFl() {
+        return this.pPa;
     }
 
-    public boolean eAy() {
-        return eFm() == Kind.OnError;
+    public boolean eCS() {
+        return eFl() == Kind.OnError;
+    }
+
+    public boolean eFm() {
+        return eFl() == Kind.OnCompleted;
     }
 
     public boolean eFn() {
-        return eFm() == Kind.OnCompleted;
-    }
-
-    public boolean eFo() {
-        return eFm() == Kind.OnNext;
+        return eFl() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(eFm());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(eFl());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (eFl()) {
-            append.append(' ').append(eFk().getMessage());
+        if (eFk()) {
+            append.append(' ').append(eFj().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = eFm().hashCode();
+        int hashCode = eFl().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (eFl()) {
-            return (hashCode * 31) + eFk().hashCode();
+        if (eFk()) {
+            return (hashCode * 31) + eFj().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.eFm() != eFm() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.qeZ != notification.qeZ && (this.qeZ == null || !this.qeZ.equals(notification.qeZ))))) {
+            if (notification.eFl() != eFl() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.pPb != notification.pPb && (this.pPb == null || !this.pPb.equals(notification.pPb))))) {
                 z = false;
             }
             return z;

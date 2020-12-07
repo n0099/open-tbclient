@@ -24,6 +24,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.baidu.ala.dumixar.utils.LuaMessageHelper;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
+import com.baidu.ar.arplay.core.engine.ARPDataInteraction;
 import com.baidu.ar.arplay.core.engine.ARPEngine;
 import com.baidu.ar.arplay.core.message.ARPMessage;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
@@ -32,74 +34,74 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private static b fS = null;
-    private ViewGroup fT;
-    private View.OnTouchListener fU;
-    private View.OnTouchListener fV;
-    private String fW;
-    private ViewGroup fY;
-    private WebView fZ;
+    private static volatile b gf = null;
+    private ViewGroup gg;
+    private View.OnTouchListener gh;
+    private View.OnTouchListener gi;
+    private String gj;
+    private ViewGroup gl;
+    private WebView gm;
     private Context mContext;
-    private List<com.baidu.ar.arplay.d.a> fX = new ArrayList();
-    private Handler ga = new Handler(Looper.getMainLooper()) { // from class: com.baidu.ar.arplay.d.b.1
+    private List<com.baidu.ar.arplay.d.a> gk = new ArrayList();
+    private Handler gn = new Handler(Looper.getMainLooper()) { // from class: com.baidu.ar.arplay.d.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            final com.baidu.ar.arplay.d.a l;
+            final com.baidu.ar.arplay.d.a n;
             super.handleMessage(message);
-            a.C0076a c0076a = message.obj instanceof a.C0076a ? (a.C0076a) message.obj : null;
+            a.C0078a c0078a = message.obj instanceof a.C0078a ? (a.C0078a) message.obj : null;
             switch (message.what) {
                 case 103:
-                    b.this.a(c0076a);
+                    b.this.a(c0078a);
                     return;
                 case 104:
-                    if (c0076a == null || (l = b.this.l(c0076a.dz)) == null || c0076a.fR == null) {
+                    if (c0078a == null || (n = b.this.n(c0078a.dM)) == null || c0078a.ge == null) {
                         return;
                     }
-                    l.evaluateJavascript(c0076a.fR, new ValueCallback<String>() { // from class: com.baidu.ar.arplay.d.b.1.1
+                    n.evaluateJavascript(c0078a.ge, new ValueCallback<String>() { // from class: com.baidu.ar.arplay.d.b.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // android.webkit.ValueCallback
-                        /* renamed from: H */
+                        /* renamed from: K */
                         public void onReceiveValue(String str) {
-                            l.invalidate();
-                            l.setIsNeedRender(true);
-                            b.this.k(((Integer) l.getTag()).intValue());
+                            n.invalidate();
+                            n.setIsNeedRender(true);
+                            b.this.m(((Integer) n.getTag()).intValue());
                         }
                     });
                     return;
                 case 105:
-                    com.baidu.ar.arplay.d.a l2 = b.this.l(message.arg1);
-                    if (l2 != null) {
-                        l2.setIsNeedRender(true);
-                        l2.invalidate();
+                    com.baidu.ar.arplay.d.a n2 = b.this.n(message.arg1);
+                    if (n2 != null) {
+                        n2.setIsNeedRender(true);
+                        n2.invalidate();
                         return;
                     }
                     return;
                 case 106:
-                    b.this.b(c0076a);
+                    b.this.b(c0078a);
                     return;
                 default:
                     return;
             }
         }
     };
-    WebViewClient gb = new WebViewClient() { // from class: com.baidu.ar.arplay.d.b.6
+    WebViewClient go = new WebViewClient() { // from class: com.baidu.ar.arplay.d.b.6
         @Override // android.webkit.WebViewClient
         public void onPageCommitVisible(WebView webView, String str) {
             super.onPageCommitVisible(webView, str);
             int intValue = ((Integer) webView.getTag()).intValue();
-            b.this.j(intValue);
-            b.this.m(intValue);
+            b.this.l(intValue);
+            b.this.o(intValue);
         }
 
         @Override // android.webkit.WebViewClient
         public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
             if (webResourceError != null) {
                 a aVar = new a();
-                aVar.dL = webResourceError.getErrorCode();
+                aVar.dY = webResourceError.getErrorCode();
                 if (webResourceError.getDescription() != null) {
-                    aVar.gh = webResourceError.getDescription().toString();
+                    aVar.gu = webResourceError.getDescription().toString();
                 }
                 b.this.a(((Integer) webView.getTag()).intValue(), aVar);
             }
@@ -110,8 +112,8 @@ public class b {
         public void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
             if (webResourceResponse != null) {
                 a aVar = new a();
-                aVar.dL = webResourceResponse.getStatusCode();
-                aVar.gh = webResourceResponse.getReasonPhrase();
+                aVar.dY = webResourceResponse.getStatusCode();
+                aVar.gu = webResourceResponse.getReasonPhrase();
                 b.this.a(((Integer) webView.getTag()).intValue(), aVar);
             }
             super.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
@@ -121,28 +123,28 @@ public class b {
         public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             if (sslError != null) {
                 a aVar = new a();
-                aVar.dL = sslError.getPrimaryError();
-                aVar.gh = "ssl error!";
+                aVar.dY = sslError.getPrimaryError();
+                aVar.gu = "ssl error!";
                 b.this.a(((Integer) webView.getTag()).intValue(), aVar);
             }
             super.onReceivedSslError(webView, sslErrorHandler, sslError);
         }
     };
-    private WebChromeClient gc = new WebChromeClient() { // from class: com.baidu.ar.arplay.d.b.7
+    private WebChromeClient gp = new WebChromeClient() { // from class: com.baidu.ar.arplay.d.b.7
         @Override // android.webkit.WebChromeClient
         public void onProgressChanged(WebView webView, int i) {
             super.onProgressChanged(webView, i);
             if (i == 100) {
-                b.this.m(((com.baidu.ar.arplay.d.a) webView).getWebViewData().dz);
+                b.this.o(((com.baidu.ar.arplay.d.a) webView).getWebViewData().dM);
             }
         }
     };
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public class a {
-        public String gh;
-        public String gg = "android";
-        public int dL = 0;
+        public String gu;
+        public String gt = "android";
+        public int dY = 0;
 
         public a() {
         }
@@ -155,80 +157,80 @@ public class b {
         HashMap hashMap2 = new HashMap();
         hashMap2.put("texture_id", Integer.valueOf(i));
         HashMap hashMap3 = new HashMap();
-        hashMap3.put("platform", aVar.gg);
-        hashMap3.put("error_code", Integer.valueOf(aVar.dL));
-        hashMap3.put("error_msg", aVar.gh);
+        hashMap3.put("platform", aVar.gt);
+        hashMap3.put("error_code", Integer.valueOf(aVar.dY));
+        hashMap3.put(AlaRecorderLog.KEY_ERROR_MSG, aVar.gu);
         hashMap2.put("data", hashMap3);
         hashMap.put("event_data", hashMap2);
         ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
-        m(i);
+        o(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(a.C0076a c0076a) {
-        if (c0076a == null || !isValid()) {
+    public void a(a.C0078a c0078a) {
+        if (c0078a == null || !isValid()) {
             return;
         }
-        com.baidu.ar.arplay.d.a e = e(c0076a.width, c0076a.height);
-        e.setWebViewData(c0076a);
-        d.bs().b(c0076a.dz, c0076a.width, c0076a.height);
-        e.setTag(Integer.valueOf(c0076a.dz));
-        String str = c0076a.url;
-        if (!c0076a.fQ) {
+        com.baidu.ar.arplay.d.a e = e(c0078a.width, c0078a.height);
+        e.setWebViewData(c0078a);
+        d.bp().b(c0078a.dM, c0078a.width, c0078a.height);
+        e.setTag(Integer.valueOf(c0078a.dM));
+        String str = c0078a.url;
+        if (!c0078a.gd) {
             str = "file://" + this.mContext.getFilesDir().getAbsolutePath().concat(File.separator) + "ar/" + str;
         }
         e.loadUrl(str);
         e.invalidate();
         e.setIsNeedRender(true);
-        e(c0076a);
+        e(c0078a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(a.C0076a c0076a) {
-        if (c0076a == null || !bq()) {
+    public void b(a.C0078a c0078a) {
+        if (c0078a == null || !bn()) {
             return;
         }
-        if (this.fZ == null) {
-            this.fZ = new WebView(this.mContext);
-            this.fZ.setBackgroundColor(17170445);
-            WebSettings settings = this.fZ.getSettings();
+        if (this.gm == null) {
+            this.gm = new WebView(this.mContext);
+            this.gm.setBackgroundColor(17170445);
+            WebSettings settings = this.gm.getSettings();
             settings.setLoadWithOverviewMode(true);
             settings.setUseWideViewPort(true);
             settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
             settings.setJavaScriptEnabled(true);
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -1);
-            this.fZ.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.ar.arplay.d.b.3
+            this.gm.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.ar.arplay.d.b.3
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
-                    if (b.this.fV != null) {
-                        return b.this.fV.onTouch(view, motionEvent);
+                    if (b.this.gi != null) {
+                        return b.this.gi.onTouch(view, motionEvent);
                     }
                     return false;
                 }
             });
-            this.fY.addView(this.fZ, layoutParams);
+            this.gl.addView(this.gm, layoutParams);
         }
-        String str = c0076a.url;
-        if (!c0076a.fQ) {
+        String str = c0078a.url;
+        if (!c0078a.gd) {
             str = "file://" + this.mContext.getFilesDir().getAbsolutePath().concat(File.separator) + "ar/" + str;
         }
-        this.fZ.loadUrl(str);
-        this.fZ.invalidate();
+        this.gm.loadUrl(str);
+        this.gm.invalidate();
     }
 
-    public static b bp() {
-        if (fS == null) {
+    public static b bm() {
+        if (gf == null) {
             synchronized (b.class) {
-                if (fS == null) {
-                    fS = new b();
+                if (gf == null) {
+                    gf = new b();
                 }
             }
         }
-        return fS;
+        return gf;
     }
 
-    private boolean bq() {
-        if (this.mContext == null || this.fY == null) {
+    private boolean bn() {
+        if (this.mContext == null || this.gl == null) {
             Log.e("GLWebView", "Native WebView context or root is null!");
             return false;
         }
@@ -238,16 +240,16 @@ public class b {
     private com.baidu.ar.arplay.d.a e(int i, int i2) {
         final com.baidu.ar.arplay.d.a aVar = new com.baidu.ar.arplay.d.a(this.mContext);
         ViewGroup.LayoutParams layoutParams = null;
-        if (this.fT instanceof FrameLayout) {
+        if (this.gg instanceof FrameLayout) {
             layoutParams = new FrameLayout.LayoutParams(i, i2);
-        } else if (this.fT instanceof LinearLayout) {
+        } else if (this.gg instanceof LinearLayout) {
             layoutParams = new LinearLayout.LayoutParams(i, i2);
-        } else if (this.fT instanceof RelativeLayout) {
+        } else if (this.gg instanceof RelativeLayout) {
             layoutParams = new RelativeLayout.LayoutParams(i, i2);
         }
         aVar.setBackgroundColor(17170445);
-        aVar.setWebViewClient(this.gb);
-        aVar.setWebChromeClient(this.gc);
+        aVar.setWebViewClient(this.go);
+        aVar.setWebChromeClient(this.gp);
         aVar.setHorizontalScrollBarEnabled(false);
         aVar.setVerticalScrollBarEnabled(false);
         WebSettings settings = aVar.getSettings();
@@ -262,26 +264,26 @@ public class b {
                     if (aVar == null) {
                         return;
                     }
-                    b.this.m(((Integer) aVar.getTag()).intValue());
+                    b.this.o(((Integer) aVar.getTag()).intValue());
                 }
             }, "NativeCallback");
         }
         aVar.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.ar.arplay.d.b.5
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (b.this.fU != null) {
-                    return b.this.fU.onTouch(view, motionEvent);
+                if (b.this.gh != null) {
+                    return b.this.gh.onTouch(view, motionEvent);
                 }
                 return false;
             }
         });
-        this.fT.addView(aVar, layoutParams);
-        this.fX.add(aVar);
+        this.gg.addView(aVar, layoutParams);
+        this.gk.add(aVar);
         return aVar;
     }
 
     private boolean isValid() {
-        if (this.mContext == null || this.fT == null) {
+        if (this.mContext == null || this.gg == null) {
             Log.e("GLWebView", "GLWebView context or root is null!");
             return false;
         }
@@ -289,7 +291,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void j(int i) {
+    public void l(int i) {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(LuaMessageHelper.KEY_EVENT_NAME, "webView_operation_load_finish");
         HashMap hashMap2 = new HashMap();
@@ -299,7 +301,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void k(int i) {
+    public void m(int i) {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(LuaMessageHelper.KEY_EVENT_NAME, "webView_operation_update_finish");
         HashMap hashMap2 = new HashMap();
@@ -309,9 +311,9 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.ar.arplay.d.a l(int i) {
-        for (com.baidu.ar.arplay.d.a aVar : this.fX) {
-            if (aVar != null && aVar.getWebViewData() != null && aVar.getWebViewData().dz == i) {
+    public com.baidu.ar.arplay.d.a n(int i) {
+        for (com.baidu.ar.arplay.d.a aVar : this.gk) {
+            if (aVar != null && aVar.getWebViewData() != null && aVar.getWebViewData().dM == i) {
                 return aVar;
             }
         }
@@ -319,25 +321,25 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void m(int i) {
-        Message obtainMessage = this.ga.obtainMessage();
+    public void o(int i) {
+        Message obtainMessage = this.gn.obtainMessage();
         obtainMessage.what = 105;
         obtainMessage.arg1 = i;
-        this.ga.sendMessage(obtainMessage);
+        this.gn.sendMessage(obtainMessage);
     }
 
-    public void G(String str) {
-        this.fW = str;
+    public void J(String str) {
+        this.gj = str;
     }
 
     public void a(Context context, ViewGroup viewGroup, View.OnTouchListener onTouchListener) {
         this.mContext = context;
-        this.fT = viewGroup;
-        this.fU = onTouchListener;
-        ARPEngine.getInstance().setHtmlUpdateCallback(new ARPEngine.c() { // from class: com.baidu.ar.arplay.d.b.2
-            @Override // com.baidu.ar.arplay.core.engine.ARPEngine.c
+        this.gg = viewGroup;
+        this.gh = onTouchListener;
+        ARPEngine.getInstance().setHtmlUpdateCallback(new ARPDataInteraction.a() { // from class: com.baidu.ar.arplay.d.b.2
+            @Override // com.baidu.ar.arplay.core.engine.ARPDataInteraction.a
             public boolean c(int i, int i2) {
-                b.this.m(i);
+                b.this.o(i);
                 return true;
             }
         });
@@ -345,57 +347,74 @@ public class b {
 
     public void b(Context context, ViewGroup viewGroup, View.OnTouchListener onTouchListener) {
         this.mContext = context;
-        this.fY = viewGroup;
-        this.fV = onTouchListener;
+        this.gl = viewGroup;
+        this.gi = onTouchListener;
     }
 
-    public void c(a.C0076a c0076a) {
-        Message obtainMessage = this.ga.obtainMessage();
+    public void c(a.C0078a c0078a) {
+        Message obtainMessage = this.gn.obtainMessage();
         obtainMessage.what = 103;
-        obtainMessage.obj = c0076a;
-        this.ga.sendMessage(obtainMessage);
+        obtainMessage.obj = c0078a;
+        this.gn.sendMessage(obtainMessage);
     }
 
-    public void d(a.C0076a c0076a) {
-        Message obtainMessage = this.ga.obtainMessage();
+    public void d(a.C0078a c0078a) {
+        Message obtainMessage = this.gn.obtainMessage();
         obtainMessage.what = 106;
-        obtainMessage.obj = c0076a;
-        this.ga.sendMessage(obtainMessage);
+        obtainMessage.obj = c0078a;
+        this.gn.sendMessage(obtainMessage);
     }
 
-    public void e(a.C0076a c0076a) {
-        Message obtainMessage = this.ga.obtainMessage();
+    public void e(a.C0078a c0078a) {
+        Message obtainMessage = this.gn.obtainMessage();
         obtainMessage.what = 104;
-        obtainMessage.obj = c0076a;
-        com.baidu.ar.arplay.d.a l = l(c0076a.dz);
-        if (l != null) {
-            l.setWebViewData(c0076a);
-            this.ga.sendMessage(obtainMessage);
+        obtainMessage.obj = c0078a;
+        com.baidu.ar.arplay.d.a n = n(c0078a.dM);
+        if (n != null) {
+            n.setWebViewData(c0078a);
+            this.gn.sendMessage(obtainMessage);
         }
     }
 
     public void release() {
         this.mContext = null;
-        d.bs().release();
-        if (this.fX != null) {
-            for (com.baidu.ar.arplay.d.a aVar : this.fX) {
-                if (aVar != null) {
-                    if (aVar.getParent() == this.fT) {
-                        this.fT.removeView(aVar);
-                    }
-                    aVar.destroy();
-                }
-            }
-            this.fX.clear();
-            this.fX = null;
-        }
+        d.bp().release();
         ARPEngine.getInstance().setHtmlUpdateCallback(null);
-        if (this.ga != null) {
-            this.ga.removeCallbacksAndMessages(null);
-            this.ga = null;
+        if (this.gn != null) {
+            this.gn.removeCallbacksAndMessages(null);
+            runOnUiThread(new Runnable() { // from class: com.baidu.ar.arplay.d.b.8
+                @Override // java.lang.Runnable
+                public void run() {
+                    com.baidu.ar.arplay.c.b.b(b.class.getName(), "remove webviewList in ui thread");
+                    if (b.this.gk != null) {
+                        for (com.baidu.ar.arplay.d.a aVar : b.this.gk) {
+                            if (aVar != null) {
+                                if (aVar.getParent() == b.this.gg) {
+                                    b.this.gg.removeView(aVar);
+                                }
+                                aVar.destroy();
+                            }
+                        }
+                        b.this.gk.clear();
+                        b.this.gk = null;
+                    }
+                }
+            });
+            this.gn = null;
         }
-        fS = null;
-        this.fZ = null;
-        this.fV = null;
+        gf = null;
+        this.gm = null;
+        this.gi = null;
+    }
+
+    public void runOnUiThread(Runnable runnable) {
+        if (runnable == null) {
+            return;
+        }
+        if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+            runnable.run();
+        } else {
+            this.gn.post(runnable);
+        }
     }
 }

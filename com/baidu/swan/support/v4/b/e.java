@@ -1,17 +1,16 @@
 package com.baidu.swan.support.v4.b;
 
-import com.baidu.webkit.internal.ETAG;
 import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 public abstract class e<K, V> {
-    e<K, V>.b ejq;
-    e<K, V>.c ejr;
-    e<K, V>.C0558e ejs;
+    e<K, V>.b eqs;
+    e<K, V>.c eqt;
+    e<K, V>.C0570e equ;
 
     protected abstract void colClear();
 
@@ -31,7 +30,7 @@ public abstract class e<K, V> {
 
     protected abstract V colSetValue(int i, V v);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes16.dex */
     final class a<T> implements Iterator<T> {
         boolean mCanRemove = false;
         int mIndex;
@@ -68,7 +67,7 @@ public abstract class e<K, V> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes16.dex */
     final class d implements Iterator<Map.Entry<K, V>>, Map.Entry<K, V> {
         int mEnd;
         boolean mEntryValid = false;
@@ -153,11 +152,11 @@ public abstract class e<K, V> {
         }
 
         public final String toString() {
-            return getKey() + ETAG.EQUAL + getValue();
+            return getKey() + "=" + getValue();
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes16.dex */
     final class b implements Set<Map.Entry<K, V>> {
         b() {
         }
@@ -268,7 +267,7 @@ public abstract class e<K, V> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes16.dex */
     final class c implements Set<K> {
         c() {
         }
@@ -360,9 +359,9 @@ public abstract class e<K, V> {
     }
 
     /* renamed from: com.baidu.swan.support.v4.b.e$e  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    final class C0558e implements Collection<V> {
-        C0558e() {
+    /* loaded from: classes16.dex */
+    final class C0570e implements Collection<V> {
+        C0570e() {
         }
 
         @Override // java.util.Collection
@@ -547,23 +546,23 @@ public abstract class e<K, V> {
     }
 
     public Set<Map.Entry<K, V>> getEntrySet() {
-        if (this.ejq == null) {
-            this.ejq = new b();
+        if (this.eqs == null) {
+            this.eqs = new b();
         }
-        return this.ejq;
+        return this.eqs;
     }
 
     public Set<K> getKeySet() {
-        if (this.ejr == null) {
-            this.ejr = new c();
+        if (this.eqt == null) {
+            this.eqt = new c();
         }
-        return this.ejr;
+        return this.eqt;
     }
 
     public Collection<V> getValues() {
-        if (this.ejs == null) {
-            this.ejs = new C0558e();
+        if (this.equ == null) {
+            this.equ = new C0570e();
         }
-        return this.ejs;
+        return this.equ;
     }
 }

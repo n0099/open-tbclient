@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.map;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class ItsMapObj {
     public MapObj baseMapObj = new MapObj();
     public long tTrafficStart = 0;

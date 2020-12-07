@@ -17,39 +17,39 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlaBannerAutoScrollView<T> extends FrameLayout {
-    private c gqT;
-    private LinearLayout gsn;
-    private RecyclerView gso;
-    private a gsp;
-    private g gsq;
-    private int gsr;
-    private long gss;
-    private boolean gst;
-    private boolean gsu;
-    private e gsv;
-    private d gsw;
-    private Runnable gsx;
+    private int gAA;
+    private long gAB;
+    private boolean gAC;
+    private boolean gAD;
+    private e gAE;
+    private d gAF;
+    private Runnable gAG;
+    private LinearLayout gAw;
+    private RecyclerView gAx;
+    private a gAy;
+    private g gAz;
+    private c gzc;
     private Context mContext;
     private RecyclerView.OnScrollListener mOnScrollListener;
 
     public AlaBannerAutoScrollView(Context context) {
         super(context);
-        this.gsq = new g();
-        this.gsr = -1;
-        this.gss = 2000L;
-        this.gst = false;
-        this.gsu = false;
-        this.gqT = new c() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.3
+        this.gAz = new g();
+        this.gAA = -1;
+        this.gAB = 2000L;
+        this.gAC = false;
+        this.gAD = false;
+        this.gzc = new c() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.3
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.c
             public b p(ViewGroup viewGroup, int i) {
                 return new b<com.baidu.tieba.ala.alasquare.special_forum.data.b>(LayoutInflater.from(AlaBannerAutoScrollView.this.mContext).inflate(R.layout.special_bar_recommend_activity, viewGroup, false)) { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.3.1
-                    public TbImageView gqV;
+                    public TbImageView gze;
 
                     @Override // com.baidu.tieba.ala.alasquare.widget.banner.b
-                    protected void al(View view) {
-                        this.gqV = (TbImageView) view.findViewById(R.id.cover);
+                    protected void an(View view) {
+                        this.gze = (TbImageView) view.findViewById(R.id.cover);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -57,8 +57,8 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
                     @Override // com.baidu.tieba.ala.alasquare.widget.banner.b
                     /* renamed from: a */
                     public void k(int i2, com.baidu.tieba.ala.alasquare.special_forum.data.b bVar) {
-                        if (bVar != null && this.gqV != null && !StringUtils.isNull(bVar.pic)) {
-                            this.gqV.startLoad(bVar.pic, 10, false);
+                        if (bVar != null && this.gze != null && !StringUtils.isNull(bVar.pic)) {
+                            this.gze.startLoad(bVar.pic, 10, false);
                         }
                     }
 
@@ -69,14 +69,14 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
                 };
             }
         };
-        this.gsx = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.4
+        this.gAG = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.4
             @Override // java.lang.Runnable
             public void run() {
                 int currentItem;
-                if (AlaBannerAutoScrollView.this.gsu && (currentItem = AlaBannerAutoScrollView.this.getCurrentItem()) != -1) {
+                if (AlaBannerAutoScrollView.this.gAD && (currentItem = AlaBannerAutoScrollView.this.getCurrentItem()) != -1) {
                     AlaBannerAutoScrollView.this.setCurrentItem(currentItem + 1, true);
                 }
-                AlaBannerAutoScrollView.this.postDelayed(AlaBannerAutoScrollView.this.gsx, AlaBannerAutoScrollView.this.gss);
+                AlaBannerAutoScrollView.this.postDelayed(AlaBannerAutoScrollView.this.gAG, AlaBannerAutoScrollView.this.gAB);
             }
         };
         this.mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.5
@@ -84,22 +84,22 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
                 super.onScrollStateChanged(recyclerView, i);
                 int currentItem = AlaBannerAutoScrollView.this.getCurrentItem();
-                int bPy = AlaBannerAutoScrollView.this.gsp.bPy();
+                int bTj = AlaBannerAutoScrollView.this.gAy.bTj();
                 AlaBannerAutoScrollView alaBannerAutoScrollView = AlaBannerAutoScrollView.this;
-                if (bPy != 0) {
-                    currentItem %= bPy;
+                if (bTj != 0) {
+                    currentItem %= bTj;
                 }
-                alaBannerAutoScrollView.uH(currentItem);
-                if (AlaBannerAutoScrollView.this.gsv != null) {
-                    AlaBannerAutoScrollView.this.gsv.onScrollStateChanged(recyclerView, i);
+                alaBannerAutoScrollView.vl(currentItem);
+                if (AlaBannerAutoScrollView.this.gAE != null) {
+                    AlaBannerAutoScrollView.this.gAE.onScrollStateChanged(recyclerView, i);
                 }
             }
 
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrolled(RecyclerView recyclerView, int i, int i2) {
                 super.onScrolled(recyclerView, i, i2);
-                if (AlaBannerAutoScrollView.this.gsv != null) {
-                    AlaBannerAutoScrollView.this.gsv.onScrolled(recyclerView, i, i2);
+                if (AlaBannerAutoScrollView.this.gAE != null) {
+                    AlaBannerAutoScrollView.this.gAE.onScrolled(recyclerView, i, i2);
                 }
             }
         };
@@ -108,20 +108,20 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
 
     public AlaBannerAutoScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gsq = new g();
-        this.gsr = -1;
-        this.gss = 2000L;
-        this.gst = false;
-        this.gsu = false;
-        this.gqT = new c() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.3
+        this.gAz = new g();
+        this.gAA = -1;
+        this.gAB = 2000L;
+        this.gAC = false;
+        this.gAD = false;
+        this.gzc = new c() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.3
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.c
             public b p(ViewGroup viewGroup, int i) {
                 return new b<com.baidu.tieba.ala.alasquare.special_forum.data.b>(LayoutInflater.from(AlaBannerAutoScrollView.this.mContext).inflate(R.layout.special_bar_recommend_activity, viewGroup, false)) { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.3.1
-                    public TbImageView gqV;
+                    public TbImageView gze;
 
                     @Override // com.baidu.tieba.ala.alasquare.widget.banner.b
-                    protected void al(View view) {
-                        this.gqV = (TbImageView) view.findViewById(R.id.cover);
+                    protected void an(View view) {
+                        this.gze = (TbImageView) view.findViewById(R.id.cover);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -129,8 +129,8 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
                     @Override // com.baidu.tieba.ala.alasquare.widget.banner.b
                     /* renamed from: a */
                     public void k(int i2, com.baidu.tieba.ala.alasquare.special_forum.data.b bVar) {
-                        if (bVar != null && this.gqV != null && !StringUtils.isNull(bVar.pic)) {
-                            this.gqV.startLoad(bVar.pic, 10, false);
+                        if (bVar != null && this.gze != null && !StringUtils.isNull(bVar.pic)) {
+                            this.gze.startLoad(bVar.pic, 10, false);
                         }
                     }
 
@@ -141,14 +141,14 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
                 };
             }
         };
-        this.gsx = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.4
+        this.gAG = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.4
             @Override // java.lang.Runnable
             public void run() {
                 int currentItem;
-                if (AlaBannerAutoScrollView.this.gsu && (currentItem = AlaBannerAutoScrollView.this.getCurrentItem()) != -1) {
+                if (AlaBannerAutoScrollView.this.gAD && (currentItem = AlaBannerAutoScrollView.this.getCurrentItem()) != -1) {
                     AlaBannerAutoScrollView.this.setCurrentItem(currentItem + 1, true);
                 }
-                AlaBannerAutoScrollView.this.postDelayed(AlaBannerAutoScrollView.this.gsx, AlaBannerAutoScrollView.this.gss);
+                AlaBannerAutoScrollView.this.postDelayed(AlaBannerAutoScrollView.this.gAG, AlaBannerAutoScrollView.this.gAB);
             }
         };
         this.mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.5
@@ -156,22 +156,22 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
                 super.onScrollStateChanged(recyclerView, i);
                 int currentItem = AlaBannerAutoScrollView.this.getCurrentItem();
-                int bPy = AlaBannerAutoScrollView.this.gsp.bPy();
+                int bTj = AlaBannerAutoScrollView.this.gAy.bTj();
                 AlaBannerAutoScrollView alaBannerAutoScrollView = AlaBannerAutoScrollView.this;
-                if (bPy != 0) {
-                    currentItem %= bPy;
+                if (bTj != 0) {
+                    currentItem %= bTj;
                 }
-                alaBannerAutoScrollView.uH(currentItem);
-                if (AlaBannerAutoScrollView.this.gsv != null) {
-                    AlaBannerAutoScrollView.this.gsv.onScrollStateChanged(recyclerView, i);
+                alaBannerAutoScrollView.vl(currentItem);
+                if (AlaBannerAutoScrollView.this.gAE != null) {
+                    AlaBannerAutoScrollView.this.gAE.onScrollStateChanged(recyclerView, i);
                 }
             }
 
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrolled(RecyclerView recyclerView, int i, int i2) {
                 super.onScrolled(recyclerView, i, i2);
-                if (AlaBannerAutoScrollView.this.gsv != null) {
-                    AlaBannerAutoScrollView.this.gsv.onScrolled(recyclerView, i, i2);
+                if (AlaBannerAutoScrollView.this.gAE != null) {
+                    AlaBannerAutoScrollView.this.gAE.onScrolled(recyclerView, i, i2);
                 }
             }
         };
@@ -180,20 +180,20 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
 
     public AlaBannerAutoScrollView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gsq = new g();
-        this.gsr = -1;
-        this.gss = 2000L;
-        this.gst = false;
-        this.gsu = false;
-        this.gqT = new c() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.3
+        this.gAz = new g();
+        this.gAA = -1;
+        this.gAB = 2000L;
+        this.gAC = false;
+        this.gAD = false;
+        this.gzc = new c() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.3
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.c
             public b p(ViewGroup viewGroup, int i2) {
                 return new b<com.baidu.tieba.ala.alasquare.special_forum.data.b>(LayoutInflater.from(AlaBannerAutoScrollView.this.mContext).inflate(R.layout.special_bar_recommend_activity, viewGroup, false)) { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.3.1
-                    public TbImageView gqV;
+                    public TbImageView gze;
 
                     @Override // com.baidu.tieba.ala.alasquare.widget.banner.b
-                    protected void al(View view) {
-                        this.gqV = (TbImageView) view.findViewById(R.id.cover);
+                    protected void an(View view) {
+                        this.gze = (TbImageView) view.findViewById(R.id.cover);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -201,8 +201,8 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
                     @Override // com.baidu.tieba.ala.alasquare.widget.banner.b
                     /* renamed from: a */
                     public void k(int i22, com.baidu.tieba.ala.alasquare.special_forum.data.b bVar) {
-                        if (bVar != null && this.gqV != null && !StringUtils.isNull(bVar.pic)) {
-                            this.gqV.startLoad(bVar.pic, 10, false);
+                        if (bVar != null && this.gze != null && !StringUtils.isNull(bVar.pic)) {
+                            this.gze.startLoad(bVar.pic, 10, false);
                         }
                     }
 
@@ -213,14 +213,14 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
                 };
             }
         };
-        this.gsx = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.4
+        this.gAG = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.4
             @Override // java.lang.Runnable
             public void run() {
                 int currentItem;
-                if (AlaBannerAutoScrollView.this.gsu && (currentItem = AlaBannerAutoScrollView.this.getCurrentItem()) != -1) {
+                if (AlaBannerAutoScrollView.this.gAD && (currentItem = AlaBannerAutoScrollView.this.getCurrentItem()) != -1) {
                     AlaBannerAutoScrollView.this.setCurrentItem(currentItem + 1, true);
                 }
-                AlaBannerAutoScrollView.this.postDelayed(AlaBannerAutoScrollView.this.gsx, AlaBannerAutoScrollView.this.gss);
+                AlaBannerAutoScrollView.this.postDelayed(AlaBannerAutoScrollView.this.gAG, AlaBannerAutoScrollView.this.gAB);
             }
         };
         this.mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.5
@@ -228,22 +228,22 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
                 super.onScrollStateChanged(recyclerView, i2);
                 int currentItem = AlaBannerAutoScrollView.this.getCurrentItem();
-                int bPy = AlaBannerAutoScrollView.this.gsp.bPy();
+                int bTj = AlaBannerAutoScrollView.this.gAy.bTj();
                 AlaBannerAutoScrollView alaBannerAutoScrollView = AlaBannerAutoScrollView.this;
-                if (bPy != 0) {
-                    currentItem %= bPy;
+                if (bTj != 0) {
+                    currentItem %= bTj;
                 }
-                alaBannerAutoScrollView.uH(currentItem);
-                if (AlaBannerAutoScrollView.this.gsv != null) {
-                    AlaBannerAutoScrollView.this.gsv.onScrollStateChanged(recyclerView, i2);
+                alaBannerAutoScrollView.vl(currentItem);
+                if (AlaBannerAutoScrollView.this.gAE != null) {
+                    AlaBannerAutoScrollView.this.gAE.onScrollStateChanged(recyclerView, i2);
                 }
             }
 
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrolled(RecyclerView recyclerView, int i2, int i22) {
                 super.onScrolled(recyclerView, i2, i22);
-                if (AlaBannerAutoScrollView.this.gsv != null) {
-                    AlaBannerAutoScrollView.this.gsv.onScrolled(recyclerView, i2, i22);
+                if (AlaBannerAutoScrollView.this.gAE != null) {
+                    AlaBannerAutoScrollView.this.gAE.onScrolled(recyclerView, i2, i22);
                 }
             }
         };
@@ -253,64 +253,64 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
     private void init(Context context) {
         this.mContext = context;
         LayoutInflater.from(this.mContext).inflate(R.layout.ala_banner_auto_scroll_view, (ViewGroup) this, true);
-        this.gsn = (LinearLayout) findViewById(R.id.dotLayout);
-        this.gso = (RecyclerView) findViewById(R.id.list_view);
-        this.gso.setLayoutManager(new LinearLayoutManager(context, 0, false));
-        this.gso.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.1
+        this.gAw = (LinearLayout) findViewById(R.id.dotLayout);
+        this.gAx = (RecyclerView) findViewById(R.id.list_view);
+        this.gAx.setLayoutManager(new LinearLayoutManager(context, 0, false));
+        this.gAx.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
-                        AlaBannerAutoScrollView.this.btc();
+                        AlaBannerAutoScrollView.this.bwC();
                         return false;
                     case 1:
-                        AlaBannerAutoScrollView.this.btb();
+                        AlaBannerAutoScrollView.this.bwB();
                         return false;
                     case 2:
-                        AlaBannerAutoScrollView.this.btc();
+                        AlaBannerAutoScrollView.this.bwC();
                         return false;
                     default:
-                        AlaBannerAutoScrollView.this.btb();
+                        AlaBannerAutoScrollView.this.bwB();
                         return false;
                 }
             }
         });
-        this.gsp = new a(context, this.gqT, false);
-        this.gso.setAdapter(this.gsp);
-        this.gso.addOnScrollListener(this.mOnScrollListener);
-        this.gso.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.2
+        this.gAy = new a(context, this.gzc, false);
+        this.gAx.setAdapter(this.gAy);
+        this.gAx.addOnScrollListener(this.mOnScrollListener);
+        this.gAx.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView.2
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
-                AlaBannerAutoScrollView.this.gso.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                AlaBannerAutoScrollView.this.gAx.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 AlaBannerAutoScrollView.this.scrollToPosition(0);
             }
         });
-        this.gsq.attachToRecyclerView(this.gso);
+        this.gAz.attachToRecyclerView(this.gAx);
     }
 
     public void setViewHolderAdapter(c cVar) {
-        this.gsp.setViewHolderAdapter(cVar);
+        this.gAy.setViewHolderAdapter(cVar);
     }
 
     public void setAutoPlayDuation(long j) {
-        this.gss = j;
+        this.gAB = j;
     }
 
     public void a(List<T> list, c cVar) {
         if (!y.isEmpty(list)) {
-            btc();
-            if (this.gsr != y.getCount(list)) {
-                this.gsr = y.getCount(list);
-                if (this.gsr == 1) {
-                    this.gsu = false;
+            bwC();
+            if (this.gAA != y.getCount(list)) {
+                this.gAA = y.getCount(list);
+                if (this.gAA == 1) {
+                    this.gAD = false;
                 } else {
-                    this.gsu = true;
+                    this.gAD = true;
                 }
-                uI(this.gsr);
+                vm(this.gAA);
             }
-            this.gsp.setData(list);
-            this.gsp.notifyDataSetChanged();
-            btb();
+            this.gAy.setData(list);
+            this.gAy.notifyDataSetChanged();
+            bwB();
         }
     }
 
@@ -320,9 +320,9 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setCurrentItem(int i, boolean z) {
-        if (this.gso != null) {
+        if (this.gAx != null) {
             if (z) {
-                this.gso.smoothScrollToPosition(i);
+                this.gAx.smoothScrollToPosition(i);
             } else {
                 scrollToPosition(i);
             }
@@ -331,26 +331,26 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void scrollToPosition(int i) {
-        if (this.gso != null) {
-            ((LinearLayoutManager) this.gso.getLayoutManager()).scrollToPositionWithOffset(i, 0);
+        if (this.gAx != null) {
+            ((LinearLayoutManager) this.gAx.getLayoutManager()).scrollToPositionWithOffset(i, 0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getCurrentItem() {
-        View findSnapView = this.gsq.findSnapView(this.gso.getLayoutManager());
+        View findSnapView = this.gAz.findSnapView(this.gAx.getLayoutManager());
         if (findSnapView == null) {
             return -1;
         }
-        int position = this.gso.getLayoutManager().getPosition(findSnapView);
-        int bPy = this.gsp.bPy();
-        if (position < bPy) {
-            int i = position + bPy;
-            this.gso.getLayoutManager().scrollToPosition(i);
+        int position = this.gAx.getLayoutManager().getPosition(findSnapView);
+        int bTj = this.gAy.bTj();
+        if (position < bTj) {
+            int i = position + bTj;
+            this.gAx.getLayoutManager().scrollToPosition(i);
             return i;
-        } else if (position >= bPy * 2) {
-            int i2 = position - bPy;
-            this.gso.getLayoutManager().scrollToPosition(i2);
+        } else if (position >= bTj * 2) {
+            int i2 = position - bTj;
+            this.gAx.getLayoutManager().scrollToPosition(i2);
             return i2;
         } else {
             return position;
@@ -360,27 +360,27 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        btc();
+        bwC();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btb() {
-        postDelayed(this.gsx, 2000L);
+    public void bwB() {
+        postDelayed(this.gAG, 2000L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btc() {
-        removeCallbacks(this.gsx);
+    public void bwC() {
+        removeCallbacks(this.gAG);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uH(int i) {
-        if (i >= this.gsn.getChildCount()) {
-            uI(this.gsr);
+    public void vl(int i) {
+        if (i >= this.gAw.getChildCount()) {
+            vm(this.gAA);
             return;
         }
-        for (int i2 = 0; i2 < this.gsn.getChildCount(); i2++) {
-            View childAt = this.gsn.getChildAt(i2);
+        for (int i2 = 0; i2 < this.gAw.getChildCount(); i2++) {
+            View childAt = this.gAw.getChildAt(i2);
             if (childAt != null) {
                 if (i2 == i) {
                     ap.setBackgroundResource(childAt, R.drawable.ala_banner_view_dot_selected);
@@ -391,45 +391,45 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
         }
     }
 
-    private void uI(int i) {
-        if (this.gsn.getChildCount() != this.gsr) {
-            this.gsn.removeAllViews();
-            if (this.gsr == 1) {
-                this.gsn.setVisibility(8);
+    private void vm(int i) {
+        if (this.gAw.getChildCount() != this.gAA) {
+            this.gAw.removeAllViews();
+            if (this.gAA == 1) {
+                this.gAw.setVisibility(8);
             } else {
-                this.gsn.setVisibility(0);
+                this.gAw.setVisibility(0);
                 int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds12);
                 int dimensionPixelSize2 = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds20);
-                for (int i2 = 0; i2 < this.gsr; i2++) {
+                for (int i2 = 0; i2 < this.gAA; i2++) {
                     View view = new View(this.mContext);
                     view.setBackgroundResource(R.drawable.ala_banner_view_dot_unselected);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
                     if (i2 != 0) {
                         layoutParams.leftMargin = dimensionPixelSize2;
                     }
-                    this.gsn.addView(view, layoutParams);
+                    this.gAw.addView(view, layoutParams);
                 }
             }
         }
-        if (this.gsn != null && this.gsn.getChildAt(0) != null) {
-            this.gsn.getChildAt(0).setBackgroundResource(R.drawable.ala_banner_view_dot_selected);
+        if (this.gAw != null && this.gAw.getChildAt(0) != null) {
+            this.gAw.getChildAt(0).setBackgroundResource(R.drawable.ala_banner_view_dot_selected);
         }
     }
 
     public void setOnBannerScrollListener(e eVar) {
-        this.gsv = eVar;
+        this.gAE = eVar;
     }
 
     public void setOnBannerClickListener(d dVar) {
-        this.gsw = dVar;
-        if (this.gsp != null) {
-            this.gsp.setOnBannerClickListener(this.gsw);
+        this.gAF = dVar;
+        if (this.gAy != null) {
+            this.gAy.setOnBannerClickListener(this.gAF);
         }
     }
 
     public void onChangeSkinType(int i) {
-        btc();
-        uH(getCurrentItem());
-        btb();
+        bwC();
+        vl(getCurrentItem());
+        bwB();
     }
 }

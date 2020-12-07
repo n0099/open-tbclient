@@ -12,7 +12,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class k {
     private static Object c = new Object();
     private static k d = null;
@@ -21,13 +21,13 @@ public class k {
     private boolean g = false;
 
     /* renamed from: a  reason: collision with root package name */
-    a f1889a = null;
+    a f1891a = null;
     a b = null;
     private String h = null;
     private int i = -2;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public class a extends com.baidu.location.e.f {
         private String b = null;
         private String c = null;
@@ -320,11 +320,11 @@ public class k {
                         }
                     }
                     if (z2) {
-                        if (this.f1889a == null) {
-                            this.f1889a = new a();
+                        if (this.f1891a == null) {
+                            this.f1891a = new a();
                         }
-                        if (this.f1889a != null) {
-                            this.f1889a.a(replace, a(true));
+                        if (this.f1891a != null) {
+                            this.f1891a.a(replace, a(true));
                             return;
                         }
                         return;

@@ -4,72 +4,72 @@ import android.os.SystemClock;
 import com.baidu.ar.face.algo.FaceAlgoData;
 import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public abstract class a {
-    protected long lQ;
-    protected FaceAlgoData nL;
-    protected i nM;
-    protected k nN;
-    protected ByteBuffer nO;
-    protected long nP;
-    protected long nQ;
-    protected long nR;
-    protected boolean nS;
-    protected String nT = "";
+    protected long mf;
+    protected FaceAlgoData ob;
+    protected i oc;
+    protected k od;
+    protected ByteBuffer oe;
+    protected long of;
+    protected long og;
+    protected long oh;
+    protected boolean oi;
+    protected String oj = "";
     protected long timestamp;
 
     public a() {
     }
 
     public a(ByteBuffer byteBuffer) {
-        this.nO = byteBuffer;
+        this.oe = byteBuffer;
     }
 
     public void a(FaceAlgoData faceAlgoData) {
-        this.nL = faceAlgoData;
+        this.ob = faceAlgoData;
     }
 
     public void a(i iVar) {
-        this.nM = iVar;
+        this.oc = iVar;
     }
 
-    public long cZ() {
-        return this.lQ;
+    public long cY() {
+        return this.mf;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void dF() {
-        this.nP = SystemClock.elapsedRealtime();
+    public void dE() {
+        this.of = SystemClock.elapsedRealtime();
     }
 
-    abstract void dG();
+    abstract void dF();
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    public void dG() {
+        this.og = SystemClock.elapsedRealtime() - this.of;
+    }
+
     public void dH() {
-        this.nQ = SystemClock.elapsedRealtime() - this.nP;
-    }
-
-    public void dI() {
-        if ("additional_thread".equals(this.nT)) {
-            com.baidu.ar.b.a.ar().a(11, true);
+        if ("additional_thread".equals(this.oj)) {
+            com.baidu.ar.b.a.as().a(11, true);
         }
+        dE();
         dF();
         dG();
-        dH();
-        if ("additional_thread".equals(this.nT)) {
-            com.baidu.ar.b.a.ar().a(11, false);
+        if ("additional_thread".equals(this.oj)) {
+            com.baidu.ar.b.a.as().a(11, false);
         }
     }
 
-    public i dJ() {
-        return this.nM;
+    public i dI() {
+        return this.oc;
     }
 
-    public void dK() {
-        this.nN = this.nM.ee();
+    public void dJ() {
+        this.od = this.oc.ed();
     }
 
-    public void i(long j) {
-        this.lQ = j;
+    public void g(long j) {
+        this.mf = j;
     }
 }

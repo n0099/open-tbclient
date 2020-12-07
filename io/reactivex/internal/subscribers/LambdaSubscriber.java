@@ -1,21 +1,21 @@
 package io.reactivex.internal.subscribers;
 
-import io.reactivex.c.g;
+import io.reactivex.b.g;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.functions.Functions;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.reactivex.disposables.b, j<T>, d {
     private static final long serialVersionUID = -7251123623727029452L;
-    final io.reactivex.c.a onComplete;
+    final io.reactivex.b.a onComplete;
     final g<? super Throwable> onError;
     final g<? super T> onNext;
     final g<? super d> onSubscribe;
 
-    public LambdaSubscriber(g<? super T> gVar, g<? super Throwable> gVar2, io.reactivex.c.a aVar, g<? super d> gVar3) {
+    public LambdaSubscriber(g<? super T> gVar, g<? super Throwable> gVar2, io.reactivex.b.a aVar, g<? super d> gVar3) {
         this.onNext = gVar;
         this.onError = gVar2;
         this.onComplete = aVar;
@@ -57,11 +57,11 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
                 return;
             } catch (Throwable th2) {
                 io.reactivex.exceptions.a.J(th2);
-                io.reactivex.e.a.onError(new CompositeException(th, th2));
+                io.reactivex.d.a.onError(new CompositeException(th, th2));
                 return;
             }
         }
-        io.reactivex.e.a.onError(th);
+        io.reactivex.d.a.onError(th);
     }
 
     @Override // org.a.c
@@ -72,7 +72,7 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
                 this.onComplete.run();
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.J(th);
-                io.reactivex.e.a.onError(th);
+                io.reactivex.d.a.onError(th);
             }
         }
     }
@@ -98,6 +98,6 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.pNW;
+        return this.onError != Functions.pEP;
     }
 }

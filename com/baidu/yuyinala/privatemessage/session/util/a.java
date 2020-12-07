@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
-import com.baidu.live.b.ae;
+import com.baidu.live.d.af;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.yuyinala.privatemessage.session.b.b;
 import java.text.SimpleDateFormat;
@@ -14,17 +14,17 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes4.dex */
 public final class a {
-    private static long oID = -1;
+    private static long oXJ = -1;
 
-    public static String h(Context context, long j) {
-        Calendar calendar = Calendar.getInstance(eix());
+    public static String j(Context context, long j) {
+        Calendar calendar = Calendar.getInstance(eon());
         calendar.setTimeInMillis(j);
         Date time = calendar.getTime();
-        Calendar calendar2 = Calendar.getInstance(eix());
-        calendar2.setTimeInMillis(hA(System.currentTimeMillis()));
+        Calendar calendar2 = Calendar.getInstance(eon());
+        calendar2.setTimeInMillis(m43if(System.currentTimeMillis()));
         SimpleDateFormat simpleDateFormat = null;
         if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5)) {
-            simpleDateFormat = new SimpleDateFormat("HH:mm", eix());
+            simpleDateFormat = new SimpleDateFormat("HH:mm", eon());
         } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5) - 1) {
             return "昨天";
         } else {
@@ -52,29 +52,30 @@ public final class a {
                     return "星期日";
                 }
             } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) != calendar2.get(5)) {
-                simpleDateFormat = new SimpleDateFormat("MM-dd", eix());
+                simpleDateFormat = new SimpleDateFormat("MM-dd", eon());
             } else {
-                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", eix());
+                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", eon());
             }
         }
         return simpleDateFormat.format(time);
     }
 
-    public static long hA(long j) {
-        if (oID < 0) {
-            oID = j;
+    /* renamed from: if  reason: not valid java name */
+    public static long m43if(long j) {
+        if (oXJ < 0) {
+            oXJ = j;
         }
-        if (Math.abs(oID - j) > 1000) {
-            oID = j;
+        if (Math.abs(oXJ - j) > 1000) {
+            oXJ = j;
         }
-        return oID;
+        return oXJ;
     }
 
-    public static Locale eix() {
+    public static Locale eon() {
         return BdBaseApplication.getInst().getResources().getConfiguration().locale;
     }
 
-    public static String hB(long j) {
+    public static String ig(long j) {
         if (j <= 0) {
             return null;
         }
@@ -85,11 +86,11 @@ public final class a {
     }
 
     public static void a(Context context, String str, long j, boolean z, String str2, String str3, String str4, long j2, String str5) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ae(context, j + "", str, str4, z, str2, str3, j2 + "", str5)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new af(context, j + "", str, str4, z, str2, str3, j2 + "", str5)));
     }
 
-    public static void hC(long j) {
-        b.eiu().hz(j);
+    public static void ih(long j) {
+        b.eok().ie(j);
     }
 
     public static String b(ChatSession chatSession) {

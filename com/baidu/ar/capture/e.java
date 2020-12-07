@@ -4,15 +4,15 @@ import android.graphics.Bitmap;
 import com.baidu.ar.face.IFaceResultData;
 import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class e implements ICaptureResult {
-    byte[] kP;
-    byte[] kQ;
-    private Bitmap kR;
-    private Bitmap kS;
-    int kT;
-    int kU;
-    IFaceResultData kV;
+    byte[] le;
+    byte[] lf;
+    private Bitmap lg;
+    private Bitmap lh;
+    int li;
+    int lj;
+    IFaceResultData lk;
     long timestamp;
 
     private Bitmap a(byte[] bArr, int i, int i2) {
@@ -23,33 +23,33 @@ public class e implements ICaptureResult {
 
     @Override // com.baidu.ar.capture.ICaptureResult
     public IFaceResultData getFaceData() {
-        return this.kV;
+        return this.lk;
     }
 
     @Override // com.baidu.ar.capture.ICaptureResult
     public Bitmap getOriginPhoto() {
-        if (this.kR == null && this.kP != null) {
-            this.kR = a(this.kP, this.kT, this.kU);
+        if (this.lg == null && this.le != null) {
+            this.lg = a(this.le, this.li, this.lj);
         }
-        return this.kR;
+        return this.lg;
     }
 
     @Override // com.baidu.ar.capture.ICaptureResult
     public Bitmap getOutputPhoto() {
-        if (this.kS == null && this.kQ != null) {
-            this.kS = a(this.kQ, this.kT, this.kU);
+        if (this.lh == null && this.lf != null) {
+            this.lh = a(this.lf, this.li, this.lj);
         }
-        return this.kS;
+        return this.lh;
     }
 
     @Override // com.baidu.ar.capture.ICaptureResult
     public int getPhotoHeight() {
-        return this.kU;
+        return this.lj;
     }
 
     @Override // com.baidu.ar.capture.ICaptureResult
     public int getPhotoWidth() {
-        return this.kT;
+        return this.li;
     }
 
     @Override // com.baidu.ar.capture.ICaptureResult
@@ -59,14 +59,14 @@ public class e implements ICaptureResult {
 
     @Override // com.baidu.ar.capture.ICaptureResult
     public void release() {
-        if (this.kR != null && !this.kR.isRecycled()) {
-            this.kR.recycle();
-            this.kR = null;
+        if (this.lg != null && !this.lg.isRecycled()) {
+            this.lg.recycle();
+            this.lg = null;
         }
-        if (this.kS == null || this.kS.isRecycled()) {
+        if (this.lh == null || this.lh.isRecycled()) {
             return;
         }
-        this.kS.recycle();
-        this.kS = null;
+        this.lh.recycle();
+        this.lh = null;
     }
 }

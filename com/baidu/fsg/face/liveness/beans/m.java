@@ -16,11 +16,11 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class m extends UploadBean {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1716a;
+    private String f1718a;
     private String b;
     private String c;
     private String d;
@@ -41,7 +41,7 @@ public class m extends UploadBean {
     }
 
     public void d(String str) {
-        this.f1716a = str;
+        this.f1718a = str;
     }
 
     public m(Context context) {
@@ -64,8 +64,8 @@ public class m extends UploadBean {
             if (!TextUtils.isEmpty(a())) {
                 arrayList.add(new RestNameValuePair("atbc", a()));
             }
-            if (!TextUtils.isEmpty(this.f1716a)) {
-                arrayList.add(new RestNameValuePair(LogConfig.LOG_VIDEO_TYPE, this.f1716a));
+            if (!TextUtils.isEmpty(this.f1718a)) {
+                arrayList.add(new RestNameValuePair(LogConfig.LOG_VIDEO_TYPE, this.f1718a));
             }
             if (!TextUtils.isEmpty(this.b)) {
                 arrayList.add(new RestNameValuePair("callbackkey", this.b));

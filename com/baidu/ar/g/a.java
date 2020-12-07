@@ -1,15 +1,5 @@
 package com.baidu.ar.g;
-/* loaded from: classes12.dex */
-public final class a {
-    public static String mPackageName = null;
-
-    public static String aM(String str) {
-        return str + "/face_metadata.json";
-    }
-
-    public static void setPackageName(String str) {
-        if (mPackageName == null) {
-            mPackageName = str;
-        }
-    }
+/* loaded from: classes10.dex */
+public interface a {
+    void a(b bVar);
 }

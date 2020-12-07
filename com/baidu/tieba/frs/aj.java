@@ -1,27 +1,23 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
-/* loaded from: classes.dex */
+import android.support.v4.util.LongSparseArray;
+import java.util.LinkedList;
+/* loaded from: classes22.dex */
 public class aj {
-    private static aj iMG = new aj();
-    private final SparseArray<String> iMF = new SparseArray<>();
+    private static final aj iXB = new aj();
+    private LongSparseArray<LinkedList<String>> iXA = new LongSparseArray<>();
 
     private aj() {
     }
 
-    public static aj czS() {
-        return iMG;
+    public static aj cEn() {
+        return iXB;
     }
 
-    public void zE(int i) {
-        this.iMF.put(i, "1");
-    }
-
-    public boolean zF(int i) {
-        if (i > 100) {
-            i = 100;
+    public void gm(long j) {
+        LinkedList<String> linkedList = this.iXA.get(j);
+        if (linkedList != null) {
+            linkedList.clear();
         }
-        return !TextUtils.isEmpty(this.iMF.get(i));
     }
 }

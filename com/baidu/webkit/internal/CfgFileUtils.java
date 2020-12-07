@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class CfgFileUtils implements INoProGuard {
     public static final String KEY_ALT_SERVICE = "alt_service";
     public static final String KEY_BACK_DNS_TIME = "back_dns_time";

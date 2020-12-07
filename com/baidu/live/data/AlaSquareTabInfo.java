@@ -15,7 +15,7 @@ public class AlaSquareTabInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: dO */
+        /* renamed from: eh */
         public AlaSquareTabInfo[] newArray(int i) {
             return new AlaSquareTabInfo[i];
         }

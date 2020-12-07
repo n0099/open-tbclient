@@ -9,94 +9,94 @@ import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.card.data.l;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a {
-    private BdTypeRecyclerView Xi;
-    private LinkedList<com.baidu.adp.widget.ListView.a> jAQ = new LinkedList<>();
-    private f jAR;
-    private c jAS;
-    private d jAT;
-    private e jAU;
+    private BdTypeRecyclerView Yf;
+    private LinkedList<com.baidu.adp.widget.ListView.a> jOs = new LinkedList<>();
+    private f jOt;
+    private c jOu;
+    private d jOv;
+    private e jOw;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
-        this.Xi = bdTypeRecyclerView;
-        Lp();
+        this.Yf = bdTypeRecyclerView;
+        Nt();
     }
 
-    private void Lp() {
-        this.jAR = new f(this.mPageContext, k.icq);
-        this.jAS = new c(this.mPageContext, l.eCo);
-        this.jAT = new d(this.mPageContext, k.icx);
-        this.jAU = new e(this.mPageContext, k.icv);
-        this.jAR.a(this.Xi);
-        this.jAS.a(this.Xi);
-        this.jAT.a(this.Xi);
-        this.jAU.a(this.Xi);
-        this.jAQ.add(this.jAR);
-        this.jAQ.add(this.jAS);
-        this.jAQ.add(this.jAT);
-        this.jAQ.add(this.jAU);
-        this.Xi.addAdapters(this.jAQ);
+    private void Nt() {
+        this.jOt = new f(this.mPageContext, k.inn);
+        this.jOu = new c(this.mPageContext, l.eJq);
+        this.jOv = new d(this.mPageContext, k.inv);
+        this.jOw = new e(this.mPageContext, k.f4int);
+        this.jOt.a(this.Yf);
+        this.jOu.a(this.Yf);
+        this.jOv.a(this.Yf);
+        this.jOw.a(this.Yf);
+        this.jOs.add(this.jOt);
+        this.jOs.add(this.jOu);
+        this.jOs.add(this.jOv);
+        this.jOs.add(this.jOw);
+        this.Yf.addAdapters(this.jOs);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Xi != null) {
-            this.Xi.getListAdapter().notifyDataSetChanged();
+        if (this.Yf != null) {
+            this.Yf.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.jAR != null) {
-            this.jAR.setPageUniqueId(bdUniqueId);
+        if (this.jOt != null) {
+            this.jOt.setPageUniqueId(bdUniqueId);
         }
-        if (this.jAS != null) {
-            this.jAS.setPageUniqueId(bdUniqueId);
+        if (this.jOu != null) {
+            this.jOu.setPageUniqueId(bdUniqueId);
         }
-        if (this.jAT != null) {
-            this.jAT.setPageUniqueId(bdUniqueId);
+        if (this.jOv != null) {
+            this.jOv.setPageUniqueId(bdUniqueId);
         }
-        if (this.jAU != null) {
-            this.jAU.setPageUniqueId(bdUniqueId);
+        if (this.jOw != null) {
+            this.jOw.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void setData(List<q> list) {
-        this.Xi.setData(list);
+        this.Yf.setData(list);
     }
 
     public List<q> getDataList() {
-        if (this.Xi != null) {
-            return this.Xi.getData();
+        if (this.Yf != null) {
+            return this.Yf.getData();
         }
         return null;
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.jAU != null) {
-            this.jAU.setEventCallback(aVar);
+        if (this.jOw != null) {
+            this.jOw.setEventCallback(aVar);
         }
     }
 
-    public void Cb(int i) {
-        if (this.jAR != null) {
-            this.jAR.Cb(i);
+    public void CQ(int i) {
+        if (this.jOt != null) {
+            this.jOt.CQ(i);
         }
-        if (this.jAS != null) {
-            this.jAS.Cb(i);
+        if (this.jOu != null) {
+            this.jOu.CQ(i);
         }
-        if (this.jAT != null) {
-            this.jAT.Cb(i);
+        if (this.jOv != null) {
+            this.jOv.CQ(i);
         }
-        if (this.jAU != null) {
-            this.jAU.Cb(i);
+        if (this.jOw != null) {
+            this.jOw.CQ(i);
         }
     }
 
     public void onPause() {
-        if (this.jAS != null) {
-            this.jAS.onPause();
+        if (this.jOu != null) {
+            this.jOu.onPause();
         }
     }
 

@@ -1,39 +1,39 @@
 package com.baidu.ar.ihttp;
 
-import com.baidu.ar.g.n;
-/* loaded from: classes12.dex */
+import com.baidu.ar.h.n;
+/* loaded from: classes10.dex */
 public final class HttpFactory {
-    private static volatile b rh;
-    private static volatile int ri = 0;
+    private static volatile b ry;
+    private static volatile int rz = 0;
     private static Object sLock = new Object();
 
-    private static b eQ() {
-        if (rh != null) {
-            return rh;
+    private static b eP() {
+        if (ry != null) {
+            return ry;
         }
         if (isAvailable()) {
             synchronized (sLock) {
-                if (rh == null) {
-                    rh = (b) n.aS("com.baidu.ar.http.HttpRequestFactory");
+                if (ry == null) {
+                    ry = (b) n.aV("com.baidu.ar.http.HttpRequestFactory");
                 }
             }
         }
-        return rh;
+        return ry;
     }
 
     public static boolean isAvailable() {
         boolean z = false;
-        if (ri == 1) {
+        if (rz == 1) {
             return true;
         }
-        if (ri != -1) {
+        if (rz != -1) {
             try {
                 Class.forName("com.baidu.ar.http.HttpRequestFactory");
                 z = true;
             } catch (ClassNotFoundException e) {
             }
             synchronized (sLock) {
-                ri = z ? 1 : -1;
+                rz = z ? 1 : -1;
             }
             return z;
         }
@@ -41,17 +41,17 @@ public final class HttpFactory {
     }
 
     public static IHttpRequest newRequest() {
-        b eQ = eQ();
-        if (eQ != null) {
-            return eQ.newRequest();
+        b eP = eP();
+        if (eP != null) {
+            return eP.newRequest();
         }
         return null;
     }
 
     public static void release() {
-        if (rh != null) {
-            rh.release();
-            rh = null;
+        if (ry != null) {
+            ry.release();
+            ry = null;
         }
     }
 }

@@ -14,7 +14,7 @@ public final class e {
 
     /* loaded from: classes14.dex */
     public interface a {
-        void aby();
+        void aeG();
     }
 
     public static void c(InputStream inputStream, File file) throws IOException {
@@ -34,13 +34,13 @@ public final class e {
     }
 
     public static void a(final File file, String str, final a aVar) {
-        new Request.a(com.baidu.prologue.a.b.b.getAppContext(), str).acs().acr().a(new com.baidu.prologue.service.network.l() { // from class: com.baidu.prologue.a.c.e.1
+        new Request.a(com.baidu.prologue.a.b.b.getAppContext(), str).afA().afz().a(new com.baidu.prologue.service.network.l() { // from class: com.baidu.prologue.a.c.e.1
             @Override // com.baidu.prologue.service.network.l
             public void a(long j, InputStream inputStream) {
                 try {
                     e.c(inputStream, file);
                     if (aVar != null) {
-                        aVar.aby();
+                        aVar.aeG();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -53,8 +53,8 @@ public final class e {
         });
     }
 
-    public static int s(File file) {
-        int s;
+    public static int q(File file) {
+        int q;
         int i = 0;
         if (file.isDirectory()) {
             File[] listFiles = file.listFiles();
@@ -65,17 +65,17 @@ public final class e {
                 while (i2 < length) {
                     File file2 = listFiles[i2];
                     if (file2.isFile()) {
-                        s = file2.delete() ? 1 : 0;
+                        q = file2.delete() ? 1 : 0;
                     } else {
-                        s = s(file2);
+                        q = q(file2);
                     }
                     i2++;
-                    i3 = s + i3;
+                    i3 = q + i3;
                 }
                 i = i3;
             }
             if (!file.delete()) {
-                g.cfv.e("FileUtil", "delete dir " + file.getAbsolutePath() + " failed.");
+                g.cmb.e("FileUtil", "delete dir " + file.getAbsolutePath() + " failed.");
             }
         }
         return i;

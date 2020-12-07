@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import rx.c.f;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public final class OnErrorThrowable extends RuntimeException {
     private static final long serialVersionUID = -569558213262703934L;
     private final boolean hasValue;
@@ -41,32 +41,32 @@ public final class OnErrorThrowable extends RuntimeException {
         if (th == null) {
             th = new NullPointerException();
         }
-        Throwable T = a.T(th);
-        return T instanceof OnNextValue ? new OnErrorThrowable(th, ((OnNextValue) T).getValue()) : new OnErrorThrowable(th);
+        Throwable R = a.R(th);
+        return R instanceof OnNextValue ? new OnErrorThrowable(th, ((OnNextValue) R).getValue()) : new OnErrorThrowable(th);
     }
 
     public static Throwable addValueAsLastCause(Throwable th, Object obj) {
         if (th == null) {
             th = new NullPointerException();
         }
-        Throwable T = a.T(th);
-        if (!(T instanceof OnNextValue) || ((OnNextValue) T).getValue() != obj) {
-            a.a(th, new OnNextValue(obj));
+        Throwable R = a.R(th);
+        if (!(R instanceof OnNextValue) || ((OnNextValue) R).getValue() != obj) {
+            a.b(th, new OnNextValue(obj));
         }
         return th;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public static class OnNextValue extends RuntimeException {
         private static final long serialVersionUID = -3454462756050397899L;
         private final Object value;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes14.dex */
+        /* loaded from: classes12.dex */
         public static final class a {
-            static final Set<Class<?>> qfs = eFC();
+            static final Set<Class<?>> pPu = eFB();
 
-            private static Set<Class<?>> eFC() {
+            private static Set<Class<?>> eFB() {
                 HashSet hashSet = new HashSet();
                 hashSet.add(Boolean.class);
                 hashSet.add(Character.class);
@@ -100,7 +100,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj == null) {
                 return "null";
             }
-            if (a.qfs.contains(obj.getClass())) {
+            if (a.pPu.contains(obj.getClass())) {
                 return obj.toString();
             }
             if (obj instanceof String) {
@@ -109,8 +109,8 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj instanceof Enum) {
                 return ((Enum) obj).name();
             }
-            String cp = f.eGv().eGw().cp(obj);
-            return cp != null ? cp : obj.getClass().getName() + ".class";
+            String cf = f.eGw().eGx().cf(obj);
+            return cf != null ? cf : obj.getClass().getName() + ".class";
         }
     }
 }

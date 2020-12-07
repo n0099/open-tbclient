@@ -20,10 +20,10 @@ import com.baidu.live.tbadk.widget.CommonEmptyView;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class e {
-    private CommonEmptyView bnY;
-    private TextView fPh;
-    private PbListView gvb;
-    private View.OnClickListener gvn = new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.e.2
+    private CommonEmptyView btg;
+    private TextView fWX;
+    private PbListView gDK;
+    private View.OnClickListener gDW = new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.e.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ViewHelper.checkUpIsLogin(view.getContext());
@@ -32,65 +32,65 @@ public class e {
     private BdListView mListView;
     private String mLiveId;
     private View mRootView;
-    private YuyinALaAudiencesActivity nTm;
-    private h nTn;
-    private TextView nTo;
+    private YuyinALaAudiencesActivity oik;
+    private h oil;
+    private TextView oim;
 
     public e(YuyinALaAudiencesActivity yuyinALaAudiencesActivity, String str) {
-        this.nTm = yuyinALaAudiencesActivity;
+        this.oik = yuyinALaAudiencesActivity;
         this.mLiveId = str;
-        this.mRootView = this.nTm.getLayoutInflater().inflate(a.g.yuyin_online_list_detail_layout, (ViewGroup) null);
+        this.mRootView = this.oik.getLayoutInflater().inflate(a.g.yuyin_online_list_detail_layout, (ViewGroup) null);
         this.mListView = (BdListView) this.mRootView.findViewById(a.f.detail_list);
-        this.bnY = (CommonEmptyView) this.mRootView.findViewById(a.f.emptyView);
-        this.nTo = (TextView) this.mRootView.findViewById(a.f.tv_value_total);
-        this.nTn = new h(yuyinALaAudiencesActivity.getPageContext());
-        this.mListView.setAdapter((ListAdapter) this.nTn);
-        this.mListView.setEmptyView(this.bnY);
+        this.btg = (CommonEmptyView) this.mRootView.findViewById(a.f.emptyView);
+        this.oim = (TextView) this.mRootView.findViewById(a.f.tv_value_total);
+        this.oil = new h(yuyinALaAudiencesActivity.getPageContext());
+        this.mListView.setAdapter((ListAdapter) this.oil);
+        this.mListView.setEmptyView(this.btg);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.e.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                e.this.nTm.finish();
-                e.this.a(e.this.nTn.getItem(i));
+                e.this.oik.finish();
+                e.this.a(e.this.oil.getItem(i));
             }
         });
-        this.fPh = (TextView) this.mRootView.findViewById(a.f.top_text);
-        if (this.gvb == null) {
-            this.gvb = new PbListView(this.nTm);
-            this.gvb.setTextColor(this.nTm.getResources().getColor(a.c.sdk_color_858585));
-            this.gvb.setSkinType(0);
-            this.gvb.setContainerBackgroundColorResId(a.c.sdk_transparent);
-            this.gvb.setmTextSize(14.0f);
-            this.gvb.createView();
-            this.gvb.setHeight(BdUtilHelper.dip2px(this.nTm, 60.0f));
+        this.fWX = (TextView) this.mRootView.findViewById(a.f.top_text);
+        if (this.gDK == null) {
+            this.gDK = new PbListView(this.oik);
+            this.gDK.setTextColor(this.oik.getResources().getColor(a.c.sdk_color_858585));
+            this.gDK.setSkinType(0);
+            this.gDK.setContainerBackgroundColorResId(a.c.sdk_transparent);
+            this.gDK.setmTextSize(14.0f);
+            this.gDK.createView();
+            this.gDK.setHeight(BdUtilHelper.dip2px(this.oik, 60.0f));
         }
     }
 
-    public void gj(List<a> list) {
-        this.nTn.setData(list);
+    public void gx(List<a> list) {
+        this.oil.setData(list);
     }
 
-    public void ds(boolean z) {
+    public void dG(boolean z) {
         if (z) {
-            this.bnY.reset();
-            this.bnY.setTitle("还没有观众哦~");
-            this.bnY.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
-            this.bnY.setTextColor(this.nTm.getResources().getColor(a.c.sdk_color_525252));
-            this.bnY.setVisibility(0);
+            this.btg.reset();
+            this.btg.setTitle("还没有观众哦~");
+            this.btg.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
+            this.btg.setTextColor(this.oik.getResources().getColor(a.c.sdk_color_525252));
+            this.btg.setVisibility(0);
             return;
         }
-        this.bnY.setVisibility(8);
+        this.btg.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(a aVar) {
-        if (aVar != null && aVar.aHk != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.nTm.getPageContext().getPageActivity(), ExtraParamsManager.getDecryptUserId(aVar.aHk.userUk), aVar.aHk.userName, aVar.aHk.portrait, aVar.aHk.sex, aVar.aHk.levelId, null, null, 0L, aVar.aHk.fansCount, aVar.aHk.fansCount, aVar.aHk.userStatus, "", this.mLiveId, false, "", null, aVar.aHk.userName, "")));
+        if (aVar != null && aVar.aJV != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.oik.getPageContext().getPageActivity(), ExtraParamsManager.getDecryptUserId(aVar.aJV.userUk), aVar.aJV.userName, aVar.aJV.portrait, aVar.aJV.sex, aVar.aJV.levelId, null, null, 0L, aVar.aJV.fansCount, aVar.aJV.fansCount, aVar.aJV.userStatus, "", this.mLiveId, false, "", null, aVar.aJV.userName, "")));
         }
     }
 
-    public void ew(long j) {
-        if (this.fPh != null) {
-            this.fPh.setText(String.format(this.nTm.getString(a.h.yuyin_online_count), StringHelper.formatYuyinValue(j)));
+    public void eZ(long j) {
+        if (this.fWX != null) {
+            this.fWX.setText(String.format(this.oik.getString(a.h.yuyin_online_count), StringHelper.formatYuyinValue(j)));
         }
     }
 
@@ -99,20 +99,20 @@ public class e {
     }
 
     public void m(View.OnClickListener onClickListener) {
-        this.bnY.reset();
-        this.bnY.setTitle("网络加载失败了哦~");
-        this.bnY.setRefreshButton("重新加载", onClickListener);
-        this.bnY.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.bnY.setTextColor(this.nTm.getResources().getColor(a.c.sdk_color_525252));
-        this.bnY.setVisibility(0);
+        this.btg.reset();
+        this.btg.setTitle("网络加载失败了哦~");
+        this.btg.setRefreshButton("重新加载", onClickListener);
+        this.btg.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+        this.btg.setTextColor(this.oik.getResources().getColor(a.c.sdk_color_525252));
+        this.btg.setVisibility(0);
     }
 
-    public void VB() {
-        this.bnY.setVisibility(8);
+    public void Yb() {
+        this.btg.setVisibility(8);
     }
 
-    public void Gy(String str) {
-        this.mListView.setNextPage(this.gvb);
-        this.gvb.endLoadDataWithNoMore(str);
+    public void Hm(String str) {
+        this.mListView.setNextPage(this.gDK);
+        this.gDK.endLoadDataWithNoMore(str);
     }
 }

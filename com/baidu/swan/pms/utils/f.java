@@ -9,59 +9,59 @@ import java.util.Objects;
 import java.util.Set;
 /* loaded from: classes6.dex */
 public class f {
-    private Set<a> ehP = Collections.synchronizedSet(new HashSet());
+    private Set<a> eoR = Collections.synchronizedSet(new HashSet());
 
     public void a(com.baidu.swan.pms.model.e eVar, PMSPkgStatus pMSPkgStatus) {
-        this.ehP.add(new a(eVar, pMSPkgStatus));
+        this.eoR.add(new a(eVar, pMSPkgStatus));
     }
 
-    public int bbR() {
-        return this.ehP.size();
+    public int beW() {
+        return this.eoR.size();
     }
 
     public boolean isEmpty() {
-        return this.ehP.isEmpty();
+        return this.eoR.isEmpty();
     }
 
-    public boolean bbS() {
-        for (a aVar : this.ehP) {
-            if (aVar != null && (aVar.cVE instanceof com.baidu.swan.pms.model.f)) {
+    public boolean beX() {
+        for (a aVar : this.eoR) {
+            if (aVar != null && (aVar.dcB instanceof com.baidu.swan.pms.model.f)) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean bbT() {
-        for (a aVar : this.ehP) {
-            if (aVar != null && (aVar.cVE instanceof com.baidu.swan.pms.model.g)) {
+    public boolean beY() {
+        for (a aVar : this.eoR) {
+            if (aVar != null && (aVar.dcB instanceof com.baidu.swan.pms.model.g)) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean bbU() {
-        for (a aVar : this.ehP) {
-            if (aVar != null && (aVar.cVE instanceof i)) {
+    public boolean beZ() {
+        for (a aVar : this.eoR) {
+            if (aVar != null && (aVar.dcB instanceof i)) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean bbV() {
-        for (a aVar : this.ehP) {
-            if (aVar != null && (aVar.cVE instanceof com.baidu.swan.pms.model.d)) {
+    public boolean bfa() {
+        for (a aVar : this.eoR) {
+            if (aVar != null && (aVar.dcB instanceof com.baidu.swan.pms.model.d)) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean bbW() {
-        for (a aVar : this.ehP) {
-            if (aVar != null && (aVar.cVE instanceof com.baidu.swan.pms.model.b)) {
+    public boolean bfb() {
+        for (a aVar : this.eoR) {
+            if (aVar != null && (aVar.dcB instanceof com.baidu.swan.pms.model.b)) {
                 return true;
             }
         }
@@ -69,20 +69,20 @@ public class f {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x0023, code lost:
-        r0.ehQ = com.baidu.swan.pms.model.PMSPkgStatus.ERROR;
+        r0.eoS = com.baidu.swan.pms.model.PMSPkgStatus.ERROR;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void f(com.baidu.swan.pms.model.e eVar) {
         if (eVar != null) {
-            Iterator<a> it = this.ehP.iterator();
+            Iterator<a> it = this.eoR.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 a next = it.next();
-                if (next != null && next.cVE.equals(eVar)) {
+                if (next != null && next.dcB.equals(eVar)) {
                     break;
                 }
             }
@@ -90,36 +90,36 @@ public class f {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x0023, code lost:
-        r0.ehQ = com.baidu.swan.pms.model.PMSPkgStatus.FINISH;
+        r0.eoS = com.baidu.swan.pms.model.PMSPkgStatus.FINISH;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void g(com.baidu.swan.pms.model.e eVar) {
         if (eVar != null) {
-            Iterator<a> it = this.ehP.iterator();
+            Iterator<a> it = this.eoR.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 a next = it.next();
-                if (next != null && next.cVE.equals(eVar)) {
+                if (next != null && next.dcB.equals(eVar)) {
                     break;
                 }
             }
         }
     }
 
-    public synchronized boolean bbX() {
+    public synchronized boolean bfc() {
         boolean z;
-        Iterator<a> it = this.ehP.iterator();
+        Iterator<a> it = this.eoR.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
                 break;
             }
             a next = it.next();
-            if (next != null && (next.cVE instanceof com.baidu.swan.pms.model.g) && next.ehQ == PMSPkgStatus.WAIT) {
+            if (next != null && (next.dcB instanceof com.baidu.swan.pms.model.g) && next.eoS == PMSPkgStatus.WAIT) {
                 z = true;
                 break;
             }
@@ -129,12 +129,12 @@ public class f {
 
     /* loaded from: classes6.dex */
     public static class a {
-        private com.baidu.swan.pms.model.e cVE;
-        private PMSPkgStatus ehQ;
+        private com.baidu.swan.pms.model.e dcB;
+        private PMSPkgStatus eoS;
 
         public a(com.baidu.swan.pms.model.e eVar, PMSPkgStatus pMSPkgStatus) {
-            this.cVE = eVar;
-            this.ehQ = pMSPkgStatus;
+            this.dcB = eVar;
+            this.eoS = pMSPkgStatus;
         }
 
         public boolean equals(Object obj) {
@@ -144,11 +144,11 @@ public class f {
             if (obj == null || !(obj instanceof a)) {
                 return false;
             }
-            return this.cVE.equals(((a) obj).cVE);
+            return this.dcB.equals(((a) obj).dcB);
         }
 
         public int hashCode() {
-            return Objects.hash(this.cVE);
+            return Objects.hash(this.dcB);
         }
     }
 }

@@ -21,14 +21,14 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.k.a.a;
+import com.baidu.l.a.a;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.g;
 import com.baidu.sapi2.views.ViewUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class RemoteProcessWebviewActivity extends Activity implements View.OnClickListener {
     public static final String EXTRA_EXTERNAL_TITLE = "external_title";
     public static final String EXTRA_EXTERNAL_URL = "external_url";
@@ -37,7 +37,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     private static final String h = ":pass";
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f3395a;
+    private boolean f3398a;
     private boolean b;
     protected View bottomBackView;
     private String c;
@@ -93,7 +93,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     }
 
     private void b() {
-        this.f3395a = getIntent().getBooleanExtra(EXTRA_IS_DARK_MODE, false);
+        this.f3398a = getIntent().getBooleanExtra(EXTRA_IS_DARK_MODE, false);
         this.b = getIntent().getBooleanExtra(EXTRA_SHOW_BOTTOM_BACK, false);
         this.c = getIntent().getStringExtra(EXTRA_EXTERNAL_TITLE);
         this.d = getIntent().getStringExtra(EXTRA_EXTERNAL_URL);
@@ -101,7 +101,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
 
     private void c() {
         ViewStub viewStub;
-        if (this.f3395a) {
+        if (this.f3398a) {
             setTheme(a.h.SDKDarkTheme);
         }
         this.e = (WebView) findViewById(a.e.webview);
@@ -123,7 +123,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
             }
             this.mLeftBtnIv.setVisibility(8);
         }
-        if (this.f3395a) {
+        if (this.f3398a) {
             this.mTitleBgLayout.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_dark_mode_title_color));
             this.mLeftBtnIv.setImageResource(a.d.sapi_sdk_btn_back_dark_mode);
             this.mTitle.setTextColor(getResources().getColor(a.b.sapi_sdk_dark_mode_edit_text_color));
@@ -215,12 +215,12 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     }
 
     private void a(boolean z) {
-        int i = a.C0163a.sapi_sdk_slide_right_in;
-        int i2 = a.C0163a.sapi_sdk_slide_right_out;
+        int i = a.C0164a.sapi_sdk_slide_right_in;
+        int i2 = a.C0164a.sapi_sdk_slide_right_out;
         if (z) {
-            overridePendingTransition(i, a.C0163a.sapi_sdk_slide_left_out);
+            overridePendingTransition(i, a.C0164a.sapi_sdk_slide_left_out);
         } else {
-            overridePendingTransition(a.C0163a.sapi_sdk_slide_left_in, i2);
+            overridePendingTransition(a.C0164a.sapi_sdk_slide_left_in, i2);
         }
     }
 }

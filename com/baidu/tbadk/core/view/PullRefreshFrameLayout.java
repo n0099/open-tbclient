@@ -12,37 +12,37 @@ import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class PullRefreshFrameLayout extends FrameLayout {
-    private static final int eTU = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds144);
-    private static final int eTV = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds210);
-    private static final int eTW = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds250);
-    public static final int eTX = eTV + eTU;
-    public static final int eTY = eTW + eTU;
-    private static final int eTZ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds135);
-    private static final int eUa = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds230);
-    private static final float eUb = (float) ((eTZ * 1.0d) / eTV);
-    private static final float eUc = (float) ((eUa * 1.0d) / eTW);
-    private int Wc;
-    private int dFF;
-    private double dfo;
-    boolean eUd;
-    boolean eUe;
-    boolean eUf;
-    private int eUg;
-    private boolean eUh;
-    private int eUi;
-    private int eUj;
-    private float eUk;
-    private boolean eUl;
-    private boolean eUm;
-    private ContinuousAnimationView eUn;
-    private FrameLayout.LayoutParams eUo;
-    private d eUp;
-    private c eUq;
-    private a eUr;
-    private b eUs;
-    private ValueAnimator eUt;
-    private final Animator.AnimatorListener eUu;
+    private static final int fbr = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds144);
+    private static final int fbs = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds210);
+    private static final int fbt = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds250);
+    public static final int fbu = fbs + fbr;
+    public static final int fbv = fbt + fbr;
+    private static final int fbw = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds135);
+    private static final int fbx = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds230);
+    private static final float fby = (float) ((fbw * 1.0d) / fbs);
+    private static final float fbz = (float) ((fbx * 1.0d) / fbt);
+    private int WZ;
+    private int dMD;
+    private double dmn;
+    boolean fbA;
+    boolean fbB;
+    boolean fbC;
+    private int fbD;
+    private boolean fbE;
+    private int fbF;
+    private int fbG;
+    private float fbH;
+    private boolean fbI;
+    private boolean fbJ;
+    private ContinuousAnimationView fbK;
+    private FrameLayout.LayoutParams fbL;
+    private d fbM;
+    private c fbN;
+    private a fbO;
+    private b fbP;
+    private ValueAnimator fbQ;
     private boolean isLoading;
+    private final Animator.AnimatorListener loadViewAnimListener;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -51,17 +51,17 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
     /* loaded from: classes.dex */
     public interface b {
-        void brQ();
+        void bvp();
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        void brR();
+        void bvq();
     }
 
     /* loaded from: classes.dex */
     public interface d {
-        void brS();
+        void bvr();
 
         void c(int i, double d);
 
@@ -70,16 +70,16 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
     public PullRefreshFrameLayout(Context context) {
         super(context);
-        this.eUd = false;
-        this.eUe = false;
-        this.eUf = false;
+        this.fbA = false;
+        this.fbB = false;
+        this.fbC = false;
         this.isLoading = false;
-        this.eUh = true;
-        this.eUi = eTX;
-        this.eUj = eTZ;
-        this.eUk = eUb;
-        this.eUm = false;
-        this.eUu = new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.1
+        this.fbE = true;
+        this.fbF = fbu;
+        this.fbG = fbw;
+        this.fbH = fby;
+        this.fbJ = false;
+        this.loadViewAnimListener = new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
@@ -94,9 +94,9 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                if (!PullRefreshFrameLayout.this.eUm) {
-                    PullRefreshFrameLayout.this.eUm = true;
-                    PullRefreshFrameLayout.this.eUn.setMinAndMaxFrame(19, 42);
+                if (!PullRefreshFrameLayout.this.fbJ) {
+                    PullRefreshFrameLayout.this.fbJ = true;
+                    PullRefreshFrameLayout.this.fbK.setMinAndMaxFrame(19, 42);
                 }
             }
         };
@@ -105,16 +105,16 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
     public PullRefreshFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eUd = false;
-        this.eUe = false;
-        this.eUf = false;
+        this.fbA = false;
+        this.fbB = false;
+        this.fbC = false;
         this.isLoading = false;
-        this.eUh = true;
-        this.eUi = eTX;
-        this.eUj = eTZ;
-        this.eUk = eUb;
-        this.eUm = false;
-        this.eUu = new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.1
+        this.fbE = true;
+        this.fbF = fbu;
+        this.fbG = fbw;
+        this.fbH = fby;
+        this.fbJ = false;
+        this.loadViewAnimListener = new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
@@ -129,9 +129,9 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                if (!PullRefreshFrameLayout.this.eUm) {
-                    PullRefreshFrameLayout.this.eUm = true;
-                    PullRefreshFrameLayout.this.eUn.setMinAndMaxFrame(19, 42);
+                if (!PullRefreshFrameLayout.this.fbJ) {
+                    PullRefreshFrameLayout.this.fbJ = true;
+                    PullRefreshFrameLayout.this.fbK.setMinAndMaxFrame(19, 42);
                 }
             }
         };
@@ -140,16 +140,16 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
     public PullRefreshFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eUd = false;
-        this.eUe = false;
-        this.eUf = false;
+        this.fbA = false;
+        this.fbB = false;
+        this.fbC = false;
         this.isLoading = false;
-        this.eUh = true;
-        this.eUi = eTX;
-        this.eUj = eTZ;
-        this.eUk = eUb;
-        this.eUm = false;
-        this.eUu = new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.1
+        this.fbE = true;
+        this.fbF = fbu;
+        this.fbG = fbw;
+        this.fbH = fby;
+        this.fbJ = false;
+        this.loadViewAnimListener = new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
@@ -164,9 +164,9 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                if (!PullRefreshFrameLayout.this.eUm) {
-                    PullRefreshFrameLayout.this.eUm = true;
-                    PullRefreshFrameLayout.this.eUn.setMinAndMaxFrame(19, 42);
+                if (!PullRefreshFrameLayout.this.fbJ) {
+                    PullRefreshFrameLayout.this.fbJ = true;
+                    PullRefreshFrameLayout.this.fbK.setMinAndMaxFrame(19, 42);
                 }
             }
         };
@@ -174,64 +174,64 @@ public class PullRefreshFrameLayout extends FrameLayout {
     }
 
     private void init() {
-        this.eUn = new ContinuousAnimationView(getContext());
-        this.eUo = new FrameLayout.LayoutParams(eTU, eTU);
-        this.eUo.gravity = 49;
-        this.eUo.topMargin = -eTU;
-        this.eUn.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        addView(this.eUn, this.eUo);
-        this.eUn.bringToFront();
-        this.eUn.setMinAndMaxProgress(0.0f, 1.0f);
-        this.eUn.setSpeed(1.3f);
-        this.eUn.setAnimation(R.raw.lottie_frs_refresh);
+        this.fbK = new ContinuousAnimationView(getContext());
+        this.fbL = new FrameLayout.LayoutParams(fbr, fbr);
+        this.fbL.gravity = 49;
+        this.fbL.topMargin = -fbr;
+        this.fbK.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        addView(this.fbK, this.fbL);
+        this.fbK.bringToFront();
+        this.fbK.setMinAndMaxProgress(0.0f, 1.0f);
+        this.fbK.setSpeed(1.3f);
+        this.fbK.setAnimation(R.raw.lottie_frs_refresh);
     }
 
     public void setInterceptScrollDown(boolean z) {
-        this.eUf = z;
+        this.fbC = z;
     }
 
     public void setFromFrs() {
-        this.eUi = eTY;
-        this.eUj = eUa;
-        this.eUk = eUc;
+        this.fbF = fbv;
+        this.fbG = fbx;
+        this.fbH = fbz;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         boolean z = false;
-        if (!this.isLoading && this.eUh) {
+        if (!this.isLoading && this.fbE) {
             int x = (int) motionEvent.getX();
             int y = (int) motionEvent.getY();
             switch (motionEvent.getAction()) {
                 case 0:
-                    this.eUd = false;
-                    this.eUe = false;
-                    this.Wc = y;
-                    this.dFF = x;
+                    this.fbA = false;
+                    this.fbB = false;
+                    this.WZ = y;
+                    this.dMD = x;
                     break;
                 case 1:
                 case 3:
                     reset();
                     break;
                 case 2:
-                    int i = y - this.Wc;
-                    int i2 = x - this.dFF;
-                    if (!this.eUd) {
-                        if (!this.eUe) {
-                            if (this.eUf) {
+                    int i = y - this.WZ;
+                    int i2 = x - this.dMD;
+                    if (!this.fbA) {
+                        if (!this.fbB) {
+                            if (this.fbC) {
                                 if (i > 0 && Math.abs(i) > Math.abs(i2)) {
-                                    this.eUe = false;
-                                    this.eUd = true;
+                                    this.fbB = false;
+                                    this.fbA = true;
                                     z = true;
                                     break;
                                 } else if (i < 0) {
-                                    this.eUe = true;
-                                    this.eUd = false;
+                                    this.fbB = true;
+                                    this.fbA = false;
                                     break;
                                 }
                             } else {
-                                this.eUe = true;
-                                this.eUd = false;
+                                this.fbB = true;
+                                this.fbA = false;
                                 break;
                             }
                         }
@@ -241,8 +241,8 @@ public class PullRefreshFrameLayout extends FrameLayout {
                     }
                     break;
             }
-            this.Wc = y;
-            this.dFF = x;
+            this.WZ = y;
+            this.dMD = x;
         }
         return z;
     }
@@ -259,84 +259,84 @@ public class PullRefreshFrameLayout extends FrameLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
-        this.eUl = false;
+        this.fbI = false;
         switch (motionEvent.getAction()) {
             case 0:
-                this.Wc = y;
-                this.dFF = x;
+                this.WZ = y;
+                this.dMD = x;
                 break;
             case 1:
-                if (this.dfo < this.eUk && this.eUr != null) {
-                    this.eUr.onCancel();
+                if (this.dmn < this.fbH && this.fbO != null) {
+                    this.fbO.onCancel();
                 }
-                brM();
+                bvl();
                 reset();
                 break;
             case 2:
-                int i = y - this.Wc;
-                int i2 = x - this.dFF;
+                int i = y - this.WZ;
+                int i2 = x - this.dMD;
                 if (i > 0) {
-                    this.eUl = true;
+                    this.fbI = true;
                 }
-                qt(i);
-                this.Wc = y;
-                this.dFF = x;
+                qU(i);
+                this.WZ = y;
+                this.dMD = x;
                 break;
             case 3:
-                brM();
+                bvl();
                 reset();
                 break;
         }
         return true;
     }
 
-    private void qt(int i) {
-        int i2 = this.eUo.topMargin + i;
-        if (i2 > this.eUi - eTU) {
-            i2 = this.eUi - eTU;
-        } else if (i2 < (-eTU)) {
-            i2 = -eTU;
+    private void qU(int i) {
+        int i2 = this.fbL.topMargin + i;
+        if (i2 > this.fbF - fbr) {
+            i2 = this.fbF - fbr;
+        } else if (i2 < (-fbr)) {
+            i2 = -fbr;
         }
-        this.eUo.topMargin = i2;
-        this.eUn.setLayoutParams(this.eUo);
-        this.eUg += i;
-        if (this.eUg > this.eUi) {
-            this.eUg = this.eUi;
-        } else if (this.eUg < 0) {
-            this.eUg = 0;
+        this.fbL.topMargin = i2;
+        this.fbK.setLayoutParams(this.fbL);
+        this.fbD += i;
+        if (this.fbD > this.fbF) {
+            this.fbD = this.fbF;
+        } else if (this.fbD < 0) {
+            this.fbD = 0;
         }
-        this.dfo = (this.eUg * 1.0d) / this.eUi;
-        if (this.eUp != null) {
-            this.eUp.w(this.dfo);
+        this.dmn = (this.fbD * 1.0d) / this.fbF;
+        if (this.fbM != null) {
+            this.fbM.w(this.dmn);
         }
     }
 
-    private void brM() {
-        if (this.dfo >= this.eUk) {
+    private void bvl() {
+        if (this.dmn >= this.fbH) {
             this.isLoading = true;
-            this.eUt = ValueAnimator.ofFloat(this.eUo.topMargin, this.eUj);
-            this.eUt.setDuration(150L);
-            this.eUt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.2
+            this.fbQ = ValueAnimator.ofFloat(this.fbL.topMargin, this.fbG);
+            this.fbQ.setDuration(150L);
+            this.fbQ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.2
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    PullRefreshFrameLayout.this.eUo.topMargin = (int) ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    PullRefreshFrameLayout.this.eUn.setLayoutParams(PullRefreshFrameLayout.this.eUo);
+                    PullRefreshFrameLayout.this.fbL.topMargin = (int) ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                    PullRefreshFrameLayout.this.fbK.setLayoutParams(PullRefreshFrameLayout.this.fbL);
                 }
             });
-            this.eUt.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.3
+            this.fbQ.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.3
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
-                    if (PullRefreshFrameLayout.this.eUs != null) {
-                        PullRefreshFrameLayout.this.eUs.brQ();
+                    if (PullRefreshFrameLayout.this.fbP != null) {
+                        PullRefreshFrameLayout.this.fbP.bvp();
                     }
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (PullRefreshFrameLayout.this.eUq != null) {
-                        PullRefreshFrameLayout.this.eUq.brR();
+                    if (PullRefreshFrameLayout.this.fbN != null) {
+                        PullRefreshFrameLayout.this.fbN.bvq();
                     }
-                    PullRefreshFrameLayout.this.eUn.playAnimation();
+                    PullRefreshFrameLayout.this.fbK.playAnimation();
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -347,17 +347,17 @@ public class PullRefreshFrameLayout extends FrameLayout {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.eUt.start();
-            this.eUp.c(this.eUo.topMargin - this.eUj, (this.eUj * 1.0d) / this.eUo.topMargin);
+            this.fbQ.start();
+            this.fbM.c(this.fbL.topMargin - this.fbG, (this.fbG * 1.0d) / this.fbL.topMargin);
             return;
         }
-        brN();
+        bvm();
     }
 
-    public void brN() {
+    public void bvm() {
         hideLoading();
-        if (this.eUp != null) {
-            this.eUp.brS();
+        if (this.fbM != null) {
+            this.fbM.bvr();
         }
     }
 
@@ -369,35 +369,35 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
     private void hideLoading() {
         this.isLoading = false;
-        if (this.eUo.topMargin > (-eTU)) {
-            this.eUt = ValueAnimator.ofFloat(1.0f, 0.0f);
-            this.eUt.setDuration(300L);
-            final int i = this.eUo.topMargin;
-            this.eUt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.4
+        if (this.fbL.topMargin > (-fbr)) {
+            this.fbQ = ValueAnimator.ofFloat(1.0f, 0.0f);
+            this.fbQ.setDuration(300L);
+            final int i = this.fbL.topMargin;
+            this.fbQ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.4
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                     if (((float) (floatValue * 0.3d)) <= 0.0f) {
                     }
-                    PullRefreshFrameLayout.this.eUn.setAlpha(floatValue);
-                    PullRefreshFrameLayout.this.eUo.topMargin = (int) (floatValue * i);
-                    PullRefreshFrameLayout.this.eUn.setLayoutParams(PullRefreshFrameLayout.this.eUo);
+                    PullRefreshFrameLayout.this.fbK.setAlpha(floatValue);
+                    PullRefreshFrameLayout.this.fbL.topMargin = (int) (floatValue * i);
+                    PullRefreshFrameLayout.this.fbK.setLayoutParams(PullRefreshFrameLayout.this.fbL);
                 }
             });
-            this.eUt.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.5
+            this.fbQ.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.5
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    PullRefreshFrameLayout.this.eUo.topMargin = -PullRefreshFrameLayout.eTU;
-                    PullRefreshFrameLayout.this.eUn.setLayoutParams(PullRefreshFrameLayout.this.eUo);
-                    PullRefreshFrameLayout.this.eUn.cancelAnimation();
-                    PullRefreshFrameLayout.this.eUn.setFrame(0);
-                    PullRefreshFrameLayout.this.eUn.setMinAndMaxProgress(0.0f, 1.0f);
-                    PullRefreshFrameLayout.this.eUn.setAlpha(1.0f);
-                    PullRefreshFrameLayout.this.eUn.loop(false);
+                    PullRefreshFrameLayout.this.fbL.topMargin = -PullRefreshFrameLayout.fbr;
+                    PullRefreshFrameLayout.this.fbK.setLayoutParams(PullRefreshFrameLayout.this.fbL);
+                    PullRefreshFrameLayout.this.fbK.cancelAnimation();
+                    PullRefreshFrameLayout.this.fbK.setFrame(0);
+                    PullRefreshFrameLayout.this.fbK.setMinAndMaxProgress(0.0f, 1.0f);
+                    PullRefreshFrameLayout.this.fbK.setAlpha(1.0f);
+                    PullRefreshFrameLayout.this.fbK.loop(false);
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -408,86 +408,86 @@ public class PullRefreshFrameLayout extends FrameLayout {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.eUt.start();
+            this.fbQ.start();
         }
     }
 
     private void reset() {
-        this.dfo = 0.0d;
-        this.Wc = 0;
-        this.dFF = 0;
-        this.eUg = 0;
-        this.eUd = false;
-        this.eUe = false;
+        this.dmn = 0.0d;
+        this.WZ = 0;
+        this.dMD = 0;
+        this.fbD = 0;
+        this.fbA = false;
+        this.fbB = false;
     }
 
     public void setOnTouchCallback(d dVar) {
-        this.eUp = dVar;
+        this.fbM = dVar;
     }
 
     public void setOnPullRefreshListener(c cVar) {
-        this.eUq = cVar;
+        this.fbN = cVar;
     }
 
     public void setOnCancelCallBack(a aVar) {
-        this.eUr = aVar;
+        this.fbO = aVar;
     }
 
     public void setOnLoadingStartCallback(b bVar) {
-        this.eUs = bVar;
+        this.fbP = bVar;
     }
 
     public void onDestroy() {
-        if (this.eUn != null) {
-            this.eUn.clearAnimation();
+        if (this.fbK != null) {
+            this.fbK.clearAnimation();
         }
-        if (this.eUt != null) {
-            this.eUt.cancel();
-            this.eUt.removeAllListeners();
-            this.eUt.removeAllUpdateListeners();
-            this.eUt = null;
+        if (this.fbQ != null) {
+            this.fbQ.cancel();
+            this.fbQ.removeAllListeners();
+            this.fbQ.removeAllUpdateListeners();
+            this.fbQ = null;
         }
-        this.eUp = null;
-        this.eUq = null;
-        this.eUr = null;
+        this.fbM = null;
+        this.fbN = null;
+        this.fbO = null;
     }
 
-    public void brO() {
-        this.eUn.bringToFront();
+    public void bvn() {
+        this.fbK.bringToFront();
     }
 
     public void setRefreshing(boolean z) {
-        if (z && this.eUh) {
-            this.eUo.topMargin = this.eUj;
-            this.eUn.setLayoutParams(this.eUo);
-            this.eUm = false;
-            this.eUn.loop(true);
-            this.eUn.setMinFrame(10);
-            this.eUn.setRepeatMode(1);
-            this.eUn.removeAllAnimatorListeners();
-            this.eUn.addAnimatorListener(this.eUu);
-            this.eUn.playAnimation();
+        if (z && this.fbE) {
+            this.fbL.topMargin = this.fbG;
+            this.fbK.setLayoutParams(this.fbL);
+            this.fbJ = false;
+            this.fbK.loop(true);
+            this.fbK.setMinFrame(10);
+            this.fbK.setRepeatMode(1);
+            this.fbK.removeAllAnimatorListeners();
+            this.fbK.addAnimatorListener(this.loadViewAnimListener);
+            this.fbK.playAnimation();
             return;
         }
         hideLoading();
     }
 
     public void setEnable(boolean z) {
-        this.eUh = z;
+        this.fbE = z;
     }
 
     public boolean isEnable() {
-        return this.eUh;
+        return this.fbE;
     }
 
     public boolean isLoading() {
         return this.isLoading;
     }
 
-    public void brP() {
-        if (this.eUl && this.eUn != null) {
-            this.eUn.setAlpha((float) this.dfo);
-            this.eUn.setFrame((int) (this.dfo * 10.0d));
+    public void bvo() {
+        if (this.fbI && this.fbK != null) {
+            this.fbK.setAlpha((float) this.dmn);
+            this.fbK.setFrame((int) (this.dmn * 10.0d));
         }
     }
 }

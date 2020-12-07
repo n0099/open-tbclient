@@ -5,7 +5,7 @@ import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.io.IOException;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes7.dex */
 public class af {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.airbnb.lottie.model.content.j x(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {

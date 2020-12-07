@@ -2,7 +2,7 @@ package com.baidu.swan.support.v4.b;
 
 import android.util.Log;
 import java.io.Writer;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 public class d extends Writer {
     private StringBuilder mBuilder = new StringBuilder(128);
     private final String mTag;

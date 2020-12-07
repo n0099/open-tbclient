@@ -5,23 +5,23 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class r {
-    public long aTP;
-    public String biJ;
-    public List<a> biK;
-    public long bif;
-    public boolean bil = false;
-    public Set<Long> bim = new HashSet();
+    public long aWT;
+    public long bmu;
+    public String bnb;
+    public List<a> bnc;
     public String giftId;
     public String userId;
+    public boolean bmz = false;
+    public Set<Long> bmA = new HashSet();
 
     /* loaded from: classes4.dex */
     public static class a {
-        public String aTO;
-        public String biL;
-        public com.baidu.live.im.data.a bie;
-        public long bih;
-        public double bii;
-        public boolean bij;
+        public String aWS;
+        public com.baidu.live.im.data.b bmt;
+        public long bmv;
+        public double bmw;
+        public boolean bmx;
+        public String bnd;
         public long count;
         public String giftId;
         public String giftName;

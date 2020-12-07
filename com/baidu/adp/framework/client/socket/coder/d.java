@@ -6,19 +6,19 @@ import java.security.PublicKey;
 import javax.crypto.SecretKey;
 /* loaded from: classes.dex */
 public class d {
-    private static d IY = null;
+    private static d JQ = null;
     private SecretKey mSecretKey = null;
     private byte[] mSecretKeyBytes = null;
 
     public static d ly() {
-        if (IY == null) {
+        if (JQ == null) {
             synchronized (d.class) {
-                if (IY == null) {
-                    IY = new d();
+                if (JQ == null) {
+                    JQ = new d();
                 }
             }
         }
-        return IY;
+        return JQ;
     }
 
     public void initial(byte[] bArr) {

@@ -11,15 +11,14 @@ import android.widget.TextView;
 import com.baidu.live.core.a.a;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 /* loaded from: classes4.dex */
 public class HostLiveGoodsEnterView extends FrameLayout implements a {
-    private TextView brQ;
-    private View bry;
-    private ImageView brz;
+    private View bwI;
+    private ImageView bwJ;
+    private TextView bxa;
     private View rootView;
 
     public HostLiveGoodsEnterView(@NonNull Context context) {
@@ -39,41 +38,41 @@ public class HostLiveGoodsEnterView extends FrameLayout implements a {
 
     public void init(Context context) {
         this.rootView = View.inflate(context, a.g.ala_master_live_goods_enter_view, this);
-        this.bry = this.rootView.findViewById(a.f.host_goods_layout);
-        this.brz = (ImageView) this.rootView.findViewById(a.f.host_goods_imageView);
-        this.brQ = (TextView) this.rootView.findViewById(a.f.host_goods_num_textView);
+        this.bwI = this.rootView.findViewById(a.f.host_goods_layout);
+        this.bwJ = (ImageView) this.rootView.findViewById(a.f.host_goods_imageView);
+        this.bxa = (TextView) this.rootView.findViewById(a.f.host_goods_num_textView);
         if (ExtraParamsManager.getABTestSwitcher(ExtraParamsManager.KEY_SHOP_GIFT_ICON_AB, true)) {
-            this.brz.setImageResource(a.e.ala_live_icon_bottom_bar_shop_testa);
+            this.bwJ.setImageResource(a.e.ala_live_icon_bottom_bar_shop_testa);
         } else {
-            this.brz.setImageResource(a.e.ala_live_icon_bottom_bar_shop_testb);
+            this.bwJ.setImageResource(a.e.ala_live_icon_bottom_bar_shop_testb);
         }
     }
 
     public void setOutClickListener(View.OnClickListener onClickListener) {
-        if (this.brz != null) {
-            this.brz.setOnClickListener(onClickListener);
+        if (this.bwJ != null) {
+            this.bwJ.setOnClickListener(onClickListener);
         }
     }
 
-    public void Pf() {
-        if (this.bry.getVisibility() == 8) {
-            UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Page.AUTHOR_LIVE_ROOM, "shopcart_show"));
+    public void Rz() {
+        if (this.bwI.getVisibility() == 8) {
+            UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "author_liveroom", "shopcart_show"));
         }
-        this.bry.setVisibility(0);
+        this.bwI.setVisibility(0);
     }
 
-    public void Pg() {
-        this.bry.setVisibility(8);
+    public void RA() {
+        this.bwI.setVisibility(8);
     }
 
-    public void eZ(int i) {
+    public void fx(int i) {
         if (i <= 0) {
-            this.brQ.setVisibility(8);
-            this.brQ.setText("");
+            this.bxa.setVisibility(8);
+            this.bxa.setText("");
             return;
         }
-        this.brQ.setText(i + "");
-        this.brQ.setVisibility(0);
+        this.bxa.setText(i + "");
+        this.bxa.setVisibility(0);
     }
 
     @Override // com.baidu.live.core.a.a

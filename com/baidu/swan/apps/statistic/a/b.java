@@ -4,22 +4,22 @@ import android.text.TextUtils;
 import com.baidu.swan.apps.u.c.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b extends e {
-    public String dyt = "";
+    public String dFs = "";
 
     @Override // com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        com.baidu.swan.apps.runtime.e anu;
-        if (this.dyA == null) {
-            this.dyA = new JSONObject();
+        com.baidu.swan.apps.runtime.e aqC;
+        if (this.dFz == null) {
+            this.dFz = new JSONObject();
         }
-        if (TextUtils.isEmpty(this.dyt) && (anu = com.baidu.swan.apps.v.f.azg().anu()) != null) {
-            b.a afg = anu.afg();
-            this.dyt = afg != null ? afg.axV() : "";
+        if (TextUtils.isEmpty(this.dFs) && (aqC = com.baidu.swan.apps.v.f.aCp().aqC()) != null) {
+            b.a aio = aqC.aio();
+            this.dFs = aio != null ? aio.aBe() : "";
         }
         try {
-            this.dyA.put("source", this.dyt);
+            this.dFz.put("source", this.dFs);
         } catch (JSONException e) {
             e.printStackTrace();
         }

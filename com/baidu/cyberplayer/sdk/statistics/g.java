@@ -9,13 +9,13 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private c f1436a = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
+    private c f1438a = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
     private List<f> b = new ArrayList();
 
     public JSONObject a() throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        if (this.f1436a != null) {
-            this.f1436a.a(jSONObject);
+        if (this.f1438a != null) {
+            this.f1438a.a(jSONObject);
         }
         if (this.b != null) {
             JSONArray jSONArray = new JSONArray();
@@ -40,8 +40,8 @@ public class g {
     }
 
     public void a(int i, String str, String str2) {
-        if (this.f1436a != null && i == 24322) {
-            this.f1436a.a(new e(i, str, str2));
+        if (this.f1438a != null && i == 24322) {
+            this.f1438a.a(new e(i, str, str2));
         } else if (this.b == null) {
         } else {
             e eVar = new e(i, str, str2);
@@ -65,8 +65,8 @@ public class g {
     }
 
     public void b() {
-        if (this.f1436a != null) {
-            this.f1436a.b();
+        if (this.f1438a != null) {
+            this.f1438a.b();
         }
         if (this.b != null) {
             this.b.clear();

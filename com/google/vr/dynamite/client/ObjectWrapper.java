@@ -3,7 +3,7 @@ package com.google.vr.dynamite.client;
 import android.os.IBinder;
 import com.google.vr.dynamite.client.IObjectWrapper;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes17.dex */
 public final class ObjectWrapper<T> extends IObjectWrapper.a {
     private final T wrappedObject;
 

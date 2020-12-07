@@ -1,10 +1,11 @@
 package com.baidu.android.util.sp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class PreferenceUtils {
     private static SharedPreferences mPreference = null;
 
@@ -62,6 +63,7 @@ public final class PreferenceUtils {
         edit.apply();
     }
 
+    @SuppressLint({"ApplySharedPref"})
     public static void setStringCommit(String str, String str2) {
         SharedPreferences.Editor edit = getPreference().edit();
         edit.putString(str, str2);

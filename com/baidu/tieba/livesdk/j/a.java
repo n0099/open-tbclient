@@ -12,7 +12,7 @@ public class a {
             ar arVar = new ar(str);
             if (map != null) {
                 for (String str2 : map.keySet()) {
-                    arVar.dR(str2, map.get(str2));
+                    arVar.dY(str2, map.get(str2));
                 }
             }
             TiebaStatic.log(arVar);

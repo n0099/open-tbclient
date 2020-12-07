@@ -1,37 +1,37 @@
 package com.baidu.ar.http;
 
 import com.baidu.ar.ihttp.IHttpRequest;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class HttpRequestFactory implements com.baidu.ar.ihttp.b {
-    private volatile e qK;
+    private volatile e ra;
 
     public e getExecutor() {
-        if (this.qK == null) {
+        if (this.ra == null) {
             synchronized (this) {
-                if (this.qK == null) {
-                    this.qK = new e(2, 5, 1000, 60L);
+                if (this.ra == null) {
+                    this.ra = new e(2, 5, 1000, 60L);
                 }
             }
         }
-        return this.qK;
+        return this.ra;
     }
 
     @Override // com.baidu.ar.ihttp.b
     public IHttpRequest newRequest() {
         f fVar = new f(this);
-        fVar.setCharset(d.qy);
+        fVar.setCharset(d.qO);
         fVar.setConnectionTimeout(2000);
         fVar.setReadTimeout(30000);
         fVar.setUseCache(false);
-        fVar.addHeaders(d.qz);
+        fVar.addHeaders(d.qP);
         return fVar;
     }
 
     @Override // com.baidu.ar.ihttp.b
     public void release() {
-        if (this.qK != null) {
-            this.qK.shutdown();
-            this.qK = null;
+        if (this.ra != null) {
+            this.ra.shutdown();
+            this.ra = null;
         }
     }
 }

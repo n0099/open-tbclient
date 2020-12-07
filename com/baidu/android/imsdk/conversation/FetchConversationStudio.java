@@ -6,11 +6,11 @@ import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.imsdk.a;
+import com.baidu.h.a;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class FetchConversationStudio {
     private static final int FETCH_INTERVAL_TIME = 1000;
     private static final int FIRST_RETRY = 0;
@@ -34,7 +34,7 @@ public class FetchConversationStudio {
             if (FetchConversationStudio.this.mReliableFetchCount.get() > 0) {
                 FetchConversationStudio.this.mReliableFetchCount.set(0);
                 if (ConversationStudioManImpl.getInstance(FetchConversationStudio.this.mContext).isReliable(FetchConversationStudio.this.mCastId)) {
-                    FetchConversationStudio.this.fetchCastMsgByMsgId(false);
+                    FetchConversationStudio.this.fetchCastMsgByMsgId();
                     a.mHandler.postDelayed(FetchConversationStudio.this.fetchRunnable, 1000L);
                     return;
                 }
@@ -72,7 +72,7 @@ public class FetchConversationStudio {
                 a.mHandler.removeCallbacks(this);
                 return;
             }
-            FetchConversationStudio.this.fetchCastMsgByMsgId(false);
+            FetchConversationStudio.this.fetchCastMsgByMsgId();
             a.mHandler.removeCallbacks(this);
             a.mHandler.postDelayed(this, FetchConversationStudio.this.mFetchNum != 3 ? 5000L : FetchConversationStudio.THIRD_RETRY_TIME);
         }
@@ -111,12 +111,12 @@ public class FetchConversationStudio {
         ChatMsgManagerImpl.getInstance(this.mContext).fetchMsgidByMsgid(this.mContext, 4, j, j2, j3, PULL_COUNT, 2, 0, this.mFetchMsgListener, this.mFetchNum);
     }
 
-    public void fetchCastMsgByMsgId(boolean z) {
+    public void fetchCastMsgByMsgId() {
         long longValue = Utility.getReliableMaxMsgId(this.mContext, this.mCastId).longValue();
         LogUtils.d(TAG, "sp reliableMaxMsg:" + longValue);
         if (longValue > 0) {
             mLocalCursorMsgId = longValue;
         }
-        fetchCastMsg(this.mCastId, longValue, z ? Long.MAX_VALUE : this.mMaxMsgId);
+        fetchCastMsg(this.mCastId, longValue + 1, Long.MAX_VALUE);
     }
 }

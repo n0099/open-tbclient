@@ -17,16 +17,12 @@ import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
-import androidx.annotation.Keep;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-@Keep
 @TargetApi(17)
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 class SingleViewPresentation extends Presentation {
     private final AccessibilityEventsDelegate accessibilityEventsDelegate;
     private FrameLayout container;
@@ -38,7 +34,7 @@ class SingleViewPresentation extends Presentation {
     private final PlatformViewFactory viewFactory;
     private int viewId;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     static class PresentationState {
         private FakeWindowViewGroup fakeWindowViewGroup;
         private PlatformView platformView;
@@ -118,7 +114,7 @@ class SingleViewPresentation extends Presentation {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class FakeWindowViewGroup extends ViewGroup {
         private final Rect childRect;
         private final Rect viewBounds;
@@ -160,16 +156,15 @@ class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     private static class ImmContext extends ContextWrapper {
-        @NonNull
         private final InputMethodManager inputMethodManager;
 
         ImmContext(Context context) {
             this(context, null);
         }
 
-        private ImmContext(Context context, @Nullable InputMethodManager inputMethodManager) {
+        private ImmContext(Context context, InputMethodManager inputMethodManager) {
             super(context);
             this.inputMethodManager = inputMethodManager == null ? (InputMethodManager) context.getSystemService("input_method") : inputMethodManager;
         }
@@ -185,14 +180,12 @@ class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     private static class PresentationContext extends ContextWrapper {
-        @Nullable
         private WindowManager windowManager;
-        @NonNull
         private final WindowManagerHandler windowManagerHandler;
 
-        PresentationContext(Context context, @NonNull WindowManagerHandler windowManagerHandler) {
+        PresentationContext(Context context, WindowManagerHandler windowManagerHandler) {
             super(context);
             this.windowManagerHandler = windowManagerHandler;
         }
@@ -211,7 +204,7 @@ class SingleViewPresentation extends Presentation {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class WindowManagerHandler implements InvocationHandler {
         private static final String TAG = "PlatformViewsController";
         private final WindowManager delegate;
@@ -313,7 +306,7 @@ class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     private static class AccessibilityDelegatingFrameLayout extends FrameLayout {
         private final AccessibilityEventsDelegate accessibilityEventsDelegate;
         private final View embeddedView;

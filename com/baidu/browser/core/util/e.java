@@ -1,6 +1,5 @@
 package com.baidu.browser.core.util;
 
-import com.baidu.webkit.internal.ETAG;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes11.dex */
@@ -114,7 +113,7 @@ public class e<K, V> {
     private int safeSizeOf(K k, V v) {
         int sizeOf = sizeOf(k, v);
         if (sizeOf < 0) {
-            throw new IllegalStateException("Negative size: " + k + ETAG.EQUAL + v);
+            throw new IllegalStateException("Negative size: " + k + "=" + v);
         }
         return sizeOf;
     }

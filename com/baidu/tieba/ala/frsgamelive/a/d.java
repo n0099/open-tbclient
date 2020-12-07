@@ -5,40 +5,40 @@ import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
 import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
-    private final List<com.baidu.adp.widget.ListView.a> biN = new ArrayList();
-    private com.baidu.adp.base.e eGT;
-    private BdTypeMultiColumnListView gCj;
-    private e gCk;
-    private h gCl;
+    private final List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
+    private com.baidu.adp.base.e eNZ;
+    private BdTypeMultiColumnListView gLg;
+    private e gLh;
+    private h gLi;
 
     public d(com.baidu.adp.base.e eVar, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
-        this.eGT = eVar;
-        this.gCj = bdTypeMultiColumnListView;
-        Lp();
+        this.eNZ = eVar;
+        this.gLg = bdTypeMultiColumnListView;
+        Nt();
     }
 
-    private void Lp() {
-        this.gCk = new e((TbPageContext) this.eGT, com.baidu.tieba.ala.frsgamelive.b.c.gCt);
-        this.gCl = new h((TbPageContext) this.eGT, com.baidu.tieba.ala.frsgamelive.b.c.gCu);
-        this.biN.add(this.gCk);
-        this.biN.add(this.gCl);
-        this.gCj.addAdapters(this.biN);
+    private void Nt() {
+        this.gLh = new e((TbPageContext) this.eNZ, com.baidu.tieba.ala.frsgamelive.b.c.gLq);
+        this.gLi = new h((TbPageContext) this.eNZ, com.baidu.tieba.ala.frsgamelive.b.c.gLr);
+        this.bnf.add(this.gLh);
+        this.bnf.add(this.gLi);
+        this.gLg.addAdapters(this.bnf);
     }
 
     public void setDatas(List<q> list) {
-        if (this.gCj != null) {
-            this.gCj.setData(list);
+        if (this.gLg != null) {
+            this.gLg.setData(list);
         }
     }
 
     public void b(com.baidu.tieba.ala.f fVar) {
-        if (this.gCk != null) {
-            this.gCk.a(fVar);
+        if (this.gLh != null) {
+            this.gLh.a(fVar);
         }
-        if (this.gCl != null) {
-            this.gCl.a(fVar);
+        if (this.gLi != null) {
+            this.gLi.a(fVar);
         }
     }
 }

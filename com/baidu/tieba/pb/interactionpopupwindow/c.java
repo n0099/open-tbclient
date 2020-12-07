@@ -25,7 +25,7 @@ public class c {
                         i = 4;
                         break;
                 }
-                arVar.ak("obj_type", i);
+                arVar.al("obj_type", i);
                 TiebaStatic.log(arVar);
                 return new d(tbPageContext, (CustomDialogData) iBaseDialogData);
             default:

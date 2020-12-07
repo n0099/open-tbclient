@@ -7,21 +7,21 @@ import java.util.List;
 public final class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ List f4686a;
+    final /* synthetic */ List f4456a;
     final /* synthetic */ LocalAliasTagsManager b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(LocalAliasTagsManager localAliasTagsManager, List list) {
         this.b = localAliasTagsManager;
-        this.f4686a = list;
+        this.f4456a = list;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         ISubscribeAppAliasManager iSubscribeAppAliasManager;
-        if (this.f4686a != null && this.f4686a.size() > 0) {
+        if (this.f4456a != null && this.f4456a.size() > 0) {
             iSubscribeAppAliasManager = this.b.mSubscribeAppAliasManager;
-            iSubscribeAppAliasManager.setAliasSuccess((String) this.f4686a.get(0));
+            iSubscribeAppAliasManager.setAliasSuccess((String) this.f4456a.get(0));
         }
     }
 }

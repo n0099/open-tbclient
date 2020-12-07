@@ -3,60 +3,60 @@ package com.airbnb.lottie.model.a;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.o;
-/* loaded from: classes16.dex */
+/* loaded from: classes7.dex */
 public class l implements com.airbnb.lottie.model.content.b {
-    private final e EU;
-    private final m<PointF, PointF> EV;
-    private final g EW;
-    private final b EX;
-    private final d EY;
+    private final e FK;
+    private final m<PointF, PointF> FL;
+    private final g FM;
+    private final b FN;
+    private final d FO;
     @Nullable
-    private final b EZ;
+    private final b FP;
     @Nullable
-    private final b Fa;
+    private final b FQ;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.EU = eVar;
-        this.EV = mVar;
-        this.EW = gVar;
-        this.EX = bVar;
-        this.EY = dVar;
-        this.EZ = bVar2;
-        this.Fa = bVar3;
+        this.FK = eVar;
+        this.FL = mVar;
+        this.FM = gVar;
+        this.FN = bVar;
+        this.FO = dVar;
+        this.FP = bVar2;
+        this.FQ = bVar3;
     }
 
     public e jF() {
-        return this.EU;
+        return this.FK;
     }
 
     public m<PointF, PointF> jG() {
-        return this.EV;
+        return this.FL;
     }
 
     public g jH() {
-        return this.EW;
+        return this.FM;
     }
 
     public b jI() {
-        return this.EX;
+        return this.FN;
     }
 
     public d jJ() {
-        return this.EY;
+        return this.FO;
     }
 
     @Nullable
     public b jK() {
-        return this.EZ;
+        return this.FP;
     }
 
     @Nullable
     public b jL() {
-        return this.Fa;
+        return this.FQ;
     }
 
     public o jM() {

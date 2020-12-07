@@ -1,12 +1,12 @@
 package com.baidu.searchbox.websocket;
 
-import kotlin.h;
+import kotlin.e;
 import kotlin.jvm.a.b;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.Ref;
 import org.json.JSONArray;
-@h
-/* loaded from: classes12.dex */
+@e
+/* loaded from: classes19.dex */
 final class WebSocketRequest$Companion$fromJSON$1$2 extends Lambda implements b<Integer, String> {
     final /* synthetic */ Ref.ObjectRef $protocolsArray;
 

@@ -17,7 +17,7 @@ import java.lang.ref.WeakReference;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class HandlerMessenger implements IMessenger {
     private static final int KEY_MESSAGE_EVENT = 153;
     public static final String TAG = "HandlerMessenger";
@@ -128,7 +128,7 @@ public class HandlerMessenger implements IMessenger {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     private class PrivateHandler extends Handler {
         WeakReference<IVideoEventInterceptor> mWeakControl;
 

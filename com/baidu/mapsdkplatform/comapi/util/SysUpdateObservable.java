@@ -3,11 +3,11 @@ package com.baidu.mapsdkplatform.comapi.util;
 import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class SysUpdateObservable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile SysUpdateObservable f2246a;
+    private static volatile SysUpdateObservable f2248a;
     private List<SysUpdateObserver> b;
 
     private SysUpdateObservable() {
@@ -16,14 +16,14 @@ public class SysUpdateObservable {
     }
 
     public static SysUpdateObservable getInstance() {
-        if (f2246a == null) {
+        if (f2248a == null) {
             synchronized (SysUpdateObservable.class) {
-                if (f2246a == null) {
-                    f2246a = new SysUpdateObservable();
+                if (f2248a == null) {
+                    f2248a = new SysUpdateObservable();
                 }
             }
         }
-        return f2246a;
+        return f2248a;
     }
 
     public void addObserver(SysUpdateObserver sysUpdateObserver) {

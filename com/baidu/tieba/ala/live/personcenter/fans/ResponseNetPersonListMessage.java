@@ -1,10 +1,11 @@
 package com.baidu.tieba.ala.live.personcenter.fans;
 
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
-    private e gQz;
+    private e gZM;
     private int mErrCode;
     private String mErrMsg;
 
@@ -14,8 +15,8 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         this.mErrMsg = "";
     }
 
-    public e bUX() {
-        return this.gQz;
+    public e bYG() {
+        return this.gZM;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -24,9 +25,9 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt("error_code");
-            this.mErrMsg = jSONObject.optString("error_msg");
-            this.gQz = new e();
-            this.gQz.parserJson(jSONObject);
+            this.mErrMsg = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
+            this.gZM = new e();
+            this.gZM.parserJson(jSONObject);
         }
     }
 }

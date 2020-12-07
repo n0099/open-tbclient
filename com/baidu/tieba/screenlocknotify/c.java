@@ -10,11 +10,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class c extends BaseAdapter {
     private Context mContext;
     private boolean mHasMore = true;
-    private List<d> mDV = new ArrayList();
+    private List<d> mRT = new ArrayList();
 
     public c(Context context) {
         this.mContext = context;
@@ -22,20 +22,20 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.mDV != null) {
-            return this.mDV.size();
+        if (this.mRT != null) {
+            return this.mRT.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: IR */
+    /* renamed from: JI */
     public d getItem(int i) {
-        if (this.mDV == null || i >= this.mDV.size()) {
+        if (this.mRT == null || i >= this.mRT.size()) {
             return null;
         }
-        return this.mDV.get(i);
+        return this.mRT.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,56 +45,56 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return a(this.mDV.get(i), view, viewGroup);
+        return a(this.mRT.get(i), view, viewGroup);
     }
 
     public View a(d dVar, View view, ViewGroup viewGroup) {
         View inflate;
-        a dM;
+        a dX;
         if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
-            dM = (a) view.getTag();
+            dX = (a) view.getTag();
             inflate = view;
         } else {
             inflate = LayoutInflater.from(this.mContext).inflate(R.layout.screenlock_show_item_view_4, viewGroup, false);
-            dM = dM(inflate);
-            inflate.setTag(dM);
+            dX = dX(inflate);
+            inflate.setTag(dX);
         }
         if (dVar == null) {
             return inflate;
         }
-        dM.mDW.setText(dVar.title);
-        dM.mDX.setText(dVar.content);
-        dM.mDY.setDefaultErrorResource(R.drawable.screen_notify_default_bg);
-        dM.mDY.setDefaultResource(R.drawable.screen_notify_default_bg);
-        dM.mDY.a(dVar.pic, 10, 0, 0, false);
+        dX.mRU.setText(dVar.title);
+        dX.mRV.setText(dVar.content);
+        dX.mRW.setDefaultErrorResource(R.drawable.screen_notify_default_bg);
+        dX.mRW.setDefaultResource(R.drawable.screen_notify_default_bg);
+        dX.mRW.a(dVar.pic, 10, 0, 0, false);
         return inflate;
     }
 
-    public void fD(List<d> list) {
+    public void fR(List<d> list) {
         if (list != null && list.size() != 0) {
-            this.mDV.addAll(list);
+            this.mRT.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     public class a {
-        TextView mDW;
-        TextView mDX;
-        TbImageView mDY;
         View mLine;
+        TextView mRU;
+        TextView mRV;
+        TbImageView mRW;
 
         private a() {
         }
     }
 
-    private a dM(View view) {
+    private a dX(View view) {
         a aVar = new a();
-        aVar.mDW = (TextView) view.findViewById(R.id.push_msg_title);
-        aVar.mDX = (TextView) view.findViewById(R.id.push_msg_content);
-        aVar.mDY = (TbImageView) view.findViewById(R.id.push_msg_pic);
-        aVar.mDY.setAutoChangeStyle(false);
+        aVar.mRU = (TextView) view.findViewById(R.id.push_msg_title);
+        aVar.mRV = (TextView) view.findViewById(R.id.push_msg_content);
+        aVar.mRW = (TbImageView) view.findViewById(R.id.push_msg_pic);
+        aVar.mRW.setAutoChangeStyle(false);
         aVar.mLine = view.findViewById(R.id.line);
         return aVar;
     }

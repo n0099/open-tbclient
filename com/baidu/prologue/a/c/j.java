@@ -12,9 +12,9 @@ import android.util.Log;
 import java.util.List;
 /* loaded from: classes14.dex */
 public class j {
-    public static final boolean DEBUG = com.baidu.prologue.a.b.a.cft.get().abk();
+    public static final boolean DEBUG = com.baidu.prologue.a.b.a.clZ.get().aes();
 
-    public static boolean L(@NonNull Context context, @NonNull String str) {
+    public static boolean O(@NonNull Context context, @NonNull String str) {
         ResolveInfo next;
         boolean z = false;
         if (!TextUtils.isEmpty(str)) {
@@ -43,7 +43,7 @@ public class j {
         return z;
     }
 
-    public static boolean M(@NonNull Context context, @NonNull String str) {
+    public static boolean P(@NonNull Context context, @NonNull String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

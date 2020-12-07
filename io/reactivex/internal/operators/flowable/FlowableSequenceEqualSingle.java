@@ -1,37 +1,39 @@
 package io.reactivex.internal.operators.flowable;
 
+import io.reactivex.b.d;
+import io.reactivex.internal.a.f;
 import io.reactivex.internal.operators.flowable.FlowableSequenceEqual;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
-    final io.reactivex.c.d<? super T, ? super T> comparer;
-    final org.a.b<? extends T> pPf;
-    final org.a.b<? extends T> pPg;
+    final d<? super T, ? super T> comparer;
+    final org.a.b<? extends T> pFT;
+    final org.a.b<? extends T> pFU;
     final int prefetch;
 
     @Override // io.reactivex.w
     public void b(y<? super Boolean> yVar) {
         EqualCoordinator equalCoordinator = new EqualCoordinator(yVar, this.prefetch, this.comparer);
         yVar.onSubscribe(equalCoordinator);
-        equalCoordinator.subscribe(this.pPf, this.pPg);
+        equalCoordinator.subscribe(this.pFT, this.pFU);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class EqualCoordinator<T> extends AtomicInteger implements io.reactivex.disposables.b, FlowableSequenceEqual.a {
         private static final long serialVersionUID = -6178010334400373240L;
         final y<? super Boolean> actual;
-        final io.reactivex.c.d<? super T, ? super T> comparer;
+        final d<? super T, ? super T> comparer;
         final AtomicThrowable error = new AtomicThrowable();
         final FlowableSequenceEqual.EqualSubscriber<T> first;
         final FlowableSequenceEqual.EqualSubscriber<T> second;
         T v1;
         T v2;
 
-        EqualCoordinator(y<? super Boolean> yVar, int i, io.reactivex.c.d<? super T, ? super T> dVar) {
+        EqualCoordinator(y<? super Boolean> yVar, int i, d<? super T, ? super T> dVar) {
             this.actual = yVar;
             this.comparer = dVar;
             this.first = new FlowableSequenceEqual.EqualSubscriber<>(this, i);
@@ -72,9 +74,9 @@ public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
             }
             int i = 1;
             while (true) {
-                io.reactivex.internal.a.g<T> gVar = this.first.queue;
-                io.reactivex.internal.a.g<T> gVar2 = this.second.queue;
-                if (gVar != null && gVar2 != null) {
+                f<T> fVar = this.first.queue;
+                f<T> fVar2 = this.second.queue;
+                if (fVar != null && fVar2 != null) {
                     while (!isDisposed()) {
                         if (this.error.get() != null) {
                             cancelAndClear();
@@ -85,7 +87,7 @@ public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
                         T t = this.v1;
                         if (t == null) {
                             try {
-                                t = gVar.poll();
+                                t = fVar.poll();
                                 this.v1 = t;
                             } catch (Throwable th) {
                                 io.reactivex.exceptions.a.J(th);
@@ -101,7 +103,7 @@ public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
                         T t3 = this.v2;
                         if (t3 == null) {
                             try {
-                                t3 = gVar2.poll();
+                                t3 = fVar2.poll();
                                 this.v2 = t3;
                             } catch (Throwable th2) {
                                 io.reactivex.exceptions.a.J(th2);
@@ -165,7 +167,7 @@ public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
             if (this.error.addThrowable(th)) {
                 drain();
             } else {
-                io.reactivex.e.a.onError(th);
+                io.reactivex.d.a.onError(th);
             }
         }
     }

@@ -8,38 +8,38 @@ import android.text.TextUtils;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 /* loaded from: classes6.dex */
 public class a {
-    private BroadcastReceiver emK;
-    private int emL;
-    private InterfaceC0565a emM;
+    private BroadcastReceiver etM;
+    private int etN;
+    private InterfaceC0577a etO;
     private Context mContext;
 
     /* renamed from: com.baidu.swan.videoplayer.media.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0565a {
-        void aH(int i, int i2);
+    public interface InterfaceC0577a {
+        void aJ(int i, int i2);
     }
 
     public void register(Context context) {
         this.mContext = context;
-        this.emL = getNetworkState();
-        this.emK = new BroadcastReceiver() { // from class: com.baidu.swan.videoplayer.media.a.a.1
+        this.etN = getNetworkState();
+        this.etM = new BroadcastReceiver() { // from class: com.baidu.swan.videoplayer.media.a.a.1
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context2, Intent intent) {
                 int networkState;
-                if (TextUtils.equals(intent.getAction(), "android.net.conn.CONNECTIVITY_CHANGE") && (networkState = a.this.getNetworkState()) != a.this.emL) {
-                    if (a.this.emM != null) {
-                        a.this.emM.aH(a.this.emL, networkState);
+                if (TextUtils.equals(intent.getAction(), "android.net.conn.CONNECTIVITY_CHANGE") && (networkState = a.this.getNetworkState()) != a.this.etN) {
+                    if (a.this.etO != null) {
+                        a.this.etO.aJ(a.this.etN, networkState);
                     }
-                    a.this.emL = networkState;
+                    a.this.etN = networkState;
                 }
             }
         };
-        this.mContext.registerReceiver(this.emK, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+        this.mContext.registerReceiver(this.etM, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
     }
 
     public void unregister() {
         if (this.mContext != null) {
-            this.mContext.unregisterReceiver(this.emK);
+            this.mContext.unregisterReceiver(this.etM);
         }
     }
 
@@ -53,7 +53,7 @@ public class a {
         return 0;
     }
 
-    public void a(InterfaceC0565a interfaceC0565a) {
-        this.emM = interfaceC0565a;
+    public void a(InterfaceC0577a interfaceC0577a) {
+        this.etO = interfaceC0577a;
     }
 }

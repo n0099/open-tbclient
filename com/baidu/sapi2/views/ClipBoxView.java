@@ -16,7 +16,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class ClipBoxView extends View {
     public static int G = 0;
     public static int H = 1;
@@ -45,7 +45,7 @@ public class ClipBoxView extends View {
     public boolean F;
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f3563a;
+    private Paint f3566a;
     private Paint b;
     private int c;
     private int d;
@@ -73,7 +73,7 @@ public class ClipBoxView extends View {
     private float z;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         a() {
         }
@@ -135,12 +135,12 @@ public class ClipBoxView extends View {
     @TargetApi(11)
     private void d() {
         setLayerType(1, null);
-        this.f3563a = new Paint();
+        this.f3566a = new Paint();
         this.b = new Paint();
-        this.f3563a.setColor(-1);
-        this.f3563a.setStyle(Paint.Style.STROKE);
-        this.f3563a.setStrokeWidth(SapiUtils.dip2px(getContext(), 1.0f));
-        this.f3563a.setAntiAlias(true);
+        this.f3566a.setColor(-1);
+        this.f3566a.setStyle(Paint.Style.STROKE);
+        this.f3566a.setStrokeWidth(SapiUtils.dip2px(getContext(), 1.0f));
+        this.f3566a.setAntiAlias(true);
         this.b.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         this.b.setAntiAlias(true);
         this.c = SapiUtils.dip2px(getContext(), 20.0f);
@@ -179,7 +179,7 @@ public class ClipBoxView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         int argb = Color.argb(180, 0, 0, 0);
-        this.f3563a.setStrokeWidth(SapiUtils.dip2px(getContext(), 1.0f));
+        this.f3566a.setStrokeWidth(SapiUtils.dip2px(getContext(), 1.0f));
         canvas.drawColor(argb);
         b(canvas);
         if (this.n == 1.0f) {
@@ -368,14 +368,14 @@ public class ClipBoxView extends View {
         float f4 = rectF.bottom;
         float f5 = (f4 - f2) / 3.0f;
         float f6 = f2 + f5;
-        canvas.drawLine(f, f6, f3, f6, this.f3563a);
+        canvas.drawLine(f, f6, f3, f6, this.f3566a);
         float f7 = f2 + (f5 * 2.0f);
-        canvas.drawLine(f, f7, f3, f7, this.f3563a);
+        canvas.drawLine(f, f7, f3, f7, this.f3566a);
         float f8 = (f3 - f) / 3.0f;
         float f9 = f + f8;
-        canvas.drawLine(f9, f2, f9, f4, this.f3563a);
+        canvas.drawLine(f9, f2, f9, f4, this.f3566a);
         float f10 = f + (f8 * 2.0f);
-        canvas.drawLine(f10, f2, f10, f4, this.f3563a);
+        canvas.drawLine(f10, f2, f10, f4, this.f3566a);
     }
 
     private void a(float f, float f2, float f3, float f4) {
@@ -460,46 +460,46 @@ public class ClipBoxView extends View {
             rectF.top = this.u - (this.q * f2);
             rectF.right = this.x + (this.r * f2);
             rectF.bottom = this.v + (f2 * this.s);
-            canvas.drawRect(rectF, this.f3563a);
+            canvas.drawRect(rectF, this.f3566a);
             return;
         }
-        canvas.drawRect(this.e, this.f3563a);
+        canvas.drawRect(this.e, this.f3566a);
     }
 
     private void c(Canvas canvas) {
-        this.f3563a.setStrokeWidth(this.d);
+        this.f3566a.setStrokeWidth(this.d);
         RectF rectF = this.e;
         float f = rectF.left;
         float f2 = rectF.top;
-        canvas.drawLine(f - this.k, f2, f + this.c, f2, this.f3563a);
+        canvas.drawLine(f - this.k, f2, f + this.c, f2, this.f3566a);
         RectF rectF2 = this.e;
         float f3 = rectF2.left;
         float f4 = rectF2.top;
-        canvas.drawLine(f3, f4, f3, f4 + this.c, this.f3563a);
+        canvas.drawLine(f3, f4, f3, f4 + this.c, this.f3566a);
         RectF rectF3 = this.e;
         float f5 = rectF3.right;
         float f6 = rectF3.top;
-        canvas.drawLine(this.k + f5, f6, f5 - this.c, f6, this.f3563a);
+        canvas.drawLine(this.k + f5, f6, f5 - this.c, f6, this.f3566a);
         RectF rectF4 = this.e;
         float f7 = rectF4.right;
         float f8 = rectF4.top;
-        canvas.drawLine(f7, f8, f7, f8 + this.c, this.f3563a);
+        canvas.drawLine(f7, f8, f7, f8 + this.c, this.f3566a);
         RectF rectF5 = this.e;
         float f9 = rectF5.left;
         float f10 = rectF5.bottom;
-        canvas.drawLine(f9 - this.k, f10, f9 + this.c, f10, this.f3563a);
+        canvas.drawLine(f9 - this.k, f10, f9 + this.c, f10, this.f3566a);
         RectF rectF6 = this.e;
         float f11 = rectF6.left;
         float f12 = rectF6.bottom;
-        canvas.drawLine(f11, f12, f11, f12 - this.c, this.f3563a);
+        canvas.drawLine(f11, f12, f11, f12 - this.c, this.f3566a);
         RectF rectF7 = this.e;
         float f13 = rectF7.right;
         float f14 = rectF7.bottom;
-        canvas.drawLine(this.k + f13, f14, f13 - this.c, f14, this.f3563a);
+        canvas.drawLine(this.k + f13, f14, f13 - this.c, f14, this.f3566a);
         RectF rectF8 = this.e;
         float f15 = rectF8.right;
         float f16 = rectF8.bottom;
-        canvas.drawLine(f15, f16, f15, f16 - this.c, this.f3563a);
+        canvas.drawLine(f15, f16, f15, f16 - this.c, this.f3566a);
     }
 
     @TargetApi(11)

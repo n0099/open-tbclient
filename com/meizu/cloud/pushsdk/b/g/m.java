@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.b.g;
 
 import java.io.Closeable;
 import java.io.IOException;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public interface m extends Closeable {
     long b(b bVar, long j) throws IOException;
 

@@ -1,6 +1,7 @@
 package com.baidu.android.imrtc.request;
 
 import android.content.Context;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imrtc.request.BIMRtcTokenListener;
 import com.baidu.android.imrtc.utils.IMJni;
 import com.baidu.android.imrtc.utils.LogUtils;
@@ -17,7 +18,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes12.dex */
 public class BIMRtcGetTokenRequest extends BaseHttpRequest {
     private static final String TAG = "BIMRtcGetTokenRequest";
     private static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
@@ -39,7 +40,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
 
     @Override // com.baidu.android.imrtc.request.BaseHttpRequest, com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
     public String getHost() {
-        return Utility.readIntData(this.mContext, Constants.KEY_ENV, 0) != 0 ? "http://cp01-ocean-749.epc.baidu.com:8080/rtc/rest/1.0/room/get_rtc_token" : "https://pim.baidu.com/rtc/rest/1.0/room/get_rtc_token";
+        return Utility.readIntData(this.mContext, Constants.KEY_ENV, 0) != 0 ? HttpConstants.TEST_URL + "rtc/rest/1.0/room/get_rtc_token" : "https://pim.baidu.com/rtc/rest/1.0/room/get_rtc_token";
     }
 
     @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
@@ -126,7 +127,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str3);
             i = jSONObject.optInt("error_code", -1);
-            str2 = jSONObject.optString("error_msg", "");
+            str2 = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
             str4 = jSONObject.optString("rtc_room_token", "");
             RtcUtility.setRtcRoomToken(this.mContext, str4);
             str = jSONObject.optString("rtc_appid", "");

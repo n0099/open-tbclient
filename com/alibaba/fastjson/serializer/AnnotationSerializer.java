@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.Map;
 import sun.reflect.annotation.AnnotationType;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class AnnotationSerializer implements ObjectSerializer {
     public static AnnotationSerializer instance = new AnnotationSerializer();
 

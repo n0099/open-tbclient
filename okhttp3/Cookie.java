@@ -153,7 +153,7 @@ public final class Cookie {
         if (Util.indexOfControlOrNonAscii(trimSubstring2) != -1) {
             return null;
         }
-        long j3 = 253402300799999L;
+        long j3 = HttpDate.MAX_DATE;
         long j4 = -1;
         String str3 = null;
         String str4 = null;
@@ -211,8 +211,8 @@ public final class Cookie {
             j2 = Long.MIN_VALUE;
         } else if (j4 != -1) {
             j2 = (j4 <= 9223372036854775L ? j4 * 1000 : Long.MAX_VALUE) + j;
-            if (j2 < j || j2 > 253402300799999L) {
-                j2 = 253402300799999L;
+            if (j2 < j || j2 > HttpDate.MAX_DATE) {
+                j2 = HttpDate.MAX_DATE;
             }
         } else {
             j2 = j3;
@@ -356,14 +356,17 @@ public final class Cookie {
 
     /* loaded from: classes15.dex */
     public static final class Builder {
+        @Nullable
         String domain;
         boolean hostOnly;
         boolean httpOnly;
+        @Nullable
         String name;
         boolean persistent;
         boolean secure;
+        @Nullable
         String value;
-        long expiresAt = 253402300799999L;
+        long expiresAt = HttpDate.MAX_DATE;
         String path = "/";
 
         public Builder name(String str) {
@@ -389,8 +392,12 @@ public final class Cookie {
         }
 
         public Builder expiresAt(long j) {
-            long j2 = j <= 0 ? Long.MIN_VALUE : j;
-            this.expiresAt = j2 <= 253402300799999L ? j2 : 253402300799999L;
+            long j2 = HttpDate.MAX_DATE;
+            long j3 = j <= 0 ? Long.MIN_VALUE : j;
+            if (j3 <= HttpDate.MAX_DATE) {
+                j2 = j3;
+            }
+            this.expiresAt = j2;
             this.persistent = true;
             return this;
         }

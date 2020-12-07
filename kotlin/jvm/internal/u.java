@@ -1,48 +1,9 @@
 package kotlin.jvm.internal;
-/* loaded from: classes9.dex */
-public class u {
-    public kotlin.reflect.d j(Class cls, String str) {
-        return new s(cls, str);
-    }
+@kotlin.e
+/* loaded from: classes17.dex */
+public final class u {
+    public static final u pKF = new u();
 
-    public kotlin.reflect.c M(Class cls) {
-        return new m(cls);
-    }
-
-    public String a(Lambda lambda) {
-        return a((p) lambda);
-    }
-
-    public String a(p pVar) {
-        String obj = pVar.getClass().getGenericInterfaces()[0].toString();
-        return obj.startsWith("kotlin.jvm.functions.") ? obj.substring("kotlin.jvm.functions.".length()) : obj;
-    }
-
-    public kotlin.reflect.e a(FunctionReference functionReference) {
-        return functionReference;
-    }
-
-    public kotlin.reflect.k a(PropertyReference0 propertyReference0) {
-        return propertyReference0;
-    }
-
-    public kotlin.reflect.g a(MutablePropertyReference0 mutablePropertyReference0) {
-        return mutablePropertyReference0;
-    }
-
-    public kotlin.reflect.l a(PropertyReference1 propertyReference1) {
-        return propertyReference1;
-    }
-
-    public kotlin.reflect.h a(MutablePropertyReference1 mutablePropertyReference1) {
-        return mutablePropertyReference1;
-    }
-
-    public kotlin.reflect.m a(PropertyReference2 propertyReference2) {
-        return propertyReference2;
-    }
-
-    public kotlin.reflect.i a(MutablePropertyReference2 mutablePropertyReference2) {
-        return mutablePropertyReference2;
+    private u() {
     }
 }

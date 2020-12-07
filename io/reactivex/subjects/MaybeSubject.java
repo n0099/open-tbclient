@@ -4,31 +4,31 @@ import io.reactivex.k;
 import io.reactivex.m;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class MaybeSubject<T> extends k<T> implements m<T> {
-    static final MaybeDisposable[] pTb = new MaybeDisposable[0];
-    static final MaybeDisposable[] pTc = new MaybeDisposable[0];
+    static final MaybeDisposable[] pJL = new MaybeDisposable[0];
+    static final MaybeDisposable[] pJM = new MaybeDisposable[0];
     Throwable error;
     T value;
     final AtomicBoolean once = new AtomicBoolean();
-    final AtomicReference<MaybeDisposable<T>[]> observers = new AtomicReference<>(pTb);
+    final AtomicReference<MaybeDisposable<T>[]> observers = new AtomicReference<>(pJL);
 
     MaybeSubject() {
     }
 
     @Override // io.reactivex.m
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.observers.get() == pTc) {
+        if (this.observers.get() == pJM) {
             bVar.dispose();
         }
     }
 
     @Override // io.reactivex.m
     public void onSuccess(T t) {
-        io.reactivex.internal.functions.a.l(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
+        io.reactivex.internal.functions.a.m(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (this.once.compareAndSet(false, true)) {
             this.value = t;
-            for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(pTc)) {
+            for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(pJM)) {
                 maybeDisposable.actual.onSuccess(t);
             }
         }
@@ -36,21 +36,21 @@ public final class MaybeSubject<T> extends k<T> implements m<T> {
 
     @Override // io.reactivex.m
     public void onError(Throwable th) {
-        io.reactivex.internal.functions.a.l(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
+        io.reactivex.internal.functions.a.m(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (this.once.compareAndSet(false, true)) {
             this.error = th;
-            for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(pTc)) {
+            for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(pJM)) {
                 maybeDisposable.actual.onError(th);
             }
             return;
         }
-        io.reactivex.e.a.onError(th);
+        io.reactivex.d.a.onError(th);
     }
 
     @Override // io.reactivex.m
     public void onComplete() {
         if (this.once.compareAndSet(false, true)) {
-            for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(pTc)) {
+            for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(pJM)) {
                 maybeDisposable.actual.onComplete();
             }
         }
@@ -85,7 +85,7 @@ public final class MaybeSubject<T> extends k<T> implements m<T> {
         MaybeDisposable<T>[] maybeDisposableArr2;
         do {
             maybeDisposableArr = this.observers.get();
-            if (maybeDisposableArr == pTc) {
+            if (maybeDisposableArr == pJM) {
                 return false;
             }
             int length = maybeDisposableArr.length;
@@ -117,7 +117,7 @@ public final class MaybeSubject<T> extends k<T> implements m<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        maybeDisposableArr2 = pTb;
+                        maybeDisposableArr2 = pJL;
                     } else {
                         maybeDisposableArr2 = new MaybeDisposable[length - 1];
                         System.arraycopy(maybeDisposableArr, 0, maybeDisposableArr2, 0, i);
@@ -133,7 +133,7 @@ public final class MaybeSubject<T> extends k<T> implements m<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class MaybeDisposable<T> extends AtomicReference<MaybeSubject<T>> implements io.reactivex.disposables.b {
         private static final long serialVersionUID = -7650903191002190468L;
         final m<? super T> actual;

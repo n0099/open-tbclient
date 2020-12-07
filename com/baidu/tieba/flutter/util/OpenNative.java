@@ -10,7 +10,6 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.f.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
-import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
@@ -65,9 +64,9 @@ import com.baidu.tbadk.core.atomData.SingleSquareActivityConfig;
 import com.baidu.tbadk.core.atomData.SmartAppBrowseHistoryActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.TopicDetailActivityConfig;
-import com.baidu.tbadk.core.atomData.UniversityEvaluationConfig;
 import com.baidu.tbadk.core.atomData.VideoMiddlePageActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -78,8 +77,10 @@ import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.mutiprocess.g;
+import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
+import com.baidu.tbadk.pageExtra.d;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
-import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.SerializableItemInfo;
 import com.baidu.tieba.person.PersonMoreData;
 import com.baidu.tieba.person.PersonMoreItemData;
@@ -87,6 +88,7 @@ import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.google.gson.Gson;
+import com.heytap.mcssdk.mode.CommandMessage;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -95,11 +97,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.ItemInfo;
-import tbclient.ItemTable;
 import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class OpenNative {
     public static final String kNativeBarBroadcastHistoryPage = "kNativeBarBroadcastHistoryPage";
     public static final String kNativePageKeyAddFriend = "kNativePageKeyAddFriend";
@@ -365,6 +365,9 @@ public class OpenNative {
                     videoMiddlePageActivityConfig.setNid(videoSerializeVideoThreadInfo.getBaijiahaoData().oriUgcNid);
                 }
             }
+            if (map.containsKey("from")) {
+                d.Eo((String) map.get("from"));
+            }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, videoMiddlePageActivityConfig));
         }
     }
@@ -386,8 +389,8 @@ public class OpenNative {
     private static void openNativeCustomVideo(Context context, Map<String, Object> map) {
         String str = (String) map.get("videoUrl");
         SimpleVideoPlayActivityConfig.a aVar = new SimpleVideoPlayActivityConfig.a();
-        aVar.Ag(str).Af(str);
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, aVar.dV(context)));
+        aVar.AN(str).AM(str);
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, aVar.eA(context)));
     }
 
     private static void openNativeHotTopicTrendDetail(Context context, Map<String, Object> map) {
@@ -572,6 +575,9 @@ public class OpenNative {
         if (map.containsKey(PbActivityConfig.KEY_UNKNOW_PB_TYPE)) {
             pbActivityConfig.setUnKnowPbType((String) map.get(PbActivityConfig.KEY_UNKNOW_PB_TYPE));
         }
+        if (map.containsKey("enter_type")) {
+            d.Eo((String) map.get("enter_type"));
+        }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
     }
 
@@ -618,6 +624,9 @@ public class OpenNative {
                 e.printStackTrace();
             }
         }
+        if (map.containsKey(FrsActivityConfig.FRS_CALL_FROM)) {
+            d.Eo((String) map.get(FrsActivityConfig.FRS_CALL_FROM));
+        }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createNormalCfg));
     }
 
@@ -637,7 +646,7 @@ public class OpenNative {
         }
         try {
             if (TbadkApplication.getInst().getCurrentActivity() != null) {
-                bf.bqF().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{str});
+                bf.bua().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{str});
             }
         } catch (Exception e) {
             BdLog.e("openPageByUrl fail:" + e.toString());
@@ -756,11 +765,15 @@ public class OpenNative {
                 str = arrayList.get(arrayList.size() - 1);
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.x(arrayList).nL(((Integer) map.get("index")).intValue()).zZ((String) map.get("forum_name")).Aa((String) map.get("forum_id")).Ab((String) map.get("thread_id")).iy(true).Ac(str).iz(true).iA(true);
-            ImageViewerConfig dU = aVar.dU(context);
-            dU.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, false);
-            dU.getIntent().putExtra("from", "index");
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, dU));
+            aVar.x(arrayList).oj(((Integer) map.get("index")).intValue()).AG((String) map.get("forum_name")).AH((String) map.get("forum_id")).AI((String) map.get("thread_id")).iN(true).AJ(str).iO(true).iP(true);
+            ImageViewerConfig ez = aVar.ez(context);
+            ez.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, false);
+            ez.getIntent().putExtra("from", "index");
+            if (map.containsKey("enter_type")) {
+                d.Eo((String) map.get("enter_type"));
+                g.publishEvent(new PrePageKeyEvent(d.bET()));
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, ez));
         }
     }
 
@@ -799,15 +812,19 @@ public class OpenNative {
                 i = i2 + 1;
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.x(arrayList).nL(((Integer) map.get("index")).intValue()).zZ(str3).Aa(str2).Ab(str4).iy(true).Ac(str).iz(true).a(concurrentHashMap).iA(true);
-            ImageViewerConfig dU = aVar.dU(context);
-            dU.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, true);
+            aVar.x(arrayList).oj(((Integer) map.get("index")).intValue()).AG(str3).AH(str2).AI(str4).iN(true).AJ(str).iO(true).a(concurrentHashMap).iP(true);
+            ImageViewerConfig ez = aVar.ez(context);
+            ez.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, true);
             if (map.get("from") != null && (map.get("from") instanceof String)) {
-                dU.getIntent().putExtra("from", (String) map.get("from"));
+                ez.getIntent().putExtra("from", (String) map.get("from"));
             } else {
-                dU.getIntent().putExtra("from", "index");
+                ez.getIntent().putExtra("from", "index");
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, dU));
+            if (map.containsKey("enter_type")) {
+                d.Eo((String) map.get("enter_type"));
+                g.publishEvent(new PrePageKeyEvent(d.bET()));
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, ez));
         }
     }
 
@@ -824,42 +841,57 @@ public class OpenNative {
     }
 
     private static void openNativeEvaluationPage(Context context, Map<String, Object> map) {
+        double d;
         if (bh.checkUpIsLogin(context)) {
-            String str = (String) map.get(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
             double parseDouble = Double.parseDouble(String.valueOf(map.get("iconSize")));
-            String str2 = (String) map.get("iconUrl");
+            String str = (String) map.get("iconUrl");
             int parseInt = Integer.parseInt(String.valueOf(map.get("id")));
             int parseInt2 = Integer.parseInt(String.valueOf(map.get("isSchool")));
-            String str3 = (String) map.get("name");
-            int parseInt3 = !TextUtils.isEmpty(String.valueOf(map.get("commentStar"))) ? Integer.parseInt(String.valueOf(map.get("commentStar"))) : 0;
-            ItemTable.Builder builder = new ItemTable.Builder();
-            builder.comment_star = Integer.valueOf(parseInt3);
-            if (parseInt3 > 0) {
-                builder.is_commented = 1;
+            String str2 = (String) map.get("name");
+            String str3 = (String) map.get(CommandMessage.TYPE_TAGS);
+            int i = b.toInt(String.valueOf(map.get("commentStar")), 0);
+            String valueOf = String.valueOf(map.get("pointNum"));
+            if (TextUtils.isEmpty(valueOf)) {
+                d = 0.0d;
+            } else {
+                d = b.toDouble(valueOf, 0.0d);
             }
-            ItemTable build = builder.build(true);
-            ItemInfo.Builder builder2 = new ItemInfo.Builder();
-            builder2.brief = str;
-            builder2.icon_size = Double.valueOf(parseDouble);
-            builder2.id = Integer.valueOf(parseInt);
-            builder2.icon_url = str2;
-            builder2.is_school = Integer.valueOf(parseInt2);
-            builder2.name = str3;
-            builder2.score = build;
-            ItemInfo build2 = builder2.build(false);
-            ForumWriteData forumWriteData = new ForumWriteData(String.valueOf(parseInt), str3, null, null);
-            UniversityEvaluationConfig universityEvaluationConfig = new UniversityEvaluationConfig(context, RequestResponseCode.REQUEST_WRITE_NEW);
-            universityEvaluationConfig.setWriteData(forumWriteData);
-            universityEvaluationConfig.setScoreItemInfo(new SerializableItemInfo(build2));
-            universityEvaluationConfig.setItemIsSchool(build2.is_school.intValue() == 1);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921460, universityEvaluationConfig));
+            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), 9, "0", null, null, null, 0, null, RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, null, 0);
+            writeActivityConfig.getIntent().putExtra("from", "main_tab");
+            writeActivityConfig.getIntent().putExtra("item_is_school", parseInt2 == 1);
+            writeActivityConfig.getIntent().putExtra(IntentConfig.IS_EVALUATE, true);
+            writeActivityConfig.getIntent().putExtra(IntentConfig.IS_ITEM_DETAIL, true);
+            writeActivityConfig.setCallFrom("2");
+            writeActivityConfig.setStarCount(i);
+            SerializableItemInfo serializableItemInfo = new SerializableItemInfo();
+            serializableItemInfo.setId(Integer.valueOf(parseInt));
+            serializableItemInfo.setIcon_url(str);
+            serializableItemInfo.setName(str2);
+            serializableItemInfo.setTags(getTagList(str3));
+            serializableItemInfo.setIconSize(parseDouble);
+            serializableItemInfo.setAverageScore(d);
+            writeActivityConfig.setScoreItemInfo(serializableItemInfo);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
         }
+    }
+
+    private static List<String> getTagList(String str) {
+        String[] split;
+        ArrayList arrayList = new ArrayList();
+        if (!TextUtils.isEmpty(str)) {
+            for (String str2 : str.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
+                if (!TextUtils.isEmpty(str2)) {
+                    arrayList.add(str2);
+                }
+            }
+        }
+        return arrayList;
     }
 
     private static void openNativeCreateForumPage(Context context, Map<String, Object> map) {
         try {
             if (TbadkApplication.getInst().getCurrentActivity() != null) {
-                bf.bqF().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
+                bf.bua().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
             }
         } catch (Exception e) {
             BdLog.e("openPageByUrl fail:" + e.toString());
@@ -869,7 +901,7 @@ public class OpenNative {
     private static Rect parseFrameInfo(String str) {
         Rect rect = new Rect();
         if (!TextUtils.isEmpty(str)) {
-            String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split = str.split(",");
             if (split.length >= 2) {
                 rect.left = (int) (b.toDouble(split[0], 0.0d) * 2.6d);
                 rect.top = (int) (b.toDouble(split[1], 0.0d) * 2.6d);
@@ -879,44 +911,44 @@ public class OpenNative {
     }
 
     public static ArrayList<Integer> getGradientColor(ThemeElement themeElement, ThemeElement themeElement2, ThemeElement themeElement3) {
-        int sa;
+        int sI;
         int i;
-        int sa2;
+        int sI2;
         int i2;
-        int sa3;
-        int sa4;
+        int sI3;
+        int sI4;
         if (themeElement == null) {
-            int sa5 = com.baidu.tieba.lego.card.d.b.sa("#2BB8FF");
-            sa = com.baidu.tieba.lego.card.d.b.sa("#2BB8FF");
-            i = sa5;
+            int sI5 = com.baidu.tieba.lego.card.d.b.sI("#2BB8FF");
+            sI = com.baidu.tieba.lego.card.d.b.sI("#2BB8FF");
+            i = sI5;
         } else {
-            int sa6 = com.baidu.tieba.lego.card.d.b.sa(themeElement.common_color);
-            sa = com.baidu.tieba.lego.card.d.b.sa(themeElement.common_color);
-            i = sa6;
+            int sI6 = com.baidu.tieba.lego.card.d.b.sI(themeElement.common_color);
+            sI = com.baidu.tieba.lego.card.d.b.sI(themeElement.common_color);
+            i = sI6;
         }
         if (themeElement2 == null) {
-            int sa7 = com.baidu.tieba.lego.card.d.b.sa("#249BD6");
-            sa2 = com.baidu.tieba.lego.card.d.b.sa("#246CD6");
-            i2 = sa7;
+            int sI7 = com.baidu.tieba.lego.card.d.b.sI("#249BD6");
+            sI2 = com.baidu.tieba.lego.card.d.b.sI("#246CD6");
+            i2 = sI7;
         } else {
-            int sa8 = com.baidu.tieba.lego.card.d.b.sa(themeElement2.common_color);
-            sa2 = com.baidu.tieba.lego.card.d.b.sa(themeElement2.common_color);
-            i2 = sa8;
+            int sI8 = com.baidu.tieba.lego.card.d.b.sI(themeElement2.common_color);
+            sI2 = com.baidu.tieba.lego.card.d.b.sI(themeElement2.common_color);
+            i2 = sI8;
         }
         if (themeElement3 == null) {
-            sa3 = com.baidu.tieba.lego.card.d.b.sa("#249BD6");
-            sa4 = com.baidu.tieba.lego.card.d.b.sa("#246CD6");
+            sI3 = com.baidu.tieba.lego.card.d.b.sI("#249BD6");
+            sI4 = com.baidu.tieba.lego.card.d.b.sI("#246CD6");
         } else {
-            sa3 = com.baidu.tieba.lego.card.d.b.sa(themeElement3.common_color);
-            sa4 = com.baidu.tieba.lego.card.d.b.sa(themeElement3.common_color);
+            sI3 = com.baidu.tieba.lego.card.d.b.sI(themeElement3.common_color);
+            sI4 = com.baidu.tieba.lego.card.d.b.sI(themeElement3.common_color);
         }
         ArrayList<Integer> arrayList = new ArrayList<>();
         arrayList.add(Integer.valueOf(i));
-        arrayList.add(Integer.valueOf(sa));
+        arrayList.add(Integer.valueOf(sI));
         arrayList.add(Integer.valueOf(i2));
-        arrayList.add(Integer.valueOf(sa2));
-        arrayList.add(Integer.valueOf(sa3));
-        arrayList.add(Integer.valueOf(sa4));
+        arrayList.add(Integer.valueOf(sI2));
+        arrayList.add(Integer.valueOf(sI3));
+        arrayList.add(Integer.valueOf(sI4));
         return arrayList;
     }
 }

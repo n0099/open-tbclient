@@ -18,14 +18,14 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class NewUserRewardDialogView extends LinearLayout {
-    private TextView etx;
-    private TextView jRA;
-    private AlphaVideo nCs;
-    private RoundRelativeLayout nCt;
-    private ImageView nCu;
-    private final CustomMessageListener nCv;
+    private TextView eAz;
+    private TextView kfe;
+    private AlphaVideo nQu;
+    private RoundRelativeLayout nQv;
+    private ImageView nQw;
+    private final CustomMessageListener nQx;
 
     public NewUserRewardDialogView(Context context) {
         this(context, null);
@@ -37,12 +37,12 @@ public class NewUserRewardDialogView extends LinearLayout {
 
     public NewUserRewardDialogView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nCv = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.view.NewUserRewardDialogView.1
+        this.nQx = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.view.NewUserRewardDialogView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue() && NewUserRewardDialogView.this.nCs != null) {
-                    NewUserRewardDialogView.this.nCs.requestRender();
+                if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue() && NewUserRewardDialogView.this.nQu != null) {
+                    NewUserRewardDialogView.this.nQu.requestRender();
                 }
             }
         };
@@ -52,46 +52,46 @@ public class NewUserRewardDialogView extends LinearLayout {
 
     private void initUI(Context context) {
         LayoutInflater.from(context).inflate(R.layout.new_user_reward_dialog_layout, this);
-        this.nCs = (AlphaVideo) findViewById(R.id.new_user_anim);
-        this.nCt = (RoundRelativeLayout) findViewById(R.id.new_user_dialog_text_area);
-        this.etx = (TextView) findViewById(R.id.new_user_dialog_title);
-        this.jRA = (TextView) findViewById(R.id.new_user_dialog_desc);
-        this.nCu = (ImageView) findViewById(R.id.new_user_dialog_close);
-        this.nCt.setAllCornerRound(l.getDimens(context, R.dimen.tbds31));
-        this.nCs.setKeepLastFrame(true);
-        MessageManager.getInstance().registerListener(this.nCv);
+        this.nQu = (AlphaVideo) findViewById(R.id.new_user_anim);
+        this.nQv = (RoundRelativeLayout) findViewById(R.id.new_user_dialog_text_area);
+        this.eAz = (TextView) findViewById(R.id.new_user_dialog_title);
+        this.kfe = (TextView) findViewById(R.id.new_user_dialog_desc);
+        this.nQw = (ImageView) findViewById(R.id.new_user_dialog_close);
+        this.nQv.setAllCornerRound(l.getDimens(context, R.dimen.tbds31));
+        this.nQu.setKeepLastFrame(true);
+        MessageManager.getInstance().registerListener(this.nQx);
     }
 
     public void setData(IconStampData iconStampData) {
         if (iconStampData != null) {
-            this.etx.setText(iconStampData.stampTitle);
-            this.jRA.setText(iconStampData.stampText);
+            this.eAz.setText(iconStampData.stampTitle);
+            this.kfe.setText(iconStampData.stampText);
             if (iconStampData.stampType == 1) {
-                this.nCs.setSourceAssets("post_1_times.mp4");
+                this.nQu.setSourceAssets("post_1_times.mp4");
             } else if (iconStampData.stampType == 2) {
-                this.nCs.setSourceAssets("reply_1_times.mp4");
+                this.nQu.setSourceAssets("reply_1_times.mp4");
             } else if (iconStampData.stampType == 3) {
-                this.nCs.setSourceAssets("post_7_times.mp4");
+                this.nQu.setSourceAssets("post_7_times.mp4");
             } else {
-                this.nCs.setSourceAssets("reply_7_times.mp4");
+                this.nQu.setSourceAssets("reply_7_times.mp4");
             }
-            this.nCs.play();
+            this.nQu.play();
         }
     }
 
     public void setCloseListener(View.OnClickListener onClickListener) {
-        this.nCu.setOnClickListener(onClickListener);
+        this.nQw.setOnClickListener(onClickListener);
     }
 
     public void onDestroy() {
-        this.nCs.destroy();
-        MessageManager.getInstance().unRegisterListener(this.nCv);
+        this.nQu.destroy();
+        MessageManager.getInstance().unRegisterListener(this.nQx);
     }
 
     public void onChangeSkinType() {
-        ap.setBackgroundColor(this.nCt, R.color.CAM_X0211);
-        ap.setViewTextColor(this.etx, R.color.CAM_X0105);
-        ap.setViewTextColor(this.jRA, R.color.CAM_X0107);
-        ap.setImageResource(this.nCu, R.drawable.icon_use_close_n);
+        ap.setBackgroundColor(this.nQv, R.color.CAM_X0211);
+        ap.setViewTextColor(this.eAz, R.color.CAM_X0105);
+        ap.setViewTextColor(this.kfe, R.color.CAM_X0107);
+        ap.setImageResource(this.nQw, R.drawable.icon_use_close_n);
     }
 }

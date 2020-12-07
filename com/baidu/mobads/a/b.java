@@ -3,7 +3,7 @@ package com.baidu.mobads.a;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Boolean f2316a = false;
+    public static final Boolean f2318a = false;
     public static final Boolean b = false;
 
     public static double a() {

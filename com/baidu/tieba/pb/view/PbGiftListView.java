@@ -13,23 +13,23 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
-import com.baidu.tbadk.core.data.ay;
+import com.baidu.tbadk.core.data.az;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class PbGiftListView extends FrameLayout {
-    private View dZT;
-    private TbImageView lQC;
-    private TbImageView lQD;
-    private TbImageView lQE;
-    private TbImageView lQF;
-    private TextView lQG;
-    private TextView lQH;
-    private String lQI;
+    private View egT;
     private Context mContext;
     private int mSkinType;
+    private TbImageView meF;
+    private TbImageView meG;
+    private TbImageView meH;
+    private TbImageView meI;
+    private TextView meJ;
+    private TextView meK;
+    private String meL;
     private long postId;
     private long threadId;
     private long toUserId;
@@ -55,29 +55,29 @@ public class PbGiftListView extends FrameLayout {
     }
 
     private void initView() {
-        this.dZT = View.inflate(this.mContext, R.layout.pb_gift_list_item, this);
-        this.lQC = (TbImageView) this.dZT.findViewById(R.id.pb_gift_view1);
-        this.lQD = (TbImageView) this.dZT.findViewById(R.id.pb_gift_view2);
-        this.lQE = (TbImageView) this.dZT.findViewById(R.id.pb_gift_view3);
-        this.lQF = (TbImageView) this.dZT.findViewById(R.id.pb_gift_view4);
-        this.lQC.setDefaultBgResource(R.drawable.transparent_bg);
-        this.lQD.setDefaultBgResource(R.drawable.transparent_bg);
-        this.lQE.setDefaultBgResource(R.drawable.transparent_bg);
-        this.lQF.setDefaultBgResource(R.drawable.transparent_bg);
-        this.lQC.setDefaultResource(R.drawable.icon_gift_moren);
-        this.lQD.setDefaultResource(R.drawable.icon_gift_moren);
-        this.lQE.setDefaultResource(R.drawable.icon_gift_moren);
-        this.lQF.setDefaultResource(R.drawable.icon_gift_moren);
-        this.lQG = (TextView) this.dZT.findViewById(R.id.pb_gift_number_view);
-        this.lQH = (TextView) this.dZT.findViewById(R.id.pb_gift_send_view);
-        this.lQH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.PbGiftListView.1
+        this.egT = View.inflate(this.mContext, R.layout.pb_gift_list_item, this);
+        this.meF = (TbImageView) this.egT.findViewById(R.id.pb_gift_view1);
+        this.meG = (TbImageView) this.egT.findViewById(R.id.pb_gift_view2);
+        this.meH = (TbImageView) this.egT.findViewById(R.id.pb_gift_view3);
+        this.meI = (TbImageView) this.egT.findViewById(R.id.pb_gift_view4);
+        this.meF.setDefaultBgResource(R.drawable.transparent_bg);
+        this.meG.setDefaultBgResource(R.drawable.transparent_bg);
+        this.meH.setDefaultBgResource(R.drawable.transparent_bg);
+        this.meI.setDefaultBgResource(R.drawable.transparent_bg);
+        this.meF.setDefaultResource(R.drawable.icon_gift_moren);
+        this.meG.setDefaultResource(R.drawable.icon_gift_moren);
+        this.meH.setDefaultResource(R.drawable.icon_gift_moren);
+        this.meI.setDefaultResource(R.drawable.icon_gift_moren);
+        this.meJ = (TextView) this.egT.findViewById(R.id.pb_gift_number_view);
+        this.meK = (TextView) this.egT.findViewById(R.id.pb_gift_send_view);
+        this.meK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.PbGiftListView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TbPageContext tbPageContext = (TbPageContext) i.I(PbGiftListView.this.mContext);
+                TbPageContext tbPageContext = (TbPageContext) i.J(PbGiftListView.this.mContext);
                 if (tbPageContext != null) {
                     if (TbadkCoreApplication.isLogin()) {
                         if (!StringUtils.isNull(PbGiftListView.this.toUserName)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(tbPageContext.getPageActivity(), PbGiftListView.this.toUserId, PbGiftListView.this.toUserName, PbGiftListView.this.lQI, GiftTabActivityConfig.FROM_PB, PbGiftListView.this.threadId, PbGiftListView.this.postId)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(tbPageContext.getPageActivity(), PbGiftListView.this.toUserId, PbGiftListView.this.toUserName, PbGiftListView.this.meL, GiftTabActivityConfig.FROM_PB, PbGiftListView.this.threadId, PbGiftListView.this.postId)));
                             return;
                         }
                         return;
@@ -88,62 +88,62 @@ public class PbGiftListView extends FrameLayout {
         });
     }
 
-    public void a(ay ayVar, String str, String str2, long j, long j2, long j3) {
+    public void a(az azVar, String str, String str2, long j, long j2, long j3) {
         this.toUserId = j;
         this.toUserName = str;
-        this.lQI = str2;
+        this.meL = str2;
         this.postId = j3;
         this.threadId = j2;
-        if (ayVar == null || ayVar.bku() == null || ayVar.bku().size() <= 0) {
+        if (azVar == null || azVar.bnH() == null || azVar.bnH().size() <= 0) {
             setVisibility(8);
             return;
         }
-        switch (ayVar.bku().size() > 4 ? 4 : ayVar.bku().size()) {
+        switch (azVar.bnH().size() > 4 ? 4 : azVar.bnH().size()) {
             case 1:
-                this.lQC.startLoad(ayVar.bku().get(0).thumbnailUrl, 10, false);
-                this.lQC.setVisibility(0);
-                this.lQD.setVisibility(8);
-                this.lQE.setVisibility(8);
-                this.lQF.setVisibility(8);
+                this.meF.startLoad(azVar.bnH().get(0).thumbnailUrl, 10, false);
+                this.meF.setVisibility(0);
+                this.meG.setVisibility(8);
+                this.meH.setVisibility(8);
+                this.meI.setVisibility(8);
                 break;
             case 2:
-                this.lQC.startLoad(ayVar.bku().get(0).thumbnailUrl, 10, false);
-                this.lQD.startLoad(ayVar.bku().get(1).thumbnailUrl, 10, false);
-                this.lQC.setVisibility(0);
-                this.lQD.setVisibility(0);
-                this.lQE.setVisibility(8);
-                this.lQF.setVisibility(8);
+                this.meF.startLoad(azVar.bnH().get(0).thumbnailUrl, 10, false);
+                this.meG.startLoad(azVar.bnH().get(1).thumbnailUrl, 10, false);
+                this.meF.setVisibility(0);
+                this.meG.setVisibility(0);
+                this.meH.setVisibility(8);
+                this.meI.setVisibility(8);
                 break;
             case 3:
-                this.lQC.startLoad(ayVar.bku().get(0).thumbnailUrl, 10, false);
-                this.lQD.startLoad(ayVar.bku().get(1).thumbnailUrl, 10, false);
-                this.lQE.startLoad(ayVar.bku().get(2).thumbnailUrl, 10, false);
-                this.lQC.setVisibility(0);
-                this.lQD.setVisibility(0);
-                this.lQE.setVisibility(0);
-                this.lQF.setVisibility(8);
+                this.meF.startLoad(azVar.bnH().get(0).thumbnailUrl, 10, false);
+                this.meG.startLoad(azVar.bnH().get(1).thumbnailUrl, 10, false);
+                this.meH.startLoad(azVar.bnH().get(2).thumbnailUrl, 10, false);
+                this.meF.setVisibility(0);
+                this.meG.setVisibility(0);
+                this.meH.setVisibility(0);
+                this.meI.setVisibility(8);
                 break;
             case 4:
-                this.lQC.startLoad(ayVar.bku().get(0).thumbnailUrl, 10, false);
-                this.lQD.startLoad(ayVar.bku().get(1).thumbnailUrl, 10, false);
-                this.lQE.startLoad(ayVar.bku().get(2).thumbnailUrl, 10, false);
-                this.lQF.startLoad(ayVar.bku().get(3).thumbnailUrl, 10, false);
-                this.lQC.setVisibility(0);
-                this.lQD.setVisibility(0);
-                this.lQE.setVisibility(0);
-                this.lQF.setVisibility(0);
+                this.meF.startLoad(azVar.bnH().get(0).thumbnailUrl, 10, false);
+                this.meG.startLoad(azVar.bnH().get(1).thumbnailUrl, 10, false);
+                this.meH.startLoad(azVar.bnH().get(2).thumbnailUrl, 10, false);
+                this.meI.startLoad(azVar.bnH().get(3).thumbnailUrl, 10, false);
+                this.meF.setVisibility(0);
+                this.meG.setVisibility(0);
+                this.meH.setVisibility(0);
+                this.meI.setVisibility(0);
                 break;
         }
-        if (ayVar.getTotal() > 0) {
-            this.lQG.setText(String.format(this.mContext.getResources().getString(R.string.gift_counts), Integer.valueOf(ayVar.getTotal())));
-            this.lQG.setVisibility(0);
+        if (azVar.getTotal() > 0) {
+            this.meJ.setText(String.format(this.mContext.getResources().getString(R.string.gift_counts), Integer.valueOf(azVar.getTotal())));
+            this.meJ.setVisibility(0);
         } else {
-            this.lQG.setVisibility(8);
+            this.meJ.setVisibility(8);
         }
         if (j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L)) {
-            this.lQH.setVisibility(8);
+            this.meK.setVisibility(8);
         } else {
-            this.lQH.setVisibility(0);
+            this.meK.setVisibility(0);
         }
     }
 
@@ -151,8 +151,8 @@ public class PbGiftListView extends FrameLayout {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.mSkinType != skinType) {
             this.mSkinType = skinType;
-            ap.setViewTextColor(this.lQG, R.color.CAM_X0109, 1);
-            ap.setViewTextColor(this.lQH, R.color.CAM_X0304, 1);
+            ap.setViewTextColor(this.meJ, R.color.CAM_X0109, 1);
+            ap.setViewTextColor(this.meK, R.color.CAM_X0304, 1);
         }
     }
 

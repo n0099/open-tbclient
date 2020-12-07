@@ -2,44 +2,44 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class h {
-    private int kvK = 0;
-    private int kvL = 0;
-    private int kvM = 0;
+    private int kJe = 0;
+    private int kJf = 0;
+    private int kJg = 0;
     private int fans = 0;
     private int chat = 0;
-    private int kvN = 0;
+    private int kJh = 0;
 
-    public int cWo() {
-        return this.kvK;
+    public int dbA() {
+        return this.kJe;
     }
 
-    public int cWp() {
-        return this.kvL;
+    public int dbB() {
+        return this.kJf;
     }
 
-    public int cWq() {
-        return this.kvM;
+    public int dbC() {
+        return this.kJg;
     }
 
-    public int cWr() {
+    public int dbD() {
         return this.fans;
     }
 
-    public int cWs() {
-        return this.kvN;
+    public int dbE() {
+        return this.kJh;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.kvK = jSONObject.optInt("agree", 0);
-                this.kvL = jSONObject.optInt("replyme", 0);
-                this.kvM = jSONObject.optInt("atme", 0);
+                this.kJe = jSONObject.optInt("agree", 0);
+                this.kJf = jSONObject.optInt("replyme", 0);
+                this.kJg = jSONObject.optInt("atme", 0);
                 this.fans = jSONObject.optInt("fans", 0);
                 this.chat = jSONObject.optInt("pletter", 0);
-                this.kvN = jSONObject.optInt("bookmark", 0);
+                this.kJh = jSONObject.optInt("bookmark", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

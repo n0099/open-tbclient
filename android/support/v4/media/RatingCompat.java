@@ -8,7 +8,7 @@ import android.support.annotation.RestrictTo;
 import android.util.Log;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class RatingCompat implements Parcelable {
     public static final Parcelable.Creator<RatingCompat> CREATOR = new Parcelable.Creator<RatingCompat>() { // from class: android.support.v4.media.RatingCompat.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -40,13 +40,13 @@ public final class RatingCompat implements Parcelable {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public @interface StarStyle {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public @interface Style {
     }
 
@@ -78,7 +78,7 @@ public final class RatingCompat implements Parcelable {
             case 4:
             case 5:
             case 6:
-                return new RatingCompat(i, -1.0f);
+                return new RatingCompat(i, RATING_NOT_RATED);
             default:
                 return null;
         }
@@ -152,14 +152,11 @@ public final class RatingCompat implements Parcelable {
                 }
                 break;
         }
-        return -1.0f;
+        return RATING_NOT_RATED;
     }
 
     public float getPercentRating() {
-        if (this.mRatingStyle == 6 && isRated()) {
-            return this.mRatingValue;
-        }
-        return -1.0f;
+        return (this.mRatingStyle == 6 && isRated()) ? this.mRatingValue : RATING_NOT_RATED;
     }
 
     public static RatingCompat fromRating(Object obj) {

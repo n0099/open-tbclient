@@ -37,7 +37,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class SapiAccountManager implements ISAccountManager {
     public static final String SESSION_BDUSS = "bduss";
     public static final String SESSION_DISPLAYNAME = "displayname";
@@ -57,27 +57,27 @@ public final class SapiAccountManager implements ISAccountManager {
     private static final List<String> l = new ArrayList();
 
     /* renamed from: a  reason: collision with root package name */
-    private char f3224a = 0;
+    private char f3227a = 0;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public interface CheckUrlIsAvailableListener {
         void handleWebPageUrl(String str);
 
         boolean onCheckUrlIsAvailable(String str);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static abstract class GlobalAuthorizationListener {
         public void onLogoutSuccess(SapiAccount sapiAccount) {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public interface ReceiveShareListener {
         void onReceiveShare();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public interface SilentShareListener {
         void onSilentShare();
     }
@@ -526,15 +526,15 @@ public final class SapiAccountManager implements ISAccountManager {
     public SapiAccount getSession() {
         a();
         SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-        if (this.f3224a == 0) {
+        if (this.f3227a == 0) {
             e sapiOptions = SapiContext.getInstance().getSapiOptions();
             if (sapiOptions.m().contains(getConfignation().tpl) && !sapiOptions.m) {
-                this.f3224a = (char) 1;
+                this.f3227a = (char) 1;
             } else {
-                this.f3224a = (char) 2;
+                this.f3227a = (char) 2;
             }
         }
-        if (currentAccount != null && this.f3224a == 1) {
+        if (currentAccount != null && this.f3227a == 1) {
             currentAccount.uid = "";
             currentAccount.bduss = "";
         }

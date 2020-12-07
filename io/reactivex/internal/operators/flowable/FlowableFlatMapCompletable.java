@@ -1,36 +1,38 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.c.h;
+import io.reactivex.b.h;
+import io.reactivex.e;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.BasicIntQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+import org.a.d;
+/* loaded from: classes9.dex */
 public final class FlowableFlatMapCompletable<T> extends a<T, T> {
     final boolean delayErrors;
-    final h<? super T, ? extends io.reactivex.e> mapper;
+    final h<? super T, ? extends e> mapper;
     final int maxConcurrency;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pOn.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.pFg.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class FlatMapCompletableMainSubscriber<T> extends BasicIntQueueSubscription<T> implements j<T> {
         private static final long serialVersionUID = 8443155186132538303L;
         final org.a.c<? super T> actual;
         volatile boolean cancelled;
         final boolean delayErrors;
-        final h<? super T, ? extends io.reactivex.e> mapper;
+        final h<? super T, ? extends e> mapper;
         final int maxConcurrency;
-        org.a.d s;
+        d s;
         final AtomicThrowable errors = new AtomicThrowable();
         final io.reactivex.disposables.a set = new io.reactivex.disposables.a();
 
-        FlatMapCompletableMainSubscriber(org.a.c<? super T> cVar, h<? super T, ? extends io.reactivex.e> hVar, boolean z, int i) {
+        FlatMapCompletableMainSubscriber(org.a.c<? super T> cVar, h<? super T, ? extends e> hVar, boolean z, int i) {
             this.actual = cVar;
             this.mapper = hVar;
             this.delayErrors = z;
@@ -39,7 +41,7 @@ public final class FlowableFlatMapCompletable<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -55,7 +57,7 @@ public final class FlowableFlatMapCompletable<T> extends a<T, T> {
         @Override // org.a.c
         public void onNext(T t) {
             try {
-                io.reactivex.e eVar = (io.reactivex.e) io.reactivex.internal.functions.a.l(this.mapper.apply(t), "The mapper returned a null CompletableSource");
+                e eVar = (e) io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper returned a null CompletableSource");
                 getAndIncrement();
                 InnerConsumer innerConsumer = new InnerConsumer();
                 if (!this.cancelled && this.set.a(innerConsumer)) {
@@ -89,7 +91,7 @@ public final class FlowableFlatMapCompletable<T> extends a<T, T> {
                 }
                 return;
             }
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
 
         @Override // org.a.c
@@ -117,17 +119,17 @@ public final class FlowableFlatMapCompletable<T> extends a<T, T> {
         public void request(long j) {
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public T poll() throws Exception {
             return null;
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public boolean isEmpty() {
             return true;
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public void clear() {
         }
 
@@ -146,7 +148,7 @@ public final class FlowableFlatMapCompletable<T> extends a<T, T> {
             onError(th);
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes9.dex */
         final class InnerConsumer extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.c, io.reactivex.disposables.b {
             private static final long serialVersionUID = 8606673141535671828L;
 

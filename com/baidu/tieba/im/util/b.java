@@ -11,10 +11,10 @@ import com.baidu.tieba.im.model.RequestGroupLocModel;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class b {
-    private RequestGroupLocModel kqi;
-    private a kqj;
+    private RequestGroupLocModel kDE;
+    private a kDF;
     private double longitude = 0.0d;
     private double latitude = 0.0d;
     private BdUniqueId unique_id = null;
@@ -26,39 +26,39 @@ public class b {
                     if (address != null) {
                         b.this.latitude = address.getLatitude();
                         b.this.longitude = address.getLongitude();
-                        b.this.kqi.setLat(String.valueOf(address.getLatitude()));
-                        b.this.kqi.setLng(String.valueOf(address.getLongitude()));
-                        b.this.kqi.setGroupId(0L);
-                        b.this.kqi.sendMessage();
+                        b.this.kDE.setLat(String.valueOf(address.getLatitude()));
+                        b.this.kDE.setLng(String.valueOf(address.getLongitude()));
+                        b.this.kDE.setGroupId(0L);
+                        b.this.kDE.sendMessage();
                         return;
                     }
                     return;
                 case 1:
                 case 2:
                 case 3:
-                    b.this.kqj.cPB();
+                    b.this.kDF.cUP();
                     return;
                 case 4:
                 case 5:
-                    b.this.kqj.cPA();
+                    b.this.kDF.cUO();
                     return;
                 default:
                     return;
             }
         }
     };
-    private final com.baidu.adp.framework.listener.c kqk = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_QUERY_GROUPLOC) { // from class: com.baidu.tieba.im.util.b.2
+    private final com.baidu.adp.framework.listener.c kDG = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_QUERY_GROUPLOC) { // from class: com.baidu.tieba.im.util.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103010) {
-                b.this.kqj.cPA();
+                b.this.kDF.cUO();
             } else if (!(socketResponsedMessage instanceof ResponseRequestGroupLocMessage)) {
-                b.this.kqj.cPA();
+                b.this.kDF.cUO();
             } else {
                 ResponseRequestGroupLocMessage responseRequestGroupLocMessage = (ResponseRequestGroupLocMessage) socketResponsedMessage;
                 if (responseRequestGroupLocMessage.getError() != 0) {
-                    b.this.kqj.cPA();
+                    b.this.kDF.cUO();
                     return;
                 }
                 Iterator<String> iteraotrOfBusinessAreaList = responseRequestGroupLocMessage.getIteraotrOfBusinessAreaList();
@@ -68,35 +68,35 @@ public class b {
                 }
                 String position = responseRequestGroupLocMessage.getPosition();
                 if ((position == null || position.equals("")) && arrayList.size() < 1) {
-                    b.this.kqj.cPA();
+                    b.this.kDF.cUO();
                 } else {
-                    b.this.kqj.a(position, arrayList, b.this.latitude, b.this.longitude);
+                    b.this.kDF.a(position, arrayList, b.this.latitude, b.this.longitude);
                 }
             }
         }
     };
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public interface a {
         void a(String str, List<String> list, double d, double d2);
 
-        void cPA();
+        void cUO();
 
-        void cPB();
+        void cUP();
     }
 
     public b(a aVar) {
-        this.kqi = null;
-        this.kqj = null;
-        this.kqi = new RequestGroupLocModel();
-        this.kqj = aVar;
-        this.kqk.setTag(this.unique_id);
-        MessageManager.getInstance().registerListener(this.kqk);
+        this.kDE = null;
+        this.kDF = null;
+        this.kDE = new RequestGroupLocModel();
+        this.kDF = aVar;
+        this.kDG.setTag(this.unique_id);
+        MessageManager.getInstance().registerListener(this.kDG);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
-        this.kqi.setUniqueId(bdUniqueId);
+        this.kDE.setUniqueId(bdUniqueId);
     }
 
     public void startLoad() {
@@ -104,7 +104,7 @@ public class b {
     }
 
     public void cancelLoad() {
-        this.kqi.cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.kqk);
+        this.kDE.cancelMessage();
+        MessageManager.getInstance().unRegisterListener(this.kDG);
     }
 }

@@ -1,8 +1,8 @@
 package kotlin.io;
 
 import java.io.Closeable;
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 public final class a {
     public static final void a(Closeable closeable, Throwable th) {
         if (closeable != null) {
@@ -11,7 +11,7 @@ public final class a {
                     closeable.close();
                     return;
                 } catch (Throwable th2) {
-                    kotlin.a.addSuppressed(th, th2);
+                    kotlin.a.a(th, th2);
                     return;
                 }
             }

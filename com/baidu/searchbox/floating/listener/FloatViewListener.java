@@ -3,9 +3,9 @@ package com.baidu.searchbox.floating.listener;
 import android.graphics.Point;
 import android.view.View;
 import com.baidu.searchbox.floating.config.ScaleMode;
-import kotlin.h;
-@h
-/* loaded from: classes9.dex */
+import kotlin.e;
+@e
+/* loaded from: classes16.dex */
 public interface FloatViewListener {
     void onClick(View view);
 

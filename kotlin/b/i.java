@@ -1,68 +1,66 @@
 package kotlin.b;
 
 import com.baidu.android.common.others.IStringUtil;
-import kotlin.collections.ae;
-@kotlin.h
-/* loaded from: classes9.dex */
+import kotlin.collections.z;
+import kotlin.jvm.internal.o;
+@kotlin.e
+/* loaded from: classes17.dex */
 public class i implements Iterable<Long> {
-    public static final a pUJ = new a(null);
-    private final long pUG;
-    private final long pUH;
-    private final long pUI;
+    public static final a pKX = new a(null);
+    private final long pKU;
+    private final long pKV;
+    private final long pKW;
 
     public i(long j, long j2, long j3) {
         if (j3 == 0) {
-            throw new IllegalArgumentException("Step must be non-zero.");
+            throw new IllegalArgumentException("Step must be non-zero");
         }
-        if (j3 == Long.MIN_VALUE) {
-            throw new IllegalArgumentException("Step must be greater than Long.MIN_VALUE to avoid overflow on negation.");
-        }
-        this.pUG = j;
-        this.pUH = kotlin.internal.d.j(j, j2, j3);
-        this.pUI = j3;
+        this.pKU = j;
+        this.pKV = kotlin.internal.d.j(j, j2, j3);
+        this.pKW = j3;
     }
 
-    public final long eCg() {
-        return this.pUG;
+    public final long eEm() {
+        return this.pKU;
     }
 
-    public final long eCh() {
-        return this.pUH;
+    public final long eEn() {
+        return this.pKV;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: eCi */
-    public ae iterator() {
-        return new j(this.pUG, this.pUH, this.pUI);
+    /* renamed from: eEo */
+    public z iterator() {
+        return new j(this.pKU, this.pKV, this.pKW);
     }
 
     public boolean isEmpty() {
-        return this.pUI > 0 ? this.pUG > this.pUH : this.pUG < this.pUH;
+        return this.pKW > 0 ? this.pKU > this.pKV : this.pKU < this.pKV;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.pUG == ((i) obj).pUG && this.pUH == ((i) obj).pUH && this.pUI == ((i) obj).pUI));
+        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.pKU == ((i) obj).pKU && this.pKV == ((i) obj).pKV && this.pKW == ((i) obj).pKW));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (int) ((31 * ((31 * (this.pUG ^ (this.pUG >>> 32))) + (this.pUH ^ (this.pUH >>> 32)))) + (this.pUI ^ (this.pUI >>> 32)));
+        return (int) ((31 * ((31 * (this.pKU ^ (this.pKU >>> 32))) + (this.pKV ^ (this.pKV >>> 32)))) + (this.pKW ^ (this.pKW >>> 32)));
     }
 
     public String toString() {
-        return this.pUI > 0 ? this.pUG + IStringUtil.TOP_PATH + this.pUH + " step " + this.pUI : this.pUG + " downTo " + this.pUH + " step " + (-this.pUI);
+        return this.pKW > 0 ? "" + this.pKU + IStringUtil.TOP_PATH + this.pKV + " step " + this.pKW : "" + this.pKU + " downTo " + this.pKV + " step " + (-this.pKW);
     }
 
-    @kotlin.h
-    /* loaded from: classes9.dex */
+    @kotlin.e
+    /* loaded from: classes17.dex */
     public static final class a {
         private a() {
         }
 
-        public /* synthetic */ a(kotlin.jvm.internal.o oVar) {
+        public /* synthetic */ a(o oVar) {
             this();
         }
     }

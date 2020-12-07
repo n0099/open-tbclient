@@ -15,7 +15,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class ScrimInsetsFrameLayout extends FrameLayout {
     Drawable mInsetForeground;
     Rect mInsets;

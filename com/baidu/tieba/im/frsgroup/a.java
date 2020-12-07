@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.bh;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupPermData;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class a extends com.baidu.tieba.frs.k<GroupPermData, b> {
-    private View.OnClickListener eTp;
+    private View.OnClickListener faK;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.eTp = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
+        this.faK = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
@@ -44,9 +44,9 @@ public class a extends com.baidu.tieba.frs.k<GroupPermData, b> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bR */
+    /* renamed from: bU */
     public b c(ViewGroup viewGroup) {
-        return new b(LayoutInflater.from(this.mContext).inflate(R.layout.frs_create_group_item_view, (ViewGroup) null), this.eTp);
+        return new b(LayoutInflater.from(this.mContext).inflate(R.layout.frs_create_group_item_view, (ViewGroup) null), this.faK);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,10 +57,10 @@ public class a extends com.baidu.tieba.frs.k<GroupPermData, b> {
         this.mPageContext.getLayoutMode().onModeChanged(view);
         bVar.rootView.setTag(Integer.valueOf(i));
         ap.setBackgroundResource(bVar.rootView, R.drawable.frs_group_item_bg);
-        ap.setBackgroundColor(bVar.jUB, R.color.CAM_X0204);
-        ap.setViewTextColor(bVar.kfv, R.color.CAM_X0105, 1);
-        bVar.kfv.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
-        ap.setBackgroundResource(bVar.eHl, R.color.CAM_X0204);
+        ap.setBackgroundColor(bVar.kig, R.color.CAM_X0204);
+        ap.setViewTextColor(bVar.ksT, R.color.CAM_X0105, 1);
+        bVar.ksT.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
+        ap.setBackgroundResource(bVar.eOv, R.color.CAM_X0204);
         return view;
     }
 

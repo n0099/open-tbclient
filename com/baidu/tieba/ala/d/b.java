@@ -1,28 +1,24 @@
 package com.baidu.tieba.ala.d;
 
-import android.content.res.Configuration;
+import android.text.Editable;
 import android.view.View;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.personmanager.e;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ala.g.d;
-import java.util.List;
+import com.baidu.tieba.ala.view.a;
 /* loaded from: classes4.dex */
 public class b {
-    private boolean bEy;
-    private long bmk;
-    private long fXY;
-    private com.baidu.live.personmanager.e gxP;
-    private com.baidu.tieba.ala.g.d gxT;
-    private com.baidu.tieba.ala.view.b gxU;
+    private long brr;
+    private com.baidu.tieba.ala.view.a gGK;
+    private com.baidu.live.personmanager.e gGL;
+    private long ggj;
     private boolean mIsHost;
     private TbPageContext mTbPageContext;
     private long mUserId;
-    private final e.a gxQ = new e.a() { // from class: com.baidu.tieba.ala.d.b.1
+    private final e.a gGM = new e.a() { // from class: com.baidu.tieba.ala.d.b.1
         @Override // com.baidu.live.personmanager.e.a
-        public void Oc() {
+        public void Qv() {
             BdUtilHelper.showToast(b.this.mTbPageContext.getPageActivity(), a.h.txt_person_report_success);
             b.this.mTbPageContext.getPageActivity().finish();
         }
@@ -35,57 +31,43 @@ public class b {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.d.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.gxU.ckO() != null && b.this.mUserId > 0) {
-                b.this.gxP.aE(String.valueOf(b.this.mUserId), b.this.gxU.ckO().TK());
+            if (b.this.gGK.Wq().length() > 20) {
+                BdUtilHelper.showToast(b.this.mTbPageContext.getPageActivity(), a.h.txt_describe_feedback_reason_text_max_limit);
+            } else if (b.this.mUserId > 0) {
+                b.this.gGL.aI(String.valueOf(b.this.mUserId), b.this.gGK.Wq());
             }
         }
     };
-    private final d.a gxV = new d.a() { // from class: com.baidu.tieba.ala.d.b.3
-        @Override // com.baidu.tieba.ala.g.d.a
-        public void af(List<com.baidu.tieba.ala.data.b> list) {
-            if (ListUtils.isEmpty(list)) {
-                list = b.this.gxT.TP();
-            }
-            if (!ListUtils.isEmpty(list)) {
-                b.this.gxU.setData(list);
-            }
-        }
-
-        @Override // com.baidu.tieba.ala.g.d.a
-        public void onFail(int i, String str) {
-            List<com.baidu.tieba.ala.data.b> TP = b.this.gxT.TP();
-            if (!ListUtils.isEmpty(TP)) {
-                b.this.gxU.setData(TP);
-            }
+    private final a.InterfaceC0720a gGN = new a.InterfaceC0720a() { // from class: com.baidu.tieba.ala.d.b.3
+        @Override // com.baidu.tieba.ala.view.a.InterfaceC0720a
+        public void afterTextChanged(Editable editable) {
         }
     };
 
-    public b(TbPageContext tbPageContext, long j, long j2, long j3, boolean z, boolean z2) {
+    public b(TbPageContext tbPageContext, long j, long j2, long j3, boolean z) {
         this.mTbPageContext = tbPageContext;
-        this.bmk = j;
-        this.fXY = j2;
+        this.brr = j;
+        this.ggj = j2;
         this.mUserId = j3;
         this.mIsHost = z;
-        this.bEy = z2;
-        this.gxT = new com.baidu.tieba.ala.g.d(this.mTbPageContext, this.gxV);
-        this.gxT.b(this.bmk, this.fXY, this.mUserId, this.mIsHost, this.bEy);
-        this.gxU = new com.baidu.tieba.ala.view.b(this.mTbPageContext, this.mOnClickListener);
-        this.gxU.b(this.bmk, this.fXY, this.mUserId, this.mIsHost, this.bEy);
-        this.gxT.TO();
-        this.gxP = new com.baidu.live.personmanager.e(this.mTbPageContext);
-        this.gxP.a(this.gxQ);
+        this.gGK = new com.baidu.tieba.ala.view.a(this.mTbPageContext, this.mOnClickListener, this.gGN);
+        this.gGK.b(this.brr, this.ggj, this.mUserId, this.mIsHost);
+        this.gGL = new com.baidu.live.personmanager.e(this.mTbPageContext);
+        this.gGL.a(this.gGM);
     }
 
     public View getView() {
-        return this.gxU.getView();
-    }
-
-    public void onConfigurationChanged(Configuration configuration) {
+        return this.gGK.getView();
     }
 
     public void onDestroy() {
-        this.gxT.onDestroy();
-        this.gxP.onDestroy();
-        this.gxU.onDestroy();
+        this.gGL.onDestroy();
+        this.gGK.onDestroy();
+    }
+
+    public void onKeyboardVisibilityChanged(boolean z) {
+        if (this.gGK != null) {
+            this.gGK.onKeyboardVisibilityChanged(z);
+        }
     }
 }

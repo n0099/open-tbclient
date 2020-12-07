@@ -8,7 +8,7 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.swan.apps.storage.c.h;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -26,24 +26,24 @@ public class b {
             }
         }
         jSONObject.put("scheme", SchemeConfig.getSchemeHead());
-        jSONObject.put("sdkExtension", b(d.ara().arw()));
-        jSONObject.put("gameSdkExtension", b(com.baidu.swan.games.j.a.aUI().arw()));
+        jSONObject.put("sdkExtension", b(d.aui().auE()));
+        jSONObject.put("gameSdkExtension", b(com.baidu.swan.games.j.a.aXN().auE()));
         jSONObject.put("isDebugSdk", DEBUG);
-        String string = h.aKk().getString("ctsUrl", "");
-        if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.ad.a.a.aEh()) {
+        String string = h.aNr().getString("ctsUrl", "");
+        if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.ad.a.a.aHp()) {
             jSONObject.put("ctsJsAddress", new JSONObject(string));
         }
-        String agM = com.baidu.swan.apps.t.a.awe().agM();
-        if (!TextUtils.isEmpty(agM)) {
-            jSONObject.put("hostName", agM);
+        String ajU = com.baidu.swan.apps.t.a.azm().ajU();
+        if (!TextUtils.isEmpty(ajU)) {
+            jSONObject.put("hostName", ajU);
         }
         jSONObject.put("platform", "android");
-        JSONObject aKp = com.baidu.swan.apps.swancore.a.a.aKp();
-        aKp.put("swanswitch_common_sys_info_binding", true);
-        aKp.put("swanswitch_ab_sync_auth", true);
-        jSONObject.put("abTestSwitch", aKp);
+        JSONObject aNw = com.baidu.swan.apps.swancore.a.a.aNw();
+        aNw.put("swanswitch_common_sys_info_binding", true);
+        aNw.put("swanswitch_ab_sync_auth", true);
+        jSONObject.put("abTestSwitch", aNw);
         jSONObject.put("userDataPath", com.baidu.swan.games.i.a.USER_DATA_PATH);
-        jSONObject.put("preloadId", d.ara().arB());
+        jSONObject.put("preloadId", d.aui().auJ());
         String jSONObject2 = jSONObject.toString();
         return TextUtils.isEmpty(jSONObject2) ? "" : jSONObject2;
     }

@@ -31,13 +31,13 @@ public class ar {
         this.key = str;
     }
 
-    public ar dR(String str, String str2) {
+    public ar dY(String str, String str2) {
         this.params.add(str);
         this.params.add(str2);
         return this;
     }
 
-    public ar ak(String str, int i) {
+    public ar al(String str, int i) {
         this.params.add(str);
         this.params.add(Integer.valueOf(i));
         return this;
@@ -55,7 +55,7 @@ public class ar {
         return this;
     }
 
-    private void bt(List<Object> list) {
+    private void bx(List<Object> list) {
         this.params = list;
     }
 
@@ -67,22 +67,22 @@ public class ar {
         }
     }
 
-    public boolean Br(String str) {
+    public boolean BY(String str) {
         int indexOf;
         return !au.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1;
     }
 
-    public ar bqx() {
+    public ar btS() {
         ar arVar = new ar(getKey());
-        arVar.bt(getParams());
+        arVar.bx(getParams());
         return arVar;
     }
 
-    public void bqy() {
+    public void btT() {
         TiebaStatic.log(this);
     }
 
-    public static ar Bs(String str) {
+    public static ar BZ(String str) {
         return new ar(str);
     }
 

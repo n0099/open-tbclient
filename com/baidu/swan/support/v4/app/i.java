@@ -12,24 +12,24 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 public class i {
-    private final j<?> eiq;
+    private final j<?> eps;
 
     public static final i a(j<?> jVar) {
         return new i(jVar);
     }
 
     private i(j<?> jVar) {
-        this.eiq = jVar;
+        this.eps = jVar;
     }
 
-    public k bcc() {
-        return this.eiq.bce();
+    public k bfh() {
+        return this.eps.bfj();
     }
 
     public int getActiveFragmentsCount() {
-        ArrayList<Fragment> arrayList = this.eiq.eip.eiH;
+        ArrayList<Fragment> arrayList = this.eps.epr.epJ;
         if (arrayList == null) {
             return 0;
         }
@@ -37,129 +37,129 @@ public class i {
     }
 
     public List<Fragment> getActiveFragments(List<Fragment> list) {
-        if (this.eiq.eip.eiH == null) {
+        if (this.eps.epr.epJ == null) {
             return null;
         }
         if (list == null) {
             list = new ArrayList<>(getActiveFragmentsCount());
         }
-        list.addAll(this.eiq.eip.eiH);
+        list.addAll(this.eps.epr.epJ);
         return list;
     }
 
     public void h(Fragment fragment) {
-        this.eiq.eip.a(this.eiq, this.eiq, fragment);
+        this.eps.epr.a(this.eps, this.eps, fragment);
     }
 
     public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-        return this.eiq.eip.onCreateView(view, str, context, attributeSet);
+        return this.eps.epr.onCreateView(view, str, context, attributeSet);
     }
 
     public void noteStateNotSaved() {
-        this.eiq.eip.noteStateNotSaved();
+        this.eps.epr.noteStateNotSaved();
     }
 
     public Parcelable saveAllState() {
-        return this.eiq.eip.saveAllState();
+        return this.eps.epr.saveAllState();
     }
 
     public void restoreAllState(Parcelable parcelable, List<Fragment> list) {
-        this.eiq.eip.restoreAllState(parcelable, list);
+        this.eps.epr.restoreAllState(parcelable, list);
     }
 
     public List<Fragment> retainNonConfig() {
-        return this.eiq.eip.bcg();
+        return this.eps.epr.bfl();
     }
 
     public void dispatchCreate() {
-        this.eiq.eip.dispatchCreate();
+        this.eps.epr.dispatchCreate();
     }
 
     public void dispatchActivityCreated() {
-        this.eiq.eip.dispatchActivityCreated();
+        this.eps.epr.dispatchActivityCreated();
     }
 
     public void dispatchStart() {
-        this.eiq.eip.dispatchStart();
+        this.eps.epr.dispatchStart();
     }
 
     public void dispatchResume() {
-        this.eiq.eip.dispatchResume();
+        this.eps.epr.dispatchResume();
     }
 
     public void dispatchPause() {
-        this.eiq.eip.dispatchPause();
+        this.eps.epr.dispatchPause();
     }
 
     public void dispatchStop() {
-        this.eiq.eip.dispatchStop();
+        this.eps.epr.dispatchStop();
     }
 
     public void dispatchReallyStop() {
-        this.eiq.eip.dispatchReallyStop();
+        this.eps.epr.dispatchReallyStop();
     }
 
     public void dispatchDestroy() {
-        this.eiq.eip.dispatchDestroy();
+        this.eps.epr.dispatchDestroy();
     }
 
     public void dispatchConfigurationChanged(Configuration configuration) {
-        this.eiq.eip.dispatchConfigurationChanged(configuration);
+        this.eps.epr.dispatchConfigurationChanged(configuration);
     }
 
     public void dispatchLowMemory() {
-        this.eiq.eip.dispatchLowMemory();
+        this.eps.epr.dispatchLowMemory();
     }
 
     public boolean dispatchCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
-        return this.eiq.eip.dispatchCreateOptionsMenu(menu, menuInflater);
+        return this.eps.epr.dispatchCreateOptionsMenu(menu, menuInflater);
     }
 
     public boolean dispatchPrepareOptionsMenu(Menu menu) {
-        return this.eiq.eip.dispatchPrepareOptionsMenu(menu);
+        return this.eps.epr.dispatchPrepareOptionsMenu(menu);
     }
 
     public boolean dispatchOptionsItemSelected(MenuItem menuItem) {
-        return this.eiq.eip.dispatchOptionsItemSelected(menuItem);
+        return this.eps.epr.dispatchOptionsItemSelected(menuItem);
     }
 
     public boolean dispatchContextItemSelected(MenuItem menuItem) {
-        return this.eiq.eip.dispatchContextItemSelected(menuItem);
+        return this.eps.epr.dispatchContextItemSelected(menuItem);
     }
 
     public void dispatchOptionsMenuClosed(Menu menu) {
-        this.eiq.eip.dispatchOptionsMenuClosed(menu);
+        this.eps.epr.dispatchOptionsMenuClosed(menu);
     }
 
     public boolean execPendingActions() {
-        return this.eiq.eip.execPendingActions();
+        return this.eps.epr.execPendingActions();
     }
 
     public void doLoaderStart() {
-        this.eiq.doLoaderStart();
+        this.eps.doLoaderStart();
     }
 
     public void doLoaderStop(boolean z) {
-        this.eiq.doLoaderStop(z);
+        this.eps.doLoaderStop(z);
     }
 
     public void doLoaderDestroy() {
-        this.eiq.doLoaderDestroy();
+        this.eps.doLoaderDestroy();
     }
 
     public void reportLoaderStart() {
-        this.eiq.reportLoaderStart();
+        this.eps.reportLoaderStart();
     }
 
-    public com.baidu.swan.support.v4.b.f<String, o> bcd() {
-        return this.eiq.bcd();
+    public com.baidu.swan.support.v4.b.f<String, o> bfi() {
+        return this.eps.bfi();
     }
 
     public void a(com.baidu.swan.support.v4.b.f<String, o> fVar) {
-        this.eiq.a(fVar);
+        this.eps.a(fVar);
     }
 
     public void dumpLoaders(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        this.eiq.dumpLoaders(str, fileDescriptor, printWriter, strArr);
+        this.eps.dumpLoaders(str, fileDescriptor, printWriter, strArr);
     }
 }

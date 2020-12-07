@@ -11,9 +11,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
-    private static a HI;
+    private static a IE;
     private static ArrayList<SoftReference<Activity>> sActivityStack;
-    private InterfaceC0016a HJ;
+    private InterfaceC0016a IF;
     private int mActivityStackMaxSize = 0;
 
     /* renamed from: com.baidu.adp.base.a$a  reason: collision with other inner class name */
@@ -23,7 +23,7 @@ public final class a {
     }
 
     public void a(InterfaceC0016a interfaceC0016a) {
-        this.HJ = interfaceC0016a;
+        this.IF = interfaceC0016a;
     }
 
     private a() {
@@ -33,10 +33,10 @@ public final class a {
     }
 
     public static a lg() {
-        if (HI == null) {
-            HI = new a();
+        if (IE == null) {
+            IE = new a();
         }
-        return HI;
+        return IE;
     }
 
     public int getSize() {
@@ -74,7 +74,7 @@ public final class a {
         return remove.get();
     }
 
-    public Activity X(int i) {
+    public Activity aa(int i) {
         int size = sActivityStack.size();
         if (size == 0) {
             return null;
@@ -104,7 +104,7 @@ public final class a {
         return -1;
     }
 
-    public void Y(int i) {
+    public void ab(int i) {
         for (int i2 = 0; i2 < i; i2++) {
             Activity popActivity = popActivity();
             if (popActivity != null) {
@@ -117,8 +117,8 @@ public final class a {
         if (activity != null) {
             int size = sActivityStack.size();
             if (size == 0) {
-                if (this.HJ != null) {
-                    this.HJ.onActivityClosed();
+                if (this.IF != null) {
+                    this.IF.onActivityClosed();
                     return;
                 }
                 return;
@@ -129,13 +129,13 @@ public final class a {
                     sActivityStack.remove(i);
                 } else if (activity.equals(softReference.get())) {
                     sActivityStack.remove(i);
-                    if (sActivityStack.size() == 0 && this.HJ != null) {
-                        this.HJ.onActivityClosed();
+                    if (sActivityStack.size() == 0 && this.IF != null) {
+                        this.IF.onActivityClosed();
                         return;
                     }
                     return;
-                } else if (sActivityStack.size() == 0 && this.HJ != null) {
-                    this.HJ.onActivityClosed();
+                } else if (sActivityStack.size() == 0 && this.IF != null) {
+                    this.IF.onActivityClosed();
                 }
             }
         }
@@ -150,7 +150,7 @@ public final class a {
         return null;
     }
 
-    public boolean bq(String str) {
+    public boolean bt(String str) {
         if (sActivityStack.size() == 0) {
             return false;
         }
@@ -184,8 +184,8 @@ public final class a {
                 }
             }
         }
-        if (this.HJ != null) {
-            this.HJ.onActivityClosed();
+        if (this.IF != null) {
+            this.IF.onActivityClosed();
         }
     }
 

@@ -5,7 +5,7 @@ import com.sdk.base.api.CallBack;
 import com.sdk.base.framework.a.a.c;
 import com.sdk.base.module.manager.SDKManager;
 import com.sdk.mobile.b.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class OauthManager extends SDKManager {
     private static volatile OauthManager manager;
     private Context mContext;

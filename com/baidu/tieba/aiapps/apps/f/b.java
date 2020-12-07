@@ -23,13 +23,13 @@ import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class b implements f {
     private static BroadcastReceiver broadcastReceiver = null;
 
     @Override // com.baidu.swan.apps.t.b.f
-    public void e(Activity activity, String str, final com.baidu.l.a.a aVar) {
-        DelegateUtils.callOnMainWithActivity(com.baidu.swan.apps.v.f.azg().ayQ(), MainProcessDelegateActivity.class, com.baidu.tieba.aiapps.apps.f.b.a.class, com.baidu.tieba.aiapps.apps.f.b.a.Fp(str), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.f.b.1
+    public void e(Activity activity, String str, final com.baidu.m.a.a aVar) {
+        DelegateUtils.callOnMainWithActivity(com.baidu.swan.apps.v.f.aCp().aBZ(), MainProcessDelegateActivity.class, com.baidu.tieba.aiapps.apps.f.b.a.class, com.baidu.tieba.aiapps.apps.f.b.a.Gd(str), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.f.b.1
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(DelegateResult delegateResult) {
                 aVar.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));
@@ -38,17 +38,17 @@ public class b implements f {
     }
 
     @Override // com.baidu.swan.apps.t.b.f
-    public void f(Activity activity, String str, final com.baidu.l.a.a aVar) {
-        if (!com.baidu.tbadk.pay.c.bBz().isWalletOk()) {
+    public void f(Activity activity, String str, final com.baidu.m.a.a aVar) {
+        if (!com.baidu.tbadk.pay.c.bFc().isWalletOk()) {
             l.showToast(TbadkCoreApplication.getInst(), R.string.plugin_pay_wallet_not_found);
             return;
         }
-        e aGM = e.aGM();
-        if (aGM != null && aGM.getActivity() != null) {
+        e aJU = e.aJU();
+        if (aJU != null && aJU.getActivity() != null) {
             a aVar2 = new a();
             aVar2.mParams.putInt("type", 2);
             aVar2.mParams.putString("orderInfo", str);
-            aVar2.ai(aGM.getActivity());
+            aVar2.aj(aJU.getActivity());
             aVar2.a(new com.baidu.tieba.aiapps.apps.f.a.a() { // from class: com.baidu.tieba.aiapps.apps.f.b.2
                 @Override // com.baidu.tieba.aiapps.apps.f.a.a
                 public void ah(Bundle bundle) {
@@ -62,15 +62,15 @@ public class b implements f {
     }
 
     @Override // com.baidu.swan.apps.t.b.f
-    public void b(Context context, JSONObject jSONObject, final com.baidu.l.a.a aVar) {
+    public void b(Context context, JSONObject jSONObject, final com.baidu.m.a.a aVar) {
         IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context.getApplicationContext(), TbConfig.WEIXIN_SHARE_APP_ID);
-        PayReq dq = dq(jSONObject);
-        createWXAPI.registerApp(dq.appId);
+        PayReq dr = dr(jSONObject);
+        createWXAPI.registerApp(dr.appId);
         if (!createWXAPI.isWXAppInstalled()) {
             aVar.onPayResult(3, "wx_not_installed");
             d.a(context, "您没有安装微信，请选择其他支付方式").showToast();
-        } else if (e.aGM() != null) {
-            if (!createWXAPI.sendReq(dq)) {
+        } else if (e.aJU() != null) {
+            if (!createWXAPI.sendReq(dr)) {
                 aVar.onPayResult(6, "wx_start_failed");
             }
             if (broadcastReceiver != null) {
@@ -89,7 +89,7 @@ public class b implements f {
         }
     }
 
-    private PayReq dq(JSONObject jSONObject) {
+    private PayReq dr(JSONObject jSONObject) {
         PayReq payReq = new PayReq();
         payReq.appId = jSONObject.optString("appid");
         payReq.partnerId = jSONObject.optString("partnerid");
@@ -102,7 +102,7 @@ public class b implements f {
     }
 
     @Override // com.baidu.swan.apps.t.b.f
-    public boolean aO(Context context) {
+    public boolean bu(Context context) {
         if (WXAPIFactory.createWXAPI(context, null).isWXAppInstalled()) {
             return true;
         }

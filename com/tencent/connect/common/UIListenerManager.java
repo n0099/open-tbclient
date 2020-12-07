@@ -14,18 +14,18 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class UIListenerManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static UIListenerManager f4553a = null;
+    private static UIListenerManager f4323a = null;
     private Map<String, ApiTask> b;
 
     public static UIListenerManager getInstance() {
-        if (f4553a == null) {
-            f4553a = new UIListenerManager();
+        if (f4323a == null) {
+            f4323a = new UIListenerManager();
         }
-        return f4553a;
+        return f4323a;
     }
 
     private UIListenerManager() {
@@ -223,7 +223,7 @@ public class UIListenerManager {
         return true;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class ApiTask {
         public IUiListener mListener;
         public int mRequestCode;

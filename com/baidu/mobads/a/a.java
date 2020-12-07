@@ -3,7 +3,7 @@ package com.baidu.mobads.a;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2315a = b.f2316a.booleanValue();
+    public static final boolean f2317a = b.f2318a.booleanValue();
     public static final int b;
     public static String c;
     public static final Object d;
@@ -25,7 +25,7 @@ public final class a {
     public static String t;
 
     static {
-        b = f2315a ? 2 : 4;
+        b = f2317a ? 2 : 4;
         c = "0.0";
         d = "android";
         e = "androidlunpan";

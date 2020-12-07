@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
-import com.baidu.k.a.a;
+import com.baidu.l.a.a;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
@@ -31,7 +31,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class LoginActivity extends BaseActivity {
     private static final int A = 2005;
     public static final String EXTRA_LOGIN_FINISH_AFTER_SUC = "extra_login_finish_after_suc";
@@ -127,8 +127,8 @@ public class LoginActivity extends BaseActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         int intExtra;
         super.onActivityResult(i, i2, intent);
-        new b().a(new b.AbstractC0341b() { // from class: com.baidu.sapi2.activity.LoginActivity.7
-            @Override // com.baidu.sapi2.share.b.AbstractC0341b
+        new b().a(new b.AbstractC0352b() { // from class: com.baidu.sapi2.activity.LoginActivity.7
+            @Override // com.baidu.sapi2.share.b.AbstractC0352b
             public void onSuccess() {
                 LoginActivity.this.a(AccountType.NORMAL, false);
             }
@@ -343,7 +343,7 @@ public class LoginActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AccountType accountType, boolean z) {
-        new com.baidu.sapi2.utils.b().a(com.baidu.sapi2.utils.b.f3537a + SapiUtils.getLastLoginType());
+        new com.baidu.sapi2.utils.b().a(com.baidu.sapi2.utils.b.f3540a + SapiUtils.getLastLoginType());
         if (this.t == 2003) {
             SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
             Intent intent = new Intent();

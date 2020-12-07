@@ -8,12 +8,12 @@ public interface b {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void C(String str, int i);
+        void E(String str, int i);
     }
 
-    void Mb();
+    void Ow();
 
-    void Mc();
+    void Ox();
 
     @NonNull
     View getView();

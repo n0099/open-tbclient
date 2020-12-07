@@ -5,23 +5,23 @@ import com.baidu.swan.apps.event.a.g;
 import com.baidu.swan.apps.v.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a {
-    /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
-    public static void b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        g gVar = new g();
-        gVar.mData = d(str, str2, str3, str4, jSONObject);
-        f.azg().a(str, gVar);
-    }
-
     /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
     public static void c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         g gVar = new g();
-        gVar.mData = d(str, str2, str3, str4, jSONObject);
-        f.azg().b(gVar);
+        gVar.mData = e(str, str2, str3, str4, jSONObject);
+        f.aCp().a(str, gVar);
     }
 
-    public static JSONObject d(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+    /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
+    public static void d(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        g gVar = new g();
+        gVar.mData = e(str, str2, str3, str4, jSONObject);
+        f.aCp().b(gVar);
+    }
+
+    public static JSONObject e(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         JSONObject jSONObject2 = new JSONObject();
         try {
             JSONObject jSONObject3 = new JSONObject();
@@ -42,7 +42,7 @@ public class a {
         return jSONObject2;
     }
 
-    public static JSONObject cJ(String str, String str2) {
+    public static JSONObject cQ(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("slaveId", str);

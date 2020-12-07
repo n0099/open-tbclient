@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.data.cv;
+import com.baidu.live.data.cx;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -23,20 +23,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private String bme;
+    private String brl;
     private boolean mIsHost;
-    private List<cv> mList = new ArrayList();
+    private List<cx> mList = new ArrayList();
     private String mLiveId;
     private TbPageContext mTbPageContext;
 
     public a(TbPageContext tbPageContext, String str, String str2, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
-        this.bme = str2;
+        this.brl = str2;
         this.mIsHost = z;
     }
 
-    public void setList(List<cv> list) {
+    public void setList(List<cx> list) {
         if (this.mList != null) {
             this.mList.clear();
             this.mList.addAll(list);
@@ -67,35 +67,35 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0239a c0239a;
+        C0248a c0248a;
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.yuyin_ala_noble_item_layout, viewGroup, false);
-            c0239a = new C0239a();
-            c0239a.bSp = (LinearLayout) view.findViewById(a.f.ll_container);
-            c0239a.bni = (HeadImageView) view.findViewById(a.f.avatar_noble);
-            c0239a.bnj = (TextView) view.findViewById(a.f.tv_noble_name);
-            c0239a.bnl = (ImageView) view.findViewById(a.f.avatar_noble_wrapper_box);
-            c0239a.bSo = (YuyinALALevelView) view.findViewById(a.f.mark_noble);
-            a(c0239a.bni);
-            view.setTag(c0239a);
+            c0248a = new C0248a();
+            c0248a.bXF = (LinearLayout) view.findViewById(a.f.ll_container);
+            c0248a.bsq = (HeadImageView) view.findViewById(a.f.avatar_noble);
+            c0248a.bsr = (TextView) view.findViewById(a.f.tv_noble_name);
+            c0248a.bst = (ImageView) view.findViewById(a.f.avatar_noble_wrapper_box);
+            c0248a.bXE = (YuyinALALevelView) view.findViewById(a.f.mark_noble);
+            a(c0248a.bsq);
+            view.setTag(c0248a);
         } else {
-            c0239a = (C0239a) view.getTag();
+            c0248a = (C0248a) view.getTag();
         }
-        final cv cvVar = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
-        if (cvVar != null) {
-            c0239a.bnj.setText(cvVar.aRa);
-            c0239a.bSo.setData4Yuyin(cvVar);
-            c0239a.bSp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyinnoble.a.a.1
+        final cx cxVar = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
+        if (cxVar != null) {
+            c0248a.bsr.setText(cxVar.aUc);
+            c0248a.bXE.setData4Yuyin(cxVar);
+            c0248a.bXF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyinnoble.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     try {
                         a.this.mTbPageContext.getPageActivity().finish();
-                        a.this.a(cvVar);
+                        a.this.a(cxVar);
                     } catch (Exception e) {
                     }
                 }
             });
-            a(cvVar, c0239a.bni, c0239a.bnl);
+            a(cxVar, c0248a.bsq, c0248a.bst);
         }
         return view;
     }
@@ -108,23 +108,23 @@ public class a extends BaseAdapter {
         headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
     }
 
-    private void a(cv cvVar, HeadImageView headImageView, ImageView imageView) {
-        if (cvVar != null && headImageView != null && imageView != null) {
-            headImageView.startLoad(cvVar.aQZ, 10, false);
+    private void a(cx cxVar, HeadImageView headImageView, ImageView imageView) {
+        if (cxVar != null && headImageView != null && imageView != null) {
+            headImageView.startLoad(cxVar.aUb, 10, false);
             int dimens = BdUtilHelper.getDimens(this.mTbPageContext.getPageActivity(), a.d.sdk_ds8);
-            if (cvVar.aRb == 7) {
+            if (cxVar.aUd == 7) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
-            } else if (cvVar.aRb == 6) {
+            } else if (cxVar.aUd == 6) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
-            } else if (cvVar.aRb == 5) {
+            } else if (cxVar.aUd == 5) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
-            } else if (cvVar.aRb == 4) {
+            } else if (cxVar.aUd == 4) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
@@ -136,22 +136,22 @@ public class a extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(cv cvVar) {
-        if (cvVar != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.mTbPageContext.getPageActivity(), ExtraParamsManager.getDecryptUserId(cvVar.uk), cvVar.aRa, cvVar.aQZ, 0, 0, null, null, 0L, 0L, 0L, 0, null, this.mLiveId, this.bme != null && this.bme.equals(TbadkCoreApplication.getCurrentAccount()), this.bme, null, cvVar.aRa, "")));
+    public void a(cx cxVar) {
+        if (cxVar != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.mTbPageContext.getPageActivity(), ExtraParamsManager.getDecryptUserId(cxVar.uk), cxVar.aUc, cxVar.aUb, 0, 0, null, null, 0L, 0L, 0L, 0, null, this.mLiveId, this.brl != null && this.brl.equals(TbadkCoreApplication.getCurrentAccount()), this.brl, null, cxVar.aUc, "")));
         }
     }
 
     /* renamed from: com.baidu.live.yuyinnoble.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0239a {
-        public YuyinALALevelView bSo;
-        public LinearLayout bSp;
-        public HeadImageView bni;
-        public TextView bnj;
-        public ImageView bnl;
+    private class C0248a {
+        public YuyinALALevelView bXE;
+        public LinearLayout bXF;
+        public HeadImageView bsq;
+        public TextView bsr;
+        public ImageView bst;
 
-        private C0239a() {
+        private C0248a() {
         }
     }
 }

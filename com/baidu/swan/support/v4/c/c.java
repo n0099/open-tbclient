@@ -7,12 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import com.baidu.swan.support.v4.c.b;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 class c {
     private static boolean sCheckedField;
     private static Field sLayoutInflaterFactory2Field;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes16.dex */
     static class a extends b.a implements LayoutInflater.Factory2 {
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(e eVar) {
@@ -21,7 +21,7 @@ class c {
 
         @Override // android.view.LayoutInflater.Factory2
         public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-            return this.ejv.onCreateView(view, str, context, attributeSet);
+            return this.eqx.onCreateView(view, str, context, attributeSet);
         }
     }
 

@@ -1,7 +1,7 @@
 package okio;
 
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class ForwardingSink implements Sink {
     private final Sink delegate;
 

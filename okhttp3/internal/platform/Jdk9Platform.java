@@ -44,8 +44,13 @@ public final class Jdk9Platform extends Platform {
                 }
             }
             return null;
-        } catch (IllegalAccessException | InvocationTargetException e) {
-            throw Util.assertionError("unable to get selected protocols", e);
+        } catch (IllegalAccessException e) {
+            throw Util.assertionError("failed to get ALPN selected protocol", e);
+        } catch (InvocationTargetException e2) {
+            if (e2.getCause() instanceof UnsupportedOperationException) {
+                return null;
+            }
+            throw Util.assertionError("failed to get ALPN selected protocol", e2);
         }
     }
 

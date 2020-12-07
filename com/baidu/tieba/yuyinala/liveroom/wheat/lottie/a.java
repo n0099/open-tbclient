@@ -2,43 +2,43 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.lottie;
 
 import android.view.ViewGroup;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.as;
-import com.baidu.live.data.ca;
+import com.baidu.live.data.at;
+import com.baidu.live.data.cc;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class a {
-    private static a ohv;
-    private int ohw = 0;
+    private static a owv;
+    private int oww = 0;
 
-    public static a dZV() {
-        if (ohv == null) {
+    public static a efA() {
+        if (owv == null) {
             synchronized (a.class) {
-                if (ohv == null) {
-                    ohv = new a();
+                if (owv == null) {
+                    owv = new a();
                 }
             }
         }
-        return ohv;
+        return owv;
     }
 
     private a() {
     }
 
-    public void cR(ViewGroup viewGroup) {
+    public void cU(ViewGroup viewGroup) {
         a(viewGroup, (c) null);
     }
 
     public void a(ViewGroup viewGroup, c cVar) {
-        as Ej = Ej();
-        if (!a(Ej) && a(Ej, true)) {
-            b.dZX().a(viewGroup, Ej.Ec(), cVar);
+        at FU = FU();
+        if (!a(FU) && a(FU, true)) {
+            b.efC().a(viewGroup, FU.FN(), cVar);
         }
     }
 
     public void a(ViewGroup viewGroup, String str, String str2, c cVar) {
-        as Ek = Ek();
-        if (!a(Ek) && a(Ek, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
-            b.dZX().a(viewGroup, Ek.Ec(), str, str2, cVar);
+        at FV = FV();
+        if (!a(FV) && a(FV, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
+            b.efC().a(viewGroup, FV.FN(), str, str2, cVar);
         }
     }
 
@@ -47,9 +47,9 @@ public class a {
     }
 
     public void b(ViewGroup viewGroup, String str, String str2, c cVar) {
-        as El = El();
-        if (!a(El) && a(El, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
-            b.dZX().b(viewGroup, El.Ec(), str, str2, cVar);
+        at FW = FW();
+        if (!a(FW) && a(FW, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
+            b.efC().b(viewGroup, FW.FN(), str, str2, cVar);
         }
     }
 
@@ -58,81 +58,81 @@ public class a {
     }
 
     public void c(ViewGroup viewGroup, String str, String str2, c cVar) {
-        as Em = Em();
-        if (!a(Em) && a(Em, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
-            b.dZX().c(viewGroup, Em.Ec(), str, str2, cVar);
+        at FX = FX();
+        if (!a(FX) && a(FX, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
+            b.efC().c(viewGroup, FX.FN(), str, str2, cVar);
         }
     }
 
-    public boolean a(as asVar, boolean z) {
-        if (asVar == null) {
+    public boolean a(at atVar, boolean z) {
+        if (atVar == null) {
             return false;
         }
-        boolean VG = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.VG(asVar.Ec());
-        if (!VG && z) {
-            com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.b(asVar.getDownloadUrl(), asVar.Ec(), null);
-            return VG;
+        boolean WV = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.WV(atVar.FN());
+        if (!WV && z) {
+            com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.b(atVar.getDownloadUrl(), atVar.FN(), null);
+            return WV;
         }
-        return VG;
+        return WV;
     }
 
-    private as Ej() {
-        ca dZW = dZW();
-        if (dZW == null) {
+    private at FU() {
+        cc efB = efB();
+        if (efB == null) {
             return null;
         }
-        return dZW.Ej();
+        return efB.FU();
     }
 
-    private as Ek() {
-        ca dZW = dZW();
-        if (dZW == null) {
+    private at FV() {
+        cc efB = efB();
+        if (efB == null) {
             return null;
         }
-        return dZW.Ek();
+        return efB.FV();
     }
 
-    private as El() {
-        ca dZW = dZW();
-        if (dZW == null) {
+    private at FW() {
+        cc efB = efB();
+        if (efB == null) {
             return null;
         }
-        return dZW.El();
+        return efB.FW();
     }
 
-    private as Em() {
-        ca dZW = dZW();
-        if (dZW == null) {
+    private at FX() {
+        cc efB = efB();
+        if (efB == null) {
             return null;
         }
-        return dZW.Em();
+        return efB.FX();
     }
 
-    private static boolean a(as asVar) {
-        return asVar == null || StringUtils.isNull(asVar.getDownloadUrl(), true) || StringUtils.isNull(asVar.Ec(), true);
+    private static boolean a(at atVar) {
+        return atVar == null || StringUtils.isNull(atVar.getDownloadUrl(), true) || StringUtils.isNull(atVar.FN(), true);
     }
 
-    private ca dZW() {
-        if (com.baidu.live.aa.a.Ph().bms == null || com.baidu.live.aa.a.Ph().bms.aLN == null) {
+    private cc efB() {
+        if (com.baidu.live.ae.a.RB().brA == null || com.baidu.live.ae.a.RB().brA.aOJ == null) {
             return null;
         }
-        return com.baidu.live.aa.a.Ph().bms.aLN.aOV;
+        return com.baidu.live.ae.a.RB().brA.aOJ.aRX;
     }
 
-    public void cS(ViewGroup viewGroup) {
-        cU(viewGroup);
-        cT(viewGroup);
+    public void cV(ViewGroup viewGroup) {
+        cX(viewGroup);
+        cW(viewGroup);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cT(ViewGroup viewGroup) {
+    public void cW(ViewGroup viewGroup) {
         if (viewGroup != null && viewGroup.findViewById(a.f.ala_audio_dating_lottie_view) != null) {
             viewGroup.removeView(viewGroup.findViewById(a.f.ala_audio_dating_lottie_view));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cU(ViewGroup viewGroup) {
+    public void cX(ViewGroup viewGroup) {
         if (viewGroup != null && viewGroup.findViewById(a.f.ala_audio_dating_video_view) != null) {
             viewGroup.removeView(viewGroup.findViewById(a.f.ala_audio_dating_video_view));
         }

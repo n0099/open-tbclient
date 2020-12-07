@@ -3,11 +3,11 @@ package com.facebook.common.f;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class b extends FilterInputStream {
-    private final byte[] oNq;
-    private int oNr;
-    private int oNs;
+    private int pcA;
+    private final byte[] pcy;
+    private int pcz;
 
     public b(InputStream inputStream, byte[] bArr) {
         super(inputStream);
@@ -17,13 +17,13 @@ public class b extends FilterInputStream {
         if (bArr == null) {
             throw new NullPointerException();
         }
-        this.oNq = bArr;
+        this.pcy = bArr;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
         int read = this.in.read();
-        return read != -1 ? read : ekv();
+        return read != -1 ? read : eqk();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -40,11 +40,11 @@ public class b extends FilterInputStream {
             }
             int i3 = 0;
             while (i3 < i2) {
-                int ekv = ekv();
-                if (ekv == -1) {
+                int eqk = eqk();
+                if (eqk == -1) {
                     break;
                 }
-                bArr[i + i3] = (byte) ekv;
+                bArr[i + i3] = (byte) eqk;
                 i3++;
             }
             if (i3 <= 0) {
@@ -59,7 +59,7 @@ public class b extends FilterInputStream {
     public void reset() throws IOException {
         if (this.in.markSupported()) {
             this.in.reset();
-            this.oNr = this.oNs;
+            this.pcz = this.pcA;
             return;
         }
         throw new IOException("mark is not supported");
@@ -69,17 +69,17 @@ public class b extends FilterInputStream {
     public void mark(int i) {
         if (this.in.markSupported()) {
             super.mark(i);
-            this.oNs = this.oNr;
+            this.pcA = this.pcz;
         }
     }
 
-    private int ekv() {
-        if (this.oNr >= this.oNq.length) {
+    private int eqk() {
+        if (this.pcz >= this.pcy.length) {
             return -1;
         }
-        byte[] bArr = this.oNq;
-        int i = this.oNr;
-        this.oNr = i + 1;
+        byte[] bArr = this.pcy;
+        int i = this.pcz;
+        this.pcz = i + 1;
         return bArr[i] & 255;
     }
 }

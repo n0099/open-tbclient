@@ -8,17 +8,17 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class w extends b<com.baidu.tbadk.core.data.a> {
-    private com.baidu.tbadk.core.data.a afN;
-    private MultiImgLayout agH;
+    private com.baidu.tbadk.core.data.a agJ;
+    private MultiImgLayout ahG;
     private String mFrom;
     private int mSkinType;
 
     public w(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.agH = new MultiImgLayout(context);
+        this.ahG = new MultiImgLayout(context);
     }
 
     public void setFrom(String str) {
@@ -28,42 +28,42 @@ public class w extends b<com.baidu.tbadk.core.data.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.agH;
+        return this.ahG;
     }
 
     @Override // com.baidu.card.b
     public void setOnCardSubClickListener(com.baidu.tieba.card.ab<com.baidu.tbadk.core.data.a> abVar) {
-        this.agH.setSubClickListener(abVar);
+        this.ahG.setSubClickListener(abVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(com.baidu.tbadk.core.data.a aVar) {
-        this.afN = aVar;
-        this.agH.setFrom(this.mFrom);
-        this.agH.H(aVar);
+        this.agJ = aVar;
+        this.ahG.setFrom(this.mFrom);
+        this.ahG.H(aVar);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
             com.baidu.tbadk.core.util.ap.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
-            this.agH.akB.onChangeSkinType();
+            this.ahG.alC.onChangeSkinType();
         }
         this.mSkinType = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
-    public void tA() {
+    public void tD() {
         a(1, new a.b() { // from class: com.baidu.card.w.1
             @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0096a c0096a) {
-                if (w.this.afN != null && w.this.afN.bjd() != null) {
-                    com.baidu.tieba.card.n.IA(w.this.afN.bjd().getId());
-                    com.baidu.tieba.card.n.a(w.this.agH.mTitle, w.this.afN.bjd().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    com.baidu.tieba.card.n.a(w.this.agH.agr, w.this.afN.bjd().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            public boolean a(a.C0097a c0097a) {
+                if (w.this.agJ != null && w.this.agJ.bmn() != null) {
+                    com.baidu.tieba.card.n.Jq(w.this.agJ.bmn().getId());
+                    com.baidu.tieba.card.n.a(w.this.ahG.mTitle, w.this.agJ.bmn().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    com.baidu.tieba.card.n.a(w.this.ahG.ahp, w.this.agJ.bmn().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -71,26 +71,26 @@ public class w extends b<com.baidu.tbadk.core.data.a> {
     }
 
     public void setConstrainLayoutPool(com.baidu.adp.lib.d.b<ConstrainImageLayout> bVar) {
-        if (this.agH != null) {
-            this.agH.setConstrainLayoutPool(bVar);
+        if (this.ahG != null) {
+            this.ahG.setConstrainLayoutPool(bVar);
         }
     }
 
     public void setConstrainImagePool(com.baidu.adp.lib.d.b<TbImageView> bVar) {
-        if (this.agH != null) {
-            this.agH.setConstrainImagePool(bVar);
+        if (this.ahG != null) {
+            this.ahG.setConstrainImagePool(bVar);
         }
     }
 
     public void setFromCDN(boolean z) {
-        this.agH.setFromCDN(z);
+        this.ahG.setFromCDN(z);
     }
 
     public void setPreloadSizeReadyCallback(com.baidu.adp.widget.a.b bVar) {
-        this.agH.setPreloadSizeReadyCallback(bVar);
+        this.ahG.setPreloadSizeReadyCallback(bVar);
     }
 
     public void setNeedFrsTabName(boolean z) {
-        this.agH.setNeedFrsTabName(z);
+        this.ahG.setNeedFrsTabName(z);
     }
 }

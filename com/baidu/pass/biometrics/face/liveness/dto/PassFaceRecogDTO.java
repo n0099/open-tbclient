@@ -7,7 +7,7 @@ import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
 import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PassFaceRecogDTO extends PassBiometricDto {
     public static final int IMAGE_FLAG_CUT_AND_ORIGIN_IMAGE = 3;
     public static final int IMAGE_FLAG_CUT_IMAGE = 1;
@@ -55,9 +55,9 @@ public class PassFaceRecogDTO extends PassBiometricDto {
         for (Map.Entry<String, String> entry : this.extraParamsMap.entrySet()) {
             if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
                 if (TextUtils.isEmpty(sb.toString())) {
-                    sb.append(entry.getKey()).append(ETAG.EQUAL).append(entry.getValue());
+                    sb.append(entry.getKey()).append("=").append(entry.getValue());
                 } else {
-                    sb.append(ETAG.ITEM_SEPARATOR).append(entry.getKey()).append(ETAG.EQUAL).append(entry.getValue());
+                    sb.append(ETAG.ITEM_SEPARATOR).append(entry.getKey()).append("=").append(entry.getValue());
                 }
             }
         }

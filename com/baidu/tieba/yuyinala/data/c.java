@@ -8,32 +8,32 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c extends g {
-    public String aRe;
+    public int aJg;
+    public String aUg;
     public String cover;
-    public int eDa;
-    public ArrayList<a> gzS;
+    public int eKc;
+    public ArrayList<a> gIP;
     public String liveId;
-    public int point;
     public int rank;
     public String room_name;
 
     @Override // com.baidu.tieba.yuyinala.data.g
     public void parserJson(JSONObject jSONObject) {
         this.rank = jSONObject.optInt("rank");
-        this.point = jSONObject.optInt(Config.EVENT_HEAT_POINT);
-        this.aRe = jSONObject.optString("room_id");
+        this.aJg = jSONObject.optInt(Config.EVENT_HEAT_POINT);
+        this.aUg = jSONObject.optString("room_id");
         this.liveId = jSONObject.optString("live_id");
         this.room_name = jSONObject.optString(DpStatConstants.KEY_ROOM_NAME);
         this.cover = jSONObject.optString("cover");
-        this.eDa = jSONObject.optInt("live_status");
+        this.eKc = jSONObject.optInt("live_status");
         JSONArray optJSONArray = jSONObject.optJSONArray("bro_list");
         if (optJSONArray != null) {
-            this.gzS = new ArrayList<>();
+            this.gIP = new ArrayList<>();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 a aVar = new a();
                 aVar.parserJson(optJSONObject);
-                this.gzS.add(aVar);
+                this.gIP.add(aVar);
             }
         }
     }
@@ -45,7 +45,7 @@ public class c extends g {
 
     /* loaded from: classes4.dex */
     public class a {
-        public long bih;
+        public long bmv;
         public String portrait;
         public String uk;
         public String userName;
@@ -60,7 +60,7 @@ public class c extends g {
                 this.userName = jSONObject.optString("user_name");
                 this.userNickName = jSONObject.optString("user_nickname");
                 this.portrait = jSONObject.optString("bd_portrait");
-                this.bih = jSONObject.optLong("charm_value");
+                this.bmv = jSONObject.optLong("charm_value");
             }
         }
 

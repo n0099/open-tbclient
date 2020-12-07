@@ -5,15 +5,15 @@ import com.xiaomi.push.al;
 final class gw extends al.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Runnable f4936a;
+    final /* synthetic */ Runnable f4706a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gw(Runnable runnable) {
-        this.f4936a = runnable;
+        this.f4706a = runnable;
     }
 
     @Override // com.xiaomi.push.al.b
     public void b() {
-        this.f4936a.run();
+        this.f4706a.run();
     }
 }

@@ -153,6 +153,8 @@ public abstract class Manager<M extends Message<?>, T extends MessageTask, R ext
                 }
                 if (t.getRetry() == 0) {
                     t.setRetry(this.mMessageSetting.getRetryCount());
+                } else if (t.getRetry() < 0) {
+                    t.setRetry(1);
                 }
             }
             if (processRule != null) {

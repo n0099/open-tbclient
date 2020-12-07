@@ -14,7 +14,7 @@ import android.widget.Filter;
 import android.widget.FilterQueryProvider;
 import android.widget.Filterable;
 import com.baidu.android.imsdk.IMConstants;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public abstract class CursorAdapter extends BaseAdapter implements CursorFilter.CursorFilterClient, Filterable {
     @Deprecated
     public static final int FLAG_AUTO_REQUERY = 1;
@@ -229,7 +229,7 @@ public abstract class CursorAdapter extends BaseAdapter implements CursorFilter.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes11.dex */
     public class ChangeObserver extends ContentObserver {
         ChangeObserver() {
             super(new Handler());
@@ -247,7 +247,7 @@ public abstract class CursorAdapter extends BaseAdapter implements CursorFilter.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes11.dex */
     public class MyDataSetObserver extends DataSetObserver {
         MyDataSetObserver() {
         }

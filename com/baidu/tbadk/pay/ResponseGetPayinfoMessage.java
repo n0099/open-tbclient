@@ -3,7 +3,7 @@ package com.baidu.tbadk.pay;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class ResponseGetPayinfoMessage extends JsonHttpResponsedMessage {
     public String logid;
     private PayInfoResultData mPayInfoResultData;

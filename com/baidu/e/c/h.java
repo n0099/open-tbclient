@@ -1,15 +1,57 @@
 package com.baidu.e.c;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-/* loaded from: classes14.dex */
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import com.baidu.android.util.devices.DeviceUtil;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+/* loaded from: classes17.dex */
 public class h {
-    public static String dA(String str) {
-        try {
-            return URLEncoder.encode(str, "utf-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            return str;
+    private String mUa;
+    private String mVersionName;
+
+    public h() {
+        init();
+    }
+
+    private void init() {
+        Context appContext = AppRuntime.getAppContext();
+        this.mVersionName = getVersionName(appContext);
+        this.mUa = getUA(appContext);
+    }
+
+    private String getUA(Context context) {
+        int displayWidth = DeviceUtil.ScreenInfo.getDisplayWidth(context);
+        int displayHeight = DeviceUtil.ScreenInfo.getDisplayHeight(context);
+        int densityDpi = DeviceUtil.ScreenInfo.getDensityDpi(context);
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(displayWidth);
+        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        stringBuffer.append(displayHeight);
+        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        stringBuffer.append("android");
+        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        stringBuffer.append(this.mVersionName);
+        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        stringBuffer.append(densityDpi);
+        return stringBuffer.toString();
+    }
+
+    public String getUA() {
+        return this.mUa;
+    }
+
+    public String getVersionName(Context context) {
+        String appVersion = a.uQ().getAppVersion();
+        if (TextUtils.isEmpty(appVersion)) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "0.8";
+            }
         }
+        return appVersion;
     }
 }

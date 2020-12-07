@@ -15,8 +15,8 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 /* loaded from: classes18.dex */
 public class DuMediaExtractor implements b {
-    private b.a bXi;
-    private a bXj;
+    private a ccA;
+    private b.a ccz;
     @Keep
     private long mNativeDuMediaExtractor;
 
@@ -25,16 +25,16 @@ public class DuMediaExtractor implements b {
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private final WeakReference<DuMediaExtractor> f2264a;
+        private final WeakReference<DuMediaExtractor> f2266a;
 
         public a(DuMediaExtractor duMediaExtractor, Looper looper) {
             super(looper);
-            this.f2264a = new WeakReference<>(duMediaExtractor);
+            this.f2266a = new WeakReference<>(duMediaExtractor);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            DuMediaExtractor duMediaExtractor = this.f2264a.get();
+            DuMediaExtractor duMediaExtractor = this.f2266a.get();
             if (duMediaExtractor == null || duMediaExtractor.mNativeDuMediaExtractor == 0) {
                 CyberLog.w("DuMediaExtractor", "IjkMediaPlayer went away with unhandled events");
             } else {
@@ -51,14 +51,14 @@ public class DuMediaExtractor implements b {
     private void c() {
         Looper myLooper = Looper.myLooper();
         if (myLooper != null) {
-            this.bXj = new a(this, myLooper);
+            this.ccA = new a(this, myLooper);
             return;
         }
         Looper mainLooper = Looper.getMainLooper();
         if (mainLooper != null) {
-            this.bXj = new a(this, mainLooper);
+            this.ccA = new a(this, mainLooper);
         } else {
-            this.bXj = null;
+            this.ccA = null;
         }
     }
 
@@ -79,7 +79,7 @@ public class DuMediaExtractor implements b {
     @Keep
     private static boolean onNativeInvoke(Object obj, int i, Bundle bundle) {
         if (obj == null || !(obj instanceof WeakReference)) {
-            throw new IllegalStateException("<null weakThiz>.onNativeInvoke()");
+            CyberLog.e("DuMediaExtractor", "<null weakThiz>.onNativeInvoke()");
         }
         return false;
     }
@@ -87,8 +87,8 @@ public class DuMediaExtractor implements b {
     public void a() {
         synchronized (this) {
             nativeRelease();
-            this.bXi = null;
-            this.bXj = null;
+            this.ccz = null;
+            this.ccA = null;
             this.mNativeDuMediaExtractor = 0L;
         }
     }

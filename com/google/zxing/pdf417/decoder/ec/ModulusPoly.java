@@ -1,6 +1,6 @@
 package com.google.zxing.pdf417.decoder.ec;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class ModulusPoly {
     private final int[] coefficients;
     private final ModulusGF field;

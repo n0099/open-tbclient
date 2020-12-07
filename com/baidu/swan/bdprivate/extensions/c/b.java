@@ -19,7 +19,7 @@ import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b extends aa {
     public b(j jVar) {
         super(jVar, "/swanAPI/getCommonSysInfo");
@@ -38,7 +38,7 @@ public class b extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        eVar.aGY().b(context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.c.b.1
+        eVar.aKg().b(context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
@@ -62,23 +62,23 @@ public class b extends aa {
 
     private void a(Context context, String str, CallbackHandler callbackHandler) {
         Context appContext = AppRuntime.getAppContext();
-        String bq = com.baidu.swan.apps.t.a.avX().bq(appContext);
-        String aMr = ak.aMr();
-        String cg = com.baidu.swan.bdprivate.a.a.cg(context);
-        String bp = com.baidu.swan.apps.t.a.avX().bp(appContext);
-        String cookie = com.baidu.swan.apps.t.a.awr().ahB().getCookie(".baidu.com");
+        String bW = com.baidu.swan.apps.t.a.azf().bW(appContext);
+        String aPx = ak.aPx();
+        String cM = com.baidu.swan.bdprivate.a.a.cM(context);
+        String bV = com.baidu.swan.apps.t.a.azf().bV(appContext);
+        String cookie = com.baidu.swan.apps.t.a.azz().akJ().getCookie(".baidu.com");
         String cookieValue = ai.getCookieValue(cookie, "BAIDUID");
         String cookieValue2 = ai.getCookieValue(cookie, "H_WISE_SIDS");
-        String uuid = com.baidu.swan.uuid.b.dO(AppRuntime.getAppContext()).getUUID();
+        String uuid = com.baidu.swan.uuid.b.et(AppRuntime.getAppContext()).getUUID();
         if (DEBUG) {
-            Log.d("GetSysInfoAction", "cuid = " + bq + ", imei = " + aMr + ", zid = " + cg + ", uid = " + bp + ", baiDuId = " + cookieValue + ", sid = " + cookieValue2);
+            Log.d("GetSysInfoAction", "cuid = " + bW + ", imei = " + aPx + ", zid = " + cM + ", uid = " + bV + ", baiDuId = " + cookieValue + ", sid = " + cookieValue2);
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("cuid", bq);
-            jSONObject.put("imei", aMr);
-            jSONObject.put("zid", cg);
-            jSONObject.put("uid", bp);
+            jSONObject.put("cuid", bW);
+            jSONObject.put("imei", aPx);
+            jSONObject.put("zid", cM);
+            jSONObject.put("uid", bV);
             jSONObject.put("baidu_id", cookieValue);
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SID, cookieValue2);
             jSONObject.put("uuid", uuid);

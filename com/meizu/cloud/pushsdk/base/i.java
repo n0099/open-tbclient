@@ -1,9 +1,9 @@
 package com.meizu.cloud.pushsdk.base;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class i<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected T f4377a;
+    protected T f4147a;
     protected T b;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -16,6 +16,6 @@ public class i<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public T c() {
-        return this.f4377a != null ? this.f4377a : this.b;
+        return this.f4147a != null ? this.f4147a : this.b;
     }
 }

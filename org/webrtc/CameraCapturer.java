@@ -9,7 +9,7 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.util.Arrays;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 abstract class CameraCapturer implements CameraVideoCapturer {
     private static final int MAX_OPEN_CAMERA_ATTEMPTS = 3;
     private static final int OPEN_CAMERA_DELAY_MS = 500;
@@ -174,7 +174,7 @@ abstract class CameraCapturer implements CameraVideoCapturer {
     private SwitchState switchState = SwitchState.IDLE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public enum SwitchState {
         IDLE,
         PENDING,

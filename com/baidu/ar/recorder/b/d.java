@@ -4,12 +4,12 @@ import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import java.nio.ByteBuffer;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class d {
     private static final String TAG = d.class.getSimpleName();
-    private e tB;
-    private MediaMuxer ui;
-    private volatile boolean uj = false;
+    private MediaMuxer uV;
+    private volatile boolean uW = false;
+    private e uo;
 
     /* JADX WARN: Code restructure failed: missing block: B:4:0x0007, code lost:
         if (r0 >= 0) goto L5;
@@ -20,12 +20,12 @@ public class d {
     public synchronized int a(MediaFormat mediaFormat) {
         int i;
         try {
-            i = this.ui.addTrack(mediaFormat);
+            i = this.uV.addTrack(mediaFormat);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return i;
-        com.baidu.ar.g.b.b(TAG, "addMuxerTrack error!!!");
+        com.baidu.ar.h.b.b(TAG, "addMuxerTrack error!!!");
         i = -1;
         return i;
     }
@@ -33,72 +33,72 @@ public class d {
     public boolean a(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         if (i != -1) {
             try {
-                this.ui.writeSampleData(i, byteBuffer, bufferInfo);
+                this.uV.writeSampleData(i, byteBuffer, bufferInfo);
                 return true;
             } catch (Exception e) {
-                com.baidu.ar.g.b.b(TAG, "startMuxer error!!!");
+                com.baidu.ar.h.b.b(TAG, "startMuxer error!!!");
             }
         }
         return false;
     }
 
     public boolean a(String str, int i, e eVar) {
-        if (!com.baidu.ar.recorder.c.a.av(str)) {
-            com.baidu.ar.recorder.c.a.au(str);
+        if (!com.baidu.ar.recorder.c.a.ay(str)) {
+            com.baidu.ar.recorder.c.a.ax(str);
         }
         try {
-            this.ui = new MediaMuxer(str, i);
-            this.tB = eVar;
-            this.uj = false;
+            this.uV = new MediaMuxer(str, i);
+            this.uo = eVar;
+            this.uW = false;
             return true;
         } catch (Exception e) {
-            com.baidu.ar.g.b.b(TAG, "initMovieMuxer init error!!!");
+            com.baidu.ar.h.b.b(TAG, "initMovieMuxer init error!!!");
             e.printStackTrace();
             return false;
         }
     }
 
-    public boolean fT() {
-        return this.uj;
-    }
-
-    public synchronized void fU() {
-        boolean z = true;
-        synchronized (this) {
-            try {
-                this.ui.start();
-                this.uj = true;
-            } catch (Exception e) {
-                com.baidu.ar.g.b.b(TAG, "startMuxer error!!!");
-                z = false;
-            }
-            if (this.tB != null) {
-                this.tB.Q(z);
-            }
-        }
+    public boolean fU() {
+        return this.uW;
     }
 
     public synchronized void fV() {
-        boolean z = false;
+        boolean z = true;
         synchronized (this) {
             try {
-                this.ui.stop();
-                this.uj = false;
-                z = true;
+                this.uV.start();
+                this.uW = true;
             } catch (Exception e) {
-                com.baidu.ar.g.b.b(TAG, "stopMuxer error!!!");
+                com.baidu.ar.h.b.b(TAG, "startMuxer error!!!");
+                z = false;
             }
-            if (this.tB != null) {
-                this.tB.R(z);
+            if (this.uo != null) {
+                this.uo.O(z);
             }
         }
     }
 
-    public void fW() {
-        if (this.uj) {
+    public synchronized void fW() {
+        boolean z = false;
+        synchronized (this) {
+            try {
+                this.uV.stop();
+                this.uW = false;
+                z = true;
+            } catch (Exception e) {
+                com.baidu.ar.h.b.b(TAG, "stopMuxer error!!!");
+            }
+            if (this.uo != null) {
+                this.uo.P(z);
+            }
+        }
+    }
+
+    public void fX() {
+        if (this.uW) {
             return;
         }
-        this.ui.release();
-        this.ui = null;
+        this.uV.release();
+        this.uV = null;
     }
 }

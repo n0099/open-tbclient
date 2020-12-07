@@ -31,35 +31,35 @@ import com.baidu.live.tieba.write.album.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class j implements AbsListView.OnScrollListener, d.a {
-    private TextView bCA;
-    private TextView bCB;
-    private c bCi;
-    private AlbumActivity bCw;
-    private View bCz;
-    private MediaStoreLoader bDh;
-    private RelativeLayout bDi;
-    private ImageView bDj;
-    private TextView bDk;
-    private TextView bDl;
-    private com.baidu.live.tieba.write.a.a bDm;
-    private TransparentHeadGridView bDn;
-    private i bDo;
-    private CommonEmptyView bDp;
-    private View bDq;
-    private View bDr;
-    private boolean bDs;
+    private AlbumActivity bHE;
+    private View bHH;
+    private TextView bHI;
+    private TextView bHJ;
+    private c bHq;
+    private boolean bIA;
+    private MediaStoreLoader bIp;
+    private RelativeLayout bIq;
+    private ImageView bIr;
+    private TextView bIs;
+    private TextView bIt;
+    private com.baidu.live.tieba.write.a.a bIu;
+    private TransparentHeadGridView bIv;
+    private i bIw;
+    private CommonEmptyView bIx;
+    private View bIy;
+    private View bIz;
     private View mView;
     private TbPageContext tbPageContext;
-    private BlueCircleProgressDialog bDt = null;
+    private BlueCircleProgressDialog bIB = null;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.live.tieba.write.album.j.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (j.this.bCi != null) {
-                if (view == j.this.bDl) {
-                    j.this.bDm.c(j.this.bCi.Tt(), j.this.bCi.Tr());
-                    j.this.bDm.O(j.this.bDq);
-                    j.this.bDl.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(a.e.sdk_ph_icon_album_retract), (Drawable) null);
-                } else if (view == j.this.bCz) {
+            if (j.this.bHq != null) {
+                if (view == j.this.bIt) {
+                    j.this.bIu.c(j.this.bHq.VT(), j.this.bHq.VR());
+                    j.this.bIu.O(j.this.bIy);
+                    j.this.bIt.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(a.e.sdk_ph_icon_album_retract), (Drawable) null);
+                } else if (view == j.this.bHH) {
                     Log.d("onClick", "mLayoutBottom");
                 }
             }
@@ -68,83 +68,83 @@ public class j implements AbsListView.OnScrollListener, d.a {
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.live.tieba.write.album.j.2
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            if (j.this.bDl != null) {
+            if (j.this.bIt != null) {
                 Drawable drawable = SkinManager.getDrawable(a.e.sdk_ph_icon_album_spread);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                j.this.bDl.setCompoundDrawables(null, null, drawable, null);
+                j.this.bIt.setCompoundDrawables(null, null, drawable, null);
             }
         }
     };
-    private f bDa = new f() { // from class: com.baidu.live.tieba.write.album.j.3
+    private f bIi = new f() { // from class: com.baidu.live.tieba.write.album.j.3
         @Override // com.baidu.live.tieba.write.album.f
         public void a(int i, MediaFileInfo mediaFileInfo) {
-            if (mediaFileInfo != null && j.this.bCi != null) {
+            if (mediaFileInfo != null && j.this.bHq != null) {
                 if (mediaFileInfo instanceof ImageFileInfo) {
-                    j.this.bCi.d((ImageFileInfo) mediaFileInfo);
-                    j.this.bCw.fS(1);
+                    j.this.bHq.d((ImageFileInfo) mediaFileInfo);
+                    j.this.bHE.gr(1);
                 } else if (mediaFileInfo instanceof VideoFileInfo) {
                     Log.d("onClick", "VideoFileInfo");
                 }
             }
         }
     };
-    private a.InterfaceC0218a bDu = new a.InterfaceC0218a() { // from class: com.baidu.live.tieba.write.album.j.4
-        @Override // com.baidu.live.tieba.write.a.a.InterfaceC0218a
+    private a.InterfaceC0227a bIC = new a.InterfaceC0227a() { // from class: com.baidu.live.tieba.write.album.j.4
+        @Override // com.baidu.live.tieba.write.a.a.InterfaceC0227a
         public void a(int i, AlbumData albumData) {
-            List<MediaFileInfo> ir;
-            if (j.this.bCi != null && albumData != null) {
+            List<MediaFileInfo> iV;
+            if (j.this.bHq != null && albumData != null) {
                 String albumId = albumData.getAlbumId();
                 String name = albumData.getName();
-                if (albumId != null && !albumId.equals(j.this.bCi.Tr()) && (ir = j.this.bCi.ir(albumId)) != null) {
-                    j.this.bCi.ip(albumId);
-                    j.this.bDo.setData(ir);
-                    if (j.this.bDo.getCount() <= 0) {
-                        j.this.bDp.setVisibility(0);
+                if (albumId != null && !albumId.equals(j.this.bHq.VR()) && (iV = j.this.bHq.iV(albumId)) != null) {
+                    j.this.bHq.iT(albumId);
+                    j.this.bIw.setData(iV);
+                    if (j.this.bIw.getCount() <= 0) {
+                        j.this.bIx.setVisibility(0);
                     } else {
-                        j.this.bDp.setVisibility(8);
+                        j.this.bIx.setVisibility(8);
                     }
-                    j.this.bDl.setText(name);
-                    j.this.bDn.smoothScrollToPosition(0);
+                    j.this.bIt.setText(name);
+                    j.this.bIv.smoothScrollToPosition(0);
                 }
             }
         }
     };
-    private g bDb = new g() { // from class: com.baidu.live.tieba.write.album.j.5
+    private g bIj = new g() { // from class: com.baidu.live.tieba.write.album.j.5
         @Override // com.baidu.live.tieba.write.album.g
         public boolean b(int i, MediaFileInfo mediaFileInfo) {
-            if (mediaFileInfo == null || j.this.bCw == null || j.this.bCi == null) {
+            if (mediaFileInfo == null || j.this.bHE == null || j.this.bHq == null) {
                 return true;
             }
             if (mediaFileInfo instanceof ImageFileInfo) {
-                if (j.this.bCi.Tn()) {
-                    j.this.bCw.showToast(a.h.sdk_ph_album_choose_switch_tip);
+                if (j.this.bHq.VN()) {
+                    j.this.bHE.showToast(a.h.sdk_ph_album_choose_switch_tip);
                     return true;
                 }
                 ImageFileInfo imageFileInfo = (ImageFileInfo) mediaFileInfo;
-                if (j.this.bCi.isAdded(imageFileInfo)) {
-                    j.this.bCw.b(imageFileInfo);
+                if (j.this.bHq.isAdded(imageFileInfo)) {
+                    j.this.bHE.b(imageFileInfo);
                 } else {
-                    j.this.bCw.a(imageFileInfo);
+                    j.this.bHE.a(imageFileInfo);
                 }
-                j.this.bCi.a((VideoFileInfo) null);
-                j.this.bDo.notifyDataSetChanged();
-                j.this.Tx();
+                j.this.bHq.a((VideoFileInfo) null);
+                j.this.bIw.notifyDataSetChanged();
+                j.this.VX();
                 return true;
             } else if (mediaFileInfo instanceof VideoFileInfo) {
-                if (j.this.bCi.Tm()) {
-                    j.this.bCw.showToast(a.h.sdk_ph_album_choose_switch_tip);
+                if (j.this.bHq.VM()) {
+                    j.this.bHE.showToast(a.h.sdk_ph_album_choose_switch_tip);
                     return true;
                 }
                 VideoFileInfo videoFileInfo = (VideoFileInfo) mediaFileInfo;
                 if (j.this.c(videoFileInfo)) {
-                    if (j.this.bCi.b(videoFileInfo)) {
-                        j.this.bCi.a((VideoFileInfo) null);
+                    if (j.this.bHq.b(videoFileInfo)) {
+                        j.this.bHq.a((VideoFileInfo) null);
                     } else {
-                        j.this.bCi.a(videoFileInfo);
+                        j.this.bHq.a(videoFileInfo);
                     }
-                    j.this.bCi.To();
-                    j.this.bDo.notifyDataSetChanged();
-                    j.this.Tx();
+                    j.this.bHq.VO();
+                    j.this.bIw.notifyDataSetChanged();
+                    j.this.VX();
                     return true;
                 }
                 return true;
@@ -156,160 +156,160 @@ public class j implements AbsListView.OnScrollListener, d.a {
 
     public j(TbPageContext tbPageContext, AlbumActivity albumActivity) {
         this.tbPageContext = tbPageContext;
-        this.bCw = albumActivity;
-        this.bCi = this.bCw.SX();
-        d.Tu().a(this);
-        this.bDh = new MediaStoreLoader(this.bCw);
-        this.bDm = new com.baidu.live.tieba.write.a.a(this.bCw);
-        this.bDm.setOnDismissListener(this.mOnDismissListener);
-        this.bDm.a(this.bDu);
+        this.bHE = albumActivity;
+        this.bHq = this.bHE.Vx();
+        d.VU().a(this);
+        this.bIp = new MediaStoreLoader(this.bHE);
+        this.bIu = new com.baidu.live.tieba.write.a.a(this.bHE);
+        this.bIu.setOnDismissListener(this.mOnDismissListener);
+        this.bIu.a(this.bIC);
         initView();
     }
 
     public View initView() {
-        this.mView = LayoutInflater.from(this.bCw).inflate(a.g.sdk_ph_album_image_list_view, (ViewGroup) null);
-        this.bDi = (RelativeLayout) this.mView.findViewById(a.f.album_image_list_root);
-        this.bDq = this.mView.findViewById(a.f.layout_title);
-        this.bDl = (TextView) this.mView.findViewById(a.f.album_title);
-        this.bDj = (ImageView) this.mView.findViewById(a.f.img_close);
-        this.bDk = (TextView) this.mView.findViewById(a.f.img_close_text);
-        this.bDr = this.mView.findViewById(a.f.navi_line);
-        this.bCz = this.mView.findViewById(a.f.layout_bottom);
-        this.bCB = (TextView) this.mView.findViewById(a.f.original_select_btn);
-        this.bCA = (TextView) this.mView.findViewById(a.f.next_step);
-        this.bCi.ip(AlbumData.ALBUM_ID_ALL);
-        this.bDl.setText(this.bCw.getPageContext().getString(a.h.sdk_ph_album_all_media));
-        this.bDp = new CommonEmptyView(this.bCw);
-        this.bDp.setTitle(a.h.sdk_ph_album_list_no_data);
-        this.bDp.setSubTitle(a.h.sdk_ph_album_list_no_data_1);
-        this.bDp.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
-        this.bDp.setVisibility(8);
-        this.bDp.addToParent(this.bDi);
-        this.bDn = (TransparentHeadGridView) this.mView.findViewById(a.f.gv_image_list);
-        this.bDn.setSelector(a.c.sdk_transparent);
-        this.bDo = new i(this.bCw, this.bCi);
-        this.bDn.setAdapter((ListAdapter) this.bDo);
-        this.bDn.setOuterOnScrollListener(this);
-        this.bDo.a(this.bDb);
-        this.bDo.a(this.bDa);
-        this.bCA.setOnClickListener(this.bCw);
-        this.bDj.setOnClickListener(this.bCw);
-        this.bDk.setOnClickListener(this.bCw);
-        this.bCB.setOnClickListener(this.bCw);
-        this.bDl.setOnClickListener(this.mOnClickListener);
-        this.bCz.setOnClickListener(this.mOnClickListener);
-        Tx();
+        this.mView = LayoutInflater.from(this.bHE).inflate(a.g.sdk_ph_album_image_list_view, (ViewGroup) null);
+        this.bIq = (RelativeLayout) this.mView.findViewById(a.f.album_image_list_root);
+        this.bIy = this.mView.findViewById(a.f.layout_title);
+        this.bIt = (TextView) this.mView.findViewById(a.f.album_title);
+        this.bIr = (ImageView) this.mView.findViewById(a.f.img_close);
+        this.bIs = (TextView) this.mView.findViewById(a.f.img_close_text);
+        this.bIz = this.mView.findViewById(a.f.navi_line);
+        this.bHH = this.mView.findViewById(a.f.layout_bottom);
+        this.bHJ = (TextView) this.mView.findViewById(a.f.original_select_btn);
+        this.bHI = (TextView) this.mView.findViewById(a.f.next_step);
+        this.bHq.iT(AlbumData.ALBUM_ID_ALL);
+        this.bIt.setText(this.bHE.getPageContext().getString(a.h.sdk_ph_album_all_media));
+        this.bIx = new CommonEmptyView(this.bHE);
+        this.bIx.setTitle(a.h.sdk_ph_album_list_no_data);
+        this.bIx.setSubTitle(a.h.sdk_ph_album_list_no_data_1);
+        this.bIx.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
+        this.bIx.setVisibility(8);
+        this.bIx.addToParent(this.bIq);
+        this.bIv = (TransparentHeadGridView) this.mView.findViewById(a.f.gv_image_list);
+        this.bIv.setSelector(a.c.sdk_transparent);
+        this.bIw = new i(this.bHE, this.bHq);
+        this.bIv.setAdapter((ListAdapter) this.bIw);
+        this.bIv.setOuterOnScrollListener(this);
+        this.bIw.a(this.bIj);
+        this.bIw.a(this.bIi);
+        this.bHI.setOnClickListener(this.bHE);
+        this.bIr.setOnClickListener(this.bHE);
+        this.bIs.setOnClickListener(this.bHE);
+        this.bHJ.setOnClickListener(this.bHE);
+        this.bIt.setOnClickListener(this.mOnClickListener);
+        this.bHH.setOnClickListener(this.mOnClickListener);
+        VX();
         showLoadingView();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return this.mView;
     }
 
     private void showLoadingView() {
-        if (this.bDt == null) {
-            this.bDt = new BlueCircleProgressDialog(this.tbPageContext);
+        if (this.bIB == null) {
+            this.bIB = new BlueCircleProgressDialog(this.tbPageContext);
         }
-        this.bDt.setCancelListener(null);
-        this.bDt.setTipString(a.h.sdk_loading);
-        this.bDt.setDialogVisiable(true);
+        this.bIB.setCancelListener(null);
+        this.bIB.setTipString(a.h.sdk_loading);
+        this.bIB.setDialogVisiable(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean c(VideoFileInfo videoFileInfo) {
         int i = videoFileInfo != null ? videoFileInfo.videoDuration : 0;
         if (i < 3000 || i > 600000) {
-            this.bCw.showToast(a.h.sdk_ph_album_choose_video_time_tip);
+            this.bHE.showToast(a.h.sdk_ph_album_choose_video_time_tip);
             return false;
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Tx() {
+    public void VX() {
         int count;
         String string;
-        if (this.bCi != null && this.bCA != null) {
-            if (this.bCi.Tn()) {
-                int i = this.bCi.Tn() ? 1 : 0;
+        if (this.bHq != null && this.bHI != null) {
+            if (this.bHq.VN()) {
+                int i = this.bHq.VN() ? 1 : 0;
                 count = i;
-                string = this.bCw.getString(a.h.sdk_ph_image_selected_list_count_max, new Object[]{Integer.valueOf(i), 1});
+                string = this.bHE.getString(a.h.sdk_ph_image_selected_list_count_max, new Object[]{Integer.valueOf(i), 1});
             } else {
-                count = ListUtils.getCount(this.bCi.Tp());
-                string = this.bCw.getString(a.h.sdk_ph_image_selected_list_count_max, new Object[]{Integer.valueOf(count), Integer.valueOf(this.bCi.getMaxImagesAllowed())});
+                count = ListUtils.getCount(this.bHq.VP());
+                string = this.bHE.getString(a.h.sdk_ph_image_selected_list_count_max, new Object[]{Integer.valueOf(count), Integer.valueOf(this.bHq.getMaxImagesAllowed())});
             }
-            this.bCA.setText(string);
-            this.bCA.setEnabled(count > 0);
+            this.bHI.setText(string);
+            this.bHI.setEnabled(count > 0);
         }
     }
 
     public void onResume() {
-        this.bDs = false;
-        Tc();
+        this.bIA = false;
+        VC();
     }
 
-    private void Tb() {
-        if (this.bCi == null && this.bCw != null) {
-            this.bCi = this.bCw.SX();
+    private void VB() {
+        if (this.bHq == null && this.bHE != null) {
+            this.bHq = this.bHE.Vx();
         }
-        if (this.bCi != null) {
-            Ty();
-            cS(this.bCi.isOriginalImg());
+        if (this.bHq != null) {
+            VY();
+            dg(this.bHq.isOriginalImg());
         }
     }
 
-    private void Ty() {
-        if (this.bDh == null) {
-            this.bDh = new MediaStoreLoader(this.bCw);
+    private void VY() {
+        if (this.bIp == null) {
+            this.bIp = new MediaStoreLoader(this.bHE);
         }
-        this.bDh.loadAll(this.bCw.SW() == 1 ? 0 : 2, new MediaStoreLoadCallback() { // from class: com.baidu.live.tieba.write.album.j.6
+        this.bIp.loadAll(this.bHE.Vw() == 1 ? 0 : 2, new MediaStoreLoadCallback() { // from class: com.baidu.live.tieba.write.album.j.6
             @Override // com.baidu.live.tbadk.album.MediaStoreLoadCallback
             public void onPreLoad() {
             }
 
             @Override // com.baidu.live.tbadk.album.MediaStoreLoadCallback
             public void onPostLoad(ResutMediaStore resutMediaStore) {
-                if (j.this.bDt != null) {
-                    j.this.bDt.setDialogVisiable(false);
+                if (j.this.bIB != null) {
+                    j.this.bIB.setDialogVisiable(false);
                 }
                 if (resutMediaStore == null) {
                     resutMediaStore = new ResutMediaStore();
                 }
-                if (j.this.bCi != null && resutMediaStore != null) {
-                    j.this.bCi.a(resutMediaStore);
-                    String Tr = j.this.bCi.Tr();
-                    j.this.bCi.ip(Tr);
-                    j.this.bDo.setData(j.this.bCi.ir(Tr));
-                    if (j.this.bDo.getCount() <= 0) {
-                        j.this.bDp.setVisibility(0);
+                if (j.this.bHq != null && resutMediaStore != null) {
+                    j.this.bHq.a(resutMediaStore);
+                    String VR = j.this.bHq.VR();
+                    j.this.bHq.iT(VR);
+                    j.this.bIw.setData(j.this.bHq.iV(VR));
+                    if (j.this.bIw.getCount() <= 0) {
+                        j.this.bIx.setVisibility(0);
                     } else {
-                        j.this.bDp.setVisibility(8);
+                        j.this.bIx.setVisibility(8);
                     }
-                    j.this.bDn.smoothScrollToPosition(0);
-                    j.this.Tx();
+                    j.this.bIv.smoothScrollToPosition(0);
+                    j.this.VX();
                 }
-                j.this.bDn.TA();
+                j.this.bIv.Wa();
             }
         });
     }
 
     public void onChangeSkinType(int i) {
         SkinUtil.onModeChanged(this.tbPageContext, this.mView);
-        SkinManager.setBackgroundColor(this.bDr, a.c.sdk_cp_bg_line_b, i);
-        SkinManager.setViewTextColor(this.bDl, a.c.sdk_cp_cont_b, i);
-        if (this.bCw.SW() == 1) {
-            SkinManager.setImageResource(this.bDj, a.e.sdk_ph_icon_topbar_close_n, i);
-            this.bDk.setVisibility(8);
+        SkinManager.setBackgroundColor(this.bIz, a.c.sdk_cp_bg_line_b, i);
+        SkinManager.setViewTextColor(this.bIt, a.c.sdk_cp_cont_b, i);
+        if (this.bHE.Vw() == 1) {
+            SkinManager.setImageResource(this.bIr, a.e.sdk_ph_icon_topbar_close_n, i);
+            this.bIs.setVisibility(8);
         } else {
-            SkinManager.setViewTextColor(this.bDk, a.c.sdk_ph_navi_back_text_color);
-            this.bDj.setVisibility(8);
+            SkinManager.setViewTextColor(this.bIs, a.c.sdk_ph_navi_back_text_color);
+            this.bIr.setVisibility(8);
         }
-        if (this.bDl != null) {
-            this.bDl.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(a.e.sdk_ph_icon_album_spread), (Drawable) null);
+        if (this.bIt != null) {
+            this.bIt.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(a.e.sdk_ph_icon_album_spread), (Drawable) null);
         }
-        if (this.bDo != null) {
-            this.bDo.notifyDataSetChanged();
+        if (this.bIw != null) {
+            this.bIw.notifyDataSetChanged();
         }
-        if (this.bCi != null) {
-            cS(this.bCi.isOriginalImg());
+        if (this.bHq != null) {
+            dg(this.bHq.isOriginalImg());
         }
     }
 
@@ -317,22 +317,22 @@ public class j implements AbsListView.OnScrollListener, d.a {
         return this.mView;
     }
 
-    public View Tv() {
-        return this.bCw.SW() == 1 ? this.bDj : this.bDk;
+    public View VV() {
+        return this.bHE.Vw() == 1 ? this.bIr : this.bIs;
     }
 
-    public View Tz() {
-        return this.bCA;
+    public View VZ() {
+        return this.bHI;
     }
 
     @Override // com.baidu.live.tieba.write.album.d.a
-    public void cU(boolean z) {
-        Tc();
+    public void di(boolean z) {
+        VC();
     }
 
-    private void Tc() {
-        if (!this.bDs) {
-            Tb();
+    private void VC() {
+        if (!this.bIA) {
+            VB();
         }
     }
 
@@ -343,20 +343,20 @@ public class j implements AbsListView.OnScrollListener, d.a {
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 2) {
-            this.bDo.cV(true);
-        } else if (this.bDo.isScroll()) {
-            this.bDo.cV(false);
+            this.bIw.dj(true);
+        } else if (this.bIw.isScroll()) {
+            this.bIw.dj(false);
         }
     }
 
     public void o(int i, boolean z) {
-        if (this.bDn != null) {
-            int firstVisiblePosition = this.bDn.getFirstVisiblePosition();
-            int lastVisiblePosition = this.bDn.getLastVisiblePosition();
+        if (this.bIv != null) {
+            int firstVisiblePosition = this.bIv.getFirstVisiblePosition();
+            int lastVisiblePosition = this.bIv.getLastVisiblePosition();
             if (i >= firstVisiblePosition && i <= lastVisiblePosition) {
-                View childAt = this.bDn.getChildAt(i - firstVisiblePosition);
-                if (childAt != null && this.bDo != null) {
-                    this.bDo.b((ImageView) childAt.findViewById(a.f.select_icon), z);
+                View childAt = this.bIv.getChildAt(i - firstVisiblePosition);
+                if (childAt != null && this.bIw != null) {
+                    this.bIw.b((ImageView) childAt.findViewById(a.f.select_icon), z);
                 } else {
                     return;
                 }
@@ -364,29 +364,29 @@ public class j implements AbsListView.OnScrollListener, d.a {
                 return;
             }
         }
-        Tx();
+        VX();
     }
 
     public void c(ImageFileInfo imageFileInfo, boolean z) {
-        if (imageFileInfo != null && this.bDo != null) {
-            o(this.bDo.e(imageFileInfo), z);
+        if (imageFileInfo != null && this.bIw != null) {
+            o(this.bIw.e(imageFileInfo), z);
         }
     }
 
-    public View Ti() {
-        return this.bCB;
+    public View VI() {
+        return this.bHJ;
     }
 
-    public void cS(boolean z) {
-        if (this.bCw != null && this.bCB != null) {
-            this.bCB.setText(this.bCw.getResources().getString(a.h.sdk_ph_original_img));
+    public void dg(boolean z) {
+        if (this.bHE != null && this.bHJ != null) {
+            this.bHJ.setText(this.bHE.getResources().getString(a.h.sdk_ph_original_img));
             if (z) {
-                this.bCB.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.e.sdk_ph_icon_image_select_ok_n), (Drawable) null, (Drawable) null, (Drawable) null);
-                SkinManager.setViewTextColor(this.bCB, a.c.sdk_cp_link_tip_a);
+                this.bHJ.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.e.sdk_ph_icon_image_select_ok_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                SkinManager.setViewTextColor(this.bHJ, a.c.sdk_cp_link_tip_a);
                 return;
             }
-            this.bCB.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.e.sdk_ph_icon_image_select_n), (Drawable) null, (Drawable) null, (Drawable) null);
-            SkinManager.setViewTextColor(this.bCB, a.c.sdk_cp_cont_f);
+            this.bHJ.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.e.sdk_ph_icon_image_select_n), (Drawable) null, (Drawable) null, (Drawable) null);
+            SkinManager.setViewTextColor(this.bHJ, a.c.sdk_cp_cont_f);
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.sapi2.dto;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class RealNameDTO extends SapiWebDTO {
     public String bduss;
     public String customRealNameUrl;

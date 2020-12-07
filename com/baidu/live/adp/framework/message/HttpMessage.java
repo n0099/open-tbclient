@@ -5,7 +5,6 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.framework.FrameHelper;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -243,7 +242,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         HashMap hashMap = new HashMap();
         if (str != null && str2 != null) {
             for (String str3 : str.split(str2)) {
-                int indexOf = str3.indexOf(ETAG.EQUAL);
+                int indexOf = str3.indexOf("=");
                 if (indexOf != -1) {
                     String trim = str3.substring(0, indexOf).trim();
                     String trim2 = str3.substring(indexOf + 1).trim();

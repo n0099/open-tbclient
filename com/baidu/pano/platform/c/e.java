@@ -5,11 +5,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2672a = false;
+    public static boolean f2674a = false;
     public static String b = "";
     public static int c = 0;
 

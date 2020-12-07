@@ -4,23 +4,23 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.q;
 import tbclient.Hottopic.TopicInfo;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class f implements q {
-    public static final BdUniqueId icG = BdUniqueId.gen();
-    public int cuJ;
-    public String eBa;
-    public String eQb;
-    public String jKa;
-    public String jQd;
-    public String jQe;
-    public long jQf;
-    public int jQg;
-    public int jQh;
-    public int jQi;
-    public Long jQj;
-    public Integer jQk;
-    public h jQl;
-    public String jQm;
+    public static final BdUniqueId inE = BdUniqueId.gen();
+    public int cBB;
+    public String eIa;
+    public String eXq;
+    public String jXD;
+    public String kdG;
+    public String kdH;
+    public long kdI;
+    public int kdJ;
+    public int kdK;
+    public int kdL;
+    public Long kdM;
+    public Integer kdN;
+    public h kdO;
+    public String kdP;
     public long postNum;
     public String shareTitle;
     public String tagType;
@@ -33,22 +33,22 @@ public class f implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return icG;
+        return inE;
     }
 
     public void a(TopicInfo topicInfo) {
         if (topicInfo != null) {
-            this.eQb = String.valueOf(topicInfo.topic_id);
-            this.eBa = topicInfo.topic_name;
-            this.jQd = topicInfo.desc;
+            this.eXq = String.valueOf(topicInfo.topic_id);
+            this.eIa = topicInfo.topic_name;
+            this.kdG = topicInfo.desc;
             this.postNum = topicInfo.total_post_num.longValue();
-            this.jQe = topicInfo.head_photo_url;
+            this.kdH = topicInfo.head_photo_url;
             this.shareTitle = StringUtils.isNull(topicInfo.share_title) ? "" : topicInfo.share_title;
-            this.jKa = topicInfo.share_pic;
-            this.jQf = topicInfo.idx_num.longValue();
-            this.jQj = topicInfo.pmy_topic_id;
-            this.jQm = topicInfo.head_photo_jump_url;
-            this.jQk = topicInfo.pmy_source;
+            this.jXD = topicInfo.share_pic;
+            this.kdI = topicInfo.idx_num.longValue();
+            this.kdM = topicInfo.pmy_topic_id;
+            this.kdP = topicInfo.head_photo_jump_url;
+            this.kdN = topicInfo.pmy_source;
             if (topicInfo.video_info != null && !StringUtils.isNull(topicInfo.video_info.video_url) && topicInfo.video_info.video_duration.intValue() > 0) {
                 this.videoMd5 = topicInfo.video_info.video_md5;
                 this.videoUrl = topicInfo.video_info.video_url;
@@ -56,15 +56,15 @@ public class f implements q {
                 this.videoWidth = topicInfo.video_info.video_width.intValue();
                 this.videoHeight = topicInfo.video_info.video_height.intValue();
                 this.thumbnailUrl = topicInfo.video_info.thumbnail_url;
-                this.jQg = topicInfo.video_info.thumbnail_width.intValue();
-                this.jQh = topicInfo.video_info.thumbnail_height.intValue();
-                this.jQi = topicInfo.video_info.video_length.intValue();
-                this.cuJ = topicInfo.video_info.play_count.intValue();
+                this.kdJ = topicInfo.video_info.thumbnail_width.intValue();
+                this.kdK = topicInfo.video_info.thumbnail_height.intValue();
+                this.kdL = topicInfo.video_info.video_length.intValue();
+                this.cBB = topicInfo.video_info.play_count.intValue();
             }
             this.tagType = topicInfo.tag_list_type;
             if (topicInfo.join_info != null) {
-                this.jQl = new h();
-                this.jQl.a(topicInfo.join_info);
+                this.kdO = new h();
+                this.kdO.a(topicInfo.join_info);
             }
         }
     }

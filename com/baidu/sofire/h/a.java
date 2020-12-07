@@ -17,20 +17,20 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static long d = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f3628a;
+    public e f3631a;
     public Context b;
     public Receiver c;
-    private HandlerC0357a e = new HandlerC0357a(m.a());
+    private HandlerC0369a e = new HandlerC0369a(m.a());
     private com.baidu.sofire.g.a f;
 
     public a(Context context) {
         this.b = context.getApplicationContext();
-        this.f3628a = new e(this.b);
+        this.f3631a = new e(this.b);
         this.f = new com.baidu.sofire.g.a(this.b);
     }
 
@@ -40,9 +40,9 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sofire.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public class HandlerC0357a extends Handler {
-        public HandlerC0357a(Looper looper) {
+    /* loaded from: classes8.dex */
+    public class HandlerC0369a extends Handler {
+        public HandlerC0369a(Looper looper) {
             super(looper);
         }
 
@@ -184,7 +184,7 @@ public final class a {
         JSONObject jSONObject;
         int length;
         int i2 = 0;
-        int i3 = this.f3628a.e.getInt("re_net_one_lt", 5);
+        int i3 = this.f3631a.e.getInt("re_net_one_lt", 5);
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         Iterator<com.baidu.sofire.f.a> it = list.iterator();
@@ -211,8 +211,8 @@ public final class a {
                 break;
             }
             i4 += length;
-            arrayList.add(Integer.valueOf(next.f3624a));
-            arrayList2.add(new com.baidu.sofire.f.b(jSONObject, next.j, next.f3624a));
+            arrayList.add(Integer.valueOf(next.f3627a));
+            arrayList2.add(new com.baidu.sofire.f.b(jSONObject, next.j, next.f3627a));
         }
         HashMap hashMap = new HashMap();
         HashMap hashMap2 = new HashMap();
@@ -227,7 +227,7 @@ public final class a {
             if (bVar != null) {
                 String str = bVar.b;
                 if (TextUtils.isEmpty(str)) {
-                    jSONArray.put(bVar.f3625a);
+                    jSONArray.put(bVar.f3628a);
                     arrayList3.add(Integer.valueOf(bVar.c));
                 } else {
                     if (hashMap.containsKey(str)) {
@@ -235,11 +235,11 @@ public final class a {
                         if (jSONArray2 == null) {
                             jSONArray2 = new JSONArray();
                         }
-                        jSONArray2.put(bVar.f3625a);
+                        jSONArray2.put(bVar.f3628a);
                         hashMap.put(str, jSONArray2);
                     } else {
                         JSONArray jSONArray3 = new JSONArray();
-                        jSONArray3.put(bVar.f3625a);
+                        jSONArray3.put(bVar.f3628a);
                         hashMap.put(str, jSONArray3);
                     }
                     ArrayList arrayList4 = (ArrayList) hashMap2.get(str);
@@ -273,7 +273,7 @@ public final class a {
         }
         com.baidu.sofire.e.a.a(this.b).c();
         if (2 != i) {
-            this.f3628a.c(i4 + j);
+            this.f3631a.c(i4 + j);
         }
     }
 
@@ -301,10 +301,10 @@ public final class a {
     }
 
     public final synchronized void a(com.baidu.sofire.d.a aVar) {
-        String string = this.f3628a.e.getString("re_net_ali2_" + aVar.d, "");
+        String string = this.f3631a.e.getString("re_net_ali2_" + aVar.d, "");
         String c = com.baidu.sofire.i.e.c();
         if (!string.equals(c)) {
-            String d2 = this.f3628a.d(aVar.d);
+            String d2 = this.f3631a.d(aVar.d);
             com.baidu.sofire.f.a aVar2 = new com.baidu.sofire.f.a();
             aVar2.b = aVar.d;
             aVar2.g = 0;
@@ -318,11 +318,11 @@ public final class a {
             if (com.baidu.sofire.e.a.a(this.b).b(a2)) {
                 aVar2.b = "1001001";
                 aVar2.i = 0;
-                aVar2.d = com.baidu.sofire.i.e.a(this.b, aVar.f3620a, aVar.c, aVar2.b, com.baidu.sofire.i.e.l(this.b).toString()).toString();
+                aVar2.d = com.baidu.sofire.i.e.a(this.b, aVar.f3623a, aVar.c, aVar2.b, com.baidu.sofire.i.e.l(this.b).toString()).toString();
                 com.baidu.sofire.e.a.a(this.b).a(aVar2);
                 com.baidu.sofire.e.a.a(this.b).a(a2);
             }
-            e eVar = this.f3628a;
+            e eVar = this.f3631a;
             eVar.f.putString("re_net_ali2_" + aVar.d, c);
             eVar.f.commit();
         }
@@ -344,12 +344,12 @@ public final class a {
     }
 
     static /* synthetic */ void c(a aVar) {
-        List<com.baidu.sofire.d.a> x = aVar.f3628a.x();
+        List<com.baidu.sofire.d.a> x = aVar.f3631a.x();
         if (x == null) {
             return;
         }
         for (com.baidu.sofire.d.a aVar2 : x) {
-            if (aVar.a(aVar.f3628a.e.getString("li_pk_s", ""), aVar2.b)) {
+            if (aVar.a(aVar.f3631a.e.getString("li_pk_s", ""), aVar2.b)) {
                 aVar.a(aVar2);
             }
         }
@@ -378,21 +378,21 @@ public final class a {
             if (a2.size() <= 0) {
                 return;
             }
-            long j = aVar.f3628a.e.getLong("re_day_len", 0L);
+            long j = aVar.f3631a.e.getLong("re_day_len", 0L);
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = aVar.f3628a.e.getLong("re_day_b_t", 0L);
-            int i3 = aVar.f3628a.e.getInt("re_net_dy_lt", 50);
+            long j2 = aVar.f3631a.e.getLong("re_day_b_t", 0L);
+            int i3 = aVar.f3631a.e.getInt("re_net_dy_lt", 50);
             if (j2 == 0) {
-                aVar.f3628a.d(currentTimeMillis);
+                aVar.f3631a.d(currentTimeMillis);
                 j2 = currentTimeMillis;
             }
             b.a();
             b.a();
             if (currentTimeMillis - j2 < 86400000) {
                 if (i == 3) {
-                    int i4 = aVar.f3628a.e.getInt("g_r_d_d_n", 0);
+                    int i4 = aVar.f3631a.e.getInt("g_r_d_d_n", 0);
                     if (i4 < 5) {
-                        aVar.f3628a.h(i4 + 1);
+                        aVar.f3631a.h(i4 + 1);
                     } else {
                         return;
                     }
@@ -402,10 +402,10 @@ public final class a {
                     return;
                 }
             } else {
-                aVar.f3628a.c(0L);
-                aVar.f3628a.d(currentTimeMillis);
+                aVar.f3631a.c(0L);
+                aVar.f3631a.d(currentTimeMillis);
                 if (i == 3) {
-                    aVar.f3628a.h(0);
+                    aVar.f3631a.h(0);
                 }
             }
             aVar.a(a2, i2, j);

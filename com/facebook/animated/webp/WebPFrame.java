@@ -5,7 +5,7 @@ import com.facebook.common.internal.d;
 import com.facebook.imagepipeline.animated.base.c;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes9.dex */
+/* loaded from: classes19.dex */
 public class WebPFrame implements c {
     @d
     private long mNativeContext;
@@ -69,11 +69,11 @@ public class WebPFrame implements c {
         return nativeGetYOffset();
     }
 
-    public boolean ejj() {
+    public boolean eoZ() {
         return nativeShouldDisposeToBackgroundColor();
     }
 
-    public boolean ejk() {
+    public boolean epa() {
         return nativeIsBlendWithPreviousFrame();
     }
 }

@@ -6,7 +6,8 @@ import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+import org.a.d;
+/* loaded from: classes9.dex */
 public final class FlowableSkipLastTimed<T> extends a<T, T> {
     final int bufferSize;
     final boolean delayError;
@@ -16,11 +17,11 @@ public final class FlowableSkipLastTimed<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pOn.a((j) new SkipLastTimedSubscriber(cVar, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
+        this.pFg.a((j) new SkipLastTimedSubscriber(cVar, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
     }
 
-    /* loaded from: classes5.dex */
-    static final class SkipLastTimedSubscriber<T> extends AtomicInteger implements j<T>, org.a.d {
+    /* loaded from: classes9.dex */
+    static final class SkipLastTimedSubscriber<T> extends AtomicInteger implements j<T>, d {
         private static final long serialVersionUID = -5677354903406201275L;
         final org.a.c<? super T> actual;
         volatile boolean cancelled;
@@ -29,7 +30,7 @@ public final class FlowableSkipLastTimed<T> extends a<T, T> {
         Throwable error;
         final io.reactivex.internal.queue.a<Object> queue;
         final AtomicLong requested = new AtomicLong();
-        org.a.d s;
+        d s;
         final v scheduler;
         final long time;
         final TimeUnit unit;
@@ -44,7 +45,7 @@ public final class FlowableSkipLastTimed<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);

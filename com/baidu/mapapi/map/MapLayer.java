@@ -1,5 +1,5 @@
 package com.baidu.mapapi.map;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public enum MapLayer {
     MAP_LAYER_OVERLAY,
     MAP_LAYER_LOCATION,

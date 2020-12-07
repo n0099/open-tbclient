@@ -6,71 +6,71 @@ import com.baidu.fsg.base.statistics.j;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.util.Base64Encoder;
-/* loaded from: classes14.dex */
+/* loaded from: classes17.dex */
 public final class b {
-    private static b ant;
-    private c anu;
-    private e anv;
-    private g anw;
-    private String anx;
-    private volatile String any = null;
+    private static b aoq;
+    private c aor;
+    private f aos;
+    private h aot;
+    private String aou;
+    private volatile String mC3Aid = null;
 
     private b() {
         init();
     }
 
-    public static b uU() {
-        if (ant == null) {
+    public static b uR() {
+        if (aoq == null) {
             synchronized (b.class) {
-                if (ant == null) {
-                    ant = new b();
+                if (aoq == null) {
+                    aoq = new b();
                 }
             }
         }
-        return ant;
+        return aoq;
     }
 
     private void init() {
-        this.anv = new e();
-        this.anu = new c();
-        this.anw = new g();
-        String deviceId = a.uT().getDeviceId();
+        this.aos = new f();
+        this.aor = new c();
+        this.aot = new h();
+        String deviceId = a.uP().getDeviceId();
         if (!TextUtils.isEmpty(deviceId)) {
-            this.anx = new String(Base64Encoder.B64Encode(deviceId.getBytes()));
+            this.aou = new String(Base64Encoder.B64Encode(deviceId.getBytes()));
         }
     }
 
     public String processUrl(String str) {
-        d uT = a.uT();
-        String vc = this.anw.vc();
-        String appName = com.baidu.e.b.a.uR().getAppName();
-        String zid = uT.getZid();
-        String uW = uT.uW();
-        String uX = uT.uX();
-        String deviceInfo = this.anu.getDeviceInfo();
-        String str2 = this.anx;
-        String from = uT.getFrom();
-        String uY = uT.uY();
-        String va = uT.va();
+        d uP = a.uP();
+        String ua = this.aot.getUA();
+        String appName = com.baidu.e.b.a.uN().getAppName();
+        String zid = uP.getZid();
+        String bDVCInfo = uP.getBDVCInfo();
+        String sid = uP.getSid();
+        String deviceInfo = this.aor.getDeviceInfo();
+        String str2 = this.aou;
+        String from = uP.getFrom();
+        String cfrom = uP.getCfrom();
+        String schemeHeader = uP.getSchemeHeader();
         if (TextUtils.isEmpty(from)) {
-            from = com.baidu.e.a.a.uJ().getChannel();
+            from = com.baidu.e.a.a.uM().getChannel();
         }
-        if (TextUtils.isEmpty(uY)) {
-            uY = com.baidu.e.a.a.uJ().uK();
+        if (TextUtils.isEmpty(cfrom)) {
+            cfrom = com.baidu.e.a.a.uM().getLastChannel();
         }
-        String k = uT.k(this.anv.l(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "appname", appName), UbcStatConstant.KEY_CONTENT_EXT_SID, uX), "ut", deviceInfo), j.c, vc), "bdvc", uW), "zid", zid), "uid", str2), BdStatsConstant.StatsKey.CURRENT_CHANNEL, uY), "from", from), "scheme", va), true), true);
-        if (TextUtils.isEmpty(this.any)) {
-            this.any = uT.uZ();
+        String k = uP.k(this.aos.addNetWorkParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "appname", appName), UbcStatConstant.KEY_CONTENT_EXT_SID, sid), "ut", deviceInfo), j.c, ua), "bdvc", bDVCInfo), "zid", zid), "uid", str2), BdStatsConstant.StatsKey.CURRENT_CHANNEL, cfrom), "from", from), "scheme", schemeHeader), true), true);
+        if (TextUtils.isEmpty(this.mC3Aid)) {
+            this.mC3Aid = uP.getC3Aid();
         }
-        if (!TextUtils.isEmpty(this.any)) {
-            return addParam(k, "c3_aid", this.any);
+        if (!TextUtils.isEmpty(this.mC3Aid)) {
+            return addParam(k, "c3_aid", this.mC3Aid);
         }
         return k;
     }
 
     private String addParam(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str3)) {
-            return UrlUtil.addParam(str, str2, h.dA(str3));
+            return UrlUtil.addParam(str, str2, i.getEncodeValue(str3));
         }
         return str;
     }

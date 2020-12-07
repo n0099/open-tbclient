@@ -1,13 +1,13 @@
 package kotlin.reflect;
 
 import kotlin.reflect.j;
-@kotlin.h
-/* loaded from: classes9.dex */
-public interface m<D, E, R> extends kotlin.jvm.a.m<D, E, R>, j<R> {
+@kotlin.e
+/* loaded from: classes17.dex */
+public interface m<D, E, R> extends kotlin.jvm.a.c<D, E, R>, j<R> {
 
-    @kotlin.h
-    /* loaded from: classes9.dex */
-    public interface a<D, E, R> extends kotlin.jvm.a.m<D, E, R>, j.a<R> {
+    @kotlin.e
+    /* loaded from: classes17.dex */
+    public interface a<D, E, R> extends kotlin.jvm.a.c<D, E, R>, j.a<R> {
     }
 
     R get(D d, E e);

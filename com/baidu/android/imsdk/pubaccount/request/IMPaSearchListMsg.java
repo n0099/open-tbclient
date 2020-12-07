@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMPaSearchListMsg extends Message {
     private Context mContext;
     private String mSearchContent;
@@ -78,13 +78,16 @@ public class IMPaSearchListMsg extends Message {
                         e = e3;
                         LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
                         new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
+                        super.handleMessageResult(context, jSONObject, i, str);
                         PaManagerImpl.getInstance(context).onSearchPaListResult(getListenerKey(), i, str, arrayList);
                     }
                 }
+                super.handleMessageResult(context, jSONObject, i, str);
                 PaManagerImpl.getInstance(context).onSearchPaListResult(getListenerKey(), i, str, arrayList);
             }
         }
         arrayList = null;
+        super.handleMessageResult(context, jSONObject, i, str);
         PaManagerImpl.getInstance(context).onSearchPaListResult(getListenerKey(), i, str, arrayList);
     }
 }

@@ -1,136 +1,136 @@
 package com.baidu.ar.face.detector;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class j extends com.baidu.ar.d.h {
     private int mCacheSize;
-    private String oL;
-    private String oM;
-    private String oN;
-    private String oO;
-    private String oP;
-    private String oQ;
-    private String oR;
-    private String oS;
-    private String oT;
-    private String oU;
-    private int oV;
-    private int oW;
-    private float oX;
-    private float oY;
-    private float oZ;
+    private String pb;
+    private String pc;
+    private String pd;
+    private String pe;
+    private String pf;
+    private String pg;
+    private String ph;
+    private String pi;
+    private String pj;
+    private String pk;
+    private int pl;
+    private int pm;
+    private float pn;
+    private float po;
+    private float pp;
 
     public j() {
         super(com.baidu.ar.d.i.FACE);
-        this.oX = 0.03f;
-        this.oY = 1.0f;
-        this.oZ = -1.0f;
+        this.pn = 0.03f;
+        this.po = 1.0f;
+        this.pp = -1.0f;
         this.mCacheSize = 5;
     }
 
-    public void G(int i) {
-        this.oV = i;
+    public void I(int i) {
+        this.pl = i;
     }
 
-    public void H(int i) {
-        this.oW = i;
-    }
-
-    public void Z(String str) {
-        this.oL = str;
-    }
-
-    public void aa(String str) {
-        this.oM = str;
-    }
-
-    public void ab(String str) {
-        this.oN = str;
+    public void J(int i) {
+        this.pm = i;
     }
 
     public void ac(String str) {
-        this.oO = str;
+        this.pb = str;
     }
 
     public void ad(String str) {
-        this.oP = str;
+        this.pc = str;
     }
 
     public void ae(String str) {
-        this.oQ = str;
+        this.pd = str;
     }
 
     public void af(String str) {
-        this.oR = str;
+        this.pe = str;
     }
 
     public void ag(String str) {
-        this.oS = str;
+        this.pf = str;
     }
 
     public void ah(String str) {
-        this.oT = str;
+        this.pg = str;
     }
 
     public void ai(String str) {
-        this.oU = str;
+        this.ph = str;
+    }
+
+    public void aj(String str) {
+        this.pi = str;
+    }
+
+    public void ak(String str) {
+        this.pj = str;
+    }
+
+    public void al(String str) {
+        this.pk = str;
+    }
+
+    public String en() {
+        return this.pb;
     }
 
     public String eo() {
-        return this.oL;
+        return this.pc;
     }
 
     public String ep() {
-        return this.oM;
+        return this.pd;
     }
 
     public String eq() {
-        return this.oN;
+        return this.pe;
     }
 
     public String er() {
-        return this.oO;
+        return this.pf;
     }
 
     public String es() {
-        return this.oP;
+        return this.pg;
     }
 
     public String et() {
-        return this.oQ;
+        return this.ph;
     }
 
     public String eu() {
-        return this.oR;
+        return this.pi;
     }
 
     public String ev() {
-        return this.oS;
+        return this.pj;
     }
 
     public String ew() {
-        return this.oT;
+        return this.pk;
     }
 
-    public String ex() {
-        return this.oU;
+    public int ex() {
+        return this.pl;
     }
 
     public int ey() {
-        return this.oV;
-    }
-
-    public int ez() {
-        return this.oW;
+        return this.pm;
     }
 
     public void setTrackingMouthThreshold(float f) {
-        this.oZ = f;
+        this.pp = f;
     }
 
     public void setTrackingSmoothAlpha(float f) {
-        this.oX = f;
+        this.pn = f;
     }
 
     public void setTrackingSmoothThreshold(float f) {
-        this.oY = f;
+        this.po = f;
     }
 }

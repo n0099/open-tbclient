@@ -1,29 +1,19 @@
 package com.baidu.q;
 
 import android.text.TextUtils;
+import android.util.Base64;
+import java.io.UnsupportedEncodingException;
 /* loaded from: classes15.dex */
 public class a {
-    protected int mStatusCode;
-    protected boolean otL;
-    protected boolean otM;
-    protected String otN;
-    protected String otO;
-    protected String otP;
-
-    public a(boolean z, boolean z2, String str, String str2, String str3, int i) {
-        this.otL = z;
-        this.otM = z2;
-        this.otN = str;
-        this.otO = str2;
-        this.otP = str3;
-        this.mStatusCode = i;
-    }
-
-    public String eec() {
-        return TextUtils.isEmpty(this.otN) ? this.otN : new com.baidu.q.a.c.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(this.otN.getBytes());
-    }
-
-    public String toString() {
-        return "UnionIDInfo{isTrackLimited=" + this.otL + ", isSupport=" + this.otM + ", OAID='" + this.otN + "', EncodedOAID='" + eec() + "', AAID='" + this.otO + "', VAID='" + this.otP + "', StatusCode='" + this.mStatusCode + "'}";
+    public static String XV(String str) {
+        if (TextUtils.isEmpty(str)) {
+            str = "process";
+        }
+        try {
+            return new String(Base64.encode(str.getBytes("UTF-8"), 0), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 }

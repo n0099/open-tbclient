@@ -1,55 +1,56 @@
 package com.baidu.live.data;
 
+import android.text.TextUtils;
+import com.baidu.live.adp.lib.util.StringUtils;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class bf {
-    public String aNc;
-    public String aNd;
-    public JSONObject aNe;
-    public JSONObject aNf;
-    public JSONObject aNg;
-    public JSONObject aNh;
-    public String aNi;
-    public String aNj;
-    public int aNk;
-    public String aNl;
-    public int aNm;
-    public int aNn;
-    public int aNo;
-    public int aNp;
-    public String aNq;
-    public String aNr;
+    public int aPZ;
+    public int aQa;
+    public String id;
+    public String intro;
+    public int live_status;
+    public String metaKey;
+    public String name;
+    public String name_show;
+    public String portrait;
 
-    public bf(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aNk = jSONObject.optInt("join_amount");
-            this.aNc = jSONObject.optString("guard_club_category");
-            this.aNd = jSONObject.optString("guard_club_gift_type");
-            this.aNe = jSONObject.optJSONObject("club_level_icon_large");
-            this.aNf = jSONObject.optJSONObject("club_level_icon_small");
-            this.aNg = jSONObject.optJSONObject("member_level_icon");
-            this.aNh = jSONObject.optJSONObject("level_discount");
-            JSONObject optJSONObject = jSONObject.optJSONObject("join_club_remind");
-            if (optJSONObject != null) {
-                this.aNi = optJSONObject.optString("to_join");
-                this.aNj = optJSONObject.optString("has_join");
+            this.id = jSONObject.optString("id");
+            this.metaKey = jSONObject.optString("meta_key");
+            this.name = jSONObject.optString("name");
+            this.name_show = jSONObject.optString("name_show");
+            this.portrait = jSONObject.optString("bd_portrait");
+            if (StringUtils.isNull(this.portrait)) {
+                this.portrait = jSONObject.optString("portrait");
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("join_club_guide");
-            if (optJSONObject2 != null) {
-                this.aNl = optJSONObject2.optString("guide_text");
-                this.aNm = optJSONObject2.optInt("show_times_daily");
-                this.aNn = optJSONObject2.optInt("continue_show_times");
-                this.aNo = optJSONObject2.optInt("condition");
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("attenuat_conf");
-            if (optJSONObject3 != null) {
-                this.aNp = optJSONObject3.optInt("show_times_daily");
-            }
-            JSONObject optJSONObject4 = jSONObject.optJSONObject("tips_img");
-            if (optJSONObject4 != null) {
-                this.aNq = optJSONObject4.optString("attenuat_tip_img");
-                this.aNr = optJSONObject4.optString("quit_tip_img");
-            }
+            this.intro = jSONObject.optString("intro");
+            this.live_status = jSONObject.optInt("live_status");
+            this.aPZ = jSONObject.optInt("live_id");
+            this.aQa = jSONObject.optInt("has_concerned");
         }
+    }
+
+    public String getNameShow() {
+        return TextUtils.isEmpty(this.name_show) ? this.name : this.name_show;
+    }
+
+    public String toString() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("id", this.id);
+            jSONObject.put("name", this.name);
+            jSONObject.put("name_show", this.name_show);
+            jSONObject.put("portrait", this.portrait);
+            jSONObject.put("intro", this.intro);
+            jSONObject.put("live_status", this.live_status);
+            jSONObject.put("live_id", this.aPZ);
+            jSONObject.put("has_concerned", this.aQa);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jSONObject.toString();
     }
 }

@@ -14,12 +14,12 @@ import java.util.Vector;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class a {
     private static a b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private NAFavorite f2218a = null;
+    private NAFavorite f2220a = null;
     private boolean c = false;
     private boolean d = false;
     private Vector<String> e = null;
@@ -30,9 +30,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.favrite.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C0255a implements Comparator<String> {
-        C0255a() {
+    /* loaded from: classes26.dex */
+    public class C0264a implements Comparator<String> {
+        C0264a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,7 +43,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     private class b {
         private long b;
         private long c;
@@ -67,7 +67,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     private class c {
         private String b;
         private long c;
@@ -116,14 +116,14 @@ public class a {
     }
 
     public static boolean g() {
-        return (b == null || b.f2218a == null || !b.f2218a.d()) ? false : true;
+        return (b == null || b.f2220a == null || !b.f2220a.d()) ? false : true;
     }
 
     private boolean h() {
-        if (this.f2218a == null) {
-            this.f2218a = new NAFavorite();
-            if (this.f2218a.a() == 0) {
-                this.f2218a = null;
+        if (this.f2220a == null) {
+            this.f2220a = new NAFavorite();
+            if (this.f2220a.a() == 0) {
+                this.f2220a = null;
                 return false;
             }
             j();
@@ -134,12 +134,12 @@ public class a {
     }
 
     private boolean i() {
-        if (this.f2218a == null) {
+        if (this.f2220a == null) {
             return false;
         }
         String str = SysOSUtil.getModuleFileName() + "/";
-        this.f2218a.a(1);
-        return this.f2218a.a(str, "fav_poi", "fifo", 10, 501, -1);
+        this.f2220a.a(1);
+        return this.f2220a.a(str, "fav_poi", "fifo", 10, 501, -1);
     }
 
     private void j() {
@@ -149,7 +149,7 @@ public class a {
 
     public synchronized int a(String str, FavSyncPoi favSyncPoi) {
         int i;
-        if (this.f2218a == null) {
+        if (this.f2220a == null) {
             i = 0;
         } else if (str == null || str.equals("") || favSyncPoi == null) {
             i = -1;
@@ -175,7 +175,7 @@ public class a {
                     String valueOf = String.valueOf(System.currentTimeMillis());
                     String str2 = valueOf + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + favSyncPoi.hashCode();
                     favSyncPoi.h = valueOf;
-                    favSyncPoi.f2217a = str2;
+                    favSyncPoi.f2219a = str2;
                     jSONObject.put("bdetail", favSyncPoi.i);
                     jSONObject.put("uspoiname", favSyncPoi.b);
                     JSONObject jSONObject2 = new JSONObject();
@@ -190,7 +190,7 @@ public class a {
                     JSONObject jSONObject3 = new JSONObject();
                     jSONObject3.put("Fav_Sync", jSONObject);
                     jSONObject3.put("Fav_Content", favSyncPoi.j);
-                    if (this.f2218a.a(str2, jSONObject3.toString())) {
+                    if (this.f2220a.a(str2, jSONObject3.toString())) {
                         j();
                         i = 1;
                         g();
@@ -213,22 +213,22 @@ public class a {
     public synchronized boolean a(String str) {
         boolean z = false;
         synchronized (this) {
-            if (this.f2218a != null && str != null && !str.equals("") && c(str)) {
+            if (this.f2220a != null && str != null && !str.equals("") && c(str)) {
                 j();
-                z = this.f2218a.a(str);
+                z = this.f2220a.a(str);
             }
         }
         return z;
     }
 
     public FavSyncPoi b(String str) {
-        if (this.f2218a == null || str == null || str.equals("")) {
+        if (this.f2220a == null || str == null || str.equals("")) {
             return null;
         }
         try {
             if (c(str)) {
                 FavSyncPoi favSyncPoi = new FavSyncPoi();
-                String b2 = this.f2218a.b(str);
+                String b2 = this.f2220a.b(str);
                 if (b2 == null || b2.equals("")) {
                     return null;
                 }
@@ -245,7 +245,7 @@ public class a {
                 favSyncPoi.h = optJSONObject.optString("addtimesec");
                 favSyncPoi.i = optJSONObject.optBoolean("bdetail");
                 favSyncPoi.j = optString;
-                favSyncPoi.f2217a = str;
+                favSyncPoi.f2219a = str;
                 return favSyncPoi;
             }
             return null;
@@ -260,9 +260,9 @@ public class a {
 
     public void b() {
         if (b != null) {
-            if (b.f2218a != null) {
-                b.f2218a.b();
-                b.f2218a = null;
+            if (b.f2220a != null) {
+                b.f2220a.b();
+                b.f2220a = null;
             }
             b = null;
         }
@@ -271,7 +271,7 @@ public class a {
     public synchronized boolean b(String str, FavSyncPoi favSyncPoi) {
         boolean z = false;
         synchronized (this) {
-            if (this.f2218a != null && str != null && !str.equals("") && favSyncPoi != null && c(str)) {
+            if (this.f2220a != null && str != null && !str.equals("") && favSyncPoi != null && c(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("uspoiname", favSyncPoi.b);
@@ -290,8 +290,8 @@ public class a {
                     jSONObject3.put("Fav_Sync", jSONObject);
                     jSONObject3.put("Fav_Content", favSyncPoi.j);
                     j();
-                    if (this.f2218a != null) {
-                        if (this.f2218a.b(str, jSONObject3.toString())) {
+                    if (this.f2220a != null) {
+                        if (this.f2220a.b(str, jSONObject3.toString())) {
                             z = true;
                         }
                     }
@@ -304,29 +304,29 @@ public class a {
 
     public synchronized boolean c() {
         boolean c2;
-        if (this.f2218a == null) {
+        if (this.f2220a == null) {
             c2 = false;
         } else {
             j();
-            c2 = this.f2218a.c();
+            c2 = this.f2220a.c();
             g();
         }
         return c2;
     }
 
     public boolean c(String str) {
-        return (this.f2218a == null || str == null || str.equals("") || !this.f2218a.c(str)) ? false : true;
+        return (this.f2220a == null || str == null || str.equals("") || !this.f2220a.c(str)) ? false : true;
     }
 
     public ArrayList<String> d() {
         String b2;
-        if (this.f2218a == null) {
+        if (this.f2220a == null) {
             return null;
         }
         if (!this.d || this.f == null) {
             try {
                 Bundle bundle = new Bundle();
-                this.f2218a.a(bundle);
+                this.f2220a.a(bundle);
                 String[] stringArray = bundle.getStringArray("rstString");
                 if (stringArray != null) {
                     if (this.f == null) {
@@ -335,13 +335,13 @@ public class a {
                         this.f.clear();
                     }
                     for (int i = 0; i < stringArray.length; i++) {
-                        if (!stringArray[i].equals("data_version") && (b2 = this.f2218a.b(stringArray[i])) != null && !b2.equals("")) {
+                        if (!stringArray[i].equals("data_version") && (b2 = this.f2220a.b(stringArray[i])) != null && !b2.equals("")) {
                             this.f.add(stringArray[i]);
                         }
                     }
                     if (this.f.size() > 0) {
                         try {
-                            Collections.sort(this.f, new C0255a());
+                            Collections.sort(this.f, new C0264a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -360,13 +360,13 @@ public class a {
     }
 
     public ArrayList<String> e() {
-        if (this.f2218a == null) {
+        if (this.f2220a == null) {
             return null;
         }
         if (!this.c || this.e == null) {
             try {
                 Bundle bundle = new Bundle();
-                this.f2218a.a(bundle);
+                this.f2220a.a(bundle);
                 String[] stringArray = bundle.getStringArray("rstString");
                 if (stringArray != null) {
                     if (this.e == null) {
@@ -381,7 +381,7 @@ public class a {
                     }
                     if (this.e.size() > 0) {
                         try {
-                            Collections.sort(this.e, new C0255a());
+                            Collections.sort(this.e, new C0264a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -407,7 +407,7 @@ public class a {
         String b2;
         if (!this.i.c() || this.h.c() || this.h.b()) {
             this.i.a();
-            if (this.f2218a == null) {
+            if (this.f2220a == null) {
                 return null;
             }
             ArrayList<String> d = d();
@@ -419,7 +419,7 @@ public class a {
                     Iterator<String> it = d.iterator();
                     while (it.hasNext()) {
                         String next = it.next();
-                        if (next == null || next.equals("data_version") || (b2 = this.f2218a.b(next)) == null || b2.equals("")) {
+                        if (next == null || next.equals("data_version") || (b2 = this.f2220a.b(next)) == null || b2.equals("")) {
                             i = i2;
                         } else {
                             JSONObject optJSONObject = new JSONObject(b2).optJSONObject("Fav_Sync");

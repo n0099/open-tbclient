@@ -19,10 +19,10 @@ import java.util.List;
 /* loaded from: classes18.dex */
 public class e {
     private static PerfClientReport a(PerfClientReport perfClientReport, String str) {
-        long[] m67a;
-        if (perfClientReport != null && (m67a = m67a(str)) != null) {
-            perfClientReport.perfCounts = m67a[0];
-            perfClientReport.perfLatencies = m67a[1];
+        long[] m57a;
+        if (perfClientReport != null && (m57a = m57a(str)) != null) {
+            perfClientReport.perfCounts = m57a[0];
+            perfClientReport.perfLatencies = m57a[1];
             return perfClientReport;
         }
         return null;
@@ -31,15 +31,15 @@ public class e {
     private static PerfClientReport a(String str) {
         PerfClientReport perfClientReport = null;
         try {
-            String[] m68a = m68a(str);
-            if (m68a == null || m68a.length < 4 || TextUtils.isEmpty(m68a[0]) || TextUtils.isEmpty(m68a[1]) || TextUtils.isEmpty(m68a[2]) || TextUtils.isEmpty(m68a[3])) {
+            String[] m58a = m58a(str);
+            if (m58a == null || m58a.length < 4 || TextUtils.isEmpty(m58a[0]) || TextUtils.isEmpty(m58a[1]) || TextUtils.isEmpty(m58a[2]) || TextUtils.isEmpty(m58a[3])) {
                 return null;
             }
             perfClientReport = PerfClientReport.getBlankInstance();
-            perfClientReport.production = Integer.parseInt(m68a[0]);
-            perfClientReport.clientInterfaceId = m68a[1];
-            perfClientReport.reportType = Integer.parseInt(m68a[2]);
-            perfClientReport.code = Integer.parseInt(m68a[3]);
+            perfClientReport.production = Integer.parseInt(m58a[0]);
+            perfClientReport.clientInterfaceId = m58a[1];
+            perfClientReport.reportType = Integer.parseInt(m58a[2]);
+            perfClientReport.code = Integer.parseInt(m58a[3]);
             return perfClientReport;
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.c("parse per key error");
@@ -52,7 +52,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static HashMap<String, String> m66a(String str) {
+    private static HashMap<String, String> m56a(String str) {
         BufferedReader bufferedReader;
         HashMap<String, String> hashMap = new HashMap<>();
         if (!TextUtils.isEmpty(str)) {
@@ -117,7 +117,7 @@ public class e {
             try {
                 file = new File(str + ".lock");
                 try {
-                    y.m593a(file);
+                    y.m583a(file);
                     randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
                         fileLock = randomAccessFile.getChannel().lock();
@@ -311,13 +311,13 @@ public class e {
             java.lang.StringBuilder r4 = r4.append(r5)     // Catch: java.lang.Throwable -> Ld0
             java.lang.String r4 = r4.toString()     // Catch: java.lang.Throwable -> Ld0
             r3.<init>(r4)     // Catch: java.lang.Throwable -> Ld0
-            com.xiaomi.push.y.m593a(r3)     // Catch: java.lang.Throwable -> Ld0
+            com.xiaomi.push.y.m583a(r3)     // Catch: java.lang.Throwable -> Ld0
             java.io.RandomAccessFile r9 = new java.io.RandomAccessFile     // Catch: java.lang.Throwable -> Ld0
             java.lang.String r4 = "rw"
             r9.<init>(r3, r4)     // Catch: java.lang.Throwable -> Ld0
             java.nio.channels.FileChannel r3 = r9.getChannel()     // Catch: java.lang.Throwable -> Ld3
             java.nio.channels.FileLock r8 = r3.lock()     // Catch: java.lang.Throwable -> Ld3
-            java.util.HashMap r2 = m66a(r16)     // Catch: java.lang.Throwable -> L76
+            java.util.HashMap r2 = m56a(r16)     // Catch: java.lang.Throwable -> L76
             r0 = r17
             int r11 = r0.length     // Catch: java.lang.Throwable -> L76
             r3 = 0
@@ -431,17 +431,17 @@ public class e {
             hashMap.put(str, j + "#" + j2);
             return;
         }
-        long[] m67a = m67a(str3);
-        if (m67a == null || m67a[0] <= 0 || m67a[1] < 0) {
+        long[] m57a = m57a(str3);
+        if (m57a == null || m57a[0] <= 0 || m57a[1] < 0) {
             str2 = j + "#" + j2;
         } else {
-            str2 = (m67a[0] + j) + "#" + (m67a[1] + j2);
+            str2 = (m57a[0] + j) + "#" + (m57a[1] + j2);
         }
         hashMap.put(str, str2);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    protected static long[] m67a(String str) {
+    protected static long[] m57a(String str) {
         long[] jArr = new long[2];
         try {
             String[] split = str.split("#");
@@ -458,7 +458,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static String[] m68a(String str) {
+    private static String[] m58a(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

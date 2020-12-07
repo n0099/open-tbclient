@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static void a(InputStream inputStream, OutputStream outputStream, int i) throws IOException {
         byte[] bArr = new byte[i];

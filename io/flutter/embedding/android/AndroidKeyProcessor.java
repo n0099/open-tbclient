@@ -2,35 +2,30 @@ package io.flutter.embedding.android;
 
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import io.flutter.embedding.engine.systemchannels.KeyEventChannel;
 import io.flutter.plugin.editing.TextInputPlugin;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class AndroidKeyProcessor {
     private int combiningCharacter;
-    @NonNull
     private final KeyEventChannel keyEventChannel;
-    @NonNull
     private final TextInputPlugin textInputPlugin;
 
-    public AndroidKeyProcessor(@NonNull KeyEventChannel keyEventChannel, @NonNull TextInputPlugin textInputPlugin) {
+    public AndroidKeyProcessor(KeyEventChannel keyEventChannel, TextInputPlugin textInputPlugin) {
         this.keyEventChannel = keyEventChannel;
         this.textInputPlugin = textInputPlugin;
     }
 
-    public void onKeyUp(@NonNull KeyEvent keyEvent) {
+    public void onKeyUp(KeyEvent keyEvent) {
         this.keyEventChannel.keyUp(new KeyEventChannel.FlutterKeyEvent(keyEvent, applyCombiningCharacterToBaseCharacter(keyEvent.getUnicodeChar())));
     }
 
-    public void onKeyDown(@NonNull KeyEvent keyEvent) {
+    public void onKeyDown(KeyEvent keyEvent) {
         if (this.textInputPlugin.getLastInputConnection() != null && this.textInputPlugin.getInputMethodManager().isAcceptingText()) {
             this.textInputPlugin.getLastInputConnection().sendKeyEvent(keyEvent);
         }
         this.keyEventChannel.keyDown(new KeyEventChannel.FlutterKeyEvent(keyEvent, applyCombiningCharacterToBaseCharacter(keyEvent.getUnicodeChar())));
     }
 
-    @Nullable
     private Character applyCombiningCharacterToBaseCharacter(int i) {
         if (i == 0) {
             return null;

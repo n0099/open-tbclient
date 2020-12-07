@@ -1,59 +1,59 @@
 package com.baidu.ar.b.a;
 
 import android.os.Bundle;
-import com.baidu.ar.arplay.core.engine.pixel.FramePixels;
+import com.baidu.ar.arplay.core.pixel.FramePixels;
 import com.baidu.ar.b.b.b;
 import com.baidu.ar.c.c;
 import com.baidu.ar.d.j;
 import com.baidu.ar.d.l;
 import com.baidu.ar.databasic.AlgoHandleController;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public abstract class a extends j {
-    protected AlgoHandleController bY = null;
+    protected AlgoHandleController cb = null;
 
     public abstract b a(Bundle bundle);
 
     public void a(AlgoHandleController algoHandleController) {
-        this.bY = algoHandleController;
+        this.cb = algoHandleController;
     }
 
     @Override // com.baidu.ar.d.j
-    protected void am() {
-        if (this.mg != null) {
-            this.mg.a(new l(getName(), true));
+    protected void ao() {
+        if (this.mv != null) {
+            this.mv.a(new l(getName(), true));
         }
     }
 
     @Override // com.baidu.ar.d.j
-    public boolean an() {
-        int at = at();
-        return com.baidu.ar.b.a.ar().b(at) && !com.baidu.ar.b.a.ar().e(at);
+    public boolean ap() {
+        int au = au();
+        return com.baidu.ar.b.a.as().c(au) && !com.baidu.ar.b.a.as().f(au);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.ar.d.j
-    public void ao() {
-        if (this.mg != null) {
-            this.mg.b(new l(getName(), true));
+    public void aq() {
+        if (this.mv != null) {
+            this.mv.b(new l(getName(), true));
         }
     }
 
-    public abstract com.baidu.ar.b.b.a as();
+    public abstract com.baidu.ar.b.b.a at();
 
-    protected abstract int at();
+    protected abstract int au();
 
-    public void au() {
-        com.baidu.ar.b.b.a as = as();
-        if (as == null) {
+    public void av() {
+        com.baidu.ar.b.b.a at = at();
+        if (at == null) {
             return;
         }
-        c.ce().O(as.getTag());
-        c.ce().c((com.baidu.ar.c.a) as);
+        c.cd().R(at.getTag());
+        c.cd().c((com.baidu.ar.c.a) at);
     }
 
     public void b(long j) {
-        if (this.bY != null) {
-            this.bY.destroyHandle(j);
+        if (this.cb != null) {
+            this.cb.destroyHandle(j);
         }
     }
 
@@ -62,17 +62,17 @@ public abstract class a extends j {
         if (a2 == null) {
             return;
         }
-        c.ce().c((com.baidu.ar.c.a) a2);
+        c.cd().c((com.baidu.ar.c.a) a2);
     }
 
     @Override // com.baidu.ar.d.j
     protected boolean c(FramePixels framePixels) {
-        com.baidu.ar.b.b.c e;
-        if (!com.baidu.ar.b.a.ar().b(at()) || framePixels == null || (e = e(framePixels)) == null) {
+        com.baidu.ar.b.b.c d;
+        if (!com.baidu.ar.b.a.as().c(au()) || framePixels == null || (d = d(framePixels)) == null) {
             return false;
         }
-        return c.ce().c((com.baidu.ar.c.a) e);
+        return c.cd().c((com.baidu.ar.c.a) d);
     }
 
-    public abstract com.baidu.ar.b.b.c e(FramePixels framePixels);
+    public abstract com.baidu.ar.b.b.c d(FramePixels framePixels);
 }

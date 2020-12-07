@@ -1,28 +1,23 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.c.j;
+import io.reactivex.b.j;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.subscriptions.SubscriptionArbiter;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+import org.a.d;
+/* loaded from: classes9.dex */
 public final class FlowableRetryPredicate<T> extends a<T, T> {
     final long count;
     final j<? super Throwable> predicate;
-
-    public FlowableRetryPredicate(io.reactivex.g<T> gVar, long j, j<? super Throwable> jVar) {
-        super(gVar);
-        this.predicate = jVar;
-        this.count = j;
-    }
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();
         cVar.onSubscribe(subscriptionArbiter);
-        new RetrySubscriber(cVar, this.count, this.predicate, subscriptionArbiter, this.pOn).subscribeNext();
+        new RetrySubscriber(cVar, this.count, this.predicate, subscriptionArbiter, this.pFg).subscribeNext();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class RetrySubscriber<T> extends AtomicInteger implements io.reactivex.j<T> {
         private static final long serialVersionUID = -7098360935104053232L;
         final org.a.c<? super T> actual;
@@ -41,7 +36,7 @@ public final class FlowableRetryPredicate<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        public void onSubscribe(d dVar) {
             this.sa.setSubscription(dVar);
         }
 

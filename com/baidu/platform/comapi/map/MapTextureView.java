@@ -24,11 +24,11 @@ import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class MapTextureView extends GLTextureView implements MapRenderModeChangeListener, MapViewInterface, af {
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.mapsdkplatform.comapi.map.d f2886a;
+    protected com.baidu.mapsdkplatform.comapi.map.d f2888a;
     protected MapController b;
     protected ac c;
     protected k d;
@@ -42,7 +42,7 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
     private b l;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public class a implements GLSurfaceView.EGLContextFactory {
         private int b;
 
@@ -113,7 +113,7 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public interface b {
         void a(int i);
     }
@@ -271,7 +271,7 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
     }
 
     public com.baidu.mapsdkplatform.comapi.map.d getBaseMap() {
-        return this.f2886a;
+        return this.f2888a;
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
@@ -455,16 +455,16 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
     }
 
     public void onDestroy() {
-        if (this.f2886a != null) {
-            if (this.f2886a.h != null) {
-                for (ag agVar : this.f2886a.h) {
+        if (this.f2888a != null) {
+            if (this.f2888a.h != null) {
+                for (ag agVar : this.f2888a.h) {
                     if (agVar != null) {
                         agVar.d();
                     }
                 }
             }
-            this.f2886a.I();
-            this.f2886a = null;
+            this.f2888a.I();
+            this.f2888a = null;
         }
         this.b.unInit();
         this.b = null;
@@ -522,8 +522,8 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
         super.onSurfaceTextureAvailable(surfaceTexture, i, i2);
         this.f = i;
         this.g = i2;
-        if (this.f2886a != null) {
-            this.f2886a.a(this.f, this.g);
+        if (this.f2888a != null) {
+            this.f2888a.a(this.f, this.g);
         }
     }
 
@@ -538,7 +538,7 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
         super.onSurfaceTextureSizeChanged(surfaceTexture, i, i2);
         this.f = i;
         this.g = i2;
-        this.e.f2925a = i;
+        this.e.f2927a = i;
         this.e.b = i2;
         this.e.c = 0;
         if (this.b != null) {
@@ -550,8 +550,8 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
             setMapStatus(mapStatus);
             this.b.setScreenSize(this.f, this.g);
         }
-        if (this.f2886a != null) {
-            this.f2886a.a(this.f, this.g);
+        if (this.f2888a != null) {
+            this.f2888a.a(this.f, this.g);
         }
     }
 
@@ -628,7 +628,7 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
     }
 
     public void setBaseMap(com.baidu.mapsdkplatform.comapi.map.d dVar) {
-        this.f2886a = dVar;
+        this.f2888a = dVar;
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface

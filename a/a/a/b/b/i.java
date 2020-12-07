@@ -15,24 +15,24 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public abstract class i implements a.a.a.b.a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f962a;
+    public String f960a;
     public volatile int e;
     public volatile int f = 0;
-    public final c yG;
-    public final e yH;
-    public final b.a yI;
+    public final c zv;
+    public final e zw;
+    public final b.a zx;
 
     public i(c cVar, e eVar, b.a aVar) {
-        this.yG = cVar;
-        this.yH = eVar;
-        this.yI = aVar;
-        this.f962a = c();
-        if (TextUtils.isEmpty(this.f962a)) {
-            this.f962a = getClass().getSimpleName();
+        this.zv = cVar;
+        this.zw = eVar;
+        this.zx = aVar;
+        this.f960a = c();
+        if (TextUtils.isEmpty(this.f960a)) {
+            this.f960a = getClass().getSimpleName();
         }
     }
 
@@ -45,12 +45,12 @@ public abstract class i implements a.a.a.b.a.b {
         try {
             try {
                 try {
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.yH.f959a).openConnection();
+                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.zw.f957a).openConnection();
                     try {
                         httpURLConnection2.setConnectTimeout(4000);
                         httpURLConnection2.setReadTimeout(4000);
                         httpURLConnection2.setRequestMethod("GET");
-                        a(a(this.yH), httpURLConnection2);
+                        a(a(this.zw), httpURLConnection2);
                         int responseCode = httpURLConnection2.getResponseCode();
                         if (responseCode == b()) {
                             a(httpURLConnection2);
@@ -90,21 +90,21 @@ public abstract class i implements a.a.a.b.a.b {
     public final void a(DownloadException downloadException) {
         switch (downloadException.getErrorCode()) {
             case 106:
-                synchronized (this.yI) {
+                synchronized (this.zx) {
                     this.e = 106;
-                    ((g) this.yI).d();
+                    ((g) this.zx).d();
                 }
                 return;
             case 107:
-                synchronized (this.yI) {
+                synchronized (this.zx) {
                     this.e = 107;
-                    ((g) this.yI).c();
+                    ((g) this.zx).c();
                 }
                 return;
             case 108:
-                synchronized (this.yI) {
+                synchronized (this.zx) {
                     this.e = 108;
-                    ((g) this.yI).b(downloadException);
+                    ((g) this.zx).b(downloadException);
                 }
                 return;
             default:
@@ -128,7 +128,7 @@ public abstract class i implements a.a.a.b.a.b {
         byte[] bArr = new byte[8192];
         while (this.f != 107) {
             if (this.f == 106) {
-                c(this.yH);
+                c(this.zw);
                 throw new DownloadException(106, "Download paused!");
             }
             try {
@@ -138,13 +138,13 @@ public abstract class i implements a.a.a.b.a.b {
                 }
                 randomAccessFile.write(bArr, 0, read);
                 long j = read;
-                this.yH.d += j;
-                synchronized (this.yI) {
-                    this.yG.d += j;
-                    ((g) this.yI).a(this.yG.d, this.yG.c);
+                this.zw.d += j;
+                synchronized (this.zx) {
+                    this.zv.d += j;
+                    ((g) this.zx).a(this.zv.d, this.zv.c);
                 }
             } catch (IOException e) {
-                c(this.yH);
+                c(this.zw);
                 throw new DownloadException(108, e);
             }
         }
@@ -159,14 +159,14 @@ public abstract class i implements a.a.a.b.a.b {
             try {
                 InputStream inputStream = httpURLConnection.getInputStream();
                 try {
-                    long j = this.yH.b;
-                    long j2 = this.yH.d;
+                    long j = this.zw.b;
+                    long j2 = this.zw.d;
                     try {
-                        File file = this.yG.b;
+                        File file = this.zv.b;
                         if (!file.exists()) {
                             file.mkdirs();
                         }
-                        randomAccessFile = a(file, this.yG.f958a, j + j2);
+                        randomAccessFile = a(file, this.zv.f956a, j + j2);
                         try {
                             a(inputStream, randomAccessFile);
                             try {
@@ -227,14 +227,14 @@ public abstract class i implements a.a.a.b.a.b {
     @Override // java.lang.Runnable
     public void run() {
         Process.setThreadPriority(10);
-        b(this.yH);
+        b(this.zw);
         try {
             this.e = 104;
             a();
-            synchronized (this.yI) {
+            synchronized (this.zx) {
                 this.e = 105;
-                b.a aVar = this.yI;
-                ((g) aVar).a(this.yG.b.getAbsolutePath() + File.separator + this.yG.f958a);
+                b.a aVar = this.zx;
+                ((g) aVar).a(this.zv.b.getAbsolutePath() + File.separator + this.zv.f956a);
             }
         } catch (DownloadException e) {
             a(e);

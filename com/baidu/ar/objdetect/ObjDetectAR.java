@@ -3,26 +3,25 @@ package com.baidu.ar.objdetect;
 import android.graphics.PointF;
 import android.os.Bundle;
 import com.baidu.ala.dumixar.utils.LuaMessageHelper;
-import com.baidu.ar.arrender.k;
+import com.baidu.ar.arrender.l;
 import com.baidu.ar.c;
 import com.baidu.ar.d.b;
 import com.baidu.ar.d.e;
-import com.baidu.ar.d.l;
 import com.baidu.ar.gesture.GestureAR;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class ObjDetectAR extends c {
-    private e mg;
-    private ObjDetectDetector sK;
+    private e mv;
+    private ObjDetectDetector tx;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap l(float[] fArr) {
+    public HashMap k(float[] fArr) {
         HashMap hashMap = new HashMap();
         hashMap.put(LuaMessageHelper.KEY_EVENT_NAME, "object_detect");
         int i = (int) fArr[0];
         ArrayList arrayList = new ArrayList();
-        k r = r();
+        l r = r();
         if (r == null) {
             hashMap.put("event_data", arrayList);
         } else {
@@ -49,9 +48,9 @@ public class ObjDetectAR extends c {
 
     @Override // com.baidu.ar.c
     public void release() {
-        if (this.sK != null) {
-            this.sK.au();
-            a(this.sK);
+        if (this.tx != null) {
+            this.tx.av();
+            a(this.tx);
         }
         super.release();
     }
@@ -59,23 +58,23 @@ public class ObjDetectAR extends c {
     @Override // com.baidu.ar.c
     public void setup(HashMap<String, Object> hashMap) {
         super.setup(hashMap);
-        this.sK = new ObjDetectDetector();
-        this.mg = new e() { // from class: com.baidu.ar.objdetect.ObjDetectAR.1
+        this.tx = new ObjDetectDetector();
+        this.mv = new e() { // from class: com.baidu.ar.objdetect.ObjDetectAR.1
             @Override // com.baidu.ar.d.e
             public void a(b bVar) {
-                ObjDetectAR.this.d(ObjDetectAR.this.l(((a) bVar).fo()));
+                ObjDetectAR.this.d(ObjDetectAR.this.k(((a) bVar).fn()));
             }
 
             @Override // com.baidu.ar.d.e
-            public void a(l lVar) {
+            public void a(com.baidu.ar.d.l lVar) {
             }
 
             @Override // com.baidu.ar.d.e
-            public void b(l lVar) {
+            public void b(com.baidu.ar.d.l lVar) {
             }
         };
-        a(this.sK, this.mg);
-        com.baidu.ar.b.a.ar().a(getContext(), getMdlConfigs());
-        this.sK.b(new Bundle());
+        a(this.tx, this.mv);
+        com.baidu.ar.b.a.as().a(getContext(), getMdlConfigs());
+        this.tx.b(new Bundle());
     }
 }

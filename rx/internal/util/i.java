@@ -6,37 +6,37 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import rx.k;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public final class i implements k {
-    private volatile boolean qfr;
-    private List<k> qkx;
+    private volatile boolean pPt;
+    private List<k> pUy;
 
     public i() {
     }
 
     public i(k... kVarArr) {
-        this.qkx = new LinkedList(Arrays.asList(kVarArr));
+        this.pUy = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public i(k kVar) {
-        this.qkx = new LinkedList();
-        this.qkx.add(kVar);
+        this.pUy = new LinkedList();
+        this.pUy.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.qfr;
+        return this.pPt;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.qfr) {
+            if (!this.pPt) {
                 synchronized (this) {
-                    if (!this.qfr) {
-                        List list = this.qkx;
+                    if (!this.pPt) {
+                        List list = this.pUy;
                         if (list == null) {
                             list = new LinkedList();
-                            this.qkx = list;
+                            this.pUy = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class i implements k {
     }
 
     public void a(k kVar) {
-        if (!this.qfr) {
+        if (!this.pPt) {
             synchronized (this) {
-                List<k> list = this.qkx;
-                if (!this.qfr && list != null) {
+                List<k> list = this.pUy;
+                if (!this.pPt && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,19 +63,19 @@ public final class i implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.qfr) {
+        if (!this.pPt) {
             synchronized (this) {
-                if (!this.qfr) {
-                    this.qfr = true;
-                    List<k> list = this.qkx;
-                    this.qkx = null;
-                    v(list);
+                if (!this.pPt) {
+                    this.pPt = true;
+                    List<k> list = this.pUy;
+                    this.pUy = null;
+                    u(list);
                 }
             }
         }
     }
 
-    private static void v(Collection<k> collection) {
+    private static void u(Collection<k> collection) {
         if (collection != null) {
             ArrayList arrayList = null;
             for (k kVar : collection) {
@@ -87,7 +87,7 @@ public final class i implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.gT(arrayList);
+            rx.exceptions.a.hg(arrayList);
         }
     }
 }

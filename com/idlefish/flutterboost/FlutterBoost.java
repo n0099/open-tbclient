@@ -284,7 +284,7 @@ public class FlutterBoost {
         }
         if (this.mEngine == null) {
             synchronized (com.baidu.adp.plugin.util.a.mLock) {
-                PluginSetting findPluginSetting = c.qv().findPluginSetting("com.baidu.tieba.pluginFlutter");
+                PluginSetting findPluginSetting = c.qx().findPluginSetting("com.baidu.tieba.pluginFlutter");
                 try {
                     if (FlutterCrashRepairEnableSwitch.isOn() && findPluginSetting != null && findPluginSetting.apkPath != null) {
                         Object pathList = com.baidu.adp.plugin.util.a.getPathList((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());

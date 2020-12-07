@@ -3,8 +3,8 @@ package com.baidu.live.ar;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class h {
-    private int aCA;
-    private String aDa;
+    private String aFG;
+    private int aFg;
     private String mFile;
     private String mId;
     private String mName;
@@ -14,8 +14,8 @@ public class h {
             this.mId = jSONObject.optString("id");
             this.mName = jSONObject.optString("name");
             this.mFile = jSONObject.optString("file");
-            this.aDa = jSONObject.optString("bgurl");
-            this.aCA = jSONObject.optInt("effect");
+            this.aFG = jSONObject.optString("bgurl");
+            this.aFg = jSONObject.optInt("effect");
         }
     }
 
@@ -27,15 +27,15 @@ public class h {
         return this.mName;
     }
 
-    public String BL() {
+    public String Dv() {
         return this.mFile;
     }
 
-    public String BK() {
-        return this.aDa;
+    public String Du() {
+        return this.aFG;
     }
 
-    public int BO() {
-        return this.aCA;
+    public int Dy() {
+        return this.aFg;
     }
 }

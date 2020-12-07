@@ -6,9 +6,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.z;
 import com.baidu.tieba.frs.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e extends k<com.baidu.tieba.tbadkCore.h, com.baidu.tieba.ala.livecard.a.c> implements z {
-    private com.baidu.tieba.ala.livecard.b.d gSn;
+    private com.baidu.tieba.ala.livecard.b.d hbA;
     private String mForumName;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -21,7 +21,7 @@ public class e extends k<com.baidu.tieba.tbadkCore.h, com.baidu.tieba.ala.liveca
     }
 
     @Override // com.baidu.tieba.card.z
-    public void vB(int i) {
+    public void wi(int i) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,9 +32,9 @@ public class e extends k<com.baidu.tieba.tbadkCore.h, com.baidu.tieba.ala.liveca
         if (this.mPageContext == null) {
             return null;
         }
-        this.gSn = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
-        this.gSn.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.c(this.gSn);
+        this.hbA = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
+        this.hbA.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.c(this.hbA);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,12 +44,12 @@ public class e extends k<com.baidu.tieba.tbadkCore.h, com.baidu.tieba.ala.liveca
         super.a(i, view, viewGroup, (ViewGroup) hVar, (com.baidu.tieba.tbadkCore.h) cVar);
         if (hVar != null) {
             int i2 = 0;
-            if (this.iHB != null) {
-                i2 = this.iHB.getTopThreadSize();
+            if (this.iSt != null) {
+                i2 = this.iSt.getTopThreadSize();
             }
-            cVar.gSv.eAb = (i + 1) - i2;
-            cVar.gSv.setForumName(this.mForumName);
-            cVar.gSv.a(hVar);
+            cVar.hbI.eHa = (i + 1) - i2;
+            cVar.hbI.setForumName(this.mForumName);
+            cVar.hbI.a(hVar);
         }
         return view;
     }

@@ -1,5 +1,5 @@
 package rx.internal.util.atomic;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public final class e<E> extends b<E> {
     public e() {
         LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>();
@@ -14,14 +14,14 @@ public final class e<E> extends b<E> {
             throw new NullPointerException("null elements not allowed");
         }
         LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
-        eGi().soNext(linkedQueueNode);
+        eGj().soNext(linkedQueueNode);
         a(linkedQueueNode);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        LinkedQueueNode<E> lvNext = eGk().lvNext();
+        LinkedQueueNode<E> lvNext = eGl().lvNext();
         if (lvNext != null) {
             E andNullValue = lvNext.getAndNullValue();
             b(lvNext);
@@ -32,7 +32,7 @@ public final class e<E> extends b<E> {
 
     @Override // java.util.Queue
     public E peek() {
-        LinkedQueueNode<E> lvNext = eGk().lvNext();
+        LinkedQueueNode<E> lvNext = eGl().lvNext();
         if (lvNext != null) {
             return lvNext.lpValue();
         }

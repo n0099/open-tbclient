@@ -3,12 +3,12 @@ package com.baidu.swan.apps.inlinewidget.rtcroom;
 import android.support.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class c implements ZeusPluginFactory {
-    private String cuQ;
+    private String cBI;
 
     public c(@NonNull String str) {
-        this.cuQ = str;
+        this.cBI = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
@@ -18,7 +18,7 @@ public class c implements ZeusPluginFactory {
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        com.baidu.swan.apps.inlinewidget.rtcroom.c.a d = com.baidu.swan.apps.t.a.awG().d(invoker, this.cuQ);
+        com.baidu.swan.apps.inlinewidget.rtcroom.c.a d = com.baidu.swan.apps.t.a.azO().d(invoker, this.cBI);
         com.baidu.swan.apps.console.c.i("【RtcItemPluginFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline RtcItem「Hash:" + d.hashCode() + "」");
         return new a(d);
     }

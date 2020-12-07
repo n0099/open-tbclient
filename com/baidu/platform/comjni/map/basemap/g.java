@@ -4,17 +4,17 @@ import android.os.Bundle;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class g implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Bundle f3173a;
+    final /* synthetic */ Bundle f3175a;
     final /* synthetic */ NABaseMap b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(NABaseMap nABaseMap, Bundle bundle) {
         this.b = nABaseMap;
-        this.f3173a = bundle;
+        this.f3175a = bundle;
     }
 
     @Override // java.lang.Runnable
@@ -39,7 +39,7 @@ public class g implements Runnable {
                     try {
                         NABaseMap nABaseMap = this.b;
                         j = this.b.b;
-                        nABaseMap.nativeRemoveOneOverlayItem(j, this.f3173a);
+                        nABaseMap.nativeRemoveOneOverlayItem(j, this.f3175a);
                     } catch (Throwable th2) {
                         z = tryLock;
                         th = th2;

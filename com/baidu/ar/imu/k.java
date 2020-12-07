@@ -2,19 +2,19 @@ package com.baidu.ar.imu;
 
 import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class k extends d {
-    private float[] sq;
-    private float[] sr;
+    private float[] sH;
+    private float[] sI;
 
     public k(SensorManager sensorManager) {
         super(sensorManager);
-        this.sq = new float[3];
-        this.sr = new float[3];
-        this.si.add(sensorManager.getDefaultSensor(9));
-        this.si.add(sensorManager.getDefaultSensor(2));
-        this.si.add(sensorManager.getDefaultSensor(4));
-        this.si.add(sensorManager.getDefaultSensor(11));
+        this.sH = new float[3];
+        this.sI = new float[3];
+        this.sz.add(sensorManager.getDefaultSensor(9));
+        this.sz.add(sensorManager.getDefaultSensor(2));
+        this.sz.add(sensorManager.getDefaultSensor(4));
+        this.sz.add(sensorManager.getDefaultSensor(11));
     }
 
     @Override // com.baidu.ar.imu.d, android.hardware.SensorEventListener
@@ -22,15 +22,15 @@ public class k extends d {
         if (sensorEvent.sensor.getType() == 11 || sensorEvent.sensor.getType() == 4) {
             super.onSensorChanged(sensorEvent);
         } else if (sensorEvent.sensor.getType() == 2) {
-            this.sq = (float[]) sensorEvent.values.clone();
+            this.sH = (float[]) sensorEvent.values.clone();
         } else if (sensorEvent.sensor.getType() == 9) {
-            this.sr = (float[]) sensorEvent.values.clone();
-            this.rN = this.sr;
+            this.sI = (float[]) sensorEvent.values.clone();
+            this.se = this.sI;
         }
-        if (this.sq == null || this.sr == null) {
+        if (this.sH == null || this.sI == null) {
             return;
         }
-        SensorManager.getRotationMatrix(this.sj.matrix, new float[16], this.sr, this.sq);
-        this.sk.setRowMajor(this.sj.matrix);
+        SensorManager.getRotationMatrix(this.sA.matrix, new float[16], this.sI, this.sH);
+        this.sB.setRowMajor(this.sA.matrix);
     }
 }

@@ -1,56 +1,88 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import java.util.ArrayList;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+import tbclient.LinkThreadContent;
+import tbclient.LinkThreadInfo;
 /* loaded from: classes.dex */
 public class ao {
-    private ArrayList<String> ezR;
-    private int ezS = 0;
-    private UserData ezQ = new UserData();
-    private AntiData anti = new AntiData();
+    public static int eGK = 1;
+    private String eGL;
+    private String eGM;
+    private int eGN = 0;
+    private boolean eGO = false;
+    private String linkTitle;
+    private String linkUrl;
 
-    public ao() {
-        this.ezR = null;
-        this.ezR = new ArrayList<>();
-        nR(0);
-    }
-
-    public UserData getUser() {
-        return this.ezQ;
-    }
-
-    public AntiData getAnti() {
-        return this.anti;
-    }
-
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public void a(LinkThreadInfo linkThreadInfo) {
+        if (linkThreadInfo != null) {
+            this.linkUrl = linkThreadInfo.link_url;
+            LinkThreadContent linkThreadContent = (LinkThreadContent) com.baidu.tbadk.core.util.y.getItem(linkThreadInfo.link_content, 0);
+            if (linkThreadContent != null) {
+                this.linkTitle = linkThreadContent.link_title;
+                this.eGL = linkThreadContent.link_abstract;
+                this.eGM = linkThreadContent.link_head_small_pic;
+                this.eGN = linkThreadContent.link_type.intValue();
+                if (com.baidu.tbadk.core.util.au.isEmpty(this.linkTitle) && com.baidu.tbadk.core.util.au.isEmpty(this.eGL)) {
+                    this.eGO = true;
+                    return;
+                }
+                return;
+            }
+            this.eGO = true;
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
-        try {
-            this.ezQ.parserJson(jSONObject.optJSONObject("user"));
-            this.anti.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.ezR.add(optJSONArray.optString(i, null));
+        if (jSONObject != null) {
+            this.linkUrl = jSONObject.optString("link_url");
+            JSONArray optJSONArray = jSONObject.optJSONArray("link_content");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                try {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(0);
+                    if (jSONObject2 != null) {
+                        this.linkTitle = jSONObject2.optString("link_title");
+                        this.eGL = jSONObject2.optString("link_abstract");
+                        this.eGM = jSONObject2.optString("link_head_small_pic");
+                        this.eGN = jSONObject2.optInt("link_type");
+                        if (com.baidu.tbadk.core.util.au.isEmpty(this.linkTitle) && com.baidu.tbadk.core.util.au.isEmpty(this.eGL)) {
+                            this.eGO = true;
+                        }
+                    } else {
+                        this.eGO = true;
+                    }
+                    return;
+                } catch (JSONException e) {
+                    this.eGO = true;
+                    return;
                 }
             }
-            nR(jSONObject.optInt("retrytime"));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            this.eGO = true;
         }
     }
 
-    public void nR(int i) {
-        this.ezS = i;
+    public String getLinkUrl() {
+        return this.linkUrl;
+    }
+
+    public String bnh() {
+        return this.linkTitle;
+    }
+
+    public String bni() {
+        return this.eGL;
+    }
+
+    public String bnj() {
+        return this.eGM;
+    }
+
+    public int bnk() {
+        return this.eGN;
+    }
+
+    public boolean bnl() {
+        return this.eGO;
     }
 }

@@ -12,18 +12,18 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class fd extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3875a;
+    private Context f3878a;
     private JSONArray b;
     private int c;
     private boolean d;
 
     public fd(Context context, JSONArray jSONArray, int i, boolean z) {
         this.d = false;
-        this.f3875a = context;
+        this.f3878a = context;
         this.b = jSONArray;
         this.c = i;
         this.d = z;
@@ -58,18 +58,18 @@ public final class fd extends BaseAdapter {
         LinearLayout linearLayout;
         if (view == null) {
             fe feVar2 = new fe();
-            LinearLayout linearLayout2 = new LinearLayout(this.f3875a);
+            LinearLayout linearLayout2 = new LinearLayout(this.f3878a);
             linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, -2));
-            TextView textView = new TextView(this.f3875a);
+            TextView textView = new TextView(this.f3878a);
             textView.setTextColor(ViewCompat.MEASURED_STATE_MASK);
             textView.setTextSize(com.baidu.ufosdk.b.R);
             textView.setGravity(16);
             textView.setSingleLine(true);
             textView.setEllipsize(TextUtils.TruncateAt.END);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f3875a, 10.0f), com.baidu.ufosdk.f.i.a(this.f3875a, 5.0f), 0, com.baidu.ufosdk.f.i.a(this.f3875a, 5.0f));
+            layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f3878a, 10.0f), com.baidu.ufosdk.f.i.a(this.f3878a, 5.0f), 0, com.baidu.ufosdk.f.i.a(this.f3878a, 5.0f));
             linearLayout2.addView(textView, layoutParams);
-            feVar2.f3876a = textView;
+            feVar2.f3879a = textView;
             linearLayout2.setTag(feVar2);
             feVar = feVar2;
             linearLayout = linearLayout2;
@@ -80,25 +80,25 @@ public final class fd extends BaseAdapter {
         try {
             JSONObject jSONObject = (JSONObject) this.b.get(i);
             if (this.c == 0) {
-                feVar.f3876a.setText(jSONObject.getString("question"));
-                feVar.f3876a.setSingleLine(true);
+                feVar.f3879a.setText(jSONObject.getString("question"));
+                feVar.f3879a.setSingleLine(true);
                 if (this.d) {
-                    feVar.f3876a.setTextColor(-13421773);
+                    feVar.f3879a.setTextColor(-13421773);
                 } else {
-                    feVar.f3876a.setTextColor(-12814593);
+                    feVar.f3879a.setTextColor(-12814593);
                 }
             } else {
-                feVar.f3876a.setText(jSONObject.getString("name"));
-                feVar.f3876a.setSingleLine(true);
+                feVar.f3879a.setText(jSONObject.getString("name"));
+                feVar.f3879a.setSingleLine(true);
                 if (this.d) {
-                    feVar.f3876a.setTextColor(-13421773);
+                    feVar.f3879a.setTextColor(-13421773);
                 } else {
-                    feVar.f3876a.setTextColor(-12814593);
+                    feVar.f3879a.setTextColor(-12814593);
                 }
             }
         } catch (JSONException e) {
             e.printStackTrace();
-            feVar.f3876a.setText("");
+            feVar.f3879a.setText("");
         }
         return linearLayout;
     }

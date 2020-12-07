@@ -6,23 +6,23 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public final class i {
-    public static <E> HashSet<E> eka() {
+    public static <E> HashSet<E> epP() {
         return new HashSet<>();
     }
 
     public static <E> HashSet<E> N(E... eArr) {
-        HashSet<E> OT = OT(eArr.length);
-        Collections.addAll(OT, eArr);
-        return OT;
+        HashSet<E> PR = PR(eArr.length);
+        Collections.addAll(PR, eArr);
+        return PR;
     }
 
-    public static <E> HashSet<E> OT(int i) {
+    public static <E> HashSet<E> PR(int i) {
         return new HashSet<>(i);
     }
 
-    public static <E> Set<E> ekb() {
+    public static <E> Set<E> epQ() {
         return H(new IdentityHashMap());
     }
 
@@ -30,7 +30,7 @@ public final class i {
         return Collections.newSetFromMap(map);
     }
 
-    public static <E> CopyOnWriteArraySet<E> ekc() {
+    public static <E> CopyOnWriteArraySet<E> epR() {
         return new CopyOnWriteArraySet<>();
     }
 }

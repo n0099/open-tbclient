@@ -2,7 +2,7 @@ package com.baidu.ar.auth;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public final class FeatureCodes {
     public static final int ADVANCE_BEAUTY = 1600;
     public static final int BASIC_BEAUTY = 1000;
@@ -22,6 +22,7 @@ public final class FeatureCodes {
     public static final int SKY_SEG = 1900;
     public static final int SPLIT_FILTER = 1110;
     public static final int TRACK_2D = 2100;
+    public static final int TRACK_3D = 3100;
     public static final int VO = 1300;
 
     public static List<Integer> getAll() {
@@ -29,7 +30,7 @@ public final class FeatureCodes {
         arrayList.add(1000);
         arrayList.add(1100);
         arrayList.add(Integer.valueOf((int) FACE));
-        arrayList.add(Integer.valueOf((int) VO));
+        arrayList.add(1300);
         arrayList.add(Integer.valueOf((int) POSE));
         arrayList.add(1500);
         arrayList.add(Integer.valueOf((int) ADVANCE_BEAUTY));
@@ -43,6 +44,7 @@ public final class FeatureCodes {
         arrayList.add(2000);
         arrayList.add(Integer.valueOf((int) FACE_DUMOJI));
         arrayList.add(2100);
+        arrayList.add(Integer.valueOf((int) TRACK_3D));
         arrayList.add(2200);
         arrayList.add(2300);
         return arrayList;

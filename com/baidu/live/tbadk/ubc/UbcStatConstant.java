@@ -161,6 +161,11 @@ public class UbcStatConstant {
         public static final String VALUE_CHAT_LINK_INVITE_SHOW = "linkinvite_show";
         public static final String VALUE_CHAT_LINK_SUCCESS = "chatlink_succ";
         public static final String VALUE_CHAT_LINK_TAB_SHOW = "linktab_show";
+        public static final String VALUE_HOST_POKE = "anchorpoke_clk";
+        public static final String VALUE_HOST_POKE_SUCCESS = "anchorpoke_succ";
         public static final String VALUE_INVITE_BTN_CLICK = "invitebtn_clk";
+        public static final String VALUE_QUICK_CLICK = "quickchat_clk";
+        public static final String VALUE_USER_POKE_BACK = "userpoke_clk";
+        public static final String VALUE_USER_POKE_BACK_SUCCESS = "userpoke_succ";
     }
 }

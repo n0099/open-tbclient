@@ -2,15 +2,15 @@ package com.baidu.webkit.internal;
 
 import com.baidu.webkit.sdk.WebView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f3939a;
+    final /* synthetic */ e f3942a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.f3939a = eVar;
+        this.f3942a = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -24,18 +24,18 @@ public final class f implements Runnable {
                 return;
             }
             try {
-                webView = this.f3939a.c;
+                webView = this.f3942a.c;
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (webView == null) {
                 return;
             }
-            webView2 = this.f3939a.c;
+            webView2 = this.f3942a.c;
             if (webView2.isDestroyed()) {
                 return;
             }
-            this.f3939a.e();
+            this.f3942a.e();
             Thread.sleep(20L);
             i = i2 + 1;
         }

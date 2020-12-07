@@ -28,7 +28,7 @@ import org.json.JSONObject;
 public class LogSender {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LogSender f2499a = new LogSender();
+    private static LogSender f2501a = new LogSender();
     private boolean b = false;
     private int c = 0;
     private int d = 1;
@@ -37,7 +37,7 @@ public class LogSender {
     private Handler g;
 
     public static LogSender instance() {
-        return f2499a;
+        return f2501a;
     }
 
     private LogSender() {

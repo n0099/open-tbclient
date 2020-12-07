@@ -7,15 +7,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.util.bf;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class RecommendsStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PbChosenActivityConfig.class, PbChosenActivity.class);
-        cMv();
+        cRJ();
     }
 
-    private static void cMv() {
-        bf.bqF().a(new bf.a() { // from class: com.baidu.tieba.pb.chosen.RecommendsStatic.1
+    private static void cRJ() {
+        bf.bua().a(new bf.a() { // from class: com.baidu.tieba.pb.chosen.RecommendsStatic.1
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length <= 0) {

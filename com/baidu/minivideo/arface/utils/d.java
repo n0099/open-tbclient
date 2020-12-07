@@ -1,31 +1,31 @@
 package com.baidu.minivideo.arface.utils;
 
 import java.io.File;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public class d extends c {
-    private static d bYM;
+    private static d cfm;
 
     private d() {
     }
 
-    public static d ZF() {
-        if (bYM == null) {
+    public static d acN() {
+        if (cfm == null) {
             init();
         }
-        return bYM;
+        return cfm;
     }
 
     private static synchronized void init() {
         synchronized (d.class) {
-            if (bYM == null) {
-                bYM = new d();
+            if (cfm == null) {
+                cfm = new d();
             }
         }
     }
 
     @Override // com.baidu.minivideo.arface.utils.c
     protected void run() {
-        com.baidu.minivideo.arface.b.Zs();
-        setState(new File(com.baidu.minivideo.arface.c.ZA()).exists() ? 2 : 3);
+        com.baidu.minivideo.arface.b.abY();
+        setState(new File(com.baidu.minivideo.arface.c.acj()).exists() ? 2 : 3);
     }
 }

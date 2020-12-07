@@ -1,7 +1,7 @@
 package com.baidu.rtc.camera.filter.glfilter.utils;
 
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-/* loaded from: classes16.dex */
+/* loaded from: classes11.dex */
 public enum Rotation {
     NORMAL,
     ROTATION_90,

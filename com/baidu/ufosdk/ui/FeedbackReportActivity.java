@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.view.ViewCompat;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
@@ -54,7 +55,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"SetJavaScriptEnabled"})
 @TargetApi(11)
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class FeedbackReportActivity extends Activity {
     private View A;
     private ScrollView L;
@@ -105,7 +106,7 @@ public class FeedbackReportActivity extends Activity {
     private boolean T = false;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f3739a = -1;
+    protected int f3742a = -1;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void D(FeedbackReportActivity feedbackReportActivity) {
@@ -115,13 +116,13 @@ public class FeedbackReportActivity extends Activity {
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");
-        if (feedbackReportActivity.f3739a == feedbackReportActivity.x.size() - 1) {
+        if (feedbackReportActivity.f3742a == feedbackReportActivity.x.size() - 1) {
             if (feedbackReportActivity.getCurrentFocus() != null && feedbackReportActivity.getCurrentFocus().getWindowToken() != null) {
                 ((InputMethodManager) feedbackReportActivity.getSystemService("input_method")).hideSoftInputFromWindow(feedbackReportActivity.getCurrentFocus().getWindowToken(), 2);
             }
             try {
                 feedbackReportActivity.D = true;
-                feedbackReportActivity.startActivityForResult(intent, feedbackReportActivity.f3739a);
+                feedbackReportActivity.startActivityForResult(intent, feedbackReportActivity.f3742a);
                 try {
                     feedbackReportActivity.overridePendingTransition(com.baidu.ufosdk.f.i.a(feedbackReportActivity.getApplicationContext(), "ufo_slide_in_from_bottom"), 0);
                 } catch (Exception e) {
@@ -417,7 +418,7 @@ public class FeedbackReportActivity extends Activity {
             hashMap.put("nettype", "N/A");
         }
         hashMap.put("screenSize", com.baidu.ufosdk.b.f.a(context));
-        if (com.baidu.ufosdk.b.f3700a) {
+        if (com.baidu.ufosdk.b.f3703a) {
             hashMap.put("logcat", com.baidu.ufosdk.b.b.a());
         }
         if (!TextUtils.isEmpty(com.baidu.ufosdk.b.h)) {
@@ -471,7 +472,7 @@ public class FeedbackReportActivity extends Activity {
     /* JADX WARN: Removed duplicated region for block: B:27:0x0097  */
     /* JADX WARN: Removed duplicated region for block: B:56:0x014d  */
     /* JADX WARN: Type inference failed for: r0v23, types: [android.widget.Toast] */
-    /* JADX WARN: Type inference failed for: r1v13, types: [java.lang.Object, byte[]] */
+    /* JADX WARN: Type inference failed for: r1v13, types: [byte[], java.lang.Object] */
     /* JADX WARN: Type inference failed for: r1v17 */
     /* JADX WARN: Type inference failed for: r1v25 */
     /* JADX WARN: Type inference failed for: r1v26 */
@@ -479,7 +480,7 @@ public class FeedbackReportActivity extends Activity {
     /* JADX WARN: Type inference failed for: r1v34 */
     /* JADX WARN: Type inference failed for: r1v35 */
     /* JADX WARN: Type inference failed for: r1v36 */
-    /* JADX WARN: Type inference failed for: r1v8, types: [java.lang.Object, byte[]] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [byte[], java.lang.Object] */
     /* JADX WARN: Type inference failed for: r2v10 */
     /* JADX WARN: Type inference failed for: r2v11 */
     /* JADX WARN: Type inference failed for: r2v12 */
@@ -744,7 +745,7 @@ public class FeedbackReportActivity extends Activity {
         this.m.setTextColor(com.baidu.ufosdk.b.y);
         this.m.setTextSize(com.baidu.ufosdk.b.U);
         this.m.setGravity(17);
-        this.m.setBackgroundColor(16777215);
+        this.m.setBackgroundColor(ViewCompat.MEASURED_SIZE_MASK);
         this.m.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 8.0f), 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 8.0f), 0);
         RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-2, com.baidu.ufosdk.f.i.a(getApplicationContext(), 28.0f));
         layoutParams5.addRule(11);

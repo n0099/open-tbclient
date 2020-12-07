@@ -12,10 +12,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class m {
-    private static Map<Class, Integer> zB = new HashMap();
-    private static Map<Class, List<Constructor<? extends g>>> zC = new HashMap();
+    private static Map<Class, Integer> As = new HashMap();
+    private static Map<Class, List<Constructor<? extends g>>> At = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
@@ -29,7 +29,7 @@ public class m {
         }
         Class<?> cls = obj.getClass();
         if (i(cls) == 2) {
-            List<Constructor<? extends g>> list = zC.get(cls);
+            List<Constructor<? extends g>> list = At.get(cls);
             if (list.size() == 1) {
                 return new v(a(list.get(0), obj));
             }
@@ -69,11 +69,11 @@ public class m {
             if (!name.isEmpty()) {
                 canonicalName = canonicalName.substring(name.length() + 1);
             }
-            String aW = aW(canonicalName);
+            String aZ = aZ(canonicalName);
             if (!name.isEmpty()) {
-                aW = name + "." + aW;
+                aZ = name + "." + aZ;
             }
-            Constructor declaredConstructor = Class.forName(aW).getDeclaredConstructor(cls);
+            Constructor declaredConstructor = Class.forName(aZ).getDeclaredConstructor(cls);
             if (!declaredConstructor.isAccessible()) {
                 declaredConstructor.setAccessible(true);
                 return declaredConstructor;
@@ -87,11 +87,11 @@ public class m {
     }
 
     private static int i(Class<?> cls) {
-        if (zB.containsKey(cls)) {
-            return zB.get(cls).intValue();
+        if (As.containsKey(cls)) {
+            return As.get(cls).intValue();
         }
         int j = j(cls);
-        zB.put(cls, Integer.valueOf(j));
+        As.put(cls, Integer.valueOf(j));
         return j;
     }
 
@@ -102,9 +102,9 @@ public class m {
         }
         Constructor<? extends g> h = h(cls);
         if (h != null) {
-            zC.put(cls, Collections.singletonList(h));
+            At.put(cls, Collections.singletonList(h));
             return 2;
-        } else if (b.za.e(cls)) {
+        } else if (b.zQ.e(cls)) {
             return 1;
         } else {
             Class<? super Object> superclass = cls.getSuperclass();
@@ -113,7 +113,7 @@ public class m {
                 if (i(superclass) == 1) {
                     return 1;
                 }
-                arrayList = new ArrayList(zC.get(superclass));
+                arrayList = new ArrayList(At.get(superclass));
             }
             for (Class<?> cls2 : cls.getInterfaces()) {
                 if (k(cls2)) {
@@ -121,12 +121,12 @@ public class m {
                         return 1;
                     }
                     ArrayList arrayList2 = arrayList == null ? new ArrayList() : arrayList;
-                    arrayList2.addAll(zC.get(cls2));
+                    arrayList2.addAll(At.get(cls2));
                     arrayList = arrayList2;
                 }
             }
             if (arrayList != null) {
-                zC.put(cls, arrayList);
+                At.put(cls, arrayList);
                 return 2;
             }
             return 1;
@@ -137,7 +137,7 @@ public class m {
         return cls != null && i.class.isAssignableFrom(cls);
     }
 
-    public static String aW(String str) {
+    public static String aZ(String str) {
         return str.replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + "_LifecycleAdapter";
     }
 }

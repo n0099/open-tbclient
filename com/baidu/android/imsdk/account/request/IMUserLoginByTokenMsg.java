@@ -14,13 +14,13 @@ import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.imsdk.a;
+import com.baidu.h.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.sapi2.SapiContext;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMUserLoginByTokenMsg extends Message {
     public static int sRetrytimes = 0;
     private String cFrom;
@@ -116,7 +116,6 @@ public class IMUserLoginByTokenMsg extends Message {
 
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        String optString;
         int i2 = 0;
         LogUtils.d(this.TAG, "handleLoginMsg errCode: " + i + " msg:" + str);
         if (i != 410) {
@@ -127,53 +126,54 @@ public class IMUserLoginByTokenMsg extends Message {
                     Utility.writeLoginFlag(this.mContext, "17Y", "Read LoginMsg response");
                     sRetrytimes = 0;
                     LogUtils.d(this.TAG, "Logined");
-                    optString = jSONObject.optString("logid", "-1");
-                } catch (Exception e) {
-                    e = e;
-                }
-                try {
-                    long optLong = jSONObject.optLong("uk", -1L);
-                    long optLong2 = jSONObject.optJSONArray(Constants.KEY_TRIGGER_ID).optLong(0);
-                    int optInt = jSONObject.optInt("authority", -1);
-                    IMSDK.getInstance(this.mContext).setUk(optLong);
-                    Utility.writeTriggerId(this.mContext, optLong2);
-                    Utility.writeUK(this.mContext, optLong);
-                    Utility.setCuidAuthority(this.mContext, optInt);
-                    String optString2 = jSONObject.optString("cookie", "");
-                    if (!TextUtils.isEmpty(optString2)) {
-                        Utility.writeLoginCookie(this.mContext, optString2);
-                    }
-                    Utility.writeLoginRole(this.mContext, jSONObject.optInt("role", 0));
-                    Utility.writeRestApiDisable(jSONObject.optInt("disable_restapi", 0));
-                    Utility.setBdDnsEnable(this.mContext, jSONObject.optInt("bddns_enable", 1));
-                    Utility.setConnType(this.mContext, jSONObject.optInt("conn_type", 0));
-                    Utility.setUploadIMTrack(this.mContext, jSONObject.optInt("client_upload_log_switch", 1));
-                    JSONArray optJSONArray = jSONObject.optJSONArray("log_switch");
-                    if (optJSONArray != null) {
-                        while (true) {
-                            if (i2 < optJSONArray.length()) {
-                                JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
-                                if (jSONObject2 == null || jSONObject2.optInt("id", -1) != 501100) {
-                                    i2++;
+                    String optString = jSONObject.optString("logid", "-1");
+                    try {
+                        long optLong = jSONObject.optLong("uk", -1L);
+                        long optLong2 = jSONObject.optJSONArray(Constants.KEY_TRIGGER_ID).optLong(0);
+                        int optInt = jSONObject.optInt("authority", -1);
+                        IMSDK.getInstance(this.mContext).setUk(optLong);
+                        Utility.writeTriggerId(this.mContext, optLong2);
+                        Utility.writeUK(this.mContext, optLong);
+                        Utility.setCuidAuthority(this.mContext, optInt);
+                        String optString2 = jSONObject.optString("cookie", "");
+                        if (!TextUtils.isEmpty(optString2)) {
+                            Utility.writeLoginCookie(this.mContext, optString2);
+                        }
+                        Utility.writeLoginRole(this.mContext, jSONObject.optInt("role", 0));
+                        Utility.writeRestApiDisable(jSONObject.optInt("disable_restapi", 0));
+                        Utility.setBdDnsEnable(this.mContext, jSONObject.optInt("bddns_enable", 1));
+                        Utility.setConnType(this.mContext, jSONObject.optInt("conn_type", 0));
+                        Utility.setUploadIMTrack(this.mContext, jSONObject.optInt("client_upload_log_switch", 1));
+                        JSONArray optJSONArray = jSONObject.optJSONArray("log_switch");
+                        if (optJSONArray != null) {
+                            while (true) {
+                                if (i2 < optJSONArray.length()) {
+                                    JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
+                                    if (jSONObject2 == null || jSONObject2.optInt("id", -1) != 501100) {
+                                        i2++;
+                                    } else {
+                                        Utility.setUploadIMInitTrack(this.mContext, jSONObject2.optInt("switch", 0));
+                                        break;
+                                    }
                                 } else {
-                                    Utility.setUploadIMInitTrack(this.mContext, jSONObject2.optInt("switch", 0));
                                     break;
                                 }
-                            } else {
-                                break;
                             }
                         }
+                        if (!a.ayO) {
+                            ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
+                        }
+                        str2 = optString;
+                    } catch (Exception e) {
+                        e = e;
+                        str2 = optString;
+                        LogUtils.e(this.TAG, "handle login msg exception :", e);
+                        super.handleMessageResult(context, jSONObject, i, str);
+                        AccountManagerImpl.getInstance(this.mContext).onLoginResult(getListenerKey(), i, str, this.mIsInternalLogin);
+                        new IMTrack.RequestBuilder(this.mContext).method(String.valueOf(AccountManagerImpl.getInstance(context).getAppOpenType())).requestId(str2).requestTime(Utility.getLoginCallTime(this.mContext)).responseTime(currentTimeMillis).errorCode(i).aliasId(501101L).build();
                     }
-                    if (!a.axQ) {
-                        ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
-                    }
-                    str2 = optString;
                 } catch (Exception e2) {
                     e = e2;
-                    str2 = optString;
-                    LogUtils.e(this.TAG, "handle login msg exception :", e);
-                    AccountManagerImpl.getInstance(this.mContext).onLoginResult(getListenerKey(), i, str, this.mIsInternalLogin);
-                    new IMTrack.RequestBuilder(this.mContext).method(String.valueOf(AccountManagerImpl.getInstance(context).getAppOpenType())).requestId(str2).requestTime(Utility.getLoginCallTime(this.mContext)).responseTime(currentTimeMillis).errorCode(i).aliasId(501101L).build();
                 }
             } else if (110 == i || 7 == i || 23 == i) {
                 Utility.logout(this.mContext, null);
@@ -181,6 +181,7 @@ public class IMUserLoginByTokenMsg extends Message {
             } else {
                 sRetrytimes++;
             }
+            super.handleMessageResult(context, jSONObject, i, str);
             AccountManagerImpl.getInstance(this.mContext).onLoginResult(getListenerKey(), i, str, this.mIsInternalLogin);
             new IMTrack.RequestBuilder(this.mContext).method(String.valueOf(AccountManagerImpl.getInstance(context).getAppOpenType())).requestId(str2).requestTime(Utility.getLoginCallTime(this.mContext)).responseTime(currentTimeMillis).errorCode(i).aliasId(501101L).build();
         }

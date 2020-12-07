@@ -1,6 +1,9 @@
 package io.reactivex.internal.operators.flowable;
 
+import io.reactivex.b.d;
 import io.reactivex.exceptions.MissingBackpressureException;
+import io.reactivex.g;
+import io.reactivex.internal.a.f;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -8,15 +11,15 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
-public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
-    final io.reactivex.c.d<? super T, ? super T> comparer;
-    final org.a.b<? extends T> pPf;
-    final org.a.b<? extends T> pPg;
+/* loaded from: classes9.dex */
+public final class FlowableSequenceEqual<T> extends g<Boolean> {
+    final d<? super T, ? super T> comparer;
+    final org.a.b<? extends T> pFT;
+    final org.a.b<? extends T> pFU;
     final int prefetch;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void drain();
 
@@ -27,13 +30,13 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
     public void a(org.a.c<? super Boolean> cVar) {
         EqualCoordinator equalCoordinator = new EqualCoordinator(cVar, this.prefetch, this.comparer);
         cVar.onSubscribe(equalCoordinator);
-        equalCoordinator.subscribe(this.pPf, this.pPg);
+        equalCoordinator.subscribe(this.pFT, this.pFU);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class EqualCoordinator<T> extends DeferredScalarSubscription<Boolean> implements a {
         private static final long serialVersionUID = -6178010334400373240L;
-        final io.reactivex.c.d<? super T, ? super T> comparer;
+        final d<? super T, ? super T> comparer;
         final AtomicThrowable error;
         final EqualSubscriber<T> first;
         final EqualSubscriber<T> second;
@@ -41,7 +44,7 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
         T v2;
         final AtomicInteger wip;
 
-        EqualCoordinator(org.a.c<? super Boolean> cVar, int i, io.reactivex.c.d<? super T, ? super T> dVar) {
+        EqualCoordinator(org.a.c<? super Boolean> cVar, int i, d<? super T, ? super T> dVar) {
             super(cVar);
             this.comparer = dVar;
             this.wip = new AtomicInteger();
@@ -80,9 +83,9 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
             }
             int i = 1;
             while (true) {
-                io.reactivex.internal.a.g<T> gVar = this.first.queue;
-                io.reactivex.internal.a.g<T> gVar2 = this.second.queue;
-                if (gVar != null && gVar2 != null) {
+                f<T> fVar = this.first.queue;
+                f<T> fVar2 = this.second.queue;
+                if (fVar != null && fVar2 != null) {
                     while (!isCancelled()) {
                         if (this.error.get() != null) {
                             cancelAndClear();
@@ -93,7 +96,7 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
                         T t = this.v1;
                         if (t == null) {
                             try {
-                                t = gVar.poll();
+                                t = fVar.poll();
                                 this.v1 = t;
                             } catch (Throwable th) {
                                 io.reactivex.exceptions.a.J(th);
@@ -109,7 +112,7 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
                         T t3 = this.v2;
                         if (t3 == null) {
                             try {
-                                t3 = gVar2.poll();
+                                t3 = fVar2.poll();
                                 this.v2 = t3;
                             } catch (Throwable th2) {
                                 io.reactivex.exceptions.a.J(th2);
@@ -173,13 +176,13 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
             if (this.error.addThrowable(th)) {
                 drain();
             } else {
-                io.reactivex.e.a.onError(th);
+                io.reactivex.d.a.onError(th);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class EqualSubscriber<T> extends AtomicReference<org.a.d> implements j<T> {
         private static final long serialVersionUID = 4804128302091633067L;
         volatile boolean done;
@@ -187,7 +190,7 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
         final a parent;
         final int prefetch;
         long produced;
-        volatile io.reactivex.internal.a.g<T> queue;
+        volatile f<T> queue;
         int sourceMode;
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -259,9 +262,9 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void clear() {
-            io.reactivex.internal.a.g<T> gVar = this.queue;
-            if (gVar != null) {
-                gVar.clear();
+            f<T> fVar = this.queue;
+            if (fVar != null) {
+                fVar.clear();
             }
         }
     }

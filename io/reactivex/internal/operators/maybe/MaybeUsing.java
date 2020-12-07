@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.maybe;
 
-import io.reactivex.c.g;
-import io.reactivex.c.h;
+import io.reactivex.b.g;
+import io.reactivex.b.h;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.EmptyDisposable;
@@ -10,24 +10,24 @@ import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class MaybeUsing<T, D> extends k<T> {
     final boolean eager;
-    final Callable<? extends D> pOl;
-    final g<? super D> pPG;
-    final h<? super D, ? extends o<? extends T>> pPm;
+    final Callable<? extends D> pFe;
+    final h<? super D, ? extends o<? extends T>> pGa;
+    final g<? super D> pGu;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         try {
-            D call = this.pOl.call();
+            D call = this.pFe.call();
             try {
-                ((o) io.reactivex.internal.functions.a.l(this.pPm.apply(call), "The sourceSupplier returned a null MaybeSource")).a(new UsingObserver(mVar, call, this.pPG, this.eager));
+                ((o) io.reactivex.internal.functions.a.m(this.pGa.apply(call), "The sourceSupplier returned a null MaybeSource")).a(new UsingObserver(mVar, call, this.pGu, this.eager));
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.J(th);
                 if (this.eager) {
                     try {
-                        this.pPG.accept(call);
+                        this.pGu.accept(call);
                     } catch (Throwable th2) {
                         io.reactivex.exceptions.a.J(th2);
                         EmptyDisposable.error(new CompositeException(th, th2), mVar);
@@ -37,10 +37,10 @@ public final class MaybeUsing<T, D> extends k<T> {
                 EmptyDisposable.error(th, mVar);
                 if (!this.eager) {
                     try {
-                        this.pPG.accept(call);
+                        this.pGu.accept(call);
                     } catch (Throwable th3) {
                         io.reactivex.exceptions.a.J(th3);
-                        io.reactivex.e.a.onError(th3);
+                        io.reactivex.d.a.onError(th3);
                     }
                 }
             }
@@ -50,7 +50,7 @@ public final class MaybeUsing<T, D> extends k<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class UsingObserver<T, D> extends AtomicReference<Object> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = -674404550052917487L;
         final m<? super T> actual;
@@ -79,7 +79,7 @@ public final class MaybeUsing<T, D> extends k<T> {
                     this.disposer.accept(andSet);
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.J(th);
-                    io.reactivex.e.a.onError(th);
+                    io.reactivex.d.a.onError(th);
                 }
             }
         }

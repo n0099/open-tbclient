@@ -36,7 +36,7 @@ import java.util.TimeZone;
 import java.util.UUID;
 import java.util.regex.Pattern;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class MiscCodec implements ObjectDeserializer, ObjectSerializer {
     private static boolean FILE_RELATIVE_PATH_SUPPORT;
     private static Method method_paths_get;

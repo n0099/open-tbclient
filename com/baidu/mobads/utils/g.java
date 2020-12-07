@@ -4,17 +4,17 @@ package com.baidu.mobads.utils;
 public class g implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Runnable f2439a;
+    final /* synthetic */ Runnable f2441a;
     final /* synthetic */ e b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar, Runnable runnable) {
         this.b = eVar;
-        this.f2439a = runnable;
+        this.f2441a = runnable;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f2439a.run();
+        this.f2441a.run();
     }
 }

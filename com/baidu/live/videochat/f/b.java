@@ -26,61 +26,61 @@ import com.baidu.live.utils.l;
 import java.util.Locale;
 /* loaded from: classes4.dex */
 public class b implements View.OnClickListener {
-    private InterfaceC0226b bIB;
-    private LinearLayout bID;
-    private HeadImageView bIE;
-    private TextView bIF;
-    private TextView bIG;
-    private FrameLayout bIH;
-    private ImageView bII;
-    private View bIJ;
-    private CountDownTimer bIK;
-    private a bIL;
+    private InterfaceC0235b bNJ;
+    private LinearLayout bNL;
+    private HeadImageView bNM;
+    private TextView bNN;
+    private TextView bNO;
+    private FrameLayout bNP;
+    private ImageView bNQ;
+    private View bNR;
+    private CountDownTimer bNS;
+    private a bNT;
     private View rootView;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void Ur();
+        void WT();
     }
 
     /* renamed from: com.baidu.live.videochat.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0226b {
-        void Us();
+    public interface InterfaceC0235b {
+        void WU();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(Activity activity, a aVar, InterfaceC0226b interfaceC0226b) {
+    public b(Activity activity, a aVar, InterfaceC0235b interfaceC0235b) {
         if (activity != null) {
-            this.bIL = aVar;
-            this.bIB = interfaceC0226b;
+            this.bNT = aVar;
+            this.bNJ = interfaceC0235b;
             this.rootView = LayoutInflater.from(activity).inflate(a.g.video_chat_pendant, (ViewGroup) null);
-            this.bID = (LinearLayout) this.rootView.findViewById(a.f.live_bb_video_pendant_connecting);
-            this.bIE = (HeadImageView) this.rootView.findViewById(a.f.live_bb_video_avatar);
-            this.bIG = (TextView) this.rootView.findViewById(a.f.live_bb_video_name);
-            this.bIF = (TextView) this.rootView.findViewById(a.f.live_bb_video_timer);
-            this.bIH = (FrameLayout) this.rootView.findViewById(a.f.live_bb_video_pendant_player);
-            this.bII = (ImageView) this.rootView.findViewById(a.f.live_bb_video_pendant_close);
-            this.bIJ = this.rootView.findViewById(a.f.live_bb_video_pendant_close_layout);
-            this.bIE.setIsRound(true);
-            this.bIE.setAutoChangeStyle(false);
-            this.bIE.setDefaultBgResource(a.e.sdk_default_avatar);
-            this.bIJ.setOnClickListener(this);
-            this.bIH.setOnClickListener(this);
+            this.bNL = (LinearLayout) this.rootView.findViewById(a.f.live_bb_video_pendant_connecting);
+            this.bNM = (HeadImageView) this.rootView.findViewById(a.f.live_bb_video_avatar);
+            this.bNO = (TextView) this.rootView.findViewById(a.f.live_bb_video_name);
+            this.bNN = (TextView) this.rootView.findViewById(a.f.live_bb_video_timer);
+            this.bNP = (FrameLayout) this.rootView.findViewById(a.f.live_bb_video_pendant_player);
+            this.bNQ = (ImageView) this.rootView.findViewById(a.f.live_bb_video_pendant_close);
+            this.bNR = this.rootView.findViewById(a.f.live_bb_video_pendant_close_layout);
+            this.bNM.setIsRound(true);
+            this.bNM.setAutoChangeStyle(false);
+            this.bNM.setDefaultBgResource(a.e.sdk_default_avatar);
+            this.bNR.setOnClickListener(this);
+            this.bNP.setOnClickListener(this);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bIJ) {
-            if (this.bIL != null) {
-                this.bIL.Ur();
-                UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.AUTHOR_LIVE_ROOM, "linkclose_clk").setContentExt(null, "popup", null));
+        if (view == this.bNR) {
+            if (this.bNT != null) {
+                this.bNT.WT();
+                UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "author_liveroom", "linkclose_clk").setContentExt(null, "popup", null));
                 return;
             }
             return;
         }
-        if (view == this.bIH) {
+        if (view == this.bNP) {
         }
     }
 
@@ -93,18 +93,18 @@ public class b implements View.OnClickListener {
         long j2;
         if (cVar != null) {
             this.rootView.setVisibility(0);
-            this.bIH.removeAllViews();
-            this.bIH.setVisibility(8);
-            this.bID.setVisibility(0);
-            this.bIG.setText(TextUtils.isEmpty(cVar.getNickName()) ? "" : cVar.getNickName());
+            this.bNP.removeAllViews();
+            this.bNP.setVisibility(8);
+            this.bNL.setVisibility(0);
+            this.bNO.setText(TextUtils.isEmpty(cVar.getNickName()) ? "" : cVar.getNickName());
             if (!TextUtils.isEmpty(cVar.getAvatar())) {
-                this.bIE.setUrl(cVar.getAvatar());
-                l.a(this.bIE, cVar.getAvatar(), false, false);
+                this.bNM.setUrl(cVar.getAvatar());
+                l.a(this.bNM, cVar.getAvatar(), false, false);
             }
-            if (this.bIK != null) {
-                this.bIK.cancel();
+            if (this.bNS != null) {
+                this.bNS.cancel();
             }
-            if (cVar.VH()) {
+            if (cVar.Yh()) {
                 j = (wVar == null || wVar.mLiveInfo == null || wVar.mLiveInfo.videoBBChatData == null) ? 0L : wVar.mLiveInfo.videoBBChatData.invitePendantTime;
                 if (j <= 0) {
                     j2 = 20;
@@ -117,25 +117,25 @@ public class b implements View.OnClickListener {
                 }
                 j2 = j;
             }
-            this.bIF.setText(String.format(Locale.SIMPLIFIED_CHINESE, "%ds", Long.valueOf(j2)));
-            this.bIF.setVisibility(0);
-            this.bIK = new CountDownTimer(j2 * 1000, 1000L) { // from class: com.baidu.live.videochat.f.b.1
+            this.bNN.setText(String.format(Locale.SIMPLIFIED_CHINESE, "%ds", Long.valueOf(j2)));
+            this.bNN.setVisibility(0);
+            this.bNS = new CountDownTimer(j2 * 1000, 1000L) { // from class: com.baidu.live.videochat.f.b.1
                 @Override // android.os.CountDownTimer
                 public void onTick(long j3) {
-                    b.this.bIF.setText(String.format(Locale.SIMPLIFIED_CHINESE, "%ds", Long.valueOf(j3 / 1000)));
+                    b.this.bNN.setText(String.format(Locale.SIMPLIFIED_CHINESE, "%ds", Long.valueOf(j3 / 1000)));
                 }
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
-                    b.this.bIF.setText(String.format(Locale.SIMPLIFIED_CHINESE, "%ds", 0));
-                    if (b.this.bIB != null) {
-                        b.this.bIB.Us();
+                    b.this.bNN.setText(String.format(Locale.SIMPLIFIED_CHINESE, "%ds", 0));
+                    if (b.this.bNJ != null) {
+                        b.this.bNJ.WU();
                     }
                     b.this.release();
                 }
             };
-            this.bIK.start();
-            UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Page.AUTHOR_LIVE_ROOM, UbcStatConstant.Value.VALUE_CHAT_LINK_TAB_SHOW).setContentExt(null, "popup", null));
+            this.bNS.start();
+            UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "author_liveroom", UbcStatConstant.Value.VALUE_CHAT_LINK_TAB_SHOW).setContentExt(null, "popup", null));
         }
     }
 
@@ -148,15 +148,15 @@ public class b implements View.OnClickListener {
             int dimensionPixelSize = view.getResources().getDimensionPixelSize(a.d.sdk_ds18);
             if (Build.VERSION.SDK_INT >= 21) {
                 n(view, dimensionPixelSize);
-                this.bII.setImageResource(a.e.icon_live_video_chat_close);
+                this.bNQ.setImageResource(a.e.icon_live_video_chat_close);
             } else {
-                this.bII.setImageResource(a.e.icon_live_video_chat_close_frame);
+                this.bNQ.setImageResource(a.e.icon_live_video_chat_close_frame);
             }
             this.rootView.setVisibility(0);
-            this.bIH.removeAllViews();
-            this.bIH.addView(view, new FrameLayout.LayoutParams(-1, -1));
-            this.bID.setVisibility(8);
-            this.bIH.setVisibility(0);
+            this.bNP.removeAllViews();
+            this.bNP.addView(view, new FrameLayout.LayoutParams(-1, -1));
+            this.bNL.setVisibility(8);
+            this.bNP.setVisibility(0);
         }
     }
 
@@ -174,12 +174,12 @@ public class b implements View.OnClickListener {
     }
 
     public void release() {
-        if (this.bIK != null) {
-            this.bIK.cancel();
+        if (this.bNS != null) {
+            this.bNS.cancel();
         }
-        this.bIH.removeAllViews();
-        this.bIH.setVisibility(8);
-        this.bID.setVisibility(8);
+        this.bNP.removeAllViews();
+        this.bNP.setVisibility(8);
+        this.bNL.setVisibility(8);
         this.rootView.setVisibility(8);
     }
 }

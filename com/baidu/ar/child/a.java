@@ -4,47 +4,47 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private int R;
-    private int S;
-    private boolean lB;
-    private d lC;
-    private CropAlgo lw;
-    private Handler ly;
-    private InterfaceC0082a lz;
-    private boolean lA = true;
-    private HandlerThread lx = new HandlerThread("ChildAlgoController");
+    private CropAlgo lL;
+    private Handler lN;
+    private InterfaceC0084a lO;
+    private boolean lQ;
+    private d lR;
+    private int mInputHeight;
+    private int mInputWidth;
+    private boolean lP = true;
+    private HandlerThread lM = new HandlerThread("ChildAlgoController");
 
     /* renamed from: com.baidu.ar.child.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    public interface InterfaceC0082a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0084a {
         void a(long j, byte[] bArr, int i);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     private static class b extends Handler {
-        private c lD;
+        private c lS;
 
         public b(Looper looper, c cVar) {
             super(looper);
-            this.lD = cVar;
+            this.lS = cVar;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (this.lD != null) {
-                this.lD.handleMessage(message);
+            if (this.lS != null) {
+                this.lS.handleMessage(message);
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     private interface c {
         void handleMessage(Message message);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     class d implements c {
         d() {
         }
@@ -55,22 +55,22 @@ public class a {
                 case 1002:
                     com.baidu.ar.child.b bVar = (com.baidu.ar.child.b) message.obj;
                     if (bVar != null) {
-                        com.baidu.ar.child.a.a cS = bVar.cS();
-                        long cZ = bVar.cU().cZ();
+                        com.baidu.ar.child.a.a cR = bVar.cR();
+                        long cY = bVar.cT().cY();
                         com.baidu.ar.child.c cVar = new com.baidu.ar.child.c();
-                        cVar.u(cS.getDegree());
-                        cVar.f(cS.cX());
-                        cVar.d(bVar.cU().da());
-                        cVar.e(bVar.cU().cW());
-                        cVar.d(bVar.cT());
-                        cVar.setHandle(cZ);
-                        cVar.w(bVar.cS().cY());
-                        cVar.setWidth(a.this.R);
-                        cVar.setHeight(a.this.S);
+                        cVar.w(cR.getDegree());
+                        cVar.f(cR.cW());
+                        cVar.c(bVar.cT().cZ());
+                        cVar.d(bVar.cT().cV());
+                        cVar.c(bVar.cS());
+                        cVar.setHandle(cY);
+                        cVar.u(bVar.cR().cX());
+                        cVar.setWidth(a.this.mInputWidth);
+                        cVar.setHeight(a.this.mInputHeight);
                         byte[] a2 = a.this.a(cVar);
-                        a.this.lB = true;
-                        if (a.this.lz != null) {
-                            a.this.lz.a(cZ, a2, cS.getDegree());
+                        a.this.lQ = true;
+                        if (a.this.lO != null) {
+                            a.this.lO.a(cY, a2, cR.getDegree());
                             return;
                         }
                         return;
@@ -78,8 +78,8 @@ public class a {
                     return;
                 case 1003:
                     a.this.clear();
-                    if (a.this.ly != null) {
-                        a.this.ly.removeCallbacksAndMessages(null);
+                    if (a.this.lN != null) {
+                        a.this.lN.removeCallbacksAndMessages(null);
                         return;
                     }
                     return;
@@ -90,44 +90,44 @@ public class a {
     }
 
     public a(int i, int i2) {
-        this.S = i2;
-        this.R = i;
-        this.lx.start();
-        if (this.lC == null) {
-            this.lC = new d();
+        this.mInputHeight = i2;
+        this.mInputWidth = i;
+        this.lM.start();
+        if (this.lR == null) {
+            this.lR = new d();
         }
-        this.ly = new b(this.lx.getLooper(), this.lC);
-        if (this.lw == null) {
-            this.lw = new CropAlgo();
+        this.lN = new b(this.lM.getLooper(), this.lR);
+        if (this.lL == null) {
+            this.lL = new CropAlgo();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public byte[] a(com.baidu.ar.child.c cVar) {
-        if (cVar.getHandle() <= 0 || c(cVar.cV()) || c(cVar.cW())) {
+        if (cVar.getHandle() <= 0 || b(cVar.cU()) || b(cVar.cV())) {
             return null;
         }
-        return this.lw.nativeCorpFace(cVar);
+        return this.lL.nativeCorpFace(cVar);
     }
 
-    private boolean c(float[] fArr) {
+    private boolean b(float[] fArr) {
         return fArr == null || fArr.length <= 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void clear() {
-        if (this.lx != null) {
-            this.lx.getLooper().quit();
-            this.lx = null;
+        if (this.lM != null) {
+            this.lM.getLooper().quit();
+            this.lM = null;
         }
-        if (this.lB && this.lw != null) {
-            this.lw.nativeClear();
-            this.lw = null;
+        if (this.lQ && this.lL != null) {
+            this.lL.nativeClear();
+            this.lL = null;
         }
-        this.lB = false;
-        this.lz = null;
-        if (this.ly != null) {
-            this.ly = null;
+        this.lQ = false;
+        this.lO = null;
+        if (this.lN != null) {
+            this.lN = null;
         }
     }
 
@@ -135,53 +135,53 @@ public class a {
         if (j <= 0) {
             return 0L;
         }
-        return this.lw.nativeWriteFaceDataToHandel(j, bArr);
+        return this.lL.nativeWriteFaceDataToHandel(j, bArr);
     }
 
     public long a(long j, byte[] bArr, int i, int i2, float f) {
         if (j <= 0) {
             return 0L;
         }
-        return this.lw.nativeWriteCameraDataToHandel(j, bArr, i, i2, f);
+        return this.lL.nativeWriteCameraDataToHandel(j, bArr, i, i2, f);
     }
 
-    public void a(InterfaceC0082a interfaceC0082a) {
-        this.lz = interfaceC0082a;
+    public void a(InterfaceC0084a interfaceC0084a) {
+        this.lO = interfaceC0084a;
     }
 
     public void a(com.baidu.ar.child.b bVar) {
-        if (this.ly == null || !this.lA) {
+        if (this.lN == null || !this.lP) {
             return;
         }
-        this.ly.removeMessages(1002);
-        this.ly.sendMessage(this.ly.obtainMessage(1002, bVar));
+        this.lN.removeMessages(1002);
+        this.lN.sendMessage(this.lN.obtainMessage(1002, bVar));
     }
 
-    public void cR() {
-        if (this.ly != null) {
-            this.ly.removeMessages(1003);
-            this.ly.sendMessage(this.ly.obtainMessage(1003));
+    public void cQ() {
+        if (this.lN != null) {
+            this.lN.removeMessages(1003);
+            this.lN.sendMessage(this.lN.obtainMessage(1003));
         }
     }
 
-    public float[] k(long j) {
+    public float[] i(long j) {
         if (j <= 0) {
             return null;
         }
-        return this.lw.nativeTrackingPoints(j);
+        return this.lL.nativeTrackingPoints(j);
     }
 
-    public float[] l(long j) {
+    public float[] j(long j) {
         if (j <= 0) {
             return null;
         }
-        return this.lw.nativeGetFaceBoxList(j);
+        return this.lL.nativeGetFaceBoxList(j);
     }
 
-    public void m(long j) {
+    public void k(long j) {
         if (j <= 0) {
             return;
         }
-        this.lw.nativeWriteTypeToHandle(j);
+        this.lL.nativeWriteTypeToHandle(j);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.b.c.a;
 
 import java.lang.reflect.Array;
 import java.security.InvalidKeyException;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class b implements a {
     private static int[] g;
     private static int[] h;
@@ -13,18 +13,18 @@ public final class b implements a {
     private int f = 0;
     private static final byte[] i = new byte[256];
     private static final byte[] j = new byte[256];
-    private static final int[] ads = new int[256];
+    private static final int[] aeo = new int[256];
     private static final int[] l = new int[256];
-    private static final int[] adt = new int[256];
-    private static final int[] adu = new int[256];
-    private static final int[] adv = new int[256];
+    private static final int[] aep = new int[256];
+    private static final int[] aeq = new int[256];
+    private static final int[] aer = new int[256];
     private static final int[] p = new int[256];
     private static final int[] q = new int[256];
-    private static final int[] adw = new int[256];
-    private static final int[] adx = new int[256];
-    private static final int[] ady = new int[256];
-    private static final int[] adz = new int[256];
-    private static final int[] adA = new int[256];
+    private static final int[] aes = new int[256];
+    private static final int[] aet = new int[256];
+    private static final int[] aeu = new int[256];
+    private static final int[] aev = new int[256];
+    private static final int[] aew = new int[256];
     private static final byte[] w = new byte[30];
 
     static {
@@ -117,19 +117,19 @@ public final class b implements a {
         }
         for (int i23 = 0; i23 < 256; i23++) {
             byte b3 = i[i23];
-            ads[i23] = e(b3, bArr7[0]);
+            aeo[i23] = e(b3, bArr7[0]);
             l[i23] = e(b3, bArr7[1]);
-            adt[i23] = e(b3, bArr7[2]);
-            adu[i23] = e(b3, bArr7[3]);
+            aep[i23] = e(b3, bArr7[2]);
+            aeq[i23] = e(b3, bArr7[3]);
             byte b4 = j[i23];
-            adv[i23] = e(b4, bArr9[0]);
+            aer[i23] = e(b4, bArr9[0]);
             p[i23] = e(b4, bArr9[1]);
             q[i23] = e(b4, bArr9[2]);
-            adw[i23] = e(b4, bArr9[3]);
-            adx[i23] = e(i23, bArr9[0]);
-            ady[i23] = e(i23, bArr9[1]);
-            adz[i23] = e(i23, bArr9[2]);
-            adA[i23] = e(i23, bArr9[3]);
+            aes[i23] = e(b4, bArr9[3]);
+            aet[i23] = e(i23, bArr9[0]);
+            aeu[i23] = e(i23, bArr9[1]);
+            aev[i23] = e(i23, bArr9[2]);
+            aew[i23] = e(i23, bArr9[3]);
         }
         w[0] = 1;
         int i24 = 1;
@@ -176,8 +176,8 @@ public final class b implements a {
     }
 
     static final boolean a(int i2) {
-        for (int i3 = 0; i3 < f1257a.length; i3++) {
-            if (i2 == f1257a[i3]) {
+        for (int i3 = 0; i3 < f1256a.length; i3++) {
+            if (i2 == f1256a[i3]) {
                 return true;
             }
         }
@@ -268,7 +268,7 @@ public final class b implements a {
             for (int i20 = 1; i20 < b; i20++) {
                 for (int i21 = 0; i21 < 4; i21++) {
                     int i22 = iArr2[i20][i21];
-                    iArr2[i20][i21] = adA[i22 & 255] ^ ((adx[(i22 >>> 24) & 255] ^ ady[(i22 >>> 16) & 255]) ^ adz[(i22 >>> 8) & 255]);
+                    iArr2[i20][i21] = aew[i22 & 255] ^ ((aet[(i22 >>> 24) & 255] ^ aeu[(i22 >>> 16) & 255]) ^ aev[(i22 >>> 8) & 255]);
                 }
             }
             return new Object[]{iArr, iArr2};
@@ -321,12 +321,12 @@ public final class b implements a {
         int i30 = 4;
         while (i30 < this.f) {
             int i31 = i30 + 1;
-            int i32 = (((ads[i28 >>> 24] ^ l[(i29 >>> 16) & 255]) ^ adt[(i20 >>> 8) & 255]) ^ adu[i27 & 255]) ^ this.e[i30];
+            int i32 = (((aeo[i28 >>> 24] ^ l[(i29 >>> 16) & 255]) ^ aep[(i20 >>> 8) & 255]) ^ aeq[i27 & 255]) ^ this.e[i30];
             int i33 = i31 + 1;
-            int i34 = this.e[i31] ^ (((ads[i29 >>> 24] ^ l[(i20 >>> 16) & 255]) ^ adt[(i27 >>> 8) & 255]) ^ adu[i28 & 255]);
+            int i34 = this.e[i31] ^ (((aeo[i29 >>> 24] ^ l[(i20 >>> 16) & 255]) ^ aep[(i27 >>> 8) & 255]) ^ aeq[i28 & 255]);
             int i35 = i33 + 1;
-            int i36 = (((ads[i20 >>> 24] ^ l[(i27 >>> 16) & 255]) ^ adt[(i28 >>> 8) & 255]) ^ adu[i29 & 255]) ^ this.e[i33];
-            i27 = (((ads[i27 >>> 24] ^ l[(i28 >>> 16) & 255]) ^ adt[(i29 >>> 8) & 255]) ^ adu[i20 & 255]) ^ this.e[i35];
+            int i36 = (((aeo[i20 >>> 24] ^ l[(i27 >>> 16) & 255]) ^ aep[(i28 >>> 8) & 255]) ^ aeq[i29 & 255]) ^ this.e[i33];
+            i27 = (((aeo[i27 >>> 24] ^ l[(i28 >>> 16) & 255]) ^ aep[(i29 >>> 8) & 255]) ^ aeq[i20 & 255]) ^ this.e[i35];
             i29 = i34;
             i28 = i32;
             i30 = i35 + 1;
@@ -397,101 +397,101 @@ public final class b implements a {
         int i24 = 8;
         int i25 = i23 ^ this.e[7];
         if (this.b) {
-            int i26 = this.e[8] ^ (((adv[i8 >>> 24] ^ p[(i25 >>> 16) & 255]) ^ q[(i20 >>> 8) & 255]) ^ adw[i14 & 255]);
-            int i27 = (((adv[i14 >>> 24] ^ p[(i8 >>> 16) & 255]) ^ q[(i25 >>> 8) & 255]) ^ adw[i20 & 255]) ^ this.e[9];
-            int i28 = (((adv[i20 >>> 24] ^ p[(i14 >>> 16) & 255]) ^ q[(i8 >>> 8) & 255]) ^ adw[i25 & 255]) ^ this.e[10];
-            int i29 = (((adv[i25 >>> 24] ^ p[(i20 >>> 16) & 255]) ^ q[(i14 >>> 8) & 255]) ^ adw[i8 & 255]) ^ this.e[11];
-            i8 = (((adv[i26 >>> 24] ^ p[(i29 >>> 16) & 255]) ^ q[(i28 >>> 8) & 255]) ^ adw[i27 & 255]) ^ this.e[12];
-            i14 = this.e[13] ^ (((adv[i27 >>> 24] ^ p[(i26 >>> 16) & 255]) ^ q[(i29 >>> 8) & 255]) ^ adw[i28 & 255]);
-            i20 = (((adv[i28 >>> 24] ^ p[(i27 >>> 16) & 255]) ^ q[(i26 >>> 8) & 255]) ^ adw[i29 & 255]) ^ this.e[14];
-            int i30 = ((adv[i29 >>> 24] ^ p[(i28 >>> 16) & 255]) ^ q[(i27 >>> 8) & 255]) ^ adw[i26 & 255];
+            int i26 = this.e[8] ^ (((aer[i8 >>> 24] ^ p[(i25 >>> 16) & 255]) ^ q[(i20 >>> 8) & 255]) ^ aes[i14 & 255]);
+            int i27 = (((aer[i14 >>> 24] ^ p[(i8 >>> 16) & 255]) ^ q[(i25 >>> 8) & 255]) ^ aes[i20 & 255]) ^ this.e[9];
+            int i28 = (((aer[i20 >>> 24] ^ p[(i14 >>> 16) & 255]) ^ q[(i8 >>> 8) & 255]) ^ aes[i25 & 255]) ^ this.e[10];
+            int i29 = (((aer[i25 >>> 24] ^ p[(i20 >>> 16) & 255]) ^ q[(i14 >>> 8) & 255]) ^ aes[i8 & 255]) ^ this.e[11];
+            i8 = (((aer[i26 >>> 24] ^ p[(i29 >>> 16) & 255]) ^ q[(i28 >>> 8) & 255]) ^ aes[i27 & 255]) ^ this.e[12];
+            i14 = this.e[13] ^ (((aer[i27 >>> 24] ^ p[(i26 >>> 16) & 255]) ^ q[(i29 >>> 8) & 255]) ^ aes[i28 & 255]);
+            i20 = (((aer[i28 >>> 24] ^ p[(i27 >>> 16) & 255]) ^ q[(i26 >>> 8) & 255]) ^ aes[i29 & 255]) ^ this.e[14];
+            int i30 = ((aer[i29 >>> 24] ^ p[(i28 >>> 16) & 255]) ^ q[(i27 >>> 8) & 255]) ^ aes[i26 & 255];
             i24 = 16;
             i25 = i30 ^ this.e[15];
             if (this.c) {
-                int i31 = this.e[16] ^ (((adv[i8 >>> 24] ^ p[(i25 >>> 16) & 255]) ^ q[(i20 >>> 8) & 255]) ^ adw[i14 & 255]);
-                int i32 = (((adv[i14 >>> 24] ^ p[(i8 >>> 16) & 255]) ^ q[(i25 >>> 8) & 255]) ^ adw[i20 & 255]) ^ this.e[17];
-                int i33 = (((adv[i20 >>> 24] ^ p[(i14 >>> 16) & 255]) ^ q[(i8 >>> 8) & 255]) ^ adw[i25 & 255]) ^ this.e[18];
-                int i34 = (((adv[i25 >>> 24] ^ p[(i20 >>> 16) & 255]) ^ q[(i14 >>> 8) & 255]) ^ adw[i8 & 255]) ^ this.e[19];
-                i8 = (((adv[i31 >>> 24] ^ p[(i34 >>> 16) & 255]) ^ q[(i33 >>> 8) & 255]) ^ adw[i32 & 255]) ^ this.e[20];
-                i14 = this.e[21] ^ (((adv[i32 >>> 24] ^ p[(i31 >>> 16) & 255]) ^ q[(i34 >>> 8) & 255]) ^ adw[i33 & 255]);
-                i20 = (((adv[i33 >>> 24] ^ p[(i32 >>> 16) & 255]) ^ q[(i31 >>> 8) & 255]) ^ adw[i34 & 255]) ^ this.e[22];
-                int i35 = ((adv[i34 >>> 24] ^ p[(i33 >>> 16) & 255]) ^ q[(i32 >>> 8) & 255]) ^ adw[i31 & 255];
+                int i31 = this.e[16] ^ (((aer[i8 >>> 24] ^ p[(i25 >>> 16) & 255]) ^ q[(i20 >>> 8) & 255]) ^ aes[i14 & 255]);
+                int i32 = (((aer[i14 >>> 24] ^ p[(i8 >>> 16) & 255]) ^ q[(i25 >>> 8) & 255]) ^ aes[i20 & 255]) ^ this.e[17];
+                int i33 = (((aer[i20 >>> 24] ^ p[(i14 >>> 16) & 255]) ^ q[(i8 >>> 8) & 255]) ^ aes[i25 & 255]) ^ this.e[18];
+                int i34 = (((aer[i25 >>> 24] ^ p[(i20 >>> 16) & 255]) ^ q[(i14 >>> 8) & 255]) ^ aes[i8 & 255]) ^ this.e[19];
+                i8 = (((aer[i31 >>> 24] ^ p[(i34 >>> 16) & 255]) ^ q[(i33 >>> 8) & 255]) ^ aes[i32 & 255]) ^ this.e[20];
+                i14 = this.e[21] ^ (((aer[i32 >>> 24] ^ p[(i31 >>> 16) & 255]) ^ q[(i34 >>> 8) & 255]) ^ aes[i33 & 255]);
+                i20 = (((aer[i33 >>> 24] ^ p[(i32 >>> 16) & 255]) ^ q[(i31 >>> 8) & 255]) ^ aes[i34 & 255]) ^ this.e[22];
+                int i35 = ((aer[i34 >>> 24] ^ p[(i33 >>> 16) & 255]) ^ q[(i32 >>> 8) & 255]) ^ aes[i31 & 255];
                 i24 = 24;
                 i25 = i35 ^ this.e[23];
             }
         }
         int i36 = i24 + 1;
-        int i37 = this.e[i24] ^ (((adv[i8 >>> 24] ^ p[(i25 >>> 16) & 255]) ^ q[(i20 >>> 8) & 255]) ^ adw[i14 & 255]);
+        int i37 = this.e[i24] ^ (((aer[i8 >>> 24] ^ p[(i25 >>> 16) & 255]) ^ q[(i20 >>> 8) & 255]) ^ aes[i14 & 255]);
         int i38 = i36 + 1;
-        int i39 = (((adv[i14 >>> 24] ^ p[(i8 >>> 16) & 255]) ^ q[(i25 >>> 8) & 255]) ^ adw[i20 & 255]) ^ this.e[i36];
+        int i39 = (((aer[i14 >>> 24] ^ p[(i8 >>> 16) & 255]) ^ q[(i25 >>> 8) & 255]) ^ aes[i20 & 255]) ^ this.e[i36];
         int i40 = i38 + 1;
-        int i41 = (((adv[i20 >>> 24] ^ p[(i14 >>> 16) & 255]) ^ q[(i8 >>> 8) & 255]) ^ adw[i25 & 255]) ^ this.e[i38];
+        int i41 = (((aer[i20 >>> 24] ^ p[(i14 >>> 16) & 255]) ^ q[(i8 >>> 8) & 255]) ^ aes[i25 & 255]) ^ this.e[i38];
         int i42 = i40 + 1;
-        int i43 = (((adv[i25 >>> 24] ^ p[(i20 >>> 16) & 255]) ^ q[(i14 >>> 8) & 255]) ^ adw[i8 & 255]) ^ this.e[i40];
+        int i43 = (((aer[i25 >>> 24] ^ p[(i20 >>> 16) & 255]) ^ q[(i14 >>> 8) & 255]) ^ aes[i8 & 255]) ^ this.e[i40];
         int i44 = i42 + 1;
-        int i45 = (((adv[i37 >>> 24] ^ p[(i43 >>> 16) & 255]) ^ q[(i41 >>> 8) & 255]) ^ adw[i39 & 255]) ^ this.e[i42];
+        int i45 = (((aer[i37 >>> 24] ^ p[(i43 >>> 16) & 255]) ^ q[(i41 >>> 8) & 255]) ^ aes[i39 & 255]) ^ this.e[i42];
         int i46 = i44 + 1;
-        int i47 = (((adv[i39 >>> 24] ^ p[(i37 >>> 16) & 255]) ^ q[(i43 >>> 8) & 255]) ^ adw[i41 & 255]) ^ this.e[i44];
+        int i47 = (((aer[i39 >>> 24] ^ p[(i37 >>> 16) & 255]) ^ q[(i43 >>> 8) & 255]) ^ aes[i41 & 255]) ^ this.e[i44];
         int i48 = i46 + 1;
-        int i49 = (((adv[i41 >>> 24] ^ p[(i39 >>> 16) & 255]) ^ q[(i37 >>> 8) & 255]) ^ adw[i43 & 255]) ^ this.e[i46];
+        int i49 = (((aer[i41 >>> 24] ^ p[(i39 >>> 16) & 255]) ^ q[(i37 >>> 8) & 255]) ^ aes[i43 & 255]) ^ this.e[i46];
         int i50 = i48 + 1;
-        int i51 = (((adv[i43 >>> 24] ^ p[(i41 >>> 16) & 255]) ^ q[(i39 >>> 8) & 255]) ^ adw[i37 & 255]) ^ this.e[i48];
+        int i51 = (((aer[i43 >>> 24] ^ p[(i41 >>> 16) & 255]) ^ q[(i39 >>> 8) & 255]) ^ aes[i37 & 255]) ^ this.e[i48];
         int i52 = i50 + 1;
-        int i53 = (((adv[i45 >>> 24] ^ p[(i51 >>> 16) & 255]) ^ q[(i49 >>> 8) & 255]) ^ adw[i47 & 255]) ^ this.e[i50];
+        int i53 = (((aer[i45 >>> 24] ^ p[(i51 >>> 16) & 255]) ^ q[(i49 >>> 8) & 255]) ^ aes[i47 & 255]) ^ this.e[i50];
         int i54 = i52 + 1;
-        int i55 = (((adv[i47 >>> 24] ^ p[(i45 >>> 16) & 255]) ^ q[(i51 >>> 8) & 255]) ^ adw[i49 & 255]) ^ this.e[i52];
+        int i55 = (((aer[i47 >>> 24] ^ p[(i45 >>> 16) & 255]) ^ q[(i51 >>> 8) & 255]) ^ aes[i49 & 255]) ^ this.e[i52];
         int i56 = i54 + 1;
-        int i57 = (((adv[i49 >>> 24] ^ p[(i47 >>> 16) & 255]) ^ q[(i45 >>> 8) & 255]) ^ adw[i51 & 255]) ^ this.e[i54];
+        int i57 = (((aer[i49 >>> 24] ^ p[(i47 >>> 16) & 255]) ^ q[(i45 >>> 8) & 255]) ^ aes[i51 & 255]) ^ this.e[i54];
         int i58 = i56 + 1;
-        int i59 = (((adv[i51 >>> 24] ^ p[(i49 >>> 16) & 255]) ^ q[(i47 >>> 8) & 255]) ^ adw[i45 & 255]) ^ this.e[i56];
+        int i59 = (((aer[i51 >>> 24] ^ p[(i49 >>> 16) & 255]) ^ q[(i47 >>> 8) & 255]) ^ aes[i45 & 255]) ^ this.e[i56];
         int i60 = i58 + 1;
-        int i61 = (((adv[i53 >>> 24] ^ p[(i59 >>> 16) & 255]) ^ q[(i57 >>> 8) & 255]) ^ adw[i55 & 255]) ^ this.e[i58];
+        int i61 = (((aer[i53 >>> 24] ^ p[(i59 >>> 16) & 255]) ^ q[(i57 >>> 8) & 255]) ^ aes[i55 & 255]) ^ this.e[i58];
         int i62 = i60 + 1;
-        int i63 = (((adv[i55 >>> 24] ^ p[(i53 >>> 16) & 255]) ^ q[(i59 >>> 8) & 255]) ^ adw[i57 & 255]) ^ this.e[i60];
+        int i63 = (((aer[i55 >>> 24] ^ p[(i53 >>> 16) & 255]) ^ q[(i59 >>> 8) & 255]) ^ aes[i57 & 255]) ^ this.e[i60];
         int i64 = i62 + 1;
-        int i65 = (((adv[i57 >>> 24] ^ p[(i55 >>> 16) & 255]) ^ q[(i53 >>> 8) & 255]) ^ adw[i59 & 255]) ^ this.e[i62];
+        int i65 = (((aer[i57 >>> 24] ^ p[(i55 >>> 16) & 255]) ^ q[(i53 >>> 8) & 255]) ^ aes[i59 & 255]) ^ this.e[i62];
         int i66 = i64 + 1;
-        int i67 = (((adv[i59 >>> 24] ^ p[(i57 >>> 16) & 255]) ^ q[(i55 >>> 8) & 255]) ^ adw[i53 & 255]) ^ this.e[i64];
+        int i67 = (((aer[i59 >>> 24] ^ p[(i57 >>> 16) & 255]) ^ q[(i55 >>> 8) & 255]) ^ aes[i53 & 255]) ^ this.e[i64];
         int i68 = i66 + 1;
-        int i69 = (((adv[i61 >>> 24] ^ p[(i67 >>> 16) & 255]) ^ q[(i65 >>> 8) & 255]) ^ adw[i63 & 255]) ^ this.e[i66];
+        int i69 = (((aer[i61 >>> 24] ^ p[(i67 >>> 16) & 255]) ^ q[(i65 >>> 8) & 255]) ^ aes[i63 & 255]) ^ this.e[i66];
         int i70 = i68 + 1;
-        int i71 = (((adv[i63 >>> 24] ^ p[(i61 >>> 16) & 255]) ^ q[(i67 >>> 8) & 255]) ^ adw[i65 & 255]) ^ this.e[i68];
+        int i71 = (((aer[i63 >>> 24] ^ p[(i61 >>> 16) & 255]) ^ q[(i67 >>> 8) & 255]) ^ aes[i65 & 255]) ^ this.e[i68];
         int i72 = i70 + 1;
-        int i73 = (((adv[i65 >>> 24] ^ p[(i63 >>> 16) & 255]) ^ q[(i61 >>> 8) & 255]) ^ adw[i67 & 255]) ^ this.e[i70];
+        int i73 = (((aer[i65 >>> 24] ^ p[(i63 >>> 16) & 255]) ^ q[(i61 >>> 8) & 255]) ^ aes[i67 & 255]) ^ this.e[i70];
         int i74 = i72 + 1;
-        int i75 = (((adv[i67 >>> 24] ^ p[(i65 >>> 16) & 255]) ^ q[(i63 >>> 8) & 255]) ^ adw[i61 & 255]) ^ this.e[i72];
+        int i75 = (((aer[i67 >>> 24] ^ p[(i65 >>> 16) & 255]) ^ q[(i63 >>> 8) & 255]) ^ aes[i61 & 255]) ^ this.e[i72];
         int i76 = i74 + 1;
-        int i77 = (((adv[i69 >>> 24] ^ p[(i75 >>> 16) & 255]) ^ q[(i73 >>> 8) & 255]) ^ adw[i71 & 255]) ^ this.e[i74];
+        int i77 = (((aer[i69 >>> 24] ^ p[(i75 >>> 16) & 255]) ^ q[(i73 >>> 8) & 255]) ^ aes[i71 & 255]) ^ this.e[i74];
         int i78 = i76 + 1;
-        int i79 = (((adv[i71 >>> 24] ^ p[(i69 >>> 16) & 255]) ^ q[(i75 >>> 8) & 255]) ^ adw[i73 & 255]) ^ this.e[i76];
+        int i79 = (((aer[i71 >>> 24] ^ p[(i69 >>> 16) & 255]) ^ q[(i75 >>> 8) & 255]) ^ aes[i73 & 255]) ^ this.e[i76];
         int i80 = i78 + 1;
-        int i81 = (((adv[i73 >>> 24] ^ p[(i71 >>> 16) & 255]) ^ q[(i69 >>> 8) & 255]) ^ adw[i75 & 255]) ^ this.e[i78];
+        int i81 = (((aer[i73 >>> 24] ^ p[(i71 >>> 16) & 255]) ^ q[(i69 >>> 8) & 255]) ^ aes[i75 & 255]) ^ this.e[i78];
         int i82 = i80 + 1;
-        int i83 = (((adv[i75 >>> 24] ^ p[(i73 >>> 16) & 255]) ^ q[(i71 >>> 8) & 255]) ^ adw[i69 & 255]) ^ this.e[i80];
+        int i83 = (((aer[i75 >>> 24] ^ p[(i73 >>> 16) & 255]) ^ q[(i71 >>> 8) & 255]) ^ aes[i69 & 255]) ^ this.e[i80];
         int i84 = i82 + 1;
-        int i85 = (((adv[i77 >>> 24] ^ p[(i83 >>> 16) & 255]) ^ q[(i81 >>> 8) & 255]) ^ adw[i79 & 255]) ^ this.e[i82];
+        int i85 = (((aer[i77 >>> 24] ^ p[(i83 >>> 16) & 255]) ^ q[(i81 >>> 8) & 255]) ^ aes[i79 & 255]) ^ this.e[i82];
         int i86 = i84 + 1;
-        int i87 = (((adv[i79 >>> 24] ^ p[(i77 >>> 16) & 255]) ^ q[(i83 >>> 8) & 255]) ^ adw[i81 & 255]) ^ this.e[i84];
+        int i87 = (((aer[i79 >>> 24] ^ p[(i77 >>> 16) & 255]) ^ q[(i83 >>> 8) & 255]) ^ aes[i81 & 255]) ^ this.e[i84];
         int i88 = i86 + 1;
-        int i89 = (((adv[i81 >>> 24] ^ p[(i79 >>> 16) & 255]) ^ q[(i77 >>> 8) & 255]) ^ adw[i83 & 255]) ^ this.e[i86];
+        int i89 = (((aer[i81 >>> 24] ^ p[(i79 >>> 16) & 255]) ^ q[(i77 >>> 8) & 255]) ^ aes[i83 & 255]) ^ this.e[i86];
         int i90 = i88 + 1;
-        int i91 = (((adv[i83 >>> 24] ^ p[(i81 >>> 16) & 255]) ^ q[(i79 >>> 8) & 255]) ^ adw[i77 & 255]) ^ this.e[i88];
+        int i91 = (((aer[i83 >>> 24] ^ p[(i81 >>> 16) & 255]) ^ q[(i79 >>> 8) & 255]) ^ aes[i77 & 255]) ^ this.e[i88];
         int i92 = i90 + 1;
-        int i93 = (((adv[i85 >>> 24] ^ p[(i91 >>> 16) & 255]) ^ q[(i89 >>> 8) & 255]) ^ adw[i87 & 255]) ^ this.e[i90];
+        int i93 = (((aer[i85 >>> 24] ^ p[(i91 >>> 16) & 255]) ^ q[(i89 >>> 8) & 255]) ^ aes[i87 & 255]) ^ this.e[i90];
         int i94 = i92 + 1;
-        int i95 = (((adv[i87 >>> 24] ^ p[(i85 >>> 16) & 255]) ^ q[(i91 >>> 8) & 255]) ^ adw[i89 & 255]) ^ this.e[i92];
+        int i95 = (((aer[i87 >>> 24] ^ p[(i85 >>> 16) & 255]) ^ q[(i91 >>> 8) & 255]) ^ aes[i89 & 255]) ^ this.e[i92];
         int i96 = i94 + 1;
-        int i97 = (((adv[i89 >>> 24] ^ p[(i87 >>> 16) & 255]) ^ q[(i85 >>> 8) & 255]) ^ adw[i91 & 255]) ^ this.e[i94];
+        int i97 = (((aer[i89 >>> 24] ^ p[(i87 >>> 16) & 255]) ^ q[(i85 >>> 8) & 255]) ^ aes[i91 & 255]) ^ this.e[i94];
         int i98 = i96 + 1;
-        int i99 = (((adv[i91 >>> 24] ^ p[(i89 >>> 16) & 255]) ^ q[(i87 >>> 8) & 255]) ^ adw[i85 & 255]) ^ this.e[i96];
+        int i99 = (((aer[i91 >>> 24] ^ p[(i89 >>> 16) & 255]) ^ q[(i87 >>> 8) & 255]) ^ aes[i85 & 255]) ^ this.e[i96];
         int i100 = i98 + 1;
-        int i101 = (((adv[i93 >>> 24] ^ p[(i99 >>> 16) & 255]) ^ q[(i97 >>> 8) & 255]) ^ adw[i95 & 255]) ^ this.e[i98];
+        int i101 = (((aer[i93 >>> 24] ^ p[(i99 >>> 16) & 255]) ^ q[(i97 >>> 8) & 255]) ^ aes[i95 & 255]) ^ this.e[i98];
         int i102 = i100 + 1;
-        int i103 = (((adv[i95 >>> 24] ^ p[(i93 >>> 16) & 255]) ^ q[(i99 >>> 8) & 255]) ^ adw[i97 & 255]) ^ this.e[i100];
+        int i103 = (((aer[i95 >>> 24] ^ p[(i93 >>> 16) & 255]) ^ q[(i99 >>> 8) & 255]) ^ aes[i97 & 255]) ^ this.e[i100];
         int i104 = i102 + 1;
-        int i105 = (((adv[i97 >>> 24] ^ p[(i95 >>> 16) & 255]) ^ q[(i93 >>> 8) & 255]) ^ adw[i99 & 255]) ^ this.e[i102];
+        int i105 = (((aer[i97 >>> 24] ^ p[(i95 >>> 16) & 255]) ^ q[(i93 >>> 8) & 255]) ^ aes[i99 & 255]) ^ this.e[i102];
         int i106 = i104 + 1;
-        int i107 = (((adv[i99 >>> 24] ^ p[(i97 >>> 16) & 255]) ^ q[(i95 >>> 8) & 255]) ^ adw[i93 & 255]) ^ this.e[i104];
+        int i107 = (((aer[i99 >>> 24] ^ p[(i97 >>> 16) & 255]) ^ q[(i95 >>> 8) & 255]) ^ aes[i93 & 255]) ^ this.e[i104];
         int i108 = this.e[0];
         int i109 = i3 + 1;
         bArr2[i3] = (byte) (j[i101 >>> 24] ^ (i108 >>> 24));

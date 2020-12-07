@@ -1,17 +1,17 @@
 package com.baidu.ar.gesture;
 
 import com.baidu.ar.d.b;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a extends b {
-    private float[] qd;
+    private float[] qt;
 
     public a(String str, float[] fArr, long j) {
-        this.qd = fArr;
-        T(str);
+        this.qt = fArr;
+        W(str);
         setTimestamp(j);
     }
 
-    public float[] eH() {
-        return this.qd;
+    public float[] eG() {
+        return this.qt;
     }
 }

@@ -10,24 +10,24 @@ import com.baidu.swan.apps.process.messaging.c;
 import com.baidu.swan.apps.runtime.d;
 import java.util.ArrayDeque;
 import java.util.Deque;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Deque<Message> dkr = new ArrayDeque();
+    private final Deque<Message> drq = new ArrayDeque();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void aEz() {
-        a aEG = a.aEG();
-        while (aEG.aEK() && !this.dkr.isEmpty()) {
-            Message peek = this.dkr.peek();
+    public void aHH() {
+        a aHO = a.aHO();
+        while (aHO.aHS() && !this.drq.isEmpty()) {
+            Message peek = this.drq.peek();
             if (peek == null || B(peek)) {
-                this.dkr.poll();
+                this.drq.poll();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void ru(String str) {
+    public void sb(String str) {
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
@@ -36,28 +36,28 @@ public class b implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void a(@NonNull c cVar) {
-        Message aEA = cVar.aEA();
-        aEA.arg1 = SwanAppProcessInfo.current().index;
-        if (d.aGI().aEV() && (aEA.obj instanceof Bundle)) {
-            Bundle bundle = (Bundle) aEA.obj;
+        Message aHI = cVar.aHI();
+        aHI.arg1 = SwanAppProcessInfo.current().index;
+        if (d.aJQ().aId() && (aHI.obj instanceof Bundle)) {
+            Bundle bundle = (Bundle) aHI.obj;
             if (!bundle.containsKey("ai_apps_id")) {
-                bundle.putString("ai_apps_id", d.aGI().getAppId());
+                bundle.putString("ai_apps_id", d.aJQ().getAppId());
             }
         }
-        if (!B(aEA) && cVar.isSticky()) {
-            this.dkr.offer(aEA);
-            a.aEG().aEI();
+        if (!B(aHI) && cVar.isSticky()) {
+            this.drq.offer(aHI);
+            a.aHO().aHQ();
         }
     }
 
     private boolean B(Message message) {
-        a aEG = a.aEG();
-        if (message != null && aEG.aEK()) {
+        a aHO = a.aHO();
+        if (message != null && aHO.aHS()) {
             try {
-                aEG.aEH().send(message);
+                aHO.aHP().send(message);
                 return true;
             } catch (RemoteException e) {
-                aEG.aEL();
+                aHO.aHT();
                 if (DEBUG) {
                     e.printStackTrace();
                 }

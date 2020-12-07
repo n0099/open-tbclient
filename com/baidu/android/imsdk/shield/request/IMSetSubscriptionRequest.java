@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.shield.request;
 
 import android.content.Context;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,7 +11,7 @@ import com.baidu.android.imsdk.shield.ISetSubscriptionListener;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public static final String TAG = "IMSetSubscriptionRequest";
     private int mCategory;
@@ -34,7 +35,7 @@ public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             int i3 = jSONObject.getInt("error_code");
-            String optString = jSONObject.optString("error_msg", "");
+            String optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
             i2 = i3;
             str = optString;
         } catch (Exception e) {

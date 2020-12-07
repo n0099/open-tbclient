@@ -4,11 +4,12 @@ import com.baidu.ar.ARType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public static final HashMap<String, String> bu = new HashMap() { // from class: com.baidu.ar.ability.b.1
+    public static final HashMap<String, String> bx = new HashMap() { // from class: com.baidu.ar.ability.b.1
         {
             put("ability_image_track", "com.baidu.ar.track2d.Track2DAR");
+            put("ability_3d_track", "com.baidu.ar.track3d.Track3DAR");
             put("ability_imu", "com.baidu.ar.imu.ImuAR");
             put("ability_vo", "com.baidu.ar.vo.VOAR");
             put("ability_face_child", "com.baidu.ar.child.ChildAR");
@@ -31,9 +32,10 @@ public class b {
             put("ability_anime", "com.baidu.ar.anime.AnimeAR");
             put("ability_gender_trans", "com.baidu.ar.gendertrans.GenderTransAR");
             put("ability_capture", "com.baidu.ar.capture.FamilyWithChildAR");
+            put("ability_marker", "com.baidu.ar.vps.marker.MarkerAR");
         }
     };
-    public static final List<String> bv = new ArrayList<String>() { // from class: com.baidu.ar.ability.b.2
+    public static final List<String> by = new ArrayList<String>() { // from class: com.baidu.ar.ability.b.2
         {
             add("ability_face_filter");
             add("ability_makeup_filter");
@@ -41,7 +43,7 @@ public class b {
             add("ability_lut_filter");
         }
     };
-    public static final HashMap<String, String> bw = new HashMap() { // from class: com.baidu.ar.ability.b.3
+    public static final HashMap<String, String> bz = new HashMap() { // from class: com.baidu.ar.ability.b.3
         {
             put("start_gesture", "ability_gesture");
             put("start_image_segmentation", "ability_image_segmentation");
@@ -52,7 +54,7 @@ public class b {
             put("start_obj_detect", "ability_object_detect");
         }
     };
-    public static final HashMap<String, String> bx = new HashMap() { // from class: com.baidu.ar.ability.b.4
+    public static final HashMap<String, String> bA = new HashMap() { // from class: com.baidu.ar.ability.b.4
         {
             put("stop_gesture", "ability_gesture");
             put("stop_image_segmentation", "ability_image_segmentation");
@@ -63,18 +65,20 @@ public class b {
             put("stop_obj_detect", "ability_object_detect");
         }
     };
-    public static final HashMap<ARType, String> by = new HashMap() { // from class: com.baidu.ar.ability.b.5
+    public static final HashMap<ARType, String> bB = new HashMap() { // from class: com.baidu.ar.ability.b.5
         {
             put(ARType.IMU, "ability_imu");
             put(ARType.TRACK_2D, "ability_image_track");
+            put(ARType.TRACK_3D, "ability_3d_track");
             put(ARType.VO, "ability_vo");
             put(ARType.FACE, "ability_face_model");
             put(ARType.CLOUD_IR, "ability_cloud_image_recognition");
             put(ARType.ON_DEVICE_IR, "ability_local_image_recognition");
             put(ARType.VPAS, "ability_vpas");
+            put(ARType.MARKER, "ability_marker");
         }
     };
-    public static final HashMap<String, String> bz = new HashMap() { // from class: com.baidu.ar.ability.b.6
+    public static final HashMap<String, String> bC = new HashMap() { // from class: com.baidu.ar.ability.b.6
         {
             put("FaceDetector", "com.baidu.ar.face.FaceAR");
         }

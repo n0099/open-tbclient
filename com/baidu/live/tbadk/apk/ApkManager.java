@@ -37,7 +37,7 @@ public class ApkManager {
     }
 
     public static ApkManager getInstance() {
-        return ApkMamnagerClassInstance.instance;
+        return ApkManagerClassInstance.instance;
     }
 
     private boolean isApkDownloaded(Context context, ApkData apkData) {
@@ -148,7 +148,7 @@ public class ApkManager {
         }
     }
 
-    public void startDownloadAndLaunchApk(final Activity activity, final ApkData apkData, boolean z) {
+    public void startDownloadAndLaunchApk(Activity activity, ApkData apkData, boolean z) {
         if (apkData != null && !TextUtils.isEmpty(apkData.apkUrl) && !isApkWaiting(apkData)) {
             apkData.apkPath = getApkFilePath(apkData.apkPackageName);
             if (!z && isApkDownloaded(activity, apkData)) {
@@ -170,49 +170,7 @@ public class ApkManager {
             downloadData.setId(apkData.apkPackageName);
             downloadData.setName(apkData.apkPackageName);
             downloadData.setType(12);
-            downloadData.setCallback(new FileDownloadCallBack() { // from class: com.baidu.live.tbadk.apk.ApkManager.1
-                @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
-                public void onFileUpdateProgress(DownloadData downloadData2) {
-                    if (apkData != null && apkData.apkStatusCallBack != null) {
-                        apkData.apkStatusCallBack.onApkDownloadProgress(downloadData2.getLength(), downloadData2.getSize());
-                    }
-                }
-
-                @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
-                public boolean onPreDownload(DownloadData downloadData2) {
-                    ApkManager.this.mHandler.post(new Runnable() { // from class: com.baidu.live.tbadk.apk.ApkManager.1.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            if (apkData != null && apkData.apkStatusCallBack != null) {
-                                apkData.apkStatusCallBack.onApkDownloadStart(apkData);
-                            }
-                        }
-                    });
-                    return true;
-                }
-
-                @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
-                public boolean onFileDownloaded(DownloadData downloadData2) {
-                    return true;
-                }
-
-                @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
-                public void onFileDownloadSucceed(DownloadData downloadData2) {
-                    ApkManager.this.mApkWaitingList.remove(apkData);
-                    if (apkData != null && apkData.apkStatusCallBack != null) {
-                        apkData.apkStatusCallBack.onApkDownloadSucceed(apkData);
-                    }
-                    ApkManager.this.installAndLaunchApp(activity, apkData);
-                }
-
-                @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
-                public void onFileDownloadFailed(DownloadData downloadData2, int i, String str) {
-                    ApkManager.this.mApkWaitingList.remove(apkData);
-                    if (apkData != null && apkData.apkStatusCallBack != null) {
-                        apkData.apkStatusCallBack.onApkDownloadFailed(apkData, i, str);
-                    }
-                }
-            });
+            downloadData.setCallback(new ApkFileDownloadCallBack(apkData, activity));
             FileSerialDownLoader.getInstance().startDownLoadWithInsert(downloadData);
         }
     }
@@ -235,6 +193,36 @@ public class ApkManager {
         }
     }
 
+    public void removeFileDownloadCallback(ApkData apkData) {
+        if (apkData != null && !TextUtils.isEmpty(apkData.apkUrl) && !TextUtils.isEmpty(apkData.apkPackageName) && !this.mApkWaitingList.isEmpty()) {
+            Iterator<ApkData> it = this.mApkWaitingList.iterator();
+            while (it.hasNext()) {
+                ApkData next = it.next();
+                if (next != null && !TextUtils.isEmpty(next.apkUrl) && next.apkUrl.equals(apkData.apkUrl)) {
+                    this.mApkWaitingList.remove(apkData);
+                    DownloadData downloadDataById = FileSerialDownLoader.getInstance().getDownloadDataById(apkData.apkPackageName, 12);
+                    if (downloadDataById != null) {
+                        downloadDataById.setCallback(null);
+                        return;
+                    }
+                    return;
+                }
+            }
+        }
+    }
+
+    public void addFileDownloadCallback(ApkData apkData, Activity activity) {
+        DownloadData downloadDataById = FileSerialDownLoader.getInstance().getDownloadDataById(apkData.apkPackageName, 12);
+        if (downloadDataById != null && !isApkWaiting(apkData)) {
+            this.mApkWaitingList.add(apkData);
+            downloadDataById.setCallback(new ApkFileDownloadCallBack(apkData, activity));
+        }
+    }
+
+    public boolean isDownloading(ApkData apkData) {
+        return (apkData == null || FileSerialDownLoader.getInstance().getDownloadDataById(apkData.apkPackageName, 12) == null) ? false : true;
+    }
+
     private boolean isApkWaiting(ApkData apkData) {
         if (apkData == null || TextUtils.isEmpty(apkData.apkUrl)) {
             return false;
@@ -254,6 +242,7 @@ public class ApkManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean installAndLaunchApp(Activity activity, ApkData apkData) {
+        apkData.apkPath = getApkFilePath(apkData.apkPackageName);
         if (activity == null || apkData == null || TextUtils.isEmpty(apkData.apkPath)) {
             return false;
         }
@@ -331,10 +320,67 @@ public class ApkManager {
     }
 
     /* loaded from: classes4.dex */
-    private static class ApkMamnagerClassInstance {
+    private class ApkFileDownloadCallBack implements FileDownloadCallBack {
+        Activity activity;
+        ApkData apkData;
+
+        public ApkFileDownloadCallBack(ApkData apkData, Activity activity) {
+            this.apkData = apkData;
+            this.activity = activity;
+        }
+
+        @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+        public void onFileUpdateProgress(DownloadData downloadData) {
+            if (this.apkData != null && this.apkData.apkStatusCallBack != null) {
+                if (downloadData.getStatus() == 9) {
+                    this.apkData.apkStatusCallBack.onJoinDownloadQueue();
+                } else {
+                    this.apkData.apkStatusCallBack.onApkDownloadProgress(downloadData.getLength(), downloadData.getSize());
+                }
+            }
+        }
+
+        @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+        public boolean onPreDownload(DownloadData downloadData) {
+            ApkManager.this.mHandler.post(new Runnable() { // from class: com.baidu.live.tbadk.apk.ApkManager.ApkFileDownloadCallBack.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (ApkFileDownloadCallBack.this.apkData != null && ApkFileDownloadCallBack.this.apkData.apkStatusCallBack != null) {
+                        ApkFileDownloadCallBack.this.apkData.apkStatusCallBack.onApkDownloadStart(ApkFileDownloadCallBack.this.apkData);
+                    }
+                }
+            });
+            return true;
+        }
+
+        @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+        public boolean onFileDownloaded(DownloadData downloadData) {
+            return true;
+        }
+
+        @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+        public void onFileDownloadSucceed(DownloadData downloadData) {
+            ApkManager.this.mApkWaitingList.remove(this.apkData);
+            if (this.apkData != null && this.apkData.apkStatusCallBack != null) {
+                this.apkData.apkStatusCallBack.onApkDownloadSucceed(this.apkData);
+            }
+            ApkManager.this.installAndLaunchApp(this.activity, this.apkData);
+        }
+
+        @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+            ApkManager.this.mApkWaitingList.remove(this.apkData);
+            if (this.apkData != null && this.apkData.apkStatusCallBack != null) {
+                this.apkData.apkStatusCallBack.onApkDownloadFailed(this.apkData, i, str);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    private static class ApkManagerClassInstance {
         public static final ApkManager instance = new ApkManager();
 
-        private ApkMamnagerClassInstance() {
+        private ApkManagerClassInstance() {
         }
     }
 }

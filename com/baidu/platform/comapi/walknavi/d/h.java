@@ -2,17 +2,17 @@ package com.baidu.platform.comapi.walknavi.d;
 
 import com.baidu.platform.comapi.walknavi.d.g;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class h implements com.baidu.platform.comapi.walknavi.d.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f3000a;
+    final /* synthetic */ c f3002a;
     final /* synthetic */ g b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar, c cVar) {
         this.b = gVar;
-        this.f3000a = cVar;
+        this.f3002a = cVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.a
@@ -39,12 +39,12 @@ public class h implements com.baidu.platform.comapi.walknavi.d.a.a {
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.a
     public void a(int i, String str) {
-        com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download onResponse = " + this.f3000a);
+        com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download onResponse = " + this.f3002a);
         this.b.n = false;
         this.b.b.c = 0;
         this.b.b.b = "";
-        if (this.f3000a != null) {
-            this.f3000a.a(i, str);
+        if (this.f3002a != null) {
+            this.f3002a.a(i, str);
         }
     }
 }

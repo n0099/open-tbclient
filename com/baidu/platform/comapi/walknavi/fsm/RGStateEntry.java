@@ -5,12 +5,12 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.wnplatform.walkmap.f;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class RGStateEntry extends RGStateCar3D {
     private int b = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private f f3011a = new a(this);
+    private f f3013a = new a(this);
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
@@ -32,7 +32,7 @@ public class RGStateEntry extends RGStateCar3D {
     protected void onActionMapStatus() {
         b.a().T().o();
         b.a().J().b(true);
-        b.a().J().a(this.f3011a);
+        b.a().J().a(this.f3013a);
         GeoPoint e = b.a().G().e();
         MapStatus i = b.a().J().i();
         if (i != null) {

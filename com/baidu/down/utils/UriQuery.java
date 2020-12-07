@@ -3,7 +3,7 @@ package com.baidu.down.utils;
 import android.text.TextUtils;
 import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class UriQuery {
     private static final boolean DEBUG = false;
     private static final String TAG = UriQuery.class.getSimpleName();
@@ -23,7 +23,7 @@ public class UriQuery {
         if (!TextUtils.isEmpty(this.mQuery)) {
             String[] split = this.mQuery.split(ETAG.ITEM_SEPARATOR);
             for (int i = 0; i < split.length; i++) {
-                int indexOf = split[i].indexOf(ETAG.EQUAL);
+                int indexOf = split[i].indexOf("=");
                 if (indexOf >= 0) {
                     this.mParams.put(UriHelper.getDecodedValue(split[i].substring(0, indexOf)), UriHelper.getDecodedValue(split[i].substring(indexOf + 1)));
                 } else {
@@ -58,7 +58,7 @@ public class UriQuery {
         }
         StringBuffer stringBuffer = new StringBuffer();
         for (String str : this.mParams.keySet()) {
-            stringBuffer.append(str).append(ETAG.EQUAL).append(getEncodedValue(this.mParams.get(str))).append(ETAG.ITEM_SEPARATOR);
+            stringBuffer.append(str).append("=").append(getEncodedValue(this.mParams.get(str))).append(ETAG.ITEM_SEPARATOR);
         }
         String stringBuffer2 = stringBuffer.toString();
         this.mBackupQueryDirty = false;

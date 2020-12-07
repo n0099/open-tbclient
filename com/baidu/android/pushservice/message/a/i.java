@@ -6,28 +6,28 @@ import com.baidu.android.pushservice.i.m;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1176a;
+    private Context f1174a;
 
     public i(Context context) {
-        this.f1176a = context;
+        this.f1174a = context;
     }
 
     public b a(j jVar) {
         switch (jVar) {
             case MSG_TYPE_SINGLE_PRIVATE:
             case MSG_TYPE_MULTI_PRIVATE:
-                return new e(this.f1176a);
+                return new e(this.f1174a);
             case MSG_TYPE_PRIVATE_MESSAGE:
-                return new f(this.f1176a);
+                return new f(this.f1174a);
             case MSG_TYPE_SINGLE_PUBLIC:
             case MSG_TYPE_MULTI_PUBLIC:
-                return new g(this.f1176a);
+                return new g(this.f1174a);
             case MSG_TYPE_MULTI_PRIVATE_NOTIFICATION:
-                return new c(this.f1176a);
+                return new c(this.f1174a);
             case MSG_TYPE_CROSS_PUSH:
-                return new a(this.f1176a);
+                return new a(this.f1174a);
             default:
-                m.a(">>> Unknown msg_type : " + jVar, this.f1176a);
+                m.a(">>> Unknown msg_type : " + jVar, this.f1174a);
                 return null;
         }
     }

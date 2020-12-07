@@ -12,21 +12,21 @@ import java.util.Map;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class e {
-    private static volatile IRemoteUBCService ekj;
-    private static Map<String, Integer> ekk = new HashMap();
-    private static Set<String> ekl = new HashSet();
+    private static volatile IRemoteUBCService erl;
+    private static Map<String, Integer> erm = new HashMap();
+    private static Set<String> ern = new HashSet();
 
     static {
-        ekl.add("606");
-        ekl.add("671");
-        ekk.put("606", -1);
-        ekk.put("671", -1);
+        ern.add("606");
+        ern.add("671");
+        erm.put("606", -1);
+        erm.put("671", -1);
     }
 
-    public static final l bcL() {
-        return com.baidu.swan.apps.z.b.aCv();
+    public static final l bfQ() {
+        return com.baidu.swan.apps.z.b.aFE();
     }
 
     public static final void onEvent(String str) {
@@ -46,35 +46,35 @@ public class e {
     }
 
     public static final void onEvent(String str, Map<String, String> map, int i) {
-        if (com.baidu.swan.b.d.bdE()) {
-            p.bdi().onEvent(str, map, i);
+        if (com.baidu.swan.b.d.bgJ()) {
+            p.bgn().onEvent(str, map, i);
         }
     }
 
     public static void onEvent(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.acx()) {
-            str2 = dw(str, str2);
+        if (com.baidu.pyramid.runtime.multiprocess.a.afH()) {
+            str2 = dD(str, str2);
         }
-        if (com.baidu.swan.b.d.bdE()) {
-            p.bdi().onEvent(str, str2, i);
+        if (com.baidu.swan.b.d.bgJ()) {
+            p.bgn().onEvent(str, str2, i);
         }
     }
 
     public static void onEvent(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.acx()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.afH()) {
             m(str, jSONObject);
         }
-        if (com.baidu.swan.b.d.bdE()) {
-            p.bdi().onEvent(str, jSONObject, i);
+        if (com.baidu.swan.b.d.bgJ()) {
+            p.bgn().onEvent(str, jSONObject, i);
         }
     }
 
-    public static final Flow yP(String str) {
+    public static final Flow zw(String str) {
         return k(str, "", 0);
     }
 
     public static Flow k(String str, String str2, int i) {
-        return p.bdi().k(str, str2, i);
+        return p.bgn().k(str, str2, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -83,35 +83,35 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static IRemoteUBCService bcM() throws RemoteException {
-        if (ekj == null) {
+    public static IRemoteUBCService bfR() throws RemoteException {
+        if (erl == null) {
             synchronized (e.class) {
-                if (ekj == null) {
-                    IBinder J = IPCServiceManager.J("open_log", true);
-                    if (J == null) {
+                if (erl == null) {
+                    IBinder K = IPCServiceManager.K("open_log", true);
+                    if (K == null) {
                         throw new RemoteException("Ceres get remote service empty !");
                     }
-                    if (J != null) {
-                        ekj = IRemoteUBCService.Stub.asInterface(J);
+                    if (K != null) {
+                        erl = IRemoteUBCService.Stub.asInterface(K);
                     }
                 }
             }
         }
-        return ekj;
+        return erl;
     }
 
-    private static String dw(String str, String str2) {
-        l bcL;
+    private static String dD(String str, String str2) {
+        l bfQ;
         Integer valueOf;
-        if (ekl.contains(str) && (bcL = bcL()) != null && bcL.aCu()) {
+        if (ern.contains(str) && (bfQ = bfQ()) != null && bfQ.aFD()) {
             synchronized (e.class) {
-                Integer num = ekk.get(str);
+                Integer num = erm.get(str);
                 if (num == null) {
                     num = -1;
                 }
                 String str3 = "ubc_counter" + str;
                 if (num.intValue() == -1) {
-                    num = Integer.valueOf(u.bdt().getInt(str3, 0));
+                    num = Integer.valueOf(u.bgy().getInt(str3, 0));
                 }
                 try {
                     if (num.intValue() + 1 >= Integer.MAX_VALUE) {
@@ -122,8 +122,8 @@ public class e {
                     JSONObject jSONObject = new JSONObject(str2);
                     jSONObject.put("counter", valueOf);
                     str2 = jSONObject.toString();
-                    u.bdt().putInt("ubc_counter" + str, valueOf.intValue());
-                    ekk.put(str, valueOf);
+                    u.bgy().putInt("ubc_counter" + str, valueOf.intValue());
+                    erm.put(str, valueOf);
                 } catch (JSONException e) {
                 }
             }
@@ -132,17 +132,17 @@ public class e {
     }
 
     private static JSONObject m(String str, JSONObject jSONObject) {
-        l bcL;
+        l bfQ;
         Integer valueOf;
-        if (ekl.contains(str) && (bcL = bcL()) != null && bcL.aCu()) {
+        if (ern.contains(str) && (bfQ = bfQ()) != null && bfQ.aFD()) {
             synchronized (e.class) {
-                Integer num = ekk.get(str);
+                Integer num = erm.get(str);
                 if (num == null) {
                     num = -1;
                 }
                 String str2 = "ubc_counter" + str;
                 if (num.intValue() == -1) {
-                    num = Integer.valueOf(u.bdt().getInt(str2, 0));
+                    num = Integer.valueOf(u.bgy().getInt(str2, 0));
                 }
                 try {
                     if (num.intValue() + 1 >= Integer.MAX_VALUE) {
@@ -151,8 +151,8 @@ public class e {
                         valueOf = Integer.valueOf(num.intValue() + 1);
                     }
                     jSONObject.put("counter", valueOf);
-                    u.bdt().putInt("ubc_counter" + str, valueOf.intValue());
-                    ekk.put(str, valueOf);
+                    u.bgy().putInt("ubc_counter" + str, valueOf.intValue());
+                    erm.put(str, valueOf);
                 } catch (JSONException e) {
                 }
             }

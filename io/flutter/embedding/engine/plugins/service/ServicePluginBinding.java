@@ -1,18 +1,14 @@
 package io.flutter.embedding.engine.plugins.service;
 
 import android.app.Service;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import io.flutter.embedding.engine.plugins.service.ServiceAware;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public interface ServicePluginBinding {
-    void addOnModeChangeListener(@NonNull ServiceAware.OnModeChangeListener onModeChangeListener);
+    void addOnModeChangeListener(ServiceAware.OnModeChangeListener onModeChangeListener);
 
-    @Nullable
     Object getLifecycle();
 
-    @NonNull
     Service getService();
 
-    void removeOnModeChangeListener(@NonNull ServiceAware.OnModeChangeListener onModeChangeListener);
+    void removeOnModeChangeListener(ServiceAware.OnModeChangeListener onModeChangeListener);
 }

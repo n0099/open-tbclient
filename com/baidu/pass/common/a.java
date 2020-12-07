@@ -1,28 +1,27 @@
 package com.baidu.pass.common;
 
-import com.baidu.webkit.internal.ETAG;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 class a {
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    static class C0271a {
+    /* loaded from: classes9.dex */
+    static class C0282a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f2760a = "UTF-8";
+        private static final String f2762a = "UTF-8";
         private static final String b = "AES/CBC/NoPadding";
         private static final String c = "AES";
         private String d;
         private String e;
         private String f;
 
-        public C0271a() {
+        public C0282a() {
             this("AES", b, "UTF-8");
         }
 
@@ -45,7 +44,7 @@ class a {
             throw new Exception("Empty string");
         }
 
-        public C0271a(String str, String str2, String str3) {
+        public C0282a(String str, String str2, String str3) {
             this.d = "UTF-8";
             this.e = b;
             this.f = "AES";
@@ -142,7 +141,7 @@ class a {
             }
             int i6 = length % 3;
             for (int i7 = 0; i7 < i6; i7++) {
-                sb.append(ETAG.EQUAL);
+                sb.append("=");
             }
             return sb.toString();
         }

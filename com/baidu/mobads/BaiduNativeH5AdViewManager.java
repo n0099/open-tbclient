@@ -5,7 +5,7 @@ import android.content.Context;
 public class BaiduNativeH5AdViewManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static BaiduNativeH5AdViewManager f2303a;
+    private static BaiduNativeH5AdViewManager f2305a;
 
     private BaiduNativeH5AdViewManager() {
     }
@@ -13,10 +13,10 @@ public class BaiduNativeH5AdViewManager {
     public static synchronized BaiduNativeH5AdViewManager getInstance() {
         BaiduNativeH5AdViewManager baiduNativeH5AdViewManager;
         synchronized (BaiduNativeH5AdViewManager.class) {
-            if (f2303a == null) {
-                f2303a = new BaiduNativeH5AdViewManager();
+            if (f2305a == null) {
+                f2305a = new BaiduNativeH5AdViewManager();
             }
-            baiduNativeH5AdViewManager = f2303a;
+            baiduNativeH5AdViewManager = f2305a;
         }
         return baiduNativeH5AdViewManager;
     }

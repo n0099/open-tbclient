@@ -3,11 +3,11 @@ package com.baidu.ufosdk.ui;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class ep extends ClickableSpan {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3863a = -11821318;
+    private int f3866a = -11821318;
     private String b;
     private eq c;
 
@@ -27,6 +27,6 @@ public final class ep extends ClickableSpan {
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
     public final void updateDrawState(TextPaint textPaint) {
         super.updateDrawState(textPaint);
-        textPaint.setColor(this.f3863a);
+        textPaint.setColor(this.f3866a);
     }
 }

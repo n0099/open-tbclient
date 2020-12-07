@@ -5,17 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class HomeWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f1538a = "HomeWatcher";
+    static final String f1540a = "HomeWatcher";
     private final Context b;
     private final IntentFilter c = new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS");
     private OnHomePressedListener d;
     private InnerRecevier e;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public interface OnHomePressedListener {
         void onHomeLongPressed();
 
@@ -43,11 +43,11 @@ public class HomeWatcher {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     class InnerRecevier extends BroadcastReceiver {
 
         /* renamed from: a  reason: collision with root package name */
-        final String f1539a = TiebaInitialize.LogFields.REASON;
+        final String f1541a = TiebaInitialize.LogFields.REASON;
         final String b = "globalactions";
         final String c = "recentapps";
         final String d = "homekey";

@@ -25,35 +25,35 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes.dex */
 final class b {
-    private static Method kYO;
+    private static Method lmj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<File> a(Context context, ApplicationInfo applicationInfo, File file, boolean z) throws IOException {
-        List<File> performExtractions;
+        List<File> m;
         Log.i("MultiDex", "MultiDexExtractor.load(" + applicationInfo.sourceDir + ", " + z + ")");
         File file2 = new File(applicationInfo.sourceDir);
-        long zipCrc = getZipCrc(file2);
-        if (!z && !a(context, file2, zipCrc)) {
+        long ac = ac(file2);
+        if (!z && !a(context, file2, ac)) {
             try {
-                performExtractions = a(context, file2, file);
+                m = a(context, file2, file);
             } catch (IOException e) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
                 if (context instanceof c.a) {
-                    ((c.a) context).getSplash().ddR();
+                    ((c.a) context).getSplash().djc();
                 }
-                performExtractions = performExtractions(file2, file);
-                a(context, getTimeStamp(file2), zipCrc, performExtractions.size() + 1);
+                m = m(file2, file);
+                a(context, ab(file2), ac, m.size() + 1);
             }
         } else {
             Log.i("MultiDex", "Detected that extraction must be performed.");
             if (context instanceof c.a) {
-                ((c.a) context).getSplash().ddR();
+                ((c.a) context).getSplash().djc();
             }
-            performExtractions = performExtractions(file2, file);
-            a(context, getTimeStamp(file2), zipCrc, performExtractions.size() + 1);
+            m = m(file2, file);
+            a(context, ab(file2), ac, m.size() + 1);
         }
-        Log.i("MultiDex", "load found " + performExtractions.size() + " secondary dex files");
-        return performExtractions;
+        Log.i("MultiDex", "load found " + m.size() + " secondary dex files");
+        return m;
     }
 
     private static List<File> a(Context context, File file, File file2) throws IOException {
@@ -67,7 +67,7 @@ final class b {
                 throw new IOException("Missing extracted secondary dex file '" + file3.getPath() + "'");
             }
             arrayList.add(file3);
-            if (!ac(file3)) {
+            if (!ae(file3)) {
                 Log.i("MultiDex", "Invalid zip file: " + file3);
                 throw new IOException("Invalid ZIP file.");
             }
@@ -77,10 +77,10 @@ final class b {
 
     private static boolean a(Context context, File file, long j) {
         SharedPreferences multiDexPreferences = getMultiDexPreferences(context);
-        return (multiDexPreferences.getLong("timestamp", -1L) == getTimeStamp(file) && multiDexPreferences.getLong("crc", -1L) == j) ? false : true;
+        return (multiDexPreferences.getLong("timestamp", -1L) == ab(file) && multiDexPreferences.getLong("crc", -1L) == j) ? false : true;
     }
 
-    private static long getTimeStamp(File file) {
+    private static long ab(File file) {
         long lastModified = file.lastModified();
         if (lastModified == -1) {
             return lastModified - 1;
@@ -88,17 +88,17 @@ final class b {
         return lastModified;
     }
 
-    private static long getZipCrc(File file) throws IOException {
-        long zipCrc = d.getZipCrc(file);
-        if (zipCrc == -1) {
-            return zipCrc - 1;
+    private static long ac(File file) throws IOException {
+        long ac = d.ac(file);
+        if (ac == -1) {
+            return ac - 1;
         }
-        return zipCrc;
+        return ac;
     }
 
-    private static List<File> performExtractions(File file, File file2) throws IOException {
+    private static List<File> m(File file, File file2) throws IOException {
         String str = file.getName() + ".classes";
-        prepareDexDir(file2, str);
+        j(file2, str);
         ArrayList arrayList = new ArrayList();
         ZipFile zipFile = new ZipFile(file);
         try {
@@ -112,18 +112,18 @@ final class b {
                 int i2 = 0;
                 while (i2 < 3 && !z) {
                     int i3 = i2 + 1;
-                    extract(zipFile, entry, file3, str);
-                    boolean ac = ac(file3);
-                    Log.i("MultiDex", "Extraction " + (ac ? "success" : "failed") + " - length " + file3.getAbsolutePath() + ": " + file3.length());
-                    if (!ac) {
+                    a(zipFile, entry, file3, str);
+                    boolean ae = ae(file3);
+                    Log.i("MultiDex", "Extraction " + (ae ? "success" : "failed") + " - length " + file3.getAbsolutePath() + ": " + file3.length());
+                    if (!ae) {
                         file3.delete();
                         if (file3.exists()) {
                             Log.w("MultiDex", "Failed to delete corrupted secondary dex '" + file3.getPath() + "'");
-                            z = ac;
+                            z = ae;
                             i2 = i3;
                         }
                     }
-                    z = ac;
+                    z = ae;
                     i2 = i3;
                 }
                 if (!z) {
@@ -155,9 +155,9 @@ final class b {
         return context.getSharedPreferences("multidex.version", Build.VERSION.SDK_INT < 11 ? 0 : 4);
     }
 
-    private static void prepareDexDir(File file, final String str) throws IOException {
-        mkdirChecked(file.getParentFile());
-        mkdirChecked(file);
+    private static void j(File file, final String str) throws IOException {
+        ad(file.getParentFile());
+        ad(file);
         File[] listFiles = file.listFiles(new FileFilter() { // from class: com.baidu.tieba.n.b.1
             @Override // java.io.FileFilter
             public boolean accept(File file2) {
@@ -178,7 +178,7 @@ final class b {
         }
     }
 
-    private static void mkdirChecked(File file) throws IOException {
+    private static void ad(File file) throws IOException {
         file.mkdir();
         if (!file.isDirectory()) {
             File parentFile = file.getParentFile();
@@ -191,7 +191,7 @@ final class b {
         }
     }
 
-    private static void extract(ZipFile zipFile, ZipEntry zipEntry, File file, String str) throws IOException, FileNotFoundException {
+    private static void a(ZipFile zipFile, ZipEntry zipEntry, File file, String str) throws IOException, FileNotFoundException {
         InputStream inputStream = zipFile.getInputStream(zipEntry);
         File createTempFile = File.createTempFile(str, ".zip", file.getParentFile());
         Log.i("MultiDex", "Extracting " + createTempFile.getPath());
@@ -217,7 +217,7 @@ final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean ac(File file) {
+    public static boolean ae(File file) {
         try {
             try {
                 new ZipFile(file).close();
@@ -242,9 +242,9 @@ final class b {
     }
 
     private static void apply(SharedPreferences.Editor editor) {
-        if (kYO != null) {
+        if (lmj != null) {
             try {
-                kYO.invoke(editor, new Object[0]);
+                lmj.invoke(editor, new Object[0]);
                 return;
             } catch (IllegalAccessException e) {
             } catch (InvocationTargetException e2) {
@@ -255,9 +255,9 @@ final class b {
 
     static {
         try {
-            kYO = SharedPreferences.Editor.class.getMethod(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY, new Class[0]);
+            lmj = SharedPreferences.Editor.class.getMethod(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY, new Class[0]);
         } catch (NoSuchMethodException e) {
-            kYO = null;
+            lmj = null;
         }
     }
 }

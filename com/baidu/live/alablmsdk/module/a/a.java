@@ -8,12 +8,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public String aAa;
-    private List<b> aAb = new ArrayList();
-    public String azY;
-    public boolean azZ;
+    public String aCE;
+    public boolean aCF;
+    public String aCG;
+    private List<b> aCH = new ArrayList();
 
-    public static JSONObject Bn() {
+    public static JSONObject CV() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
@@ -21,7 +21,7 @@ public class a {
             jSONObject.put("user_ext_info", jSONObject2);
         } catch (JSONException e) {
         }
-        com.baidu.live.alablmsdk.a.b.ag(" structureStatusCheckInfo " + jSONObject.toString(), "");
+        com.baidu.live.alablmsdk.a.b.a.ak(" structureStatusCheckInfo " + jSONObject.toString(), "");
         return jSONObject;
     }
 
@@ -36,23 +36,23 @@ public class a {
         }
         try {
             JSONObject jSONObject2 = new JSONObject();
-            if (!TextUtils.isEmpty(this.aAa)) {
-                jSONObject2.put("blm_status_check_info", this.aAa);
+            if (!TextUtils.isEmpty(this.aCG)) {
+                jSONObject2.put("blm_status_check_info", this.aCG);
             }
-            if (!TextUtils.isEmpty(this.azY)) {
-                jSONObject2.put("user_ext_info", new JSONArray(this.azY));
+            if (!TextUtils.isEmpty(this.aCE)) {
+                jSONObject2.put("user_ext_info", new JSONArray(this.aCE));
             }
             if (jSONObject2.length() > 0) {
                 jSONObject.put("blm_internal_info", jSONObject2);
             }
         } catch (JSONException e) {
         }
-        com.baidu.live.alablmsdk.a.b.d(" complementExtJsonToStr=" + jSONObject.toString());
+        com.baidu.live.alablmsdk.a.b.a.d(" complementExtJsonToStr=" + jSONObject.toString());
         return jSONObject;
     }
 
-    public JSONObject fI(String str) {
-        com.baidu.live.alablmsdk.a.b.d(" parseAndRemoveInternalInfo 原始数据 " + str);
+    public JSONObject ge(String str) {
+        com.baidu.live.alablmsdk.a.b.a.d(" parseAndRemoveInternalInfo 原始数据 " + str);
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -71,23 +71,23 @@ public class a {
         JSONObject optJSONObject = jSONObject.optJSONObject("blm_internal_info");
         if (optJSONObject != null) {
             if (optJSONObject.has("blm_status_check_info")) {
-                this.azZ = true;
+                this.aCF = true;
             }
-            this.aAa = optJSONObject.optString("blm_status_check_info");
-            this.azY = optJSONObject.optString("user_ext_info");
-            if (this.azY != null) {
+            this.aCG = optJSONObject.optString("blm_status_check_info");
+            this.aCE = optJSONObject.optString("user_ext_info");
+            if (this.aCE != null) {
                 try {
-                    JSONArray jSONArray = new JSONArray(this.azY);
+                    JSONArray jSONArray = new JSONArray(this.aCE);
                     int length = jSONArray.length();
-                    if (this.aAb == null) {
-                        this.aAb = new ArrayList();
+                    if (this.aCH == null) {
+                        this.aCH = new ArrayList();
                     }
                     for (int i = 0; i < length; i++) {
                         String string = jSONArray.getString(i);
                         if (!TextUtils.isEmpty(string) && (jSONObject2 = new JSONObject(string)) != null) {
                             b bVar = new b();
                             bVar.parse(jSONObject2);
-                            this.aAb.add(bVar);
+                            this.aCH.add(bVar);
                         }
                     }
                 } catch (JSONException e) {
@@ -95,22 +95,22 @@ public class a {
             }
             jSONObject.remove("blm_internal_info");
         }
-        com.baidu.live.alablmsdk.a.b.d(" parseAndRemoveInternalInfo 处理后数据 " + jSONObject.toString());
+        com.baidu.live.alablmsdk.a.b.a.d(" parseAndRemoveInternalInfo 处理后数据 " + jSONObject.toString());
         return jSONObject;
     }
 
-    public b ae(long j) {
-        if (j == 0 || com.baidu.live.alablmsdk.a.a.isEmpty(this.aAb)) {
+    public b aC(long j) {
+        if (j == 0 || com.baidu.live.alablmsdk.a.a.isEmpty(this.aCH)) {
             return null;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.aAb.size()) {
+            if (i2 >= this.aCH.size()) {
                 return null;
             }
-            b bVar = this.aAb.get(i2);
-            if (bVar == null || bVar.azK != j) {
+            b bVar = this.aCH.get(i2);
+            if (bVar == null || bVar.aCp != j) {
                 i = i2 + 1;
             } else {
                 return bVar;

@@ -13,58 +13,58 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     b() {
     }
 
-    public static void g(long j, final String str) {
-        long by = by(j);
-        if (by == -1) {
+    public static void i(long j, final String str) {
+        long bX = bX(j);
+        if (bX == -1) {
             if (DEBUG) {
                 Log.e("LaunchTipsFileHelper", "get timestampByDay failed");
                 return;
             }
             return;
         }
-        final File bw = bw(by);
-        if (bw != null && bw.exists()) {
+        final File bV = bV(bX);
+        if (bV != null && bV.exists()) {
             p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.core.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     synchronized (b.class) {
-                        com.baidu.swan.c.d.saveToFile(str, bw, true);
+                        com.baidu.swan.c.d.saveToFile(str, bV, true);
                     }
-                    b.amg();
+                    b.app();
                 }
             }, "saveLaunchTipsLog");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void amg() {
-        com.baidu.swan.apps.runtime.e aGN = com.baidu.swan.apps.runtime.e.aGN();
-        if (aGN != null && !TextUtils.isEmpty(aGN.getAppId())) {
-            File file = new File(com.baidu.swan.apps.r.d.avI().getPath() + File.separator + "launch_tips");
+    public static void app() {
+        com.baidu.swan.apps.runtime.e aJV = com.baidu.swan.apps.runtime.e.aJV();
+        if (aJV != null && !TextUtils.isEmpty(aJV.getAppId())) {
+            File file = new File(com.baidu.swan.apps.r.d.ayQ().getPath() + File.separator + "launch_tips");
             if (file.exists() && file.isDirectory()) {
                 com.baidu.swan.c.d.deleteFile(file);
             }
         }
     }
 
-    private static File bw(long j) {
+    private static File bV(long j) {
         long parseLong;
         File file = null;
-        File[] ami = ami();
-        if (ami == null || ami.length == 0) {
-            return bx(j);
+        File[] apr = apr();
+        if (apr == null || apr.length == 0) {
+            return bW(j);
         }
-        int length = ami.length;
+        int length = apr.length;
         int i = 0;
         while (i < length) {
-            File file2 = ami[i];
+            File file2 = apr[i];
             try {
                 parseLong = Long.parseLong(file2.getName());
             } catch (NumberFormatException e) {
@@ -83,14 +83,14 @@ class b {
             }
         }
         if (file == null) {
-            return bx(j);
+            return bW(j);
         }
         return file;
     }
 
-    public static String amh() {
-        File[] ami = ami();
-        if (ami == null) {
+    public static String apq() {
+        File[] apr = apr();
+        if (apr == null) {
             return null;
         }
         TreeMap treeMap = new TreeMap(new Comparator<Long>() { // from class: com.baidu.swan.apps.core.b.2
@@ -101,16 +101,16 @@ class b {
                 return l2.compareTo(l);
             }
         });
-        long by = by(System.currentTimeMillis());
-        for (File file : ami) {
+        long bX = bX(System.currentTimeMillis());
+        for (File file : apr) {
             try {
                 long parseLong = Long.parseLong(file.getName());
-                if (by - parseLong >= Config.THREAD_IMAGE_SAVE_MAX_TIME) {
+                if (bX - parseLong >= Config.THREAD_IMAGE_SAVE_MAX_TIME) {
                     com.baidu.swan.c.d.deleteFile(file);
                 } else {
-                    List<String> N = com.baidu.swan.c.d.N(file);
-                    if (N != null && N.size() > 0) {
-                        treeMap.put(Long.valueOf(parseLong), N);
+                    List<String> M = com.baidu.swan.c.d.M(file);
+                    if (M != null && M.size() > 0) {
+                        treeMap.put(Long.valueOf(parseLong), M);
                     }
                 }
             } catch (NumberFormatException e) {
@@ -130,24 +130,24 @@ class b {
         return null;
     }
 
-    private static File[] ami() {
-        String amj = amj();
-        if (amj == null) {
+    private static File[] apr() {
+        String aps = aps();
+        if (aps == null) {
             return null;
         }
-        File file = new File(amj);
+        File file = new File(aps);
         if (file.exists() && file.isDirectory()) {
             return file.listFiles();
         }
         return null;
     }
 
-    private static File bx(long j) {
-        String amj = amj();
-        if (amj == null) {
+    private static File bW(long j) {
+        String aps = aps();
+        if (aps == null) {
             return null;
         }
-        File file = new File(amj + File.separator + j);
+        File file = new File(aps + File.separator + j);
         if (file.exists()) {
             com.baidu.swan.c.d.safeDeleteFile(file);
         }
@@ -155,19 +155,19 @@ class b {
         return file;
     }
 
-    private static String amj() {
-        com.baidu.swan.apps.runtime.e aGN = com.baidu.swan.apps.runtime.e.aGN();
-        if (aGN == null) {
+    private static String aps() {
+        com.baidu.swan.apps.runtime.e aJV = com.baidu.swan.apps.runtime.e.aJV();
+        if (aJV == null) {
             return null;
         }
-        String appId = aGN.getAppId();
+        String appId = aJV.getAppId();
         if (TextUtils.isEmpty(appId)) {
             return null;
         }
-        return com.baidu.swan.apps.r.d.avI().getPath() + File.separator + "launch_tips_v2" + File.separator + appId;
+        return com.baidu.swan.apps.r.d.ayQ().getPath() + File.separator + "launch_tips_v2" + File.separator + appId;
     }
 
-    private static long by(long j) {
+    private static long bX(long j) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT);
         try {
             Date parse = simpleDateFormat.parse(simpleDateFormat.format(new Date(j)));

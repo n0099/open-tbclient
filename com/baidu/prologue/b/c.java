@@ -4,9 +4,9 @@ import android.support.annotation.NonNull;
 import java.io.File;
 /* loaded from: classes14.dex */
 public class c {
-    int Lc = 1;
-    String cho;
-    String chp;
+    int Ma = 1;
+    String cnW;
+    String cnX;
     File mFile;
 
     public static c b(@NonNull File file, @NonNull String str) {
@@ -15,6 +15,6 @@ public class c {
 
     private c(File file, String str) {
         this.mFile = file;
-        this.chp = str;
+        this.cnX = str;
     }
 }

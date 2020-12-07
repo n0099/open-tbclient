@@ -2,7 +2,7 @@ package com.baidu.mapapi.search.share;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 final class a implements Parcelable.Creator<ShareUrlResult> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator

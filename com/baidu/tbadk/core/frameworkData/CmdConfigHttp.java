@@ -76,6 +76,9 @@ public class CmdConfigHttp {
     public static final int CMD_FORUM_BROADCAST_MAJOR_RESIDUE = 1003472;
     public static final int CMD_FORUM_BROADCAST_MAJOR_RESIDUE_NUMBER = 1003474;
     public static final int CMD_FORUM_MULTI_CONCERN = 1003337;
+    public static final int CMD_FORUM_RULES_COMMIT = 1003484;
+    public static final int CMD_FORUM_RULES_DRAFT = 1003483;
+    public static final int CMD_FORUM_RULES_SHOW = 1003481;
     public static final int CMD_FORUM_SQUARE = 1003454;
     public static final int CMD_FRIEND_AND_STRANGER_MSG_SWITCH = 1003318;
     public static final int CMD_FRS_AR_SHARE = 1003391;
@@ -204,6 +207,7 @@ public class CmdConfigHttp {
     public static final int CMD_RECOMMEND_FORUM = 1003428;
     public static final int CMD_RECOMMEND_PERSONALIZE = 1003070;
     public static final int CMD_RECOMMEND_TEST_CLOSE = 1003429;
+    public static final int CMD_RELEVANCE_ITEM_SEARCH = 1003482;
     public static final int CMD_REMOVE_ALL_FORBIDDEN_FANS = 1003407;
     public static final int CMD_REMOVE_FANS = 1003396;
     public static final int CMD_REPORT_HOME_PIC_CLICK = 1003072;

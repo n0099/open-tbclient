@@ -14,24 +14,23 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 import com.baidu.turbonet.base.annotations.NativeClassQualifiedName;
-import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @JNINamespace
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 public class ProxyChangeListener {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static boolean opK;
+    private static boolean oEG;
     private Context mContext;
     private long mNativePtr;
-    private b opL;
-    private Delegate opM;
+    private b oEH;
+    private Delegate oEI;
     private final Looper mLooper = Looper.myLooper();
     private final Handler mHandler = new Handler(this.mLooper);
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes14.dex */
     public interface Delegate {
-        void ecf();
+        void ehK();
     }
 
     @NativeClassQualifiedName
@@ -42,22 +41,22 @@ public class ProxyChangeListener {
 
     static {
         $assertionsDisabled = !ProxyChangeListener.class.desiredAssertionStatus();
-        opK = true;
+        oEG = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes14.dex */
     public static class a {
         public final String mHost;
         public final String mPacUrl;
         public final int mPort;
-        public final String[] opN;
+        public final String[] oEJ;
 
         public a(String str, int i, String str2, String[] strArr) {
             this.mHost = str;
             this.mPort = i;
             this.mPacUrl = str2;
-            this.opN = strArr;
+            this.oEJ = strArr;
         }
     }
 
@@ -93,7 +92,7 @@ public class ProxyChangeListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes14.dex */
     public class b extends BroadcastReceiver {
         private b() {
         }
@@ -134,7 +133,7 @@ public class ProxyChangeListener {
                 String str3 = (String) declaredMethod.invoke(obj, new Object[0]);
                 int intValue = ((Integer) declaredMethod2.invoke(obj, new Object[0])).intValue();
                 if (Build.VERSION.SDK_INT < 21) {
-                    strArr = ((String) declaredMethod3.invoke(obj, new Object[0])).split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    strArr = ((String) declaredMethod3.invoke(obj, new Object[0])).split(",");
                 } else {
                     strArr = (String[]) declaredMethod3.invoke(obj, new Object[0]);
                 }
@@ -171,13 +170,13 @@ public class ProxyChangeListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b bVar, a aVar) {
-        if (opK && bVar == this.opL) {
-            if (this.opM != null) {
-                this.opM.ecf();
+        if (oEG && bVar == this.oEH) {
+            if (this.oEI != null) {
+                this.oEI.ehK();
             }
             if (this.mNativePtr != 0) {
                 if (aVar != null) {
-                    nativeProxySettingsChangedTo(this.mNativePtr, aVar.mHost, aVar.mPort, aVar.mPacUrl, aVar.opN);
+                    nativeProxySettingsChangedTo(this.mNativePtr, aVar.mHost, aVar.mPort, aVar.mPacUrl, aVar.oEJ);
                 } else {
                     nativeProxySettingsChanged(this.mNativePtr);
                 }
@@ -186,18 +185,18 @@ public class ProxyChangeListener {
     }
 
     private void registerReceiver() {
-        if (this.opL == null) {
+        if (this.oEH == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.PROXY_CHANGE");
-            this.opL = new b();
-            this.mContext.getApplicationContext().registerReceiver(this.opL, intentFilter);
+            this.oEH = new b();
+            this.mContext.getApplicationContext().registerReceiver(this.oEH, intentFilter);
         }
     }
 
     private void unregisterReceiver() {
-        if (this.opL != null) {
-            this.mContext.unregisterReceiver(this.opL);
-            this.opL = null;
+        if (this.oEH != null) {
+            this.mContext.unregisterReceiver(this.oEH);
+            this.oEH = null;
         }
     }
 

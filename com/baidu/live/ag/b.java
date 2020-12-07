@@ -1,33 +1,89 @@
 package com.baidu.live.ag;
 
-import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.sdk.a;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import android.text.TextUtils;
 /* loaded from: classes4.dex */
 public class b {
-    public static int i(boolean z, boolean z2) {
-        if (z) {
-            return (int) (TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(z2 ? a.d.sdk_tbds64 : a.d.sdk_tbds120) + (BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) * (z2 ? 0.2f : 0.33f)));
-        }
-        return (int) (((z2 ? 0.2f : 0.27f) * BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst())) + TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_tbds64));
+    public static String Sb() {
+        return a.bxJ;
     }
 
-    public static int c(boolean z, boolean z2, boolean z3) {
-        return i(z2, z3) + cX(z);
+    public static String Sc() {
+        return a.bxL;
     }
 
-    public static int cW(boolean z) {
-        return z ? TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds132) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds16) : TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds90);
+    public static String iy(String str) {
+        return !TextUtils.isEmpty(str) ? Sc() + "/" + str : "";
     }
 
-    public static int cX(boolean z) {
-        if (z) {
-            return 0;
-        }
-        return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_tbds27);
+    public static String iz(String str) {
+        return !TextUtils.isEmpty(str) ? iy(str) + "/dest" : "";
     }
 
-    public static int TS() {
-        return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds168);
+    public static String iA(String str) {
+        return !TextUtils.isEmpty(str) ? iy(str) + "/video" : "";
+    }
+
+    public static String iB(String str) {
+        return !TextUtils.isEmpty(str) ? iy(str) + "/frame" : "";
+    }
+
+    public static String Sd() {
+        return a.bxM;
+    }
+
+    public static String iC(String str) {
+        return !TextUtils.isEmpty(str) ? Sd() + "/" + str : "";
+    }
+
+    public static String iD(String str) {
+        return !TextUtils.isEmpty(str) ? iC(str) + "/dest" : "";
+    }
+
+    public static String iE(String str) {
+        return !TextUtils.isEmpty(str) ? iC(str) + "/video" : "";
+    }
+
+    public static String iF(String str) {
+        return !TextUtils.isEmpty(str) ? iC(str) + "/frame" : "";
+    }
+
+    public static String Se() {
+        return a.bxN;
+    }
+
+    public static String Sf() {
+        return a.bxP;
+    }
+
+    public static String Sg() {
+        return Se() + "/start";
+    }
+
+    public static String Sh() {
+        return Sf() + "/start";
+    }
+
+    public static String Si() {
+        return Sg() + "/dest";
+    }
+
+    public static String Sj() {
+        return Sh() + "/dest";
+    }
+
+    public static String Sk() {
+        return Sg() + "/video";
+    }
+
+    public static String iG(String str) {
+        return a.bxO + "/" + str + "/dest";
+    }
+
+    public static String iH(String str) {
+        return a.bxO + "/" + str;
+    }
+
+    public static String Sl() {
+        return Sh() + "/video";
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.platform.comapi.wnplatform.walkmap;
 
 import android.graphics.Point;
 import android.os.Bundle;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.mapapi.map.Marker;
@@ -9,13 +10,13 @@ import com.baidu.mapapi.map.Overlay;
 import com.baidu.platform.comjni.map.basemap.NABaseMap;
 import com.baidu.webkit.internal.ABTestConstants;
 import com.baidu.webkit.net.BdNetTask;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class WNaviBaiduMap {
     private static long b;
     private static WNaviBaiduMap c;
 
     /* renamed from: a  reason: collision with root package name */
-    private NABaseMap f3156a = new NABaseMap();
+    private NABaseMap f3158a = new NABaseMap();
 
     public void setId(long j) {
         b = j;
@@ -57,7 +58,7 @@ public class WNaviBaiduMap {
             case 5:
                 return 500000;
             case 6:
-                return 200000;
+                return AlaRecorderLog.ErrCodeSeg.ERROR_BASE_RTMP;
             case 7:
                 return 100000;
             case 8:
@@ -120,6 +121,6 @@ public class WNaviBaiduMap {
         bundle.putInt("hasHW", 1);
         bundle.putInt("width", i);
         bundle.putInt("height", i2);
-        return this.f3156a.getZoomToBound(b, bundle, i, i2);
+        return this.f3158a.getZoomToBound(b, bundle, i, i2);
     }
 }

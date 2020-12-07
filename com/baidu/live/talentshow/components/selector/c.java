@@ -5,31 +5,31 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
-    private ArrayList<com.baidu.live.talentshow.b.d> bvk = new ArrayList<>();
+    private ArrayList<com.baidu.live.talentshow.b.d> bAu = new ArrayList<>();
 
-    public ArrayList<com.baidu.live.talentshow.b.d> QU() {
-        return this.bvk;
+    public ArrayList<com.baidu.live.talentshow.b.d> Ts() {
+        return this.bAu;
     }
 
-    public int QV() {
-        return this.bvk.size();
+    public int Tt() {
+        return this.bAu.size();
     }
 
-    public void aa(List<com.baidu.live.talentshow.b.d> list) {
-        this.bvk.addAll(ab(list));
+    public void ac(List<com.baidu.live.talentshow.b.d> list) {
+        this.bAu.addAll(ad(list));
     }
 
-    public void QW() {
+    public void Tu() {
         ArrayList<com.baidu.live.talentshow.b.d> arrayList = new ArrayList<>();
-        Iterator<com.baidu.live.talentshow.b.d> it = this.bvk.iterator();
+        Iterator<com.baidu.live.talentshow.b.d> it = this.bAu.iterator();
         while (it.hasNext()) {
             com.baidu.live.talentshow.b.d next = it.next();
             if (!a(next, arrayList)) {
                 arrayList.add(next);
             }
         }
-        this.bvk.clear();
-        this.bvk.addAll(arrayList);
+        this.bAu.clear();
+        this.bAu.addAll(arrayList);
     }
 
     private boolean a(com.baidu.live.talentshow.b.d dVar, ArrayList<com.baidu.live.talentshow.b.d> arrayList) {
@@ -44,13 +44,13 @@ public class c {
     }
 
     public void clearData() {
-        this.bvk.clear();
+        this.bAu.clear();
     }
 
-    private ArrayList<com.baidu.live.talentshow.b.d> ab(List<com.baidu.live.talentshow.b.d> list) {
+    private ArrayList<com.baidu.live.talentshow.b.d> ad(List<com.baidu.live.talentshow.b.d> list) {
         ArrayList<com.baidu.live.talentshow.b.d> arrayList = new ArrayList<>();
         for (com.baidu.live.talentshow.b.d dVar : list) {
-            if (!a(dVar, this.bvk)) {
+            if (!a(dVar, this.bAu)) {
                 arrayList.add(dVar);
             }
         }

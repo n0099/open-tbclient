@@ -6,17 +6,17 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.adaptation.a.au;
 import java.io.File;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class z implements au {
     private z() {
     }
 
-    public static z ahl() {
-        return a.ctR;
+    public static z akt() {
+        return a.cAL;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.au
-    public com.baidu.swan.c.b e(Context context, String str, boolean z) {
+    public com.baidu.swan.c.b f(Context context, String str, boolean z) {
         return new com.baidu.swan.c.i(str);
     }
 
@@ -26,8 +26,8 @@ public class z implements au {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static class a {
-        private static final z ctR = new z();
+        private static final z cAL = new z();
     }
 }

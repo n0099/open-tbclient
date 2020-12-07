@@ -28,7 +28,7 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidubce.http.Headers;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class BinaryReqTask extends AbstractTask {
     private static final boolean DEBUG = false;
     private static final String TAG = "BinaryReqTask";
@@ -311,7 +311,7 @@ public class BinaryReqTask extends AbstractTask {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public class BinaryTaskHandler extends BinaryHttpResponseHandler {
         public BinaryTaskHandler() {
         }

@@ -3,7 +3,6 @@ package com.baidu.tieba.livesdk.e;
 import com.baidu.adp.lib.e.c;
 import com.baidu.live.adp.lib.image.loader.interfaces.IImageLoader;
 import com.baidu.live.adp.lib.image.loader.interfaces.IImageLoaderListener;
-import com.xiaomi.mipush.sdk.Constants;
 import java.net.URLDecoder;
 /* loaded from: classes4.dex */
 public class b implements IImageLoader {
@@ -24,7 +23,7 @@ public class b implements IImageLoader {
             i2 = 0;
         } else {
             str2 = split[0];
-            String[] split2 = split[1].split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split2 = split[1].split(",");
             i2 = com.baidu.adp.lib.f.b.toInt(split2[0].replace("{w:", ""), 0);
             i = com.baidu.adp.lib.f.b.toInt(split2[1].replace("h:", "").replace("}", ""), 0);
         }

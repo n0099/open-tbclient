@@ -3,27 +3,28 @@ package com.baidu.ar;
 import com.baidu.ar.capture.ICapture;
 import com.baidu.ar.cloud.ICloudIR;
 import com.baidu.ar.face.IFace;
+import com.baidu.ar.marker.IMarker;
 import com.baidu.ar.recg.IOnDeviceIR;
 import com.baidu.ar.track2d.ITrack2D;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class ARProxyManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<String, d> f1190a = new HashMap<>();
+    private HashMap<String, d> f1188a = new HashMap<>();
 
     private d a(String str) {
         if (b(str)) {
-            if (this.f1190a == null) {
-                this.f1190a = new HashMap<>();
+            if (this.f1188a == null) {
+                this.f1188a = new HashMap<>();
             }
-            d dVar = this.f1190a.get(str);
+            d dVar = this.f1188a.get(str);
             if (dVar == null) {
                 dVar = c(str);
             }
             if (dVar != null) {
-                this.f1190a.put(str, dVar);
+                this.f1188a.put(str, dVar);
                 return dVar;
             }
             return dVar;
@@ -38,6 +39,9 @@ public class ARProxyManager {
         if ("com.baidu.ar.track2d.Track2DAR".equals(str)) {
             return new com.baidu.ar.track2d.a();
         }
+        if ("com.baidu.ar.track3d.Track3DAR".equals(str)) {
+            return new com.baidu.ar.g.c();
+        }
         if ("com.baidu.ar.cloud.CloudAR".equals(str)) {
             return new com.baidu.ar.cloud.a();
         }
@@ -46,6 +50,9 @@ public class ARProxyManager {
         }
         if ("com.baidu.ar.capture.FamilyWithChildAR".equals(str)) {
             return new com.baidu.ar.capture.b();
+        }
+        if ("com.baidu.ar.vps.marker.MarkerAR".equals(str)) {
+            return new com.baidu.ar.marker.a();
         }
         return null;
     }
@@ -60,13 +67,13 @@ public class ARProxyManager {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean b(String str) {
-        return "com.baidu.ar.face.FaceAR".equals(str) || "com.baidu.ar.track2d.Track2DAR".equals(str) || "com.baidu.ar.cloud.CloudAR".equals(str) || "com.baidu.ar.recg.RecgAR".equals(str) || "com.baidu.ar.capture.FamilyWithChildAR".equals(str);
+        return "com.baidu.ar.face.FaceAR".equals(str) || "com.baidu.ar.track2d.Track2DAR".equals(str) || "com.baidu.ar.track3d.Track3DAR".equals(str) || "com.baidu.ar.cloud.CloudAR".equals(str) || "com.baidu.ar.recg.RecgAR".equals(str) || "com.baidu.ar.vps.marker.MarkerAR".equals(str) || "com.baidu.ar.capture.FamilyWithChildAR".equals(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d() {
-        if (this.f1190a != null) {
-            for (d dVar : this.f1190a.values()) {
+        if (this.f1188a != null) {
+            for (d dVar : this.f1188a.values()) {
                 dVar.a(null);
             }
         }
@@ -75,7 +82,7 @@ public class ARProxyManager {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(String str) {
         d dVar;
-        if (this.f1190a == null || (dVar = this.f1190a.get(str)) == null) {
+        if (this.f1188a == null || (dVar = this.f1188a.get(str)) == null) {
             return;
         }
         dVar.a(null);
@@ -93,6 +100,10 @@ public class ARProxyManager {
         return (IFace) a("com.baidu.ar.face.FaceAR");
     }
 
+    public IMarker getMarkerAR() {
+        return (IMarker) a("com.baidu.ar.vps.marker.MarkerAR");
+    }
+
     public IOnDeviceIR getOnDeviceIRAR() {
         return (IOnDeviceIR) a("com.baidu.ar.recg.RecgAR");
     }
@@ -101,15 +112,19 @@ public class ARProxyManager {
         return (ITrack2D) a("com.baidu.ar.track2d.Track2DAR");
     }
 
+    public com.baidu.ar.g.a getTrack3DAR() {
+        return (com.baidu.ar.g.a) a("com.baidu.ar.track3d.Track3DAR");
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
     public void release() {
         d();
-        if (this.f1190a != null) {
-            for (Map.Entry<String, d> entry : this.f1190a.entrySet()) {
+        if (this.f1188a != null) {
+            for (Map.Entry<String, d> entry : this.f1188a.entrySet()) {
                 entry.getValue().release();
             }
-            this.f1190a.clear();
-            this.f1190a = null;
+            this.f1188a.clear();
+            this.f1188a = null;
         }
     }
 }

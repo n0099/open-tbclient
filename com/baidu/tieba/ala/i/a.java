@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.i;
 /* loaded from: classes4.dex */
 public class a {
-    public static String fk(long j) {
+    public static String fO(long j) {
         int i;
         int i2;
         int i3;

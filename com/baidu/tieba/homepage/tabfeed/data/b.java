@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.HotTopic;
 import tbclient.RecomTopicList;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b extends d {
     public String title = TbadkCoreApplication.getInst().getString(R.string.recommend_user_hot_topic_title);
 
@@ -26,7 +26,7 @@ public class b extends d {
             for (int i = 0; i < min; i++) {
                 arrayList.add(new com.baidu.tieba.homepage.hotTopic.tab.b.c(list.get(i)));
             }
-            dK(arrayList);
+            dV(arrayList);
         }
     }
 }

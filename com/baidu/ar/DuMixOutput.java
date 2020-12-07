@@ -7,105 +7,107 @@ import com.baidu.ar.arrender.Texture;
 import com.baidu.ar.bean.MirriorType;
 import com.baidu.ar.bean.RotationType;
 import com.baidu.ar.bean.ScaleType;
-/* loaded from: classes12.dex */
+import com.baidu.ar.bean.Watermark;
+/* loaded from: classes10.dex */
 public class DuMixOutput {
-    private RotationType bi;
-    private MirriorType bj;
-    private Object bm;
-    private boolean bn;
-    private ScaleType bo;
+    private MirriorType bl;
+    private Object bo;
     private boolean bp;
-    private int bq;
-    private int br;
+    private ScaleType bq;
+    private boolean br;
+    private int bs;
+    private int bt;
+    private Watermark bu;
     private int mOutputHeight;
     private int mOutputWidth;
+    private RotationType mRotationType;
 
     public DuMixOutput() {
-        this.bm = null;
-        this.bn = false;
-        this.bo = ScaleType.CENTER_CROP;
-        this.bp = true;
-        this.bq = 1;
-        this.bi = RotationType.ROTATE_0;
-        this.bj = MirriorType.NO_MIRRIOR;
-        this.br = 0;
+        this.bo = null;
+        this.bp = false;
+        this.bq = ScaleType.CENTER_CROP;
+        this.br = true;
+        this.bs = 1;
+        this.mRotationType = RotationType.ROTATE_0;
+        this.bl = MirriorType.NO_MIRRIOR;
+        this.bt = 0;
     }
 
     public DuMixOutput(int i, int i2) {
-        this.bm = null;
-        this.bn = false;
-        this.bo = ScaleType.CENTER_CROP;
-        this.bp = true;
-        this.bq = 1;
-        this.bi = RotationType.ROTATE_0;
-        this.bj = MirriorType.NO_MIRRIOR;
-        this.br = 0;
+        this.bo = null;
+        this.bp = false;
+        this.bq = ScaleType.CENTER_CROP;
+        this.br = true;
+        this.bs = 1;
+        this.mRotationType = RotationType.ROTATE_0;
+        this.bl = MirriorType.NO_MIRRIOR;
+        this.bt = 0;
         this.mOutputWidth = i;
         this.mOutputHeight = i2;
     }
 
     public DuMixOutput(SurfaceTexture surfaceTexture, int i, int i2) {
-        this.bm = null;
-        this.bn = false;
-        this.bo = ScaleType.CENTER_CROP;
-        this.bp = true;
-        this.bq = 1;
-        this.bi = RotationType.ROTATE_0;
-        this.bj = MirriorType.NO_MIRRIOR;
-        this.br = 0;
-        this.bm = surfaceTexture;
+        this.bo = null;
+        this.bp = false;
+        this.bq = ScaleType.CENTER_CROP;
+        this.br = true;
+        this.bs = 1;
+        this.mRotationType = RotationType.ROTATE_0;
+        this.bl = MirriorType.NO_MIRRIOR;
+        this.bt = 0;
+        this.bo = surfaceTexture;
         this.mOutputWidth = i;
         this.mOutputHeight = i2;
     }
 
     public DuMixOutput(Surface surface, int i, int i2) {
-        this.bm = null;
-        this.bn = false;
-        this.bo = ScaleType.CENTER_CROP;
-        this.bp = true;
-        this.bq = 1;
-        this.bi = RotationType.ROTATE_0;
-        this.bj = MirriorType.NO_MIRRIOR;
-        this.br = 0;
-        this.bm = surface;
+        this.bo = null;
+        this.bp = false;
+        this.bq = ScaleType.CENTER_CROP;
+        this.br = true;
+        this.bs = 1;
+        this.mRotationType = RotationType.ROTATE_0;
+        this.bl = MirriorType.NO_MIRRIOR;
+        this.bt = 0;
+        this.bo = surface;
         this.mOutputWidth = i;
         this.mOutputHeight = i2;
     }
 
     public DuMixOutput(SurfaceHolder surfaceHolder, int i, int i2) {
-        this.bm = null;
-        this.bn = false;
-        this.bo = ScaleType.CENTER_CROP;
-        this.bp = true;
-        this.bq = 1;
-        this.bi = RotationType.ROTATE_0;
-        this.bj = MirriorType.NO_MIRRIOR;
-        this.br = 0;
-        this.bm = surfaceHolder;
+        this.bo = null;
+        this.bp = false;
+        this.bq = ScaleType.CENTER_CROP;
+        this.br = true;
+        this.bs = 1;
+        this.mRotationType = RotationType.ROTATE_0;
+        this.bl = MirriorType.NO_MIRRIOR;
+        this.bt = 0;
+        this.bo = surfaceHolder;
         this.mOutputWidth = i;
         this.mOutputHeight = i2;
     }
 
     public DuMixOutput(Texture texture, int i, int i2) {
-        this.bm = null;
-        this.bn = false;
-        this.bo = ScaleType.CENTER_CROP;
-        this.bp = true;
-        this.bq = 1;
-        this.bi = RotationType.ROTATE_0;
-        this.bj = MirriorType.NO_MIRRIOR;
-        this.br = 0;
-        this.bm = texture;
+        this.bo = null;
+        this.bp = false;
+        this.bq = ScaleType.CENTER_CROP;
+        this.br = true;
+        this.bs = 1;
+        this.mRotationType = RotationType.ROTATE_0;
+        this.bl = MirriorType.NO_MIRRIOR;
+        this.bt = 0;
+        this.bo = texture;
         this.mOutputWidth = i;
         this.mOutputHeight = i2;
     }
 
     public MirriorType getMirriorType() {
-        return this.bj;
+        return this.bl;
     }
 
     public int getOutputFPS() {
-        return this.br;
+        return this.bt;
     }
 
     public int getOutputHeight() {
@@ -113,14 +115,14 @@ public class DuMixOutput {
     }
 
     public Object getOutputSurface() {
-        return this.bm;
+        return this.bo;
     }
 
     public Texture getOutputTexture() {
-        if (this.bm == null || !(this.bm instanceof Texture)) {
+        if (this.bo == null || !(this.bo instanceof Texture)) {
             return null;
         }
-        return (Texture) this.bm;
+        return (Texture) this.bo;
     }
 
     public int getOutputWidth() {
@@ -128,39 +130,43 @@ public class DuMixOutput {
     }
 
     public RotationType getRotationType() {
-        return this.bi;
+        return this.mRotationType;
     }
 
     public ScaleType getScaleType() {
-        return this.bo;
-    }
-
-    public int getScreenOrientation() {
         return this.bq;
     }
 
+    public int getScreenOrientation() {
+        return this.bs;
+    }
+
+    public Watermark getWatermark() {
+        return this.bu;
+    }
+
     public boolean isFitScreenAuto() {
-        return this.bp;
+        return this.br;
     }
 
     public boolean isNeedDetach() {
-        return this.bn;
+        return this.bp;
     }
 
     public void setFitScreenAuto(boolean z) {
-        this.bp = z;
+        this.br = z;
     }
 
     public void setMirriorType(MirriorType mirriorType) {
-        this.bj = mirriorType;
+        this.bl = mirriorType;
     }
 
     public void setNeedDetach(boolean z) {
-        this.bn = z;
+        this.bp = z;
     }
 
     public void setOutputFPS(int i) {
-        this.br = i;
+        this.bt = i;
     }
 
     public void setOutputHeight(int i) {
@@ -168,19 +174,19 @@ public class DuMixOutput {
     }
 
     public void setOutputSurface(SurfaceTexture surfaceTexture) {
-        this.bm = surfaceTexture;
+        this.bo = surfaceTexture;
     }
 
     public void setOutputSurface(Surface surface) {
-        this.bm = surface;
+        this.bo = surface;
     }
 
     public void setOutputSurface(SurfaceHolder surfaceHolder) {
-        this.bm = surfaceHolder;
+        this.bo = surfaceHolder;
     }
 
     public void setOutputTexture(Texture texture) {
-        this.bm = texture;
+        this.bo = texture;
     }
 
     public void setOutputWidth(int i) {
@@ -188,14 +194,18 @@ public class DuMixOutput {
     }
 
     public void setRotationType(RotationType rotationType) {
-        this.bi = rotationType;
+        this.mRotationType = rotationType;
     }
 
     public void setScaleType(ScaleType scaleType) {
-        this.bo = scaleType;
+        this.bq = scaleType;
     }
 
     public void setScreenOrientation(int i) {
-        this.bq = i;
+        this.bs = i;
+    }
+
+    public void setWatermark(Watermark watermark) {
+        this.bu = watermark;
     }
 }

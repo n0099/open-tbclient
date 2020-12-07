@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class ac extends aa {
     public ac(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/ubcFlowJar");
@@ -83,22 +83,22 @@ public class ac extends aa {
                 com.baidu.swan.apps.api.module.l.f.a(optParamsAsJo, eVar);
                 break;
             case 1:
-                com.baidu.swan.apps.api.module.l.f.v(optParamsAsJo.optJSONArray("data"));
-                break;
-            case 2:
                 com.baidu.swan.apps.api.module.l.f.w(optParamsAsJo.optJSONArray("data"));
                 break;
-            case 3:
+            case 2:
                 com.baidu.swan.apps.api.module.l.f.x(optParamsAsJo.optJSONArray("data"));
                 break;
+            case 3:
+                com.baidu.swan.apps.api.module.l.f.y(optParamsAsJo.optJSONArray("data"));
+                break;
             case 4:
-                com.baidu.swan.apps.api.module.l.f.aS(optParamsAsJo);
+                com.baidu.swan.apps.api.module.l.f.aU(optParamsAsJo);
                 break;
             case 5:
-                com.baidu.swan.apps.console.debugger.a.d.z(optParamsAsJo.optJSONArray("data"));
+                com.baidu.swan.apps.console.debugger.a.d.A(optParamsAsJo.optJSONArray("data"));
                 break;
             case 6:
-                com.baidu.swan.apps.api.module.l.f.aR(optParamsAsJo);
+                com.baidu.swan.apps.api.module.l.f.aT(optParamsAsJo);
                 break;
             default:
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");

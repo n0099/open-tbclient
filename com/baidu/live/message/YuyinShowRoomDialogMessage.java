@@ -3,14 +3,14 @@ package com.baidu.live.message;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes4.dex */
 public class YuyinShowRoomDialogMessage extends CustomResponsedMessage<SupportRoom> {
-    private ShowRoomCard bmG;
+    private ShowRoomCard brO;
 
     public YuyinShowRoomDialogMessage(ShowRoomCard showRoomCard) {
         super(2501054);
-        this.bmG = showRoomCard;
+        this.brO = showRoomCard;
     }
 
-    public ShowRoomCard NH() {
-        return this.bmG;
+    public ShowRoomCard Qa() {
+        return this.brO;
     }
 }

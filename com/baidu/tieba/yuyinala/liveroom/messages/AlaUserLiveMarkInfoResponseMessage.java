@@ -8,11 +8,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaUserLiveMarkInfoResponseMessage extends JsonHttpResponsedMessage {
-    private List<AlaLiveMarkData> hon;
+    private List<AlaLiveMarkData> hxR;
 
     public AlaUserLiveMarkInfoResponseMessage() {
         super(1021121);
-        this.hon = new ArrayList();
+        this.hxR = new ArrayList();
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -24,12 +24,12 @@ public class AlaUserLiveMarkInfoResponseMessage extends JsonHttpResponsedMessage
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                 AlaLiveMarkData alaLiveMarkData = new AlaLiveMarkData();
                 alaLiveMarkData.parserJson(optJSONObject);
-                this.hon.add(alaLiveMarkData);
+                this.hxR.add(alaLiveMarkData);
             }
         }
     }
 
-    public List<AlaLiveMarkData> cfg() {
-        return this.hon;
+    public List<AlaLiveMarkData> cja() {
+        return this.hxR;
     }
 }

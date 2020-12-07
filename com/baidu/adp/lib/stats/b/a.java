@@ -20,9 +20,7 @@ public class a {
             statsItem.append("parset", String.valueOf(j3));
             statsItem.append("fbt", String.valueOf(j4));
             statsItem.append("abt", String.valueOf(j5));
-            if (z2 && i2 != 0) {
-                statsItem.append("salno", String.valueOf(i2));
-            }
+            statsItem.append("salno", String.valueOf(i2));
             BdStatisticsManager.getInstance().performance(str, statsItem);
         }
     }

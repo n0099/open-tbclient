@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.ChatSession;
+import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.conversation.ConversationManagerImpl;
 import com.baidu.android.imsdk.db.DBGroupTableManager;
 import com.baidu.android.imsdk.db.DBOperation;
@@ -18,13 +20,13 @@ import com.baidu.android.imsdk.group.GroupMember;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class GroupInfoDAOImpl {
     private static final String TAG = "GroupInfoDAOImpl";
     private static GroupInfoParse sGroupInfoParse = new GroupInfoParse();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class GroupInfoParse implements IResultParse<GroupInfo> {
         private GroupInfoParse() {
         }
@@ -48,6 +50,8 @@ public class GroupInfoDAOImpl {
             int i4 = cursor.getInt(cursor.getColumnIndex("disturb"));
             int i5 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF));
             String string3 = cursor.getString(cursor.getColumnIndex("description"));
+            int i6 = cursor.getInt(cursor.getColumnIndex("marktop"));
+            long j5 = cursor.getLong(cursor.getColumnIndex("marktoptime"));
             GroupInfo groupInfo = new GroupInfo(string);
             groupInfo.setGroupName(string2);
             groupInfo.setType(i);
@@ -60,6 +64,8 @@ public class GroupInfoDAOImpl {
             groupInfo.setDisturb(i4);
             groupInfo.setBrief(i5);
             groupInfo.setHeadUrl(string3);
+            groupInfo.setMarkTopTime(j5);
+            groupInfo.setMarkTop(i6);
             return groupInfo;
         }
     }
@@ -135,6 +141,49 @@ public class GroupInfoDAOImpl {
             newDb.setTag(DBGroupTableManager.KEY, dBGroupTableManager);
         }
         return dBGroupTableManager.isExistGroupTable(context, str);
+    }
+
+    public static void clearGroupMarkTop(Context context) {
+        DBOperation newDb;
+        if (context != null && (newDb = DBOperationFactory.getNewDb(context)) != null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("marktop", (Integer) 0);
+            newDb.update("groupinfo", contentValues, "marktop = ? ", new String[]{String.valueOf(1)});
+        }
+    }
+
+    public static void updateGroupListMarkTop(Context context, List<ChatSession> list) {
+        clearGroupMarkTop(context);
+        if (list != null) {
+            for (ChatSession chatSession : list) {
+                updateGroupMarkTop(context, chatSession.getContacter(), chatSession.getMarkTop(), chatSession.getMarkTopTime());
+            }
+        }
+    }
+
+    public static void updateGroupMarkTop(Context context, long j, int i, long j2) {
+        updateGroupInfoMarkTop(context, j, i, j2);
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("marktop", Integer.valueOf(i));
+        contentValues.put("marktoptime", Long.valueOf(j2));
+        ChatMessageDBManager.getInstance(context).updateChatSession("contacter=?", new String[]{String.valueOf(j)}, contentValues);
+    }
+
+    public static int updateGroupInfoMarkTop(Context context, long j, int i, long j2) {
+        if (context == null) {
+            return DBResponseCode.ERROR_PARAMETER;
+        }
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb == null) {
+            return DBResponseCode.ERROR_DB_OPEN;
+        }
+        if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, String.valueOf(j))) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("marktop", Integer.valueOf(i));
+            contentValues.put("marktoptime", Long.valueOf(j2));
+            return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{String.valueOf(j)}).intValue();
+        }
+        return DBResponseCode.ERROR_GROUP_NOT_EXIST;
     }
 
     public static int updateGroupInfo(Context context, GroupInfo groupInfo) {

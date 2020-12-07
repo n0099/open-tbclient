@@ -3,8 +3,7 @@ package com.alibaba.fastjson.parser;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class JSONToken {
     public static final int COLON = 17;
     public static final int COMMA = 16;
@@ -66,7 +65,7 @@ public class JSONToken {
             case 15:
                 return "]";
             case 16:
-                return Constants.ACCEPT_TIME_SEPARATOR_SP;
+                return ",";
             case 17:
                 return ":";
             case 18:

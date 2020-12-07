@@ -6,9 +6,9 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaEndConnectionWheatHttpResponseMessage extends BaseJsonHttpResponsedMessage {
     private int fans;
-    private String ohX;
-    private int ohY;
-    private int ohZ;
+    private String owX;
+    private int owY;
+    private int owZ;
 
     public AlaEndConnectionWheatHttpResponseMessage() {
         super(1031011);
@@ -19,26 +19,26 @@ public class AlaEndConnectionWheatHttpResponseMessage extends BaseJsonHttpRespon
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031011 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.ohX = optJSONObject.optString("minute");
+            this.owX = optJSONObject.optString("minute");
             this.fans = optJSONObject.optInt("fans");
-            this.ohY = optJSONObject.optInt(SdkStaticKeys.RANK_TYPE_CHARM);
-            this.ohZ = optJSONObject.optInt(SubPbActivityConfig.KEY_USER_IDENTITY);
+            this.owY = optJSONObject.optInt(SdkStaticKeys.RANK_TYPE_CHARM);
+            this.owZ = optJSONObject.optInt(SubPbActivityConfig.KEY_USER_IDENTITY);
         }
     }
 
-    public boolean eah() {
-        return this.ohZ == 1 || this.ohZ == 2 || this.ohZ == 3;
+    public boolean efM() {
+        return this.owZ == 1 || this.owZ == 2 || this.owZ == 3;
     }
 
-    public String eai() {
-        return this.ohX;
+    public String efN() {
+        return this.owX;
     }
 
-    public int cWr() {
+    public int dbD() {
         return this.fans;
     }
 
-    public int eaj() {
-        return this.ohY;
+    public int efO() {
+        return this.owY;
     }
 }

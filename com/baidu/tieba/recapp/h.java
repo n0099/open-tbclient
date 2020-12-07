@@ -1,32 +1,14 @@
 package com.baidu.tieba.recapp;
 
-import android.content.Context;
-import java.util.Map;
+import android.view.View;
+import com.baidu.tbadk.widget.DragImageView;
 /* loaded from: classes.dex */
 public interface h {
+    View deE();
 
-    /* loaded from: classes.dex */
-    public interface a {
-        int d(Context context, String[] strArr);
-    }
+    void onAdShow();
 
-    /* loaded from: classes.dex */
-    public interface b {
-        int l(Context context, Map<String, String> map);
-    }
+    void onDestroy();
 
-    /* loaded from: classes.dex */
-    public interface c {
-        int b(Context context, String str, String str2, boolean z, d dVar, boolean z2);
-    }
-
-    /* loaded from: classes.dex */
-    public interface d {
-    }
-
-    boolean EE(String str);
-
-    void a(Context context, String[] strArr, boolean z);
-
-    boolean c(Context context, String[] strArr);
+    void setDragToExitListener(DragImageView.d dVar);
 }

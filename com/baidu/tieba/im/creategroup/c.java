@@ -2,16 +2,16 @@ package com.baidu.tieba.im.creategroup;
 
 import android.app.Activity;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class c {
-    public static String kaS = "pic_found_address";
-    public static String kaT = "pic_found_recommend";
-    public static String kaU = "pic_didian";
-    public static String kaV = "pic_found_name";
-    public static String kaW = "pic_benba";
+    public static String kow = "pic_found_address";
+    public static String kox = "pic_found_recommend";
+    public static String koy = "pic_didian";
+    public static String koz = "pic_found_name";
+    public static String koA = "pic_benba";
 
     public static String a(Activity activity, String str, boolean z) {
-        return z ? com.baidu.tbadk.util.d.bCI().getUrlByNet(str + "_1.png") : com.baidu.tbadk.util.d.bCI().getUrlByNet(str + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX);
+        return z ? com.baidu.tbadk.util.d.bGj().getUrlByNet(str + "_1.png") : com.baidu.tbadk.util.d.bGj().getUrlByNet(str + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX);
     }
 
     public static void b(Activity activity, String str, boolean z) {

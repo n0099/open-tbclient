@@ -4,18 +4,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    int dFf;
+    int dMd;
     String date;
     String uid;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a ex(JSONObject jSONObject) {
+    public a ez(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
         this.uid = jSONObject.optString("uid");
         this.date = jSONObject.optString("date");
-        this.dFf = jSONObject.optInt("times");
+        this.dMd = jSONObject.optInt("times");
         return this;
     }
 
@@ -25,7 +25,7 @@ public class a {
         try {
             jSONObject.put("uid", this.uid);
             jSONObject.put("date", this.date);
-            jSONObject.put("times", this.dFf);
+            jSONObject.put("times", this.dMd);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

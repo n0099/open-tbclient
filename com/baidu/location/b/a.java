@@ -20,12 +20,12 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class a {
     private static String o = "BDLocConfigManager";
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f1863a;
+    public boolean f1865a;
     public int b;
     public double c;
     public int d;
@@ -42,7 +42,7 @@ public class a {
     private SharedPreferences p;
     private long q;
     private String r;
-    private C0242a s;
+    private C0251a s;
     private boolean t;
     private String u;
     private String v;
@@ -50,22 +50,22 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.location.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C0242a extends com.baidu.location.e.f {
+    /* loaded from: classes26.dex */
+    public class C0251a extends com.baidu.location.e.f {
 
         /* renamed from: a  reason: collision with root package name */
-        String f1864a = null;
+        String f1866a = null;
         boolean b = false;
 
-        public C0242a() {
+        public C0251a() {
             this.k = new HashMap();
         }
 
         @Override // com.baidu.location.e.f
         public void a() {
             this.i = 2;
-            String encode = Jni.encode(this.f1864a);
-            this.f1864a = null;
+            String encode = Jni.encode(this.f1866a);
+            this.f1866a = null;
             this.k.put("qt", "conf");
             this.k.put("req", encode);
         }
@@ -75,7 +75,7 @@ public class a {
                 return;
             }
             this.b = true;
-            this.f1864a = str;
+            this.f1866a = str;
             b("https://loc.map.baidu.com/cfgs/loc/commcfgs");
         }
 
@@ -100,16 +100,16 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f1865a = new a();
+        public static final a f1867a = new a();
     }
 
     private a() {
         this.p = null;
-        this.f1863a = false;
+        this.f1865a = false;
         this.b = 16;
         this.q = 300L;
         this.c = 0.75d;
@@ -132,7 +132,7 @@ public class a {
     }
 
     public static a a() {
-        return b.f1865a;
+        return b.f1867a;
     }
 
     private String a(Context context) {
@@ -173,7 +173,7 @@ public class a {
             }
         }
         if (this.s == null) {
-            this.s = new C0242a();
+            this.s = new C0251a();
         }
         this.s.a(str3);
     }
@@ -182,7 +182,7 @@ public class a {
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject.has("is_check_Per") && jSONObject.getInt("is_check_Per") > 0) {
-                this.f1863a = true;
+                this.f1865a = true;
             }
             if (jSONObject.has("wfnum")) {
                 this.b = jSONObject.getInt("wfnum");

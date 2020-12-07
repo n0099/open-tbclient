@@ -6,7 +6,7 @@ import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.support.annotation.RequiresPermission;
 import android.support.v4.app.ActivityCompat;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class VibrateUtils {
     private int[] amplitudes;
     private Context mContext;
@@ -60,7 +60,7 @@ public class VibrateUtils {
         return this.mContext != null && ActivityCompat.checkSelfPermission(this.mContext, "android.permission.VIBRATE") == 0;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder {
         private int[] amplitudes;
         private Context mContext;

@@ -1,28 +1,27 @@
 package com.baidu.searchbox.elasticthread.task;
 
 import android.os.SystemClock;
-import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public class ElasticTask implements Runnable {
+    private static final boolean DEBUG = false;
     private long id;
     private ElasticTaskCallback mCallback;
     private Runnable mTaskEntity;
     private String name;
     private int priority;
+    public Status status = Status.WAITING;
     private long timeOnComplete;
     private long timeOnExecute;
     private long timeOnQueue;
-    public Status status = Status.WAITING;
-    private ReentrantLock mCallbackLock = new ReentrantLock();
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes16.dex */
     public interface ElasticTaskCallback {
         void afterExecuteTask();
 
         void beforeExecuteTask();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes16.dex */
     public enum Status {
         WAITING,
         RUNNING,
@@ -37,16 +36,24 @@ public class ElasticTask implements Runnable {
     }
 
     public void setElasticTaskCallback(ElasticTaskCallback elasticTaskCallback) {
-        this.mCallbackLock.lock();
         this.mCallback = elasticTaskCallback;
-        this.mCallbackLock.unlock();
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        beforeExecuteCallback();
+        try {
+            if (this.mCallback != null) {
+                this.mCallback.beforeExecuteTask();
+            }
+        } catch (Exception e) {
+        }
         this.mTaskEntity.run();
-        afterExecuteCallback();
+        try {
+            if (this.mCallback != null) {
+                this.mCallback.afterExecuteTask();
+            }
+        } catch (Exception e2) {
+        }
     }
 
     public int getPriority() {
@@ -100,21 +107,5 @@ public class ElasticTask implements Runnable {
     public synchronized void recordCompleteTime() {
         this.status = Status.COMPLETE;
         this.timeOnComplete = SystemClock.elapsedRealtime();
-    }
-
-    private void beforeExecuteCallback() {
-        this.mCallbackLock.lock();
-        if (this.mCallback != null) {
-            this.mCallback.beforeExecuteTask();
-        }
-        this.mCallbackLock.unlock();
-    }
-
-    private void afterExecuteCallback() {
-        this.mCallbackLock.lock();
-        if (this.mCallback != null) {
-            this.mCallback.afterExecuteTask();
-        }
-        this.mCallbackLock.unlock();
     }
 }

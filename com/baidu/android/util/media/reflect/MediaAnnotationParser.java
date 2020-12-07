@@ -9,7 +9,7 @@ import com.baidu.android.util.media.model.MediaInfo;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class MediaAnnotationParser {
     public MediaClassMetadata getMetaData(Class<? extends MediaInfo> cls) {
         if (cls == null) {

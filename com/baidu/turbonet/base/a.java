@@ -2,7 +2,7 @@ package com.baidu.turbonet.base;
 
 import android.util.Log;
 import java.util.Locale;
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 public class a {
     private a() {
     }
@@ -14,7 +14,7 @@ public class a {
         return str;
     }
 
-    public static String VT(String str) {
+    public static String Xi(String str) {
         if (!str.startsWith("cr_")) {
             int i = 0;
             if (str.startsWith("cr.")) {
@@ -26,16 +26,16 @@ public class a {
     }
 
     private static String h(String str, Object... objArr) {
-        return "[" + ebg() + "] " + g(str, objArr);
+        return "[" + egL() + "] " + g(str, objArr);
     }
 
     private static void debug(String str, String str2, Object... objArr) {
         String h = h(str2, objArr);
         Throwable L = L(objArr);
         if (L != null) {
-            Log.d(VT(str), h, L);
+            Log.d(Xi(str), h, L);
         } else {
-            Log.d(VT(str), h);
+            Log.d(Xi(str), h);
         }
     }
 
@@ -47,9 +47,9 @@ public class a {
         String g = g(str2, objArr);
         Throwable L = L(objArr);
         if (L != null) {
-            Log.i(VT(str), g, L);
+            Log.i(Xi(str), g, L);
         } else {
-            Log.i(VT(str), g);
+            Log.i(Xi(str), g);
         }
     }
 
@@ -57,9 +57,9 @@ public class a {
         String g = g(str2, objArr);
         Throwable L = L(objArr);
         if (L != null) {
-            Log.e(VT(str), g, L);
+            Log.e(Xi(str), g, L);
         } else {
-            Log.e(VT(str), g);
+            Log.e(Xi(str), g);
         }
     }
 
@@ -74,7 +74,7 @@ public class a {
         return null;
     }
 
-    private static String ebg() {
+    private static String egL() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         String name = a.class.getName();
         int i = 0;

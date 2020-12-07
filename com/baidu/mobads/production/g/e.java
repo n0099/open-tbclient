@@ -14,14 +14,14 @@ import java.util.HashMap;
 public class e extends com.baidu.mobads.vo.d {
 
     /* renamed from: a  reason: collision with root package name */
-    h f2413a;
+    h f2415a;
 
     public e(Context context, IXAdConstants4PDK.SlotType slotType) {
         super(context, null, slotType);
-        this.f2413a = XAdSDKFoundationFacade.getInstance().getAdConstants();
+        this.f2415a = XAdSDKFoundationFacade.getInstance().getAdConstants();
         this.b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
         g(1);
-        i(this.f2413a.getAdCreativeTypeImage() + this.f2413a.getAdCreativeTypeVideo() + this.f2413a.getAdCreativeTypeRichmedia());
+        i(this.f2415a.getAdCreativeTypeImage() + this.f2415a.getAdCreativeTypeVideo() + this.f2415a.getAdCreativeTypeRichmedia());
         f(8);
         h(0);
     }

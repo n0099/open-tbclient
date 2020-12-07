@@ -4,11 +4,11 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final boolean f2251a;
+    private final boolean f2253a;
     private final String b;
     private final String c;
     private final String d;
@@ -27,7 +27,7 @@ public final class f {
         } else {
             this.b = Environment.getExternalStorageDirectory().getAbsolutePath();
         }
-        this.f2251a = false;
+        this.f2253a = false;
         this.c = this.b + File.separator + "BaiduMapSDKNew";
         this.d = context.getCacheDir().getAbsolutePath();
         this.e = "";

@@ -11,10 +11,9 @@ import android.support.v4.graphics.PathParser;
 import android.util.AttributeSet;
 import android.view.InflateException;
 import android.view.animation.Interpolator;
-import com.xiaomi.mipush.sdk.Constants;
 import org.xmlpull.v1.XmlPullParser;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public class PathInterpolatorCompat implements Interpolator {
     public static final double EPSILON = 1.0E-5d;
     public static final int MAX_NUM_POINTS = 3000;
@@ -91,7 +90,7 @@ public class PathInterpolatorCompat implements Interpolator {
             this.mY[i2] = fArr[1];
         }
         if (Math.abs(this.mX[0]) > 1.0E-5d || Math.abs(this.mY[0]) > 1.0E-5d || Math.abs(this.mX[min - 1] - 1.0f) > 1.0E-5d || Math.abs(this.mY[min - 1] - 1.0f) > 1.0E-5d) {
-            throw new IllegalArgumentException("The Path must start at (0,0) and end at (1,1) start: " + this.mX[0] + Constants.ACCEPT_TIME_SEPARATOR_SP + this.mY[0] + " end:" + this.mX[min - 1] + Constants.ACCEPT_TIME_SEPARATOR_SP + this.mY[min - 1]);
+            throw new IllegalArgumentException("The Path must start at (0,0) and end at (1,1) start: " + this.mX[0] + "," + this.mY[0] + " end:" + this.mX[min - 1] + "," + this.mY[min - 1]);
         }
         float f = 0.0f;
         int i3 = 0;

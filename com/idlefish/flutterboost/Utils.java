@@ -74,9 +74,9 @@ public class Utils {
                         }
                         if (str2 != null) {
                             if (sb.toString().endsWith("?")) {
-                                sb.append(str3).append(ETAG.EQUAL).append(str2);
+                                sb.append(str3).append("=").append(str2);
                             } else {
-                                sb.append(ETAG.ITEM_SEPARATOR).append(str3).append(ETAG.EQUAL).append(str2);
+                                sb.append(ETAG.ITEM_SEPARATOR).append(str3).append("=").append(str2);
                             }
                         }
                     }

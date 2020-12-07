@@ -11,37 +11,37 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class b {
-    private static b gbS = new b();
-    public static boolean gbV = false;
-    private JSONObject gbT;
-    private int gbU = 3;
+    private static b gkd = new b();
+    public static boolean gkg = false;
+    private JSONObject gke;
+    private int gkf = 3;
 
-    public static b bME() {
-        return gbS;
+    public static b bQp() {
+        return gkd;
     }
 
     public void init() {
         loadData();
     }
 
-    public void bMF() {
+    public void bQq() {
         HttpMessage httpMessage = new HttpMessage(1021204);
         httpMessage.setTag(null);
-        httpMessage.addParam("classification_id", bMH());
+        httpMessage.addParam("classification_id", bQs());
         httpMessage.addParam(HttpConstants.HTTP_HARDWARE, Build.HARDWARE);
         httpMessage.addParam("live_model", Build.MODEL);
         httpMessage.addParam("manufacture", Build.MANUFACTURER);
-        httpMessage.addParam("quality_sign", bMG());
+        httpMessage.addParam("quality_sign", bQr());
         httpMessage.addParam("submodule", "live");
         httpMessage.addParam(HttpConstants.HTTP_BOARD, Build.BOARD);
         httpMessage.addParam("arsdk_version", String.valueOf(com.baidu.minivideo.arface.a.getVersion()));
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private String bMG() {
+    private String bQr() {
         String str = null;
         if (!isEmpty()) {
-            str = this.gbT.optString("quality_sign");
+            str = this.gke.optString("quality_sign");
         }
         if (TextUtils.isEmpty(str)) {
             return "default";
@@ -49,10 +49,10 @@ public final class b {
         return str;
     }
 
-    private String bMH() {
+    private String bQs() {
         String str = null;
         if (!isEmpty()) {
-            str = this.gbT.optString("classification_id");
+            str = this.gke.optString("classification_id");
         }
         if (TextUtils.isEmpty(str)) {
             return "default";
@@ -60,34 +60,34 @@ public final class b {
         return str;
     }
 
-    public JSONObject bMI() {
+    public JSONObject bQt() {
         if (isEmpty()) {
             return null;
         }
-        return this.gbT.optJSONObject("classification");
+        return this.gke.optJSONObject("classification");
     }
 
-    public JSONObject bMJ() {
+    public JSONObject bQu() {
         if (isEmpty()) {
             return null;
         }
-        return this.gbT.optJSONObject("quality");
+        return this.gke.optJSONObject("quality");
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:59:0x0104 -> B:69:0x00cf). Please submit an issue!!! */
-    public JSONObject du(JSONObject jSONObject) {
+    public JSONObject dv(JSONObject jSONObject) {
         JSONObject jSONObject2 = new JSONObject();
         if (jSONObject == null) {
-            return this.gbT;
+            return this.gke;
         }
-        if (this.gbT == null) {
+        if (this.gke == null) {
             if (jSONObject.has("quality") && com.baidu.live.ar.b.q(jSONObject.optJSONObject("quality")) == null) {
                 return null;
             }
             return jSONObject;
         }
-        String optString = this.gbT.optString("classification_id");
-        JSONObject optJSONObject = this.gbT.optJSONObject("classification");
+        String optString = this.gke.optString("classification_id");
+        JSONObject optJSONObject = this.gke.optJSONObject("classification");
         String jSONObject3 = optJSONObject != null ? optJSONObject.toString() : null;
         if (jSONObject.has("classification_id")) {
             String optString2 = jSONObject.optString("classification_id");
@@ -111,8 +111,8 @@ public final class b {
             } catch (JSONException e2) {
             }
         }
-        String optString3 = this.gbT.optString("quality_sign");
-        JSONObject optJSONObject3 = this.gbT.optJSONObject("quality");
+        String optString3 = this.gke.optString("quality_sign");
+        JSONObject optJSONObject3 = this.gke.optJSONObject("quality");
         String jSONObject5 = optJSONObject3 != null ? optJSONObject3.toString() : null;
         if (jSONObject.has("quality_sign")) {
             String optString4 = jSONObject.optString("quality_sign");
@@ -142,20 +142,20 @@ public final class b {
     public void d(JSONObject jSONObject, boolean z) {
         if (jSONObject != null && jSONObject.length() != 0) {
             if (z) {
-                dv(jSONObject);
+                dw(jSONObject);
             }
-            this.gbT = jSONObject;
-            com.baidu.minivideo.arface.b.setGradingConfig(bMI());
-            com.baidu.minivideo.arface.b.aj(bMJ());
+            this.gke = jSONObject;
+            com.baidu.minivideo.arface.b.setGradingConfig(bQt());
+            com.baidu.minivideo.arface.b.al(bQu());
         }
     }
 
-    private void dv(JSONObject jSONObject) {
+    private void dw(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject.length() > 0) {
             String jSONObject2 = jSONObject.toString();
-            d.Aq().putString("ar_grading_quality_config", jSONObject2);
-            if (com.baidu.live.ar.b.d(this.gbT, jSONObject)) {
-                d.Aq().putBoolean("ar_grading_quality_config_need_update", true);
+            d.BM().putString("ar_grading_quality_config", jSONObject2);
+            if (com.baidu.live.ar.b.d(this.gke, jSONObject)) {
+                d.BM().putBoolean("ar_grading_quality_config_need_update", true);
                 if (isDebug()) {
                     Log.d("GradingQualityConfig", "saveCache: need update quality value ");
                 }
@@ -166,8 +166,8 @@ public final class b {
         }
     }
 
-    private void bMK() {
-        String string = d.Aq().getString("ar_grading_quality_config", "");
+    private void bQv() {
+        String string = d.BM().getString("ar_grading_quality_config", "");
         if (isDebug()) {
             Log.d("GradingQualityConfig", "readCache: " + string);
         }
@@ -181,12 +181,12 @@ public final class b {
     }
 
     protected void loadData() {
-        bMK();
-        bMF();
+        bQv();
+        bQq();
     }
 
     public boolean isEmpty() {
-        return this.gbT == null || this.gbT.length() == 0;
+        return this.gke == null || this.gke.length() == 0;
     }
 
     public static boolean isDebug() {

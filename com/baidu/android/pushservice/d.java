@@ -14,7 +14,7 @@ import java.io.ObjectOutputStream;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1057a = "NotificationBuilderManager";
+    private static String f1055a = "NotificationBuilderManager";
     private static String b = "notification_builder_storage";
     private static Object c = new Object();
     private static int d = 0;

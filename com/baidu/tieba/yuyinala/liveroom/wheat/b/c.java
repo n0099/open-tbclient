@@ -13,12 +13,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    public void ac(w wVar) {
+    public void ah(w wVar) {
         if (wVar != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, wVar.aHZ.croom_id);
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, wVar.aKL.croom_id);
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -30,10 +30,10 @@ public class c {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            w WE = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().WE();
-            if (WE != null && WE.aHZ != null) {
-                jSONObject.put("live_id", WE.aHZ.live_id);
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WE.aHZ.croom_id);
+            w Zd = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().Zd();
+            if (Zd != null && Zd.aKL != null) {
+                jSONObject.put("live_id", Zd.aKL.live_id);
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, Zd.aKL.croom_id);
             }
             jSONObject.put("loc", i);
             boolean z = false;

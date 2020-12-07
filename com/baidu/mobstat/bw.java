@@ -28,7 +28,6 @@ import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.mobstat.bm;
 import com.baidu.mobstat.bt;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
@@ -47,7 +46,7 @@ import org.json.JSONObject;
 public class bw {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f2595a = null;
+    private static String f2597a = null;
     private static String b = null;
     private static String c = null;
     private static final Pattern d = Pattern.compile("\\s*|\t|\r|\n");
@@ -148,7 +147,7 @@ public class bw {
                     GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
                     return String.format("%s_%s_%s", String.format("%d", Integer.valueOf(gsmCellLocation.getCid())), String.format("%d", Integer.valueOf(gsmCellLocation.getLac())), 0);
                 }
-                String[] split = cellLocation.toString().replace("[", "").replace("]", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split = cellLocation.toString().replace("[", "").replace("]", "").split(",");
                 return String.format("%s_%s_%s", split[0], split[3], split[4]);
             }
         } catch (Exception e) {
@@ -587,7 +586,7 @@ public class bw {
 
     private static String y(Context context) {
         String str;
-        String str2 = f2595a;
+        String str2 = f2597a;
         if (str2 == null) {
             try {
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -605,7 +604,7 @@ public class bw {
             if (str == null) {
                 str = "";
             }
-            f2595a = str;
+            f2597a = str;
             return str;
         }
         return str2;

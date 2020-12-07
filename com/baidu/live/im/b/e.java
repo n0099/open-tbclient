@@ -1,9 +1,9 @@
 package com.baidu.live.im.b;
 /* loaded from: classes4.dex */
 public interface e {
-    boolean LE();
+    boolean NR();
 
-    int Li();
+    int Nm();
 
-    void ee(int i);
+    void fd(int i);
 }

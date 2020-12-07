@@ -10,7 +10,6 @@ import com.baidu.down.manage.DownloadConstants;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
 import com.baidu.searchbox.aop.annotation.TimeSpendTrace;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -21,7 +20,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AppConfig {
     private static final String CONFIG_FILE = "searchbox_config.ini";
     private static final String DAILY_CONFIG_FILE = "daily_searchbox_config.ini";
@@ -44,7 +43,7 @@ public class AppConfig {
     public static boolean useQADefaultDings = false;
     public static boolean userProfileForbidFlag = false;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public interface ConfigValueFilter {
         boolean isIllegalContent(String str);
     }
@@ -62,7 +61,7 @@ public class AppConfig {
         return false;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class AppInfo {
         private static final String DEFAULT_PACKAGE_NAME = "com.baidu.searchbox";
         private static final String PREVIEW_PACKAGE_NAME = "com.baidu.searchbox.preview";
@@ -157,7 +156,7 @@ public class AppConfig {
         return i;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class HTTPSConfig {
         private static final long TMP_USE_HTTP_DELTA = 518400000;
 
@@ -313,7 +312,7 @@ public class AppConfig {
         return getStringConfig("XSEARCH_DATA_URL", "http://m.baidu.com/microapp");
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class Speed {
         public static boolean getSpeedEnable() {
             return AppConfig.getBooleanConfig("SPEED_MONITOR", false);
@@ -386,7 +385,7 @@ public class AppConfig {
         return CONFIG_FILE;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [631=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [630=4] */
     private static void parseInternalConfig(HashMap<String, String> hashMap, ConfigValueFilter configValueFilter) {
         InputStream inputStream;
         Throwable th;
@@ -432,44 +431,47 @@ public class AppConfig {
     private static boolean parseExternalConfig(HashMap<String, String> hashMap, ConfigValueFilter configValueFilter) {
         FileInputStream fileInputStream;
         boolean z = false;
-        File file = new File(AppRuntime.getAppContext().getFilesDir().getPath(), CONFIG_FILE);
-        if (file.exists()) {
-            FileInputStream fileInputStream2 = null;
-            try {
-                fileInputStream = new FileInputStream(file);
+        try {
+            File file = new File(AppRuntime.getAppContext().getFilesDir().getPath(), CONFIG_FILE);
+            if (file.exists()) {
+                FileInputStream fileInputStream2 = null;
                 try {
-                    parseStream(fileInputStream, hashMap, configValueFilter, false);
-                    z = true;
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (Exception e) {
+                    fileInputStream = new FileInputStream(file);
+                    try {
+                        parseStream(fileInputStream, hashMap, configValueFilter, false);
+                        z = true;
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (Exception e) {
+                            }
                         }
-                    }
-                } catch (Exception e2) {
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (Exception e3) {
+                    } catch (Exception e2) {
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (Exception e3) {
+                            }
                         }
-                    }
-                    return z;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    if (fileInputStream2 != null) {
-                        try {
-                            fileInputStream2.close();
-                        } catch (Exception e4) {
+                        return z;
+                    } catch (Throwable th) {
+                        fileInputStream2 = fileInputStream;
+                        th = th;
+                        if (fileInputStream2 != null) {
+                            try {
+                                fileInputStream2.close();
+                            } catch (Exception e4) {
+                            }
                         }
+                        throw th;
                     }
-                    throw th;
+                } catch (Exception e5) {
+                    fileInputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-            } catch (Exception e5) {
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
             }
+        } catch (Exception e6) {
         }
         return z;
     }
@@ -483,8 +485,8 @@ public class AppConfig {
                 if (readLine == null) {
                     break;
                 }
-                String substring = readLine.substring(0, readLine.indexOf(ETAG.EQUAL));
-                String substring2 = readLine.substring(readLine.indexOf(ETAG.EQUAL) + 1);
+                String substring = readLine.substring(0, readLine.indexOf("="));
+                String substring2 = readLine.substring(readLine.indexOf("=") + 1);
                 if (ConfigWhiteList.isInWhiteList(substring) || configValueFilter == null || !configValueFilter.isIllegalContent(substring2)) {
                     map.put(substring, substring2);
                     sb.append(readLine);
@@ -500,7 +502,7 @@ public class AppConfig {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class ConfigWhiteList {
         static final String[] WHITE_LIST = {"GRAB_SERVER_COMMAND", "XSEARCH_FORCE_HTML5", "DREAM_QR_PAGEID", "USER_PROTOCOL_SWITCH", "SILENT_WEBKIT", "SILENT_VIDEO", "FORBID_CONFIG_FILE_WARNING", "ANTIHIJACK_WEBSEARCH_URL", "ANTIHIJACK_UPLOAD_URL", "USE_AUTO_FOCUS", "VOICE_PID", "IMG_SEARCH_URL", "LOAD_IN_MAIN_BROWSER", "DOWNLOAD_DEST_MODE", "DOWNLOAD_DEST_DIR", "USER_PROFILE_FORBIDDEN_CONFIG", "NETTRAFFIC_UPLOAD_NUM_LIMIT", "SPEED_MONITOR", "SPEED_MONITOR_UPLOAD"};
 
@@ -526,7 +528,7 @@ public class AppConfig {
         return sIsBeta;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class Downloads {
         public static String getDestinationMode() {
             return AppConfig.getStringConfig("DOWNLOAD_DEST_MODE", null);
@@ -545,7 +547,7 @@ public class AppConfig {
         return getStringConfig(UBC_DEBUG_HOST, UBC_DEBUG_URL);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class Debug {
         public static String getJacocoUploadUrl() {
             return AppConfig.getStringConfig("JACOCO_UPLOAD_URL", "http://cp01-searchbbox-andriod-cqa01.epc.baidu.com:8666/Coverage/fileUploadAPI/fileManager.php");

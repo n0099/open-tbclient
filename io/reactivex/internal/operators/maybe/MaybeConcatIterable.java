@@ -13,14 +13,14 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class MaybeConcatIterable<T> extends g<T> {
-    final Iterable<? extends o<? extends T>> pOj;
+    final Iterable<? extends o<? extends T>> pFc;
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
         try {
-            ConcatMaybeObserver concatMaybeObserver = new ConcatMaybeObserver(cVar, (Iterator) io.reactivex.internal.functions.a.l(this.pOj.iterator(), "The sources Iterable returned a null Iterator"));
+            ConcatMaybeObserver concatMaybeObserver = new ConcatMaybeObserver(cVar, (Iterator) io.reactivex.internal.functions.a.m(this.pFc.iterator(), "The sources Iterable returned a null Iterator"));
             cVar.onSubscribe(concatMaybeObserver);
             concatMaybeObserver.drain();
         } catch (Throwable th) {
@@ -29,7 +29,7 @@ public final class MaybeConcatIterable<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class ConcatMaybeObserver<T> extends AtomicInteger implements m<T>, d {
         private static final long serialVersionUID = 3520831347801429610L;
         final c<? super T> actual;
@@ -106,7 +106,7 @@ public final class MaybeConcatIterable<T> extends g<T> {
                             try {
                                 if (this.sources.hasNext()) {
                                     try {
-                                        ((o) io.reactivex.internal.functions.a.l(this.sources.next(), "The source Iterator returned a null MaybeSource")).a(this);
+                                        ((o) io.reactivex.internal.functions.a.m(this.sources.next(), "The source Iterator returned a null MaybeSource")).a(this);
                                     } catch (Throwable th) {
                                         io.reactivex.exceptions.a.J(th);
                                         cVar.onError(th);

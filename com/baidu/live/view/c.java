@@ -21,12 +21,12 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.util.ScreenHelper;
 /* loaded from: classes4.dex */
 public class c implements View.OnClickListener {
-    private TextView aDw;
-    private a bJV;
-    private ImageView bJW;
-    private TextView bJX;
-    private TextView bJY;
-    private AnimatorSet bJZ;
+    private TextView aGc;
+    private a bPd;
+    private TextView bPe;
+    private TextView bPf;
+    private AnimatorSet bPg;
+    private ImageView beA;
     private Context mContext;
     private Dialog mDialog;
     private View mRootView;
@@ -34,9 +34,9 @@ public class c implements View.OnClickListener {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void OZ();
+        void Rt();
 
-        void Pa();
+        void Ru();
     }
 
     public c(Context context) {
@@ -45,7 +45,7 @@ public class c implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.bJV = aVar;
+        this.bPd = aVar;
     }
 
     public void setCancelable(boolean z) {
@@ -57,38 +57,38 @@ public class c implements View.OnClickListener {
         this.mRootView.setOnClickListener(null);
     }
 
-    public void di(boolean z) {
-        if (this.bJW != null) {
-            this.bJW.setVisibility(z ? 0 : 8);
+    public void dw(boolean z) {
+        if (this.beA != null) {
+            this.beA.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void dj(boolean z) {
-        if (this.aDw != null) {
-            this.aDw.setVisibility(z ? 0 : 8);
+    public void dx(boolean z) {
+        if (this.aGc != null) {
+            this.aGc.setVisibility(z ? 0 : 8);
         }
     }
 
     public void o(String str, String str2, String str3, String str4) {
         this.mTitleTextView.setText(str);
-        this.aDw.setText(str2);
-        this.bJX.setText(str3);
-        this.bJY.setText(str4);
+        this.aGc.setText(str2);
+        this.bPe.setText(str3);
+        this.bPf.setText(str4);
     }
 
-    public void gn(int i) {
-        this.aDw.setTextColor(i);
+    public void gM(int i) {
+        this.aGc.setTextColor(i);
     }
 
-    public void dk(boolean z) {
+    public void dy(boolean z) {
         this.mTitleTextView.setSingleLine(z);
     }
 
-    public void dl(boolean z) {
+    public void dz(boolean z) {
         this.mTitleTextView.setTypeface(Typeface.defaultFromStyle(z ? 1 : 0));
     }
 
-    public void B(float f) {
+    public void A(float f) {
         this.mTitleTextView.setLineSpacing(f, 1.0f);
     }
 
@@ -96,22 +96,22 @@ public class c implements View.OnClickListener {
         this.mTitleTextView.setTextSize(0, f);
     }
 
-    public void C(float f) {
-        this.aDw.setTextSize(0, f);
+    public void B(float f) {
+        this.aGc.setTextSize(0, f);
     }
 
-    public void gp(int i) {
-        this.bJX.setTextColor(i);
+    public void gN(int i) {
+        this.bPe.setTextColor(i);
     }
 
-    public void gq(int i) {
-        this.bJY.setTextColor(i);
+    public void gO(int i) {
+        this.bPf.setTextColor(i);
     }
 
     public void show() {
         if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && this.mDialog != null) {
             this.mDialog.show();
-            Mi();
+            OD();
         }
     }
 
@@ -124,26 +124,26 @@ public class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.mRootView || view == this.bJW || view == this.bJX || view == this.bJY) {
+        if (view == this.mRootView || view == this.beA || view == this.bPe || view == this.bPf) {
             dismiss();
         }
-        if (this.bJV != null) {
-            if (view == this.bJX) {
-                this.bJV.OZ();
-            } else if (view == this.bJY) {
-                this.bJV.Pa();
+        if (this.bPd != null) {
+            if (view == this.bPe) {
+                this.bPd.Rt();
+            } else if (view == this.bPf) {
+                this.bPd.Ru();
             }
         }
     }
 
     private void initDialog() {
         this.mDialog = new d(this.mContext);
-        Ov();
+        Ki();
         initView();
-        FS();
+        HH();
     }
 
-    private void Ov() {
+    private void Ki() {
         this.mDialog.setCancelable(true);
         this.mDialog.setCanceledOnTouchOutside(true);
         Window window = this.mDialog.getWindow();
@@ -167,37 +167,37 @@ public class c implements View.OnClickListener {
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.sdk_dialog_common_alert, (ViewGroup) null);
         this.mDialog.setContentView(this.mRootView);
-        this.bJW = (ImageView) this.mRootView.findViewById(a.f.iv_close);
+        this.beA = (ImageView) this.mRootView.findViewById(a.f.iv_close);
         this.mTitleTextView = (TextView) this.mRootView.findViewById(a.f.tv_title);
-        this.aDw = (TextView) this.mRootView.findViewById(a.f.tv_content);
-        this.bJX = (TextView) this.mRootView.findViewById(a.f.tv_confirm);
-        this.bJY = (TextView) this.mRootView.findViewById(a.f.tv_cancel);
+        this.aGc = (TextView) this.mRootView.findViewById(a.f.tv_content);
+        this.bPe = (TextView) this.mRootView.findViewById(a.f.tv_confirm);
+        this.bPf = (TextView) this.mRootView.findViewById(a.f.tv_cancel);
         this.mRootView.setOnClickListener(this);
-        this.bJW.setOnClickListener(this);
-        this.bJX.setOnClickListener(this);
-        this.bJY.setOnClickListener(this);
+        this.beA.setOnClickListener(this);
+        this.bPe.setOnClickListener(this);
+        this.bPf.setOnClickListener(this);
     }
 
-    private void FS() {
+    private void HH() {
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.live.view.c.1
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (c.this.bJZ != null) {
-                    c.this.bJZ.cancel();
+                if (c.this.bPg != null) {
+                    c.this.bPg.cancel();
                 }
             }
         });
     }
 
-    private void Mi() {
-        if (this.bJZ == null) {
+    private void OD() {
+        if (this.bPg == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mRootView, "ScaleX", 0.5f, 1.2f, 1.0f);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.mRootView, "ScaleY", 0.5f, 1.2f, 1.0f);
-            this.bJZ = new AnimatorSet();
-            this.bJZ.playTogether(ofFloat, ofFloat2);
-            this.bJZ.setDuration(300L);
-            this.bJZ.setInterpolator(new LinearInterpolator());
+            this.bPg = new AnimatorSet();
+            this.bPg.playTogether(ofFloat, ofFloat2);
+            this.bPg.setDuration(300L);
+            this.bPg.setInterpolator(new LinearInterpolator());
         }
-        this.bJZ.start();
+        this.bPg.start();
     }
 }

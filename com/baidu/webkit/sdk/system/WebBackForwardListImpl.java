@@ -3,7 +3,7 @@ package com.baidu.webkit.sdk.system;
 import com.baidu.webkit.sdk.WebBackForwardList;
 import com.baidu.webkit.sdk.WebHistoryItem;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 final class WebBackForwardListImpl extends WebBackForwardList implements Cloneable {
     private static Method cloneMethod;
     private final android.webkit.WebBackForwardList mList;

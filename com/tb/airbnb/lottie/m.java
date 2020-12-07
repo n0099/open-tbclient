@@ -13,17 +13,17 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes17.dex */
+/* loaded from: classes20.dex */
 public class m<T> {
-    public static Executor Ct = Executors.newCachedThreadPool();
+    public static Executor Dp = Executors.newCachedThreadPool();
     @Nullable
-    private Thread Cu;
-    private final Set<i<T>> Cv;
-    private final Set<i<Throwable>> Cw;
-    private final FutureTask<l<T>> Cx;
+    private Thread Dq;
+    private final Set<i<T>> Dr;
+    private final Set<i<Throwable>> Ds;
+    private final FutureTask<l<T>> Dt;
     private final Handler handler;
     @Nullable
-    private volatile l<T> pJH;
+    private volatile l<T> pAL;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public m(Callable<l<T>> callable) {
@@ -32,11 +32,11 @@ public class m<T> {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     m(Callable<l<T>> callable, boolean z) {
-        this.Cv = new LinkedHashSet(1);
-        this.Cw = new LinkedHashSet(1);
+        this.Dr = new LinkedHashSet(1);
+        this.Ds = new LinkedHashSet(1);
         this.handler = new Handler(Looper.getMainLooper());
-        this.pJH = null;
-        this.Cx = new FutureTask<>(callable);
+        this.pAL = null;
+        this.Dt = new FutureTask<>(callable);
         if (z) {
             try {
                 a(callable.call());
@@ -46,45 +46,45 @@ public class m<T> {
                 return;
             }
         }
-        Ct.execute(this.Cx);
+        Dp.execute(this.Dt);
         iQ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@Nullable l<T> lVar) {
-        if (this.pJH != null) {
+        if (this.pAL != null) {
             throw new IllegalStateException("A task may only be set once.");
         }
-        this.pJH = lVar;
+        this.pAL = lVar;
         iP();
     }
 
     public synchronized m<T> a(i<T> iVar) {
-        if (this.pJH != null && this.pJH.getValue() != null) {
-            iVar.onResult(this.pJH.getValue());
+        if (this.pAL != null && this.pAL.getValue() != null) {
+            iVar.onResult(this.pAL.getValue());
         }
-        this.Cv.add(iVar);
+        this.Dr.add(iVar);
         iQ();
         return this;
     }
 
     public synchronized m<T> b(i<T> iVar) {
-        this.Cv.remove(iVar);
+        this.Dr.remove(iVar);
         iR();
         return this;
     }
 
     public synchronized m<T> c(i<Throwable> iVar) {
-        if (this.pJH != null && this.pJH.iO() != null) {
-            iVar.onResult(this.pJH.iO());
+        if (this.pAL != null && this.pAL.iO() != null) {
+            iVar.onResult(this.pAL.iO());
         }
-        this.Cw.add(iVar);
+        this.Ds.add(iVar);
         iQ();
         return this;
     }
 
     public synchronized m<T> d(i<Throwable> iVar) {
-        this.Cw.remove(iVar);
+        this.Ds.remove(iVar);
         iR();
         return this;
     }
@@ -93,8 +93,8 @@ public class m<T> {
         this.handler.post(new Runnable() { // from class: com.tb.airbnb.lottie.m.1
             @Override // java.lang.Runnable
             public void run() {
-                if (m.this.pJH != null && !m.this.Cx.isCancelled()) {
-                    l lVar = m.this.pJH;
+                if (m.this.pAL != null && !m.this.Dt.isCancelled()) {
+                    l lVar = m.this.pAL;
                     if (lVar.getValue() != null) {
                         m.this.o(lVar.getValue());
                     } else {
@@ -107,14 +107,14 @@ public class m<T> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void o(T t) {
-        for (i iVar : new ArrayList(this.Cv)) {
+        for (i iVar : new ArrayList(this.Dr)) {
             iVar.onResult(t);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(Throwable th) {
-        ArrayList<i> arrayList = new ArrayList(this.Cw);
+        ArrayList<i> arrayList = new ArrayList(this.Ds);
         if (arrayList.isEmpty()) {
             Log.w("LOTTIE", "Lottie encountered an error but no failure listener was added.", th);
             return;
@@ -125,40 +125,40 @@ public class m<T> {
     }
 
     private synchronized void iQ() {
-        if (!iS() && this.pJH == null) {
-            this.Cu = new Thread("LottieTaskObserver") { // from class: com.tb.airbnb.lottie.m.2
-                private boolean CB = false;
+        if (!iS() && this.pAL == null) {
+            this.Dq = new Thread("LottieTaskObserver") { // from class: com.tb.airbnb.lottie.m.2
+                private boolean Dw = false;
 
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
-                    while (!isInterrupted() && !this.CB) {
-                        if (m.this.Cx.isDone()) {
+                    while (!isInterrupted() && !this.Dw) {
+                        if (m.this.Dt.isDone()) {
                             try {
-                                m.this.a((l) m.this.Cx.get());
+                                m.this.a((l) m.this.Dt.get());
                             } catch (InterruptedException | ExecutionException e) {
                                 m.this.a(new l(e));
                             }
-                            this.CB = true;
+                            this.Dw = true;
                             m.this.iR();
                         }
                     }
                 }
             };
-            this.Cu.start();
+            this.Dq.start();
             d.debug("Starting TaskObserver thread");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void iR() {
-        if (iS() && (this.Cv.isEmpty() || this.pJH != null)) {
-            this.Cu.interrupt();
-            this.Cu = null;
+        if (iS() && (this.Dr.isEmpty() || this.pAL != null)) {
+            this.Dq.interrupt();
+            this.Dq = null;
             d.debug("Stopping TaskObserver thread");
         }
     }
 
     private boolean iS() {
-        return this.Cu != null && this.Cu.isAlive();
+        return this.Dq != null && this.Dq.isAlive();
     }
 }

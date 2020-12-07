@@ -13,23 +13,23 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final File dhW = AppRuntime.getAppContext().getExternalCacheDir();
+    private static final File doY = AppRuntime.getAppContext().getExternalCacheDir();
 
-    public static void aN(List<UbcFlowEvent> list) {
-        e aGN;
+    public static void aQ(List<UbcFlowEvent> list) {
+        e aJV;
         Map<String, String> stringToMap;
-        if (com.baidu.swan.apps.ad.a.a.aEm() && (aGN = e.aGN()) != null && (stringToMap = ai.stringToMap(ai.getParams(aGN.aGQ().axX()))) != null && TextUtils.equals(stringToMap.get("_SwanStartupPerf_"), "1")) {
+        if (com.baidu.swan.apps.ad.a.a.aHu() && (aJV = e.aJV()) != null && (stringToMap = ai.stringToMap(ai.getParams(aJV.aJY().aBg()))) != null && TextUtils.equals(stringToMap.get("_SwanStartupPerf_"), "1")) {
             ArrayList<UbcFlowEvent> arrayList = new ArrayList(list);
             JSONArray jSONArray = new JSONArray();
             for (UbcFlowEvent ubcFlowEvent : arrayList) {
-                if (!ubcFlowEvent.aDe()) {
+                if (!ubcFlowEvent.aGm()) {
                     try {
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("id", ubcFlowEvent.id);
-                        jSONObject.put("time", ubcFlowEvent.aDc());
+                        jSONObject.put("time", ubcFlowEvent.aGk());
                         jSONObject.put("value", ubcFlowEvent.value());
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
@@ -37,7 +37,7 @@ public class a {
                     }
                 }
             }
-            File file = new File(dhW, "swan_perf");
+            File file = new File(doY, "swan_perf");
             if (!file.exists()) {
                 file.mkdirs();
             }

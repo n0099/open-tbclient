@@ -1,50 +1,50 @@
 package com.baidu.ar.imu;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class i {
-    private b rZ = b.WORLD;
-    private int sa = 0;
-    private boolean sb = false;
-    private boolean sc = false;
-    private boolean sd = false;
-    private boolean se = false;
+    private b sq = b.WORLD;
+    private int sr = 0;
+    private boolean ss = false;
+    private boolean st = false;
+    private boolean su = false;
+    private boolean sv = false;
 
-    public void I(boolean z) {
-        this.sb = z;
+    public void G(boolean z) {
+        this.ss = z;
     }
 
-    public void J(boolean z) {
-        this.sd = z;
+    public void H(boolean z) {
+        this.su = z;
     }
 
-    public void L(int i) {
-        this.sa = i;
+    public void N(int i) {
+        this.sr = i;
     }
 
     public void b(b bVar) {
-        this.rZ = bVar;
+        this.sq = bVar;
     }
 
-    public b eX() {
-        return this.rZ;
+    public b eW() {
+        return this.sq;
     }
 
-    public int eY() {
-        return this.sa;
+    public int eX() {
+        return this.sr;
+    }
+
+    public boolean eY() {
+        return this.ss;
     }
 
     public boolean eZ() {
-        return this.sb;
+        return this.st;
     }
 
     public boolean fa() {
-        return this.sc;
+        return this.su;
     }
 
     public boolean fb() {
-        return this.sd;
-    }
-
-    public boolean fc() {
-        return this.se;
+        return this.sv;
     }
 }

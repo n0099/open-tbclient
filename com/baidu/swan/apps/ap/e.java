@@ -10,7 +10,7 @@ import android.util.Log;
 import android.view.Window;
 import android.widget.Toast;
 import com.baidu.swan.apps.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -74,7 +74,7 @@ public final class e {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
             window.setFlags(1024, 1024);
-            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | aLE());
+            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | aOL());
         }
     }
 
@@ -82,7 +82,7 @@ public final class e {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
             window.clearFlags(1024);
-            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (aLE() ^ (-1));
+            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (aOL() ^ (-1));
             if (com.baidu.swan.apps.res.widget.a.SUPPORT_IMMERSION) {
                 systemUiVisibility |= 5120;
             }
@@ -90,7 +90,7 @@ public final class e {
         }
     }
 
-    public static int aLE() {
+    public static int aOL() {
         return 5894;
     }
 }

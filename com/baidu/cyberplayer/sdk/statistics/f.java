@@ -9,16 +9,16 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f1435a;
+    private final int f1437a;
     private c c = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
     private List<c> b = new ArrayList();
 
     public f(int i) {
-        this.f1435a = i;
+        this.f1437a = i;
     }
 
     public int a() {
-        return this.f1435a;
+        return this.f1437a;
     }
 
     public JSONObject a(JSONObject jSONObject) throws JSONException {

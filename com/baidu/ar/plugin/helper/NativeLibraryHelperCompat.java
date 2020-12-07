@@ -3,6 +3,7 @@ package com.baidu.ar.plugin.helper;
 import android.annotation.TargetApi;
 import android.os.Build;
 import com.baidu.adp.plugin.install.PluginInstallerService;
+import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.ar.plugin.reflect.MethodUtils;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
@@ -11,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class NativeLibraryHelperCompat {
     private static final Class nativeLibraryHelperClass() throws ClassNotFoundException {
         return Class.forName("com.android.internal.content.NativeLibraryHelper");
@@ -113,7 +114,7 @@ public class NativeLibraryHelperCompat {
             while (entries.hasMoreElements()) {
                 ZipEntry nextElement = entries.nextElement();
                 String name = nextElement.getName();
-                if (!name.contains("../") && name.startsWith(PluginInstallerService.APK_LIB_DIR_PREFIX) && !nextElement.isDirectory() && name.endsWith(PluginInstallerService.APK_LIB_SUFFIX)) {
+                if (!name.contains(Constants.PATH_PARENT) && name.startsWith(PluginInstallerService.APK_LIB_DIR_PREFIX) && !nextElement.isDirectory() && name.endsWith(PluginInstallerService.APK_LIB_SUFFIX)) {
                     hashSet.add(name.substring(name.indexOf("/") + 1, name.lastIndexOf("/")));
                 }
             }

@@ -1,5 +1,5 @@
 package com.baidu.webkit.sdk;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class GeolocationServiceBridge {
     static GeolocationServiceBridge sInstance;
     private static final Object sLockObject = new Object();

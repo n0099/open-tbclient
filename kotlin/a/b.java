@@ -1,9 +1,9 @@
 package kotlin.a;
 
-import kotlin.h;
+import kotlin.e;
 /* JADX INFO: Access modifiers changed from: package-private */
-@h
-/* loaded from: classes9.dex */
+@e
+/* loaded from: classes17.dex */
 public class b {
     public static final <T extends Comparable<?>> int c(T t, T t2) {
         if (t == t2) {

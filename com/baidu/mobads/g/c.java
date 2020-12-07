@@ -26,7 +26,7 @@ public class c extends Thread {
     private IXAdLogger j = XAdSDKFoundationFacade.getInstance().getAdLogger();
 
     /* renamed from: a  reason: collision with root package name */
-    o.a f2334a = new d(this);
+    o.a f2336a = new d(this);
 
     public static c a(Context context, e eVar, String str, Handler handler) {
         if (f == null) {
@@ -97,18 +97,18 @@ public class c extends Thread {
         double d;
         try {
             try {
-                this.h = new o(this.g, new URL(this.b), this.i, this.f2334a);
+                this.h = new o(this.g, new URL(this.b), this.i, this.f2336a);
             } catch (MalformedURLException e) {
-                this.h = new o(this.g, this.b, this.i, this.f2334a);
+                this.h = new o(this.g, this.b, this.i, this.f2336a);
             }
             if (g.c != null) {
-                d = g.c.f2332a;
+                d = g.c.f2334a;
             } else if (g.b == null) {
                 d = 0.0d;
-            } else if (g.b.f2332a > 0.0d) {
-                d = g.b.f2332a;
+            } else if (g.b.f2334a > 0.0d) {
+                d = g.b.f2334a;
             } else {
-                d = g.b.f2332a;
+                d = g.b.f2334a;
             }
             this.j.d("XAdApkDownloadThread", "isNewApkAvailable: local apk version is: " + d + ", remote apk version: " + this.i.b());
             if (d > 0.0d) {

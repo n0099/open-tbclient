@@ -1,10 +1,10 @@
 package com.baidu.searchbox.floating.utils;
 
 import android.view.View;
-import kotlin.h;
+import kotlin.e;
 import kotlin.jvm.a.b;
-@h
-/* loaded from: classes9.dex */
+@e
+/* loaded from: classes16.dex */
 public final class FloatingViewClickUtilKt$click$1 implements View.OnClickListener {
     final /* synthetic */ b $block;
     final /* synthetic */ long $time;

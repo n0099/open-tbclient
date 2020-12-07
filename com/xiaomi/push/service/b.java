@@ -9,39 +9,39 @@ import java.lang.ref.WeakReference;
 public class b extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private il f5072a;
+    private il f4842a;
 
     /* renamed from: a  reason: collision with other field name */
-    private WeakReference<XMPushService> f877a;
+    private WeakReference<XMPushService> f875a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f878a;
+    private boolean f876a;
 
     public b(il ilVar, WeakReference<XMPushService> weakReference, boolean z) {
-        this.f878a = false;
-        this.f5072a = ilVar;
-        this.f877a = weakReference;
-        this.f878a = z;
+        this.f876a = false;
+        this.f4842a = ilVar;
+        this.f875a = weakReference;
+        this.f876a = z;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo169a() {
+    public int mo159a() {
         return 22;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         XMPushService xMPushService;
-        if (this.f877a == null || this.f5072a == null || (xMPushService = this.f877a.get()) == null) {
+        if (this.f875a == null || this.f4842a == null || (xMPushService = this.f875a.get()) == null) {
             return;
         }
-        this.f5072a.a(an.a());
-        this.f5072a.a(false);
-        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.f5072a.a());
+        this.f4842a.a(an.a());
+        this.f4842a.a(false);
+        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.f4842a.a());
         try {
-            String c = this.f5072a.c();
-            xMPushService.a(c, iw.a(w.a(c, this.f5072a.b(), this.f5072a, hm.Notification)), this.f878a);
+            String c = this.f4842a.c();
+            xMPushService.a(c, iw.a(w.a(c, this.f4842a.b(), this.f4842a, hm.Notification)), this.f876a);
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.d("MoleInfo aw_ping : send help app ping error" + e.toString());
         }

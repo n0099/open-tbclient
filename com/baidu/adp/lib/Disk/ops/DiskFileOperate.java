@@ -6,9 +6,9 @@ import java.io.File;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class DiskFileOperate {
-    private OperateType JR;
-    protected Action JS;
-    private e.a JT;
+    private OperateType KK;
+    protected Action KL;
+    private e.a KM;
     protected volatile byte[] mData;
     private String mDesName;
     private String mDesPath;
@@ -45,9 +45,9 @@ public class DiskFileOperate {
     }
 
     public DiskFileOperate(String str, String str2, Action action) {
-        this.JR = OperateType.MUST_SUCCESS;
+        this.KK = OperateType.MUST_SUCCESS;
         this.mIsSubFolder = false;
-        this.JS = Action.READ;
+        this.KL = Action.READ;
         this.mData = null;
         this.mLock = null;
         this.mName = null;
@@ -61,16 +61,16 @@ public class DiskFileOperate {
         this.mTrySuccessWeight = 0;
         this.mDesPath = null;
         this.mDesName = null;
-        this.JT = null;
+        this.KM = null;
         this.mPath = str;
         this.mName = str2;
-        this.JS = action;
+        this.KL = action;
     }
 
     public DiskFileOperate(String str, String str2, String str3, String str4, Action action) {
-        this.JR = OperateType.MUST_SUCCESS;
+        this.KK = OperateType.MUST_SUCCESS;
         this.mIsSubFolder = false;
-        this.JS = Action.READ;
+        this.KL = Action.READ;
         this.mData = null;
         this.mLock = null;
         this.mName = null;
@@ -84,12 +84,12 @@ public class DiskFileOperate {
         this.mTrySuccessWeight = 0;
         this.mDesPath = null;
         this.mDesName = null;
-        this.JT = null;
+        this.KM = null;
         this.mPath = str;
         this.mName = str2;
         this.mDesPath = str3;
         this.mDesName = str4;
-        this.JS = action;
+        this.KL = action;
     }
 
     public void setLock(Object obj) {
@@ -125,7 +125,7 @@ public class DiskFileOperate {
     }
 
     public Action lM() {
-        return this.JS;
+        return this.KL;
     }
 
     public boolean formatData(byte[] bArr) {
@@ -179,11 +179,11 @@ public class DiskFileOperate {
     }
 
     public OperateType lN() {
-        return this.JR;
+        return this.KK;
     }
 
     public void a(OperateType operateType) {
-        this.JR = operateType;
+        this.KK = operateType;
     }
 
     public void callback(boolean z) {
@@ -273,6 +273,6 @@ public class DiskFileOperate {
     }
 
     public e.a lO() {
-        return this.JT;
+        return this.KM;
     }
 }

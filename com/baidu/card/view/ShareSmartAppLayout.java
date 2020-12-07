@@ -7,16 +7,16 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.card.p;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.view.AppletsCellView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class ShareSmartAppLayout extends LinearLayout implements p<com.baidu.tbadk.core.data.a> {
-    private com.baidu.tbadk.core.data.a afN;
-    private ab<com.baidu.tbadk.core.data.a> ahx;
-    private boolean akn;
-    public AppletsCellView alE;
+    private com.baidu.tbadk.core.data.a agJ;
+    private ab<com.baidu.tbadk.core.data.a> aix;
+    private boolean alo;
+    public AppletsCellView amE;
 
     public ShareSmartAppLayout(Context context) {
         this(context, null);
@@ -24,8 +24,8 @@ public class ShareSmartAppLayout extends LinearLayout implements p<com.baidu.tba
 
     public ShareSmartAppLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.akn = true;
-        this.afN = null;
+        this.alo = true;
+        this.agJ = null;
         initUI();
     }
 
@@ -33,36 +33,36 @@ public class ShareSmartAppLayout extends LinearLayout implements p<com.baidu.tba
         LayoutInflater.from(getContext()).inflate(R.layout.share_smart_app_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.alE = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
+        this.amE = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
     }
 
     public void setFromCDN(boolean z) {
-        this.akn = z;
+        this.alo = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar == null || aVar.bjd() == null || aVar.bjd().bmr() == null) {
+        if (aVar == null || aVar.bmn() == null || aVar.bmn().bpE() == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.afN = aVar;
-        bx bjd = aVar.bjd();
-        this.alE.setData(bjd.bmr());
-        this.alE.setForumId(String.valueOf(bjd.getFid()));
-        AppletsCellView appletsCellView = this.alE;
-        AppletsCellView appletsCellView2 = this.alE;
+        this.agJ = aVar;
+        by bmn = aVar.bmn();
+        this.amE.setData(bmn.bpE());
+        this.amE.setForumId(String.valueOf(bmn.getFid()));
+        AppletsCellView appletsCellView = this.amE;
+        AppletsCellView appletsCellView2 = this.amE;
         appletsCellView.setFrom("frs_card");
     }
 
     public ab<com.baidu.tbadk.core.data.a> getSubClickListener() {
-        return this.ahx;
+        return this.aix;
     }
 
     public void setSubClickListener(ab<com.baidu.tbadk.core.data.a> abVar) {
-        this.ahx = abVar;
+        this.aix = abVar;
     }
 }

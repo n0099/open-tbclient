@@ -5,34 +5,34 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 final class a implements Cloneable {
-    private static a vx;
-    private static final Object vw = new Object();
-    private static int vy = 0;
-    private static volatile boolean su = false;
-    private a vv = null;
-    private JSONObject vu = new JSONObject();
+    private static a wl;
+    private static final Object wk = new Object();
+    private static int wm = 0;
+    private static volatile boolean sL = false;
+    private a wj = null;
+    private JSONObject wi = new JSONObject();
 
     private a(String str) {
-        ax(str);
+        aA(str);
         setTimestamp(System.currentTimeMillis());
     }
 
     public static void a(a aVar) {
-        if (su) {
+        if (sL) {
             return;
         }
-        synchronized (vw) {
+        synchronized (wk) {
             aVar.ge();
         }
     }
 
     public static void a(a... aVarArr) {
-        if (su) {
+        if (sL) {
             return;
         }
-        synchronized (vw) {
+        synchronized (wk) {
             if (aVarArr != null) {
                 for (a aVar : aVarArr) {
                     aVar.ge();
@@ -41,16 +41,16 @@ final class a implements Cloneable {
         }
     }
 
-    public static a aD(String str) {
+    public static a aG(String str) {
         if (str == null || str.isEmpty()) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject(str.trim());
             if (jSONObject != null) {
-                a aw = aw(jSONObject.getString("event_id"));
-                aw.vu = jSONObject;
-                return aw;
+                a az = az(jSONObject.getString("event_id"));
+                az.wi = jSONObject;
+                return az;
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -58,18 +58,18 @@ final class a implements Cloneable {
         return null;
     }
 
-    public static a aw(String str) {
-        if (!su) {
-            synchronized (vw) {
-                if (vx != null) {
-                    a aVar = vx;
-                    vx = aVar.vv;
-                    aVar.vv = null;
-                    vy--;
-                    if (aVar.vu == null) {
-                        aVar.vu = new JSONObject();
+    public static a az(String str) {
+        if (!sL) {
+            synchronized (wk) {
+                if (wl != null) {
+                    a aVar = wl;
+                    wl = aVar.wj;
+                    aVar.wj = null;
+                    wm--;
+                    if (aVar.wi == null) {
+                        aVar.wi = new JSONObject();
                     }
-                    aVar.ax(str);
+                    aVar.aA(str);
                     aVar.setTimestamp(System.currentTimeMillis());
                     return aVar;
                 }
@@ -79,29 +79,29 @@ final class a implements Cloneable {
     }
 
     public static String b(a aVar) {
-        if (aVar == null || aVar.vu == null) {
+        if (aVar == null || aVar.wi == null) {
             return null;
         }
-        return aVar.vu.toString();
+        return aVar.wi.toString();
     }
 
     private void ge() {
-        this.vu = null;
-        if (vy < 500) {
-            this.vv = vx;
-            vx = this;
-            vy++;
+        this.wi = null;
+        if (wm < 500) {
+            this.wj = wl;
+            wl = this;
+            wm++;
         }
     }
 
     public static void release() {
-        if (su) {
+        if (sL) {
             return;
         }
-        synchronized (vw) {
-            su = true;
-            vx = null;
-            vy = 0;
+        synchronized (wk) {
+            sL = true;
+            wl = null;
+            wm = 0;
         }
     }
 
@@ -114,11 +114,11 @@ final class a implements Cloneable {
             jSONObject = new JSONObject();
         }
         try {
-            Iterator<String> keys = this.vu.keys();
+            Iterator<String> keys = this.wi.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 if (collection == null || !collection.contains(next)) {
-                    jSONObject.put(next, this.vu.get(next));
+                    jSONObject.put(next, this.wi.get(next));
                 }
             }
         } catch (JSONException e) {
@@ -133,59 +133,59 @@ final class a implements Cloneable {
         }
         try {
             for (Map.Entry<String, String> entry : map.entrySet()) {
-                this.vu.putOpt(entry.getKey(), entry.getValue());
+                this.wi.putOpt(entry.getKey(), entry.getValue());
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public long aA(String str) {
-        Object az = az(str);
-        if (az instanceof Number) {
-            return ((Number) az).longValue();
-        }
-        return 0L;
-    }
-
-    public boolean aB(String str) {
-        return this.vu.has(str);
-    }
-
-    public void aC(String str) {
-        this.vu.remove(str);
-    }
-
-    public void ax(String str) {
+    public void aA(String str) {
         try {
-            this.vu.putOpt("event_id", str);
+            this.wi.putOpt("event_id", str);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public String ay(String str) {
-        return this.vu.optString(str);
+    public String aB(String str) {
+        return this.wi.optString(str);
     }
 
-    public Object az(String str) {
-        return this.vu.opt(str);
+    public Object aC(String str) {
+        return this.wi.opt(str);
     }
 
-    public void c(String str, Object obj) {
+    public long aD(String str) {
+        Object aC = aC(str);
+        if (aC instanceof Number) {
+            return ((Number) aC).longValue();
+        }
+        return 0L;
+    }
+
+    public boolean aE(String str) {
+        return this.wi.has(str);
+    }
+
+    public void aF(String str) {
+        this.wi.remove(str);
+    }
+
+    public void b(String str, Object obj) {
         try {
-            this.vu.putOpt(str, obj);
+            this.wi.putOpt(str, obj);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
     public long getTimestamp() {
-        return this.vu.optLong("time");
+        return this.wi.optLong("time");
     }
 
     public String gf() {
-        return this.vu.optString("event_id");
+        return this.wi.optString("event_id");
     }
 
     public String gg() {
@@ -193,7 +193,7 @@ final class a implements Cloneable {
         if (b == null) {
             return null;
         }
-        return com.baidu.ar.g.l.aQ(b);
+        return com.baidu.ar.h.l.aT(b);
     }
 
     public JSONObject gh() {
@@ -203,22 +203,22 @@ final class a implements Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: gi */
     public a clone() {
-        a aw = aw("");
+        a az = az("");
         try {
-            aw.vu = new JSONObject(this.vu.toString());
+            az.wi = new JSONObject(this.wi.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return aw;
+        return az;
     }
 
     public Iterator<String> keys() {
-        return this.vu.keys();
+        return this.wi.keys();
     }
 
     public void setTimestamp(long j) {
         try {
-            this.vu.putOpt("time", Long.valueOf(j));
+            this.wi.putOpt("time", Long.valueOf(j));
         } catch (JSONException e) {
             e.printStackTrace();
         }

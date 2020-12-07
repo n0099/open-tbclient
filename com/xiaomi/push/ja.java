@@ -15,7 +15,7 @@ public class ja extends ByteArrayOutputStream {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m484a() {
+    public byte[] m474a() {
         return this.buf;
     }
 }

@@ -13,6 +13,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 /* loaded from: classes15.dex */
 public abstract class ResponseBody implements Closeable {
+    @Nullable
     private Reader reader;
 
     public abstract long contentLength();
@@ -119,6 +120,7 @@ public abstract class ResponseBody implements Closeable {
     static final class BomAwareReader extends Reader {
         private final Charset charset;
         private boolean closed;
+        @Nullable
         private Reader delegate;
         private final BufferedSource source;
 

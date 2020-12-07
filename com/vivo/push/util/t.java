@@ -12,11 +12,11 @@ import java.security.spec.X509EncodedKeySpec;
 public final class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4708a = RSAUtil.ALGORITHM_RSA;
+    private static String f4478a = RSAUtil.ALGORITHM_RSA;
 
     public static PublicKey a(String str) throws Exception {
         try {
-            return KeyFactory.getInstance(f4708a).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
+            return KeyFactory.getInstance(f4478a).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
         } catch (NullPointerException e) {
             throw new Exception("公钥数据为空");
         } catch (NoSuchAlgorithmException e2) {

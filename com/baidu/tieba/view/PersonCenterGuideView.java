@@ -19,49 +19,49 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class PersonCenterGuideView extends RelativeLayout {
     private ImageView mCloseBtn;
     private TextView mTip;
-    private boolean nCF;
-    private TbImageView nCG;
-    private RotateAnimation nCH;
-    private AlphaAnimation nCI;
-    private AnimationSet nCJ;
-    private ObjectAnimator nCK;
-    private ObjectAnimator nCL;
-    private AnimatorSet nCM;
-    private Animation.AnimationListener nCN;
-    private final CustomMessageListener nCO;
-    private View nnb;
+    private View nBe;
+    private boolean nQH;
+    private TbImageView nQI;
+    private RotateAnimation nQJ;
+    private AlphaAnimation nQK;
+    private AnimationSet nQL;
+    private ObjectAnimator nQM;
+    private ObjectAnimator nQN;
+    private AnimatorSet nQO;
+    private Animation.AnimationListener nQP;
+    private final CustomMessageListener nQQ;
 
     public PersonCenterGuideView(Context context) {
         super(context);
-        this.nCF = false;
-        this.nCN = new Animation.AnimationListener() { // from class: com.baidu.tieba.view.PersonCenterGuideView.1
+        this.nQH = false;
+        this.nQP = new Animation.AnimationListener() { // from class: com.baidu.tieba.view.PersonCenterGuideView.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                PersonCenterGuideView.this.dSH();
+                PersonCenterGuideView.this.dYb();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
             }
         };
-        this.nCO = new CustomMessageListener(2921423) { // from class: com.baidu.tieba.view.PersonCenterGuideView.2
+        this.nQQ = new CustomMessageListener(2921423) { // from class: com.baidu.tieba.view.PersonCenterGuideView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (!PersonCenterGuideView.this.nCF) {
-                    PersonCenterGuideView.this.nCF = true;
+                if (!PersonCenterGuideView.this.nQH) {
+                    PersonCenterGuideView.this.nQH = true;
                     PersonCenterGuideView.this.setVisibility(0);
-                    PersonCenterGuideView.this.nnb.setVisibility(4);
-                    PersonCenterGuideView.this.nCG.startAnimation(PersonCenterGuideView.this.nCJ);
-                    com.baidu.tbadk.core.sharedPref.b.bpu().putBoolean("has_shown_person_center_guide", PersonCenterGuideView.this.nCF);
+                    PersonCenterGuideView.this.nBe.setVisibility(4);
+                    PersonCenterGuideView.this.nQI.startAnimation(PersonCenterGuideView.this.nQL);
+                    com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean("has_shown_person_center_guide", PersonCenterGuideView.this.nQH);
                 }
             }
         };
@@ -70,31 +70,31 @@ public class PersonCenterGuideView extends RelativeLayout {
 
     public PersonCenterGuideView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nCF = false;
-        this.nCN = new Animation.AnimationListener() { // from class: com.baidu.tieba.view.PersonCenterGuideView.1
+        this.nQH = false;
+        this.nQP = new Animation.AnimationListener() { // from class: com.baidu.tieba.view.PersonCenterGuideView.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                PersonCenterGuideView.this.dSH();
+                PersonCenterGuideView.this.dYb();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
             }
         };
-        this.nCO = new CustomMessageListener(2921423) { // from class: com.baidu.tieba.view.PersonCenterGuideView.2
+        this.nQQ = new CustomMessageListener(2921423) { // from class: com.baidu.tieba.view.PersonCenterGuideView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (!PersonCenterGuideView.this.nCF) {
-                    PersonCenterGuideView.this.nCF = true;
+                if (!PersonCenterGuideView.this.nQH) {
+                    PersonCenterGuideView.this.nQH = true;
                     PersonCenterGuideView.this.setVisibility(0);
-                    PersonCenterGuideView.this.nnb.setVisibility(4);
-                    PersonCenterGuideView.this.nCG.startAnimation(PersonCenterGuideView.this.nCJ);
-                    com.baidu.tbadk.core.sharedPref.b.bpu().putBoolean("has_shown_person_center_guide", PersonCenterGuideView.this.nCF);
+                    PersonCenterGuideView.this.nBe.setVisibility(4);
+                    PersonCenterGuideView.this.nQI.startAnimation(PersonCenterGuideView.this.nQL);
+                    com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean("has_shown_person_center_guide", PersonCenterGuideView.this.nQH);
                 }
             }
         };
@@ -103,31 +103,31 @@ public class PersonCenterGuideView extends RelativeLayout {
 
     public PersonCenterGuideView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nCF = false;
-        this.nCN = new Animation.AnimationListener() { // from class: com.baidu.tieba.view.PersonCenterGuideView.1
+        this.nQH = false;
+        this.nQP = new Animation.AnimationListener() { // from class: com.baidu.tieba.view.PersonCenterGuideView.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                PersonCenterGuideView.this.dSH();
+                PersonCenterGuideView.this.dYb();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
             }
         };
-        this.nCO = new CustomMessageListener(2921423) { // from class: com.baidu.tieba.view.PersonCenterGuideView.2
+        this.nQQ = new CustomMessageListener(2921423) { // from class: com.baidu.tieba.view.PersonCenterGuideView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (!PersonCenterGuideView.this.nCF) {
-                    PersonCenterGuideView.this.nCF = true;
+                if (!PersonCenterGuideView.this.nQH) {
+                    PersonCenterGuideView.this.nQH = true;
                     PersonCenterGuideView.this.setVisibility(0);
-                    PersonCenterGuideView.this.nnb.setVisibility(4);
-                    PersonCenterGuideView.this.nCG.startAnimation(PersonCenterGuideView.this.nCJ);
-                    com.baidu.tbadk.core.sharedPref.b.bpu().putBoolean("has_shown_person_center_guide", PersonCenterGuideView.this.nCF);
+                    PersonCenterGuideView.this.nBe.setVisibility(4);
+                    PersonCenterGuideView.this.nQI.startAnimation(PersonCenterGuideView.this.nQL);
+                    com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean("has_shown_person_center_guide", PersonCenterGuideView.this.nQH);
                 }
             }
         };
@@ -136,75 +136,75 @@ public class PersonCenterGuideView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.person_center_header_guide_layout, this);
-        this.nCG = (TbImageView) findViewById(R.id.person_center_header_guide_circle);
-        this.nCG.setIsRound(true);
-        this.nnb = findViewById(R.id.person_center_header_guide_tip_container);
+        this.nQI = (TbImageView) findViewById(R.id.person_center_header_guide_circle);
+        this.nQI.setIsRound(true);
+        this.nBe = findViewById(R.id.person_center_header_guide_tip_container);
         this.mTip = (TextView) findViewById(R.id.person_center_header_guide_tip);
         this.mCloseBtn = (ImageView) findViewById(R.id.person_center_header_guide_close);
-        this.nCH = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
-        this.nCH.setDuration(660L);
-        this.nCH.setAnimationListener(this.nCN);
-        this.nCI = new AlphaAnimation(0.0f, 1.0f);
-        this.nCI.setDuration(660L);
-        this.nCJ = new AnimationSet(true);
-        this.nCJ.addAnimation(this.nCH);
-        this.nCJ.addAnimation(this.nCI);
-        this.nCF = com.baidu.tbadk.core.sharedPref.b.bpu().getBoolean("has_shown_person_center_guide", false);
+        this.nQJ = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
+        this.nQJ.setDuration(660L);
+        this.nQJ.setAnimationListener(this.nQP);
+        this.nQK = new AlphaAnimation(0.0f, 1.0f);
+        this.nQK.setDuration(660L);
+        this.nQL = new AnimationSet(true);
+        this.nQL.addAnimation(this.nQJ);
+        this.nQL.addAnimation(this.nQK);
+        this.nQH = com.baidu.tbadk.core.sharedPref.b.bsO().getBoolean("has_shown_person_center_guide", false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dSH() {
-        this.nnb.setVisibility(0);
-        if (this.nCK == null) {
-            this.nCK = ObjectAnimator.ofFloat(this.nnb, "translationX", -this.mTip.getWidth(), 0.0f);
+    public void dYb() {
+        this.nBe.setVisibility(0);
+        if (this.nQM == null) {
+            this.nQM = ObjectAnimator.ofFloat(this.nBe, "translationX", -this.mTip.getWidth(), 0.0f);
         }
-        if (this.nCM == null) {
-            this.nCL = ObjectAnimator.ofFloat(this.nnb, "alpha", 0.0f, 1.0f);
+        if (this.nQO == null) {
+            this.nQN = ObjectAnimator.ofFloat(this.nBe, "alpha", 0.0f, 1.0f);
         }
-        if (this.nCM == null) {
-            this.nCM = new AnimatorSet();
-            this.nCM.setDuration(500L);
+        if (this.nQO == null) {
+            this.nQO = new AnimatorSet();
+            this.nQO.setDuration(500L);
         }
-        this.nCM.play(this.nCK).with(this.nCL);
-        this.nCM.start();
+        this.nQO.play(this.nQM).with(this.nQN);
+        this.nQO.start();
     }
 
     public void onChangeSkinType() {
-        ap.setImageResource(this.nCG, R.drawable.person_center_head_guide_circle);
+        ap.setImageResource(this.nQI, R.drawable.person_center_head_guide_circle);
         ap.setImageResource(this.mCloseBtn, R.drawable.icon_topbar_close_white_n);
         ap.setViewTextColor(this.mTip, R.color.CAM_X0101, 1);
-        ap.setBackgroundResource(this.nnb, R.drawable.person_center_header_guide_tip_bg);
+        ap.setBackgroundResource(this.nBe, R.drawable.person_center_header_guide_tip_bg);
     }
 
     private void clearAnim() {
-        if (this.nCM != null) {
-            this.nCM.cancel();
+        if (this.nQO != null) {
+            this.nQO.cancel();
         }
-        if (this.nCJ != null) {
-            this.nCJ.cancel();
+        if (this.nQL != null) {
+            this.nQL.cancel();
         }
-        if (this.nCH != null) {
-            this.nCH.cancel();
+        if (this.nQJ != null) {
+            this.nQJ.cancel();
         }
-        if (this.nCI != null) {
-            this.nCI.cancel();
+        if (this.nQK != null) {
+            this.nQK.cancel();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.nCO);
+        MessageManager.getInstance().registerListener(this.nQQ);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.nCO);
+        MessageManager.getInstance().unRegisterListener(this.nQQ);
         clearAnim();
     }
 
-    public void dSI() {
+    public void dYc() {
         clearAnim();
         setVisibility(8);
     }

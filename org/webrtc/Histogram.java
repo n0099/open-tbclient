@@ -1,6 +1,6 @@
 package org.webrtc;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class Histogram {
     private final long handle;
 

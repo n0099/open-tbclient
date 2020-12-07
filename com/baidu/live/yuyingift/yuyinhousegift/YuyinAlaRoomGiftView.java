@@ -5,9 +5,9 @@ import android.widget.RelativeLayout;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.al.b;
+import com.baidu.live.ap.b;
 import com.baidu.live.data.AlaWheatInfoData;
-import com.baidu.live.data.bn;
+import com.baidu.live.data.bo;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.utils.r;
@@ -17,11 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class YuyinAlaRoomGiftView extends RelativeLayout {
-    private int bRv;
-    private int[] bRw;
-    private a bRx;
-    private int bRy;
-    private int bRz;
+    private int bWL;
+    private int[] bWM;
+    private a bWN;
+    private int bWO;
+    private int bWP;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -29,14 +29,14 @@ public class YuyinAlaRoomGiftView extends RelativeLayout {
     }
 
     static /* synthetic */ int a(YuyinAlaRoomGiftView yuyinAlaRoomGiftView) {
-        int i = yuyinAlaRoomGiftView.bRz;
-        yuyinAlaRoomGiftView.bRz = i - 1;
+        int i = yuyinAlaRoomGiftView.bWP;
+        yuyinAlaRoomGiftView.bWP = i - 1;
         return i;
     }
 
     static /* synthetic */ int c(YuyinAlaRoomGiftView yuyinAlaRoomGiftView) {
-        int i = yuyinAlaRoomGiftView.bRy;
-        yuyinAlaRoomGiftView.bRy = i - 1;
+        int i = yuyinAlaRoomGiftView.bWO;
+        yuyinAlaRoomGiftView.bWO = i - 1;
         return i;
     }
 
@@ -46,7 +46,7 @@ public class YuyinAlaRoomGiftView extends RelativeLayout {
     }
 
     private void init() {
-        this.bRw = new int[2];
+        this.bWM = new int[2];
     }
 
     public boolean s(c cVar) {
@@ -67,45 +67,45 @@ public class YuyinAlaRoomGiftView extends RelativeLayout {
     }
 
     public void setData(final c cVar) {
-        this.bRy = 0;
+        this.bWO = 0;
         removeAllViews();
         ArrayList<AlaWheatInfoData> arrayList = new ArrayList();
-        List<r.a> iB = r.iB(cVar.biJ);
-        if (iB != null && iB.size() > 0) {
-            for (r.a aVar : iB) {
+        List<r.a> jf = r.jf(cVar.bnb);
+        if (jf != null && jf.size() > 0) {
+            for (r.a aVar : jf) {
                 String str = aVar.uk;
-                AlaWheatInfoData iS = b.Wy().iS(str);
-                if (iS == null) {
-                    if (b.Wy().iQ(str)) {
-                        AlaWheatInfoData Wz = b.Wy().Wz();
-                        Wz.locationCenterX = 0.0f;
-                        Wz.locationCenterY = 0.0f;
-                        arrayList.add(Wz);
+                AlaWheatInfoData jw = b.YX().jw(str);
+                if (jw == null) {
+                    if (b.YX().ju(str)) {
+                        AlaWheatInfoData YY = b.YX().YY();
+                        YY.locationCenterX = 0.0f;
+                        YY.locationCenterY = 0.0f;
+                        arrayList.add(YY);
                     }
                 } else {
-                    arrayList.add(iS);
+                    arrayList.add(jw);
                 }
             }
             for (AlaWheatInfoData alaWheatInfoData : arrayList) {
-                this.bRy++;
-                this.bRz++;
+                this.bWO++;
+                this.bWP++;
                 final YuyinAlaRoomGiftItemView yuyinAlaRoomGiftItemView = new YuyinAlaRoomGiftItemView(getContext());
                 yuyinAlaRoomGiftItemView.setAnimalCallBack(new YuyinAlaRoomGiftItemView.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.YuyinAlaRoomGiftView.1
                     @Override // com.baidu.live.yuyingift.yuyinhousegift.YuyinAlaRoomGiftItemView.a
-                    public void Xp() {
+                    public void ZR() {
                         YuyinAlaRoomGiftView.a(YuyinAlaRoomGiftView.this);
-                        if (YuyinAlaRoomGiftView.this.bRz <= 0) {
+                        if (YuyinAlaRoomGiftView.this.bWP <= 0) {
                             com.baidu.live.yuyingift.b.g(cVar);
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009));
                         }
                     }
 
                     @Override // com.baidu.live.yuyingift.yuyinhousegift.YuyinAlaRoomGiftItemView.a
-                    public void Xq() {
+                    public void ZS() {
                         YuyinAlaRoomGiftView.c(YuyinAlaRoomGiftView.this);
                         YuyinAlaRoomGiftView.this.removeView(yuyinAlaRoomGiftItemView);
-                        if (YuyinAlaRoomGiftView.this.bRy <= 0) {
-                            YuyinAlaRoomGiftView.this.bRx.onAnimEnd();
+                        if (YuyinAlaRoomGiftView.this.bWO <= 0) {
+                            YuyinAlaRoomGiftView.this.bWN.onAnimEnd();
                         }
                     }
                 });
@@ -113,8 +113,8 @@ public class YuyinAlaRoomGiftView extends RelativeLayout {
                 yuyinAlaRoomGiftItemView.a(getStartLoc()[0], getStartLoc()[1], alaWheatInfoData, cVar);
             }
             start();
-        } else if (this.bRx != null) {
-            this.bRx.onAnimEnd();
+        } else if (this.bWN != null) {
+            this.bWN.onAnimEnd();
         }
     }
 
@@ -124,40 +124,40 @@ public class YuyinAlaRoomGiftView extends RelativeLayout {
             while (true) {
                 int i2 = i;
                 if (i2 < getChildCount()) {
-                    ((YuyinAlaRoomGiftItemView) getChildAt(i2)).Xo();
+                    ((YuyinAlaRoomGiftItemView) getChildAt(i2)).ZQ();
                     i = i2 + 1;
                 } else {
                     return;
                 }
             }
-        } else if (this.bRx != null) {
-            this.bRx.onAnimEnd();
+        } else if (this.bWN != null) {
+            this.bWN.onAnimEnd();
         }
     }
 
     private int[] getStartLoc() {
-        if (this.bRw[0] == 0) {
-            this.bRw = BdUtilHelper.getScreenDimensions(getContext());
-            int[] iArr = this.bRw;
+        if (this.bWM[0] == 0) {
+            this.bWM = BdUtilHelper.getScreenDimensions(getContext());
+            int[] iArr = this.bWM;
             iArr[0] = iArr[0] / 2;
-            int[] iArr2 = this.bRw;
+            int[] iArr2 = this.bWM;
             iArr2[1] = iArr2[1] - getGiftPanelHeight();
         }
-        return this.bRw;
+        return this.bWM;
     }
 
     public void setCallBack(a aVar) {
-        this.bRx = aVar;
+        this.bWN = aVar;
     }
 
     private int getGiftPanelHeight() {
-        if (this.bRv <= 0) {
-            this.bRv = getDataPagerHeight();
-            this.bRv += getNobalHeight();
-            this.bRv += getMicrophoneListHeight();
-            this.bRv += getOffset();
+        if (this.bWL <= 0) {
+            this.bWL = getDataPagerHeight();
+            this.bWL += getNobalHeight();
+            this.bWL += getMicrophoneListHeight();
+            this.bWL += getOffset();
         }
-        return this.bRv;
+        return this.bWL;
     }
 
     private int getOffset() {
@@ -169,7 +169,7 @@ public class YuyinAlaRoomGiftView extends RelativeLayout {
     }
 
     private int getNobalHeight() {
-        if (Xt()) {
+        if (ZV()) {
             return getResources().getDimensionPixelOffset(a.d.yuyin_ala_dimen_gift_noblr_maginbottom) + getResources().getDimensionPixelOffset(a.d.yuyin_ala_dimen_gift_noble_height);
         }
         return 0;
@@ -179,12 +179,12 @@ public class YuyinAlaRoomGiftView extends RelativeLayout {
         return (getResources().getDimensionPixelOffset(a.d.sdk_ds192) * 2) + getResources().getDimensionPixelOffset(a.d.sdk_ds4) + getResources().getDimensionPixelOffset(a.d.sdk_ds12) + getResources().getDimensionPixelOffset(a.d.sdk_ds116) + getResources().getDimensionPixelOffset(a.d.yuyin_ala_dimen_gift_tabbar_height);
     }
 
-    private boolean Xt() {
-        bn bnVar = com.baidu.live.aa.a.Ph().bsh;
+    private boolean ZV() {
+        bo boVar = com.baidu.live.ae.a.RB().bxq;
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
             return false;
         }
-        if (bnVar == null || bnVar.aNP == null || (bnVar.aNP.aQl && bnVar.aNP.aQm && bnVar.aNP.aQn)) {
+        if (boVar == null || boVar.aQP == null || (boVar.aQP.aTn && boVar.aQP.aTo && boVar.aQP.aTp)) {
             return TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isNobleInfoSwitchUnabled();
         }
         return false;

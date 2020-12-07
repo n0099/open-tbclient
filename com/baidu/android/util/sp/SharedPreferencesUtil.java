@@ -1,11 +1,12 @@
 package com.baidu.android.util.sp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import java.util.HashMap;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class SharedPreferencesUtil {
     public static final String CARD_REMIND_GUIDANCE_SHARED_PREFERENCE = "card_remind_guidance_preference";
     public static final String DISCOVERY_HOME_SHARED_PREFERENCE = "discovery_home_share_preference";
@@ -15,6 +16,7 @@ public final class SharedPreferencesUtil {
     private SharedPreferences.Editor mEditor;
     private SharedPreferences mSharedPreferences;
 
+    @SuppressLint({"CommitPrefEdits"})
     private SharedPreferencesUtil(Context context, String str, int i) {
         this.mSharedPreferences = context.getSharedPreferences(str, i);
         this.mEditor = this.mSharedPreferences.edit();

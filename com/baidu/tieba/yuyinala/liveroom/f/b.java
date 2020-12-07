@@ -7,7 +7,7 @@ import com.baidu.tieba.yuyinala.liveroom.views.d;
 public class b {
     private TbPageContext mPageContext;
     private View mRootView;
-    private com.baidu.tieba.yuyinala.liveroom.views.b nWT;
+    private com.baidu.tieba.yuyinala.liveroom.views.b olR;
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -15,59 +15,59 @@ public class b {
     }
 
     private void init() {
-        this.nWT = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
-        this.mRootView = this.nWT.getView();
+        this.olR = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
+        this.mRootView = this.olR.getView();
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public boolean caA() {
-        return this.nWT.caA();
+    public boolean cev() {
+        return this.olR.cev();
     }
 
-    public boolean caB() {
-        return this.nWT.caB();
+    public boolean cew() {
+        return this.olR.cew();
     }
 
     public String getLiveTitle() {
-        return this.nWT.getLiveTitle();
+        return this.olR.getLiveTitle();
     }
 
-    public boolean caC() {
-        return this.nWT.caC();
+    public boolean cex() {
+        return this.olR.cex();
     }
 
-    public boolean caD() {
-        return this.nWT.caD();
+    public boolean cey() {
+        return this.olR.cey();
     }
 
-    public String caF() {
-        return this.nWT.caF();
+    public String ceA() {
+        return this.olR.ceA();
     }
 
     public void a(d.b bVar) {
-        this.nWT.a(bVar);
+        this.olR.a(bVar);
     }
 
     public void a(d.a aVar) {
-        this.nWT.a(aVar);
+        this.olR.a(aVar);
     }
 
-    public void Hy(String str) {
-        this.nWT.Hy(str);
+    public void In(String str) {
+        this.olR.In(str);
     }
 
-    public void caI() {
-        if (this.nWT != null) {
-            this.nWT.caI();
+    public void ceD() {
+        if (this.olR != null) {
+            this.olR.ceD();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.nWT != null) {
-            this.nWT.onKeyboardVisibilityChanged(z);
+        if (this.olR != null) {
+            this.olR.onKeyboardVisibilityChanged(z);
         }
     }
 }

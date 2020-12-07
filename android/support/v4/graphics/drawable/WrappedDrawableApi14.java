@@ -10,7 +10,7 @@ import android.graphics.Region;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 class WrappedDrawableApi14 extends Drawable implements Drawable.Callback, TintAwareDrawable, WrappedDrawable {
     static final PorterDuff.Mode DEFAULT_TINT_MODE = PorterDuff.Mode.SRC_IN;
     private boolean mColorFilterSet;
@@ -267,7 +267,7 @@ class WrappedDrawableApi14 extends Drawable implements Drawable.Callback, TintAw
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static abstract class DrawableWrapperState extends Drawable.ConstantState {
         int mChangingConfigurations;
         Drawable.ConstantState mDrawableState;
@@ -307,7 +307,7 @@ class WrappedDrawableApi14 extends Drawable implements Drawable.Callback, TintAw
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class DrawableWrapperStateBase extends DrawableWrapperState {
         DrawableWrapperStateBase(@Nullable DrawableWrapperState drawableWrapperState, @Nullable Resources resources) {
             super(drawableWrapperState, resources);

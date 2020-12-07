@@ -1,17 +1,24 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tieba.frs.FrsTabItemData;
-import java.util.List;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class i {
-    public String bfc;
-    public boolean flq;
-    public boolean flr;
-    public String fls;
-    public PostPrefixData flt;
-    public String forumId;
-    public String forumName;
-    public int level;
-    public List<FrsTabItemData> tabInfoList;
+    private String link;
+    private TbPageContext pageContext;
+
+    public i() {
+    }
+
+    public i(TbPageContext tbPageContext, String str) {
+        this.pageContext = tbPageContext;
+        this.link = str;
+    }
+
+    public TbPageContext getPageContext() {
+        return this.pageContext;
+    }
+
+    public String getLink() {
+        return this.link;
+    }
 }

@@ -1,12 +1,12 @@
 package com.baidu.android.util.concurrent;
 
 import java.util.concurrent.locks.Lock;
-/* loaded from: classes16.dex */
+/* loaded from: classes5.dex */
 public final class LockUtils {
     private static final boolean DEBUG = false;
     private static final String TAG = "LockUtils";
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes5.dex */
     public interface WorkInLock {
         Object work();
     }

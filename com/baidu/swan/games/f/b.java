@@ -5,21 +5,21 @@ import com.baidu.searchbox.v8engine.JSExceptionType;
 import com.baidu.searchbox.v8engine.JSRuntime;
 import com.baidu.searchbox.v8engine.JsSerializeValue;
 import com.baidu.searchbox.v8engine.event.EventTarget;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public interface b extends TypedCallbackHandler, JSRuntime, com.baidu.swan.apps.core.container.a {
     byte[] a(JsSerializeValue jsSerializeValue, boolean z);
 
-    com.baidu.swan.games.f.b.b aUf();
+    com.baidu.swan.games.f.b.b aXk();
 
-    EventTarget aUh();
+    EventTarget aXm();
 
-    EventTarget aUi();
+    EventTarget aXn();
 
-    com.baidu.swan.games.f.a.a aUj();
-
-    void cU(String str, String str2);
+    com.baidu.swan.games.f.a.a aXo();
 
     JsSerializeValue d(byte[] bArr, boolean z);
+
+    void db(String str, String str2);
 
     String getInitBasePath();
 

@@ -1,7 +1,7 @@
 package com.baidu.swan.support.v4.b;
 
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes16.dex */
 public class f<K, V> {
     static Object[] mBaseCache;
     static int mBaseCacheSize;

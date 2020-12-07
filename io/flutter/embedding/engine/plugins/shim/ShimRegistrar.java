@@ -2,7 +2,6 @@ package io.flutter.embedding.engine.plugins.shim;
 
 import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.NonNull;
 import io.flutter.Log;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.embedding.engine.plugins.activity.ActivityAware;
@@ -16,7 +15,7 @@ import io.flutter.view.TextureRegistry;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 class ShimRegistrar implements FlutterPlugin, ActivityAware, PluginRegistry.Registrar {
     private static final String TAG = "ShimRegistrar";
     private ActivityPluginBinding activityPluginBinding;
@@ -29,7 +28,7 @@ class ShimRegistrar implements FlutterPlugin, ActivityAware, PluginRegistry.Regi
     private final Set<PluginRegistry.NewIntentListener> newIntentListeners = new HashSet();
     private final Set<PluginRegistry.UserLeaveHintListener> userLeaveHintListeners = new HashSet();
 
-    public ShimRegistrar(@NonNull String str, @NonNull Map<String, Object> map) {
+    public ShimRegistrar(String str, Map<String, Object> map) {
         this.pluginId = str;
         this.globalRegistrarMap = map;
     }
@@ -137,20 +136,19 @@ class ShimRegistrar implements FlutterPlugin, ActivityAware, PluginRegistry.Regi
     }
 
     @Override // io.flutter.plugin.common.PluginRegistry.Registrar
-    @NonNull
-    public PluginRegistry.Registrar addViewDestroyListener(@NonNull PluginRegistry.ViewDestroyListener viewDestroyListener) {
+    public PluginRegistry.Registrar addViewDestroyListener(PluginRegistry.ViewDestroyListener viewDestroyListener) {
         this.viewDestroyListeners.add(viewDestroyListener);
         return this;
     }
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
-    public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
+    public void onAttachedToEngine(FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Log.v(TAG, "Attached to FlutterEngine.");
         this.pluginBinding = flutterPluginBinding;
     }
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
-    public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
+    public void onDetachedFromEngine(FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Log.v(TAG, "Detached from FlutterEngine.");
         for (PluginRegistry.ViewDestroyListener viewDestroyListener : this.viewDestroyListeners) {
             viewDestroyListener.onViewDestroy(null);
@@ -160,7 +158,7 @@ class ShimRegistrar implements FlutterPlugin, ActivityAware, PluginRegistry.Regi
     }
 
     @Override // io.flutter.embedding.engine.plugins.activity.ActivityAware
-    public void onAttachedToActivity(@NonNull ActivityPluginBinding activityPluginBinding) {
+    public void onAttachedToActivity(ActivityPluginBinding activityPluginBinding) {
         Log.v(TAG, "Attached to an Activity.");
         this.activityPluginBinding = activityPluginBinding;
         addExistingListenersToActivityPluginBinding();
@@ -173,7 +171,7 @@ class ShimRegistrar implements FlutterPlugin, ActivityAware, PluginRegistry.Regi
     }
 
     @Override // io.flutter.embedding.engine.plugins.activity.ActivityAware
-    public void onReattachedToActivityForConfigChanges(@NonNull ActivityPluginBinding activityPluginBinding) {
+    public void onReattachedToActivityForConfigChanges(ActivityPluginBinding activityPluginBinding) {
         Log.v(TAG, "Reconnected to an Activity after config changes.");
         this.activityPluginBinding = activityPluginBinding;
         addExistingListenersToActivityPluginBinding();

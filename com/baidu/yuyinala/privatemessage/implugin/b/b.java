@@ -6,7 +6,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public class b {
-    private static b oyX;
+    private static b oOd;
     private ThreadPoolExecutor mThreadPool;
     private static final String TAG = b.class.getSimpleName();
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
@@ -20,13 +20,13 @@ public class b {
         }
     }
 
-    public static synchronized b gw(Context context) {
+    public static synchronized b hg(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (oyX == null) {
-                oyX = new b();
+            if (oOd == null) {
+                oOd = new b();
             }
-            bVar = oyX;
+            bVar = oOd;
         }
         return bVar;
     }

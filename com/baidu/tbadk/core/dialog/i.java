@@ -23,65 +23,65 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class i extends Dialog {
-    private static int eGS = 1000;
+    private static int eNY = 1000;
     private Context context;
-    private com.baidu.adp.base.e eGT;
-    private float eGU;
-    private k eGV;
-    private boolean eGW;
+    private com.baidu.adp.base.e eNZ;
+    private float eOa;
+    private k eOb;
+    private boolean eOc;
+    private CustomMessageListener eOd;
     private boolean isDismissing;
     private boolean isShowing;
     protected View mContentView;
     private LinearLayout mRootView;
-    private CustomMessageListener skinChangeListener;
 
     public i(com.baidu.adp.base.e eVar, k kVar) {
         super(eVar.getPageActivity(), 16973835);
-        this.eGU = 0.33f;
+        this.eOa = 0.33f;
         this.isDismissing = false;
         this.isShowing = false;
-        this.eGW = true;
-        this.skinChangeListener = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.core.dialog.i.1
+        this.eOc = true;
+        this.eOd = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.core.dialog.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && i.this.eGV != null) {
-                    i.this.eGV.onChangeSkinType();
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && i.this.eOb != null) {
+                    i.this.eOb.onChangeSkinType();
                 }
             }
         };
-        this.eGT = eVar;
+        this.eNZ = eVar;
         this.context = eVar.getPageActivity();
-        this.eGV = kVar;
-        this.mContentView = kVar.bow();
+        this.eOb = kVar;
+        this.mContentView = kVar.brP();
     }
 
     public i(com.baidu.adp.base.e eVar) {
         super(eVar.getPageActivity(), 16973835);
-        this.eGU = 0.33f;
+        this.eOa = 0.33f;
         this.isDismissing = false;
         this.isShowing = false;
-        this.eGW = true;
-        this.skinChangeListener = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.core.dialog.i.1
+        this.eOc = true;
+        this.eOd = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.core.dialog.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && i.this.eGV != null) {
-                    i.this.eGV.onChangeSkinType();
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && i.this.eOb != null) {
+                    i.this.eOb.onChangeSkinType();
                 }
             }
         };
         this.context = eVar.getPageActivity();
-        this.eGT = eVar;
+        this.eNZ = eVar;
     }
 
     public void Z(float f) {
-        this.eGU = f;
+        this.eOa = f;
     }
 
     public void a(k kVar) {
-        this.eGV = kVar;
-        this.mContentView = kVar.bow();
+        this.eOb = kVar;
+        this.mContentView = kVar.brP();
     }
 
     @Override // android.app.Dialog
@@ -90,18 +90,18 @@ public class i extends Dialog {
     }
 
     public void a(String str, String[] strArr, k.c cVar) {
-        this.eGV = new k(this.context);
+        this.eOb = new k(this.context);
         if (!StringUtils.isNull(str)) {
-            this.eGV.setTitleText(str);
+            this.eOb.setTitleText(str);
         }
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < strArr.length; i++) {
-            arrayList.add(new g(i, strArr[i], this.eGV));
+            arrayList.add(new g(i, strArr[i], this.eOb));
         }
-        this.eGV.br(arrayList);
-        this.eGV.a(cVar);
+        this.eOb.bu(arrayList);
+        this.eOb.a(cVar);
         setCanceledOnTouchOutside(true);
-        this.mContentView = this.eGV.bow();
+        this.mContentView = this.eOb.brP();
     }
 
     @Override // android.app.Dialog
@@ -113,13 +113,13 @@ public class i extends Dialog {
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.width = defaultDisplay.getWidth();
         attributes.height = defaultDisplay.getHeight();
-        if (this.eGW) {
+        if (this.eOc) {
             attributes.y = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
             getWindow().addFlags(512);
         }
         getWindow().setAttributes(attributes);
         getWindow().setBackgroundDrawableResource(R.color.transparent);
-        getWindow().setDimAmount(this.eGU);
+        getWindow().setDimAmount(this.eOa);
         getWindow().setGravity(80);
         getWindow().setWindowAnimations(0);
         setCanceledOnTouchOutside(true);
@@ -133,9 +133,9 @@ public class i extends Dialog {
         });
         if (this.mContentView != null) {
             this.mRootView.removeView(this.mContentView);
-            if (this.eGW && (this.mContentView instanceof ViewGroup) && ((ViewGroup) this.mContentView).getChildAt(((ViewGroup) this.mContentView).getChildCount() - 1).getId() != eGS) {
+            if (this.eOc && (this.mContentView instanceof ViewGroup) && ((ViewGroup) this.mContentView).getChildAt(((ViewGroup) this.mContentView).getChildCount() - 1).getId() != eNY) {
                 View view = new View(getContext());
-                view.setId(eGS);
+                view.setId(eNY);
                 view.setLayoutParams(new ViewGroup.LayoutParams(-1, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.bottom_enter_anim_place_holder_height)));
                 ap.setBackgroundResource(view, R.color.CAM_X0204);
                 ((ViewGroup) this.mContentView).addView(view);
@@ -152,12 +152,12 @@ public class i extends Dialog {
         }
     }
 
-    public void PA() {
+    public void RU() {
         this.isDismissing = false;
         if (isShowing()) {
             super.dismiss();
         }
-        com.baidu.adp.lib.f.g.a(this, this.eGT);
+        com.baidu.adp.lib.f.g.a(this, this.eNZ);
         if (this.mRootView != null) {
             Animation loadAnimation = AnimationUtils.loadAnimation(this.context, R.anim.bomb_pop_enter_anim);
             loadAnimation.setFillAfter(true);
@@ -183,7 +183,7 @@ public class i extends Dialog {
     @Override // android.app.Dialog
     public void show() {
         super.show();
-        this.eGT.registerListener(this.skinChangeListener);
+        this.eNZ.registerListener(this.eOd);
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
@@ -203,8 +203,8 @@ public class i extends Dialog {
                     i.this.mRootView.post(new Runnable() { // from class: com.baidu.tbadk.core.dialog.i.4.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (i.this.eGT != null && i.this.eGT.getPageActivity() != null) {
-                                Activity pageActivity = i.this.eGT.getPageActivity();
+                            if (i.this.eNZ != null && i.this.eNZ.getPageActivity() != null) {
+                                Activity pageActivity = i.this.eNZ.getPageActivity();
                                 if (!pageActivity.isFinishing() && pageActivity.getWindow() != null) {
                                     i.super.dismiss();
                                 }
@@ -218,7 +218,7 @@ public class i extends Dialog {
                 }
             });
             this.mRootView.startAnimation(loadAnimation);
-            MessageManager.getInstance().unRegisterListener(this.skinChangeListener);
+            MessageManager.getInstance().unRegisterListener(this.eOd);
         }
     }
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -149,9 +150,8 @@ public final class Headers {
         for (int i2 = 0; i2 < strArr2.length; i2 += 2) {
             String str = strArr2[i2];
             String str2 = strArr2[i2 + 1];
-            if (str.length() == 0 || str.indexOf(0) != -1 || str2.indexOf(0) != -1) {
-                throw new IllegalArgumentException("Unexpected header: " + str + ": " + str2);
-            }
+            checkName(str);
+            checkValue(str2, str);
         }
         return new Headers(strArr2);
     }
@@ -162,20 +162,55 @@ public final class Headers {
         }
         String[] strArr = new String[map.size() * 2];
         int i = 0;
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            if (entry.getKey() == null || entry.getValue() == null) {
-                throw new IllegalArgumentException("Headers cannot be null");
+        Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
+        while (true) {
+            int i2 = i;
+            if (it.hasNext()) {
+                Map.Entry<String, String> next = it.next();
+                if (next.getKey() == null || next.getValue() == null) {
+                    break;
+                }
+                String trim = next.getKey().trim();
+                String trim2 = next.getValue().trim();
+                checkName(trim);
+                checkValue(trim2, trim);
+                strArr[i2] = trim;
+                strArr[i2 + 1] = trim2;
+                i = i2 + 2;
+            } else {
+                return new Headers(strArr);
             }
-            String trim = entry.getKey().trim();
-            String trim2 = entry.getValue().trim();
-            if (trim.length() == 0 || trim.indexOf(0) != -1 || trim2.indexOf(0) != -1) {
-                throw new IllegalArgumentException("Unexpected header: " + trim + ": " + trim2);
-            }
-            strArr[i] = trim;
-            strArr[i + 1] = trim2;
-            i += 2;
         }
-        return new Headers(strArr);
+        throw new IllegalArgumentException("Headers cannot be null");
+    }
+
+    static void checkName(String str) {
+        if (str == null) {
+            throw new NullPointerException("name == null");
+        }
+        if (str.isEmpty()) {
+            throw new IllegalArgumentException("name is empty");
+        }
+        int length = str.length();
+        for (int i = 0; i < length; i++) {
+            char charAt = str.charAt(i);
+            if (charAt <= ' ' || charAt >= 127) {
+                throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in header name: %s", Integer.valueOf(charAt), Integer.valueOf(i), str));
+            }
+        }
+    }
+
+    static void checkValue(String str, String str2) {
+        if (str == null) {
+            throw new NullPointerException("value for name " + str2 + " == null");
+        }
+        int length = str.length();
+        for (int i = 0; i < length; i++) {
+            char charAt = str.charAt(i);
+            if ((charAt <= 31 && charAt != '\t') || charAt >= 127) {
+                throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in %s value: %s", Integer.valueOf(charAt), Integer.valueOf(i), str2, str));
+            }
+        }
     }
 
     /* loaded from: classes15.dex */
@@ -203,7 +238,13 @@ public final class Headers {
         }
 
         public Builder add(String str, String str2) {
-            checkNameAndValue(str, str2);
+            Headers.checkName(str);
+            Headers.checkValue(str2, str);
+            return addLenient(str, str2);
+        }
+
+        public Builder addUnsafeNonAscii(String str, String str2) {
+            Headers.checkName(str);
             return addLenient(str, str2);
         }
 
@@ -212,6 +253,22 @@ public final class Headers {
             for (int i = 0; i < size; i++) {
                 addLenient(headers.name(i), headers.value(i));
             }
+            return this;
+        }
+
+        public Builder add(String str, Date date) {
+            if (date == null) {
+                throw new NullPointerException("value for name " + str + " == null");
+            }
+            add(str, HttpDate.format(date));
+            return this;
+        }
+
+        public Builder set(String str, Date date) {
+            if (date == null) {
+                throw new NullPointerException("value for name " + str + " == null");
+            }
+            set(str, HttpDate.format(date));
             return this;
         }
 
@@ -240,36 +297,11 @@ public final class Headers {
         }
 
         public Builder set(String str, String str2) {
-            checkNameAndValue(str, str2);
+            Headers.checkName(str);
+            Headers.checkValue(str2, str);
             removeAll(str);
             addLenient(str, str2);
             return this;
-        }
-
-        private void checkNameAndValue(String str, String str2) {
-            if (str == null) {
-                throw new NullPointerException("name == null");
-            }
-            if (str.isEmpty()) {
-                throw new IllegalArgumentException("name is empty");
-            }
-            int length = str.length();
-            for (int i = 0; i < length; i++) {
-                char charAt = str.charAt(i);
-                if (charAt <= ' ' || charAt >= 127) {
-                    throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in header name: %s", Integer.valueOf(charAt), Integer.valueOf(i), str));
-                }
-            }
-            if (str2 == null) {
-                throw new NullPointerException("value for name " + str + " == null");
-            }
-            int length2 = str2.length();
-            for (int i2 = 0; i2 < length2; i2++) {
-                char charAt2 = str2.charAt(i2);
-                if ((charAt2 <= 31 && charAt2 != '\t') || charAt2 >= 127) {
-                    throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in %s value: %s", Integer.valueOf(charAt2), Integer.valueOf(i2), str, str2));
-                }
-            }
         }
 
         public String get(String str) {

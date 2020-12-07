@@ -17,15 +17,15 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.FrsTabItemData;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a implements TabLayout.OnTabSelectedListener {
-    private TabLayout jCR;
-    private TabLayout.OnTabSelectedListener jCk;
-    private int jcA;
+    private TabLayout.OnTabSelectedListener jPM;
+    private TabLayout jQt;
+    private int jqd;
     private Context mContext;
 
-    public TabLayout cKi() {
-        return this.jCR;
+    public TabLayout cPx() {
+        return this.jQt;
     }
 
     public Context getContext() {
@@ -34,26 +34,26 @@ public class a implements TabLayout.OnTabSelectedListener {
 
     public a(Context context) {
         this.mContext = context;
-        cKj();
+        cPy();
     }
 
-    private void cKj() {
-        this.jCR = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.default_tab_layout, (ViewGroup) null);
-        this.jCR.setOnTabSelectedListener(this);
+    private void cPy() {
+        this.jQt = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.default_tab_layout, (ViewGroup) null);
+        this.jQt.setOnTabSelectedListener(this);
     }
 
     public void setOnTabSelectedListener(TabLayout.OnTabSelectedListener onTabSelectedListener) {
-        this.jCk = onTabSelectedListener;
+        this.jPM = onTabSelectedListener;
     }
 
     public void onChangeSkinType(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 >= this.jCR.getTabCount()) {
+            if (i3 >= this.jQt.getTabCount()) {
                 break;
             }
-            TabLayout.Tab tabAt = this.jCR.getTabAt(i3);
+            TabLayout.Tab tabAt = this.jQt.getTabAt(i3);
             if (tabAt != null) {
                 if (tabAt.isSelected()) {
                     setTabColorSelected(tabAt);
@@ -66,8 +66,8 @@ public class a implements TabLayout.OnTabSelectedListener {
             }
             i2 = i3 + 1;
         }
-        if (d.bhw()) {
-            c.bj(this.jCR).setBackGroundColor(R.color.CAM_X0205);
+        if (d.bkA()) {
+            c.bm(this.jQt).setBackGroundColor(R.color.CAM_X0205);
         }
     }
 
@@ -75,7 +75,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         if (tab.getCustomView() != null) {
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) tab.getCustomView();
             if (tBSpecificationBtn.getStyleConfig() instanceof com.baidu.tbadk.core.view.commonBtn.c) {
-                ((com.baidu.tbadk.core.view.commonBtn.c) tBSpecificationBtn.getStyleConfig()).qG(R.color.CAM_X0304);
+                ((com.baidu.tbadk.core.view.commonBtn.c) tBSpecificationBtn.getStyleConfig()).rh(R.color.CAM_X0304);
             }
         }
     }
@@ -84,13 +84,13 @@ public class a implements TabLayout.OnTabSelectedListener {
         if (tab != null && tab.getCustomView() != null) {
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) tab.getCustomView();
             if (tBSpecificationBtn.getStyleConfig() instanceof com.baidu.tbadk.core.view.commonBtn.c) {
-                ((com.baidu.tbadk.core.view.commonBtn.c) tBSpecificationBtn.getStyleConfig()).qI(R.color.CAM_X0108);
+                ((com.baidu.tbadk.core.view.commonBtn.c) tBSpecificationBtn.getStyleConfig()).rj(R.color.CAM_X0108);
             }
         }
     }
 
     public void a(FrsTabInfoData frsTabInfoData) {
-        a(this.jcA, frsTabInfoData.tabList, this.jCR);
+        a(this.jqd, frsTabInfoData.tabList, this.jQt);
     }
 
     private void a(int i, List<FrsTabItemData> list, TabLayout tabLayout) {
@@ -130,7 +130,7 @@ public class a implements TabLayout.OnTabSelectedListener {
                 if (!(tab.getCustomView() instanceof TBSpecificationBtn)) {
                     TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
                     com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-                    cVar.qI(R.color.CAM_X0108);
+                    cVar.rj(R.color.CAM_X0108);
                     tBSpecificationBtn.setConfig(cVar);
                     LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds177), UtilHelper.getDimenPixelSize(R.dimen.tbds75));
                     layoutParams3.setMargins(dimens, dimens2, dimens, dimens3);
@@ -142,34 +142,34 @@ public class a implements TabLayout.OnTabSelectedListener {
                     tab.select();
                 }
             }
-            linearLayout.setPadding(d.bhw() ? l.getDimens(getContext(), R.dimen.tbds19) : 0, 0, 0, 0);
+            linearLayout.setPadding(d.bkA() ? l.getDimens(getContext(), R.dimen.tbds19) : 0, 0, 0, 0);
         }
     }
 
     @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
     public void onTabSelected(TabLayout.Tab tab) {
         if (tab != null && (tab.getTag() instanceof FrsTabItemData)) {
-            this.jcA = ((FrsTabItemData) tab.getTag()).tabId;
+            this.jqd = ((FrsTabItemData) tab.getTag()).tabId;
         }
         setTabColorSelected(tab);
-        if (this.jCk != null) {
-            this.jCk.onTabSelected(tab);
+        if (this.jPM != null) {
+            this.jPM.onTabSelected(tab);
         }
     }
 
     @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
     public void onTabUnselected(TabLayout.Tab tab) {
         setTabColorUnSelected(tab);
-        if (this.jCk != null) {
-            this.jCk.onTabUnselected(tab);
+        if (this.jPM != null) {
+            this.jPM.onTabUnselected(tab);
         }
     }
 
     @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
     public void onTabReselected(TabLayout.Tab tab) {
         setTabColorSelected(tab);
-        if (this.jCk != null) {
-            this.jCk.onTabReselected(tab);
+        if (this.jPM != null) {
+            this.jPM.onTabReselected(tab);
         }
     }
 }

@@ -1,39 +1,38 @@
 package com.baidu.tieba.tbadkCore.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.xiaomi.mipush.sdk.Constants;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.flow.a.a {
-    private String aHF;
+    private String aKq;
     private int height;
-    private String mXx;
-    private String mXy;
-    private String mXz;
+    private String nlv;
+    private String nlw;
+    private String nlx;
     private String subTitle;
     private int urlFlag;
     private int width;
 
     public k(Timgs timgs) {
-        this.mXx = null;
+        this.nlv = null;
         this.urlFlag = 0;
-        this.mXy = null;
-        this.mXz = null;
-        this.aHF = null;
+        this.nlw = null;
+        this.nlx = null;
+        this.aKq = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.mXx = timgs.img_url;
+            this.nlv = timgs.img_url;
             this.urlFlag = timgs.flag.intValue();
-            this.mXy = timgs.url;
-            this.mXz = timgs.big_cdn_url;
-            this.aHF = timgs.des_main;
+            this.nlw = timgs.url;
+            this.nlx = timgs.big_cdn_url;
+            this.aKq = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
                 try {
-                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = str.split(",");
                     this.width = com.baidu.adp.lib.f.b.toInt(split[0], 1);
                     this.height = com.baidu.adp.lib.f.b.toInt(split[1], 1);
                 } catch (Exception e) {
@@ -51,15 +50,15 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.mXx;
+        return this.nlv;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String bjA() {
-        return this.mXy;
+    public String bmN() {
+        return this.nlw;
     }
 
-    public String dJy() {
-        return this.mXx;
+    public String dOP() {
+        return this.nlv;
     }
 }

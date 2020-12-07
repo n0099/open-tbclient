@@ -8,7 +8,7 @@ public class c {
         return (((int) ((i >>> 24) * f)) << 24) | (16777215 & i);
     }
 
-    public static int JV(int i) {
+    public static int KL(int i) {
         float[] fArr = new float[3];
         Color.colorToHSV(i, fArr);
         if ((fArr[0] >= 0.0f && fArr[0] < 60.0f) || ((fArr[0] >= 120.0f && fArr[0] < 180.0f) || fArr[0] >= 240.0f || fArr[0] < 300.0f)) {
@@ -19,7 +19,7 @@ public class c {
         return Color.HSVToColor(fArr);
     }
 
-    public static int sa(String str) {
+    public static int sI(String str) {
         if (str == null || str.length() == 0) {
             return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         }

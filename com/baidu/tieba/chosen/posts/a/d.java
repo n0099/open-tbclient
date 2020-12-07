@@ -8,32 +8,32 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.util.ArrayList;
 import tbclient.HotThread.Pic;
 import tbclient.HotThread.tinfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class d implements com.baidu.tbadk.mvc.b.a {
     private String forumId;
     private String forumName;
-    private ArrayList<String> iei;
     private int index;
+    private ArrayList<String> ipb;
     private String threadId;
 
     public d(int i, tinfo tinfoVar) {
         if (tinfoVar != null) {
-            this.iei = new ArrayList<>();
+            this.ipb = new ArrayList<>();
             this.index = i;
             this.forumId = String.valueOf(tinfoVar.forum_id);
             this.forumName = tinfoVar.forum_name;
             this.threadId = String.valueOf(tinfoVar.thread_id);
             for (Pic pic : tinfoVar.pics) {
                 if (pic != null && !StringUtils.isNull(pic.big_pic)) {
-                    this.iei.add(pic.big_pic);
+                    this.ipb.add(pic.big_pic);
                 }
             }
         }
     }
 
-    public CustomMessage<ImageViewerConfig> fg(Context context) {
+    public CustomMessage<ImageViewerConfig> fM(Context context) {
         ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-        aVar.x(this.iei).nL(this.index).zZ(this.forumName).Aa(this.forumId).Ab(this.threadId).iy(true).iz(false).Ac(this.iei.get(this.iei.size() - 1));
-        return new CustomMessage<>((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.dU(context));
+        aVar.x(this.ipb).oj(this.index).AG(this.forumName).AH(this.forumId).AI(this.threadId).iN(true).iO(false).AJ(this.ipb.get(this.ipb.size() - 1));
+        return new CustomMessage<>((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.ez(context));
     }
 }

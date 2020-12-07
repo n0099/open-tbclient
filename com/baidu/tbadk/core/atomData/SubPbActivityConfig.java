@@ -17,13 +17,18 @@ import java.util.concurrent.ConcurrentHashMap;
 public class SubPbActivityConfig extends IntentConfig {
     public static final String ICON_LIST = "icon_list";
     public static final String KEY_ANTI = "anti";
+    public static final String KEY_DELETED_REASON_INFO_IS_GRAY_CALE_FORUM = "key_deleted_reason_info_is_gray_cale_forum";
+    public static final String KEY_DELETED_REASON_INFO_IS_IS_BOOM_GROW = "key_deleted_reason_info_is_boom_grow";
+    public static final String KEY_FORUM_HEAD_URL = "key_forum_head_url";
     public static final String KEY_FROM_FORUM_ID = "from_forum_id";
     public static final String KEY_FROM_FRS_FORUM_ID = "from_frs_forum_id";
+    public static final String KEY_HAS_FORUM_RULE = "key_has_forum_rule";
     public static final String KEY_HIGH_LIGHT_POST_ID = "high_light_post_id";
     public static final String KEY_IMG_URLS = "img_urls";
     public static final String KEY_IS_FROM_DYNAMIC = "key_is_from_dynamic";
     public static final String KEY_IS_FROM_SCHEMA = "is_from_schema";
     public static final String KEY_IS_JUMP_FROM_PB = "is_jump_from_pb";
+    public static final String KEY_IS_MANAGER = "key_is_manager";
     public static final String KEY_IS_OPEN_EDITOR = "key_is_open_editor";
     public static final String KEY_IS_SHOW_GO_TO_SUBJECT = "is_show_go_to_subject";
     public static final String KEY_IS_USE_SPID = "key_is_use_spid";
@@ -41,6 +46,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public static final String KEY_TAIL = "post_tail";
     public static final String KEY_THREAD_ID = "thread_id";
     public static final String KEY_USER_IDENTITY = "user_identity";
+    public static final String KEY_USER_LEVEL = "key_user_level";
     public static final String SUB_KEY_IMG_CDN = "sub_img_cdn";
     public static final String SUB_KEY_IMG_OFFSET = "sub_img_offset";
     public static final String SUB_KEY_IMG_SRC = "sub_img_src";
@@ -192,6 +198,48 @@ public class SubPbActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         if (intent != null) {
             intent.putExtra(KEY_IS_USE_SPID, z);
+        }
+    }
+
+    public void setHasForumRule(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_HAS_FORUM_RULE, i);
+        }
+    }
+
+    public void setIsManager(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_IS_MANAGER, i);
+        }
+    }
+
+    public void setDeletedReasonInfoIsGrayCaleForum(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_DELETED_REASON_INFO_IS_GRAY_CALE_FORUM, i);
+        }
+    }
+
+    public void setDeletedReasonInfoIsIsBoomGrow(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_DELETED_REASON_INFO_IS_IS_BOOM_GROW, i);
+        }
+    }
+
+    public void setForumHeadUrl(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_FORUM_HEAD_URL, str);
+        }
+    }
+
+    public void setUserLevel(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_FORUM_HEAD_URL, i);
         }
     }
 }

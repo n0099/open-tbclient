@@ -2,30 +2,24 @@ package com.baidu.android.util.devices;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Build;
-import android.os.Environment;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.view.KeyCharacterMap;
-import android.view.ViewConfiguration;
 import android.view.WindowManager;
+import com.baidu.android.util.devices.DeviceUtils;
 import com.baidu.android.util.devices.IDevices;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.RandomAccessFile;
 import java.lang.reflect.Field;
-/* loaded from: classes12.dex */
+@Deprecated
+/* loaded from: classes6.dex */
 public class DeviceUtil implements IDevices {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes6.dex */
     public static class OSInfo {
         public static final int KITKAT = 19;
         public static final int LOLLIPOP = 21;
@@ -39,121 +33,118 @@ public class DeviceUtil implements IDevices {
         }
 
         public static boolean hasFroyo() {
-            return Build.VERSION.SDK_INT >= 8;
+            return DeviceUtils.OSInfo.hasFroyo();
         }
 
         public static boolean hasGingerbread() {
-            return Build.VERSION.SDK_INT >= 9;
+            return DeviceUtils.OSInfo.hasGingerbread();
         }
 
         public static boolean isGingerbreadmr1() {
-            return Build.VERSION.SDK_INT == 10;
+            return DeviceUtils.OSInfo.isGingerbreadmr1();
         }
 
         public static boolean isGingerbread() {
-            return Build.VERSION.SDK_INT == 9;
+            return DeviceUtils.OSInfo.isGingerbread();
         }
 
         public static boolean hasHoneycomb() {
-            return Build.VERSION.SDK_INT >= 11;
+            return DeviceUtils.OSInfo.hasHoneycomb();
         }
 
         public static boolean hasHoneycombMR1() {
-            return Build.VERSION.SDK_INT >= 12;
+            return DeviceUtils.OSInfo.hasHoneycombMR1();
         }
 
         public static boolean hasICS() {
-            return Build.VERSION.SDK_INT >= 14;
+            return DeviceUtils.OSInfo.hasICS();
         }
 
         public static boolean hasICSMR1() {
-            return Build.VERSION.SDK_INT >= 15;
+            return DeviceUtils.OSInfo.hasICSMR1();
         }
 
         public static boolean hasJellyBean() {
-            return Build.VERSION.SDK_INT >= 16;
+            return DeviceUtils.OSInfo.hasJellyBean();
         }
 
         public static boolean hasJellyBeanMR1() {
-            return Build.VERSION.SDK_INT >= 17;
+            return DeviceUtils.OSInfo.hasJellyBeanMR1();
         }
 
         public static boolean hasJellyBeanMR2() {
-            return Build.VERSION.SDK_INT >= 18;
+            return DeviceUtils.OSInfo.hasJellyBeanMR2();
         }
 
         public static boolean hasKitKat() {
-            return Build.VERSION.SDK_INT >= 19;
+            return DeviceUtils.OSInfo.hasKitKat();
         }
 
         public static boolean isKitKat() {
-            return Build.VERSION.SDK_INT == 19;
+            return DeviceUtils.OSInfo.isKitKat();
         }
 
         public static boolean hasLollipop() {
-            return Build.VERSION.SDK_INT >= 21;
+            return DeviceUtils.OSInfo.hasLollipop();
         }
 
         public static boolean hasLollipopMR1() {
-            return Build.VERSION.SDK_INT >= 22;
+            return DeviceUtils.OSInfo.hasLollipopMR1();
         }
 
         public static final boolean isLollipop() {
-            return Build.VERSION.SDK_INT == 21;
+            return DeviceUtils.OSInfo.isLollipop();
         }
 
         public static boolean hasMarshMallow() {
-            return Build.VERSION.SDK_INT >= 23;
+            return DeviceUtils.OSInfo.hasMarshMallow();
         }
 
         public static boolean hasNougat() {
-            return Build.VERSION.SDK_INT >= 24;
+            return DeviceUtils.OSInfo.hasNougat();
         }
 
         public static boolean hasNougatMR1() {
-            return Build.VERSION.SDK_INT >= 25;
+            return DeviceUtils.OSInfo.hasNougatMR1();
         }
 
         public static boolean hasOreo() {
-            return Build.VERSION.SDK_INT >= 26;
+            return DeviceUtils.OSInfo.hasOreo();
         }
 
         public static String getOsVersion() {
-            String str = Build.VERSION.RELEASE;
-            if (TextUtils.isEmpty(str)) {
-                return "0.0";
-            }
-            return str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+            return DeviceUtils.OSInfo.getOsVersion();
         }
 
         public static int getSDKLevel() {
-            return Build.VERSION.SDK_INT;
+            return DeviceUtils.OSInfo.getSDKLevel();
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes6.dex */
     public static class ScreenInfo {
         private static final int STANDARD_STATUSBAR_HEIGHT = 50;
         private static int originDensityDip = 0;
         private static DisplayMetrics sDisplayMetrics;
 
-        public static int dp2px(@Nullable Context context, float f) {
+        public static int dp2px(Context context, float f) {
             return (int) ((AppRuntime.getAppContext().getResources().getDisplayMetrics().density * f) + 0.5f);
         }
 
-        public static float dp2pxf(@Nullable Context context, float f) {
+        public static float dp2pxf(Context context, float f) {
             return getDensity(AppRuntime.getAppContext()) * f;
         }
 
-        public static int px2dp(@Nullable Context context, float f) {
+        public static int px2dp(Context context, float f) {
             return (int) ((f / AppRuntime.getAppContext().getResources().getDisplayMetrics().density) + 0.5f);
         }
 
+        @Deprecated
         public static float px2dpFloat(float f) {
             return f / getDensity(AppRuntime.getAppContext());
         }
 
-        public static int getDisplayWidth(@Nullable Context context) {
+        public static int getDisplayWidth(Context context) {
             DisplayMetrics displayMetrics = getDisplayMetrics(AppRuntime.getAppContext());
             if (displayMetrics != null) {
                 return displayMetrics.widthPixels;
@@ -161,7 +152,7 @@ public class DeviceUtil implements IDevices {
             return 0;
         }
 
-        public static int getDisplayHeight(@Nullable Context context) {
+        public static int getDisplayHeight(Context context) {
             DisplayMetrics displayMetrics = getDisplayMetrics(AppRuntime.getAppContext());
             if (displayMetrics != null) {
                 return displayMetrics.heightPixels;
@@ -169,7 +160,7 @@ public class DeviceUtil implements IDevices {
             return 0;
         }
 
-        public static int getRealScreenHeight(@Nullable Context context) {
+        public static int getRealScreenHeight(Context context) {
             WindowManager windowManager = (WindowManager) AppRuntime.getAppContext().getSystemService("window");
             if (windowManager == null) {
                 return -1;
@@ -183,18 +174,10 @@ public class DeviceUtil implements IDevices {
         }
 
         public static int getScreenOriginDensityDip() {
-            if (originDensityDip > 0) {
-                return originDensityDip;
-            }
-            try {
-                originDensityDip = ((Integer) Class.forName("android.view.IWindowManager").getMethod("getInitialDisplayDensity", Integer.TYPE).invoke(Class.forName("android.view.WindowManagerGlobal").getMethod("getWindowManagerService", new Class[0]).invoke(new Object(), new Object[0]), 0)).intValue();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return originDensityDip;
+            return DeviceUtils.ScreenInfo.getScreenOriginDensityDip();
         }
 
-        public static float getDensity(@Nullable Context context) {
+        public static float getDensity(Context context) {
             initDisplayMetrics(AppRuntime.getAppContext());
             if (sDisplayMetrics != null) {
                 return sDisplayMetrics.density;
@@ -202,7 +185,7 @@ public class DeviceUtil implements IDevices {
             return 0.0f;
         }
 
-        public static int getDensityDpi(@Nullable Context context) {
+        public static int getDensityDpi(Context context) {
             initDisplayMetrics(AppRuntime.getAppContext());
             if (sDisplayMetrics != null) {
                 return sDisplayMetrics.densityDpi;
@@ -231,58 +214,27 @@ public class DeviceUtil implements IDevices {
         }
 
         public static int getStatusBarHeight() {
-            int i = 0;
-            int identifier = AppRuntime.getAppContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
-            if (identifier > 0) {
-                try {
-                    i = AppRuntime.getAppContext().getResources().getDimensionPixelSize(identifier);
-                } catch (Exception e) {
-                }
-            }
-            if (i == 0) {
-                return (int) (25.0f * getDensity(null));
-            }
-            return i;
+            return DeviceUtils.ScreenInfo.getStatusBarHeight();
         }
 
         public static int getNavigationBarHeight() {
-            boolean hasPermanentMenuKey = ViewConfiguration.get(AppRuntime.getAppContext()).hasPermanentMenuKey();
-            boolean deviceHasKey = KeyCharacterMap.deviceHasKey(4);
-            if (hasPermanentMenuKey || deviceHasKey) {
-                return 0;
-            }
-            Resources resources = AppRuntime.getAppContext().getResources();
-            return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", "dimen", "android"));
+            return DeviceUtils.ScreenInfo.getNavigationBarHeight();
         }
 
         public static boolean isScreenPortrait() {
-            return AppRuntime.getAppContext().getResources().getConfiguration().orientation == 1;
+            return DeviceUtils.ScreenInfo.isScreenPortrait();
         }
 
         public static boolean isScreenLand() {
-            return AppRuntime.getAppContext().getResources().getConfiguration().orientation == 2;
+            return DeviceUtils.ScreenInfo.isScreenLand();
         }
 
         public static boolean isDensityTooLarge(Activity activity) {
-            int i;
-            if (Build.VERSION.SDK_INT < 24 || activity == null) {
-                return false;
-            }
-            try {
-                i = ((Integer) Class.forName("android.view.IWindowManager").getMethod("getInitialDisplayDensity", Integer.TYPE).invoke(Class.forName("android.view.WindowManagerGlobal").getMethod("getWindowManagerService", new Class[0]).invoke(new Object(), new Object[0]), 0)).intValue();
-            } catch (Exception e) {
-                e.printStackTrace();
-                i = 0;
-            }
-            if (i <= 0 || activity.isInMultiWindowMode()) {
-                return false;
-            }
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            return displayMetrics.density > ((float) i) / 160.0f;
+            return DeviceUtils.ScreenInfo.isDensityTooLarge(activity);
         }
 
-        public static String getRealScreenSize(@Nullable Context context) {
+        @Deprecated
+        public static String getRealScreenSize(Context context) {
             int displayWidth = getDisplayWidth(context);
             int realScreenHeight = getRealScreenHeight(context);
             if (displayWidth <= 0 || realScreenHeight <= 0) {
@@ -292,46 +244,47 @@ public class DeviceUtil implements IDevices {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes6.dex */
     public static class BrandInfo {
         public static String getDeviceBrand() {
-            return Build.BRAND;
+            return RomUtils.getDeviceBrand();
         }
 
         public static String getManufacturer() {
-            return Build.MANUFACTURER;
+            return RomUtils.getManufacturer();
         }
 
         public static String getDeviceModel() {
-            return Build.MODEL;
+            return RomUtils.getDeviceModel();
         }
 
         public static String getDeviceName() {
-            return Build.PRODUCT;
+            return RomUtils.getDeviceName();
         }
 
         public static boolean isMiBox2Device() {
-            return Build.MANUFACTURER.equalsIgnoreCase("Xiaomi") && Build.PRODUCT.equalsIgnoreCase("dredd");
+            return RomUtils.isMiBox2Device();
         }
 
         public static boolean isMagicBoxDevice() {
-            return Build.MANUFACTURER.equalsIgnoreCase("MagicBox") && Build.PRODUCT.equalsIgnoreCase("MagicBox");
+            return RomUtils.isMagicBoxDevice();
         }
 
+        @Deprecated
         public static boolean isProblemBoxDevice() {
             return isMiBox2Device() || isMagicBoxDevice();
         }
     }
 
     public static boolean isSupportFoldable() {
-        if (isMateX()) {
+        if (isMateX() || isHwFoldableDevice()) {
             return true;
         }
         return Build.MODEL.equals("SM-F9000");
     }
 
     public static boolean isMateX() {
-        String[] strArr = {"RLI-AN00", "RLI-N29", "TAH-AN00", "TAH-N29", "TAH-AN00m", "RHA-AN00m"};
+        String[] strArr = {"RLI-AN00", "RLI-N29", "TAH-AN00", "TAH-N29", "TAH-AN00m", "RHA-AN00m", "TET-AN00"};
         if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
             for (String str : strArr) {
                 if (str.equalsIgnoreCase(Build.MODEL)) {
@@ -342,7 +295,11 @@ public class DeviceUtil implements IDevices {
         return false;
     }
 
-    /* loaded from: classes12.dex */
+    public static boolean isHwFoldableDevice() {
+        return "HUAWEI".equalsIgnoreCase(Build.MANUFACTURER) && AppRuntime.getAppContext().getPackageManager().hasSystemFeature("com.huawei.hardware.sensor.posture");
+    }
+
+    /* loaded from: classes6.dex */
     public static final class CPUInfo {
         public static final String FEATURE_COMMON = "common";
         public static final String FEATURE_NEON = "neon";
@@ -399,112 +356,23 @@ public class DeviceUtil implements IDevices {
         }
 
         public static String getCpuArchInfo() {
-            String lowerCase = System.getProperty("os.arch").toLowerCase();
-            if (lowerCase == null || lowerCase.length() == 0) {
-                return null;
-            }
-            return lowerCase;
+            return DeviceUtils.CPUInfo.getCpuArchInfo();
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [901=5, 903=4, 904=4, 905=4] */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x006c */
-        /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: java.io.RandomAccessFile */
-        /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Removed duplicated region for block: B:64:0x006f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Type inference failed for: r1v1, types: [boolean] */
-        /* JADX WARN: Type inference failed for: r1v2 */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
         public static synchronized IDevices.ARCH getMyCpuArch() {
-            RandomAccessFile randomAccessFile;
+            IDevices.ARCH cpuArch;
             synchronized (CPUInfo.class) {
-                byte[] bArr = new byte[20];
-                File file = new File(Environment.getRootDirectory(), "lib/libc.so");
-                RandomAccessFile canRead = file.canRead();
-                if (canRead != 0) {
-                    try {
-                        try {
-                            randomAccessFile = new RandomAccessFile(file, "r");
-                            try {
-                                randomAccessFile.readFully(bArr);
-                                switch (bArr[18] | (bArr[19] << 8)) {
-                                    case 3:
-                                        sArch = IDevices.ARCH.X86;
-                                        break;
-                                    case 8:
-                                        sArch = IDevices.ARCH.MIPS;
-                                        break;
-                                    case 40:
-                                        sArch = IDevices.ARCH.ARM;
-                                        break;
-                                    case 183:
-                                        sArch = IDevices.ARCH.ARM64;
-                                        break;
-                                }
-                                if (randomAccessFile != null) {
-                                    try {
-                                        randomAccessFile.close();
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            } catch (FileNotFoundException e2) {
-                                e = e2;
-                                e.printStackTrace();
-                                if (randomAccessFile != null) {
-                                    try {
-                                        randomAccessFile.close();
-                                    } catch (IOException e3) {
-                                        e3.printStackTrace();
-                                    }
-                                }
-                                return sArch;
-                            } catch (IOException e4) {
-                                e = e4;
-                                e.printStackTrace();
-                                if (randomAccessFile != null) {
-                                    try {
-                                        randomAccessFile.close();
-                                    } catch (IOException e5) {
-                                        e5.printStackTrace();
-                                    }
-                                }
-                                return sArch;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            if (canRead != 0) {
-                                try {
-                                    canRead.close();
-                                } catch (IOException e6) {
-                                    e6.printStackTrace();
-                                }
-                            }
-                            throw th;
-                        }
-                    } catch (FileNotFoundException e7) {
-                        e = e7;
-                        randomAccessFile = null;
-                    } catch (IOException e8) {
-                        e = e8;
-                        randomAccessFile = null;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        canRead = 0;
-                        if (canRead != 0) {
-                        }
-                        throw th;
-                    }
-                }
+                cpuArch = DeviceUtils.CPUInfo.getCpuArch();
             }
-            return sArch;
+            return cpuArch;
         }
 
+        @Deprecated
         public static String get_CPU_ABI() {
             return Build.CPU_ABI;
         }
 
+        @Deprecated
         public static String get_CPU_ABI2() {
             try {
                 Field declaredField = Build.class.getDeclaredField("CPU_ABI2");
@@ -547,6 +415,10 @@ public class DeviceUtil implements IDevices {
 
         public static boolean isRealX86Arch() {
             return supportABI("x86") || IDevices.ARCH.X86.equals(getMyCpuArch());
+        }
+
+        public static String getPreferredABI() {
+            return DeviceUtils.CPUInfo.getPreferredABI();
         }
     }
 }

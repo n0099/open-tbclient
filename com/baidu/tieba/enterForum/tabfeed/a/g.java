@@ -12,21 +12,21 @@ import com.baidu.card.am;
 import com.baidu.card.s;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes21.dex */
-public class g extends com.baidu.adp.widget.ListView.a<bw, am<bx>> {
-    private v alH;
-    public BdUniqueId fsa;
+/* loaded from: classes22.dex */
+public class g extends com.baidu.adp.widget.ListView.a<bx, am<by>> {
+    private v amH;
+    public BdUniqueId fzO;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.mPageContext = tbPageContext;
-        this.fsa = bdUniqueId2;
+        this.fzO = bdUniqueId2;
         this.mTabName = str;
     }
 
@@ -34,23 +34,23 @@ public class g extends com.baidu.adp.widget.ListView.a<bw, am<bx>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aR */
-    public am<bx> c(ViewGroup viewGroup) {
+    public am<by> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         s sVar = new s(this.mPageContext.getPageActivity());
-        sVar.tL();
+        sVar.tO();
         aVar.a((com.baidu.card.i) sVar);
-        ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.alH);
+        ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.amH);
         a2.setSourceForPb(2);
-        am<bx> amVar = new am<>(a2);
-        amVar.setPageId(this.fsa);
+        am<by> amVar = new am<>(a2);
+        amVar.setPageId(this.fzO);
         a(new ab() { // from class: com.baidu.tieba.enterForum.tabfeed.a.g.1
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                if ((qVar instanceof bw) && (view.getTag() instanceof am)) {
-                    bx bxVar = ((bw) qVar).evQ;
-                    bxVar.objType = 1;
-                    az.a((com.baidu.tbadk.core.data.a) bxVar, view.getContext(), 2, false);
-                    ((am) view.getTag()).tW().b(new a.C0096a(1));
+                if ((qVar instanceof bx) && (view.getTag() instanceof am)) {
+                    by byVar = ((bx) qVar).eCR;
+                    byVar.objType = 1;
+                    az.a((com.baidu.tbadk.core.data.a) byVar, view.getContext(), 2, false);
+                    ((am) view.getTag()).tZ().b(new a.C0097a(1));
                 }
             }
         });
@@ -60,18 +60,18 @@ public class g extends com.baidu.adp.widget.ListView.a<bw, am<bx>> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bw bwVar, am<bx> amVar) {
-        if (bwVar == null || amVar == null || amVar.getView() == null || bwVar.evQ == null) {
+    public View a(int i, View view, ViewGroup viewGroup, bx bxVar, am<by> amVar) {
+        if (bxVar == null || amVar == null || amVar.getView() == null || bxVar.eCR == null) {
             return null;
         }
-        bwVar.evQ.eAb = getPositionByType(i) + 1;
-        amVar.tW().setPosition(i);
-        amVar.b((am<bx>) bwVar.evQ);
-        amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        bxVar.eCR.eHa = getPositionByType(i) + 1;
+        amVar.tZ().setPosition(i);
+        amVar.b((am<by>) bxVar.eCR);
+        amVar.tZ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return amVar.getView();
     }
 
     public void a(v vVar) {
-        this.alH = vVar;
+        this.amH = vVar;
     }
 }

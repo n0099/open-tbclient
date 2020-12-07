@@ -3,7 +3,7 @@ package com.baidu.searchbox.player.layer;
 import android.support.annotation.NonNull;
 import android.view.View;
 import com.baidu.searchbox.player.interfaces.INeuron;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public interface ILayer extends INeuron {
     View getContentView();
 

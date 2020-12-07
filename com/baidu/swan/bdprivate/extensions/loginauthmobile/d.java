@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.statistic.a.f;
 import com.baidu.swan.apps.statistic.h;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -17,7 +17,7 @@ public class d {
             fVar.mValue = str3;
         }
         fVar.mAppId = str5;
-        fVar.u("source", str4);
+        fVar.t("source", str4);
         if (DEBUG) {
             Log.d("LoginAndGetMobileStatics", "staticLoginResult: event = " + fVar.toJSONObject());
         }

@@ -4,7 +4,6 @@ import com.baidu.live.adp.framework.controller.HttpRule;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.task.HttpMessageTask;
 import com.baidu.live.adp.lib.util.Md5;
-import com.baidu.webkit.internal.ETAG;
 import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +22,7 @@ public class a extends HttpRule {
                 String key = entry.getKey();
                 Object value = entry.getValue();
                 if ((value instanceof String) && !"sign".equals(key)) {
-                    stringBuffer.append(key + ETAG.EQUAL);
+                    stringBuffer.append(key + "=");
                     stringBuffer.append(value);
                 }
             }
@@ -36,7 +35,7 @@ public class a extends HttpRule {
     @Override // com.baidu.live.adp.framework.controller.MessageRule
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         if (httpMessage != null && httpMessage.getCmd() < 1030999 && httpMessage.getCmd() >= 1021000) {
-            String str = "release/4.0.8/ref|2020-11-13 19:59:21|b907f5c";
+            String str = "release/4.1.0/tieba|2020-12-06 17:34:30|323dd0a";
             try {
                 str = URLEncoder.encode(str);
             } catch (Exception e) {

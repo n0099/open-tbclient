@@ -6,7 +6,7 @@ import java.net.Socket;
 import org.apache.http.conn.scheme.SocketFactory;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public final class MultihomePlainSocketFactory implements SocketFactory {
     MultihomePlainSocketFactory() {
         throw new RuntimeException("Stub!");

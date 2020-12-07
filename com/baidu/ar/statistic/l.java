@@ -4,7 +4,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.ar.g.s;
+import com.baidu.ar.h.s;
 import com.baidu.ar.ihttp.HttpFactory;
 import com.baidu.ar.ihttp.IHttpRequest;
 import com.baidu.ar.ihttp.IHttpResponse;
@@ -15,21 +15,21 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class l extends AsyncTask<String, Void, List<String>> {
-    private a wb;
+    private a wP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void onPerformanceRequestFinished(List<String> list);
     }
 
     public l(a aVar) {
-        this.wb = aVar;
+        this.wP = aVar;
     }
 
-    private List<String> aI(String str) {
+    private List<String> aL(String str) {
         int length;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -54,7 +54,7 @@ class l extends AsyncTask<String, Void, List<String>> {
         return null;
     }
 
-    private String aJ(String str) {
+    private String aM(String str) {
         try {
             return URLEncoder.encode(str, "UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -63,7 +63,7 @@ class l extends AsyncTask<String, Void, List<String>> {
     }
 
     private String gq() {
-        return String.format("%s=%s&%s=%s&%s=%s&%s=%s&%s=%s", HttpConstants.HTTP_OS_TYPE, "android", HttpConstants.HTTP_ENGINE_VERSION, String.valueOf(com.baidu.ar.g.c.getVersionCode()), "manufacture", aJ(Build.MANUFACTURER), HttpConstants.HTTP_BOARD, aJ(Build.BOARD), HttpConstants.HTTP_HARDWARE, aJ(Build.HARDWARE));
+        return String.format("%s=%s&%s=%s&%s=%s&%s=%s&%s=%s", HttpConstants.HTTP_OS_TYPE, "android", HttpConstants.HTTP_ENGINE_VERSION, String.valueOf(com.baidu.ar.h.c.getVersionCode()), "manufacture", aM(Build.MANUFACTURER), HttpConstants.HTTP_BOARD, aM(Build.BOARD), HttpConstants.HTTP_HARDWARE, aM(Build.HARDWARE));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -80,7 +80,7 @@ class l extends AsyncTask<String, Void, List<String>> {
         try {
             IHttpResponse execute = newRequest.execute();
             if (execute.isSuccess()) {
-                return aI(execute.getContent());
+                return aL(execute.getContent());
             }
             return null;
         } catch (Exception e) {
@@ -95,9 +95,9 @@ class l extends AsyncTask<String, Void, List<String>> {
     /* renamed from: k */
     public void onPostExecute(List<String> list) {
         super.onPostExecute(list);
-        if (this.wb != null) {
-            this.wb.onPerformanceRequestFinished(list);
+        if (this.wP != null) {
+            this.wP.onPerformanceRequestFinished(list);
         }
-        this.wb = null;
+        this.wP = null;
     }
 }

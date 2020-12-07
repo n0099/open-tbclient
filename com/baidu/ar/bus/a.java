@@ -7,17 +7,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a {
-    b kf;
-    private Looper kg;
-    private final Map<Class<?>, CopyOnWriteArrayList<g>> kc = new HashMap();
-    private final Map<Object, List<Class<?>>> kb = new HashMap();
-    f kd = new f();
-    b ke = new b(this, Looper.getMainLooper(), 10);
+    b ku;
+    private Looper kv;
+    private final Map<Class<?>, CopyOnWriteArrayList<g>> kr = new HashMap();
+    private final Map<Object, List<Class<?>>> kq = new HashMap();
+    f ks = new f();
+    b kt = new b(this, Looper.getMainLooper(), 10);
 
     private void a(g gVar, Object obj) {
-        switch (gVar.kH.ku) {
+        switch (gVar.kW.kJ) {
             case POSTING:
                 b(gVar, obj);
                 return;
@@ -26,39 +26,39 @@ public class a {
                     b(gVar, obj);
                     return;
                 } else {
-                    this.ke.c(gVar, obj);
+                    this.kt.c(gVar, obj);
                     return;
                 }
             case CONTROLLER:
-                if (cH()) {
+                if (cG()) {
                     b(gVar, obj);
                     return;
                 } else {
-                    this.kf.c(gVar, obj);
+                    this.ku.c(gVar, obj);
                     return;
                 }
             default:
-                com.baidu.ar.g.b.aP("Unknown thread mode: " + gVar.kH.ku);
+                com.baidu.ar.h.b.aS("Unknown thread mode: " + gVar.kW.kJ);
                 return;
         }
     }
 
     private void a(Object obj, e eVar) {
-        Class<?> cls = eVar.kv;
+        Class<?> cls = eVar.kK;
         g gVar = new g(obj, eVar);
-        CopyOnWriteArrayList<g> copyOnWriteArrayList = this.kc.get(cls);
+        CopyOnWriteArrayList<g> copyOnWriteArrayList = this.kr.get(cls);
         if (copyOnWriteArrayList == null) {
             copyOnWriteArrayList = new CopyOnWriteArrayList<>();
-            this.kc.put(cls, copyOnWriteArrayList);
+            this.kr.put(cls, copyOnWriteArrayList);
         } else if (copyOnWriteArrayList.contains(gVar)) {
-            com.baidu.ar.g.b.aP("Subscriber " + obj.getClass() + " already registered to event " + cls);
+            com.baidu.ar.h.b.aS("Subscriber " + obj.getClass() + " already registered to event " + cls);
             return;
         }
         copyOnWriteArrayList.add(gVar);
-        List<Class<?>> list = this.kb.get(obj);
+        List<Class<?>> list = this.kq.get(obj);
         if (list == null) {
             list = new ArrayList<>();
-            this.kb.put(obj, list);
+            this.kq.put(obj, list);
         }
         list.add(cls);
     }
@@ -66,14 +66,14 @@ public class a {
     private void a(Object obj, Class<?> cls) {
         int i;
         int i2;
-        CopyOnWriteArrayList<g> copyOnWriteArrayList = this.kc.get(cls);
+        CopyOnWriteArrayList<g> copyOnWriteArrayList = this.kr.get(cls);
         if (copyOnWriteArrayList != null) {
             int size = copyOnWriteArrayList.size();
             int i3 = 0;
             while (i3 < size) {
                 g gVar = copyOnWriteArrayList.get(i3);
-                if (gVar.kG == obj) {
-                    gVar.kI = false;
+                if (gVar.kV == obj) {
+                    gVar.kX = false;
                     copyOnWriteArrayList.remove(i3);
                     i = i3 - 1;
                     i2 = size - 1;
@@ -90,7 +90,7 @@ public class a {
     private boolean b(Object obj, Class<?> cls) {
         CopyOnWriteArrayList<g> copyOnWriteArrayList;
         synchronized (this) {
-            copyOnWriteArrayList = this.kc.get(cls);
+            copyOnWriteArrayList = this.kr.get(cls);
         }
         if (copyOnWriteArrayList == null || copyOnWriteArrayList.isEmpty()) {
             return false;
@@ -104,36 +104,36 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(c cVar) {
-        Object obj = cVar.ko;
-        g gVar = cVar.kp;
+        Object obj = cVar.kD;
+        g gVar = cVar.kE;
         c.b(cVar);
-        if (gVar.kI) {
+        if (gVar.kX) {
             b(gVar, obj);
         }
     }
 
     public void b(Looper looper) {
-        if (this.kf != null) {
-            this.kf.release();
+        if (this.ku != null) {
+            this.ku.release();
         }
-        this.kg = looper;
-        this.kf = new b(this, looper, 10);
+        this.kv = looper;
+        this.ku = new b(this, looper, 10);
     }
 
     void b(g gVar, Object obj) {
         try {
-            gVar.kH.kt.invoke(gVar.kG, obj);
+            gVar.kW.kI.invoke(gVar.kV, obj);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public boolean cH() {
-        return this.kg != null && this.kg == Looper.myLooper();
+    public boolean cG() {
+        return this.kv != null && this.kv == Looper.myLooper();
     }
 
     public void d(Object obj) {
-        List<e> a2 = this.kd.a(obj.getClass());
+        List<e> a2 = this.ks.a(obj.getClass());
         synchronized (this) {
             for (e eVar : a2) {
                 a(obj, eVar);
@@ -142,14 +142,14 @@ public class a {
     }
 
     public synchronized void e(Object obj) {
-        List<Class<?>> list = this.kb.get(obj);
+        List<Class<?>> list = this.kq.get(obj);
         if (list != null) {
             for (Class<?> cls : list) {
                 a(obj, cls);
             }
-            this.kb.remove(obj);
+            this.kq.remove(obj);
         } else {
-            com.baidu.ar.g.b.aP("Subscriber to unregister was not registered before: " + obj.getClass());
+            com.baidu.ar.h.b.aS("Subscriber to unregister was not registered before: " + obj.getClass());
         }
     }
 
@@ -161,7 +161,7 @@ public class a {
         if (b(obj, cls)) {
             return;
         }
-        com.baidu.ar.g.b.aP("No subscribers registered for event " + cls);
+        com.baidu.ar.h.b.aS("No subscribers registered for event " + cls);
     }
 
     public boolean isMainThread() {

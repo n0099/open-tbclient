@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
@@ -74,21 +74,21 @@ public class ImageViewerConfig extends IntentConfig {
                 intent.putExtra("index", aVar.index);
                 intent.putExtra("is_pv", true);
                 intent.putExtra(PV_TYPE, "pb");
-                intent.putExtra(PARAM_IS_CDN, aVar.evK);
+                intent.putExtra(PARAM_IS_CDN, aVar.eCL);
                 intent.putExtra("fname", aVar.forumName);
                 intent.putExtra("fid", aVar.forumId);
                 intent.putExtra("tid", aVar.threadId);
                 intent.putExtra(LAST_ID, aVar.lastId);
-                intent.putExtra(REVERSE_MODE, aVar.evL);
-                intent.putExtra(ASSIST_URLS, aVar.evM);
-                intent.putExtra(IS_SHOW_AD, aVar.evN);
-                intent.putExtra(NEED_BROADCAST, aVar.evO);
-                intent.putExtra(SEE_HOST, aVar.evP);
+                intent.putExtra(REVERSE_MODE, aVar.eCM);
+                intent.putExtra(ASSIST_URLS, aVar.eCN);
+                intent.putExtra(IS_SHOW_AD, aVar.eCO);
+                intent.putExtra(NEED_BROADCAST, aVar.eCP);
+                intent.putExtra(SEE_HOST, aVar.eCQ);
                 int size = aVar.data.size();
                 for (int i = 0; i < size; i++) {
                     String str = (String) aVar.data.get(i);
                     if (!StringUtils.isNull(str)) {
-                        ImageUrlData imageUrlData2 = aVar.evM != null ? (ImageUrlData) aVar.evM.get(str) : null;
+                        ImageUrlData imageUrlData2 = aVar.eCN != null ? (ImageUrlData) aVar.eCN.get(str) : null;
                         if (imageUrlData2 == null) {
                             ImageUrlData imageUrlData3 = new ImageUrlData();
                             imageUrlData3.imageUrl = str;
@@ -111,173 +111,173 @@ public class ImageViewerConfig extends IntentConfig {
             } else {
                 intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
             }
-            if (aVar.evQ != null) {
-                intent.putExtra(IS_BJH, aVar.evQ.bkm());
-                if (aVar.evQ.bkm()) {
+            if (aVar.eCR != null) {
+                intent.putExtra(IS_BJH, aVar.eCR.bnz());
+                if (aVar.eCR.bnz()) {
                     intent.putExtra(PARAM_IS_CDN, true);
                 }
-                intent.putExtra("nid", aVar.evQ.getNid());
-                intent.putExtra(IntentConfig.CARD_TYPE, aVar.evQ.bnD());
-                intent.putExtra(IntentConfig.RECOM_SOURCE, aVar.evQ.mRecomSource);
-                intent.putExtra("ab_tag", aVar.evQ.mRecomAbTag);
-                intent.putExtra("weight", aVar.evQ.mRecomWeight);
-                intent.putExtra("extra", aVar.evQ.mRecomExtra);
+                intent.putExtra("nid", aVar.eCR.getNid());
+                intent.putExtra(IntentConfig.CARD_TYPE, aVar.eCR.bqQ());
+                intent.putExtra(IntentConfig.RECOM_SOURCE, aVar.eCR.mRecomSource);
+                intent.putExtra("ab_tag", aVar.eCR.mRecomAbTag);
+                intent.putExtra("weight", aVar.eCR.mRecomWeight);
+                intent.putExtra("extra", aVar.eCR.mRecomExtra);
             }
             if (!TextUtils.isEmpty(aVar.postId)) {
                 intent.putExtra("post_id", aVar.postId);
             }
-            intent.putExtra(IS_CAN_DRAG, aVar.evS);
-            if (aVar.evT != null && aVar.evU != null) {
+            intent.putExtra(IS_CAN_DRAG, aVar.eCT);
+            if (aVar.eCU != null && aVar.eCV != null) {
                 int statusBarHeight = !UtilHelper.canUseStyleImmersiveSticky() ? UtilHelper.getStatusBarHeight() : 0;
                 JSONArray jSONArray = new JSONArray();
-                jSONArray.put((int) aVar.evU.left);
-                jSONArray.put((int) (aVar.evU.top - statusBarHeight));
-                jSONArray.put((int) aVar.evU.right);
-                jSONArray.put((int) (aVar.evU.bottom - statusBarHeight));
-                jSONArray.put(aVar.evT.left);
-                jSONArray.put(aVar.evT.top - statusBarHeight);
-                jSONArray.put(aVar.evT.right);
-                jSONArray.put(aVar.evT.bottom - statusBarHeight);
+                jSONArray.put((int) aVar.eCV.left);
+                jSONArray.put((int) (aVar.eCV.top - statusBarHeight));
+                jSONArray.put((int) aVar.eCV.right);
+                jSONArray.put((int) (aVar.eCV.bottom - statusBarHeight));
+                jSONArray.put(aVar.eCU.left);
+                jSONArray.put(aVar.eCU.top - statusBarHeight);
+                jSONArray.put(aVar.eCU.right);
+                jSONArray.put(aVar.eCU.bottom - statusBarHeight);
                 intent.putExtra("source_rect_in_screen", jSONArray.toString());
             }
-            intent.putExtra(IS_SHOW_HOST, aVar.evV);
-            if (aVar.evW) {
+            intent.putExtra(IS_SHOW_HOST, aVar.eCW);
+            if (aVar.eCX) {
                 intent.putExtra(IS_DYNAMIC_CARD, true);
                 intent.putExtra(IS_SHOW_BOTTOM_CONTAINER, false);
                 intent.putExtra(IS_SHOW_HOST, false);
             }
             intent.putExtra(IS_IDENTIFY_IMAGE, IdentifyImageSwitch.isOn());
-            intent.putExtra(IS_FROM_AI_APP, aVar.evX);
-            intent.putExtra("from_forum_id", aVar.evR);
+            intent.putExtra(IS_FROM_AI_APP, aVar.eCY);
+            intent.putExtra("from_forum_id", aVar.eCS);
         }
     }
 
     /* loaded from: classes.dex */
     public static final class a {
         private ArrayList<String> data;
-        private boolean evK;
-        private boolean evL;
-        private ConcurrentHashMap<String, ImageUrlData> evM;
-        private boolean evN;
-        private boolean evO;
-        private bx evQ;
-        private String evR;
-        private Rect evT;
-        private RectF evU;
-        private boolean evW;
-        private boolean evX;
+        private boolean eCL;
+        private boolean eCM;
+        private ConcurrentHashMap<String, ImageUrlData> eCN;
+        private boolean eCO;
+        private boolean eCP;
+        private by eCR;
+        private String eCS;
+        private Rect eCU;
+        private RectF eCV;
+        private boolean eCX;
+        private boolean eCY;
         private String forumName;
         private String lastId;
         private String postId;
         private int index = 0;
         private String forumId = "";
         private String threadId = "";
-        private boolean evP = false;
-        private boolean evS = true;
-        private boolean evV = true;
+        private boolean eCQ = false;
+        private boolean eCT = true;
+        private boolean eCW = true;
 
         public a x(ArrayList<String> arrayList) {
             this.data = arrayList;
             return this;
         }
 
-        public a nL(int i) {
+        public a oj(int i) {
             this.index = i;
             return this;
         }
 
-        public a zZ(String str) {
+        public a AG(String str) {
             this.forumName = str;
             return this;
         }
 
-        public a Aa(String str) {
+        public a AH(String str) {
             this.forumId = str;
             return this;
         }
 
-        public a Ab(String str) {
+        public a AI(String str) {
             this.threadId = str;
             return this;
         }
 
-        public a iy(boolean z) {
-            this.evK = z;
+        public a iN(boolean z) {
+            this.eCL = z;
             return this;
         }
 
-        public a Ac(String str) {
+        public a AJ(String str) {
             this.lastId = str;
             return this;
         }
 
-        public a iz(boolean z) {
-            this.evL = z;
+        public a iO(boolean z) {
+            this.eCM = z;
             return this;
         }
 
         public a a(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
-            this.evM = concurrentHashMap;
+            this.eCN = concurrentHashMap;
             return this;
         }
 
-        public a iA(boolean z) {
-            this.evN = z;
+        public a iP(boolean z) {
+            this.eCO = z;
             return this;
         }
 
-        public a iB(boolean z) {
-            this.evO = z;
+        public a iQ(boolean z) {
+            this.eCP = z;
             return this;
         }
 
-        public a iC(boolean z) {
-            this.evP = z;
+        public a iR(boolean z) {
+            this.eCQ = z;
             return this;
         }
 
-        public a s(bx bxVar) {
-            this.evQ = bxVar;
+        public a s(by byVar) {
+            this.eCR = byVar;
             return this;
         }
 
-        public a Ad(String str) {
+        public a AK(String str) {
             this.postId = str;
             return this;
         }
 
-        public a iD(boolean z) {
-            this.evS = z;
+        public a iS(boolean z) {
+            this.eCT = z;
             return this;
         }
 
         public a a(Rect rect, RectF rectF) {
-            this.evT = rect;
-            this.evU = rectF;
+            this.eCU = rect;
+            this.eCV = rectF;
             return this;
         }
 
-        public a iE(boolean z) {
-            this.evV = z;
+        public a iT(boolean z) {
+            this.eCW = z;
             return this;
         }
 
-        public a iF(boolean z) {
-            this.evW = z;
+        public a iU(boolean z) {
+            this.eCX = z;
             return this;
         }
 
-        public a iG(boolean z) {
-            this.evX = z;
+        public a iV(boolean z) {
+            this.eCY = z;
             return this;
         }
 
-        public a Ae(String str) {
-            this.evR = str;
+        public a AL(String str) {
+            this.eCS = str;
             return this;
         }
 
-        public ImageViewerConfig dU(Context context) {
+        public ImageViewerConfig ez(Context context) {
             return new ImageViewerConfig(context, this);
         }
     }

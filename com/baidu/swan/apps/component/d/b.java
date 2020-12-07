@@ -1,21 +1,22 @@
 package com.baidu.swan.apps.component.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b {
-    private a cDo;
+    private a cKj;
 
     public b() {
-        this.cDo = new a(501);
+        this.cKj = new a(501);
     }
 
     public b(boolean z) {
-        this.cDo = new a(501, z);
+        this.cKj = new a(501, z);
     }
 
-    public void hG(int i) {
-        this.cDo.set(i);
+    public void ie(int i) {
+        this.cKj.set(i);
     }
 
-    public boolean hH(int i) {
-        return this.cDo.get(i);
+    /* renamed from: if  reason: not valid java name */
+    public boolean m32if(int i) {
+        return this.cKj.get(i);
     }
 }

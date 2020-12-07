@@ -13,15 +13,15 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e extends b {
     public e(Context context) {
-        super(context, com.baidu.live.im.a.bfC);
+        super(context, com.baidu.live.im.a.bjS);
     }
 
     @Override // com.baidu.live.yuyinim.a.b
-    protected void Ls() {
-        if (Lt()) {
-            Lu();
+    protected void Nx() {
+        if (Ny()) {
+            Nz();
         } else {
-            Lv();
+            NA();
         }
     }
 
@@ -31,15 +31,15 @@ public class e extends b {
     }
 
     @Override // com.baidu.live.yuyinim.a.b
-    protected SpannableStringBuilder a(com.baidu.live.im.data.a aVar, com.baidu.live.yuyinim.a aVar2) {
+    protected SpannableStringBuilder a(com.baidu.live.im.data.b bVar, com.baidu.live.yuyinim.a aVar) {
         Drawable drawable;
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        a B = B(aVar);
-        if (B != null) {
-            String str = B.shareText;
+        a C = C(bVar);
+        if (C != null) {
+            String str = C.shareText;
             SpannableString valueOf = SpannableString.valueOf(str);
-            if (Lt()) {
-                if (B.shareType != 3) {
+            if (Ny()) {
+                if (C.shareType != 3) {
                     valueOf.setSpan(new ForegroundColorSpan(-6574339), 0, valueOf.length(), 33);
                 } else {
                     valueOf.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf.length(), 33);
@@ -49,36 +49,36 @@ public class e extends b {
             }
             spannableStringBuilder.append((CharSequence) valueOf);
             String string = this.mContext.getString(a.h.sdk_share_blue_zhuan);
-            if (B.shareType == 2 && str.contains(string) && (drawable = TbadkCoreApplication.getInst().getResources().getDrawable(a.e.sdk_icon_live_blue_diamond)) != null) {
+            if (C.shareType == 2 && str.contains(string) && (drawable = TbadkCoreApplication.getInst().getResources().getDrawable(a.e.sdk_icon_live_blue_diamond)) != null) {
                 drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                 CenterImageSpan centerImageSpan = new CenterImageSpan(drawable, 1);
                 SpannableString spannableString = new SpannableString(" [img]");
                 spannableString.setSpan(centerImageSpan, 1, spannableString.length(), 33);
                 spannableStringBuilder.append((CharSequence) spannableString);
             }
-            if (B.shareType != 3) {
-                a(spannableStringBuilder, aVar.LF(), aVar2, false, false);
-                if (Lt()) {
-                    Lu();
+            if (C.shareType != 3) {
+                a(spannableStringBuilder, bVar.NU(), aVar, false, false);
+                if (Ny()) {
+                    Nz();
                 }
             }
-            aVar2.bfP.setText(spannableStringBuilder);
+            aVar.bkf.setText(spannableStringBuilder);
         }
         return spannableStringBuilder;
     }
 
-    private a B(com.baidu.live.im.data.a aVar) {
+    private a C(com.baidu.live.im.data.b bVar) {
         JSONObject jSONObject;
         try {
-            if (aVar.getObjContent() instanceof JSONObject) {
-                jSONObject = (JSONObject) aVar.getObjContent();
+            if (bVar.getObjContent() instanceof JSONObject) {
+                jSONObject = (JSONObject) bVar.getObjContent();
             } else {
-                jSONObject = new JSONObject(aVar.getContent());
+                jSONObject = new JSONObject(bVar.getContent());
             }
-            a aVar2 = new a();
-            aVar2.shareText = jSONObject.optString("share_content");
-            aVar2.shareType = jSONObject.optInt("share_type", 1);
-            return aVar2;
+            a aVar = new a();
+            aVar.shareText = jSONObject.optString("share_content");
+            aVar.shareType = jSONObject.optInt("share_type", 1);
+            return aVar;
         } catch (JSONException e) {
             return null;
         }

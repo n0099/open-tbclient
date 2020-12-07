@@ -9,22 +9,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import com.baidu.k.a.a;
+import com.baidu.l.a.a;
 import com.baidu.sapi2.SapiAccountManager;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class b extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f3581a;
+    private View f3584a;
     private ObjectAnimator b;
     private View c;
     private LinearLayout d;
 
     public b(Context context) {
         super(context);
-        this.f3581a = LayoutInflater.from(context).inflate(a.f.layout_sapi_sdk_sweep_light_loading_view, (ViewGroup) this, true);
-        this.c = this.f3581a.findViewById(a.e.sweep_iv);
-        this.d = (LinearLayout) this.f3581a.findViewById(a.e.sapi_sdk_sweep_light_loading_bg_layout);
+        this.f3584a = LayoutInflater.from(context).inflate(a.f.layout_sapi_sdk_sweep_light_loading_view, (ViewGroup) this, true);
+        this.c = this.f3584a.findViewById(a.e.sweep_iv);
+        this.d = (LinearLayout) this.f3584a.findViewById(a.e.sapi_sdk_sweep_light_loading_bg_layout);
         if (SapiAccountManager.getInstance().getConfignation().isDarkMode) {
             this.d.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_dark_mode_color));
         }

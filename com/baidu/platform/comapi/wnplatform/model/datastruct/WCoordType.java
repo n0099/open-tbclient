@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.wnplatform.model.datastruct;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class WCoordType {
     public static final int BD09LL = 2;
     public static final int BD09MC = 1;

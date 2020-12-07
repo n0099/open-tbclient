@@ -6,12 +6,12 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.media.session.MediaControllerCompatApi23;
 @RequiresApi(24)
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 class MediaControllerCompatApi24 {
     MediaControllerCompatApi24() {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static class TransportControls extends MediaControllerCompatApi23.TransportControls {
         public static void prepare(Object obj) {
             ((MediaController.TransportControls) obj).prepare();

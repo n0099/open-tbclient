@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class g extends SQLiteOpenHelper {
     public g(Context context) {
         super(context, "relationship.db", (SQLiteDatabase.CursorFactory) null, 4);

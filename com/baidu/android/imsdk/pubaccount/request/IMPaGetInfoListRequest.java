@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.pubaccount.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.db.TableDefine;
@@ -22,7 +23,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
     private static final String TAG = IMPaGetInfoListRequest.class.getSimpleName();
     private long mAppid;
@@ -96,7 +97,7 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
         return false;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x01bf  */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x01ca  */
     /* JADX WARN: Removed duplicated region for block: B:43:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
@@ -112,7 +113,7 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             int i3 = jSONObject.getInt("error_code");
-            String optString = jSONObject.optString("error_msg", "");
+            String optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
             if (i3 != 0 || !jSONObject.has("response_params")) {
                 arrayList = null;
             } else {
@@ -154,6 +155,7 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
                             paInfo.setHasIdentity(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_HAS_IDENTITY, 0));
                             paInfo.setIdentity(jSONObject2.optString("identity", ""));
                             paInfo.setThirdExt(jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, ""));
+                            paInfo.setRejectMenu(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_REJECT_MENU, 1));
                             PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo.getPaId());
                             if (queryPaInfo != null) {
                                 paInfo.setMarkTop(queryPaInfo.getMarkTop());

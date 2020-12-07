@@ -7,21 +7,21 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1432a;
+    private int f1434a;
     private ArrayList<e> b = new ArrayList<>();
 
     public c(int i) {
-        this.f1432a = i;
+        this.f1434a = i;
     }
 
     public int a() {
-        return this.f1432a;
+        return this.f1434a;
     }
 
     public JSONObject a(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
-            if (this.f1432a != 24321 && this.f1432a != 24323 && this.f1432a != 24322 && this.f1432a != 20488) {
-                jSONObject.put("type", this.f1432a);
+            if (this.f1434a != 24321 && this.f1434a != 24323 && this.f1434a != 24322 && this.f1434a != 20488) {
+                jSONObject.put("type", this.f1434a);
             }
             int size = this.b.size();
             for (int i = 0; i < size; i++) {

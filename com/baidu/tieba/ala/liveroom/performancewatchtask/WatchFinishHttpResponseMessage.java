@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class WatchFinishHttpResponseMessage extends JsonHttpResponsedMessage {
-    public c hrf;
+    public c hAJ;
 
     public WatchFinishHttpResponseMessage() {
         super(1021221);
@@ -15,14 +15,14 @@ public class WatchFinishHttpResponseMessage extends JsonHttpResponsedMessage {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONObject("data") != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            this.hrf = new c();
+            this.hAJ = new c();
             if (optJSONObject != null) {
-                this.hrf.parseJson(optJSONObject);
+                this.hAJ.parseJson(optJSONObject);
             }
         }
     }
 
-    public c cge() {
-        return this.hrf;
+    public c cjY() {
+        return this.hAJ;
     }
 }

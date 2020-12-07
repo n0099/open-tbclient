@@ -13,16 +13,17 @@ import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.mapapi.VersionInfo;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import com.baidu.platform.comapi.util.JsonBuilder;
+import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
 import com.baidu.webkit.internal.ETAG;
 import com.tencent.open.SocialOperation;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f2253a;
+    public static Context f2255a;
     public static String d;
     private static String h;
     private static String i;
@@ -79,7 +80,7 @@ public class h {
     public static String b() {
         JsonBuilder jsonBuilder = new JsonBuilder();
         jsonBuilder.object();
-        jsonBuilder.putStringValue(com.baidu.fsg.face.base.b.c.i, t);
+        jsonBuilder.putStringValue("cpu", t);
         jsonBuilder.putStringValue("resid", g);
         jsonBuilder.putStringValue("channel", s);
         jsonBuilder.putStringValue("glr", u);
@@ -92,14 +93,14 @@ public class h {
         jsonBuilder.putStringValue("net", r);
         jsonBuilder.putStringValue("cuid", A);
         jsonBuilder.key(SocialOperation.GAME_SIGNATURE).arrayValue();
-        byte[] a2 = a(f2253a);
+        byte[] a2 = a(f2255a);
         if (a2 != null) {
             for (byte b2 : a2) {
                 jsonBuilder.value((int) b2);
             }
         }
         jsonBuilder.endArrayValue();
-        jsonBuilder.putStringValue("pcn", f2253a.getPackageName());
+        jsonBuilder.putStringValue("pcn", f2255a.getPackageName());
         jsonBuilder.key("screen_x").value(i());
         jsonBuilder.key("screen_y").value(k());
         jsonBuilder.endObject();
@@ -108,7 +109,7 @@ public class h {
     }
 
     public static void b(Context context) {
-        f2253a = context;
+        f2255a = context;
         if (context.getFilesDir() != null) {
             w = context.getFilesDir().getAbsolutePath();
         }
@@ -130,7 +131,7 @@ public class h {
         B.put("os", AppMD5.encodeUrlParamsValue(l()));
         B.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(m()), Integer.valueOf(m()))));
         B.put("cuid", AppMD5.encodeUrlParamsValue(A));
-        B.put("pcn", AppMD5.encodeUrlParamsValue(f2253a.getPackageName()));
+        B.put("pcn", AppMD5.encodeUrlParamsValue(f2255a.getPackageName()));
         B.put("screen", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(i()), Integer.valueOf(k()))));
         if (f != null) {
             f.a();
@@ -150,7 +151,7 @@ public class h {
             }
             l = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
-            k = "1.0.0";
+            k = BuildConfig.VERSION_NAME;
             l = 1;
         }
     }
@@ -164,7 +165,7 @@ public class h {
         B.put("ctm", AppMD5.encodeUrlParamsValue(String.format("%f", Double.valueOf(((seconds % 1000) / 1000.0d) + (seconds / 1000)))));
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, String> entry : B.entrySet()) {
-            sb.append(ETAG.ITEM_SEPARATOR).append(entry.getKey()).append(ETAG.EQUAL).append(entry.getValue());
+            sb.append(ETAG.ITEM_SEPARATOR).append(entry.getKey()).append("=").append(entry.getValue());
         }
         return sb.toString();
     }
@@ -207,7 +208,7 @@ public class h {
         B.put("bduid", "");
         JsonBuilder jsonBuilder = new JsonBuilder();
         jsonBuilder.object();
-        jsonBuilder.putStringValue(com.baidu.fsg.face.base.b.c.i, t);
+        jsonBuilder.putStringValue("cpu", t);
         jsonBuilder.putStringValue("resid", g);
         jsonBuilder.putStringValue("channel", s);
         jsonBuilder.putStringValue("glr", u);
@@ -219,7 +220,7 @@ public class h {
         jsonBuilder.key("dpi_y").value(m());
         jsonBuilder.putStringValue("net", r);
         jsonBuilder.putStringValue("cuid", A);
-        jsonBuilder.putStringValue("pcn", f2253a.getPackageName());
+        jsonBuilder.putStringValue("pcn", f2255a.getPackageName());
         jsonBuilder.key("screen_x").value(i());
         jsonBuilder.key("screen_y").value(k());
         jsonBuilder.putStringValue("appid", y);
@@ -266,7 +267,7 @@ public class h {
     public static String p() {
         String str;
         try {
-            str = LBSAuthManager.getInstance(f2253a).getCUID();
+            str = LBSAuthManager.getInstance(f2255a).getCUID();
         } catch (Exception e2) {
             str = "";
         }

@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.al.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b {
-    private a dAh;
+    private a dHf;
 
     public void a(a aVar) {
-        this.dAh = aVar;
+        this.dHf = aVar;
     }
 
-    public void la(int i) {
-        if (this.dAh != null) {
-            this.dAh.kZ(i);
+    public void ly(int i) {
+        if (this.dHf != null) {
+            this.dHf.lx(i);
         }
     }
 }

@@ -1,25 +1,25 @@
 package com.baidu.ar.bus;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 final class g {
-    final Object kG;
-    final e kH;
-    volatile boolean kI = true;
+    final Object kV;
+    final e kW;
+    volatile boolean kX = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(Object obj, e eVar) {
-        this.kG = obj;
-        this.kH = eVar;
+        this.kV = obj;
+        this.kW = eVar;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof g) {
             g gVar = (g) obj;
-            return this.kG == gVar.kG && this.kH.equals(gVar.kH);
+            return this.kV == gVar.kV && this.kW.equals(gVar.kW);
         }
         return false;
     }
 
     public int hashCode() {
-        return this.kG.hashCode() + this.kH.kw.hashCode();
+        return this.kV.hashCode() + this.kW.kL.hashCode();
     }
 }

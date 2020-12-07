@@ -7,7 +7,7 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.al.b;
+import com.baidu.live.ap.b;
 import com.baidu.live.data.w;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
@@ -16,26 +16,26 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
-    private w aDh;
-    private InterfaceC0942a ovA;
-    private int ovB = -1;
+    private w aFN;
+    private InterfaceC0959a oKG;
+    private int oKH = -1;
 
     /* renamed from: com.baidu.yuyinala.mode.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0942a {
-        void eeH();
+    public interface InterfaceC0959a {
+        void eku();
 
-        void eeI();
+        void ekv();
     }
 
-    public a(w wVar, InterfaceC0942a interfaceC0942a) {
-        this.aDh = wVar;
-        this.ovA = interfaceC0942a;
+    public a(w wVar, InterfaceC0959a interfaceC0959a) {
+        this.aFN = wVar;
+        this.oKG = interfaceC0959a;
         registerListener();
     }
 
-    public void aw(w wVar) {
-        this.aDh = wVar;
+    public void aB(w wVar) {
+        this.aFN = wVar;
     }
 
     private void registerListener() {
@@ -45,16 +45,16 @@ public class a extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage.getCmd() == 1031079) {
                     if (httpResponsedMessage.getError() != 0) {
-                        if (a.this.ovA != null) {
-                            a.this.ovA.eeH();
+                        if (a.this.oKG != null) {
+                            a.this.oKG.eku();
                             return;
                         }
                         return;
                     }
-                    if (a.this.ovA != null) {
-                        a.this.ovA.eeI();
+                    if (a.this.oKG != null) {
+                        a.this.oKG.ekv();
                     }
-                    a.this.eeM();
+                    a.this.ekz();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501073));
                 }
             }
@@ -62,13 +62,13 @@ public class a extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eeM() {
-        if (this.ovB >= 0) {
+    public void ekz() {
+        if (this.oKH >= 0) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, this.ovB == 0 ? "normal" : "dating");
-                if (this.ovA != null) {
-                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, b.Wy().WE().aHZ.croom_id);
+                jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, this.oKH == 0 ? "normal" : "dating");
+                if (this.oKG != null) {
+                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, b.YX().Zd().aKL.croom_id);
                 }
             } catch (Exception e) {
                 BdLog.e(e);
@@ -87,11 +87,11 @@ public class a extends BdBaseModel {
         return false;
     }
 
-    public void NV(int i) {
-        this.ovB = i;
+    public void OT(int i) {
+        this.oKH = i;
         String str = null;
-        if (this.aDh != null && this.aDh.aHZ != null) {
-            str = this.aDh.aHZ.aRe;
+        if (this.aFN != null && this.aFN.aKL != null) {
+            str = this.aFN.aKL.aUg;
         }
         HttpMessage httpMessage = new HttpMessage(1031079);
         httpMessage.addParam("room_id", str);

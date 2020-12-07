@@ -5,9 +5,9 @@ import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private h gDR;
+    private h gMO;
     private TbPageContext mPageContext;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -17,20 +17,20 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     private void initView() {
-        this.gDR = new h(this.mPageContext);
-        ((ViewGroup) getView()).addView(this.gDR.getView());
+        this.gMO = new h(this.mPageContext);
+        ((ViewGroup) getView()).addView(this.gMO.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.gDR != null) {
-            this.gDR.onChangeSkinType(tbPageContext, i);
+        if (this.gMO != null) {
+            this.gMO.onChangeSkinType(tbPageContext, i);
         }
     }
 
     public void c(com.baidu.tieba.ala.f fVar) {
-        if (this.gDR != null) {
-            this.gDR.d(fVar);
+        if (this.gMO != null) {
+            this.gMO.d(fVar);
         }
     }
 
@@ -42,8 +42,8 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.evQ != null && this.gDR != null) {
-            this.gDR.a(cVar.evQ);
+        if (cVar != null && cVar.eCR != null && this.gMO != null) {
+            this.gMO.a(cVar.eCR);
         }
     }
 
@@ -51,13 +51,13 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     public void onClick(View view) {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a extends af.a {
-        public g gDS;
+        public g gMP;
 
         public a(g gVar) {
             super(gVar.getView());
-            this.gDS = gVar;
+            this.gMP = gVar;
         }
     }
 }

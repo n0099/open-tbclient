@@ -17,6 +17,8 @@ import com.baidu.android.imsdk.pubaccount.IGetPaInfosListener;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.PaManager;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
+import com.baidu.android.imsdk.request.AckHandlerThread;
+import com.baidu.android.imsdk.request.AckMessage;
 import com.baidu.android.imsdk.request.NewAckMessage;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.Utils;
@@ -24,7 +26,9 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.MsgUtility;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.imsdk.a;
+import com.baidu.h.a;
+import com.baidu.lcp.sdk.client.bean.BLCPRequest;
+import com.baidu.lcp.sdk.client.bean.b;
 import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -33,7 +37,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class MessageParser {
     private static final String TAG = "MessageParser";
 
@@ -160,6 +164,7 @@ public class MessageParser {
                         chatMsg.setFromUser(optLong2);
                         chatMsg.setMsgType(optInt5);
                         boolean msgContentFromServer2 = chatMsg.setMsgContentFromServer(optString);
+                        ((TextMsg) chatMsg).setCastId(optLong4);
                         if (ConversationStudioManImpl.getInstance(context).isReliable(optLong4)) {
                             ((TextMsg) chatMsg).setCastId(optLong4);
                             ((TextMsg) chatMsg).setPriority(jSONObject.optLong("prority"));
@@ -377,13 +382,15 @@ public class MessageParser {
                             if (jSONObject != null) {
                                 tripule.setAck(jSONObject);
                             }
-                            if (category == 4 && ConversationStudioManImpl.getInstance(context).isReliable(((TextMsg) chatMsg).getCastId())) {
+                            if (category == 4) {
                                 tripule.setMcastId(((TextMsg) chatMsg).getCastId());
-                                tripule.setStudioIsReliable(true);
-                                z3 = true;
-                            } else {
-                                z3 = z4;
+                                if (ConversationStudioManImpl.getInstance(context).isReliable(((TextMsg) chatMsg).getCastId())) {
+                                    tripule.setStudioIsReliable(true);
+                                    z3 = true;
+                                    linkedList2.add(tripule);
+                                }
                             }
+                            z3 = z4;
                             linkedList2.add(tripule);
                         } else {
                             z3 = z4;
@@ -449,14 +456,37 @@ public class MessageParser {
         return Constants.PAGE_HUDONG_NAME;
     }
 
-    private static void sendNewAckToServer(Context context, long j, List<NewAckMessage.Tripule> list, boolean z) {
+    private static void sendNewAckToServer(final Context context, long j, List<NewAckMessage.Tripule> list, boolean z) {
         if (list != null && list.size() != 0) {
             List<List<NewAckMessage.Tripule>> splitList = Utils.splitList(list, 20);
             if (splitList != null && splitList.size() > 0) {
                 for (List<NewAckMessage.Tripule> list2 : splitList) {
-                    NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
+                    final NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                     newAckMessage.addTriples(list2);
-                    if (!a.axQ) {
+                    if (a.ayO) {
+                        BLCPRequest bLCPRequest = new BLCPRequest();
+                        bLCPRequest.serviceId = 2L;
+                        bLCPRequest.methodId = 95L;
+                        bLCPRequest.azd = newAckMessage.getBody().getBytes();
+                        bLCPRequest.msgId = System.nanoTime();
+                        com.baidu.lcp.sdk.client.a.a(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.internal.MessageParser.3
+                            @Override // com.baidu.lcp.sdk.client.bean.b
+                            public void onResponse(int i, String str, long j2, long j3, long j4, byte[] bArr) {
+                                LogUtils.d(MessageParser.TAG, "MessageParser Ack Response err :" + i + ", methodId :" + j3 + ", data :" + bArr.length);
+                                if (j3 == 95) {
+                                    try {
+                                        NewAckMessage.this.handleMessageResult(context, new JSONObject(new String(bArr)), i, str);
+                                        if (i != 0) {
+                                            LogUtils.d(MessageParser.TAG, "ack failed，retry~~");
+                                            AckHandlerThread.getInstance(context).getAckHandler().sendMessageDelayed(AckMessage.getSendMessage(1, NewAckMessage.this), 1000L);
+                                        }
+                                    } catch (JSONException e) {
+                                        LogUtils.e(MessageParser.TAG, "handle sendNewAckToServer response, e :", e);
+                                    }
+                                }
+                            }
+                        });
+                    } else {
                         IMConnection.getInstance(context).sendMessage(newAckMessage, false);
                     }
                 }
@@ -490,7 +520,7 @@ public class MessageParser {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class DuParser {
         private int category;
         private String content;

@@ -1,44 +1,35 @@
 package com.baidu.live.y;
 
-import com.baidu.live.adp.framework.controller.HttpRule;
-import com.baidu.live.adp.framework.message.HttpMessage;
-import com.baidu.live.adp.framework.task.HttpMessageTask;
-import com.baidu.live.adp.lib.util.Md5;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.webkit.internal.ETAG;
-import java.util.List;
-import java.util.Map;
+import android.content.Context;
 /* loaded from: classes4.dex */
-public class a extends HttpRule {
-    public a(int i) {
-        super(i);
+public class a {
+    public String aWR;
+    public long buI;
+    public Context context;
+    public boolean isHost;
+    public int liveType;
+    public String otherParams;
+    public String portrait;
+    public long userId;
+    public String userName;
+
+    public a(Context context, int i, long j, boolean z, String str) {
+        this.context = context;
+        this.liveType = i;
+        this.userId = j;
+        this.isHost = z;
+        this.portrait = str;
+        this.otherParams = "";
     }
 
-    private void addSign(HttpMessage httpMessage) {
-        StringBuffer stringBuffer = new StringBuffer(1024);
-        List<Map.Entry<String, Object>> encodeInBackGround = httpMessage.encodeInBackGround();
-        for (int i = 0; encodeInBackGround != null && i < encodeInBackGround.size(); i++) {
-            Map.Entry<String, Object> entry = encodeInBackGround.get(i);
-            if (entry != null) {
-                String key = entry.getKey();
-                Object value = entry.getValue();
-                if ((value instanceof String) && !"sign".equals(key)) {
-                    stringBuffer.append(key + ETAG.EQUAL);
-                    stringBuffer.append(value);
-                }
-            }
-        }
-        stringBuffer.append("tiebaclient!!!");
-        httpMessage.addParam("sign", Md5.toMd5(stringBuffer.toString()));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.live.adp.framework.controller.MessageRule
-    public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        if (httpMessage != null && httpMessage.getCmd() < 1030999 && httpMessage.getCmd() >= 1021000) {
-            httpMessage.addParam("cuid", TbadkCoreApplication.getUniqueIdentifier());
-            addSign(httpMessage);
-        }
-        return httpMessage;
+    public a(Context context, int i, long j, boolean z, String str, String str2, String str3, long j2) {
+        this.context = context;
+        this.liveType = i;
+        this.userId = j;
+        this.isHost = z;
+        this.portrait = str;
+        this.otherParams = str2;
+        this.aWR = str3;
+        this.buI = j2;
     }
 }

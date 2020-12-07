@@ -9,18 +9,20 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
     public long anchorId;
-    public String beA;
-    public long beB;
-    public long beC;
-    public long beD;
-    public int beE;
-    public long beF;
-    public String beG;
-    public String beH;
-    public JSONObject beI;
-    public String bez;
+    public String biN;
+    public String biO;
+    public long biP;
+    public long biQ;
+    public long biR;
+    public long biS;
+    public String biT;
+    public String biU;
+    public JSONObject biV;
+    public int biW;
+    public int biX;
     public long createTime;
     public String description;
+    public int guardLevel;
     public int id;
     public long liveId;
     public int liveStatus;
@@ -40,23 +42,25 @@ public class a {
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
                 }
-                this.bez = jSONObject.optString("regiment_name");
-                this.beA = jSONObject.optString("regiment_icon");
+                this.biN = jSONObject.optString("regiment_name");
+                this.biO = jSONObject.optString("regiment_icon");
                 this.description = jSONObject.optString("description");
-                this.beB = jSONObject.optLong(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
-                this.beC = jSONObject.optLong("week_score");
+                this.biP = jSONObject.optLong(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
+                this.biQ = jSONObject.optLong("week_score");
                 this.status = jSONObject.optInt("status");
                 this.createTime = jSONObject.optLong("create_time");
                 this.updateTime = jSONObject.optLong("update_time");
-                this.beD = jSONObject.optLong("member_counts");
-                this.beE = jSONObject.optInt("guard_level");
-                this.beF = jSONObject.optLong("next_level_need_score");
-                this.beG = jSONObject.optString("guard_club_portrait");
+                this.biR = jSONObject.optLong("member_counts");
+                this.guardLevel = jSONObject.optInt("guard_level");
+                this.biS = jSONObject.optLong("next_level_need_score");
+                this.biT = jSONObject.optString("guard_club_portrait");
                 this.liveStatus = jSONObject.optInt("live_status");
                 this.liveId = jSONObject.optLong("live_id");
                 this.rank = jSONObject.optString("rank");
-                this.beH = jSONObject.optString("week_rank");
-                this.beI = jSONObject.optJSONObject(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE);
+                this.biU = jSONObject.optString("week_rank");
+                this.biV = jSONObject.optJSONObject(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE);
+                this.biW = jSONObject.optInt("can_rename_regiment");
+                this.biX = jSONObject.optInt("had_show_update_name_help");
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }

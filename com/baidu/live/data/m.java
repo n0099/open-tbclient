@@ -8,11 +8,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class m {
-    public int aGL;
-    public int aGM;
-    public boolean aGN;
-    public String aGd;
-    public long aGf;
+    public String aIM;
+    public long aIO;
+    public int aJv;
+    public int aJw;
+    public boolean aJx;
     public String cuid;
     public String customRoomId;
     public int level;
@@ -34,11 +34,11 @@ public class m {
         this.sex = jSONObject.optInt("sex", 0);
         this.level = jSONObject.optInt("level", 0);
         this.cuid = jSONObject.optString("cuid", "");
-        this.aGd = jSONObject.optString("client_version", "0");
-        this.aGL = jSONObject.optInt("link_status", 0);
-        this.aGM = jSONObject.optInt("living_status", 0);
-        this.aGf = jSONObject.optLong("app_id", 0L);
-        this.aGN = jSONObject.optInt("forbidden_status", 0) == 0;
+        this.aIM = jSONObject.optString("client_version", "0");
+        this.aJv = jSONObject.optInt("link_status", 0);
+        this.aJw = jSONObject.optInt("living_status", 0);
+        this.aIO = jSONObject.optLong("app_id", 0L);
+        this.aJx = jSONObject.optInt("forbidden_status", 0) == 0;
         JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             this.mLiveMarkInfo = new ArrayList();
@@ -54,7 +54,7 @@ public class m {
         }
     }
 
-    public boolean DA() {
-        return this.aGM == 1;
+    public boolean Fl() {
+        return this.aJw == 1;
     }
 }

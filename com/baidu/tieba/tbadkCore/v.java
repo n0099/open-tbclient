@@ -1,184 +1,159 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tbadk.core.data.FeedForumData;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.am;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class v {
-    private String blockUrl;
-    private int cur_score;
-    private int errorCode;
-    private String errorMsg;
-    private String fid;
-    private int is_like;
-    private String level_name;
-    private int levelup_score;
-    private BlockPopInfoData mBlockPopInfoData;
-    private List<FeedForumData> mWD = new ArrayList();
-    private int mWC = 0;
-    private int like_num = 0;
-    private int user_level = 0;
-
-    public v() {
-        setLevelName("");
-        setLike(0);
-        setCurScore(0);
-        setLevelupScore(0);
-    }
-
-    public String getFid() {
-        return this.fid;
-    }
-
-    public void setFid(String str) {
-        this.fid = str;
-    }
-
-    public int dHf() {
-        return this.user_level;
-    }
-
-    public void JM(int i) {
-        if (i >= 0) {
-            this.user_level = i;
-        }
-    }
-
-    public void parserJson(String str) {
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            parserJson(jSONObject.optJSONObject("info"));
-            aa(jSONObject.optJSONArray("feed_forum"));
-            this.errorCode = jSONObject.optInt("error_code");
-            this.errorMsg = jSONObject.optString("error_msg");
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.mWC = jSONObject.optInt("is_black", 0);
-                this.like_num = jSONObject.optInt("like_num", 0);
-                this.user_level = jSONObject.optInt("level_id", 0);
-                setLike(jSONObject.optInt("is_like", 0));
-                setLevelName(jSONObject.optString("level_name", ""));
-                setLevelupScore(jSONObject.optInt("levelup_score", 0));
-                setCurScore(jSONObject.optInt("cur_score", 0));
-                parseBlockAnti(jSONObject);
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
-    }
-
-    private void parseBlockAnti(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.blockUrl = jSONObject.optString("block_dealurl");
-            String optString = jSONObject.optString("block_content");
-            if (!StringUtils.isNull(optString)) {
-                this.mBlockPopInfoData = new BlockPopInfoData();
-                this.mBlockPopInfoData.block_info = optString;
-                this.mBlockPopInfoData.ahead_url = this.blockUrl;
-                this.mBlockPopInfoData.ahead_info = jSONObject.optString("block_confirm");
-                this.mBlockPopInfoData.ok_info = jSONObject.optString("block_cancel");
-            }
-        }
-    }
-
-    public void aa(JSONArray jSONArray) {
-        int i = 0;
-        while (true) {
-            try {
-                int i2 = i;
-                if (i2 < jSONArray.length()) {
-                    JSONObject jSONObject = (JSONObject) jSONArray.opt(i2);
-                    FeedForumData feedForumData = new FeedForumData();
-                    feedForumData.setForumId(jSONObject.optString("forum_id"));
-                    feedForumData.setForumName(jSONObject.optString("forum_name"));
-                    feedForumData.setMemberCount(jSONObject.optInt("member_count", 0));
-                    feedForumData.setPostNum(jSONObject.optInt("post_num", 0));
-                    feedForumData.setAvatar(jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR));
-                    feedForumData.setReason(jSONObject.optString(TiebaInitialize.LogFields.REASON));
-                    feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
-                    feedForumData.setPos(jSONObject.optInt("pos", 0));
-                    this.mWD.add(feedForumData);
-                    i = i2 + 1;
+    public static void x(List<com.baidu.adp.widget.ListView.q> list, int i) {
+        int i2;
+        boolean z;
+        if (list != null && list.size() != 0) {
+            boolean z2 = MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null;
+            int i3 = 0;
+            while (i3 < list.size()) {
+                if (list.get(i3) instanceof am) {
+                    if (z2) {
+                        if (!((am) list.get(i3)).isValid()) {
+                            ((am) list.get(i3)).bnf();
+                        }
+                        if (((am) list.get(i3)).isValid()) {
+                            ICardInfo bng = ((am) list.get(i3)).bng();
+                            int viewCount = bng.getViewCount();
+                            ArrayList arrayList = new ArrayList();
+                            for (int i4 = 0; i4 < viewCount; i4++) {
+                                ICardInfo viewItem = bng.getViewItem(i4, i);
+                                if (viewItem != null) {
+                                    viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.kSj.get(viewItem.getCardType()));
+                                    arrayList.add(viewItem);
+                                }
+                            }
+                            if (arrayList.size() == 0) {
+                                z = true;
+                                i2 = 1;
+                            } else {
+                                list.remove(i3);
+                                list.addAll(i3, arrayList);
+                                i2 = arrayList.size();
+                                z = false;
+                            }
+                        } else {
+                            z = true;
+                            i2 = 1;
+                        }
+                    } else {
+                        z = true;
+                        i2 = 1;
+                    }
+                    if (z) {
+                        list.remove(i3);
+                        i2 = 0;
+                    }
                 } else {
-                    return;
+                    i2 = 1;
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-                return;
+                i3 = i2 + i3;
             }
         }
     }
 
-    public void setLike(int i) {
-        this.is_like = i;
+    public static void y(List<Object> list, int i) {
+        int i2;
+        boolean z;
+        if (list != null && list.size() != 0) {
+            boolean z2 = MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null;
+            int i3 = 0;
+            while (i3 < list.size()) {
+                if (list.get(i3) instanceof ICardInfo) {
+                    if (z2) {
+                        ICardInfo iCardInfo = (ICardInfo) list.get(i3);
+                        int viewCount = iCardInfo.getViewCount();
+                        ArrayList arrayList = new ArrayList();
+                        for (int i4 = 0; i4 < viewCount; i4++) {
+                            ICardInfo viewItem = iCardInfo.getViewItem(i4, i);
+                            if (viewItem != null) {
+                                viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.kSj.get(viewItem.getCardType()));
+                                arrayList.add(viewItem);
+                            }
+                        }
+                        if (arrayList.size() == 0) {
+                            z = true;
+                            i2 = 1;
+                        } else {
+                            list.remove(i3);
+                            list.addAll(i3, arrayList);
+                            i2 = arrayList.size();
+                            z = false;
+                        }
+                    } else {
+                        z = true;
+                        i2 = 1;
+                    }
+                    if (z) {
+                        list.remove(i3);
+                        i2 = 0;
+                    }
+                } else {
+                    i2 = 1;
+                }
+                i3 = i2 + i3;
+            }
+        }
     }
 
-    public int isLike() {
-        return this.is_like;
+    public static ArrayList<BdUniqueId> dOy() {
+        int size = com.baidu.tieba.lego.card.e.kSj.size();
+        ArrayList<BdUniqueId> arrayList = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            arrayList.add(com.baidu.tieba.lego.card.e.kSj.valueAt(i));
+        }
+        return arrayList;
     }
 
-    public int getLikeNum() {
-        return this.like_num;
+    public static boolean RT(String str) {
+        return str != null && str.startsWith("tieba://deeplink?");
     }
 
-    public void setLevelName(String str) {
-        this.level_name = str;
+    public static int h(TbPageContext tbPageContext, String str) {
+        if (tbPageContext == null || TextUtils.isEmpty(str)) {
+            return 0;
+        }
+        if (!str.startsWith("tieba://deeplink?")) {
+            return i(tbPageContext, str) ? 3 : 0;
+        }
+        Uri parse = Uri.parse(str);
+        if (com.baidu.tieba.recapp.s.f(tbPageContext.getPageActivity(), Uri.parse(parse.getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)))) {
+            return 1;
+        }
+        return i(tbPageContext, parse.getQueryParameter("wap")) ? 2 : 0;
     }
 
-    public String getLevelName() {
-        return this.level_name;
+    private static boolean i(TbPageContext tbPageContext, String str) {
+        String[] strArr = {str};
+        if (bf.bua().UrlValidated(str)) {
+            bf.bua().a((TbPageContext<?>) tbPageContext, strArr, true);
+            return true;
+        }
+        return bf.bua().b(tbPageContext, strArr);
     }
 
-    public void setCurScore(int i) {
-        this.cur_score = i;
+    public static boolean dGu() {
+        com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+        return !(adAdSense == null || adAdSense.bxg()) ? com.baidu.adp.lib.util.j.isWifiNet() : (com.baidu.adp.lib.util.j.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.j.isWifiNet() && TbadkCoreApplication.getInst().getVideoAutoPlay() != 1);
     }
 
-    public int getCurScore() {
-        return this.cur_score;
-    }
-
-    public void setLevelupScore(int i) {
-        this.levelup_score = i;
-    }
-
-    public int getLevelupScore() {
-        return this.levelup_score;
-    }
-
-    public List<FeedForumData> dJb() {
-        return this.mWD;
-    }
-
-    public BlockPopInfoData getBlockPopInfoData() {
-        return this.mBlockPopInfoData;
-    }
-
-    public void setBlockPopInfoData(BlockPopInfoData blockPopInfoData) {
-        this.mBlockPopInfoData = blockPopInfoData;
-    }
-
-    public String dJl() {
-        return this.blockUrl;
-    }
-
-    public int getErrorCode() {
-        return this.errorCode;
-    }
-
-    public String getErrorMsg() {
-        return this.errorMsg;
+    public static boolean dOz() {
+        com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+        return !(adAdSense != null && adAdSense.bxh()) ? com.baidu.adp.lib.util.j.isWifiNet() : (com.baidu.adp.lib.util.j.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.j.isWifiNet() && TbadkCoreApplication.getInst().getVideoAutoPlay() != 1);
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.mapapi.walknavi.adapter;
 
 import com.baidu.mapapi.walknavi.model.WalkRoutePlanError;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public interface IWRoutePlanListener {
     void onRoutePlanFail(WalkRoutePlanError walkRoutePlanError);
 

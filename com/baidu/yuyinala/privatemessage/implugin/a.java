@@ -3,48 +3,48 @@ package com.baidu.yuyinala.privatemessage.implugin;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private static volatile a owc;
-    private String eoR;
+    private static volatile a oLi;
+    private String evQ;
     private String mTag;
-    private String owd;
-    private String owe;
-    private InterfaceC0945a owf;
+    private String oLj;
+    private String oLk;
+    private InterfaceC0962a oLl;
 
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0945a {
+    public interface InterfaceC0962a {
         JSONObject a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17, String str18);
     }
 
-    public String bfk() {
-        return this.eoR;
+    public String bip() {
+        return this.evQ;
     }
 
     public String getTag() {
         return this.mTag;
     }
 
-    public String efg() {
-        return this.owd;
+    public String ekT() {
+        return this.oLj;
     }
 
-    public String efh() {
-        return this.owe;
+    public String ekU() {
+        return this.oLk;
     }
 
-    public static a efi() {
-        if (owc == null) {
+    public static a ekV() {
+        if (oLi == null) {
             synchronized (a.class) {
-                if (owc == null) {
-                    owc = new a();
+                if (oLi == null) {
+                    oLi = new a();
                 }
             }
         }
-        return owc;
+        return oLi;
     }
 
-    public InterfaceC0945a efj() {
-        return this.owf;
+    public InterfaceC0962a ekW() {
+        return this.oLl;
     }
 
     public static void j(JSONObject jSONObject, boolean z) {
@@ -59,6 +59,6 @@ public class a {
     }
 
     public static JSONObject a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17, String str18) {
-        return efi().efj().a(str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16, str17, str18);
+        return ekV().ekW().a(str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16, str17, str18);
     }
 }

@@ -2,11 +2,11 @@ package io.reactivex.internal.observers;
 
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
     protected final u<? super R> actual;
     protected boolean done;
-    protected io.reactivex.internal.a.b<T> pOe;
+    protected io.reactivex.internal.a.b<T> pEX;
     protected io.reactivex.disposables.b s;
     protected int sourceMode;
 
@@ -19,26 +19,26 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;
             if (bVar instanceof io.reactivex.internal.a.b) {
-                this.pOe = (io.reactivex.internal.a.b) bVar;
+                this.pEX = (io.reactivex.internal.a.b) bVar;
             }
-            if (eAH()) {
+            if (eCY()) {
                 this.actual.onSubscribe(this);
-                eAI();
+                eCZ();
             }
         }
     }
 
-    protected boolean eAH() {
+    protected boolean eCY() {
         return true;
     }
 
-    protected void eAI() {
+    protected void eCZ() {
     }
 
     @Override // io.reactivex.u
     public void onError(Throwable th) {
         if (this.done) {
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
             return;
         }
         this.done = true;
@@ -62,7 +62,7 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final int RM(int i) {
-        io.reactivex.internal.a.b<T> bVar = this.pOe;
+        io.reactivex.internal.a.b<T> bVar = this.pEX;
         if (bVar == null || (i & 4) != 0) {
             return 0;
         }
@@ -84,17 +84,17 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
         return this.s.isDisposed();
     }
 
-    @Override // io.reactivex.internal.a.g
+    @Override // io.reactivex.internal.a.f
     public boolean isEmpty() {
-        return this.pOe.isEmpty();
+        return this.pEX.isEmpty();
     }
 
-    @Override // io.reactivex.internal.a.g
+    @Override // io.reactivex.internal.a.f
     public void clear() {
-        this.pOe.clear();
+        this.pEX.clear();
     }
 
-    @Override // io.reactivex.internal.a.g
+    @Override // io.reactivex.internal.a.f
     public final boolean offer(R r) {
         throw new UnsupportedOperationException("Should not be called!");
     }

@@ -5,21 +5,21 @@ import java.util.Map;
 public class ft implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4913a = "wcc-ml-test10.bj";
-    public static final String b = ae.f4787a;
+    public static String f4683a = "wcc-ml-test10.bj";
+    public static final String b = ae.f4557a;
     public static String c = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f376a;
+    private int f374a;
 
     /* renamed from: a  reason: collision with other field name */
-    private fw f377a;
+    private fw f375a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f378a = fs.f361a;
+    private boolean f376a = fs.f359a;
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f379b = true;
+    private boolean f377b = true;
     private String d;
     private String e;
     private String f;
@@ -29,7 +29,7 @@ public class ft implements Cloneable {
     }
 
     public static final String a() {
-        return c != null ? c : ab.m128a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? b : "app.chat.xiaomi.net";
+        return c != null ? c : ab.m118a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? b : "app.chat.xiaomi.net";
     }
 
     public static final void a(String str) {
@@ -37,27 +37,27 @@ public class ft implements Cloneable {
     }
 
     private void a(Map<String, Integer> map, int i, String str, fw fwVar) {
-        this.f376a = i;
+        this.f374a = i;
         this.d = str;
-        this.f377a = fwVar;
+        this.f375a = fwVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int mo304a() {
-        return this.f376a;
+    public int mo294a() {
+        return this.f374a;
     }
 
     public void a(boolean z) {
-        this.f378a = z;
+        this.f376a = z;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m305a() {
-        return this.f378a;
+    public boolean m295a() {
+        return this.f376a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m306a() {
+    public byte[] m296a() {
         return null;
     }
 

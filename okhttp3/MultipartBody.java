@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import javax.annotation.Nullable;
+import okhttp3.Headers;
 import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSink;
@@ -189,7 +190,7 @@ public final class MultipartBody extends RequestBody {
                 sb.append("; filename=");
                 MultipartBody.appendQuotedString(sb, str2);
             }
-            return create(Headers.of("Content-Disposition", sb.toString()), requestBody);
+            return create(new Headers.Builder().addUnsafeNonAscii("Content-Disposition", sb.toString()).build(), requestBody);
         }
 
         private Part(@Nullable Headers headers, RequestBody requestBody) {

@@ -13,15 +13,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class f extends AsyncTask<FaceVerifyData, Void, ArrayList<HashMap<String, byte[]>>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LivenessRecogActivity f2735a;
+    final /* synthetic */ LivenessRecogActivity f2737a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(LivenessRecogActivity livenessRecogActivity) {
-        this.f2735a = livenessRecogActivity;
+        this.f2737a = livenessRecogActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,8 +32,8 @@ public class f extends AsyncTask<FaceVerifyData, Void, ArrayList<HashMap<String,
         int i;
         int i2;
         Bitmap createBitmap;
-        this.f2735a.ea = 0;
-        this.f2735a.fa = 0;
+        this.f2737a.ea = 0;
+        this.f2737a.fa = 0;
         ArrayList<HashMap<String, byte[]>> arrayList = new ArrayList<>();
         for (FaceVerifyData faceVerifyData : faceVerifyDataArr) {
             int[] iArr = faceVerifyData.mRegImg;
@@ -70,31 +70,31 @@ public class f extends AsyncTask<FaceVerifyData, Void, ArrayList<HashMap<String,
         SdkConfigOptions.LivenessConfigOption livenessConfigOption2;
         int i;
         if (arrayList == null || arrayList.size() <= 0) {
-            passFaceRecogCallback = this.f2735a.t;
+            passFaceRecogCallback = this.f2737a.t;
             if (passFaceRecogCallback != null) {
                 PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
                 passFaceRecogResult.setResultCode(-306);
                 passFaceRecogResult.setResultMsg(PassFaceRecogResult.ERROR_MSG_IMAGE_FILE_EMPTY);
-                passFaceRecogCallback2 = this.f2735a.t;
+                passFaceRecogCallback2 = this.f2737a.t;
                 passFaceRecogCallback2.onFailure(passFaceRecogResult);
             }
-            this.f2735a.a(-306);
+            this.f2737a.a(-306);
             return;
         }
-        this.f2735a.ea = arrayList.size();
-        this.f2735a.ga = arrayList;
-        LivenessRecogActivity livenessRecogActivity = this.f2735a;
+        this.f2737a.ea = arrayList.size();
+        this.f2737a.ga = arrayList;
+        LivenessRecogActivity livenessRecogActivity = this.f2737a;
         PassFaceRecogDTO passFaceRecogDTO = livenessRecogActivity.passFaceRecogDTO;
         if (passFaceRecogDTO != null) {
             if (passFaceRecogDTO.livenessType == PassFaceRecogType.RECOG_TYPE_FACEDETECT) {
                 livenessConfigOption = livenessRecogActivity.aa;
                 if (livenessConfigOption != null) {
-                    LivenessRecogActivity livenessRecogActivity2 = this.f2735a;
+                    LivenessRecogActivity livenessRecogActivity2 = this.f2737a;
                     livenessConfigOption2 = livenessRecogActivity2.aa;
-                    i = this.f2735a.ea;
+                    i = this.f2737a.ea;
                     livenessRecogActivity2.ea = livenessConfigOption2.getRecogUploadPortraitCount(i);
                 }
-                this.f2735a.c();
+                this.f2737a.c();
                 return;
             }
             livenessRecogActivity.d();

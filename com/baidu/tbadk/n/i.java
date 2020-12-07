@@ -1,125 +1,106 @@
 package com.baidu.tbadk.n;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.core.util.au;
-import java.util.HashMap;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
-public class i extends g {
-    public long allDataReadTime;
-    public int errCode;
-    public HashMap<String, String> extra;
-    public long firstByteReachTime;
-    public long fuA;
-    public long fuB;
-    public long fuC;
-    public long fuD;
-    public boolean fuE;
-    public long fuF;
-    public long fuG;
-    public boolean fuH;
-    public long fuI;
-    public long fuJ;
-    public long fuK;
-    public long fuL;
-    public long fuq;
-    public long fur;
-    public long fus;
-    public long fut;
-    public long fuu;
-    public long fuv;
-    public long fuw;
-    public long fux;
-    public long fuy;
-    public long fuz;
-    public boolean isSuccess;
-    public long sequenceID;
-    public long socketCostTime;
-    public int socketErrNo;
+public class i extends k {
+    public static int fCx = 100;
+    public static int fCy = 10;
 
-    public i() {
-        this.firstByteReachTime = 0L;
-        this.allDataReadTime = 0L;
-        this.fuz = 0L;
-        this.fuB = 0L;
-        this.fuC = 0L;
-        this.fuD = 0L;
-        this.fuF = 0L;
-        this.fuG = 0L;
-        this.fuH = false;
-        this.extra = new HashMap<>();
-    }
-
-    public i(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4, long j5, long j6) {
-        this.firstByteReachTime = 0L;
-        this.allDataReadTime = 0L;
-        this.fuz = 0L;
-        this.fuB = 0L;
-        this.fuC = 0L;
-        this.fuD = 0L;
-        this.fuF = 0L;
-        this.fuG = 0L;
-        this.fuH = false;
-        this.extra = new HashMap<>();
-        if (responsedMessage != null) {
-            this.mSubType = i;
-            this.fuE = z;
-            if (this.fuE) {
-                this.fuD = responsedMessage.getDownSize();
-                this.fuI = responsedMessage.getOrginalMessage().getClientLogID();
-                this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
-                this.fuF = responsedMessage.performanceData.mHttpRetryNum;
-                this.fuG = responsedMessage.performanceData.mHttpRetryCostTime;
-                this.socketErrNo = responsedMessage.performanceData.mSocketErrNo;
-                this.socketCostTime = responsedMessage.performanceData.mSocketCostTime;
-            } else {
-                this.fuC = responsedMessage.getDownSize();
-                this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
+    public static void bFj() {
+        if (l.bFl().isSmallFlow()) {
+            if (b.fCC > fCy) {
+                b.bFh();
             }
-            this.fuq = j;
-            this.fur = j4;
-            this.fus = j2;
-            this.fuA = j3;
-            this.fuy = j5;
-            this.isSuccess = !responsedMessage.hasError();
-            this.fut = responsedMessage.performanceData.mQueneTime;
-            this.fuu = responsedMessage.performanceData.mNetConTime;
-            this.fuv = responsedMessage.performanceData.mNetRWTime;
-            this.firstByteReachTime = responsedMessage.performanceData.mFirstByteReachTime;
-            this.allDataReadTime = responsedMessage.performanceData.mAllDataReadTime;
-            this.fuw = responsedMessage.performanceData.mCompressTime;
-            this.fux = responsedMessage.performanceData.mAnalysisTime;
-            this.fuz = responsedMessage.performanceData.mTaskWaitTime;
-            this.fuz += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
-            this.errCode = responsedMessage.getError();
-            this.fuH = z2;
-            this.fuB = j6;
+            if (a.fCz > fCy) {
+                a.bFh();
+            }
         }
     }
 
-    public void bBH() {
-        o oVar = (o) m.bBK().sk(this.mSubType);
-        if (oVar != null) {
-            oVar.a(this);
+    public static void g(boolean z, boolean z2, boolean z3) {
+        a.fCz++;
+        if (z2) {
+            a.fCA++;
+        } else if (z3) {
+            a.fCB++;
+        }
+        if (a.fCz > fCx) {
+            a.bFh();
         }
     }
 
-    public void ky(boolean z) {
-        o oVar = (o) m.bBK().sk(this.mSubType);
-        if (oVar != null) {
-            oVar.a(this, z);
+    public void c(f fVar) {
+        if (l.bFl().isSmallFlow()) {
+            if (b.fCC < fCx) {
+                b.fCD += fVar.Mq;
+                b.fCE += fVar.fBU;
+                b.fCF += fVar.fBV;
+                b.fCG += fVar.fBW;
+                b.fCI += fVar.costTime;
+                b.fCH += fVar.fBX;
+                b.fCC++;
+                return;
+            }
+            b.bFh();
         }
     }
 
-    public void si(int i) {
-        o oVar = (o) m.bBK().sk(this.mSubType);
-        if (oVar != null) {
-            oVar.a(this, i);
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class a {
+        public static int fCA;
+        public static int fCB;
+        public static int fCz;
+
+        public static void bFh() {
+            com.baidu.adp.lib.stats.a mT = k.mT();
+            mT.append("action", "imbusy");
+            mT.append("totalNum", String.valueOf(fCz));
+            mT.append("tfailNum", String.valueOf(fCA));
+            mT.append("qfailNum", String.valueOf(fCB));
+            BdStatisticsManager.getInstance().performance("im", mT);
+            resetData();
+        }
+
+        public static void resetData() {
+            fCz = 0;
+            fCA = 0;
+            fCB = 0;
         }
     }
 
-    public void dZ(String str, String str2) {
-        if (!au.isEmpty(str) && !au.isEmpty(str2)) {
-            this.extra.put(str, str2);
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class b {
+        public static int fCC;
+        public static long fCD;
+        public static long fCE;
+        public static long fCF;
+        public static int fCG;
+        public static int fCH;
+        public static long fCI;
+
+        public static void bFh() {
+            com.baidu.adp.lib.stats.a mT = k.mT();
+            mT.append("action", "imcost");
+            mT.append("dect", String.valueOf(fCD));
+            mT.append("dlsize", String.valueOf(fCE));
+            mT.append("dbt", String.valueOf(fCF));
+            mT.append("pnum", String.valueOf(fCG));
+            mT.append("reqcost", String.valueOf(fCI));
+            mT.append("cpu", String.valueOf(fCH));
+            mT.append("totalNum", String.valueOf(fCC));
+            BdStatisticsManager.getInstance().performance("im", mT);
+            bFk();
+        }
+
+        public static void bFk() {
+            fCC = 0;
+            fCD = 0L;
+            fCE = 0L;
+            fCF = 0L;
+            fCG = 0;
+            fCH = 0;
         }
     }
 }

@@ -2,11 +2,11 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.a.b;
 
 import android.support.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class g extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String auS() {
+    public String aya() {
         return "enableRemoteMirror";
     }
 
@@ -15,7 +15,7 @@ public class g extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar) {
         a(bVar, command.what, "" + command.obj, true);
         if (command.obj instanceof Boolean) {
-            bVar.fo(((Boolean) command.obj).booleanValue());
+            bVar.fD(((Boolean) command.obj).booleanValue());
         }
     }
 }

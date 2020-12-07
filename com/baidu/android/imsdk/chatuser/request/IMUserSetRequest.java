@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.chatuser.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatuser.ChatUserManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,7 +13,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMUserSetRequest extends IMUserBaseHttpRequest {
     private long mAppid;
     private int mBlack;
@@ -63,10 +64,10 @@ public class IMUserSetRequest extends IMUserBaseHttpRequest {
             JSONObject jSONObject = new JSONObject(new String(bArr));
             if (jSONObject.has("response_params")) {
                 i3 = jSONObject.getJSONObject("response_params").getInt("error_code");
-                optString = jSONObject.optString("error_msg", Constants.ERROR_MSG_SUCCESS);
+                optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, Constants.ERROR_MSG_SUCCESS);
             } else {
                 i3 = jSONObject.getInt("error_code");
-                optString = jSONObject.optString("error_msg", "");
+                optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
             }
             str = optString;
             i2 = i3;

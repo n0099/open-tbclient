@@ -28,7 +28,7 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class ZeusLogUploader {
     public static final String ADD_UPLOAD_FILE_FLAG = "uploadfailed";
     private static final int BUFF_SIZE = 4096;
@@ -58,7 +58,7 @@ public final class ZeusLogUploader {
     private static boolean sIsEnabled = true;
     private static boolean mUploadCrashLogFailedEncrypt = true;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public static class LogFilter implements FilenameFilter {
         String mLogType;
 
@@ -69,13 +69,13 @@ public final class ZeusLogUploader {
 
         @Override // java.io.FilenameFilter
         public boolean accept(File file, String str) {
-            if (ZeusLogUploader.CRASH_LOG.equals(this.mLogType) || ZeusLogUploader.RECORD_LOG.equals(this.mLogType)) {
+            if ("crashlog".equals(this.mLogType) || "recordlog".equals(this.mLogType)) {
                 return str.endsWith(".bdmp");
             }
-            if (ZeusLogUploader.VIDEO_LOG.equals(this.mLogType)) {
+            if ("videolog".equals(this.mLogType)) {
                 return str.endsWith(BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
             }
-            if (ZeusLogUploader.NR_LOG.equals(this.mLogType)) {
+            if ("nrlog".equals(this.mLogType)) {
                 return str.endsWith(".nr");
             }
             return false;
@@ -83,7 +83,7 @@ public final class ZeusLogUploader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public class MyRunner implements Runnable {
         String cuid;
         boolean deletAfterUpload;
@@ -134,7 +134,7 @@ public final class ZeusLogUploader {
                     fileInputStream = new FileInputStream(str);
                     try {
                         int available = fileInputStream.available();
-                        if (this.cuid == null || this.logType.equals(ZeusLogUploader.CRASH_LOG)) {
+                        if (this.cuid == null || this.logType.equals("crashlog")) {
                             bArr = new byte[available];
                             i = 0;
                         } else {
@@ -157,7 +157,7 @@ public final class ZeusLogUploader {
                     z = false;
                 }
                 try {
-                    if (this.logType.equals(ZeusLogUploader.CRASH_LOG) && z && (bArr = ZeusLogUploader.this.doEncryptUploadFailedFile(bArr, bArr.length - 12, false)) == null) {
+                    if (this.logType.equals("crashlog") && z && (bArr = ZeusLogUploader.this.doEncryptUploadFailedFile(bArr, bArr.length - 12, false)) == null) {
                         this.status = 8;
                     }
                     byte[] doCompress = ZeusLogUploader.doCompress(bArr, bArr.length, this.msg);
@@ -186,7 +186,7 @@ public final class ZeusLogUploader {
                     if (this.listener == null) {
                     }
                 }
-                if (ZeusLogUploader.mUploadCrashLogFailedEncrypt && this.status != 0 && this.logType.equals(ZeusLogUploader.CRASH_LOG) && !z && ZeusLogUploader.this.encryptUploadFailedFile(str, true) != 6) {
+                if (ZeusLogUploader.mUploadCrashLogFailedEncrypt && this.status != 0 && this.logType.equals("crashlog") && !z && ZeusLogUploader.this.encryptUploadFailedFile(str, true) != 6) {
                     this.status = 2;
                 }
                 if (this.listener == null) {
@@ -196,7 +196,7 @@ public final class ZeusLogUploader {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public interface OnFinishedListener {
         void onFinished(String str, int i, String str2);
     }
@@ -491,7 +491,7 @@ public final class ZeusLogUploader {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean uploadFileEncryptJudge(byte[] bArr) {
-        return 12 < bArr.length && ADD_UPLOAD_FILE_FLAG.equals(new String(bArr, bArr.length + (-12), 12));
+        return 12 < bArr.length && "uploadfailed".equals(new String(bArr, bArr.length + (-12), 12));
     }
 
     /* JADX WARN: Removed duplicated region for block: B:26:0x0065 A[Catch: Exception -> 0x00aa, TRY_LEAVE, TryCatch #2 {Exception -> 0x00aa, blocks: (B:24:0x0056, B:26:0x0065), top: B:73:0x0056 }] */
@@ -606,7 +606,7 @@ public final class ZeusLogUploader {
                 try {
                     fileOutputStream2.write(doEncryptUploadFailedFile);
                     if (z) {
-                        fileOutputStream2.write(ADD_UPLOAD_FILE_FLAG.getBytes());
+                        fileOutputStream2.write("uploadfailed".getBytes());
                     }
                     fileOutputStream2.flush();
                     fileOutputStream2.close();

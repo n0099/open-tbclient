@@ -12,21 +12,21 @@ import com.baidu.live.tbadk.loading.LoadingView;
 import com.baidu.tieba.ala.person.hosttabpanel.c.a;
 /* loaded from: classes4.dex */
 public class a implements com.baidu.live.liveroom.d.d {
-    private BdTypeListView biP;
-    private LoadingView gwb;
-    private TbListCommonPullView hAj;
-    private com.baidu.tieba.ala.person.hosttabpanel.a.a hAk;
-    private com.baidu.tieba.ala.person.hosttabpanel.c.a hAl;
-    private boolean hAm = false;
-    private TbListCommonPullView.ListPullRefreshListener hAn = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.1
+    private BdTypeListView bnh;
+    private LoadingView gEK;
+    private TbListCommonPullView hJO;
+    private com.baidu.tieba.ala.person.hosttabpanel.a.a hJP;
+    private com.baidu.tieba.ala.person.hosttabpanel.c.a hJQ;
+    private boolean hJR = false;
+    private TbListCommonPullView.ListPullRefreshListener hJS = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.1
         @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
         public void onListPullRefresh(boolean z) {
-            if (a.this.hAl != null) {
-                a.this.hAl.refreshData();
+            if (a.this.hJQ != null) {
+                a.this.hJQ.refreshData();
             }
         }
     };
-    private a.InterfaceC0696a hAo = new a.InterfaceC0696a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
+    private a.InterfaceC0709a hJT = new a.InterfaceC0709a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
     };
     private TbPageContext mPageContext;
     private View mRootView;
@@ -38,13 +38,13 @@ public class a implements com.baidu.live.liveroom.d.d {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_new_host_tab_view, (ViewGroup) null);
-        this.biP = (BdTypeListView) this.mRootView.findViewById(a.f.list_view);
-        this.hAj = new TbListCommonPullView(this.mPageContext.getPageActivity());
-        this.hAj.changeSkin(0);
-        this.hAj.setSkinType(0);
-        this.hAj.setListPullRefreshListener(this.hAn);
-        this.biP.setPullRefresh(this.hAj);
-        this.hAk = new com.baidu.tieba.ala.person.hosttabpanel.a.a(this.mPageContext, this.biP);
+        this.bnh = (BdTypeListView) this.mRootView.findViewById(a.f.list_view);
+        this.hJO = new TbListCommonPullView(this.mPageContext.getPageActivity());
+        this.hJO.changeSkin(0);
+        this.hJO.setSkinType(0);
+        this.hJO.setListPullRefreshListener(this.hJS);
+        this.bnh.setPullRefresh(this.hJO);
+        this.hJP = new com.baidu.tieba.ala.person.hosttabpanel.a.a(this.mPageContext, this.bnh);
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -58,12 +58,12 @@ public class a implements com.baidu.live.liveroom.d.d {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String KI() {
+    public String MK() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short KJ() {
+    public short ML() {
         return (short) 2;
     }
 
@@ -78,19 +78,19 @@ public class a implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.hAl != null) {
-            this.hAl.onDestroy();
+        if (this.hJQ != null) {
+            this.hJQ.onDestroy();
         }
-        if (this.hAk != null) {
-            this.hAk.onDestroy();
-            this.hAk = null;
+        if (this.hJP != null) {
+            this.hJP.onDestroy();
+            this.hJP = null;
         }
-        if (this.gwb != null) {
-            this.gwb.release();
-            this.gwb = null;
+        if (this.gEK != null) {
+            this.gEK.release();
+            this.gEK = null;
         }
-        if (this.hAj != null) {
-            this.hAj = null;
+        if (this.hJO != null) {
+            this.hJO = null;
         }
     }
 

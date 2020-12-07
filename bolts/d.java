@@ -1,9 +1,9 @@
 package bolts;
 
 import java.io.Closeable;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class d implements Closeable {
-    private e Av;
+    private e Bp;
     private Runnable action;
     private boolean closed;
     private final Object lock;
@@ -13,8 +13,8 @@ public class d implements Closeable {
         synchronized (this.lock) {
             if (!this.closed) {
                 this.closed = true;
-                this.Av.a(this);
-                this.Av = null;
+                this.Bp.a(this);
+                this.Bp = null;
                 this.action = null;
             }
         }

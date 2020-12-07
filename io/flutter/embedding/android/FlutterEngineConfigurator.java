@@ -1,10 +1,9 @@
 package io.flutter.embedding.android;
 
-import androidx.annotation.NonNull;
 import io.flutter.embedding.engine.FlutterEngine;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public interface FlutterEngineConfigurator {
-    void cleanUpFlutterEngine(@NonNull FlutterEngine flutterEngine);
+    void cleanUpFlutterEngine(FlutterEngine flutterEngine);
 
-    void configureFlutterEngine(@NonNull FlutterEngine flutterEngine);
+    void configureFlutterEngine(FlutterEngine flutterEngine);
 }

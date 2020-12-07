@@ -17,7 +17,6 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.coreExtra.data.y;
-import com.baidu.tieba.tbadkCore.e.a.f;
 /* loaded from: classes.dex */
 public class TbWebChromeClient extends WebChromeClient {
     private com.baidu.tieba.tbadkCore.e.c callback;
@@ -94,13 +93,13 @@ public class TbWebChromeClient extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (!y.Ck(str) && str2.startsWith("tiebaapp")) {
-            com.baidu.tieba.tbadkCore.e.a.b bVar = new com.baidu.tieba.tbadkCore.e.a.b();
-            bVar.Su(f.SA(str2));
-            bVar.setStatus(301);
-            callJsMethod(webView, bVar.getMethodName(), bVar.dKx());
+        if (!y.CS(str) && str2.startsWith("tiebaapp")) {
+            com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
+            cVar.TI(com.baidu.tieba.tbadkCore.e.a.g.TP(str2));
+            cVar.setStatus(301);
+            callJsMethod(webView, cVar.getMethodName(), cVar.dPP());
         }
-        if (!y.Ck(str) || this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) {
+        if (!y.CS(str) || this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) {
             jsPromptResult.cancel();
         }
         return true;

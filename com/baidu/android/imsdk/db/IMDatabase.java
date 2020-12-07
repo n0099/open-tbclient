@@ -10,7 +10,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMDatabase {
     private static DbOpenHelper mDbHelper = null;
 
@@ -53,7 +53,7 @@ public class IMDatabase {
         synchronized (IMDatabase.class) {
             String path = context.getDatabasePath(TableDefine.DB_NAME_PREFIX + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + j + ".db").getPath();
             if (mDbHelper == null) {
-                mDbHelper = new DbOpenHelper(context, path, 47);
+                mDbHelper = new DbOpenHelper(context, path, 49);
             } else {
                 try {
                     str2 = mDbHelper.getReadableDatabase().getPath();
@@ -65,7 +65,7 @@ public class IMDatabase {
                 if (!str2.equals(path)) {
                     mDbHelper.close();
                     mDbHelper = null;
-                    mDbHelper = new DbOpenHelper(context, path, 47);
+                    mDbHelper = new DbOpenHelper(context, path, 49);
                 }
             }
             dbOpenHelper = mDbHelper;
@@ -74,7 +74,7 @@ public class IMDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         private Context mContext;
 

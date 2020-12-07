@@ -16,7 +16,7 @@ public class el {
     }
 
     public static String a(String str) {
-        return Base64.encodeToString(bf.m167a(str), 2);
+        return Base64.encodeToString(bf.m157a(str), 2);
     }
 
     public static String a(HashMap<String, String> hashMap) {

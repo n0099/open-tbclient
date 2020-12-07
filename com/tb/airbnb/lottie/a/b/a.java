@@ -5,20 +5,20 @@ import android.support.annotation.Nullable;
 import com.baidu.mapapi.map.WeightedLatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes20.dex */
 public abstract class a<K, A> {
-    private final List<? extends com.tb.airbnb.lottie.e.a<K>> DO;
+    private final List<? extends com.tb.airbnb.lottie.e.a<K>> EF;
     @Nullable
-    protected com.tb.airbnb.lottie.e.c<A> pKq;
+    protected com.tb.airbnb.lottie.e.c<A> pBu;
     @Nullable
-    private com.tb.airbnb.lottie.e.a<K> pKr;
-    final List<InterfaceC1041a> listeners = new ArrayList();
-    private boolean DN = false;
+    private com.tb.airbnb.lottie.e.a<K> pBv;
+    final List<InterfaceC1019a> listeners = new ArrayList();
+    private boolean EE = false;
     private float progress = 0.0f;
 
     /* renamed from: com.tb.airbnb.lottie.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes17.dex */
-    public interface InterfaceC1041a {
+    /* loaded from: classes20.dex */
+    public interface InterfaceC1019a {
         void iT();
     }
 
@@ -26,15 +26,15 @@ public abstract class a<K, A> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(List<? extends com.tb.airbnb.lottie.e.a<K>> list) {
-        this.DO = list;
+        this.EF = list;
     }
 
     public void jh() {
-        this.DN = true;
+        this.EE = true;
     }
 
-    public void b(InterfaceC1041a interfaceC1041a) {
-        this.listeners.add(interfaceC1041a);
+    public void b(InterfaceC1019a interfaceC1019a) {
+        this.listeners.add(interfaceC1019a);
     }
 
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
@@ -62,61 +62,61 @@ public abstract class a<K, A> {
         }
     }
 
-    private com.tb.airbnb.lottie.e.a<K> eyG() {
-        if (this.pKr != null && this.pKr.m(this.progress)) {
-            return this.pKr;
+    private com.tb.airbnb.lottie.e.a<K> eBc() {
+        if (this.pBv != null && this.pBv.l(this.progress)) {
+            return this.pBv;
         }
-        com.tb.airbnb.lottie.e.a<K> aVar = this.DO.get(this.DO.size() - 1);
+        com.tb.airbnb.lottie.e.a<K> aVar = this.EF.get(this.EF.size() - 1);
         if (this.progress < aVar.kz()) {
-            for (int size = this.DO.size() - 1; size >= 0; size--) {
-                aVar = this.DO.get(size);
-                if (aVar.m(this.progress)) {
+            for (int size = this.EF.size() - 1; size >= 0; size--) {
+                aVar = this.EF.get(size);
+                if (aVar.l(this.progress)) {
                     break;
                 }
             }
         }
-        this.pKr = aVar;
+        this.pBv = aVar;
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float jj() {
-        if (this.DN) {
+        if (this.EE) {
             return 0.0f;
         }
-        com.tb.airbnb.lottie.e.a<K> eyG = eyG();
-        if (eyG.lc()) {
+        com.tb.airbnb.lottie.e.a<K> eBc = eBc();
+        if (eBc.lc()) {
             return 0.0f;
         }
-        return (this.progress - eyG.kz()) / (eyG.jm() - eyG.kz());
+        return (this.progress - eBc.kz()) / (eBc.jm() - eBc.kz());
     }
 
     private float jk() {
-        com.tb.airbnb.lottie.e.a<K> eyG = eyG();
-        if (eyG.lc()) {
+        com.tb.airbnb.lottie.e.a<K> eBc = eBc();
+        if (eBc.lc()) {
             return 0.0f;
         }
-        return eyG.Hp.getInterpolation(jj());
+        return eBc.Ih.getInterpolation(jj());
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     private float jl() {
-        if (this.DO.isEmpty()) {
+        if (this.EF.isEmpty()) {
             return 0.0f;
         }
-        return this.DO.get(0).kz();
+        return this.EF.get(0).kz();
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     float jm() {
-        if (this.DO.isEmpty()) {
+        if (this.EF.isEmpty()) {
             return 1.0f;
         }
-        return this.DO.get(this.DO.size() - 1).jm();
+        return this.EF.get(this.EF.size() - 1).jm();
     }
 
     public A getValue() {
-        return a(eyG(), jk());
+        return a(eBc(), jk());
     }
 
     public float getProgress() {
@@ -124,10 +124,10 @@ public abstract class a<K, A> {
     }
 
     public void a(@Nullable com.tb.airbnb.lottie.e.c<A> cVar) {
-        if (this.pKq != null) {
-            this.pKq.b(null);
+        if (this.pBu != null) {
+            this.pBu.b(null);
         }
-        this.pKq = cVar;
+        this.pBu = cVar;
         if (cVar != null) {
             cVar.b(this);
         }

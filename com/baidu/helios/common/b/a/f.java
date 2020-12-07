@@ -1,7 +1,7 @@
 package com.baidu.helios.common.b.a;
 
 import java.security.MessageDigest;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static byte[] ad(String str, String str2) {
         try {

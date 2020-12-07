@@ -3,21 +3,22 @@ package io.reactivex.processors;
 import io.reactivex.internal.util.NotificationLite;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes5.dex */
-final class b<T> extends a<T> {
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes9.dex */
+public final class b<T> extends a<T> {
     volatile boolean done;
     boolean emitting;
-    final a<T> pSO;
+    final a<T> pJx;
     io.reactivex.internal.util.a<Object> queue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a<T> aVar) {
-        this.pSO = aVar;
+        this.pJx = aVar;
     }
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
-        this.pSO.subscribe(cVar);
+        this.pJx.subscribe(cVar);
     }
 
     @Override // io.reactivex.j, org.a.c
@@ -44,7 +45,7 @@ final class b<T> extends a<T> {
             dVar.cancel();
             return;
         }
-        this.pSO.onSubscribe(dVar);
+        this.pJx.onSubscribe(dVar);
         emitLoop();
     }
 
@@ -63,7 +64,7 @@ final class b<T> extends a<T> {
                         return;
                     }
                     this.emitting = true;
-                    this.pSO.onNext(t);
+                    this.pJx.onNext(t);
                     emitLoop();
                 }
             }
@@ -74,7 +75,7 @@ final class b<T> extends a<T> {
     public void onError(Throwable th) {
         boolean z = true;
         if (this.done) {
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
             return;
         }
         synchronized (this) {
@@ -86,16 +87,16 @@ final class b<T> extends a<T> {
                         aVar = new io.reactivex.internal.util.a<>(4);
                         this.queue = aVar;
                     }
-                    aVar.bP(NotificationLite.error(th));
+                    aVar.bK(NotificationLite.error(th));
                     return;
                 }
                 z = false;
                 this.emitting = true;
             }
             if (z) {
-                io.reactivex.e.a.onError(th);
+                io.reactivex.d.a.onError(th);
             } else {
-                this.pSO.onError(th);
+                this.pJx.onError(th);
             }
         }
     }
@@ -116,7 +117,7 @@ final class b<T> extends a<T> {
                         return;
                     }
                     this.emitting = true;
-                    this.pSO.onComplete();
+                    this.pJx.onComplete();
                 }
             }
         }
@@ -133,7 +134,7 @@ final class b<T> extends a<T> {
                 }
                 this.queue = null;
             }
-            aVar.b(this.pSO);
+            aVar.b(this.pJx);
         }
     }
 }

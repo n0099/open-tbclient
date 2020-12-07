@@ -3,12 +3,12 @@ package com.baidu.android.pushservice.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f1012a = "";
+    protected String f1010a = "";
     protected String b;
     protected int c;
 
     public String a() {
-        return this.f1012a;
+        return this.f1010a;
     }
 
     public void a(int i) {
@@ -16,7 +16,7 @@ public class a {
     }
 
     public void a(String str) {
-        this.f1012a = str;
+        this.f1010a = str;
     }
 
     public String b() {

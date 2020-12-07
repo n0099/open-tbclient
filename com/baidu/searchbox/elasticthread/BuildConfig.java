@@ -1,10 +1,9 @@
 package com.baidu.searchbox.elasticthread;
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public final class BuildConfig {
-    public static final String APPLICATION_ID = "com.baidu.searchbox.elasticthread";
     public static final String BUILD_TYPE = "release";
     public static final boolean DEBUG = false;
-    public static final String FLAVOR = "";
+    public static final String LIBRARY_PACKAGE_NAME = "com.baidu.searchbox.elasticthread";
     public static final int VERSION_CODE = 1;
     public static final String VERSION_NAME = "1.0";
 }

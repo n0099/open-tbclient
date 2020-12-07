@@ -12,24 +12,24 @@ public class a extends BdBaseModel {
     private String mCustomRoomId;
     private String mLiveId;
     private String mRoomId;
-    private InterfaceC0944a owa;
+    private InterfaceC0961a oLg;
 
     /* renamed from: com.baidu.yuyinala.more.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0944a {
-        void eeX();
+    public interface InterfaceC0961a {
+        void As(boolean z);
 
-        void zO(boolean z);
+        void ekK();
     }
 
-    public a(InterfaceC0944a interfaceC0944a) {
-        this.owa = interfaceC0944a;
+    public a(InterfaceC0961a interfaceC0961a) {
+        this.oLg = interfaceC0961a;
         registerListener(new HttpMessageListener(1031017) { // from class: com.baidu.yuyinala.more.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage.getCmd() == 1031017 && a.this.owa != null) {
-                    a.this.owa.zO(httpResponsedMessage.getError() == 0);
+                if (httpResponsedMessage.getCmd() == 1031017 && a.this.oLg != null) {
+                    a.this.oLg.As(httpResponsedMessage.getError() == 0);
                 }
             }
         });
@@ -37,8 +37,8 @@ public class a extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage.getCmd() == 1031022 && httpResponsedMessage.getError() != 0 && a.this.owa != null) {
-                    a.this.owa.eeX();
+                if (httpResponsedMessage.getCmd() == 1031022 && httpResponsedMessage.getError() != 0 && a.this.oLg != null) {
+                    a.this.oLg.ekK();
                 }
             }
         });
@@ -60,7 +60,7 @@ public class a extends BdBaseModel {
         this.mCustomRoomId = str3;
     }
 
-    public void efb() {
+    public void ekO() {
         HttpMessage httpMessage = new HttpMessage(1031017);
         httpMessage.addParam("live_id", this.mLiveId);
         httpMessage.addParam(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.mCustomRoomId);
@@ -68,11 +68,11 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void efc() {
+    public void ekP() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501024, this.mRoomId));
     }
 
-    public void efd() {
+    public void ekQ() {
         HttpMessage httpMessage = new HttpMessage(1031022);
         httpMessage.addParam("room_id", this.mRoomId);
         httpMessage.addParam("live_id", this.mLiveId);

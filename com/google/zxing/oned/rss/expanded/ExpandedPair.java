@@ -2,7 +2,7 @@ package com.google.zxing.oned.rss.expanded;
 
 import com.google.zxing.oned.rss.DataCharacter;
 import com.google.zxing.oned.rss.FinderPattern;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 final class ExpandedPair {
     private final FinderPattern finderPattern;
     private final DataCharacter leftChar;

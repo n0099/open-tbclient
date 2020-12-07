@@ -3,13 +3,13 @@ package com.baidu.swan.apps.canvas.a.a;
 import android.graphics.Canvas;
 import android.graphics.Typeface;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class o extends a {
-    String cAI = "sans-serif";
-    float cAJ = com.baidu.swan.apps.ap.ah.M(10.0f);
-    boolean cAK = false;
+    String cHE = "sans-serif";
+    float cHF = com.baidu.swan.apps.ap.ah.M(10.0f);
+    boolean cHG = false;
     boolean mItalic = false;
-    boolean cAL = true;
+    boolean cHH = true;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
@@ -22,9 +22,9 @@ public class o extends a {
                     } else if (str.contains("oblique")) {
                         this.mItalic = true;
                     } else if (str.contains("bold")) {
-                        this.cAK = true;
+                        this.cHG = true;
                     } else if (str.contains("normal")) {
-                        this.cAL = true;
+                        this.cHH = true;
                     } else if (Character.isDigit(str.charAt(0))) {
                         int length = str.length();
                         int i = 0;
@@ -38,9 +38,9 @@ public class o extends a {
                                 i++;
                             }
                         }
-                        this.cAJ = com.baidu.swan.apps.ap.ah.M(Float.parseFloat(str.substring(0, i)));
+                        this.cHF = com.baidu.swan.apps.ap.ah.M(Float.parseFloat(str.substring(0, i)));
                     } else {
-                        this.cAI = str;
+                        this.cHE = str;
                     }
                 }
             }
@@ -54,14 +54,14 @@ public class o extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         int i = 0;
-        if (this.cAK && this.mItalic) {
+        if (this.cHG && this.mItalic) {
             i = 3;
-        } else if (this.cAK) {
+        } else if (this.cHG) {
             i = 1;
         } else if (this.mItalic) {
             i = 2;
         }
-        bVar.cAl.setTypeface(Typeface.create(this.cAI, i));
-        bVar.cAl.setTextSize(this.cAJ);
+        bVar.cHd.setTypeface(Typeface.create(this.cHE, i));
+        bVar.cHd.setTextSize(this.cHF);
     }
 }

@@ -32,34 +32,34 @@ import com.baidu.live.tieba.write.album.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ImageListFragment extends BaseFragment implements AbsListView.OnScrollListener, d.a {
-    private TextView bCA;
-    private TextView bCB;
-    private c bCi;
-    private AlbumActivity bCw;
-    private View bCz;
-    private MediaStoreLoader bDh;
-    private RelativeLayout bDi;
-    private ImageView bDj;
-    private TextView bDk;
-    private TextView bDl;
-    private com.baidu.live.tieba.write.a.a bDm;
-    private TransparentHeadGridView bDn;
-    private i bDo;
-    private CommonEmptyView bDp;
-    private View bDq;
-    private View bDr;
-    private boolean bDs;
+    private AlbumActivity bHE;
+    private View bHH;
+    private TextView bHI;
+    private TextView bHJ;
+    private c bHq;
+    private boolean bIA;
+    private MediaStoreLoader bIp;
+    private RelativeLayout bIq;
+    private ImageView bIr;
+    private TextView bIs;
+    private TextView bIt;
+    private com.baidu.live.tieba.write.a.a bIu;
+    private TransparentHeadGridView bIv;
+    private i bIw;
+    private CommonEmptyView bIx;
+    private View bIy;
+    private View bIz;
     private View mView;
-    private BlueCircleProgressDialog bDt = null;
+    private BlueCircleProgressDialog bIB = null;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.live.tieba.write.album.ImageListFragment.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (ImageListFragment.this.bCi != null) {
-                if (view == ImageListFragment.this.bDl) {
-                    ImageListFragment.this.bDm.c(ImageListFragment.this.bCi.Tt(), ImageListFragment.this.bCi.Tr());
-                    ImageListFragment.this.bDm.O(ImageListFragment.this.bDq);
-                    ImageListFragment.this.bDl.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(a.e.sdk_ph_icon_album_retract), (Drawable) null);
-                } else if (view == ImageListFragment.this.bCz) {
+            if (ImageListFragment.this.bHq != null) {
+                if (view == ImageListFragment.this.bIt) {
+                    ImageListFragment.this.bIu.c(ImageListFragment.this.bHq.VT(), ImageListFragment.this.bHq.VR());
+                    ImageListFragment.this.bIu.O(ImageListFragment.this.bIy);
+                    ImageListFragment.this.bIt.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(a.e.sdk_ph_icon_album_retract), (Drawable) null);
+                } else if (view == ImageListFragment.this.bHH) {
                     Log.d("onClick", "mLayoutBottom");
                 }
             }
@@ -68,83 +68,83 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.live.tieba.write.album.ImageListFragment.2
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            if (ImageListFragment.this.bDl != null && ImageListFragment.this.isAdded()) {
+            if (ImageListFragment.this.bIt != null && ImageListFragment.this.isAdded()) {
                 Drawable drawable = SkinManager.getDrawable(a.e.sdk_ph_icon_album_spread);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                ImageListFragment.this.bDl.setCompoundDrawables(null, null, drawable, null);
+                ImageListFragment.this.bIt.setCompoundDrawables(null, null, drawable, null);
             }
         }
     };
-    private f bDa = new f() { // from class: com.baidu.live.tieba.write.album.ImageListFragment.3
+    private f bIi = new f() { // from class: com.baidu.live.tieba.write.album.ImageListFragment.3
         @Override // com.baidu.live.tieba.write.album.f
         public void a(int i, MediaFileInfo mediaFileInfo) {
-            if (mediaFileInfo != null && ImageListFragment.this.bCi != null) {
+            if (mediaFileInfo != null && ImageListFragment.this.bHq != null) {
                 if (mediaFileInfo instanceof ImageFileInfo) {
-                    ImageListFragment.this.bCi.d((ImageFileInfo) mediaFileInfo);
-                    ImageListFragment.this.bCw.fS(1);
+                    ImageListFragment.this.bHq.d((ImageFileInfo) mediaFileInfo);
+                    ImageListFragment.this.bHE.gr(1);
                 } else if (mediaFileInfo instanceof VideoFileInfo) {
                     Log.d("onClick", "VideoFileInfo");
                 }
             }
         }
     };
-    private a.InterfaceC0218a bDu = new a.InterfaceC0218a() { // from class: com.baidu.live.tieba.write.album.ImageListFragment.4
-        @Override // com.baidu.live.tieba.write.a.a.InterfaceC0218a
+    private a.InterfaceC0227a bIC = new a.InterfaceC0227a() { // from class: com.baidu.live.tieba.write.album.ImageListFragment.4
+        @Override // com.baidu.live.tieba.write.a.a.InterfaceC0227a
         public void a(int i, AlbumData albumData) {
-            List<MediaFileInfo> ir;
-            if (ImageListFragment.this.bCi != null && albumData != null) {
+            List<MediaFileInfo> iV;
+            if (ImageListFragment.this.bHq != null && albumData != null) {
                 String albumId = albumData.getAlbumId();
                 String name = albumData.getName();
-                if (albumId != null && !albumId.equals(ImageListFragment.this.bCi.Tr()) && (ir = ImageListFragment.this.bCi.ir(albumId)) != null) {
-                    ImageListFragment.this.bCi.ip(albumId);
-                    ImageListFragment.this.bDo.setData(ir);
-                    if (ImageListFragment.this.bDo.getCount() <= 0) {
-                        ImageListFragment.this.bDp.setVisibility(0);
+                if (albumId != null && !albumId.equals(ImageListFragment.this.bHq.VR()) && (iV = ImageListFragment.this.bHq.iV(albumId)) != null) {
+                    ImageListFragment.this.bHq.iT(albumId);
+                    ImageListFragment.this.bIw.setData(iV);
+                    if (ImageListFragment.this.bIw.getCount() <= 0) {
+                        ImageListFragment.this.bIx.setVisibility(0);
                     } else {
-                        ImageListFragment.this.bDp.setVisibility(8);
+                        ImageListFragment.this.bIx.setVisibility(8);
                     }
-                    ImageListFragment.this.bDl.setText(name);
-                    ImageListFragment.this.bDn.smoothScrollToPosition(0);
+                    ImageListFragment.this.bIt.setText(name);
+                    ImageListFragment.this.bIv.smoothScrollToPosition(0);
                 }
             }
         }
     };
-    private g bDb = new g() { // from class: com.baidu.live.tieba.write.album.ImageListFragment.5
+    private g bIj = new g() { // from class: com.baidu.live.tieba.write.album.ImageListFragment.5
         @Override // com.baidu.live.tieba.write.album.g
         public boolean b(int i, MediaFileInfo mediaFileInfo) {
-            if (mediaFileInfo == null || ImageListFragment.this.bCw == null || ImageListFragment.this.bCi == null) {
+            if (mediaFileInfo == null || ImageListFragment.this.bHE == null || ImageListFragment.this.bHq == null) {
                 return true;
             }
             if (mediaFileInfo instanceof ImageFileInfo) {
-                if (ImageListFragment.this.bCi.Tn()) {
-                    ImageListFragment.this.bCw.showToast(a.h.sdk_ph_album_choose_switch_tip);
+                if (ImageListFragment.this.bHq.VN()) {
+                    ImageListFragment.this.bHE.showToast(a.h.sdk_ph_album_choose_switch_tip);
                     return true;
                 }
                 ImageFileInfo imageFileInfo = (ImageFileInfo) mediaFileInfo;
-                if (ImageListFragment.this.bCi.isAdded(imageFileInfo)) {
-                    ImageListFragment.this.bCw.b(imageFileInfo);
+                if (ImageListFragment.this.bHq.isAdded(imageFileInfo)) {
+                    ImageListFragment.this.bHE.b(imageFileInfo);
                 } else {
-                    ImageListFragment.this.bCw.a(imageFileInfo);
+                    ImageListFragment.this.bHE.a(imageFileInfo);
                 }
-                ImageListFragment.this.bCi.a((VideoFileInfo) null);
-                ImageListFragment.this.bDo.notifyDataSetChanged();
-                ImageListFragment.this.Tx();
+                ImageListFragment.this.bHq.a((VideoFileInfo) null);
+                ImageListFragment.this.bIw.notifyDataSetChanged();
+                ImageListFragment.this.VX();
                 return true;
             } else if (mediaFileInfo instanceof VideoFileInfo) {
-                if (ImageListFragment.this.bCi.Tm()) {
-                    ImageListFragment.this.bCw.showToast(a.h.sdk_ph_album_choose_switch_tip);
+                if (ImageListFragment.this.bHq.VM()) {
+                    ImageListFragment.this.bHE.showToast(a.h.sdk_ph_album_choose_switch_tip);
                     return true;
                 }
                 VideoFileInfo videoFileInfo = (VideoFileInfo) mediaFileInfo;
                 if (ImageListFragment.this.c(videoFileInfo)) {
-                    if (ImageListFragment.this.bCi.b(videoFileInfo)) {
-                        ImageListFragment.this.bCi.a((VideoFileInfo) null);
+                    if (ImageListFragment.this.bHq.b(videoFileInfo)) {
+                        ImageListFragment.this.bHq.a((VideoFileInfo) null);
                     } else {
-                        ImageListFragment.this.bCi.a(videoFileInfo);
+                        ImageListFragment.this.bHq.a(videoFileInfo);
                     }
-                    ImageListFragment.this.bCi.To();
-                    ImageListFragment.this.bDo.notifyDataSetChanged();
-                    ImageListFragment.this.Tx();
+                    ImageListFragment.this.bHq.VO();
+                    ImageListFragment.this.bIw.notifyDataSetChanged();
+                    ImageListFragment.this.VX();
                     return true;
                 }
                 return true;
@@ -157,88 +157,88 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bCw = (AlbumActivity) getBaseFragmentActivity();
-        this.bCi = this.bCw.SX();
-        d.Tu().a(this);
-        this.bDh = new MediaStoreLoader(this.bCw);
-        this.bDm = new com.baidu.live.tieba.write.a.a(this.bCw);
-        this.bDm.setOnDismissListener(this.mOnDismissListener);
-        this.bDm.a(this.bDu);
+        this.bHE = (AlbumActivity) getBaseFragmentActivity();
+        this.bHq = this.bHE.Vx();
+        d.VU().a(this);
+        this.bIp = new MediaStoreLoader(this.bHE);
+        this.bIu = new com.baidu.live.tieba.write.a.a(this.bHE);
+        this.bIu.setOnDismissListener(this.mOnDismissListener);
+        this.bIu.a(this.bIC);
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mView = layoutInflater.inflate(a.g.sdk_ph_album_image_list_view, (ViewGroup) null);
-        this.bDi = (RelativeLayout) this.mView.findViewById(a.f.album_image_list_root);
-        this.bDq = this.mView.findViewById(a.f.layout_title);
-        this.bDl = (TextView) this.mView.findViewById(a.f.album_title);
-        this.bDj = (ImageView) this.mView.findViewById(a.f.img_close);
-        this.bDk = (TextView) this.mView.findViewById(a.f.img_close_text);
-        this.bDr = this.mView.findViewById(a.f.navi_line);
-        this.bCz = this.mView.findViewById(a.f.layout_bottom);
-        this.bCB = (TextView) this.mView.findViewById(a.f.original_select_btn);
-        this.bCA = (TextView) this.mView.findViewById(a.f.next_step);
-        this.bCi.ip(AlbumData.ALBUM_ID_ALL);
-        this.bDl.setText(this.bCw.getPageContext().getString(a.h.sdk_ph_album_all_media));
-        this.bDp = new CommonEmptyView(getContext());
-        this.bDp.setTitle(a.h.sdk_ph_album_list_no_data);
-        this.bDp.setSubTitle(a.h.sdk_ph_album_list_no_data_1);
-        this.bDp.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
-        this.bDp.setVisibility(8);
-        this.bDp.addToParent(this.bDi);
-        this.bDn = (TransparentHeadGridView) this.mView.findViewById(a.f.gv_image_list);
-        this.bDn.setSelector(a.c.sdk_transparent);
-        this.bDo = new i(this.bCw, this.bCi);
-        this.bDn.setAdapter((ListAdapter) this.bDo);
-        this.bDn.setOuterOnScrollListener(this);
-        this.bDo.a(this.bDb);
-        this.bDo.a(this.bDa);
-        this.bCA.setOnClickListener(this.bCw);
-        this.bDj.setOnClickListener(this.bCw);
-        this.bDk.setOnClickListener(this.bCw);
-        this.bCB.setOnClickListener(this.bCw);
-        this.bDl.setOnClickListener(this.mOnClickListener);
-        this.bCz.setOnClickListener(this.mOnClickListener);
-        Tx();
+        this.bIq = (RelativeLayout) this.mView.findViewById(a.f.album_image_list_root);
+        this.bIy = this.mView.findViewById(a.f.layout_title);
+        this.bIt = (TextView) this.mView.findViewById(a.f.album_title);
+        this.bIr = (ImageView) this.mView.findViewById(a.f.img_close);
+        this.bIs = (TextView) this.mView.findViewById(a.f.img_close_text);
+        this.bIz = this.mView.findViewById(a.f.navi_line);
+        this.bHH = this.mView.findViewById(a.f.layout_bottom);
+        this.bHJ = (TextView) this.mView.findViewById(a.f.original_select_btn);
+        this.bHI = (TextView) this.mView.findViewById(a.f.next_step);
+        this.bHq.iT(AlbumData.ALBUM_ID_ALL);
+        this.bIt.setText(this.bHE.getPageContext().getString(a.h.sdk_ph_album_all_media));
+        this.bIx = new CommonEmptyView(getContext());
+        this.bIx.setTitle(a.h.sdk_ph_album_list_no_data);
+        this.bIx.setSubTitle(a.h.sdk_ph_album_list_no_data_1);
+        this.bIx.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
+        this.bIx.setVisibility(8);
+        this.bIx.addToParent(this.bIq);
+        this.bIv = (TransparentHeadGridView) this.mView.findViewById(a.f.gv_image_list);
+        this.bIv.setSelector(a.c.sdk_transparent);
+        this.bIw = new i(this.bHE, this.bHq);
+        this.bIv.setAdapter((ListAdapter) this.bIw);
+        this.bIv.setOuterOnScrollListener(this);
+        this.bIw.a(this.bIj);
+        this.bIw.a(this.bIi);
+        this.bHI.setOnClickListener(this.bHE);
+        this.bIr.setOnClickListener(this.bHE);
+        this.bIs.setOnClickListener(this.bHE);
+        this.bHJ.setOnClickListener(this.bHE);
+        this.bIt.setOnClickListener(this.mOnClickListener);
+        this.bHH.setOnClickListener(this.mOnClickListener);
+        VX();
         showLoadingView();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return this.mView;
     }
 
     private void showLoadingView() {
-        if (this.bDt == null) {
-            this.bDt = new BlueCircleProgressDialog(getPageContext());
+        if (this.bIB == null) {
+            this.bIB = new BlueCircleProgressDialog(getPageContext());
         }
-        this.bDt.setCancelListener(null);
-        this.bDt.setTipString(a.h.sdk_loading);
-        this.bDt.setDialogVisiable(true);
+        this.bIB.setCancelListener(null);
+        this.bIB.setTipString(a.h.sdk_loading);
+        this.bIB.setDialogVisiable(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean c(VideoFileInfo videoFileInfo) {
         int i = videoFileInfo != null ? videoFileInfo.videoDuration : 0;
         if (i < 3000 || i > 600000) {
-            this.bCw.showToast(a.h.sdk_ph_album_choose_video_time_tip);
+            this.bHE.showToast(a.h.sdk_ph_album_choose_video_time_tip);
             return false;
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Tx() {
+    public void VX() {
         int count;
         String string;
-        if (this.bCi != null && this.bCA != null) {
-            if (this.bCi.Tn()) {
-                int i = this.bCi.Tn() ? 1 : 0;
+        if (this.bHq != null && this.bHI != null) {
+            if (this.bHq.VN()) {
+                int i = this.bHq.VN() ? 1 : 0;
                 count = i;
-                string = this.bCw.getString(a.h.sdk_ph_image_selected_list_count_max, new Object[]{Integer.valueOf(i), 1});
+                string = this.bHE.getString(a.h.sdk_ph_image_selected_list_count_max, new Object[]{Integer.valueOf(i), 1});
             } else {
-                count = ListUtils.getCount(this.bCi.Tp());
-                string = this.bCw.getString(a.h.sdk_ph_image_selected_list_count_max, new Object[]{Integer.valueOf(count), Integer.valueOf(this.bCi.getMaxImagesAllowed())});
+                count = ListUtils.getCount(this.bHq.VP());
+                string = this.bHE.getString(a.h.sdk_ph_image_selected_list_count_max, new Object[]{Integer.valueOf(count), Integer.valueOf(this.bHq.getMaxImagesAllowed())});
             }
-            this.bCA.setText(string);
-            this.bCA.setEnabled(count > 0);
+            this.bHI.setText(string);
+            this.bHI.setEnabled(count > 0);
         }
     }
 
@@ -250,53 +250,53 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        this.bDs = false;
+        this.bIA = false;
         if (isShow()) {
-            Tc();
+            VC();
         }
     }
 
-    private void Tb() {
-        if (this.bCi == null && this.bCw != null) {
-            this.bCi = this.bCw.SX();
+    private void VB() {
+        if (this.bHq == null && this.bHE != null) {
+            this.bHq = this.bHE.Vx();
         }
-        if (this.bCi != null) {
-            Ty();
-            cS(this.bCi.isOriginalImg());
+        if (this.bHq != null) {
+            VY();
+            dg(this.bHq.isOriginalImg());
         }
     }
 
-    private void Ty() {
-        if (this.bDh == null) {
-            this.bDh = new MediaStoreLoader(getPageContext().getPageActivity());
+    private void VY() {
+        if (this.bIp == null) {
+            this.bIp = new MediaStoreLoader(getPageContext().getPageActivity());
         }
-        this.bDh.loadAll(this.bCw.SW() == 1 ? 0 : 2, new MediaStoreLoadCallback() { // from class: com.baidu.live.tieba.write.album.ImageListFragment.6
+        this.bIp.loadAll(this.bHE.Vw() == 1 ? 0 : 2, new MediaStoreLoadCallback() { // from class: com.baidu.live.tieba.write.album.ImageListFragment.6
             @Override // com.baidu.live.tbadk.album.MediaStoreLoadCallback
             public void onPreLoad() {
             }
 
             @Override // com.baidu.live.tbadk.album.MediaStoreLoadCallback
             public void onPostLoad(ResutMediaStore resutMediaStore) {
-                if (ImageListFragment.this.bDt != null) {
-                    ImageListFragment.this.bDt.setDialogVisiable(false);
+                if (ImageListFragment.this.bIB != null) {
+                    ImageListFragment.this.bIB.setDialogVisiable(false);
                 }
                 if (resutMediaStore == null) {
                     resutMediaStore = new ResutMediaStore();
                 }
-                if (ImageListFragment.this.bCi != null && resutMediaStore != null) {
-                    ImageListFragment.this.bCi.a(resutMediaStore);
-                    String Tr = ImageListFragment.this.bCi.Tr();
-                    ImageListFragment.this.bCi.ip(Tr);
-                    ImageListFragment.this.bDo.setData(ImageListFragment.this.bCi.ir(Tr));
-                    if (ImageListFragment.this.bDo.getCount() <= 0) {
-                        ImageListFragment.this.bDp.setVisibility(0);
+                if (ImageListFragment.this.bHq != null && resutMediaStore != null) {
+                    ImageListFragment.this.bHq.a(resutMediaStore);
+                    String VR = ImageListFragment.this.bHq.VR();
+                    ImageListFragment.this.bHq.iT(VR);
+                    ImageListFragment.this.bIw.setData(ImageListFragment.this.bHq.iV(VR));
+                    if (ImageListFragment.this.bIw.getCount() <= 0) {
+                        ImageListFragment.this.bIx.setVisibility(0);
                     } else {
-                        ImageListFragment.this.bDp.setVisibility(8);
+                        ImageListFragment.this.bIx.setVisibility(8);
                     }
-                    ImageListFragment.this.bDn.smoothScrollToPosition(0);
-                    ImageListFragment.this.Tx();
+                    ImageListFragment.this.bIv.smoothScrollToPosition(0);
+                    ImageListFragment.this.VX();
                 }
-                ImageListFragment.this.bDn.TA();
+                ImageListFragment.this.bIv.Wa();
             }
         });
     }
@@ -305,53 +305,53 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         SkinUtil.onModeChanged(getPageContext(), this.mView);
-        SkinManager.setBackgroundColor(this.bDr, a.c.sdk_cp_bg_line_b, i);
-        SkinManager.setViewTextColor(this.bDl, a.c.sdk_cp_cont_b, i);
-        if (this.bCw.SW() == 1) {
-            SkinManager.setImageResource(this.bDj, a.e.sdk_ph_icon_topbar_close_n, i);
-            this.bDk.setVisibility(8);
+        SkinManager.setBackgroundColor(this.bIz, a.c.sdk_cp_bg_line_b, i);
+        SkinManager.setViewTextColor(this.bIt, a.c.sdk_cp_cont_b, i);
+        if (this.bHE.Vw() == 1) {
+            SkinManager.setImageResource(this.bIr, a.e.sdk_ph_icon_topbar_close_n, i);
+            this.bIs.setVisibility(8);
         } else {
-            SkinManager.setViewTextColor(this.bDk, a.c.sdk_ph_navi_back_text_color);
-            this.bDj.setVisibility(8);
+            SkinManager.setViewTextColor(this.bIs, a.c.sdk_ph_navi_back_text_color);
+            this.bIr.setVisibility(8);
         }
-        if (this.bDl != null) {
-            this.bDl.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(a.e.sdk_ph_icon_album_spread), (Drawable) null);
+        if (this.bIt != null) {
+            this.bIt.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(a.e.sdk_ph_icon_album_spread), (Drawable) null);
         }
-        if (this.bDo != null) {
-            this.bDo.notifyDataSetChanged();
+        if (this.bIw != null) {
+            this.bIw.notifyDataSetChanged();
         }
-        if (this.bCi != null) {
-            cS(this.bCi.isOriginalImg());
+        if (this.bHq != null) {
+            dg(this.bHq.isOriginalImg());
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDetach() {
         super.onDetach();
-        if (this.bDm != null) {
-            this.bDm.clearAnimation();
+        if (this.bIu != null) {
+            this.bIu.clearAnimation();
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.bDh != null) {
-            this.bDh.cancelLoadTask();
+        if (this.bIp != null) {
+            this.bIp.cancelLoadTask();
         }
-        if (this.bCw != null) {
-            this.bCw.closeLoadingDialog();
+        if (this.bHE != null) {
+            this.bHE.closeLoadingDialog();
         }
-        if (this.bDt != null) {
-            this.bDt.setDialogVisiable(false);
+        if (this.bIB != null) {
+            this.bIB.setDialogVisiable(false);
         }
-        d.Tu().b(this);
+        d.VU().b(this);
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        this.bDs = true;
+        this.bIA = true;
     }
 
     @Override // android.support.v4.app.Fragment
@@ -360,13 +360,13 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
     }
 
     @Override // com.baidu.live.tieba.write.album.d.a
-    public void cU(boolean z) {
-        Tc();
+    public void di(boolean z) {
+        VC();
     }
 
-    private void Tc() {
-        if (!isHidden() && !this.bDs) {
-            Tb();
+    private void VC() {
+        if (!isHidden() && !this.bIA) {
+            VB();
         }
     }
 
@@ -379,22 +379,22 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
     public void onScrollStateChanged(AbsListView absListView, int i) {
         super.onScrollStateChanged(absListView, i);
         if (i == 2) {
-            this.bDo.cV(true);
-        } else if (this.bDo.isScroll()) {
-            this.bDo.cV(false);
+            this.bIw.dj(true);
+        } else if (this.bIw.isScroll()) {
+            this.bIw.dj(false);
         }
     }
 
-    public void cS(boolean z) {
-        if (this.bCw != null && this.bCB != null) {
-            this.bCB.setText(this.bCw.getResources().getString(a.h.sdk_ph_original_img));
+    public void dg(boolean z) {
+        if (this.bHE != null && this.bHJ != null) {
+            this.bHJ.setText(this.bHE.getResources().getString(a.h.sdk_ph_original_img));
             if (z) {
-                this.bCB.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.e.sdk_ph_icon_image_select_ok_n), (Drawable) null, (Drawable) null, (Drawable) null);
-                SkinManager.setViewTextColor(this.bCB, a.c.sdk_cp_link_tip_a);
+                this.bHJ.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.e.sdk_ph_icon_image_select_ok_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                SkinManager.setViewTextColor(this.bHJ, a.c.sdk_cp_link_tip_a);
                 return;
             }
-            this.bCB.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.e.sdk_ph_icon_image_select_n), (Drawable) null, (Drawable) null, (Drawable) null);
-            SkinManager.setViewTextColor(this.bCB, a.c.sdk_cp_cont_f);
+            this.bHJ.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(a.e.sdk_ph_icon_image_select_n), (Drawable) null, (Drawable) null, (Drawable) null);
+            SkinManager.setViewTextColor(this.bHJ, a.c.sdk_cp_cont_f);
         }
     }
 }

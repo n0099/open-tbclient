@@ -6,11 +6,11 @@ import android.util.Log;
 import com.sdk.base.framework.a.a.c;
 import com.sdk.base.framework.c.f;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4491a = a.class.getSimpleName();
+    private static final String f4261a = a.class.getSimpleName();
     private static final boolean b = f.b;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -42,7 +42,7 @@ public class a {
             declaredMethod.setAccessible(true);
             return bool.booleanValue() ? declaredMethod.invoke(null, objArr) : declaredMethod.invoke(telephonyManager, objArr);
         } catch (Exception e) {
-            c.b(f4491a, e.getMessage(), Boolean.valueOf(b));
+            c.b(f4261a, e.getMessage(), Boolean.valueOf(b));
             return null;
         }
     }

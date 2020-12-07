@@ -13,20 +13,20 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class FrsLotteryCountDownView extends LinearLayout {
-    private static final long iUE = TimeUnit.DAYS.toMillis(1);
-    private static final long iUF = TimeUnit.HOURS.toMillis(1);
-    private static final long iUG = TimeUnit.MINUTES.toMillis(1);
-    private static final long iUH = TimeUnit.SECONDS.toMillis(1);
-    private TextView iUI;
-    private TextView iUJ;
-    private TextView iUK;
-    private TextView iUL;
-    private TextView iUM;
-    private TextView iUN;
-    private TextView iUO;
-    private TextView iUP;
+    private static final long jfA = TimeUnit.DAYS.toMillis(1);
+    private static final long jfB = TimeUnit.HOURS.toMillis(1);
+    private static final long jfC = TimeUnit.MINUTES.toMillis(1);
+    private static final long jfD = TimeUnit.SECONDS.toMillis(1);
+    private TextView jfE;
+    private TextView jfF;
+    private TextView jfG;
+    private TextView jfH;
+    private TextView jfI;
+    private TextView jfJ;
+    private TextView jfK;
+    private TextView jfL;
     private Context mContext;
     private View mRootView;
     private CountDownTimer mTimer;
@@ -57,42 +57,42 @@ public class FrsLotteryCountDownView extends LinearLayout {
 
     protected void init() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.frs_lottery_count_down, (ViewGroup) this, true);
-        this.iUI = (TextView) this.mRootView.findViewById(R.id.lottery_count_day);
-        this.iUJ = (TextView) this.mRootView.findViewById(R.id.lottery_count_day_txt);
-        this.iUK = (TextView) this.mRootView.findViewById(R.id.lottery_count_hour);
-        this.iUL = (TextView) this.mRootView.findViewById(R.id.lottery_count_hour_txt);
-        this.iUM = (TextView) this.mRootView.findViewById(R.id.lottery_count_minute);
-        this.iUN = (TextView) this.mRootView.findViewById(R.id.lottery_count_minute_txt);
-        this.iUO = (TextView) this.mRootView.findViewById(R.id.lottery_count_second);
-        this.iUP = (TextView) this.mRootView.findViewById(R.id.lottery_count_second_txt);
+        this.jfE = (TextView) this.mRootView.findViewById(R.id.lottery_count_day);
+        this.jfF = (TextView) this.mRootView.findViewById(R.id.lottery_count_day_txt);
+        this.jfG = (TextView) this.mRootView.findViewById(R.id.lottery_count_hour);
+        this.jfH = (TextView) this.mRootView.findViewById(R.id.lottery_count_hour_txt);
+        this.jfI = (TextView) this.mRootView.findViewById(R.id.lottery_count_minute);
+        this.jfJ = (TextView) this.mRootView.findViewById(R.id.lottery_count_minute_txt);
+        this.jfK = (TextView) this.mRootView.findViewById(R.id.lottery_count_second);
+        this.jfL = (TextView) this.mRootView.findViewById(R.id.lottery_count_second_txt);
     }
 
     public void setData(long j) {
-        ap.setViewTextColor(this.iUI, (int) R.color.CAM_X0111);
-        ap.setViewTextColor(this.iUJ, (int) R.color.CAM_X0108);
-        ap.setBackgroundColor(this.iUI, R.color.common_color_10060);
-        ap.setViewTextColor(this.iUK, (int) R.color.CAM_X0111);
-        ap.setViewTextColor(this.iUL, (int) R.color.CAM_X0108);
-        ap.setBackgroundColor(this.iUK, R.color.common_color_10060);
-        ap.setViewTextColor(this.iUM, (int) R.color.CAM_X0111);
-        ap.setViewTextColor(this.iUN, (int) R.color.CAM_X0108);
-        ap.setBackgroundColor(this.iUM, R.color.common_color_10060);
-        ap.setViewTextColor(this.iUO, (int) R.color.CAM_X0111);
-        ap.setViewTextColor(this.iUP, (int) R.color.CAM_X0108);
-        ap.setBackgroundColor(this.iUO, R.color.common_color_10060);
-        if (j <= iUH) {
-            this.iUI.setText("0");
-            this.iUK.setText("0");
-            this.iUM.setText("0");
-            this.iUO.setText("0");
+        ap.setViewTextColor(this.jfE, (int) R.color.CAM_X0111);
+        ap.setViewTextColor(this.jfF, (int) R.color.CAM_X0108);
+        ap.setBackgroundColor(this.jfE, R.color.common_color_10060);
+        ap.setViewTextColor(this.jfG, (int) R.color.CAM_X0111);
+        ap.setViewTextColor(this.jfH, (int) R.color.CAM_X0108);
+        ap.setBackgroundColor(this.jfG, R.color.common_color_10060);
+        ap.setViewTextColor(this.jfI, (int) R.color.CAM_X0111);
+        ap.setViewTextColor(this.jfJ, (int) R.color.CAM_X0108);
+        ap.setBackgroundColor(this.jfI, R.color.common_color_10060);
+        ap.setViewTextColor(this.jfK, (int) R.color.CAM_X0111);
+        ap.setViewTextColor(this.jfL, (int) R.color.CAM_X0108);
+        ap.setBackgroundColor(this.jfK, R.color.common_color_10060);
+        if (j <= jfD) {
+            this.jfE.setText("0");
+            this.jfG.setText("0");
+            this.jfI.setText("0");
+            this.jfK.setText("0");
             return;
         }
-        if (j / iUE <= 0) {
-            this.iUI.setVisibility(8);
-            this.iUJ.setVisibility(8);
+        if (j / jfA <= 0) {
+            this.jfE.setVisibility(8);
+            this.jfF.setVisibility(8);
         } else {
-            this.iUI.setVisibility(0);
-            this.iUJ.setVisibility(0);
+            this.jfE.setVisibility(0);
+            this.jfF.setVisibility(0);
         }
         if (this.mTimer != null) {
             this.mTimer.cancel();
@@ -100,7 +100,7 @@ public class FrsLotteryCountDownView extends LinearLayout {
         this.mTimer = new b(new WeakReference(this), j, 1000L).start();
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     private static class b extends CountDownTimer {
         private final WeakReference<FrsLotteryCountDownView> reference;
 
@@ -113,10 +113,10 @@ public class FrsLotteryCountDownView extends LinearLayout {
         public void onTick(long j) {
             FrsLotteryCountDownView frsLotteryCountDownView = this.reference.get();
             if (frsLotteryCountDownView != null) {
-                frsLotteryCountDownView.iUI.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.iUE)));
-                frsLotteryCountDownView.iUK.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.iUE) / FrsLotteryCountDownView.iUF)));
-                frsLotteryCountDownView.iUM.setText(StringUtils.string(Long.valueOf(((j % FrsLotteryCountDownView.iUE) % FrsLotteryCountDownView.iUF) / FrsLotteryCountDownView.iUG)));
-                frsLotteryCountDownView.iUO.setText(StringUtils.string(Long.valueOf((((j % FrsLotteryCountDownView.iUE) % FrsLotteryCountDownView.iUF) % FrsLotteryCountDownView.iUG) / FrsLotteryCountDownView.iUH)));
+                frsLotteryCountDownView.jfE.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.jfA)));
+                frsLotteryCountDownView.jfG.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.jfA) / FrsLotteryCountDownView.jfB)));
+                frsLotteryCountDownView.jfI.setText(StringUtils.string(Long.valueOf(((j % FrsLotteryCountDownView.jfA) % FrsLotteryCountDownView.jfB) / FrsLotteryCountDownView.jfC)));
+                frsLotteryCountDownView.jfK.setText(StringUtils.string(Long.valueOf((((j % FrsLotteryCountDownView.jfA) % FrsLotteryCountDownView.jfB) % FrsLotteryCountDownView.jfC) / FrsLotteryCountDownView.jfD)));
                 return;
             }
             com.baidu.adp.lib.f.e.mY().postDelayed(new a(new WeakReference(this)), TimeUnit.SECONDS.toSeconds(3L));
@@ -126,12 +126,12 @@ public class FrsLotteryCountDownView extends LinearLayout {
         public void onFinish() {
             FrsLotteryCountDownView frsLotteryCountDownView = this.reference.get();
             if (frsLotteryCountDownView != null) {
-                frsLotteryCountDownView.iUO.setText("0");
+                frsLotteryCountDownView.jfK.setText("0");
             }
         }
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     private static class a implements Runnable {
         private final WeakReference<CountDownTimer> reference;
 

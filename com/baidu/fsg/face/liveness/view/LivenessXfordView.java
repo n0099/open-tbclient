@@ -21,12 +21,12 @@ import android.support.v4.view.InputDeviceCompat;
 import android.util.AttributeSet;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.FrameLayout;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class LivenessXfordView extends FrameLayout {
     public static final String PROGRESS_PROPERTY = "progress";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f1764a = 12;
+    private static final int f1766a = 12;
     private AnimatorSet A;
     private float B;
     private float C;

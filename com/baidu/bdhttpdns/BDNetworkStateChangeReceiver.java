@@ -12,11 +12,11 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
-/* loaded from: classes19.dex */
+/* loaded from: classes5.dex */
 public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1274a = false;
+    private boolean f1273a = false;
     private boolean b = true;
     private boolean c = true;
     private String d = "";
@@ -24,7 +24,7 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
     private boolean f = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes5.dex */
     public class a implements Callable<Object> {
         a() {
         }
@@ -49,21 +49,21 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
 
     private void a(Context context) {
         l.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.b), Boolean.valueOf(this.c));
-        i tb = i.tb();
-        tb.b();
-        BDHttpDns P = BDHttpDns.P(context);
+        i te = i.te();
+        te.b();
+        BDHttpDns Q = BDHttpDns.Q(context);
         refreshIpReachable();
-        ArrayList<String> b = P.sS().b();
+        ArrayList<String> b = Q.sV().b();
         if (this.b) {
-            P.sS().a();
-            P.sT().a();
+            Q.sV().a();
+            Q.sW().a();
         }
         if (this.c) {
             if (isIPv6Only()) {
                 l.a("Now the network is Ipv6 Only, Will not send prefetch request. ", new Object[0]);
             } else if (b == null || b.isEmpty()) {
             } else {
-                tb.a(b, new k(context));
+                te.a(b, new k(context));
             }
         }
     }
@@ -87,8 +87,8 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
         String str;
         RuntimeException e;
         ConnectivityManager connectivityManager;
-        if (!this.f1274a) {
-            this.f1274a = true;
+        if (!this.f1273a) {
+            this.f1273a = true;
             return;
         }
         try {

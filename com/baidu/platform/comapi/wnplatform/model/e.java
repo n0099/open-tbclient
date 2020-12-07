@@ -9,11 +9,11 @@ import com.baidu.platform.comapi.wnplatform.p.g;
 import com.google.protobuf.micro.MessageMicro;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class e extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3135a = 0;
+    private int f3137a = 0;
     private int b = 0;
     private int c = 1;
     private ArrayList<LatLng> d = new ArrayList<>();
@@ -21,7 +21,7 @@ public class e extends a {
 
     public String a() {
         StringBuffer stringBuffer = new StringBuffer();
-        g.a(this.f3135a, g.b.ZH, stringBuffer);
+        g.a(this.f3137a, g.b.ZH, stringBuffer);
         return stringBuffer.toString();
     }
 
@@ -32,7 +32,7 @@ public class e extends a {
     }
 
     public void c() {
-        this.f3135a = 0;
+        this.f3137a = 0;
         this.b = 0;
         if (this.d != null) {
             this.d.clear();
@@ -43,10 +43,10 @@ public class e extends a {
         c();
         if (bundle != null) {
             this.c = i;
-            this.f3135a = bundle.getInt("totaldistance");
+            this.f3137a = bundle.getInt("totaldistance");
             this.b = bundle.getInt("totaltime");
-            if (this.f3135a <= 0 && this.e != null) {
-                this.f3135a = b(this.e, com.baidu.platform.comapi.walknavi.b.a().b());
+            if (this.f3137a <= 0 && this.e != null) {
+                this.f3137a = b(this.e, com.baidu.platform.comapi.walknavi.b.a().b());
             }
             if (this.b <= 0 && this.e != null) {
                 this.b = a(this.e, com.baidu.platform.comapi.walknavi.b.a().b());
@@ -91,7 +91,7 @@ public class e extends a {
     }
 
     public int e() {
-        return this.f3135a;
+        return this.f3137a;
     }
 
     public int a(com.baidu.g.a.d dVar, int i) {
@@ -101,13 +101,13 @@ public class e extends a {
             return 0;
         }
         d.b bVar = null;
-        if (i < dVar.vQ()) {
-            bVar = dVar.ca(i);
+        if (i < dVar.vI()) {
+            bVar = dVar.ce(i);
         }
         if (bVar == null) {
             i2 = 0;
         } else {
-            Iterator<d.b.C0129b> it = bVar.vT().iterator();
+            Iterator<d.b.C0130b> it = bVar.vL().iterator();
             while (true) {
                 i2 = i3;
                 if (!it.hasNext()) {
@@ -116,9 +116,9 @@ public class e extends a {
                 i3 = it.next().getDuration() + i2;
             }
         }
-        for (com.baidu.g.a.b bVar2 : dVar.wy()) {
-            for (b.C0124b c0124b : bVar2.vP()) {
-                for (b.C0124b.a aVar : c0124b.vT()) {
+        for (com.baidu.g.a.b bVar2 : dVar.wq()) {
+            for (b.C0125b c0125b : bVar2.vH()) {
+                for (b.C0125b.a aVar : c0125b.vL()) {
                     i2 += aVar.getDuration();
                 }
             }
@@ -133,11 +133,11 @@ public class e extends a {
             return 0;
         }
         d.b bVar = null;
-        if (i < dVar.vQ()) {
-            bVar = dVar.ca(i);
+        if (i < dVar.vI()) {
+            bVar = dVar.ce(i);
         }
         if (bVar != null) {
-            Iterator<d.b.C0129b> it = bVar.vT().iterator();
+            Iterator<d.b.C0130b> it = bVar.vL().iterator();
             while (true) {
                 i2 = i3;
                 if (!it.hasNext()) {
@@ -148,9 +148,9 @@ public class e extends a {
         } else {
             i2 = 0;
         }
-        for (com.baidu.g.a.b bVar2 : dVar.wy()) {
-            for (b.C0124b c0124b : bVar2.vP()) {
-                for (b.C0124b.a aVar : c0124b.vT()) {
+        for (com.baidu.g.a.b bVar2 : dVar.wq()) {
+            for (b.C0125b c0125b : bVar2.vH()) {
+                for (b.C0125b.a aVar : c0125b.vL()) {
                     i2 += aVar.getDistance();
                 }
             }

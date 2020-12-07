@@ -2,32 +2,32 @@ package com.baidu.ar.vo.b;
 
 import android.opengl.Matrix;
 import com.baidu.ar.algovo.ARVOJniClient;
-import com.baidu.ar.arplay.core.engine.pixel.FramePixels;
+import com.baidu.ar.arplay.core.pixel.FramePixels;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.slam.TrackModel;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class c implements a, b {
     private static final String TAG = c.class.getSimpleName();
-    private static final float[] xT = {-1.0f, 0.0f, 0.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f};
-    private d xU;
-    private com.baidu.ar.algo.a xV;
-    private float[] xX;
-    private float ya;
-    private boolean xW = false;
-    private float xY = 0.0f;
-    private boolean xZ = false;
+    private static final float[] yI = {-1.0f, 0.0f, 0.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f};
+    private d yJ;
+    private com.baidu.ar.algo.a yK;
+    private float[] yM;
+    private float yP;
+    private boolean yL = false;
+    private float yN = 0.0f;
+    private boolean yO = false;
 
     public c(d dVar) {
-        this.xU = dVar;
+        this.yJ = dVar;
     }
 
     private void c(float[] fArr, float[] fArr2) {
         float[] fArr3 = new float[16];
         float[] fArr4 = new float[16];
         Matrix.invertM(fArr3, 0, fArr2, 0);
-        Matrix.multiplyMM(fArr4, 0, xT, 0, fArr3, 0);
+        Matrix.multiplyMM(fArr4, 0, yI, 0, fArr3, 0);
         Matrix.invertM(fArr3, 0, fArr4, 0);
         fArr[0] = fArr3[0];
         fArr[1] = fArr3[1];
@@ -38,45 +38,45 @@ public class c implements a, b {
         fArr[8] = fArr3[8];
         fArr[9] = fArr3[9];
         fArr[10] = fArr3[10];
-        float scale = this.xV.getScale();
-        float f = fArr[12] * this.ya * scale;
-        float f2 = fArr[13] * this.ya * scale;
+        float scale = this.yK.getScale();
+        float f = fArr[12] * this.yP * scale;
+        float f2 = fArr[13] * this.yP * scale;
         fArr[12] = f;
         fArr[13] = f2;
-        fArr[14] = scale * fArr[14] * this.ya;
-        Matrix.rotateM(fArr, 0, this.xY - 90.0f, 0.0f, 0.0f, 1.0f);
+        fArr[14] = scale * fArr[14] * this.yP;
+        Matrix.rotateM(fArr, 0, this.yN - 90.0f, 0.0f, 0.0f, 1.0f);
     }
 
-    private float[] q(float[] fArr) {
-        if (this.xY == 0.0f) {
-            this.xY = this.xU.yd.getAngle();
+    private float[] p(float[] fArr) {
+        if (this.yN == 0.0f) {
+            this.yN = this.yJ.yS.getAngle();
         }
         float[] fArr2 = new float[16];
         float[] fArr3 = new float[16];
         Matrix.invertM(fArr2, 0, fArr, 0);
-        Matrix.multiplyMM(fArr3, 0, xT, 0, fArr2, 0);
+        Matrix.multiplyMM(fArr3, 0, yI, 0, fArr2, 0);
         return new float[]{-fArr3[4], -fArr3[5], -fArr3[6], -fArr3[0], -fArr3[1], -fArr3[2], -fArr3[8], -fArr3[9], -fArr3[10], 0.0f, 0.0f, 0.0f};
     }
 
     @Override // com.baidu.ar.vo.b.b
     public void a(FramePixels framePixels, ICallbackWith<f> iCallbackWith) {
         float[] hb;
-        if (framePixels == null || !this.xW || this.xU == null || (hb = this.xU.yd.hb()) == null || hb.length == 0) {
+        if (framePixels == null || !this.yL || this.yJ == null || (hb = this.yJ.yS.hb()) == null || hb.length == 0) {
             return;
         }
-        if (!this.xZ) {
+        if (!this.yO) {
             iCallbackWith.run(new f(framePixels.getTimestamp()));
             return;
         }
-        this.xX = hb;
-        ARVOJniClient.track(framePixels.getPixelsAddress(), q(hb));
+        this.yM = hb;
+        ARVOJniClient.track(framePixels.getPixelsAddress(), p(hb));
         ArrayList<TrackModel> fetchModelPose = ARVOJniClient.fetchModelPose();
         Iterator<TrackModel> it = fetchModelPose.iterator();
         while (it.hasNext()) {
-            c(it.next().pose, this.xX);
+            c(it.next().pose, this.yM);
         }
         g gVar = new g(framePixels.getTimestamp());
-        gVar.H(true);
+        gVar.F(true);
         gVar.setTracked(true);
         gVar.b(fetchModelPose);
         iCallbackWith.run(new f(gVar));
@@ -84,52 +84,53 @@ public class c implements a, b {
 
     @Override // com.baidu.ar.vo.b.a
     public float[] a(float f, float[] fArr) {
-        if (this.xW) {
+        if (this.yL) {
             float[] fArr2 = new float[2];
-            return new float[]{ARVOJniClient.calModelPosition(this.xV.ah(), f, q(fArr), fArr2), fArr2[0], fArr2[1]};
+            return new float[]{ARVOJniClient.calModelPosition(this.yK.aj(), f, p(fArr), fArr2), fArr2[0], fArr2[1]};
         }
         return null;
     }
 
     @Override // com.baidu.ar.vo.b.a
     public void hi() {
-        if (this.xW && this.xZ) {
+        if (this.yL && this.yO) {
             ARVOJniClient.removeAllModel();
-            this.xZ = false;
+            this.yO = false;
         }
     }
 
     @Override // com.baidu.ar.vo.b.b
     public void init() {
-        this.xV = com.baidu.ar.algo.a.a(this.xU.yb, this.xU.yc, false);
+        this.yK = com.baidu.ar.algo.a.a(this.yJ.yQ, this.yJ.yR, false);
         try {
-            com.baidu.ar.libloader.b.as("module_basic");
-            com.baidu.ar.libloader.b.as("module_vo");
-            this.xW = ARVOJniClient.start(this.xV.width, this.xV.height, this.xV.ah(), this.xV.ai());
+            com.baidu.ar.libloader.a.require("ardatabasic2");
+            com.baidu.ar.libloader.a.require("module_basic");
+            com.baidu.ar.libloader.a.require("module_vo");
+            this.yL = ARVOJniClient.start(this.yK.width, this.yK.height, this.yK.aj(), this.yK.ak());
         } catch (UnsatisfiedLinkError e) {
-            com.baidu.ar.g.b.b(TAG, "slam algo UnsatisfiedLinkError " + e.getMessage());
+            com.baidu.ar.h.b.b(TAG, "slam algo UnsatisfiedLinkError " + e.getMessage());
         }
     }
 
     @Override // com.baidu.ar.vo.b.a
     public int insertModel(String str, int i, int i2, float[] fArr, float f) {
-        if (this.xW) {
-            this.ya = f;
+        if (this.yL) {
+            this.yP = f;
             if (fArr == null) {
-                fArr = xT;
+                fArr = yI;
             }
             int insertModel = ARVOJniClient.insertModel(str, i, i2, fArr, 1.0f);
-            this.xZ = true;
+            this.yO = true;
             return insertModel;
         }
         return -1;
     }
 
     public void release() {
-        if (this.xW) {
+        if (this.yL) {
             ARVOJniClient.stop();
-            this.xW = false;
+            this.yL = false;
         }
-        this.xU = null;
+        this.yJ = null;
     }
 }

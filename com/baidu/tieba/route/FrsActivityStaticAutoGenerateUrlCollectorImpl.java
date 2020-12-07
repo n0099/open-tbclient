@@ -5,14 +5,16 @@ import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class FrsActivityStaticAutoGenerateUrlCollectorImpl implements d {
     @Override // com.baidu.adp.framework.a.d
     public Map<String, ArrayList<String>> getConfigRouterMap() {
         HashMap hashMap = new HashMap();
         ArrayList arrayList = new ArrayList();
         arrayList.add("FrsActivityConfig");
+        arrayList.add("ForumRulesShowActivityConfig");
         arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_FRS);
+        arrayList.add("forumruledetail://");
         arrayList.add("tname");
         hashMap.put("com.baidu.tieba.frs.FrsActivityStatic", arrayList);
         return hashMap;

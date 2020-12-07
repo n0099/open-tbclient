@@ -2,7 +2,7 @@ package com.google.vr.dynamite.client;
 
 import android.os.IInterface;
 import android.os.RemoteException;
-/* loaded from: classes5.dex */
+/* loaded from: classes17.dex */
 public interface INativeLibraryLoader extends IInterface {
     int checkVersion(String str) throws RemoteException;
 

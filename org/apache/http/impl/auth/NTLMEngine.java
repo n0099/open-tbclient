@@ -1,6 +1,6 @@
 package org.apache.http.impl.auth;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public interface NTLMEngine {
     String generateType1Msg(String str, String str2) throws NTLMEngineException;
 

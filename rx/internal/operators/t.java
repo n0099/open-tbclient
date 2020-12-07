@@ -3,12 +3,12 @@ package rx.internal.operators;
 import java.util.NoSuchElementException;
 import rx.d;
 import rx.h;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public final class t<T> implements h.a<T> {
-    final d.a<T> qiV;
+    final d.a<T> pSW;
 
     public t(d.a<T> aVar) {
-        this.qiV = aVar;
+        this.pSW = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -17,11 +17,11 @@ public final class t<T> implements h.a<T> {
     public void call(rx.i<? super T> iVar) {
         a aVar = new a(iVar);
         iVar.add(aVar);
-        this.qiV.call(aVar);
+        this.pSW.call(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public static final class a<T> extends rx.j<T> {
         final rx.i<? super T> actual;
         int state;

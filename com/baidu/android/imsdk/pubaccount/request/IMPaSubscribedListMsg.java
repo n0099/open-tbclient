@@ -15,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMPaSubscribedListMsg extends Message {
     private Context mContext;
 
@@ -87,6 +87,7 @@ public class IMPaSubscribedListMsg extends Message {
                         e = e3;
                         LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        super.handleMessageResult(context, jSONObject, i, str);
                         PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);
                     }
                 }
@@ -95,12 +96,14 @@ public class IMPaSubscribedListMsg extends Message {
             }
         } else if (1001 != i) {
             list = null;
+            super.handleMessageResult(context, jSONObject, i, str);
             PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);
         } else {
             i = 0;
             str = "query from local db";
             list = PaInfoDBManager.getInstance(context).querySubscribedPaList();
         }
+        super.handleMessageResult(context, jSONObject, i, str);
         PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);
     }
 

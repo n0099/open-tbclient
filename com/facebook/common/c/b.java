@@ -3,14 +3,14 @@ package com.facebook.common.c;
 import android.util.Log;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class b implements c {
-    public static final b oMO = new b();
-    private String oMP = "unknown";
-    private int oMQ = 5;
+    public static final b pbW = new b();
+    private String pbX = "unknown";
+    private int pbY = 5;
 
-    public static b eke() {
-        return oMO;
+    public static b epT() {
+        return pbW;
     }
 
     private b() {
@@ -18,7 +18,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.oMQ <= i;
+        return this.pbY <= i;
     }
 
     @Override // com.facebook.common.c.c
@@ -62,16 +62,16 @@ public class b implements c {
     }
 
     private void println(int i, String str, String str2) {
-        Log.println(i, XJ(str), str2);
+        Log.println(i, Ze(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, XJ(str), j(str2, th));
+        Log.println(i, Ze(str), j(str2, th));
     }
 
-    private String XJ(String str) {
-        if (this.oMP != null) {
-            return this.oMP + ":" + str;
+    private String Ze(String str) {
+        if (this.pbX != null) {
+            return this.pbX + ":" + str;
         }
         return str;
     }

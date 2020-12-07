@@ -3,60 +3,60 @@ package org.brotli.dec;
 import java.io.IOException;
 import java.io.InputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class j {
     int distance;
     int j;
     byte[] output;
-    int pHt;
-    int qcK;
-    byte[] qcM;
-    int qcP;
-    boolean qcQ;
-    boolean qcR;
-    boolean qcS;
-    int qdA;
-    int qdB;
-    int qdC;
-    int qdd;
-    int qde;
-    byte[] qdf;
-    byte[] qdg;
-    int qdh;
-    int qdi;
-    int qdj;
-    int qdk;
-    int qdl;
-    int qdm;
-    byte[] qdn;
-    int qdo;
-    int qdp;
-    int qdq;
-    int qdr;
-    int qds;
-    int qdt;
-    int qdu;
-    int qdz;
-    int qcJ = 0;
-    final a qcL = new a();
-    final int[] qcN = new int[3240];
-    final int[] qcO = new int[3240];
-    final g qcT = new g();
-    final g qcU = new g();
-    final g qcV = new g();
-    final int[] qcW = new int[3];
-    final int[] qcX = new int[3];
-    final int[] qcY = new int[6];
-    final int[] qcZ = {16, 15, 11, 4};
+    int pML;
+    byte[] pMN;
+    int pMQ;
+    boolean pMR;
+    boolean pMS;
+    boolean pMT;
+    int pNA;
+    int pNB;
+    int pNC;
+    int pND;
+    int pNE;
+    int pNe;
+    int pNf;
+    byte[] pNg;
+    byte[] pNh;
+    int pNi;
+    int pNj;
+    int pNk;
+    int pNl;
+    int pNm;
+    int pNn;
+    byte[] pNo;
+    int pNp;
+    int pNq;
+    int pNr;
+    int pNs;
+    int pNt;
+    int pNu;
+    int pNv;
+    int pMK = 0;
+    final a pMM = new a();
+    final int[] pMO = new int[3240];
+    final int[] pMP = new int[3240];
+    final g pMU = new g();
+    final g pMV = new g();
+    final g pMW = new g();
+    final int[] pMX = new int[3];
+    final int[] pMY = new int[3];
+    final int[] pMZ = new int[6];
+    final int[] pNa = {16, 15, 11, 4};
     int pos = 0;
-    int gPJ = 0;
-    int qda = 0;
-    boolean qdb = false;
-    int qdc = 0;
-    int qdv = 0;
-    long qdw = 0;
-    byte[] qdx = new byte[0];
-    int qdy = 0;
+    int gYW = 0;
+    int pNb = 0;
+    boolean pNc = false;
+    int pNd = 0;
+    int pNw = 0;
+    long pNx = 0;
+    byte[] pNy = new byte[0];
+    int pNz = 0;
 
     private static int i(a aVar) {
         if (a.a(aVar, 1) == 0) {
@@ -75,27 +75,27 @@ public final class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(j jVar, InputStream inputStream) {
-        if (jVar.qcJ != 0) {
+        if (jVar.pMK != 0) {
             throw new IllegalStateException("State MUST be uninitialized");
         }
-        a.a(jVar.qcL, inputStream);
-        int i = i(jVar.qcL);
+        a.a(jVar.pMM, inputStream);
+        int i = i(jVar.pMM);
         if (i == 9) {
             throw new BrotliRuntimeException("Invalid 'windowBits' code");
         }
-        jVar.qdu = 1 << i;
-        jVar.qdt = jVar.qdu - 16;
-        jVar.qcJ = 1;
+        jVar.pNv = 1 << i;
+        jVar.pNu = jVar.pNv - 16;
+        jVar.pMK = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void j(j jVar) throws IOException {
-        if (jVar.qcJ == 0) {
+        if (jVar.pMK == 0) {
             throw new IllegalStateException("State MUST be initialized");
         }
-        if (jVar.qcJ != 11) {
-            jVar.qcJ = 11;
-            a.e(jVar.qcL);
+        if (jVar.pMK != 11) {
+            jVar.pMK = 11;
+            a.e(jVar.pMM);
         }
     }
 }

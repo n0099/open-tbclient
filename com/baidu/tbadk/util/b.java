@@ -14,30 +14,30 @@ import java.io.InputStream;
 import okhttp3.Response;
 /* loaded from: classes.dex */
 public class b {
-    private static b fxt = null;
+    private static b fFi = null;
 
     private b() {
     }
 
-    public static synchronized b bCy() {
+    public static synchronized b bFZ() {
         b bVar;
         synchronized (b.class) {
-            if (fxt == null) {
-                fxt = new b();
+            if (fFi == null) {
+                fFi = new b();
             }
-            bVar = fxt;
+            bVar = fFi;
         }
         return bVar;
     }
 
-    public void bCz() {
-        String bCA = bCA();
-        if (!TextUtils.isEmpty(bCA)) {
-            com.baidu.adp.lib.e.c.mS().a(bCA, 10, null, 0, 0, null, new Object[0]);
+    public void bGa() {
+        String bGb = bGb();
+        if (!TextUtils.isEmpty(bGb)) {
+            com.baidu.adp.lib.e.c.mS().a(bGb, 10, null, 0, 0, null, new Object[0]);
         }
     }
 
-    public String bCA() {
+    public String bGb() {
         return TbadkSettings.getInst().loadString("ad_url", null);
     }
 

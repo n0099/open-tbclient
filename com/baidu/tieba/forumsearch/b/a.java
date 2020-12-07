@@ -3,35 +3,35 @@ package com.baidu.tieba.forumsearch.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.ArrayList;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class a extends BaseCardInfo {
-    public static final BdUniqueId iGh = BdUniqueId.gen();
-    public static final BdUniqueId iGi = BdUniqueId.gen();
-    public static final BdUniqueId iGj = BdUniqueId.gen();
-    private BdUniqueId Vx;
-    private ArrayList<String> iGk;
+    public static final BdUniqueId iQZ = BdUniqueId.gen();
+    public static final BdUniqueId iRa = BdUniqueId.gen();
+    public static final BdUniqueId iRb = BdUniqueId.gen();
+    private BdUniqueId Wv;
+    private ArrayList<String> iRc;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return this.Vx;
+        return this.Wv;
     }
 
     public void g(BdUniqueId bdUniqueId) {
-        this.Vx = bdUniqueId;
+        this.Wv = bdUniqueId;
     }
 
     public a() {
-        this.Vx = iGi;
-        this.Vx = iGi;
+        this.Wv = iRa;
+        this.Wv = iRa;
     }
 
     public a(ArrayList<String> arrayList) {
-        this.Vx = iGi;
-        this.iGk = arrayList;
-        this.Vx = iGh;
+        this.Wv = iRa;
+        this.iRc = arrayList;
+        this.Wv = iQZ;
     }
 
-    public ArrayList<String> cwA() {
-        return this.iGk;
+    public ArrayList<String> cAP() {
+        return this.iRc;
     }
 }

@@ -14,14 +14,14 @@ import com.tencent.open.utils.j;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AssistActivity extends Activity {
     public static final String EXTRA_INTENT = "openSDK_LOG.AssistActivity.ExtraIntent";
     private String d;
     private boolean c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    protected boolean f4548a = false;
+    protected boolean f4318a = false;
     protected Handler b = new Handler() { // from class: com.tencent.connect.common.AssistActivity.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -59,7 +59,7 @@ public class AssistActivity extends Activity {
         Bundle bundleExtra = getIntent().getBundleExtra("h5_share_data");
         if (bundle != null) {
             this.c = bundle.getBoolean("RESTART_FLAG");
-            this.f4548a = bundle.getBoolean("RESUME_FLAG", false);
+            this.f4318a = bundle.getBoolean("RESUME_FLAG", false);
         }
         if (!this.c) {
             if (bundleExtra == null) {
@@ -94,11 +94,11 @@ public class AssistActivity extends Activity {
             if (!intent.getBooleanExtra("is_qq_mobile_share", false) && this.c && !isFinishing()) {
                 finish();
             }
-            if (this.f4548a) {
+            if (this.f4318a) {
                 this.b.sendMessage(this.b.obtainMessage(0));
                 return;
             }
-            this.f4548a = true;
+            this.f4318a = true;
         }
     }
 
@@ -137,7 +137,7 @@ public class AssistActivity extends Activity {
     protected void onSaveInstanceState(Bundle bundle) {
         f.b("openSDK_LOG.AssistActivity", "--onSaveInstanceState--");
         bundle.putBoolean("RESTART_FLAG", true);
-        bundle.putBoolean("RESUME_FLAG", this.f4548a);
+        bundle.putBoolean("RESUME_FLAG", this.f4318a);
         super.onSaveInstanceState(bundle);
     }
 

@@ -7,19 +7,19 @@ import com.baidu.rtc.l;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public class d extends i {
-    private i.a aAP = null;
+    private i.a aDu = null;
 
     @Override // com.baidu.rtc.i
     public void a(i.a aVar) {
-        com.baidu.live.alablmsdk.a.b.ag(" BLMRtcVideoCaptureProxy  initialize", "");
-        this.aAP = aVar;
+        com.baidu.live.alablmsdk.a.b.a.ak(" BLMRtcVideoCaptureProxy  initialize", "");
+        this.aDu = aVar;
     }
 
     @Override // com.baidu.rtc.i, org.webrtc.VideoCapturer
     public void dispose() {
         super.dispose();
-        com.baidu.live.alablmsdk.a.b.ag(" BLMRtcVideoCaptureProxy  dispose", "");
-        this.aAP = null;
+        com.baidu.live.alablmsdk.a.b.a.ak(" BLMRtcVideoCaptureProxy  dispose", "");
+        this.aDu = null;
     }
 
     @Override // com.baidu.rtc.i, org.webrtc.VideoCapturer
@@ -41,12 +41,12 @@ public class d extends i {
     public void p(byte[] bArr, int i, int i2) {
         l o = o(bArr, i, i2);
         if (o == null) {
-            com.baidu.live.alablmsdk.a.b.d(" videoFrame == null ");
-            com.baidu.live.alablmsdk.a.b.fD(" videoFrame == null ");
+            com.baidu.live.alablmsdk.a.b.a.d(" videoFrame == null ");
+            com.baidu.live.alablmsdk.a.b.a.fY(" videoFrame == null ");
             return;
         }
-        if (this.aAP != null) {
-            this.aAP.a(o);
+        if (this.aDu != null) {
+            this.aDu.a(o);
         }
         o.release();
     }

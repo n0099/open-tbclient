@@ -2,10 +2,10 @@ package com.baidu.tieba.ala.alasquare.special_forum.b;
 
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
-    public a gre;
-    private int grf = -1;
+    public a gzn;
+    private int gzo = -1;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext) {
@@ -14,95 +14,95 @@ public class e {
 
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar, boolean z) {
         if (aVar == null) {
-            this.grf = -1;
-            this.gre = new b(this.mTbPageContext);
+            this.gzo = -1;
+            this.gzn = new b(this.mTbPageContext);
         } else if (z) {
-            this.grf = aVar.gpn;
-            switch (aVar.gpn) {
+            this.gzo = aVar.gxw;
+            switch (aVar.gxw) {
                 case 1:
-                    this.gre = new d(this.mTbPageContext);
+                    this.gzn = new d(this.mTbPageContext);
                     break;
                 case 2:
-                    this.gre = new f(this.mTbPageContext);
+                    this.gzn = new f(this.mTbPageContext);
                     break;
                 case 3:
-                    this.gre = new c(this.mTbPageContext);
+                    this.gzn = new c(this.mTbPageContext);
                     break;
                 default:
-                    this.gre = new b(this.mTbPageContext);
+                    this.gzn = new b(this.mTbPageContext);
                     break;
             }
         }
-        if (this.gre.b(aVar)) {
+        if (this.gzn.b(aVar)) {
             if (z) {
-                this.gre.init();
+                this.gzn.init();
             }
-            this.gre.a(aVar);
+            this.gzn.a(aVar);
             return;
         }
-        this.grf = -1;
-        this.gre = new b(this.mTbPageContext);
+        this.gzo = -1;
+        this.gzn = new b(this.mTbPageContext);
         if (z) {
-            this.gre.init();
+            this.gzn.init();
         }
-        this.gre.a(aVar);
+        this.gzn.a(aVar);
     }
 
     public boolean c(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
-        return aVar == null || this.grf != aVar.gpn;
+        return aVar == null || this.gzo != aVar.gxw;
     }
 
     public void pause() {
-        if (this.gre != null) {
-            this.gre.pause();
+        if (this.gzn != null) {
+            this.gzn.pause();
         }
     }
 
     public void resume() {
-        if (this.gre != null) {
-            this.gre.resume();
+        if (this.gzn != null) {
+            this.gzn.resume();
         }
     }
 
-    public void lC(boolean z) {
-        if (this.gre != null) {
-            this.gre.lC(z);
+    public void lX(boolean z) {
+        if (this.gzn != null) {
+            this.gzn.lX(z);
         }
     }
 
     public void Z(ViewGroup viewGroup) {
-        if (this.gre != null) {
-            this.gre.Z(viewGroup);
+        if (this.gzn != null) {
+            this.gzn.Z(viewGroup);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.gre != null) {
-            this.gre.onChangeSkinType(i);
+        if (this.gzn != null) {
+            this.gzn.onChangeSkinType(i);
         }
     }
 
     public void startPlay() {
-        if (this.gre != null) {
-            this.gre.startPlay();
+        if (this.gzn != null) {
+            this.gzn.startPlay();
         }
     }
 
     public void stopPlay() {
-        if (this.gre != null) {
-            this.gre.stopPlay();
+        if (this.gzn != null) {
+            this.gzn.stopPlay();
         }
     }
 
-    public void bPr() {
-        if (this.gre != null) {
-            this.gre.bPr();
+    public void bTc() {
+        if (this.gzn != null) {
+            this.gzn.bTc();
         }
     }
 
     public void onDestroy() {
-        if (this.gre != null) {
-            this.gre.onDestroy();
+        if (this.gzn != null) {
+            this.gzn.onDestroy();
         }
     }
 }

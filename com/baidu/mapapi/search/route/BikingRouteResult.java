@@ -5,12 +5,12 @@ import android.os.Parcelable;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class BikingRouteResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<BikingRouteResult> CREATOR = new c();
 
     /* renamed from: a  reason: collision with root package name */
-    private List<BikingRouteLine> f2132a;
+    private List<BikingRouteLine> f2134a;
     private SuggestAddrInfo b;
 
     public BikingRouteResult() {
@@ -18,8 +18,8 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public BikingRouteResult(Parcel parcel) {
-        this.f2132a = new ArrayList();
-        parcel.readList(this.f2132a, BikingRouteLine.class.getClassLoader());
+        this.f2134a = new ArrayList();
+        parcel.readList(this.f2134a, BikingRouteLine.class.getClassLoader());
         this.b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
@@ -29,7 +29,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     }
 
     public List<BikingRouteLine> getRouteLines() {
-        return this.f2132a;
+        return this.f2134a;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
@@ -37,7 +37,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     }
 
     public void setRouteLines(List<BikingRouteLine> list) {
-        this.f2132a = list;
+        this.f2134a = list;
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
@@ -46,7 +46,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeList(this.f2132a);
+        parcel.writeList(this.f2134a);
         parcel.writeParcelable(this.b, 1);
     }
 }

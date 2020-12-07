@@ -3,7 +3,7 @@ package com.baidu.down.request.taskmanager;
 import android.os.Build;
 import android.util.Log;
 import com.baidu.down.request.task.AbstractTask;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class ByteArrayInfo {
     public byte[] mByteArray;
     public int mByteArrayLength;

@@ -9,31 +9,31 @@ import com.baidu.platform.comapi.bikenavi.widget.h;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private a.c f3058a;
+    private a.c f3060a;
     private a.b b;
-    private a.C0250a c;
+    private a.C0259a c;
     private a.c d;
     private a.b e;
-    private a.C0249a f;
+    private a.C0258a f;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final d f3059a = new d();
+        static final d f3061a = new d();
     }
 
     public static d a() {
-        return a.f3059a;
+        return a.f3061a;
     }
 
     private d() {
-        this.f3058a = null;
+        this.f3060a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -85,13 +85,13 @@ public class d {
         if (i > 0) {
             switch (i) {
                 case 1:
-                    this.f3058a = new a.c();
+                    this.f3060a = new a.c();
                     return;
                 case 2:
                     this.b = new a.b();
                     return;
                 case 3:
-                    this.c = new a.C0250a();
+                    this.c = new a.C0259a();
                     return;
                 case 4:
                     this.d = new a.c();
@@ -100,7 +100,7 @@ public class d {
                     this.e = new a.b();
                     return;
                 case 6:
-                    this.f = new a.C0249a();
+                    this.f = new a.C0258a();
                     return;
                 default:
                     return;
@@ -112,7 +112,7 @@ public class d {
         if (i > 0 && bVar != null) {
             switch (i) {
                 case 1:
-                    ((com.baidu.platform.comapi.walknavi.widget.d) bVar).a(this.f3058a);
+                    ((com.baidu.platform.comapi.walknavi.widget.d) bVar).a(this.f3060a);
                     return;
                 case 2:
                     ((com.baidu.platform.comapi.walknavi.g.c.c) bVar).a(this.b);
@@ -256,30 +256,30 @@ public class d {
     }
 
     private void g(XmlPullParser xmlPullParser, int i, int i2) {
-        if (xmlPullParser != null && i >= 0 && i2 == 1 && this.f3058a != null) {
+        if (xmlPullParser != null && i >= 0 && i2 == 1 && this.f3060a != null) {
             if ("BMSDK_LAYOUT_GUIDE".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f3058a.a(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f3060a.a(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_LAYOUT_GUIDE".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f3058a.b(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "background"));
+                this.f3060a.b(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "background"));
             }
             if ("BMSDK_IMAGE_IVICON".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f3058a.c(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f3060a.c(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_LAYOUT_GPS_WEAK".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f3058a.d(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f3060a.d(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_TEXT_GUIDE_REMAIN".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f3058a.e(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f3060a.e(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_TEXT_GUIDE".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f3058a.f(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f3060a.f(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_TEXT_GPS_WEAK".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f3058a.g(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f3060a.g(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_TEXT_GPS_HINT".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f3058a.h(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f3060a.h(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
         }
     }

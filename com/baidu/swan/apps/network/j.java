@@ -7,67 +7,67 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class j extends com.baidu.swan.apps.runtime.f {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private NetworkBroadcastReceiver dfC;
-    private TelephonyManager dfD;
-    private a dfE;
+    private NetworkBroadcastReceiver dmB;
+    private TelephonyManager dmC;
+    private a dmD;
 
     public j(com.baidu.swan.apps.runtime.e eVar) {
         super(eVar);
     }
 
     public void b(CallbackHandler callbackHandler, String str) {
-        if (this.dfC == null) {
-            this.dfC = new NetworkBroadcastReceiver(callbackHandler, str);
+        if (this.dmB == null) {
+            this.dmB = new NetworkBroadcastReceiver(callbackHandler, str);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            registerReceiver(this.dfC, intentFilter);
-        } else if (this.dfC != null) {
-            this.dfC.updateCallback(callbackHandler, str);
+            registerReceiver(this.dmB, intentFilter);
+        } else if (this.dmB != null) {
+            this.dmB.updateCallback(callbackHandler, str);
         }
         c(callbackHandler, str);
     }
 
     public void c(CallbackHandler callbackHandler, String str) {
-        if (this.dfD == null) {
-            this.dfD = (TelephonyManager) getSystemService("phone");
-            this.dfE = new a(callbackHandler, str);
-            this.dfD.listen(this.dfE, 64);
-        } else if (this.dfE != null) {
-            this.dfE.updateCallback(callbackHandler, str);
+        if (this.dmC == null) {
+            this.dmC = (TelephonyManager) getSystemService("phone");
+            this.dmD = new a(callbackHandler, str);
+            this.dmC.listen(this.dmD, 64);
+        } else if (this.dmD != null) {
+            this.dmD.updateCallback(callbackHandler, str);
         }
     }
 
-    public void aBX() {
-        if (this.dfD != null && this.dfE != null) {
-            this.dfD.listen(this.dfE, 0);
+    public void aFg() {
+        if (this.dmC != null && this.dmD != null) {
+            this.dmC.listen(this.dmD, 0);
         }
     }
 
-    public void aBY() {
-        if (this.dfC != null) {
-            unregisterReceiver(this.dfC);
+    public void aFh() {
+        if (this.dmB != null) {
+            unregisterReceiver(this.dmB);
         }
-        aBX();
+        aFg();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public class a extends PhoneStateListener {
-        private WeakReference<CallbackHandler> dfF;
-        private String dfG;
-        private String dfH = "";
+        private WeakReference<CallbackHandler> dmE;
+        private String dmF;
+        private String dmG = "";
 
         public a(CallbackHandler callbackHandler, String str) {
-            this.dfF = new WeakReference<>(callbackHandler);
-            this.dfG = str;
+            this.dmE = new WeakReference<>(callbackHandler);
+            this.dmF = str;
         }
 
         public void updateCallback(CallbackHandler callbackHandler, String str) {
-            this.dfF = new WeakReference<>(callbackHandler);
-            this.dfG = str;
+            this.dmE = new WeakReference<>(callbackHandler);
+            this.dmF = str;
         }
 
         @Override // android.telephony.PhoneStateListener
@@ -77,9 +77,9 @@ public class j extends com.baidu.swan.apps.runtime.f {
             }
             if (2 == i) {
                 String mobileNetworkType = SwanAppNetworkUtils.getMobileNetworkType(i2, null);
-                if (!TextUtils.isEmpty(mobileNetworkType) && !mobileNetworkType.equals(this.dfH)) {
-                    this.dfH = mobileNetworkType;
-                    SwanAppNetworkUtils.a(j.this, this.dfF.get(), this.dfG);
+                if (!TextUtils.isEmpty(mobileNetworkType) && !mobileNetworkType.equals(this.dmG)) {
+                    this.dmG = mobileNetworkType;
+                    SwanAppNetworkUtils.a(j.this, this.dmE.get(), this.dmF);
                 }
             }
         }
@@ -88,6 +88,6 @@ public class j extends com.baidu.swan.apps.runtime.f {
     @Override // com.baidu.swan.apps.runtime.f
     public void onDestroy() {
         super.onDestroy();
-        aBY();
+        aFh();
     }
 }

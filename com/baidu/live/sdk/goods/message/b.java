@@ -4,7 +4,7 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.atomdata.BDxdConfig;
 /* loaded from: classes4.dex */
 public class b extends HttpMessage {
-    public String aTN;
+    public String aWR;
     public String gid;
     public long liveId;
 
@@ -13,8 +13,8 @@ public class b extends HttpMessage {
         this.liveId = 0L;
     }
 
-    public void c(long j, String str, String str2) {
-        this.aTN = str;
+    public void d(long j, String str, String str2) {
+        this.aWR = str;
         this.liveId = j;
         this.gid = str2;
         addParam("feed_id", str);

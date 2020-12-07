@@ -2,14 +2,12 @@ package io.flutter.app;
 
 import android.app.Activity;
 import android.app.Application;
-import androidx.annotation.CallSuper;
 import io.flutter.view.FlutterMain;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class FlutterApplication extends Application {
     private Activity mCurrentActivity = null;
 
     @Override // android.app.Application
-    @CallSuper
     public void onCreate() {
         super.onCreate();
         FlutterMain.startInitialization(this);

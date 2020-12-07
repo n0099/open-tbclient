@@ -1,25 +1,26 @@
 package com.facebook.imagepipeline.c;
+
+import com.facebook.cache.disk.d;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 /* loaded from: classes15.dex */
-public class b {
-    public static o<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> a(h<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> hVar, final n nVar) {
-        nVar.a(hVar);
-        return new o<>(hVar, new r<com.facebook.cache.common.b>() { // from class: com.facebook.imagepipeline.c.b.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.facebook.imagepipeline.c.r
-            /* renamed from: i */
-            public void bs(com.facebook.cache.common.b bVar) {
-                n.this.p(bVar);
-            }
+public class b implements f {
+    private c plm;
 
-            @Override // com.facebook.imagepipeline.c.r
-            public void enm() {
-                n.this.eny();
-            }
+    public b(c cVar) {
+        this.plm = cVar;
+    }
 
-            @Override // com.facebook.imagepipeline.c.r
-            public void enn() {
-                n.this.enx();
-            }
-        });
+    public static com.facebook.cache.disk.d a(com.facebook.cache.disk.b bVar, com.facebook.cache.disk.c cVar) {
+        return a(bVar, cVar, Executors.newSingleThreadExecutor());
+    }
+
+    public static com.facebook.cache.disk.d a(com.facebook.cache.disk.b bVar, com.facebook.cache.disk.c cVar, Executor executor) {
+        return new com.facebook.cache.disk.d(cVar, bVar.eps(), new d.b(bVar.epr(), bVar.epq(), bVar.epp()), bVar.epu(), bVar.ept(), bVar.epv(), bVar.getContext(), executor, bVar.epw());
+    }
+
+    @Override // com.facebook.imagepipeline.c.f
+    public com.facebook.cache.disk.h a(com.facebook.cache.disk.b bVar) {
+        return a(bVar, this.plm.b(bVar));
     }
 }

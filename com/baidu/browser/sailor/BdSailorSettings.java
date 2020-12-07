@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class BdSailorSettings implements INoProGuard {
     private boolean mDebugEnable;
     private String mEmulatedUA;

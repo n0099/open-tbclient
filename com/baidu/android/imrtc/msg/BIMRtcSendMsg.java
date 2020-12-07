@@ -22,7 +22,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.sapi2.SapiContext;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes12.dex */
 public class BIMRtcSendMsg extends Message {
     private static final String TAG = "IMRtcSendMsg";
     private int mAction;
@@ -54,7 +54,7 @@ public class BIMRtcSendMsg extends Message {
 
     public static BIMRtcSendMsg newInstance(Context context, Intent intent) {
         String stringExtra = intent.getStringExtra(Constants.EXTRA_LISTENER_ID);
-        return new BIMRtcSendMsg(context, intent.getIntExtra(RtcConstants.EXTRA_RTC_ACTION_ID, -1), intent.getStringExtra(RtcConstants.EXTRA_RTC_ROOM_ID), intent.getStringExtra(RtcConstants.EXTRA_RTC_INFO), stringExtra);
+        return new BIMRtcSendMsg(context, intent.getIntExtra(RtcConstants.EXTRA_RTC_ACTION_ID, -1), intent.getStringExtra("rtc_room_id"), intent.getStringExtra(RtcConstants.EXTRA_RTC_INFO), stringExtra);
     }
 
     @Override // com.baidu.android.imsdk.request.Message
@@ -114,7 +114,7 @@ public class BIMRtcSendMsg extends Message {
             jSONObject.put("uk", this.mImUk);
             jSONObject.put("third_userid", IMJni.transBDUID("" + Utility.getBuid(this.mContext)));
             jSONObject.put("action", this.mAction);
-            jSONObject.put(RtcConstants.EXTRA_RTC_ROOM_ID, this.mRoomId);
+            jSONObject.put("rtc_room_id", this.mRoomId);
             jSONObject.put(RtcConstants.EXTRA_RTC_INFO, this.mRtcInfo);
             LogUtils.i(TAG, "IMRtcSendMsg body :" + jSONObject.toString());
         } catch (JSONException e) {
@@ -156,7 +156,7 @@ public class BIMRtcSendMsg extends Message {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("app_id", RtcUtility.getAppId(this.mContext));
-            jSONObject.put(RtcConstants.EXTRA_RTC_ROOM_ID, this.mRoomId);
+            jSONObject.put("rtc_room_id", this.mRoomId);
             jSONObject.put("my_uk", Utility.getUK(this.mContext));
             jSONObject.put("other_uks", "");
             jSONObject.put("cseq_id", RtcConstants.IM_RTC_SDK_SEQ_ID.get());

@@ -1,16 +1,16 @@
 package io.reactivex.internal.operators.parallel;
 
-import io.reactivex.c.c;
+import io.reactivex.b.c;
 import io.reactivex.internal.subscribers.DeferredScalarSubscriber;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.parallel.a;
 import java.util.concurrent.Callable;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class ParallelReduce<T, R> extends a<R> {
-    final Callable<R> pOv;
-    final a<? extends T> pQr;
+    final Callable<R> pFo;
+    final a<? extends T> pHf;
     final c<R, ? super T, R> reducer;
 
     @Override // io.reactivex.parallel.a
@@ -20,14 +20,14 @@ public final class ParallelReduce<T, R> extends a<R> {
             org.a.c<? super Object>[] cVarArr2 = new org.a.c[length];
             for (int i = 0; i < length; i++) {
                 try {
-                    cVarArr2[i] = new ParallelReduceSubscriber(cVarArr[i], io.reactivex.internal.functions.a.l(this.pOv.call(), "The initialSupplier returned a null value"), this.reducer);
+                    cVarArr2[i] = new ParallelReduceSubscriber(cVarArr[i], io.reactivex.internal.functions.a.m(this.pFo.call(), "The initialSupplier returned a null value"), this.reducer);
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.J(th);
                     a(cVarArr, th);
                     return;
                 }
             }
-            this.pQr.a(cVarArr2);
+            this.pHf.a(cVarArr2);
         }
     }
 
@@ -38,11 +38,11 @@ public final class ParallelReduce<T, R> extends a<R> {
     }
 
     @Override // io.reactivex.parallel.a
-    public int eAM() {
-        return this.pQr.eAM();
+    public int eDd() {
+        return this.pHf.eDd();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class ParallelReduceSubscriber<T, R> extends DeferredScalarSubscriber<T, R> {
         private static final long serialVersionUID = 8200530050639449080L;
         R accumulator;
@@ -68,7 +68,7 @@ public final class ParallelReduce<T, R> extends a<R> {
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    this.accumulator = (R) io.reactivex.internal.functions.a.l(this.reducer.apply(this.accumulator, t), "The reducer returned a null value");
+                    this.accumulator = (R) io.reactivex.internal.functions.a.m(this.reducer.apply(this.accumulator, t), "The reducer returned a null value");
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.J(th);
                     cancel();
@@ -80,7 +80,7 @@ public final class ParallelReduce<T, R> extends a<R> {
         @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, org.a.c
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.e.a.onError(th);
+                io.reactivex.d.a.onError(th);
                 return;
             }
             this.done = true;

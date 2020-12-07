@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a {
     public static void a(Intent intent, final TbPageContext tbPageContext, final int i) {
         Uri uri;
@@ -19,8 +19,8 @@ public class a {
             String queryParameter = uri.getQueryParameter("portrait");
             if (TbadkCoreApplication.getCurrentPortrait() != null && queryParameter != null && !TbadkCoreApplication.getCurrentPortrait().contains(queryParameter)) {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-                aVar.ov(1);
-                aVar.AJ(tbPageContext.getString(R.string.account_not_the_same_as_pc));
+                aVar.oT(1);
+                aVar.Bq(tbPageContext.getString(R.string.account_not_the_same_as_pc));
                 aVar.a(R.string.change_account, new a.b() { // from class: com.baidu.tieba.d.a.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -34,7 +34,7 @@ public class a {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(tbPageContext).bog();
+                aVar.b(tbPageContext).brv();
             }
         }
     }

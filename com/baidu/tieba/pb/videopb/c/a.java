@@ -7,34 +7,34 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import tbclient.AlaLiveInfo;
 import tbclient.Promotion;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a extends BaseCardInfo {
-    public static final BdUniqueId lOz = BdUniqueId.gen();
+    public static final BdUniqueId mcD = BdUniqueId.gen();
     private Long appear_time;
     private String image;
     public boolean isChushou;
-    private long lOB;
     private String link;
     private String link_text;
+    private long mcF;
     public String routeType;
     private String sub_title;
     public String thirdLiveType;
     public String thirdRoomId;
     private String title;
     public long userId;
-    private boolean lOA = false;
-    public boolean lOC = false;
+    private boolean mcE = false;
+    public boolean mcG = false;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return lOz;
+        return mcD;
     }
 
     public String getTitle() {
         return this.title;
     }
 
-    public String drz() {
+    public String dwS() {
         return this.sub_title;
     }
 
@@ -46,20 +46,20 @@ public class a extends BaseCardInfo {
         return this.link;
     }
 
-    public String drA() {
+    public String dwT() {
         return this.link_text;
     }
 
-    public Long drB() {
+    public Long dwU() {
         return this.appear_time;
     }
 
-    public boolean drC() {
-        return this.lOA;
+    public boolean dwV() {
+        return this.mcE;
     }
 
-    public long drD() {
-        return this.lOB;
+    public long dwW() {
+        return this.mcF;
     }
 
     public void a(Promotion promotion) {
@@ -69,15 +69,15 @@ public class a extends BaseCardInfo {
         this.link = promotion.link;
         this.link_text = promotion.link_text;
         this.appear_time = promotion.appear_time;
-        this.lOA = false;
-        this.lOC = false;
+        this.mcE = false;
+        this.mcG = false;
     }
 
     public void parserProtoBuf(@NonNull AlaLiveInfo alaLiveInfo) {
         this.title = alaLiveInfo.first_headline;
         this.sub_title = alaLiveInfo.second_headline;
         this.image = alaLiveInfo.cover;
-        this.lOB = alaLiveInfo.live_id.longValue();
+        this.mcF = alaLiveInfo.live_id.longValue();
         this.userId = alaLiveInfo.user_info != null ? alaLiveInfo.user_info.user_id.longValue() : 0L;
         this.isChushou = alaLiveInfo.live_from.intValue() == 1;
         this.thirdLiveType = alaLiveInfo.third_live_type;
@@ -86,7 +86,7 @@ public class a extends BaseCardInfo {
         this.link = "";
         this.link_text = TbadkCoreApplication.getInst().getString(R.string.pb_ala_enter);
         this.appear_time = 1L;
-        this.lOA = true;
-        this.lOC = false;
+        this.mcE = true;
+        this.mcG = false;
     }
 }

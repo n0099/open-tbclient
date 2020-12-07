@@ -7,15 +7,15 @@ import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 import java.security.GeneralSecurityException;
 import java.util.Random;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class b {
     private static final int[] b = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f1804a;
+    private final int f1806a;
 
     public b(int i) {
-        this.f1804a = i;
+        this.f1806a = i;
     }
 
     private static int a(int i, int i2) {
@@ -26,7 +26,7 @@ public class b {
         int remaining = byteBuffer2.remaining();
         int i = (remaining / 64) + 1;
         for (int i2 = 0; i2 < i; i2++) {
-            ByteBuffer b2 = b(bArr, bArr2, this.f1804a + i2);
+            ByteBuffer b2 = b(bArr, bArr2, this.f1806a + i2);
             if (i2 == i - 1) {
                 a.a(byteBuffer, byteBuffer2, b2, remaining % 64);
             } else {

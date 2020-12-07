@@ -1,7 +1,9 @@
 package com.baidu.ar.mdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public boolean sI;
-    public String[] sJ;
+
+    /* renamed from: tv  reason: collision with root package name */
+    public boolean f1195tv;
+    public String[] tw;
     public int type;
 }

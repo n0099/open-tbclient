@@ -7,15 +7,15 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class c implements l {
     private Object mLock;
-    private com.baidu.ar.ihttp.a qp;
-    private volatile boolean qr;
-    private g qu;
-    private HttpURLConnection qv;
-    private i qw;
-    private IProgressCallback qx;
+    private com.baidu.ar.ihttp.a qF;
+    private volatile boolean qH;
+    private g qK;
+    private HttpURLConnection qL;
+    private i qM;
+    private IProgressCallback qN;
 
     public c(g gVar) {
         this(gVar, null);
@@ -23,28 +23,28 @@ class c implements l {
 
     public c(g gVar, com.baidu.ar.ihttp.a aVar) {
         this.mLock = new Object();
-        this.qr = false;
-        this.qu = gVar;
-        this.qp = aVar;
-        this.qv = null;
-        this.qw = null;
+        this.qH = false;
+        this.qK = gVar;
+        this.qF = aVar;
+        this.qL = null;
+        this.qM = null;
     }
 
     @Override // com.baidu.ar.http.l
     public void cancel() {
-        if (this.qr) {
+        if (this.qH) {
             return;
         }
-        this.qp = null;
-        this.qx = null;
+        this.qF = null;
+        this.qN = null;
         synchronized (this.mLock) {
-            this.qr = true;
+            this.qH = true;
         }
     }
 
     @Override // com.baidu.ar.http.l
-    public i eI() {
-        return this.qw;
+    public i eH() {
+        return this.qM;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0084 */
@@ -58,63 +58,63 @@ class c implements l {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public i eK() {
+    public i eJ() {
         OutputStream outputStream;
         InputStream[] inputStreamArr = null;
         ?? r1 = this.mLock;
         synchronized (r1) {
-            if (this.qr) {
+            if (this.qH) {
                 return null;
             }
             try {
                 try {
-                    this.qv = (HttpURLConnection) this.qu.url.openConnection();
-                    this.qv.setConnectTimeout(this.qu.qM.qQ);
-                    this.qv.setReadTimeout(this.qu.qM.qR);
-                    this.qv.setUseCaches(this.qu.qM.qS);
-                    this.qv.setRequestMethod(this.qu.method);
-                    if (this.qu.qN != null) {
-                        for (Map.Entry<String, String> entry : this.qu.qN.entrySet()) {
-                            this.qv.setRequestProperty(entry.getKey(), entry.getValue());
+                    this.qL = (HttpURLConnection) this.qK.url.openConnection();
+                    this.qL.setConnectTimeout(this.qK.rc.rg);
+                    this.qL.setReadTimeout(this.qK.rc.rh);
+                    this.qL.setUseCaches(this.qK.rc.ri);
+                    this.qL.setRequestMethod(this.qK.method);
+                    if (this.qK.rd != null) {
+                        for (Map.Entry<String, String> entry : this.qK.rd.entrySet()) {
+                            this.qL.setRequestProperty(entry.getKey(), entry.getValue());
                         }
                     }
-                    if (!"POST".equals(this.qu.method) || this.qu.qO == null) {
+                    if (!"POST".equals(this.qK.method) || this.qK.re == null) {
                         outputStream = null;
                     } else {
-                        int size = this.qu.qO.getSize();
-                        InputStream[] eJ = this.qu.qO.eJ();
-                        if (eJ != null) {
+                        int size = this.qK.re.getSize();
+                        InputStream[] eI = this.qK.re.eI();
+                        if (eI != null) {
                             try {
-                                if (eJ.length > 0) {
-                                    this.qv.setDoOutput(true);
-                                    OutputStream outputStream2 = this.qv.getOutputStream();
+                                if (eI.length > 0) {
+                                    this.qL.setDoOutput(true);
+                                    OutputStream outputStream2 = this.qL.getOutputStream();
                                     try {
                                         byte[] bArr = new byte[1024];
                                         int i = 0;
-                                        for (InputStream inputStream : eJ) {
+                                        for (InputStream inputStream : eI) {
                                             while (true) {
                                                 int read = inputStream.read(bArr);
                                                 if (read != -1) {
                                                     outputStream2.write(bArr, 0, read);
-                                                    if (this.qx != null) {
+                                                    if (this.qN != null) {
                                                         i += read;
-                                                        this.qx.onProgress(i, size);
+                                                        this.qN.onProgress(i, size);
                                                     }
                                                 }
                                             }
                                         }
                                         outputStream2.flush();
                                         outputStream = outputStream2;
-                                        inputStreamArr = eJ;
+                                        inputStreamArr = eI;
                                     } catch (IOException e) {
                                         e = e;
-                                        if (this.qv != null) {
+                                        if (this.qL != null) {
                                         }
                                         throw new HttpException(e);
                                     } catch (Throwable th) {
                                         th = th;
                                         r1 = outputStream2;
-                                        inputStreamArr = eJ;
+                                        inputStreamArr = eI;
                                         if (r1 != 0) {
                                             j.closeQuietly(r1);
                                         }
@@ -131,15 +131,15 @@ class c implements l {
                             } catch (Throwable th2) {
                                 th = th2;
                                 r1 = 0;
-                                inputStreamArr = eJ;
+                                inputStreamArr = eI;
                             }
                         }
                         outputStream = null;
-                        inputStreamArr = eJ;
+                        inputStreamArr = eI;
                     }
                     try {
-                        this.qw = new i(this.qv, this.qu.qL);
-                        i iVar = this.qw;
+                        this.qM = new i(this.qL, this.qK.rb);
+                        i iVar = this.qM;
                         if (outputStream != null) {
                             j.closeQuietly(outputStream);
                         }
@@ -152,8 +152,8 @@ class c implements l {
                         return iVar;
                     } catch (IOException e3) {
                         e = e3;
-                        if (this.qv != null) {
-                            this.qv.disconnect();
+                        if (this.qL != null) {
+                            this.qL.disconnect();
                         }
                         throw new HttpException(e);
                     }
@@ -174,14 +174,14 @@ class c implements l {
     public void run() {
         try {
             try {
-                i eK = eK();
+                i eJ = eJ();
                 try {
                     try {
                         synchronized (this.mLock) {
                             try {
-                                boolean z = this.qr;
-                                if (!z && this.qp != null) {
-                                    this.qp.a(eK);
+                                boolean z = this.qH;
+                                if (!z && this.qF != null) {
+                                    this.qF.a(eJ);
                                 }
                             } catch (Throwable th) {
                                 th = th;
@@ -190,11 +190,11 @@ class c implements l {
                         }
                     } catch (HttpException e) {
                         e = e;
-                        if (0 == 0 && 0 == 0 && this.qp != null) {
-                            this.qp.a(e);
+                        if (0 == 0 && 0 == 0 && this.qF != null) {
+                            this.qF.a(e);
                         }
-                        if (this.qv != null) {
-                            this.qv.disconnect();
+                        if (this.qL != null) {
+                            this.qL.disconnect();
                         }
                     }
                 } catch (Throwable th2) {
@@ -204,13 +204,13 @@ class c implements l {
                 e = e2;
             }
         } finally {
-            if (this.qv != null) {
-                this.qv.disconnect();
+            if (this.qL != null) {
+                this.qL.disconnect();
             }
         }
     }
 
     public void setProgressCallback(IProgressCallback iProgressCallback) {
-        this.qx = iProgressCallback;
+        this.qN = iProgressCallback;
     }
 }

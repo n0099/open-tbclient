@@ -8,8 +8,7 @@ import android.os.Build;
 import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 class WebRtcAudioManager {
     private static final int BITS_PER_SAMPLE = 16;
     private static final int DEFAULT_FRAME_PER_BUFFER = 256;
@@ -21,7 +20,7 @@ class WebRtcAudioManager {
 
     @CalledByNative
     static AudioManager getAudioManager(Context context) {
-        return (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        return (AudioManager) context.getSystemService("audio");
     }
 
     @CalledByNative

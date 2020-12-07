@@ -5,9 +5,9 @@ import com.baidu.live.challenge.i;
 import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
 public interface h extends i.c, i.d, i.n {
-    void CD();
+    void En();
 
-    void CK();
+    void Eu();
 
     void a(g gVar);
 
@@ -17,11 +17,11 @@ public interface h extends i.c, i.d, i.n {
 
     void b(boolean z, boolean z2, boolean z3);
 
-    int bm(boolean z);
+    int bu(boolean z);
 
     void c(int i, long j);
 
-    void dI(int i);
+    void eb(int i);
 
     void i(ViewGroup viewGroup);
 

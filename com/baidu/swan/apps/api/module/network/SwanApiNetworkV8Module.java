@@ -6,7 +6,7 @@ import android.util.Log;
 import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.JsObject;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class SwanApiNetworkV8Module {
     public static final String MODULE_NAME = "_naV8Network";
     private b requestApi;

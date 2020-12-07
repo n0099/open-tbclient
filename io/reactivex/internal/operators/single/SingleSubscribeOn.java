@@ -7,7 +7,7 @@ import io.reactivex.v;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class SingleSubscribeOn<T> extends w<T> {
     final v scheduler;
     final aa<? extends T> source;
@@ -16,10 +16,10 @@ public final class SingleSubscribeOn<T> extends w<T> {
     protected void b(y<? super T> yVar) {
         SubscribeOnObserver subscribeOnObserver = new SubscribeOnObserver(yVar, this.source);
         yVar.onSubscribe(subscribeOnObserver);
-        subscribeOnObserver.task.replace(this.scheduler.H(subscribeOnObserver));
+        subscribeOnObserver.task.replace(this.scheduler.G(subscribeOnObserver));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class SubscribeOnObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T>, Runnable {
         private static final long serialVersionUID = 7000911171163930287L;
         final y<? super T> actual;

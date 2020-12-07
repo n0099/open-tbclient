@@ -15,29 +15,29 @@ import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.o;
 import java.net.URISyntaxException;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class QRCodeStatic {
     public static String Tag = "tag";
 
     static {
         TbadkCoreApplication.getInst().RegisterOrUpdateIntent(QRCodeScanActivityConfig.class, QRCodeScanActivity.class);
-        dyP();
-        dyQ();
-        deU();
+        dEg();
+        dEh();
+        dkg();
     }
 
-    private static void dyP() {
+    private static void dEg() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921388, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Bitmap> run(CustomMessage<String> customMessage) {
-                return new CustomResponsedMessage<>(2921388, com.baidu.tieba.qrcode.lib.zxing.b.bD(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247)));
+                return new CustomResponsedMessage<>(2921388, com.baidu.tieba.qrcode.lib.zxing.b.bF(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247)));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void dyQ() {
+    private static void dEh() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921403, new CustomMessageTask.CustomRunnable<o>() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<o> customMessage) {
@@ -47,14 +47,14 @@ public class QRCodeStatic {
                 }
                 o data = customMessage.getData();
                 if (data.type == 0) {
-                    str = com.baidu.tieba.qrcode.lib.zxing.a.J(data.mYR);
+                    str = com.baidu.tieba.qrcode.lib.zxing.a.J(data.nmQ);
                 } else if (data.type == 1) {
-                    str = com.baidu.tieba.qrcode.lib.zxing.a.QA(data.mYS);
+                    str = com.baidu.tieba.qrcode.lib.zxing.a.RJ(data.nmR);
                 }
                 if (TextUtils.isEmpty(str)) {
-                    data.mYT = "qr_none";
+                    data.nmS = "qr_none";
                 } else {
-                    data.mYT = str;
+                    data.nmS = str;
                 }
                 return new CustomResponsedMessage<>(2921403, data);
             }
@@ -63,8 +63,8 @@ public class QRCodeStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void deU() {
-        bf.bqF().a(new bf.a() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.3
+    private static void dkg() {
+        bf.bua().a(new bf.a() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.3
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null) {

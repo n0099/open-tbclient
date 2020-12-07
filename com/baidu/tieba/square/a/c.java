@@ -9,32 +9,32 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.card.ab;
 import com.baidu.tieba.square.ForumSquareActivity;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.square.data.b, com.baidu.tieba.card.a.a<com.baidu.tieba.square.view.c>> {
-    private ab<com.baidu.tieba.square.data.b> gSk;
+    private ab<com.baidu.tieba.square.data.b> hbx;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity(), com.baidu.tieba.square.data.b.TYPE);
-        this.gSk = new ab<com.baidu.tieba.square.data.b>() { // from class: com.baidu.tieba.square.a.c.1
+        this.hbx = new ab<com.baidu.tieba.square.data.b>() { // from class: com.baidu.tieba.square.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.square.data.b bVar) {
                 if (bVar != null && (c.this.mPageContext.getPageActivity() instanceof ForumSquareActivity)) {
-                    String className = ((ForumSquareActivity) c.this.mPageContext.getPageActivity()).dHL().getClassName();
+                    String className = ((ForumSquareActivity) c.this.mPageContext.getPageActivity()).dNb().getClassName();
                     if (!"推荐".equals(className)) {
                         ar arVar = new ar("c13652");
                         arVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
                         arVar.w("fid", bVar.forumId);
-                        arVar.dR("resource_id", className);
+                        arVar.dY("resource_id", className);
                         TiebaStatic.log(arVar);
                         return;
                     }
                     ar arVar2 = new ar("c13643");
                     arVar2.w("uid", TbadkApplication.getCurrentAccountId());
                     arVar2.w("fid", bVar.forumId);
-                    arVar2.ak("obj_locate", 3);
+                    arVar2.al("obj_locate", 3);
                     TiebaStatic.log(arVar2);
                 }
             }
@@ -56,24 +56,24 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.square.da
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.square.data.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.square.view.c> aVar) {
-        if (bVar == null || aVar == null || aVar.coz() == null) {
+        if (bVar == null || aVar == null || aVar.csM() == null) {
             return null;
         }
-        aVar.coz().a(bVar);
-        aVar.coz().c(this.gSk);
+        aVar.csM().a(bVar);
+        aVar.csM().c(this.hbx);
         if (this.mPageContext.getPageActivity() instanceof ForumSquareActivity) {
-            String className = ((ForumSquareActivity) this.mPageContext.getPageActivity()).dHL().getClassName();
+            String className = ((ForumSquareActivity) this.mPageContext.getPageActivity()).dNb().getClassName();
             if (!"推荐".equals(className)) {
                 ar arVar = new ar("c13651");
                 arVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
                 arVar.w("fid", bVar.forumId);
-                arVar.dR("resource_id", className);
+                arVar.dY("resource_id", className);
                 TiebaStatic.log(arVar);
             } else {
                 ar arVar2 = new ar("c13642");
                 arVar2.w("uid", TbadkApplication.getCurrentAccountId());
                 arVar2.w("fid", bVar.getForumId());
-                arVar2.ak("obj_locate", 3);
+                arVar2.al("obj_locate", 3);
                 TiebaStatic.log(arVar2);
             }
         }

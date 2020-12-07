@@ -21,17 +21,17 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c fdV;
+    private static volatile c flu;
     private final LinkedList<ImMessageCenterPojo> mList = new LinkedList<>();
-    private int fdW = 0;
-    private int fdX = 0;
+    private int flv = 0;
+    private int flw = 0;
     private int mReplyNum = 0;
-    private int fdY = 0;
-    private int fdZ = 0;
-    private boolean fea = false;
-    private int feb = 0;
-    private boolean fec = false;
-    private final CustomMessageListener fed = new CustomMessageListener(0) { // from class: com.baidu.tbadk.coreExtra.messageCenter.c.1
+    private int flx = 0;
+    private int fly = 0;
+    private boolean flz = false;
+    private int flA = 0;
+    private boolean flB = false;
+    private final CustomMessageListener flC = new CustomMessageListener(0) { // from class: com.baidu.tbadk.coreExtra.messageCenter.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -47,9 +47,9 @@ public class c {
                 } else if (customResponsedMessage.getCmd() == 2016001) {
                     c.this.f(customResponsedMessage);
                 } else if (customResponsedMessage.getCmd() == 2016010) {
-                    c.this.bvI();
+                    c.this.bzi();
                 } else if (customResponsedMessage.getCmd() == 2016011) {
-                    c.this.bvJ();
+                    c.this.bzj();
                 }
             }
         }
@@ -58,41 +58,41 @@ public class c {
     private c() {
     }
 
-    public static c bvH() {
-        if (fdV == null) {
+    public static c bzh() {
+        if (flu == null) {
             synchronized (c.class) {
-                if (fdV == null) {
-                    fdV = new c();
+                if (flu == null) {
+                    flu = new c();
                 }
             }
         }
-        return fdV;
+        return flu;
     }
 
     public void init() {
         reset();
         MessageManager.getInstance().registerStickyMode(CmdConfigCustom.CMD_HOME_NOTIFY_MSG);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL, this.fed);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.fed);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CHANGED, this.fed);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CLEAR, this.fed);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.fed);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_SETTING_CHANGE, this.fed);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_SWITCH_CHANGE, this.fed);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL, this.flC);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.flC);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CHANGED, this.flC);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CLEAR, this.flC);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.flC);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_SETTING_CHANGE, this.flC);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_SWITCH_CHANGE, this.flC);
     }
 
     private void reset() {
         this.mList.clear();
-        this.fdW = 0;
-        this.fdX = 0;
+        this.flv = 0;
+        this.flw = 0;
         this.mReplyNum = 0;
-        this.fdY = 0;
-        this.fdZ = 0;
-        this.fea = false;
-        this.feb = 0;
-        this.fec = false;
-        this.feb = 0;
-        this.fec = false;
+        this.flx = 0;
+        this.fly = 0;
+        this.flz = false;
+        this.flA = 0;
+        this.flB = false;
+        this.flA = 0;
+        this.flB = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -103,23 +103,23 @@ public class c {
                 return;
             }
             NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) responsedMessage;
-            u(newsNotifyMessage.getMsgAgree(), newsNotifyMessage.getMsgAtme(), newsNotifyMessage.getMsgReplyme(), newsNotifyMessage.getMsgFans());
-            bvK();
+            y(newsNotifyMessage.getMsgAgree(), newsNotifyMessage.getMsgAtme(), newsNotifyMessage.getMsgReplyme(), newsNotifyMessage.getMsgFans());
+            bzk();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvI() {
-        u(this.fdW, this.fdX, this.mReplyNum, this.fdY);
-        bw(this.mList);
-        bvK();
+    public void bzi() {
+        y(this.flv, this.flw, this.mReplyNum, this.flx);
+        bA(this.mList);
+        bzk();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvJ() {
-        u(this.fdW, this.fdX, this.mReplyNum, this.fdY);
-        bw(this.mList);
-        bvK();
+    public void bzj() {
+        y(this.flv, this.flw, this.mReplyNum, this.flx);
+        bA(this.mList);
+        bzk();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -141,8 +141,8 @@ public class c {
                         this.mList.add(imMessageCenterPojo);
                     }
                 }
-                bw(this.mList);
-                bvK();
+                bA(this.mList);
+                bzk();
             }
         }
     }
@@ -160,8 +160,8 @@ public class c {
             } else if (memoryChangedMessage.getType() == 2) {
                 a(this.mList, data);
             }
-            bw(this.mList);
-            bvK();
+            bA(this.mList);
+            bzk();
         }
     }
 
@@ -180,32 +180,32 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void f(CustomResponsedMessage<?> customResponsedMessage) {
         this.mList.clear();
-        bw(this.mList);
-        bvK();
+        bA(this.mList);
+        bzk();
     }
 
-    private void u(int i, int i2, int i3, int i4) {
+    private void y(int i, int i2, int i3, int i4) {
         boolean z = i > 0 || i2 > 0 || i3 > 0 || i4 > 0;
-        int i5 = (i <= 0 || !d.bvL().bwc()) ? 0 : 0 + i;
-        if (i2 > 0 && d.bvL().bvQ()) {
+        int i5 = (i <= 0 || !d.bzl().bzC()) ? 0 : 0 + i;
+        if (i2 > 0 && d.bzl().bzq()) {
             i5 += i2;
         }
-        if (i3 > 0 && d.bvL().bvS()) {
+        if (i3 > 0 && d.bzl().bzs()) {
             i5 += i3;
         }
-        if (i4 > 0 && d.bvL().bvR()) {
+        if (i4 > 0 && d.bzl().bzr()) {
             i5 += i4;
         }
-        int i6 = d.bvL().bvO() == 0 ? 0 : i5;
-        this.fea = i6 <= 0 ? false : z;
-        this.fdZ = i6;
-        this.fdW = i;
-        this.fdX = i2;
+        int i6 = d.bzl().bzo() == 0 ? 0 : i5;
+        this.flz = i6 <= 0 ? false : z;
+        this.fly = i6;
+        this.flv = i;
+        this.flw = i2;
         this.mReplyNum = i3;
-        this.fdY = i4;
+        this.flx = i4;
     }
 
-    private void bw(List<ImMessageCenterPojo> list) {
+    private void bA(List<ImMessageCenterPojo> list) {
         if (list != null) {
             int i = 0;
             boolean z = false;
@@ -219,10 +219,10 @@ public class c {
                     } else if (imMessageCenterPojo.getCustomGroupType() == -7) {
                         z = true;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        if (d.bvL().bwb()) {
-                            GroupSettingItemData fs = com.baidu.tieba.im.settingcache.b.cUK().fs(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-                            if (fs != null) {
-                                if (fs.isAcceptNotify()) {
+                        if (d.bzl().bzB()) {
+                            GroupSettingItemData fx = com.baidu.tieba.im.settingcache.b.cZW().fx(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                            if (fx != null) {
+                                if (fx.isAcceptNotify()) {
                                     i += imMessageCenterPojo.getUnread_count();
                                 }
                             } else {
@@ -232,10 +232,10 @@ public class c {
                         }
                         z = true;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        if (d.bvL().bvT()) {
-                            PersonalSettingItemData fs2 = com.baidu.tieba.im.settingcache.e.cUN().fs(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-                            if (fs2 != null) {
-                                if (fs2.isAcceptNotify()) {
+                        if (d.bzl().bzt()) {
+                            PersonalSettingItemData fx2 = com.baidu.tieba.im.settingcache.e.cZZ().fx(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                            if (fx2 != null) {
+                                if (fx2.isAcceptNotify()) {
                                     i += imMessageCenterPojo.getUnread_count();
                                 }
                             } else {
@@ -246,7 +246,7 @@ public class c {
                         z = true;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
                         if (imMessageCenterPojo.getUserType() == 4) {
-                            if (d.bvL().bvT()) {
+                            if (d.bzl().bzt()) {
                                 i += imMessageCenterPojo.getUnread_count();
                                 z = true;
                             }
@@ -257,12 +257,12 @@ public class c {
                     }
                 }
             }
-            if (d.bvL().bvO() == 0) {
+            if (d.bzl().bzo() == 0) {
                 i = 0;
             }
             boolean z2 = i > 0 ? z : false;
-            this.feb = i;
-            this.fec = z2;
+            this.flA = i;
+            this.flB = z2;
         }
     }
 
@@ -288,16 +288,16 @@ public class c {
         return true;
     }
 
-    private void bvK() {
+    private void bzk() {
         NewsRemindMessage newsRemindMessage = new NewsRemindMessage();
-        newsRemindMessage.setMsgAgreeCount(this.fdW);
-        newsRemindMessage.setMsgAtCount(this.fdX);
+        newsRemindMessage.setMsgAgreeCount(this.flv);
+        newsRemindMessage.setMsgAtCount(this.flw);
         newsRemindMessage.setMsgReplyCount(this.mReplyNum);
-        newsRemindMessage.setMsgFansCount(this.fdY);
-        newsRemindMessage.setMsgCount(this.fdZ);
-        newsRemindMessage.setHasMsgRemind(this.fea);
-        newsRemindMessage.setChatCount(this.feb);
-        newsRemindMessage.setHasChatRemind(this.fec);
+        newsRemindMessage.setMsgFansCount(this.flx);
+        newsRemindMessage.setMsgCount(this.fly);
+        newsRemindMessage.setHasMsgRemind(this.flz);
+        newsRemindMessage.setChatCount(this.flA);
+        newsRemindMessage.setHasChatRemind(this.flB);
         MessageManager.getInstance().dispatchResponsedMessage(newsRemindMessage);
     }
 }

@@ -20,7 +20,7 @@ import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile int f2259a = 0;
+    private static volatile int f2261a = 0;
     private static String b;
     private static String c;
     private static boolean d;
@@ -28,7 +28,7 @@ public class b {
     public static void a(Context context, String str) {
         c = str;
         d = Utils.e(context);
-        e.Zl().a(context, str);
+        e.abO().a(context, str);
     }
 
     private static void a(Context context, Map<String, String> map) {
@@ -64,8 +64,8 @@ public class b {
     }
 
     public static boolean a(int i) {
-        int b2 = e.Zl().b(i);
-        return (f2259a & b2) == b2;
+        int b2 = e.abO().b(i);
+        return (f2261a & b2) == b2;
     }
 
     private static boolean a(int i, String str) {
@@ -87,7 +87,7 @@ public class b {
     }
 
     public static String[] a() {
-        return e.Zl().b();
+        return e.abO().b();
     }
 
     public static String b() {
@@ -99,19 +99,31 @@ public class b {
     }
 
     private static boolean c(int i, Map<String, String> map) {
-        int i2;
         String str;
+        int i2;
         String str2;
+        String str3 = null;
         if (CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_CRASHPAD, true)) {
-            String str3 = map.get(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE);
-            if (TextUtils.isEmpty(str3)) {
-                i2 = 3;
-            } else {
-                try {
-                    i2 = Integer.parseInt(str3);
-                } catch (Exception e) {
+            if (map != null) {
+                String str4 = map.get(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE);
+                if (TextUtils.isEmpty(str4)) {
                     i2 = 3;
+                } else {
+                    try {
+                        i2 = Integer.parseInt(str4);
+                    } catch (Exception e) {
+                        i2 = 3;
+                    }
                 }
+                str = map.get("abtest_sid");
+                str2 = map.get(CyberPlayerManager.INSTALL_OPT_PROCESS_TYPE);
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = "-1";
+                }
+            } else {
+                str = null;
+                i2 = 3;
+                str2 = "-1";
             }
             if (d) {
                 if ((i2 & 2) != 2) {
@@ -126,34 +138,25 @@ public class b {
                 }
                 try {
                     try {
-                        File file = new File(e.Zl().gB(1).c());
-                        File file2 = new File(e.Zl().gB(2).c());
+                        File file = new File(e.abO().gZ(1).c());
+                        File file2 = new File(e.abO().gZ(2).c());
                         String parent = file.getParent();
                         String parent2 = file2.getParent();
                         try {
-                            str = CyberPlayerManager.getApplicationContext().getExternalFilesDir("").getAbsolutePath();
+                            str3 = CyberPlayerManager.getApplicationContext().getExternalFilesDir("").getAbsolutePath();
                         } catch (Exception e2) {
-                            str = null;
                         }
                         if (d) {
                             str2 = "4";
-                        } else {
-                            str2 = map.get(CyberPlayerManager.INSTALL_OPT_PROCESS_TYPE);
-                            if (TextUtils.isEmpty(str2)) {
-                                str2 = "-1";
-                            }
                         }
                         if (!file2.canExecute()) {
                             file2.setExecutable(true);
                             CyberLog.d("CyberLibsLoader", "set " + file2.getAbsolutePath() + " executable");
                         }
-                        String[] strArr = {SDKVersion.VERSION, "neon", CyberPlayerManager.getClientID(), "unKnown", "0", "0", str2, "true", str, GlobalConstants.DEFAULT_VERSION, parent, parent2, ""};
+                        String[] strArr = {SDKVersion.VERSION, "neon", CyberPlayerManager.getClientID(), "unKnown", "0", "0", str2, "true", str3, GlobalConstants.DEFAULT_VERSION, parent, parent2, ""};
                         a.a(true);
                         a.a(CyberPlayerManager.getApplicationContext(), strArr);
-                        String str4 = map.get("abtest_sid");
-                        if (!TextUtils.isEmpty(str4)) {
-                            a.a("{searchbox_sid=" + str4 + "}");
-                        }
+                        a.a("{searchbox_sid=" + str + "}");
                         return true;
                     } catch (Error e3) {
                         CyberLog.e("CyberLibsLoader", "initCrashPad Error:" + e3.toString());
@@ -195,66 +198,66 @@ public class b {
     }
 
     public static void d(int i, Map<String, String> map) {
-        int b2 = e.Zl().b(i);
-        if ((f2259a & b2) == b2) {
+        int b2 = e.abO().b(i);
+        if ((f2261a & b2) == b2) {
             return;
         }
-        for (int i2 = (f2259a ^ b2) & b2; i2 > 0 && e(1 << Integer.numberOfTrailingZeros(i2), map); i2 = (f2259a ^ b2) & b2) {
+        for (int i2 = (f2261a ^ b2) & b2; i2 > 0 && e(1 << Integer.numberOfTrailingZeros(i2), map); i2 = (f2261a ^ b2) & b2) {
         }
-        e.Zl().d();
+        e.abO().d();
     }
 
     private static boolean e(int i, Map<String, String> map) {
         boolean a2;
-        d gB = e.Zl().gB(i);
-        if (gB == null) {
+        d gZ = e.abO().gZ(i);
+        if (gZ == null) {
             CyberLog.e("CyberLibsLoader", "Unable to find (" + i + ") LibInfo");
             return false;
         }
-        String a3 = gB.a();
-        String b2 = gB.b();
-        String c2 = gB.c();
+        String a3 = gZ.a();
+        String b2 = gZ.b();
+        String c2 = gZ.c();
         File file = new File(c2);
-        if (gB.Zk() == d.a.LIB_TYPE_JAR) {
+        if (gZ.abN() == d.a.LIB_TYPE_JAR) {
             if (!"apk_internal_jar".equals(c2)) {
                 if (!file.exists()) {
-                    throw new FileNotFoundException(e.Zl().dq(i));
+                    throw new FileNotFoundException(e.abO().du(i));
                 }
-                if (e.Zl().h(i)) {
+                if (e.abO().h(i)) {
                     a2 = CyberMediaExtLoader.init(CyberPlayerManager.getApplicationContext());
                 }
             }
             a2 = true;
         } else {
-            if (gB.Zk() == d.a.LIB_TYPE_SO) {
+            if (gZ.abN() == d.a.LIB_TYPE_SO) {
                 if (!file.exists()) {
                     if (i == 8) {
                         i = 16;
                     }
-                    throw new FileNotFoundException(e.Zl().dq(i));
-                } else if (e.Zl().d(i)) {
+                    throw new FileNotFoundException(e.abO().du(i));
+                } else if (e.abO().d(i)) {
                     System.load(c2);
                     if (i == 16) {
                         a(CyberPlayerManager.getApplicationContext(), map);
                         a2 = true;
                     }
-                } else if (e.Zl().e(i)) {
+                } else if (e.abO().e(i)) {
                     IjkMediaPlayer.nativeSetEnableFFmpegExtend(c2);
                     a2 = true;
-                } else if (e.Zl().f(i)) {
+                } else if (e.abO().f(i)) {
                     b = c2;
                     a2 = true;
-                } else if (e.Zl().gD(i)) {
+                } else if (e.abO().hb(i)) {
                     a2 = c(i, map);
-                } else if (e.Zl().gC(i)) {
+                } else if (e.abO().ha(i)) {
                     a2 = a(i, c2);
                 }
             }
             a2 = true;
         }
-        f2259a |= i;
+        f2261a |= i;
         if (a2) {
-            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + d + " abi:" + e.Zl().c() + " lib:" + a3 + " ver:" + b2 + " load success");
+            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + d + " abi:" + e.abO().c() + " lib:" + a3 + " ver:" + b2 + " load success");
             return true;
         }
         return true;

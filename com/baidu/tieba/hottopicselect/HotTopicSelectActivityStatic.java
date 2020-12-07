@@ -2,7 +2,7 @@ package com.baidu.tieba.hottopicselect;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class HotTopicSelectActivityStatic {
     public static String Tag = "tag";
 

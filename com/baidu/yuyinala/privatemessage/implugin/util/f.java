@@ -35,9 +35,9 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class f {
     @SuppressLint({"UseSparseArrays"})
-    private static Map<Long, Long> oGp = new HashMap();
+    private static Map<Long, Long> oVv = new HashMap();
 
-    public static String e(Context context, long j) {
+    public static String g(Context context, long j) {
         SimpleDateFormat simpleDateFormat;
         SimpleDateFormat simpleDateFormat2;
         SimpleDateFormat simpleDateFormat3;
@@ -48,10 +48,10 @@ public class f {
         }
         TimeZone timeZone = Calendar.getInstance().getTimeZone();
         String str = "";
-        if (gL(context)) {
+        if (hu(context)) {
             simpleDateFormat = new SimpleDateFormat("HH:mm", Locale.CHINA);
         } else {
-            str = f(context, j) + " ";
+            str = h(context, j) + " ";
             simpleDateFormat = new SimpleDateFormat("hh:mm", Locale.CHINA);
         }
         simpleDateFormat.setTimeZone(timeZone);
@@ -63,7 +63,7 @@ public class f {
         }
         if (c(Long.valueOf(currentTimeMillis), j)) {
             Calendar.getInstance().setTimeInMillis(j);
-            return Oz(calendar.get(7)) + " " + str + simpleDateFormat.format(new Date(j));
+            return Px(calendar.get(7)) + " " + str + simpleDateFormat.format(new Date(j));
         } else if (d(Long.valueOf(currentTimeMillis), j) || e(Long.valueOf(currentTimeMillis), j)) {
             new SimpleDateFormat("MM-dd ", Locale.CHINA).setTimeZone(timeZone);
             return simpleDateFormat2.format(new Date(j)) + str + simpleDateFormat.format(new Date(j));
@@ -73,7 +73,7 @@ public class f {
         }
     }
 
-    private static String Oz(int i) {
+    private static String Px(int i) {
         switch (i) {
             case 1:
                 return "星期日";
@@ -94,11 +94,11 @@ public class f {
         }
     }
 
-    private static boolean gL(Context context) {
+    private static boolean hu(Context context) {
         return DateFormat.is24HourFormat(context);
     }
 
-    private static String f(Context context, long j) {
+    private static String h(Context context, long j) {
         int hours = new Date(j).getHours();
         if (hours >= 5 && hours < 12) {
             return "上午";
@@ -165,7 +165,7 @@ public class f {
         return calendar.get(1) == calendar2.get(1);
     }
 
-    public static String g(Context context, long j) {
+    public static String i(Context context, long j) {
         if (Long.valueOf(j).toString().length() == 10) {
             j *= 1000;
         }
@@ -202,7 +202,7 @@ public class f {
         return 55;
     }
 
-    public static long eid() {
+    public static long enS() {
         long j = 0;
         if (Environment.getExternalStorageState().equals("mounted")) {
             try {
@@ -220,7 +220,7 @@ public class f {
         return j;
     }
 
-    public static boolean gM(Context context) {
+    public static boolean hv(Context context) {
         long h = com.baidu.yuyinala.privatemessage.implugin.util.b.b.h(context, "check_sdcard", 0L);
         return h == 0 || (System.currentTimeMillis() / 1000) - h > 18000;
     }
@@ -260,7 +260,7 @@ public class f {
                                 context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                                 return;
                             }
-                            com.baidu.yuyinala.privatemessage.implugin.d.b.eft().g(context, str, false);
+                            com.baidu.yuyinala.privatemessage.implugin.d.b.elg().h(context, str, false);
                         } catch (Exception e) {
                             c.e("Utils", "ex " + e.getMessage());
                         }
@@ -281,20 +281,20 @@ public class f {
             jSONObject.put("oauth", "");
             jSONObject.put("needUserSetting", false);
             jSONObject.put("thirdLogin", false);
-            com.baidu.yuyinala.privatemessage.implugin.d.b.eft().a(jSONObject.toString(), dVar);
+            com.baidu.yuyinala.privatemessage.implugin.d.b.elg().a(jSONObject.toString(), dVar);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public static void egK() {
-        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.a egQ = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.egL().egQ();
-        if (egQ != null) {
-            egQ.egK();
+    public static void emy() {
+        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.a emE = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.emz().emE();
+        if (emE != null) {
+            emE.emy();
         }
     }
 
-    public static int cN(Context context) {
+    public static int dt(Context context) {
         try {
             if (context.getResources().getIdentifier("config_showNavigationBar", "bool", "android") != 0) {
                 return context.getResources().getDimensionPixelSize(context.getResources().getIdentifier("navigation_bar_height", "dimen", "android"));

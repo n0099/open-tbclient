@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.OverScroller;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class ViewDragHelper {
     private static final int BASE_SETTLE_DURATION = 256;
     public static final int DIRECTION_ALL = 3;
@@ -66,7 +66,7 @@ public class ViewDragHelper {
         }
     };
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes11.dex */
     public static abstract class Callback {
         public abstract boolean tryCaptureView(@NonNull View view, int i);
 

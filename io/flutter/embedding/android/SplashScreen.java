@@ -4,19 +4,15 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public interface SplashScreen {
-    @Nullable
-    View createSplashView(@NonNull Context context, @Nullable Bundle bundle);
+    View createSplashView(Context context, Bundle bundle);
 
     @SuppressLint({"NewApi"})
     boolean doesSplashViewRememberItsTransition();
 
-    @Nullable
     @SuppressLint({"NewApi"})
     Bundle saveSplashScreenState();
 
-    void transitionToFlutter(@NonNull Runnable runnable);
+    void transitionToFlutter(Runnable runnable);
 }

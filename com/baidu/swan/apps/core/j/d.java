@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.core.j;
 
 import com.baidu.swan.pms.model.PMSAppInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public interface d {
     void i(PMSAppInfo pMSAppInfo);
 

@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.account.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.IGetMsgSettingSwitchListener;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
     private static final String TAG = "IMGetMsgSettingSwitchRequest";
     private IGetMsgSettingSwitchListener mListener;
@@ -112,7 +113,7 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             i3 = jSONObject.getInt("error_code");
-            str = jSONObject.optString("error_msg", "");
+            str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
             i2 = jSONObject.optInt("push_privacy", 0);
             try {
                 i4 = jSONObject.optInt("block_stranger", 0);
@@ -161,7 +162,7 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
                     break;
                 }
             case 1:
-                str = "http://cp01-ocean-749.epc.baidu.com:8080/";
+                str = Constants.URL_HTTP_RD;
                 break;
             case 2:
                 str = "http://10.232.27.22:8090/";

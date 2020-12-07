@@ -13,8 +13,8 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView implements v<BdTypeListView> {
-    private HashMap<BdUniqueId, a> Wy;
-    private HashMap<BdUniqueId, j> Wz;
+    private HashMap<BdUniqueId, a> Xv;
+    private HashMap<BdUniqueId, j> Xw;
     af mTypeAdapter;
 
     public BdTypeListView(Context context) {
@@ -39,11 +39,11 @@ public class BdTypeListView extends BdListView implements v<BdTypeListView> {
         if (this.mTypeAdapter == null) {
             this.mTypeAdapter = new af();
         }
-        if (this.Wy == null) {
-            this.Wy = new HashMap<>();
+        if (this.Xv == null) {
+            this.Xv = new HashMap<>();
         }
-        if (this.Wz == null) {
-            this.Wz = new HashMap<>();
+        if (this.Xw == null) {
+            this.Xw = new HashMap<>();
         }
         super.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.adp.widget.ListView.BdTypeListView.1
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -87,46 +87,46 @@ public class BdTypeListView extends BdListView implements v<BdTypeListView> {
         for (a<q, af.a> aVar : list) {
             if (aVar != null) {
                 BdUniqueId bdUniqueId = null;
-                if (aVar.qJ() != null) {
-                    bdUniqueId = aVar.qJ();
-                    if (!this.Wz.containsKey(bdUniqueId)) {
+                if (aVar.qL() != null) {
+                    bdUniqueId = aVar.qL();
+                    if (!this.Xw.containsKey(bdUniqueId)) {
                         j jVar = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar.a(aVar);
                         this.mTypeAdapter.addAdapter(jVar);
-                        this.Wz.put(bdUniqueId, jVar);
-                    }
-                }
-                if (aVar.qK() != null) {
-                    bdUniqueId = aVar.qK();
-                    if (!this.Wz.containsKey(bdUniqueId)) {
-                        j jVar2 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
-                        jVar2.a(aVar);
-                        this.mTypeAdapter.addAdapter(jVar2);
-                        this.Wz.put(bdUniqueId, jVar2);
-                    }
-                }
-                if (aVar.qL() != null) {
-                    bdUniqueId = aVar.qL();
-                    if (!this.Wz.containsKey(bdUniqueId)) {
-                        j jVar3 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
-                        jVar3.a(aVar);
-                        this.mTypeAdapter.addAdapter(jVar3);
-                        this.Wz.put(bdUniqueId, jVar3);
+                        this.Xw.put(bdUniqueId, jVar);
                     }
                 }
                 if (aVar.qM() != null) {
                     bdUniqueId = aVar.qM();
-                    if (!this.Wz.containsKey(bdUniqueId)) {
+                    if (!this.Xw.containsKey(bdUniqueId)) {
+                        j jVar2 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
+                        jVar2.a(aVar);
+                        this.mTypeAdapter.addAdapter(jVar2);
+                        this.Xw.put(bdUniqueId, jVar2);
+                    }
+                }
+                if (aVar.qN() != null) {
+                    bdUniqueId = aVar.qN();
+                    if (!this.Xw.containsKey(bdUniqueId)) {
+                        j jVar3 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
+                        jVar3.a(aVar);
+                        this.mTypeAdapter.addAdapter(jVar3);
+                        this.Xw.put(bdUniqueId, jVar3);
+                    }
+                }
+                if (aVar.qO() != null) {
+                    bdUniqueId = aVar.qO();
+                    if (!this.Xw.containsKey(bdUniqueId)) {
                         j jVar4 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar4.a(aVar);
                         this.mTypeAdapter.addAdapter(jVar4);
-                        this.Wz.put(bdUniqueId, jVar4);
+                        this.Xw.put(bdUniqueId, jVar4);
                     }
                 }
                 if (bdUniqueId == null) {
                     this.mTypeAdapter.addAdapter(aVar);
                 } else {
-                    this.Wy.put(aVar.Vx, aVar);
+                    this.Xv.put(aVar.Wv, aVar);
                 }
             }
         }
@@ -138,11 +138,11 @@ public class BdTypeListView extends BdListView implements v<BdTypeListView> {
         ArrayList arrayList = new ArrayList();
         for (q qVar : list) {
             if (qVar != null) {
-                if (this.Wy.containsKey(qVar.getType())) {
-                    a aVar = this.Wy.get(qVar.getType());
-                    if (aVar.qJ() != null) {
+                if (this.Xv.containsKey(qVar.getType())) {
+                    a aVar = this.Xv.get(qVar.getType());
+                    if (aVar.qL() != null) {
                         i iVar = new i();
-                        iVar.g(aVar.qJ());
+                        iVar.g(aVar.qL());
                         if (qVar instanceof BaseCardInfo) {
                             iVar.position = ((BaseCardInfo) qVar).position;
                             iVar.setSupportType(BaseCardInfo.SupportType.TOP);
@@ -150,9 +150,9 @@ public class BdTypeListView extends BdListView implements v<BdTypeListView> {
                         iVar.a(qVar);
                         arrayList.add(iVar);
                     }
-                    if (aVar.qK() != null) {
+                    if (aVar.qM() != null) {
                         i iVar2 = new i();
-                        iVar2.g(aVar.qK());
+                        iVar2.g(aVar.qM());
                         if (qVar instanceof BaseCardInfo) {
                             iVar2.position = ((BaseCardInfo) qVar).position;
                             iVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
@@ -160,9 +160,9 @@ public class BdTypeListView extends BdListView implements v<BdTypeListView> {
                         iVar2.a(qVar);
                         arrayList.add(iVar2);
                     }
-                    if (aVar.qL() != null) {
+                    if (aVar.qN() != null) {
                         i iVar3 = new i();
-                        iVar3.g(aVar.qL());
+                        iVar3.g(aVar.qN());
                         if (qVar instanceof BaseCardInfo) {
                             iVar3.position = ((BaseCardInfo) qVar).position;
                             iVar3.setSupportType(BaseCardInfo.SupportType.EXTEND);
@@ -170,9 +170,9 @@ public class BdTypeListView extends BdListView implements v<BdTypeListView> {
                         iVar3.a(qVar);
                         arrayList.add(iVar3);
                     }
-                    if (aVar.qM() != null) {
+                    if (aVar.qO() != null) {
                         i iVar4 = new i();
-                        iVar4.g(aVar.qM());
+                        iVar4.g(aVar.qO());
                         if (qVar instanceof BaseCardInfo) {
                             iVar4.position = ((BaseCardInfo) qVar).position;
                             iVar4.setSupportType(BaseCardInfo.SupportType.BOTTOM);

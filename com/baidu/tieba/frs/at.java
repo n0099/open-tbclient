@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.tbadk.core.view.NavigationBar;
-/* loaded from: classes20.dex */
+/* loaded from: classes.dex */
 public interface at {
-    NavigationBar bSa();
+    void bvq();
+
+    void bvr();
 }

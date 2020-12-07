@@ -3,12 +3,12 @@ package com.baidu.helios.bridge.multiprocess;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class b implements Parcelable {
     public static final Parcelable.Creator<b> CREATOR = new Parcelable.Creator<b>() { // from class: com.baidu.helios.bridge.multiprocess.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: dl */
+        /* renamed from: dp */
         public b[] newArray(int i) {
             return new b[i];
         }
@@ -22,18 +22,18 @@ public class b implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private IBinder f1790a;
+    private IBinder f1792a;
 
     public b(IBinder iBinder) {
-        this.f1790a = iBinder;
+        this.f1792a = iBinder;
     }
 
     protected b(Parcel parcel) {
-        this.f1790a = parcel.readStrongBinder();
+        this.f1792a = parcel.readStrongBinder();
     }
 
     public IBinder a() {
-        return this.f1790a;
+        return this.f1792a;
     }
 
     @Override // android.os.Parcelable
@@ -43,6 +43,6 @@ public class b implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeStrongBinder(this.f1790a);
+        parcel.writeStrongBinder(this.f1792a);
     }
 }

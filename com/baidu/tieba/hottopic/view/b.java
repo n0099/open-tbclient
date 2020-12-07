@@ -25,206 +25,206 @@ import com.baidu.tieba.hottopic.data.p;
 import com.baidu.tieba.hottopic.view.indicator.ScrollFragmentAdapter;
 import com.baidu.tieba.hottopic.view.indicator.c;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private CustomViewPager eKk;
-    private NoNetworkView ghk;
-    private HotRanklistActivity jRW;
-    private com.baidu.tieba.hottopic.view.indicator.a jRX;
-    private ScrollFragmentAdapter jRY;
-    private FrameLayout jRZ;
-    private com.baidu.tieba.hottopic.view.indicator.c jSa;
-    private ImageView jSc;
+    private CustomViewPager eRw;
+    private NoNetworkView gpu;
+    private HotRanklistActivity kfA;
+    private com.baidu.tieba.hottopic.view.indicator.a kfB;
+    private ScrollFragmentAdapter kfC;
+    private FrameLayout kfD;
+    private com.baidu.tieba.hottopic.view.indicator.c kfE;
+    private ImageView kfG;
     private View rootView;
     private int topHeight;
     private NavigationBar mNavigationBar = null;
-    private ImageView jKJ = null;
-    public boolean jSb = true;
-    private NoNetworkView.a iFn = null;
-    private View.OnClickListener jSd = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.b.1
+    private ImageView jYm = null;
+    public boolean kfF = true;
+    private NoNetworkView.a iQf = null;
+    private View.OnClickListener kfH = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.cMR()) {
-                b.this.bHP();
+            if (b.this.cSf()) {
+                b.this.bLp();
                 view.setContentDescription("展开");
                 return;
             }
-            b.this.cpe();
+            b.this.cts();
             view.setContentDescription("折叠");
         }
     };
-    private final com.baidu.tbadk.widget.layout.e fFI = new com.baidu.tbadk.widget.layout.e() { // from class: com.baidu.tieba.hottopic.view.b.2
+    private final com.baidu.tbadk.widget.layout.e fNu = new com.baidu.tbadk.widget.layout.e() { // from class: com.baidu.tieba.hottopic.view.b.2
         @Override // com.baidu.tbadk.widget.layout.e
         public void d(View view, int i, int i2, int i3, int i4) {
             b.this.topHeight = i2;
-            if (b.this.jRY != null) {
-                b.this.jRY.f(view, i, i2, i3, i4);
+            if (b.this.kfC != null) {
+                b.this.kfC.f(view, i, i2, i3, i4);
             }
-            if (b.this.jSa != null) {
-                b.this.jSa.CO(i2);
+            if (b.this.kfE != null) {
+                b.this.kfE.DD(i2);
             }
         }
     };
-    private c.a jSe = new c.a() { // from class: com.baidu.tieba.hottopic.view.b.3
+    private c.a kfI = new c.a() { // from class: com.baidu.tieba.hottopic.view.b.3
         @Override // com.baidu.tieba.hottopic.view.indicator.c.a
-        public void cMW() {
-            if (b.this.jRX != null) {
-                b.this.jRX.cNo();
+        public void cSk() {
+            if (b.this.kfB != null) {
+                b.this.kfB.cSC();
             }
-            if (b.this.jSa != null) {
-                b.this.jSa.a((c.a) null);
-                b.this.jSb = true;
-                b.this.jSa = null;
+            if (b.this.kfE != null) {
+                b.this.kfE.a((c.a) null);
+                b.this.kfF = true;
+                b.this.kfE = null;
             }
         }
     };
 
-    public boolean cMR() {
-        return this.jSa != null && this.jSa.isShowing();
+    public boolean cSf() {
+        return this.kfE != null && this.kfE.isShowing();
     }
 
     public b(HotRanklistActivity hotRanklistActivity) {
-        this.jRW = hotRanklistActivity;
+        this.kfA = hotRanklistActivity;
         initView();
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.jRW.getPageContext(), i);
-        ap.setImageResource(this.jKJ, R.drawable.icon_nav_hot_share_selector);
-        SvgManager.bqB().a(this.jKJ, R.drawable.icon_pure_topbar_share44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        this.jRX.onChangeSkinType(i);
-        this.jRW.getLayoutMode().setNightMode(i == 1);
-        this.jRW.getLayoutMode().onModeChanged(this.rootView);
-        this.ghk.onChangeSkinType(this.jRW.getPageContext(), i);
-        this.jRY.dS(null);
-        ap.setBackgroundColor(this.jSc, R.color.CAM_X0204);
-        ap.setBackgroundColor(this.jRZ, R.color.CAM_X0201);
+        this.mNavigationBar.onChangeSkinType(this.kfA.getPageContext(), i);
+        ap.setImageResource(this.jYm, R.drawable.icon_nav_hot_share_selector);
+        SvgManager.btW().a(this.jYm, R.drawable.icon_pure_topbar_share44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.kfB.onChangeSkinType(i);
+        this.kfA.getLayoutMode().setNightMode(i == 1);
+        this.kfA.getLayoutMode().onModeChanged(this.rootView);
+        this.gpu.onChangeSkinType(this.kfA.getPageContext(), i);
+        this.kfC.ed(null);
+        ap.setBackgroundColor(this.kfG, R.color.CAM_X0204);
+        ap.setBackgroundColor(this.kfD, R.color.CAM_X0201);
     }
 
     private void initView() {
-        if (this.jRW != null) {
-            this.rootView = LayoutInflater.from(this.jRW.getActivity()).inflate(R.layout.topic_scroll_fragment_tabhost, (ViewGroup) null);
-            this.jRW.setContentView(this.rootView);
-            this.jRZ = (FrameLayout) this.jRW.findViewById(R.id.topic_tab_widget_content_container);
-            this.mNavigationBar = (NavigationBar) this.jRW.findViewById(R.id.topic_fragment_navigation_bar);
+        if (this.kfA != null) {
+            this.rootView = LayoutInflater.from(this.kfA.getActivity()).inflate(R.layout.topic_scroll_fragment_tabhost, (ViewGroup) null);
+            this.kfA.setContentView(this.rootView);
+            this.kfD = (FrameLayout) this.kfA.findViewById(R.id.topic_tab_widget_content_container);
+            this.mNavigationBar = (NavigationBar) this.kfA.findViewById(R.id.topic_fragment_navigation_bar);
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.jKJ = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.hot_topic_share, new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.b.4
+            this.jYm = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.hot_topic_share, new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.b.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (!j.isNetWorkAvailable()) {
-                        b.this.jRW.showToast(R.string.topic_share_no_network);
-                    } else if (ShareSwitch.isOn() || bh.checkUpIsLogin(b.this.jRW)) {
-                        TiebaStatic.log(new ar(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dR("obj_param1", "6"));
-                        b.this.jRW.cMg();
+                        b.this.kfA.showToast(R.string.topic_share_no_network);
+                    } else if (ShareSwitch.isOn() || bh.checkUpIsLogin(b.this.kfA)) {
+                        TiebaStatic.log(new ar(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dY("obj_param1", "6"));
+                        b.this.kfA.cRu();
                     }
                 }
             });
             this.mNavigationBar.setCenterTextTitle(TbadkCoreApplication.getInst().getString(R.string.hot_topic_card_title));
-            this.ghk = (NoNetworkView) this.jRW.findViewById(R.id.topic_view_no_network);
-            this.jSc = (ImageView) this.rootView.findViewById(R.id.topic_tab_bottom_line);
-            this.jRX = new com.baidu.tieba.hottopic.view.indicator.a(this.jRW.getActivity(), this.jRW.findViewById(R.id.topic_tab_container));
-            this.jRX.E(this.jSd);
-            ((ObservedChangeLinearLayout) this.jRW.findViewById(R.id.topic_fragment_tab_layout)).setOnSizeChangeListener(this.fFI);
-            this.eKk = (CustomViewPager) this.jRW.findViewById(R.id.topic_tab_widget_view_pager);
-            this.jRY = new ScrollFragmentAdapter(this.jRW.getActivity());
-            this.eKk.setAdapter(this.jRY);
+            this.gpu = (NoNetworkView) this.kfA.findViewById(R.id.topic_view_no_network);
+            this.kfG = (ImageView) this.rootView.findViewById(R.id.topic_tab_bottom_line);
+            this.kfB = new com.baidu.tieba.hottopic.view.indicator.a(this.kfA.getActivity(), this.kfA.findViewById(R.id.topic_tab_container));
+            this.kfB.E(this.kfH);
+            ((ObservedChangeLinearLayout) this.kfA.findViewById(R.id.topic_fragment_tab_layout)).setOnSizeChangeListener(this.fNu);
+            this.eRw = (CustomViewPager) this.kfA.findViewById(R.id.topic_tab_widget_view_pager);
+            this.kfC = new ScrollFragmentAdapter(this.kfA.getActivity());
+            this.eRw.setAdapter(this.kfC);
         }
     }
 
-    public void cMS() {
-        this.jRX.setViewPager(this.eKk);
+    public void cSg() {
+        this.kfB.setViewPager(this.eRw);
     }
 
     public int a(p pVar) {
-        if (this.jRY == null) {
+        if (this.kfC == null) {
             return -1;
         }
-        return this.jRY.b(pVar);
+        return this.kfC.b(pVar);
     }
 
     public void setCurrentTab(int i) {
-        if (i >= 0 && i < this.jRY.getCount()) {
-            this.eKk.setCurrentItem(i, false);
+        if (i >= 0 && i < this.kfC.getCount()) {
+            this.eRw.setCurrentItem(i, false);
         }
     }
 
     public int getCurrentTab() {
-        return this.eKk.getCurrentItem();
+        return this.eRw.getCurrentItem();
     }
 
-    public void cpe() {
+    public void cts() {
         com.baidu.tieba.hottopic.data.j jVar;
-        if (this.jSa == null) {
-            this.jSa = new com.baidu.tieba.hottopic.view.indicator.c(this.jRZ);
-            this.jSa.a(this.jSe);
+        if (this.kfE == null) {
+            this.kfE = new com.baidu.tieba.hottopic.view.indicator.c(this.kfD);
+            this.kfE.a(this.kfI);
         }
-        this.jSa.CP(this.topHeight);
-        if (!this.jSa.isShowing() && (jVar = (com.baidu.tieba.hottopic.data.j) y.getItem(this.jRY.cNn(), 0)) != null) {
-            this.jSa.a(this.jRW.getActivity(), jVar.jQA, this.eKk.getCurrentItem());
-            if (this.jRX != null) {
-                this.jRX.biw();
+        this.kfE.DE(this.topHeight);
+        if (!this.kfE.isShowing() && (jVar = (com.baidu.tieba.hottopic.data.j) y.getItem(this.kfC.cSB(), 0)) != null) {
+            this.kfE.a(this.kfA.getActivity(), jVar.ked, this.eRw.getCurrentItem());
+            if (this.kfB != null) {
+                this.kfB.blG();
             }
         }
     }
 
-    public void bHP() {
-        if (this.jSa != null) {
-            this.jSa.fp(this.jRW.getActivity());
+    public void bLp() {
+        if (this.kfE != null) {
+            this.kfE.fV(this.kfA.getActivity());
         }
     }
 
-    public void CD(int i) {
-        if (this.ghk != null) {
-            this.ghk.setVisibility(i);
+    public void Ds(int i) {
+        if (this.gpu != null) {
+            this.gpu.setVisibility(i);
         }
     }
 
     public void g(NoNetworkView.a aVar) {
-        this.iFn = aVar;
-        if (this.ghk != null) {
-            this.ghk.a(this.iFn);
+        this.iQf = aVar;
+        if (this.gpu != null) {
+            this.gpu.a(this.iQf);
         }
     }
 
-    public View cMT() {
-        return this.jRZ;
+    public View cSh() {
+        return this.kfD;
     }
 
-    public void dW(List<com.baidu.tieba.hottopic.data.j> list) {
-        this.jRY.dS(list);
+    public void eh(List<com.baidu.tieba.hottopic.data.j> list) {
+        this.kfC.ed(list);
     }
 
-    public void cMU() {
-        if (this.ghk != null && this.iFn != null) {
-            this.ghk.b(this.iFn);
+    public void cSi() {
+        if (this.gpu != null && this.iQf != null) {
+            this.gpu.b(this.iQf);
         }
     }
 
-    public void CE(int i) {
-        this.eKk.setVisibility(i);
+    public void Dt(int i) {
+        this.eRw.setVisibility(i);
     }
 
-    public void CF(int i) {
-        if (this.jRX != null) {
-            this.jRX.setVisibility(i);
+    public void Du(int i) {
+        if (this.kfB != null) {
+            this.kfB.setVisibility(i);
         }
     }
 
-    public void VB() {
-        this.jRY.VB();
+    public void Yb() {
+        this.kfC.Yb();
     }
 
     public void showLoadingView() {
-        this.jRY.showLoadingView();
+        this.kfC.showLoadingView();
     }
 
-    public void cMV() {
-        this.jRY.rp(false);
+    public void cSj() {
+        this.kfC.rR(false);
     }
 
     public boolean onKeyBack() {
-        if (cMR()) {
-            bHP();
+        if (cSf()) {
+            bLp();
             return true;
         }
         return false;

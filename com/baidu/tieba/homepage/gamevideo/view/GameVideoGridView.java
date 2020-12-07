@@ -8,10 +8,10 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.GridLayoutAnimationController;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class GameVideoGridView extends BdGridView {
-    private Animation jBM;
-    private GridLayoutAnimationController jBN;
+    private Animation jPo;
+    private GridLayoutAnimationController jPp;
     private int mMaxHeight;
 
     public GameVideoGridView(Context context, AttributeSet attributeSet, int i) {
@@ -33,15 +33,15 @@ public class GameVideoGridView extends BdGridView {
     }
 
     private void init() {
-        if (this.jBM == null) {
-            this.jBM = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
+        if (this.jPo == null) {
+            this.jPo = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
         }
-        if (this.jBN == null) {
-            this.jBN = new GridLayoutAnimationController(this.jBM);
-            this.jBN.setColumnDelay(0.4f);
-            this.jBN.setRowDelay(0.2f);
-            this.jBN.setDirection(0);
-            this.jBN.setDirectionPriority(0);
+        if (this.jPp == null) {
+            this.jPp = new GridLayoutAnimationController(this.jPo);
+            this.jPp.setColumnDelay(0.4f);
+            this.jPp.setRowDelay(0.2f);
+            this.jPp.setDirection(0);
+            this.jPp.setDirectionPriority(0);
         }
     }
 
@@ -57,17 +57,17 @@ public class GameVideoGridView extends BdGridView {
         super.onMeasure(i, i2);
     }
 
-    public void cJP() {
-        if (this.jBN != null) {
-            setLayoutAnimation(this.jBN);
-            this.jBN.start();
+    public void cPe() {
+        if (this.jPp != null) {
+            setLayoutAnimation(this.jPp);
+            this.jPp.start();
             startLayoutAnimation();
         }
     }
 
     public void onDestroy() {
-        if (this.jBM != null) {
-            this.jBM.cancel();
+        if (this.jPo != null) {
+            this.jPo.cancel();
         }
     }
 }

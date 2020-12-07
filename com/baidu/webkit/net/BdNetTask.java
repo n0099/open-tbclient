@@ -3,7 +3,6 @@ package com.baidu.webkit.net;
 import android.os.AsyncTask;
 import android.os.Looper;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.net.BdNet;
 import java.net.HttpURLConnection;
@@ -12,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 import javax.net.ssl.SSLContext;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class BdNetTask implements INoProGuard {
     private static final boolean DEBUG = false;
     private static final int MAX_POOL_SIZE = 10;
@@ -43,7 +42,7 @@ public class BdNetTask implements INoProGuard {
     private int mTaskPriority$77d0b2dd = b.b;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public static class a extends AsyncTask<HttpURLConnection, Void, Void> {
         private a() {
         }
@@ -78,15 +77,15 @@ public class BdNetTask implements INoProGuard {
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f3970a = 1;
+        public static final int f3973a = 1;
         public static final int b = 2;
         public static final int c = 3;
         public static final int d = 4;
-        private static final /* synthetic */ int[] e = {f3970a, b, c, d};
+        private static final /* synthetic */ int[] e = {f3973a, b, c, d};
     }
 
     private void clearForRecycle() {
@@ -160,7 +159,7 @@ public class BdNetTask implements INoProGuard {
                 this.mCookies = new HashMap();
             }
             for (String str2 : str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
-                String[] split = str2.split(ETAG.EQUAL);
+                String[] split = str2.split("=");
                 if (split.length >= 2) {
                     this.mCookies.put(split[0], split[1]);
                 }
@@ -260,7 +259,7 @@ public class BdNetTask implements INoProGuard {
     }
 
     public boolean isHigherPriority() {
-        return this.mTaskPriority$77d0b2dd == b.f3970a;
+        return this.mTaskPriority$77d0b2dd == b.f3973a;
     }
 
     public boolean isRedirect() {

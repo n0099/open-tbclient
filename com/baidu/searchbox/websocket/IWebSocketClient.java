@@ -1,9 +1,9 @@
 package com.baidu.searchbox.websocket;
 
 import java.nio.ByteBuffer;
-import kotlin.h;
-@h
-/* loaded from: classes12.dex */
+import kotlin.e;
+@e
+/* loaded from: classes19.dex */
 public interface IWebSocketClient {
     void close(int i, String str);
 

@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
@@ -30,7 +29,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMFetchMsgByIdMsg extends Message {
     private static final String TAG = "IMFetchMsgByIdMsg";
     public static final Map<Long, Boolean> reliableListFirst = new ConcurrentHashMap();
@@ -147,10 +146,11 @@ public class IMFetchMsgByIdMsg extends Message {
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         LogUtils.d(TAG, "fetch handleMessageResult err : " + i + ", msg :" + str);
+        super.handleMessageResult(context, jSONObject, i, str);
         TaskManager.getInstance(this.mContext).submitForNetWork(new FetchTask(context, jSONObject, i, str));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     private class FetchTask extends TaskManager.Task {
         private Context mContext;
         private int mErrorCode;
@@ -164,98 +164,126 @@ public class IMFetchMsgByIdMsg extends Message {
             this.mStrMsg = str;
         }
 
+        /* JADX WARN: Removed duplicated region for block: B:11:0x007c  */
+        /* JADX WARN: Removed duplicated region for block: B:18:0x00ca  */
+        /* JADX WARN: Removed duplicated region for block: B:24:0x0160  */
         /* JADX WARN: Type inference failed for: r2v1, types: [T, java.lang.Long] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public void run() {
             int i;
-            ArrayList<ChatMsg> arrayList = null;
-            int i2 = 0;
-            boolean z = false;
+            ArrayList<ChatMsg> arrayList;
+            boolean z;
+            int i2;
+            final ArrayList<ChatMsg> parserMessage;
+            int i3 = 0;
             Type type = new Type();
             type.t = 0L;
-            if (this.mErrorCode == 0) {
-                if (this.mObj.has("messages")) {
-                    JSONArray jSONArray = null;
+            if (this.mErrorCode != 0 || !this.mObj.has("messages")) {
+                i = 0;
+                arrayList = null;
+            } else {
+                JSONArray jSONArray = null;
+                try {
+                    z = this.mObj.optBoolean("has_more", false);
                     try {
-                        z = this.mObj.optBoolean("has_more", false);
                         jSONArray = this.mObj.getJSONArray("messages");
-                        i2 = jSONArray.length();
-                        LogUtils.d(IMFetchMsgByIdMsg.TAG, "fetch message result hasMore = " + z + " realMsgCount = " + i2 + " count = " + IMFetchMsgByIdMsg.this.mCount);
-                        i = i2;
+                        i3 = jSONArray.length();
+                        LogUtils.d(IMFetchMsgByIdMsg.TAG, "fetch message result hasMore = " + z + " realMsgCount = " + i3 + " count = " + IMFetchMsgByIdMsg.this.mCount);
+                        i2 = i3;
                     } catch (JSONException e) {
+                        e = e;
                         LogUtils.e(IMFetchMsgByIdMsg.TAG, "Exception ", e);
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                        i = i2;
-                    }
-                    if (z) {
-                        i = Math.abs(IMFetchMsgByIdMsg.this.mCount);
-                        LogUtils.d(IMFetchMsgByIdMsg.TAG, "fetch message set realMsgCount = " + IMFetchMsgByIdMsg.this.mCount);
-                    }
-                    int i3 = i;
-                    final ArrayList<ChatMsg> parserMessage = MessageParser.parserMessage(this.mContext, jSONArray, type, true, true);
-                    if (parserMessage != null && parserMessage.size() != 0) {
-                        if (1 == IMFetchMsgByIdMsg.this.mCategory) {
-                            parserMessage.get(0).getContacter();
-                            parserMessage = GroupMessageManagerImpl.getInstance(this.mContext).addMsgs(parserMessage, true);
-                        } else if (4 == IMFetchMsgByIdMsg.this.mCategory) {
-                            LogUtils.d(IMFetchMsgByIdMsg.TAG, " fetch cast message , size " + parserMessage.size());
-                            Long valueOf = Long.valueOf(((TextMsg) parserMessage.get(0)).getCastId());
-                            MessageExt.getInstance().setCastId(valueOf);
-                            ArrayList arrayList2 = new ArrayList();
-                            ArrayList arrayList3 = new ArrayList();
-                            Iterator<ChatMsg> it = parserMessage.iterator();
-                            while (it.hasNext()) {
-                                ChatMsg next = it.next();
-                                if (ConversationStudioManImpl.getInstance(this.mContext).isReliable(((TextMsg) next).getCastId())) {
-                                    arrayList2.add((TextMsg) next);
-                                    arrayList3.add(Long.valueOf(next.getMsgId()));
-                                }
-                            }
-                            LogUtils.d(IMFetchMsgByIdMsg.TAG, " fetch reliableMsgs cast message , size " + arrayList2.size() + ", ids :" + arrayList3.toString());
-                            if (arrayList2.size() > 0) {
-                                ArrayList arrayList4 = new ArrayList();
-                                parserMessage = ChatMessageDBManager.getInstance(this.mContext).addCastReliableMsgs(arrayList2, arrayList4);
-                                if (arrayList4 != null && arrayList4.size() > 0) {
-                                    JSONObject jSONObject = new JSONObject();
-                                    try {
-                                        jSONObject.put(Constants.RELIABLE_MSGID, Collections.max(arrayList4));
-                                        jSONObject.put(Constants.RELIABLE_CASTID, ((TextMsg) parserMessage.get(0)).getCastId());
-                                        jSONObject.put(Constants.RELIABLE_UPDATTIME, System.currentTimeMillis());
-                                        Utility.setReliableMaxMsg(this.mContext, jSONObject);
-                                    } catch (JSONException e2) {
-                                        e2.printStackTrace();
-                                    }
-                                }
-                                long castId = ((TextMsg) parserMessage.get(0)).getCastId();
-                                ConversationStudioManImpl.getInstance(this.mContext).deliverCastReliableMsg(castId, parserMessage);
-                                if (!IMFetchMsgByIdMsg.reliableListFirst.containsKey(Long.valueOf(castId))) {
-                                    IMFetchMsgByIdMsg.reliableListFirst.put(Long.valueOf(castId), false);
-                                }
-                                if (IMFetchMsgByIdMsg.reliableListFirst.containsKey(Long.valueOf(castId)) && !IMFetchMsgByIdMsg.reliableListFirst.get(Long.valueOf(castId)).booleanValue()) {
-                                    IMFetchMsgByIdMsg.reliableListFirst.put(Long.valueOf(castId), true);
-                                    TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.chatmessage.request.IMFetchMsgByIdMsg.FetchTask.1
-                                        @Override // java.lang.Runnable
-                                        public void run() {
-                                            LogUtils.d(IMFetchMsgByIdMsg.TAG, "可靠消息第一次拉礼物消息，多回一次ack：" + parserMessage.toString());
-                                            MessageParser.handleAck(FetchTask.this.mContext, parserMessage, false);
-                                        }
-                                    });
-                                }
-                            }
-                            MessageExt.getInstance().setdBLatestMsgId(Utility.getReliableMaxMsgId(this.mContext, valueOf.longValue()));
-                            MessageExt.getInstance().setLocalTimestamp(Long.valueOf(System.currentTimeMillis()));
-                        } else {
-                            parserMessage = ChatMessageDBManager.getInstance(this.mContext).addMsgs(this.mContext, parserMessage, true, IMFetchMsgByIdMsg.this.mTriggerReason);
-                            PaManagerImpl.getInstance(this.mContext).syncAndQueryAllPaInfo();
+                        i2 = i3;
+                        if (z) {
                         }
+                        int i4 = i2;
+                        parserMessage = MessageParser.parserMessage(this.mContext, jSONArray, type, true, true);
+                        if (parserMessage != null) {
+                            if (1 != IMFetchMsgByIdMsg.this.mCategory) {
+                            }
+                            ChatMsgManagerImpl.getInstance(this.mContext).onFetchMsgByIdResult(this.mContext, this.mErrorCode, this.mStrMsg, IMFetchMsgByIdMsg.this.mCategory, IMFetchMsgByIdMsg.this.mContacter, IMFetchMsgByIdMsg.this.mBeginId, IMFetchMsgByIdMsg.this.mEndId, IMFetchMsgByIdMsg.this.mCount, i, ((Long) type.t).longValue(), IMFetchMsgByIdMsg.this.getUUID(), arrayList, IMFetchMsgByIdMsg.this.getListenerKey());
+                        }
+                        i = i4;
+                        arrayList = parserMessage;
+                        ChatMsgManagerImpl.getInstance(this.mContext).onFetchMsgByIdResult(this.mContext, this.mErrorCode, this.mStrMsg, IMFetchMsgByIdMsg.this.mCategory, IMFetchMsgByIdMsg.this.mContacter, IMFetchMsgByIdMsg.this.mBeginId, IMFetchMsgByIdMsg.this.mEndId, IMFetchMsgByIdMsg.this.mCount, i, ((Long) type.t).longValue(), IMFetchMsgByIdMsg.this.getUUID(), arrayList, IMFetchMsgByIdMsg.this.getListenerKey());
                     }
-                    i2 = i3;
-                    arrayList = parserMessage;
+                } catch (JSONException e2) {
+                    e = e2;
+                    z = false;
                 }
-            } else if (this.mErrorCode == 4001) {
-                LoginManager.getInstance(this.mContext).triggleLogoutListener(this.mErrorCode, this.mStrMsg);
+                if (z) {
+                    i2 = Math.abs(IMFetchMsgByIdMsg.this.mCount);
+                    LogUtils.d(IMFetchMsgByIdMsg.TAG, "fetch message set realMsgCount = " + IMFetchMsgByIdMsg.this.mCount);
+                }
+                int i42 = i2;
+                parserMessage = MessageParser.parserMessage(this.mContext, jSONArray, type, true, true);
+                if (parserMessage != null && parserMessage.size() != 0) {
+                    if (1 != IMFetchMsgByIdMsg.this.mCategory) {
+                        parserMessage.get(0).getContacter();
+                        i = i42;
+                        arrayList = GroupMessageManagerImpl.getInstance(this.mContext).addMsgs(parserMessage, true);
+                    } else if (4 == IMFetchMsgByIdMsg.this.mCategory) {
+                        LogUtils.d(IMFetchMsgByIdMsg.TAG, " fetch cast message , size " + parserMessage.size());
+                        Long valueOf = Long.valueOf(((TextMsg) parserMessage.get(0)).getCastId());
+                        MessageExt.getInstance().setCastId(valueOf);
+                        ArrayList arrayList2 = new ArrayList();
+                        ArrayList arrayList3 = new ArrayList();
+                        Iterator<ChatMsg> it = parserMessage.iterator();
+                        while (it.hasNext()) {
+                            ChatMsg next = it.next();
+                            if (ConversationStudioManImpl.getInstance(this.mContext).isReliable(((TextMsg) next).getCastId())) {
+                                arrayList2.add((TextMsg) next);
+                                arrayList3.add(Long.valueOf(next.getMsgId()));
+                            }
+                        }
+                        LogUtils.d(IMFetchMsgByIdMsg.TAG, " fetch reliableMsgs cast message , size " + arrayList2.size() + ", ids :" + arrayList3.toString());
+                        if (arrayList2.size() > 0) {
+                            ArrayList arrayList4 = new ArrayList();
+                            parserMessage = ChatMessageDBManager.getInstance(this.mContext).addCastReliableMsgs(arrayList2, arrayList4);
+                            if (arrayList4 != null && arrayList4.size() > 0) {
+                                JSONObject jSONObject = new JSONObject();
+                                try {
+                                    jSONObject.put(Constants.RELIABLE_MSGID, Collections.max(arrayList4));
+                                    jSONObject.put(Constants.RELIABLE_CASTID, ((TextMsg) parserMessage.get(0)).getCastId());
+                                    jSONObject.put(Constants.RELIABLE_UPDATTIME, System.currentTimeMillis());
+                                    Utility.setReliableMaxMsg(this.mContext, jSONObject);
+                                } catch (JSONException e3) {
+                                    e3.printStackTrace();
+                                }
+                            }
+                            long castId = ((TextMsg) parserMessage.get(0)).getCastId();
+                            ConversationStudioManImpl.getInstance(this.mContext).deliverCastReliableMsg(castId, parserMessage);
+                            if (!IMFetchMsgByIdMsg.reliableListFirst.containsKey(Long.valueOf(castId))) {
+                                IMFetchMsgByIdMsg.reliableListFirst.put(Long.valueOf(castId), false);
+                            }
+                            if (IMFetchMsgByIdMsg.reliableListFirst.containsKey(Long.valueOf(castId)) && !IMFetchMsgByIdMsg.reliableListFirst.get(Long.valueOf(castId)).booleanValue()) {
+                                IMFetchMsgByIdMsg.reliableListFirst.put(Long.valueOf(castId), true);
+                                TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.chatmessage.request.IMFetchMsgByIdMsg.FetchTask.1
+                                    @Override // java.lang.Runnable
+                                    public void run() {
+                                        LogUtils.d(IMFetchMsgByIdMsg.TAG, "可靠消息第一次拉礼物消息，多回一次ack：" + parserMessage.toString());
+                                        MessageParser.handleAck(FetchTask.this.mContext, parserMessage, false);
+                                    }
+                                });
+                            }
+                        }
+                        MessageExt.getInstance().setdBLatestMsgId(Utility.getReliableMaxMsgId(this.mContext, valueOf.longValue()));
+                        MessageExt.getInstance().setLocalTimestamp(Long.valueOf(System.currentTimeMillis()));
+                        i = i42;
+                        arrayList = parserMessage;
+                    } else {
+                        parserMessage = ChatMessageDBManager.getInstance(this.mContext).addMsgs(this.mContext, parserMessage, true, IMFetchMsgByIdMsg.this.mTriggerReason);
+                        PaManagerImpl.getInstance(this.mContext).syncAndQueryAllPaInfo();
+                    }
+                }
+                i = i42;
+                arrayList = parserMessage;
             }
-            ChatMsgManagerImpl.getInstance(this.mContext).onFetchMsgByIdResult(this.mContext, this.mErrorCode, this.mStrMsg, IMFetchMsgByIdMsg.this.mCategory, IMFetchMsgByIdMsg.this.mContacter, IMFetchMsgByIdMsg.this.mBeginId, IMFetchMsgByIdMsg.this.mEndId, IMFetchMsgByIdMsg.this.mCount, i2, ((Long) type.t).longValue(), IMFetchMsgByIdMsg.this.getUUID(), arrayList, IMFetchMsgByIdMsg.this.getListenerKey());
+            ChatMsgManagerImpl.getInstance(this.mContext).onFetchMsgByIdResult(this.mContext, this.mErrorCode, this.mStrMsg, IMFetchMsgByIdMsg.this.mCategory, IMFetchMsgByIdMsg.this.mContacter, IMFetchMsgByIdMsg.this.mBeginId, IMFetchMsgByIdMsg.this.mEndId, IMFetchMsgByIdMsg.this.mCount, i, ((Long) type.t).longValue(), IMFetchMsgByIdMsg.this.getUUID(), arrayList, IMFetchMsgByIdMsg.this.getListenerKey());
         }
     }
 }

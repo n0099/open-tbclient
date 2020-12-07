@@ -1,7 +1,7 @@
 package com.baidu.ala.helper;
 
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class AlaDataModel {
     public static final String ALA_DATA_BEAUTY_PARAMS_KEYS = "ala_beauty_params_key";
     private static volatile AlaDataModel mInstance = null;

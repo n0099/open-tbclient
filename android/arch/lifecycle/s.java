@@ -8,23 +8,22 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class s implements j {
-    private static final s zQ = new s();
-    private Handler mHandler;
-    private int zJ = 0;
-    private int zK = 0;
-    private boolean zL = true;
-    private boolean zM = true;
-    private final k zN = new k(this);
-    private Runnable zO = new Runnable() { // from class: android.arch.lifecycle.s.1
+    private static final s AI = new s();
+    private int AA = 0;
+    private int AB = 0;
+    private boolean AC = true;
+    private boolean AE = true;
+    private final k AF = new k(this);
+    private Runnable AG = new Runnable() { // from class: android.arch.lifecycle.s.1
         @Override // java.lang.Runnable
         public void run() {
             s.this.hH();
             s.this.hI();
         }
     };
-    private ReportFragment.a zP = new ReportFragment.a() { // from class: android.arch.lifecycle.s.2
+    private ReportFragment.a AH = new ReportFragment.a() { // from class: android.arch.lifecycle.s.2
         @Override // android.arch.lifecycle.ReportFragment.a
         public void onCreate() {
         }
@@ -39,70 +38,71 @@ public class s implements j {
             s.this.hE();
         }
     };
+    private Handler mHandler;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void init(Context context) {
-        zQ.E(context);
+        AI.F(context);
     }
 
     void hD() {
-        this.zJ++;
-        if (this.zJ == 1 && this.zM) {
-            this.zN.b(Lifecycle.Event.ON_START);
-            this.zM = false;
+        this.AA++;
+        if (this.AA == 1 && this.AE) {
+            this.AF.b(Lifecycle.Event.ON_START);
+            this.AE = false;
         }
     }
 
     void hE() {
-        this.zK++;
-        if (this.zK == 1) {
-            if (this.zL) {
-                this.zN.b(Lifecycle.Event.ON_RESUME);
-                this.zL = false;
+        this.AB++;
+        if (this.AB == 1) {
+            if (this.AC) {
+                this.AF.b(Lifecycle.Event.ON_RESUME);
+                this.AC = false;
                 return;
             }
-            this.mHandler.removeCallbacks(this.zO);
+            this.mHandler.removeCallbacks(this.AG);
         }
     }
 
     void hF() {
-        this.zK--;
-        if (this.zK == 0) {
-            this.mHandler.postDelayed(this.zO, 700L);
+        this.AB--;
+        if (this.AB == 0) {
+            this.mHandler.postDelayed(this.AG, 700L);
         }
     }
 
     void hG() {
-        this.zJ--;
+        this.AA--;
         hI();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hH() {
-        if (this.zK == 0) {
-            this.zL = true;
-            this.zN.b(Lifecycle.Event.ON_PAUSE);
+        if (this.AB == 0) {
+            this.AC = true;
+            this.AF.b(Lifecycle.Event.ON_PAUSE);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hI() {
-        if (this.zJ == 0 && this.zL) {
-            this.zN.b(Lifecycle.Event.ON_STOP);
-            this.zM = true;
+        if (this.AA == 0 && this.AC) {
+            this.AF.b(Lifecycle.Event.ON_STOP);
+            this.AE = true;
         }
     }
 
     private s() {
     }
 
-    void E(Context context) {
+    void F(Context context) {
         this.mHandler = new Handler();
-        this.zN.b(Lifecycle.Event.ON_CREATE);
+        this.AF.b(Lifecycle.Event.ON_CREATE);
         ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new d() { // from class: android.arch.lifecycle.s.3
             @Override // android.arch.lifecycle.d, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityCreated(Activity activity, Bundle bundle) {
-                ReportFragment.k(activity).d(s.this.zP);
+                ReportFragment.k(activity).d(s.this.AH);
             }
 
             @Override // android.arch.lifecycle.d, android.app.Application.ActivityLifecycleCallbacks
@@ -120,6 +120,6 @@ public class s implements j {
     @Override // android.arch.lifecycle.j
     @NonNull
     public Lifecycle getLifecycle() {
-        return this.zN;
+        return this.AF;
     }
 }

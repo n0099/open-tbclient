@@ -1,13 +1,13 @@
 package org.webrtc;
 
 import android.support.annotation.Nullable;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class MediaStreamTrack {
     public static final String AUDIO_TRACK_KIND = "audio";
     public static final String VIDEO_TRACK_KIND = "video";
     private long nativeTrack;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public enum MediaType {
         MEDIA_TYPE_AUDIO(0),
         MEDIA_TYPE_VIDEO(1);
@@ -35,7 +35,7 @@ public class MediaStreamTrack {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public enum State {
         LIVE,
         ENDED;
@@ -66,7 +66,7 @@ public class MediaStreamTrack {
             return null;
         }
         String nativeGetKind = nativeGetKind(j);
-        if (nativeGetKind.equals(AUDIO_TRACK_KIND)) {
+        if (nativeGetKind.equals("audio")) {
             return new AudioTrack(j);
         }
         if (nativeGetKind.equals("video")) {

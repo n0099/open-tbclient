@@ -1,11 +1,11 @@
 package com.baidu.mapapi.favorite;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class FavoritePoiInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    String f1990a;
+    String f1992a;
     String b;
     LatLng c;
     String d;
@@ -32,7 +32,7 @@ public class FavoritePoiInfo {
     }
 
     public String getID() {
-        return this.f1990a;
+        return this.f1992a;
     }
 
     public String getPoiName() {

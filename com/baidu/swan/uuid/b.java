@@ -7,41 +7,41 @@ import com.baidu.swan.uuid.a.d;
 import com.baidu.swan.uuid.a.e;
 import com.baidu.swan.uuid.a.f;
 import com.baidu.swan.uuid.a.g;
-/* loaded from: classes14.dex */
+/* loaded from: classes9.dex */
 public class b {
-    private static b elw;
-    private final a<String> elx = new a<>();
-    private String ely;
+    private static b esy;
+    private String esA;
+    private final a<String> esz = new a<>();
 
     private b(Context context) {
-        this.elx.a(new c(context));
-        this.elx.a(new e(context));
-        this.elx.a(new d(context));
-        this.elx.a(new g(context));
-        this.elx.a(new com.baidu.swan.uuid.a.a(context));
-        this.elx.a(new f(context));
+        this.esz.a(new c(context));
+        this.esz.a(new e(context));
+        this.esz.a(new d(context));
+        this.esz.a(new g(context));
+        this.esz.a(new com.baidu.swan.uuid.a.a(context));
+        this.esz.a(new f(context));
     }
 
-    public static b dO(Context context) {
-        if (elw == null) {
+    public static b et(Context context) {
+        if (esy == null) {
             synchronized (b.class) {
-                if (elw == null) {
-                    elw = new b(context);
+                if (esy == null) {
+                    esy = new b(context);
                 }
             }
         }
-        return elw;
+        return esy;
     }
 
     public String getUUID() {
-        if (TextUtils.isEmpty(this.ely)) {
+        if (TextUtils.isEmpty(this.esA)) {
             synchronized (this) {
-                if (TextUtils.isEmpty(this.ely)) {
-                    this.ely = this.elx.bdF();
-                    this.elx.ap(this.ely);
+                if (TextUtils.isEmpty(this.esA)) {
+                    this.esA = this.esz.bgK();
+                    this.esz.ap(this.esA);
                 }
             }
         }
-        return this.ely;
+        return this.esA;
     }
 }

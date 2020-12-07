@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.q;
@@ -16,11 +16,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.ax;
 import org.apache.http.HttpHost;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class PbVideoFullscreenAttentionLayout extends FrameLayout {
-    private HeadImageView lPk;
-    private PbVideoFullscreenLikeBtn lPl;
-    private ax lPm;
+    private HeadImageView mdo;
+    private PbVideoFullscreenLikeBtn mdp;
+    private ax mdq;
     private BdUniqueId uniqueId;
 
     public PbVideoFullscreenAttentionLayout(Context context) {
@@ -40,13 +40,13 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
 
     private void init(Context context) {
         inflate(context, R.layout.pb_video_attention, this);
-        this.lPk = (HeadImageView) findViewById(R.id.attention_img);
-        this.lPl = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
-        this.lPk.setIsRound(true);
-        this.lPk.setBorderWidth(l.getDimens(context, R.dimen.tbds3));
-        this.lPk.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
-        this.lPk.setAutoChangeStyle(false);
-        this.lPl.setConfig(new com.baidu.tbadk.core.view.commonBtn.a());
+        this.mdo = (HeadImageView) findViewById(R.id.attention_img);
+        this.mdp = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
+        this.mdo.setIsRound(true);
+        this.mdo.setBorderWidth(l.getDimens(context, R.dimen.tbds3));
+        this.mdo.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
+        this.mdo.setAutoChangeStyle(false);
+        this.mdp.setConfig(new com.baidu.tbadk.core.view.commonBtn.a());
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
@@ -54,62 +54,62 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     }
 
     public void setOnClickEvent(View.OnClickListener onClickListener) {
-        this.lPl.setOnclickEvent(onClickListener);
+        this.mdp.setOnclickEvent(onClickListener);
     }
 
-    public void setData(bx bxVar) {
-        if (bxVar != null && bxVar.blC() != null) {
-            String Bk = q.Bk(bxVar.blC().getAvater());
-            if (Bk.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                this.lPk.startLoad(Bk, 10, false);
+    public void setData(by byVar) {
+        if (byVar != null && byVar.boP() != null) {
+            String BR = q.BR(byVar.boP().getAvater());
+            if (BR.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                this.mdo.startLoad(BR, 10, false);
             } else {
-                this.lPk.startLoad(Bk, 25, false);
+                this.mdo.startLoad(BR, 25, false);
             }
-            if (bxVar.blC().getBaijiahaoInfo() != null && bxVar.blC().getBaijiahaoInfo().auth_id.intValue() > 0) {
-                this.lPk.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(bxVar.blC().getBaijiahaoInfo().auth_id.intValue(), 1));
-                this.lPk.setShowV(true);
-                this.lPk.setGodIconWidth(R.dimen.tbds31);
+            if (byVar.boP().getBaijiahaoInfo() != null && byVar.boP().getBaijiahaoInfo().auth_id.intValue() > 0) {
+                this.mdo.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(byVar.boP().getBaijiahaoInfo().auth_id.intValue(), 1));
+                this.mdo.setShowV(true);
+                this.mdo.setGodIconWidth(R.dimen.tbds31);
             } else {
-                this.lPk.setBjhAuthIconRes(0);
-                this.lPk.setIsBigV(bxVar.blC().isBigV());
-                this.lPk.setShowV(bxVar.blC().isBigV());
+                this.mdo.setBjhAuthIconRes(0);
+                this.mdo.setIsBigV(byVar.boP().isBigV());
+                this.mdo.setShowV(byVar.boP().isBigV());
             }
-            aW(bxVar);
+            aW(byVar);
         }
     }
 
-    public void aW(bx bxVar) {
-        if (bxVar != null && bxVar.blC() != null) {
-            String str = bxVar.tid;
-            int aX = aX(bxVar);
-            if (this.lPm == null) {
+    public void aW(by byVar) {
+        if (byVar != null && byVar.boP() != null) {
+            String str = byVar.tid;
+            int aX = aX(byVar);
+            if (this.mdq == null) {
                 if (getContext() instanceof PbActivity) {
-                    this.lPm = new ax(((PbActivity) getContext()).getPageContext(), this.lPl, -1);
-                    this.lPm.Av("11");
-                    this.lPm.l(this.uniqueId);
+                    this.mdq = new ax(((PbActivity) getContext()).getPageContext(), this.mdp, -1);
+                    this.mdq.Bc("11");
+                    this.mdq.l(this.uniqueId);
                 } else {
                     return;
                 }
             }
-            this.lPm.a(bxVar.blC());
-            this.lPm.setTid(str);
-            this.lPm.setThreadData(bxVar);
-            this.lPm.lBj = true;
-            this.lPm.GE(aX);
+            this.mdq.a(byVar.boP());
+            this.mdq.setTid(str);
+            this.mdq.setThreadData(byVar);
+            this.mdq.lOW = true;
+            this.mdq.Hu(aX);
         }
     }
 
-    public int aX(bx bxVar) {
-        if (bxVar == null) {
+    public int aX(by byVar) {
+        if (byVar == null) {
             return 0;
         }
-        if (bxVar.bnb()) {
-            return !au.isEmpty(bxVar.blG()) ? 2 : 0;
+        if (byVar.bqo()) {
+            return !au.isEmpty(byVar.boT()) ? 2 : 0;
         }
         return 1;
     }
 
-    public boolean drP() {
-        return (this.lPm == null || this.lPm.bsY() == null || !this.lPm.bsY().getIsLike()) ? false : true;
+    public boolean dxh() {
+        return (this.mdq == null || this.mdq.bwy() == null || !this.mdq.bwy().getIsLike()) ? false : true;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.crabsdk.sender;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.crabsdk.CrabSDK;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NativeCrashHandler {
     private static NativeCrashHandler bZ = null;
     private boolean ca = false;
@@ -33,15 +33,15 @@ public class NativeCrashHandler {
     public final void aj() {
         try {
             if (this.mContext == null) {
-                com.baidu.crabsdk.c.a.dC("NativeCrashHandler openNativeCrashHandler failed context is null!");
+                com.baidu.crabsdk.c.a.dE("NativeCrashHandler openNativeCrashHandler failed context is null!");
             } else {
                 System.loadLibrary("crab_native");
                 this.ca = true;
-                com.baidu.crabsdk.c.a.dC("Native version is:" + CrabSDK.NDK_VERSION);
+                com.baidu.crabsdk.c.a.dE("Native version is:" + CrabSDK.NDK_VERSION);
                 if (CrabSDK.NDK_VERSION.equals("-1")) {
                     CrabSDK.NDK_VERSION = "3.2.0";
                 }
-                com.baidu.crabsdk.c.a.dC("NativeCrashHandler openNativeCrashHandler success!  CPU_ABI is " + Build.CPU_ABI);
+                com.baidu.crabsdk.c.a.dE("NativeCrashHandler openNativeCrashHandler success!  CPU_ABI is " + Build.CPU_ABI);
             }
         } catch (Exception e) {
             this.ca = false;
@@ -55,7 +55,7 @@ public class NativeCrashHandler {
         if (this.ca) {
             try {
                 this.cb.startWatching();
-                nRequiredVarParams(com.baidu.crabsdk.c.d.dH(g.af(this.mContext).toString()));
+                nRequiredVarParams(com.baidu.crabsdk.c.d.dJ(g.ag(this.mContext).toString()));
             } catch (Exception e3) {
                 com.baidu.crabsdk.c.a.a("Init gather java info error!", e3);
             }

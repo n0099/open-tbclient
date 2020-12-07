@@ -7,7 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 final class j {
     public static String a(String str, Charset charset) {
         String name;
@@ -23,7 +23,7 @@ final class j {
         return URLEncoder.encode(str, name);
     }
 
-    public static String[] an(String str) {
+    public static String[] aq(String str) {
         int indexOf;
         if (TextUtils.isEmpty(str) || (indexOf = str.indexOf(58)) <= 0 || indexOf == str.length() - 1) {
             return null;
@@ -31,12 +31,12 @@ final class j {
         return new String[]{str.substring(0, indexOf), str.substring(indexOf + 1).trim()};
     }
 
-    public static String ao(String str) {
+    public static String ar(String str) {
         String contentTypeFor = URLConnection.getFileNameMap().getContentTypeFor(str);
         return TextUtils.isEmpty(contentTypeFor) ? "application/octet-stream" : contentTypeFor;
     }
 
-    public static String ap(String str) {
+    public static String as(String str) {
         return (str == null || !str.startsWith("\ufeff")) ? str : str.substring(1);
     }
 

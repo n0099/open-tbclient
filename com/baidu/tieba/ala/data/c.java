@@ -4,70 +4,70 @@ import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    public i gzq;
-    public a gzr;
+    public i gIm;
+    public a gIn;
 
     public void parserJson(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("red_packet_info");
         if (optJSONObject != null) {
-            this.gzq = new i();
-            this.gzq.parserJson(optJSONObject);
+            this.gIm = new i();
+            this.gIm.parserJson(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("user_cond");
         if (optJSONObject2 != null) {
-            this.gzr = new a();
-            this.gzr.parserJson(optJSONObject2);
+            this.gIn = new a();
+            this.gIn.parserJson(optJSONObject2);
         }
     }
 
-    public boolean bQY() {
-        return this.gzq != null && this.gzq.status == 5;
+    public boolean bUI() {
+        return this.gIm != null && this.gIm.status == 5;
     }
 
-    public boolean bQZ() {
-        return this.gzq != null && this.gzq.status == 4;
+    public boolean bUJ() {
+        return this.gIm != null && this.gIm.status == 4;
     }
 
     public boolean isValid() {
-        return this.gzq != null && (this.gzq.status == 2 || this.gzq.status == 3);
+        return this.gIm != null && (this.gIm.status == 2 || this.gIm.status == 3);
     }
 
-    public boolean bRa() {
-        return (this.gzq == null || this.gzr == null || this.gzq.status != 2) ? false : true;
+    public boolean bUK() {
+        return (this.gIm == null || this.gIn == null || this.gIm.status != 2) ? false : true;
     }
 
-    public boolean bRb() {
-        return this.gzr != null && this.gzr.gzs == 1;
+    public boolean bUL() {
+        return this.gIn != null && this.gIn.gIo == 1;
     }
 
-    public long bRc() {
-        if (this.gzr != null) {
-            return this.gzr.gzt;
+    public long bUM() {
+        if (this.gIn != null) {
+            return this.gIn.gIp;
         }
         return 0L;
     }
 
-    public boolean bRd() {
-        return this.gzr != null && ((this.gzr.gzu && !this.gzr.isFollowed) || (this.gzr.gzv && !this.gzr.gzw));
+    public boolean bUN() {
+        return this.gIn != null && ((this.gIn.gIq && !this.gIn.isFollowed) || (this.gIn.gIr && !this.gIn.gIs));
     }
 
-    public boolean bRe() {
-        return this.gzr != null && (this.gzr.gzu || this.gzr.gzv);
+    public boolean bUO() {
+        return this.gIn != null && (this.gIn.gIq || this.gIn.gIr);
     }
 
-    public boolean bRf() {
-        return (this.gzr == null || !this.gzr.gzu || this.gzr.isFollowed) ? false : true;
+    public boolean bUP() {
+        return (this.gIn == null || !this.gIn.gIq || this.gIn.isFollowed) ? false : true;
     }
 
-    public boolean bRg() {
-        return (this.gzr == null || !this.gzr.gzv || this.gzr.gzw) ? false : true;
+    public boolean bUQ() {
+        return (this.gIn == null || !this.gIn.gIr || this.gIn.gIs) ? false : true;
     }
 
-    public int eA(long j) {
+    public int fe(long j) {
         return 100 - ((int) (((j * 1.0d) / 180.0d) * 100.0d));
     }
 
-    public String[] eB(long j) {
+    public String[] ff(long j) {
         String[] strArr = new String[2];
         if (j <= 60) {
             if (j < 0) {
@@ -98,26 +98,26 @@ public class c {
 
     /* loaded from: classes4.dex */
     public static class a {
-        public int gzs;
-        public long gzt;
-        public boolean gzu;
-        public boolean gzv;
-        public boolean gzw;
-        public boolean gzx;
-        public String gzy;
-        public boolean gzz;
+        public int gIo;
+        public long gIp;
+        public boolean gIq;
+        public boolean gIr;
+        public boolean gIs;
+        public boolean gIt;
+        public String gIu;
+        public boolean gIv;
         public boolean isFollowed;
 
         public void parserJson(JSONObject jSONObject) {
-            this.gzu = jSONObject.optInt("need_follow") == 1;
-            this.gzv = jSONObject.optInt("need_send_gift") == 1;
+            this.gIq = jSONObject.optInt("need_follow") == 1;
+            this.gIr = jSONObject.optInt("need_send_gift") == 1;
             this.isFollowed = jSONObject.optInt("follow") == 1;
-            this.gzw = jSONObject.optInt("send_gift") == 1;
-            this.gzx = jSONObject.optInt("need_follow_sender") == 1;
-            this.gzy = jSONObject.optString("sender_user_id");
-            this.gzz = jSONObject.optInt("follow_sender") == 1;
-            this.gzs = jSONObject.optInt("loot_result");
-            this.gzt = jSONObject.optLong(LogConfig.LOG_AMOUNT);
+            this.gIs = jSONObject.optInt("send_gift") == 1;
+            this.gIt = jSONObject.optInt("need_follow_sender") == 1;
+            this.gIu = jSONObject.optString("sender_user_id");
+            this.gIv = jSONObject.optInt("follow_sender") == 1;
+            this.gIo = jSONObject.optInt("loot_result");
+            this.gIp = jSONObject.optLong(LogConfig.LOG_AMOUNT);
         }
     }
 }

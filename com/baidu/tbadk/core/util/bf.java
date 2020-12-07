@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.Context;
+import android.net.Uri;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
@@ -22,10 +23,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class bf {
-    private static bf eNd = new bf() { // from class: com.baidu.tbadk.core.util.bf.1
+    private static bf eUp = new bf() { // from class: com.baidu.tbadk.core.util.bf.1
     };
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private c eNe;
+    private c eUq;
     private final ConcurrentHashMap<String, b> mHandlers;
     private final List<a> mListeners;
 
@@ -51,10 +52,10 @@ public class bf {
     private bf() {
         this.mListeners = new LinkedList();
         this.mHandlers = new ConcurrentHashMap<>();
-        this.eNe = null;
+        this.eUq = null;
     }
 
-    public static SpannableString ar(Context context, String str) {
+    public static SpannableString au(Context context, String str) {
         int start;
         Matcher matcher = pattern.matcher(str);
         SpannableString spannableString = new SpannableString(str);
@@ -70,8 +71,8 @@ public class bf {
         return spannableString;
     }
 
-    public static bf bqF() {
-        return eNd;
+    public static bf bua() {
+        return eUp;
     }
 
     public void a(final a aVar) {
@@ -95,7 +96,7 @@ public class bf {
     }
 
     public void a(c cVar) {
-        this.eNe = cVar;
+        this.eUq = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -128,54 +129,69 @@ public class bf {
             return false;
         }
         String str2 = strArr[0];
-        b bVar = this.mHandlers.get(getSchemaKey(str2));
-        if (bVar != null) {
-            bVar.a(tbPageContext, getInnerParamPair(getParamStrBehindScheme(str2)));
-            return true;
-        }
-        if (com.baidu.adp.framework.a.b.Jf.u("3001000") != null) {
-            for (String str3 : com.baidu.adp.framework.a.b.Jf.u("3001000")) {
-                for (ArrayList<String> arrayList : com.baidu.adp.framework.a.b.Je.u(str3)) {
-                    Iterator<String> it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        if (str2.contains(it.next())) {
-                            try {
-                                Class.forName(str3);
-                            } catch (Throwable th) {
-                                BdLog.e(th);
+        if (str2.startsWith("flt://")) {
+            try {
+                Uri parse = Uri.parse(str2);
+                HashMap hashMap = new HashMap();
+                String host = parse.getHost();
+                for (String str3 : parse.getQueryParameterNames()) {
+                    hashMap.put(str3, parse.getQueryParameter(str3));
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new com.baidu.tieba.tbadkCore.data.m(tbPageContext.getPageActivity(), host, hashMap)));
+                z3 = false;
+            } catch (Exception e) {
+                BdLog.e(e);
+                z3 = false;
+            }
+        } else {
+            b bVar = this.mHandlers.get(getSchemaKey(str2));
+            if (bVar != null) {
+                bVar.a(tbPageContext, getInnerParamPair(getParamStrBehindScheme(str2)));
+                return true;
+            }
+            if (com.baidu.adp.framework.a.b.JX.u("3001000") != null) {
+                for (String str4 : com.baidu.adp.framework.a.b.JX.u("3001000")) {
+                    for (ArrayList<String> arrayList : com.baidu.adp.framework.a.b.JW.u(str4)) {
+                        Iterator<String> it = arrayList.iterator();
+                        while (it.hasNext()) {
+                            if (str2.contains(it.next())) {
+                                try {
+                                    Class.forName(str4);
+                                } catch (Throwable th) {
+                                    BdLog.e(th);
+                                }
                             }
                         }
                     }
                 }
             }
-        }
-        Iterator<a> it2 = this.mListeners.iterator();
-        while (true) {
-            if (!it2.hasNext()) {
-                z3 = false;
-                break;
+            Iterator<a> it2 = this.mListeners.iterator();
+            while (true) {
+                if (!it2.hasNext()) {
+                    z4 = false;
+                    break;
+                }
+                a next = it2.next();
+                if (next != null && next.deal(tbPageContext, strArr) != 3) {
+                    z4 = true;
+                    break;
+                }
             }
-            a next = it2.next();
-            if (next != null && next.deal(tbPageContext, strArr) != 3) {
-                z3 = true;
-                break;
+            if (!z4 && this.eUq != null) {
+                if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
+                    z3 = true;
+                } else if (strArr.length > 1 && !StringUtils.isNull(strArr[1]) && "yun_push_tag".equals(strArr[1])) {
+                    MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(tbPageContext.getPageActivity());
+                    mainTabActivityConfig.setTargetScheme(strArr[0]);
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig));
+                    z3 = z4;
+                } else {
+                    b(tbPageContext, str, strArr[0], z, dVar, z2);
+                }
             }
+            z3 = z4;
         }
-        if (!z3 && this.eNe != null) {
-            if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
-                z4 = true;
-            } else if (strArr.length > 1 && !StringUtils.isNull(strArr[1]) && "yun_push_tag".equals(strArr[1])) {
-                MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(tbPageContext.getPageActivity());
-                mainTabActivityConfig.setTargetScheme(strArr[0]);
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig));
-                z4 = z3;
-            } else {
-                b(tbPageContext, str, strArr[0], z, dVar, z2);
-            }
-            return z4;
-        }
-        z4 = z3;
-        return z4;
+        return z3;
     }
 
     public static Map<String, String> getParamPair(String str) {
@@ -273,7 +289,7 @@ public class bf {
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
         if (pattern.matcher(str2).find()) {
-            this.eNe.a(tbPageContext, str, str2, z, dVar, z2);
+            this.eUq.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
@@ -301,10 +317,10 @@ public class bf {
         if (charSequence == null) {
             return false;
         }
-        return ax.eMZ.matcher(charSequence).find();
+        return ax.eUl.matcher(charSequence).find();
     }
 
-    public String BA(String str) {
+    public String Ch(String str) {
         if (!m(str)) {
             return null;
         }
@@ -320,6 +336,6 @@ public class bf {
         if (charSequence == null) {
             return false;
         }
-        return ax.eMY.matcher(charSequence).find();
+        return ax.eUk.matcher(charSequence).find();
     }
 }

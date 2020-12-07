@@ -6,31 +6,31 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.divider.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> biN = new ArrayList();
-    private BdTypeListView ghN;
-    private d jtE;
-    private c jtF;
-    private b jtG;
+    private List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
+    private BdTypeListView gpX;
+    private d jHe;
+    private c jHf;
+    private b jHg;
 
-    public List<com.baidu.adp.widget.ListView.a> bOC() {
-        return this.biN;
+    public List<com.baidu.adp.widget.ListView.a> bSn() {
+        return this.bnf;
     }
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.ghN = bdTypeListView;
-        this.jtE = new d(tbPageContext);
-        this.jtF = new c(tbPageContext);
-        this.jtG = new b(tbPageContext);
-        this.biN.add(this.jtE);
-        this.biN.add(this.jtF);
-        this.biN.add(this.jtG);
+        this.gpX = bdTypeListView;
+        this.jHe = new d(tbPageContext);
+        this.jHf = new c(tbPageContext);
+        this.jHg = new b(tbPageContext);
+        this.bnf.add(this.jHe);
+        this.bnf.add(this.jHf);
+        this.bnf.add(this.jHg);
     }
 
     public void notifyDataSetChanged() {
-        if (this.ghN != null && (this.ghN.getAdapter() instanceof f)) {
-            this.ghN.getAdapter().notifyDataSetChanged();
+        if (this.gpX != null && (this.gpX.getAdapter() instanceof f)) {
+            this.gpX.getAdapter().notifyDataSetChanged();
         }
     }
 }

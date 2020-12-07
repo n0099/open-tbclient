@@ -1,13 +1,13 @@
 package com.sdk.base.framework.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4485a = "";
+    private String f4255a = "";
     private long b;
 
     public final String a() {
-        return this.f4485a;
+        return this.f4255a;
     }
 
     public final void a(long j) {
@@ -15,7 +15,7 @@ public final class d {
     }
 
     public final void a(String str) {
-        this.f4485a = str;
+        this.f4255a = str;
     }
 
     public final long b() {
@@ -23,6 +23,6 @@ public final class d {
     }
 
     public final String toString() {
-        return "_$101005Bean{url='" + this.f4485a + "', time=" + this.b + '}';
+        return "_$101005Bean{url='" + this.f4255a + "', time=" + this.b + '}';
     }
 }

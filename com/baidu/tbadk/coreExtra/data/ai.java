@@ -5,50 +5,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ai {
-    private String fcJ;
-    private long fcK;
-    private long fcL;
-    private long fcM;
-    private String fcN;
-    private String fcO;
+    private String fki;
+    private long fkj;
+    private long fkk;
+    private long fkl;
+    private String fkm;
+    private String fkn;
 
     public void parseJson(String str) {
         if (!au.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.fcJ = jSONObject.optString("splash_video_url");
-                this.fcK = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.fcL = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.fcM = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.fcN = jSONObject.optString("splash_video_h5_url");
-                this.fcO = jSONObject.optString("splash_video_h5_text");
+                this.fki = jSONObject.optString("splash_video_url");
+                this.fkj = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.fkk = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.fkl = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.fkm = jSONObject.optString("splash_video_h5_url");
+                this.fkn = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String bun() {
-        return this.fcJ;
+    public String bxN() {
+        return this.fki;
     }
 
-    public long buo() {
-        return this.fcK;
+    public long bxO() {
+        return this.fkj;
     }
 
-    public long bup() {
-        return this.fcL;
+    public long bxP() {
+        return this.fkk;
     }
 
-    public long buq() {
-        return this.fcM;
+    public long bxQ() {
+        return this.fkl;
     }
 
-    public String bur() {
-        return this.fcN;
+    public String bxR() {
+        return this.fkm;
     }
 
-    public String bus() {
-        return this.fcO;
+    public String bxS() {
+        return this.fkn;
     }
 }

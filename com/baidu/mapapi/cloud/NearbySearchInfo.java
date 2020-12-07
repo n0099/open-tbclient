@@ -6,17 +6,16 @@ import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.webkit.internal.ETAG;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class NearbySearchInfo extends BaseCloudSearchInfo {
     public String location;
     public int radius;
 
     public NearbySearchInfo() {
         if (HttpClient.isHttpsEnable) {
-            this.f1983a = "https://api.map.baidu.com/geosearch/v2/nearby";
+            this.f1985a = "https://api.map.baidu.com/geosearch/v2/nearby";
         } else {
-            this.f1983a = "http://api.map.baidu.com/geosearch/v2/nearby";
+            this.f1985a = "http://api.map.baidu.com/geosearch/v2/nearby";
         }
         this.radius = 1000;
     }
@@ -31,21 +30,21 @@ public class NearbySearchInfo extends BaseCloudSearchInfo {
                 return null;
             }
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
-                String[] split = this.location.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split = this.location.split(",");
                 try {
                     LatLng gcjToBaidu = CoordTrans.gcjToBaidu(new LatLng(Double.parseDouble(split[1]), Double.parseDouble(split[0])));
-                    this.location = gcjToBaidu.longitude + Constants.ACCEPT_TIME_SEPARATOR_SP + gcjToBaidu.latitude;
+                    this.location = gcjToBaidu.longitude + "," + gcjToBaidu.latitude;
                 } catch (Exception e) {
                 }
             }
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("location");
-            sb.append(ETAG.EQUAL);
+            sb.append("=");
             sb.append(this.location);
             if (this.radius >= 0) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("radius");
-                sb.append(ETAG.EQUAL);
+                sb.append("=");
                 sb.append(this.radius);
             }
             return sb.toString();

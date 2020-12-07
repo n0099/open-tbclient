@@ -12,11 +12,11 @@ import java.util.ArrayList;
 public class e implements IOAdEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f2378a;
+    final /* synthetic */ d f2380a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.f2378a = dVar;
+        this.f2380a = dVar;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
@@ -25,7 +25,7 @@ public class e implements IOAdEventListener {
         com.baidu.mobads.command.a a2;
         try {
             XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdDownloadManager", "网络状态已经改变");
-            activeNetworkInfo = ((ConnectivityManager) this.f2378a.f2377a.getSystemService("connectivity")).getActiveNetworkInfo();
+            activeNetworkInfo = ((ConnectivityManager) this.f2380a.f2379a.getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (Exception e) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdDownloadManager", e);
             com.baidu.mobads.c.a.a().a("create apk downloader failed: " + e.toString());
@@ -35,7 +35,7 @@ public class e implements IOAdEventListener {
             String typeName = activeNetworkInfo.getTypeName();
             int type = activeNetworkInfo.getType();
             XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdDownloadManager", "当前网络名称：" + typeName + "; 网络类型：" + type);
-            ArrayList<IOAdDownloader> allAdsApkDownloaderes = this.f2378a.getAllAdsApkDownloaderes();
+            ArrayList<IOAdDownloader> allAdsApkDownloaderes = this.f2380a.getAllAdsApkDownloaderes();
             if (allAdsApkDownloaderes != null) {
                 for (IOAdDownloader iOAdDownloader : allAdsApkDownloaderes) {
                     if (type == 1) {

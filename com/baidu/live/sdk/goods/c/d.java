@@ -24,10 +24,10 @@ import com.baidu.live.view.e;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class d extends e {
-    private float boY;
-    private RoundRectRelativeLayout bru;
-    private TextView brv;
-    private a brw;
+    private float bui;
+    private RoundRectRelativeLayout bwE;
+    private TextView bwF;
+    private a bwG;
     private boolean isHost;
     private Activity mActivity;
     private ViewGroup mContentLayout;
@@ -36,13 +36,13 @@ public class d extends e {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void OY();
+        void Rs();
 
         void e(com.baidu.live.sdk.goods.a.a aVar);
 
-        void v(String str, boolean z);
-
         void w(String str, boolean z);
+
+        void x(String str, boolean z);
     }
 
     public d(Activity activity) {
@@ -54,18 +54,18 @@ public class d extends e {
     public void setHost(boolean z) {
         this.isHost = z;
         if (z) {
-            this.brv.setVisibility(0);
+            this.bwF.setVisibility(0);
         }
     }
 
     public void a(a aVar) {
-        this.brw = aVar;
+        this.bwG = aVar;
     }
 
     public void setData(List<com.baidu.live.sdk.goods.a.a> list) {
         this.mTitleTextView.setText("全部商品 " + (list != null ? list.size() : 0));
         if (list == null || list.isEmpty()) {
-            Pb();
+            Rv();
             return;
         }
         if (!(this.mListView.getAdapter() instanceof b)) {
@@ -73,24 +73,24 @@ public class d extends e {
             this.mListView.setAdapter((ListAdapter) bVar);
             bVar.a(new b.a() { // from class: com.baidu.live.sdk.goods.c.d.1
                 @Override // com.baidu.live.sdk.goods.c.b.a
-                public void v(String str, boolean z) {
-                    if (d.this.brw != null) {
-                        d.this.brw.v(str, z);
+                public void w(String str, boolean z) {
+                    if (d.this.bwG != null) {
+                        d.this.bwG.w(str, z);
                     }
                 }
 
                 @Override // com.baidu.live.sdk.goods.c.b.a
-                public void w(String str, boolean z) {
-                    if (d.this.brw != null) {
-                        d.this.brw.w(str, z);
+                public void x(String str, boolean z) {
+                    if (d.this.bwG != null) {
+                        d.this.bwG.x(str, z);
                     }
                 }
             });
         }
-        ((b) this.mListView.getAdapter()).d(this.isHost, list);
+        ((b) this.mListView.getAdapter()).c(this.isHost, list);
         if (!this.isHost) {
             for (int i = 0; i < list.size(); i++) {
-                if (list.get(i).bqD) {
+                if (list.get(i).bvO) {
                     this.mListView.setSelection(i);
                     return;
                 }
@@ -98,7 +98,7 @@ public class d extends e {
         }
     }
 
-    public void eY(int i) {
+    public void fw(int i) {
         View findViewById;
         if (this.mActivity != null && !this.mActivity.isFinishing() && (findViewById = this.mActivity.getWindow().getDecorView().findViewById(16908290)) != null) {
             n(i, false);
@@ -109,25 +109,25 @@ public class d extends e {
 
     public void n(int i, boolean z) {
         if (i == 2) {
-            this.bru.setCornerRadius(this.boY, 0.0f, 0.0f, this.boY);
+            this.bwE.setCornerRadius(this.bui, 0.0f, 0.0f, this.bui);
             setAnimationStyle(a.i.sdk_goods_list_right_left);
-            Oi();
+            QB();
         } else {
-            this.bru.setCornerRadius(this.boY, this.boY, 0.0f, 0.0f);
+            this.bwE.setCornerRadius(this.bui, this.bui, 0.0f, 0.0f);
             setAnimationStyle(a.i.sdk_goods_list_up_to_top);
         }
-        int[] eV = eV(i);
+        int[] ft = ft(i);
         if (z) {
-            update(eV[0], eV[1]);
+            update(ft[0], ft[1]);
             return;
         }
-        setWidth(eV[0]);
-        setHeight(eV[1]);
+        setWidth(ft[0]);
+        setHeight(ft[1]);
     }
 
-    public void eU(int i) {
+    public void fs(int i) {
         if (i == 2) {
-            Oi();
+            QB();
         }
     }
 
@@ -140,7 +140,7 @@ public class d extends e {
         setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.live.sdk.goods.c.d.2
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                d.this.Pc();
+                d.this.Rw();
                 if (ShowUtil.windowCount > 0) {
                     ShowUtil.windowCount--;
                 }
@@ -149,18 +149,18 @@ public class d extends e {
     }
 
     private void initView() {
-        this.boY = this.mActivity.getResources().getDimensionPixelOffset(a.d.sdk_ds20);
+        this.bui = this.mActivity.getResources().getDimensionPixelOffset(a.d.sdk_ds20);
         setContentView(LayoutInflater.from(this.mActivity).inflate(a.g.live_goods_display_list_popup, (ViewGroup) null));
-        this.bru = (RoundRectRelativeLayout) getContentView().findViewById(a.f.rrrl_goods_display_list);
+        this.bwE = (RoundRectRelativeLayout) getContentView().findViewById(a.f.rrrl_goods_display_list);
         this.mTitleTextView = (TextView) getContentView().findViewById(a.f.tv_goods_display_list_title);
-        this.brv = (TextView) getContentView().findViewById(a.f.tv_goods_display_list_config);
+        this.bwF = (TextView) getContentView().findViewById(a.f.tv_goods_display_list_config);
         this.mContentLayout = (ViewGroup) getContentView().findViewById(a.f.layout_goods_display_list_content);
         this.mListView = (ListView) getContentView().findViewById(a.f.lv_good_display_list);
-        this.brv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.c.d.3
+        this.bwF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.c.d.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.brw != null) {
-                    d.this.brw.OY();
+                if (d.this.bwG != null) {
+                    d.this.bwG.Rs();
                 }
             }
         });
@@ -174,14 +174,14 @@ public class d extends e {
             @Override // android.widget.AbsListView.RecyclerListener
             public void onMovedToScrapHeap(View view) {
                 Object tag = view.getTag();
-                if (tag instanceof b.C0197b) {
-                    ((b.C0197b) tag).recycle();
+                if (tag instanceof b.C0207b) {
+                    ((b.C0207b) tag).recycle();
                 }
             }
         });
     }
 
-    private int[] eV(int i) {
+    private int[] ft(int i) {
         int[] iArr = new int[2];
         if (i == 2) {
             iArr[0] = (int) (ScreenHelper.getRealScreenWidth(this.mActivity) * 0.5f);
@@ -195,15 +195,15 @@ public class d extends e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onItemClick(int i) {
-        if (this.brw != null && this.mListView != null && this.mListView.getAdapter() != null) {
+        if (this.bwG != null && this.mListView != null && this.mListView.getAdapter() != null) {
             Object item = this.mListView.getAdapter().getItem(i);
             if (item instanceof com.baidu.live.sdk.goods.a.a) {
-                this.brw.e((com.baidu.live.sdk.goods.a.a) item);
+                this.bwG.e((com.baidu.live.sdk.goods.a.a) item);
             }
         }
     }
 
-    private void Pb() {
+    private void Rv() {
         if (this.mActivity != null && this.mContentLayout != null && this.mListView != null) {
             View emptyView = this.mListView.getEmptyView();
             if (!(emptyView instanceof CommonEmptyView)) {
@@ -224,14 +224,14 @@ public class d extends e {
         }
     }
 
-    private void Oi() {
+    private void QB() {
         if (getContentView() != null && Build.VERSION.SDK_INT >= 19) {
             getContentView().setSystemUiVisibility(5380);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Pc() {
+    public void Rw() {
         if (this.mListView != null) {
             int i = 0;
             while (true) {
@@ -240,8 +240,8 @@ public class d extends e {
                     View childAt = this.mListView.getChildAt(i2);
                     if (childAt != null) {
                         Object tag = childAt.getTag();
-                        if (tag instanceof b.C0197b) {
-                            ((b.C0197b) tag).recycle();
+                        if (tag instanceof b.C0207b) {
+                            ((b.C0207b) tag).recycle();
                         }
                     }
                     i = i2 + 1;

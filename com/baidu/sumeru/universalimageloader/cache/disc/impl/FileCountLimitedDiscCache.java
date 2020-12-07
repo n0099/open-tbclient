@@ -4,7 +4,7 @@ import com.baidu.sumeru.universalimageloader.cache.disc.LimitedDiscCache;
 import com.baidu.sumeru.universalimageloader.cache.disc.naming.FileNameGenerator;
 import com.baidu.sumeru.universalimageloader.core.DefaultConfigurationFactory;
 import java.io.File;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class FileCountLimitedDiscCache extends LimitedDiscCache {
     public FileCountLimitedDiscCache(File file, int i) {
         this(file, DefaultConfigurationFactory.createFileNameGenerator(), i);

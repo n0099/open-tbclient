@@ -1,24 +1,31 @@
 package com.baidu.tbadk.data;
-
-import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class h {
-    private String link;
-    private TbPageContext pageContext;
+    private int activityId;
+    private String activityNum;
+    private int fsS;
 
-    public h() {
+    public int getActivityId() {
+        return this.activityId;
     }
 
-    public h(TbPageContext tbPageContext, String str) {
-        this.pageContext = tbPageContext;
-        this.link = str;
+    public void setActivityId(int i) {
+        this.activityId = i;
     }
 
-    public TbPageContext getPageContext() {
-        return this.pageContext;
+    public int bBI() {
+        return this.fsS;
     }
 
-    public String getLink() {
-        return this.link;
+    public void sb(int i) {
+        this.fsS = i;
+    }
+
+    public String bBJ() {
+        return this.activityNum;
+    }
+
+    public void DB(String str) {
+        this.activityNum = str;
     }
 }

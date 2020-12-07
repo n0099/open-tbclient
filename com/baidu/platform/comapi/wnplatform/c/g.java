@@ -4,15 +4,15 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class g implements LocationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f3105a;
+    final /* synthetic */ d f3107a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(d dVar) {
-        this.f3105a = dVar;
+        this.f3107a = dVar;
     }
 
     @Override // android.location.LocationListener
@@ -21,20 +21,20 @@ public class g implements LocationListener {
         Location location3;
         Location location4;
         if (location != null) {
-            location2 = this.f3105a.v;
+            location2 = this.f3107a.v;
             if (location2 == null) {
-                this.f3105a.a(location);
+                this.f3107a.a(location);
             } else {
-                d dVar = this.f3105a;
-                location3 = this.f3105a.v;
+                d dVar = this.f3107a;
+                location3 = this.f3107a.v;
                 if (dVar.a(location, location3)) {
-                    this.f3105a.v = location;
+                    this.f3107a.v = location;
                 }
-                d dVar2 = this.f3105a;
-                location4 = this.f3105a.v;
+                d dVar2 = this.f3107a;
+                location4 = this.f3107a.v;
                 dVar2.a(location4);
             }
-            this.f3105a.h = true;
+            this.f3107a.h = true;
         }
     }
 
@@ -44,7 +44,7 @@ public class g implements LocationListener {
 
     @Override // android.location.LocationListener
     public void onProviderEnabled(String str) {
-        for (a aVar : this.f3105a.f) {
+        for (a aVar : this.f3107a.f) {
             if (aVar != null) {
                 aVar.d(4);
             }
@@ -53,7 +53,7 @@ public class g implements LocationListener {
 
     @Override // android.location.LocationListener
     public void onProviderDisabled(String str) {
-        for (a aVar : this.f3105a.f) {
+        for (a aVar : this.f3107a.f) {
             if (aVar != null) {
                 aVar.d(5);
             }

@@ -43,8 +43,8 @@ public class NobleUserInfo extends BaseData implements Serializable {
 
     /* loaded from: classes4.dex */
     public class a {
-        public String bnE;
-        public String bnF;
+        public String bsM;
+        public String bsN;
         public String iconUrl;
         public String price;
         public int typeId;
@@ -57,8 +57,8 @@ public class NobleUserInfo extends BaseData implements Serializable {
                 this.typeId = jSONObject.optInt("type_id");
                 this.iconUrl = jSONObject.optString("icon_url");
                 this.price = jSONObject.optString("price");
-                this.bnE = jSONObject.optString("days");
-                this.bnF = jSONObject.optString("give_score");
+                this.bsM = jSONObject.optString("days");
+                this.bsN = jSONObject.optString("give_score");
             }
         }
     }

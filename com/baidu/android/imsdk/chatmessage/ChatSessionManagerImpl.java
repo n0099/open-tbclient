@@ -7,6 +7,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.IMConstants;
+import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
@@ -37,16 +38,18 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.imsdk.a;
+import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
+import com.baidu.h.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
+/* loaded from: classes9.dex */
+public class ChatSessionManagerImpl {
     private static final String TAG = "SessionManagerImpl";
+    private static Context mContext;
     private static volatile ChatSessionManagerImpl mInstance;
     private List<IDialogSyncListener> mDialogSyncListeners = new LinkedList();
     private ArrayList<IChatSessionChangeListener> mChatRecordChangeListener = new ArrayList<>();
@@ -60,7 +63,7 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
                         linkedList = new LinkedList();
                     }
                     if (chatMsg.getCategory() == 1) {
-                        DialogRecord dialogRecord = DialogRecordDBManager.getInstance(ChatMsgManagerImpl.mContext).getDialogRecord(chatMsg.getCategory(), chatMsg.getContacter());
+                        DialogRecord dialogRecord = DialogRecordDBManager.getInstance(ChatSessionManagerImpl.mContext).getDialogRecord(chatMsg.getCategory(), chatMsg.getContacter());
                         LogUtils.i(ChatSessionManagerImpl.TAG, " onSyncDialogResult " + chatMsg.getContacter() + " mmd: " + dialogRecord);
                         if (dialogRecord == null) {
                             dialogRecord = new DialogRecord();
@@ -71,11 +74,11 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
                     }
                 }
                 LogUtils.i(ChatSessionManagerImpl.TAG, "add DialogRecord mmds : " + linkedList);
-                if (DialogRecordDBManager.getInstance(ChatMsgManagerImpl.mContext).addBatch(linkedList) > 0) {
-                    Utility.writeLongData(ChatMsgManagerImpl.mContext, "sync_max_msgid_" + Utility.getUK(ChatMsgManagerImpl.mContext), j);
-                    Utility.writeIntData(ChatMsgManagerImpl.mContext, Constants.KEY_SYNC_FIRST_TIME, 0);
-                    for (DialogRecord dialogRecord2 : DialogRecordDBManager.getInstance(ChatMsgManagerImpl.mContext).getDialogRecord(-1)) {
-                        SyncGroupMessageService.getInstance().execute(ChatMsgManagerImpl.mContext, dialogRecord2, 0);
+                if (DialogRecordDBManager.getInstance(ChatSessionManagerImpl.mContext).addBatch(linkedList) > 0) {
+                    Utility.writeLongData(ChatSessionManagerImpl.mContext, "sync_max_msgid_" + Utility.getUK(ChatSessionManagerImpl.mContext), j);
+                    Utility.writeIntData(ChatSessionManagerImpl.mContext, Constants.KEY_SYNC_FIRST_TIME, 0);
+                    for (DialogRecord dialogRecord2 : DialogRecordDBManager.getInstance(ChatSessionManagerImpl.mContext).getDialogRecord(-1)) {
+                        SyncGroupMessageService.getInstance().execute(ChatSessionManagerImpl.mContext, dialogRecord2, 0);
                     }
                 }
             }
@@ -88,8 +91,6 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
 
         @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
         public void dealMessage(int i, ChatMsg chatMsg) {
-            int i2;
-            int i3;
             if (chatMsg instanceof DialogSyncMsg) {
                 DialogSyncMsg dialogSyncMsg = (DialogSyncMsg) chatMsg;
                 int syncCategory = dialogSyncMsg.getSyncCategory();
@@ -98,47 +99,40 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
                 int syncStatus = dialogSyncMsg.getSyncStatus();
                 long paid = dialogSyncMsg.getPaid();
                 if (syncStatus == 0) {
-                    i3 = ChatMessageDBManager.getInstance(ChatMsgManagerImpl.mContext).deleteAllMsgWithMsgid(ChatSessionManagerImpl.this.getChatObject(syncCategory, syncFromUid, paid), operatedMaxMsgid);
-                    if (i3 > 0 && ChatSessionManagerImpl.this.mDialogSyncListeners != null && ChatSessionManagerImpl.this.mDialogSyncListeners.size() != 0) {
+                    r8 = ChatMessageDBManager.getInstance(ChatSessionManagerImpl.mContext).deleteAllMsgWithMsgid(new ChatObject(ChatSessionManagerImpl.mContext, syncCategory, syncFromUid, paid, -1), operatedMaxMsgid);
+                    if (r8 > 0 && ChatSessionManagerImpl.this.mDialogSyncListeners != null && ChatSessionManagerImpl.this.mDialogSyncListeners.size() != 0) {
                         for (IDialogSyncListener iDialogSyncListener : ChatSessionManagerImpl.this.mDialogSyncListeners) {
                             iDialogSyncListener.onDialogDel(syncCategory, syncFromUid);
                         }
-                        i2 = i3;
                     }
-                    i2 = i3;
-                } else if (syncStatus != 1) {
-                    i2 = -1;
-                } else if (operatedMaxMsgid > 0) {
-                    boolean allMsgReadWithMsgid = ChatMessageDBManager.getInstance(ChatMsgManagerImpl.mContext).setAllMsgReadWithMsgid(ChatSessionManagerImpl.this.getChatObject(syncCategory, syncFromUid, paid), operatedMaxMsgid);
-                    if (!allMsgReadWithMsgid) {
-                        i3 = -1;
-                    } else {
-                        i3 = 1;
-                    }
-                    if (allMsgReadWithMsgid && ChatSessionManagerImpl.this.mDialogSyncListeners != null && ChatSessionManagerImpl.this.mDialogSyncListeners.size() != 0) {
-                        for (IDialogSyncListener iDialogSyncListener2 : ChatSessionManagerImpl.this.mDialogSyncListeners) {
-                            iDialogSyncListener2.onDialogDel(syncCategory, syncFromUid);
+                } else if (syncStatus == 1) {
+                    if (operatedMaxMsgid > 0) {
+                        boolean allMsgReadWithMsgid = ChatMessageDBManager.getInstance(ChatSessionManagerImpl.mContext).setAllMsgReadWithMsgid(new ChatObject(ChatSessionManagerImpl.mContext, syncCategory, syncFromUid, paid, -1), operatedMaxMsgid);
+                        r8 = allMsgReadWithMsgid ? 1 : -1;
+                        if (allMsgReadWithMsgid && ChatSessionManagerImpl.this.mDialogSyncListeners != null && ChatSessionManagerImpl.this.mDialogSyncListeners.size() != 0) {
+                            for (IDialogSyncListener iDialogSyncListener2 : ChatSessionManagerImpl.this.mDialogSyncListeners) {
+                                iDialogSyncListener2.onDialogDel(syncCategory, syncFromUid);
+                            }
                         }
+                    } else {
+                        return;
                     }
-                    i2 = i3;
-                } else {
-                    return;
                 }
-                if (i2 > 0) {
+                if (r8 > 0) {
                     Intent intent = new Intent(IMConstants.SYNC_ACTION);
-                    intent.setPackage(ChatMsgManagerImpl.mContext.getApplicationContext().getPackageName());
+                    intent.setPackage(ChatSessionManagerImpl.mContext.getApplicationContext().getPackageName());
                     intent.putExtra("category", syncCategory);
                     intent.putExtra("contacter", syncFromUid);
                     intent.putExtra(IMConstants.SYNC_MSGID, operatedMaxMsgid);
                     intent.putExtra(IMConstants.SYNC_STATUS, syncStatus);
                     intent.putExtra(IMConstants.SYNC_TYPE, 1);
-                    ChatMsgManagerImpl.mContext.sendBroadcast(intent);
+                    ChatSessionManagerImpl.mContext.sendBroadcast(intent);
                 }
             }
         }
     };
 
-    public ChatSessionManagerImpl() {
+    private ChatSessionManagerImpl() {
         Dispatcher.Event event = new Dispatcher.Event();
         event.setCategory(2);
         event.setType(22);
@@ -158,7 +152,6 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
                     if (mContext == null) {
                         mContext = context.getApplicationContext();
                     }
-                    ChatMsgManagerImpl.getInstance(mContext);
                     mInstance = new ChatSessionManagerImpl();
                 }
             }
@@ -179,10 +172,8 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
     }
 
     public boolean deleteChatSession(ChatSession chatSession) {
-        if (getPaid() == -2) {
-            return false;
-        }
-        return ChatMessageDBManager.getInstance(mContext).delChatRecord(getChatObject(chatSession.getCategory(), chatSession.getContacter(), getPaid())) >= 0;
+        long paid = ChatMsgManagerImpl.getInstance(mContext).getPaid();
+        return paid != -2 && ChatMessageDBManager.getInstance(mContext).delChatRecord(new ChatObject(mContext, chatSession.getCategory(), chatSession.getContacter(), paid, -1)) >= 0;
     }
 
     private void notifySessionChange(final int i, final ChatSession chatSession) {
@@ -222,11 +213,11 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
                             }
                             LogUtils.d(TAG, "FXF triggerChatSessionChange " + state + " " + z + " chattype: " + chatSession.getChatType() + " id is: " + chatSession.getContacter());
                             LogUtils.d(TAG, "FXF triggerChatSessionChange lastmsg is: " + chatSession.getLastMsg());
-                            next.onChatSessionUpdate(chatSession.m15clone(), z);
+                            next.onChatSessionUpdate(chatSession.m14clone(), z);
                         } else {
                             int state2 = SyncAllMessage.getInstance(mContext).getState();
                             boolean z2 = state2 == 0;
-                            next.onChatSessionUpdate(chatSession.m15clone(), z2);
+                            next.onChatSessionUpdate(chatSession.m14clone(), z2);
                             LogUtils.d(TAG, "FXF triggerChatSessionChange " + state2 + " " + z2 + " chattype: " + chatSession.getChatType() + " id is: " + chatSession.getContacter());
                         }
                     } catch (CloneNotSupportedException e) {
@@ -274,7 +265,7 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
         long createChatSession = ChatMessageDBManager.getInstance(mContext).createChatSession(chatObject, str, i, str2, i2, str3, str4, i3, i4, j, i5, j2, str5, str6, str7);
         LogUtils.i(TAG, "createChatSession result : " + createChatSession + " chatType: " + i + "  name:" + str);
         if (createChatSession > 0) {
-            ArrayList<ChatMsg> fetchMessageSync = fetchMessageSync(chatObject.getCategory(), chatObject.getContacter(), 50, (ChatMsg) null);
+            ArrayList<ChatMsg> fetchMessageSync = ChatMsgManagerImpl.getInstance(mContext).fetchMessageSync(chatObject.getCategory(), chatObject.getContacter(), 50, (ChatMsg) null);
             if (fetchMessageSync == null || fetchMessageSync.size() == 0) {
                 LogUtils.i(TAG, "createChatSession:  fetch msgs is null : ");
                 return;
@@ -286,7 +277,7 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
                     fetchMessageSync.get(i7).setChatType(i);
                     i6 = i7 + 1;
                 } else {
-                    broadcastMessage(fetchMessageSync, true);
+                    ChatMsgManagerImpl.getInstance(mContext).broadcastMessage(fetchMessageSync, true);
                     return;
                 }
             }
@@ -306,18 +297,23 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
     }
 
     public ArrayList<ChatSession> getChatRecordsByClass(long j, long j2, List<Integer> list) {
-        if (!AccountManager.isLogin(mContext) || getPaid() == -2) {
-            return null;
+        if (AccountManager.isLogin(mContext)) {
+            long paid = ChatMsgManagerImpl.getInstance(mContext).getPaid();
+            if (paid == -2) {
+                return null;
+            }
+            return ChatMessageDBManager.getInstance(mContext).getChatRecordsByClass(j, j2, paid, list);
         }
-        return ChatMessageDBManager.getInstance(mContext).getChatRecordsByClass(j, j2, getPaid(), list);
+        return null;
     }
 
     public ArrayList<ChatSession> getChatRecords(long j, long j2, List<Integer> list) {
-        if (getPaid() == -2) {
+        long paid = ChatMsgManagerImpl.getInstance(mContext).getPaid();
+        if (paid == -2) {
             LogUtils.d(TAG, "getChatRecords CRM_ZHIDAID_NOT_SET");
             return null;
         }
-        ArrayList<ChatSession> chatRecords = ChatMessageDBManager.getInstance(mContext).getChatRecords(j, j2, getPaid(), list);
+        ArrayList<ChatSession> chatRecords = ChatMessageDBManager.getInstance(mContext).getChatRecords(j, j2, paid, list);
         if (chatRecords != null && chatRecords.size() > 0) {
             LogUtils.d(TAG, "getChatRecords :" + chatRecords.size());
             Iterator<ChatSession> it = chatRecords.iterator();
@@ -335,23 +331,25 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
     public ArrayList<ChatSession> getChatRecords(long j, long j2) {
         LogUtils.enter();
         if (AccountManager.isLogin(mContext)) {
+            long paid = ChatMsgManagerImpl.getInstance(mContext).getPaid();
             LogUtils.e(TAG, "AccountManager.isLogin(mContext)");
-            if (getPaid() == -2) {
+            if (paid == -2) {
                 LogUtils.e(TAG, "getPaid() == Constants.CRM_ZHIDAID_NOT_SET");
                 return null;
             }
-            return ChatMessageDBManager.getInstance(mContext).getChatRecords(j, j2, getPaid());
+            return ChatMessageDBManager.getInstance(mContext).getChatRecords(j, j2, paid);
         }
         return null;
     }
 
     public ChatSession getChatRecord(int i, long j) {
         LogUtils.enter();
-        if (getPaid() == -2) {
+        long paid = ChatMsgManagerImpl.getInstance(mContext).getPaid();
+        if (paid == -2) {
             LogUtils.e(TAG, "getPaid() == Constants.CRM_ZHIDAID_NOT_SET");
             return null;
         }
-        ChatSession chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(getChatObject(i, j, getPaid()));
+        ChatSession chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(new ChatObject(mContext, i, j, paid, -1));
         if (i == 1) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(String.valueOf(j));
@@ -365,7 +363,7 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
 
     public ChatSession getChatRecord(int i, long j, long j2) {
         LogUtils.enter();
-        if (getPaid() == -2) {
+        if (ChatMsgManagerImpl.getInstance(mContext).getPaid() == -2) {
             LogUtils.e(TAG, "getPaid() == Constants.CRM_ZHIDAID_NOT_SET");
             return null;
         }
@@ -412,10 +410,8 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
     }
 
     public int hideAllChatSession() {
-        if (getPaid() == -2) {
-            return -1017;
-        }
-        return ChatMessageDBManager.getInstance(mContext).deleteChatSession(getPaid());
+        long paid = ChatMsgManagerImpl.getInstance(mContext).getPaid();
+        return paid == -2 ? DlnaManager.DLNA_ERROR_CREATE_SSDP_THREAD_FIAL : ChatMessageDBManager.getInstance(mContext).deleteChatSession(paid);
     }
 
     public List<ChatSession> getGroupSession() {
@@ -445,6 +441,10 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
         }
     }
 
+    private long getMaxMsgid() {
+        return Math.max(Utility.readLongData(mContext, "sync_max_msgid_" + Utility.getUK(mContext), 0L), DialogRecordDBManager.getInstance(mContext).getMaxMsgid());
+    }
+
     public void syncDialog() {
         ISyncDialogListener iSyncDialogListener = this.syncDialogListener;
         if (iSyncDialogListener != null) {
@@ -462,11 +462,21 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, maxMsgid);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                a.ao(mContext).e(mContext, creatMethodIntent);
+                a.aq(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 onSyncDialogResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, addListener, maxMsgid, null);
                 LogUtils.e(TAG, "Exception ", e);
             }
+        }
+    }
+
+    public void onSyncDialogResult(int i, String str, String str2, long j, List<ChatMsg> list) {
+        LogUtils.d(TAG, String.format("--onSyncDialogResult--errCode:%d--msg:%s--maxMsgid:%d", Integer.valueOf(i), str, Long.valueOf(j)));
+        IMListener removeListener = ListenerManager.getInstance().removeListener(str2);
+        if (removeListener != null && (removeListener instanceof ISyncDialogListener)) {
+            ((ISyncDialogListener) removeListener).onSyncDialogResult(i, str, j, list);
+        } else {
+            LogUtils.d(TAG, "onSyncDialogResult listener is nul!");
         }
     }
 

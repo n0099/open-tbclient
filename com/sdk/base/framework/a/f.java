@@ -11,7 +11,7 @@ import java.net.HttpURLConnection;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Void> implements com.sdk.base.framework.a.b.c {
     private static d b = new d();
     private com.sdk.base.framework.b.b<T> d;
@@ -22,7 +22,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
     private j<T> p;
     private long q;
     private long c = d.a();
-    private g g = g.f4474a;
+    private g g = g.f4244a;
     private boolean i = true;
     private String k = null;
     private boolean l = false;
@@ -46,7 +46,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
         try {
         } catch (Throwable th) {
             com.sdk.base.framework.f.g.a.b(th.toString());
-            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "网络访问异常：" + th.toString(), this.f4464a);
+            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "网络访问异常：" + th.toString(), this.f4234a);
             if (this.h > 0) {
                 this.h--;
                 kVar = a(hVar, httpURLConnection);
@@ -80,7 +80,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
             if (httpURLConnection != null) {
                 i = httpURLConnection.getResponseCode();
                 String str = "net请求host：" + httpURLConnection.getURL().getHost() + "\n net请求path：" + httpURLConnection.getURL().getPath() + "\n  net请求码：" + i;
-                Boolean bool = this.f4464a;
+                Boolean bool = this.f4234a;
                 if (str == null) {
                     str = "";
                 }
@@ -88,8 +88,8 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                     Log.d("PriorityAsyncTask", str);
                 }
             }
-            if (this.f4464a.booleanValue()) {
-                com.sdk.base.framework.a.a.c.a("PriorityAsyncTask", "响应返回：code=" + i + ";耗时=" + (System.currentTimeMillis() - this.q), this.f4464a);
+            if (this.f4234a.booleanValue()) {
+                com.sdk.base.framework.a.a.c.a("PriorityAsyncTask", "响应返回：code=" + i + ";耗时=" + (System.currentTimeMillis() - this.q), this.f4234a);
             }
             if (i < 300) {
                 if (httpURLConnection != null) {
@@ -123,7 +123,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                     if (com.sdk.base.framework.a.a.c.b(headerField2).booleanValue()) {
                         if ("/ctcnet/gctcmc.do".equals(path)) {
                             com.sdk.base.framework.f.b.a.b(SDKManager.getContext(), "ctc", headerField2);
-                            com.sdk.base.framework.a.a.c.a("PriorityAsyncTask", "mdb Cookie cache", this.f4464a);
+                            com.sdk.base.framework.a.a.c.a("PriorityAsyncTask", "mdb Cookie cache", this.f4234a);
                         }
                         a2.setRequestProperty(SM.COOKIE, headerField2);
                     } else {
@@ -139,11 +139,11 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                 }
             }
             com.sdk.base.framework.f.g.a.b("服务异常 ResponseCode = " + i);
-            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "服务异常 ResponseCode = " + i, this.f4464a);
+            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "服务异常 ResponseCode = " + i, this.f4234a);
             return new k<>(0, "服务端数据格式出错", false);
         } catch (Exception e) {
             com.sdk.base.framework.f.g.a.b(e.toString());
-            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", e.toString(), this.f4464a);
+            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", e.toString(), this.f4234a);
             return new k<>(1, "网络访问异常", false);
         }
     }
@@ -224,7 +224,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                 }
             } catch (Exception e) {
                 com.sdk.base.framework.f.g.a.b(e.toString());
-                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "网络访问异常：\n" + e.toString(), this.f4464a);
+                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "网络访问异常：\n" + e.toString(), this.f4234a);
                 Object[] objArr2 = new Object[3];
                 objArr2[r2] = 3;
                 Integer valueOf = Integer.valueOf((int) CmdConfigSocket.CMD_SUBPB_FLOOR);
@@ -247,7 +247,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
         try {
             a(true);
         } catch (Throwable th) {
-            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", th.getMessage(), this.f4464a);
+            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", th.getMessage(), this.f4234a);
         }
     }
 

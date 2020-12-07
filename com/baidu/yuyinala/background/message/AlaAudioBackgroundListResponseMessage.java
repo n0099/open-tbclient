@@ -8,8 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaAudioBackgroundListResponseMessage extends JsonHttpResponsedMessage {
-    private List<a> nhM;
-    private a ouM;
+    private List<a> nvR;
+    private a oJS;
 
     public AlaAudioBackgroundListResponseMessage() {
         super(1031015);
@@ -19,23 +19,23 @@ public class AlaAudioBackgroundListResponseMessage extends JsonHttpResponsedMess
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONArray optJSONArray = jSONObject.optJSONArray("background_list");
         int length = optJSONArray.length();
-        this.nhM = new ArrayList();
+        this.nvR = new ArrayList();
         for (int i2 = 0; i2 < length; i2++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
             a aVar = new a();
             aVar.parse(optJSONObject);
-            this.nhM.add(aVar);
-            if (aVar.eey() && this.ouM == null) {
-                this.ouM = aVar;
+            this.nvR.add(aVar);
+            if (aVar.ekl() && this.oJS == null) {
+                this.oJS = aVar;
             }
         }
     }
 
     public List<a> getBgList() {
-        return this.nhM;
+        return this.nvR;
     }
 
-    public a eez() {
-        return this.ouM;
+    public a ekm() {
+        return this.oJS;
     }
 }

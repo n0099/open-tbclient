@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlaEnterEffectEditHttpResMessage extends JsonHttpResponsedMessage {
     public AlaEnterEffectEditHttpResMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT);

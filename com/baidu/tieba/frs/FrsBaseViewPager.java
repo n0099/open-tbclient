@@ -5,21 +5,21 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class FrsBaseViewPager extends BdBaseViewPager {
-    private int iHs;
-    private boolean iHt;
-    private a iHu;
-    private boolean iHv;
-    private boolean iHw;
+    private int iSk;
+    private boolean iSl;
+    private a iSm;
+    private boolean iSn;
+    private boolean iSo;
     private Activity mActivity;
     private float x;
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public interface a {
-        void cxw();
+        void cBM();
 
-        boolean cxx();
+        boolean cBN();
     }
 
     public FrsBaseViewPager(Context context) {
@@ -28,12 +28,12 @@ public class FrsBaseViewPager extends BdBaseViewPager {
 
     public FrsBaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.iHs = 0;
-        this.iHw = true;
+        this.iSk = 0;
+        this.iSo = true;
         this.mActivity = (Activity) context;
-        this.iHs = com.baidu.adp.lib.util.l.dip2px(this.mActivity, this.iHs);
+        this.iSk = com.baidu.adp.lib.util.l.dip2px(this.mActivity, this.iSk);
         BdBaseViewPager.a aVar = new BdBaseViewPager.a(this.mActivity);
-        aVar.qR(1000);
+        aVar.rs(1000);
         aVar.initViewPagerScroll(this);
     }
 
@@ -43,30 +43,30 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         this.x = motionEvent.getRawX();
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.iHu != null) {
-                    this.iHu.cxw();
+                if (this.iSm != null) {
+                    this.iSm.cBM();
                 }
-                if (this.x >= getMeasuredWidth() - this.iHs && this.x <= getMeasuredWidth()) {
+                if (this.x >= getMeasuredWidth() - this.iSk && this.x <= getMeasuredWidth()) {
                     setmDisallowSlip(false);
-                    this.iHt = true;
-                    this.iHw = true;
+                    this.iSl = true;
+                    this.iSo = true;
                     break;
                 } else {
-                    this.iHw = false;
+                    this.iSo = false;
                     break;
                 }
                 break;
             case 1:
-                this.iHw = true;
+                this.iSo = true;
                 break;
             case 2:
-                if (this.iHw) {
-                    boolean cxx = this.iHu != null ? this.iHu.cxx() : true;
-                    if (this.iHt && cxx) {
+                if (this.iSo) {
+                    boolean cBN = this.iSm != null ? this.iSm.cBN() : true;
+                    if (this.iSl && cBN) {
                         z = false;
                     }
                     setmDisallowSlip(z);
-                    this.iHw = cxx;
+                    this.iSo = cBN;
                     break;
                 }
                 break;
@@ -76,7 +76,7 @@ public class FrsBaseViewPager extends BdBaseViewPager {
 
     @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager, android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.iHv || this.iHt) {
+        if (this.iSn || this.iSl) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -87,11 +87,11 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         this.x = motionEvent.getRawX();
         switch (motionEvent.getAction()) {
             case 1:
-                if (this.iHt) {
-                    this.iHt = false;
+                if (this.iSl) {
+                    this.iSl = false;
                 }
-                if (this.iHv) {
-                    this.iHv = false;
+                if (this.iSn) {
+                    this.iSn = false;
                 }
                 setmDisallowSlip(false);
                 break;
@@ -100,10 +100,10 @@ public class FrsBaseViewPager extends BdBaseViewPager {
     }
 
     public void setForceIntercept(boolean z) {
-        this.iHv = z;
+        this.iSn = z;
     }
 
     public void setOnTouchEventListener(a aVar) {
-        this.iHu = aVar;
+        this.iSm = aVar;
     }
 }

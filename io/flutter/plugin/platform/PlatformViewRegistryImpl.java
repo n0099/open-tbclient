@@ -3,7 +3,7 @@ package io.flutter.plugin.platform;
 import java.util.HashMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class PlatformViewRegistryImpl implements PlatformViewRegistry {
     private final Map<String, PlatformViewFactory> viewFactories = new HashMap();
 

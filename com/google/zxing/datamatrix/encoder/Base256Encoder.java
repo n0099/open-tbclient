@@ -3,7 +3,7 @@ package com.google.zxing.datamatrix.encoder;
 import android.support.v4.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class Base256Encoder implements Encoder {
     @Override // com.google.zxing.datamatrix.encoder.Encoder
     public int getEncodingMode() {

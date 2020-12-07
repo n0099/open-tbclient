@@ -7,7 +7,7 @@ import android.webkit.WebResourceResponse;
 import com.baidu.webkit.sdk.ServiceWorkerClient;
 import com.baidu.webkit.sdk.ServiceWorkerController;
 import com.baidu.webkit.sdk.ServiceWorkerWebSettings;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class ServiceWorkerControllerImpl extends ServiceWorkerController {
     private ServiceWorkerClient mClient;
 

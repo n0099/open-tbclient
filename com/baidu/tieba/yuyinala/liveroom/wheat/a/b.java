@@ -34,7 +34,6 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.baidu.tieba.yuyinala.liveroom.wheat.c.o;
-import com.xiaomi.mipush.sdk.Constants;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,90 +46,90 @@ import org.json.JSONObject;
 public class b {
     private Context mContext;
     private String mRoomId;
-    private f odA;
-    private boolean odC;
-    private volatile boolean odD;
-    private boolean odE;
-    private boolean odF;
-    private boolean odG;
-    private String odH;
-    private String odI;
-    private String odM;
-    private String odN;
-    private String odO;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.a.a odm;
-    private String odn;
-    private d odo;
-    private int odp;
-    private boolean odq;
-    private int odr;
-    private long ods;
-    private boolean odu;
-    private boolean odv;
-    private String odw;
-    private String odx;
-    private HandlerThread ody;
-    private Handler odz;
-    private long odt = 2000;
-    private boolean odB = true;
-    private Runnable odJ = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.1
+    private f osA;
+    private boolean osC;
+    private volatile boolean osD;
+    private boolean osE;
+    private boolean osF;
+    private boolean osG;
+    private String osH;
+    private String osI;
+    private String osM;
+    private String osN;
+    private String osO;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.a.a osm;
+    private String osn;
+    private d oso;
+    private int osp;
+    private boolean osq;
+    private int osr;
+    private long oss;
+    private boolean osu;
+    private boolean osv;
+    private String osw;
+    private String osx;
+    private HandlerThread osy;
+    private Handler osz;
+    private long ost = 2000;
+    private boolean osB = true;
+    private Runnable osJ = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.1
         @Override // java.lang.Runnable
         public void run() {
-            com.baidu.h.a.b.c cVar;
-            com.baidu.h.b.a aJ = com.baidu.h.b.a.aJ(b.this.mContext);
-            if (aJ == null) {
-                b.this.odH = "heartbeaterror1，" + System.currentTimeMillis();
+            com.baidu.i.a.b.c cVar;
+            com.baidu.i.b.a bn = com.baidu.i.b.a.bn(b.this.mContext);
+            if (bn == null) {
+                b.this.osH = "heartbeaterror1，" + System.currentTimeMillis();
                 return;
             }
-            com.baidu.h.b.a.a.b bVar = (com.baidu.h.b.a.a.b) aJ.XC();
-            if (bVar != null && !TextUtils.isEmpty(b.this.odI)) {
+            com.baidu.i.b.a.a.b bVar = (com.baidu.i.b.a.a.b) bn.aaf();
+            if (bVar != null && !TextUtils.isEmpty(b.this.osI)) {
                 try {
-                    cVar = bVar.jb(b.this.odI);
+                    cVar = bVar.jF(b.this.osI);
                 } catch (Exception e) {
                     e.printStackTrace();
                     cVar = null;
                 }
                 if (cVar == null) {
-                    b.this.odH = "heartbeaterror3," + System.currentTimeMillis();
+                    b.this.osH = "heartbeaterror3," + System.currentTimeMillis();
                     return;
                 }
-                ((com.baidu.h.b.a.a) cVar).XH().sendQuizOpts(JavaTypesHelper.toLong(b.this.mRoomId, 0L), JavaTypesHelper.toLong(b.this.odI, 0L), 2001, "", new IMcastSetListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.1.1
+                ((com.baidu.i.b.a.a) cVar).aak().sendQuizOpts(JavaTypesHelper.toLong(b.this.mRoomId, 0L), JavaTypesHelper.toLong(b.this.osI, 0L), 2001, "", new IMcastSetListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.1.1
                     @Override // com.baidu.android.imsdk.mcast.IMcastSetListener
                     public void onResult(int i, long j, long j2) {
-                        b.this.gK("audioroom", "HeartBeat:" + i + Constants.ACCEPT_TIME_SEPARATOR_SP + j + Constants.ACCEPT_TIME_SEPARATOR_SP + j2);
+                        b.this.gP("audioroom", "HeartBeat:" + i + "," + j + "," + j2);
                         if (i != 0) {
-                            if (b.this.odC && b.this.odD && b.this.odz != null) {
-                                b.this.odz.removeCallbacks(b.this.odJ);
-                                b.this.odz.post(b.this.odJ);
+                            if (b.this.osC && b.this.osD && b.this.osz != null) {
+                                b.this.osz.removeCallbacks(b.this.osJ);
+                                b.this.osz.post(b.this.osJ);
                             }
-                            b.this.odH = "heartbeaterrornum:" + i + Constants.ACCEPT_TIME_SEPARATOR_SP + j + Constants.ACCEPT_TIME_SEPARATOR_SP + j2 + Constants.ACCEPT_TIME_SEPARATOR_SP + System.currentTimeMillis();
+                            b.this.osH = "heartbeaterrornum:" + i + "," + j + "," + j2 + "," + System.currentTimeMillis();
                             return;
                         }
-                        b.this.odH = "heartbeatok:" + System.currentTimeMillis();
+                        b.this.osH = "heartbeatok:" + System.currentTimeMillis();
                     }
                 });
-                if (b.this.odz != null) {
-                    b.this.odz.postDelayed(this, 5000L);
+                if (b.this.osz != null) {
+                    b.this.osz.postDelayed(this, 5000L);
                     return;
                 }
                 return;
             }
-            b.this.odH = "heartbeaterror2," + b.this.odI + Constants.ACCEPT_TIME_SEPARATOR_SP + System.currentTimeMillis();
+            b.this.osH = "heartbeaterror2," + b.this.osI + "," + System.currentTimeMillis();
         }
     };
-    private Runnable odK = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.11
+    private Runnable osK = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.11
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.odr != 5) {
-                b.this.odr = 5;
-                b.this.MT(5);
+            if (b.this.osr != 5) {
+                b.this.osr = 5;
+                b.this.NL(5);
             }
         }
     };
-    private ILiveMsgReceiveListener odL = new ILiveMsgReceiveListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.18
+    private ILiveMsgReceiveListener osL = new ILiveMsgReceiveListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.18
         @Override // com.baidu.android.imsdk.mcast.ILiveMsgReceiveListener
         public void onReceiveMessage(int i, JSONArray jSONArray) {
-            b.this.gK("AudioRoomManager", "receiveb2cmsg:" + i + Constants.ACCEPT_TIME_SEPARATOR_SP + jSONArray.toString());
+            b.this.gP("AudioRoomManager", "receiveb2cmsg:" + i + "," + jSONArray.toString());
             HashMap hashMap = new HashMap();
             if (jSONArray != null && jSONArray.length() > 0) {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
@@ -150,17 +149,17 @@ public class b {
                 Map.Entry entry = (Map.Entry) it.next();
                 if (entry != null) {
                     if (TextUtils.equals("audio_link_apply_toast", (CharSequence) entry.getKey())) {
-                        b.this.gK("AudioRoomManager", "do send audio_link_apply_toast");
+                        b.this.gP("AudioRoomManager", "do send audio_link_apply_toast");
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501012));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501027, entry.getValue()));
                     } else if (TextUtils.equals("audio_link_cancel_apply", (CharSequence) entry.getKey())) {
-                        b.this.gK("AudioRoomManager", "do send audio_link_cancel_apply");
+                        b.this.gP("AudioRoomManager", "do send audio_link_cancel_apply");
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501012));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501027, entry.getValue()));
                     } else if (TextUtils.equals("live_audio_lower_wheat", (CharSequence) entry.getKey())) {
-                        b.this.gK("AudioRoomManager", "do live_audio_lower_wheat");
-                        if (b.this.Vk(b.this.odn)) {
-                            b.this.MT(7);
+                        b.this.gP("AudioRoomManager", "do live_audio_lower_wheat");
+                        if (b.this.Wz(b.this.osn)) {
+                            b.this.NL(7);
                         }
                     }
                 }
@@ -168,17 +167,17 @@ public class b {
             hashMap.clear();
         }
     };
-    private BIMRtcListener aBy = new BIMRtcListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.19
+    private BIMRtcListener aEe = new BIMRtcListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.19
         @Override // com.baidu.android.imrtc.msg.BIMRtcListener
         public void onRtcResult(int i, BIMRtcInfo bIMRtcInfo) {
-            b.this.gK("AudioRoomManager", "onRtcResult,onRtcResult:action" + i);
+            b.this.gP("AudioRoomManager", "onRtcResult,onRtcResult:action" + i);
             if (i == 89) {
-                b.this.ze(false);
+                b.this.zI(false);
                 b.this.x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.19.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (b.this.odo != null) {
-                            b.this.odo.PU();
+                        if (b.this.oso != null) {
+                            b.this.oso.Ss();
                         }
                     }
                 });
@@ -190,8 +189,8 @@ public class b {
             b.this.x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.19.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (b.this.odo != null) {
-                        b.this.odo.b(bIMRtcInfo, 3);
+                    if (b.this.oso != null) {
+                        b.this.oso.b(bIMRtcInfo, 3);
                     }
                 }
             });
@@ -202,8 +201,8 @@ public class b {
             b.this.x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.19.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (b.this.odo != null) {
-                        b.this.odo.b(bIMRtcInfo, i);
+                    if (b.this.oso != null) {
+                        b.this.oso.b(bIMRtcInfo, i);
                     }
                 }
             });
@@ -214,9 +213,9 @@ public class b {
             b.this.x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.19.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    if ((bIMRtcInfo instanceof BIMInviteSyncRtcInfo) && b.this.odo != null) {
-                        b.this.odo.a((BIMInviteSyncRtcInfo) bIMRtcInfo);
-                        com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("receive_invite_anchor_5", false);
+                    if ((bIMRtcInfo instanceof BIMInviteSyncRtcInfo) && b.this.oso != null) {
+                        b.this.oso.a((BIMInviteSyncRtcInfo) bIMRtcInfo);
+                        com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bk("receive_invite_anchor_5", false);
                     }
                 }
             });
@@ -246,7 +245,7 @@ public class b {
 
         @Override // com.baidu.android.imrtc.msg.BIMRtcListener
         public void roomEventByMySelf(RtcConstants.RoomEventType roomEventType, BIMRtcInfo bIMRtcInfo) {
-            int i = AnonymousClass17.oel[roomEventType.ordinal()];
+            int i = AnonymousClass17.otl[roomEventType.ordinal()];
         }
 
         @Override // com.baidu.android.imrtc.msg.BIMRtcListener
@@ -275,125 +274,125 @@ public class b {
     public b(Context context, String str, String str2) {
         this.mContext = context;
         this.mRoomId = str;
-        this.odI = str2;
-        if (this.ody == null) {
-            this.ody = new HandlerThread("AudioRoomManager_Thread");
-            this.ody.start();
+        this.osI = str2;
+        if (this.osy == null) {
+            this.osy = new HandlerThread("AudioRoomManager_Thread");
+            this.osy.start();
         }
-        if (this.odz == null && this.ody.isAlive()) {
-            this.odz = new Handler(this.ody.getLooper());
+        if (this.osz == null && this.osy.isAlive()) {
+            this.osz = new Handler(this.osy.getLooper());
         }
-        this.odA = new f(this.odz);
-        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.ocS) {
+        this.osA = new f(this.osz);
+        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.orS) {
             BIMRtcClient.setRtcDebugAndLogEnable(context, true, true);
         }
-        BIMRtcClient.registerRtcListener(context, this.aBy);
-        BIMManager.registerStudioUsePaReceiveMsg(context, this.odL);
+        BIMRtcClient.registerRtcListener(context, this.aEe);
+        BIMManager.registerStudioUsePaReceiveMsg(context, this.osL);
         IConnectListener iConnectListener = new IConnectListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.20
             @Override // com.baidu.android.imsdk.account.IConnectListener
             public void onResult(int i) {
-                b.this.gK("AudioRoomManager", "ConnectListener status:" + i);
+                b.this.gP("AudioRoomManager", "ConnectListener status:" + i);
                 if (i == 0) {
-                    b.this.odD = true;
-                    if (b.this.odq && b.this.odB) {
-                        if (b.this.odv || b.this.odu) {
-                            b.this.odA.join(b.this.mContext, b.this.odn, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.20.1
+                    b.this.osD = true;
+                    if (b.this.osq && b.this.osB) {
+                        if (b.this.osv || b.this.osu) {
+                            b.this.osA.join(b.this.mContext, b.this.osn, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.20.1
                                 @Override // com.baidu.android.imrtc.utils.IStatusListener
                                 public void onResult(int i2, String str3) {
                                     if (i2 == 0) {
-                                        b.this.odq = false;
-                                        if (b.this.odm != null && b.this.odm.dYv() != 4 && b.this.odm.dYv() != 0) {
-                                            b.this.odp = 5;
-                                            b.this.odm.dYw();
+                                        b.this.osq = false;
+                                        if (b.this.osm != null && b.this.osm.edZ() != 4 && b.this.osm.edZ() != 0) {
+                                            b.this.osp = 5;
+                                            b.this.osm.eea();
                                             return;
                                         }
                                         return;
                                     }
-                                    if (b.this.odu) {
-                                        b.this.odv = false;
+                                    if (b.this.osu) {
+                                        b.this.osv = false;
                                     }
-                                    b.this.p(2, 8, "on net ok reconnect:" + str3);
+                                    b.this.q(2, 8, "on net ok reconnect:" + str3);
                                 }
                             });
                         } else {
-                            b.this.odq = false;
-                            if (b.this.odm != null && b.this.odm.dYv() != 4 && b.this.odm.dYv() != 0) {
-                                b.this.odp = 5;
-                                b.this.odm.dYw();
+                            b.this.osq = false;
+                            if (b.this.osm != null && b.this.osm.edZ() != 4 && b.this.osm.edZ() != 0) {
+                                b.this.osp = 5;
+                                b.this.osm.eea();
                             }
                         }
                     }
-                    if (b.this.odC) {
-                        b.this.dYD();
+                    if (b.this.osC) {
+                        b.this.eeh();
                         return;
                     }
                     return;
                 }
-                b.this.odD = false;
-                if (b.this.odm != null && b.this.odm.dYv() != 4 && b.this.odm.dYv() != 0) {
-                    b.this.odq = true;
+                b.this.osD = false;
+                if (b.this.osm != null && b.this.osm.edZ() != 4 && b.this.osm.edZ() != 0) {
+                    b.this.osq = true;
                 }
             }
         };
-        gK("AudioRoomManager", "add ConnectListener:" + iConnectListener.hashCode());
+        gP("AudioRoomManager", "add ConnectListener:" + iConnectListener.hashCode());
         BIMManager.registerConnectListenerToList(iConnectListener);
-        this.odm = new com.baidu.tieba.yuyinala.liveroom.wheat.a.a(context);
-        this.odm.setRtcRoomListener(new RtcRoomListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.21
+        this.osm = new com.baidu.tieba.yuyinala.liveroom.wheat.a.a(context);
+        this.osm.setRtcRoomListener(new RtcRoomListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.21
             @Override // com.baidu.ala.rtc.RtcRoomListener
             public void onError(int i, String str3) {
-                b.this.p(1, b.this.odp, "rtcroom,errorCode:" + i + ",errorMsg:" + str3);
-                if (b.this.odu) {
-                    b.this.odv = false;
+                b.this.q(1, b.this.osp, "rtcroom,errorCode:" + i + ",errorMsg:" + str3);
+                if (b.this.osu) {
+                    b.this.osv = false;
                 }
             }
 
             @Override // com.baidu.ala.rtc.RtcRoomListener
             public void onPeerConnectStateUpdate(int i) {
                 boolean z = false;
-                b.this.gK("AudioRoomManager", "rtcroom,onPeerConnectStateUpdate:" + i);
+                b.this.gP("AudioRoomManager", "rtcroom,onPeerConnectStateUpdate:" + i);
                 if (i == 2001) {
-                    if (b.this.odu) {
-                        b.this.odv = true;
+                    if (b.this.osu) {
+                        b.this.osv = true;
                     }
-                    if (b.this.odm != null) {
-                        com.baidu.tieba.yuyinala.liveroom.wheat.a.a aVar = b.this.odm;
-                        if (b.this.odF || b.this.odG) {
+                    if (b.this.osm != null) {
+                        com.baidu.tieba.yuyinala.liveroom.wheat.a.a aVar = b.this.osm;
+                        if (b.this.osF || b.this.osG) {
                             z = true;
                         }
-                        aVar.zc(z);
+                        aVar.zG(z);
                     }
                     b.this.x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.21.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (b.this.odo != null) {
-                                if (b.this.odp == 4 || b.this.odp == 3 || b.this.odp == 2 || b.this.odp == 5) {
-                                    b.this.dYD();
-                                    if (b.this.odz != null) {
-                                        b.this.odz.removeCallbacks(b.this.odK);
-                                        b.this.odz.post(b.this.odK);
+                            if (b.this.oso != null) {
+                                if (b.this.osp == 4 || b.this.osp == 3 || b.this.osp == 2 || b.this.osp == 5) {
+                                    b.this.eeh();
+                                    if (b.this.osz != null) {
+                                        b.this.osz.removeCallbacks(b.this.osK);
+                                        b.this.osz.post(b.this.osK);
                                     }
                                 }
-                                b.this.odo.MV(b.this.odp);
+                                b.this.oso.NN(b.this.osp);
                             }
                         }
                     });
                 } else if (i == 10000) {
-                    b.this.p(1, b.this.odp, i + ",connectionlost");
-                    if (b.this.odu) {
-                        b.this.odv = false;
+                    b.this.q(1, b.this.osp, i + ",connectionlost");
+                    if (b.this.osu) {
+                        b.this.osv = false;
                     }
                 }
             }
 
             @Override // com.baidu.ala.rtc.RtcRoomListener
             public void onRoomDataMessage(ByteBuffer byteBuffer) {
-                b.this.gK("AudioRoomManager", "rtcroom,onRoomDataMessage");
+                b.this.gP("AudioRoomManager", "rtcroom,onRoomDataMessage");
             }
 
             @Override // com.baidu.ala.rtc.RtcRoomListener
             public void onRoomEventUpdate(final int i, final long j, final String str3) {
                 if (i != 200) {
-                    b.this.gK("AudioRoomManager", "rtcroom,onRoomEventUpdate:" + i + ",data:" + j + ",ext:" + str3);
+                    b.this.gP("AudioRoomManager", "rtcroom,onRoomEventUpdate:" + i + ",data:" + j + ",ext:" + str3);
                 }
                 switch (i) {
                     case 100:
@@ -401,69 +400,69 @@ public class b {
                         return;
                     case 101:
                     case 102:
-                        if (b.this.odu) {
-                            b.this.odv = false;
+                        if (b.this.osu) {
+                            b.this.osv = false;
                         }
-                        b.this.p(1, b.this.odp, i + ",rtcloginerror/loginerror");
+                        b.this.q(1, b.this.osp, i + ",rtcloginerror/loginerror");
                         return;
                     case 103:
-                        if (b.this.odu) {
-                            b.this.odv = false;
+                        if (b.this.osu) {
+                            b.this.osv = false;
                         }
-                        b.this.p(1, b.this.odp, i + ",rtcloginerror/connectionlost");
+                        b.this.q(1, b.this.osp, i + ",rtcloginerror/connectionlost");
                         return;
                     case 112:
-                        b.this.Bw();
+                        b.this.Df();
                         b.this.x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.21.7
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (b.this.odo != null) {
-                                    b.this.odo.PU();
+                                if (b.this.oso != null) {
+                                    b.this.oso.Ss();
                                 }
                             }
                         });
                         return;
                     case 113:
-                        if (j == b.this.dYH()) {
-                            b.this.MT(2);
-                            b.this.odG = true;
-                            if (5 != b.this.odr) {
-                                b.this.odr = 5;
-                                b.this.MT(5);
+                        if (j == b.this.eel()) {
+                            b.this.NL(2);
+                            b.this.osG = true;
+                            if (5 != b.this.osr) {
+                                b.this.osr = 5;
+                                b.this.NL(5);
                             }
                         }
                         b.this.x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.21.6
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (b.this.odo != null) {
-                                    b.this.odo.t(j, true);
+                                if (b.this.oso != null) {
+                                    b.this.oso.t(j, true);
                                 }
                             }
                         });
                         return;
                     case 114:
-                        if (j == b.this.dYH()) {
-                            b.this.MT(3);
-                            b.this.odG = false;
+                        if (j == b.this.eel()) {
+                            b.this.NL(3);
+                            b.this.osG = false;
                         }
                         b.this.x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.21.5
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (b.this.odo != null) {
-                                    b.this.odo.t(j, false);
+                                if (b.this.oso != null) {
+                                    b.this.oso.t(j, false);
                                 }
                             }
                         });
                         return;
                     case 115:
-                        if (j == b.this.dYH()) {
-                            b.this.Vk(b.this.odn);
-                            b.this.MT(1);
-                            b.this.odA.hangout(b.this.mContext, b.this.odn, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.21.3
+                        if (j == b.this.eel()) {
+                            b.this.Wz(b.this.osn);
+                            b.this.NL(1);
+                            b.this.osA.hangout(b.this.mContext, b.this.osn, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.21.3
                                 @Override // com.baidu.android.imrtc.utils.IStatusListener
                                 public void onResult(int i2, String str4) {
                                     if (i2 != 0) {
-                                        b.this.p(2, i2, "kickoffhangouterror:" + str4);
+                                        b.this.q(2, i2, "kickoffhangouterror:" + str4);
                                     }
                                 }
                             });
@@ -471,8 +470,8 @@ public class b {
                         b.this.x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.21.4
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (b.this.odo != null) {
-                                    b.this.odo.bm(j);
+                                if (b.this.oso != null) {
+                                    b.this.oso.bL(j);
                                 }
                             }
                         });
@@ -483,8 +482,8 @@ public class b {
                         b.this.x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.21.10
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (b.this.odo != null) {
-                                    b.this.odo.q(i, (int) j, str3);
+                                if (b.this.oso != null) {
+                                    b.this.oso.r(i, (int) j, str3);
                                 }
                             }
                         });
@@ -493,8 +492,8 @@ public class b {
                         b.this.x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.21.8
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (b.this.odo != null) {
-                                    b.this.odo.hm(j);
+                                if (b.this.oso != null) {
+                                    b.this.oso.hR(j);
                                 }
                             }
                         });
@@ -503,8 +502,8 @@ public class b {
                         b.this.x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.21.9
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (b.this.odo != null) {
-                                    b.this.odo.hn(j);
+                                if (b.this.oso != null) {
+                                    b.this.oso.hS(j);
                                 }
                             }
                         });
@@ -513,8 +512,8 @@ public class b {
                         b.this.x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.21.2
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (b.this.odo != null) {
-                                    b.this.odo.j(i, j, str3);
+                                if (b.this.oso != null) {
+                                    b.this.oso.j(i, j, str3);
                                 }
                             }
                         });
@@ -528,42 +527,42 @@ public class b {
 
             @Override // com.baidu.ala.rtc.RtcRoomListener
             public void onStartSpeek() {
-                b.this.MU(4);
+                b.this.NM(4);
             }
 
             @Override // com.baidu.ala.rtc.RtcRoomListener
             public void onStopSpeak() {
-                b.this.MU(5);
+                b.this.NM(5);
             }
         });
     }
 
     public void a(d dVar) {
-        this.odo = dVar;
+        this.oso = dVar;
     }
 
-    public void Vj(String str) {
-        if (this.odm != null) {
-            this.odm.n(str, false, true);
+    public void Wy(String str) {
+        if (this.osm != null) {
+            this.osm.n(str, false, true);
         }
     }
 
-    public void dYC() {
-        aK(c.dYK().dYP(), TbadkCoreApplication.getCurrentAccountName(), this.odx);
+    public void eeg() {
+        aN(c.eeo().eet(), TbadkCoreApplication.getCurrentAccountName(), this.osx);
     }
 
-    public void aK(String str, final String str2, final String str3) {
-        Vi("ownerEnterRoom");
-        gK("AudioRoomManager", "ownerEnterRoom:" + str + Constants.ACCEPT_TIME_SEPARATOR_SP + str2 + Constants.ACCEPT_TIME_SEPARATOR_SP + str3);
+    public void aN(String str, final String str2, final String str3) {
+        Wx("ownerEnterRoom");
+        gP("AudioRoomManager", "ownerEnterRoom:" + str + "," + str2 + "," + str3);
         if (TextUtils.equals("0", str) || TextUtils.isEmpty(str)) {
-            p(2, 7, "imrtcroomid==" + str);
+            q(2, 7, "imrtcroomid==" + str);
             return;
         }
-        this.odn = str;
-        this.odu = true;
-        this.odv = false;
-        this.odw = str2;
-        this.odx = str3;
+        this.osn = str;
+        this.osu = true;
+        this.osv = false;
+        this.osw = str2;
+        this.osx = str3;
         a(str, new BIMRtcTokenListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.22
             @Override // com.baidu.android.imrtc.request.BIMRtcTokenListener
             public void onResult(int i, String str4, final BIMRtcTokenListener.BIMRTCGetTokeResult bIMRTCGetTokeResult) {
@@ -571,67 +570,67 @@ public class b {
                     b.this.x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.22.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            b.this.odp = 1;
-                            b.this.odM = bIMRTCGetTokeResult.rtcAppId;
-                            b.this.odN = bIMRTCGetTokeResult.token;
-                            b.this.odO = bIMRTCGetTokeResult.roomId;
-                            if (b.this.odm != null) {
-                                b.this.odm.a(bIMRTCGetTokeResult.rtcAppId, bIMRTCGetTokeResult.token, bIMRTCGetTokeResult.roomId, b.this.dYH(), str2, str3);
+                            b.this.osp = 1;
+                            b.this.osM = bIMRTCGetTokeResult.rtcAppId;
+                            b.this.osN = bIMRTCGetTokeResult.token;
+                            b.this.osO = bIMRTCGetTokeResult.roomId;
+                            if (b.this.osm != null) {
+                                b.this.osm.a(bIMRTCGetTokeResult.rtcAppId, bIMRTCGetTokeResult.token, bIMRTCGetTokeResult.roomId, b.this.eel(), str2, str3);
                             }
                         }
                     });
                     return;
                 }
-                b.this.Vi("ownerEnterRoomJoinError:" + str4);
-                b.this.p(2, 7, "ownerEnterRoomJoinError:" + str4);
+                b.this.Wx("ownerEnterRoomJoinError:" + str4);
+                b.this.q(2, 7, "ownerEnterRoomJoinError:" + str4);
             }
         });
     }
 
-    public void gI(String str, String str2) {
-        gK("AudioRoomManager", "commonUserEnterRoom:," + str + Constants.ACCEPT_TIME_SEPARATOR_SP + str2);
-        this.odu = false;
-        this.odv = false;
-        this.odw = "";
-        this.odx = "";
-        if (this.odm != null) {
-            this.odm.Vh(str2);
+    public void gN(String str, String str2) {
+        gP("AudioRoomManager", "commonUserEnterRoom:," + str + "," + str2);
+        this.osu = false;
+        this.osv = false;
+        this.osw = "";
+        this.osx = "";
+        if (this.osm != null) {
+            this.osm.Ww(str2);
         }
     }
 
     public void M(String str, final String str2, final String str3, final String str4) {
-        Vi("ownerJoinChat");
-        gK("AudioRoomManager", "ownerJoinChat:," + str2 + Constants.ACCEPT_TIME_SEPARATOR_SP + str + Constants.ACCEPT_TIME_SEPARATOR_SP + str3 + Constants.ACCEPT_TIME_SEPARATOR_SP + str4);
+        Wx("ownerJoinChat");
+        gP("AudioRoomManager", "ownerJoinChat:," + str2 + "," + str + "," + str3 + "," + str4);
         if (TextUtils.equals("0", str) || TextUtils.isEmpty(str)) {
-            p(2, 6, "imrtcroomid==" + str);
+            q(2, 6, "imrtcroomid==" + str);
             return;
         }
-        this.odn = str;
-        this.odv = true;
-        azE();
-        if (this.odu) {
-            if (this.odm != null) {
-                this.odm.logoutRoom();
+        this.osn = str;
+        this.osv = true;
+        aCN();
+        if (this.osu) {
+            if (this.osm != null) {
+                this.osm.logoutRoom();
             }
-            this.odA.hangout(this.mContext, str, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.23
+            this.osA.hangout(this.mContext, str, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.23
                 @Override // com.baidu.android.imrtc.utils.IStatusListener
                 public void onResult(int i, String str5) {
                     if (i != 0) {
-                        b.this.gJ("AudioRoomManager", i + "ownerJoinChatImRtcfail");
+                        b.this.gO("AudioRoomManager", i + "ownerJoinChatImRtcfail");
                     }
                 }
             });
-        } else if (dYF() && this.odm != null) {
-            this.odm.dYw();
+        } else if (eej() && this.osm != null) {
+            this.osm.eea();
             return;
         }
-        if (!TextUtils.isEmpty(this.odM) && !TextUtils.isEmpty(this.odN) && !TextUtils.isEmpty(this.odO)) {
+        if (!TextUtils.isEmpty(this.osM) && !TextUtils.isEmpty(this.osN) && !TextUtils.isEmpty(this.osO)) {
             x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.24
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.this.odp = 2;
-                    if (b.this.odm != null) {
-                        b.this.odm.b(b.this.odM, b.this.odN, b.this.odO, b.this.dYH(), str2, str3, str4);
+                    b.this.osp = 2;
+                    if (b.this.osm != null) {
+                        b.this.osm.b(b.this.osM, b.this.osN, b.this.osO, b.this.eel(), str2, str3, str4);
                     }
                 }
             });
@@ -640,82 +639,82 @@ public class b {
                 @Override // com.baidu.android.imrtc.request.BIMRtcTokenListener
                 public void onResult(int i, String str5, final BIMRtcTokenListener.BIMRTCGetTokeResult bIMRTCGetTokeResult) {
                     if (i == 0 && bIMRTCGetTokeResult != null) {
-                        com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("join_and_get_rtc_token_succ_host_3", true);
+                        com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bk("join_and_get_rtc_token_succ_host_3", true);
                         b.this.x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.2.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                b.this.odp = 2;
-                                if (b.this.odm != null) {
-                                    b.this.odm.b(bIMRTCGetTokeResult.rtcAppId, bIMRTCGetTokeResult.token, bIMRTCGetTokeResult.roomId, b.this.dYH(), str2, str3, str4);
+                                b.this.osp = 2;
+                                if (b.this.osm != null) {
+                                    b.this.osm.b(bIMRTCGetTokeResult.rtcAppId, bIMRTCGetTokeResult.token, bIMRTCGetTokeResult.roomId, b.this.eel(), str2, str3, str4);
                                 }
                             }
                         });
                         return;
                     }
-                    b.this.Vi("ownerJoinChatJoinError:" + i + " " + str5);
-                    if (b.this.odu) {
-                        b.this.odv = false;
+                    b.this.Wx("ownerJoinChatJoinError:" + i + " " + str5);
+                    if (b.this.osu) {
+                        b.this.osv = false;
                     }
-                    b.this.p(2, 6, "ownerJoinChatJoinError:" + str5);
+                    b.this.q(2, 6, "ownerJoinChatJoinError:" + str5);
                 }
             });
         }
     }
 
-    public void Vi(String str) {
-        if (this.odm != null) {
-            this.odm.Vi(str);
+    public void Wx(String str) {
+        if (this.osm != null) {
+            this.osm.Wx(str);
         }
     }
 
     public void a(String str, String str2, String str3, long j, String str4, boolean z, String str5, String str6, IStatusListener iStatusListener) {
-        gK("AudioRoomManager", "inviteJoinChat:" + str + Constants.ACCEPT_TIME_SEPARATOR_SP + str2 + Constants.ACCEPT_TIME_SEPARATOR_SP + str3 + Constants.ACCEPT_TIME_SEPARATOR_SP + j + Constants.ACCEPT_TIME_SEPARATOR_SP + str4);
+        gP("AudioRoomManager", "inviteJoinChat:" + str + "," + str2 + "," + str3 + "," + j + "," + str4);
         b(str4, str, str3, j, str2, z, str5, str6, iStatusListener);
     }
 
-    public boolean dYu() {
-        return bf(this.odn, true);
+    public boolean edY() {
+        return bg(this.osn, true);
     }
 
-    public boolean Vk(String str) {
-        return bf(str, true);
+    public boolean Wz(String str) {
+        return bg(str, true);
     }
 
-    public boolean bf(String str, boolean z) {
-        gK("AudioRoomManager", "quitChat:" + str);
-        this.odF = false;
-        this.odG = false;
-        this.odE = false;
-        this.odv = false;
-        if (this.odm != null && this.odm.dYu()) {
+    public boolean bg(String str, boolean z) {
+        gP("AudioRoomManager", "quitChat:" + str);
+        this.osF = false;
+        this.osG = false;
+        this.osE = false;
+        this.osv = false;
+        if (this.osm != null && this.osm.edY()) {
             if (z) {
-                dYE();
+                eei();
             }
-            if (this.odz != null) {
-                this.odz.removeCallbacks(this.odK);
+            if (this.osz != null) {
+                this.osz.removeCallbacks(this.osK);
             }
-            this.odA.hangout(this.mContext, str, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.3
+            this.osA.hangout(this.mContext, str, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.3
                 @Override // com.baidu.android.imrtc.utils.IStatusListener
                 public void onResult(int i, String str2) {
                     if (i != 0) {
-                        b.this.gK("AudioRoomManager", i + "quitChatImRtcfail");
+                        b.this.gP("AudioRoomManager", i + "quitChatImRtcfail");
                     }
                 }
             });
-            if (!this.odu) {
-                MT(6);
+            if (!this.osu) {
+                NL(6);
             }
-            if (this.odu) {
-                aK(str, this.odw, this.odx);
+            if (this.osu) {
+                aN(str, this.osw, this.osx);
             }
             return true;
         }
-        gJ("AudioRoomManager", "quit rtc room fail");
+        gO("AudioRoomManager", "quit rtc room fail");
         return false;
     }
 
-    public void Vl(String str) {
-        gK("AudioRoomManager", "kickOffUser:" + str);
+    public void WA(String str) {
+        gP("AudioRoomManager", "kickOffUser:" + str);
         a(str, new a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.4
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.b.a
             public void B(int i, final long j) {
@@ -723,32 +722,32 @@ public class b {
                     b.this.x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.4.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (b.this.odm != null) {
-                                b.this.odm.ai(j);
+                            if (b.this.osm != null) {
+                                b.this.osm.aG(j);
                             }
                         }
                     });
                 } else {
-                    b.this.p(2, 5, "kickOffUsergetIMUKFromBdUfail");
+                    b.this.q(2, 5, "kickOffUsergetIMUKFromBdUfail");
                 }
             }
         });
     }
 
-    public void zc(boolean z) {
-        gK("AudioRoomManager", "muteMic:" + z);
-        this.odF = z;
-        if (z && 5 != this.odr) {
-            this.odr = 5;
-            MT(5);
+    public void zG(boolean z) {
+        gP("AudioRoomManager", "muteMic:" + z);
+        this.osF = z;
+        if (z && 5 != this.osr) {
+            this.osr = 5;
+            NL(5);
         }
-        if (this.odm != null) {
-            this.odm.zc(z);
+        if (this.osm != null) {
+            this.osm.zG(z);
         }
     }
 
-    public void bg(String str, final boolean z) {
-        gK("AudioRoomManager", "muteUser:" + str + Constants.ACCEPT_TIME_SEPARATOR_SP + z);
+    public void bh(String str, final boolean z) {
+        gP("AudioRoomManager", "muteUser:" + str + "," + z);
         a(str, new a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.5
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.b.a
             public void B(int i, final long j) {
@@ -756,23 +755,23 @@ public class b {
                     b.this.x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.5.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (b.this.odm != null) {
-                                b.this.odm.r(j, z);
+                            if (b.this.osm != null) {
+                                b.this.osm.r(j, z);
                             }
                         }
                     });
                 } else {
-                    b.this.p(2, 4, "muteUsergetIMUKFromBdUfail");
+                    b.this.q(2, 4, "muteUsergetIMUKFromBdUfail");
                 }
             }
         });
     }
 
     public void a(BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo, final int i, final String str, final String str2, final String str3, final boolean z, String str4) {
-        Vi("answerInvite");
-        gK("AudioRoomManager", "answerInvite:" + bIMInviteSyncRtcInfo.toRtcInfoString());
-        if (this.odu) {
-            this.odv = true;
+        Wx("answerInvite");
+        gP("AudioRoomManager", "answerInvite:" + bIMInviteSyncRtcInfo.toRtcInfoString());
+        if (this.osu) {
+            this.osv = true;
         }
         final BIMAnswerRtcInfo bIMAnswerRtcInfo = new BIMAnswerRtcInfo();
         bIMAnswerRtcInfo.setRtcRoomId(bIMInviteSyncRtcInfo.getRtcRoomId());
@@ -792,146 +791,146 @@ public class b {
         final String rtcAppId = bIMInviteSyncRtcInfo.getRtcAppId();
         final String rtcRoomToken = bIMInviteSyncRtcInfo.getRtcRoomToken();
         final String rtcRoomId = bIMInviteSyncRtcInfo.getRtcRoomId();
-        this.odA.answer(this.mContext, bIMAnswerRtcInfo, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.6
+        this.osA.answer(this.mContext, bIMAnswerRtcInfo, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.6
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i2, String str5) {
                 if (i2 != 0) {
-                    if (b.this.odu) {
-                        b.this.odv = false;
+                    if (b.this.osu) {
+                        b.this.osv = false;
                     }
                     if (i != 1 || z) {
-                        b.this.gJ("AudioRoomManager", i2 + "answererror:" + str5 + Constants.ACCEPT_TIME_SEPARATOR_SP + bIMAnswerRtcInfo.toString());
+                        b.this.gO("AudioRoomManager", i2 + "answererror:" + str5 + "," + bIMAnswerRtcInfo.toString());
                     } else {
-                        b.this.p(2, 3, "reject invite failed");
+                        b.this.q(2, 3, "reject invite failed");
                     }
-                    b.this.Vi("answerInvite:" + i2 + "answererror:" + str5 + Constants.ACCEPT_TIME_SEPARATOR_SP + bIMAnswerRtcInfo.toString());
+                    b.this.Wx("answerInvite:" + i2 + "answererror:" + str5 + "," + bIMAnswerRtcInfo.toString());
                     return;
                 }
-                com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("answer_invite_anchor_6", false);
+                com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bk("answer_invite_anchor_6", false);
                 if (i == 1) {
-                    b.this.odp = z ? 4 : 3;
-                    if (b.this.odu || !b.this.dYF() || b.this.odm == null) {
-                        if (b.this.odu && b.this.odm != null) {
-                            b.this.odm.logoutRoom();
+                    b.this.osp = z ? 4 : 3;
+                    if (b.this.osu || !b.this.eej() || b.this.osm == null) {
+                        if (b.this.osu && b.this.osm != null) {
+                            b.this.osm.logoutRoom();
                         }
-                        if (b.this.odm != null) {
-                            b.this.odm.b(rtcAppId, rtcRoomToken, rtcRoomId, b.this.dYH(), str, str2, str3);
+                        if (b.this.osm != null) {
+                            b.this.osm.b(rtcAppId, rtcRoomToken, rtcRoomId, b.this.eel(), str, str2, str3);
                             return;
                         }
                         return;
                     }
-                    b.this.odm.dYw();
+                    b.this.osm.eea();
                 }
             }
         });
     }
 
-    public void Bw() {
-        gK("AudioRoomManager", "leaveRoom");
-        this.odq = false;
-        dYE();
-        if (this.odz != null) {
-            this.odz.removeCallbacksAndMessages(null);
+    public void Df() {
+        gP("AudioRoomManager", "leaveRoom");
+        this.osq = false;
+        eei();
+        if (this.osz != null) {
+            this.osz.removeCallbacksAndMessages(null);
         }
-        if (this.ody != null) {
-            this.ody.quit();
-            this.odz = null;
+        if (this.osy != null) {
+            this.osy.quit();
+            this.osz = null;
         }
-        if (this.odu && this.mContext != null) {
-            this.odA.hangout(this.mContext, this.odn, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.7
+        if (this.osu && this.mContext != null) {
+            this.osA.hangout(this.mContext, this.osn, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.7
                 @Override // com.baidu.android.imrtc.utils.IStatusListener
                 public void onResult(int i, String str) {
                     if (i != 0) {
-                        b.this.gK("AudioRoomManager", i + "quitChatImRtcfail");
+                        b.this.gP("AudioRoomManager", i + "quitChatImRtcfail");
                     }
                 }
             });
         }
-        this.odA.release();
-        BIMRtcClient.unRegisterRtcListener(this.mContext, this.aBy);
-        BIMManager.unregisterStudioUsePaReceiveMsg(this.mContext, this.odL);
-        if (this.odm != null) {
-            this.odm.Bw();
-            this.odm = null;
+        this.osA.release();
+        BIMRtcClient.unRegisterRtcListener(this.mContext, this.aEe);
+        BIMManager.unregisterStudioUsePaReceiveMsg(this.mContext, this.osL);
+        if (this.osm != null) {
+            this.osm.Df();
+            this.osm = null;
         }
     }
 
-    public void azE() {
-        gK("AudioRoomManager", "pausePlayer");
-        if (this.odm != null) {
-            this.odm.azE();
+    public void aCN() {
+        gP("AudioRoomManager", "pausePlayer");
+        if (this.osm != null) {
+            this.osm.aCN();
         }
     }
 
-    public void Bv() {
-        ze(true);
+    public void De() {
+        zI(true);
     }
 
-    public void ze(boolean z) {
-        gK("AudioRoomManager", "closeRoom:" + z);
-        if (this.odm != null) {
-            this.odm.dYh();
+    public void zI(boolean z) {
+        gP("AudioRoomManager", "closeRoom:" + z);
+        if (this.osm != null) {
+            this.osm.edL();
         }
         if (z) {
             BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo = new BIMCloseRoomRtcInfo();
-            bIMCloseRoomRtcInfo.setRtcRoomId(this.odn);
-            this.odA.closeRoom(this.mContext, bIMCloseRoomRtcInfo, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.8
+            bIMCloseRoomRtcInfo.setRtcRoomId(this.osn);
+            this.osA.closeRoom(this.mContext, bIMCloseRoomRtcInfo, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.8
                 @Override // com.baidu.android.imrtc.utils.IStatusListener
                 public void onResult(int i, String str) {
                     if (i != 0) {
-                        b.this.gJ("AudioRoomManager", i + "closeIMRtcRoomFail:" + str);
+                        b.this.gO("AudioRoomManager", i + "closeIMRtcRoomFail:" + str);
                     }
                 }
             });
         }
     }
 
-    public void dYD() {
-        gK("AudioRoomManager", "startHeartBeatAction");
-        this.odC = true;
+    public void eeh() {
+        gP("AudioRoomManager", "startHeartBeatAction");
+        this.osC = true;
         x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.9
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.odz != null) {
-                    b.this.odz.removeCallbacks(b.this.odJ);
-                    b.this.odz.post(b.this.odJ);
+                if (b.this.osz != null) {
+                    b.this.osz.removeCallbacks(b.this.osJ);
+                    b.this.osz.post(b.this.osJ);
                 }
             }
         });
     }
 
-    public void dYE() {
-        gK("AudioRoomManager", "stopHeartBeatAction");
-        this.odC = false;
+    public void eei() {
+        gP("AudioRoomManager", "stopHeartBeatAction");
+        this.osC = false;
         x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.10
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.odz != null) {
-                    b.this.odz.removeCallbacks(b.this.odJ);
+                if (b.this.osz != null) {
+                    b.this.osz.removeCallbacks(b.this.osJ);
                 }
             }
         });
     }
 
-    public boolean dYF() {
-        return this.odm != null && this.odm.dYv() == 2;
+    public boolean eej() {
+        return this.osm != null && this.osm.edZ() == 2;
     }
 
-    public int dYv() {
-        if (this.odm != null) {
-            return this.odm.dYv();
+    public int edZ() {
+        if (this.osm != null) {
+            return this.osm.edZ();
         }
         return -1;
     }
 
-    public static boolean Vm(String str) {
+    public static boolean WB(String str) {
         return TextUtils.equals(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY, str);
     }
 
     public void a(String str, final a aVar) {
         if (aVar != null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(Long.valueOf(JavaTypesHelper.toLong(com.baidu.tieba.yuyinala.liveroom.wheat.e.b.VL(str), 0L)));
+            arrayList.add(Long.valueOf(JavaTypesHelper.toLong(com.baidu.tieba.yuyinala.liveroom.wheat.e.b.Xa(str), 0L)));
             BIMManager.getUsersProfiles(this.mContext, arrayList, true, new IGetUsersProfileBatchListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.12
                 @Override // com.baidu.android.imsdk.chatuser.IGetUsersProfileBatchListener
                 public void onGetUsersProfileBatchResult(int i, String str2, ArrayList<Long> arrayList2, ArrayList<ChatUser> arrayList3) {
@@ -945,44 +944,44 @@ public class b {
         }
     }
 
-    public boolean dYx() {
-        if (this.odm != null) {
-            return this.odm.dYx();
+    public boolean eeb() {
+        if (this.osm != null) {
+            return this.osm.eeb();
         }
         return true;
     }
 
-    public void dYG() {
-        gK("AudioRoomManager", "reStartPlayer");
-        if (this.odm != null) {
-            this.odm.cjJ();
+    public void eek() {
+        gP("AudioRoomManager", "reStartPlayer");
+        if (this.osm != null) {
+            this.osm.cnE();
         }
     }
 
-    public boolean hj(long j) {
-        if (this.odm != null) {
-            return this.odm.hj(j);
+    public boolean hO(long j) {
+        if (this.osm != null) {
+            return this.osm.hO(j);
         }
         return false;
     }
 
     public void muteOrUnmuteAudio(boolean z) {
-        if (this.odv || (!this.odu && dYF())) {
-            if (this.odm != null) {
-                if (z && !this.odm.dYy()) {
-                    this.odE = true;
-                    this.odm.zc(true);
-                } else if (!z && this.odE) {
-                    this.odm.zc(false);
-                    this.odE = false;
+        if (this.osv || (!this.osu && eej())) {
+            if (this.osm != null) {
+                if (z && !this.osm.eec()) {
+                    this.osE = true;
+                    this.osm.zG(true);
+                } else if (!z && this.osE) {
+                    this.osm.zG(false);
+                    this.osE = false;
                 }
             }
-            if (this.odm != null) {
-                this.odm.zd(z);
+            if (this.osm != null) {
+                this.osm.zH(z);
             }
         }
-        if (this.odm != null) {
-            this.odm.muteOrUnmuteAudio(z);
+        if (this.osm != null) {
+            this.osm.muteOrUnmuteAudio(z);
         }
     }
 
@@ -991,14 +990,14 @@ public class b {
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.b.a
             public void B(int i, long j2) {
                 if (i != 0) {
-                    b.this.p(2, z ? 2 : 1, "inviteError:" + z);
+                    b.this.q(2, z ? 2 : 1, "inviteError:" + z);
                     if (iStatusListener != null) {
                         iStatusListener.onResult(i, "inviteEventgetIMUKFromBdUKError");
                         return;
                     }
                     return;
                 }
-                com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("get_imuk_from_bduk_anchor_3", false);
+                com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bk("get_imuk_from_bduk_anchor_3", false);
                 BIMInviteRtcInfo bIMInviteRtcInfo = new BIMInviteRtcInfo(b.this.mContext);
                 bIMInviteRtcInfo.setRtcRoomId(str);
                 bIMInviteRtcInfo.setRtcRoomType(2);
@@ -1014,7 +1013,7 @@ public class b {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("invite_name", TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow());
-                    jSONObject.put("invite_uk", o.dZz().WD());
+                    jSONObject.put("invite_uk", o.efd().Zc());
                     jSONObject.put("type", z ? AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY : "invite");
                     jSONObject.put("pushUrl", str5);
                     jSONObject.put("pushSingleUrl", str6);
@@ -1022,17 +1021,17 @@ public class b {
                     e.printStackTrace();
                 }
                 bIMInviteRtcInfo.setRtcExt(jSONObject.toString());
-                b.this.odA.invite(b.this.mContext, bIMInviteRtcInfo, iStatusListener);
+                b.this.osA.invite(b.this.mContext, bIMInviteRtcInfo, iStatusListener);
             }
         });
     }
 
     private void a(final String str, final BIMRtcTokenListener bIMRtcTokenListener) {
-        this.odA.join(this.mContext, str, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.14
+        this.osA.join(this.mContext, str, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.14
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str2) {
                 if (i == 0) {
-                    b.this.odA.generateToken(b.this.mContext, "liveshow_room", str, AccountManager.getUK(b.this.mContext), bIMRtcTokenListener);
+                    b.this.osA.generateToken(b.this.mContext, "liveshow_room", str, AccountManager.getUK(b.this.mContext), bIMRtcTokenListener);
                 } else if (bIMRtcTokenListener != null) {
                     bIMRtcTokenListener.onResult(i, "joinIMRTCRoom failed：" + str2, null);
                 }
@@ -1041,67 +1040,67 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long dYH() {
+    public long eel() {
         return AccountManager.getUK(this.mContext);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void MT(final int i) {
-        gK("AudioRoomManager", "rtcroom,notifySyncStatus:" + i);
+    public void NL(final int i) {
+        gP("AudioRoomManager", "rtcroom,notifySyncStatus:" + i);
         x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.15
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.odo != null) {
-                    b.this.odo.MW(i);
+                if (b.this.oso != null) {
+                    b.this.oso.NO(i);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void p(final int i, final int i2, final String str) {
-        gK("AudioRoomManager", "rtcroom,notifyError:" + i + ",subErrorCode:" + i2 + ",errMsg:" + str);
+    public void q(final int i, final int i2, final String str) {
+        gP("AudioRoomManager", "rtcroom,notifyError:" + i + ",subErrorCode:" + i2 + ",errMsg:" + str);
         x(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.16
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.odo != null) {
-                    b.this.odo.onError(i, i2, str);
+                if (b.this.oso != null) {
+                    b.this.oso.onError(i, i2, str);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void MU(int i) {
-        if (this.odr != i) {
+    public void NM(int i) {
+        if (this.osr != i) {
             if (i == 4) {
-                if (this.odz != null) {
-                    this.odz.removeCallbacks(this.odK);
+                if (this.osz != null) {
+                    this.osz.removeCallbacks(this.osK);
                 }
-                this.ods = System.currentTimeMillis();
-                this.odr = i;
-                MT(4);
+                this.oss = System.currentTimeMillis();
+                this.osr = i;
+                NL(4);
                 return;
             }
-            w WE = c.dYK().WE();
-            if (WE != null && WE.aIm > 0.0d) {
-                this.odt = (long) (WE.aIm * 1000.0d);
+            w Zd = c.eeo().Zd();
+            if (Zd != null && Zd.aKY > 0.0d) {
+                this.ost = (long) (Zd.aKY * 1000.0d);
             }
-            long currentTimeMillis = System.currentTimeMillis() - this.ods;
-            if (currentTimeMillis > this.odt) {
-                this.odr = i;
-                MT(5);
-            } else if (this.odz != null) {
-                this.odz.removeCallbacks(this.odK);
-                this.odz.postDelayed(this.odK, this.odt - currentTimeMillis);
+            long currentTimeMillis = System.currentTimeMillis() - this.oss;
+            if (currentTimeMillis > this.ost) {
+                this.osr = i;
+                NL(5);
+            } else if (this.osz != null) {
+                this.osz.removeCallbacks(this.osK);
+                this.osz.postDelayed(this.osK, this.ost - currentTimeMillis);
             }
-        } else if (i == 4 && System.currentTimeMillis() - this.ods > 5000) {
-            if (this.odz != null) {
-                this.odz.removeCallbacks(this.odK);
+        } else if (i == 4 && System.currentTimeMillis() - this.oss > 5000) {
+            if (this.osz != null) {
+                this.osz.removeCallbacks(this.osK);
             }
-            this.ods = System.currentTimeMillis();
-            this.odr = i;
-            MT(4);
+            this.oss = System.currentTimeMillis();
+            this.osr = i;
+            NL(4);
         }
     }
 
@@ -1111,30 +1110,30 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gJ(String str, String str2) {
-        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.ocS) {
+    public void gO(String str, String str2) {
+        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.orS) {
             Log.e(str, str2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gK(String str, String str2) {
-        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.ocS) {
+    public void gP(String str, String str2) {
+        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.orS) {
             Log.i(str, str2);
         }
     }
 
-    public boolean dYI() {
-        return this.odv;
+    public boolean eem() {
+        return this.osv;
     }
 
     public void sendMessageToUser(String str, long j) {
-        if (this.odm != null) {
-            this.odm.sendMessageToUser(str, j);
+        if (this.osm != null) {
+            this.osm.sendMessageToUser(str, j);
         }
     }
 
-    public String dYJ() {
-        return this.odm != null ? this.odm.dYz() + "#" + this.odH + ",isStartHeartBeat:" + this.odC + ",time:" + System.currentTimeMillis() : "";
+    public String een() {
+        return this.osm != null ? this.osm.eed() + "#" + this.osH + ",isStartHeartBeat:" + this.osC + ",time:" + System.currentTimeMillis() : "";
     }
 }

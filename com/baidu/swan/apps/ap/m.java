@@ -2,7 +2,7 @@ package com.baidu.swan.apps.ap;
 
 import android.text.TextUtils;
 import com.baidu.android.util.io.DocumentOpenUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class m {
     public static boolean getSupportMimeType(String str) {
         if (TextUtils.isEmpty(str)) {

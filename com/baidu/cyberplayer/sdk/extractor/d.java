@@ -14,14 +14,14 @@ import java.util.Map;
 public class d extends ExtractorProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.cyberplayer.sdk.remote.a f1388a;
+    private com.baidu.cyberplayer.sdk.remote.a f1387a;
 
     public d(com.baidu.cyberplayer.sdk.remote.a aVar) {
-        this.f1388a = aVar;
+        this.f1387a = aVar;
     }
 
     public static ExtractorProvider a() {
-        com.baidu.cyberplayer.sdk.remote.a a2 = a.AbstractBinderC0110a.a(g.a().b());
+        com.baidu.cyberplayer.sdk.remote.a a2 = a.AbstractBinderC0111a.a(g.a().b());
         if (a2 != null) {
             return new d(a2);
         }
@@ -29,11 +29,11 @@ public class d extends ExtractorProvider {
     }
 
     private void a(Uri uri, Map<String, String> map) {
-        if (this.f1388a == null) {
+        if (this.f1387a == null) {
             return;
         }
         try {
-            this.f1388a.a(new e(uri, map));
+            this.f1387a.a(new e(uri, map));
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -41,11 +41,11 @@ public class d extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public Bundle getMediaMeta() {
-        if (this.f1388a == null) {
+        if (this.f1387a == null) {
             return null;
         }
         try {
-            return this.f1388a.a();
+            return this.f1387a.a();
         } catch (RemoteException e) {
             e.printStackTrace();
             return null;
@@ -59,12 +59,12 @@ public class d extends ExtractorProvider {
         } catch (RemoteException e) {
             e.printStackTrace();
         } finally {
-            this.f1388a = null;
+            this.f1387a = null;
         }
-        if (this.f1388a == null) {
+        if (this.f1387a == null) {
             return;
         }
-        this.f1388a.b();
+        this.f1387a.b();
     }
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
@@ -88,11 +88,11 @@ public class d extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setOption(int i, String str, long j) {
-        if (this.f1388a == null) {
+        if (this.f1387a == null) {
             return;
         }
         try {
-            this.f1388a.a(i, str, j);
+            this.f1387a.a(i, str, j);
         } catch (RemoteException e) {
             e.printStackTrace();
         }

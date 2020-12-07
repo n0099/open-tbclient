@@ -24,25 +24,25 @@ import java.util.regex.Pattern;
 class dh {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4854a = "/MiPushLog";
+    private static String f4624a = "/MiPushLog";
 
     /* renamed from: a  reason: collision with other field name */
-    private int f205a;
+    private int f203a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f208a;
+    private boolean f206a;
 
     /* renamed from: b  reason: collision with other field name */
-    private String f209b;
+    private String f207b;
     private String c;
     @SuppressLint({"SimpleDateFormat"})
 
     /* renamed from: a  reason: collision with other field name */
-    private final SimpleDateFormat f206a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private final SimpleDateFormat f204a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private int b = 2097152;
 
     /* renamed from: a  reason: collision with other field name */
-    private ArrayList<File> f207a = new ArrayList<>();
+    private ArrayList<File> f205a = new ArrayList<>();
 
     private void a(BufferedReader bufferedReader, BufferedWriter bufferedWriter, Pattern pattern) {
         int i;
@@ -57,30 +57,30 @@ class dh {
             int i3 = 0;
             while (i2 < read && matcher.find(i2)) {
                 i = matcher.start();
-                String substring = str.substring(i, this.f209b.length() + i);
-                if (this.f208a) {
+                String substring = str.substring(i, this.f207b.length() + i);
+                if (this.f206a) {
                     if (substring.compareTo(this.c) > 0) {
                         z = true;
                         break;
                     }
-                } else if (substring.compareTo(this.f209b) >= 0) {
-                    this.f208a = true;
+                } else if (substring.compareTo(this.f207b) >= 0) {
+                    this.f206a = true;
                     i3 = i;
                 }
                 int indexOf = str.indexOf(10, i);
-                i2 = indexOf != -1 ? i + indexOf : i + this.f209b.length();
+                i2 = indexOf != -1 ? i + indexOf : i + this.f207b.length();
             }
             i = read;
             z = z2;
-            if (this.f208a) {
+            if (this.f206a) {
                 int i4 = i - i3;
-                this.f205a += i4;
+                this.f203a += i4;
                 if (z) {
                     bufferedWriter.write(cArr, i3, i4);
                     return;
                 }
                 bufferedWriter.write(cArr, i3, i4);
-                if (this.f205a > this.b) {
+                if (this.f203a > this.b) {
                     return;
                 }
             }
@@ -103,14 +103,14 @@ class dh {
                     StringBuilder sb = new StringBuilder();
                     sb.append("model :").append(Build.MODEL);
                     sb.append("; os :").append(Build.VERSION.INCREMENTAL);
-                    sb.append("; uid :").append(com.xiaomi.push.service.be.m562a());
+                    sb.append("; uid :").append(com.xiaomi.push.service.be.m552a());
                     sb.append("; lng :").append(Locale.getDefault().toString());
                     sb.append("; sdk :").append(39);
                     sb.append("; andver :").append(Build.VERSION.SDK_INT);
                     sb.append("\n");
                     bufferedWriter.write(sb.toString());
-                    this.f205a = 0;
-                    Iterator<File> it = this.f207a.iterator();
+                    this.f203a = 0;
+                    Iterator<File> it = this.f205a.iterator();
                     BufferedReader bufferedReader2 = "\n";
                     while (true) {
                         try {
@@ -168,20 +168,20 @@ class dh {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    dh m229a(File file) {
+    dh m219a(File file) {
         if (file.exists()) {
-            this.f207a.add(file);
+            this.f205a.add(file);
         }
         return this;
     }
 
     dh a(Date date, Date date2) {
         if (date.after(date2)) {
-            this.f209b = this.f206a.format(date2);
-            this.c = this.f206a.format(date);
+            this.f207b = this.f204a.format(date2);
+            this.c = this.f204a.format(date);
         } else {
-            this.f209b = this.f206a.format(date);
-            this.c = this.f206a.format(date2);
+            this.f207b = this.f204a.format(date);
+            this.c = this.f204a.format(date2);
         }
         return this;
     }
@@ -191,12 +191,12 @@ class dh {
         File file2;
         if ("com.xiaomi.xmsf".equalsIgnoreCase(context.getPackageName())) {
             file2 = context.getFilesDir();
-            m229a(new File(file2, "xmsf.log.1"));
-            m229a(new File(file2, "xmsf.log"));
+            m219a(new File(file2, "xmsf.log.1"));
+            m219a(new File(file2, "xmsf.log"));
         } else {
-            file2 = new File(context.getExternalFilesDir(null) + f4854a);
-            m229a(new File(file2, "log0.txt"));
-            m229a(new File(file2, "log1.txt"));
+            file2 = new File(context.getExternalFilesDir(null) + f4624a);
+            m219a(new File(file2, "log0.txt"));
+            m219a(new File(file2, "log1.txt"));
         }
         if (file2.isDirectory()) {
             File file3 = new File(file, date.getTime() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + date2.getTime() + ".zip");

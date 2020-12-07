@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.live.data.bf;
+import com.baidu.live.data.bg;
 import com.baidu.live.guardclub.g;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
@@ -23,9 +23,9 @@ public class c {
     private void t(View.OnClickListener onClickListener) {
         this.mView = LayoutInflater.from(this.mContext).inflate(a.g.view_guardclub_im_entry, (ViewGroup) null);
         this.textView = (TextView) this.mView.findViewById(a.f.textView);
-        bf JY = g.JW().JY();
-        if (JY != null && !TextUtils.isEmpty(JY.aNl)) {
-            this.textView.setText(JY.aNl);
+        bg Mb = g.LZ().Mb();
+        if (Mb != null && !TextUtils.isEmpty(Mb.aQk)) {
+            this.textView.setText(Mb.aQk);
         }
         this.mView.setOnClickListener(onClickListener);
     }

@@ -1,5 +1,5 @@
 package com.baidu.mapapi.map;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class MyLocationData {
     public final float accuracy;
     public final float direction;
@@ -8,11 +8,11 @@ public class MyLocationData {
     public final int satellitesNum;
     public final float speed;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private double f2033a;
+        private double f2035a;
         private double b;
         private float c;
         private float d;
@@ -25,7 +25,7 @@ public class MyLocationData {
         }
 
         public MyLocationData build() {
-            return new MyLocationData(this.f2033a, this.b, this.c, this.d, this.e, this.f);
+            return new MyLocationData(this.f2035a, this.b, this.c, this.d, this.e, this.f);
         }
 
         public Builder direction(float f) {
@@ -34,7 +34,7 @@ public class MyLocationData {
         }
 
         public Builder latitude(double d) {
-            this.f2033a = d;
+            this.f2035a = d;
             return this;
         }
 

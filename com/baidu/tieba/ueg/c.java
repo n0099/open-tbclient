@@ -3,27 +3,28 @@ package com.baidu.tieba.ueg;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aa;
+import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String nmo;
-    private a nmp;
+    private String nAr;
+    private a nAs;
 
     /* loaded from: classes.dex */
     public interface a {
-        void cXp();
+        void dcA();
 
-        void cXq();
+        void dcB();
 
-        void cXr();
+        void dcC();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.nmo = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.nmp = aVar;
+        this.nAr = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
+        this.nAs = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,9 +34,9 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            aa aaVar = new aa(this.nmo);
-            aaVar.bqa().bqH().mIsNeedAddCommenParam = false;
-            aaVar.bqa().bqH().mIsUseCurrentBDUSS = false;
+            aa aaVar = new aa(this.nAr);
+            aaVar.btv().bue().mIsNeedAddCommenParam = false;
+            aaVar.btv().bue().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(aaVar.getNetData())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
@@ -57,15 +58,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.nmp != null && num != null) {
+        if (this.nAs != null && num != null) {
             if (num.intValue() == -1) {
-                this.nmp.onError(null);
+                this.nAs.onError(null);
             } else if (num.intValue() == 1) {
-                this.nmp.cXp();
+                this.nAs.dcA();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.nmp.cXq();
+                this.nAs.dcB();
             } else {
-                this.nmp.cXr();
+                this.nAs.dcC();
             }
         }
     }

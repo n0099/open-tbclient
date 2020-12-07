@@ -3,16 +3,16 @@ package com.baidu.swan.menu;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import com.baidu.swan.menu.g;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class i {
-    private com.baidu.swan.menu.viewpager.b eeI;
-    private int eeO;
-    private boolean eeP = true;
-    private int eeQ = 0;
-    private int eeR = -1;
-    public int eeS = 0;
-    private long eeT = 0;
-    private f eeU;
+    private com.baidu.swan.menu.viewpager.b elJ;
+    private int elP;
+    private boolean elQ = true;
+    private int elR = 0;
+    private int elS = -1;
+    public int elT = 0;
+    private long elU = 0;
+    private f elV;
     private boolean mEnable;
     private Drawable mIcon;
     private int mIconResId;
@@ -20,37 +20,37 @@ public class i {
     private String mTitle;
 
     public i(int i, int i2, int i3, boolean z) {
-        this.eeO = -1;
+        this.elP = -1;
         this.mIconResId = -1;
         this.mEnable = true;
         this.mId = i;
-        this.eeO = i2;
+        this.elP = i2;
         this.mIconResId = i3;
         this.mEnable = z;
     }
 
-    public int aZM() {
-        return this.eeS;
+    public int bcR() {
+        return this.elT;
     }
 
-    public void mD(int i) {
-        this.eeS = i;
+    public void nb(int i) {
+        this.elT = i;
     }
 
-    public long aZN() {
-        return this.eeT;
+    public long bcS() {
+        return this.elU;
     }
 
-    public void cK(long j) {
-        this.eeT = j;
+    public void dj(long j) {
+        this.elU = j;
     }
 
     public int getItemId() {
         return this.mId;
     }
 
-    public void mE(int i) {
-        this.eeO = i;
+    public void nc(int i) {
+        this.elP = i;
     }
 
     public void setIconResId(int i) {
@@ -61,17 +61,17 @@ public class i {
         return this.mEnable;
     }
 
-    public String dG(Context context) {
+    public String em(Context context) {
         if (this.mTitle != null) {
             return this.mTitle;
         }
-        if (this.eeO <= 0) {
+        if (this.elP <= 0) {
             return null;
         }
-        return context.getResources().getString(this.eeO);
+        return context.getResources().getString(this.elP);
     }
 
-    public Drawable dH(Context context) {
+    public Drawable en(Context context) {
         if (this.mIcon != null) {
             return this.mIcon;
         }
@@ -81,28 +81,28 @@ public class i {
         return context.getResources().getDrawable(this.mIconResId);
     }
 
-    public int aZO() {
-        return this.eeQ;
+    public int bcT() {
+        return this.elR;
     }
 
     public boolean isVisible() {
-        return this.eeP;
+        return this.elQ;
     }
 
     public int getTitleColor() {
-        return this.eeR == -1 ? g.a.aiapp_menu_item_text : this.eeR;
+        return this.elS == -1 ? g.a.aiapp_menu_item_text : this.elS;
     }
 
     public void a(f fVar) {
-        this.eeU = fVar;
+        this.elV = fVar;
     }
 
-    public f aZP() {
-        return this.eeU;
+    public f bcU() {
+        return this.elV;
     }
 
-    public com.baidu.swan.menu.viewpager.b aZQ() {
-        return this.eeI;
+    public com.baidu.swan.menu.viewpager.b bcV() {
+        return this.elJ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -110,6 +110,6 @@ public class i {
         if (iVar == null) {
             return null;
         }
-        return new i(iVar.mId, iVar.eeO, iVar.mIconResId, iVar.mEnable);
+        return new i(iVar.mId, iVar.elP, iVar.mIconResId, iVar.mEnable);
     }
 }

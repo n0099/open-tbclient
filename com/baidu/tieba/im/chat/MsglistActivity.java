@@ -9,36 +9,36 @@ import com.baidu.tieba.R;
 public abstract class MsglistActivity<T> extends TalkableActivity<T> implements d {
     protected abstract boolean a(d dVar);
 
-    protected abstract boolean at(Bundle bundle);
+    protected abstract boolean au(Bundle bundle);
 
     protected abstract void initView();
 
     @Override // com.baidu.tieba.im.chat.d
-    public void cOt() {
-        cNU();
+    public void cTH() {
+        cTi();
     }
 
-    public void cNU() {
+    public void cTi() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (!at(bundle)) {
+        if (!au(bundle)) {
             finish();
             return;
         }
         initView();
         adjustResizeForSoftInput(R.color.common_color_10022, false);
-        if (this.jXp != null) {
-            this.jXp.setImageUploadUIProgressCallback(this.jXu);
+        if (this.kkV != null) {
+            this.kkV.setImageUploadUIProgressCallback(this.kla);
         }
-        bTq();
+        bXa();
         if (a((d) this)) {
             loadDraft();
-            cNS();
-            j.jXn = n.bCV();
+            cTg();
+            j.kkT = n.bGw();
         }
     }
 
@@ -46,17 +46,17 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.jXp != null) {
-            this.jXp.onDestroy();
+        if (this.kkV != null) {
+            this.kkV.onDestroy();
         }
         setIntent(intent);
-        if (!at(null)) {
+        if (!au(null)) {
             finish();
             return;
         }
         initView();
         adjustResizeForSoftInput(R.color.common_color_10022, false);
-        bTq();
+        bXa();
         if (a((d) this)) {
             loadDraft();
         }
@@ -66,8 +66,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jXo != null) {
-            this.jXo.onChangeSkinType(i);
+        if (this.kkU != null) {
+            this.kkU.onChangeSkinType(i);
         }
     }
 
@@ -75,37 +75,37 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.jXo != null) {
-            this.jXo.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            cNP();
+        if (this.kkU != null) {
+            this.kkU.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            cTd();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cNP() {
+    public void cTd() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-            this.jXo.showReceiver();
+            this.kkU.showReceiver();
         } else {
-            this.jXo.closeReceiver();
+            this.kkU.closeReceiver();
         }
     }
 
     protected boolean loadDraft() {
-        return this.jXp.loadDraft();
+        return this.kkV.loadDraft();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        cNT();
+        cTh();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cNS() {
+    public void cTg() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cNT() {
+    public void cTh() {
     }
 }

@@ -7,90 +7,90 @@ import com.baidu.live.alablmsdk.module.state.BLMSignalState;
 import com.baidu.live.alablmsdk.module.state.BLMStateType;
 /* loaded from: classes4.dex */
 public class d {
-    public c azS;
-    public com.baidu.live.alablmsdk.a.a.b azT;
-    private boolean azU = false;
-    private BLMConnectionState azV = BLMConnectionState.DEFAULT;
-    private BLMSignalState azW = BLMSignalState.DEFAULT;
-    private BLMRtcState azX = BLMRtcState.DEFAULT;
+    private boolean aCA = false;
+    private BLMConnectionState aCB = BLMConnectionState.DEFAULT;
+    private BLMSignalState aCC = BLMSignalState.DEFAULT;
+    private BLMRtcState aCD = BLMRtcState.DEFAULT;
+    public c aCy;
+    public com.baidu.live.alablmsdk.a.a.b aCz;
 
     public void b(BLMSignalState bLMSignalState) {
-        com.baidu.live.alablmsdk.a.b.ag(" updateSignalState mSignalState=" + this.azW, "");
-        this.azW = bLMSignalState;
-        Bl();
+        com.baidu.live.alablmsdk.a.b.a.ak(" updateSignalState mSignalState=" + this.aCC, "");
+        this.aCC = bLMSignalState;
+        CT();
     }
 
-    public BLMSignalState Bi() {
-        return this.azW;
+    public BLMSignalState CK() {
+        return this.aCC;
     }
 
     public void b(BLMRtcState bLMRtcState) {
-        com.baidu.live.alablmsdk.a.b.ag(" updateRtcState mRtcState=" + this.azX, "");
-        this.azX = bLMRtcState;
-        Bl();
+        com.baidu.live.alablmsdk.a.b.a.ak(" updateRtcState mRtcState=" + this.aCD, "");
+        this.aCD = bLMRtcState;
+        CT();
     }
 
-    public BLMRtcState Bj() {
-        return this.azX;
+    public BLMRtcState CR() {
+        return this.aCD;
     }
 
-    public long Bk() {
-        if (this.azS != null) {
-            return this.azS.azK;
+    public long CS() {
+        if (this.aCy != null) {
+            return this.aCy.aCp;
         }
         return 0L;
     }
 
-    private void Bl() {
-        com.baidu.live.alablmsdk.a.b.ag(" updateTransaction mSignalState=" + this.azW + " , mRtcState=" + this.azX, this.azS != null ? this.azS.toString() : "");
-        if (this.azW != BLMSignalState.DEFAULT || this.azX != BLMRtcState.DEFAULT) {
-            this.azU = true;
+    private void CT() {
+        com.baidu.live.alablmsdk.a.b.a.ak(" updateTransaction mSignalState=" + this.aCC + " , mRtcState=" + this.aCD, this.aCy != null ? this.aCy.toString() : "");
+        if (this.aCC != BLMSignalState.DEFAULT || this.aCD != BLMRtcState.DEFAULT) {
+            this.aCA = true;
         } else {
-            this.azU = false;
+            this.aCA = false;
         }
-        com.baidu.live.alablmsdk.a.b.ag(" updateTransaction hasStartTransaction=" + this.azU, "");
+        com.baidu.live.alablmsdk.a.b.a.ak(" updateTransaction hasStartTransaction=" + this.aCA, "");
     }
 
-    public boolean Bm() {
-        return this.azU;
+    public boolean CU() {
+        return this.aCA;
     }
 
     public void b(d dVar, BLMStateType bLMStateType) {
-        if (dVar != null && dVar.azS != null && this.azS != null && this.azS.azK == dVar.azS.azK) {
+        if (dVar != null && dVar.aCy != null && this.aCy != null && this.aCy.aCp == dVar.aCy.aCp) {
             if (bLMStateType == BLMStateType.SIGNAL) {
-                b(dVar.Bi());
+                b(dVar.CK());
             } else if (bLMStateType == BLMStateType.RTC) {
-                b(dVar.Bj());
+                b(dVar.CR());
             }
         }
     }
 
     public void a(d dVar) {
-        if (dVar != null && dVar.azS != null && this.azS != null && this.azS.azK == dVar.azS.azK && !TextUtils.isEmpty(dVar.azS.order)) {
-            this.azS.order = dVar.azS.order;
+        if (dVar != null && dVar.aCy != null && this.aCy != null && this.aCy.aCp == dVar.aCy.aCp && !TextUtils.isEmpty(dVar.aCy.order)) {
+            this.aCy.order = dVar.aCy.order;
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(" user imuk=");
-        if (this.azS != null) {
-            sb.append(this.azS.azK);
+        if (this.aCy != null) {
+            sb.append(this.aCy.aCp);
         }
-        sb.append(" , hasStartTransaction ").append(this.azU);
-        if (this.azW != null) {
-            sb.append(" signal state ").append(this.azW.toString());
+        sb.append(" , hasStartTransaction ").append(this.aCA);
+        if (this.aCC != null) {
+            sb.append(" signal state ").append(this.aCC.toString());
         }
-        if (this.azX != null) {
-            sb.append(" rtc state ").append(this.azX.toString());
+        if (this.aCD != null) {
+            sb.append(" rtc state ").append(this.aCD.toString());
         }
         return sb.toString();
     }
 
     public void release() {
-        if (this.azT != null) {
-            this.azT.AC();
-            this.azT = null;
+        if (this.aCz != null) {
+            this.aCz.BW();
+            this.aCz = null;
         }
     }
 }

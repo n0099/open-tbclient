@@ -1,6 +1,7 @@
 package com.baidu.tieba.deletethread;
 
 import android.text.TextUtils;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class DeleteThreadHttpResponseMessage extends TbHttpResponsedMessage {
         if (!TextUtils.isEmpty(parseToString)) {
             JSONObject jSONObject = new JSONObject(parseToString);
             setError(jSONObject.optInt("error_code", -1));
-            setErrorString(jSONObject.optString("error_msg"));
+            setErrorString(jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG));
             JSONObject optJSONObject = jSONObject.optJSONObject("info");
             if (optJSONObject != null) {
                 this.blockSuccess = optJSONObject.optInt("block_success");

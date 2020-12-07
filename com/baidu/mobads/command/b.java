@@ -10,7 +10,7 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f2325a;
+    protected Context f2327a;
     protected IXNonLinearAdSlot b;
     protected IXAdInstanceInfo c;
     protected IXAdResource d;
@@ -19,9 +19,9 @@ public abstract class b {
     public b(IXNonLinearAdSlot iXNonLinearAdSlot, IXAdInstanceInfo iXAdInstanceInfo, IXAdResource iXAdResource) {
         this.b = iXNonLinearAdSlot;
         if (iXNonLinearAdSlot != null) {
-            this.f2325a = iXNonLinearAdSlot.getApplicationContext();
+            this.f2327a = iXNonLinearAdSlot.getApplicationContext();
         } else {
-            this.f2325a = XAdSDKFoundationFacade.getInstance().getApplicationContext();
+            this.f2327a = XAdSDKFoundationFacade.getInstance().getApplicationContext();
         }
         this.c = iXAdInstanceInfo;
         this.d = iXAdResource;

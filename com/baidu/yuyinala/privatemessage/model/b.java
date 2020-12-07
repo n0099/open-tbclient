@@ -13,18 +13,18 @@ import com.baidu.yuyinala.privatemessage.session.b.f;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends BdBaseModel {
-    private a oGU;
-    private HttpMessageListener oGV = new HttpMessageListener(1031060) { // from class: com.baidu.yuyinala.privatemessage.model.b.1
+    private a oWa;
+    private HttpMessageListener oWb = new HttpMessageListener(1031060) { // from class: com.baidu.yuyinala.privatemessage.model.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof NickNameListResponse)) {
                 if (httpResponsedMessage.getError() != 0 || !httpResponsedMessage.isSuccess()) {
-                    if (b.this.oGU != null) {
-                        b.this.oGU.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (b.this.oWa != null) {
+                        b.this.oWa.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     }
-                } else if (b.this.oGU != null) {
-                    b.this.oGU.gv(((NickNameListResponse) httpResponsedMessage).oHw);
+                } else if (b.this.oWa != null) {
+                    b.this.oWa.gK(((NickNameListResponse) httpResponsedMessage).oWC);
                 }
             }
         }
@@ -32,27 +32,27 @@ public class b extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void gv(List<f> list);
+        void gK(List<f> list);
 
         void onFail(int i, String str);
     }
 
     public b() {
-        eig();
+        enV();
     }
 
-    private void eig() {
+    private void enV() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031060, TbConfig.SERVER_ADDRESS + "ala/audio/user/getUserInfo");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
         tbHttpMessageTask.setResponsedClass(NickNameListResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.oGV);
+        MessageManager.getInstance().registerListener(this.oWb);
     }
 
     public void a(String str, a aVar) {
-        this.oGU = aVar;
+        this.oWa = aVar;
         HttpMessage httpMessage = new HttpMessage(1031060);
         httpMessage.setTag(getUniqueId());
         httpMessage.addParam("uks", str);
@@ -70,7 +70,7 @@ public class b extends BdBaseModel {
     }
 
     public void destory() {
-        MessageManager.getInstance().unRegisterListener(this.oGV);
+        MessageManager.getInstance().unRegisterListener(this.oWb);
         MessageManager.getInstance().unRegisterTask(1031060);
     }
 }

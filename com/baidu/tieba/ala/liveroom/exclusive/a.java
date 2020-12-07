@@ -5,52 +5,52 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.live.data.af;
+import com.baidu.live.data.ah;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0673a hhd;
-    private boolean hhe;
+    private InterfaceC0687a hqG;
+    private boolean hqH;
     private Context mContext;
-    public List<af> hhc = new ArrayList();
-    private int ged = -1;
+    public List<ah> hqF = new ArrayList();
+    private int gmm = -1;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.exclusive.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0673a {
-        void a(View view, int i, af afVar);
+    public interface InterfaceC0687a {
+        void a(View view, int i, ah ahVar);
     }
 
     public a(Context context, boolean z) {
         this.mContext = context;
-        this.hhe = z;
+        this.hqH = z;
     }
 
-    public void wa(int i) {
-        this.ged = i;
+    public void wF(int i) {
+        this.gmm = i;
         notifyDataSetChanged();
     }
 
-    public void a(InterfaceC0673a interfaceC0673a) {
-        this.hhd = interfaceC0673a;
+    public void a(InterfaceC0687a interfaceC0687a) {
+        this.hqG = interfaceC0687a;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hhc == null) {
+        if (this.hqF == null) {
             return 0;
         }
-        return this.hhc.size();
+        return this.hqF.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: wb */
-    public af getItem(int i) {
-        return (af) ListUtils.getItem(this.hhc, i);
+    /* renamed from: wG */
+    public ah getItem(int i) {
+        return (ah) ListUtils.getItem(this.hqF, i);
     }
 
     @Override // android.widget.Adapter
@@ -58,10 +58,10 @@ public class a extends BaseAdapter {
         return i;
     }
 
-    public void setDatas(List<af> list) {
+    public void setDatas(List<ah> list) {
         if (!ListUtils.isEmpty(list)) {
-            this.hhc.clear();
-            this.hhc.addAll(list);
+            this.hqF.clear();
+            this.hqF.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -71,7 +71,7 @@ public class a extends BaseAdapter {
         g gVar;
         View inflate;
         if (view == null) {
-            if (this.hhe) {
+            if (this.hqH) {
                 inflate = LayoutInflater.from(this.mContext).inflate(a.g.ala_exclusive_scene_item, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mContext).inflate(a.g.ala_exclusive_scene_land_item, (ViewGroup) null);
@@ -82,19 +82,19 @@ public class a extends BaseAdapter {
         } else {
             gVar = (g) view.getTag();
         }
-        final af afVar = this.hhc.get(i);
-        if (this.ged == i) {
-            gVar.a(afVar, true, this.hhe);
+        final ah ahVar = this.hqF.get(i);
+        if (this.gmm == i) {
+            gVar.a(ahVar, true, this.hqH);
         } else {
-            gVar.a(afVar, false, this.hhe);
+            gVar.a(ahVar, false, this.hqH);
         }
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.exclusive.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                a.this.ged = i;
+                a.this.gmm = i;
                 a.this.notifyDataSetChanged();
-                if (a.this.hhd != null) {
-                    a.this.hhd.a(view2, i, afVar);
+                if (a.this.hqG != null) {
+                    a.this.hqG.a(view2, i, ahVar);
                 }
             }
         });

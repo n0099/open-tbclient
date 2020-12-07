@@ -1,19 +1,18 @@
 package com.baidu.tieba.tbadkCore.util;
 
 import android.text.TextUtils;
-import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes.dex */
 public class b {
-    private static String lIm = "tbgametype";
+    private static String lWg = "tbgametype";
 
-    public static String SJ(String str) {
+    public static String TY(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
             return null;
         }
         for (String str2 : split) {
             if (!TextUtils.isEmpty(str2) && str2.contains("TBCGameID=")) {
-                int indexOf = str2.indexOf(ETAG.EQUAL);
+                int indexOf = str2.indexOf("=");
                 if (indexOf + 1 >= str2.length()) {
                     return "";
                 }

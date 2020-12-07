@@ -14,7 +14,7 @@ public class GroupTag implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: OB */
+        /* renamed from: Pz */
         public GroupTag[] newArray(int i) {
             return new GroupTag[i];
         }

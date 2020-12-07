@@ -4,7 +4,7 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aa;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class c extends Thread {
     private String mGroupId;
     private String mObj;

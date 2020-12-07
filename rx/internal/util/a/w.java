@@ -1,7 +1,7 @@
 package rx.internal.util.a;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 abstract class w<E> extends t<E> {
-    protected static final long qkG = ae.l(w.class, "producerIndex");
+    protected static final long pUH = ae.l(w.class, "producerIndex");
     protected long producerIndex;
 
     public w(int i) {

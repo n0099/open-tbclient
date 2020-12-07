@@ -8,18 +8,18 @@ import com.baidu.tbadk.task.b;
 import com.baidu.tieba.homepage.gamevideo.message.GameVideoHttpResMessage;
 import com.baidu.tieba.homepage.gamevideo.message.GameVideoSocketResMessage;
 import com.baidu.tieba.tbadkCore.a.a;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class GameVideoStatic {
     static {
-        cJA();
+        cOP();
     }
 
-    private static void cJA() {
+    private static void cOP() {
         b bVar = new b(309646);
         bVar.setResponsedClass(GameVideoSocketResMessage.class);
         bVar.setNeedAck(true);
         MessageManager.getInstance().registerTask(bVar);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GAME_VIDEO, a.bK(TbConfig.URL_GAME_VIDEO, 309646));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GAME_VIDEO, a.bN(TbConfig.URL_GAME_VIDEO, 309646));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(GameVideoHttpResMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

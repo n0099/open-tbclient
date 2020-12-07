@@ -8,7 +8,7 @@ import android.os.Message;
 public final class w {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Handler f4715a = new Handler(Looper.getMainLooper());
+    private static final Handler f4485a = new Handler(Looper.getMainLooper());
     private static final HandlerThread b;
     private static final Handler c;
 
@@ -42,6 +42,6 @@ public final class w {
     }
 
     public static void b(Runnable runnable) {
-        f4715a.post(runnable);
+        f4485a.post(runnable);
     }
 }

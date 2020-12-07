@@ -10,6 +10,7 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.a;
 import com.baidu.ala.AlaCmdConfigCustom;
 import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes7.dex */
 public class AlaRefreshScoreModel extends BdBaseModel {
@@ -34,7 +35,7 @@ public class AlaRefreshScoreModel extends BdBaseModel {
                 statsItem.append("workflow", "synctdou");
                 statsItem.append("eventType", "syncfail");
                 statsItem.append("response_code", Integer.valueOf(httpResponsedMessage.getStatusCode()));
-                statsItem.append("error_msg", httpResponsedMessage.getErrorString());
+                statsItem.append(AlaRecorderLog.KEY_ERROR_MSG, httpResponsedMessage.getErrorString());
                 statsItem.append("error_code", Integer.valueOf(httpResponsedMessage.getError()));
                 statsItem.append("response_content", contentStr);
                 statsItem.append("uid", TbadkCoreApplication.getCurrentAccount());

@@ -1,10 +1,10 @@
 package org.java_websocket.framing;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public interface Framedata {
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes5.dex */
     public enum Opcode {
         CONTINUOUS,
         TEXT,
@@ -14,15 +14,15 @@ public interface Framedata {
         CLOSING
     }
 
-    boolean alJ();
+    boolean aoR();
 
-    ByteBuffer eEX();
+    ByteBuffer eEW();
+
+    boolean eEX();
 
     boolean eEY();
 
     boolean eEZ();
 
-    boolean eFa();
-
-    Opcode eFb();
+    Opcode eFa();
 }

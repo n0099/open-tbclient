@@ -10,15 +10,14 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.http.HttpStatus;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public class SampleDependencyTypeBox extends AbstractFullBox {
     public static final String TYPE = "sdtp";
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_2 = null;
     private List<Entry> entries;
 
     static {
@@ -32,7 +31,7 @@ public class SampleDependencyTypeBox extends AbstractFullBox {
         ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.SampleDependencyTypeBox", "", "", "", FieldUtil.TYPE_STRING), Opcodes.LCMP);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes7.dex */
     public static class Entry {
         private int value;
 
@@ -53,7 +52,7 @@ public class SampleDependencyTypeBox extends AbstractFullBox {
         }
 
         public void setSampleDependsOn(int i) {
-            this.value = ((i & 3) << 4) | (this.value & HttpStatus.SC_MULTI_STATUS);
+            this.value = ((i & 3) << 4) | (this.value & 207);
         }
 
         public int getSampleIsDependentOn() {

@@ -2,124 +2,124 @@ package com.baidu.tieba.pb.videopb;
 
 import android.arch.lifecycle.p;
 import android.graphics.Rect;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.y;
 import java.util.LinkedList;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class d {
-    private boolean akn;
-    private com.baidu.tieba.pb.data.f lNb;
-    private Rect lNd;
-    private boolean lNe;
-    private com.baidu.tieba.pb.data.f lqK;
-    private p<bx> lNc = new p<>();
-    private LinkedList<com.baidu.tieba.pb.data.f> lNf = new LinkedList<>();
-    private p<bx> lNg = new p<>();
-    private p<bx> lNh = new p<>();
-    private p<Boolean> lNi = new p<>();
-    private p<Boolean> lNj = new p<>();
-    private p<Boolean> lNk = new p<>();
-    private p<Boolean> lNl = new p<>();
-    private p<Integer> lNm = new p<>();
+    private boolean alo;
+    private com.baidu.tieba.pb.data.f lEt;
+    private com.baidu.tieba.pb.data.f mbd;
+    private Rect mbf;
+    private boolean mbg;
+    private p<by> mbe = new p<>();
+    private LinkedList<com.baidu.tieba.pb.data.f> mbh = new LinkedList<>();
+    private p<by> mbi = new p<>();
+    private p<by> mbj = new p<>();
+    private p<Boolean> mbk = new p<>();
+    private p<Boolean> mbl = new p<>();
+    private p<Boolean> mbm = new p<>();
+    private p<Boolean> mbn = new p<>();
+    private p<Integer> mbo = new p<>();
 
-    public void N(com.baidu.tieba.pb.data.f fVar) {
-        this.lNb = fVar;
+    public void O(com.baidu.tieba.pb.data.f fVar) {
+        this.mbd = fVar;
         setData(fVar);
-        this.lNg.setValue(null);
-        this.lNc.setValue(fVar.dhH());
+        this.mbi.setValue(null);
+        this.mbe.setValue(fVar.dmT());
     }
 
-    public com.baidu.tieba.pb.data.f dqN() {
-        return this.lNb;
+    public com.baidu.tieba.pb.data.f dwg() {
+        return this.mbd;
     }
 
-    public com.baidu.tieba.pb.data.f dqO() {
-        return this.lqK;
+    public com.baidu.tieba.pb.data.f dwh() {
+        return this.lEt;
     }
 
     public void setData(com.baidu.tieba.pb.data.f fVar) {
-        this.lqK = fVar;
+        this.lEt = fVar;
         if (fVar != null) {
-            this.lNc.setValue(fVar.dhH());
-            if (!y.isEmpty(fVar.dij())) {
-                aS(fVar.dij().get(0));
+            this.mbe.setValue(fVar.dmT());
+            if (!y.isEmpty(fVar.dnw())) {
+                aS(fVar.dnw().get(0));
             }
         }
     }
 
-    public p<bx> dqP() {
-        return this.lNc;
+    public p<by> dwi() {
+        return this.mbe;
     }
 
     public boolean isFromCDN() {
-        return this.akn;
+        return this.alo;
     }
 
     public void setFromCDN(boolean z) {
-        this.akn = z;
+        this.alo = z;
     }
 
     public void i(Rect rect) {
-        this.lNd = rect;
+        this.mbf = rect;
     }
 
-    public Rect dqQ() {
-        return this.lNd;
+    public Rect dwj() {
+        return this.mbf;
     }
 
-    public void vz(boolean z) {
-        this.lNe = z;
+    public void wc(boolean z) {
+        this.mbg = z;
     }
 
-    public boolean dqR() {
-        return this.lNe;
+    public boolean dwk() {
+        return this.mbg;
     }
 
-    public LinkedList<com.baidu.tieba.pb.data.f> dqS() {
-        return this.lNf;
+    public LinkedList<com.baidu.tieba.pb.data.f> dwl() {
+        return this.mbh;
     }
 
-    public void aR(bx bxVar) {
-        this.lNg.setValue(bxVar);
+    public void aR(by byVar) {
+        this.mbi.setValue(byVar);
     }
 
-    public void aS(bx bxVar) {
-        this.lNh.setValue(bxVar);
+    public void aS(by byVar) {
+        this.mbj.setValue(byVar);
     }
 
-    public p<bx> dqT() {
-        return this.lNg;
+    public p<by> dwm() {
+        return this.mbi;
     }
 
-    public p<bx> dqU() {
-        return this.lNh;
+    public p<by> dwn() {
+        return this.mbj;
     }
 
-    public p<Boolean> dqV() {
-        return this.lNi;
+    public p<Boolean> dwo() {
+        return this.mbk;
     }
 
-    public void vA(boolean z) {
-        this.lNi.setValue(Boolean.valueOf(z));
+    public void wd(boolean z) {
+        this.mbk.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> dqW() {
-        return this.lNj;
+    public p<Boolean> dwp() {
+        return this.mbl;
     }
 
-    public void vB(boolean z) {
-        this.lNj.postValue(Boolean.valueOf(z));
+    public void we(boolean z) {
+        this.mbl.postValue(Boolean.valueOf(z));
     }
 
     public void setIsLoading(boolean z) {
-        this.lNl.setValue(Boolean.valueOf(z));
+        this.mbn.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> dqX() {
-        return this.lNl;
+    public p<Boolean> dwq() {
+        return this.mbn;
     }
 
-    public p<Integer> dqY() {
-        return this.lNm;
+    public p<Integer> dwr() {
+        return this.mbo;
     }
 }

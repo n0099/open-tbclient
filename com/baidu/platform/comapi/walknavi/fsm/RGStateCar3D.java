@@ -1,14 +1,13 @@
 package com.baidu.platform.comapi.walknavi.fsm;
 
 import android.graphics.Point;
-import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.walknavi.segmentbrowse.c;
 import com.baidu.platform.comapi.wnplatform.p.f;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class RGStateCar3D extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
@@ -63,7 +62,7 @@ public class RGStateCar3D extends RGState {
             }
             if (e.getLongitudeE6() != 0.0d && e.getLatitudeE6() != 0.0d) {
                 builder.target(f.a(e));
-                b.a().J().a(builder.build(), FeatureCodes.VO);
+                b.a().J().a(builder.build(), 1300);
             }
         }
     }

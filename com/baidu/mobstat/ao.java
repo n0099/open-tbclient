@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class ao {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2543a;
+    private String f2545a;
     private String b;
     private String c;
     private long d;
@@ -22,7 +22,7 @@ public class ao {
     private String l;
 
     public ao(String str, String str2, String str3, long j, long j2, float f, float f2, float f3, float f4, String str4, boolean z, String str5) {
-        this.f2543a = str;
+        this.f2545a = str;
         this.b = str2;
         this.c = str3;
         this.d = j;
@@ -37,7 +37,7 @@ public class ao {
     }
 
     public String a() {
-        return this.f2543a;
+        return this.f2545a;
     }
 
     public String b() {

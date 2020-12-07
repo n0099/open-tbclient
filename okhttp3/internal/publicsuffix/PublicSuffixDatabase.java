@@ -209,16 +209,15 @@ public final class PublicSuffixDatabase {
     }
 
     private void readTheListUninterruptibly() {
-        boolean z;
-        boolean z2 = false;
+        boolean z = false;
         while (true) {
             try {
                 try {
-                    z = z2;
                     readTheList();
                     break;
                 } catch (InterruptedIOException e) {
-                    z2 = true;
+                    Thread.interrupted();
+                    z = true;
                 } catch (IOException e2) {
                     Platform.get().log(5, "Failed to read public suffix list", e2);
                     if (!z) {
@@ -241,7 +240,7 @@ public final class PublicSuffixDatabase {
     }
 
     private void readTheList() throws IOException {
-        InputStream resourceAsStream = PublicSuffixDatabase.class.getResourceAsStream("publicsuffixes.gz");
+        InputStream resourceAsStream = PublicSuffixDatabase.class.getResourceAsStream(PUBLIC_SUFFIX_RESOURCE);
         if (resourceAsStream != null) {
             BufferedSource buffer = Okio.buffer(new GzipSource(Okio.source(resourceAsStream)));
             try {
