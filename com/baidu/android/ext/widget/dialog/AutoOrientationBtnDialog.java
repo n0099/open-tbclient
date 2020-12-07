@@ -13,7 +13,7 @@ import com.baidu.android.common.ui.R;
 import com.baidu.android.ext.widget.dialog.BoxAlertDialog;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class AutoOrientationBtnDialog extends BoxAlertDialog {
     private static final int DEFAULT_BREAK_POINT = 2;
     private int mBreakPoint;
@@ -24,7 +24,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
     private View mDivider;
     private ViewGroup mView;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public interface OnItemClickListener {
         void onItemClick(View view);
     }
@@ -121,7 +121,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
         return view;
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public class ViewHelper {
         LinearLayout button;
         AutoOrientationBtnDialog mDialog;
@@ -165,7 +165,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public static class Builder extends BoxAlertDialog.Builder {
         private List<BtnItem> list;
 
@@ -196,7 +196,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public static class BtnItem {
         public OnItemClickListener mOnItemClickListener;
         public CharSequence mSubText;

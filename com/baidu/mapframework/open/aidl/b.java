@@ -5,21 +5,21 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public interface b extends IInterface {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static abstract class a extends Binder implements b {
 
         /* renamed from: com.baidu.mapframework.open.aidl.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        private static class C0254a implements b {
+        /* loaded from: classes26.dex */
+        private static class C0263a implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f2186a;
+            private IBinder f2188a;
 
-            C0254a(IBinder iBinder) {
-                this.f2186a = iBinder;
+            C0263a(IBinder iBinder) {
+                this.f2188a = iBinder;
             }
 
             @Override // com.baidu.mapframework.open.aidl.b
@@ -29,7 +29,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.mapframework.open.aidl.IOpenClientCallback");
                     obtain.writeStrongBinder(iBinder);
-                    this.f2186a.transact(1, obtain, obtain2, 0);
+                    this.f2188a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -39,7 +39,7 @@ public interface b extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f2186a;
+                return this.f2188a;
             }
         }
 
@@ -52,7 +52,7 @@ public interface b extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.mapframework.open.aidl.IOpenClientCallback");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0254a(iBinder) : (b) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0263a(iBinder) : (b) queryLocalInterface;
         }
 
         @Override // android.os.IInterface

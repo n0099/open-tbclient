@@ -5,15 +5,15 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.i;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.j;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.subtablist.b.b, j> {
-    private i gpi;
-    private com.baidu.tieba.ala.alasquare.subtablist.c.i gpj;
+    private i gxr;
+    private com.baidu.tieba.ala.alasquare.subtablist.c.i gxs;
     private int mFrom;
     private TbPageContext<?> mPageContext;
 
     public f(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.grn);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.gzw);
         this.mPageContext = tbPageContext;
     }
 
@@ -26,25 +26,25 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: Y */
     public j c(ViewGroup viewGroup) {
-        this.gpi = new i(this.mPageContext, viewGroup);
-        if (this.gpj != null) {
-            this.gpi.d(this.gpj);
+        this.gxr = new i(this.mPageContext, viewGroup);
+        if (this.gxs != null) {
+            this.gxr.d(this.gxs);
         }
-        return new j(this.gpi);
+        return new j(this.gxr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.subtablist.b.b bVar, j jVar) {
-        jVar.gpi.a(bVar, this.mFrom);
+        jVar.gxr.a(bVar, this.mFrom);
         return jVar.getView();
     }
 
     public void b(com.baidu.tieba.ala.alasquare.subtablist.c.i iVar) {
-        this.gpj = iVar;
-        if (this.gpi != null) {
-            this.gpi.d(this.gpj);
+        this.gxs = iVar;
+        if (this.gxr != null) {
+            this.gxr.d(this.gxs);
         }
     }
 }

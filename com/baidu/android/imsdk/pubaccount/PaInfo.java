@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class PaInfo implements Parcelable {
     public static final Parcelable.Creator<PaInfo> CREATOR = new Parcelable.Creator<PaInfo>() { // from class: com.baidu.android.imsdk.pubaccount.PaInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -31,6 +31,7 @@ public class PaInfo implements Parcelable {
     private String detail;
     private int disturb;
     private boolean mMsgNotify;
+    private int mRejectMenu;
     private String mRepliesStr;
     private int markTop;
     private long markTopTime;
@@ -344,6 +345,14 @@ public class PaInfo implements Parcelable {
         }
     }
 
+    public void setRejectMenu(int i) {
+        this.mRejectMenu = i;
+    }
+
+    public int getRejectMenu() {
+        return this.mRejectMenu;
+    }
+
     @Override // android.os.Parcelable
     public int describeContents() {
         return 0;
@@ -383,10 +392,11 @@ public class PaInfo implements Parcelable {
         parcel.writeString(this.mThirdExt);
         parcel.writeString(this.mSchema);
         parcel.writeInt(this.mSubscribe);
+        parcel.writeInt(this.mRejectMenu);
     }
 
     public String toString() {
-        return "PaInfo [pdId=" + this.paId + " nickName=" + this.nickName + " disturb= " + this.disturb + " description=" + this.description + " acceptPush=" + this.acceptPush + " url=" + this.url + " subscribeTime" + this.subcribeTime + " classtype= " + this.classtype + "  classtitle= " + this.classtitle + " markTop= " + this.markTop + " markTopTime= " + this.markTopTime + "  classavatar= " + this.classavatar + " mMsgNotify= " + this.mMsgNotify + " mRepliesStr= " + this.mRepliesStr + " mLastRefreshTime= " + this.mLastRefreshTime + " subsetType= " + this.subsetType + " paExt= " + this.paExt + " vPortrait= " + this.vPortrait + " mHasIdentity= " + this.mHasIdentity + " mShield= " + this.mShield + " mShieldTime " + this.mShieldTime + " mIdentity= " + this.mIdentity + " mVipId= " + this.mVipId + ", schema=" + this.mSchema + ", mSubscribe=" + this.mSubscribe + ", mThirdExt=" + this.mThirdExt + "  ]";
+        return "PaInfo [pdId=" + this.paId + " nickName=" + this.nickName + " disturb= " + this.disturb + " description=" + this.description + " acceptPush=" + this.acceptPush + " url=" + this.url + " subscribeTime" + this.subcribeTime + " classtype= " + this.classtype + "  classtitle= " + this.classtitle + " markTop= " + this.markTop + " markTopTime= " + this.markTopTime + "  classavatar= " + this.classavatar + " mMsgNotify= " + this.mMsgNotify + " mRepliesStr= " + this.mRepliesStr + " mLastRefreshTime= " + this.mLastRefreshTime + " subsetType= " + this.subsetType + " paExt= " + this.paExt + " vPortrait= " + this.vPortrait + " mHasIdentity= " + this.mHasIdentity + " mShield= " + this.mShield + " mShieldTime " + this.mShieldTime + " mIdentity= " + this.mIdentity + " mVipId= " + this.mVipId + ", schema=" + this.mSchema + ", mSubscribe=" + this.mSubscribe + ", mThirdExt=" + this.mThirdExt + ", mRejectMenu=" + this.mRejectMenu + "  ]";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -424,6 +434,7 @@ public class PaInfo implements Parcelable {
         paInfo.setSubscribe(parcel.readInt());
         paInfo.setThirdExt(parcel.readString());
         paInfo.setSchema(parcel.readString());
+        paInfo.setRejectMenu(parcel.readInt());
         return paInfo;
     }
 }

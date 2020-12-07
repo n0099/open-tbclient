@@ -14,59 +14,59 @@ import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> biN = new ArrayList();
-    private ArrayList<q> fZl = new ArrayList<>();
-    private BdTypeListView ghN;
-    public i mbv;
-    public j mot;
-    private c mou;
+    private List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
+    private ArrayList<q> ghw = new ArrayList<>();
+    private BdTypeListView gpX;
+    public j mCx;
+    private c mCy;
+    public i mpB;
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.ghN = bdTypeListView;
+        this.gpX = bdTypeListView;
         x(tbPageContext);
     }
 
     private void x(TbPageContext<?> tbPageContext) {
-        this.mbv = new i(tbPageContext);
-        this.mot = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.mdR);
-        this.mou = new e(tbPageContext, this, tbPageContext.getUniqueId());
-        this.mot.a(this.mou);
-        this.biN.add(this.mbv);
-        this.biN.add(this.mot);
-        this.ghN.addAdapters(this.biN);
+        this.mpB = new i(tbPageContext);
+        this.mCx = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.mrX);
+        this.mCy = new e(tbPageContext, this, tbPageContext.getUniqueId());
+        this.mCx.a(this.mCy);
+        this.bnf.add(this.mpB);
+        this.bnf.add(this.mCx);
+        this.gpX.addAdapters(this.bnf);
     }
 
-    public void aa(ArrayList<q> arrayList) {
-        if (arrayList != null && this.ghN != null) {
-            this.fZl.clear();
-            this.fZl.addAll(arrayList);
-            this.ghN.setData(this.fZl);
+    public void ab(ArrayList<q> arrayList) {
+        if (arrayList != null && this.gpX != null) {
+            this.ghw.clear();
+            this.ghw.addAll(arrayList);
+            this.gpX.setData(this.ghw);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.ghN.getAdapter() instanceof f) {
-            this.ghN.getAdapter().notifyDataSetChanged();
+        if (this.gpX.getAdapter() instanceof f) {
+            this.gpX.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void startPullRefresh() {
-        if (this.ghN != null) {
-            this.ghN.startPullRefresh();
+        if (this.gpX != null) {
+            this.gpX.startPullRefresh();
         }
     }
 
-    public boolean Qm(String str) {
+    public boolean Rv(String str) {
         boolean z;
         if (au.isEmpty(str)) {
             return false;
         }
-        if (this.ghN == null || this.fZl == null) {
+        if (this.gpX == null || this.ghw == null) {
             return false;
         }
-        Iterator<q> it = this.fZl.iterator();
+        Iterator<q> it = this.ghw.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -80,8 +80,8 @@ public class a {
             }
         }
         if (z) {
-            this.fZl = PersonPostModel.mergeDynamicThreadByTime(this.fZl);
-            this.ghN.setData(this.fZl);
+            this.ghw = PersonPostModel.mergeDynamicThreadByTime(this.ghw);
+            this.gpX.setData(this.ghw);
             notifyDataSetChanged();
             return z;
         }

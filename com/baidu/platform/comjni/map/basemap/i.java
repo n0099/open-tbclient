@@ -3,17 +3,17 @@ package com.baidu.platform.comjni.map.basemap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ long f3175a;
+    final /* synthetic */ long f3177a;
     final /* synthetic */ NABaseMap b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(NABaseMap nABaseMap, long j) {
         this.b = nABaseMap;
-        this.f3175a = j;
+        this.f3177a = j;
     }
 
     @Override // java.lang.Runnable
@@ -32,11 +32,11 @@ public class i implements Runnable {
                 boolean tryLock = readWriteLock3.readLock().tryLock(2000L, TimeUnit.MILLISECONDS);
                 if (tryLock) {
                     try {
-                        a2 = this.b.a(this.f3175a);
+                        a2 = this.b.a(this.f3177a);
                         if (!a2) {
                             NABaseMap nABaseMap = this.b;
                             j = this.b.b;
-                            nABaseMap.nativeUpdateLayers(j, this.f3175a);
+                            nABaseMap.nativeUpdateLayers(j, this.f3177a);
                         }
                     } catch (Throwable th2) {
                         z = tryLock;

@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1269a;
+    public String f1268a;
     public String b;
     public int c = 2;
     private int d = 0;
@@ -18,7 +18,7 @@ public class f {
             return null;
         }
         f fVar = new f();
-        fVar.f1269a = str;
+        fVar.f1268a = str;
         fVar.d = TextUtils.isEmpty(str2) ? 0 : str2.length();
         if (fVar.d < 14) {
             if (TextUtils.isEmpty(str2)) {
@@ -41,11 +41,11 @@ public class f {
         return new String(com.baidu.b.d.a.a(str.getBytes()));
     }
 
-    public static f da(String str) {
-        return db(e(str));
+    public static f dd(String str) {
+        return de(e(str));
     }
 
-    private static f db(String str) {
+    private static f de(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -64,7 +64,7 @@ public class f {
             int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
             if (!TextUtils.isEmpty(string)) {
                 f fVar = new f();
-                fVar.f1269a = string;
+                fVar.f1268a = string;
                 fVar.c = i;
                 fVar.d = length;
                 if (fVar.d < 14) {

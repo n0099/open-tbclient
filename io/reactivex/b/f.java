@@ -1,0 +1,5 @@
+package io.reactivex.b;
+/* loaded from: classes9.dex */
+public interface f {
+    void cancel() throws Exception;
+}

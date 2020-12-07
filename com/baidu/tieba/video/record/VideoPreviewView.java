@@ -21,47 +21,47 @@ import com.faceunity.a.d;
 import io.flutter.plugin.platform.PlatformPlugin;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class VideoPreviewView extends SurfaceView implements Camera.PreviewCallback, SurfaceHolder.Callback, g {
-    private int clM;
-    private int clN;
-    private MediaRecorder czR;
+    private MediaRecorder cGJ;
     private SurfaceHolder mSurfaceHolder;
-    private com.baidu.tieba.l.h mZc;
-    private h nts;
-    private g.a ntx;
-    private boolean nwI;
-    private boolean nwJ;
-    private boolean nwK;
+    private h nHu;
+    private g.a nHz;
+    private boolean nKJ;
+    private boolean nKK;
+    private boolean nKL;
+    private com.baidu.tieba.l.h nnb;
+    private int previewHeight;
+    private int previewWidth;
 
     public VideoPreviewView(Context context, h hVar) {
         super(context);
-        this.clM = 720;
-        this.clN = TbConfig.HEAD_IMG_SIZE;
+        this.previewWidth = 720;
+        this.previewHeight = TbConfig.HEAD_IMG_SIZE;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, com.baidu.tieba.l.l.class);
         com.baidu.tieba.l.l lVar = runTask != null ? (com.baidu.tieba.l.l) runTask.getData() : null;
         if (lVar != null) {
-            this.mZc = lVar.ddQ();
+            this.nnb = lVar.djb();
         }
-        this.nts = hVar;
+        this.nHu = hVar;
         getHolder().addCallback(this);
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         this.mSurfaceHolder = surfaceHolder;
-        dQu();
-        this.nwJ = true;
+        dVO();
+        this.nKK = true;
     }
 
-    private void dQu() {
-        Handler mainHandler = this.nts.getMainHandler();
+    private void dVO() {
+        Handler mainHandler = this.nHu.getMainHandler();
         mainHandler.sendMessage(mainHandler.obtainMessage(1));
     }
 
     public void onResume() {
-        if (this.nwJ) {
-            dQu();
+        if (this.nKK) {
+            dVO();
         }
     }
 
@@ -75,15 +75,15 @@ public class VideoPreviewView extends SurfaceView implements Camera.PreviewCallb
 
     @Override // com.baidu.tieba.video.record.g
     public void e(Camera camera) {
-        if (!this.nwI && camera != null) {
-            this.nwI = true;
+        if (!this.nKJ && camera != null) {
+            this.nKJ = true;
             try {
                 camera.setPreviewDisplay(this.mSurfaceHolder);
                 camera.setPreviewCallback(this);
             } catch (IOException e) {
                 e.printStackTrace();
-                if (this.mZc != null) {
-                    this.mZc.bD(27, com.baidu.tieba.l.a.r(e));
+                if (this.nnb != null) {
+                    this.nnb.bD(27, com.baidu.tieba.l.a.r(e));
                 }
             }
             camera.startPreview();
@@ -93,15 +93,15 @@ public class VideoPreviewView extends SurfaceView implements Camera.PreviewCallb
     @Override // com.baidu.tieba.video.record.g
     public void f(Camera camera) {
         if (camera != null) {
-            this.czR = new MediaRecorder();
-            this.czR.reset();
+            this.cGJ = new MediaRecorder();
+            this.cGJ.reset();
             try {
                 camera.unlock();
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            this.czR.setCamera(camera);
-            this.czR.setOnErrorListener(new MediaRecorder.OnErrorListener() { // from class: com.baidu.tieba.video.record.VideoPreviewView.1
+            this.cGJ.setCamera(camera);
+            this.cGJ.setOnErrorListener(new MediaRecorder.OnErrorListener() { // from class: com.baidu.tieba.video.record.VideoPreviewView.1
                 @Override // android.media.MediaRecorder.OnErrorListener
                 public void onError(MediaRecorder mediaRecorder, int i, int i2) {
                     if (mediaRecorder != null) {
@@ -113,41 +113,41 @@ public class VideoPreviewView extends SurfaceView implements Camera.PreviewCallb
                             e2.printStackTrace();
                         }
                     }
-                    if (VideoPreviewView.this.mZc != null) {
-                        VideoPreviewView.this.mZc.bD(28, "what-->" + i + "  extra-->" + i2);
+                    if (VideoPreviewView.this.nnb != null) {
+                        VideoPreviewView.this.nnb.bD(28, "what-->" + i + "  extra-->" + i2);
                     }
                 }
             });
             if (this.mSurfaceHolder != null) {
-                this.czR.setPreviewDisplay(this.mSurfaceHolder.getSurface());
+                this.cGJ.setPreviewDisplay(this.mSurfaceHolder.getSurface());
             }
-            this.czR.setVideoSource(1);
-            this.czR.setAudioSource(1);
-            this.czR.setOutputFormat(2);
-            this.czR.setVideoEncoder(2);
-            this.czR.setAudioEncoder(3);
-            this.czR.setAudioSamplingRate(StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K);
-            this.czR.setAudioChannels(1);
-            this.czR.setVideoEncodingBitRate(2097152);
-            this.czR.setVideoFrameRate(20);
-            if (this.nts.mFrontCamera) {
-                this.czR.setOrientationHint(270);
+            this.cGJ.setVideoSource(1);
+            this.cGJ.setAudioSource(1);
+            this.cGJ.setOutputFormat(2);
+            this.cGJ.setVideoEncoder(2);
+            this.cGJ.setAudioEncoder(3);
+            this.cGJ.setAudioSamplingRate(StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K);
+            this.cGJ.setAudioChannels(1);
+            this.cGJ.setVideoEncodingBitRate(2097152);
+            this.cGJ.setVideoFrameRate(20);
+            if (this.nHu.mFrontCamera) {
+                this.cGJ.setOrientationHint(270);
             } else {
-                this.czR.setOrientationHint(90);
+                this.cGJ.setOrientationHint(90);
             }
-            this.czR.setVideoSize(PlatformPlugin.DEFAULT_SYSTEM_UI, 720);
-            File file = new File(com.baidu.tieba.video.c.nmU);
+            this.cGJ.setVideoSize(PlatformPlugin.DEFAULT_SYSTEM_UI, 720);
+            File file = new File(com.baidu.tieba.video.c.nAX);
             if (!n.CheckTempDir(file.getAbsolutePath())) {
                 file.mkdirs();
             }
-            this.czR.setOutputFile(this.nts.dQw());
+            this.cGJ.setOutputFile(this.nHu.dVQ());
             try {
-                this.czR.prepare();
-                this.czR.start();
+                this.cGJ.prepare();
+                this.cGJ.start();
             } catch (Throwable th2) {
                 th2.printStackTrace();
-                if (this.mZc != null) {
-                    this.mZc.bD(28, com.baidu.tieba.l.a.r(th2));
+                if (this.nnb != null) {
+                    this.nnb.bD(28, com.baidu.tieba.l.a.r(th2));
                 }
             }
         }
@@ -155,14 +155,14 @@ public class VideoPreviewView extends SurfaceView implements Camera.PreviewCallb
 
     @Override // com.baidu.tieba.video.record.g
     public void g(Camera camera) {
-        if (this.czR != null) {
+        if (this.cGJ != null) {
             try {
-                this.czR.stop();
-                this.czR.release();
+                this.cGJ.stop();
+                this.cGJ.release();
             } catch (Exception e) {
                 e.printStackTrace();
-                if (this.mZc != null) {
-                    this.mZc.bD(29, com.baidu.tieba.l.a.r(e));
+                if (this.nnb != null) {
+                    this.nnb.bD(29, com.baidu.tieba.l.a.r(e));
                 }
             }
         }
@@ -170,8 +170,8 @@ public class VideoPreviewView extends SurfaceView implements Camera.PreviewCallb
 
     @Override // com.baidu.tieba.video.record.g
     public void h(Camera camera) {
-        if (this.nwI) {
-            this.nwI = false;
+        if (this.nKJ) {
+            this.nKJ = false;
         }
     }
 
@@ -181,24 +181,24 @@ public class VideoPreviewView extends SurfaceView implements Camera.PreviewCallb
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.nts.b(motionEvent, getParent());
+        return this.nHu.b(motionEvent, getParent());
     }
 
     @Override // android.hardware.Camera.PreviewCallback
     public void onPreviewFrame(byte[] bArr, Camera camera) {
-        if (this.nwK) {
+        if (this.nKL) {
             if (bArr != null) {
                 Camera.Size previewSize = camera.getParameters().getPreviewSize();
                 u(bArr, previewSize.width, previewSize.height);
             }
-            this.nwK = false;
+            this.nKL = false;
         }
     }
 
     @Override // com.baidu.tieba.video.record.g
     public void a(g.a aVar) {
-        this.ntx = aVar;
-        this.nwK = true;
+        this.nHz = aVar;
+        this.nKL = true;
     }
 
     @Override // com.baidu.tieba.video.record.g
@@ -221,7 +221,7 @@ public class VideoPreviewView extends SurfaceView implements Camera.PreviewCallb
                             bitmap = a2;
                         }
                     }
-                    return n.saveFileAsPic(com.baidu.tieba.video.c.nmX, "pic_" + System.currentTimeMillis(), bitmap, 80, Bitmap.CompressFormat.JPEG);
+                    return n.saveFileAsPic(com.baidu.tieba.video.c.nBa, "pic_" + System.currentTimeMillis(), bitmap, 80, Bitmap.CompressFormat.JPEG);
                 } finally {
                     if (bitmap != null && !bitmap.isRecycled()) {
                         bitmap.recycle();
@@ -233,8 +233,8 @@ public class VideoPreviewView extends SurfaceView implements Camera.PreviewCallb
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public void onPostExecute(String str) {
-                if (VideoPreviewView.this.ntx != null) {
-                    VideoPreviewView.this.ntx.G(!TextUtils.isEmpty(str), str);
+                if (VideoPreviewView.this.nHz != null) {
+                    VideoPreviewView.this.nHz.G(!TextUtils.isEmpty(str), str);
                 }
             }
         }.execute(new Void[0]);

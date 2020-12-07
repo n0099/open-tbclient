@@ -4,12 +4,12 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class d implements ZeusPluginFactory {
-    private String cuQ;
+    private String cBI;
 
     public d(@NonNull String str) {
-        this.cuQ = str;
+        this.cBI = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
@@ -19,7 +19,7 @@ public class d implements ZeusPluginFactory {
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        com.baidu.swan.apps.inlinewidget.f.c.a a2 = com.baidu.swan.apps.t.a.awG().a(invoker, this.cuQ);
+        com.baidu.swan.apps.inlinewidget.f.c.a a2 = com.baidu.swan.apps.t.a.azO().a(invoker, this.cBI);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.i("【InlineFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline video「Hash:" + a2.hashCode() + "」");
         }

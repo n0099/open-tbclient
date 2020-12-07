@@ -111,6 +111,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         OkHttpClient build = okHttpClient.newBuilder().eventListener(EventListener.NONE).protocols(ONLY_HTTP1).build();
         final Request build2 = this.originalRequest.newBuilder().header("Upgrade", "websocket").header(HTTP.CONN_DIRECTIVE, "Upgrade").header("Sec-WebSocket-Key", this.key).header("Sec-WebSocket-Version", Constants.VIA_REPORT_TYPE_JOININ_GROUP).build();
         this.call = Internal.instance.newWebSocketCall(build, build2);
+        this.call.timeout().clearTimeout();
         this.call.enqueue(new Callback() { // from class: okhttp3.internal.ws.RealWebSocket.2
             @Override // okhttp3.Callback
             public void onResponse(Call call, Response response) {

@@ -7,6 +7,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.fsg.base.statistics.j;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.ap.ah;
 import com.baidu.swan.apps.ap.ak;
@@ -16,15 +17,15 @@ import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class c {
-    private static final String[] cDr = {"https://mbd.baidu.com", "https://ossapi.baidu.com", "https://ext.baidu.com"};
+    private static final String[] cKm = {BaseUrlManager.ONLINE_URL, "https://ossapi.baidu.com", "https://ext.baidu.com"};
 
-    public static boolean mk(String str) {
+    public static boolean mR(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : cDr) {
+        for (String str2 : cKm) {
             if (str.startsWith(str2)) {
                 return true;
             }
@@ -33,45 +34,45 @@ public class c {
     }
 
     public static String processCommonParams(String str) {
-        return addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "uid", akD()), j.c, akE()), "ut", akC()), "osbranch", akG()), "pkgname", getPkgName()), "network", akF()), "appname", getAppName()), "hostname", getAppName()), "swan_sdk_version", akK()), "mnpunion", String.valueOf(f.cva.aiH() ? 2 : 0));
+        return addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "uid", anL()), j.c, anM()), "ut", anK()), "osbranch", anO()), "pkgname", getPkgName()), "network", anN()), "appname", getAppName()), "hostname", getAppName()), "swan_sdk_version", anS()), "mnpunion", String.valueOf(f.cBS.alP() ? 2 : 0));
     }
 
-    public static String akC() {
-        return dA(getDeviceInfo());
+    public static String anK() {
+        return getEncodeValue(getDeviceInfo());
     }
 
-    public static String akD() {
-        return dA(getUid());
+    public static String anL() {
+        return getEncodeValue(getUid());
     }
 
-    public static String akE() {
-        return dA(vc());
+    public static String anM() {
+        return getEncodeValue(getUA());
     }
 
-    public static String akF() {
-        return akM() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + akL();
+    public static String anN() {
+        return anU() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + anT();
     }
 
-    public static String akG() {
+    public static String anO() {
         return "a0";
     }
 
     public static String getUid() {
-        return com.baidu.swan.apps.t.a.avX().bq(AppRuntime.getAppContext());
+        return com.baidu.swan.apps.t.a.azf().bW(AppRuntime.getAppContext());
     }
 
-    public static String vc() {
+    public static String getUA() {
         Context appContext = AppRuntime.getAppContext();
         int displayWidth = ah.getDisplayWidth(appContext);
         int displayHeight = ah.getDisplayHeight(appContext);
         int densityDpi = ah.getDensityDpi(appContext);
-        String akH = akH();
+        String anP = anP();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(displayWidth);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(displayHeight);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-        stringBuffer.append(akH);
+        stringBuffer.append(anP);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(ak.getVersionName());
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
@@ -79,7 +80,7 @@ public class c {
         return stringBuffer.toString();
     }
 
-    public static String akH() {
+    public static String anP() {
         return "android";
     }
 
@@ -89,12 +90,12 @@ public class c {
 
     public static String getDeviceInfo() {
         String deviceModel = getDeviceModel();
-        String akJ = akJ();
+        String anR = anR();
         int i = Build.VERSION.SDK_INT;
-        return deviceModel + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + akJ + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + akI();
+        return deviceModel + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + anR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + anQ();
     }
 
-    public static String akI() {
+    public static String anQ() {
         String str = Build.MANUFACTURER;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -102,7 +103,7 @@ public class c {
         return str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String akJ() {
+    public static String anR() {
         String str = Build.VERSION.RELEASE;
         if (TextUtils.isEmpty(str)) {
             return "0.0";
@@ -123,7 +124,7 @@ public class c {
         StringBuilder sb2;
         String str4 = null;
         if (!TextUtils.isEmpty(str)) {
-            String str5 = str2 + ETAG.EQUAL;
+            String str5 = str2 + "=";
             int indexOf = str.indexOf("?");
             if (indexOf < 0) {
                 int indexOf2 = str.indexOf("#");
@@ -162,7 +163,7 @@ public class c {
         return str;
     }
 
-    public static String dA(String str) {
+    public static String getEncodeValue(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -174,27 +175,27 @@ public class c {
         }
     }
 
-    private static String akK() {
+    private static String anS() {
         return com.baidu.swan.apps.c.getVersion();
     }
 
     private static String getAppName() {
-        return com.baidu.swan.apps.t.a.awE().getHostName();
+        return com.baidu.swan.apps.t.a.azM().getHostName();
     }
 
-    private static int akL() {
-        NetworkInfo activeNetworkInfo = SwanAppNetworkUtils.getActiveNetworkInfo(com.baidu.swan.apps.t.a.avS());
+    private static int anT() {
+        NetworkInfo activeNetworkInfo = SwanAppNetworkUtils.getActiveNetworkInfo(com.baidu.swan.apps.t.a.aza());
         if (activeNetworkInfo == null) {
             return 0;
         }
         return activeNetworkInfo.getSubtype();
     }
 
-    private static int akM() {
+    private static int anU() {
         NetworkInfo networkInfo;
         String str = null;
         try {
-            networkInfo = ((ConnectivityManager) com.baidu.swan.apps.t.a.avS().getSystemService("connectivity")).getActiveNetworkInfo();
+            networkInfo = ((ConnectivityManager) com.baidu.swan.apps.t.a.aza().getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (NullPointerException e) {
             networkInfo = null;
         }

@@ -10,13 +10,13 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.im.n;
 /* loaded from: classes4.dex */
 public class a {
-    private static Application.ActivityLifecycleCallbacks ayt;
+    private static Application.ActivityLifecycleCallbacks aAO;
 
-    public static void d(Application application) {
-        if (ayt == null) {
-            ayt = new C0168a();
+    public static void e(Application application) {
+        if (aAO == null) {
+            aAO = new C0171a();
         }
-        application.registerActivityLifecycleCallbacks(ayt);
+        application.registerActivityLifecycleCallbacks(aAO);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -37,17 +37,17 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.activity.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0168a implements Application.ActivityLifecycleCallbacks {
-        private n ayu;
-        private CustomMessageListener ayv;
+    public static class C0171a implements Application.ActivityLifecycleCallbacks {
+        private n aAP;
+        private CustomMessageListener aAQ;
 
-        private C0168a() {
-            this.ayv = new CustomMessageListener(2913191) { // from class: com.baidu.live.activity.a.a.1
+        private C0171a() {
+            this.aAQ = new CustomMessageListener(2913191) { // from class: com.baidu.live.activity.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (C0168a.this.ayu != null) {
-                        C0168a.this.ayu.Ln();
+                    if (C0171a.this.aAP != null) {
+                        C0171a.this.aAP.Nr();
                     }
                 }
             };
@@ -60,11 +60,11 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             if (a.o(activity)) {
-                if (this.ayu == null) {
-                    this.ayu = new n();
+                if (this.aAP == null) {
+                    this.aAP = new n();
                 }
-                this.ayu.init(String.valueOf(activity.hashCode()));
-                MessageManager.getInstance().registerListener(this.ayv);
+                this.aAP.init(String.valueOf(activity.hashCode()));
+                MessageManager.getInstance().registerListener(this.aAQ);
             }
         }
 
@@ -87,10 +87,10 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             if (a.o(activity)) {
-                if (this.ayu != null) {
-                    this.ayu.hE(String.valueOf(activity.hashCode()));
+                if (this.aAP != null) {
+                    this.aAP.ie(String.valueOf(activity.hashCode()));
                 }
-                MessageManager.getInstance().unRegisterListener(this.ayv);
+                MessageManager.getInstance().unRegisterListener(this.aAQ);
             }
         }
     }

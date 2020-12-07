@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class LiveVideoChatSendAcceptResponseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.live.videochat.b.a bHt;
+    private com.baidu.live.videochat.b.a bMB;
     private int status;
 
     public LiveVideoChatSendAcceptResponseMessage() {
@@ -20,13 +20,13 @@ public class LiveVideoChatSendAcceptResponseMessage extends JsonHttpResponsedMes
             this.status = optJSONObject.optInt("accept_status");
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("match_info");
             if (optJSONObject2 != null) {
-                this.bHt = new com.baidu.live.videochat.b.a();
-                this.bHt.parserJson(optJSONObject2);
+                this.bMB = new com.baidu.live.videochat.b.a();
+                this.bMB.parserJson(optJSONObject2);
             }
         }
     }
 
-    public com.baidu.live.videochat.b.a Vj() {
-        return this.bHt;
+    public com.baidu.live.videochat.b.a XJ() {
+        return this.bMB;
     }
 }

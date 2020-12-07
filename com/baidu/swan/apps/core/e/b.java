@@ -25,36 +25,36 @@ import com.baidu.swan.apps.res.ui.BdBaseImageView;
 import com.baidu.swan.apps.res.widget.dialog.b;
 import com.baidu.swan.apps.res.widget.dialog.g;
 import java.util.Date;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.core.e.a cKg;
+    private com.baidu.swan.apps.core.e.a cQZ;
     private Context mContext;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public interface a {
-        void amH();
+        void apP();
 
-        void bp(String str, String str2);
+        void bw(String str, String str2);
     }
 
     /* renamed from: com.baidu.swan.apps.core.e.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0422b {
-        void amD();
+    /* loaded from: classes25.dex */
+    public interface InterfaceC0434b {
+        void apL();
 
-        void mE(String str);
+        void nl(String str);
 
         void onCancel();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public interface c {
-        void amE();
+        void apM();
 
-        void amF();
+        void apN();
 
-        void amG();
+        void apO();
     }
 
     public b(Context context) {
@@ -62,52 +62,52 @@ public class b {
     }
 
     public void a(final a aVar, String str, String str2) {
-        this.cKg = new com.baidu.swan.apps.core.e.a(this.mContext, str, str2);
-        this.cKg.a(new a.b() { // from class: com.baidu.swan.apps.core.e.b.1
+        this.cQZ = new com.baidu.swan.apps.core.e.a(this.mContext, str, str2);
+        this.cQZ.a(new a.b() { // from class: com.baidu.swan.apps.core.e.b.1
             @Override // com.baidu.swan.apps.core.e.a.b
             public void r(String str3, String str4, String str5, String str6) {
                 if (aVar != null) {
-                    aVar.bp(str5, str6);
+                    aVar.bw(str5, str6);
                 }
-                b.this.cKg = null;
+                b.this.cQZ = null;
             }
         });
-        this.cKg.a(new a.InterfaceC0421a() { // from class: com.baidu.swan.apps.core.e.b.10
-            @Override // com.baidu.swan.apps.core.e.a.InterfaceC0421a
+        this.cQZ.a(new a.InterfaceC0433a() { // from class: com.baidu.swan.apps.core.e.b.10
+            @Override // com.baidu.swan.apps.core.e.a.InterfaceC0433a
             public void onCancel() {
                 if (aVar != null) {
-                    aVar.amH();
+                    aVar.apP();
                 }
-                b.this.cKg = null;
+                b.this.cQZ = null;
             }
         });
-        this.cKg.show();
+        this.cQZ.show();
     }
 
     public void a(final c cVar, final SslErrorHandler sslErrorHandler, final SslError sslError) {
-        if (!ape()) {
+        if (!asn()) {
             sslErrorHandler.cancel();
         } else {
-            new c.a(this.mContext).ib(a.h.aiapps_security_warning).a(a.h.aiapps_ssl_warnings_header, new b.c() { // from class: com.baidu.swan.apps.core.e.b.15
-                private long[] cHK = null;
+            new c.a(this.mContext).iz(a.h.aiapps_security_warning).a(a.h.aiapps_ssl_warnings_header, new b.c() { // from class: com.baidu.swan.apps.core.e.b.15
+                private long[] cOD = null;
 
                 @Override // com.baidu.swan.apps.res.widget.dialog.b.c
                 public void onItemClick(View view) {
-                    if (this.cHK == null) {
-                        this.cHK = new long[5];
+                    if (this.cOD == null) {
+                        this.cOD = new long[5];
                     }
-                    System.arraycopy(this.cHK, 1, this.cHK, 0, this.cHK.length - 1);
-                    this.cHK[this.cHK.length - 1] = SystemClock.uptimeMillis();
-                    if (this.cHK[0] >= SystemClock.uptimeMillis() - IMConnection.RETRY_DELAY_TIMES) {
-                        this.cHK = null;
-                        b.this.nb(sslError.toString());
+                    System.arraycopy(this.cOD, 1, this.cOD, 0, this.cOD.length - 1);
+                    this.cOD[this.cOD.length - 1] = SystemClock.uptimeMillis();
+                    if (this.cOD[0] >= SystemClock.uptimeMillis() - IMConnection.RETRY_DELAY_TIMES) {
+                        this.cOD = null;
+                        b.this.nI(sslError.toString());
                     }
                 }
             }).a(new b.a(this.mContext.getText(a.h.aiapps_ssl_continue), a.c.aiapps_ssl_dialog_go_on_text_color, new b.c() { // from class: com.baidu.swan.apps.core.e.b.14
                 @Override // com.baidu.swan.apps.res.widget.dialog.b.c
                 public void onItemClick(View view) {
                     if (cVar != null) {
-                        cVar.amE();
+                        cVar.apM();
                     }
                 }
             })).a(new b.a(this.mContext.getText(a.h.aiapps_view_certificate), a.c.aiapps_safe_dialog_btn_black, new b.c() { // from class: com.baidu.swan.apps.core.e.b.13
@@ -119,7 +119,7 @@ public class b {
                 @Override // com.baidu.swan.apps.res.widget.dialog.b.c
                 public void onItemClick(View view) {
                     if (cVar != null) {
-                        cVar.amF();
+                        cVar.apN();
                     }
                 }
             })).a(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.core.e.b.11
@@ -127,13 +127,13 @@ public class b {
                 public void onCancel(DialogInterface dialogInterface) {
                     sslErrorHandler.cancel();
                 }
-            }).aGt();
+            }).aJB();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final c cVar, SslErrorHandler sslErrorHandler, SslError sslError) {
-        if (!ape()) {
+        if (!asn()) {
             sslErrorHandler.cancel();
             return;
         }
@@ -143,17 +143,17 @@ public class b {
                 @Override // com.baidu.swan.apps.res.widget.dialog.b.c
                 public void onItemClick(View view) {
                     if (cVar != null) {
-                        cVar.amG();
+                        cVar.apO();
                     }
                 }
             })).a(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.core.e.b.16
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
                     if (cVar != null) {
-                        cVar.amG();
+                        cVar.apO();
                     }
                 }
-            }).aGt();
+            }).aJB();
         }
     }
 
@@ -186,12 +186,12 @@ public class b {
                 b(linearLayout, a.h.aiapps_ssl_unknown);
             }
         }
-        return new d.a(this.mContext).ib(a.h.aiapps_ssl_certificate).aw(b);
+        return new d.a(this.mContext).iz(a.h.aiapps_ssl_certificate).ay(b);
     }
 
-    public void nb(String str) {
+    public void nI(String str) {
         ((ClipboardManager) this.mContext.getSystemService("clipboard")).setText(str);
-        com.baidu.swan.apps.res.widget.b.d.k(this.mContext, a.h.aiapps_ssl_copy_error).showToast();
+        com.baidu.swan.apps.res.widget.b.d.t(this.mContext, a.h.aiapps_ssl_copy_error).showToast();
     }
 
     private void a(LinearLayout linearLayout, int i) {
@@ -249,85 +249,85 @@ public class b {
         return date == null ? "" : DateFormat.getDateFormat(this.mContext).format(date);
     }
 
-    public boolean a(String str, String str2, final InterfaceC0422b interfaceC0422b) {
-        if (!ape()) {
+    public boolean a(String str, String str2, final InterfaceC0434b interfaceC0434b) {
+        if (!asn()) {
             if (DEBUG) {
                 Log.e("PageDialogsHandler", "can not showJsAlert");
             }
-            if (interfaceC0422b != null) {
-                interfaceC0422b.amD();
+            if (interfaceC0434b != null) {
+                interfaceC0434b.apL();
                 return false;
             }
             return false;
         }
-        g.a a2 = new g.a(this.mContext).ib(a.h.aiapps_dialog_webcall_common_title).rL(str2).c(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.3
+        g.a a2 = new g.a(this.mContext).iz(a.h.aiapps_dialog_webcall_common_title).st(str2).c(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.3
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (interfaceC0422b != null) {
-                    interfaceC0422b.mE("");
+                if (interfaceC0434b != null) {
+                    interfaceC0434b.nl("");
                 }
             }
         }).a(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.core.e.b.2
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (interfaceC0422b != null) {
-                    interfaceC0422b.onCancel();
+                if (interfaceC0434b != null) {
+                    interfaceC0434b.onCancel();
                 }
             }
         });
-        if (com.baidu.swan.apps.t.a.awo().getNightModeSwitcherState()) {
-            a2.gw(false);
+        if (com.baidu.swan.apps.t.a.azw().getNightModeSwitcherState()) {
+            a2.gL(false);
         } else {
-            a2.gw(true);
+            a2.gL(true);
         }
         return true;
     }
 
-    public boolean b(String str, String str2, final InterfaceC0422b interfaceC0422b) {
-        if (!ape()) {
+    public boolean b(String str, String str2, final InterfaceC0434b interfaceC0434b) {
+        if (!asn()) {
             if (DEBUG) {
                 Log.e("PageDialogsHandler", "can not showJsConfirm");
             }
-            if (interfaceC0422b != null) {
-                interfaceC0422b.amD();
+            if (interfaceC0434b != null) {
+                interfaceC0434b.apL();
                 return false;
             }
             return false;
         }
-        g.a a2 = new g.a(this.mContext).ib(a.h.aiapps_dialog_webcall_common_title).rL(str2).c(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.6
+        g.a a2 = new g.a(this.mContext).iz(a.h.aiapps_dialog_webcall_common_title).st(str2).c(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.6
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (interfaceC0422b != null) {
-                    interfaceC0422b.mE("");
+                if (interfaceC0434b != null) {
+                    interfaceC0434b.nl("");
                 }
             }
         }).d(a.h.aiapps_dialog_nagtive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.5
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (interfaceC0422b != null) {
-                    interfaceC0422b.onCancel();
+                if (interfaceC0434b != null) {
+                    interfaceC0434b.onCancel();
                 }
             }
         }).a(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.core.e.b.4
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (interfaceC0422b != null) {
-                    interfaceC0422b.onCancel();
+                if (interfaceC0434b != null) {
+                    interfaceC0434b.onCancel();
                 }
             }
         });
-        if (com.baidu.swan.apps.t.a.awo().getNightModeSwitcherState()) {
-            a2.gw(false);
+        if (com.baidu.swan.apps.t.a.azw().getNightModeSwitcherState()) {
+            a2.gL(false);
         } else {
-            a2.gw(true);
+            a2.gL(true);
         }
         return true;
     }
 
-    public boolean a(String str, String str2, String str3, final InterfaceC0422b interfaceC0422b) {
-        if (!ape()) {
-            if (interfaceC0422b != null) {
-                interfaceC0422b.amD();
+    public boolean a(String str, String str2, String str3, final InterfaceC0434b interfaceC0434b) {
+        if (!asn()) {
+            if (interfaceC0434b != null) {
+                interfaceC0434b.apL();
             }
             return false;
         }
@@ -335,37 +335,37 @@ public class b {
         final EditText editText = (EditText) inflate.findViewById(a.f.value);
         editText.setText(str3);
         ((TextView) inflate.findViewById(a.f.message)).setText(str2);
-        g.a a2 = new g.a(this.mContext).ib(a.h.aiapps_dialog_webcall_common_title).aA(inflate).c(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.9
+        g.a a2 = new g.a(this.mContext).iz(a.h.aiapps_dialog_webcall_common_title).aC(inflate).c(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.9
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (interfaceC0422b != null) {
-                    interfaceC0422b.mE(editText.getText().toString());
+                if (interfaceC0434b != null) {
+                    interfaceC0434b.nl(editText.getText().toString());
                 }
             }
         }).d(a.h.aiapps_dialog_nagtive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.8
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (interfaceC0422b != null) {
-                    interfaceC0422b.onCancel();
+                if (interfaceC0434b != null) {
+                    interfaceC0434b.onCancel();
                 }
             }
         }).a(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.core.e.b.7
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (interfaceC0422b != null) {
-                    interfaceC0422b.onCancel();
+                if (interfaceC0434b != null) {
+                    interfaceC0434b.onCancel();
                 }
             }
         });
-        if (com.baidu.swan.apps.t.a.awo().getNightModeSwitcherState()) {
-            a2.gw(false);
+        if (com.baidu.swan.apps.t.a.azw().getNightModeSwitcherState()) {
+            a2.gL(false);
         } else {
-            a2.gw(true);
+            a2.gL(true);
         }
         return true;
     }
 
-    private boolean ape() {
+    private boolean asn() {
         return (this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing();
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.sofire.mutiprocess;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BinderHolder implements Parcelable {
     public static final Parcelable.Creator<BinderHolder> CREATOR = new Parcelable.Creator<BinderHolder>() { // from class: com.baidu.sofire.mutiprocess.BinderHolder.1
         /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
@@ -20,14 +20,14 @@ public class BinderHolder implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f3664a;
+    public IBinder f3667a;
 
     public BinderHolder(IBinder iBinder) {
-        this.f3664a = iBinder;
+        this.f3667a = iBinder;
     }
 
     protected BinderHolder(Parcel parcel) {
-        this.f3664a = parcel.readStrongBinder();
+        this.f3667a = parcel.readStrongBinder();
     }
 
     @Override // android.os.Parcelable
@@ -37,6 +37,6 @@ public class BinderHolder implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeStrongBinder(this.f3664a);
+        parcel.writeStrongBinder(this.f3667a);
     }
 }

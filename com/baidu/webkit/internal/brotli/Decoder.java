@@ -7,7 +7,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.ReadableByteChannel;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class Decoder implements INoProGuard {
     private static final ByteBuffer EMPTY_BUFER = ByteBuffer.allocate(0);
     ByteBuffer buffer;

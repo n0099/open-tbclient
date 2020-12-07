@@ -15,9 +15,9 @@ public final class h {
     public static JsonElement parse(com.google.gson.stream.a aVar) throws JsonParseException {
         boolean z = true;
         try {
-            aVar.esW();
+            aVar.eyy();
             z = false;
-            return TypeAdapters.phe.read(aVar);
+            return TypeAdapters.pwn.read(aVar);
         } catch (MalformedJsonException e) {
             throw new JsonSyntaxException(e);
         } catch (EOFException e2) {
@@ -33,7 +33,7 @@ public final class h {
     }
 
     public static void a(JsonElement jsonElement, com.google.gson.stream.b bVar) throws IOException {
-        TypeAdapters.phe.write(bVar, jsonElement);
+        TypeAdapters.pwn.write(bVar, jsonElement);
     }
 
     public static Writer a(Appendable appendable) {
@@ -42,22 +42,22 @@ public final class h {
 
     /* loaded from: classes5.dex */
     private static final class a extends Writer {
-        private final Appendable pfo;
-        private final C0987a pfp = new C0987a();
+        private final Appendable pux;
+        private final C1003a puy = new C1003a();
 
         a(Appendable appendable) {
-            this.pfo = appendable;
+            this.pux = appendable;
         }
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.pfp.chars = cArr;
-            this.pfo.append(this.pfp, i, i + i2);
+            this.puy.chars = cArr;
+            this.pux.append(this.puy, i, i + i2);
         }
 
         @Override // java.io.Writer
         public void write(int i) throws IOException {
-            this.pfo.append((char) i);
+            this.pux.append((char) i);
         }
 
         @Override // java.io.Writer, java.io.Flushable
@@ -70,10 +70,10 @@ public final class h {
 
         /* renamed from: com.google.gson.internal.h$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        static class C0987a implements CharSequence {
+        static class C1003a implements CharSequence {
             char[] chars;
 
-            C0987a() {
+            C1003a() {
             }
 
             @Override // java.lang.CharSequence

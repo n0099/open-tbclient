@@ -1,6 +1,6 @@
 package org.apache.commons.codec;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class DecoderException extends Exception {
     public DecoderException(String str) {
         throw new RuntimeException("Stub!");

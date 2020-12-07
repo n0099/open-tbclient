@@ -1,8 +1,9 @@
 package com.facebook.drawee.drawable;
 
 import android.graphics.drawable.Drawable;
+import android.support.v4.view.ViewCompat;
 import javax.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static void d(Drawable drawable, Drawable drawable2) {
         if (drawable2 != null && drawable != null && drawable != drawable2) {
@@ -29,17 +30,17 @@ public class e {
         }
     }
 
-    public static int dU(int i, int i2) {
+    public static int dZ(int i, int i2) {
         if (i2 != 255) {
             if (i2 == 0) {
-                return i & 16777215;
+                return i & ViewCompat.MEASURED_SIZE_MASK;
             }
-            return (((((i2 >> 7) + i2) * (i >>> 24)) >> 8) << 24) | (i & 16777215);
+            return (((((i2 >> 7) + i2) * (i >>> 24)) >> 8) << 24) | (i & ViewCompat.MEASURED_SIZE_MASK);
         }
         return i;
     }
 
-    public static int Pg(int i) {
+    public static int Qe(int i) {
         int i2 = i >>> 24;
         if (i2 == 255) {
             return -1;

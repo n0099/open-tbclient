@@ -5,12 +5,12 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 final class b {
-    private static final b Aq = new b();
-    private final ExecutorService Ar;
-    private final ScheduledExecutorService As;
-    private final Executor At;
+    private static final b Bk = new b();
+    private final ExecutorService Bl;
+    private final ScheduledExecutorService Bm;
+    private final Executor Bn;
 
     private static boolean ia() {
         String property = System.getProperty("java.runtime.name");
@@ -21,49 +21,49 @@ final class b {
     }
 
     private b() {
-        this.Ar = !ia() ? Executors.newCachedThreadPool() : bolts.a.hY();
-        this.As = Executors.newSingleThreadScheduledExecutor();
-        this.At = new a();
+        this.Bl = !ia() ? Executors.newCachedThreadPool() : bolts.a.hY();
+        this.Bm = Executors.newSingleThreadScheduledExecutor();
+        this.Bn = new a();
     }
 
     public static ExecutorService ib() {
-        return Aq.Ar;
+        return Bk.Bl;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Executor ic() {
-        return Aq.At;
+        return Bk.Bn;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     private static class a implements Executor {
-        private ThreadLocal<Integer> Au;
+        private ThreadLocal<Integer> Bo;
 
         private a() {
-            this.Au = new ThreadLocal<>();
+            this.Bo = new ThreadLocal<>();
         }
 
         private int ie() {
-            Integer num = this.Au.get();
+            Integer num = this.Bo.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() + 1;
-            this.Au.set(Integer.valueOf(intValue));
+            this.Bo.set(Integer.valueOf(intValue));
             return intValue;
         }
 
         /* renamed from: if  reason: not valid java name */
-        private int m7if() {
-            Integer num = this.Au.get();
+        private int m6if() {
+            Integer num = this.Bo.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() - 1;
             if (intValue == 0) {
-                this.Au.remove();
+                this.Bo.remove();
             } else {
-                this.Au.set(Integer.valueOf(intValue));
+                this.Bo.set(Integer.valueOf(intValue));
             }
             return intValue;
         }
@@ -77,7 +77,7 @@ final class b {
                     b.ib().execute(runnable);
                 }
             } finally {
-                m7if();
+                m6if();
             }
         }
     }

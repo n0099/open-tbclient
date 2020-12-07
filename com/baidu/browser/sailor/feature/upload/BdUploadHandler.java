@@ -15,13 +15,12 @@ import com.baidu.browser.core.INoProGuard;
 import com.baidu.browser.core.g;
 import com.baidu.browser.core.permission.BdPermissionActivity;
 import com.baidu.browser.sailor.BdSailor;
-import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class BdUploadHandler implements INoProGuard {
     private static final String AUDIO_MIME_TYPE = "audio/*";
     private static final String IMAGE_MIME_TYPE = "image/*";
@@ -52,7 +51,7 @@ public class BdUploadHandler implements INoProGuard {
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra("request_code", 4099);
         intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
-        com.baidu.browser.core.permission.a.tv().a(4099, new b(this));
+        com.baidu.browser.core.permission.a.ty().a(4099, new b(this));
         return intent;
     }
 
@@ -99,13 +98,13 @@ public class BdUploadHandler implements INoProGuard {
     }
 
     public Intent createCameraIntent() {
-        if (com.baidu.browser.core.permission.b.checkCamera(this.mActivity) && com.baidu.browser.core.permission.b.Q(this.mActivity)) {
+        if (com.baidu.browser.core.permission.b.checkCamera(this.mActivity) && com.baidu.browser.core.permission.b.R(this.mActivity)) {
             return createCameraIntentAfterCheckPermission();
         }
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra("request_code", 4099);
         intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE"});
-        com.baidu.browser.core.permission.a.tv().a(4099, new a(this));
+        com.baidu.browser.core.permission.a.ty().a(4099, new a(this));
         return intent;
     }
 
@@ -258,7 +257,7 @@ public class BdUploadHandler implements INoProGuard {
         String[] split = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         String str3 = split[0];
         for (String str4 : split) {
-            String[] split2 = str4.split(ETAG.EQUAL);
+            String[] split2 = str4.split("=");
             if (split2.length == 2 && MEDIA_SOURCE_KEY.equals(split2[0])) {
                 str2 = split2[1];
             }
@@ -273,7 +272,7 @@ public class BdUploadHandler implements INoProGuard {
         String str4 = str2.length() > 0 ? str2 : "";
         if (str2.equals(MEDIA_SOURCE_VALUE_FILE_SYSTEM)) {
             for (String str5 : split) {
-                String[] split2 = str5.split(ETAG.EQUAL);
+                String[] split2 = str5.split("=");
                 if (split2.length == 2 && MEDIA_SOURCE_KEY.equals(split2[0])) {
                     str4 = split2[1];
                 }

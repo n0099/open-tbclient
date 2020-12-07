@@ -1,5 +1,5 @@
 package com.tencent.mm.opensdk.diffdev;
-/* loaded from: classes17.dex */
+/* loaded from: classes9.dex */
 public enum OAuthErrCode {
     WechatAuth_Err_OK(0),
     WechatAuth_Err_NormalErr(-1),

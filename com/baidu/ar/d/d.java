@@ -7,19 +7,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private e J;
-    private List<k> N;
-    private Looper mn;
-    private Handler mo;
-    private ArrayList<c> mq = new ArrayList<>();
-    private HashMap<String, Boolean> mr = new HashMap<>();
-    private HashMap<String, Boolean> ms = new HashMap<>();
-    private long mt = 0;
-    private int mp = 180;
+    private e K;
+    private List<k> O;
+    private Looper mC;
+    private Handler mD;
+    private ArrayList<c> mF = new ArrayList<>();
+    private HashMap<String, Boolean> mG = new HashMap<>();
+    private HashMap<String, Boolean> mH = new HashMap<>();
+    private long mI = 0;
+    private int mE = 180;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -38,7 +38,7 @@ public class d {
                     d.this.f((l) message.obj);
                     return;
                 case 1004:
-                    d.this.T();
+                    d.this.V();
                     return;
                 default:
                     return;
@@ -47,59 +47,59 @@ public class d {
     }
 
     public d(Looper looper) {
-        this.mn = looper;
+        this.mC = looper;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void T() {
-        dh();
-        this.mo.removeCallbacksAndMessages(null);
-        this.mo = null;
+    public void V() {
+        dg();
+        this.mD.removeCallbacksAndMessages(null);
+        this.mD = null;
     }
 
     private void a(c cVar) {
         boolean z;
-        if (cVar == null || this.mq == null || this.mq.size() == 0 || this.N == null || this.N.size() == 0 || this.J == null) {
+        if (cVar == null || this.mF == null || this.mF.size() == 0 || this.O == null || this.O.size() == 0 || this.K == null) {
             return;
         }
-        Iterator<k> it = this.N.iterator();
+        Iterator<k> it = this.O.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = true;
                 break;
-            } else if (!cVar.U(it.next().getName())) {
+            } else if (!cVar.X(it.next().getName())) {
                 z = false;
                 break;
             }
         }
-        if (!z || cVar.getTimestamp() == this.mt) {
+        if (!z || cVar.getTimestamp() == this.mI) {
             return;
         }
-        this.J.a(cVar);
-        this.mt = cVar.getTimestamp();
-        this.mq.subList(0, this.mq.indexOf(cVar)).clear();
+        this.K.a(cVar);
+        this.mI = cVar.getTimestamp();
+        this.mF.subList(0, this.mF.indexOf(cVar)).clear();
     }
 
-    private void dh() {
-        if (this.N != null) {
-            this.N.clear();
+    private void dg() {
+        if (this.O != null) {
+            this.O.clear();
         }
-        if (this.mq != null) {
-            this.mq.clear();
+        if (this.mF != null) {
+            this.mF.clear();
         }
-        if (this.mr != null) {
-            this.mr.clear();
+        if (this.mG != null) {
+            this.mG.clear();
         }
-        if (this.ms != null) {
-            this.ms.clear();
+        if (this.mH != null) {
+            this.mH.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(l lVar) {
         boolean z = false;
-        this.mr.put(lVar.dd(), Boolean.valueOf(lVar.isSuccess()));
-        Iterator<k> it = this.N.iterator();
+        this.mG.put(lVar.dc(), Boolean.valueOf(lVar.isSuccess()));
+        Iterator<k> it = this.O.iterator();
         boolean z2 = true;
         while (true) {
             if (!it.hasNext()) {
@@ -107,22 +107,22 @@ public class d {
                 break;
             }
             k next = it.next();
-            if (this.mr.get(next.getName()) == null) {
+            if (this.mG.get(next.getName()) == null) {
                 break;
             }
-            z2 = !this.mr.get(next.getName()).booleanValue() ? false : z2;
+            z2 = !this.mG.get(next.getName()).booleanValue() ? false : z2;
         }
-        if (this.J != null) {
-            this.J.a(lVar);
+        if (this.K != null) {
+            this.K.a(lVar);
             if (z) {
-                this.J.a(new l("DetectorGroup", z2));
+                this.K.a(new l("DetectorGroup", z2));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(b bVar) {
-        if (this.mq == null || this.mr == null || this.mr.isEmpty()) {
+        if (this.mF == null || this.mG == null || this.mG.isEmpty()) {
             return;
         }
         c g = g(bVar);
@@ -135,8 +135,8 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public void f(l lVar) {
         boolean z = false;
-        this.ms.put(lVar.dd(), Boolean.valueOf(lVar.isSuccess()));
-        Iterator<k> it = this.N.iterator();
+        this.mH.put(lVar.dc(), Boolean.valueOf(lVar.isSuccess()));
+        Iterator<k> it = this.O.iterator();
         boolean z2 = true;
         while (true) {
             if (!it.hasNext()) {
@@ -144,22 +144,22 @@ public class d {
                 break;
             }
             k next = it.next();
-            if (this.ms.get(next.getName()) == null) {
+            if (this.mH.get(next.getName()) == null) {
                 break;
             }
-            z2 = !this.ms.get(next.getName()).booleanValue() ? false : z2;
+            z2 = !this.mH.get(next.getName()).booleanValue() ? false : z2;
         }
-        if (this.J != null) {
-            this.J.b(lVar);
+        if (this.K != null) {
+            this.K.b(lVar);
             if (z) {
-                this.J.b(new l("DetectorGroup", z2));
-                dh();
+                this.K.b(new l("DetectorGroup", z2));
+                dg();
             }
         }
     }
 
     private c g(b bVar) {
-        Iterator<c> it = this.mq.iterator();
+        Iterator<c> it = this.mF.iterator();
         while (it.hasNext()) {
             c next = it.next();
             if (next.getTimestamp() == bVar.getTimestamp()) {
@@ -171,57 +171,57 @@ public class d {
     }
 
     private c h(b bVar) {
-        if (this.mq.size() >= this.mp) {
-            com.baidu.ar.g.b.b("DetectResultSync", "add2NewDetectResultGroup detectResult list for sync is fulllll!!!");
+        if (this.mF.size() >= this.mE) {
+            com.baidu.ar.h.b.b("DetectResultSync", "add2NewDetectResultGroup detectResult list for sync is fulllll!!!");
             return null;
         }
         c cVar = new c();
         cVar.setTimestamp(bVar.getTimestamp());
         cVar.c(bVar);
-        this.mq.add(cVar);
+        this.mF.add(cVar);
         return cVar;
     }
 
     public void a(List<k> list, e eVar) {
-        this.N = list;
-        this.J = eVar;
-        if (this.mo != null || this.mn == null) {
+        this.O = list;
+        this.K = eVar;
+        if (this.mD != null || this.mC == null) {
             return;
         }
-        this.mo = new a(this.mn);
+        this.mD = new a(this.mC);
     }
 
     public synchronized void c(l lVar) {
-        com.baidu.ar.g.b.c("DetectResultSync", "DetectorGroup onDetectorSetup result = " + lVar.dd());
-        if (this.mo != null) {
-            this.mo.sendMessage(this.mo.obtainMessage(1001, lVar));
+        com.baidu.ar.h.b.c("DetectResultSync", "DetectorGroup onDetectorSetup result = " + lVar.dc());
+        if (this.mD != null) {
+            this.mD.sendMessage(this.mD.obtainMessage(1001, lVar));
         }
     }
 
     public synchronized void d(b bVar) {
-        if (this.mo != null) {
-            this.mo.sendMessage(this.mo.obtainMessage(1002, bVar));
+        if (this.mD != null) {
+            this.mD.sendMessage(this.mD.obtainMessage(1002, bVar));
         }
     }
 
     public synchronized void d(l lVar) {
-        com.baidu.ar.g.b.c("DetectResultSync", "DetectorGroup onDetectorRelease result = " + lVar.dd());
-        if (this.mo != null) {
-            this.mo.sendMessage(this.mo.obtainMessage(1003, lVar));
+        com.baidu.ar.h.b.c("DetectResultSync", "DetectorGroup onDetectorRelease result = " + lVar.dc());
+        if (this.mD != null) {
+            this.mD.sendMessage(this.mD.obtainMessage(1003, lVar));
         }
     }
 
     public synchronized boolean e(b bVar) {
         boolean z;
-        if (this.mq.size() != 0) {
-            z = this.mq.get(0).getTimestamp() >= bVar.getTimestamp();
+        if (this.mF.size() != 0) {
+            z = this.mF.get(0).getTimestamp() >= bVar.getTimestamp();
         }
         return z;
     }
 
     public void release() {
-        if (this.mo != null) {
-            this.mo.sendMessage(this.mo.obtainMessage(1004));
+        if (this.mD != null) {
+            this.mD.sendMessage(this.mD.obtainMessage(1004));
         }
     }
 }

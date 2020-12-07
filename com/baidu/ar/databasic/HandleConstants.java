@@ -1,5 +1,5 @@
 package com.baidu.ar.databasic;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class HandleConstants {
     public static final int FORMAT_BGR = 2;
     public static final int FORMAT_NV12 = 1;

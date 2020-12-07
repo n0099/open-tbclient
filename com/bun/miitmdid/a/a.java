@@ -7,18 +7,18 @@ import com.bun.miitmdid.a.a.c;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class a implements b {
-    public C0962a oJw = new C0962a();
+    public C0979a oYC = new C0979a();
 
     /* renamed from: com.bun.miitmdid.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C0962a {
-        public com.bun.miitmdid.a.a.a oJx;
-        public com.bun.miitmdid.a.a.b oJy;
-        public c oJz;
+    /* loaded from: classes18.dex */
+    public class C0979a {
+        public com.bun.miitmdid.a.a.a oYD;
+        public com.bun.miitmdid.a.a.b oYE;
+        public c oYF;
 
-        public C0962a() {
+        public C0979a() {
         }
     }
 
@@ -30,9 +30,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_HUAWEI) != null) {
-            aVar.oJw.oJx = new com.bun.miitmdid.a.a.a();
+            aVar.oYC.oYD = new com.bun.miitmdid.a.a.a();
         }
-        return aVar.oJw.oJx != null;
+        return aVar.oYC.oYD != null;
     }
 
     private static boolean b(a aVar, JSONObject jSONObject) {
@@ -40,9 +40,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_XIAOMI) != null) {
-            aVar.oJw.oJz = new c();
+            aVar.oYC.oYF = new c();
         }
-        return aVar.oJw.oJz != null;
+        return aVar.oYC.oYF != null;
     }
 
     private static boolean c(a aVar, JSONObject jSONObject) {
@@ -52,13 +52,13 @@ public class a implements b {
         JSONObject optJSONObject = jSONObject.optJSONObject(RomUtils.MANUFACTURER_VIVO);
         com.bun.miitmdid.a.a.b bVar = new com.bun.miitmdid.a.a.b();
         if (optJSONObject != null) {
-            bVar.f3975a = optJSONObject.optString("appid");
-            aVar.oJw.oJy = bVar;
+            bVar.f3978a = optJSONObject.optString("appid");
+            aVar.oYC.oYE = bVar;
         }
-        return aVar.oJw.oJy != null;
+        return aVar.oYC.oYE != null;
     }
 
-    public static a gN(Context context) {
+    public static a hw(Context context) {
         boolean z;
         JSONObject jSONObject;
         JSONObject optJSONObject;
@@ -82,6 +82,6 @@ public class a implements b {
 
     @Override // com.bun.miitmdid.a.b
     public String a() {
-        return (this.oJw == null || this.oJw.oJy == null || this.oJw.oJy.f3975a == null) ? "" : this.oJw.oJy.f3975a;
+        return (this.oYC == null || this.oYC.oYE == null || this.oYC.oYE.f3978a == null) ? "" : this.oYC.oYE.f3978a;
     }
 }

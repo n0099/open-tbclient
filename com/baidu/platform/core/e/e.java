@@ -7,8 +7,7 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.webkit.internal.ETAG;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class e extends com.baidu.platform.base.e {
     public e(RouteShareURLOption routeShareURLOption) {
         a(routeShareURLOption);
@@ -26,10 +25,10 @@ public class e extends com.baidu.platform.base.e {
         com.baidu.platform.util.a aVar = new com.baidu.platform.util.a();
         Point ll2point = CoordUtil.ll2point(routeShareURLOption.mFrom.getLocation());
         Point ll2point2 = CoordUtil.ll2point(routeShareURLOption.mTo.getLocation());
-        String str = ll2point != null ? "1$$$$" + ll2point.x + Constants.ACCEPT_TIME_SEPARATOR_SP + ll2point.y + "$$" : "2$$$$$$";
+        String str = ll2point != null ? "1$$$$" + ll2point.x + "," + ll2point.y + "$$" : "2$$$$$$";
         String name = routeShareURLOption.mFrom.getName();
         String str2 = str + ((name == null || name.equals("")) ? "起点" : "起点") + "$$0$$$$";
-        String str3 = ll2point2 != null ? "1$$$$" + ll2point2.x + Constants.ACCEPT_TIME_SEPARATOR_SP + ll2point2.y + "$$" : "2$$$$$$";
+        String str3 = ll2point2 != null ? "1$$$$" + ll2point2.x + "," + ll2point2.y + "$$" : "2$$$$$$";
         String name2 = routeShareURLOption.mTo.getName();
         String str4 = str3 + ((name2 == null || name2.equals("")) ? "终点" : "终点") + "$$0$$$$";
         String str5 = "";
@@ -60,9 +59,9 @@ public class e extends com.baidu.platform.base.e {
                 break;
         }
         aVar.a(IXAdRequestInfo.SN, str2);
-        aVar.a(com.baidu.fsg.base.statistics.h.f1495a, str4);
-        this.f2816a.a("url", "http://map.baidu.com/?newmap=1&s=" + str5 + (AppMD5.encodeUrlParamsValue(ETAG.ITEM_SEPARATOR + aVar.a() + ("&start=" + name + "&end=" + name2)) + str6));
-        this.f2816a.a("from", "android_map_sdk");
+        aVar.a(com.baidu.fsg.base.statistics.h.f1497a, str4);
+        this.f2818a.a("url", "http://map.baidu.com/?newmap=1&s=" + str5 + (AppMD5.encodeUrlParamsValue(ETAG.ITEM_SEPARATOR + aVar.a() + ("&start=" + name + "&end=" + name2)) + str6));
+        this.f2818a.a("from", "android_map_sdk");
     }
 
     @Override // com.baidu.platform.base.e

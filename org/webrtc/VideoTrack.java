@@ -1,7 +1,7 @@
 package org.webrtc;
 
 import java.util.IdentityHashMap;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class VideoTrack extends MediaStreamTrack {
     private final IdentityHashMap<VideoSink, Long> sinks;
 

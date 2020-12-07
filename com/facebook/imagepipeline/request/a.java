@@ -3,12 +3,12 @@ package com.facebook.imagepipeline.request;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import com.facebook.imagepipeline.b.f;
+import com.facebook.imagepipeline.a.f;
 import com.facebook.imagepipeline.nativecode.Bitmaps;
 import javax.annotation.Nullable;
 /* loaded from: classes15.dex */
 public abstract class a implements b {
-    public static final Bitmap.Config pbK = Bitmap.Config.ARGB_8888;
+    public static final Bitmap.Config pqC = Bitmap.Config.ARGB_8888;
 
     @Override // com.facebook.imagepipeline.request.b
     public String getName() {
@@ -21,7 +21,7 @@ public abstract class a implements b {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         if (config == null) {
-            config = pbK;
+            config = pqC;
         }
         com.facebook.common.references.a<Bitmap> c = fVar.c(width, height, config);
         try {
@@ -42,7 +42,7 @@ public abstract class a implements b {
 
     @Override // com.facebook.imagepipeline.request.b
     @Nullable
-    public com.facebook.cache.common.b eqS() {
+    public com.facebook.cache.common.b ewu() {
         return null;
     }
 

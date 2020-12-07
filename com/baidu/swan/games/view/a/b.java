@@ -4,30 +4,30 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.statistic.h;
 import com.baidu.swan.apps.u.c.b;
 import com.baidu.swan.games.v.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b {
-    public static void dm(String str, String str2) {
+    public static void dt(String str, String str2) {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = str2;
-        if (e.aGM() != null && e.aGM().afg() != null) {
-            b.a afg = e.aGM().afg();
-            aVar.mFrom = h.ku(afg.getAppFrameType());
-            aVar.mAppId = afg.getAppId();
-            aVar.mSource = afg.axV();
+        if (e.aJU() != null && e.aJU().aio() != null) {
+            b.a aio = e.aJU().aio();
+            aVar.mFrom = h.kS(aio.getAppFrameType());
+            aVar.mAppId = aio.getAppId();
+            aVar.mSource = aio.aBe();
         }
         h.a("916", "68", aVar);
     }
 
-    public static void ac(String str, String str2, String str3) {
+    public static void af(String str, String str2, String str3) {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = str2;
-        if (e.aGM() != null && e.aGM().afg() != null) {
-            b.a afg = e.aGM().afg();
-            aVar.mFrom = h.ku(afg.getAppFrameType());
-            aVar.mAppId = afg.getAppId();
-            aVar.mSource = afg.axV();
+        if (e.aJU() != null && e.aJU().aio() != null) {
+            b.a aio = e.aJU().aio();
+            aVar.mFrom = h.kS(aio.getAppFrameType());
+            aVar.mAppId = aio.getAppId();
+            aVar.mSource = aio.aBe();
         }
         aVar.mErrorCode = str3;
         h.a("916", "68", aVar);
@@ -37,31 +37,31 @@ public class b {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = str2;
-        if (e.aGM() != null && e.aGM().afg() != null) {
-            b.a afg = e.aGM().afg();
-            aVar.mFrom = h.ku(afg.getAppFrameType());
-            aVar.mAppId = afg.getAppId();
-            aVar.mSource = afg.axV();
-            aVar.u("play_time", Long.valueOf(j));
+        if (e.aJU() != null && e.aJU().aio() != null) {
+            b.a aio = e.aJU().aio();
+            aVar.mFrom = h.kS(aio.getAppFrameType());
+            aVar.mAppId = aio.getAppId();
+            aVar.mSource = aio.aBe();
+            aVar.t("play_time", Long.valueOf(j));
         }
         h.a("916", "68", aVar);
     }
 
-    public static void xR(String str) {
+    public static void yy(String str) {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = "show";
-        if (e.aGM() != null && e.aGM().afg() != null) {
-            b.a afg = e.aGM().afg();
-            aVar.mFrom = h.ku(afg.getAppFrameType());
-            aVar.mAppId = afg.getAppId();
-            aVar.mSource = afg.axV();
+        if (e.aJU() != null && e.aJU().aio() != null) {
+            b.a aio = e.aJU().aio();
+            aVar.mFrom = h.kS(aio.getAppFrameType());
+            aVar.mAppId = aio.getAppId();
+            aVar.mSource = aio.aBe();
         }
-        aVar.u("early", aXz() ? "0" : "1");
+        aVar.t("early", baE() ? "0" : "1");
         h.a("916", "68", aVar);
     }
 
-    private static boolean aXz() {
-        return d.aWw() > 0 && com.baidu.swan.games.glsurface.a.b.aVh() && System.currentTimeMillis() - d.aWw() > 6000;
+    private static boolean baE() {
+        return d.aZB() > 0 && com.baidu.swan.games.glsurface.a.b.aYm() && System.currentTimeMillis() - d.aZB() > 6000;
     }
 }

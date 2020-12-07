@@ -20,9 +20,9 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMTrackDatabase {
-    private static final String DB_NAME = "im_track.db";
+    public static final String DB_NAME = "im_track.db";
     private static final int DB_VERSION = 1;
     private static final int MAX_QUERY_COUNT = 1000;
     @SuppressLint({"StaticFieldLeak"})
@@ -33,7 +33,7 @@ public class IMTrackDatabase {
     public static final Object myLock = new Object();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public enum AckEnum {
         ackId,
         type,
@@ -46,7 +46,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public enum ConnectionEnum {
         connectionId,
         startTime,
@@ -61,7 +61,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public enum CrashEnum {
         crashId,
         exception,
@@ -73,7 +73,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public enum DbEnum {
         dbId,
         tableName,
@@ -90,7 +90,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public enum MsgEnum {
         msgId,
         msgCount,
@@ -105,7 +105,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public enum RequestEnum {
         id,
         method,
@@ -120,7 +120,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public enum UiEnum {
         uiId,
         category,
@@ -185,7 +185,7 @@ public class IMTrackDatabase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [125=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [122=4] */
     public List<Ui> getUis() {
         ArrayList arrayList;
         Cursor cursor;
@@ -267,7 +267,7 @@ public class IMTrackDatabase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [183=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [180=4] */
     public List<Crash> getCrashes() {
         ArrayList arrayList;
         Cursor cursor;
@@ -379,7 +379,7 @@ public class IMTrackDatabase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [277=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [274=4] */
     /* JADX WARN: Removed duplicated region for block: B:32:0x00fe A[Catch: all -> 0x00f6, TRY_ENTER, TryCatch #2 {, blocks: (B:4:0x0004, B:6:0x000c, B:8:0x000e, B:24:0x00ef, B:25:0x00f2, B:20:0x00e3, B:18:0x00dd, B:19:0x00e0, B:32:0x00fe, B:33:0x0101, B:34:0x0104), top: B:42:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -474,7 +474,7 @@ public class IMTrackDatabase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [339=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [336=4] */
     public List<Connection> getConnections() {
         ArrayList arrayList;
         Cursor cursor;
@@ -587,7 +587,7 @@ public class IMTrackDatabase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [427=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [424=4] */
     public List<Request> getRequests() {
         ArrayList arrayList;
         Cursor cursor;
@@ -698,7 +698,7 @@ public class IMTrackDatabase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [512=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [509=4] */
     public List<Ack> getAcks() {
         ArrayList arrayList;
         Cursor cursor;
@@ -781,7 +781,7 @@ public class IMTrackDatabase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [574=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [571=4] */
     public List<Msg> getMsgs() {
         ArrayList arrayList;
         Cursor cursor;
@@ -910,7 +910,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         private Context context;
         private static final String SQL_TABLE_CREATE_UI = "CREATE TABLE ui (" + UiEnum.uiId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + UiEnum.category.name() + " TEXT, " + UiEnum.page.name() + " TEXT, " + UiEnum.startTime.name() + " LONG, " + UiEnum.endTime.name() + " LONG, " + UiEnum.duration.name() + " LONG, " + UiEnum.ext.name() + " TEXT, " + UiEnum.aliasId.name() + " LONG NOT NULL );";

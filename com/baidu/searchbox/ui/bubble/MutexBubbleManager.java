@@ -3,7 +3,7 @@ package com.baidu.searchbox.ui.bubble;
 import com.baidu.android.ext.manage.MutexPopManager;
 import com.baidu.android.ext.manage.PopItem;
 import com.baidu.searchbox.ui.bubble.BubbleManager;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class MutexBubbleManager implements PopItem {
     private BubbleManager mBubbleManager;
 

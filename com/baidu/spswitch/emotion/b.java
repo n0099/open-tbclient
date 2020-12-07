@@ -16,31 +16,31 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
-    private static b crz;
+    private static b cyv;
     private static Context mContext;
-    private HashMap<String, a> crA = new HashMap<>();
-    private List<String> crB = new ArrayList();
+    private HashMap<String, a> cyw = new HashMap<>();
+    private List<String> cyx = new ArrayList();
 
-    public static b bd(Context context) {
-        if (crz == null) {
+    public static b bJ(Context context) {
+        if (cyv == null) {
             synchronized (c.class) {
-                if (crz == null) {
-                    crz = new b(context.getApplicationContext());
+                if (cyv == null) {
+                    cyv = new b(context.getApplicationContext());
                 }
             }
         }
-        return crz;
+        return cyv;
     }
 
     private b(Context context) {
         mContext = context;
-        be(context);
+        bK(context);
     }
 
-    private void be(Context context) {
+    private void bK(Context context) {
         JSONObject optJSONObject;
         try {
-            JSONArray optJSONArray = new JSONObject(bf(context)).optJSONArray("packages");
+            JSONArray optJSONArray = new JSONObject(bL(context)).optJSONArray("packages");
             if (optJSONArray != null && (optJSONObject = optJSONArray.optJSONObject(0)) != null) {
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("emoticons");
                 if (optJSONArray2 != null) {
@@ -49,16 +49,16 @@ public class b {
                         JSONObject jSONObject = (JSONObject) optJSONArray2.get(i);
                         String optString = jSONObject.optString("id");
                         String optString2 = jSONObject.optString("text");
-                        this.crA.put(optString2, new a(optString, optString2, Integer.valueOf(ke(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON)))));
+                        this.cyw.put(optString2, new a(optString, optString2, Integer.valueOf(kL(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON)))));
                     }
                 }
                 JSONArray optJSONArray3 = optJSONObject.optJSONArray("panel_emoticons");
                 if (optJSONArray3 != null) {
                     int length2 = optJSONArray3.length();
                     for (int i2 = 0; i2 < length2; i2++) {
-                        String kd = kd((String) optJSONArray3.get(i2));
-                        if (!TextUtils.isEmpty(kd)) {
-                            this.crB.add(kd);
+                        String kK = kK((String) optJSONArray3.get(i2));
+                        if (!TextUtils.isEmpty(kK)) {
+                            this.cyx.add(kK);
                         }
                     }
                 }
@@ -68,9 +68,9 @@ public class b {
         }
     }
 
-    private String kd(String str) {
+    private String kK(String str) {
         String str2 = "";
-        for (Map.Entry<String, a> entry : this.crA.entrySet()) {
+        for (Map.Entry<String, a> entry : this.cyw.entrySet()) {
             str2 = entry.getKey();
             if (str.equals(entry.getValue().id)) {
                 break;
@@ -79,7 +79,7 @@ public class b {
         return str2;
     }
 
-    private int ke(String str) {
+    private int kL(String str) {
         if (str == null) {
             return 0;
         }
@@ -90,7 +90,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String bf(Context context) {
+    private String bL(Context context) {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;
         StringBuilder sb = new StringBuilder();
@@ -150,9 +150,9 @@ public class b {
         Integer num;
         switch (emotionType) {
             case EMOTION_CLASSIC_TYPE:
-                a aVar = this.crA.get(str);
+                a aVar = this.cyw.get(str);
                 if (aVar != null) {
-                    num = aVar.crD;
+                    num = aVar.cyz;
                     break;
                 }
             default:
@@ -169,26 +169,26 @@ public class b {
         a aVar = null;
         switch (emotionType) {
             case EMOTION_CLASSIC_TYPE:
-                aVar = this.crA.get(str);
+                aVar = this.cyw.get(str);
                 break;
         }
         return aVar == null ? "" : aVar.id;
     }
 
-    public List aeM() {
-        return this.crB;
+    public List ahU() {
+        return this.cyx;
     }
 
     /* loaded from: classes6.dex */
     public static class a {
-        public Integer crD;
+        public Integer cyz;
         public String id;
         public String text;
 
         public a(String str, String str2, Integer num) {
             this.id = str;
             this.text = str2;
-            this.crD = num;
+            this.cyz = num;
         }
     }
 }

@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class SlidingTabIndicator extends LinearLayout {
     private static final float DRAG_VISCOSITY_PARAM = 2.3f;
     private int mIndicatorColor;

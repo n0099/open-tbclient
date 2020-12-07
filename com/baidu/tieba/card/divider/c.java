@@ -7,24 +7,24 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class c extends com.baidu.tieba.card.b<b> {
     private int dividerHeight;
-    private View fPU;
-    private int idp;
+    private View fYd;
+    private int iom;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.idp = R.color.CAM_X0204;
+        this.iom = R.color.CAM_X0204;
         this.dividerHeight = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
         getView().setOnClickListener(this);
-        this.fPU = getView().findViewById(R.id.card_divider);
+        this.fYd = getView().findViewById(R.id.card_divider);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundColor(this.fPU, this.idp);
+            ap.setBackgroundColor(this.fYd, this.iom);
         }
         this.mSkinType = i;
     }
@@ -38,19 +38,19 @@ public class c extends com.baidu.tieba.card.b<b> {
     @Override // com.baidu.tieba.card.b
     public void a(b bVar) {
         if (bVar != null) {
-            this.fPU.setVisibility(0);
-            this.idp = bVar.idp;
+            this.fYd.setVisibility(0);
+            this.iom = bVar.iom;
             this.dividerHeight = bVar.dividerHeight;
-            coy();
+            csL();
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void coy() {
-        ViewGroup.LayoutParams layoutParams = this.fPU.getLayoutParams();
+    private void csL() {
+        ViewGroup.LayoutParams layoutParams = this.fYd.getLayoutParams();
         if (layoutParams != null && layoutParams.height != this.dividerHeight) {
             layoutParams.height = this.dividerHeight;
-            this.fPU.setLayoutParams(layoutParams);
+            this.fYd.setLayoutParams(layoutParams);
         }
     }
 

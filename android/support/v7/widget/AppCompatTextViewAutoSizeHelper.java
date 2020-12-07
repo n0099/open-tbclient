@@ -43,9 +43,9 @@ public class AppCompatTextViewAutoSizeHelper {
     private static ConcurrentHashMap<String, Method> sTextViewMethodByNameCache = new ConcurrentHashMap<>();
     private int mAutoSizeTextType = 0;
     private boolean mNeedsAutoSizeText = false;
-    private float mAutoSizeStepGranularityInPx = -1.0f;
-    private float mAutoSizeMinTextSizeInPx = -1.0f;
-    private float mAutoSizeMaxTextSizeInPx = -1.0f;
+    private float mAutoSizeStepGranularityInPx = UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE;
+    private float mAutoSizeMinTextSizeInPx = UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE;
+    private float mAutoSizeMaxTextSizeInPx = UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE;
     private int[] mAutoSizeTextSizesInPx = new int[0];
     private boolean mHasPresetAutoSizeValues = false;
 
@@ -62,9 +62,9 @@ public class AppCompatTextViewAutoSizeHelper {
         if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeTextType)) {
             this.mAutoSizeTextType = obtainStyledAttributes.getInt(R.styleable.AppCompatTextView_autoSizeTextType, 0);
         }
-        float dimension = obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeStepGranularity) ? obtainStyledAttributes.getDimension(R.styleable.AppCompatTextView_autoSizeStepGranularity, -1.0f) : -1.0f;
-        float dimension2 = obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeMinTextSize) ? obtainStyledAttributes.getDimension(R.styleable.AppCompatTextView_autoSizeMinTextSize, -1.0f) : -1.0f;
-        float dimension3 = obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeMaxTextSize) ? obtainStyledAttributes.getDimension(R.styleable.AppCompatTextView_autoSizeMaxTextSize, -1.0f) : -1.0f;
+        float dimension = obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeStepGranularity) ? obtainStyledAttributes.getDimension(R.styleable.AppCompatTextView_autoSizeStepGranularity, UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) : -1.0f;
+        float dimension2 = obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeMinTextSize) ? obtainStyledAttributes.getDimension(R.styleable.AppCompatTextView_autoSizeMinTextSize, UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) : -1.0f;
+        float dimension3 = obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeMaxTextSize) ? obtainStyledAttributes.getDimension(R.styleable.AppCompatTextView_autoSizeMaxTextSize, UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) : -1.0f;
         if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizePresetSizes) && (resourceId = obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextView_autoSizePresetSizes, 0)) > 0) {
             TypedArray obtainTypedArray = obtainStyledAttributes.getResources().obtainTypedArray(resourceId);
             setupAutoSizeUniformPresetSizes(obtainTypedArray);
@@ -75,13 +75,13 @@ public class AppCompatTextViewAutoSizeHelper {
             if (this.mAutoSizeTextType == 1) {
                 if (!this.mHasPresetAutoSizeValues) {
                     DisplayMetrics displayMetrics = this.mContext.getResources().getDisplayMetrics();
-                    if (dimension2 == -1.0f) {
+                    if (dimension2 == UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) {
                         dimension2 = TypedValue.applyDimension(2, 12.0f, displayMetrics);
                     }
-                    if (dimension3 == -1.0f) {
+                    if (dimension3 == UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) {
                         dimension3 = TypedValue.applyDimension(2, 112.0f, displayMetrics);
                     }
-                    if (dimension == -1.0f) {
+                    if (dimension == UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) {
                         dimension = 1.0f;
                     }
                     validateAndSetAutoSizeTextTypeUniformConfiguration(dimension2, dimension3, dimension);
@@ -205,7 +205,7 @@ public class AppCompatTextViewAutoSizeHelper {
             this.mAutoSizeTextType = 1;
             this.mAutoSizeMinTextSizeInPx = this.mAutoSizeTextSizesInPx[0];
             this.mAutoSizeMaxTextSizeInPx = this.mAutoSizeTextSizesInPx[length - 1];
-            this.mAutoSizeStepGranularityInPx = -1.0f;
+            this.mAutoSizeStepGranularityInPx = UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE;
         }
         return this.mHasPresetAutoSizeValues;
     }
@@ -303,9 +303,9 @@ public class AppCompatTextViewAutoSizeHelper {
 
     private void clearAutoSizeConfiguration() {
         this.mAutoSizeTextType = 0;
-        this.mAutoSizeMinTextSizeInPx = -1.0f;
-        this.mAutoSizeMaxTextSizeInPx = -1.0f;
-        this.mAutoSizeStepGranularityInPx = -1.0f;
+        this.mAutoSizeMinTextSizeInPx = UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE;
+        this.mAutoSizeMaxTextSizeInPx = UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE;
+        this.mAutoSizeStepGranularityInPx = UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE;
         this.mAutoSizeTextSizesInPx = new int[0];
         this.mNeedsAutoSizeText = false;
     }

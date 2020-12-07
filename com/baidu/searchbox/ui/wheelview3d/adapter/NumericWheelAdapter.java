@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ui.wheelview3d.adapter;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class NumericWheelAdapter implements WheelAdapter {
     private int maxValue;
     private int minValue;

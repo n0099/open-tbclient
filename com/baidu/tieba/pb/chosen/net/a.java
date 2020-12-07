@@ -5,7 +5,7 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public interface a {
     int getErroCode();
 

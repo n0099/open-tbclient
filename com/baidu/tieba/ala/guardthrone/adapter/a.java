@@ -14,13 +14,13 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
     private Context mContext;
-    private List<a.C0651a.C0652a> mList = new ArrayList();
+    private List<a.C0664a.C0665a> mList = new ArrayList();
 
     public a(Context context) {
         this.mContext = context;
     }
 
-    public void setList(List<a.C0651a.C0652a> list) {
+    public void setList(List<a.C0664a.C0665a> list) {
         if (this.mList != null) {
             this.mList.clear();
             this.mList.addAll(list);
@@ -51,32 +51,32 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0650a c0650a;
+        C0663a c0663a;
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.ala_guard_throne_privilege_item_layout, (ViewGroup) null);
-            c0650a = new C0650a();
-            c0650a.eUF = (TextView) view.findViewById(a.f.tv_text);
-            c0650a.gJq = (TbImageView) view.findViewById(a.f.iv_pic);
-            c0650a.gJq.setDefaultBgResource(a.e.ala_guard_throne_privilege_corner_bg);
-            view.setTag(c0650a);
+            c0663a = new C0663a();
+            c0663a.fcb = (TextView) view.findViewById(a.f.tv_text);
+            c0663a.gSB = (TbImageView) view.findViewById(a.f.iv_pic);
+            c0663a.gSB.setDefaultBgResource(a.e.ala_guard_throne_privilege_corner_bg);
+            view.setTag(c0663a);
         } else {
-            c0650a = (C0650a) view.getTag();
+            c0663a = (C0663a) view.getTag();
         }
-        a.C0651a.C0652a c0652a = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
-        if (c0652a != null) {
-            c0650a.eUF.setText(c0652a.text);
-            c0650a.gJq.startLoad(c0652a.pic, 10, false);
+        a.C0664a.C0665a c0665a = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
+        if (c0665a != null) {
+            c0663a.fcb.setText(c0665a.text);
+            c0663a.gSB.startLoad(c0665a.pic, 10, false);
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.guardthrone.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0650a {
-        public TextView eUF;
-        public TbImageView gJq;
+    private class C0663a {
+        public TextView fcb;
+        public TbImageView gSB;
 
-        private C0650a() {
+        private C0663a() {
         }
     }
 }

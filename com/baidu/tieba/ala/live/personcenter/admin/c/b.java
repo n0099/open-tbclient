@@ -13,41 +13,41 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends BdBaseModel {
-    private a gPo;
-    private com.baidu.tieba.ala.live.personcenter.admin.b.a gPt;
-    private HttpMessageListener guB;
+    private HttpMessageListener gDk;
+    private a gYB;
+    private com.baidu.tieba.ala.live.personcenter.admin.b.a gYG;
 
     /* loaded from: classes4.dex */
     public interface a {
         void aC(int i, String str);
 
-        void lS(boolean z);
+        void mn(boolean z);
     }
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.guB = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
+        this.gDk = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaAdminListResponseMessage) {
                     AlaAdminListResponseMessage alaAdminListResponseMessage = (AlaAdminListResponseMessage) httpResponsedMessage;
                     if (!alaAdminListResponseMessage.isSuccess()) {
-                        if (b.this.gPo != null) {
-                            b.this.gPo.aC(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
+                        if (b.this.gYB != null) {
+                            b.this.gYB.aC(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    b.this.gPt = alaAdminListResponseMessage.bUH();
-                    if (b.this.gPo != null) {
-                        b.this.gPo.lS(false);
+                    b.this.gYG = alaAdminListResponseMessage.bYq();
+                    if (b.this.gYB != null) {
+                        b.this.gYB.mn(false);
                     }
                 }
             }
         };
         registerTask();
-        registerListener(this.guB);
+        registerListener(this.gDk);
     }
 
     private void registerTask() {
@@ -59,13 +59,13 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bUI() {
+    public void bYr() {
         sendMessage(new com.baidu.tieba.ala.live.personcenter.admin.message.a());
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     protected boolean loadData() {
-        bUI();
+        bYr();
         return true;
     }
 
@@ -76,30 +76,30 @@ public class b extends BdBaseModel {
     }
 
     public List<IAdapterData> getUserList() {
-        return hasData() ? new ArrayList(this.gPt.getUserList()) : new ArrayList();
+        return hasData() ? new ArrayList(this.gYG.getUserList()) : new ArrayList();
     }
 
-    public int bUG() {
+    public int bYp() {
         if (hasData()) {
-            return this.gPt.bUG();
+            return this.gYG.bYp();
         }
         return -1;
     }
 
     public void a(a aVar) {
-        this.gPo = aVar;
+        this.gYB = aVar;
     }
 
     public void a(com.baidu.tieba.ala.live.personcenter.admin.b.b bVar) {
         if (hasData()) {
-            this.gPt.getUserList().remove(bVar);
-            if (this.gPo != null) {
-                this.gPo.lS(false);
+            this.gYG.getUserList().remove(bVar);
+            if (this.gYB != null) {
+                this.gYB.mn(false);
             }
         }
     }
 
     private boolean hasData() {
-        return (this.gPt == null || this.gPt.getUserList() == null || this.gPt.getUserList().isEmpty()) ? false : true;
+        return (this.gYG == null || this.gYG.getUserList() == null || this.gYG.getUserList().isEmpty()) ? false : true;
     }
 }

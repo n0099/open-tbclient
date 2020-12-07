@@ -4,20 +4,19 @@ import android.content.Context;
 import android.os.Debug;
 import android.os.SystemClock;
 import android.util.Printer;
-import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 final class l implements Printer {
-    private final Context anU;
-    private i aog;
-    private long aoe = 0;
-    private long aof = 0;
+    private final Context aoI;
+    private i aoU;
+    private long aoS = 0;
+    private long aoT = 0;
     private boolean aB = false;
 
     public l(i iVar, Context context) {
-        this.aog = null;
-        this.aog = iVar;
-        this.anU = context;
+        this.aoU = null;
+        this.aoU = iVar;
+        this.aoI = context;
     }
 
     @Override // android.util.Printer
@@ -26,23 +25,23 @@ final class l implements Printer {
             return;
         }
         if (!this.aB) {
-            this.aoe = System.currentTimeMillis();
-            this.aof = SystemClock.currentThreadTimeMillis();
+            this.aoS = System.currentTimeMillis();
+            this.aoT = SystemClock.currentThreadTimeMillis();
             this.aB = true;
-            if (c.ad(this.anU).anS != null) {
-                c.ad(this.anU).anS.start();
+            if (c.ae(this.aoI).aoG != null) {
+                c.ae(this.aoI).aoG.start();
                 return;
             }
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
         this.aB = false;
-        if (currentTimeMillis - this.aoe >= ((long) a.W)) {
-            com.baidu.crabsdk.c.a.dC("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.aoe + ETAG.EQUAL + (currentTimeMillis - this.aoe) + " >= " + a.W);
-            j.vj().post(new m(this, this.aoe, currentTimeMillis, this.aof, SystemClock.currentThreadTimeMillis()));
+        if (currentTimeMillis - this.aoS >= ((long) a.W)) {
+            com.baidu.crabsdk.c.a.dE("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.aoS + "=" + (currentTimeMillis - this.aoS) + " >= " + a.W);
+            j.uY().post(new m(this, this.aoS, currentTimeMillis, this.aoT, SystemClock.currentThreadTimeMillis()));
         }
-        if (c.ad(this.anU).anS != null) {
-            c.ad(this.anU).anS.stop();
+        if (c.ae(this.aoI).aoG != null) {
+            c.ae(this.aoI).aoG.stop();
         }
     }
 }

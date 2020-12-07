@@ -11,51 +11,51 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a dPx;
-    private HashMap<String, ArrayList<InterfaceC0524a>> dPy = new HashMap<>();
-    final ExecutorService dPz = Executors.newCachedThreadPool();
+    private static volatile a dWv;
+    private HashMap<String, ArrayList<InterfaceC0536a>> dWw = new HashMap<>();
+    final ExecutorService dWx = Executors.newCachedThreadPool();
     private Object mLock = new Object();
-    private String dPA = f.aSf() + f.aSg();
+    private String dWy = f.aVk() + f.aVl();
 
     /* renamed from: com.baidu.swan.games.audio.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0524a {
-        void aSj();
+    /* loaded from: classes25.dex */
+    public interface InterfaceC0536a {
+        void aVo();
 
-        void kB(String str);
+        void li(String str);
     }
 
     private a() {
     }
 
-    public static a aSk() {
-        if (dPx == null) {
+    public static a aVp() {
+        if (dWv == null) {
             synchronized (a.class) {
-                if (dPx == null) {
-                    dPx = new a();
+                if (dWv == null) {
+                    dWv = new a();
                 }
             }
         }
-        return dPx;
+        return dWv;
     }
 
-    public void a(final JsArrayBuffer jsArrayBuffer, final InterfaceC0524a interfaceC0524a) {
-        this.dPz.execute(new Runnable() { // from class: com.baidu.swan.games.audio.b.a.1
+    public void a(final JsArrayBuffer jsArrayBuffer, final InterfaceC0536a interfaceC0536a) {
+        this.dWx.execute(new Runnable() { // from class: com.baidu.swan.games.audio.b.a.1
             @Override // java.lang.Runnable
             public void run() {
-                String O = a.this.O(jsArrayBuffer.buffer());
-                File file = new File(O);
+                String Q = a.this.Q(jsArrayBuffer.buffer());
+                File file = new File(Q);
                 if (!file.exists()) {
-                    if (!a.this.a(O, interfaceC0524a)) {
-                        a.this.g(O, jsArrayBuffer.buffer());
+                    if (!a.this.a(Q, interfaceC0536a)) {
+                        a.this.g(Q, jsArrayBuffer.buffer());
                     }
                 } else if (!file.isDirectory()) {
-                    interfaceC0524a.kB(O);
+                    interfaceC0536a.li(Q);
                 } else {
-                    interfaceC0524a.aSj();
+                    interfaceC0536a.aVo();
                 }
             }
         });
@@ -69,7 +69,7 @@ public class a {
     /* JADX WARN: Type inference failed for: r1v5, types: [java.io.Closeable] */
     public void g(String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
-        File file = new File(this.dPA);
+        File file = new File(this.dWy);
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -89,13 +89,13 @@ public class a {
                         if (DEBUG) {
                             Log.e("AudioBufferManager", "buffer load rename success path = " + str);
                         }
-                        uy(str);
+                        vf(str);
                     } else {
                         if (DEBUG) {
                             Log.e("AudioBufferManager", "buffer load rename error path = " + str);
                         }
                         file2.delete();
-                        uy(null);
+                        vf(null);
                     }
                     com.baidu.swan.c.d.closeSafely(fileOutputStream);
                 } catch (Exception e) {
@@ -106,7 +106,7 @@ public class a {
                     if (file2 != null && file2.exists()) {
                         file2.delete();
                     }
-                    uy(null);
+                    vf(null);
                     com.baidu.swan.c.d.closeSafely(fileOutputStream);
                 }
             } catch (Throwable th) {
@@ -126,53 +126,53 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean a(String str, InterfaceC0524a interfaceC0524a) {
-        ArrayList<InterfaceC0524a> arrayList;
+    public boolean a(String str, InterfaceC0536a interfaceC0536a) {
+        ArrayList<InterfaceC0536a> arrayList;
         boolean z;
         synchronized (this.mLock) {
-            ArrayList<InterfaceC0524a> arrayList2 = this.dPy.get(str);
+            ArrayList<InterfaceC0536a> arrayList2 = this.dWw.get(str);
             if (arrayList2 != null) {
                 arrayList = arrayList2;
                 z = true;
             } else {
                 arrayList = new ArrayList<>();
-                this.dPy.put(str, arrayList);
+                this.dWw.put(str, arrayList);
                 z = false;
             }
-            arrayList.add(interfaceC0524a);
+            arrayList.add(interfaceC0536a);
         }
         return z;
     }
 
-    private void uy(String str) {
+    private void vf(String str) {
         synchronized (this.mLock) {
-            ArrayList<InterfaceC0524a> arrayList = this.dPy.get(str);
+            ArrayList<InterfaceC0536a> arrayList = this.dWw.get(str);
             if (arrayList != null) {
                 boolean isEmpty = TextUtils.isEmpty(str);
-                Iterator<InterfaceC0524a> it = arrayList.iterator();
+                Iterator<InterfaceC0536a> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    InterfaceC0524a next = it.next();
+                    InterfaceC0536a next = it.next();
                     if (!isEmpty) {
                         if (DEBUG) {
                             Log.e("AudioBufferManager", "save success path: " + str);
                         }
-                        next.kB(str);
+                        next.li(str);
                     } else {
-                        next.aSj();
+                        next.aVo();
                     }
                 }
-                this.dPy.remove(str);
+                this.dWw.remove(str);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String O(byte[] bArr) {
-        String N = f.N(bArr);
-        StringBuilder append = new StringBuilder().append(this.dPA).append(bArr.length);
-        if (TextUtils.isEmpty(N)) {
-            N = "";
+    public String Q(byte[] bArr) {
+        String P = f.P(bArr);
+        StringBuilder append = new StringBuilder().append(this.dWy).append(bArr.length);
+        if (TextUtils.isEmpty(P)) {
+            P = "";
         }
-        return append.append(N).toString();
+        return append.append(P).toString();
     }
 }

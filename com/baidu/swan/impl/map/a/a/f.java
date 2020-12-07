@@ -3,12 +3,12 @@ package com.baidu.swan.impl.map.a.a;
 import android.content.Context;
 import android.os.Bundle;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.e> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = f.class.getSimpleName();
 
-    public static f aYM() {
+    public static f bbR() {
         return new f();
     }
 
@@ -18,20 +18,20 @@ public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.e> {
             com.baidu.swan.apps.console.c.e("map", "model is invalid");
             return false;
         }
-        com.baidu.swan.impl.map.c.a.Z(a(eVar)).aYT();
+        com.baidu.swan.impl.map.c.a.Z(a(eVar)).bbY();
         com.baidu.swan.apps.console.c.i("map", "OpenLocationAction end");
         return true;
     }
 
     private Bundle a(com.baidu.swan.apps.w.a.e eVar) {
         Bundle bundle = new Bundle();
-        bundle.putString("slaveId", eVar.cCb);
-        bundle.putDouble("latitude", eVar.cYl.latitude);
-        bundle.putDouble("longitude", eVar.cYl.longitude);
-        bundle.putDouble("scale", eVar.cYm);
-        bundle.putString("name", eVar.cYB);
-        bundle.putString("address", eVar.cYC);
-        bundle.putStringArrayList("ignoredApps", eVar.cYD);
+        bundle.putString("slaveId", eVar.cIW);
+        bundle.putDouble("latitude", eVar.dfk.latitude);
+        bundle.putDouble("longitude", eVar.dfk.longitude);
+        bundle.putDouble("scale", eVar.dfl);
+        bundle.putString("name", eVar.dfA);
+        bundle.putString("address", eVar.dfB);
+        bundle.putStringArrayList("ignoredApps", eVar.dfC);
         return bundle;
     }
 

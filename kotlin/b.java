@@ -1,13 +1,13 @@
 package kotlin;
 
-import kotlin.jvm.internal.q;
+import kotlin.jvm.internal.p;
 /* JADX INFO: Access modifiers changed from: package-private */
-@h
-/* loaded from: classes9.dex */
+@e
+/* loaded from: classes17.dex */
 public class b {
-    public static final void addSuppressed(Throwable th, Throwable th2) {
-        q.n(th, "receiver$0");
-        q.n(th2, "exception");
-        kotlin.internal.c.pTX.addSuppressed(th, th2);
+    public static final void a(Throwable th, Throwable th2) {
+        p.o(th, "$receiver");
+        p.o(th2, "exception");
+        kotlin.internal.c.pKr.a(th, th2);
     }
 }

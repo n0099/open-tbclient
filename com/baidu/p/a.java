@@ -1,19 +1,184 @@
 package com.baidu.p;
 
-import android.text.TextUtils;
-import android.util.Base64;
-import java.io.UnsupportedEncodingException;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.live.tbadk.pay.PayHelper;
+import com.baidu.rtc.AudioSession;
+import com.baidu.rtc.RtcConfig;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes15.dex */
 public class a {
-    public static String WC(String str) {
-        if (TextUtils.isEmpty(str)) {
-            str = "process";
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private String euN;
+    private com.baidu.p.c.a euO;
+    private AudioSession euP;
+
+    public a(Context context, RtcConfig rtcConfig, String str) {
+        this.euN = "";
+        this.euN = str;
+        this.euP = new AudioSession(context, rtcConfig, new RtcConfig.RtcHandler() { // from class: com.baidu.p.a.1
+            @Override // com.baidu.rtc.RtcConfig.RtcHandler
+            public void onStart(int i, int i2, String str2, String str3) {
+                if (a.this.euO != null) {
+                    if (str2 == null) {
+                        str2 = "";
+                    }
+                    if (str3 == null) {
+                        str3 = "";
+                    }
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.putOpt("state", PayHelper.STATUS_SUCC);
+                        jSONObject.putOpt("stateMsg", "connected");
+                        jSONObject.putOpt("url", str2);
+                        jSONObject.putOpt("remoteIP", str3);
+                        a.this.euO.g(MissionEvent.MESSAGE_START, jSONObject);
+                    } catch (JSONException e) {
+                        if (a.DEBUG) {
+                            Log.d("SwanAudiodRTCContext", Log.getStackTraceString(e));
+                        }
+                    }
+                }
+            }
+
+            @Override // com.baidu.rtc.RtcConfig.RtcHandler
+            public void onConnectSuccess(int i, int i2, String str2, String str3) {
+                if (a.this.euO != null) {
+                    if (str2 == null) {
+                        str2 = "";
+                    }
+                    if (str3 == null) {
+                        str3 = "";
+                    }
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.putOpt("state", PayHelper.STATUS_FAIL);
+                        jSONObject.putOpt("stateMsg", "remote IP resolved");
+                        jSONObject.putOpt("url", str2);
+                        jSONObject.putOpt("remoteIP", str3);
+                        a.this.euO.g("onStateChange", jSONObject);
+                    } catch (JSONException e) {
+                        if (a.DEBUG) {
+                            Log.d("SwanAudiodRTCContext", Log.getStackTraceString(e));
+                        }
+                    }
+                }
+            }
+
+            @Override // com.baidu.rtc.RtcConfig.RtcHandler
+            public void onConnectFailed(int i, int i2, String str2, int i3) {
+                if (a.this.euO != null) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.putOpt("state", "2001");
+                        jSONObject.putOpt("stateMsg", "connect failed");
+                        jSONObject.putOpt("rtcErr", Integer.valueOf(i3));
+                        a.this.euO.g("onStateChange", jSONObject);
+                    } catch (JSONException e) {
+                        if (a.DEBUG) {
+                            Log.d("SwanAudiodRTCContext", Log.getStackTraceString(e));
+                        }
+                    }
+                }
+            }
+
+            @Override // com.baidu.rtc.RtcConfig.RtcHandler
+            public void onRemoteUserOnLine(int i, int i2) {
+            }
+
+            @Override // com.baidu.rtc.RtcConfig.RtcHandler
+            public void onMuteStatusChanged(boolean z) {
+                if (a.this.euO != null) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        if (z) {
+                            jSONObject.putOpt("state", "4001");
+                            jSONObject.putOpt("stateMsg", "change to mute");
+                        } else {
+                            jSONObject.putOpt("state", "4002");
+                            jSONObject.putOpt("stateMsg", "change to unmute");
+                        }
+                        a.this.euO.g("onStateChange", jSONObject);
+                    } catch (JSONException e) {
+                        if (a.DEBUG) {
+                            Log.d("SwanAudiodRTCContext", Log.getStackTraceString(e));
+                        }
+                    }
+                }
+            }
+
+            @Override // com.baidu.rtc.RtcConfig.RtcHandler
+            public void onStop(int i, int i2) {
+                if (a.this.euO != null) {
+                    a.this.euO.qx(MissionEvent.MESSAGE_STOP);
+                }
+            }
+
+            @Override // com.baidu.rtc.RtcConfig.RtcHandler
+            public void onFailed(int i) {
+            }
+
+            @Override // com.baidu.rtc.RtcConfig.RtcHandler
+            public boolean onLoadLibrary(String str2) {
+                try {
+                    System.loadLibrary(str2);
+                    return true;
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                    return false;
+                }
+            }
+        });
+    }
+
+    public void a(com.baidu.p.c.a aVar) {
+        if (DEBUG) {
+            Log.d("SwanAudiodRTCContext", "===open audioRTC");
         }
-        try {
-            return new String(Base64.encode(str.getBytes("UTF-8"), 0), "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            return "";
+        this.euO = aVar;
+    }
+
+    public void start() {
+        if (this.euP != null) {
+            this.euP.start();
+            if (DEBUG) {
+                Log.d("SwanAudiodRTCContext", "===start audioRTC");
+            }
+        }
+    }
+
+    public void stop() {
+        if (this.euP != null) {
+            this.euP.stop();
+            if (DEBUG) {
+                Log.d("SwanAudiodRTCContext", "===stop audioRTC");
+            }
+        }
+    }
+
+    public void mute() {
+        if (this.euP != null) {
+            this.euP.mute();
+            if (DEBUG) {
+                Log.d("SwanAudiodRTCContext", "===mute audioRTC");
+            }
+        }
+    }
+
+    public void unMute() {
+        if (this.euP != null) {
+            this.euP.unMute();
+            if (DEBUG) {
+                Log.d("SwanAudiodRTCContext", "===unMute audioRTC");
+            }
+        }
+    }
+
+    public void g(String str, JSONObject jSONObject) {
+        if (this.euO != null) {
+            this.euO.g(str, jSONObject);
         }
     }
 }

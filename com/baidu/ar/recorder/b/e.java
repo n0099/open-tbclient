@@ -1,7 +1,7 @@
 package com.baidu.ar.recorder.b;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public interface e {
-    void Q(boolean z);
+    void O(boolean z);
 
-    void R(boolean z);
+    void P(boolean z);
 }

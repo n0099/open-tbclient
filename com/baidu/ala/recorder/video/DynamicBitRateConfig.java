@@ -3,7 +3,7 @@ package com.baidu.ala.recorder.video;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class DynamicBitRateConfig {
     private static final int MAX_BIT_RATE = 2048000;
     private static final int MAX_FPS = 24;
@@ -161,6 +161,64 @@ public class DynamicBitRateConfig {
         }
     }
 
+    public int getMaxBitRate() {
+        int i = 0;
+        try {
+            for (DynamicBitRateItem dynamicBitRateItem : this.bitrates) {
+                i = dynamicBitRateItem.bitrate > i ? dynamicBitRateItem.bitrate : i;
+            }
+            return i;
+        } catch (Exception e) {
+            BdLog.e(e);
+            return 1600000;
+        }
+    }
+
+    public int getMinBitRate() {
+        int i = 0;
+        try {
+            for (DynamicBitRateItem dynamicBitRateItem : this.bitrates) {
+                if (i == 0) {
+                    i = dynamicBitRateItem.bitrate;
+                }
+                i = dynamicBitRateItem.bitrate < i ? dynamicBitRateItem.bitrate : i;
+            }
+            return i;
+        } catch (Exception e) {
+            BdLog.e(e);
+            return 400000;
+        }
+    }
+
+    public int getMaxFps() {
+        int i = 0;
+        try {
+            for (DynamicBitRateItem dynamicBitRateItem : this.bitrates) {
+                i = dynamicBitRateItem.fps > i ? dynamicBitRateItem.fps : i;
+            }
+            return i;
+        } catch (Exception e) {
+            BdLog.e(e);
+            return 15;
+        }
+    }
+
+    public int getMinFps() {
+        int i = 0;
+        try {
+            for (DynamicBitRateItem dynamicBitRateItem : this.bitrates) {
+                if (i == 0) {
+                    i = dynamicBitRateItem.fps;
+                }
+                i = dynamicBitRateItem.fps < i ? dynamicBitRateItem.fps : i;
+            }
+            return i;
+        } catch (Exception e) {
+            BdLog.e(e);
+            return 15;
+        }
+    }
+
     public int getStreamLevelPercent() {
         int size = this.bitrates.size();
         if (size == 0) {
@@ -199,7 +257,7 @@ public class DynamicBitRateConfig {
         this.bitrates = list;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes9.dex */
     public static class DynamicBitRateItem {
         public int bitrate;
         public int fps;

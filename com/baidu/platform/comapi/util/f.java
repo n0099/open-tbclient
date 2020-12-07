@@ -4,12 +4,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f2948a = Runtime.getRuntime().availableProcessors();
-    private static final int b = Math.min((f2948a * 2) + 1, 8);
+    private static final int f2950a = Runtime.getRuntime().availableProcessors();
+    private static final int b = Math.min((f2950a * 2) + 1, 8);
 
     public static ExecutorService a(String str) {
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(b, b, 60L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new c(str));

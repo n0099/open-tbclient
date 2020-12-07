@@ -6,11 +6,11 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap f3708a;
+    private HashMap f3711a;
     private String b;
     private String c;
 
@@ -21,7 +21,7 @@ public final class b {
                 throw new Exception("injected name can not be null");
             }
             this.b = str;
-            this.f3708a = new HashMap();
+            this.f3711a = new HashMap();
             Method[] declaredMethods = cls.getDeclaredMethods();
             StringBuilder sb = new StringBuilder("javascript:(function(b){console.log(\"");
             sb.append(this.b);
@@ -31,7 +31,7 @@ public final class b {
             sb.append("var c=d.shift();var e=d.shift();this.queue[c].apply(this,d);if(!e){delete this.queue[c]}}};");
             for (Method method : declaredMethods) {
                 if (method.getModifiers() == 9 && (a2 = a(method)) != null) {
-                    this.f3708a.put(a2, method);
+                    this.f3711a.put(a2, method);
                     sb.append(String.format("a.%s=", method.getName()));
                 }
             }
@@ -135,7 +135,7 @@ public final class b {
                 string = str2;
                 i2 = i;
             }
-            Method method = (Method) this.f3708a.get(string);
+            Method method = (Method) this.f3711a.get(string);
             if (method == null) {
                 return a(str, 500, "not found method(" + string + ") with valid parameters");
             }

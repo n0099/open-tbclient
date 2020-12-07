@@ -1,7 +1,9 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.c.h;
+import io.reactivex.b.h;
 import io.reactivex.exceptions.MissingBackpressureException;
+import io.reactivex.internal.a.e;
+import io.reactivex.internal.a.f;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.AtomicThrowable;
@@ -11,7 +13,8 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+import org.a.d;
+/* loaded from: classes9.dex */
 public final class FlowableFlatMap<T, U> extends a<T, U> {
     final int bufferSize;
     final boolean delayErrors;
@@ -20,8 +23,8 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
-        if (!g.a(this.pOn, cVar, this.mapper)) {
-            this.pOn.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
+        if (!c.a(this.pFg, cVar, this.mapper)) {
+            this.pFg.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
         }
     }
 
@@ -30,8 +33,8 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
-    public static final class MergeSubscriber<T, U> extends AtomicInteger implements j<T>, org.a.d {
+    /* loaded from: classes9.dex */
+    public static final class MergeSubscriber<T, U> extends AtomicInteger implements j<T>, d {
         private static final long serialVersionUID = -2117620485640801370L;
         final org.a.c<? super U> actual;
         final int bufferSize;
@@ -42,11 +45,11 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
         int lastIndex;
         final h<? super T, ? extends org.a.b<? extends U>> mapper;
         final int maxConcurrency;
-        volatile io.reactivex.internal.a.f<U> queue;
+        volatile e<U> queue;
         int scalarEmitted;
         final int scalarLimit;
         long uniqueId;
-        org.a.d upstream;
+        d upstream;
         static final InnerSubscriber<?, ?>[] EMPTY = new InnerSubscriber[0];
         static final InnerSubscriber<?, ?>[] CANCELLED = new InnerSubscriber[0];
         final AtomicThrowable errs = new AtomicThrowable();
@@ -64,7 +67,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.upstream, dVar)) {
                 this.upstream = dVar;
                 this.actual.onSubscribe(this);
@@ -84,7 +87,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.l(this.mapper.apply(t), "The mapper returned a null Publisher");
+                    org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper returned a null Publisher");
                     if (bVar instanceof Callable) {
                         try {
                             Object call = ((Callable) bVar).call();
@@ -179,24 +182,24 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
             } while (!this.subscribers.compareAndSet(innerSubscriberArr, innerSubscriberArr2));
         }
 
-        io.reactivex.internal.a.g<U> getMainQueue() {
-            io.reactivex.internal.a.f<U> fVar = this.queue;
-            if (fVar == null) {
+        f<U> getMainQueue() {
+            e<U> eVar = this.queue;
+            if (eVar == null) {
                 if (this.maxConcurrency == Integer.MAX_VALUE) {
-                    fVar = new io.reactivex.internal.queue.a<>(this.bufferSize);
+                    eVar = new io.reactivex.internal.queue.a<>(this.bufferSize);
                 } else {
-                    fVar = new SpscArrayQueue<>(this.maxConcurrency);
+                    eVar = new SpscArrayQueue<>(this.maxConcurrency);
                 }
-                this.queue = fVar;
+                this.queue = eVar;
             }
-            return fVar;
+            return eVar;
         }
 
         void tryEmitScalar(U u) {
             if (get() == 0 && compareAndSet(0, 1)) {
                 long j = this.requested.get();
-                io.reactivex.internal.a.g<U> gVar = this.queue;
-                if (j != 0 && (gVar == null || gVar.isEmpty())) {
+                f<U> fVar = this.queue;
+                if (j != 0 && (fVar == null || fVar.isEmpty())) {
                     this.actual.onNext(u);
                     if (j != Long.MAX_VALUE) {
                         this.requested.decrementAndGet();
@@ -210,10 +213,10 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                         }
                     }
                 } else {
-                    if (gVar == null) {
-                        gVar = getMainQueue();
+                    if (fVar == null) {
+                        fVar = getMainQueue();
                     }
-                    if (!gVar.offer(u)) {
+                    if (!fVar.offer(u)) {
                         onError(new IllegalStateException("Scalar queue full?!"));
                         return;
                     }
@@ -230,31 +233,31 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
             drainLoop();
         }
 
-        io.reactivex.internal.a.g<U> getInnerQueue(InnerSubscriber<T, U> innerSubscriber) {
-            io.reactivex.internal.a.g<U> gVar = innerSubscriber.queue;
-            if (gVar == null) {
+        f<U> getInnerQueue(InnerSubscriber<T, U> innerSubscriber) {
+            f<U> fVar = innerSubscriber.queue;
+            if (fVar == null) {
                 SpscArrayQueue spscArrayQueue = new SpscArrayQueue(this.bufferSize);
                 innerSubscriber.queue = spscArrayQueue;
                 return spscArrayQueue;
             }
-            return gVar;
+            return fVar;
         }
 
         void tryEmit(U u, InnerSubscriber<T, U> innerSubscriber) {
             if (get() == 0 && compareAndSet(0, 1)) {
                 long j = this.requested.get();
-                io.reactivex.internal.a.g<U> gVar = innerSubscriber.queue;
-                if (j != 0 && (gVar == null || gVar.isEmpty())) {
+                f<U> fVar = innerSubscriber.queue;
+                if (j != 0 && (fVar == null || fVar.isEmpty())) {
                     this.actual.onNext(u);
                     if (j != Long.MAX_VALUE) {
                         this.requested.decrementAndGet();
                     }
                     innerSubscriber.requestMore(1L);
                 } else {
-                    if (gVar == null) {
-                        gVar = getInnerQueue(innerSubscriber);
+                    if (fVar == null) {
+                        fVar = getInnerQueue(innerSubscriber);
                     }
-                    if (!gVar.offer(u)) {
+                    if (!fVar.offer(u)) {
                         onError(new MissingBackpressureException("Inner queue full?!"));
                         return;
                     }
@@ -263,12 +266,12 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                     return;
                 }
             } else {
-                io.reactivex.internal.a.g gVar2 = innerSubscriber.queue;
-                if (gVar2 == null) {
-                    gVar2 = new SpscArrayQueue(this.bufferSize);
-                    innerSubscriber.queue = gVar2;
+                f fVar2 = innerSubscriber.queue;
+                if (fVar2 == null) {
+                    fVar2 = new SpscArrayQueue(this.bufferSize);
+                    innerSubscriber.queue = fVar2;
                 }
-                if (!gVar2.offer(u)) {
+                if (!fVar2.offer(u)) {
                     onError(new MissingBackpressureException("Inner queue full?!"));
                     return;
                 } else if (getAndIncrement() != 0) {
@@ -281,12 +284,12 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
         @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.e.a.onError(th);
+                io.reactivex.d.a.onError(th);
             } else if (this.errs.addThrowable(th)) {
                 this.done = true;
                 drain();
             } else {
-                io.reactivex.e.a.onError(th);
+                io.reactivex.d.a.onError(th);
             }
         }
 
@@ -308,13 +311,13 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
 
         @Override // org.a.d
         public void cancel() {
-            io.reactivex.internal.a.f<U> fVar;
+            e<U> eVar;
             if (!this.cancelled) {
                 this.cancelled = true;
                 this.upstream.cancel();
                 disposeAll();
-                if (getAndIncrement() == 0 && (fVar = this.queue) != null) {
-                    fVar.clear();
+                if (getAndIncrement() == 0 && (eVar = this.queue) != null) {
+                    eVar.clear();
                 }
             }
         }
@@ -345,16 +348,16 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
             org.a.c<? super U> cVar = this.actual;
             int i3 = 1;
             while (!checkTerminate()) {
-                io.reactivex.internal.a.f<U> fVar = this.queue;
+                e<U> eVar = this.queue;
                 long j5 = this.requested.get();
                 boolean z3 = j5 == Long.MAX_VALUE;
                 long j6 = 0;
-                if (fVar != null) {
+                if (eVar != null) {
                     do {
                         long j7 = 0;
                         u = (U) null;
                         while (j5 != 0) {
-                            u = fVar.poll();
+                            u = eVar.poll();
                             if (!checkTerminate()) {
                                 if (u == null) {
                                     break;
@@ -380,10 +383,10 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                     } while (u != null);
                 }
                 boolean z4 = this.done;
-                io.reactivex.internal.a.f<U> fVar2 = this.queue;
+                e<U> eVar2 = this.queue;
                 InnerSubscriber<?, ?>[] innerSubscriberArr = this.subscribers.get();
                 int length = innerSubscriberArr.length;
-                if (z4 && ((fVar2 == null || fVar2.isEmpty()) && length == 0)) {
+                if (z4 && ((eVar2 == null || eVar2.isEmpty()) && length == 0)) {
                     Throwable terminate = this.errs.terminate();
                     if (terminate != ExceptionHelper.TERMINATED) {
                         if (terminate == null) {
@@ -427,8 +430,8 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                             InnerSubscriber<T, U> innerSubscriber = innerSubscriberArr[i6];
                             Object obj = null;
                             while (!checkTerminate()) {
-                                io.reactivex.internal.a.g<U> gVar = innerSubscriber.queue;
-                                if (gVar == null) {
+                                f<U> fVar = innerSubscriber.queue;
+                                if (fVar == null) {
                                     j2 = j5;
                                 } else {
                                     long j9 = 0;
@@ -436,7 +439,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                                     U u2 = (U) obj;
                                     while (j10 != 0) {
                                         try {
-                                            u2 = gVar.poll();
+                                            u2 = fVar.poll();
                                             if (u2 == null) {
                                                 break;
                                             }
@@ -483,8 +486,8 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                                     }
                                 }
                                 boolean z6 = innerSubscriber.done;
-                                io.reactivex.internal.a.g<U> gVar2 = innerSubscriber.queue;
-                                if (z6 && (gVar2 == null || gVar2.isEmpty())) {
+                                f<U> fVar2 = innerSubscriber.queue;
+                                if (z6 && (fVar2 == null || fVar2.isEmpty())) {
                                     removeInner(innerSubscriber);
                                     if (!checkTerminate()) {
                                         j++;
@@ -557,9 +560,9 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
         }
 
         void clearScalarQueue() {
-            io.reactivex.internal.a.f<U> fVar = this.queue;
-            if (fVar != null) {
-                fVar.clear();
+            e<U> eVar = this.queue;
+            if (eVar != null) {
+                eVar.clear();
             }
         }
 
@@ -571,7 +574,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                 }
                 Throwable terminate = this.errs.terminate();
                 if (terminate != null && terminate != ExceptionHelper.TERMINATED) {
-                    io.reactivex.e.a.onError(terminate);
+                    io.reactivex.d.a.onError(terminate);
                 }
             }
         }
@@ -588,13 +591,13 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                 drain();
                 return;
             }
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
-    public static final class InnerSubscriber<T, U> extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<U> {
+    /* loaded from: classes9.dex */
+    public static final class InnerSubscriber<T, U> extends AtomicReference<d> implements io.reactivex.disposables.b, j<U> {
         private static final long serialVersionUID = -4606175640614850599L;
         final int bufferSize;
         volatile boolean done;
@@ -603,7 +606,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
         final int limit;
         final MergeSubscriber<T, U> parent;
         long produced;
-        volatile io.reactivex.internal.a.g<U> queue;
+        volatile f<U> queue;
 
         InnerSubscriber(MergeSubscriber<T, U> mergeSubscriber, long j) {
             this.id = j;
@@ -613,7 +616,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        public void onSubscribe(d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 if (dVar instanceof io.reactivex.internal.a.d) {
                     io.reactivex.internal.a.d dVar2 = (io.reactivex.internal.a.d) dVar;

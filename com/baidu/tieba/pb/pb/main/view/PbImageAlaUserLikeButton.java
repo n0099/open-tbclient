@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements com.baidu.tbadk.core.view.userLike.b {
     public PbImageAlaUserLikeButton(Context context) {
         this(context, null);
@@ -26,15 +26,15 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements c
     public void aP(boolean z) {
         if (z) {
             com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-            bVar.qI(R.color.CAM_X0109);
+            bVar.rj(R.color.CAM_X0109);
             setConfig(bVar);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
         } else {
             com.baidu.tbadk.core.view.commonBtn.b bVar2 = new com.baidu.tbadk.core.view.commonBtn.b();
-            bVar2.qG(R.color.CAM_X0302);
+            bVar2.rh(R.color.CAM_X0302);
             bVar2.a(R.drawable.icon_pure_add10_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-            bVar2.qB(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
+            bVar2.rc(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
             setConfig(bVar2);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.attention));

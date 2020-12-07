@@ -5,26 +5,26 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.subtablist.b.a> {
-    private c grE;
-    private c grF;
+    private c gzN;
+    private c gzO;
 
     public a(TbPageContext<?> tbPageContext, boolean z) {
         super(tbPageContext);
-        this.grE = new c(getTbPageContext(), z);
-        this.grF = new c(getTbPageContext(), z);
+        this.gzN = new c(getTbPageContext(), z);
+        this.gzO = new c(getTbPageContext(), z);
         ViewGroup viewGroup = (ViewGroup) getView();
         View view = new View(getContext());
-        viewGroup.addView(this.grE.getView());
+        viewGroup.addView(this.gzN.getView());
         viewGroup.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.ds4), -1));
-        viewGroup.addView(this.grF.getView());
+        viewGroup.addView(this.gzO.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.grE.onChangeSkinType(tbPageContext, i);
-        this.grF.onChangeSkinType(tbPageContext, i);
+        this.gzN.onChangeSkinType(tbPageContext, i);
+        this.gzO.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -37,14 +37,14 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.subt
     /* renamed from: b */
     public void a(com.baidu.tieba.ala.alasquare.subtablist.b.a aVar) {
         if (aVar != null) {
-            this.grE.a(aVar.gjL);
-            this.grF.a(aVar.gjM);
+            this.gzN.a(aVar.grU);
+            this.gzO.a(aVar.grV);
         }
     }
 
     public void d(i iVar) {
-        this.grE.c(iVar);
-        this.grF.c(iVar);
+        this.gzN.c(iVar);
+        this.gzO.c(iVar);
     }
 
     @Override // android.view.View.OnClickListener

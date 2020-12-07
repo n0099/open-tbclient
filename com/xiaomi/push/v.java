@@ -7,17 +7,17 @@ import java.io.IOException;
 public abstract class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f5126a;
+    private Context f4896a;
 
     /* renamed from: a  reason: collision with other field name */
-    private File f945a;
+    private File f943a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Runnable f946a;
+    private Runnable f944a;
 
     private v(Context context, File file) {
-        this.f5126a = context;
-        this.f945a = file;
+        this.f4896a = context;
+        this.f943a = file;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,14 +37,14 @@ public abstract class v implements Runnable {
         u uVar = null;
         try {
             try {
-                if (this.f945a == null) {
-                    this.f945a = new File(this.f5126a.getFilesDir(), "default_locker");
+                if (this.f943a == null) {
+                    this.f943a = new File(this.f4896a.getFilesDir(), "default_locker");
                 }
-                uVar = u.a(this.f5126a, this.f945a);
-                if (this.f946a != null) {
-                    this.f946a.run();
+                uVar = u.a(this.f4896a, this.f943a);
+                if (this.f944a != null) {
+                    this.f944a.run();
                 }
-                a(this.f5126a);
+                a(this.f4896a);
                 if (uVar != null) {
                     uVar.a();
                 }

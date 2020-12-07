@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.baidu.ar.bean.ARConfig;
 import com.baidu.ar.bean.DuMixARConfig;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.ar.g.s;
+import com.baidu.ar.h.s;
 import com.baidu.ar.ihttp.HttpFactory;
 import com.baidu.ar.ihttp.IHttpRequest;
 import com.baidu.ar.ihttp.IHttpResponse;
@@ -25,7 +25,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class j implements e {
     protected JSONObject a(JSONObject jSONObject, a aVar) {
         String gg = aVar.gg();
@@ -115,8 +115,8 @@ class j implements e {
         }
         jSONObject.put(HttpConstants.HTTP_OS_TYPE_OLD, "android");
         jSONObject.put(HttpConstants.HTTP_OS_TYPE, "android");
-        jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, com.baidu.ar.g.c.getVersionCode());
-        jSONObject.put("app_id", com.baidu.ar.g.c.r(context));
+        jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, com.baidu.ar.h.c.getVersionCode());
+        jSONObject.put("app_id", com.baidu.ar.h.c.s(context));
         jSONObject.put("device_id", Build.MODEL);
         jSONObject.put(HttpConstants.HTTP_SYSTEM_VERSION, Build.VERSION.SDK_INT);
         jSONObject.put(HttpConstants.OS_BRAND, Build.BRAND.toLowerCase());
@@ -126,27 +126,27 @@ class j implements e {
         jSONObject.put(HttpConstants.OS_WIDTH_PIXELS, context.getResources().getDisplayMetrics().widthPixels);
         jSONObject.put(HttpConstants.OS_HEIGHT_PIXELS, context.getResources().getDisplayMetrics().heightPixels);
         jSONObject.put(HttpConstants.OS_SCALE_PDI, context.getResources().getDisplayMetrics().densityDpi);
-        long[] gC = com.baidu.ar.g.q.gC();
+        long[] gC = com.baidu.ar.h.q.gC();
         jSONObject.put(HttpConstants.OS_ROM_MEMORY, gC[0]);
         jSONObject.put(HttpConstants.OS_ROM_AVAIL_MEMORY, gC[1]);
-        jSONObject.put(HttpConstants.OS_SDCARD_MEMORY, com.baidu.ar.g.q.gD());
-        jSONObject.put(HttpConstants.OS_ROM_SDCARD_AVAIL_MEMORY, com.baidu.ar.g.q.gE());
-        jSONObject.put(HttpConstants.OS_RAM_MEMEORY, com.baidu.ar.g.q.A(context));
-        jSONObject.put(HttpConstants.OS_RAM_AVAIL_MEMORY, com.baidu.ar.g.q.B(context));
-        if (com.baidu.ar.g.q.C(context)) {
+        jSONObject.put(HttpConstants.OS_SDCARD_MEMORY, com.baidu.ar.h.q.gD());
+        jSONObject.put(HttpConstants.OS_ROM_SDCARD_AVAIL_MEMORY, com.baidu.ar.h.q.gE());
+        jSONObject.put(HttpConstants.OS_RAM_MEMEORY, com.baidu.ar.h.q.B(context));
+        jSONObject.put(HttpConstants.OS_RAM_AVAIL_MEMORY, com.baidu.ar.h.q.C(context));
+        if (com.baidu.ar.h.q.D(context)) {
             jSONObject.put(HttpConstants.OS_HAS_GYROSCOPE, 1);
         } else {
             jSONObject.put(HttpConstants.OS_HAS_GYROSCOPE, 0);
         }
-        jSONObject.put(HttpConstants.OS_CPU_NAME, com.baidu.ar.g.q.gF());
-        jSONObject.put(HttpConstants.OS_CPU_NUM_CORES, com.baidu.ar.g.q.gG());
-        jSONObject.put(HttpConstants.OS_CPU_MIN_FREQ, com.baidu.ar.g.q.gH());
-        jSONObject.put(HttpConstants.OS_CPU_MAX_FREQ, com.baidu.ar.g.q.gJ());
+        jSONObject.put(HttpConstants.OS_CPU_NAME, com.baidu.ar.h.q.gF());
+        jSONObject.put(HttpConstants.OS_CPU_NUM_CORES, com.baidu.ar.h.q.gG());
+        jSONObject.put(HttpConstants.OS_CPU_MIN_FREQ, com.baidu.ar.h.q.gH());
+        jSONObject.put(HttpConstants.OS_CPU_MAX_FREQ, com.baidu.ar.h.q.gJ());
         jSONObject.put(HttpConstants.OS_CPU_ABI, Build.CPU_ABI);
-        jSONObject.put(HttpConstants.OS_CPU_CUR_FREQ, com.baidu.ar.g.q.gK());
+        jSONObject.put(HttpConstants.OS_CPU_CUR_FREQ, com.baidu.ar.h.q.gK());
         jSONObject.put(HttpConstants.OS_NATIVE_HEAPSIZE, (int) (Runtime.getRuntime().maxMemory() / 1048576));
         jSONObject.put(HttpConstants.OS_NATIVE_SENSOR, ((SensorManager) context.getSystemService("sensor")).getDefaultSensor(4) != null);
-        jSONObject.put(HttpConstants.NETWORK_TYPE, com.baidu.ar.g.m.w(context));
+        jSONObject.put(HttpConstants.NETWORK_TYPE, com.baidu.ar.h.m.x(context));
         if (Build.VERSION.SDK_INT < 21) {
             jSONObject.put(HttpConstants.OS_CPU_SUPPORTED_ABIS, Build.CPU_ABI);
         } else {
@@ -156,7 +156,7 @@ class j implements e {
     }
 
     protected void a(JSONObject jSONObject, Context context) {
-        UUID gz = new com.baidu.ar.g.g(context).gz();
+        UUID gz = new com.baidu.ar.h.g(context).gz();
         String uuid = gz != null ? gz.toString() : "";
         g(jSONObject);
         jSONObject.put(HttpConstants.AIP_APP_ID, DuMixARConfig.getAipAppId());
@@ -168,10 +168,10 @@ class j implements e {
         jSONObject.put("user_id", uuid);
         jSONObject.put("device_id", uuid);
         jSONObject.put("os_version", Build.VERSION.SDK_INT);
-        jSONObject.put("app_version", com.baidu.ar.g.c.getVersionCode());
-        jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, com.baidu.ar.g.c.getVersionCode());
-        if (!TextUtils.isEmpty(com.baidu.ar.g.c.r(context))) {
-            jSONObject.put("app_id", com.baidu.ar.g.c.r(context));
+        jSONObject.put("app_version", com.baidu.ar.h.c.getVersionCode());
+        jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, com.baidu.ar.h.c.getVersionCode());
+        if (!TextUtils.isEmpty(com.baidu.ar.h.c.s(context))) {
+            jSONObject.put("app_id", com.baidu.ar.h.c.s(context));
         }
         jSONObject.put(HttpConstants.HTTP_SYSTEM_VERSION, Build.VERSION.SDK_INT);
         jSONObject.put(HttpConstants.HTTP_HARDWARE, Build.HARDWARE);
@@ -208,7 +208,7 @@ class j implements e {
     }
 
     protected Map<String, Object> i(List<a> list) {
-        Object az;
+        Object aC;
         HashMap hashMap = new HashMap();
         HashMap hashMap2 = new HashMap();
         a aVar = list.get(0);
@@ -216,9 +216,9 @@ class j implements e {
         Iterator<String> keys = aVar.keys();
         while (keys.hasNext()) {
             String next = keys.next();
-            if (!"event_id".equals(next) && (az = aVar.az(next)) != null) {
-                hashMap.put(next, az);
-                hashMap2.put(next, az);
+            if (!"event_id".equals(next) && (aC = aVar.aC(next)) != null) {
+                hashMap.put(next, aC);
+                hashMap2.put(next, aC);
                 arrayList.add(next);
             }
         }
@@ -226,7 +226,7 @@ class j implements e {
         for (int i = 1; i < size; i++) {
             a aVar2 = list.get(i);
             for (String str : arrayList) {
-                if (hashMap2.containsKey(str) && !hashMap.get(str).equals(aVar2.az(str))) {
+                if (hashMap2.containsKey(str) && !hashMap.get(str).equals(aVar2.aC(str))) {
                     hashMap2.remove(str);
                 }
             }

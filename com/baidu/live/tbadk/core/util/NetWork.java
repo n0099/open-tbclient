@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.lib.network.http.BdNetWorkManager;
@@ -24,7 +25,6 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.util.NetWorkState;
 import com.baidu.live.tbadk.core.util.httpnet.HttpResponse;
 import com.baidu.sofire.ac.FH;
-import com.baidu.webkit.internal.ETAG;
 import com.baidubce.http.Headers;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -126,7 +126,6 @@ public class NetWork {
     }
 
     private void modSessionData() {
-        this.mParams.put("BDUSS", TbadkCoreApplication.getCurrentBduss());
         this.mParams.put("tbs", TbadkCoreApplication.getInst().getTbs());
     }
 
@@ -189,7 +188,7 @@ public class NetWork {
                 String str = (String) entry.getKey();
                 Object value = entry.getValue();
                 if ((value instanceof String) && !"sign".equals(str)) {
-                    stringBuffer.append(str + ETAG.EQUAL);
+                    stringBuffer.append(str + "=");
                     stringBuffer.append(value);
                 }
             }
@@ -202,6 +201,9 @@ public class NetWork {
         switch (i) {
             case 1:
                 addCommonHeader(false, false);
+                if (this.isUseCurrentBDUSS) {
+                    addBdussData();
+                }
                 if (this.isNeedAddCommenParam) {
                     addCommonParam();
                 }
@@ -283,9 +285,16 @@ public class NetWork {
 
     private void addBdussData() {
         String bduss;
+        String str;
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo != null && (bduss = currentAccountInfo.getBDUSS()) != null) {
-            this.mParams.put("BDUSS", bduss);
+            String str2 = this.mHeaders.get(SM.COOKIE);
+            if (TextUtils.isEmpty(str2)) {
+                str = "";
+            } else {
+                str = str2 + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
+            }
+            this.mHeaders.put(SM.COOKIE, str + "BDUSS=" + bduss);
         }
     }
 

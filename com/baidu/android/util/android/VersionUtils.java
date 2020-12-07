@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class VersionUtils {
     private static final String TAG = "VersionUtils";
     private static String sBoxVersionCode = null;

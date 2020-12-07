@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.ubc;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class SimpleVideoStatisticsDispatcher implements IPlayerStatisticsDispatcher {
     public static final SimpleVideoStatisticsDispatcher EMPTY = new SimpleVideoStatisticsDispatcher() { // from class: com.baidu.searchbox.player.ubc.SimpleVideoStatisticsDispatcher.1
     };

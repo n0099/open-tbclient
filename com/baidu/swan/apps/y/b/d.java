@@ -3,8 +3,7 @@ package com.baidu.swan.apps.y.b;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.util.Log;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class d extends a {
     @Override // com.baidu.swan.apps.y.b.a
     public boolean a(Bitmap bitmap, Rect rect) {
@@ -27,7 +26,7 @@ public class d extends a {
                     i3++;
                     i = i4;
                 } else if (com.baidu.swan.apps.b.DEBUG) {
-                    Log.d("SolidErrorPageParser", "非纯色, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i2 + Constants.ACCEPT_TIME_SEPARATOR_SP + i3 + ")");
+                    Log.d("SolidErrorPageParser", "非纯色, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i2 + "," + i3 + ")");
                     return false;
                 } else {
                     return false;

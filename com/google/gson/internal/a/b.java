@@ -3,15 +3,15 @@ package com.google.gson.internal.a;
 import java.lang.reflect.AccessibleObject;
 /* loaded from: classes5.dex */
 public abstract class b {
-    private static final b phu;
+    private static final b pwD;
 
     public abstract void b(AccessibleObject accessibleObject);
 
     static {
-        phu = com.google.gson.internal.c.esJ() < 9 ? new a() : new c();
+        pwD = com.google.gson.internal.c.eyl() < 9 ? new a() : new c();
     }
 
-    public static b etm() {
-        return phu;
+    public static b eyS() {
+        return pwD;
     }
 }

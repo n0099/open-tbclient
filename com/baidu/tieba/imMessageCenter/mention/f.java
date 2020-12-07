@@ -1,9 +1,9 @@
 package com.baidu.tieba.imMessageCenter.mention;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class f extends j implements com.baidu.tbadk.mvc.b.m {
     public void a(j jVar) {
-        cWv().addAll(jVar.cWv());
+        dbH().addAll(jVar.dbH());
         this.page = jVar.page;
-        this.kvS = jVar.kvS;
+        this.kJm = jVar.kJm;
     }
 }

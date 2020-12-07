@@ -8,7 +8,6 @@ import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.webkit.internal.ETAG;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -17,7 +16,7 @@ import java.util.TreeSet;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
     private static final String TAG = "IMMediaBaseHttpRequest";
 
@@ -34,7 +33,7 @@ abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
             case 0:
                 return "https://pim.baidu.com/";
             case 1:
-                return "http://cp01-ocean-749.epc.baidu.com:8111/";
+                return "http://rd-im-server.bcc-szth.baidu.com:8111/";
             case 2:
                 return Constants.URL_HTTP_QA;
             case 3:
@@ -57,7 +56,7 @@ abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
         }
         for (String str : treeSet) {
             sb.append(str);
-            sb.append(ETAG.EQUAL);
+            sb.append("=");
             sb.append(jSONObject.opt(str));
         }
         return getMd5(sb.toString());

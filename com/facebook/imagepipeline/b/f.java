@@ -1,16 +1,15 @@
 package com.facebook.imagepipeline.b;
 
-import android.graphics.Bitmap;
+import android.net.Uri;
+import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
-/* loaded from: classes17.dex */
-public abstract class f {
-    public abstract com.facebook.common.references.a<Bitmap> c(int i, int i2, Bitmap.Config config);
+/* loaded from: classes15.dex */
+public interface f {
+    com.facebook.cache.common.b a(ImageRequest imageRequest, Uri uri, @Nullable Object obj);
 
-    public com.facebook.common.references.a<Bitmap> b(int i, int i2, Bitmap.Config config) {
-        return a(i, i2, config, null);
-    }
+    com.facebook.cache.common.b a(ImageRequest imageRequest, Object obj);
 
-    public com.facebook.common.references.a<Bitmap> a(int i, int i2, Bitmap.Config config, @Nullable Object obj) {
-        return c(i, i2, config);
-    }
+    com.facebook.cache.common.b b(ImageRequest imageRequest, Object obj);
+
+    com.facebook.cache.common.b c(ImageRequest imageRequest, @Nullable Object obj);
 }

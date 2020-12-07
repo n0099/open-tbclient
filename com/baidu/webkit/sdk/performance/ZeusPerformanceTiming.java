@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class ZeusPerformanceTiming {
     private static final String CONFIG_FILE = "startup_timing_log";
     private static final String KEY_AMOUNT_FREE_DISK_SPACE = "AmountFreeDiskSpace";
@@ -115,7 +115,7 @@ public class ZeusPerformanceTiming {
     private static ConcurrentHashMap<String, Long> sStartThreadTimeStamps = new ConcurrentHashMap<>();
     private static ConcurrentHashMap<String, Long> sEndThreadTimeStamps = new ConcurrentHashMap<>();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public enum Stage {
         Start,
         End
@@ -253,7 +253,7 @@ public class ZeusPerformanceTiming {
             jSONObject.putOpt(KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP3, Long.valueOf(getRecordedThreadTime(KEY_T7_CHROMIUM_PROVIDER_INIT_STEP3)));
             jSONObject.putOpt(KEY_UNZIP_THREAD, Long.valueOf(getRecordedThreadTime(KEY_UNZIP)));
             if (CommonUtils.getSysMemoryInfo() != null) {
-                jSONObject.putOpt(KEY_MEMORY, CommonUtils.getSysMemoryInfo().get("MemTotal:"));
+                jSONObject.putOpt("memory", CommonUtils.getSysMemoryInfo().get("MemTotal:"));
             }
             HashMap<String, Long> currentSystemInfraInfo = WebView.getCurrentSystemInfraInfo();
             if (currentSystemInfraInfo != null) {

@@ -8,11 +8,11 @@ import com.sdk.base.framework.bean.PInfo;
 import com.sdk.base.framework.bean.SInfo;
 import com.sdk.base.module.config.BaseConfig;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f4482a = false;
+    private static boolean f4252a = false;
     private static String b = "";
     private static String c = "";
 

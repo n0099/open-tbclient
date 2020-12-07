@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.pubaccount.request;
 
 import android.content.Context;
 import android.util.Log;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -14,7 +15,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMPaGetQuickReplies extends PaBaseHttpRequest {
     private String mKey;
     private long mPaid;
@@ -70,7 +71,7 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(new String(bArr));
             i2 = jSONObject.getInt("error_code");
-            jSONObject.optString("error_msg", "");
+            jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
             if (i2 == 0) {
                 if (jSONObject.has("response_params")) {
                     str2 = jSONObject.getString("response_params");

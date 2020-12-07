@@ -7,14 +7,14 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
 import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class r implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
             return null;
         }
-        List<l.b<String>> b = com.baidu.adp.lib.util.r.b(com.baidu.tbadk.core.c.a.bob().AH("tb.im_group_search_history"));
+        List<l.b<String>> b = com.baidu.adp.lib.util.r.b(com.baidu.tbadk.core.c.a.brq().Bo("tb.im_group_search_history"));
         ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage();
         responseSearchGroupLocalMessage.setCacheList(b);
         return responseSearchGroupLocalMessage;

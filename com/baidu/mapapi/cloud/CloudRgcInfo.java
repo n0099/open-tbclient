@@ -5,8 +5,7 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class CloudRgcInfo {
     public int geoTableId;
     public String location;
@@ -24,10 +23,10 @@ public class CloudRgcInfo {
             return null;
         }
         if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
-            String[] split = this.location.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split = this.location.split(",");
             try {
                 LatLng gcjToBaidu = CoordTrans.gcjToBaidu(new LatLng(Double.parseDouble(split[0]), Double.parseDouble(split[1])));
-                this.location = gcjToBaidu.latitude + Constants.ACCEPT_TIME_SEPARATOR_SP + gcjToBaidu.longitude;
+                this.location = gcjToBaidu.latitude + "," + gcjToBaidu.longitude;
             } catch (Exception e) {
             }
         }

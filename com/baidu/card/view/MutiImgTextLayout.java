@@ -14,7 +14,7 @@ import com.baidu.card.p;
 import com.baidu.tbadk.a.d;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.core.util.y;
@@ -22,16 +22,16 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import java.util.ArrayList;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class MutiImgTextLayout extends LinearLayout implements p<com.baidu.tbadk.core.data.a> {
-    private static final int agp;
-    private com.baidu.tbadk.core.data.a afN;
-    public TextView agr;
-    private ab<com.baidu.tbadk.core.data.a> ahx;
-    private boolean ain;
-    public PlayVoiceBntNew akA;
-    private boolean akD;
-    private boolean akn;
+    private static final int ahn;
+    private com.baidu.tbadk.core.data.a agJ;
+    public TextView ahp;
+    private ab<com.baidu.tbadk.core.data.a> aix;
+    private boolean ajm;
+    public PlayVoiceBntNew alB;
+    private boolean alE;
+    private boolean alo;
     private String mFrom;
     public TextView mTitle;
 
@@ -40,7 +40,7 @@ public class MutiImgTextLayout extends LinearLayout implements p<com.baidu.tbadk
     }
 
     static {
-        agp = l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (d.bhw() ? l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X007) * 2 : (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        ahn = l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (d.bkA() ? l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X007) * 2 : (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     }
 
     public MutiImgTextLayout(Context context) {
@@ -49,10 +49,10 @@ public class MutiImgTextLayout extends LinearLayout implements p<com.baidu.tbadk
 
     public MutiImgTextLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.akn = true;
-        this.afN = null;
-        this.akD = false;
-        this.ain = false;
+        this.alo = true;
+        this.agJ = null;
+        this.alE = false;
+        this.ajm = false;
         initUI();
     }
 
@@ -60,42 +60,42 @@ public class MutiImgTextLayout extends LinearLayout implements p<com.baidu.tbadk
         LayoutInflater.from(getContext()).inflate(R.layout.multi_image_text_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.agr = (TextView) findViewById(R.id.thread_card_abstract);
+        this.ahp = (TextView) findViewById(R.id.thread_card_abstract);
         this.mTitle = (TextView) findViewById(R.id.thread_card_title);
-        this.akA = (PlayVoiceBntNew) findViewById(R.id.thread_card_voice);
-        this.akA.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.MutiImgTextLayout.1
+        this.alB = (PlayVoiceBntNew) findViewById(R.id.thread_card_voice);
+        this.alB.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.MutiImgTextLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 ab<com.baidu.tbadk.core.data.a> subClickListener = MutiImgTextLayout.this.getSubClickListener();
                 if (subClickListener != null) {
                     view.setTag("2");
-                    subClickListener.a(view, MutiImgTextLayout.this.afN);
+                    subClickListener.a(view, MutiImgTextLayout.this.agJ);
                 }
             }
         });
     }
 
-    private void setVoiceData(bx bxVar) {
-        ArrayList<VoiceData.VoiceModel> blP = bxVar.blP();
-        if (y.isEmpty(blP)) {
-            this.akA.setVisibility(8);
-            this.akD = false;
+    private void setVoiceData(by byVar) {
+        ArrayList<VoiceData.VoiceModel> bpc = byVar.bpc();
+        if (y.isEmpty(bpc)) {
+            this.alB.setVisibility(8);
+            this.alE = false;
             return;
         }
-        this.akA.setVisibility(0);
-        VoiceData.VoiceModel voiceModel = blP.get(0);
-        this.akA.setVoiceModel(voiceModel);
-        this.akA.setTag(voiceModel);
-        this.akA.changeSkin();
+        this.alB.setVisibility(0);
+        VoiceData.VoiceModel voiceModel = bpc.get(0);
+        this.alB.setVoiceModel(voiceModel);
+        this.alB.setTag(voiceModel);
+        this.alB.bvs();
         if (voiceModel != null) {
-            this.akA.DX(voiceModel.voice_status.intValue());
+            this.alB.EM(voiceModel.voice_status.intValue());
         }
-        this.akA.bYE();
-        this.akD = true;
+        this.alB.ccz();
+        this.alE = true;
     }
 
     public void setFromCDN(boolean z) {
-        this.akn = z;
+        this.alo = z;
     }
 
     public void setPreloadSizeReadyCallback(b bVar) {
@@ -106,18 +106,18 @@ public class MutiImgTextLayout extends LinearLayout implements p<com.baidu.tbadk
     /* renamed from: b */
     public void H(com.baidu.tbadk.core.data.a aVar) {
         boolean z = true;
-        this.afN = aVar;
-        bx bjd = aVar.bjd();
-        az.a(this.mTitle, bjd, this.ain);
-        az.a(this.agr, this.mTitle, bjd, agp, this.ain);
-        az.a(this.akA, (this.mTitle == null || this.mTitle.getVisibility() != 0) && (this.agr == null || this.agr.getVisibility() != 0), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-        setVoiceData(bjd);
-        if (this.akA != null && this.akA.getVisibility() == 0) {
+        this.agJ = aVar;
+        by bmn = aVar.bmn();
+        az.a(this.mTitle, bmn, this.ajm);
+        az.a(this.ahp, this.mTitle, bmn, ahn, this.ajm);
+        az.a(this.alB, (this.mTitle == null || this.mTitle.getVisibility() != 0) && (this.ahp == null || this.ahp.getVisibility() != 0), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+        setVoiceData(bmn);
+        if (this.alB != null && this.alB.getVisibility() == 0) {
             z = false;
         }
         if (z) {
-            if (this.agr != null && this.agr.getVisibility() == 0) {
-                this.agr.setPadding(0, 0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds3));
+            if (this.ahp != null && this.ahp.getVisibility() == 0) {
+                this.ahp.setPadding(0, 0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds3));
                 return;
             } else if (this.mTitle != null && this.mTitle.getVisibility() == 0) {
                 this.mTitle.setPadding(0, 0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds3));
@@ -129,8 +129,8 @@ public class MutiImgTextLayout extends LinearLayout implements p<com.baidu.tbadk
         if (this.mTitle != null) {
             this.mTitle.setPadding(0, 0, 0, 0);
         }
-        if (this.agr != null) {
-            this.agr.setPadding(0, 0, 0, 0);
+        if (this.ahp != null) {
+            this.ahp.setPadding(0, 0, 0, 0);
         }
     }
 
@@ -145,11 +145,11 @@ public class MutiImgTextLayout extends LinearLayout implements p<com.baidu.tbadk
     }
 
     public ab<com.baidu.tbadk.core.data.a> getSubClickListener() {
-        return this.ahx;
+        return this.aix;
     }
 
     public void setSubClickListener(ab<com.baidu.tbadk.core.data.a> abVar) {
-        this.ahx = abVar;
+        this.aix = abVar;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -158,6 +158,6 @@ public class MutiImgTextLayout extends LinearLayout implements p<com.baidu.tbadk
     }
 
     public void setNeedFrsTabName(boolean z) {
-        this.ain = z;
+        this.ajm = z;
     }
 }

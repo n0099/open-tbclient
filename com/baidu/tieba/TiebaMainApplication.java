@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.n.n;
+import com.baidu.tbadk.n.m;
 /* loaded from: classes.dex */
 public class TiebaMainApplication extends TbadkApplication {
     /* JADX INFO: Access modifiers changed from: protected */
@@ -12,7 +12,7 @@ public class TiebaMainApplication extends TbadkApplication {
     public void attachBaseContext(Context context) {
         long currentTimeMillis = System.currentTimeMillis();
         super.attachBaseContext(context);
-        n.bBO().dH(currentTimeMillis);
+        m.bFp().eg(currentTimeMillis);
     }
 
     @Override // com.baidu.tbadk.TbadkApplication, com.baidu.tbadk.core.TbadkCoreApplication, android.app.Application
@@ -22,11 +22,11 @@ public class TiebaMainApplication extends TbadkApplication {
         if (getSplash() != null) {
             getSplash().hide();
         }
-        if (com.baidu.tbadk.p.a.cR(getContext())) {
-            TiebaStatic.log(new ar("c13616").ak("obj_type", 1));
+        if (com.baidu.tbadk.p.a.dx(getContext())) {
+            TiebaStatic.log(new ar("c13616").al("obj_type", 1));
         } else {
-            TiebaStatic.log(new ar("c13616").ak("obj_type", 2));
+            TiebaStatic.log(new ar("c13616").al("obj_type", 2));
         }
-        n.bBO().dI(System.currentTimeMillis());
+        m.bFp().eh(System.currentTimeMillis());
     }
 }

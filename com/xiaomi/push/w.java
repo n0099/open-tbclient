@@ -7,19 +7,19 @@ import java.io.File;
 public final class w extends v {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Runnable f5127a;
+    final /* synthetic */ Runnable f4897a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(Context context, File file, Runnable runnable) {
         super(context, file, null);
-        this.f5127a = runnable;
+        this.f4897a = runnable;
     }
 
     @Override // com.xiaomi.push.v
     protected void a(Context context) {
-        if (this.f5127a != null) {
-            this.f5127a.run();
+        if (this.f4897a != null) {
+            this.f4897a.run();
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.yuyinala.liveroom.rename;
 import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
 public class b {
-    public static int v(CharSequence charSequence) {
+    public static int w(CharSequence charSequence) {
         if (charSequence == null) {
             return 0;
         }

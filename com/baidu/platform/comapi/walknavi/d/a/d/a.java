@@ -2,11 +2,11 @@ package com.baidu.platform.comapi.walknavi.d.a.d;
 
 import android.text.TextUtils;
 import com.baidu.platform.comapi.walknavi.d.a.d.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f2973a = false;
+    private static boolean f2975a = false;
     private static boolean b = false;
 
     public static boolean a(b.a aVar) {

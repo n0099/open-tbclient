@@ -17,10 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
-    private w aDh;
-    private Activity bMo;
-    private SimpleArrayMap<Integer, ViewGroup> gUF = new SimpleArrayMap<>();
-    private b.a gUz;
+    private w aFN;
+    private Activity beD;
+    private b.a hdM;
+    private SimpleArrayMap<Integer, ViewGroup> hdR = new SimpleArrayMap<>();
     private List<o> mDatas;
     private boolean mIsHost;
     private List<o> mOriginDatas;
@@ -43,7 +43,7 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(final ViewGroup viewGroup, final int i) {
         c activeWebBannerItemView;
-        ViewGroup viewGroup2 = this.gUF.get(Integer.valueOf(i));
+        ViewGroup viewGroup2 = this.hdR.get(Integer.valueOf(i));
         final o oVar = this.mDatas.get(i);
         if (viewGroup2 == null) {
             ViewGroup relativeLayout = new RelativeLayout(viewGroup.getContext());
@@ -62,58 +62,58 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
             }
             activeWebBannerItemView.setCallback(new a() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPagerAdapter.1
                 @Override // com.baidu.tieba.ala.liveroom.activeview.a
-                public void bWi() {
-                    if (AlaActiveBannerViewPagerAdapter.this.gUz != null) {
-                        AlaActiveBannerViewPagerAdapter.this.gUz.c(viewGroup, oVar, i);
+                public void bZS() {
+                    if (AlaActiveBannerViewPagerAdapter.this.hdM != null) {
+                        AlaActiveBannerViewPagerAdapter.this.hdM.c(viewGroup, oVar, i);
                     }
                 }
 
                 @Override // com.baidu.tieba.ala.liveroom.activeview.a
-                public void Hi(String str) {
-                    if (AlaActiveBannerViewPagerAdapter.this.gUz != null) {
-                        AlaActiveBannerViewPagerAdapter.this.gUz.Hi(str);
+                public void HW(String str) {
+                    if (AlaActiveBannerViewPagerAdapter.this.hdM != null) {
+                        AlaActiveBannerViewPagerAdapter.this.hdM.HW(str);
                     }
                 }
 
                 @Override // com.baidu.tieba.ala.liveroom.activeview.a
-                public void Hj(String str) {
-                    if (AlaActiveBannerViewPagerAdapter.this.gUz != null) {
-                        AlaActiveBannerViewPagerAdapter.this.gUz.Hj(str);
+                public void HX(String str) {
+                    if (AlaActiveBannerViewPagerAdapter.this.hdM != null) {
+                        AlaActiveBannerViewPagerAdapter.this.hdM.HX(str);
                     }
                 }
 
                 @Override // com.baidu.tieba.ala.liveroom.activeview.a
-                public void Hk(String str) {
-                    if (AlaActiveBannerViewPagerAdapter.this.gUz != null) {
-                        AlaActiveBannerViewPagerAdapter.this.gUz.Hk(str);
+                public void HY(String str) {
+                    if (AlaActiveBannerViewPagerAdapter.this.hdM != null) {
+                        AlaActiveBannerViewPagerAdapter.this.hdM.HY(str);
                     }
                 }
 
                 @Override // com.baidu.tieba.ala.liveroom.activeview.a
-                public void bK(int i2, int i3) {
-                    if (AlaActiveBannerViewPagerAdapter.this.gUz != null) {
-                        AlaActiveBannerViewPagerAdapter.this.gUz.bK(i2, i3);
+                public void bO(int i2, int i3) {
+                    if (AlaActiveBannerViewPagerAdapter.this.hdM != null) {
+                        AlaActiveBannerViewPagerAdapter.this.hdM.bO(i2, i3);
                     }
                 }
 
                 @Override // com.baidu.tieba.ala.liveroom.activeview.a
-                public void mF(boolean z) {
-                    if (AlaActiveBannerViewPagerAdapter.this.gUz != null) {
-                        AlaActiveBannerViewPagerAdapter.this.gUz.mF(z);
+                public void na(boolean z) {
+                    if (AlaActiveBannerViewPagerAdapter.this.hdM != null) {
+                        AlaActiveBannerViewPagerAdapter.this.hdM.na(z);
                     }
                 }
             });
-            this.gUF.put(Integer.valueOf(i), relativeLayout);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) TypedValue.applyDimension(1, oVar.aHe.width, viewGroup.getContext().getResources().getDisplayMetrics()), (int) TypedValue.applyDimension(1, oVar.aHe.height, viewGroup.getContext().getResources().getDisplayMetrics()));
+            this.hdR.put(Integer.valueOf(i), relativeLayout);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) TypedValue.applyDimension(1, oVar.aJO.width, viewGroup.getContext().getResources().getDisplayMetrics()), (int) TypedValue.applyDimension(1, oVar.aJO.height, viewGroup.getContext().getResources().getDisplayMetrics()));
             layoutParams.addRule(14);
             layoutParams.addRule(12);
             relativeLayout.addView((View) activeWebBannerItemView, layoutParams);
             viewGroup.addView(relativeLayout, 0);
             viewGroup2 = relativeLayout;
         }
-        vK(i);
-        if (this.gUz != null) {
-            this.gUz.b(viewGroup2, vL(i), i);
+        wp(i);
+        if (this.hdM != null) {
+            this.hdM.b(viewGroup2, wq(i), i);
         }
         return viewGroup2;
     }
@@ -123,7 +123,7 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
     }
 
     public void setActivityContext(Activity activity) {
-        this.bMo = activity;
+        this.beD = activity;
     }
 
     public void setIsHost(boolean z) {
@@ -131,13 +131,13 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
     }
 
     public void setLiveShowData(w wVar) {
-        this.aDh = wVar;
+        this.aFN = wVar;
     }
 
     public void onStart() {
-        if (this.gUF != null) {
-            for (int i = 0; i < this.gUF.size(); i++) {
-                ViewGroup viewGroup = this.gUF.get(Integer.valueOf(i));
+        if (this.hdR != null) {
+            for (int i = 0; i < this.hdR.size(); i++) {
+                ViewGroup viewGroup = this.hdR.get(Integer.valueOf(i));
                 if (viewGroup != null) {
                     for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
                         if (viewGroup.getChildAt(i2) instanceof c) {
@@ -150,9 +150,9 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
     }
 
     public void onStop() {
-        if (this.gUF != null) {
-            for (int i = 0; i < this.gUF.size(); i++) {
-                ViewGroup viewGroup = this.gUF.get(Integer.valueOf(i));
+        if (this.hdR != null) {
+            for (int i = 0; i < this.hdR.size(); i++) {
+                ViewGroup viewGroup = this.hdR.get(Integer.valueOf(i));
                 if (viewGroup != null) {
                     for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
                         if (viewGroup.getChildAt(i2) instanceof c) {
@@ -165,9 +165,9 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
     }
 
     public void release() {
-        if (this.gUF != null) {
-            for (int i = 0; i < this.gUF.size(); i++) {
-                ViewGroup viewGroup = this.gUF.get(Integer.valueOf(i));
+        if (this.hdR != null) {
+            for (int i = 0; i < this.hdR.size(); i++) {
+                ViewGroup viewGroup = this.hdR.get(Integer.valueOf(i));
                 if (viewGroup != null) {
                     for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
                         if (viewGroup.getChildAt(i2) instanceof c) {
@@ -176,7 +176,7 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
                     }
                 }
             }
-            this.gUF.clear();
+            this.hdR.clear();
         }
     }
 
@@ -197,13 +197,13 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
         }
     }
 
-    public void vK(int i) {
+    public void wp(int i) {
         int i2 = 0;
         o oVar = this.mDatas.get(i);
-        if (this.gUz != null && oVar.aGO && this.gUz.vQ(oVar.aGX)) {
-            oVar.aGO = false;
+        if (this.hdM != null && oVar.aJy && this.hdM.wv(oVar.aJH)) {
+            oVar.aJy = false;
         }
-        ViewGroup viewGroup = this.gUF.get(Integer.valueOf(i));
+        ViewGroup viewGroup = this.hdR.get(Integer.valueOf(i));
         if (viewGroup == null || viewGroup.getChildCount() <= 0) {
             return;
         }
@@ -213,9 +213,9 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
                 View childAt = viewGroup.getChildAt(i3);
                 if (childAt instanceof c) {
                     if (childAt instanceof ActiveWebBannerItemView) {
-                        ((ActiveWebBannerItemView) childAt).setActivityContext(this.bMo);
+                        ((ActiveWebBannerItemView) childAt).setActivityContext(this.beD);
                     }
-                    ((c) viewGroup.getChildAt(i3)).setData(this.mIsHost, this.aDh, oVar);
+                    ((c) viewGroup.getChildAt(i3)).setData(this.mIsHost, this.aFN, oVar);
                 }
                 i2 = i3 + 1;
             } else {
@@ -224,19 +224,19 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
         }
     }
 
-    public boolean Hl(String str) {
-        if (this.gUF == null || this.gUF.isEmpty()) {
+    public boolean HZ(String str) {
+        if (this.hdR == null || this.hdR.isEmpty()) {
             return false;
         }
         boolean z = false;
-        for (int i = 0; i < this.gUF.size(); i++) {
-            ViewGroup viewGroup = this.gUF.get(Integer.valueOf(i));
+        for (int i = 0; i < this.hdR.size(); i++) {
+            ViewGroup viewGroup = this.hdR.get(Integer.valueOf(i));
             if (viewGroup != null) {
                 int i2 = 0;
                 boolean z2 = z;
                 while (i2 < viewGroup.getChildCount()) {
                     View childAt = viewGroup.getChildAt(i2);
-                    if ((childAt instanceof ActiveWebBannerItemView) && ((ActiveWebBannerItemView) childAt).bVl()) {
+                    if ((childAt instanceof ActiveWebBannerItemView) && ((ActiveWebBannerItemView) childAt).bYV()) {
                         z2 = true;
                         if (!TextUtils.isEmpty(str)) {
                             if (Build.VERSION.SDK_INT >= 19) {
@@ -255,7 +255,7 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
         return z;
     }
 
-    public o vL(int i) {
+    public o wq(int i) {
         if (this.mDatas == null || this.mDatas.size() <= i) {
             return null;
         }
@@ -263,6 +263,6 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
     }
 
     public void a(b.a aVar) {
-        this.gUz = aVar;
+        this.hdM = aVar;
     }
 }

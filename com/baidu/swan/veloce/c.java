@@ -5,38 +5,38 @@ import android.text.TextUtils;
 import com.baidu.swan.veloce.VeloceIpcResult;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private static boolean elD = false;
-    private static boolean elE = false;
-    private static String elF = "";
-    private static String elG = "";
-    private static HashMap<String, List<VeloceIpcResult.a>> elH = new HashMap<>();
+    private static boolean esF = false;
+    private static boolean esG = false;
+    private static String esH = "";
+    private static String esI = "";
+    private static HashMap<String, List<VeloceIpcResult.a>> esJ = new HashMap<>();
 
-    private static Bundle nm(int i) {
+    private static Bundle nK(int i) {
         Bundle bundle = new Bundle();
         bundle.putInt("result_code", i);
         return bundle;
     }
 
     public static synchronized Bundle i(String str, Bundle bundle) {
-        Bundle nm;
+        Bundle nK;
         synchronized (c.class) {
             if (TextUtils.isEmpty(str)) {
-                nm = null;
+                nK = null;
             } else {
-                List<VeloceIpcResult.a> list = elH.get(str);
+                List<VeloceIpcResult.a> list = esJ.get(str);
                 if (list == null) {
-                    nm = null;
+                    nK = null;
                 } else {
                     for (VeloceIpcResult.a aVar : list) {
                         aVar.a(VeloceIpcResult.f(0, bundle));
                     }
-                    elH.remove(list);
-                    nm = nm(0);
+                    esJ.remove(list);
+                    nK = nK(0);
                 }
             }
         }
-        return nm;
+        return nK;
     }
 }

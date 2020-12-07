@@ -1,14 +1,14 @@
 package com.baidu.ar.capture;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class c extends com.baidu.ar.d.b {
-    private byte[] kN;
+    private byte[] lc;
 
     public byte[] getData() {
-        return this.kN;
+        return this.lc;
     }
 
     public void setData(byte[] bArr) {
-        this.kN = bArr;
+        this.lc = bArr;
     }
 }

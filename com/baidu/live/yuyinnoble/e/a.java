@@ -14,64 +14,64 @@ import com.baidu.live.tbadk.core.util.ViewHelper;
 import com.baidu.live.tbadk.widget.TbImageView;
 /* loaded from: classes4.dex */
 public class a implements View.OnClickListener {
-    private com.baidu.live.yuyinnoble.c.a bSw;
-    private TextView bnQ;
-    private TextView bnR;
-    private TbImageView bnS;
+    private com.baidu.live.yuyinnoble.c.a bXM;
+    private TextView bsY;
+    private TextView bsZ;
+    private TbImageView bta;
     private View mRootView;
     private TbPageContext mTbPageContext;
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mRootView = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.yuyin_ala_noble_list_bottom_layout, (ViewGroup) null);
-        this.bnQ = (TextView) this.mRootView.findViewById(a.f.noble_list_bottom_btn);
-        this.bnQ.setOnClickListener(this);
-        this.bnR = (TextView) this.mRootView.findViewById(a.f.noble_list_bottom_sub_text);
-        this.bnS = (TbImageView) this.mRootView.findViewById(a.f.noble_list_bottom_text_mark);
-        this.bnS.setDefaultBgResource(0);
-        this.bnS.setDefaultResource(0);
+        this.bsY = (TextView) this.mRootView.findViewById(a.f.noble_list_bottom_btn);
+        this.bsY.setOnClickListener(this);
+        this.bsZ = (TextView) this.mRootView.findViewById(a.f.noble_list_bottom_sub_text);
+        this.bta = (TbImageView) this.mRootView.findViewById(a.f.noble_list_bottom_text_mark);
+        this.bta.setDefaultBgResource(0);
+        this.bta.setDefaultResource(0);
     }
 
     public void b(com.baidu.live.yuyinnoble.c.a aVar) {
-        if (aVar != null && aVar.bSA != null) {
-            this.bSw = aVar;
-            if (this.bSw.bSA.type_id == 1) {
-                this.bnR.setVisibility(0);
-                this.bnR.setText(this.bSw.bSA.text);
-                this.bnS.setVisibility(8);
-                this.bnQ.setText(this.mTbPageContext.getResources().getString(a.h.yuyin_noble_bottom_open_noble));
-            } else if (this.bSw.bSA.type_id == 2) {
-                this.bnR.setVisibility(0);
-                this.bnS.setVisibility(0);
-                this.bnS.startLoad(this.bSw.bSA.icon_url, 10, false);
-                this.bnQ.setText(this.mTbPageContext.getResources().getString(a.h.yuyin_noble_bottom_immediate_renewal));
-                NX();
-            } else if (this.bSw.bSA.type_id == 3) {
-                this.bnR.setVisibility(0);
-                this.bnS.setVisibility(0);
-                this.bnS.startLoad(this.bSw.bSA.icon_url, 10, false);
-                this.bnQ.setText(this.mTbPageContext.getResources().getString(a.h.yuyin_noble_bottom_check_detail));
-                NX();
-            } else if (this.bSw.bSA.type_id == 4) {
-                this.bnR.setVisibility(0);
-                this.bnS.setVisibility(0);
-                this.bnS.startLoad(this.bSw.bSA.icon_url, 10, false);
-                this.bnQ.setText(this.mTbPageContext.getResources().getString(a.h.yuyin_noble_bottom_renewal_discount));
-                this.bnR.setText(this.bSw.bSA.text);
+        if (aVar != null && aVar.bXQ != null) {
+            this.bXM = aVar;
+            if (this.bXM.bXQ.type_id == 1) {
+                this.bsZ.setVisibility(0);
+                this.bsZ.setText(this.bXM.bXQ.text);
+                this.bta.setVisibility(8);
+                this.bsY.setText(this.mTbPageContext.getResources().getString(a.h.yuyin_noble_bottom_open_noble));
+            } else if (this.bXM.bXQ.type_id == 2) {
+                this.bsZ.setVisibility(0);
+                this.bta.setVisibility(0);
+                this.bta.startLoad(this.bXM.bXQ.icon_url, 10, false);
+                this.bsY.setText(this.mTbPageContext.getResources().getString(a.h.yuyin_noble_bottom_immediate_renewal));
+                Qq();
+            } else if (this.bXM.bXQ.type_id == 3) {
+                this.bsZ.setVisibility(0);
+                this.bta.setVisibility(0);
+                this.bta.startLoad(this.bXM.bXQ.icon_url, 10, false);
+                this.bsY.setText(this.mTbPageContext.getResources().getString(a.h.yuyin_noble_bottom_check_detail));
+                Qq();
+            } else if (this.bXM.bXQ.type_id == 4) {
+                this.bsZ.setVisibility(0);
+                this.bta.setVisibility(0);
+                this.bta.startLoad(this.bXM.bXQ.icon_url, 10, false);
+                this.bsY.setText(this.mTbPageContext.getResources().getString(a.h.yuyin_noble_bottom_renewal_discount));
+                this.bsZ.setText(this.bXM.bXQ.text);
             }
         }
     }
 
-    private void NX() {
-        if (this.bnR != null && this.bSw != null && this.bSw.bSA != null) {
+    private void Qq() {
+        if (this.bsZ != null && this.bXM != null && this.bXM.bXQ != null) {
             String string = this.mTbPageContext.getResources().getString(a.h.noble_bottom_main_content_msg);
             Object[] objArr = new Object[1];
-            objArr[0] = StringUtils.isNull(this.bSw.bSA.text) ? "" : this.bSw.bSA.text;
+            objArr[0] = StringUtils.isNull(this.bXM.bXQ.text) ? "" : this.bXM.bXQ.text;
             String format = String.format(string, objArr);
             String string2 = this.mTbPageContext.getResources().getString(a.h.noble_bottom_main_content_day);
             Object[] objArr2 = new Object[1];
-            objArr2[0] = StringUtils.isNull(this.bSw.bSA.bnC) ? "" : this.bSw.bSA.bnC;
-            this.bnR.setText(format + String.format(string2, objArr2));
+            objArr2[0] = StringUtils.isNull(this.bXM.bXQ.bsK) ? "" : this.bXM.bXQ.bsK;
+            this.bsZ.setText(format + String.format(string2, objArr2));
         }
     }
 
@@ -81,18 +81,18 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bnQ) {
-            NY();
+        if (view == this.bsY) {
+            Qr();
         }
     }
 
-    private void NY() {
-        if (this.mTbPageContext != null && this.mTbPageContext.getPageActivity() != null && ViewHelper.checkUpIsLogin(this.mTbPageContext.getPageActivity()) && this.bSw != null && this.bSw.bSA != null && !StringUtils.isNull(this.bSw.bSA.buy_url)) {
+    private void Qr() {
+        if (this.mTbPageContext != null && this.mTbPageContext.getPageActivity() != null && ViewHelper.checkUpIsLogin(this.mTbPageContext.getPageActivity()) && this.bXM != null && this.bXM.bXQ != null && !StringUtils.isNull(this.bXM.bXQ.buy_url)) {
             NobleDetailInfo nobleDetailInfo = new NobleDetailInfo();
-            if (this.bSw.bSB != null) {
-                nobleDetailInfo.roleId = this.bSw.bSB.id;
+            if (this.bXM.bXR != null) {
+                nobleDetailInfo.roleId = this.bXM.bXR.id;
             }
-            nobleDetailInfo.url = this.bSw.bSA.buy_url;
+            nobleDetailInfo.url = this.bXM.bXQ.buy_url;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501031, nobleDetailInfo));
         }
     }

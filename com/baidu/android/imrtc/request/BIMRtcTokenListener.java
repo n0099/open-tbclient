@@ -1,10 +1,10 @@
 package com.baidu.android.imrtc.request;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes18.dex */
+/* loaded from: classes12.dex */
 public interface BIMRtcTokenListener {
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes12.dex */
     public static class BIMRTCGetTokeResult {
         public String roomId = "";
         public String token = "";

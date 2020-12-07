@@ -6,7 +6,7 @@ import com.vivo.push.model.UnvarnishedMessage;
 public final class q extends x {
 
     /* renamed from: a  reason: collision with root package name */
-    protected UnvarnishedMessage f4647a;
+    protected UnvarnishedMessage f4417a;
 
     public q() {
         super(3);
@@ -16,7 +16,7 @@ public final class q extends x {
     @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("msg_v1", this.f4647a.unpackToJson());
+        aVar.a("msg_v1", this.f4417a.unpackToJson());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -25,20 +25,20 @@ public final class q extends x {
         super.d(aVar);
         String a2 = aVar.a("msg_v1");
         if (!TextUtils.isEmpty(a2)) {
-            this.f4647a = new UnvarnishedMessage(a2);
-            this.f4647a.setMsgId(f());
+            this.f4417a = new UnvarnishedMessage(a2);
+            this.f4417a.setMsgId(f());
         }
     }
 
     public final String d() {
-        if (this.f4647a == null) {
+        if (this.f4417a == null) {
             return null;
         }
-        return this.f4647a.unpackToJson();
+        return this.f4417a.unpackToJson();
     }
 
     public final UnvarnishedMessage e() {
-        return this.f4647a;
+        return this.f4417a;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y

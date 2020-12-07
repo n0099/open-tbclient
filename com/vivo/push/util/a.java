@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f4698a;
+    protected Context f4468a;
     private String b;
     private volatile SharedPreferences c;
     private HashMap<String, String> d = new HashMap<>();
@@ -27,7 +27,7 @@ public class a {
         }
         this.b = str;
         this.c = context.getSharedPreferences(this.b, 0);
-        this.f4698a = context;
+        this.f4468a = context;
     }
 
     public final void a(String str, String str2) {
@@ -144,10 +144,10 @@ public class a {
 
     private void b() {
         if (this.c == null) {
-            if (this.f4698a == null) {
+            if (this.f4468a == null) {
                 throw new RuntimeException("SharedPreferences is not init", new Throwable());
             }
-            this.c = this.f4698a.getSharedPreferences(this.b, 0);
+            this.c = this.f4468a.getSharedPreferences(this.b, 0);
         }
     }
 }

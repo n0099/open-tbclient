@@ -14,9 +14,8 @@ import android.graphics.drawable.shapes.Shape;
 import android.support.v4.graphics.drawable.WrappedDrawable;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes14.dex */
-public class AppCompatProgressBarHelper {
+class AppCompatProgressBarHelper {
     private static final int[] TINT_ATTRS = {16843067, 16843068};
     private Bitmap mSampleTile;
     private final ProgressBar mView;

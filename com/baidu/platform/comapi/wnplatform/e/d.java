@@ -18,11 +18,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f3109a = d.class.getSimpleName();
+    static final String f3111a = d.class.getSimpleName();
     private static Map<String, Method> b = new HashMap();
 
     private static Method a(ClassLoader classLoader, String str) throws ClassNotFoundException, NoSuchMethodException {
@@ -50,19 +50,19 @@ public class d {
         if (bArr != null && bArr.length != 0) {
             int i = ByteBuffer.wrap(bArr, 0, 4).order(ByteOrder.BIG_ENDIAN).getInt();
             com.baidu.g.a.c w = com.baidu.g.a.c.w(a(new ByteArrayInputStream(bArr, 4, i)));
-            int wm = w.wm();
+            int we = w.we();
             int i2 = i + 4;
-            for (int i3 = 0; i3 < wm; i3++) {
-                c.a bX = w.bX(i3);
-                String name = bX.getName();
-                int wo = bX.wo();
-                int offset = bX.getOffset() + i2;
+            for (int i3 = 0; i3 < we; i3++) {
+                c.a cb = w.cb(i3);
+                String name = cb.getName();
+                int wg = cb.wg();
+                int offset = cb.getOffset() + i2;
                 if (name.equals("M")) {
                     b bVar = new b();
-                    bVar.f3107a = a(new ByteArrayInputStream(bArr, offset, wo));
+                    bVar.f3109a = a(new ByteArrayInputStream(bArr, offset, wg));
                     arrayList.add(bVar);
                 } else {
-                    MessageMicro a2 = a(str, name, bArr, offset, wo);
+                    MessageMicro a2 = a(str, name, bArr, offset, wg);
                     if (a2 != null) {
                         arrayList.add(a2);
                     }

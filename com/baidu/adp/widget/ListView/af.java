@@ -120,8 +120,8 @@ public class af extends BaseAdapter implements u<q> {
             } else {
                 aVar = this.mDelegateAdapters.valueAt(itemViewType);
             }
-            if (aVar != null && aVar.qN() != null) {
-                aVar.qN().a(view, item, aVar.getType(), viewGroup, i, j);
+            if (aVar != null && aVar.qP() != null) {
+                aVar.qP().a(view, item, aVar.getType(), viewGroup, i, j);
             }
         }
     }
@@ -138,10 +138,10 @@ public class af extends BaseAdapter implements u<q> {
         } else {
             aVar = this.mDelegateAdapters.valueAt(itemViewType);
         }
-        if (aVar == null || aVar.qO() == null) {
+        if (aVar == null || aVar.qQ() == null) {
             return false;
         }
-        return aVar.qO().b(view, item, aVar.getType(), viewGroup, i, j);
+        return aVar.qQ().b(view, item, aVar.getType(), viewGroup, i, j);
     }
 
     @Override // com.baidu.adp.widget.ListView.u

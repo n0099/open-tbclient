@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.chatmessage.sync;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class Generator {
     public static final int SYNC_ALL_MESSAGE = 5;
     public static final int SYNC_CHAT_MESSAGE = 0;

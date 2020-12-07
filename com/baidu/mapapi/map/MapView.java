@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.mapapi.BMapManager;
@@ -29,7 +30,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.platform.comapi.map.MapSurfaceView;
 import com.baidu.webkit.net.BdNetTask;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class MapView extends ViewGroup {
     private static String b;
     private int A;
@@ -57,7 +58,7 @@ public final class MapView extends ViewGroup {
     private int z;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2025a = MapView.class.getSimpleName();
+    private static final String f2027a = MapView.class.getSimpleName();
     private static int c = 0;
     private static int d = 0;
     private static final SparseIntArray q = new SparseIntArray();
@@ -66,7 +67,7 @@ public final class MapView extends ViewGroup {
         q.append(3, 2000000);
         q.append(4, MessageConfig.BASE_SEGMENT_LENGTH);
         q.append(5, 500000);
-        q.append(6, 200000);
+        q.append(6, AlaRecorderLog.ErrCodeSeg.ERROR_BASE_RTMP);
         q.append(7, 100000);
         q.append(8, IMConstants.ERROR_BASE);
         q.append(9, BdNetTask.TIMEOUT_READ);
@@ -204,13 +205,13 @@ public final class MapView extends ViewGroup {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            Log.e(f2025a, "customStyleFilePath is empty or null, please check!");
+            Log.e(f2027a, "customStyleFilePath is empty or null, please check!");
         } else if (!str.endsWith(".sty")) {
-            Log.e(f2025a, "customStyleFile format is incorrect , please check!");
+            Log.e(f2027a, "customStyleFile format is incorrect , please check!");
         } else if (new File(str).exists()) {
             this.e.getBaseMap().a(str, i);
         } else {
-            Log.e(f2025a, "customStyleFile does not exist , please check!");
+            Log.e(f2027a, "customStyleFile does not exist , please check!");
         }
     }
 
@@ -232,9 +233,9 @@ public final class MapView extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.i.a()) {
-            float f = this.e.getBaseMap().B().f2242a;
+            float f = this.e.getBaseMap().B().f2244a;
             this.i.b(f > this.e.getBaseMap().b);
-            this.i.a(f < this.e.getBaseMap().f2224a);
+            this.i.a(f < this.e.getBaseMap().f2226a);
         }
     }
 
@@ -340,7 +341,7 @@ public final class MapView extends ViewGroup {
     }
 
     public final BaiduMap getMap() {
-        this.f.f1997a = this;
+        this.f.f1999a = this;
         return this.f;
     }
 
@@ -520,7 +521,7 @@ public final class MapView extends ViewGroup {
                     ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                     if (layoutParams instanceof MapViewLayoutParams) {
                         MapViewLayoutParams mapViewLayoutParams = (MapViewLayoutParams) layoutParams;
-                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.b : this.e.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.f2026a));
+                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.b : this.e.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.f2028a));
                         a(childAt);
                         int measuredWidth2 = childAt.getMeasuredWidth();
                         int measuredHeight3 = childAt.getMeasuredHeight();

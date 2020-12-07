@@ -3,15 +3,15 @@ package com.baidu.mapapi.map.offline;
 import com.baidu.mapsdkplatform.comapi.map.n;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 class a implements r {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MKOfflineMap f2079a;
+    final /* synthetic */ MKOfflineMap f2081a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(MKOfflineMap mKOfflineMap) {
-        this.f2079a = mKOfflineMap;
+        this.f2081a = mKOfflineMap;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.r
@@ -23,11 +23,11 @@ class a implements r {
         n nVar;
         switch (i) {
             case 4:
-                ArrayList<MKOLUpdateElement> allUpdateInfo = this.f2079a.getAllUpdateInfo();
+                ArrayList<MKOLUpdateElement> allUpdateInfo = this.f2081a.getAllUpdateInfo();
                 if (allUpdateInfo != null) {
                     for (MKOLUpdateElement mKOLUpdateElement : allUpdateInfo) {
                         if (mKOLUpdateElement.update) {
-                            mKOfflineMapListener3 = this.f2079a.c;
+                            mKOfflineMapListener3 = this.f2081a.c;
                             mKOfflineMapListener3.onGetOfflineMapState(4, mKOLUpdateElement.cityID);
                         }
                     }
@@ -41,19 +41,19 @@ class a implements r {
             default:
                 return;
             case 6:
-                mKOfflineMapListener4 = this.f2079a.c;
+                mKOfflineMapListener4 = this.f2081a.c;
                 mKOfflineMapListener4.onGetOfflineMapState(6, i2);
                 return;
             case 8:
-                mKOfflineMapListener2 = this.f2079a.c;
+                mKOfflineMapListener2 = this.f2081a.c;
                 mKOfflineMapListener2.onGetOfflineMapState(0, i2 >> 8);
                 return;
             case 10:
-                mKOfflineMapListener = this.f2079a.c;
+                mKOfflineMapListener = this.f2081a.c;
                 mKOfflineMapListener.onGetOfflineMapState(2, i2);
                 return;
             case 12:
-                nVar = this.f2079a.b;
+                nVar = this.f2081a.b;
                 nVar.a(true, false);
                 return;
         }

@@ -30,18 +30,18 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.account.forbid.a;
 import com.baidu.tieba.pb.account.forbid.b;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class ForbidActivity extends BaseActivity<ForbidActivity> {
-    private BdListView Wa;
-    private String ffB;
-    private String ffF;
-    private RadioGroup lln;
-    private String llo;
-    private TextView llp;
-    private TextView llq;
-    private a llr;
-    private com.baidu.tbadk.core.dialog.a lls;
-    private View.OnClickListener llt = new AnonymousClass3();
+    private BdListView WX;
+    private String fnb;
+    private String fnf;
+    private RadioGroup lyN;
+    private String lyO;
+    private TextView lyP;
+    private TextView lyQ;
+    private a lyR;
+    private com.baidu.tbadk.core.dialog.a lyS;
+    private View.OnClickListener lyT = new AnonymousClass3();
     private String mForumId;
     private String mForumName;
     private NavigationBar mNavigationBar;
@@ -62,14 +62,14 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setTitleText(getPageContext().getString(R.string.forbid_page_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.llp = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.forbid_btn_txt), this.llt);
-        this.llq = (TextView) findViewById(R.id.forbid_id);
-        this.Wa = (BdListView) findViewById(R.id.listview_forbid_reason);
-        this.lln = (RadioGroup) findViewById(R.id.forbid_days);
-        this.lln.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() { // from class: com.baidu.tieba.pb.account.forbid.ForbidActivity.1
+        this.lyP = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.forbid_btn_txt), this.lyT);
+        this.lyQ = (TextView) findViewById(R.id.forbid_id);
+        this.WX = (BdListView) findViewById(R.id.listview_forbid_reason);
+        this.lyN = (RadioGroup) findViewById(R.id.forbid_days);
+        this.lyN.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() { // from class: com.baidu.tieba.pb.account.forbid.ForbidActivity.1
             @Override // android.widget.RadioGroup.OnCheckedChangeListener
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                ForbidActivity.this.FX(ForbidActivity.this.lln.getCheckedRadioButtonId());
+                ForbidActivity.this.GM(ForbidActivity.this.lyN.getCheckedRadioButtonId());
             }
         });
         initData();
@@ -80,27 +80,27 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         this.mForumId = intent.getStringExtra("forum_id");
         this.mForumName = intent.getStringExtra("forum_name");
         this.mThreadId = intent.getStringExtra("thread_id");
-        this.llo = intent.getStringExtra(ForbidActivityConfig.MANAGER_USER_ID);
+        this.lyO = intent.getStringExtra(ForbidActivityConfig.MANAGER_USER_ID);
         this.mUserName = intent.getStringExtra("user_name");
         this.mPostId = intent.getStringExtra("post_id");
-        this.ffF = intent.getStringExtra("name_show");
-        this.ffB = intent.getStringExtra("portrait");
-        com.baidu.tieba.pb.account.forbid.b.a(this.mForumId, this.llo, new b.InterfaceC0811b() { // from class: com.baidu.tieba.pb.account.forbid.ForbidActivity.2
-            @Override // com.baidu.tieba.pb.account.forbid.b.InterfaceC0811b
+        this.fnf = intent.getStringExtra("name_show");
+        this.fnb = intent.getStringExtra("portrait");
+        com.baidu.tieba.pb.account.forbid.b.a(this.mForumId, this.lyO, new b.InterfaceC0827b() { // from class: com.baidu.tieba.pb.account.forbid.ForbidActivity.2
+            @Override // com.baidu.tieba.pb.account.forbid.b.InterfaceC0827b
             public void a(ForbidTplData forbidTplData) {
-                ForbidActivity.this.llq.setText(ForbidActivity.this.ffF);
+                ForbidActivity.this.lyQ.setText(ForbidActivity.this.fnf);
                 if (forbidTplData.type == 1 || forbidTplData.type == 2) {
                     ForbidActivity.this.findViewById(R.id.radio_forbid_3).setVisibility(0);
                     ForbidActivity.this.findViewById(R.id.radio_forbid_10).setVisibility(0);
                 }
-                ForbidActivity.this.llr = new a(forbidTplData.reason);
-                ForbidActivity.this.Wa.setAdapter((ListAdapter) ForbidActivity.this.llr);
+                ForbidActivity.this.lyR = new a(forbidTplData.reason);
+                ForbidActivity.this.WX.setAdapter((ListAdapter) ForbidActivity.this.lyR);
                 if (forbidTplData.reason == null || forbidTplData.reason.length == 0) {
                     ForbidActivity.this.showToast(R.string.no_data_text);
                 }
             }
 
-            @Override // com.baidu.tieba.pb.account.forbid.b.InterfaceC0811b
+            @Override // com.baidu.tieba.pb.account.forbid.b.InterfaceC0827b
             public void b(ForbidTplData forbidTplData) {
                 if (StringUtils.isNull(forbidTplData.error.errMsg)) {
                     ForbidActivity.this.showToast(R.string.neterror);
@@ -112,9 +112,9 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FX(int i) {
+    public void GM(int i) {
         for (int i2 = 0; i2 < 3; i2++) {
-            RadioButton radioButton = (RadioButton) this.lln.getChildAt(i2);
+            RadioButton radioButton = (RadioButton) this.lyN.getChildAt(i2);
             if (radioButton.getId() == i) {
                 ap.setBackgroundResource(radioButton, R.drawable.btn_prohibit_day_s);
                 ap.setViewTextColor(radioButton, R.color.CAM_X0101, 3);
@@ -134,21 +134,21 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         getLayoutMode().setNightMode(z);
         getLayoutMode().onModeChanged(findViewById);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.llp.setTextColor(ap.getColor(R.color.CAM_X0106));
-        this.Wa.setDivider(ap.getDrawable(R.drawable.forbid_list_divider));
-        this.Wa.setDividerHeight(l.dip2px(getPageContext().getPageActivity(), 1.0f));
+        this.lyP.setTextColor(ap.getColor(R.color.CAM_X0106));
+        this.WX.setDivider(ap.getDrawable(R.drawable.forbid_list_divider));
+        this.WX.setDividerHeight(l.dip2px(getPageContext().getPageActivity(), 1.0f));
     }
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.ForbidActivity$3  reason: invalid class name */
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     class AnonymousClass3 implements View.OnClickListener {
         AnonymousClass3() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (ForbidActivity.this.llr != null && !au.isEmpty(ForbidActivity.this.llr.bHQ())) {
-                com.baidu.tieba.pb.account.forbid.a.a(ForbidActivity.this.mForumId, ForbidActivity.this.mForumName, ForbidActivity.this.mThreadId, ForbidActivity.this.mUserName, ForbidActivity.this.mPostId, (String) ForbidActivity.this.findViewById(ForbidActivity.this.lln.getCheckedRadioButtonId()).getTag(), ForbidActivity.this.llr.bHQ(), ForbidActivity.this.ffF, ForbidActivity.this.ffB, new a.b() { // from class: com.baidu.tieba.pb.account.forbid.ForbidActivity.3.1
+            if (ForbidActivity.this.lyR != null && !au.isEmpty(ForbidActivity.this.lyR.bLq())) {
+                com.baidu.tieba.pb.account.forbid.a.a(ForbidActivity.this.mForumId, ForbidActivity.this.mForumName, ForbidActivity.this.mThreadId, ForbidActivity.this.mUserName, ForbidActivity.this.mPostId, (String) ForbidActivity.this.findViewById(ForbidActivity.this.lyN.getCheckedRadioButtonId()).getTag(), ForbidActivity.this.lyR.bLq(), ForbidActivity.this.fnf, ForbidActivity.this.fnb, new a.b() { // from class: com.baidu.tieba.pb.account.forbid.ForbidActivity.3.1
                     @Override // com.baidu.tieba.pb.account.forbid.a.b
                     public void a(ForbidResultData forbidResultData) {
                         ForbidActivity.this.showToast(ForbidActivity.this.getPageContext().getString(R.string.forbid_success));
@@ -162,11 +162,11 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                             switch (forbidResultData.error_code) {
                                 case 1211067:
                                 case 1211068:
-                                    if (ForbidActivity.this.lls == null) {
-                                        ForbidActivity.this.lls = new com.baidu.tbadk.core.dialog.a(ForbidActivity.this.getActivity());
+                                    if (ForbidActivity.this.lyS == null) {
+                                        ForbidActivity.this.lyS = new com.baidu.tbadk.core.dialog.a(ForbidActivity.this.getActivity());
                                     }
-                                    ForbidActivity.this.lls.AJ(str);
-                                    ForbidActivity.this.lls.a(R.string.know, new a.b() { // from class: com.baidu.tieba.pb.account.forbid.ForbidActivity.3.1.1
+                                    ForbidActivity.this.lyS.Bq(str);
+                                    ForbidActivity.this.lyS.a(R.string.know, new a.b() { // from class: com.baidu.tieba.pb.account.forbid.ForbidActivity.3.1.1
                                         @Override // com.baidu.tbadk.core.dialog.a.b
                                         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                                             if (aVar != null) {
@@ -175,9 +175,9 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                                             }
                                         }
                                     });
-                                    ForbidActivity.this.lls.iX(false);
-                                    ForbidActivity.this.lls.b(ForbidActivity.this.getPageContext());
-                                    ForbidActivity.this.lls.bog();
+                                    ForbidActivity.this.lyS.jm(false);
+                                    ForbidActivity.this.lyS.b(ForbidActivity.this.getPageContext());
+                                    ForbidActivity.this.lyS.brv();
                                     return;
                                 default:
                                     ForbidActivity.this.showToast(ForbidActivity.this.getPageContext().getString(R.string.forbid_failure));
@@ -190,35 +190,35 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         }
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     private static class a extends BaseAdapter {
-        private String[] llx;
-        private int ged = 0;
-        private View.OnClickListener eXy = new View.OnClickListener() { // from class: com.baidu.tieba.pb.account.forbid.ForbidActivity.a.1
+        private String[] lyX;
+        private int gmm = 0;
+        private View.OnClickListener feV = new View.OnClickListener() { // from class: com.baidu.tieba.pb.account.forbid.ForbidActivity.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.ged = ((b) view.getTag()).mIndex;
+                a.this.gmm = ((b) view.getTag()).mIndex;
                 a.this.notifyDataSetChanged();
             }
         };
 
         public a(String[] strArr) {
-            this.llx = strArr;
+            this.lyX = strArr;
         }
 
-        public String bHQ() {
-            if (this.llx == null || this.ged >= this.llx.length) {
+        public String bLq() {
+            if (this.lyX == null || this.gmm >= this.lyX.length) {
                 return null;
             }
-            return this.llx[this.ged];
+            return this.lyX[this.gmm];
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.llx == null) {
+            if (this.lyX == null) {
                 return 0;
             }
-            return this.llx.length;
+            return this.lyX.length;
         }
 
         @Override // android.widget.Adapter
@@ -228,23 +228,23 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             if (view == null) {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.forbid_list_item, (ViewGroup) null);
                 b bVar2 = new b();
-                bVar2.llz = (TextView) view.findViewById(R.id.reason_text);
-                bVar2.llA = (ImageView) view.findViewById(R.id.check_img);
+                bVar2.lyZ = (TextView) view.findViewById(R.id.reason_text);
+                bVar2.lza = (ImageView) view.findViewById(R.id.check_img);
                 view.setTag(bVar2);
-                view.setOnClickListener(this.eXy);
+                view.setOnClickListener(this.feV);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
             bVar.mIndex = i;
-            bVar.llz.setText(this.llx[i]);
-            if (bVar.mIndex == this.ged) {
-                ap.setImageResource(bVar.llA, R.drawable.icon_found_information_choose);
-                bVar.llA.setVisibility(0);
-                ap.setViewTextColor(bVar.llz, R.color.common_color_10047, 1);
+            bVar.lyZ.setText(this.lyX[i]);
+            if (bVar.mIndex == this.gmm) {
+                ap.setImageResource(bVar.lza, R.drawable.icon_found_information_choose);
+                bVar.lza.setVisibility(0);
+                ap.setViewTextColor(bVar.lyZ, R.color.common_color_10047, 1);
             } else {
-                bVar.llA.setVisibility(4);
-                ap.setViewTextColor(bVar.llz, R.color.common_color_10039, 1);
+                bVar.lza.setVisibility(4);
+                ap.setViewTextColor(bVar.lyZ, R.color.common_color_10039, 1);
             }
             return view;
         }
@@ -260,10 +260,10 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         }
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     private static class b {
-        ImageView llA;
-        TextView llz;
+        TextView lyZ;
+        ImageView lza;
         int mIndex;
 
         private b() {

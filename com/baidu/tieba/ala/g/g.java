@@ -12,30 +12,30 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.message.AlaLootRedPacketResultResponseMessage;
 /* loaded from: classes4.dex */
 public class g extends BdBaseModel {
-    private o fZj;
-    private HttpMessageListener hyt;
+    private o ghu;
+    private HttpMessageListener hHY;
 
     public g(BdPageContext<?> bdPageContext, o oVar) {
         super(bdPageContext);
-        this.hyt = new HttpMessageListener(1021162) { // from class: com.baidu.tieba.ala.g.g.1
+        this.hHY = new HttpMessageListener(1021162) { // from class: com.baidu.tieba.ala.g.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021162 && (httpResponsedMessage instanceof AlaLootRedPacketResultResponseMessage)) {
                     AlaLootRedPacketResultResponseMessage alaLootRedPacketResultResponseMessage = (AlaLootRedPacketResultResponseMessage) httpResponsedMessage;
-                    if (g.this.fZj != null) {
+                    if (g.this.ghu != null) {
                         if (alaLootRedPacketResultResponseMessage.getError() != 0 || !alaLootRedPacketResultResponseMessage.isSuccess()) {
-                            g.this.fZj.t(alaLootRedPacketResultResponseMessage.getError(), alaLootRedPacketResultResponseMessage.getErrorString());
+                            g.this.ghu.t(alaLootRedPacketResultResponseMessage.getError(), alaLootRedPacketResultResponseMessage.getErrorString());
                         } else {
-                            g.this.fZj.b(alaLootRedPacketResultResponseMessage.chV());
+                            g.this.ghu.b(alaLootRedPacketResultResponseMessage.clQ());
                         }
                     }
                 }
             }
         };
-        this.fZj = oVar;
+        this.ghu = oVar;
         initTasks();
-        registerListener(this.hyt);
+        registerListener(this.hHY);
     }
 
     private void initTasks() {
@@ -47,7 +47,7 @@ public class g extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void at(String str, String str2, String str3) {
+    public void av(String str, String str2, String str3) {
         HttpMessage httpMessage = new HttpMessage(1021162);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
         httpMessage.addParam("redpacket_id", str);
@@ -67,7 +67,7 @@ public class g extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hyt);
+        MessageManager.getInstance().unRegisterListener(this.hHY);
         MessageManager.getInstance().unRegisterTask(1021162);
     }
 }

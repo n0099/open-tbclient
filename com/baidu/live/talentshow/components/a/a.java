@@ -9,22 +9,22 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class a extends Dialog implements View.OnClickListener {
-    private InterfaceC0199a btM;
-    private TextView btN;
-    private View btO;
-    private TextView btP;
+    private InterfaceC0209a byX;
+    private TextView byY;
+    private View byZ;
+    private TextView bza;
     private Context mContext;
 
     /* renamed from: com.baidu.live.talentshow.components.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0199a {
-        boolean Qr();
+    public interface InterfaceC0209a {
+        boolean SP();
 
-        void Qs();
+        void SQ();
     }
 
-    public void a(InterfaceC0199a interfaceC0199a) {
-        this.btM = interfaceC0199a;
+    public void a(InterfaceC0209a interfaceC0209a) {
+        this.byX = interfaceC0209a;
     }
 
     public a(@NonNull Context context) {
@@ -39,32 +39,32 @@ public class a extends Dialog implements View.OnClickListener {
         resize();
         setCanceledOnTouchOutside(false);
         setCancelable(false);
-        this.btO = findViewById(a.f.live_bc_video_chat_confirm_dialog_btn_first);
-        this.btP = (TextView) findViewById(a.f.live_bc_video_chat_confirm_dialog_txt_first);
-        this.btN = (TextView) findViewById(a.f.live_bc_video_chat_count_down);
-        this.btO.setOnClickListener(this);
+        this.byZ = findViewById(a.f.live_bc_video_chat_confirm_dialog_btn_first);
+        this.bza = (TextView) findViewById(a.f.live_bc_video_chat_confirm_dialog_txt_first);
+        this.byY = (TextView) findViewById(a.f.live_bc_video_chat_count_down);
+        this.byZ.setOnClickListener(this);
     }
 
     public void resize() {
         getWindow().setGravity(17);
     }
 
-    public void ig(String str) {
-        this.btP.setText(str);
+    public void iK(String str) {
+        this.bza.setText(str);
     }
 
-    public void fe(int i) {
-        this.btO.setVisibility(i);
+    public void fC(int i) {
+        this.byZ.setVisibility(i);
     }
 
-    public void ih(String str) {
-        this.btN.setText(str);
+    public void iL(String str) {
+        this.byY.setText(str);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.btO && this.btM != null) {
-            this.btM.Qr();
+        if (view == this.byZ && this.byX != null) {
+            this.byX.SP();
         }
     }
 }

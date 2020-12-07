@@ -10,4 +10,6 @@ public interface ApkStatusCallback {
     void onApkDownloadSucceed(ApkData apkData);
 
     void onApkStartInstall(ApkData apkData);
+
+    void onJoinDownloadQueue();
 }

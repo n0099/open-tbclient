@@ -4,118 +4,118 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.as;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.at;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ah;
 import com.baidu.tbadk.core.util.ar;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public abstract class b extends com.baidu.tbadk.core.data.a implements ah {
-    public static BdUniqueId[][] ibF;
-    public bx evQ;
-    private String ibG;
-    private int ibH;
-    private String ibI;
-    private String ibJ;
-    public int ibL;
+    public static BdUniqueId[][] imC;
+    public by eCR;
+    private String imD;
+    private int imE;
+    private String imF;
+    private String imG;
+    public int imI;
     private String mExtra;
     private String mSource;
     public String tid;
-    public static final BdUniqueId ibu = BdUniqueId.gen();
-    public static final BdUniqueId ibv = BdUniqueId.gen();
-    public static final BdUniqueId ibw = BdUniqueId.gen();
-    public static final BdUniqueId ibx = BdUniqueId.gen();
-    public static final BdUniqueId iby = BdUniqueId.gen();
-    public static final BdUniqueId ibz = BdUniqueId.gen();
-    public static final BdUniqueId ibA = BdUniqueId.gen();
-    public static final BdUniqueId ibB = BdUniqueId.gen();
-    public static final BdUniqueId ibC = BdUniqueId.gen();
-    public static final ArrayList<BdUniqueId> ibD = new ArrayList<>();
-    public static final ArrayList<BdUniqueId> ibE = new ArrayList<>();
+    public static final BdUniqueId imr = BdUniqueId.gen();
+    public static final BdUniqueId ims = BdUniqueId.gen();
+    public static final BdUniqueId imt = BdUniqueId.gen();
+    public static final BdUniqueId imu = BdUniqueId.gen();
+    public static final BdUniqueId imv = BdUniqueId.gen();
+    public static final BdUniqueId imw = BdUniqueId.gen();
+    public static final BdUniqueId imx = BdUniqueId.gen();
+    public static final BdUniqueId imy = BdUniqueId.gen();
+    public static final BdUniqueId imz = BdUniqueId.gen();
+    public static final ArrayList<BdUniqueId> imA = new ArrayList<>();
+    public static final ArrayList<BdUniqueId> imB = new ArrayList<>();
     public int objType = 1;
-    private Integer ibK = 0;
-    public int eBO = 0;
-    public int eBP = 0;
-    public boolean eBx = false;
-    public boolean eBN = false;
-    public boolean eBC = false;
-    public boolean ibM = false;
-    public boolean eBB = false;
-    public boolean eBy = false;
-    public boolean ibN = false;
-    public boolean eBJ = false;
-    public boolean eBL = false;
-    public boolean eBM = false;
-    public boolean ibO = false;
-    public boolean eBE = false;
-    public boolean eBD = false;
-    public boolean ibP = false;
+    private Integer imH = 0;
+    public int eIP = 0;
+    public int eIQ = 0;
+    public boolean eIy = false;
+    public boolean eIO = false;
+    public boolean eID = false;
+    public boolean imJ = false;
+    public boolean eIC = false;
+    public boolean eIz = false;
+    public boolean imK = false;
+    public boolean eIK = false;
+    public boolean eIM = false;
+    public boolean eIN = false;
+    public boolean imL = false;
+    public boolean eIF = false;
+    public boolean eIE = false;
+    public boolean imM = false;
 
     static {
-        ibD.add(ibu);
-        ibD.add(ibv);
-        ibE.add(ibz);
-        ibE.add(ibw);
-        ibE.add(iby);
-        ibE.add(ibx);
-        ibF = (BdUniqueId[][]) Array.newInstance(BdUniqueId.class, ibD.size(), ibE.size());
-        for (int i = 0; i < ibD.size(); i++) {
-            for (int i2 = 0; i2 < ibE.size(); i2++) {
-                ibF[i][i2] = BdUniqueId.gen();
+        imA.add(imr);
+        imA.add(ims);
+        imB.add(imw);
+        imB.add(imt);
+        imB.add(imv);
+        imB.add(imu);
+        imC = (BdUniqueId[][]) Array.newInstance(BdUniqueId.class, imA.size(), imB.size());
+        for (int i = 0; i < imA.size(); i++) {
+            for (int i2 = 0; i2 < imB.size(); i2++) {
+                imC[i][i2] = BdUniqueId.gen();
             }
         }
     }
 
     public void setWeight(String str) {
-        this.ibG = str;
+        this.imD = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void xH(int i) {
-        this.ibH = i;
+    public void ym(int i) {
+        this.imE = i;
     }
 
-    public void IC(String str) {
-        this.ibI = str;
+    public void Js(String str) {
+        this.imF = str;
     }
 
-    public int cof() {
-        return this.ibH;
+    public int css() {
+        return this.imE;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public String bjg() {
-        return this.mSource + "#" + this.ibH + "#" + this.ibI;
+    public String bmq() {
+        return this.mSource + "#" + this.imE + "#" + this.imF;
     }
 
     public String getWeight() {
-        return this.ibG;
+        return this.imD;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String cog() {
-        return this.ibI;
+    public String cst() {
+        return this.imF;
     }
 
-    public String coh() {
-        return this.ibJ;
+    public String csu() {
+        return this.imG;
     }
 
-    public void ID(String str) {
-        this.ibJ = str;
+    public void Jt(String str) {
+        this.imG = str;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bx bjd() {
+    public by bmn() {
         return null;
     }
 
@@ -131,67 +131,67 @@ public abstract class b extends com.baidu.tbadk.core.data.a implements ah {
         return this.mExtra;
     }
 
-    public Integer coi() {
-        return this.ibK;
+    public Integer csv() {
+        return this.imH;
     }
 
     public void n(Integer num) {
-        this.ibK = num;
+        this.imH = num;
     }
 
-    public ar IE(String str) {
-        return aI(str, false);
+    public ar Ju(String str) {
+        return aJ(str, false);
     }
 
-    public ar aI(String str, boolean z) {
-        bx bjd = bjd();
-        if (bjd == null || str.length() == 0) {
+    public ar aJ(String str, boolean z) {
+        by bmn = bmn();
+        if (bmn == null || str.length() == 0) {
             return null;
         }
-        ar dR = new ar(str).dR("fid", String.valueOf(bjd.getFid())).dR("tid", String.valueOf(bjd.getTid())).dR("nid", bjd.getNid()).dR("obj_id", getExtra()).dR("obj_param1", getWeight()).ak(TiebaInitialize.Params.OBJ_PARAM2, 1).dR("obj_source", getSource()).ak("obj_locate", cof()).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.n.cnK()).dR("ab_tag", cog());
+        ar dY = new ar(str).dY("fid", String.valueOf(bmn.getFid())).dY("tid", String.valueOf(bmn.getTid())).dY("nid", bmn.getNid()).dY("obj_id", getExtra()).dY("obj_param1", getWeight()).al(TiebaInitialize.Params.OBJ_PARAM2, 1).dY("obj_source", getSource()).al("obj_locate", css()).dY("uid", TbadkCoreApplication.getCurrentAccount()).dY(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.n.crX()).dY("ab_tag", cst());
         if (!z) {
-            dR.ak("obj_type", coj());
+            dY.al("obj_type", csw());
         } else {
-            if (bjd.eED > 0) {
-                dR.ak("midpageflag", 1);
+            if (bmn.eLF > 0) {
+                dY.al("midpageflag", 1);
             } else {
-                dR.ak("midpageflag", 0);
+                dY.al("midpageflag", 0);
             }
-            dR.ak("is_vertical", coi().intValue());
+            dY.al("is_vertical", csv().intValue());
         }
-        if (bjd.bnh() != null && bjd.bnh().dJS() != null && bjd.bnh().dJS().bFb() != null && bjd.bnh().dJS().bFb().size() > 0) {
-            dR.ak(TiebaInitialize.Params.OBJ_TO, bjd.bnh().mYp ? 2 : 1);
+        if (bmn.bqu() != null && bmn.bqu().dPi() != null && bmn.bqu().dPi().bIC() != null && bmn.bqu().dPi().bIC().size() > 0) {
+            dY.al(TiebaInitialize.Params.OBJ_TO, bmn.bqu().nmn ? 2 : 1);
         }
-        return dR;
+        return dY;
     }
 
-    public ar aM(String str, int i) {
-        bx bjd = bjd();
-        if (bjd == null) {
+    public ar aN(String str, int i) {
+        by bmn = bmn();
+        if (bmn == null) {
             return null;
         }
-        ar dR = new ar(str).dR("fid", String.valueOf(bjd.getFid())).dR("tid", String.valueOf(bjd.getTid())).ak(TiebaInitialize.Params.OBJ_PARAM2, 1).dR("obj_param1", getWeight()).dR("obj_source", getSource()).ak("obj_locate", cof()).dR("obj_name", cog()).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.n.cnK());
+        ar dY = new ar(str).dY("fid", String.valueOf(bmn.getFid())).dY("tid", String.valueOf(bmn.getTid())).al(TiebaInitialize.Params.OBJ_PARAM2, 1).dY("obj_param1", getWeight()).dY("obj_source", getSource()).al("obj_locate", css()).dY("obj_name", cst()).dY("uid", TbadkCoreApplication.getCurrentAccount()).dY(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.n.crX());
         if (i == 0) {
-            dR.ak("obj_type", coj());
+            dY.al("obj_type", csw());
         } else {
-            dR.ak("obj_type", i);
+            dY.al("obj_type", i);
         }
-        dR.dR("obj_id", getExtra());
-        return dR;
+        dY.dY("obj_id", getExtra());
+        return dY;
     }
 
-    private int coj() {
+    private int csw() {
         int i;
         int i2 = 0;
-        bx bjd = bjd();
-        if (bjd == null) {
+        by bmn = bmn();
+        if (bmn == null) {
             return 0;
         }
-        ArrayList<MediaData> blL = bjd.blL();
-        if (blL == null) {
+        ArrayList<MediaData> boY = bmn.boY();
+        if (boY == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = blL.iterator();
+            Iterator<MediaData> it = boY.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
@@ -209,59 +209,59 @@ public abstract class b extends com.baidu.tbadk.core.data.a implements ah {
 
     @Override // com.baidu.tbadk.core.util.ah
     public ArrayList<PreLoadImageInfo> getImages() {
-        bx bjd = bjd();
-        if (bjd != null) {
-            return bjd.getImages();
+        by bmn = bmn();
+        if (bmn != null) {
+            return bmn.getImages();
         }
         return null;
     }
 
-    public void xI(int i) {
-        this.ibL = i;
+    public void yn(int i) {
+        this.imI = i;
     }
 
-    public boolean cok() {
-        return this.ibL == 1;
+    public boolean csx() {
+        return this.imI == 1;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public as bjf() {
-        if (bjd() == null || this.feedBackReasonMap == null || this.feedBackReasonMap.size() <= 0) {
+    public at bmp() {
+        if (bmn() == null || this.feedBackReasonMap == null || this.feedBackReasonMap.size() <= 0) {
             return null;
         }
-        as asVar = new as();
-        asVar.setTid(bjd().getTid());
-        asVar.setFid(bjd().getFid());
-        asVar.setNid(bjd().getNid());
-        asVar.setFeedBackReasonMap(this.feedBackReasonMap);
-        asVar.weight = this.ibG;
-        asVar.source = this.mSource;
-        asVar.extra = this.mExtra;
-        asVar.threadType = bjd().threadType;
-        return asVar;
+        at atVar = new at();
+        atVar.setTid(bmn().getTid());
+        atVar.setFid(bmn().getFid());
+        atVar.setNid(bmn().getNid());
+        atVar.setFeedBackReasonMap(this.feedBackReasonMap);
+        atVar.weight = this.imD;
+        atVar.source = this.mSource;
+        atVar.extra = this.mExtra;
+        atVar.threadType = bmn().threadType;
+        return atVar;
     }
 
-    public ar col() {
+    public ar csy() {
         return null;
     }
 
-    public ar com() {
+    public ar csz() {
         return null;
     }
 
-    public ar con() {
+    public ar csA() {
         return null;
     }
 
-    public ar coo() {
+    public ar csB() {
         return null;
     }
 
-    public ar IF(String str) {
+    public ar Jv(String str) {
         return null;
     }
 
-    public boolean bki() {
+    public boolean bnv() {
         return false;
     }
 }

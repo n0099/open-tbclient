@@ -9,14 +9,14 @@ import org.json.JSONObject;
 public class HWPushHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f4735a = false;
+    private static boolean f4505a = false;
 
     public static void convertMessage(Intent intent) {
         h.a(intent);
     }
 
     public static boolean hasNetwork(Context context) {
-        return h.m117a(context);
+        return h.m107a(context);
     }
 
     public static boolean isHmsTokenSynced(Context context) {
@@ -34,7 +34,7 @@ public class HWPushHelper {
     }
 
     public static boolean needConnect() {
-        return f4735a;
+        return f4505a;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x002a, code lost:
@@ -117,7 +117,7 @@ public class HWPushHelper {
     }
 
     public static void setNeedConnect(boolean z) {
-        f4735a = z;
+        f4505a = z;
     }
 
     public static synchronized boolean shouldGetToken(Context context) {

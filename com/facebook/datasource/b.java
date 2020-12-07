@@ -2,16 +2,16 @@ package com.facebook.datasource;
 
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public interface b<T> {
     void a(d<T> dVar, Executor executor);
 
-    boolean aoH();
+    boolean arP();
+
+    boolean eqo();
 
     @Nullable
-    Throwable ekB();
-
-    boolean ekz();
+    Throwable eqq();
 
     float getProgress();
 

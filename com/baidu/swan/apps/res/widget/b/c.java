@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class c {
     private static String sMiOsName = null;
     private static String sMiuiVersion = null;

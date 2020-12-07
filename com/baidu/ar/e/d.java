@@ -2,9 +2,9 @@ package com.baidu.ar.e;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class d implements c {
-    private List<a<?, ?>> sY = new ArrayList();
+    private List<a<?, ?>> tL = new ArrayList();
 
     public d(a aVar) {
         d(aVar);
@@ -17,17 +17,17 @@ public class d implements c {
 
     @Override // com.baidu.ar.callback.ICancellable
     public void cancel() {
-        for (a<?, ?> aVar : this.sY) {
+        for (a<?, ?> aVar : this.tL) {
             aVar.cancel();
         }
     }
 
     @Override // com.baidu.ar.e.c
     public c d(a<?, ?> aVar) {
-        if (!this.sY.isEmpty()) {
-            this.sY.get(this.sY.size() - 1).a(aVar);
+        if (!this.tL.isEmpty()) {
+            this.tL.get(this.tL.size() - 1).a(aVar);
         }
-        this.sY.add(aVar);
+        this.tL.add(aVar);
         return this;
     }
 }

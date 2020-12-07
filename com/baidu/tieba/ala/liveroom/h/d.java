@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.share.single.interfaces.IShareCallback;
 import com.baidu.tieba.ala.liveroom.views.e;
 /* loaded from: classes4.dex */
 public class d {
-    private com.baidu.tieba.ala.liveroom.views.c hgb;
+    private com.baidu.tieba.ala.liveroom.views.c hpI;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -17,19 +17,19 @@ public class d {
     }
 
     private void init() {
-        this.hgb = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
-        this.hgb.setTbPageContext(this.mPageContext);
-        this.mRootView = this.hgb.getView();
+        this.hpI = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
+        this.hpI.setTbPageContext(this.mPageContext);
+        this.mRootView = this.hpI.getView();
     }
 
     public void a(IShareCallback iShareCallback) {
-        if (this.hgb != null) {
-            this.hgb.a(iShareCallback);
+        if (this.hpI != null) {
+            this.hpI.a(iShareCallback);
         }
     }
 
-    private void caz() {
-        this.hgb.caz();
+    private void ceu() {
+        this.hpI.ceu();
     }
 
     public View getView() {
@@ -37,40 +37,40 @@ public class d {
     }
 
     public void a(AlaLiveRecorder alaLiveRecorder, int i) {
-        this.hgb.c(alaLiveRecorder);
-        caz();
+        this.hpI.c(alaLiveRecorder);
+        ceu();
     }
 
-    public boolean caA() {
-        return this.hgb.caA();
+    public boolean cev() {
+        return this.hpI.cev();
     }
 
-    public boolean caB() {
-        return this.hgb.caB();
+    public boolean cew() {
+        return this.hpI.cew();
     }
 
     public String getLiveTitle() {
-        return this.hgb.getLiveTitle();
+        return this.hpI.getLiveTitle();
     }
 
-    public boolean caC() {
-        return this.hgb.caC();
+    public boolean cex() {
+        return this.hpI.cex();
     }
 
-    public boolean caD() {
-        return this.hgb.caD();
+    public boolean cey() {
+        return this.hpI.cey();
     }
 
-    public void nf(boolean z) {
-        this.hgb.nf(z);
+    public void nA(boolean z) {
+        this.hpI.nA(z);
     }
 
-    public void caE() {
-        this.hgb.htS = false;
+    public void cez() {
+        this.hpI.hDv = false;
     }
 
-    public String caF() {
-        return this.hgb.caF();
+    public String ceA() {
+        return this.hpI.ceA();
     }
 
     public void setVisibility(int i) {
@@ -82,68 +82,68 @@ public class d {
     }
 
     public void a(e.b bVar) {
-        this.hgb.a(bVar);
+        this.hpI.a(bVar);
     }
 
     public void P(boolean z, boolean z2) {
         if (z) {
-            this.hgb.onKeyboardVisibilityChanged(false);
+            this.hpI.onKeyboardVisibilityChanged(false);
         } else {
-            this.hgb.onKeyboardVisibilityChanged(z2);
+            this.hpI.onKeyboardVisibilityChanged(z2);
         }
     }
 
     public void a(e.a aVar) {
-        this.hgb.a(aVar);
+        this.hpI.a(aVar);
     }
 
-    public void Hy(String str) {
-        this.hgb.Hy(str);
+    public void In(String str) {
+        this.hpI.In(str);
     }
 
     public void onResume() {
-        this.hgb.onResume();
+        this.hpI.onResume();
     }
 
     public void onRefresh() {
-        this.hgb.onRefresh();
+        this.hpI.onRefresh();
     }
 
-    public boolean caG() {
-        return this.hgb.caG();
+    public boolean ceB() {
+        return this.hpI.ceB();
     }
 
-    public void caH() {
-        this.hgb.caH();
+    public void ceC() {
+        this.hpI.ceC();
     }
 
     public void release() {
-        this.hgb.release();
+        this.hpI.release();
     }
 
     public void destroy() {
-        this.hgb.destroy();
+        this.hpI.destroy();
     }
 
-    public void ng(boolean z) {
-        this.hgb.ng(z);
+    public void nB(boolean z) {
+        this.hpI.nB(z);
     }
 
-    public void caI() {
-        if (this.hgb != null) {
-            this.hgb.caI();
+    public void ceD() {
+        if (this.hpI != null) {
+            this.hpI.ceD();
         }
     }
 
-    public void nh(boolean z) {
-        if (this.hgb != null) {
-            this.hgb.nh(z);
+    public void nC(boolean z) {
+        if (this.hpI != null) {
+            this.hpI.nC(z);
         }
     }
 
-    public void a(com.baidu.live.k.a aVar) {
-        if (this.hgb != null) {
-            this.hgb.a(aVar);
+    public void a(com.baidu.live.m.a aVar) {
+        if (this.hpI != null) {
+            this.hpI.a(aVar);
         }
     }
 }

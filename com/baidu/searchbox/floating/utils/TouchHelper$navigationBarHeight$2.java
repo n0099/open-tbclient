@@ -1,10 +1,10 @@
 package com.baidu.searchbox.floating.utils;
 
-import kotlin.h;
+import kotlin.e;
 import kotlin.jvm.a.a;
 import kotlin.jvm.internal.Lambda;
-@h
-/* loaded from: classes9.dex */
+@e
+/* loaded from: classes16.dex */
 final class TouchHelper$navigationBarHeight$2 extends Lambda implements a<Integer> {
     final /* synthetic */ TouchHelper this$0;
 

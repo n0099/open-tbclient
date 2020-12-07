@@ -1,34 +1,34 @@
 package com.baidu.tieba.personCenter.c;
 
 import tbclient.SmartApp;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class m implements c {
-    private String Ob;
-    private Long lWx;
-    private String lWy;
-    private Integer lWz;
+    private String OW;
+    private String eHR;
     private String mAppKey;
-    private String mAvatar;
     private String mLink;
     private String mName;
-    private String mPic;
     private int mType;
+    private Long mkE;
+    private String mkF;
+    private String mkG;
+    private Integer mkH;
 
     public m(SmartApp smartApp) {
         this.mType = 0;
         if (smartApp != null) {
-            this.lWx = smartApp.swan_app_id;
+            this.mkE = smartApp.swan_app_id;
             this.mAppKey = smartApp.id;
-            this.mAvatar = smartApp.avatar;
+            this.eHR = smartApp.avatar;
             this.mName = smartApp.name;
-            this.Ob = smartApp._abstract;
-            this.mPic = smartApp.pic;
-            this.lWy = smartApp.h5_url;
+            this.OW = smartApp._abstract;
+            this.mkF = smartApp.pic;
+            this.mkG = smartApp.h5_url;
             this.mLink = smartApp.link;
             if (smartApp.is_recom.intValue() == 1) {
                 this.mType = 1;
             }
-            this.lWz = smartApp.is_game;
+            this.mkH = smartApp.is_game;
         }
     }
 
@@ -37,8 +37,8 @@ public class m implements c {
         return this.mType;
     }
 
-    public Long dth() {
-        return this.lWx;
+    public Long dyz() {
+        return this.mkE;
     }
 
     public String getAppKey() {
@@ -46,7 +46,7 @@ public class m implements c {
     }
 
     public String getAvatar() {
-        return this.mAvatar;
+        return this.eHR;
     }
 
     public String getName() {
@@ -54,14 +54,14 @@ public class m implements c {
     }
 
     public String getH5Url() {
-        return this.lWy;
+        return this.mkG;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public Integer dti() {
-        return this.lWz;
+    public Integer dyA() {
+        return this.mkH;
     }
 }

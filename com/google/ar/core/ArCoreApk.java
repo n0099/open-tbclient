@@ -2,12 +2,12 @@ package com.google.ar.core;
 
 import android.content.Context;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes5.dex */
+/* loaded from: classes17.dex */
 public class ArCoreApk {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* JADX WARN: Unknown enum class pattern. Please report as an issue! */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes17.dex */
     public static class Availability {
         final int nativeCode;
         public static final Availability UNKNOWN_ERROR = new com.google.ar.core.a("UNKNOWN_ERROR", 0, 0);
@@ -64,16 +64,16 @@ public class ArCoreApk {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes17.dex */
     public interface a {
         void a(Availability availability);
     }
 
-    public static ArCoreApk ess() {
-        return o.esA();
+    public static ArCoreApk exU() {
+        return o.eyc();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes17.dex */
     public enum InstallBehavior {
         REQUIRED(0),
         OPTIONAL(1);
@@ -95,7 +95,7 @@ public class ArCoreApk {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes17.dex */
     public enum InstallStatus {
         INSTALLED(0),
         INSTALL_REQUESTED(1);
@@ -117,7 +117,7 @@ public class ArCoreApk {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes17.dex */
     public enum UserMessageType {
         APPLICATION(0),
         FEATURE(1),
@@ -140,7 +140,7 @@ public class ArCoreApk {
         }
     }
 
-    public Availability hc(Context context) {
+    public Availability hM(Context context) {
         throw new UnsupportedOperationException("Stub");
     }
 }

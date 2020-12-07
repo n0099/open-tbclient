@@ -12,9 +12,9 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class ImagePagerAdapter extends PagerAdapter {
     private List<String> mDatas;
-    private ImageLoader oyE;
-    private String oyF;
-    private DisplayImageOptions oyG;
+    private ImageLoader oNK;
+    private String oNL;
+    private DisplayImageOptions oNM;
 
     public Object getItem(int i) {
         if (i < this.mDatas.size()) {
@@ -30,12 +30,12 @@ public class ImagePagerAdapter extends PagerAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v4.view.PagerAdapter
-    /* renamed from: P */
+    /* renamed from: Q */
     public View instantiateItem(ViewGroup viewGroup, int i) {
         ImageView imageView = new ImageView(viewGroup.getContext());
         imageView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.oyF = (String) getItem(i);
-        this.oyE.displayImage(Xe(this.oyF), imageView, this.oyG, (ImageLoadingListener) null);
+        this.oNL = (String) getItem(i);
+        this.oNK.displayImage(Yz(this.oNL), imageView, this.oNM, (ImageLoadingListener) null);
         viewGroup.addView(imageView, -1, -1);
         return imageView;
     }
@@ -50,7 +50,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         return view == obj;
     }
 
-    private static String Xe(String str) {
+    private static String Yz(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }

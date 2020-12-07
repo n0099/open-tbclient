@@ -13,44 +13,44 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.ala.atomdata.AlaPersonCenterExpActivityConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tieba.R;
 import com.baidu.tieba.personPolymeric.tab.a.b;
 import com.baidu.tieba.personPolymeric.tab.model.PersonCenterDynamicTabModel;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.User;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment implements BdListView.e, a {
     private long mUserId;
-    private User mfA;
-    private com.baidu.tieba.personPolymeric.tab.a.a mfC;
-    private b mfD;
-    private com.baidu.tieba.personPolymeric.tab.view.a mfy;
-    private PersonCenterDynamicTabModel mfz;
-    private static boolean mfE = true;
-    private static CustomMessageListener eJO = new CustomMessageListener(2921440) { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterDynamicTabFragment.1
+    private com.baidu.tieba.personPolymeric.tab.view.a mtE;
+    private PersonCenterDynamicTabModel mtF;
+    private User mtG;
+    private com.baidu.tieba.personPolymeric.tab.a.a mtI;
+    private b mtJ;
+    private static boolean mtK = true;
+    private static CustomMessageListener eRa = new CustomMessageListener(2921440) { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterDynamicTabFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                boolean unused = PersonCenterDynamicTabFragment.mfE = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                boolean unused = PersonCenterDynamicTabFragment.mtK = ((Boolean) customResponsedMessage.getData()).booleanValue();
             }
         }
     };
     private boolean isHost = false;
-    private boolean mfB = false;
+    private boolean mtH = false;
     private boolean mHasInit = false;
     private List<q> mDataList = new ArrayList();
-    private PersonCenterDynamicTabModel.a mfF = new PersonCenterDynamicTabModel.a() { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterDynamicTabFragment.2
+    private PersonCenterDynamicTabModel.a mtL = new PersonCenterDynamicTabModel.a() { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterDynamicTabFragment.2
         @Override // com.baidu.tieba.personPolymeric.tab.model.PersonCenterDynamicTabModel.a
-        public void b(List<bx> list, boolean z, boolean z2) {
+        public void b(List<by> list, boolean z, boolean z2) {
             PersonCenterDynamicTabFragment.this.f(list, z, z2);
         }
 
         @Override // com.baidu.tieba.personPolymeric.tab.model.PersonCenterDynamicTabModel.a
-        public void wg(boolean z) {
-            PersonCenterDynamicTabFragment.this.we(z);
+        public void wK(boolean z) {
+            PersonCenterDynamicTabFragment.this.wI(z);
         }
     };
 
@@ -60,7 +60,7 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
         bundle.putLong("uid", j);
         bundle.putBoolean(AlaPersonCenterExpActivityConfig.IS_HOST, z);
         personCenterDynamicTabFragment.setArguments(bundle);
-        personCenterDynamicTabFragment.registerListener(eJO);
+        personCenterDynamicTabFragment.registerListener(eRa);
         return personCenterDynamicTabFragment;
     }
 
@@ -68,19 +68,19 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initData(bundle);
-        this.mfz = new PersonCenterDynamicTabModel(getPageContext(), this.mUserId);
-        this.mfz.a(this.mfF);
-        this.mfC = new com.baidu.tieba.personPolymeric.tab.a.a(getPageContext());
-        this.mfD = new b(getPageContext(), getUniqueId(), this, getTabType());
+        this.mtF = new PersonCenterDynamicTabModel(getPageContext(), this.mUserId);
+        this.mtF.a(this.mtL);
+        this.mtI = new com.baidu.tieba.personPolymeric.tab.a.a(getPageContext());
+        this.mtJ = new b(getPageContext(), getUniqueId(), this, getTabType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.person_center_common_tab_layout, viewGroup, false);
-        this.mfy = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
-        this.mfy.setSubType(1013);
-        this.mfy.b(this);
+        this.mtE = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
+        this.mtE.setSubType(1013);
+        this.mtE.b(this);
         return inflate;
     }
 
@@ -98,58 +98,58 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void we(boolean z) {
-        this.mfB = false;
-        hideNetRefreshView(this.mfy.getRootView());
-        hideLoadingView(this.mfy.getRootView());
-        this.mfy.bPp();
+    public void wI(boolean z) {
+        this.mtH = false;
+        hideNetRefreshView(this.mtE.getRootView());
+        hideLoadingView(this.mtE.getRootView());
+        this.mtE.bTa();
         if (z) {
-            showNetRefreshView(this.mfy.getRootView(), null, false);
+            showNetRefreshView(this.mtE.getRootView(), null, false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void f(List<bx> list, boolean z, boolean z2) {
-        this.mfB = false;
-        hideNetRefreshView(this.mfy.getRootView());
-        hideLoadingView(this.mfy.getRootView());
+    public void f(List<by> list, boolean z, boolean z2) {
+        this.mtH = false;
+        hideNetRefreshView(this.mtE.getRootView());
+        hideLoadingView(this.mtE.getRootView());
         if (z) {
-            this.mfy.Vz();
+            this.mtE.XZ();
         } else {
-            this.mfy.VA();
+            this.mtE.Ya();
         }
-        this.mDataList = com.baidu.tieba.personPolymeric.tab.b.a.fr(list);
-        this.mfy.ft(this.mDataList);
+        this.mDataList = com.baidu.tieba.personPolymeric.tab.b.a.fD(list);
+        this.mtE.fF(this.mDataList);
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
-    public void wf(boolean z) {
-        if (this.mfz != null && this.mfy != null && this.mHasInit && !this.mfB) {
-            hideNetRefreshView(this.mfy.getRootView());
+    public void wJ(boolean z) {
+        if (this.mtF != null && this.mtE != null && this.mHasInit && !this.mtH) {
+            hideNetRefreshView(this.mtE.getRootView());
             if (j.isNetWorkAvailable()) {
-                this.mfB = true;
-                if (z && mfE) {
-                    showLoadingView(this.mfy.getRootView(), false, getResources().getDimensionPixelSize(R.dimen.ds250));
+                this.mtH = true;
+                if (z && mtK) {
+                    showLoadingView(this.mtE.getRootView(), false, getResources().getDimensionPixelSize(R.dimen.ds250));
                 }
-                this.mfz.Tc();
-                cxv();
+                this.mtF.VC();
+                cBL();
                 return;
             }
-            showNetRefreshView(this.mfy.getRootView(), null, false);
+            showNetRefreshView(this.mtE.getRootView(), null, false);
         }
     }
 
-    public void cxv() {
-        if (this.mfy != null && this.mHasInit) {
-            this.mfy.cxv();
+    public void cBL() {
+        if (this.mtE != null && this.mHasInit) {
+            this.mtE.cBL();
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void d(User user) {
-        this.mfA = user;
-        if (this.mfz != null) {
-            this.mfz.d(this.mfA);
+        this.mtG = user;
+        if (this.mtF != null) {
+            this.mtF.d(this.mtG);
         }
     }
 
@@ -165,17 +165,17 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.mfz != null && this.mHasInit && !this.mfB && j.isNetWorkAvailable() && this.mfz.isHasMore()) {
-            this.mfB = true;
-            this.mfz.bOD();
+        if (this.mtF != null && this.mHasInit && !this.mtH && j.isNetWorkAvailable() && this.mtF.isHasMore()) {
+            this.mtH = true;
+            this.mtF.bSo();
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment, com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.mfy != null) {
-            this.mfy.onChangeSkinType(i);
+        if (this.mtE != null) {
+            this.mtE.onChangeSkinType(i);
         }
     }
 
@@ -184,9 +184,9 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
         super.onPrimary();
         if (isAdded() && isPrimary() && !this.mHasInit) {
             this.mHasInit = true;
-            wf(true);
-            if (TbSingleton.getInstance().isShowShoubaiDynamicGuide() && this.mfC != null && !this.mfC.dvK() && this.isHost) {
-                this.mfC.dvJ();
+            wJ(true);
+            if (TbSingleton.getInstance().isShowShoubaiDynamicGuide() && this.mtI != null && !this.mtI.dBc() && this.isHost) {
+                this.mtI.dBb();
             }
         }
     }
@@ -195,7 +195,7 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         super.onNetRefreshButtonClicked();
-        wf(true);
+        wJ(true);
     }
 
     @Override // android.support.v4.app.Fragment
@@ -209,34 +209,34 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
     public void onDestroy() {
         super.onDestroy();
         this.mHasInit = false;
-        this.mfB = false;
-        if (this.mfz != null) {
-            this.mfz.onDestroy();
+        this.mtH = false;
+        if (this.mtF != null) {
+            this.mtF.onDestroy();
         }
-        if (this.mfy != null) {
-            this.mfy.onDestroy();
+        if (this.mtE != null) {
+            this.mtE.onDestroy();
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public com.baidu.tieba.personPolymeric.tab.view.a dvL() {
-        return this.mfy;
+    public com.baidu.tieba.personPolymeric.tab.view.a dBd() {
+        return this.mtE;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public List<q> cLy() {
+    public List<q> cQM() {
         return this.mDataList;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public boolean dvM() {
-        return this.isHost && isPrimary() && !this.mfB;
+    public boolean dBe() {
+        return this.isHost && isPrimary() && !this.mtH;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void a(MetaData metaData) {
-        if (this.mfz != null) {
-            this.mfz.a(metaData);
+        if (this.mtF != null) {
+            this.mtF.a(metaData);
         }
     }
 }

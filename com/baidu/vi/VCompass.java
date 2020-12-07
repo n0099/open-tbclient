@@ -3,13 +3,13 @@ package com.baidu.vi;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Handler;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class VCompass {
     private static final Handler e = new c();
     private float b;
 
     /* renamed from: a  reason: collision with root package name */
-    private SensorManager f3901a = null;
+    private SensorManager f3904a = null;
     private float c = 2.0f;
     private int d = 0;
     private SensorEventListener f = new d(this);

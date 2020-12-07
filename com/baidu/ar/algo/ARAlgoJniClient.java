@@ -1,14 +1,13 @@
 package com.baidu.ar.algo;
 
-import com.baidu.ar.libloader.b;
 import java.nio.ByteBuffer;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class ARAlgoJniClient {
     static volatile ARAlgoJniClient arAlgoJniClient;
     private long trackSystemHandler = 0;
 
     static {
-        b.as("module_basic");
+        com.baidu.ar.libloader.a.require("module_basic");
     }
 
     public static native int calModelPosition(float[] fArr, float f, float[] fArr2, float[] fArr3);

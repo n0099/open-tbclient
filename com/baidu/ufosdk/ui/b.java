@@ -3,17 +3,17 @@ package com.baidu.ufosdk.ui;
 import android.view.View;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class b implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f3767a;
+    final /* synthetic */ e f3770a;
     final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, e eVar) {
         this.b = aVar;
-        this.f3767a = eVar;
+        this.f3770a = eVar;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:14:0x005e */
@@ -30,24 +30,24 @@ public final class b implements View.OnClickListener {
         int i;
         ArrayList arrayList4;
         ArrayList arrayList5;
-        this.f3767a.f3847a = !this.f3767a.f3847a;
-        this.f3767a.a(this.f3767a.f3847a);
-        if (this.f3767a.f3847a) {
+        this.f3770a.f3850a = !this.f3770a.f3850a;
+        this.f3770a.a(this.f3770a.f3850a);
+        if (this.f3770a.f3850a) {
             arrayList5 = this.b.d;
-            arrayList5.add(this.f3767a.b());
-            if (this.f3767a.b().contains("抄袭")) {
+            arrayList5.add(this.f3770a.b());
+            if (this.f3770a.b().contains("抄袭")) {
                 this.b.f = 1;
             }
-            if (this.f3767a.b().equals("播放问题")) {
+            if (this.f3770a.b().equals("播放问题")) {
                 this.b.f = 2;
             }
         } else {
             arrayList = this.b.d;
-            arrayList.remove(this.f3767a.b());
-            if (this.f3767a.b().contains("抄袭")) {
+            arrayList.remove(this.f3770a.b());
+            if (this.f3770a.b().contains("抄袭")) {
                 this.b.f = 3;
             }
-            if (this.f3767a.b().equals("播放问题")) {
+            if (this.f3770a.b().equals("播放问题")) {
                 this.b.f = 4;
             }
         }

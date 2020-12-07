@@ -14,13 +14,13 @@ public class g {
     private g() {
     }
 
-    public static g bCO() {
-        return a.fxG;
+    public static g bGp() {
+        return a.fFv;
     }
 
     /* loaded from: classes.dex */
     private static class a {
-        private static g fxG = new g();
+        private static g fFv = new g();
     }
 
     public String getLocalMacAddress(Context context) {
@@ -62,15 +62,15 @@ public class g {
         }
     }
 
-    public String bCP() {
+    public String bGq() {
         return Build.VERSION.RELEASE;
     }
 
-    public String bCQ() {
+    public String bGr() {
         return Build.MODEL;
     }
 
-    public String bCR() {
+    public String bGs() {
         return Build.DEVICE;
     }
 
@@ -79,23 +79,23 @@ public class g {
     }
 
     @RequiresApi(api = 17)
-    public String ey(Context context) {
+    public String fe(Context context) {
         return String.valueOf(getDisplayMetrics(context).widthPixels);
     }
 
     @RequiresApi(api = 17)
-    public String ez(Context context) {
+    public String ff(Context context) {
         return String.valueOf(getDisplayMetrics(context).heightPixels);
     }
 
     @RequiresApi(api = 17)
-    public String eA(Context context) {
+    public String fg(Context context) {
         return String.valueOf(getDisplayMetrics(context).density);
     }
 
     @RequiresApi(api = 17)
-    public String eB(Context context) {
-        return ey(context) + "*" + ez(context);
+    public String fh(Context context) {
+        return fe(context) + "*" + ff(context);
     }
 
     @RequiresApi(api = 17)

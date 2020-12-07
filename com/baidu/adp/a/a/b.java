@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -20,7 +19,7 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static int HW = 0;
+    private static int IT = 0;
 
     private static String a(String str, Object obj, List list) {
         StringBuffer stringBuffer = new StringBuffer("");
@@ -33,9 +32,9 @@ public class b {
             }
             while (cls != null && m(cls)) {
                 if (!cls.getSimpleName().equals("Object")) {
-                    HW++;
+                    IT++;
                     a(cls.getDeclaredFields(), obj, stringBuffer, list);
-                    HW--;
+                    IT--;
                 }
                 cls = cls.getSuperclass();
             }
@@ -67,7 +66,7 @@ public class b {
 
     private static String lk() {
         StringBuffer stringBuffer = new StringBuffer("");
-        for (int i = 0; i < HW; i++) {
+        for (int i = 0; i < IT; i++) {
             stringBuffer.append("    ");
         }
         return stringBuffer.toString();
@@ -96,7 +95,7 @@ public class b {
                 if (!r(Array.get(obj, 0))) {
                     stringBuffer.append(str + " = [");
                     for (int i3 = 0; i3 < Array.getLength(obj) - 1; i3++) {
-                        stringBuffer.append(s(Array.get(obj, i3)) + Constants.ACCEPT_TIME_SEPARATOR_SP);
+                        stringBuffer.append(s(Array.get(obj, i3)) + ",");
                     }
                     stringBuffer.append(Array.get(obj, Array.getLength(obj) - 1) + "]\n");
                 } else {
@@ -219,7 +218,7 @@ public class b {
         return str + " = " + s(obj) + "\n";
     }
 
-    private static String d(String str, Object obj) {
+    private static String c(String str, Object obj) {
         if (obj == null) {
             return str + ": null\n";
         }
@@ -232,11 +231,11 @@ public class b {
         return str + " = " + obj.toString() + "\n\r";
     }
 
-    public static void e(String str, Object obj) {
+    public static void d(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
-        if (d.Ih) {
+        if (d.Jf) {
             stringBuffer.append("Message_Type: " + str + "\n");
-            stringBuffer.append(d("", obj));
+            stringBuffer.append(c("", obj));
             stringBuffer.append("----------------------------------------------------------\n");
             String[] split = stringBuffer.toString().split("\n");
             for (String str2 : split) {

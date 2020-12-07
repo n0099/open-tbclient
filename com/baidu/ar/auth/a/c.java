@@ -1,23 +1,25 @@
 package com.baidu.ar.auth.a;
 
 import android.content.Context;
+import com.baidu.ar.auth.ARAuth;
 import com.baidu.ar.auth.IOfflineAuthenticator;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class c implements IOfflineAuthenticator {
-    private static volatile c ka;
+    private static volatile c kp;
 
     private c() {
     }
 
-    public static c cG() {
-        if (ka == null) {
-            ka = new c();
+    public static c cF() {
+        if (kp == null) {
+            kp = new c();
         }
-        return ka;
+        return kp;
     }
 
     @Override // com.baidu.ar.auth.IOfflineAuthenticator
     public boolean checkLicense(Context context, byte[] bArr) {
-        return com.baidu.ar.auth.a.checkOfflineLicenseAuth(context, bArr);
+        com.baidu.ar.libloader.a.load(context, null);
+        return ARAuth.checkOfflineLicenseAuth(context, bArr);
     }
 }

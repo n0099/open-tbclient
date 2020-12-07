@@ -19,6 +19,7 @@ import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
+import com.baidu.android.imsdk.chatmessage.request.IMAckRequest;
 import com.baidu.android.imsdk.chatmessage.request.Type;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.Heartbeat;
@@ -34,10 +35,13 @@ import com.baidu.android.imsdk.mcast.IMcastSetListener;
 import com.baidu.android.imsdk.mcast.McastConfig;
 import com.baidu.android.imsdk.request.MessageExt;
 import com.baidu.android.imsdk.task.TaskManager;
+import com.baidu.android.imsdk.upload.Utils;
 import com.baidu.android.imsdk.upload.action.IMTrack;
+import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.imsdk.a;
+import com.baidu.h.a;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -49,11 +53,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ConversationStudioManImpl {
     private static final int ACK_INTERVAL_TIME = 3000;
     private static final int ACK_MAX_COUNT = 1;
     private static final int RELIABLE_MAX_COUNT = 2;
+    private static final int SHORT_ACK_COUNT = 15;
+    private static final int SHORT_ACK_INTERVAL_TIME = 10000;
     private static final String TAG = "ConversationStudioManImpl";
     private static Context mContext;
     private static BroadcastReceiver mNetChangedReceiver;
@@ -64,46 +70,92 @@ public class ConversationStudioManImpl {
     private long mJoinMsgCastId;
     private long mJoinReliableCastId;
     public static int mCastHeartBeatTime = 3000;
+    private static long DEFAULT = -1;
+    private static long BEGIN_JOIN = 1;
     private static volatile ConversationStudioManImpl sInstance = null;
     private static Object syncObject = new Object();
+    private static volatile AtomicBoolean mOpenPingRequest = new AtomicBoolean(false);
+    private static volatile Runnable mPingRunnable = new Runnable() { // from class: com.baidu.android.imsdk.conversation.ConversationStudioManImpl.4
+        @Override // java.lang.Runnable
+        public void run() {
+            a.mHandler.removeCallbacks(ConversationStudioManImpl.mPingRunnable);
+            LogUtils.d(ConversationStudioManImpl.TAG, "pingRequest customPingIntervalMs :" + ConversationStudioManImpl.mCastHeartBeatTime);
+            if (RequsetNetworkUtils.isNetworkAvailable(ConversationStudioManImpl.mContext)) {
+                BIMManager.pingRequest();
+            }
+            a.mHandler.postDelayed(ConversationStudioManImpl.mPingRunnable, ConversationStudioManImpl.mCastHeartBeatTime);
+        }
+    };
     private boolean isRegisterNetReceiver = false;
     private long mMaxMsgId = 0;
     private long mReliableMsgCount = 0;
     private long mReliableMaxMsgId = 0;
+    private long mRelieableJoinStatus = DEFAULT;
+    private long mJoinStatus = DEFAULT;
     private final List<Long> mReliableMcastList = new ArrayList();
     private final List<Long> mAckMcastList = new ArrayList();
     private final ArrayList<ChatMsg> mAckChatMsgList = new ArrayList<>();
     private AtomicBoolean mAcking = new AtomicBoolean(false);
     private Map<Long, FetchConversationStudio> mFetchRunnables = new ConcurrentHashMap();
-    private Runnable mAckRunnable = new Runnable() { // from class: com.baidu.android.imsdk.conversation.ConversationStudioManImpl.1
+    private Runnable mAckRunnable = new Runnable() { // from class: com.baidu.android.imsdk.conversation.ConversationStudioManImpl.2
         @Override // java.lang.Runnable
         public void run() {
-            if (ConversationStudioManImpl.this.mAckChatMsgList.size() > 0) {
-                TaskManager.getInstance(ConversationStudioManImpl.mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.conversation.ConversationStudioManImpl.1.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        try {
-                            a.mHandler.removeCallbacks(ConversationStudioManImpl.this.mAckRunnable);
-                            synchronized (ConversationStudioManImpl.this.mAckChatMsgList) {
-                                LogUtils.e(ConversationStudioManImpl.TAG, "ack mAckChatMsgList.size :" + ConversationStudioManImpl.this.mAckChatMsgList.size());
-                                MessageParser.handleAck(ConversationStudioManImpl.mContext, ConversationStudioManImpl.this.mAckChatMsgList, false);
-                                ConversationStudioManImpl.this.mAckChatMsgList.clear();
-                            }
-                            a.mHandler.postDelayed(ConversationStudioManImpl.this.mAckRunnable, IMConnection.RETRY_DELAY_TIMES);
-                        } catch (Exception e) {
-                            LogUtils.e(ConversationStudioManImpl.TAG, "ackRunnable Exception :", e);
-                            a.mHandler.removeCallbacks(ConversationStudioManImpl.this.mAckRunnable);
-                        }
+            if (ConversationStudioManImpl.this.mAckChatMsgList.size() > 0 && ConversationStudioManImpl.this.getConnectState()) {
+                synchronized (ConversationStudioManImpl.this.mAckChatMsgList) {
+                    try {
+                        LogUtils.d(ConversationStudioManImpl.TAG, "mAckRunnable ~~~");
+                        LogUtils.e(ConversationStudioManImpl.TAG, "ack mAckChatMsgList.size :" + ConversationStudioManImpl.this.mAckChatMsgList.size());
+                        ArrayList arrayList = new ArrayList(ConversationStudioManImpl.this.mAckChatMsgList);
+                        a.mHandler.removeCallbacks(ConversationStudioManImpl.this.mAckRunnable);
+                        MessageParser.handleAck(ConversationStudioManImpl.mContext, arrayList, false);
+                        ConversationStudioManImpl.this.mAckChatMsgList.clear();
+                        a.mHandler.postDelayed(ConversationStudioManImpl.this.mAckRunnable, IMConnection.RETRY_DELAY_TIMES);
+                    } catch (Exception e) {
+                        LogUtils.e(ConversationStudioManImpl.TAG, "ackRunnable Exception :", e);
+                        a.mHandler.removeCallbacks(ConversationStudioManImpl.this.mAckRunnable);
+                        ConversationStudioManImpl.this.mAckChatMsgList.clear();
+                        a.mHandler.postDelayed(ConversationStudioManImpl.this.mAckRunnable, IMConnection.RETRY_DELAY_TIMES);
                     }
-                });
+                }
                 return;
             }
             LogUtils.d(ConversationStudioManImpl.TAG, "mAcking reset false");
             ConversationStudioManImpl.this.mAcking.set(false);
         }
     };
+    private Runnable mHttpAckRunnable = new Runnable() { // from class: com.baidu.android.imsdk.conversation.ConversationStudioManImpl.3
+        @Override // java.lang.Runnable
+        public void run() {
+            if (ConversationStudioManImpl.this.mAckChatMsgList.size() <= 0 || ConversationStudioManImpl.this.getConnectState() || !RequsetNetworkUtils.isNetworkAvailable(ConversationStudioManImpl.mContext)) {
+                a.mHandler.removeCallbacks(ConversationStudioManImpl.this.mHttpAckRunnable);
+                a.mHandler.postDelayed(ConversationStudioManImpl.this.mHttpAckRunnable, 10000L);
+                return;
+            }
+            synchronized (ConversationStudioManImpl.this.mAckChatMsgList) {
+                LogUtils.d(ConversationStudioManImpl.TAG, "mHttpAckRunnable");
+                LogUtils.e(ConversationStudioManImpl.TAG, "ack mAckChatMsgList.size :" + ConversationStudioManImpl.this.mAckChatMsgList.size());
+                a.mHandler.removeCallbacks(ConversationStudioManImpl.this.mHttpAckRunnable);
+                for (List list : Utils.splitList(new ArrayList(ConversationStudioManImpl.this.mAckChatMsgList), 15)) {
+                    final ArrayList arrayList = (ArrayList) list;
+                    final long contacter = ((ChatMsg) arrayList.get(0)).getContacter();
+                    final int category = ((ChatMsg) arrayList.get(0)).getCategory();
+                    LogUtils.d(ConversationStudioManImpl.TAG, "contacter:" + contacter + ",category:" + category);
+                    LogUtils.d(ConversationStudioManImpl.TAG, "onePage.size:" + arrayList.size());
+                    TaskManager.getInstance(ConversationStudioManImpl.mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.conversation.ConversationStudioManImpl.3.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            IMAckRequest iMAckRequest = new IMAckRequest(ConversationStudioManImpl.mContext, "", Utility.getUK(ConversationStudioManImpl.mContext), contacter, category, 0, 0L, 0L, false, arrayList);
+                            HttpHelper.executor(ConversationStudioManImpl.mContext, iMAckRequest, iMAckRequest);
+                        }
+                    });
+                }
+                ConversationStudioManImpl.this.mAckChatMsgList.clear();
+                a.mHandler.postDelayed(ConversationStudioManImpl.this.mHttpAckRunnable, 10000L);
+            }
+        }
+    };
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     interface HeartbeatOperation {
         void cancelHearbeat();
 
@@ -124,6 +176,8 @@ public class ConversationStudioManImpl {
 
     private ConversationStudioManImpl() {
         initStudio();
+        a.mHandler.removeCallbacks(this.mHttpAckRunnable);
+        a.mHandler.postDelayed(this.mHttpAckRunnable, 10000L);
     }
 
     public BIMConversation getConversation(BIMManager.CATEGORY category, String str, boolean z, String str2, int i) {
@@ -154,7 +208,7 @@ public class ConversationStudioManImpl {
         clear();
         mRandom = new Random();
         Class<?>[] clsArr = {IMJoinCastMsg.class, IMQuitCastMsg.class, IMSendQuizOptMsg.class};
-        int[] iArr = {201, 202, Constants.METHOD_IM_SEND_QUIZ_ANSWER_CAST};
+        int[] iArr = {201, 202, 210};
         for (int i = 0; i < clsArr.length; i++) {
             MessageFactory.getInstance().addType(iArr[i], clsArr[i]);
         }
@@ -163,8 +217,10 @@ public class ConversationStudioManImpl {
 
     public void clear() {
         clearReliableCastList();
-        clearAckCastList();
         clearFetchRunnable();
+        if (a.mHandler != null) {
+            a.mHandler.removeCallbacks(mPingRunnable);
+        }
     }
 
     public boolean isReliable(long j) {
@@ -184,9 +240,6 @@ public class ConversationStudioManImpl {
     public void addReliableCastId(long j) {
         if (j > 0) {
             synchronized (this.mReliableMcastList) {
-                if (this.mReliableMcastList.size() >= 2) {
-                    this.mReliableMcastList.remove(0);
-                }
                 if (!this.mReliableMcastList.contains(Long.valueOf(j))) {
                     this.mReliableMcastList.add(Long.valueOf(j));
                 }
@@ -207,13 +260,8 @@ public class ConversationStudioManImpl {
     }
 
     public void addFetchCastId(long j, FetchConversationStudio fetchConversationStudio) {
-        if (j > 0) {
-            if (this.mFetchRunnables.size() >= 2) {
-                this.mFetchRunnables.keySet().iterator().remove();
-            }
-            if (!this.mFetchRunnables.containsKey(Long.valueOf(j))) {
-                this.mFetchRunnables.put(Long.valueOf(j), fetchConversationStudio);
-            }
+        if (j > 0 && !this.mFetchRunnables.containsKey(Long.valueOf(j))) {
+            this.mFetchRunnables.put(Long.valueOf(j), fetchConversationStudio);
         }
     }
 
@@ -229,19 +277,21 @@ public class ConversationStudioManImpl {
             this.mBeginReliableCastId = j;
             this.mReliableMaxMsgId = 0L;
             this.mReliableMsgCount = 0L;
+            this.mRelieableJoinStatus = BEGIN_JOIN;
         } else {
             this.mBeginMsgCastId = j;
+            this.mJoinStatus = BEGIN_JOIN;
         }
         this.mJoinReliableCastId = 0L;
         this.mJoinMsgCastId = 0L;
         String addListener = ListenerManager.getInstance().addListener(iMcastSetListener);
-        if (a.axQ || LoginManager.getInstance(mContext).isIMLogined()) {
+        if (LoginManager.getInstance(mContext).isIMLogined()) {
             Intent createMcastMethodIntent = Utility.createMcastMethodIntent(mContext, 201);
             createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             createMcastMethodIntent.putExtra("mcast_id", j);
             createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, z);
             try {
-                a.ao(mContext).e(mContext, createMcastMethodIntent);
+                a.aq(mContext).e(mContext, createMcastMethodIntent);
                 new IMTrack.RequestBuilder(mContext).requestId("" + j).requestTime(System.currentTimeMillis()).ext("service enqueue join").aliasId(501112L).build();
                 return;
             } catch (Exception e) {
@@ -251,7 +301,15 @@ public class ConversationStudioManImpl {
                 return;
             }
         }
-        onJoinCastResult(addListener, 1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, j);
+        if (LoginManager.getInstance(mContext).getCurrentState() == LoginManager.LoginState.NOT_LOGIN) {
+            TaskManager.getInstance(mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.conversation.ConversationStudioManImpl.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    LoginManager.getInstance(ConversationStudioManImpl.mContext).triggleLogoutListener(4001, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
+                }
+            });
+        }
+        onJoinCastResult(addListener, 1001, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, j);
     }
 
     public void onJoinCastResult(String str, int i, String str2, long j) {
@@ -259,27 +317,32 @@ public class ConversationStudioManImpl {
         IMcastSetListener iMcastSetListener = (IMcastSetListener) ListenerManager.getInstance().removeListener(str);
         LogUtils.d(TAG, "onJoinCastResult----errorCode: " + i + " msg: " + str2 + ", castId :" + j + ", listener :" + iMcastSetListener);
         if (iMcastSetListener != null) {
+            mOpenPingRequest.set(false);
+            setMcastQuickHeartBeat();
             iMcastSetListener.onResult(i, j, -1L);
             if (i == 0) {
                 if (isReliable(j)) {
                     this.mJoinReliableCastId = j;
+                    this.mRelieableJoinStatus = i;
                     FetchConversationStudio fetchConversationStudio = this.mFetchRunnables.get(Long.valueOf(j));
                     if (fetchConversationStudio == null) {
                         fetchConversationStudio = new FetchConversationStudio(mContext, j);
                         addFetchCastId(j, fetchConversationStudio);
                     }
-                    fetchConversationStudio.fetchCastMsgByMsgId(true);
+                    fetchConversationStudio.fetchCastMsgByMsgId();
                 } else {
                     this.mJoinMsgCastId = j;
+                    this.mJoinStatus = i;
                 }
                 registerNetChangedReceiver();
-                setMcastQuickHeartBeat();
                 str3 = "join callback ok";
             } else if (isReliable(j)) {
                 this.mJoinReliableCastId = -1000L;
+                this.mRelieableJoinStatus = i;
                 str3 = "join callback ok";
             } else {
                 this.mJoinMsgCastId = -1000L;
+                this.mJoinStatus = i;
                 str3 = "join callback ok";
             }
         } else {
@@ -307,8 +370,6 @@ public class ConversationStudioManImpl {
             this.mBeginReliableCastId = 0L;
             this.mReliableMsgCount = 0L;
             this.mReliableMaxMsgId = 0L;
-            removeReliableCastId(j);
-            removeFetchCastId(j);
         } else {
             this.mBeginMsgCastId = 0L;
         }
@@ -317,7 +378,7 @@ public class ConversationStudioManImpl {
             createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             createMcastMethodIntent.putExtra("mcast_id", j);
             try {
-                a.ao(mContext).e(mContext, createMcastMethodIntent);
+                a.aq(mContext).e(mContext, createMcastMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -332,14 +393,14 @@ public class ConversationStudioManImpl {
     public void sendQuizOpts(long j, long j2, int i, String str, IMcastSetListener iMcastSetListener) {
         String addListener = ListenerManager.getInstance().addListener(iMcastSetListener);
         if (AccountManager.isLogin(mContext)) {
-            Intent createMcastMethodIntent = Utility.createMcastMethodIntent(mContext, Constants.METHOD_IM_SEND_QUIZ_ANSWER_CAST);
+            Intent createMcastMethodIntent = Utility.createMcastMethodIntent(mContext, 210);
             createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             createMcastMethodIntent.putExtra("mcast_id", j2);
             createMcastMethodIntent.putExtra("room_id", j);
             createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_CODE, i);
             createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, str);
             try {
-                a.ao(mContext).e(mContext, createMcastMethodIntent);
+                a.aq(mContext).e(mContext, createMcastMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -362,6 +423,8 @@ public class ConversationStudioManImpl {
     }
 
     public void handleMessage(JSONObject jSONObject) {
+        if (!a.ayO || jSONObject != null) {
+        }
         JSONArray jSONArray = new JSONArray();
         try {
             long optLong = jSONObject.optLong("mcast_id");
@@ -400,6 +463,7 @@ public class ConversationStudioManImpl {
                 MessageExt.getInstance().setLastCallbackMsgId((Long) Collections.max(arrayList));
                 ChatMsgManagerImpl.getInstance(mContext).deliverMcastMessage(optLong + "", jSONArray);
                 if (isAck(optLong)) {
+                    LogUtils.d(TAG, "toAck");
                     toAck(jSONArray);
                 }
             }
@@ -442,12 +506,23 @@ public class ConversationStudioManImpl {
                 this.mAckChatMsgList.add(it.next());
             }
         }
+        LogUtils.d(TAG, "mAckChatMsgList size:" + this.mAckChatMsgList.size());
         if (!this.mAcking.get()) {
             LogUtils.d(TAG, "begin ack");
             this.mAcking.set(true);
             a.mHandler.removeCallbacks(this.mAckRunnable);
             a.mHandler.postDelayed(this.mAckRunnable, IMConnection.RETRY_DELAY_TIMES);
         }
+    }
+
+    public boolean getConnectState() {
+        if (a.ayO) {
+            if (com.baidu.lcp.sdk.client.a.Aj() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return IMConnection.getInstance(mContext).isConnected();
     }
 
     public boolean isAck(long j) {
@@ -460,10 +535,7 @@ public class ConversationStudioManImpl {
     public void addAckCastId(long j) {
         if (j > 0) {
             synchronized (this.mAckMcastList) {
-                if (this.mAckChatMsgList.size() >= 1) {
-                    this.mAckChatMsgList.remove(0);
-                }
-                if (!this.mAckChatMsgList.contains(Long.valueOf(j))) {
+                if (!this.mAckMcastList.contains(Long.valueOf(j))) {
                     this.mAckMcastList.add(Long.valueOf(j));
                 }
             }
@@ -485,7 +557,7 @@ public class ConversationStudioManImpl {
     }
 
     public static void resetHeartBeat(int i) {
-        if (!a.axQ) {
+        if (!a.ayO) {
             Heartbeat.ALARM_TIMEOUT = i;
             LogUtils.d(TAG, "reset heartbeat time to = " + Heartbeat.ALARM_TIMEOUT);
             IMSDK.getInstance(mContext).mHeartbeatOperator.cancelHearbeat();
@@ -494,38 +566,44 @@ public class ConversationStudioManImpl {
     }
 
     public void setMcastQuickHeartBeat() {
-        if (!a.axQ) {
-            mCastHeartBeatTime = mRandom.nextInt(3000) + 3000;
-            LogUtils.d(TAG, "mcast now quick heart beat = " + mCastHeartBeatTime);
-            if (mcastHeartbeat == null) {
-                mcastHeartbeat = new McastHeartbeat();
-                mcastHeartbeat.startHeartbeat();
-            }
+        if (a.ayO && !mOpenPingRequest.get()) {
+            mOpenPingRequest.set(true);
+            pingRequest(true, mCastHeartBeatTime);
+            return;
+        }
+        mCastHeartBeatTime = mRandom.nextInt(3000) + 3000;
+        LogUtils.d(TAG, "mcast now quick heart beat = " + mCastHeartBeatTime);
+        if (mcastHeartbeat == null) {
+            mcastHeartbeat = new McastHeartbeat();
+            mcastHeartbeat.startHeartbeat();
         }
     }
 
     public void cancelMcastQuickHeartBeat() {
-        if (!a.axQ) {
-            if (mcastHeartbeat != null) {
-                mcastHeartbeat.cancelHearbeat();
-                mcastHeartbeat = null;
-                LogUtils.d(TAG, "mcast quick heart beat canceled! ");
-            }
-            resetHeartBeat(60000);
+        if (a.ayO && mOpenPingRequest.get()) {
+            mOpenPingRequest.set(false);
+            pingRequest(false, 0L);
+            return;
         }
+        if (mcastHeartbeat != null) {
+            mcastHeartbeat.cancelHearbeat();
+            mcastHeartbeat = null;
+            LogUtils.d(TAG, "mcast quick heart beat canceled! ");
+        }
+        resetHeartBeat(60000);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class McastHeartbeat implements HeartbeatOperation {
         private Runnable startHeartBeatTask = new Runnable() { // from class: com.baidu.android.imsdk.conversation.ConversationStudioManImpl.McastHeartbeat.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (!a.axQ) {
+                    if (!a.ayO) {
                         Intent intent = new Intent(ConversationStudioManImpl.mContext, a.class);
                         intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                         intent.setPackage(ConversationStudioManImpl.mContext.getPackageName());
-                        a.ao(ConversationStudioManImpl.mContext).e(ConversationStudioManImpl.mContext, intent);
+                        a.aq(ConversationStudioManImpl.mContext).e(ConversationStudioManImpl.mContext, intent);
                     }
                 } catch (Exception e) {
                     if (e instanceof SecurityException) {
@@ -560,12 +638,28 @@ public class ConversationStudioManImpl {
         }
     }
 
+    public void pingRequest(boolean z, long j) {
+        if (z) {
+            a.mHandler.removeCallbacks(mPingRunnable);
+            a.mHandler.postDelayed(mPingRunnable, j);
+        } else {
+            a.mHandler.removeCallbacks(mPingRunnable);
+        }
+        LogUtils.d(TAG, "pingRequest show :" + z + ", customPingIntervalMs :" + j);
+    }
+
     public String getAllCastIdList() {
         StringBuilder sb = new StringBuilder();
         sb.append("begin:").append(this.mBeginMsgCastId);
-        sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP).append(this.mBeginReliableCastId);
+        sb.append(",").append(this.mBeginReliableCastId);
         sb.append(",joined:").append(this.mJoinMsgCastId);
-        sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP).append(this.mJoinReliableCastId);
+        sb.append(",").append(this.mJoinReliableCastId);
+        sb.append(",JoinStatus:").append(this.mJoinStatus);
+        sb.append(",reliableJoinStatus:").append(this.mRelieableJoinStatus);
+        sb.append(",reliableMaxMsgId:").append(Utility.getReliableMaxMsgId(mContext, this.mJoinReliableCastId));
+        sb.append(",imLoginStatus:").append(LoginManager.getInstance(mContext).isIMLogined());
+        sb.append(",lcpStatus:").append(getConnectState());
+        LogUtils.d(TAG, "getAllCastIdList:" + sb.toString());
         return sb.toString();
     }
 
@@ -582,7 +676,7 @@ public class ConversationStudioManImpl {
     }
 
     private void registerNetChangedReceiver() {
-        if (!a.axQ) {
+        if (!a.ayO) {
             try {
                 if (mNetChangedReceiver == null && mContext != null) {
                     mNetChangedReceiver = new IMReceiver();
@@ -601,7 +695,7 @@ public class ConversationStudioManImpl {
     }
 
     private void unRegisterNetChangedReceiver() {
-        if (!a.axQ) {
+        if (!a.ayO) {
             try {
                 if (this.isRegisterNetReceiver && mContext != null) {
                     mContext.unregisterReceiver(mNetChangedReceiver);
@@ -615,7 +709,7 @@ public class ConversationStudioManImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class McastTodoAfterLogin implements TodoAfterLogin {
         McastTodoAfterLogin() {
         }

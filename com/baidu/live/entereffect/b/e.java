@@ -6,51 +6,51 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class e {
-    private List<com.baidu.live.im.data.a> aSe;
-    private com.baidu.live.im.data.a aSf;
+    private List<com.baidu.live.im.data.b> aVg;
+    private com.baidu.live.im.data.b aVh;
 
-    public static e EM() {
-        return a.aSh;
+    public static e Gx() {
+        return a.aVj;
     }
 
-    public void j(com.baidu.live.im.data.a aVar) {
-        if (this.aSe == null) {
-            this.aSe = new ArrayList();
+    public void j(com.baidu.live.im.data.b bVar) {
+        if (this.aVg == null) {
+            this.aVg = new ArrayList();
         }
-        if (k(aVar) || this.aSe.size() < com.baidu.live.aa.a.Ph().bms.aLr) {
-            this.aSe.add(aVar);
+        if (k(bVar) || this.aVg.size() < com.baidu.live.ae.a.RB().brA.aOm) {
+            this.aVg.add(bVar);
         }
     }
 
-    private boolean k(com.baidu.live.im.data.a aVar) {
-        return aVar != null && aVar.getUserId() == JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
+    private boolean k(com.baidu.live.im.data.b bVar) {
+        return bVar != null && bVar.getUserId() == JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
     }
 
     public boolean hasMsg() {
-        return (this.aSe == null || this.aSe.isEmpty()) ? false : true;
+        return (this.aVg == null || this.aVg.isEmpty()) ? false : true;
     }
 
-    public boolean EI() {
-        return this.aSf != null;
+    public boolean Gt() {
+        return this.aVh != null;
     }
 
-    public com.baidu.live.im.data.a EJ() {
+    public com.baidu.live.im.data.b Gu() {
         if (hasMsg()) {
-            this.aSf = this.aSe.remove(0);
+            this.aVh = this.aVg.remove(0);
         } else {
-            this.aSf = null;
+            this.aVh = null;
         }
-        return this.aSf;
+        return this.aVh;
     }
 
-    public com.baidu.live.im.data.a EK() {
-        return this.aSf;
+    public com.baidu.live.im.data.b Gv() {
+        return this.aVh;
     }
 
     public void release() {
-        this.aSf = null;
-        if (this.aSe != null) {
-            this.aSe.clear();
+        this.aVh = null;
+        if (this.aVg != null) {
+            this.aVg.clear();
         }
     }
 
@@ -59,6 +59,6 @@ public class e {
 
     /* loaded from: classes4.dex */
     private static class a {
-        private static final e aSh = new e();
+        private static final e aVj = new e();
     }
 }

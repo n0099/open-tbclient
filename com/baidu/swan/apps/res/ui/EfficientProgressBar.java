@@ -12,45 +12,45 @@ import android.view.animation.AnimationSet;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.Transformation;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class EfficientProgressBar extends View {
-    private int dmc;
-    private int dmd;
-    private int dme;
-    private long dmf;
-    private Transformation dmg;
-    private AnimationSet dmh;
-    private float dmi;
+    private int dtd;
+    private int dte;
+    private int dtf;
+    private long dtg;
+    private Transformation dth;
+    private AnimationSet dti;
+    private Drawable dtj;
+    private float dtk;
     private Interpolator mInterpolator;
-    private Drawable mThumb;
 
     public EfficientProgressBar(Context context) {
         super(context);
-        this.dme = jG(66);
-        this.dmf = -1L;
-        this.dmg = new Transformation();
+        this.dtf = ke(66);
+        this.dtg = -1L;
+        this.dth = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
-        this.dmi = -1.0f;
+        this.dtk = -1.0f;
         init();
     }
 
     public EfficientProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dme = jG(66);
-        this.dmf = -1L;
-        this.dmg = new Transformation();
+        this.dtf = ke(66);
+        this.dtg = -1L;
+        this.dth = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
-        this.dmi = -1.0f;
+        this.dtk = -1.0f;
         init();
     }
 
     public EfficientProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dme = jG(66);
-        this.dmf = -1L;
-        this.dmg = new Transformation();
+        this.dtf = ke(66);
+        this.dtg = -1L;
+        this.dth = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
-        this.dmi = -1.0f;
+        this.dtk = -1.0f;
         init();
     }
 
@@ -58,83 +58,83 @@ public class EfficientProgressBar extends View {
     }
 
     public void setProgressDrawable(Drawable drawable) {
-        this.mThumb = drawable;
+        this.dtj = drawable;
     }
 
     public void setProgress(int i, boolean z) {
-        if (i != 100 || jH(this.dmc) != 100) {
-            this.dmc = jG(i);
+        if (i != 100 || kf(this.dtd) != 100) {
+            this.dtd = ke(i);
             if (i == 100) {
-                if (this.dmh == null) {
-                    gk(z);
+                if (this.dti == null) {
+                    gz(z);
                 }
-            } else if (this.dmf == -1) {
+            } else if (this.dtg == -1) {
                 start();
             }
         }
     }
 
     public void reset() {
-        this.dmd = 0;
-        this.dmc = 0;
-        this.dmf = -1L;
-        this.dmh = null;
+        this.dte = 0;
+        this.dtd = 0;
+        this.dtg = -1L;
+        this.dti = null;
         A(0, false);
         setVisibility(4);
     }
 
     @TargetApi(11)
-    private void aFC() {
+    private void aIK() {
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         float f = -1.0f;
         if (width > 0) {
-            f = ((10000 - this.dmd) / 10000.0f) * width;
+            f = ((10000 - this.dte) / 10000.0f) * width;
         }
         if (f > 0.0f) {
             if (Build.VERSION.SDK_INT >= 11) {
                 setTranslationX(-f);
             }
-            this.dmi = f;
+            this.dtk = f;
         }
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        setMeasuredDimension(View.MeasureSpec.getSize(i), (this.mThumb == null ? 0 : this.mThumb.getIntrinsicHeight()) + getPaddingBottom() + getPaddingTop());
+        setMeasuredDimension(View.MeasureSpec.getSize(i), (this.dtj == null ? 0 : this.dtj.getIntrinsicHeight()) + getPaddingBottom() + getPaddingTop());
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (z && this.mThumb != null) {
-            this.mThumb.setBounds(getPaddingLeft(), getPaddingTop(), (i3 - i) - getPaddingRight(), (i4 - i2) - getPaddingBottom());
+        if (z && this.dtj != null) {
+            this.dtj.setBounds(getPaddingLeft(), getPaddingTop(), (i3 - i) - getPaddingRight(), (i4 - i2) - getPaddingBottom());
         }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.mThumb != null) {
-            if (this.dmh != null) {
-                if (this.dmh.getTransformation(getDrawingTime(), this.dmg)) {
-                    A((int) (this.dmg.getAlpha() * 10000.0f), false);
+        if (this.dtj != null) {
+            if (this.dti != null) {
+                if (this.dti.getTransformation(getDrawingTime(), this.dth)) {
+                    A((int) (this.dth.getAlpha() * 10000.0f), false);
                 } else {
-                    this.dmh = null;
+                    this.dti = null;
                     reset();
                 }
-            } else if (this.dmf != -1 && this.dmd < this.dme) {
+            } else if (this.dtg != -1 && this.dte < this.dtf) {
                 long currentTimeMillis = System.currentTimeMillis();
-                int cl = cl(currentTimeMillis - this.dmf);
-                this.dmd += cl;
-                if (cl != 0) {
-                    this.dmf = currentTimeMillis;
-                    A(this.dmd, true);
+                int cK = cK(currentTimeMillis - this.dtg);
+                this.dte += cK;
+                if (cK != 0) {
+                    this.dtg = currentTimeMillis;
+                    A(this.dte, true);
                 }
             }
             int i = -1;
             if (getPaddingLeft() > 0) {
                 i = canvas.save();
-                canvas.clipRect(this.dmi + getPaddingLeft(), 0.0f, getWidth(), getHeight());
+                canvas.clipRect(this.dtk + getPaddingLeft(), 0.0f, getWidth(), getHeight());
             }
-            this.mThumb.draw(canvas);
+            this.dtj.draw(canvas);
             if (i >= 0) {
                 canvas.restoreToCount(i);
             }
@@ -145,8 +145,8 @@ public class EfficientProgressBar extends View {
         if (i > 10000) {
             i = 10000;
         }
-        this.dmd = i;
-        aFC();
+        this.dte = i;
+        aIK();
         if (z) {
             postInvalidateDelayed(50L);
         } else {
@@ -155,24 +155,24 @@ public class EfficientProgressBar extends View {
     }
 
     private void start() {
-        this.dmd = 0;
-        this.dmc = 0;
-        this.dmh = null;
-        this.dmf = System.currentTimeMillis();
-        A(this.dmd, false);
+        this.dte = 0;
+        this.dtd = 0;
+        this.dti = null;
+        this.dtg = System.currentTimeMillis();
+        A(this.dte, false);
         setVisibility(0);
     }
 
-    private void gk(boolean z) {
+    private void gz(boolean z) {
         if (getVisibility() == 0) {
             if (z) {
-                this.dmh = new AnimationSet(false);
-                AlphaAnimation alphaAnimation = new AlphaAnimation(this.dmd / 10000.0f, 1.0f);
+                this.dti = new AnimationSet(false);
+                AlphaAnimation alphaAnimation = new AlphaAnimation(this.dte / 10000.0f, 1.0f);
                 alphaAnimation.setDuration(200L);
                 alphaAnimation.setInterpolator(this.mInterpolator);
-                this.dmh.addAnimation(alphaAnimation);
-                this.dmg.clear();
-                this.dmh.start();
+                this.dti.addAnimation(alphaAnimation);
+                this.dth.clear();
+                this.dti.start();
                 invalidate();
                 return;
             }
@@ -180,15 +180,15 @@ public class EfficientProgressBar extends View {
         }
     }
 
-    private int cl(long j) {
-        return (int) ((jG(66) / 1500.0f) * ((float) j));
+    private int cK(long j) {
+        return (int) ((ke(66) / 1500.0f) * ((float) j));
     }
 
-    private int jG(int i) {
+    private int ke(int i) {
         return i * 100;
     }
 
-    private int jH(int i) {
+    private int kf(int i) {
         return i / 100;
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.mapapi.walknavi.model;
 
 import android.graphics.Bitmap;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class BaseNpcModel {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2175a = "";
+    private String f2177a = "";
     private String b = "";
     private String c = "";
     private Bitmap d = null;
@@ -13,11 +13,11 @@ public class BaseNpcModel {
     private boolean f = false;
 
     public String getDownLoadKey() {
-        return this.f2175a;
+        return this.f2177a;
     }
 
     public void setDownLoadKey(String str) {
-        this.f2175a = str;
+        this.f2177a = str;
     }
 
     public String getOriginTitle() {

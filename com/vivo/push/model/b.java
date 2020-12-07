@@ -5,7 +5,7 @@ import android.text.TextUtils;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4685a;
+    private String f4455a;
     private String d;
     private long b = -1;
     private int c = -1;
@@ -16,11 +16,11 @@ public final class b {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalAccessError("PushPackageInfo need a non-null pkgName.");
         }
-        this.f4685a = str;
+        this.f4455a = str;
     }
 
     public final String a() {
-        return this.f4685a;
+        return this.f4455a;
     }
 
     public final long b() {
@@ -56,6 +56,6 @@ public final class b {
     }
 
     public final String toString() {
-        return "PushPackageInfo{mPackageName=" + this.f4685a + ", mPushVersion=" + this.b + ", mPackageVersion=" + this.c + ", mInBlackList=" + this.e + ", mPushEnable=" + this.f + "}";
+        return "PushPackageInfo{mPackageName=" + this.f4455a + ", mPushVersion=" + this.b + ", mPackageVersion=" + this.c + ", mInBlackList=" + this.e + ", mPushEnable=" + this.f + "}";
     }
 }

@@ -10,7 +10,7 @@ public class PassBiometricDefaultFactory extends PassBiometricFactory {
     public static final String VERSION_NAME = "1.2.2";
 
     /* renamed from: a  reason: collision with root package name */
-    private static PassBiometricDefaultFactory f2688a;
+    private static PassBiometricDefaultFactory f2690a;
 
     private PassBiometricDefaultFactory() {
     }
@@ -30,14 +30,14 @@ public class PassBiometricDefaultFactory extends PassBiometricFactory {
     }
 
     public static PassBiometricDefaultFactory getInstance() {
-        if (f2688a == null) {
+        if (f2690a == null) {
             synchronized (PassBiometricDefaultFactory.class) {
-                if (f2688a == null) {
-                    f2688a = new PassBiometricDefaultFactory();
+                if (f2690a == null) {
+                    f2690a = new PassBiometricDefaultFactory();
                 }
             }
         }
-        return f2688a;
+        return f2690a;
     }
 
     @Override // com.baidu.pass.biometrics.base.PassBiometricFactory

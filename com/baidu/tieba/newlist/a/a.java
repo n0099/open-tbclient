@@ -5,31 +5,31 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> biN;
-    private v inB;
+    private List<com.baidu.adp.widget.ListView.a> bnf;
+    private v iyt;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, v vVar) {
         this.mPageContext = tbPageContext;
-        this.inB = vVar;
-        Lp();
-        this.inB.addAdapters(this.biN);
+        this.iyt = vVar;
+        Nt();
+        this.iyt.addAdapters(this.bnf);
     }
 
-    private void Lp() {
-        this.biN = new ArrayList();
-        this.biN.add(new b(this.mPageContext));
+    private void Nt() {
+        this.bnf = new ArrayList();
+        this.bnf.add(new b(this.mPageContext));
     }
 
     public void notifyDataSetChanged() {
-        if (this.inB != null) {
-            this.inB.getListAdapter().notifyDataSetChanged();
+        if (this.iyt != null) {
+            this.iyt.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<q> list) {
-        this.inB.setData(list);
+        this.iyt.setData(list);
     }
 }

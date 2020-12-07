@@ -1,7 +1,7 @@
 package com.baidu.ar.http;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class h {
-    public int qQ;
-    public int qR;
-    public boolean qS;
+    public int rg;
+    public int rh;
+    public boolean ri;
 }

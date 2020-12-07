@@ -6,8 +6,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.data.d;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -18,7 +19,7 @@ import com.baidu.tbadk.mutiprocess.g;
 import com.baidu.tbadk.pageInfo.c;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.e;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a {
     public void a(AgreeData agreeData, int i, BdUniqueId bdUniqueId, boolean z) {
         if (agreeData != null) {
@@ -32,6 +33,9 @@ public class a {
             httpMessage.addParam("obj_type", agreeData.objType);
             httpMessage.addParam("agree_type", agreeData.agreeType);
             httpMessage.addParam("forum_id", agreeData.forumId);
+            if (!StringUtil.isEmpty(agreeData.objSource)) {
+                httpMessage.addParam("obj_source", agreeData.objSource);
+            }
             if (!TextUtils.isEmpty(agreeData.postId)) {
                 httpMessage.addParam("post_id", agreeData.postId);
             }
@@ -80,45 +84,45 @@ public class a {
         g.publishEvent(agreeEvent);
     }
 
-    public void a(Context context, d dVar, AgreeData agreeData, bx bxVar) {
+    public void a(Context context, d dVar, AgreeData agreeData, by byVar) {
         if (dVar != null && agreeData != null) {
             int i = 0;
             if (agreeData.baijiahaoData != null) {
                 i = agreeData.baijiahaoData.oriUgcType;
             }
-            ar dR = new ar("c13271").ak("obj_type", dVar.exN).ak("obj_locate", dVar.exO).ak("obj_id", dVar.exP).ak("obj_name", i).dR("post_id", agreeData.postId).dR("nid", agreeData.nid);
-            if (bxVar != null) {
-                dR.dR("tid", bxVar.getId()).dR("nid", bxVar.getNid()).w("fid", bxVar.getFid()).dR("ab_tag", bxVar.mRecomAbTag).dR(IntentConfig.RECOM_SOURCE, bxVar.mRecomSource).dR("weight", bxVar.mRecomWeight).dR("extra", bxVar.mRecomExtra);
-                if (bxVar.getBaijiahaoData() != null) {
-                    dR.dR("obj_param4", bxVar.getBaijiahaoData().oriUgcNid);
-                    if (bxVar.bkl() || bxVar.bnA()) {
-                        dR.dR("obj_param6", bxVar.getBaijiahaoData().oriUgcVid);
+            ar dY = new ar("c13271").al("obj_type", dVar.eEO).al("obj_locate", dVar.eEP).al("obj_id", dVar.eEQ).al("obj_name", i).dY("post_id", agreeData.postId).dY("nid", agreeData.nid);
+            if (byVar != null) {
+                dY.dY("tid", byVar.getId()).dY("nid", byVar.getNid()).w("fid", byVar.getFid()).dY("ab_tag", byVar.mRecomAbTag).dY(IntentConfig.RECOM_SOURCE, byVar.mRecomSource).dY("weight", byVar.mRecomWeight).dY("extra", byVar.mRecomExtra);
+                if (byVar.getBaijiahaoData() != null) {
+                    dY.dY("obj_param4", byVar.getBaijiahaoData().oriUgcNid);
+                    if (byVar.bny() || byVar.bqN()) {
+                        dY.dY("obj_param6", byVar.getBaijiahaoData().oriUgcVid);
                     }
                 }
-                if (bxVar.bny()) {
-                    dR.ak("obj_param5", 2);
-                } else if (bxVar.bkk() || bxVar.bkl()) {
-                    dR.ak("obj_param5", 3);
-                } else if (bxVar.threadType == 0 || bxVar.threadType == 40) {
-                    dR.ak("obj_param5", 1);
+                if (byVar.bqL()) {
+                    dY.al("obj_param5", 2);
+                } else if (byVar.bnx() || byVar.bny()) {
+                    dY.al("obj_param5", 3);
+                } else if (byVar.threadType == 0 || byVar.threadType == 40) {
+                    dY.al("obj_param5", 1);
                 }
             } else {
-                dR.dR("tid", agreeData.threadId);
-                dR.dR("nid", agreeData.nid);
-                dR.dR("fid", agreeData.forumId);
-                dR.ak(IntentConfig.CARD_TYPE, agreeData.cardType);
-                dR.dR("ab_tag", agreeData.recomAbTag);
-                dR.dR(IntentConfig.RECOM_SOURCE, agreeData.recomSource);
-                dR.dR("weight", agreeData.recomWeight);
-                dR.dR("extra", agreeData.recomExtra);
+                dY.dY("tid", agreeData.threadId);
+                dY.dY("nid", agreeData.nid);
+                dY.dY("fid", agreeData.forumId);
+                dY.al(IntentConfig.CARD_TYPE, agreeData.cardType);
+                dY.dY("ab_tag", agreeData.recomAbTag);
+                dY.dY(IntentConfig.RECOM_SOURCE, agreeData.recomSource);
+                dY.dY("weight", agreeData.recomWeight);
+                dY.dY("extra", agreeData.recomExtra);
                 if (agreeData.baijiahaoData != null) {
-                    dR.dR("obj_param6", agreeData.baijiahaoData.oriUgcVid);
+                    dY.dY("obj_param6", agreeData.baijiahaoData.oriUgcVid);
                 }
             }
             if (context != null) {
-                c.a(context, dR);
+                c.a(context, dY);
             }
-            TiebaStatic.log(dR);
+            TiebaStatic.log(dY);
         }
     }
 }

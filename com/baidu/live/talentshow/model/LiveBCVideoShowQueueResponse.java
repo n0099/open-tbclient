@@ -5,11 +5,11 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class LiveBCVideoShowQueueResponse extends JsonHttpResponsedMessage {
-    public com.baidu.live.talentshow.components.selector.c bxE;
+    public com.baidu.live.talentshow.components.selector.c bCM;
 
     public LiveBCVideoShowQueueResponse() {
         super(1021224);
-        this.bxE = new com.baidu.live.talentshow.components.selector.c();
+        this.bCM = new com.baidu.live.talentshow.components.selector.c();
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -18,16 +18,16 @@ public class LiveBCVideoShowQueueResponse extends JsonHttpResponsedMessage {
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             com.baidu.live.talentshow.b.b bVar = new com.baidu.live.talentshow.b.b();
             bVar.parserJson(optJSONObject);
-            if (this.bxE.QV() > 0) {
-                this.bxE.clearData();
+            if (this.bCM.Tt() > 0) {
+                this.bCM.clearData();
             }
-            this.bxE.aa(bVar.bvV);
-            this.bxE.aa(bVar.bvU);
-            this.bxE.QW();
+            this.bCM.ac(bVar.bBf);
+            this.bCM.ac(bVar.bBe);
+            this.bCM.Tu();
         }
     }
 
-    public List<com.baidu.live.talentshow.b.d> RV() {
-        return this.bxE.QU();
+    public List<com.baidu.live.talentshow.b.d> Ut() {
+        return this.bCM.Ts();
     }
 }

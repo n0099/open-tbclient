@@ -4,11 +4,11 @@ import android.content.Context;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.ABTestConstant;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.ABTestUtils;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class LivenessABTestUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LivenessABTestUtil f1727a;
+    private static LivenessABTestUtil f1729a;
     private ABTestUtils b;
 
     private LivenessABTestUtil() {
@@ -21,17 +21,17 @@ public class LivenessABTestUtil {
     public static synchronized LivenessABTestUtil getInstance(Context context) {
         LivenessABTestUtil livenessABTestUtil;
         synchronized (LivenessABTestUtil.class) {
-            if (f1727a == null) {
-                f1727a = new LivenessABTestUtil(context);
+            if (f1729a == null) {
+                f1729a = new LivenessABTestUtil(context);
             }
-            livenessABTestUtil = f1727a;
+            livenessABTestUtil = f1729a;
         }
         return livenessABTestUtil;
     }
 
     public static synchronized void cleanInstance() {
         synchronized (LivenessABTestUtil.class) {
-            f1727a = null;
+            f1729a = null;
         }
     }
 

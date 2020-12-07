@@ -16,7 +16,6 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,11 +23,11 @@ import java.util.Map;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class SapiDeviceInfo implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f3529a = 11;
+    private static final int f3532a = 11;
     private static final String c = "android";
     private static final String b = Character.toString(1);
     private static final String d = TextUtils.join("", new String[]{"O", "a", "L", "h", MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, "O", "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", "w", "8", "h", "P"});
@@ -62,7 +61,7 @@ public class SapiDeviceInfo implements NoProguard {
         arrayList.add(diExceptIndex.contains(6) ? "" : SapiUtils.getClientId(context));
         arrayList.add(diExceptIndex.contains(7) ? "" : confignation.tpl);
         arrayList.add(diExceptIndex.contains(8) ? "" : String.valueOf(isAccountManager.getShareAccounts().size()));
-        arrayList.add(diExceptIndex.contains(9) ? "" : TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, b()));
+        arrayList.add(diExceptIndex.contains(9) ? "" : TextUtils.join(",", b()));
         if (diExceptIndex.contains(10) || str == null) {
             str = "";
         }
@@ -96,7 +95,7 @@ public class SapiDeviceInfo implements NoProguard {
         arrayList.add(diExceptIndex.contains(23) ? "" : SapiUtils.getTimeSinceBoot() + "");
         diExceptIndex.contains(24);
         arrayList.add("");
-        arrayList.add(diExceptIndex.contains(25) ? "" : TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, SapiUtils.getPackageList(context)));
+        arrayList.add(diExceptIndex.contains(25) ? "" : TextUtils.join(",", SapiUtils.getPackageList(context)));
         arrayList.add((diExceptIndex.contains(26) || SapiUtils.getLocalIpAddress() == null) ? "" : SapiUtils.getLocalIpAddress());
         arrayList.add(diExceptIndex.contains(27) ? "" : SapiUtils.a(context));
         diExceptIndex.contains(28);
@@ -133,10 +132,10 @@ public class SapiDeviceInfo implements NoProguard {
 
     public static String getDiCookieInfo(List<String> list, boolean z) {
         JSONObject jSONObject = new JSONObject();
-        if (!a.f3530a.isEmpty() && list != null) {
+        if (!a.f3533a.isEmpty() && list != null) {
             for (String str : list) {
                 try {
-                    jSONObject.put(str, a.f3530a.get(str));
+                    jSONObject.put(str, a.f3533a.get(str));
                 } catch (JSONException e) {
                     Log.e(e);
                 }
@@ -173,11 +172,11 @@ public class SapiDeviceInfo implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static Map<String, String> f3530a = new HashMap();
+        static Map<String, String> f3533a = new HashMap();
 
         a() {
         }
@@ -227,7 +226,7 @@ public class SapiDeviceInfo implements NoProguard {
         static void a(List<String> list) {
             List<String> a2 = a();
             for (int i = 0; i < a2.size() && i < list.size(); i++) {
-                f3530a.put(a2.get(i), list.get(i));
+                f3533a.put(a2.get(i), list.get(i));
             }
         }
     }

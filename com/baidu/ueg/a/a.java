@@ -1,5 +1,5 @@
 package com.baidu.ueg.a;
-/* loaded from: classes18.dex */
+/* loaded from: classes19.dex */
 public class a {
     public static boolean isBlank(CharSequence charSequence) {
         int length;

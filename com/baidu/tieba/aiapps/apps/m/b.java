@@ -21,40 +21,40 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class b implements Runnable {
-    private boolean cZW;
-    private ArrayList<MediaModel> daQ;
-    private String dbJ;
-    private String dbL;
-    private com.baidu.swan.apps.media.chooser.c.d fXg;
-    private HandlerC0619b fXh;
-    private a fXi;
+    private boolean dgW;
+    private ArrayList<MediaModel> dhO;
+    private String diK;
+    private String diM;
+    private com.baidu.swan.apps.media.chooser.c.d gfr;
+    private HandlerC0631b gfs;
+    private a gft;
     private Context mContext;
 
     public b(Context context, Bundle bundle, com.baidu.swan.apps.media.chooser.c.d dVar) {
         this.mContext = context;
-        this.daQ = bundle.getParcelableArrayList("mediaModels");
-        this.dbJ = u.safeGetString(bundle, "swanAppId");
-        this.cZW = u.c(bundle, "compressed", false);
-        this.dbL = u.safeGetString(bundle, "swanTmpPath");
-        this.fXg = dVar;
-        this.fXh = new HandlerC0619b(context);
+        this.dhO = bundle.getParcelableArrayList("mediaModels");
+        this.diK = u.safeGetString(bundle, "swanAppId");
+        this.dgW = u.c(bundle, "compressed", false);
+        this.diM = u.safeGetString(bundle, "swanTmpPath");
+        this.gfr = dVar;
+        this.gfs = new HandlerC0631b(context);
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        bLb();
-        if (this.fXh != null) {
-            this.fXh.sendEmptyMessage(1);
+        bOJ();
+        if (this.gfs != null) {
+            this.gfs.sendEmptyMessage(1);
         }
-        if (this.cZW) {
-            Iterator<MediaModel> it = this.daQ.iterator();
+        if (this.dgW) {
+            Iterator<MediaModel> it = this.dhO.iterator();
             while (it.hasNext()) {
                 MediaModel next = it.next();
                 if (next != null) {
                     if (next instanceof ImageModel) {
-                        if (TextUtils.equals(com.baidu.swan.c.d.zc(next.getPath()), "gif")) {
+                        if (TextUtils.equals(com.baidu.swan.c.d.zJ(next.getPath()), "gif")) {
                             i(next);
                         } else {
                             b(next, 20);
@@ -65,7 +65,7 @@ public class b implements Runnable {
                 }
             }
         } else {
-            Iterator<MediaModel> it2 = this.daQ.iterator();
+            Iterator<MediaModel> it2 = this.dhO.iterator();
             while (it2.hasNext()) {
                 MediaModel next2 = it2.next();
                 if (next2 != null) {
@@ -77,21 +77,21 @@ public class b implements Runnable {
                 }
             }
         }
-        if (this.fXh != null) {
-            this.fXh.sendEmptyMessage(2);
+        if (this.gfs != null) {
+            this.gfs.sendEmptyMessage(2);
         }
-        if (this.fXg != null) {
-            this.fXg.a(true, null, this.daQ);
+        if (this.gfr != null) {
+            this.gfr.a(true, null, this.dhO);
         }
-        bLc();
+        bOK();
     }
 
     private void i(MediaModel mediaModel) {
         if (mediaModel != null) {
             File file = new File(mediaModel.getPath());
-            File cG = t.cG(this.dbL, file.getName());
-            if (cG != null && cG.exists() && com.baidu.swan.c.d.copyFile(file, cG) != 0) {
-                mediaModel.pZ(cG.getPath());
+            File cN = t.cN(this.diM, file.getName());
+            if (cN != null && cN.exists() && com.baidu.swan.c.d.copyFile(file, cN) != 0) {
+                mediaModel.qG(cN.getPath());
             }
         }
     }
@@ -102,11 +102,11 @@ public class b implements Runnable {
                 Log.d("CompressTask", "compressImg : " + mediaModel.getPath());
             }
             File file = new File(mediaModel.getPath());
-            File cG = t.cG(this.dbL, file.getName());
-            if (cG != null) {
-                mediaModel.pZ(cG.getAbsolutePath());
-                t.a(file, cG, i);
-                mediaModel.setSize(cG.length());
+            File cN = t.cN(this.diM, file.getName());
+            if (cN != null) {
+                mediaModel.qG(cN.getAbsolutePath());
+                t.a(file, cN, i);
+                mediaModel.setSize(cN.length());
             }
         }
     }
@@ -116,22 +116,22 @@ public class b implements Runnable {
             if (com.baidu.swan.apps.media.chooser.b.c.DEBUG) {
                 Log.d("CompressTask", "compressVideo : " + videoModel.getPath());
             }
-            File cG = t.cG(this.dbL, new File(videoModel.getPath()).getName());
-            if (cG != null) {
-                com.baidu.swan.c.d.copyFile(new File(videoModel.getPath()), cG);
-                videoModel.pZ(cG.getPath());
-                videoModel.setSize(cG.length());
+            File cN = t.cN(this.diM, new File(videoModel.getPath()).getName());
+            if (cN != null) {
+                com.baidu.swan.c.d.copyFile(new File(videoModel.getPath()), cN);
+                videoModel.qG(cN.getPath());
+                videoModel.setSize(cN.length());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes24.dex */
+    /* loaded from: classes25.dex */
     public class a extends com.baidu.swan.apps.v.a {
-        private HandlerC0619b fXh;
+        private HandlerC0631b gfs;
 
-        public a(HandlerC0619b handlerC0619b) {
-            this.fXh = handlerC0619b;
+        public a(HandlerC0631b handlerC0631b) {
+            this.gfs = handlerC0631b;
         }
 
         @Override // com.baidu.swan.apps.v.a, android.app.Application.ActivityLifecycleCallbacks
@@ -139,40 +139,40 @@ public class b implements Runnable {
             if (!(activity instanceof SwanAppActivity) && !(activity instanceof SwanAppAlbumActivity) && !(activity instanceof SwanAppAlbumPreviewActivity)) {
                 return;
             }
-            if (this.fXh.fXk != null && this.fXh.fXk.isShowing()) {
-                this.fXh.fXk.cancel();
-                this.fXh.fXk = null;
+            if (this.gfs.gfv != null && this.gfs.gfv.isShowing()) {
+                this.gfs.gfv.cancel();
+                this.gfs.gfv = null;
             }
-            if (this.fXh != null) {
-                this.fXh.removeMessages(1);
-                this.fXh.removeMessages(2);
-                this.fXh = null;
+            if (this.gfs != null) {
+                this.gfs.removeMessages(1);
+                this.gfs.removeMessages(2);
+                this.gfs = null;
             }
-            b.this.bLc();
+            b.this.bOK();
         }
     }
 
-    private void bLb() {
-        this.fXi = new a(this.fXh);
-        com.baidu.swan.apps.t.a.avS().registerActivityLifecycleCallbacks(this.fXi);
+    private void bOJ() {
+        this.gft = new a(this.gfs);
+        com.baidu.swan.apps.t.a.aza().registerActivityLifecycleCallbacks(this.gft);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bLc() {
-        if (this.fXi != null) {
-            com.baidu.swan.apps.t.a.avS().unregisterActivityLifecycleCallbacks(this.fXi);
-            this.fXi = null;
+    public void bOK() {
+        if (this.gft != null) {
+            com.baidu.swan.apps.t.a.aza().unregisterActivityLifecycleCallbacks(this.gft);
+            this.gft = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.aiapps.apps.m.b$b  reason: collision with other inner class name */
-    /* loaded from: classes24.dex */
-    public static class HandlerC0619b extends Handler {
-        private Dialog fXk;
+    /* loaded from: classes25.dex */
+    public static class HandlerC0631b extends Handler {
+        private Dialog gfv;
         private WeakReference<Context> mReference;
 
-        private HandlerC0619b(Context context) {
+        private HandlerC0631b(Context context) {
             this.mReference = new WeakReference<>(context);
         }
 
@@ -182,21 +182,21 @@ public class b implements Runnable {
                 case 1:
                     Context context = this.mReference.get();
                     if ((context instanceof Activity) && !((Activity) context).isFinishing()) {
-                        this.fXk = new Dialog(this.mReference.get(), R.style.SwanAppCompressDialog);
-                        this.fXk.setContentView(R.layout.swanapp_progress_dialog);
-                        this.fXk.findViewById(R.id.layer_night).setVisibility(com.baidu.swan.apps.t.a.awo().getNightModeSwitcherState() ? 0 : 8);
-                        this.fXk.setCancelable(false);
-                        this.fXk.show();
+                        this.gfv = new Dialog(this.mReference.get(), R.style.SwanAppCompressDialog);
+                        this.gfv.setContentView(R.layout.swanapp_progress_dialog);
+                        this.gfv.findViewById(R.id.layer_night).setVisibility(com.baidu.swan.apps.t.a.azw().getNightModeSwitcherState() ? 0 : 8);
+                        this.gfv.setCancelable(false);
+                        this.gfv.show();
                         return;
                     }
                     return;
                 case 2:
-                    if (this.fXk != null && this.fXk.isShowing()) {
+                    if (this.gfv != null && this.gfv.isShowing()) {
                         Context context2 = this.mReference.get();
                         if ((context2 instanceof Activity) && !((Activity) context2).isFinishing()) {
-                            this.fXk.cancel();
+                            this.gfv.cancel();
                         }
-                        this.fXk = null;
+                        this.gfv = null;
                         return;
                     }
                     return;

@@ -6,11 +6,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class t extends af.a {
-    public TextView iEX;
-    public TextView iEY;
-    public RelativeLayout iEZ;
+    public TextView iPP;
+    public TextView iPQ;
+    public RelativeLayout iPR;
     public View mLineView;
     public LinearLayout mRootLayout;
     public int mSkinType;
@@ -20,8 +20,8 @@ public class t extends af.a {
         this.mSkinType = 3;
         this.mRootLayout = (LinearLayout) view.findViewById(R.id.root_private_member_apply);
         this.mLineView = view.findViewById(R.id.private_apply_line);
-        this.iEX = (TextView) view.findViewById(R.id.private_apply_tip);
-        this.iEY = (TextView) view.findViewById(R.id.private_left_tv);
-        this.iEZ = (RelativeLayout) view.findViewById(R.id.private_apply_layout);
+        this.iPP = (TextView) view.findViewById(R.id.private_apply_tip);
+        this.iPQ = (TextView) view.findViewById(R.id.private_left_tv);
+        this.iPR = (RelativeLayout) view.findViewById(R.id.private_apply_layout);
     }
 }

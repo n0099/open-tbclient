@@ -6,7 +6,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b extends e {
     public b(j jVar) {
         super(jVar, "/swanAPI/removeWebView");
@@ -22,7 +22,7 @@ public class b extends e {
             com.baidu.swan.apps.console.c.e("removeWebView", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
         } else {
-            com.baidu.swan.apps.adaptation.b.c cVar = (com.baidu.swan.apps.adaptation.b.c) com.baidu.swan.apps.v.f.azg().nB(p.cCb);
+            com.baidu.swan.apps.adaptation.b.c cVar = (com.baidu.swan.apps.adaptation.b.c) com.baidu.swan.apps.v.f.aCp().oj(p.cIW);
             if (cVar == null) {
                 com.baidu.swan.apps.console.c.e("removeWebView", "viewManager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);

@@ -29,22 +29,22 @@ import com.baidu.tieba.quickWebView.QuickWebView;
 import com.baidu.tieba.view.LinearLayoutDetectsSoftKeyboard;
 import java.util.List;
 import tbclient.SearchSug.ForumInfo;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class c {
-    private ImageView gEv;
-    private EditText hRx;
-    private ImageView hRy;
-    private TextView hRz;
-    private FrameLayout kMC;
-    private BdListView kMK;
-    private com.baidu.tieba.mainentrance.searchSuggestList.b kMM;
-    private LinearLayoutDetectsSoftKeyboard kNC;
-    private QuickWebView kND;
-    private QuickWebView kNE;
-    private View kNF;
-    private boolean kNG = true;
-    private com.baidu.tieba.mainentrance.searchSuggestList.a kNH;
-    View kNI;
+    private ImageView eZs;
+    private ImageView gNs;
+    private EditText icr;
+    private TextView ics;
+    private FrameLayout kZT;
+    private LinearLayoutDetectsSoftKeyboard laU;
+    private QuickWebView laV;
+    private QuickWebView laW;
+    private View laX;
+    private boolean laY = true;
+    private com.baidu.tieba.mainentrance.searchSuggestList.a laZ;
+    private BdListView lab;
+    private com.baidu.tieba.mainentrance.searchSuggestList.b lad;
+    View lba;
     private Context mContext;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
@@ -57,16 +57,16 @@ public class c {
     }
 
     private void initView() {
-        bCo();
-        this.kNC = (LinearLayoutDetectsSoftKeyboard) this.mRootView.findViewById(R.id.search_container);
-        this.kNC.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.mainentrance.view.c.1
+        bFP();
+        this.laU = (LinearLayoutDetectsSoftKeyboard) this.mRootView.findViewById(R.id.search_container);
+        this.laU.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.mainentrance.view.c.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
-                    c.this.kNC.setFocusable(true);
-                    c.this.kNC.setFocusableInTouchMode(true);
-                    if (c.this.hRx.hasFocus()) {
-                        l.hideSoftKeyPad(c.this.mContext, c.this.hRx);
+                    c.this.laU.setFocusable(true);
+                    c.this.laU.setFocusableInTouchMode(true);
+                    if (c.this.icr.hasFocus()) {
+                        l.hideSoftKeyPad(c.this.mContext, c.this.icr);
                         return false;
                     }
                     return false;
@@ -74,160 +74,160 @@ public class c {
                 return false;
             }
         });
-        this.kMC = (FrameLayout) this.mRootView.findViewById(R.id.frame_layout);
+        this.kZT = (FrameLayout) this.mRootView.findViewById(R.id.frame_layout);
         this.mNoDataView = NoDataViewFactory.a(this.mContext, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.mContext.getResources().getDimension(R.dimen.ds200)), null, null);
-        this.kMC.addView(this.mNoDataView, 0);
-        dbj();
-        daL();
-        dbk();
-        dbl();
+        this.kZT.addView(this.mNoDataView, 0);
+        dgv();
+        dfX();
+        dgw();
+        dgx();
     }
 
-    private void bCo() {
+    private void bFP() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.showBottomLine();
-        this.kNI = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.square_search_navigation_view, (View.OnClickListener) null);
-        this.gEv = (ImageView) this.kNI.findViewById(R.id.search_bar_icon);
-        this.hRx = (EditText) this.kNI.findViewById(R.id.home_et_search);
-        this.hRy = (ImageView) this.kNI.findViewById(R.id.home_bt_search_del);
-        this.hRz = (TextView) this.kNI.findViewById(R.id.home_bt_search_cancel_s);
-        this.hRy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mainentrance.view.c.2
+        this.lba = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.square_search_navigation_view, (View.OnClickListener) null);
+        this.gNs = (ImageView) this.lba.findViewById(R.id.search_bar_icon);
+        this.icr = (EditText) this.lba.findViewById(R.id.home_et_search);
+        this.eZs = (ImageView) this.lba.findViewById(R.id.home_bt_search_del);
+        this.ics = (TextView) this.lba.findViewById(R.id.home_bt_search_cancel_s);
+        this.eZs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mainentrance.view.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.hRx.setText("");
+                c.this.icr.setText("");
             }
         });
-        on(false);
-        this.hRz.setText(this.mContext.getString(R.string.cancel));
+        oJ(false);
+        this.ics.setText(this.mContext.getString(R.string.cancel));
     }
 
     public void onResume() {
-        if (!StringUtils.isNull(this.hRx.getText().toString())) {
-            this.kNI.setFocusable(true);
-            this.kNI.setFocusableInTouchMode(true);
-            this.kNI.requestFocus();
+        if (!StringUtils.isNull(this.icr.getText().toString())) {
+            this.lba.setFocusable(true);
+            this.lba.setFocusableInTouchMode(true);
+            this.lba.requestFocus();
         }
     }
 
-    public void tf(boolean z) {
-        this.kNG = z;
+    public void tH(boolean z) {
+        this.laY = z;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != 0 && this.kNG) {
-            this.kNF.setVisibility(0);
-            this.kNF.setBackgroundColor(ap.getColor(skinType == 4 ? R.color.CAM_X0606 : R.color.CAM_X0605));
+        if (skinType != 0 && this.laY) {
+            this.laX.setVisibility(0);
+            this.laX.setBackgroundColor(ap.getColor(skinType == 4 ? R.color.CAM_X0606 : R.color.CAM_X0605));
             return;
         }
-        this.kNF.setVisibility(8);
+        this.laX.setVisibility(8);
     }
 
     public void onChangeSkinType(e<?> eVar, int i) {
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(eVar, i);
         }
-        ap.setBgColor(this.kNC, i);
+        ap.setBgColor(this.laU, i);
         if (i == 2) {
-            this.hRx.setHintTextColor(ap.getColor(R.color.s_navbar_title_color));
+            this.icr.setHintTextColor(ap.getColor(R.color.s_navbar_title_color));
         } else {
-            this.hRx.setHintTextColor(ap.getColor(R.color.CAM_X0110));
+            this.icr.setHintTextColor(ap.getColor(R.color.CAM_X0110));
         }
         this.mNavigationBar.onChangeSkinType(eVar, i);
-        SvgManager.bqB().a(this.hRy, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        ap.setNavbarTitleColor(this.hRx, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        SvgManager.bqB().a(this.gEv, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
-        ap.setBackgroundResource(this.kMC, R.color.CAM_X0201);
-        ap.setViewTextColor(this.hRz, R.color.CAM_X0302, 1);
-        tf(this.kNG);
-        if (this.kNE != null) {
-            this.kNE.onChangeSkinType();
+        SvgManager.btW().a(this.eZs, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        ap.setNavbarTitleColor(this.icr, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        SvgManager.btW().a(this.gNs, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+        ap.setBackgroundResource(this.kZT, R.color.CAM_X0201);
+        ap.setViewTextColor(this.ics, R.color.CAM_X0302, 1);
+        tH(this.laY);
+        if (this.laW != null) {
+            this.laW.onChangeSkinType();
         }
-        if (this.kND != null) {
-            this.kND.onChangeSkinType();
+        if (this.laV != null) {
+            this.laV.onChangeSkinType();
         }
     }
 
-    private void dbj() {
-        this.kNE = (QuickWebView) this.mRootView.findViewById(R.id.search_history_webview);
-        this.kNE.wE(true);
-        this.kNF = this.mRootView.findViewById(R.id.search_webview_mask);
+    private void dgv() {
+        this.laW = (QuickWebView) this.mRootView.findViewById(R.id.search_history_webview);
+        this.laW.xi(true);
+        this.laX = this.mRootView.findViewById(R.id.search_webview_mask);
     }
 
-    private void daL() {
-        this.kMK = (BdListView) this.mRootView.findViewById(R.id.home_lv_search_suggest);
-        this.kMM = new com.baidu.tieba.mainentrance.searchSuggestList.b(this.mContext, null);
-        this.kNH = new com.baidu.tieba.mainentrance.searchSuggestList.a(this.mContext, null);
+    private void dfX() {
+        this.lab = (BdListView) this.mRootView.findViewById(R.id.home_lv_search_suggest);
+        this.lad = new com.baidu.tieba.mainentrance.searchSuggestList.b(this.mContext, null);
+        this.laZ = new com.baidu.tieba.mainentrance.searchSuggestList.a(this.mContext, null);
     }
 
-    private void dbk() {
-        this.kND = (QuickWebView) this.mRootView.findViewById(R.id.search_result_webview);
-        this.kND.wE(true);
+    private void dgw() {
+        this.laV = (QuickWebView) this.mRootView.findViewById(R.id.search_result_webview);
+        this.laV.xi(true);
     }
 
-    private void dbl() {
-        this.hRx.setText("");
-        this.hRx.requestFocus();
-        this.hRz.setText(this.mContext.getString(R.string.cancel));
+    private void dgx() {
+        this.icr.setText("");
+        this.icr.requestFocus();
+        this.ics.setText(this.mContext.getString(R.string.cancel));
     }
 
-    public void dbm() {
-        this.kNE.setVisibility(0);
-        this.kMK.setVisibility(8);
-        this.kND.setVisibility(8);
+    public void dgy() {
+        this.laW.setVisibility(0);
+        this.lab.setVisibility(8);
+        this.laV.setVisibility(8);
         this.mNoDataView.setVisibility(8);
     }
 
-    public void daW() {
-        this.kMK.setVisibility(8);
-        this.kNE.setVisibility(8);
-        this.kND.setVisibility(8);
+    public void dgi() {
+        this.lab.setVisibility(8);
+        this.laW.setVisibility(8);
+        this.laV.setVisibility(8);
         this.mNoDataView.setVisibility(0);
     }
 
-    public void daU() {
-        this.kMK.setVisibility(0);
-        this.kNE.setVisibility(8);
-        this.kND.setVisibility(8);
+    public void dgg() {
+        this.lab.setVisibility(0);
+        this.laW.setVisibility(8);
+        this.laV.setVisibility(8);
         this.mNoDataView.setVisibility(8);
     }
 
-    public void dbn() {
-        this.kMK.setVisibility(8);
-        this.kNE.setVisibility(8);
-        this.kND.setVisibility(0);
+    public void dgz() {
+        this.lab.setVisibility(8);
+        this.laW.setVisibility(8);
+        this.laV.setVisibility(0);
         this.mNoDataView.setVisibility(8);
     }
 
-    public void on(boolean z) {
-        this.hRy.setVisibility(z ? 0 : 8);
+    public void oJ(boolean z) {
+        this.eZs.setVisibility(z ? 0 : 8);
     }
 
-    public void NA(String str) {
+    public void OH(String str) {
         if (!StringUtils.isNull(str)) {
-            this.hRx.setHint(str);
+            this.icr.setHint(str);
         }
     }
 
-    public void NB(String str) {
+    public void OI(String str) {
         if (!StringUtils.isNull(str)) {
-            this.hRx.setText(str);
-            this.hRx.setSelection(str.length());
+            this.icr.setText(str);
+            this.icr.setSelection(str.length());
         }
     }
 
-    public void m(List<String> list, String str) {
+    public void o(List<String> list, String str) {
         if (!y.isEmpty(list)) {
-            daU();
-            this.kMM.Nu(str);
-            this.kMM.setData(list);
-            this.kMK.setAdapter((ListAdapter) this.kMM);
+            dgg();
+            this.lad.OB(str);
+            this.lad.setData(list);
+            this.lab.setAdapter((ListAdapter) this.lad);
         }
     }
 
-    public void n(List<ForumInfo> list, String str) {
+    public void p(List<ForumInfo> list, String str) {
         if (!y.isEmpty(list) && !TextUtils.isEmpty(str)) {
-            daU();
-            this.kNH.Nu(str);
-            this.kNH.eE(list);
-            this.kMK.setAdapter((ListAdapter) this.kNH);
+            dgg();
+            this.laZ.OB(str);
+            this.laZ.eP(list);
+            this.lab.setAdapter((ListAdapter) this.laZ);
         }
     }
 
@@ -236,81 +236,81 @@ public class c {
     }
 
     public void b(AdapterView.OnItemClickListener onItemClickListener) {
-        this.kMK.setOnItemClickListener(onItemClickListener);
+        this.lab.setOnItemClickListener(onItemClickListener);
     }
 
     public void a(AbsListView.OnScrollListener onScrollListener) {
-        this.kMK.setOnScrollListener(onScrollListener);
+        this.lab.setOnScrollListener(onScrollListener);
     }
 
     public void a(View.OnFocusChangeListener onFocusChangeListener) {
-        this.hRx.setOnFocusChangeListener(onFocusChangeListener);
+        this.icr.setOnFocusChangeListener(onFocusChangeListener);
     }
 
     public void a(TextView.OnEditorActionListener onEditorActionListener) {
-        this.hRx.setOnEditorActionListener(onEditorActionListener);
+        this.icr.setOnEditorActionListener(onEditorActionListener);
     }
 
     public void d(TextWatcher textWatcher) {
-        this.hRx.addTextChangedListener(textWatcher);
+        this.icr.addTextChangedListener(textWatcher);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.hRx.setOnClickListener(onClickListener);
-        this.hRz.setOnClickListener(onClickListener);
+        this.icr.setOnClickListener(onClickListener);
+        this.ics.setOnClickListener(onClickListener);
     }
 
     public void a(BaseWebView.c cVar) {
-        this.kND.setOnPageFinishedListener(cVar);
+        this.laV.setOnPageFinishedListener(cVar);
     }
 
     public void a(BaseWebView.f fVar) {
-        this.kND.setOnReceivedErrorListener(fVar);
+        this.laV.setOnReceivedErrorListener(fVar);
     }
 
     public void a(BaseWebView.g gVar) {
-        this.kND.setOnReceivedSslErrorListener(gVar);
+        this.laV.setOnReceivedSslErrorListener(gVar);
     }
 
     public void a(BaseWebView.b bVar) {
-        this.kND.setOnLoadUrlListener(bVar);
+        this.laV.setOnLoadUrlListener(bVar);
     }
 
-    public EditText dbo() {
-        return this.hRx;
+    public EditText dgA() {
+        return this.icr;
     }
 
-    public TextView dbp() {
-        return this.hRz;
+    public TextView dgB() {
+        return this.ics;
     }
 
-    public QuickWebView dbq() {
-        return this.kND;
+    public QuickWebView dgC() {
+        return this.laV;
     }
 
-    public QuickWebView dbr() {
-        return this.kNE;
+    public QuickWebView dgD() {
+        return this.laW;
     }
 
-    public boolean dbs() {
-        return this.kMK.getVisibility() == 0;
+    public boolean dgE() {
+        return this.lab.getVisibility() == 0;
     }
 
     public void onDestroy() {
         try {
-            if (this.kMC != null) {
-                this.kMC.removeView(this.kNE);
-                this.kMC.removeView(this.kND);
+            if (this.kZT != null) {
+                this.kZT.removeView(this.laW);
+                this.kZT.removeView(this.laV);
             }
-            this.kNE.removeAllViews();
-            this.kND.removeAllViews();
-            if (this.kNE != null) {
-                this.kNE.destroy();
-                this.kNE = null;
+            this.laW.removeAllViews();
+            this.laV.removeAllViews();
+            if (this.laW != null) {
+                this.laW.destroy();
+                this.laW = null;
             }
-            if (this.kND != null) {
-                this.kND.destroy();
-                this.kND = null;
+            if (this.laV != null) {
+                this.laV.destroy();
+                this.laV = null;
             }
         } catch (Exception e) {
         }

@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -20,7 +21,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a extends com.baidu.swan.apps.network.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -48,13 +49,13 @@ public class a extends com.baidu.swan.apps.network.a {
         if (TextUtils.isEmpty(optString2)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "callbackKey is empty");
             return false;
-        } else if (!eVar.aGZ().isLogin(context)) {
+        } else if (!eVar.aKh().isLogin(context)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in");
             return false;
         } else {
-            final String li = com.baidu.swan.apps.api.module.network.c.li(eVar.id);
-            JSONObject lk = lk(li);
-            com.baidu.swan.bdprivate.a.a.a(eVar.aGG(), new com.baidu.swan.apps.ap.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.extensions.a.a.1
+            final String lP = com.baidu.swan.apps.api.module.network.c.lP(eVar.id);
+            JSONObject lR = lR(lP);
+            com.baidu.swan.bdprivate.a.a.a(eVar.aJO(), new com.baidu.swan.apps.ap.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.extensions.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: B */
@@ -64,13 +65,13 @@ public class a extends com.baidu.swan.apps.network.a {
                         if (a.DEBUG) {
                             Log.d("FaceResultVerifyAction", "stoken=" + string);
                         }
-                        a.this.a(optString2, string, li, optString, callbackHandler, eVar);
+                        a.this.a(optString2, string, lP, optString, callbackHandler, eVar);
                         return;
                     }
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001, "stoken is null").toString());
                 }
             }, "dev");
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(lk, 0));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(lR, 0));
             return true;
         }
     }
@@ -120,10 +121,10 @@ public class a extends com.baidu.swan.apps.network.a {
             }
         });
         aVar.tag = request.tag();
-        aVar.efD = true;
-        aVar.efE = true;
-        aVar.efF = true;
-        com.baidu.swan.a.c.a.bad().b(aVar);
+        aVar.emE = true;
+        aVar.emF = true;
+        aVar.emG = true;
+        com.baidu.swan.a.c.a.bdi().b(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -180,12 +181,12 @@ public class a extends com.baidu.swan.apps.network.a {
 
     @Nullable
     private Request g(@Nullable String str, Map<String, String> map) {
-        HttpUrl parse = HttpUrl.parse("https://mbd.baidu.com");
+        HttpUrl parse = HttpUrl.parse(BaseUrlManager.ONLINE_URL);
         if (parse == null) {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments("ma/authentication/facecheck");
-        for (Map.Entry<String, String> entry : com.baidu.swan.apps.i.b.akB().cDq.entrySet()) {
+        for (Map.Entry<String, String> entry : com.baidu.swan.apps.i.b.anJ().cKl.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();

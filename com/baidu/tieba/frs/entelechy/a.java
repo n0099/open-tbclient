@@ -3,15 +3,15 @@ package com.baidu.tieba.frs.entelechy;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.entelechy.a.al;
-import com.baidu.tieba.frs.entelechy.a.s;
+import com.baidu.tieba.frs.entelechy.a.am;
+import com.baidu.tieba.frs.entelechy.a.t;
 import com.baidu.tieba.frs.vc.d;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a implements com.baidu.tieba.frs.entelechy.b.a {
-    private com.baidu.tieba.frs.view.b iRx;
+    private com.baidu.tieba.frs.view.b jcp;
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.b cBj() {
+    public com.baidu.tieba.frs.entelechy.b.b cFz() {
         return new c();
     }
 
@@ -20,19 +20,19 @@ public class a implements com.baidu.tieba.frs.entelechy.b.a {
         if (frsFragment == null) {
             return null;
         }
-        this.iRx = new b(frsFragment, null, null, i);
-        this.iRx.c(frsFragment.cxG());
-        return this.iRx;
+        this.jcp = new b(frsFragment, null, null, i);
+        this.jcp.c(frsFragment.cBW());
+        return this.jcp;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public al a(FrsFragment frsFragment, v vVar, boolean z) {
-        return new s(frsFragment, vVar, z);
+    public am a(FrsFragment frsFragment, v vVar, boolean z) {
+        return new t(frsFragment, vVar, z);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
     public d a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
-        if (frsFragment.cyv()) {
+        if (frsFragment.cCM()) {
             return null;
         }
         return new d(frsFragment, noPressedRelativeLayout);

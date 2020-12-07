@@ -3,18 +3,18 @@ package com.xiaomi.push;
 class cm {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4840a;
+    public int f4610a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f171a;
+    public String f169a;
     public String b;
 
     public cm() {
     }
 
     public cm(int i, String str, String str2) {
-        this.f4840a = i;
-        this.f171a = str;
+        this.f4610a = i;
+        this.f169a = str;
         this.b = str2;
     }
 }

@@ -1,16 +1,16 @@
 package kotlin;
 
 import java.io.Serializable;
-@h
-/* loaded from: classes9.dex */
-public final class InitializedLazyImpl<T> implements Serializable, d<T> {
+@e
+/* loaded from: classes17.dex */
+final class InitializedLazyImpl<T> implements Serializable, c<T> {
     private final T value;
 
     public InitializedLazyImpl(T t) {
         this.value = t;
     }
 
-    @Override // kotlin.d
+    @Override // kotlin.c
     public T getValue() {
         return this.value;
     }

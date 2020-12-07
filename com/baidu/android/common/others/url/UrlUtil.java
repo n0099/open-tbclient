@@ -1,13 +1,8 @@
 package com.baidu.android.common.others.url;
 
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.common.others.java.Patterns;
-import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.webkit.internal.ETAG;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -19,8 +14,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
-import org.apache.http.HttpHost;
-/* loaded from: classes8.dex */
+@Deprecated
+/* loaded from: classes9.dex */
 public class UrlUtil {
     private static final boolean DEBUG = false;
     public static final String PERCENT_PATTEN = "%(?![0-9a-fA-F]{2})";
@@ -31,86 +26,48 @@ public class UrlUtil {
     private UrlUtil() {
     }
 
+    @Deprecated
     public static String encodeUrl(String str, String str2) throws UnsupportedEncodingException {
         return URLEncoder.encode(str, str2);
     }
 
+    @Deprecated
     public static String decodeUrl(String str, String str2) throws UnsupportedEncodingException {
         return URLDecoder.decode(str, str2);
     }
 
+    @Deprecated
     public static String decodeWithUTF8(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                return URLDecoder.decode(str.replaceAll("%(?![0-9a-fA-F]{2})", "%25"), "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str;
-            } catch (IllegalArgumentException e2) {
-                e2.printStackTrace();
-                return str;
-            }
-        }
-        return str;
+        return UrlUtils.decode(str, "UTF-8");
     }
 
-    public static String appendParams(String str, @NonNull Map<String, String> map) {
-        if (TextUtils.isEmpty(str)) {
-            return "";
-        }
-        if (map.size() == 0) {
-            return str.trim();
-        }
-        StringBuffer stringBuffer = new StringBuffer();
-        for (String str2 : map.keySet()) {
-            stringBuffer.append(str2).append(ETAG.EQUAL).append(map.get(str2)).append(ETAG.ITEM_SEPARATOR);
-        }
-        stringBuffer.deleteCharAt(stringBuffer.length() - 1);
-        String trim = str.trim();
-        int length = trim.length();
-        int indexOf = trim.indexOf("?");
-        if (indexOf > -1) {
-            if (length - 1 == indexOf) {
-                return trim + stringBuffer.toString();
-            }
-            return trim + ETAG.ITEM_SEPARATOR + stringBuffer.toString();
-        }
-        return trim + "?" + stringBuffer.toString();
+    @Deprecated
+    public static String appendParams(String str, Map<String, String> map) {
+        return UrlUtils.appendParams(str, map);
     }
 
+    @Deprecated
     public static String appendParam(String str, String str2, String str3) {
-        if (TextUtils.isEmpty(str)) {
-            return "";
-        }
-        if (TextUtils.isEmpty(str2)) {
-            return str.trim();
-        }
-        HashMap hashMap = new HashMap();
-        hashMap.put(str2, str3);
-        return appendParams(str, hashMap);
+        return UrlUtils.appendParam(str, str2, str3);
     }
 
+    @Deprecated
     public static String getHost(String str) throws MalformedURLException {
         return new URL(str).getHost();
     }
 
+    @Deprecated
     public static boolean isBaiduDomain(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        String host = Uri.parse(str).getHost();
-        if (TextUtils.isEmpty(host)) {
-            return false;
-        }
-        return host.endsWith(".baidu.com") || host.equals("baidu.com");
+        return UrlUtils.isBaiduDomain(str);
     }
 
+    @Deprecated
     public static String addParam(String str, String str2, String str3) {
         StringBuilder sb;
         StringBuilder sb2;
         String str4 = null;
         if (!TextUtils.isEmpty(str)) {
-            String str5 = str2 + ETAG.EQUAL;
+            String str5 = str2 + "=";
             int indexOf = str.indexOf("?");
             if (indexOf < 0) {
                 int indexOf2 = str.indexOf("#");
@@ -149,6 +106,7 @@ public class UrlUtil {
         return str;
     }
 
+    @Deprecated
     public static String addParam(String str, Map<String, String> map) {
         if (!TextUtils.isEmpty(str)) {
             String mapToString = mapToString(map);
@@ -163,37 +121,17 @@ public class UrlUtil {
         return str;
     }
 
+    @Deprecated
     public static String deleteParamAllowAll(String str, Set<String> set) {
-        if (!TextUtils.isEmpty(str) && str.startsWith(HttpHost.DEFAULT_SCHEME_NAME) && set != null && set.size() != 0) {
-            String str2 = null;
-            try {
-                str2 = new URL(str).getQuery();
-            } catch (MalformedURLException e) {
-            }
-            if (TextUtils.isEmpty(str2)) {
-                return str;
-            }
-            return str != null ? str.replace(str2, deleteQueryParam(str2, set)) : str;
-        }
-        return str;
+        return deleteParam(str, set);
     }
 
+    @Deprecated
     public static String deleteParam(String str, Set<String> set) {
-        if (!TextUtils.isEmpty(str) && str.startsWith(HttpHost.DEFAULT_SCHEME_NAME) && set != null && set.size() != 0) {
-            String str2 = null;
-            try {
-                str2 = new URL(str).getQuery();
-            } catch (MalformedURLException e) {
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                CharSequence deleteQueryParam = deleteQueryParam(str2, set);
-                return !TextUtils.isEmpty(deleteQueryParam) ? str.replace(str2, deleteQueryParam) : str;
-            }
-            return str;
-        }
-        return str;
+        return UrlUtils.deleteParam(str, set);
     }
 
+    @Deprecated
     public static String deleteQueryParam(String str, Set<String> set) {
         String[] split;
         if (TextUtils.isEmpty(str) || set == null || (split = str.split(ETAG.ITEM_SEPARATOR)) == null || split.length == 0) {
@@ -201,7 +139,7 @@ public class UrlUtil {
         }
         StringBuilder sb = new StringBuilder();
         for (String str2 : split) {
-            String[] split2 = str2.split(ETAG.EQUAL);
+            String[] split2 = str2.split("=");
             if (split2.length > 0 && !set.contains(split2[0])) {
                 sb.append(str2).append(ETAG.ITEM_SEPARATOR);
             }
@@ -213,14 +151,12 @@ public class UrlUtil {
         return sb.toString();
     }
 
+    @Deprecated
     public static String delAllParamsFromUrl(String str) {
-        int indexOf;
-        if (!TextUtils.isEmpty(str) && (indexOf = str.indexOf("?")) > 0) {
-            return str.substring(0, indexOf);
-        }
-        return str;
+        return UrlUtils.deleteAllParams(str);
     }
 
+    @Deprecated
     public static String getParams(String str) {
         if (!TextUtils.isEmpty(str)) {
             String str2 = null;
@@ -233,6 +169,7 @@ public class UrlUtil {
         return str;
     }
 
+    @Deprecated
     public static String mapToString(Map<String, String> map) {
         String encode;
         if (map == null) {
@@ -254,19 +191,20 @@ public class UrlUtil {
                 }
             }
             sb.append(encode);
-            sb.append(ETAG.EQUAL);
+            sb.append("=");
             sb.append(str2 != null ? URLEncoder.encode(str2, "UTF-8") : "");
         }
         return sb.toString();
     }
 
+    @Deprecated
     public static Map<String, String> stringToMap(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         HashMap hashMap = new HashMap();
         for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
-            String[] split = str2.split(ETAG.EQUAL);
+            String[] split = str2.split("=");
             try {
                 hashMap.put(URLDecoder.decode(split[0], "UTF-8"), split.length > 1 ? URLDecoder.decode(split[1], "UTF-8") : "");
             } catch (UnsupportedEncodingException e) {
@@ -276,6 +214,7 @@ public class UrlUtil {
         return hashMap;
     }
 
+    @Deprecated
     public static String getUrlField(String str, String str2, String str3, String str4) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
             return "";
@@ -296,14 +235,17 @@ public class UrlUtil {
         return "";
     }
 
+    @Deprecated
     public static String getUrlField(String str, String str2) {
-        return getUrlField(str, str2, ETAG.EQUAL, ETAG.ITEM_SEPARATOR);
+        return getUrlField(str, str2, "=", ETAG.ITEM_SEPARATOR);
     }
 
+    @Deprecated
     public static String getCookieStr(String str, String str2, String str3, long j) {
-        return str2 + ETAG.EQUAL + str3 + ";domain=" + str + ";path=/;max-age=" + j + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
+        return CookieUtils.getCookieStr(str, str2, str3, j);
     }
 
+    @Deprecated
     public static String getUrlhost(String str) {
         try {
             return new URL(str).getHost();
@@ -312,27 +254,30 @@ public class UrlUtil {
         }
     }
 
+    @Deprecated
     public static boolean isValidUrl(String str) {
+        return isUrl(str) || isUrlAuxiliary(str);
+    }
+
+    @Deprecated
+    public static boolean isUrl(String str) {
         try {
-            if (!isUrl(str)) {
-                if (!isUrlAuxiliary(str)) {
-                    return false;
-                }
-            }
-            return true;
+            return Patterns.COARSE_WEB_URL.matcher(str).matches();
         } catch (Exception e) {
             return false;
         }
     }
 
-    public static boolean isUrl(String str) {
-        return Patterns.COARSE_WEB_URL.matcher(str).matches();
-    }
-
+    @Deprecated
     public static boolean isUrlAuxiliary(String str) {
-        return Pattern.compile("(https?|ftp)://[-A-Za-z0-9+&@#/%?=~_|!:,.;{]+[-A-Za-z0-9+&@#/%=~_|}]").matcher(str).matches();
+        try {
+            return Pattern.compile("(https?|ftp)://[-A-Za-z0-9+&@#/%?=~_|!:,.;{]+[-A-Za-z0-9+&@#/%=~_|}]").matcher(str).matches();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
+    @Deprecated
     public static String toFileUriString(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -340,6 +285,7 @@ public class UrlUtil {
         return Uri.fromFile(new File(str)).toString();
     }
 
+    @Deprecated
     public static Uri toFileUri(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -347,64 +293,28 @@ public class UrlUtil {
         return Uri.fromFile(new File(str));
     }
 
+    @Deprecated
     public static String getMime(String str) {
-        String lowerCase = Uri.parse(str).getPath().toLowerCase();
-        if (lowerCase.contains(".css")) {
-            return "text/css";
-        }
-        if (lowerCase.contains(".js")) {
-            return "application/x-javascript";
-        }
-        if (!lowerCase.contains(".jpg") && !lowerCase.contains(".gif") && !lowerCase.contains(ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX) && !lowerCase.contains(".jpeg")) {
-            return "text/html";
-        }
-        return "image/*";
+        return UrlUtils.getMime(str);
     }
 
+    @Deprecated
     public static String handleAbnormalUrlIfNeeded(String str) {
-        if (!TextUtils.isEmpty(str) && isUrl(str)) {
-            return addSchemeIfNeed(fixUrl(str).trim());
-        }
-        return str;
+        return UrlUtils.handleAbnormalUrlIfNeeded(str);
     }
 
+    @Deprecated
     public static String fixUrl(String str) {
-        if (str == null) {
-            return "";
-        }
-        int indexOf = str.indexOf(58);
-        boolean z = true;
-        String str2 = str;
-        for (int i = 0; i < indexOf; i++) {
-            char charAt = str2.charAt(i);
-            if (!Character.isLetter(charAt)) {
-                break;
-            }
-            z &= Character.isLowerCase(charAt);
-            if (i == indexOf - 1 && !z) {
-                str2 = str2.substring(0, indexOf).toLowerCase() + str2.substring(indexOf);
-            }
-        }
-        if (!str2.startsWith("http://") && !str2.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX) && !str2.startsWith("rtsp://")) {
-            if (str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) || str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS) || str2.startsWith("rtsp:")) {
-                if (str2.startsWith("http:/") || str2.startsWith("https:/") || str2.startsWith("rtsp:/")) {
-                    return str2.replaceFirst("/", "//");
-                }
-                return str2.replaceFirst(":", "://");
-            }
-            return str2;
-        }
-        return str2;
+        return UrlUtils.fixUrl(str);
     }
 
+    @Deprecated
     public static String addSchemeIfNeed(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        return (str.startsWith("http://") || str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX) || str.startsWith("rtsp://")) ? str : "http://" + str;
+        return UrlUtils.addSchemeIfNeed(str);
     }
 
+    @Deprecated
     public static boolean isHttpSecurity(String str) {
-        return !TextUtils.isEmpty(str) && str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        return UrlUtils.isHttps(str);
     }
 }

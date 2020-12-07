@@ -6,7 +6,7 @@ import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 import org.apache.http.cookie.SetCookie;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class RFC2965PortAttributeHandler implements CookieAttributeHandler {
     public RFC2965PortAttributeHandler() {
         throw new RuntimeException("Stub!");

@@ -1,6 +1,7 @@
 package com.baidu.mobads.vo;
 
 import android.text.TextUtils;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.interfaces.IXAdResponseInfo;
 import com.baidu.platform.comapi.map.MapBundleKey;
@@ -12,7 +13,7 @@ import org.json.JSONObject;
 public class c implements IXAdResponseInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2455a;
+    private int f2457a;
     private Boolean b;
     private String c;
     private int d;
@@ -31,7 +32,7 @@ public class c implements IXAdResponseInfo {
     private long q = System.currentTimeMillis();
 
     public c(String str) {
-        this.f2455a = 0;
+        this.f2457a = 0;
         this.b = false;
         this.i = -1;
         this.j = -1;
@@ -52,7 +53,7 @@ public class c implements IXAdResponseInfo {
         } catch (Exception e2) {
             this.p = new ArrayList<>();
         }
-        this.f2455a = jSONObject.optInt("n", 0);
+        this.f2457a = jSONObject.optInt("n", 0);
         this.d = jSONObject.optInt("x", 0);
         this.e = jSONObject.optInt("y", 0);
         this.b = Boolean.valueOf(jSONObject.optInt("m", 0) == 1);
@@ -64,7 +65,7 @@ public class c implements IXAdResponseInfo {
         this.k = jSONObject.optString("ck", "");
         this.l = jSONObject.optString("req_id");
         this.m = jSONObject.optString("error_code", "");
-        this.n = jSONObject.optString("error_msg", "");
+        this.n = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
         try {
             this.h = jSONObject.getString("theme");
         } catch (JSONException e3) {
@@ -81,12 +82,12 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public int getAdsNum() {
-        return this.f2455a;
+        return this.f2457a;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public void setAdsNum(int i) {
-        this.f2455a = i;
+        this.f2457a = i;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo

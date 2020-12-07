@@ -20,7 +20,7 @@ import java.util.jar.JarFile;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile DexClassLoader f2633a;
+    private static volatile DexClassLoader f2635a;
     private static volatile boolean b = false;
 
     public static Class<?> a(Context context, String str) throws ClassNotFoundException {
@@ -34,8 +34,8 @@ public class x {
     private static synchronized DexClassLoader a(Context context) {
         DexClassLoader dexClassLoader = null;
         synchronized (x.class) {
-            if (f2633a != null) {
-                dexClassLoader = f2633a;
+            if (f2635a != null) {
+                dexClassLoader = f2635a;
             } else {
                 File fileStreamPath = context.getFileStreamPath(".remote.jar");
                 if (fileStreamPath == null || fileStreamPath.isFile()) {
@@ -51,11 +51,11 @@ public class x {
                         }
                     } else {
                         try {
-                            f2633a = new DexClassLoader(fileStreamPath.getAbsolutePath(), context.getDir("outdex", 0).getAbsolutePath(), null, context.getClassLoader());
+                            f2635a = new DexClassLoader(fileStreamPath.getAbsolutePath(), context.getDir("outdex", 0).getAbsolutePath(), null, context.getClassLoader());
                         } catch (Exception e) {
                             bb.c().a(e);
                         }
-                        dexClassLoader = f2633a;
+                        dexClassLoader = f2635a;
                     }
                 }
             }
@@ -177,22 +177,22 @@ public class x {
     static class a extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f2634a;
+        private Context f2636a;
         private com.baidu.mobstat.a b;
 
         public a(Context context, com.baidu.mobstat.a aVar) {
-            this.f2634a = context;
+            this.f2636a = context;
             this.b = aVar;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             try {
-                int i = aa.f2517a ? 3 : 10;
+                int i = aa.f2519a ? 3 : 10;
                 bb.c().a("start version check in " + i + "s");
                 sleep(i * 1000);
                 a();
-                a(this.f2634a);
+                a(this.f2636a);
             } catch (Exception e) {
                 bb.c().a(e);
             }
@@ -207,7 +207,7 @@ public class x {
             FileOutputStream fileOutputStream = null;
             synchronized (this) {
                 bb.c().a("start get config and download jar");
-                Context context = this.f2634a;
+                Context context = this.f2636a;
                 com.baidu.mobstat.a aVar = this.b;
                 String b = b(context);
                 bb.c().c("update req url is:" + b);
@@ -233,7 +233,7 @@ public class x {
                         bu.a(fileOutputStream);
                     }
                 }
-                DexClassLoader unused = x.f2633a = null;
+                DexClassLoader unused = x.f2635a = null;
                 u.a();
                 if (!TextUtils.isEmpty(headerField)) {
                     aVar.a(context, headerField);
@@ -277,9 +277,9 @@ public class x {
                     String encode = URLEncoder.encode(((String) pair.first).toString(), "UTF-8");
                     String encode2 = URLEncoder.encode(((String) pair.second).toString(), "UTF-8");
                     if (TextUtils.isEmpty(sb.toString())) {
-                        sb.append(encode + ETAG.EQUAL + encode2);
+                        sb.append(encode + "=" + encode2);
                     } else {
-                        sb.append(ETAG.ITEM_SEPARATOR + encode + ETAG.EQUAL + encode2);
+                        sb.append(ETAG.ITEM_SEPARATOR + encode + "=" + encode2);
                     }
                 } catch (Exception e) {
                 }

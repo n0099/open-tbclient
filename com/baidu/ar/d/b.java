@@ -1,37 +1,37 @@
 package com.baidu.ar.d;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public abstract class b {
-    private String I;
+    private String J;
     private long mTimestamp;
-    private Object mk = null;
-    private long ml = 0;
+    private Object mz = null;
+    private long mA = 0;
 
-    public void T(String str) {
-        this.I = str;
+    public void W(String str) {
+        this.J = str;
     }
 
-    public String dd() {
-        return this.I;
+    public String dc() {
+        return this.J;
     }
 
-    public Object de() {
-        return this.mk;
+    public Object dd() {
+        return this.mz;
     }
 
-    public long df() {
-        return this.ml;
+    public long de() {
+        return this.mA;
     }
 
     public void g(Object obj) {
-        this.mk = obj;
+        this.mz = obj;
     }
 
     public long getTimestamp() {
         return this.mTimestamp;
     }
 
-    public void p(long j) {
-        this.ml = j;
+    public void n(long j) {
+        this.mA = j;
     }
 
     public void setTimestamp(long j) {

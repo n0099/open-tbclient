@@ -14,7 +14,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class b extends com.baidu.platform.base.d {
     boolean b = false;
     String c = null;

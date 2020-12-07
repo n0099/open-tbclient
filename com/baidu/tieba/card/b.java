@@ -10,7 +10,7 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes.dex */
 public abstract class b<T extends BaseCardInfo> implements View.OnClickListener {
     public int currentPageType;
-    public ab<T> hWc;
+    public ab<T> igZ;
     public Context mContext;
     private String mFrom;
     public int mSkinType;
@@ -78,10 +78,10 @@ public abstract class b<T extends BaseCardInfo> implements View.OnClickListener 
     }
 
     public void c(ab<T> abVar) {
-        this.hWc = abVar;
+        this.igZ = abVar;
     }
 
-    public ab<T> cnv() {
-        return this.hWc;
+    public ab<T> crI() {
+        return this.igZ;
     }
 }

@@ -5,36 +5,36 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class SingleDoOnDispose<T> extends w<T> {
-    final io.reactivex.c.a pQB;
+    final io.reactivex.b.a pHp;
     final aa<T> source;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
-        this.source.a(new DoOnDisposeObserver(yVar, this.pQB));
+        this.source.a(new DoOnDisposeObserver(yVar, this.pHp));
     }
 
-    /* loaded from: classes5.dex */
-    static final class DoOnDisposeObserver<T> extends AtomicReference<io.reactivex.c.a> implements io.reactivex.disposables.b, y<T> {
+    /* loaded from: classes9.dex */
+    static final class DoOnDisposeObserver<T> extends AtomicReference<io.reactivex.b.a> implements io.reactivex.disposables.b, y<T> {
         private static final long serialVersionUID = -8583764624474935784L;
         final y<? super T> actual;
         io.reactivex.disposables.b d;
 
-        DoOnDisposeObserver(y<? super T> yVar, io.reactivex.c.a aVar) {
+        DoOnDisposeObserver(y<? super T> yVar, io.reactivex.b.a aVar) {
             this.actual = yVar;
             lazySet(aVar);
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
-            io.reactivex.c.a andSet = getAndSet(null);
+            io.reactivex.b.a andSet = getAndSet(null);
             if (andSet != null) {
                 try {
                     andSet.run();
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.J(th);
-                    io.reactivex.e.a.onError(th);
+                    io.reactivex.d.a.onError(th);
                 }
                 this.d.dispose();
             }

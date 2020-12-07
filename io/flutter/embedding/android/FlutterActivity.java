@@ -11,9 +11,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
@@ -24,64 +21,57 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.plugin.platform.PlatformPlugin;
 import io.flutter.view.FlutterMain;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class FlutterActivity extends Activity implements LifecycleOwner, FlutterActivityAndFragmentDelegate.Host {
     private static final String TAG = "FlutterActivity";
-    @VisibleForTesting
     protected FlutterActivityAndFragmentDelegate delegate;
-    @NonNull
     private LifecycleRegistry lifecycle = new LifecycleRegistry(this);
 
-    @NonNull
-    public static Intent createDefaultIntent(@NonNull Context context) {
+    public static Intent createDefaultIntent(Context context) {
         return withNewEngine().build(context);
     }
 
-    @NonNull
     public static NewEngineIntentBuilder withNewEngine() {
         return new NewEngineIntentBuilder(FlutterActivity.class);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class NewEngineIntentBuilder {
         private final Class<? extends FlutterActivity> activityClass;
         private String initialRoute = "/";
         private String backgroundMode = FlutterActivityLaunchConfigs.DEFAULT_BACKGROUND_MODE;
 
-        protected NewEngineIntentBuilder(@NonNull Class<? extends FlutterActivity> cls) {
+        protected NewEngineIntentBuilder(Class<? extends FlutterActivity> cls) {
             this.activityClass = cls;
         }
 
-        @NonNull
-        public NewEngineIntentBuilder initialRoute(@NonNull String str) {
+        public NewEngineIntentBuilder initialRoute(String str) {
             this.initialRoute = str;
             return this;
         }
 
-        @NonNull
-        public NewEngineIntentBuilder backgroundMode(@NonNull FlutterActivityLaunchConfigs.BackgroundMode backgroundMode) {
+        public NewEngineIntentBuilder backgroundMode(FlutterActivityLaunchConfigs.BackgroundMode backgroundMode) {
             this.backgroundMode = backgroundMode.name();
             return this;
         }
 
-        @NonNull
-        public Intent build(@NonNull Context context) {
+        public Intent build(Context context) {
             return new Intent(context, this.activityClass).putExtra("route", this.initialRoute).putExtra("background_mode", this.backgroundMode).putExtra("destroy_engine_with_activity", true);
         }
     }
 
-    public static CachedEngineIntentBuilder withCachedEngine(@NonNull String str) {
+    public static CachedEngineIntentBuilder withCachedEngine(String str) {
         return new CachedEngineIntentBuilder(FlutterActivity.class, str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class CachedEngineIntentBuilder {
         private final Class<? extends FlutterActivity> activityClass;
         private final String cachedEngineId;
         private boolean destroyEngineWithActivity = false;
         private String backgroundMode = FlutterActivityLaunchConfigs.DEFAULT_BACKGROUND_MODE;
 
-        protected CachedEngineIntentBuilder(@NonNull Class<? extends FlutterActivity> cls, @NonNull String str) {
+        protected CachedEngineIntentBuilder(Class<? extends FlutterActivity> cls, String str) {
             this.activityClass = cls;
             this.cachedEngineId = str;
         }
@@ -91,25 +81,22 @@ public class FlutterActivity extends Activity implements LifecycleOwner, Flutter
             return this;
         }
 
-        @NonNull
-        public CachedEngineIntentBuilder backgroundMode(@NonNull FlutterActivityLaunchConfigs.BackgroundMode backgroundMode) {
+        public CachedEngineIntentBuilder backgroundMode(FlutterActivityLaunchConfigs.BackgroundMode backgroundMode) {
             this.backgroundMode = backgroundMode.name();
             return this;
         }
 
-        @NonNull
-        public Intent build(@NonNull Context context) {
+        public Intent build(Context context) {
             return new Intent(context, this.activityClass).putExtra("cached_engine_id", this.cachedEngineId).putExtra("destroy_engine_with_activity", this.destroyEngineWithActivity).putExtra("background_mode", this.backgroundMode);
         }
     }
 
-    @VisibleForTesting
-    void setDelegate(@NonNull FlutterActivityAndFragmentDelegate flutterActivityAndFragmentDelegate) {
+    void setDelegate(FlutterActivityAndFragmentDelegate flutterActivityAndFragmentDelegate) {
         this.delegate = flutterActivityAndFragmentDelegate;
     }
 
     @Override // android.app.Activity
-    protected void onCreate(@Nullable Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         switchLaunchThemeForNormalTheme();
         super.onCreate(bundle);
         this.lifecycle.handleLifecycleEvent(Lifecycle.Event.ON_CREATE);
@@ -138,7 +125,6 @@ public class FlutterActivity extends Activity implements LifecycleOwner, Flutter
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.SplashScreenProvider
-    @Nullable
     public SplashScreen provideSplashScreen() {
         Drawable splashScreenFromManifest = getSplashScreenFromManifest();
         if (splashScreenFromManifest != null) {
@@ -147,7 +133,6 @@ public class FlutterActivity extends Activity implements LifecycleOwner, Flutter
         return null;
     }
 
-    @Nullable
     private Drawable getSplashScreenFromManifest() {
         try {
             Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), 128).metaData;
@@ -170,7 +155,6 @@ public class FlutterActivity extends Activity implements LifecycleOwner, Flutter
         }
     }
 
-    @NonNull
     private View createFlutterView() {
         return this.delegate.onCreateView(null, null, null);
     }
@@ -238,7 +222,7 @@ public class FlutterActivity extends Activity implements LifecycleOwner, Flutter
     }
 
     @Override // android.app.Activity
-    protected void onNewIntent(@NonNull Intent intent) {
+    protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         this.delegate.onNewIntent(intent);
     }
@@ -249,7 +233,7 @@ public class FlutterActivity extends Activity implements LifecycleOwner, Flutter
     }
 
     @Override // android.app.Activity
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         this.delegate.onRequestPermissionsResult(i, strArr, iArr);
     }
 
@@ -265,31 +249,26 @@ public class FlutterActivity extends Activity implements LifecycleOwner, Flutter
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
-    @NonNull
     public Context getContext() {
         return this;
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
-    @NonNull
     public Activity getActivity() {
         return this;
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
-    @NonNull
     public Lifecycle getLifecycle() {
         return this.lifecycle;
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
-    @NonNull
     public FlutterShellArgs getFlutterShellArgs() {
         return FlutterShellArgs.fromIntent(getIntent());
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
-    @Nullable
     public String getCachedEngineId() {
         return getIntent().getStringExtra("cached_engine_id");
     }
@@ -301,7 +280,6 @@ public class FlutterActivity extends Activity implements LifecycleOwner, Flutter
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
-    @NonNull
     public String getDartEntrypointFunctionName() {
         try {
             Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), 128).metaData;
@@ -316,7 +294,6 @@ public class FlutterActivity extends Activity implements LifecycleOwner, Flutter
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
-    @NonNull
     public String getInitialRoute() {
         if (getIntent().hasExtra("route")) {
             return getIntent().getStringExtra("route");
@@ -331,7 +308,6 @@ public class FlutterActivity extends Activity implements LifecycleOwner, Flutter
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
-    @NonNull
     public String getAppBundlePath() {
         String dataString;
         return (isDebuggable() && "android.intent.action.RUN".equals(getIntent().getAction()) && (dataString = getIntent().getDataString()) != null) ? dataString : FlutterMain.findAppBundlePath();
@@ -342,36 +318,30 @@ public class FlutterActivity extends Activity implements LifecycleOwner, Flutter
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
-    @NonNull
     public RenderMode getRenderMode() {
         return getBackgroundMode() == FlutterActivityLaunchConfigs.BackgroundMode.opaque ? RenderMode.surface : RenderMode.texture;
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
-    @NonNull
     public TransparencyMode getTransparencyMode() {
         return getBackgroundMode() == FlutterActivityLaunchConfigs.BackgroundMode.opaque ? TransparencyMode.opaque : TransparencyMode.transparent;
     }
 
-    @NonNull
     protected FlutterActivityLaunchConfigs.BackgroundMode getBackgroundMode() {
         return getIntent().hasExtra("background_mode") ? FlutterActivityLaunchConfigs.BackgroundMode.valueOf(getIntent().getStringExtra("background_mode")) : FlutterActivityLaunchConfigs.BackgroundMode.opaque;
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.FlutterEngineProvider
-    @Nullable
-    public FlutterEngine provideFlutterEngine(@NonNull Context context) {
+    public FlutterEngine provideFlutterEngine(Context context) {
         return null;
     }
 
-    @Nullable
     protected FlutterEngine getFlutterEngine() {
         return this.delegate.getFlutterEngine();
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
-    @Nullable
-    public PlatformPlugin providePlatformPlugin(@Nullable Activity activity, @NonNull FlutterEngine flutterEngine) {
+    public PlatformPlugin providePlatformPlugin(Activity activity, FlutterEngine flutterEngine) {
         if (activity != null) {
             return new PlatformPlugin(getActivity(), flutterEngine.getPlatformChannel());
         }
@@ -379,12 +349,12 @@ public class FlutterActivity extends Activity implements LifecycleOwner, Flutter
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.FlutterEngineConfigurator
-    public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
+    public void configureFlutterEngine(FlutterEngine flutterEngine) {
         registerPlugins(flutterEngine);
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.FlutterEngineConfigurator
-    public void cleanUpFlutterEngine(@NonNull FlutterEngine flutterEngine) {
+    public void cleanUpFlutterEngine(FlutterEngine flutterEngine) {
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
@@ -393,11 +363,11 @@ public class FlutterActivity extends Activity implements LifecycleOwner, Flutter
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
-    public void onFlutterSurfaceViewCreated(@NonNull FlutterSurfaceView flutterSurfaceView) {
+    public void onFlutterSurfaceViewCreated(FlutterSurfaceView flutterSurfaceView) {
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
-    public void onFlutterTextureViewCreated(@NonNull FlutterTextureView flutterTextureView) {
+    public void onFlutterTextureViewCreated(FlutterTextureView flutterTextureView) {
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
@@ -411,7 +381,7 @@ public class FlutterActivity extends Activity implements LifecycleOwner, Flutter
     public void onFlutterUiNoLongerDisplayed() {
     }
 
-    private static void registerPlugins(@NonNull FlutterEngine flutterEngine) {
+    private static void registerPlugins(FlutterEngine flutterEngine) {
         try {
             Class.forName("io.flutter.plugins.GeneratedPluginRegistrant").getDeclaredMethod("registerWith", FlutterEngine.class).invoke(null, flutterEngine);
         } catch (Exception e) {

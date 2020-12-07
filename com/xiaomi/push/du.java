@@ -15,20 +15,20 @@ public class du {
     }
 
     public static byte[] a(String str, byte[] bArr) {
-        byte[] m165a = bc.m165a(str);
+        byte[] m155a = bc.m155a(str);
         try {
-            a(m165a);
-            return h.a(m165a, bArr);
+            a(m155a);
+            return h.a(m155a, bArr);
         } catch (Exception e) {
             return null;
         }
     }
 
     public static byte[] b(String str, byte[] bArr) {
-        byte[] m165a = bc.m165a(str);
+        byte[] m155a = bc.m155a(str);
         try {
-            a(m165a);
-            return h.b(m165a, bArr);
+            a(m155a);
+            return h.b(m155a, bArr);
         } catch (Exception e) {
             return null;
         }

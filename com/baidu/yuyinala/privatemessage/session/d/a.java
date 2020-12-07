@@ -15,59 +15,59 @@ import com.baidu.yuyinala.privatemessage.session.util.TagView;
 import com.baidu.yuyinala.privatemessage.session.view.SwipeListViewScroll;
 /* loaded from: classes4.dex */
 public class a {
-    private TextView euO;
-    private TextView glY;
-    private TextView gma;
-    private HeadImageView hhM;
-    public View lTC;
-    private SwipeListViewScroll oJq;
-    private TagView oJr;
-    public TextView oJs;
-    private TextView oJt;
-    private j oJu;
+    private TextView eBQ;
+    private TextView guh;
+    private TextView guj;
+    private HeadImageView hrp;
+    public View mhH;
+    private j oYA;
+    private SwipeListViewScroll oYw;
+    private TagView oYx;
+    public TextView oYy;
+    private TextView oYz;
 
     public a(View view) {
-        this.lTC = view;
+        this.mhH = view;
         initView();
     }
 
     public void a(j jVar) {
         if (jVar != null) {
-            this.oJu = jVar;
-            String str = h.eiv().eiw().get(h.encode(jVar.oIt + ""));
+            this.oYA = jVar;
+            String str = h.eol().eom().get(h.encode(jVar.oXz + ""));
             if (!TextUtils.isEmpty(str)) {
-                this.euO.setText(str);
+                this.eBQ.setText(str);
             } else {
-                this.euO.setText(jVar.name);
+                this.eBQ.setText(jVar.name);
             }
-            this.glY.setText(jVar.description);
-            this.gma.setText(jVar.oIl);
-            this.hhM.setIsRound(true);
-            this.hhM.startLoad(this.oJu.iconUrl, 12, false);
-            if (jVar.oIv != null) {
-                this.oJr.setText(jVar.oIv);
-                this.oJr.setVisibility(0);
+            this.guh.setText(jVar.description);
+            this.guj.setText(jVar.oXr);
+            this.hrp.setIsRound(true);
+            this.hrp.startLoad(this.oYA.iconUrl, 12, false);
+            if (jVar.oXB != null) {
+                this.oYx.setText(jVar.oXB);
+                this.oYx.setVisibility(0);
             } else {
-                this.oJr.setVisibility(8);
+                this.oYx.setVisibility(8);
             }
             IMBoxManager.getShield(TbadkCoreApplication.getInst().getContext(), jVar.contacter, new IGetShieldAndTopListener() { // from class: com.baidu.yuyinala.privatemessage.session.d.a.1
                 @Override // com.baidu.android.imsdk.shield.IGetShieldAndTopListener
                 public void onResult(GetShieldAndTopResult getShieldAndTopResult) {
-                    a.this.oJt.setVisibility(getShieldAndTopResult.getShield() == 1 ? 0 : 8);
+                    a.this.oYz.setVisibility(getShieldAndTopResult.getShield() == 1 ? 0 : 8);
                 }
             });
-            this.oJq.close();
+            this.oYw.close();
         }
     }
 
     private void initView() {
-        this.oJq = (SwipeListViewScroll) this.lTC.findViewById(a.f.yuyin_user_message_item_root);
-        this.hhM = (HeadImageView) this.lTC.findViewById(a.f.user_message_item_icon);
-        this.euO = (TextView) this.lTC.findViewById(a.f.user_message_item_name);
-        this.glY = (TextView) this.lTC.findViewById(a.f.user_message_item_description);
-        this.gma = (TextView) this.lTC.findViewById(a.f.user_message_item_time);
-        this.oJr = (TagView) this.lTC.findViewById(a.f.user_message_item_new_count);
-        this.oJt = (TextView) this.lTC.findViewById(a.f.yuyin_tv_chatlist_shield_status);
-        this.oJs = (TextView) this.lTC.findViewById(a.f.yuyin_tv_chatlist_delete);
+        this.oYw = (SwipeListViewScroll) this.mhH.findViewById(a.f.yuyin_user_message_item_root);
+        this.hrp = (HeadImageView) this.mhH.findViewById(a.f.user_message_item_icon);
+        this.eBQ = (TextView) this.mhH.findViewById(a.f.user_message_item_name);
+        this.guh = (TextView) this.mhH.findViewById(a.f.user_message_item_description);
+        this.guj = (TextView) this.mhH.findViewById(a.f.user_message_item_time);
+        this.oYx = (TagView) this.mhH.findViewById(a.f.user_message_item_new_count);
+        this.oYz = (TextView) this.mhH.findViewById(a.f.yuyin_tv_chatlist_shield_status);
+        this.oYy = (TextView) this.mhH.findViewById(a.f.yuyin_tv_chatlist_delete);
     }
 }

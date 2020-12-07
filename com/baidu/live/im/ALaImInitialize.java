@@ -32,8 +32,8 @@ public class ALaImInitialize {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() instanceof com.baidu.live.liveroom.d.a) {
                     com.baidu.live.liveroom.d.a aVar = (com.baidu.live.liveroom.d.a) customResponsedMessage.getData();
-                    if (aVar.blK != null) {
-                        aVar.a(new e(aVar.blK.context, aVar.blK.blM));
+                    if (aVar.bqR != null) {
+                        aVar.a(new e(aVar.bqR.context, aVar.bqR.bqT));
                     }
                 }
             }
@@ -42,7 +42,8 @@ public class ALaImInitialize {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                com.baidu.live.view.b.bJF.clear();
+                com.baidu.live.view.b.bON.clear();
+                com.baidu.live.ak.b.release();
             }
         });
     }

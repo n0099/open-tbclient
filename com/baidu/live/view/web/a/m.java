@@ -1,51 +1,71 @@
 package com.baidu.live.view.web.a;
 
-import android.text.TextUtils;
-import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-import com.baidu.live.tbadk.scheme.SchemeCallback;
+import android.app.Activity;
+import android.util.Log;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.data.ShareEntity;
+import com.baidu.live.tbadk.data.ShareEntityWrapperData;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class m extends com.baidu.live.view.web.a {
-    private SchemeCallback bMe;
-
-    public m(SchemeCallback schemeCallback) {
-        this.bMe = schemeCallback;
-    }
+    private Activity activity;
+    private long liveId;
+    private long userId;
+    private String userName = "";
 
     @Override // com.baidu.live.view.web.a
     public String getName() {
-        return "zidBridge";
+        return "shareBridge";
     }
 
     @Override // com.baidu.live.view.web.a
-    public void iI(String str) {
-        JSONObject jSONObject;
-        JSONException e;
-        if (this.bMe != null) {
-            String baiduzid = ExtraParamsManager.getBaiduzid();
-            if (TextUtils.isEmpty(baiduzid)) {
-                this.bMe.doJsCallback(0, "", null, str);
-                return;
+    public void jm(String str) {
+        Log.d("JsInterface", "@@ JsInterface-impl ShareBridgeJsInterface params = " + str);
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            String optString = jSONObject.optString("title");
+            String optString2 = jSONObject.optString("content");
+            String optString3 = jSONObject.optString("imageUrl");
+            String optString4 = jSONObject.optString("linkUrl");
+            int optInt = jSONObject.optInt("type");
+            String optString5 = jSONObject.optString("shareType");
+            ShareEntity shareEntity = new ShareEntity();
+            shareEntity.title = optString;
+            shareEntity.content = optString2;
+            shareEntity.imageUrl = optString3;
+            shareEntity.linkUrl = optString4;
+            shareEntity.sharePicType = optString5;
+            if (shareEntity.sharePicType.equals("image")) {
+                shareEntity.type = "2";
             }
-            if (TextUtils.isEmpty(baiduzid)) {
-                jSONObject = null;
-            } else {
-                try {
-                    jSONObject = new JSONObject();
-                } catch (JSONException e2) {
-                    jSONObject = null;
-                    e = e2;
-                }
-                try {
-                    jSONObject.put("zid", baiduzid);
-                } catch (JSONException e3) {
-                    e = e3;
-                    e.printStackTrace();
-                    this.bMe.doJsCallback(1, "", jSONObject, str);
-                }
-            }
-            this.bMe.doJsCallback(1, "", jSONObject, str);
+            shareEntity.shareType = optInt;
+            shareEntity.userId = this.userId;
+            shareEntity.userName = this.userName;
+            shareEntity.liveId = this.liveId;
+            ShareEntityWrapperData shareEntityWrapperData = new ShareEntityWrapperData();
+            shareEntityWrapperData.activity = this.activity;
+            shareEntityWrapperData.shareEntity = shareEntity;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2913077, shareEntityWrapperData));
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+    }
+
+    public void setUserId(long j) {
+        this.userId = j;
+    }
+
+    public void setUserName(String str) {
+        this.userName = str;
+    }
+
+    public void setActivityContext(Activity activity) {
+        this.activity = activity;
+    }
+
+    public void setLiveId(long j) {
+        this.liveId = j;
     }
 }

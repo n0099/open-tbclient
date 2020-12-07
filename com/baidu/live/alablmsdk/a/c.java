@@ -1,11 +1,16 @@
 package com.baidu.live.alablmsdk.a;
+
+import android.os.Handler;
+import android.os.Looper;
 /* loaded from: classes4.dex */
-public class c {
-    public static int r(float f) {
-        int ceil = (int) Math.ceil(f);
-        if (ceil % 2 == 1) {
-            return ceil - 1;
-        }
-        return ceil;
+public class c extends Handler {
+    private static final c aAY = new c();
+
+    private c() {
+        super(Looper.getMainLooper());
+    }
+
+    public static final c BS() {
+        return aAY;
     }
 }

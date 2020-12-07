@@ -1,6 +1,8 @@
 package com.baidu.searchbox.http.statistics;
 
 import android.text.TextUtils;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
+import com.baidu.searchbox.perfframe.ioc.Constant;
 import com.baidu.searchbox.websocket.WebSocketRequest;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -11,7 +13,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class NetworkStatRecord {
     public static final int DEFAULT_FROM_ID = 0;
     public static final int DEFAULT_SUBFROM_ID = 0;
@@ -19,16 +21,25 @@ public class NetworkStatRecord {
     public List<InetAddress> addressList;
     public String bdTraceId;
     public String clientIP;
+    public String clientIPv6;
     public String errheaders;
     public Exception exception;
     public JSONObject extraUserInfo;
+    public String httpDnsAreaInfo;
+    public long httpDnsAreaInfoLastUpdateTime;
     public int ipStack;
     public boolean isConnReused;
     public boolean isConnected;
+    public boolean isProxyConnect;
+    public boolean isVPNConnect;
     public String localIP;
     public String netType;
+    public int networkQuality;
+    public int networkQualityFrom;
+    public String processName;
     public String protocol;
     public String remoteIP;
+    public JSONObject sdtProbeErrorCode;
     public String url;
     public boolean useFallbackConn;
     public long startTs = -1;
@@ -59,7 +70,7 @@ public class NetworkStatRecord {
                 jSONObject.put("url", this.url);
             }
             if (!TextUtils.isEmpty(this.protocol)) {
-                jSONObject.put("protocol", this.protocol);
+                jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_PROTOCOL, this.protocol);
             }
             if (!TextUtils.isEmpty(this.netType)) {
                 jSONObject.put("netType", this.netType);
@@ -118,6 +129,9 @@ public class NetworkStatRecord {
             if (!TextUtils.isEmpty(this.clientIP)) {
                 jSONObject.put("clientIP", this.clientIP);
             }
+            if (!TextUtils.isEmpty(this.clientIPv6)) {
+                jSONObject.put("clientIPv6", this.clientIPv6);
+            }
             if (this.realResponseLength > 0) {
                 jSONObject.put("realResponseLength", this.realResponseLength);
             }
@@ -139,6 +153,20 @@ public class NetworkStatRecord {
                 jSONObject.put("bdTraceId", this.bdTraceId);
             }
             jSONObject.put("isConnected", this.isConnected ? "1" : "0");
+            jSONObject.put("networkQuality", this.networkQuality);
+            jSONObject.put("networkQualityFrom", this.networkQualityFrom);
+            if (this.sdtProbeErrorCode != null) {
+                jSONObject.put("sdtProbeErrorCode", this.sdtProbeErrorCode.toString());
+            }
+            jSONObject.put("viaVPN", this.isVPNConnect ? "1" : "0");
+            jSONObject.put("viaProxy", this.isProxyConnect ? "1" : "0");
+            if (!TextUtils.isEmpty(this.httpDnsAreaInfo)) {
+                jSONObject.put("httpDnsAreaInfo", this.httpDnsAreaInfo);
+                jSONObject.put("httpDnsAreaUpdateTime", this.httpDnsAreaInfoLastUpdateTime);
+            }
+            if (!TextUtils.isEmpty(this.processName)) {
+                jSONObject.put(Constant.KEY_PROCESS_NAME, this.processName);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -146,7 +174,7 @@ public class NetworkStatRecord {
     }
 
     public String toString() {
-        return "NetworkStatRecord{, netEngine=" + this.netEngine + "，url=" + this.url + ", protocol=" + this.protocol + ", netType=" + this.netType + ", startTs=" + this.startTs + ", connTs=" + this.connTs + ", dnsStartTs=" + this.dnsStartTs + ", dnsEndTs=" + this.dnsEndTs + ", dnsDetail=" + this.dnsDetail.toString() + ", responseTs=" + this.responseTs + ", sendHeaderTs=" + this.sendHeaderTs + ", receiveHeaderTs=" + this.receiveHeaderTs + ", finishTs=" + this.finishTs + ", failTs=" + this.failTs + ", responseLength=" + this.responseLength + ", requestBodyLength=" + this.requestBodyLength + ", remoteIP=" + this.remoteIP + ", localIP=" + this.localIP + ", connectConsume=" + (this.connTs - this.startTs) + ", responseConsume=" + (this.responseTs - this.connTs) + ", totalConsume=" + (this.responseTs - this.startTs) + ", headers=" + this.errheaders + ", excetion=" + getStackTraceString(this.exception) + ", clientIP=" + this.clientIP + ", isConnReused=" + (this.isConnReused ? "1" : "0") + ", realResponseLength=" + this.realResponseLength + ", readOverTime=" + this.readOverTs + ", from=" + this.from + ", subFrom=" + this.subFrom + ", extraUserInfo=" + (this.extraUserInfo != null ? this.extraUserInfo.toString() : "") + ", ipStack=" + this.ipStack + '}';
+        return "NetworkStatRecord{, netEngine=" + this.netEngine + "，url=" + this.url + ", protocol=" + this.protocol + ", netType=" + this.netType + ", startTs=" + this.startTs + ", connTs=" + this.connTs + ", dnsStartTs=" + this.dnsStartTs + ", dnsEndTs=" + this.dnsEndTs + ", dnsDetail=" + this.dnsDetail.toString() + ", responseTs=" + this.responseTs + ", sendHeaderTs=" + this.sendHeaderTs + ", receiveHeaderTs=" + this.receiveHeaderTs + ", finishTs=" + this.finishTs + ", failTs=" + this.failTs + ", responseLength=" + this.responseLength + ", requestBodyLength=" + this.requestBodyLength + ", remoteIP=" + this.remoteIP + ", localIP=" + this.localIP + ", connectConsume=" + (this.connTs - this.startTs) + ", responseConsume=" + (this.responseTs - this.connTs) + ", totalConsume=" + (this.responseTs - this.startTs) + ", headers=" + this.errheaders + ", excetion=" + getStackTraceString(this.exception) + ", clientIP=" + this.clientIP + ", clientIPv6=" + this.clientIPv6 + ", isConnReused=" + (this.isConnReused ? "1" : "0") + ", realResponseLength=" + this.realResponseLength + ", readOverTime=" + this.readOverTs + ", from=" + this.from + ", subFrom=" + this.subFrom + ", extraUserInfo=" + (this.extraUserInfo != null ? this.extraUserInfo.toString() : "") + ", ipStack=" + this.ipStack + ", isVPNConnect=" + this.isVPNConnect + ", isProxyConnect=" + this.isProxyConnect + ", networkQuality=" + this.networkQuality + ", sdtProbeErrorCode=" + (this.sdtProbeErrorCode != null ? this.sdtProbeErrorCode.toString() : "") + ", networkQualityFrom=" + this.networkQualityFrom + ", httpDnsAreaInfo=" + this.httpDnsAreaInfo + ", httpDnsAreaUpdateTime=" + this.httpDnsAreaInfoLastUpdateTime + ", processName=" + this.processName + '}';
     }
 
     private String getStackTraceString(Throwable th) {

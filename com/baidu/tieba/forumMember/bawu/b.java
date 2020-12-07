@@ -2,47 +2,47 @@ package com.baidu.tieba.forumMember.bawu;
 
 import java.util.ArrayList;
 import tbclient.BawuRoleInfoPub;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class b implements i {
-    private String iDm;
+    private String iOe;
     private ArrayList<BawuRoleInfoPub> mMembers = new ArrayList<>();
-    private boolean iDk = false;
-    private boolean iDl = false;
+    private boolean iOc = false;
+    private boolean iOd = false;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int cvZ() {
+    public int cAo() {
         return 1;
     }
 
-    public ArrayList<BawuRoleInfoPub> cwa() {
+    public ArrayList<BawuRoleInfoPub> cAp() {
         return this.mMembers;
     }
 
-    public void aw(ArrayList<BawuRoleInfoPub> arrayList) {
+    public void ax(ArrayList<BawuRoleInfoPub> arrayList) {
         this.mMembers = arrayList;
     }
 
     public boolean isLast() {
-        return this.iDk;
+        return this.iOc;
     }
 
-    public void pl(boolean z) {
-        this.iDk = z;
+    public void pI(boolean z) {
+        this.iOc = z;
     }
 
-    public boolean cwb() {
-        return this.iDl;
+    public boolean cAq() {
+        return this.iOd;
     }
 
-    public void pm(boolean z) {
-        this.iDl = z;
+    public void pJ(boolean z) {
+        this.iOd = z;
     }
 
-    public String cwc() {
-        return this.iDm;
+    public String cAr() {
+        return this.iOe;
     }
 
-    public void JG(String str) {
-        this.iDm = str;
+    public void Kw(String str) {
+        this.iOe = str;
     }
 }

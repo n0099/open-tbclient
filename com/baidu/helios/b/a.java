@@ -1,10 +1,10 @@
 package com.baidu.helios.b;
 
 import com.baidu.helios.bridge.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes17.dex */
 public class a implements b.a {
     @Override // com.baidu.helios.bridge.b.a
-    public com.baidu.helios.bridge.a zv() {
+    public com.baidu.helios.bridge.a zn() {
         return new com.baidu.helios.bridge.multiprocess.a(true);
     }
 }

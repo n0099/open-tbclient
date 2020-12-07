@@ -1,11 +1,11 @@
 package com.baidu.ar.recorder.c;
 
 import java.io.File;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
 
-    public static void au(String str) {
+    public static void ax(String str) {
         File parentFile = new File(str).getParentFile();
         if (parentFile.exists()) {
             return;
@@ -13,7 +13,7 @@ public class a {
         parentFile.mkdirs();
     }
 
-    public static boolean av(String str) {
+    public static boolean ay(String str) {
         return new File(str).delete();
     }
 }

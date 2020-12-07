@@ -22,21 +22,21 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
     @SuppressLint({"StaticFieldLeak"})
-    private static a oKd = null;
+    private static a oZj = null;
     private Context mContext;
     private Handler mHandler;
     private final Object mObject;
-    private c oKc;
-    private long oKe;
-    private String oKf;
+    private c oZi;
+    private long oZk;
+    private String oZl;
 
     private a(Context context) {
-        this.oKe = 8000L;
+        this.oZk = 8000L;
         this.mObject = new Object();
         this.mContext = context.getApplicationContext();
         this.mHandler = new Handler(this.mContext.getMainLooper());
-        this.oKc = c.gT(this.mContext);
-        t.gU(this.mContext);
+        this.oZi = c.hC(this.mContext);
+        t.hD(this.mContext);
         k.a(this.mContext);
         j.a(this.mContext);
         o.a(new o.a() { // from class: com.cmic.sso.sdk.b.a.1
@@ -45,7 +45,7 @@ public class a {
                 String b = k.b("AID", "");
                 com.cmic.sso.sdk.e.c.b("AuthnHelper", "aid = " + b);
                 if (TextUtils.isEmpty(b)) {
-                    a.this.eiK();
+                    a.this.eoA();
                 }
                 if (com.cmic.sso.sdk.e.b.a(a.this.mContext, true)) {
                     com.cmic.sso.sdk.e.c.b("AuthnHelper", "生成androidkeystore成功");
@@ -57,39 +57,39 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eiK() {
+    public void eoA() {
         String str = "%" + s.a();
         com.cmic.sso.sdk.e.c.b("AuthnHelper", "generate aid = " + str);
-        k.a eiS = k.eiS();
-        eiS.a("AID", str);
-        eiS.b();
+        k.a eoI = k.eoI();
+        eoI.a("AID", str);
+        eoI.b();
     }
 
     private a(Context context, String str) {
         this(context);
-        this.oKf = str;
+        this.oZl = str;
     }
 
-    public static a gR(Context context) {
-        if (oKd == null) {
+    public static a hA(Context context) {
+        if (oZj == null) {
             synchronized (a.class) {
-                if (oKd == null) {
-                    oKd = new a(context);
+                if (oZj == null) {
+                    oZj = new a(context);
                 }
             }
         }
-        return oKd;
+        return oZj;
     }
 
-    public static a bq(Context context, String str) {
-        if (oKd == null) {
+    public static a bu(Context context, String str) {
+        if (oZj == null) {
             synchronized (a.class) {
-                if (oKd == null) {
-                    oKd = new a(context, str);
+                if (oZj == null) {
+                    oZj = new a(context, str);
                 }
             }
         }
-        return oKd;
+        return oZj;
     }
 
     public void a(final String str, final String str2, final b bVar) {
@@ -141,33 +141,33 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.cmic.sso.sdk.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class RunnableC0966a implements Runnable {
-        private com.cmic.sso.sdk.a oKo;
+    public class RunnableC0983a implements Runnable {
+        private com.cmic.sso.sdk.a oZu;
 
-        RunnableC0966a(com.cmic.sso.sdk.a aVar) {
-            this.oKo = aVar;
+        RunnableC0983a(com.cmic.sso.sdk.a aVar) {
+            this.oZu = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             JSONObject a2;
-            if (!t.gU(a.this.mContext).a() && this.oKo.b("doNetworkSwitch", false)) {
+            if (!t.hD(a.this.mContext).a() && this.oZu.b("doNetworkSwitch", false)) {
                 a2 = e.a("102508", "数据网络切换失败");
             } else {
                 a2 = e.a("200023", "登录超时");
             }
-            a.this.a(a2.optString("resultCode", "200023"), a2.optString("resultString", "登录超时"), this.oKo, a2);
+            a.this.a(a2.optString("resultCode", "200023"), a2.optString("resultString", "登录超时"), this.oZu, a2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.cmic.sso.sdk.a aVar) {
-        final RunnableC0966a runnableC0966a = new RunnableC0966a(aVar);
-        this.mHandler.postDelayed(runnableC0966a, this.oKe);
-        this.oKc.a(aVar, new d() { // from class: com.cmic.sso.sdk.b.a.5
+        final RunnableC0983a runnableC0983a = new RunnableC0983a(aVar);
+        this.mHandler.postDelayed(runnableC0983a, this.oZk);
+        this.oZi.a(aVar, new d() { // from class: com.cmic.sso.sdk.b.a.5
             @Override // com.cmic.sso.sdk.b.d
             public void b(String str, String str2, com.cmic.sso.sdk.a aVar2, JSONObject jSONObject) {
-                a.this.mHandler.removeCallbacks(runnableC0966a);
+                a.this.mHandler.removeCallbacks(runnableC0983a);
                 a.this.a(str, str2, aVar2, jSONObject);
             }
         });
@@ -177,28 +177,28 @@ public class a {
     public boolean a(com.cmic.sso.sdk.a aVar, String str, String str2, String str3, int i, b bVar) {
         boolean z;
         aVar.a("CLOSE_CERT_VERIFY", q.h());
-        aVar.a("use2048PublicKey", "rsa2048".equals(this.oKf));
+        aVar.a("use2048PublicKey", "rsa2048".equals(this.oZl));
         aVar.a("systemStartTime", SystemClock.elapsedRealtime());
         aVar.a(LogBuilder.KEY_START_TIME, p.a());
         aVar.a("loginMethod", str3);
         aVar.a("appkey", str2);
         aVar.a("appid", str);
-        aVar.a("timeOut", String.valueOf(this.oKe));
+        aVar.a("timeOut", String.valueOf(this.oZk));
         boolean z2 = false;
         if (g.a(this.mContext, "android.permission.READ_PHONE_STATE")) {
             z2 = true;
         }
         com.cmic.sso.sdk.e.c.a("AuthnHelper", "有READ_PHONE_STATE权限？" + z2);
         aVar.a("hsaReadPhoneStatePermission", z2);
-        com.cmic.sso.sdk.a.b.eiI().a(this.mContext, z2);
-        aVar.a("networkClass", com.cmic.sso.sdk.a.b.eiI().a(this.mContext));
-        aVar.a("simCardNum", String.valueOf(com.cmic.sso.sdk.a.b.eiI().eiJ().i()));
-        String b = j.eiR().b();
-        String Ae = j.eiR().Ae(z2);
+        com.cmic.sso.sdk.a.b.eoy().a(this.mContext, z2);
+        aVar.a("networkClass", com.cmic.sso.sdk.a.b.eoy().a(this.mContext));
+        aVar.a("simCardNum", String.valueOf(com.cmic.sso.sdk.a.b.eoy().eoz().i()));
+        String b = j.eoH().b();
+        String AI = j.eoH().AI(z2);
         String e = j.e();
-        String a2 = j.eiR().a(false);
+        String a2 = j.eoH().a(false);
         aVar.a("imsi", b);
-        aVar.a("imei", Ae);
+        aVar.a("imei", AI);
         aVar.a("operatortype", a2);
         aVar.a("iccid", e);
         aVar.a("logintype", i);
@@ -274,9 +274,9 @@ public class a {
             String b = aVar.b("traceId");
             if (!com.cmic.sso.sdk.e.e.a(b)) {
                 synchronized (this) {
-                    final b Xz = com.cmic.sso.sdk.e.e.Xz(b);
+                    final b YU = com.cmic.sso.sdk.e.e.YU(b);
                     com.cmic.sso.sdk.e.e.b(b);
-                    if (Xz != null) {
+                    if (YU != null) {
                         aVar.a("systemEndTime", SystemClock.elapsedRealtime());
                         aVar.a(LogBuilder.KEY_END_TIME, p.a());
                         int b2 = aVar.b("logintype", -1);
@@ -291,7 +291,7 @@ public class a {
                         this.mHandler.post(new Runnable() { // from class: com.cmic.sso.sdk.b.a.6
                             @Override // java.lang.Runnable
                             public void run() {
-                                Xz.onGetTokenComplete(c);
+                                YU.onGetTokenComplete(c);
                             }
                         });
                         a(this.mContext, str, aVar);
@@ -309,7 +309,7 @@ public class a {
                 }
             }
             if (com.cmic.sso.sdk.e.e.a()) {
-                t.gU(this.mContext).b();
+                t.hD(this.mContext).b();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -322,15 +322,15 @@ public class a {
         }
     }
 
-    public void hD(long j) {
-        this.oKe = j;
+    public void ii(long j) {
+        this.oZk = j;
     }
 
-    public JSONObject gS(Context context) {
+    public JSONObject hB(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
-            com.cmic.sso.sdk.a.b.eiI().a(context, g.a(context, "android.permission.READ_PHONE_STATE"));
-            String a2 = j.eiR().a(true);
+            com.cmic.sso.sdk.a.b.eoy().a(context, g.a(context, "android.permission.READ_PHONE_STATE"));
+            String a2 = j.eoH().a(true);
             int a3 = n.a(context, a2);
             jSONObject.put("operatortype", a2);
             jSONObject.put("networktype", a3 + "");

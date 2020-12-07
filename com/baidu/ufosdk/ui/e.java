@@ -5,18 +5,18 @@ import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class e extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f3847a;
+    public boolean f3850a;
     private ImageView b;
     private TextView c;
     private Context d;
 
     public e(Context context) {
         super(context);
-        this.f3847a = false;
+        this.f3850a = false;
         this.d = context;
         setOrientation(0);
         setGravity(16);

@@ -15,8 +15,8 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.model.f;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ConnectionWheatInviteListView extends BaseConnectionWheatListView {
-    private c ojt;
-    private f oju;
+    private c oyu;
+    private f oyv;
 
     public ConnectionWheatInviteListView(@NonNull Context context) {
         this(context, null);
@@ -35,10 +35,10 @@ public class ConnectionWheatInviteListView extends BaseConnectionWheatListView {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
-    protected void dxy() {
-        this.ojt = new c(getContext());
-        this.ogE.setAdapter((ListAdapter) this.ojt);
-        this.bnY.setRefreshButton(getResources().getString(a.h.yuyin_ala_connection_wheat_load_data_retry), new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatInviteListView.1
+    protected void dCP() {
+        this.oyu = new c(getContext());
+        this.ovE.setAdapter((ListAdapter) this.oyu);
+        this.btg.setRefreshButton(getResources().getString(a.h.yuyin_ala_connection_wheat_load_data_retry), new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatInviteListView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
             }
@@ -46,34 +46,34 @@ public class ConnectionWheatInviteListView extends BaseConnectionWheatListView {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
-    public void zq(boolean z) {
+    public void zU(boolean z) {
         if (z) {
             showLoading();
         }
-        if (this.oju == null) {
-            this.oju = new f(this.oey, new f.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatInviteListView.2
+        if (this.oyv == null) {
+            this.oyv = new f(this.oty, new f.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatInviteListView.2
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.f.a
                 public void a(AlaGetInviteConnectionWheatListHttpResponseMessage alaGetInviteConnectionWheatListHttpResponseMessage) {
                     ConnectionWheatInviteListView.this.b(alaGetInviteConnectionWheatListHttpResponseMessage);
                     ConnectionWheatInviteListView.this.hideLoading();
-                    ConnectionWheatInviteListView.this.dZP();
+                    ConnectionWheatInviteListView.this.efu();
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.f.a
                 public void onFail(int i, String str) {
                     ConnectionWheatInviteListView.this.b(null);
                     ConnectionWheatInviteListView.this.hideLoading();
-                    ConnectionWheatInviteListView.this.dZQ();
+                    ConnectionWheatInviteListView.this.efv();
                 }
             });
         }
-        this.oju.request();
+        this.oyv.request();
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
     public int getCount() {
-        if (this.ojt != null) {
-            return this.ojt.getCount();
+        if (this.oyu != null) {
+            return this.oyu.getCount();
         }
         return 0;
     }
@@ -90,38 +90,38 @@ public class ConnectionWheatInviteListView extends BaseConnectionWheatListView {
             return;
         }
         if (alaGetInviteConnectionWheatListHttpResponseMessage.getCount() > 0) {
-            this.oiY.setVisibility(0);
-            this.oiY.setText(String.format(getContext().getString(a.h.yuyin_ala_connection_wheat_online_audience_counts_text), Integer.valueOf(alaGetInviteConnectionWheatListHttpResponseMessage.getCount())));
+            this.oxZ.setVisibility(0);
+            this.oxZ.setText(String.format(getContext().getString(a.h.yuyin_ala_connection_wheat_online_audience_counts_text), Integer.valueOf(alaGetInviteConnectionWheatListHttpResponseMessage.getCount())));
         } else {
-            this.oiY.setVisibility(8);
+            this.oxZ.setVisibility(8);
         }
-        setData(alaGetInviteConnectionWheatListHttpResponseMessage.eam());
+        setData(alaGetInviteConnectionWheatListHttpResponseMessage.efR());
     }
 
     private void setData(List<m> list) {
-        if (this.ojt != null) {
-            this.ojt.setData(list);
+        if (this.oyu != null) {
+            this.oyu.setData(list);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
     public void setTbPageContext(TbPageContext tbPageContext) {
-        this.oey = tbPageContext;
+        this.oty = tbPageContext;
     }
 
     public void setOnItemClickLister(c.a aVar) {
-        if (this.ojt != null) {
-            this.ojt.setOnItemClickLister(aVar);
+        if (this.oyu != null) {
+            this.oyu.setOnItemClickLister(aVar);
         }
     }
 
     public void onDestroy() {
-        if (this.ojt != null) {
-            this.ojt.clear();
+        if (this.oyu != null) {
+            this.oyu.clear();
         }
-        if (this.oju != null) {
-            this.oju.onDestroy();
-            this.oju = null;
+        if (this.oyv != null) {
+            this.oyv.onDestroy();
+            this.oyv = null;
         }
     }
 }

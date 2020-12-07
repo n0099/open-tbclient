@@ -13,7 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class RequestParams {
     private static String ENCODING = "UTF-8";
     protected ConcurrentHashMap<String, FileWrapper> fileParams;
@@ -90,7 +90,7 @@ public class RequestParams {
                 sb.append(ETAG.ITEM_SEPARATOR);
             }
             sb.append(entry.getKey());
-            sb.append(ETAG.EQUAL);
+            sb.append("=");
             sb.append(entry.getValue());
         }
         for (Map.Entry<String, FileWrapper> entry2 : this.fileParams.entrySet()) {
@@ -98,7 +98,7 @@ public class RequestParams {
                 sb.append(ETAG.ITEM_SEPARATOR);
             }
             sb.append(entry2.getKey());
-            sb.append(ETAG.EQUAL);
+            sb.append("=");
             sb.append("FILE");
         }
         for (Map.Entry<String, ArrayList<String>> entry3 : this.urlParamsWithArray.entrySet()) {
@@ -114,7 +114,7 @@ public class RequestParams {
                         sb.append(ETAG.ITEM_SEPARATOR);
                     }
                     sb.append(entry3.getKey());
-                    sb.append(ETAG.EQUAL);
+                    sb.append("=");
                     sb.append(value.get(i2));
                     i = i2 + 1;
                 }
@@ -149,7 +149,7 @@ public class RequestParams {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class FileWrapper {
         public String contentType;
         public String fileName;

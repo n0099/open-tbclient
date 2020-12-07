@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.group.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,7 +15,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMJoinStarGroupRequest extends GroupBaseHttpRequest {
     private static final String TAG = IMJoinStarGroupRequest.class.getSimpleName();
     private long mAppid;
@@ -28,7 +29,7 @@ public class IMJoinStarGroupRequest extends GroupBaseHttpRequest {
         this.mGroupId = str2;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     class Mytask extends TaskManager.Task {
         public Mytask(Context context, String str, String str2) {
             super(str, str2);
@@ -41,7 +42,7 @@ public class IMJoinStarGroupRequest extends GroupBaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
                 int i2 = jSONObject.getInt("error_code");
-                String optString = jSONObject.optString("error_msg", "");
+                String optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
                 if (jSONObject.has("response_params")) {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
                     if (jSONObject2.has("blacklist_time")) {

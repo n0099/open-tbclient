@@ -2,20 +2,20 @@ package com.baidu.bdhttpdns;
 
 import android.util.LruCache;
 import java.util.ArrayList;
-/* loaded from: classes19.dex */
+/* loaded from: classes5.dex */
 class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f1276a;
-    private final LruCache<String, a> aeo = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
+    private final String f1275a;
+    private final LruCache<String, a> afj = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
     private boolean c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private ArrayList<String> f1277a;
+        private ArrayList<String> f1276a;
         private ArrayList<String> b;
         private long c;
         private long d;
@@ -25,7 +25,7 @@ class h {
         }
 
         public void a(ArrayList<String> arrayList) {
-            this.f1277a = arrayList;
+            this.f1276a = arrayList;
         }
 
         public boolean a() {
@@ -33,7 +33,7 @@ class h {
         }
 
         public ArrayList<String> b() {
-            return this.f1277a;
+            return this.f1276a;
         }
 
         public void b(long j) {
@@ -60,14 +60,14 @@ class h {
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(String str, boolean z) {
         this.c = false;
-        this.f1276a = str;
+        this.f1275a = str;
         this.c = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.aeo.evictAll();
-        l.a("Clear %s cache", this.f1276a);
+        this.afj.evictAll();
+        l.a("Clear %s cache", this.f1275a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -77,9 +77,9 @@ class h {
         if ((b == null || b.isEmpty()) && (c == null || c.isEmpty())) {
             return;
         }
-        this.aeo.put(str, aVar);
+        this.afj.put(str, aVar);
         Object[] objArr = new Object[5];
-        objArr[0] = this.f1276a;
+        objArr[0] = this.f1275a;
         objArr[1] = str;
         objArr[2] = b != null ? b.toString() : null;
         objArr[3] = c != null ? c.toString() : null;
@@ -95,7 +95,7 @@ class h {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ArrayList<String> b() {
         ArrayList<String> arrayList = new ArrayList<>();
-        for (String str : this.aeo.snapshot().keySet()) {
+        for (String str : this.afj.snapshot().keySet()) {
             arrayList.add(str);
         }
         return arrayList;
@@ -103,20 +103,20 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(String str) {
-        a dj = dj(str);
-        if (dj == null || !dj.a()) {
+        a dm = dm(str);
+        if (dm == null || !dm.a()) {
             return;
         }
-        this.aeo.remove(str);
-        l.a("Remove expired entry from %s cache, host(%s)", this.f1276a, str);
+        this.afj.remove(str);
+        l.a("Remove expired entry from %s cache, host(%s)", this.f1275a, str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a dj(String str) {
-        a aVar = this.aeo.get(str);
+    public a dm(String str) {
+        a aVar = this.afj.get(str);
         if (aVar != null && aVar.a() && this.c) {
-            this.aeo.remove(str);
-            l.a("Remove expired entry from %s cache while reading, host(%s)", this.f1276a, str);
+            this.afj.remove(str);
+            l.a("Remove expired entry from %s cache while reading, host(%s)", this.f1275a, str);
             return null;
         }
         return aVar;

@@ -11,11 +11,11 @@ import com.baidu.platform.comapi.walknavi.a.b;
 import com.baidu.platform.comapi.wnplatform.p.h;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ViewGroup f3016a;
+    private ViewGroup f3018a;
     private LinearLayout b;
     private View c;
     private ListView d;
@@ -24,12 +24,12 @@ public class a {
     private Activity g;
 
     public a(ViewGroup viewGroup, Activity activity) {
-        this.f3016a = viewGroup;
+        this.f3018a = viewGroup;
         this.g = activity;
     }
 
     public void a() {
-        this.b = (LinearLayout) this.f3016a.findViewById(2131165270);
+        this.b = (LinearLayout) this.f3018a.findViewById(2131165270);
         if (this.c == null) {
             this.c = com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, 2130903049, null);
         }

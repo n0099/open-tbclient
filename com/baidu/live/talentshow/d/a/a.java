@@ -8,60 +8,60 @@ import java.util.Comparator;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class a {
-    private ArrayList<Integer> bxq = new ArrayList<>();
-    private ArrayList<b> bxr = new ArrayList<>();
-    private boolean bxs = false;
+    private ArrayList<Integer> bCy = new ArrayList<>();
+    private ArrayList<b> bCz = new ArrayList<>();
+    private boolean bCA = false;
 
     /* renamed from: com.baidu.live.talentshow.d.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0203a {
+    public interface InterfaceC0213a {
         void b(b bVar);
     }
 
     public a() {
-        RN();
+        Ul();
     }
 
-    public synchronized int RL() {
+    public synchronized int Uj() {
         int intValue;
-        if (this.bxq.size() == 0) {
+        if (this.bCy.size() == 0) {
             BdLog.e("BCVideoChat getNextIndex fail");
             intValue = -1;
         } else {
-            this.bxq.remove(0);
-            intValue = this.bxq.get(0).intValue();
+            this.bCy.remove(0);
+            intValue = this.bCy.get(0).intValue();
         }
         return intValue;
     }
 
     public synchronized boolean isEmpty() {
-        return this.bxr.isEmpty();
+        return this.bCz.isEmpty();
     }
 
     public synchronized boolean isFull() {
-        return this.bxr.size() == 2;
+        return this.bCz.size() == 2;
     }
 
     public synchronized void reset() {
-        this.bxr.clear();
-        this.bxs = false;
-        RN();
+        this.bCz.clear();
+        this.bCA = false;
+        Ul();
     }
 
-    public synchronized boolean aN(long j) {
+    public synchronized boolean bl(long j) {
         boolean z;
         if (isEmpty()) {
             z = true;
         } else {
-            if (this.bxr.size() > 0) {
-                Iterator<b> it = this.bxr.iterator();
+            if (this.bCz.size() > 0) {
+                Iterator<b> it = this.bCz.iterator();
                 while (it.hasNext()) {
                     b next = it.next();
-                    if (next != null && next.bxu != null && next.bxu.azK == j) {
+                    if (next != null && next.bCC != null && next.bCC.aCp == j) {
                         BdLog.e("BCVideoChat add user duplicate imUK=" + j);
                         z = false;
                         break;
-                    } else if (next.status != d.bwR && next.status != d.bwS) {
+                    } else if (next.status != d.bBZ && next.status != d.bCa) {
                         z = false;
                         break;
                     }
@@ -73,22 +73,22 @@ public class a {
     }
 
     public synchronized int getCount() {
-        return this.bxr.size();
+        return this.bCz.size();
     }
 
     public synchronized void c(b bVar) {
         if (bVar != null) {
-            this.bxr.add(bVar);
-            BdLog.d("BCVideoChat addUser=" + bVar.bxu.azK + " current=" + bVar.status);
+            this.bCz.add(bVar);
+            BdLog.d("BCVideoChat addUser=" + bVar.bCC.aCp + " current=" + bVar.status);
         }
     }
 
-    public void cG(boolean z) {
-        this.bxs = z;
+    public void cU(boolean z) {
+        this.bCA = z;
     }
 
-    public boolean RM() {
-        return this.bxs;
+    public boolean Uk() {
+        return this.bCA;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x002a, code lost:
@@ -106,14 +106,14 @@ public class a {
         boolean z2 = false;
         synchronized (this) {
             if (j != 0) {
-                Iterator<b> it = this.bxr.iterator();
+                Iterator<b> it = this.bCz.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
                         break;
                     }
                     b next = it.next();
-                    if (next != null && next.bxu != null && next.bxu.azK == j) {
+                    if (next != null && next.bCC != null && next.bCC.aCp == j) {
                         break;
                     }
                 }
@@ -123,19 +123,19 @@ public class a {
         return z2;
     }
 
-    public synchronized void a(int i, InterfaceC0203a interfaceC0203a) {
-        Iterator<b> it = this.bxr.iterator();
+    public synchronized void a(int i, InterfaceC0213a interfaceC0213a) {
+        Iterator<b> it = this.bCz.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next != null && next.status == i && interfaceC0203a != null) {
-                interfaceC0203a.b(next);
+            if (next != null && next.status == i && interfaceC0213a != null) {
+                interfaceC0213a.b(next);
             }
         }
     }
 
-    public synchronized boolean fn(int i) {
+    public synchronized boolean fL(int i) {
         boolean z;
-        Iterator<b> it = this.bxr.iterator();
+        Iterator<b> it = this.bCz.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -157,72 +157,72 @@ public class a {
         if (r0.index == (-1)) goto L23;
      */
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0052, code lost:
-        r5.bxq.add(java.lang.Integer.valueOf(r0.index));
-        RO();
+        r5.bCy.add(java.lang.Integer.valueOf(r0.index));
+        Um();
      */
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0060, code lost:
-        r5.bxr.remove(r0);
+        r5.bCz.remove(r0);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void aO(long j) {
+    public synchronized void bm(long j) {
         if (j != 0) {
-            Iterator<b> it = this.bxr.iterator();
+            Iterator<b> it = this.bCz.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 b next = it.next();
-                if (next != null && next.bxu != null && next.bxu.azK == j) {
+                if (next != null && next.bCC != null && next.bCC.aCp == j) {
                     break;
                 }
             }
         }
     }
 
-    public synchronized b fo(int i) {
+    public synchronized b fM(int i) {
         b bVar;
-        Iterator<b> it = this.bxr.iterator();
+        Iterator<b> it = this.bCz.iterator();
         while (true) {
             if (!it.hasNext()) {
                 bVar = null;
                 break;
             }
             bVar = it.next();
-            if (bVar != null && bVar.bxu != null && bVar.index == i) {
+            if (bVar != null && bVar.bCC != null && bVar.index == i) {
                 break;
             }
         }
         return bVar;
     }
 
-    public synchronized b aP(long j) {
+    public synchronized b bn(long j) {
         b bVar;
-        Iterator<b> it = this.bxr.iterator();
+        Iterator<b> it = this.bCz.iterator();
         while (true) {
             if (!it.hasNext()) {
                 bVar = null;
                 break;
             }
             bVar = it.next();
-            if (bVar != null && bVar.bxu != null && bVar.bxu.azK == j) {
+            if (bVar != null && bVar.bCC != null && bVar.bCC.aCp == j) {
                 break;
             }
         }
         return bVar;
     }
 
-    private synchronized void RN() {
-        this.bxq.clear();
+    private synchronized void Ul() {
+        this.bCy.clear();
         for (int i = 1; i <= 2; i++) {
-            this.bxq.add(Integer.valueOf(i));
+            this.bCy.add(Integer.valueOf(i));
         }
-        RO();
+        Um();
     }
 
-    private synchronized void RO() {
-        Collections.sort(this.bxq, new Comparator<Integer>() { // from class: com.baidu.live.talentshow.d.a.a.1
+    private synchronized void Um() {
+        Collections.sort(this.bCy, new Comparator<Integer>() { // from class: com.baidu.live.talentshow.d.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             public int compare(Integer num, Integer num2) {

@@ -7,13 +7,13 @@ import com.baidu.swan.c.d;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class c extends HandlerThread {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private CountDownLatch cVU;
-    private File cVV;
+    private CountDownLatch dcR;
+    private File dcS;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static class a {
         byte[] content;
         String path;
@@ -26,18 +26,18 @@ public class c extends HandlerThread {
 
     private c(String str, int i, File file, CountDownLatch countDownLatch) {
         super(str, i);
-        this.cVV = file;
-        this.cVU = countDownLatch;
+        this.dcS = file;
+        this.dcR = countDownLatch;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Handler avR() {
+    public Handler ayZ() {
         return new Handler(getLooper()) { // from class: com.baidu.swan.apps.r.a.c.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (message.what == 100) {
                     a aVar = (a) message.obj;
-                    File file = new File(c.this.cVV + aVar.path);
+                    File file = new File(c.this.dcS + aVar.path);
                     try {
                         if (!file.exists()) {
                             file.getParentFile().mkdirs();
@@ -52,8 +52,8 @@ public class c extends HandlerThread {
                         }
                     }
                 } else if (message.what == 200) {
-                    if (c.this.cVU != null) {
-                        c.this.cVU.countDown();
+                    if (c.this.dcR != null) {
+                        c.this.dcR.countDown();
                     }
                     c.this.quit();
                 }

@@ -23,7 +23,7 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SocialApiIml extends BaseApi {
     private Activity c;
 
@@ -161,7 +161,7 @@ public class SocialApiIml extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements IUiListener {
         private IUiListener b;
         private String c;

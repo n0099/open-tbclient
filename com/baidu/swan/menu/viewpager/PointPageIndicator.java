@@ -8,87 +8,87 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class PointPageIndicator extends View {
-    protected Drawable efm;
-    protected Drawable efn;
-    protected Rect efo;
-    protected Rect efp;
-    private int efq;
-    private int efr;
+    protected Drawable emn;
+    protected Drawable emo;
+    protected Rect emp;
+    protected Rect emq;
+    private int emr;
+    private int ems;
     private int mPosition;
 
     public PointPageIndicator(Context context) {
         super(context);
-        this.efm = null;
-        this.efn = null;
-        this.efo = new Rect();
-        this.efp = new Rect();
-        this.efq = 0;
+        this.emn = null;
+        this.emo = null;
+        this.emp = new Rect();
+        this.emq = new Rect();
+        this.emr = 0;
         this.mPosition = 0;
-        this.efr = 0;
+        this.ems = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.efm = null;
-        this.efn = null;
-        this.efo = new Rect();
-        this.efp = new Rect();
-        this.efq = 0;
+        this.emn = null;
+        this.emo = null;
+        this.emp = new Rect();
+        this.emq = new Rect();
+        this.emr = 0;
         this.mPosition = 0;
-        this.efr = 0;
+        this.ems = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.efm = null;
-        this.efn = null;
-        this.efo = new Rect();
-        this.efp = new Rect();
-        this.efq = 0;
+        this.emn = null;
+        this.emo = null;
+        this.emp = new Rect();
+        this.emq = new Rect();
+        this.emr = 0;
         this.mPosition = 0;
-        this.efr = 0;
+        this.ems = 0;
         init(context);
     }
 
     private void init(Context context) {
     }
 
-    public PointPageIndicator mH(int i) {
-        if (this.efr != i) {
-            this.efr = i;
+    public PointPageIndicator nf(int i) {
+        if (this.ems != i) {
+            this.ems = i;
             invalidate();
         }
         return this;
     }
 
-    public PointPageIndicator mI(int i) {
-        this.efq = i;
+    public PointPageIndicator ng(int i) {
+        this.emr = i;
         return this;
     }
 
-    public PointPageIndicator mJ(int i) {
+    public PointPageIndicator nh(int i) {
         this.mPosition = i;
         invalidate();
         return this;
     }
 
-    public PointPageIndicator aD(int i, int i2) {
+    public PointPageIndicator aF(int i, int i2) {
         Resources resources = getResources();
         return b(resources.getDrawable(i), resources.getDrawable(i2));
     }
 
     public PointPageIndicator b(Drawable drawable, Drawable drawable2) {
-        this.efm = drawable;
-        this.efn = drawable2;
+        this.emn = drawable;
+        this.emo = drawable2;
         if (drawable instanceof BitmapDrawable) {
-            this.efo.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            this.emp.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         }
         if (drawable2 instanceof BitmapDrawable) {
-            this.efp.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+            this.emq.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         }
         return this;
     }
@@ -97,16 +97,16 @@ public class PointPageIndicator extends View {
     protected void onDraw(Canvas canvas) {
         int width;
         super.onDraw(canvas);
-        if (this.efr > 0) {
-            int i = this.efr;
-            int i2 = this.efq;
+        if (this.ems > 0) {
+            int i = this.ems;
+            int i2 = this.emr;
             int height = getHeight();
             int width2 = getWidth();
             int i3 = this.mPosition;
-            Rect rect = this.efo;
-            Rect rect2 = this.efp;
-            Drawable drawable = this.efm;
-            Drawable drawable2 = this.efn;
+            Rect rect = this.emp;
+            Rect rect2 = this.emq;
+            Drawable drawable = this.emn;
+            Drawable drawable2 = this.emo;
             int width3 = (width2 - ((((i - 1) * i2) + (rect.width() * (i - 1))) + rect2.width())) / 2;
             for (int i4 = 0; i4 < i; i4++) {
                 if (i4 == i3) {

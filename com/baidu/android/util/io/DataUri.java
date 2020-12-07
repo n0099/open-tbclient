@@ -4,8 +4,10 @@ import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.Locale;
 import org.apache.commons.codec.binary4util.Base64;
-/* loaded from: classes18.dex */
+@Deprecated
+/* loaded from: classes6.dex */
 public class DataUri {
     private static final boolean DEBUG = false;
     private static final String TAG = "DataUri";
@@ -30,7 +32,7 @@ public class DataUri {
         DataUri dataUri;
         String str2;
         byte[] bArr;
-        if (TextUtils.isEmpty(str) || !str.toLowerCase().startsWith("data:") || (indexOf = str.indexOf(44)) == -1) {
+        if (TextUtils.isEmpty(str) || !str.toLowerCase(Locale.getDefault()).startsWith("data:") || (indexOf = str.indexOf(44)) == -1) {
             return null;
         }
         String substring = str.substring("data:".length(), indexOf);

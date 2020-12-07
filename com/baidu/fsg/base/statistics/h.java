@@ -5,11 +5,11 @@ import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1495a = "en";
+    public static final String f1497a = "en";
     public static final String b = "et";
     public static final String c = "ev";
     public static final String d = "eg";
@@ -34,7 +34,7 @@ class h {
     public JSONObject a() throws NullPointerException {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(f1495a, this.p);
+            jSONObject.put(f1497a, this.p);
             jSONObject.put("et", this.q);
             jSONObject.put(f, this.u);
             if (!TextUtils.isEmpty(this.s)) {

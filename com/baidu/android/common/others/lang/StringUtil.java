@@ -1,6 +1,5 @@
 package com.baidu.android.common.others.lang;
 
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
@@ -22,7 +21,8 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+@Deprecated
+/* loaded from: classes9.dex */
 public final class StringUtil implements IStringUtil {
     private static final String ARRAY_ELEMENT_SEPARATOR = ", ";
     private static final String ARRAY_END = "}";
@@ -30,55 +30,43 @@ public final class StringUtil implements IStringUtil {
     private static final String EMPTY_ARRAY = "{}";
     private static final String EMPTY_STRING = "";
     private static final String NULL_STRING = "null";
-    private static boolean DEBUG = false;
     private static String TAG = "StringUtil";
 
     public static boolean isEmpty(Object obj) {
         return obj == null || "".equals(obj);
     }
 
+    @Deprecated
     public static boolean hasLength(CharSequence charSequence) {
         return charSequence != null && charSequence.length() > 0;
     }
 
+    @Deprecated
     public static boolean hasLength(String str) {
         return hasLength((CharSequence) str);
     }
 
+    @Deprecated
     public static boolean hasText(CharSequence charSequence) {
-        if (hasLength(charSequence)) {
-            int length = charSequence.length();
-            for (int i = 0; i < length; i++) {
-                if (!Character.isWhitespace(charSequence.charAt(i))) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return false;
+        return !StringUtils.isBlank(charSequence);
     }
 
+    @Deprecated
     public static boolean hasText(String str) {
         return hasText((CharSequence) str);
     }
 
+    @Deprecated
     public static boolean containsWhitespace(CharSequence charSequence) {
-        if (hasLength(charSequence)) {
-            int length = charSequence.length();
-            for (int i = 0; i < length; i++) {
-                if (Character.isWhitespace(charSequence.charAt(i))) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return false;
+        return StringUtils.containsWhitespace(charSequence);
     }
 
+    @Deprecated
     public static boolean containsWhitespace(String str) {
         return containsWhitespace((CharSequence) str);
     }
 
+    @Deprecated
     public static String trimWhitespace(String str) {
         if (hasLength(str)) {
             StringBuilder sb = new StringBuilder(str);
@@ -93,6 +81,7 @@ public final class StringUtil implements IStringUtil {
         return str;
     }
 
+    @Deprecated
     public static String trimAllWhitespace(String str) {
         if (hasLength(str)) {
             int length = str.length();
@@ -108,6 +97,7 @@ public final class StringUtil implements IStringUtil {
         return str;
     }
 
+    @Deprecated
     public static String trimLeadingWhitespace(String str) {
         if (hasLength(str)) {
             StringBuilder sb = new StringBuilder(str);
@@ -119,6 +109,7 @@ public final class StringUtil implements IStringUtil {
         return str;
     }
 
+    @Deprecated
     public static String trimTrailingWhitespace(String str) {
         if (hasLength(str)) {
             StringBuilder sb = new StringBuilder(str);
@@ -130,6 +121,7 @@ public final class StringUtil implements IStringUtil {
         return str;
     }
 
+    @Deprecated
     public static String trimLeadingCharacter(String str, char c) {
         if (hasLength(str)) {
             StringBuilder sb = new StringBuilder(str);
@@ -141,6 +133,7 @@ public final class StringUtil implements IStringUtil {
         return str;
     }
 
+    @Deprecated
     public static String trimTrailingCharacter(String str, char c) {
         if (hasLength(str)) {
             StringBuilder sb = new StringBuilder(str);
@@ -152,32 +145,17 @@ public final class StringUtil implements IStringUtil {
         return str;
     }
 
+    @Deprecated
     public static boolean startsWithIgnoreCase(String str, String str2) {
-        if (str == null || str2 == null) {
-            return false;
-        }
-        if (str.startsWith(str2)) {
-            return true;
-        }
-        if (str.length() >= str2.length()) {
-            return str.substring(0, str2.length()).toLowerCase().equals(str2.toLowerCase());
-        }
-        return false;
+        return StringUtils.startsWith(str, str2, true);
     }
 
+    @Deprecated
     public static boolean endsWithIgnoreCase(String str, String str2) {
-        if (str == null || str2 == null) {
-            return false;
-        }
-        if (str.endsWith(str2)) {
-            return true;
-        }
-        if (str.length() >= str2.length()) {
-            return str.substring(str.length() - str2.length()).toLowerCase().equals(str2.toLowerCase());
-        }
-        return false;
+        return StringUtils.endsWith(str, str2, true);
     }
 
+    @Deprecated
     public static boolean substringMatch(CharSequence charSequence, int i, CharSequence charSequence2) {
         for (int i2 = 0; i2 < charSequence2.length(); i2++) {
             int i3 = i + i2;
@@ -188,23 +166,12 @@ public final class StringUtil implements IStringUtil {
         return true;
     }
 
+    @Deprecated
     public static int countOccurrencesOf(String str, String str2) {
-        int i = 0;
-        if (str == null || str2 == null || str.length() == 0 || str2.length() == 0) {
-            return 0;
-        }
-        int i2 = 0;
-        while (true) {
-            int indexOf = str.indexOf(str2, i);
-            if (indexOf != -1) {
-                i2++;
-                i = indexOf + str2.length();
-            } else {
-                return i2;
-            }
-        }
+        return StringUtils.getRepetitions(str, str2);
     }
 
+    @Deprecated
     public static String replace(String str, String str2, String str3) {
         if (hasLength(str) && hasLength(str2) && str3 != null) {
             StringBuilder sb = new StringBuilder();
@@ -223,10 +190,12 @@ public final class StringUtil implements IStringUtil {
         return str;
     }
 
+    @Deprecated
     public static String delete(String str, String str2) {
         return replace(str, str2, "");
     }
 
+    @Deprecated
     public static String deleteAny(String str, String str2) {
         if (hasLength(str) && hasLength(str2)) {
             StringBuilder sb = new StringBuilder();
@@ -241,6 +210,7 @@ public final class StringUtil implements IStringUtil {
         return str;
     }
 
+    @Deprecated
     public static String quote(String str) {
         if (str != null) {
             return "'" + str + "'";
@@ -248,22 +218,27 @@ public final class StringUtil implements IStringUtil {
         return null;
     }
 
+    @Deprecated
     public static Object quoteIfString(Object obj) {
         return obj instanceof String ? quote((String) obj) : obj;
     }
 
+    @Deprecated
     public static String unqualify(String str) {
         return unqualify(str, '.');
     }
 
+    @Deprecated
     public static String unqualify(String str, char c) {
         return str.substring(str.lastIndexOf(c) + 1);
     }
 
+    @Deprecated
     public static String capitalize(String str) {
         return changeFirstCharacterCase(str, true);
     }
 
+    @Deprecated
     public static String uncapitalize(String str) {
         return changeFirstCharacterCase(str, false);
     }
@@ -282,6 +257,7 @@ public final class StringUtil implements IStringUtil {
         return str;
     }
 
+    @Deprecated
     public static String getFilename(String str) {
         if (str == null) {
             return null;
@@ -290,6 +266,7 @@ public final class StringUtil implements IStringUtil {
         return lastIndexOf != -1 ? str.substring(lastIndexOf + 1) : str;
     }
 
+    @Deprecated
     public static String getFilenameExtension(String str) {
         int lastIndexOf;
         if (str == null || (lastIndexOf = str.lastIndexOf(46)) == -1 || str.lastIndexOf("/") > lastIndexOf) {
@@ -298,6 +275,7 @@ public final class StringUtil implements IStringUtil {
         return str.substring(lastIndexOf + 1);
     }
 
+    @Deprecated
     public static String stripFilenameExtension(String str) {
         if (str == null) {
             return null;
@@ -306,6 +284,7 @@ public final class StringUtil implements IStringUtil {
         return (lastIndexOf == -1 || str.lastIndexOf("/") > lastIndexOf) ? str : str.substring(0, lastIndexOf);
     }
 
+    @Deprecated
     public static String applyRelativePath(String str, String str2) {
         int lastIndexOf = str.lastIndexOf("/");
         if (lastIndexOf != -1) {
@@ -318,6 +297,7 @@ public final class StringUtil implements IStringUtil {
         return str2;
     }
 
+    @Deprecated
     public static String cleanPath(String str) {
         if (str == null) {
             return null;
@@ -358,10 +338,12 @@ public final class StringUtil implements IStringUtil {
         return str2 + collectionToDelimitedString(linkedList, "/");
     }
 
+    @Deprecated
     public static boolean pathEquals(String str, String str2) {
         return cleanPath(str).equals(cleanPath(str2));
     }
 
+    @Deprecated
     public static Locale parseLocaleString(String str) {
         String[] strArr = tokenizeToStringArray(str, "_ ", false, false);
         String str2 = strArr.length > 0 ? strArr[0] : "";
@@ -390,10 +372,12 @@ public final class StringUtil implements IStringUtil {
         }
     }
 
+    @Deprecated
     public static String toLanguageTag(Locale locale) {
         return locale.getLanguage() + (hasText(locale.getCountry()) ? Constants.ACCEPT_TIME_SEPARATOR_SERVER + locale.getCountry() : "");
     }
 
+    @Deprecated
     public static String[] addStringToArray(String[] strArr, String str) {
         if (isObjectArrayEmpty(strArr)) {
             return new String[]{str};
@@ -408,6 +392,7 @@ public final class StringUtil implements IStringUtil {
         return objArr == null || objArr.length == 0;
     }
 
+    @Deprecated
     public static String[] concatenateStringArrays(String[] strArr, String[] strArr2) {
         if (!isObjectArrayEmpty(strArr)) {
             if (isObjectArrayEmpty(strArr2)) {
@@ -421,6 +406,7 @@ public final class StringUtil implements IStringUtil {
         return strArr2;
     }
 
+    @Deprecated
     public static String[] mergeStringArrays(String[] strArr, String[] strArr2) {
         if (!isObjectArrayEmpty(strArr)) {
             if (isObjectArrayEmpty(strArr2)) {
@@ -438,6 +424,7 @@ public final class StringUtil implements IStringUtil {
         return strArr2;
     }
 
+    @Deprecated
     public static String[] sortStringArray(String[] strArr) {
         if (isObjectArrayEmpty(strArr)) {
             return new String[0];
@@ -446,6 +433,7 @@ public final class StringUtil implements IStringUtil {
         return strArr;
     }
 
+    @Deprecated
     public static String[] toStringArray(Collection<String> collection) {
         if (collection == null) {
             return null;
@@ -453,6 +441,7 @@ public final class StringUtil implements IStringUtil {
         return (String[]) collection.toArray(new String[collection.size()]);
     }
 
+    @Deprecated
     public static String[] toStringArray(Enumeration<String> enumeration) {
         if (enumeration == null) {
             return null;
@@ -461,6 +450,7 @@ public final class StringUtil implements IStringUtil {
         return (String[]) list.toArray(new String[list.size()]);
     }
 
+    @Deprecated
     public static String[] trimArrayElements(String[] strArr) {
         if (isObjectArrayEmpty(strArr)) {
             return new String[0];
@@ -473,6 +463,7 @@ public final class StringUtil implements IStringUtil {
         return strArr2;
     }
 
+    @Deprecated
     public static String[] removeDuplicateStrings(String[] strArr) {
         if (!isObjectArrayEmpty(strArr)) {
             LinkedHashSet linkedHashSet = new LinkedHashSet();
@@ -484,6 +475,7 @@ public final class StringUtil implements IStringUtil {
         return strArr;
     }
 
+    @Deprecated
     public static String[] split(String str, String str2) {
         int indexOf;
         if (hasLength(str) && hasLength(str2) && (indexOf = str.indexOf(str2)) >= 0) {
@@ -492,10 +484,12 @@ public final class StringUtil implements IStringUtil {
         return null;
     }
 
+    @Deprecated
     public static Properties splitArrayElementsIntoProperties(String[] strArr, String str) {
         return splitArrayElementsIntoProperties(strArr, str, null);
     }
 
+    @Deprecated
     public static Properties splitArrayElementsIntoProperties(String[] strArr, String str, String str2) {
         if (isObjectArrayEmpty(strArr)) {
             return null;
@@ -513,10 +507,12 @@ public final class StringUtil implements IStringUtil {
         return properties;
     }
 
+    @Deprecated
     public static String[] tokenizeToStringArray(String str, String str2) {
         return tokenizeToStringArray(str, str2, true, true);
     }
 
+    @Deprecated
     public static String[] tokenizeToStringArray(String str, String str2, boolean z, boolean z2) {
         if (str == null) {
             return null;
@@ -535,10 +531,12 @@ public final class StringUtil implements IStringUtil {
         return toStringArray(arrayList);
     }
 
+    @Deprecated
     public static String[] delimitedListToStringArray(String str, String str2) {
         return delimitedListToStringArray(str, str2, null);
     }
 
+    @Deprecated
     public static String[] delimitedListToStringArray(String str, String str2, String str3) {
         int i = 0;
         if (str == null) {
@@ -569,10 +567,12 @@ public final class StringUtil implements IStringUtil {
         return toStringArray(arrayList);
     }
 
+    @Deprecated
     public static String[] commaDelimitedListToStringArray(String str) {
-        return delimitedListToStringArray(str, Constants.ACCEPT_TIME_SEPARATOR_SP);
+        return delimitedListToStringArray(str, ",");
     }
 
+    @Deprecated
     public static Set<String> commaDelimitedListToSet(String str) {
         LinkedHashSet linkedHashSet = new LinkedHashSet();
         for (String str2 : commaDelimitedListToStringArray(str)) {
@@ -581,6 +581,7 @@ public final class StringUtil implements IStringUtil {
         return linkedHashSet;
     }
 
+    @Deprecated
     public static String collectionToDelimitedString(Collection<?> collection, String str, String str2, String str3) {
         if (collectionIsEmpty(collection)) {
             return "";
@@ -600,14 +601,17 @@ public final class StringUtil implements IStringUtil {
         return collection == null || collection.isEmpty();
     }
 
+    @Deprecated
     public static String collectionToDelimitedString(Collection<?> collection, String str) {
         return collectionToDelimitedString(collection, str, "", "");
     }
 
+    @Deprecated
     public static String collectionToCommaDelimitedString(Collection<?> collection) {
-        return collectionToDelimitedString(collection, Constants.ACCEPT_TIME_SEPARATOR_SP);
+        return collectionToDelimitedString(collection, ",");
     }
 
+    @Deprecated
     public static String arrayToDelimitedString(Object[] objArr, String str) {
         if (isObjectArrayEmpty(objArr)) {
             return "";
@@ -625,8 +629,9 @@ public final class StringUtil implements IStringUtil {
         return sb.toString();
     }
 
+    @Deprecated
     public static String arrayToCommaDelimitedString(Object[] objArr) {
-        return arrayToDelimitedString(objArr, Constants.ACCEPT_TIME_SEPARATOR_SP);
+        return arrayToDelimitedString(objArr, ",");
     }
 
     private static String nullSafeToString(Object obj) {
@@ -859,89 +864,96 @@ public final class StringUtil implements IStringUtil {
         return sb.toString();
     }
 
+    @Deprecated
     public static String removeEmoji(String str) {
-        return isEmpty(str) ? "" : str.trim().replaceAll("([\ue000-\ue5ff])", "");
+        return EmojionUtils.removeEmoji(str);
     }
 
+    @Deprecated
     public static boolean isEmail(String str) {
         return Pattern.matches(IStringUtil.REGEX_EMAIL, str);
     }
 
+    @Deprecated
     public static boolean isNumbers(String str) {
         return Pattern.matches(IStringUtil.REGEX_NUM, str);
     }
 
+    @Deprecated
     public static boolean hasLowerLetter(String str) {
         return Pattern.compile("[a-z]+").matcher(str).find();
     }
 
+    @Deprecated
     public static boolean hasUpLetter(String str) {
         return Pattern.compile("[A-Z]+").matcher(str).find();
     }
 
+    @Deprecated
     public static boolean hasNumber(String str) {
         return Pattern.compile(EditTextPasteFilterUtils.REGX_NUMBER).matcher(str).find();
     }
 
+    @Deprecated
     public static boolean lenghtEnought(String str, int i) {
         return i >= 0 && !isEmpty(str) && str.length() >= i;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1760=4, 1756=4, 1757=4, 1759=4] */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, SGET, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, SGET, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1744=4, 1745=4, 1747=4, 1748=4] */
+    @Deprecated
     public static String getStringFromInput(InputStream inputStream) {
         byte[] byteFromInputStream;
         try {
             try {
                 byteFromInputStream = getByteFromInputStream(inputStream);
-            } catch (Throwable th) {
+            } catch (Exception e) {
+                Log.e(TAG, " getStringFromInput exception: ", e);
                 if (inputStream != null) {
                     try {
                         inputStream.close();
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    } catch (Exception e2) {
+                        Log.e(TAG, e2.toString());
                     }
                 }
-                throw th;
             }
-        } catch (Exception e2) {
-            if (DEBUG) {
-                Log.e(TAG, " getStringFromInput exception: ", e2);
-            }
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+            if (byteFromInputStream == null) {
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (Exception e3) {
+                        Log.e(TAG, e3.toString());
+                    }
                 }
+                return null;
             }
-        }
-        if (byteFromInputStream == null) {
+            String str = new String(byteFromInputStream);
+            if (str != null && str.startsWith("\ufeff")) {
+                str = str.substring(1);
+            }
             if (inputStream != null) {
                 try {
                     inputStream.close();
+                    return str;
                 } catch (Exception e4) {
-                    e4.printStackTrace();
+                    Log.e(TAG, e4.toString());
+                    return str;
                 }
             }
-            return null;
-        }
-        String str = new String(byteFromInputStream);
-        if (str != null && str.startsWith("\ufeff")) {
-            str = str.substring(1);
-        }
-        if (inputStream != null) {
-            try {
-                inputStream.close();
-                return str;
-            } catch (Exception e5) {
-                e5.printStackTrace();
-                return str;
+            return str;
+        } catch (Throwable th) {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (Exception e5) {
+                    Log.e(TAG, e5.toString());
+                }
             }
+            throw th;
         }
-        return str;
     }
 
+    @Deprecated
     public static byte[] getByteFromInputStream(InputStream inputStream) {
         int i;
         if (inputStream == null) {
@@ -953,9 +965,7 @@ public final class StringUtil implements IStringUtil {
             try {
                 i = inputStream.read(bArr, 0, bArr.length);
             } catch (IOException e) {
-                if (DEBUG) {
-                    e.printStackTrace();
-                }
+                Log.e(TAG, e.toString());
                 i = 0;
             }
             if (i != -1) {
@@ -966,94 +976,44 @@ public final class StringUtil implements IStringUtil {
                     byteArrayOutputStream.close();
                     return byteArray;
                 } catch (IOException e2) {
-                    if (DEBUG) {
-                        e2.printStackTrace();
-                        return byteArray;
-                    }
+                    Log.e(TAG, e2.toString());
                     return byteArray;
                 }
             }
         }
     }
 
+    @Deprecated
     public static boolean containsEmoji(String str) {
-        return !TextUtils.isEmpty(str) && Pattern.compile("[🀀-🏿]|[🐀-\u1f7ff]|[☀-⟿]", 66).matcher(str).find();
+        return EmojionUtils.containsEmoji(str);
     }
 
+    @Deprecated
     public static int countWordsLength(String str) {
-        char[] charArray;
-        if (TextUtils.isEmpty(str)) {
-            return (int) 0.0f;
-        }
-        float f = 0.0f;
-        for (char c : str.toCharArray()) {
-            if (c > 0 && c < 127) {
-                f = (float) (f + 0.5d);
-            } else {
-                f += 1.0f;
-            }
-        }
-        return (int) f;
+        return StringUtils.length(str, true) / 2;
     }
 
+    @Deprecated
     public static float countWordsLengthForFloat(String str) {
-        char[] charArray;
-        if (TextUtils.isEmpty(str)) {
-            return (int) 0.0f;
-        }
-        float f = 0.0f;
-        for (char c : str.toCharArray()) {
-            if (c > 0 && c < 127) {
-                f = (float) (f + 0.5d);
-            } else {
-                f += 1.0f;
-            }
-        }
-        return f;
+        return StringUtils.length(str, true) / 2.0f;
     }
 
+    @Deprecated
     public static int countWordsRealLength(String str) {
-        char[] charArray;
-        int i = 0;
-        if (!TextUtils.isEmpty(str)) {
-            for (char c : str.toCharArray()) {
-                if (c <= 0 || c < 127) {
-                    i++;
-                } else {
-                    i++;
-                }
-            }
-        }
-        return i;
+        return StringUtils.length(str, false) / 2;
     }
 
+    @Deprecated
     public static boolean isLetterDigitOrChinese(String str) {
         return str.matches("^[a-z0-9A-Z一-龥]+$");
     }
 
     public static boolean isBlank(CharSequence charSequence) {
-        int length;
-        if (charSequence == null || (length = charSequence.length()) == 0) {
-            return true;
-        }
-        for (int i = 0; i < length; i++) {
-            if (!Character.isWhitespace(charSequence.charAt(i))) {
-                return false;
-            }
-        }
-        return true;
+        return StringUtils.isBlank(charSequence);
     }
 
+    @Deprecated
     public static boolean isNotBlank(CharSequence charSequence) {
-        int length;
-        if (charSequence == null || (length = charSequence.length()) == 0) {
-            return false;
-        }
-        for (int i = 0; i < length; i++) {
-            if (!Character.isWhitespace(charSequence.charAt(i))) {
-                return true;
-            }
-        }
-        return false;
+        return !isBlank(charSequence);
     }
 }

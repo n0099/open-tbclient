@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import com.baidu.ar.npc.BaiduArView;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2998a = true;
+    public static boolean f3000a = true;
     private com.baidu.platform.comapi.walknavi.d.b d;
     private com.baidu.platform.comapi.walknavi.d.a.d e;
     private boolean g;
@@ -24,7 +24,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     public b b = new b();
     private com.baidu.platform.comapi.walknavi.d.a.b f = new com.baidu.platform.comapi.walknavi.d.a.b(com.baidu.platform.comapi.wnplatform.p.b.a.a());
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public interface a {
         void a(b bVar);
     }
@@ -36,7 +36,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     public void a(String str) {
         com.baidu.platform.comapi.walknavi.b.a().K().b("walknavi_current_npc_token", str);
         this.c = str;
-        this.b.f2999a = str;
+        this.b.f3001a = str;
         if (this.o != null) {
             this.o.a(this.b);
         }
@@ -66,7 +66,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     }
 
     private void a(long j, String str) {
-        if (f2998a) {
+        if (f3000a) {
             com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", str + "time:" + (System.currentTimeMillis() - j));
         } else {
             com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", str);
@@ -252,11 +252,11 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
         this.o = aVar;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2999a;
+        public String f3001a;
         public String b;
         public int c;
 

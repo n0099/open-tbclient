@@ -16,13 +16,13 @@ import com.baidu.live.utils.l;
 import com.baidu.live.view.ALALevelView;
 /* loaded from: classes4.dex */
 public class CharmItemView extends LinearLayout {
-    public TextView aDP;
-    public TextView gwT;
-    public ImageView gwU;
-    public HeadImageView gwV;
-    public TbImageView gwW;
-    public ALALevelView gwX;
-    public TextView gwY;
+    public TextView aGv;
+    public TextView gFE;
+    public ImageView gFF;
+    public HeadImageView gFG;
+    public TbImageView gFH;
+    public ALALevelView gFI;
+    public TextView gFJ;
 
     public CharmItemView(Context context) {
         this(context, null);
@@ -36,54 +36,54 @@ public class CharmItemView extends LinearLayout {
     public void setData(int i, int i2, String str, String str2, long j, long j2) {
         float dimensionPixelSize;
         if (i == 2 && i2 >= 1 && i2 <= 3 && j > 0) {
-            this.gwT.setTextColor(-838860801);
-            this.gwW.setVisibility(0);
+            this.gFE.setTextColor(-838860801);
+            this.gFH.setVisibility(0);
         } else {
-            this.gwT.setTextColor(1728053247);
-            this.gwW.setVisibility(8);
+            this.gFE.setTextColor(1728053247);
+            this.gFH.setVisibility(8);
         }
         if (i == 1 || (i == 2 && i2 >= 1 && j > 0)) {
-            this.gwT.setText(i2 <= 100 ? String.valueOf(i2) : "100+");
-            this.gwT.setVisibility(0);
-            this.gwU.setVisibility(8);
+            this.gFE.setText(i2 <= 100 ? String.valueOf(i2) : "100+");
+            this.gFE.setVisibility(0);
+            this.gFF.setVisibility(8);
         } else {
-            this.gwT.setVisibility(8);
-            this.gwU.setVisibility(0);
+            this.gFE.setVisibility(8);
+            this.gFF.setVisibility(0);
         }
-        if (this.gwT.getText() != null) {
-            TextView textView = this.gwT;
-            if (this.gwT.getText().length() > 3) {
+        if (this.gFE.getText() != null) {
+            TextView textView = this.gFE;
+            if (this.gFE.getText().length() > 3) {
                 dimensionPixelSize = getResources().getDimensionPixelSize(a.d.sdk_fontsize24);
             } else {
                 dimensionPixelSize = getResources().getDimensionPixelSize(a.d.sdk_fontsize36);
             }
             textView.setTextSize(0, dimensionPixelSize);
         }
-        l.a(this.gwV, str2, true, false);
+        l.a(this.gFG, str2, true, false);
         if (i == 2 && j > 0) {
             switch (i2) {
                 case 1:
-                    this.gwW.setImageResource(a.e.pic_live_list_top1);
+                    this.gFH.setImageResource(a.e.pic_live_list_top1);
                     break;
                 case 2:
-                    this.gwW.setImageResource(a.e.pic_live_list_top2);
+                    this.gFH.setImageResource(a.e.pic_live_list_top2);
                     break;
                 case 3:
-                    this.gwW.setImageResource(a.e.pic_live_list_top3);
+                    this.gFH.setImageResource(a.e.pic_live_list_top3);
                     break;
             }
         }
-        this.aDP.setText(str);
+        this.aGv.setText(str);
         switch (i) {
             case 1:
-                this.gwY.setText(String.format(getResources().getString(a.h.sdk_charm_rank_forward_diff), StringHelper.formatValue(j2)));
+                this.gFJ.setText(String.format(getResources().getString(a.h.sdk_charm_rank_forward_diff), StringHelper.formatValue(j2)));
                 return;
             case 2:
                 if (j > 0) {
-                    this.gwY.setText(String.format("%s 魅力", StringHelper.formatValue(j)));
+                    this.gFJ.setText(String.format("%s 魅力", StringHelper.formatValue(j)));
                     return;
                 } else {
-                    this.gwY.setText("");
+                    this.gFJ.setText("");
                     return;
                 }
             default:
@@ -91,30 +91,30 @@ public class CharmItemView extends LinearLayout {
         }
     }
 
-    private void init() {
+    protected void init() {
         LayoutInflater.from(getContext()).inflate(a.g.sdk_charm_item, (ViewGroup) this, true);
         setOrientation(0);
         int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.sdk_ds8);
         setPadding(getResources().getDimensionPixelOffset(a.d.sdk_ds18), dimensionPixelOffset, getResources().getDimensionPixelOffset(a.d.sdk_ds36), dimensionPixelOffset);
-        Hq();
+        Jh();
         initView();
     }
 
-    private void Hq() {
-        this.gwT = (TextView) findViewById(a.f.tv_rank);
-        this.gwU = (ImageView) findViewById(a.f.iv_rank);
-        this.gwV = (HeadImageView) findViewById(a.f.iv_avatar);
-        this.gwW = (TbImageView) findViewById(a.f.iv_pendant);
-        this.gwX = (ALALevelView) findViewById(a.f.level);
-        this.aDP = (TextView) findViewById(a.f.tv_name);
-        this.gwY = (TextView) findViewById(a.f.tv_value);
+    protected void Jh() {
+        this.gFE = (TextView) findViewById(a.f.tv_rank);
+        this.gFF = (ImageView) findViewById(a.f.iv_rank);
+        this.gFG = (HeadImageView) findViewById(a.f.iv_avatar);
+        this.gFH = (TbImageView) findViewById(a.f.iv_pendant);
+        this.gFI = (ALALevelView) findViewById(a.f.level);
+        this.aGv = (TextView) findViewById(a.f.tv_name);
+        this.gFJ = (TextView) findViewById(a.f.tv_value);
     }
 
-    private void initView() {
-        this.gwV.setAutoChangeStyle(false);
-        this.gwV.setDrawBorder(false);
-        this.gwV.setIsRound(true);
-        this.gwW.setDefaultBgResource(a.c.sdk_transparent);
-        this.gwW.setDefaultErrorResource(a.e.sdk_shape_transparent);
+    protected void initView() {
+        this.gFG.setAutoChangeStyle(false);
+        this.gFG.setDrawBorder(false);
+        this.gFG.setIsRound(true);
+        this.gFH.setDefaultBgResource(a.c.sdk_transparent);
+        this.gFH.setDefaultErrorResource(a.e.sdk_shape_transparent);
     }
 }

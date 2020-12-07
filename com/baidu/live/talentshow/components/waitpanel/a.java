@@ -4,7 +4,7 @@ public interface a {
 
     /* renamed from: com.baidu.live.talentshow.components.waitpanel.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0202a {
+    public interface InterfaceC0212a {
         void a(LiveVideoBCPanelData liveVideoBCPanelData);
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.ala.recorder.AlaLiveRecorder;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.ar.j;
-import com.baidu.live.data.ap;
+import com.baidu.live.data.aq;
 import com.baidu.live.liveroom.middleware.k;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.liveroom.data.AlaLiveRecorderPerfData;
@@ -19,62 +19,62 @@ import com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
 /* loaded from: classes4.dex */
 public class d {
-    private com.baidu.tieba.ala.liveroom.data.e gZr = new com.baidu.tieba.ala.liveroom.data.e();
-    private com.baidu.tieba.ala.liveroom.data.d hmx;
-    private AlaMasterLiveRoomOpearator hnO;
-    private b hnP;
-    private a hnS;
-    private com.baidu.live.liveroom.middleware.a hnT;
+    private com.baidu.tieba.ala.liveroom.data.e hja = new com.baidu.tieba.ala.liveroom.data.e();
+    private com.baidu.tieba.ala.liveroom.data.d hvZ;
+    private AlaMasterLiveRoomOpearator hxv;
+    private b hxw;
+    private a hxy;
+    private com.baidu.live.liveroom.middleware.a hxz;
 
     public d(AlaMasterLiveRoomActivity alaMasterLiveRoomActivity, AlaLiveRecorder alaLiveRecorder, AlaLiveView alaLiveView, FrameLayout frameLayout, ViewGroup viewGroup, ViewGroup viewGroup2, com.baidu.live.tieba.e.b bVar, String str, View view) {
-        this.gZr.pageContext = alaMasterLiveRoomActivity.getPageContext();
-        this.gZr.hgB = alaLiveRecorder;
-        this.gZr.hgC = view;
-        this.gZr.hgD = frameLayout;
-        this.gZr.hgl = alaLiveView;
-        this.gZr.rootView = viewGroup;
-        this.gZr.hgE = viewGroup2;
-        this.gZr.hgI = bVar;
-        this.gZr.hgF = this;
-        this.gZr.hgH = new AlaLiveRecorderPerfData();
-        this.hnO = new AlaMasterLiveRoomOpearator(this.gZr, str);
+        this.hja.pageContext = alaMasterLiveRoomActivity.getPageContext();
+        this.hja.hqi = alaLiveRecorder;
+        this.hja.hqj = view;
+        this.hja.hqk = frameLayout;
+        this.hja.hpS = alaLiveView;
+        this.hja.rootView = viewGroup;
+        this.hja.hql = viewGroup2;
+        this.hja.hqp = bVar;
+        this.hja.hqm = this;
+        this.hja.hqo = new AlaLiveRecorderPerfData();
+        this.hxv = new AlaMasterLiveRoomOpearator(this.hja, str);
         if (TbadkCoreApplication.getInst().isOther()) {
-            this.hnT = k.MW().MX();
-            this.gZr.hgJ = this.hnT;
-            this.hnT.r(alaMasterLiveRoomActivity.getPageContext().getPageActivity());
+            this.hxz = k.Po().Pp();
+            this.hja.hqq = this.hxz;
+            this.hxz.r(alaMasterLiveRoomActivity.getPageContext().getPageActivity());
         }
     }
 
-    public void a(com.baidu.tieba.ala.liveroom.q.d dVar) {
-        this.gZr.hgk = dVar;
+    public void a(com.baidu.tieba.ala.liveroom.p.d dVar) {
+        this.hja.hpR = dVar;
     }
 
     public void setArModel(j jVar) {
-        this.gZr.hgG = jVar;
+        this.hja.hqn = jVar;
     }
 
     public void a(b bVar) {
-        this.hnP = bVar;
-        if (this.hnS != null) {
-            this.hnS.a(bVar);
+        this.hxw = bVar;
+        if (this.hxy != null) {
+            this.hxy.a(bVar);
         }
     }
 
     public void a(short s, Object obj) {
-        if (s == 1 && this.hnO != null) {
+        if (s == 1 && this.hxv != null) {
             f fVar = null;
             if (obj instanceof f) {
                 fVar = (f) obj;
             }
-            int a2 = this.hnO.a(fVar);
+            int a2 = this.hxv.a(fVar);
             if (a2 == 1 || a2 == 2) {
-                this.gZr.vZ(a2);
+                this.hja.wE(a2);
             } else {
                 return;
             }
         }
-        if (this.hnS != null) {
-            this.hnS.a(s, obj);
+        if (this.hxy != null) {
+            this.hxy.a(s, obj);
         }
     }
 
@@ -83,242 +83,247 @@ public class d {
     }
 
     public void c(com.baidu.tieba.ala.liveroom.data.d dVar) {
-        this.hmx = dVar;
-        if (this.hnS != null) {
-            this.hnS.c(dVar);
+        this.hvZ = dVar;
+        if (this.hxy != null) {
+            this.hxy.c(dVar);
         }
     }
 
     public void bi(int i, String str) {
-        if (this.hnS != null) {
-            this.hnS.bi(i, str);
+        if (this.hxy != null) {
+            this.hxy.bi(i, str);
         }
     }
 
-    public void c(ap apVar) {
-        if (this.hnS != null) {
-            this.hnS.c(apVar);
+    public void c(aq aqVar) {
+        if (this.hxy != null) {
+            this.hxy.c(aqVar);
         }
     }
 
     public void bj(int i, String str) {
-        if (this.hnS != null) {
-            this.hnS.bj(i, str);
+        if (this.hxy != null) {
+            this.hxy.bj(i, str);
         }
     }
 
     public void j(short s) {
-        if (this.hnS != null) {
-            this.hnS.j(s);
+        if (this.hxy != null) {
+            this.hxy.j(s);
         }
-        if (this.hnT != null) {
-            this.hnT.MS();
-        }
-    }
-
-    public void ceS() {
-        if (this.hnS != null) {
-            this.hnS.ceS();
-        }
-        if (this.hnT != null) {
-            this.hnT.onStop();
+        if (this.hxz != null) {
+            this.hxz.Pk();
         }
     }
 
-    public void ceT() {
-        if (this.hnS != null) {
-            this.hnS.ceT();
+    public void markEnterBackground() {
+        if (this.hxy != null) {
+            this.hxy.markEnterBackground();
         }
-        if (this.hnO != null) {
-            this.hnO.onResume();
+        if (this.hxz != null) {
+            this.hxz.onStop();
         }
-        if (this.hnT != null) {
-            this.hnT.onResume();
+    }
+
+    public void markEnterForeground() {
+        if (this.hxy != null) {
+            this.hxy.markEnterForeground();
+        }
+        if (this.hxv != null) {
+            this.hxv.onResume();
+        }
+        if (this.hxz != null) {
+            this.hxz.onResume();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913190, null));
     }
 
     public void onPause() {
-        if (this.hnS != null) {
-            this.hnS.onPause();
+        if (this.hxy != null) {
+            this.hxy.onPause();
         }
-        if (this.hnT != null) {
-            this.hnT.onPause();
+        if (this.hxz != null) {
+            this.hxz.onPause();
         }
     }
 
-    public boolean ceU() {
-        if (this.hnS != null) {
-            return this.hnS.ceU();
+    public boolean ciO() {
+        if (this.hxy != null) {
+            return this.hxy.ciO();
         }
         return false;
     }
 
-    public void ceV() {
-        if (this.hnS != null) {
-            this.hnS.ceV();
+    public void ciP() {
+        if (this.hxy != null) {
+            this.hxy.ciP();
         }
     }
 
-    public void wB(int i) {
-        if (i == 1 && !(this.hnS instanceof c)) {
-            this.hnS = new c(this.gZr);
-        } else if (i == 2 && !(this.hnS instanceof e)) {
-            this.hnS = new e(this.gZr);
+    public void xg(int i) {
+        if (i == 1 && !(this.hxy instanceof c)) {
+            this.hxy = new c(this.hja);
+        } else if (i == 2 && !(this.hxy instanceof e)) {
+            this.hxy = new e(this.hja);
         } else {
             return;
         }
-        this.hnS.ak(this.hnO);
-        this.hnS.a(this.hnP);
+        this.hxy.ar(this.hxv);
+        this.hxy.a(this.hxw);
     }
 
     public void l(int i, int i2, int i3) {
-        if (this.hnO != null) {
-            this.hnO.l(i, i2, i3);
+        if (this.hxv != null) {
+            this.hxv.l(i, i2, i3);
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.hnO != null) {
-            this.hnO.onKeyboardVisibilityChanged(z);
+        if (this.hxv != null) {
+            this.hxv.onKeyboardVisibilityChanged(z);
         }
-        if (this.hnT != null) {
-            this.hnT.f(z, TbadkCoreApplication.getInst().getKeyboardHeight());
+        if (this.hxz != null) {
+            this.hxz.f(z, TbadkCoreApplication.getInst().getKeyboardHeight());
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.hnO != null) {
-            this.hnO.onActivityResult(i, i2, intent);
+        if (this.hxv != null) {
+            this.hxv.onActivityResult(i, i2, intent);
         }
-        if (this.hnT != null) {
-            this.hnT.onActivityResult(i, i2, intent);
+        if (this.hxz != null) {
+            this.hxz.onActivityResult(i, i2, intent);
         }
     }
 
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        if (this.hnT != null) {
-            this.hnT.onRequestPermissionsResult(i, strArr, iArr);
+        if (this.hxz != null) {
+            this.hxz.onRequestPermissionsResult(i, strArr, iArr);
         }
     }
 
-    public AlaLiveRecorderPerfData ceX() {
-        return this.gZr.hgH;
+    public AlaLiveRecorderPerfData ciR() {
+        return this.hja.hqo;
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.hnO != null) {
-            return this.hnO.onKeyDown(i, keyEvent);
+        if (this.hxv != null) {
+            return this.hxv.onKeyDown(i, keyEvent);
         }
         return false;
     }
 
     public void streamStateReceived(int i, boolean z, int i2, boolean z2) {
-        if (this.hnO != null) {
-            this.hnO.streamStateReceived(i, z, i2, z2);
+        if (this.hxv != null) {
+            this.hxv.streamStateReceived(i, z, i2, z2);
         }
     }
 
-    public void cei() {
-        if (this.hnO != null) {
-            this.hnO.cei();
+    public void sendBufferChanged(int i) {
+        if (this.hxv != null) {
+            this.hxv.sendBufferChanged(i);
         }
     }
 
-    public void ceu() {
-        if (this.hnO != null) {
-            this.hnO.ceu();
+    public void cic() {
+        if (this.hxv != null) {
+            this.hxv.cic();
         }
     }
 
-    public void caI() {
-        if (this.hnO != null) {
-            this.hnO.caI();
+    public void cio() {
+        if (this.hxv != null) {
+            this.hxv.cio();
         }
     }
 
-    public void nh(boolean z) {
-        if (this.hnO != null) {
-            this.hnO.nh(z);
+    public void ceD() {
+        if (this.hxv != null) {
+            this.hxv.ceD();
         }
     }
 
-    public com.baidu.tieba.ala.liveroom.data.d ceY() {
-        return this.hmx;
+    public void nC(boolean z) {
+        if (this.hxv != null) {
+            this.hxv.nC(z);
+        }
     }
 
-    public boolean ceW() {
-        if (this.hnS != null) {
-            return this.hnS.ceW();
+    public com.baidu.tieba.ala.liveroom.data.d ciS() {
+        return this.hvZ;
+    }
+
+    public boolean ciQ() {
+        if (this.hxy != null) {
+            return this.hxy.ciQ();
         }
         return false;
     }
 
-    public int caK() {
-        if (this.gZr != null) {
-            return this.gZr.caK();
+    public int ceF() {
+        if (this.hja != null) {
+            return this.hja.ceF();
         }
         return 0;
     }
 
     public void onDestroy() {
-        if (this.hnO != null) {
-            this.hnO.onDestroy();
-            this.hnS.onDestroy();
+        if (this.hxv != null) {
+            this.hxv.onDestroy();
         }
-        if (this.hnT != null) {
-            this.hnT.cj(false);
+        if (this.hxz != null) {
+            this.hxz.cx(false);
         }
     }
 
     public void g(short s) {
-        if (this.hnP != null) {
-            this.hnP.g(s);
+        if (this.hxw != null) {
+            this.hxw.g(s);
         }
-        if (this.hnO != null) {
-            this.hnO.b(s);
-        }
-    }
-
-    public void VJ() {
-        if (this.hnP != null) {
-            this.hnP.VJ();
+        if (this.hxv != null) {
+            this.hxv.b(s);
         }
     }
 
-    public void beP() {
-        if (this.hnP != null) {
-            this.hnP.beP();
+    public void Yj() {
+        if (this.hxw != null) {
+            this.hxw.Yj();
         }
     }
 
-    public void caL() {
-        if (this.hnP != null) {
-            this.hnP.caL();
+    public void bhU() {
+        if (this.hxw != null) {
+            this.hxw.bhU();
         }
     }
 
-    public void caM() {
-        if (this.hnP != null) {
-            this.hnP.caM();
+    public void ceG() {
+        if (this.hxw != null) {
+            this.hxw.ceG();
         }
     }
 
-    public void caN() {
-        if (this.hnP != null) {
-            this.hnP.caN();
+    public void ceH() {
+        if (this.hxw != null) {
+            this.hxw.ceH();
+        }
+    }
+
+    public void ceI() {
+        if (this.hxw != null) {
+            this.hxw.ceI();
         }
     }
 
     public void onRtcConnected(int i) {
-        if (this.hnO != null) {
-            this.hnO.onRtcConnected(i);
+        if (this.hxv != null) {
+            this.hxv.onRtcConnected(i);
         }
     }
 
     public void onPKPlayerFirstFrame() {
-        if (this.hnO != null) {
-            this.hnO.onPKPlayerFirstFrame();
+        if (this.hxv != null) {
+            this.hxv.onPKPlayerFirstFrame();
         }
     }
 }

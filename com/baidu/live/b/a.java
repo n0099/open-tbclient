@@ -1,12 +1,17 @@
 package com.baidu.live.b;
 
-import android.content.Context;
-import com.baidu.ala.atomdata.AlaAdminListActivityConfig;
-import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
+import android.app.Activity;
+import android.view.ViewGroup;
+import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
-public class a extends IntentConfig {
-    public a(Context context, String str) {
-        super(context);
-        getIntent().putExtra(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID, str);
-    }
+public interface a {
+    void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, Activity activity, int i);
+
+    void a(w wVar);
+
+    void onDestory();
+
+    void refreshUI();
+
+    void setCanVisible(boolean z);
 }

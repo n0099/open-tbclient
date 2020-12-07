@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class GetTsRequest extends FileMessageHttpRequest {
     private static final String TAG = GetTsRequest.class.getSimpleName();
     private String httpurl;

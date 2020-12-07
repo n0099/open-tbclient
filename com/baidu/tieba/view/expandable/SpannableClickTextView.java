@@ -12,7 +12,7 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class SpannableClickTextView extends TextView {
-    private boolean jaO;
+    private boolean joo;
 
     public SpannableClickTextView(Context context) {
         super(context);
@@ -28,7 +28,7 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.view.View
     public boolean performClick() {
-        if (this.jaO) {
+        if (this.joo) {
             return true;
         }
         return super.performClick();
@@ -36,17 +36,17 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.jaO = false;
+        this.joo = false;
         return super.onTouchEvent(motionEvent);
     }
 
     public void setCustomMovementMethod() {
-        setMovementMethod(a.dSP());
+        setMovementMethod(a.dYj());
     }
 
     /* loaded from: classes.dex */
     private static class a extends LinkMovementMethod {
-        private static a nEh;
+        private static a nSj;
 
         private a() {
         }
@@ -69,7 +69,7 @@ public class SpannableClickTextView extends TextView {
                         Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                     }
                     if (textView instanceof SpannableClickTextView) {
-                        ((SpannableClickTextView) textView).jaO = true;
+                        ((SpannableClickTextView) textView).joo = true;
                     }
                     return true;
                 }
@@ -80,11 +80,11 @@ public class SpannableClickTextView extends TextView {
             return Touch.onTouchEvent(textView, spannable, motionEvent);
         }
 
-        public static a dSP() {
-            if (nEh == null) {
-                nEh = new a();
+        public static a dYj() {
+            if (nSj == null) {
+                nSj = new a();
             }
-            return nEh;
+            return nSj;
         }
     }
 }

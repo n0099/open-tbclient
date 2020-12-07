@@ -10,11 +10,11 @@ import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class e implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    com.meizu.cloud.pushsdk.b.h.a f4324a = new com.meizu.cloud.pushsdk.b.h.a(null);
+    com.meizu.cloud.pushsdk.b.h.a f4094a = new com.meizu.cloud.pushsdk.b.h.a(null);
 
     private static l a(final HttpURLConnection httpURLConnection) throws IOException {
         if (httpURLConnection.getDoInput()) {
@@ -73,7 +73,7 @@ public class e implements a {
         a2.setUseCaches(false);
         a2.setDoInput(true);
         if (iVar.f() && fVar.startsWith("https://api-push.meizu.com")) {
-            ((HttpsURLConnection) a2).setSSLSocketFactory(this.f4324a);
+            ((HttpsURLConnection) a2).setSSLSocketFactory(this.f4094a);
         }
         return a2;
     }

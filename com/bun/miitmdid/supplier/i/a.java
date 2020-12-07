@@ -2,11 +2,11 @@ package com.bun.miitmdid.supplier.i;
 
 import android.content.Context;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f3995a;
+    private static Object f3998a;
     private static Class<?> b;
     private static Method c;
     private static Method d;
@@ -18,7 +18,7 @@ public class a {
         e = null;
         try {
             b = Class.forName("com.android.id.impl.IdProviderImpl");
-            f3995a = b.newInstance();
+            f3998a = b.newInstance();
         } catch (Exception e2) {
             com.bun.miitmdid.utils.a.a("IdentifierManager", "reflect exception!", e2);
         }
@@ -44,9 +44,9 @@ public class a {
     }
 
     private static String a(Context context, Method method) {
-        if (f3995a != null && method != null) {
+        if (f3998a != null && method != null) {
             try {
-                Object invoke = method.invoke(f3995a, context);
+                Object invoke = method.invoke(f3998a, context);
                 if (invoke != null) {
                     return (String) invoke;
                 }
@@ -58,7 +58,7 @@ public class a {
     }
 
     public static boolean a() {
-        return (b == null || f3995a == null) ? false : true;
+        return (b == null || f3998a == null) ? false : true;
     }
 
     public static String b(Context context) {

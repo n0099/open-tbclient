@@ -7,29 +7,29 @@ import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class l implements Cloneable {
-    private String aUo;
-    private int aUp;
-    private int aUq;
-    public Bitmap aUr;
-    public g aUs;
+    private String aXt;
+    private int aXu;
+    private int aXv;
+    public Bitmap aXw;
+    public g aXx;
     private int mGiftId;
 
-    public String Gb() {
+    public String HQ() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_GIFT_ID, this.mGiftId);
-            if (!TextUtils.isEmpty(this.aUo)) {
-                jSONObject.put("gift_img_url", Base64.encodeBytes(this.aUo.getBytes()));
+            if (!TextUtils.isEmpty(this.aXt)) {
+                jSONObject.put("gift_img_url", Base64.encodeBytes(this.aXt.getBytes()));
             }
-            jSONObject.put("gift_index", this.aUp);
-            jSONObject.put("gift_count", this.aUq);
+            jSONObject.put("gift_index", this.aXu);
+            jSONObject.put("gift_count", this.aXv);
             return jSONObject.toString();
         } catch (Exception e) {
             return null;
         }
     }
 
-    public boolean gD(String str) {
+    public boolean gY(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -38,10 +38,10 @@ public class l implements Cloneable {
             this.mGiftId = jSONObject.optInt(LogConfig.LOG_GIFT_ID);
             String optString = jSONObject.optString("gift_img_url");
             if (!TextUtils.isEmpty(optString)) {
-                this.aUo = new String(Base64.decode(optString.getBytes()));
+                this.aXt = new String(Base64.decode(optString.getBytes()));
             }
-            this.aUp = jSONObject.optInt("gift_index");
-            this.aUq = jSONObject.optInt("gift_count");
+            this.aXu = jSONObject.optInt("gift_index");
+            this.aXv = jSONObject.optInt("gift_count");
             return true;
         } catch (Exception e) {
             return false;
@@ -50,7 +50,7 @@ public class l implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* renamed from: Ge */
+    /* renamed from: HT */
     public l clone() {
         try {
             return (l) super.clone();
@@ -68,19 +68,19 @@ public class l implements Cloneable {
         this.mGiftId = i;
     }
 
-    public String Gf() {
-        return this.aUo;
+    public String HU() {
+        return this.aXt;
     }
 
-    public void gE(String str) {
-        this.aUo = str;
+    public void gZ(String str) {
+        this.aXt = str;
     }
 
-    public int Gg() {
-        return this.aUq;
+    public int HV() {
+        return this.aXv;
     }
 
-    public void dS(int i) {
-        this.aUq = i;
+    public void em(int i) {
+        this.aXv = i;
     }
 }

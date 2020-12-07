@@ -3,84 +3,84 @@ package com.tb.airbnb.lottie.model.content;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.model.content.ShapeStroke;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes20.dex */
 public class e implements b {
-    private final float Fo;
-    private final List<com.tb.airbnb.lottie.model.a.b> Fp;
+    private final float Gg;
+    private final List<com.tb.airbnb.lottie.model.a.b> Gh;
     private final String name;
-    private final com.tb.airbnb.lottie.model.a.d pKU;
-    private final GradientType pKY;
-    private final com.tb.airbnb.lottie.model.a.c pKZ;
-    private final com.tb.airbnb.lottie.model.a.f pLa;
-    private final com.tb.airbnb.lottie.model.a.f pLb;
-    private final com.tb.airbnb.lottie.model.a.b pLe;
-    private final ShapeStroke.LineCapType pLf;
-    private final ShapeStroke.LineJoinType pLg;
+    private final com.tb.airbnb.lottie.model.a.d pBY;
+    private final GradientType pCc;
+    private final com.tb.airbnb.lottie.model.a.c pCd;
+    private final com.tb.airbnb.lottie.model.a.f pCe;
+    private final com.tb.airbnb.lottie.model.a.f pCf;
+    private final com.tb.airbnb.lottie.model.a.b pCi;
+    private final ShapeStroke.LineCapType pCj;
+    private final ShapeStroke.LineJoinType pCk;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b pLh;
+    private final com.tb.airbnb.lottie.model.a.b pCl;
 
     public e(String str, GradientType gradientType, com.tb.airbnb.lottie.model.a.c cVar, com.tb.airbnb.lottie.model.a.d dVar, com.tb.airbnb.lottie.model.a.f fVar, com.tb.airbnb.lottie.model.a.f fVar2, com.tb.airbnb.lottie.model.a.b bVar, ShapeStroke.LineCapType lineCapType, ShapeStroke.LineJoinType lineJoinType, float f, List<com.tb.airbnb.lottie.model.a.b> list, @Nullable com.tb.airbnb.lottie.model.a.b bVar2) {
         this.name = str;
-        this.pKY = gradientType;
-        this.pKZ = cVar;
-        this.pKU = dVar;
-        this.pLa = fVar;
-        this.pLb = fVar2;
-        this.pLe = bVar;
-        this.pLf = lineCapType;
-        this.pLg = lineJoinType;
-        this.Fo = f;
-        this.Fp = list;
-        this.pLh = bVar2;
+        this.pCc = gradientType;
+        this.pCd = cVar;
+        this.pBY = dVar;
+        this.pCe = fVar;
+        this.pCf = fVar2;
+        this.pCi = bVar;
+        this.pCj = lineCapType;
+        this.pCk = lineJoinType;
+        this.Gg = f;
+        this.Gh = list;
+        this.pCl = bVar2;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public GradientType eyX() {
-        return this.pKY;
+    public GradientType eBt() {
+        return this.pCc;
     }
 
-    public com.tb.airbnb.lottie.model.a.c eyY() {
-        return this.pKZ;
+    public com.tb.airbnb.lottie.model.a.c eBu() {
+        return this.pCd;
     }
 
-    public com.tb.airbnb.lottie.model.a.d eyS() {
-        return this.pKU;
+    public com.tb.airbnb.lottie.model.a.d eBo() {
+        return this.pBY;
     }
 
-    public com.tb.airbnb.lottie.model.a.f eyZ() {
-        return this.pLa;
+    public com.tb.airbnb.lottie.model.a.f eBv() {
+        return this.pCe;
     }
 
-    public com.tb.airbnb.lottie.model.a.f eza() {
-        return this.pLb;
+    public com.tb.airbnb.lottie.model.a.f eBw() {
+        return this.pCf;
     }
 
-    public com.tb.airbnb.lottie.model.a.b ezb() {
-        return this.pLe;
+    public com.tb.airbnb.lottie.model.a.b eBx() {
+        return this.pCi;
     }
 
-    public ShapeStroke.LineCapType ezc() {
-        return this.pLf;
+    public ShapeStroke.LineCapType eBy() {
+        return this.pCj;
     }
 
-    public ShapeStroke.LineJoinType ezd() {
-        return this.pLg;
+    public ShapeStroke.LineJoinType eBz() {
+        return this.pCk;
     }
 
     public List<com.tb.airbnb.lottie.model.a.b> jX() {
-        return this.Fp;
+        return this.Gh;
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.b eze() {
-        return this.pLh;
+    public com.tb.airbnb.lottie.model.a.b eBA() {
+        return this.pCl;
     }
 
     public float jZ() {
-        return this.Fo;
+        return this.Gg;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b

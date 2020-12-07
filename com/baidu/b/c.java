@@ -17,9 +17,9 @@ import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class c {
-    private com.baidu.b.c.d.d adr;
+    private com.baidu.b.c.d.d aen;
     private List<b> b;
 
     public c() {
@@ -39,7 +39,7 @@ public class c {
     }
 
     private void a() {
-        this.adr = new com.baidu.b.c.d.e(e.a(), e.b());
+        this.aen = new com.baidu.b.c.d.e(e.a(), e.b());
     }
 
     private boolean a(String[] strArr, String[] strArr2) {
@@ -58,9 +58,9 @@ public class c {
     }
 
     private static byte[] a(byte[] bArr, com.baidu.b.c.d.d dVar) {
-        com.baidu.b.c.d.a sL = com.baidu.b.c.d.a.sL();
-        sL.a(2, dVar);
-        return sL.a(bArr);
+        com.baidu.b.c.d.a sO = com.baidu.b.c.d.a.sO();
+        sO.a(2, dVar);
+        return sO.a(bArr);
     }
 
     private String[] a(Signature[] signatureArr) {
@@ -72,7 +72,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<b> N(Context context) {
+    public List<b> O(Context context) {
         if (this.b != null) {
             return this.b;
         }
@@ -98,7 +98,7 @@ public class c {
                                 JSONObject jSONObject = new JSONObject(new String(a2));
                                 b bVar = new b();
                                 bVar.b = jSONObject.getInt("priority");
-                                bVar.acX = resolveInfo.activityInfo.applicationInfo;
+                                bVar.adT = resolveInfo.activityInfo.applicationInfo;
                                 if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                                     bVar.d = true;
                                 }
@@ -112,7 +112,7 @@ public class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.b.d.a.a(string2.getBytes()), this.adr);
+                                            byte[] a3 = a(com.baidu.b.d.a.a(string2.getBytes()), this.aen);
                                             if (a3 != null && Arrays.equals(a3, com.baidu.b.d.c.a(a2))) {
                                                 bVar.c = true;
                                             }

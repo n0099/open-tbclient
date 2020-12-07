@@ -6,7 +6,7 @@ import com.baidu.live.data.AlaLivePersonData;
 public class f {
     public String forumId;
     public String forumName;
-    public AlaLivePersonData hgK;
-    public Bundle hgL;
+    public AlaLivePersonData hqr;
+    public Bundle hqs;
     public String specialForumType;
 }

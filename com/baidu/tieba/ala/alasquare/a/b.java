@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 import tbclient.LiveSquare.HotLiveWithCategory;
 import tbclient.ThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static Pair<List<q>, List<q>> e(String str, List<com.baidu.tieba.ala.alasquare.live.b.a> list) {
         if (y.isEmpty(list)) {
@@ -31,12 +31,12 @@ public class b {
                     arrayList2.add(aVar);
                 } else {
                     com.baidu.tieba.ala.alasquare.live.b.b bVar = new com.baidu.tieba.ala.alasquare.live.b.b();
-                    bVar.tabId = aVar.ghR;
+                    bVar.tabId = aVar.gqb;
                     bVar.entryName = str2;
                     bVar.labelName = aVar.label_name;
                     bVar.bitmapRatio = aVar.bitmap_wh_ratio;
-                    bVar.categoryType = aVar.ghS;
-                    bVar.ghT = aVar.ghT;
+                    bVar.categoryType = aVar.gqc;
+                    bVar.gqd = aVar.gqd;
                     linkedList.add(bVar);
                     int size = b.size();
                     int i = size % 2 != 0 ? size - 1 : size;
@@ -46,8 +46,8 @@ public class b {
                             com.baidu.tieba.ala.alasquare.subtablist.b.b bVar2 = new com.baidu.tieba.ala.alasquare.subtablist.b.b();
                             c cVar = (c) b.get(i2);
                             c cVar2 = (c) b.get(i2 + 1);
-                            bVar2.gjL = cVar;
-                            bVar2.gjM = cVar2;
+                            bVar2.grU = cVar;
+                            bVar2.grV = cVar2;
                             arrayList.add(cVar);
                             arrayList.add(cVar2);
                             linkedList.add(bVar2);
@@ -55,8 +55,8 @@ public class b {
                             com.baidu.tieba.ala.alasquare.subtablist.b.a aVar2 = new com.baidu.tieba.ala.alasquare.subtablist.b.a();
                             c cVar3 = (c) b.get(i2);
                             c cVar4 = (c) b.get(i2 + 1);
-                            aVar2.gjL = cVar3;
-                            aVar2.gjM = cVar4;
+                            aVar2.grU = cVar3;
+                            aVar2.grV = cVar4;
                             arrayList.add(cVar3);
                             arrayList.add(cVar4);
                             linkedList.add(aVar2);
@@ -69,7 +69,7 @@ public class b {
         return new Pair<>(linkedList, arrayList);
     }
 
-    public static List<com.baidu.tieba.ala.alasquare.live.b.a> a(List<com.baidu.tieba.ala.alasquare.live.b.a> list, List<com.baidu.tieba.ala.alasquare.live.b.a> list2, boolean z) {
+    public static List<com.baidu.tieba.ala.alasquare.live.b.a> b(List<com.baidu.tieba.ala.alasquare.live.b.a> list, List<com.baidu.tieba.ala.alasquare.live.b.a> list2, boolean z) {
         if (list == null || list.isEmpty()) {
             return list2;
         }
@@ -99,14 +99,14 @@ public class b {
             return false;
         }
         for (com.baidu.tieba.ala.alasquare.live.b.a aVar2 : list) {
-            if (aVar.ghR == aVar2.ghR && aVar.entry_name.equals(aVar2.entry_name) && aVar.label_name.equals(aVar2.label_name)) {
+            if (aVar.gqb == aVar2.gqb && aVar.entry_name.equals(aVar2.entry_name) && aVar.label_name.equals(aVar2.label_name)) {
                 return true;
             }
         }
         return false;
     }
 
-    public static List<com.baidu.tieba.ala.alasquare.live.b.a> bV(List<HotLiveWithCategory> list) {
+    public static List<com.baidu.tieba.ala.alasquare.live.b.a> bZ(List<HotLiveWithCategory> list) {
         if (y.isEmpty(list)) {
             return new LinkedList();
         }
@@ -121,7 +121,7 @@ public class b {
 
     private static String a(com.baidu.tieba.ala.alasquare.live.b.a aVar) {
         StringBuilder sb = new StringBuilder();
-        sb.append(aVar.ghR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        sb.append(aVar.gqb + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         sb.append(aVar.entry_name + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         sb.append(aVar.label_name);
         return sb.toString();
@@ -195,7 +195,7 @@ public class b {
         for (ThreadInfo threadInfo : list) {
             if (threadInfo != null && threadInfo.thread_type.intValue() == 49) {
                 c cVar = new c();
-                cVar.tabId = aVar.ghR;
+                cVar.tabId = aVar.gqb;
                 cVar.entryName = aVar.entry_name;
                 cVar.labelName = aVar.label_name;
                 cVar.a(threadInfo);

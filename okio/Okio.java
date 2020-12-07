@@ -16,7 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
 import org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class Okio {
     static final Logger logger = Logger.getLogger(Okio.class.getName());
 

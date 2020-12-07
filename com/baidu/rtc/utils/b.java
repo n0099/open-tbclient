@@ -3,9 +3,9 @@ package com.baidu.rtc.utils;
 import android.content.Context;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
-/* loaded from: classes16.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private a cqh;
+    private a cxd;
     private boolean mIsRegisted = false;
     private TelephonyManager mTelephonyManager = null;
     private boolean mIsCalling = false;
@@ -15,23 +15,23 @@ public class b {
             super.onCallStateChanged(i, str);
             switch (i) {
                 case 0:
-                    if (b.this.cqh != null && b.this.mIsCalling) {
-                        b.this.cqh.onInterruptionEnd();
+                    if (b.this.cxd != null && b.this.mIsCalling) {
+                        b.this.cxd.onInterruptionEnd();
                         b.this.mIsCalling = false;
                         return;
                     }
                     return;
                 case 1:
                     b.this.mIsCalling = true;
-                    if (b.this.cqh != null) {
-                        b.this.cqh.onInterruptionBegin();
+                    if (b.this.cxd != null) {
+                        b.this.cxd.onInterruptionBegin();
                         return;
                     }
                     return;
                 case 2:
                     b.this.mIsCalling = true;
-                    if (b.this.cqh != null) {
-                        b.this.cqh.onInterruptionBegin();
+                    if (b.this.cxd != null) {
+                        b.this.cxd.onInterruptionBegin();
                         return;
                     }
                     return;
@@ -41,7 +41,7 @@ public class b {
         }
     };
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void onInterruptionBegin();
 
@@ -49,8 +49,8 @@ public class b {
     }
 
     public b(a aVar) {
-        this.cqh = null;
-        this.cqh = aVar;
+        this.cxd = null;
+        this.cxd = aVar;
     }
 
     public void register(Context context) {

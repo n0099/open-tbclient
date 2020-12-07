@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class AccountManager extends BaseManager {
     public static void init(Context context) {
         AccountManagerImpl.getInstance(context);

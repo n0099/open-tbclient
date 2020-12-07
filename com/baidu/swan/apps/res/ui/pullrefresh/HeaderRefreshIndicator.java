@@ -5,10 +5,10 @@ import android.util.AttributeSet;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.ap.ah;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
-    private int dnD;
-    private boolean dnE;
+    private int duF;
+    private boolean duG;
     public boolean isInited;
 
     public HeaderRefreshIndicator(Context context) {
@@ -18,26 +18,26 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public HeaderRefreshIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.isInited = false;
-        this.dnD = -1;
-        this.dnE = false;
+        this.duF = -1;
+        this.duG = false;
     }
 
-    public void acN() {
+    public void afX() {
         if (!this.isInited) {
             this.isInited = true;
-            this.dnE = com.baidu.swan.apps.t.a.awo().getNightModeSwitcherState();
-            aFP();
+            this.duG = com.baidu.swan.apps.t.a.azw().getNightModeSwitcherState();
+            aIX();
             setTextSize(1, 11.0f);
             setCompoundDrawablePadding(ah.dip2px(getContext(), 5.0f));
             initCornerRadius(0);
         }
     }
 
-    public void aFO() {
-        boolean nightModeSwitcherState = com.baidu.swan.apps.t.a.awo().getNightModeSwitcherState();
-        if (this.dnE != nightModeSwitcherState) {
-            aFP();
-            this.dnE = nightModeSwitcherState;
+    public void aIW() {
+        boolean nightModeSwitcherState = com.baidu.swan.apps.t.a.azw().getNightModeSwitcherState();
+        if (this.duG != nightModeSwitcherState) {
+            aIX();
+            this.duG = nightModeSwitcherState;
         }
     }
 
@@ -49,10 +49,10 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        aFO();
+        aIW();
     }
 
-    public void aFP() {
+    public void aIX() {
         setBackground(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_bg));
         setTextColor(getResources().getColor(a.c.aiapps_pull_refresh_result_text_color));
         initDrawable(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_icon), 0, ah.dip2px(getContext(), 11.0f), ah.dip2px(getContext(), 11.0f));

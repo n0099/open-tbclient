@@ -3,29 +3,29 @@ package com.baidu.e.a;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.e.c.f;
+import com.baidu.e.c.g;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes14.dex */
+/* loaded from: classes17.dex */
 public class a {
     private static boolean DEBUG = AppConfig.isDebug();
-    private static a anp;
-    private String anq;
-    private SharedPreferences anr;
+    private static a aoo;
+    private SharedPreferences mCache;
     private String mChannel;
+    private String mLastChannel;
 
-    public static a uJ() {
-        if (anp == null) {
+    public static a uM() {
+        if (aoo == null) {
             synchronized (a.class) {
-                if (anp == null) {
-                    anp = new a();
+                if (aoo == null) {
+                    aoo = new a();
                 }
             }
         }
-        return anp;
+        return aoo;
     }
 
     private a() {
@@ -33,46 +33,46 @@ public class a {
     }
 
     private void init() {
-        this.anr = AppRuntime.getAppContext().getSharedPreferences("com.baidu.common.pubparam", 0);
-        uL();
-        uM();
+        this.mCache = AppRuntime.getAppContext().getSharedPreferences("com.baidu.common.pubparam", 0);
+        initLastChannel();
+        initChanel();
     }
 
     public String getChannel() {
         return this.mChannel;
     }
 
-    public String uK() {
-        return this.anq;
+    public String getLastChannel() {
+        return this.mLastChannel;
     }
 
-    private void uL() {
-        this.anq = uP();
-        if (TextUtils.isEmpty(this.anq)) {
-            this.anq = uQ();
+    private void initLastChannel() {
+        this.mLastChannel = readLastChannelFromRaw();
+        if (TextUtils.isEmpty(this.mLastChannel)) {
+            this.mLastChannel = readLastChannelFromAssets();
         }
     }
 
-    private void uM() {
-        this.mChannel = uN();
-        if (TextUtils.isEmpty(this.mChannel) && !TextUtils.isEmpty(this.anq)) {
-            this.mChannel = this.anq;
-            uO();
+    private void initChanel() {
+        this.mChannel = readChannelFromCache();
+        if (TextUtils.isEmpty(this.mChannel) && !TextUtils.isEmpty(this.mLastChannel)) {
+            this.mChannel = this.mLastChannel;
+            saveCannelToCache();
         }
     }
 
-    private String uN() {
-        return this.anr.getString("channel", null);
+    private String readChannelFromCache() {
+        return this.mCache.getString("channel", null);
     }
 
-    private void uO() {
-        this.anr.edit().putString("channel", this.mChannel).apply();
+    private void saveCannelToCache() {
+        this.mCache.edit().putString("channel", this.mChannel).apply();
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[CONST_STR, CONST_STR, INVOKE, IF, SGET, MOVE_EXCEPTION, INVOKE, INVOKE, CONST_STR, CONST_STR, INVOKE, IF, SGET, MOVE_EXCEPTION] complete} */
-    private String uP() {
+    private String readLastChannelFromRaw() {
         String str = null;
-        InputStream openRawResource = AppRuntime.getAppContext().getResources().openRawResource(f.a.tnconfig);
+        InputStream openRawResource = AppRuntime.getAppContext().getResources().openRawResource(g.a.tnconfig);
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openRawResource));
         try {
             try {
@@ -108,7 +108,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String uQ() {
+    private String readLastChannelFromAssets() {
         BufferedReader bufferedReader;
         InputStream inputStream;
         String str;

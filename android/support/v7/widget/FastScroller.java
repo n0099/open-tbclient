@@ -15,7 +15,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* JADX INFO: Access modifiers changed from: package-private */
 @VisibleForTesting
-/* loaded from: classes8.dex */
+/* loaded from: classes14.dex */
 public class FastScroller extends RecyclerView.ItemDecoration implements RecyclerView.OnItemTouchListener {
     private static final int ANIMATION_STATE_FADING_IN = 1;
     private static final int ANIMATION_STATE_FADING_OUT = 3;
@@ -81,17 +81,17 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
     };
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes14.dex */
     private @interface AnimationState {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes14.dex */
     private @interface DragState {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes14.dex */
     private @interface State {
     }
 
@@ -451,7 +451,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         return this.mHorizontalRange;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes14.dex */
     private class AnimatorListener extends AnimatorListenerAdapter {
         private boolean mCanceled;
 
@@ -480,7 +480,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes14.dex */
     private class AnimatorUpdater implements ValueAnimator.AnimatorUpdateListener {
         private AnimatorUpdater() {
         }

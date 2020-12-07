@@ -36,9 +36,15 @@ public class CloudControlResponseParse {
     private static final String TAG = "CloudControlParse";
     private String mRuntype;
     private SharedPrefsWrapper mSharedPrefsWrapper = CloudControlManager.getInstance().getSharedPrefsWrapper();
+    private String mTraceId;
 
     public CloudControlResponseParse(String str) {
         this.mRuntype = str;
+    }
+
+    public CloudControlResponseParse(String str, String str2) {
+        this.mRuntype = str;
+        this.mTraceId = str2;
     }
 
     public CloudControlData parseConnectResponse(JSONObject jSONObject, JSONObject jSONObject2) throws JSONException {
@@ -69,9 +75,10 @@ public class CloudControlResponseParse {
             cloudControlData.setCloudControlErrorBean(cloudControlErrorBean);
             return cloudControlData;
         }
-        String optString = jSONObject.optString(KEY_LOGID);
+        String optString = jSONObject.optString("logid");
         CloudControlUBCData cloudControlUBCData = new CloudControlUBCData();
         cloudControlUBCData.setLogId(optString);
+        cloudControlUBCData.setTraceId(this.mTraceId);
         cloudControlUBCData.setRunType(this.mRuntype);
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject == null) {

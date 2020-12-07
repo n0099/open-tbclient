@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class MediaQuery {
     private Context context;
     private String selection;
@@ -40,7 +40,7 @@ public class MediaQuery {
         return queryInternal(this.context, this.uri, this.selection, this.selectionArgs, this.sortOrder, cls);
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public static final class MediaQueryBuilder {
         private Context context;
         private String selection;

@@ -7,27 +7,27 @@ import android.view.MotionEvent;
 /* loaded from: classes4.dex */
 public class b extends a {
     private int mActivePointerId;
-    private int oES;
+    private int oTY;
 
     public b(Context context) {
         super(context);
         this.mActivePointerId = -1;
-        this.oES = 0;
+        this.oTY = 0;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.a
-    float ao(MotionEvent motionEvent) {
+    float ap(MotionEvent motionEvent) {
         try {
-            return motionEvent.getX(this.oES);
+            return motionEvent.getX(this.oTY);
         } catch (Exception e) {
             return motionEvent.getX();
         }
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.a
-    float ap(MotionEvent motionEvent) {
+    float aq(MotionEvent motionEvent) {
         try {
-            return motionEvent.getY(this.oES);
+            return motionEvent.getY(this.oTY);
         } catch (Exception e) {
             return motionEvent.getY();
         }
@@ -44,17 +44,17 @@ public class b extends a {
                 this.mActivePointerId = -1;
                 break;
             case 6:
-                int Oo = com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.Oo(motionEvent.getAction());
-                if (motionEvent.getPointerId(Oo) == this.mActivePointerId) {
-                    int i = Oo == 0 ? 1 : 0;
+                int Pm = com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.Pm(motionEvent.getAction());
+                if (motionEvent.getPointerId(Pm) == this.mActivePointerId) {
+                    int i = Pm == 0 ? 1 : 0;
                     this.mActivePointerId = motionEvent.getPointerId(i);
-                    this.bya = motionEvent.getX(i);
-                    this.byb = motionEvent.getY(i);
+                    this.bDi = motionEvent.getX(i);
+                    this.bDj = motionEvent.getY(i);
                     break;
                 }
                 break;
         }
-        this.oES = motionEvent.findPointerIndex(this.mActivePointerId != -1 ? this.mActivePointerId : 0);
+        this.oTY = motionEvent.findPointerIndex(this.mActivePointerId != -1 ? this.mActivePointerId : 0);
         return super.onTouchEvent(motionEvent);
     }
 }

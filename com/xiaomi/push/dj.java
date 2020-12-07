@@ -8,50 +8,50 @@ import java.util.Date;
 public class dj extends di.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f4859a;
+    final /* synthetic */ int f4629a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ di f217a;
+    final /* synthetic */ di f215a;
 
     /* renamed from: a  reason: collision with other field name */
-    File f218a;
+    File f216a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f219a;
+    final /* synthetic */ String f217a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ Date f220a;
+    final /* synthetic */ Date f218a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ boolean f221a;
+    final /* synthetic */ boolean f219a;
     final /* synthetic */ String b;
 
     /* renamed from: b  reason: collision with other field name */
-    final /* synthetic */ Date f222b;
+    final /* synthetic */ Date f220b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dj(di diVar, int i, Date date, Date date2, String str, String str2, boolean z) {
         super();
-        this.f217a = diVar;
-        this.f4859a = i;
-        this.f220a = date;
-        this.f222b = date2;
-        this.f219a = str;
+        this.f215a = diVar;
+        this.f4629a = i;
+        this.f218a = date;
+        this.f220b = date2;
+        this.f217a = str;
         this.b = str2;
-        this.f221a = z;
+        this.f219a = z;
     }
 
     @Override // com.xiaomi.push.di.b, com.xiaomi.push.al.b
     public void b() {
         if (aa.d()) {
             try {
-                File file = new File(this.f217a.f210a.getExternalFilesDir(null) + "/.logcache");
+                File file = new File(this.f215a.f208a.getExternalFilesDir(null) + "/.logcache");
                 file.mkdirs();
                 if (file.isDirectory()) {
                     dh dhVar = new dh();
-                    dhVar.a(this.f4859a);
-                    this.f218a = dhVar.a(this.f217a.f210a, this.f220a, this.f222b, file);
+                    dhVar.a(this.f4629a);
+                    this.f216a = dhVar.a(this.f215a.f208a, this.f218a, this.f220b, file);
                 }
             } catch (NullPointerException e) {
             }
@@ -60,10 +60,10 @@ public class dj extends di.b {
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo232c() {
-        if (this.f218a != null && this.f218a.exists()) {
-            this.f217a.f211a.add(new di.c(this.f219a, this.b, this.f218a, this.f221a));
+    public void mo222c() {
+        if (this.f216a != null && this.f216a.exists()) {
+            this.f215a.f209a.add(new di.c(this.f217a, this.b, this.f216a, this.f219a));
         }
-        this.f217a.a(0L);
+        this.f215a.a(0L);
     }
 }

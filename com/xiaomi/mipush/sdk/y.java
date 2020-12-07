@@ -8,20 +8,20 @@ import android.util.Log;
 public final class y implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f4783a;
+    final /* synthetic */ Context f4553a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(Context context) {
-        this.f4783a = context;
+        this.f4553a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            PackageInfo packageInfo = this.f4783a.getPackageManager().getPackageInfo(this.f4783a.getPackageName(), 4612);
-            x.c(this.f4783a);
-            x.d(this.f4783a, packageInfo);
-            x.c(this.f4783a, packageInfo);
+            PackageInfo packageInfo = this.f4553a.getPackageManager().getPackageInfo(this.f4553a.getPackageName(), 4612);
+            x.c(this.f4553a);
+            x.d(this.f4553a, packageInfo);
+            x.c(this.f4553a, packageInfo);
         } catch (Throwable th) {
             Log.e("ManifestChecker", "", th);
         }

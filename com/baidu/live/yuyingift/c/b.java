@@ -15,7 +15,7 @@ public interface b {
 
     void a(String str, String str2, String str3, String str4, int i, int i2, String str5, String str6, long j);
 
-    void hs(String str);
+    void hQ(String str);
 
     void release();
 }

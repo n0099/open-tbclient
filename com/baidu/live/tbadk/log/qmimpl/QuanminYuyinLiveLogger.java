@@ -116,7 +116,7 @@ public class QuanminYuyinLiveLogger implements IYuyinLiveLogger {
         JSONObject jSONObject2 = new JSONObject();
         try {
             jSONObject2.put("tab", "liveroom");
-            jSONObject2.put("k", LogConfig.KEY_NOTICE);
+            jSONObject2.put("k", "notice");
             jSONObject2.put("v", "playtime");
             jSONObject2.put("tag", "");
             jSONObject2.put("pos_int", i);

@@ -13,28 +13,28 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.BdTopToast;
 import java.util.List;
 import tbclient.FrsTabInfo;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c extends RecyclerView.Adapter<a> implements View.OnClickListener {
-    private int fPp;
-    private FrsMoveAreaChooseView joe;
-    private int jog = -1;
-    private List<FrsTabInfo> jof = com.baidu.tieba.frs.a.cwH().cwK();
-    private SparseArray<FrsTabInfo> joh = new SparseArray<>();
+    private int fXy;
+    private FrsMoveAreaChooseView jBG;
+    private int jBI = -1;
+    private List<FrsTabInfo> jBH = com.baidu.tieba.frs.a.cAW().cAZ();
+    private SparseArray<FrsTabInfo> jBJ = new SparseArray<>();
 
     public c(FrsMoveAreaChooseView frsMoveAreaChooseView) {
-        this.fPp = -1;
-        this.joe = frsMoveAreaChooseView;
-        if (!y.isEmpty(this.jof)) {
+        this.fXy = -1;
+        this.jBG = frsMoveAreaChooseView;
+        if (!y.isEmpty(this.jBH)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.jof.size()) {
-                    FrsTabInfo frsTabInfo = this.jof.get(i2);
-                    if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.cwH().cwJ() || frsTabInfo.tab_type.intValue() == 3)) {
-                        if (frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.cwH().cwJ()) {
-                            this.fPp = i2;
+                if (i2 < this.jBH.size()) {
+                    FrsTabInfo frsTabInfo = this.jBH.get(i2);
+                    if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.cAW().cAY() || frsTabInfo.tab_type.intValue() == 3)) {
+                        if (frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.cAW().cAY()) {
+                            this.fXy = i2;
                         }
-                        this.joh.append(i2, frsTabInfo);
+                        this.jBJ.append(i2, frsTabInfo);
                     }
                     i = i2 + 1;
                 } else {
@@ -44,12 +44,12 @@ public class c extends RecyclerView.Adapter<a> implements View.OnClickListener {
         }
     }
 
-    public int cGN() {
-        return this.fPp;
+    public int cMc() {
+        return this.fXy;
     }
 
-    public int cGO() {
-        return this.jog;
+    public int cMd() {
+        return this.jBI;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -65,73 +65,73 @@ public class c extends RecyclerView.Adapter<a> implements View.OnClickListener {
     /* renamed from: a */
     public void onBindViewHolder(@NonNull a aVar, int i) {
         FrsTabInfo frsTabInfo;
-        if (!y.isEmpty(this.jof) && (frsTabInfo = (FrsTabInfo) y.getItem(this.jof, i)) != null) {
-            aVar.joi.setTag(Integer.valueOf(i));
-            aVar.joi.setText(frsTabInfo.tab_name);
-            aVar.joi.setOnClickListener(this);
-            b(aVar.joi, i);
+        if (!y.isEmpty(this.jBH) && (frsTabInfo = (FrsTabInfo) y.getItem(this.jBH, i)) != null) {
+            aVar.jBK.setTag(Integer.valueOf(i));
+            aVar.jBK.setText(frsTabInfo.tab_name);
+            aVar.jBK.setOnClickListener(this);
+            b(aVar.jBK, i);
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return y.getCount(this.jof);
+        return y.getCount(this.jBH);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof Integer) {
             int intValue = ((Integer) view.getTag()).intValue();
-            if (this.joh.get(intValue) != null) {
-                if (this.joe != null && this.joe.getContext() != null && this.joe.getParent() != null) {
-                    if (intValue == this.fPp) {
-                        new BdTopToast(this.joe.getContext()).yr(false).Ue(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_cur_tip)).aF((ViewGroup) this.joe.getParent());
+            if (this.jBJ.get(intValue) != null) {
+                if (this.jBG != null && this.jBG.getContext() != null && this.jBG.getParent() != null) {
+                    if (intValue == this.fXy) {
+                        new BdTopToast(this.jBG.getContext()).yW(false).Vt(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_cur_tip)).aF((ViewGroup) this.jBG.getParent());
                         return;
                     } else {
-                        new BdTopToast(this.joe.getContext()).yr(false).Ue(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_no_tip)).aF((ViewGroup) this.joe.getParent());
+                        new BdTopToast(this.jBG.getContext()).yW(false).Vt(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_no_tip)).aF((ViewGroup) this.jBG.getParent());
                         return;
                     }
                 }
                 return;
             }
-            this.jog = intValue;
-            if (this.joe != null) {
-                this.joe.onClick(view);
+            this.jBI = intValue;
+            if (this.jBG != null) {
+                this.jBG.onClick(view);
             }
             notifyDataSetChanged();
         }
     }
 
     private void b(TBSpecificationBtn tBSpecificationBtn, int i) {
-        if (i == this.jog) {
+        if (i == this.jBI) {
             com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-            cVar.qG(R.color.CAM_X0304);
+            cVar.rh(R.color.CAM_X0304);
             tBSpecificationBtn.setConfig(cVar);
-            tBSpecificationBtn.brT();
+            tBSpecificationBtn.bvt();
             tBSpecificationBtn.setUseDisableState(false);
-        } else if (this.joh.get(i) != null) {
+        } else if (this.jBJ.get(i) != null) {
             com.baidu.tbadk.core.view.commonBtn.c cVar2 = new com.baidu.tbadk.core.view.commonBtn.c();
-            cVar2.qI(R.color.CAM_X0105);
+            cVar2.rj(R.color.CAM_X0105);
             tBSpecificationBtn.setConfig(cVar2);
-            tBSpecificationBtn.brT();
+            tBSpecificationBtn.bvt();
             tBSpecificationBtn.setUseDisableState(true);
         } else {
             com.baidu.tbadk.core.view.commonBtn.c cVar3 = new com.baidu.tbadk.core.view.commonBtn.c();
-            cVar3.qI(R.color.CAM_X0105);
+            cVar3.rj(R.color.CAM_X0105);
             tBSpecificationBtn.setConfig(cVar3);
-            tBSpecificationBtn.brT();
+            tBSpecificationBtn.bvt();
             tBSpecificationBtn.setUseDisableState(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public class a extends RecyclerView.ViewHolder {
-        TBSpecificationBtn joi;
+        TBSpecificationBtn jBK;
 
         a(View view) {
             super(view);
-            this.joi = (TBSpecificationBtn) view.findViewById(R.id.cell_frs_area_choose_name);
+            this.jBK = (TBSpecificationBtn) view.findViewById(R.id.cell_frs_area_choose_name);
         }
     }
 }

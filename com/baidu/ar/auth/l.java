@@ -1,32 +1,74 @@
 package com.baidu.ar.auth;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import com.baidu.ar.callback.ICallbackWith;
+import com.baidu.ar.auth.k;
+import com.baidu.ar.h.r;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes12.dex */
-public interface l {
-    List<Integer> checkAuth(Context context, byte[] bArr, IDuMixAuthCallback iDuMixAuthCallback);
+/* loaded from: classes10.dex */
+class l implements k {
+    private final List<String> kc = new ArrayList();
+    private long kd;
 
-    List<Integer> checkAuth(Context context, byte[] bArr, ICallbackWith<List<Integer>> iCallbackWith, ICallbackWith<Integer> iCallbackWith2);
+    public l(f fVar) {
+        if (fVar != null) {
+            if (fVar.jK != null) {
+                this.kc.addAll(fVar.jK);
+            }
+            this.kd = fVar.jP;
+        }
+    }
 
-    boolean checkFeatureAuth(int i);
+    @Override // com.baidu.ar.auth.k
+    public void a(k.a aVar) {
+    }
 
-    boolean checkOfflineLicenseAuth(Context context, byte[] bArr);
+    public boolean a(Context context, String[] strArr) {
+        boolean z;
+        String aT = com.baidu.ar.h.l.aT(context.getPackageName());
+        if (this.kd > 0) {
+            long[] a2 = m.a(10, 50L);
+            if (a2[0] == 1) {
+                z = a2[1] <= this.kd;
+            } else {
+                com.baidu.ar.h.b.b("ARAuth", "time err. " + a2[1]);
+                z = true;
+            }
+        } else {
+            z = true;
+        }
+        boolean z2 = z && this.kc.contains(aT);
+        if (strArr != null && strArr.length >= 1) {
+            if (!z) {
+                strArr[0] = "license已经过期";
+            } else if (!z2) {
+                StringBuilder sb = new StringBuilder();
+                Iterator<String> it = this.kc.iterator();
+                while (it.hasNext()) {
+                    sb.append(it.next() + ",");
+                }
+                strArr[0] = String.format("包名不符，MD5正确值：%s 现为：%s", sb.toString(), aT);
+            }
+        }
+        return z2;
+    }
 
-    Bitmap createTipBitmap(Context context);
-
-    void doAuth(Context context, k kVar);
-
-    boolean enableFeature(int i);
-
-    boolean isShowAuthTip();
-
-    void loadAuthInfo(Context context);
-
-    void receiveAuthFailMessage(int i);
-
-    void release();
-
-    void setAuthLicense(byte[] bArr, String str, String str2, String str3);
+    @Override // com.baidu.ar.auth.k
+    public void doAuth(Context context, final IAuthCallback iAuthCallback) {
+        final String[] strArr = new String[1];
+        final boolean a2 = a(context, strArr);
+        r.a(new Runnable() { // from class: com.baidu.ar.auth.l.1
+            @Override // java.lang.Runnable
+            public void run() {
+                if (iAuthCallback != null) {
+                    if (a2) {
+                        iAuthCallback.onSuccess();
+                    } else {
+                        iAuthCallback.onError(strArr[0], 0);
+                    }
+                }
+            }
+        }, 0L);
+    }
 }

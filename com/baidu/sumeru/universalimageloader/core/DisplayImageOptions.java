@@ -9,7 +9,7 @@ import android.os.Looper;
 import com.baidu.sumeru.universalimageloader.core.assist.ImageScaleType;
 import com.baidu.sumeru.universalimageloader.core.display.BitmapDisplayer;
 import com.baidu.sumeru.universalimageloader.core.process.BitmapProcessor;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public final class DisplayImageOptions {
     private final boolean cacheInMemory;
     private final boolean cacheOnDisc;
@@ -151,7 +151,7 @@ public final class DisplayImageOptions {
         return this.isSyncLoading;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public static class Builder {
         private int imageResOnLoading = 0;
         private int imageResForEmptyUri = 0;

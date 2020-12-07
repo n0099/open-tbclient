@@ -5,11 +5,11 @@ import android.view.View;
 import android.webkit.SslErrorHandler;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.WebViewClient;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class BdSailorWebViewClientExt implements INoProGuard {
     public static final BdSailorWebViewClientExt DEFAULT = new BdSailorWebViewClientExt();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public enum ENativeViewType {
         ERROR_PAGE_VEIEW,
         SAFE_PAGE_VIEW

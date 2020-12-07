@@ -7,16 +7,16 @@ import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
-    public String aOM;
-    public String beA;
-    public int beE;
-    public long beF;
-    public String beG;
-    public String bez;
+    public String aRO;
+    public String biN;
+    public String biO;
+    public long biS;
+    public String biT;
     public String createTime;
     public String description;
-    public String gHo;
-    public int gHp;
+    public String gQv;
+    public int gQw;
+    public int guardLevel;
     public String id;
     public String liveId;
     public int liveStatus;
@@ -29,19 +29,19 @@ public class d {
                 this.id = jSONObject.optString("id");
                 String optString = jSONObject.optString("anchor_id");
                 if (!TextUtils.isEmpty(optString)) {
-                    this.aOM = EncryptionHelper.getDecryptUserId(optString);
+                    this.aRO = EncryptionHelper.getDecryptUserId(optString);
                 }
-                this.bez = jSONObject.optString("regiment_name");
-                this.beA = jSONObject.optString("regiment_icon");
+                this.biN = jSONObject.optString("regiment_name");
+                this.biO = jSONObject.optString("regiment_icon");
                 this.description = jSONObject.optString("description");
                 this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
                 this.status = jSONObject.optString("status");
                 this.createTime = jSONObject.optString("create_time");
-                this.gHo = jSONObject.optString("update_time");
-                this.gHp = jSONObject.optInt("member_counts");
-                this.beG = jSONObject.optString("guard_club_portrait");
-                this.beE = jSONObject.optInt("guard_level");
-                this.beF = jSONObject.optLong("next_level_need_score");
+                this.gQv = jSONObject.optString("update_time");
+                this.gQw = jSONObject.optInt("member_counts");
+                this.biT = jSONObject.optString("guard_club_portrait");
+                this.guardLevel = jSONObject.optInt("guard_level");
+                this.biS = jSONObject.optLong("next_level_need_score");
                 this.liveStatus = jSONObject.optInt("live_status");
                 this.liveId = jSONObject.optString("live_id");
             } catch (Exception e) {

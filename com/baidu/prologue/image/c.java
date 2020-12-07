@@ -9,13 +9,13 @@ import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.util.Util;
 /* loaded from: classes14.dex */
 public class c {
-    public static RequestManager aT(Context context) {
+    public static RequestManager bz(Context context) {
         if (context == null) {
-            context = com.baidu.prologue.a.b.a.cft.get().aba();
+            context = com.baidu.prologue.a.b.a.clZ.get().aei();
         } else if (Util.isOnMainThread() && !(context instanceof Application) && (context instanceof Activity)) {
             Activity activity = (Activity) context;
             if (activity.isFinishing() || z(activity)) {
-                context = com.baidu.prologue.a.b.a.cft.get().aba();
+                context = com.baidu.prologue.a.b.a.clZ.get().aei();
             }
         }
         return Glide.with(context);

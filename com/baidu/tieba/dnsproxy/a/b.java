@@ -7,10 +7,10 @@ import java.util.List;
 /* loaded from: classes13.dex */
 public class b {
     String address;
-    float igx;
+    float irr;
     private List<Integer> data = new ArrayList();
-    boolean igy = false;
-    boolean igz = false;
+    boolean irs = false;
+    boolean irt = false;
 
     public static final b a(DnsIpData dnsIpData) {
         if (dnsIpData == null) {
@@ -38,7 +38,7 @@ public class b {
         return builder.build(true);
     }
 
-    public void xR(int i) {
+    public void yw(int i) {
         this.data.add(0, Integer.valueOf(i));
         while (this.data.size() > 49) {
             this.data.remove(this.data.size() - 1);
@@ -53,9 +53,9 @@ public class b {
         float f2 = 0.0f;
         int size = this.data.size();
         if (size <= 0) {
-            this.igx = 0.0f;
+            this.irr = 0.0f;
         } else if (size == 1) {
-            this.igx = this.data.get(0).intValue();
+            this.irr = this.data.get(0).intValue();
         } else {
             Iterator<Integer> it = this.data.iterator();
             float f3 = 1.0f;
@@ -70,15 +70,15 @@ public class b {
                 f3 *= 0.5f;
                 f2 = (intValue * f3) + f;
             }
-            this.igx = ((i * f3) / size) + f;
-            if (this.igx < 0.05d) {
-                if (!this.igy) {
-                    com.baidu.tieba.dnsproxy.d.cpy().ay("ip_weight_lower", this.address, String.valueOf(this.igx));
-                    this.igy = true;
+            this.irr = ((i * f3) / size) + f;
+            if (this.irr < 0.05d) {
+                if (!this.irs) {
+                    com.baidu.tieba.dnsproxy.d.ctM().aA("ip_weight_lower", this.address, String.valueOf(this.irr));
+                    this.irs = true;
                 }
-            } else if (this.igy && this.igx > 0.5d && !this.igz) {
-                com.baidu.tieba.dnsproxy.d.cpy().ay("ip_weight_lower_recover", this.address, String.valueOf(this.igx));
-                this.igz = true;
+            } else if (this.irs && this.irr > 0.5d && !this.irt) {
+                com.baidu.tieba.dnsproxy.d.ctM().aA("ip_weight_lower_recover", this.address, String.valueOf(this.irr));
+                this.irt = true;
             }
         }
     }

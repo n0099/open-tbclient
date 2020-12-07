@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 /* loaded from: classes4.dex */
 public class YuyinStokeTextView extends TextView {
-    private TextView bRD;
+    private TextView bWT;
 
     public YuyinStokeTextView(Context context) {
         this(context, null);
@@ -23,45 +23,45 @@ public class YuyinStokeTextView extends TextView {
 
     public YuyinStokeTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bRD = null;
-        this.bRD = new TextView(context, attributeSet, i);
+        this.bWT = null;
+        this.bWT = new TextView(context, attributeSet, i);
     }
 
     @Override // android.view.View
     public void setLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        this.bRD.setLayoutParams(layoutParams);
+        this.bWT.setLayoutParams(layoutParams);
         super.setLayoutParams(layoutParams);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onMeasure(int i, int i2) {
-        CharSequence text = this.bRD.getText();
+        CharSequence text = this.bWT.getText();
         if (text == null || !text.equals(getText())) {
-            this.bRD.setText(getText());
+            this.bWT.setText(getText());
             postInvalidate();
         }
-        this.bRD.measure(i, i2);
+        this.bWT.measure(i, i2);
         super.onMeasure(i, i2);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.bRD.layout(i, i2, i3, i4);
+        this.bWT.layout(i, i2, i3, i4);
         super.onLayout(z, i, i2, i3, i4);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         init();
-        this.bRD.draw(canvas);
+        this.bWT.draw(canvas);
         super.onDraw(canvas);
     }
 
     public void init() {
-        TextPaint paint = this.bRD.getPaint();
+        TextPaint paint = this.bWT.getPaint();
         paint.setStrokeWidth(BdUtilHelper.dip2px(getContext(), 2.0f));
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        this.bRD.setTextColor(Color.parseColor("#FFEAAA"));
-        this.bRD.setGravity(getGravity());
+        this.bWT.setTextColor(Color.parseColor("#FFEAAA"));
+        this.bWT.setGravity(getGravity());
     }
 }

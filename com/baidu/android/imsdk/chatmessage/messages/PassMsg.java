@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class PassMsg extends NormalMsg {
     public static final Parcelable.Creator<PassMsg> CREATOR = new Parcelable.Creator<PassMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.PassMsg.1
         /* JADX DEBUG: Method merged with bridge method */

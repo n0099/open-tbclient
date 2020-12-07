@@ -1,5 +1,5 @@
 package com.baidu.fsg.api;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.fsg.api";
     public static final String BUILD_TYPE = "release";

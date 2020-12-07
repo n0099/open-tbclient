@@ -3,7 +3,7 @@ package com.baidu.searchbox.ui.view;
 import android.content.Context;
 import com.baidu.android.common.ui.R;
 import com.baidu.android.util.devices.DeviceUtil;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class BadgeFactory {
     public static BadgeView createDot(Context context) {
         BadgeView badgeView = new BadgeView(context);

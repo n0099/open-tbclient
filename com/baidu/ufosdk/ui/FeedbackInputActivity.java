@@ -19,6 +19,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.view.KeyEvent;
@@ -59,11 +60,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class FeedbackInputActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Bitmap f3737a = null;
+    public static Bitmap f3740a = null;
     public View C;
     public EditText E;
     protected int I;
@@ -92,7 +93,7 @@ public class FeedbackInputActivity extends Activity {
     private final int N = R.string.abc_action_bar_up_description;
     private final int O = R.string.abc_action_menu_overflow_description;
     private final int P = R.string.abc_action_mode_done;
-    private final int Q = R.string.A_X12;
+    private final int Q = R.string.J_X02;
     private final int R = R.string.search_menu_title;
     private final int S = R.string.abc_searchview_description_clear;
     private final int T = R.string.abc_searchview_description_query;
@@ -101,13 +102,13 @@ public class FeedbackInputActivity extends Activity {
     private final int W = R.string.abc_capital_off;
     private final int X = R.string.sapi_sdk_common_loading_timeout;
     private final int Y = R.string.abc_capital_on;
-    private final int Z = R.string.permission_name_camera;
+    private final int Z = R.string.A_X02;
     private final int aa = R.string.abc_search_hint;
     private final int ab = R.id.TAG_GIFT_ITEM;
     private final int ac = R.id.TAG_GIFT_VIEW_HOLDER;
     private final int ad = R.id.abstract_img_layout;
     private final int ae = R.string.abc_searchview_description_search;
-    private final int af = R.string.A_X13;
+    private final int af = R.string.J_X03;
     private final int ag = R.id.abstract_text;
     private final int ah = R.id.action_bar_spinner;
     private final int ai = R.string.abc_toolbar_collapse_description;
@@ -491,7 +492,7 @@ public class FeedbackInputActivity extends Activity {
             hashMap.put("nettype", "N/A");
         }
         hashMap.put("screenSize", com.baidu.ufosdk.b.f.a(context));
-        if (com.baidu.ufosdk.b.f3700a) {
+        if (com.baidu.ufosdk.b.f3703a) {
             hashMap.put("logcat", com.baidu.ufosdk.b.b.a());
         }
         if (!TextUtils.isEmpty(com.baidu.ufosdk.b.h)) {
@@ -1048,7 +1049,7 @@ public class FeedbackInputActivity extends Activity {
         this.aB.setTextSize(com.baidu.ufosdk.b.U);
         this.aB.setGravity(17);
         this.aB.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.s, com.baidu.ufosdk.b.t, com.baidu.ufosdk.b.s, com.baidu.ufosdk.b.s));
-        this.aB.setBackgroundColor(16777215);
+        this.aB.setBackgroundColor(ViewCompat.MEASURED_SIZE_MASK);
         this.aB.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 8.0f), 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 8.0f), 0);
         RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams6.addRule(11);
@@ -1086,7 +1087,7 @@ public class FeedbackInputActivity extends Activity {
         this.J.setTextColor(com.baidu.ufosdk.b.v);
         this.J.setTextSize(13.0f);
         this.J.setGravity(17);
-        this.J.setId(R.string.A_X12);
+        this.J.setId(R.string.J_X02);
         this.J.setBackgroundColor(com.baidu.ufosdk.b.z);
         RelativeLayout.LayoutParams layoutParams10 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams10.addRule(11);
@@ -1097,7 +1098,7 @@ public class FeedbackInputActivity extends Activity {
         linearLayout2.setOrientation(0);
         linearLayout2.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), null, "ufo_back_layout_press.png"));
         linearLayout2.setClickable(true);
-        linearLayout2.setId(R.string.A_X13);
+        linearLayout2.setId(R.string.J_X03);
         ImageView imageView = new ImageView(this);
         imageView.setId(R.string.abc_searchview_description_search);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -1185,7 +1186,7 @@ public class FeedbackInputActivity extends Activity {
         this.i.setTranscriptMode(2);
         this.i.setRecyclerListener(new cc(this));
         this.d = new LinearLayout(this);
-        this.d.setId(R.string.permission_name_camera);
+        this.d.setId(R.string.A_X02);
         this.d.setBackgroundColor(com.baidu.ufosdk.b.D);
         this.d.clearAnimation();
         LinearLayout.LayoutParams layoutParams18 = new LinearLayout.LayoutParams(-1, -1);
@@ -1277,7 +1278,7 @@ public class FeedbackInputActivity extends Activity {
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        com.baidu.ufosdk.f.a.f3711a = null;
+        com.baidu.ufosdk.f.a.f3714a = null;
     }
 
     @Override // android.app.Activity

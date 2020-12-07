@@ -9,13 +9,13 @@ import com.baidu.ar.d.e;
 import com.baidu.ar.d.l;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class StretchAR extends c {
-    private e mg;
-    private StretchDetector xa;
+    private e mv;
+    private StretchDetector xO;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap m(float[] fArr) {
+    public HashMap l(float[] fArr) {
         HashMap hashMap = new HashMap();
         hashMap.put(LuaMessageHelper.KEY_EVENT_NAME, "body_tracking_data");
         if (fArr != null && fArr.length > 0) {
@@ -32,9 +32,9 @@ public class StretchAR extends c {
 
     @Override // com.baidu.ar.c
     public void release() {
-        if (this.xa != null) {
-            this.xa.au();
-            a(this.xa);
+        if (this.xO != null) {
+            this.xO.av();
+            a(this.xO);
         }
         super.release();
     }
@@ -42,11 +42,11 @@ public class StretchAR extends c {
     @Override // com.baidu.ar.c
     public void setup(HashMap<String, Object> hashMap) {
         super.setup(hashMap);
-        this.xa = new StretchDetector();
-        this.mg = new e() { // from class: com.baidu.ar.stretch.StretchAR.1
+        this.xO = new StretchDetector();
+        this.mv = new e() { // from class: com.baidu.ar.stretch.StretchAR.1
             @Override // com.baidu.ar.d.e
             public void a(b bVar) {
-                StretchAR.this.d(StretchAR.this.m(((a) bVar).fs()));
+                StretchAR.this.d(StretchAR.this.l(((a) bVar).fr()));
             }
 
             @Override // com.baidu.ar.d.e
@@ -57,8 +57,8 @@ public class StretchAR extends c {
             public void b(l lVar) {
             }
         };
-        a(this.xa, this.mg);
-        com.baidu.ar.b.a.ar().a(getContext(), getMdlConfigs());
-        this.xa.b((Bundle) null);
+        a(this.xO, this.mv);
+        com.baidu.ar.b.a.as().a(getContext(), getMdlConfigs());
+        this.xO.b((Bundle) null);
     }
 }

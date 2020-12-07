@@ -8,13 +8,13 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a extends b {
-    private SpecialLiveFragment gpf;
+    private SpecialLiveFragment gxo;
 
     public a(String str, String str2) {
-        this.gpf = SpecialLiveFragment.ej(str, str2);
-        getFragmentTabStructure().frag = this.gpf;
+        this.gxo = SpecialLiveFragment.eq(str, str2);
+        getFragmentTabStructure().frag = this.gxo;
     }
 
     @Override // com.baidu.tbadk.mainTab.b

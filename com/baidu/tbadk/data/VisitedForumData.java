@@ -11,46 +11,47 @@ import tbclient.HistoryForumInfo;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes.dex */
 public class VisitedForumData extends OrmObject {
-    private int flA;
-    private String flB;
-    private int flC;
-    private boolean flD;
-    private boolean flE;
-    private boolean flF;
-    private String flG;
-    private List<FrsTabItemData> flH;
-    private PostPrefixData flI;
-    private boolean flz;
+    private boolean ftc;
+    private int ftd;
+    private String fte;
+    private int ftf;
+    private boolean ftg;
+    private int fth;
+    private boolean fti;
+    private boolean ftj;
+    private String ftk;
+    private List<FrsTabItemData> ftl;
+    private PostPrefixData ftm;
+    public boolean isForumBusinessAccount;
     private String mForumId;
     private String mForumImageUrl;
     private String mForumName;
-    private int mLevel;
     private ThemeColorInfo mThemeColorInfo;
 
     public VisitedForumData() {
         this.mForumImageUrl = "";
-        this.flz = false;
-        this.flA = 0;
+        this.ftc = false;
+        this.ftd = 0;
         this.mForumName = "";
         this.mForumId = "";
-        this.flB = "";
+        this.fte = "";
         this.mThemeColorInfo = null;
-        this.flC = 0;
-        this.flD = false;
-        this.flE = false;
-        this.flF = false;
-        this.flG = "";
+        this.ftf = 0;
+        this.ftg = false;
+        this.fti = false;
+        this.ftj = false;
+        this.ftk = "";
     }
 
     public VisitedForumData(String str, String str2, String str3, String str4, boolean z, ThemeColorInfo themeColorInfo, int i) {
         this.mForumImageUrl = str3;
-        this.flz = z;
+        this.ftc = z;
         this.mForumName = str2;
         this.mForumId = str;
-        this.flB = str4;
-        this.flA = 0;
+        this.fte = str4;
+        this.ftd = 0;
         this.mThemeColorInfo = themeColorInfo;
-        this.flC = i;
+        this.ftf = i;
     }
 
     public void a(HistoryForumInfo historyForumInfo) {
@@ -58,42 +59,43 @@ public class VisitedForumData extends OrmObject {
             this.mForumImageUrl = historyForumInfo.avatar;
             this.mForumId = String.valueOf(historyForumInfo.forum_id);
             this.mForumName = historyForumInfo.forum_name;
-            this.flz = historyForumInfo.is_liveforum.intValue() == 1;
-            this.flA = historyForumInfo.unread_num.intValue();
-            this.flB = historyForumInfo.visit_time;
+            this.ftc = historyForumInfo.is_liveforum.intValue() == 1;
+            this.ftd = historyForumInfo.unread_num.intValue();
+            this.fte = historyForumInfo.visit_time;
             this.mThemeColorInfo = historyForumInfo.theme_color;
-            this.flC = historyForumInfo.follow_num.intValue();
-            this.flD = historyForumInfo.need_trans.booleanValue();
-            this.mLevel = historyForumInfo.level_id.intValue();
+            this.ftf = historyForumInfo.follow_num.intValue();
+            this.ftg = historyForumInfo.need_trans.booleanValue();
+            this.fth = historyForumInfo.level_id.intValue();
             if (historyForumInfo.block_pop_info != null) {
-                this.flF = historyForumInfo.block_pop_info.can_post.intValue() == 1;
-                this.flG = historyForumInfo.block_pop_info.block_info;
+                this.ftj = historyForumInfo.block_pop_info.can_post.intValue() == 1;
+                this.ftk = historyForumInfo.block_pop_info.block_info;
             }
             if (!y.isEmpty(historyForumInfo.tab_info)) {
-                this.flH = new ArrayList();
+                this.ftl = new ArrayList();
                 for (FrsTabInfo frsTabInfo : historyForumInfo.tab_info) {
                     if (frsTabInfo != null) {
-                        this.flH.add(new FrsTabItemData(frsTabInfo));
+                        this.ftl.add(new FrsTabItemData(frsTabInfo));
                     }
                 }
             }
             if (historyForumInfo.has_postpre.booleanValue()) {
-                this.flI = new PostPrefixData();
-                this.flI.parserProtobuf(historyForumInfo.post_prefix);
+                this.ftm = new PostPrefixData();
+                this.ftm.parserProtobuf(historyForumInfo.post_prefix);
             }
+            this.isForumBusinessAccount = historyForumInfo.is_forum_business_account.intValue() == 1;
         }
     }
 
-    public String byp() {
+    public String bBP() {
         return this.mForumImageUrl;
     }
 
-    public boolean byq() {
-        return this.flz;
+    public boolean bBQ() {
+        return this.ftc;
     }
 
-    public int byr() {
-        return this.flA;
+    public int bBR() {
+        return this.ftd;
     }
 
     public String getForumName() {
@@ -104,47 +106,51 @@ public class VisitedForumData extends OrmObject {
         return this.mForumId;
     }
 
-    public String bys() {
-        return this.flB;
+    public void setForumId(String str) {
+        this.mForumId = str;
     }
 
-    public int byt() {
-        return this.flC;
+    public String bBS() {
+        return this.fte;
+    }
+
+    public int bBT() {
+        return this.ftf;
     }
 
     public ThemeColorInfo getThemeColorInfo() {
         return this.mThemeColorInfo;
     }
 
-    public boolean byu() {
-        return this.flD;
+    public boolean bBU() {
+        return this.ftg;
     }
 
-    public void jV(boolean z) {
-        this.flE = z;
+    public void kl(boolean z) {
+        this.fti = z;
     }
 
-    public boolean byv() {
-        return this.flE;
+    public boolean bBV() {
+        return this.fti;
     }
 
     public int getLevel() {
-        return this.mLevel;
+        return this.fth;
     }
 
-    public boolean byw() {
-        return this.flF;
+    public boolean bBW() {
+        return this.ftj;
     }
 
-    public String byx() {
-        return this.flG;
+    public String bBX() {
+        return this.ftk;
     }
 
-    public List<FrsTabItemData> byy() {
-        return this.flH;
+    public List<FrsTabItemData> bBY() {
+        return this.ftl;
     }
 
-    public PostPrefixData byz() {
-        return this.flI;
+    public PostPrefixData bBZ() {
+        return this.ftm;
     }
 }

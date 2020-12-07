@@ -1,8 +1,8 @@
 package kotlin.text;
 
 import kotlin.jvm.internal.PropertyReference1Impl;
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 public enum CharCategory {
     UNASSIGNED(0, "Cn"),
     UPPERCASE_LETTER(1, "Lu"),
@@ -38,9 +38,10 @@ public enum CharCategory {
     private final String code;
     private final int value;
     public static final a Companion = new a(null);
-    private static final kotlin.d categoryMap$delegate = kotlin.e.b(CharCategory$Companion$categoryMap$2.INSTANCE);
+    private static final kotlin.c categoryMap$delegate = kotlin.d.b(CharCategory$Companion$categoryMap$2.INSTANCE);
 
     CharCategory(int i, String str) {
+        kotlin.jvm.internal.p.o(str, "code");
         this.value = i;
         this.code = str;
     }
@@ -57,10 +58,10 @@ public enum CharCategory {
         return Character.getType(c) == this.value;
     }
 
-    @kotlin.h
-    /* loaded from: classes9.dex */
+    @kotlin.e
+    /* loaded from: classes17.dex */
     public static final class a {
-        static final /* synthetic */ kotlin.reflect.j[] $$delegatedProperties = {kotlin.jvm.internal.t.a(new PropertyReference1Impl(kotlin.jvm.internal.t.M(a.class), "categoryMap", "getCategoryMap()Ljava/util/Map;"))};
+        static final /* synthetic */ kotlin.reflect.j[] $$delegatedProperties = {kotlin.jvm.internal.s.a(new PropertyReference1Impl(kotlin.jvm.internal.s.M(a.class), "categoryMap", "getCategoryMap()Ljava/util/Map;"))};
 
         private a() {
         }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.publisher.base;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.publisher.base";
     public static final String BUILD_TYPE = "release";

@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.util.t;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupInfoData;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class e extends com.baidu.tieba.frs.k<GroupInfoData, f> {
-    private View.OnClickListener eTp;
+    private View.OnClickListener faK;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.eTp = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.e.1
+        this.faK = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
@@ -35,7 +35,7 @@ public class e extends com.baidu.tieba.frs.k<GroupInfoData, f> {
                                 long groupId = groupInfoData.getGroupId();
                                 int from = groupInfoData.getFrom();
                                 if (from == 4 || from == 5 || from == 6) {
-                                    TiebaStatic.log(new ar("c10331").dR("obj_type", String.valueOf(groupId)));
+                                    TiebaStatic.log(new ar("c10331").dY("obj_type", String.valueOf(groupId)));
                                 }
                                 t.a(CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START, new GroupInfoActivityConfig(e.this.mPageContext.getPageActivity(), groupId, from));
                             }
@@ -48,9 +48,9 @@ public class e extends com.baidu.tieba.frs.k<GroupInfoData, f> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bS */
+    /* renamed from: bV */
     public f c(ViewGroup viewGroup) {
-        return new f(LayoutInflater.from(this.mContext).inflate(R.layout.frs_group_item_view, (ViewGroup) null), this.eTp);
+        return new f(LayoutInflater.from(this.mContext).inflate(R.layout.frs_group_item_view, (ViewGroup) null), this.faK);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,24 +59,24 @@ public class e extends com.baidu.tieba.frs.k<GroupInfoData, f> {
         super.a(i, view, viewGroup, (ViewGroup) groupInfoData, (GroupInfoData) fVar);
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(view);
-        if (fVar.ajv != this.mSkinType) {
+        if (fVar.aku != this.mSkinType) {
             this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
             this.mPageContext.getLayoutMode().onModeChanged(view);
-            fVar.ajv = this.mSkinType;
+            fVar.aku = this.mSkinType;
         }
         if (groupInfoData != null) {
             fVar.rootView.setTag(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Integer.valueOf(i));
             fVar.a(groupInfoData);
             ap.setBackgroundResource(fVar.rootView, R.drawable.frs_group_item_bg);
-            ap.setViewTextColor(fVar.kfV, R.color.CAM_X0105, 1);
-            ap.setViewTextColor(fVar.kfW, R.color.CAM_X0105, 1);
-            ap.setBackgroundResource(fVar.kfW, R.drawable.bg_jinqun_meizi);
-            fVar.kfW.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
-            ap.setViewTextColor(fVar.kfX, R.color.CAM_X0105, 1);
-            ap.setBackgroundResource(fVar.kfZ, R.drawable.icon_grade_small_star);
-            ap.setBackgroundResource(fVar.kga, R.drawable.icon_grade_small_star);
-            ap.setBackgroundResource(fVar.kgb, R.drawable.icon_grade_small_star);
-            ap.setViewTextColor(fVar.kfY, R.color.CAM_X0108, 1);
+            ap.setViewTextColor(fVar.ktt, R.color.CAM_X0105, 1);
+            ap.setViewTextColor(fVar.ktu, R.color.CAM_X0105, 1);
+            ap.setBackgroundResource(fVar.ktu, R.drawable.bg_jinqun_meizi);
+            fVar.ktu.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
+            ap.setViewTextColor(fVar.ktv, R.color.CAM_X0105, 1);
+            ap.setBackgroundResource(fVar.ktx, R.drawable.icon_grade_small_star);
+            ap.setBackgroundResource(fVar.kty, R.drawable.icon_grade_small_star);
+            ap.setBackgroundResource(fVar.ktz, R.drawable.icon_grade_small_star);
+            ap.setViewTextColor(fVar.ktw, R.color.CAM_X0108, 1);
             ap.setBackgroundColor(fVar.dividerLine, R.color.CAM_X0204);
         }
         return view;

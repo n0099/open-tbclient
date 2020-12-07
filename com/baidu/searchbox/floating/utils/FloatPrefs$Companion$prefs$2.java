@@ -1,11 +1,11 @@
 package com.baidu.searchbox.floating.utils;
 
 import com.baidu.searchbox.player.utils.SharedPrefsWrapper;
-import kotlin.h;
+import kotlin.e;
 import kotlin.jvm.a.a;
 import kotlin.jvm.internal.Lambda;
-@h
-/* loaded from: classes9.dex */
+@e
+/* loaded from: classes16.dex */
 final class FloatPrefs$Companion$prefs$2 extends Lambda implements a<SharedPrefsWrapper> {
     public static final FloatPrefs$Companion$prefs$2 INSTANCE = new FloatPrefs$Companion$prefs$2();
 

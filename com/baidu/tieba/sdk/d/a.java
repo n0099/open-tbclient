@@ -25,11 +25,11 @@ import com.baidu.live.adp.lib.network.http.interfaces.INetWorkBuilder;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.ICustomToast;
-import com.baidu.live.b.m;
-import com.baidu.live.b.q;
-import com.baidu.live.b.x;
+import com.baidu.live.d.m;
+import com.baidu.live.d.q;
+import com.baidu.live.d.y;
 import com.baidu.live.data.AlaLiveStreamSessionInfo;
-import com.baidu.live.data.bh;
+import com.baidu.live.data.bi;
 import com.baidu.live.message.AlaSyncHttpResponseMessage;
 import com.baidu.live.message.LiveSyncHttpResponseMessage;
 import com.baidu.live.tbadk.TbConfig;
@@ -88,17 +88,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements BdPageContextCreator {
-    private static a mEx = null;
-    private g mEA;
-    private d mEB;
-    private e mEC;
-    private f mED;
-    private BdUniqueId mEE;
-    private BdUniqueId mEF;
-    private BdUniqueId mEG;
-    private String mEH;
-    private d mEy;
-    private c mEz;
+    private static a mSx = null;
+    private g mSA;
+    private d mSB;
+    private e mSC;
+    private f mSD;
+    private BdUniqueId mSE;
+    private BdUniqueId mSF;
+    private BdUniqueId mSG;
+    private String mSH;
+    private d mSy;
+    private c mSz;
     private HttpMessageListener syncListener = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.sdk.d.a.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -107,16 +107,16 @@ public class a implements BdPageContextCreator {
                 AlaSyncHttpResponseMessage alaSyncHttpResponseMessage = (AlaSyncHttpResponseMessage) httpResponsedMessage;
                 if (alaSyncHttpResponseMessage.getError() == 0) {
                     Message<?> orginalMessage = alaSyncHttpResponseMessage.getOrginalMessage();
-                    if (orginalMessage != null && orginalMessage.getTag() != null && orginalMessage.getTag().equals(a.this.mEG) && alaSyncHttpResponseMessage.Ny() != null && alaSyncHttpResponseMessage.Ny().aLw != null && !TextUtils.isEmpty(alaSyncHttpResponseMessage.Ny().aLw.aMF)) {
-                        a.dCa().bi(TbadkCoreApplication.getInst(), alaSyncHttpResponseMessage.Ny().aLw.aMF);
-                    } else if (orginalMessage != null && orginalMessage.getTag() != null && orginalMessage.getTag().equals(a.this.mEF) && com.baidu.live.aa.a.Ph().Pi()) {
-                        a.this.bd(null, a.this.mEH);
+                    if (orginalMessage != null && orginalMessage.getTag() != null && orginalMessage.getTag().equals(a.this.mSG) && alaSyncHttpResponseMessage.PR() != null && alaSyncHttpResponseMessage.PR().aOr != null && !TextUtils.isEmpty(alaSyncHttpResponseMessage.PR().aOr.aPE)) {
+                        a.dHl().bm(TbadkCoreApplication.getInst(), alaSyncHttpResponseMessage.PR().aOr.aPE);
+                    } else if (orginalMessage != null && orginalMessage.getTag() != null && orginalMessage.getTag().equals(a.this.mSF) && com.baidu.live.ae.a.RB().RC()) {
+                        a.this.bh(null, a.this.mSH);
                     }
                 }
             }
         }
     };
-    private HttpMessageListener bsk = new HttpMessageListener(1021132) { // from class: com.baidu.tieba.sdk.d.a.5
+    private HttpMessageListener bxt = new HttpMessageListener(1021132) { // from class: com.baidu.tieba.sdk.d.a.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -124,10 +124,10 @@ public class a implements BdPageContextCreator {
                 LiveSyncHttpResponseMessage liveSyncHttpResponseMessage = (LiveSyncHttpResponseMessage) httpResponsedMessage;
                 if (liveSyncHttpResponseMessage.getError() == 0) {
                     Message<?> orginalMessage = liveSyncHttpResponseMessage.getOrginalMessage();
-                    if (orginalMessage != null && orginalMessage.getTag() != null && orginalMessage.getTag().equals(a.this.mEE) && liveSyncHttpResponseMessage.ND() != null && liveSyncHttpResponseMessage.ND().aNS != null && !TextUtils.isEmpty(liveSyncHttpResponseMessage.ND().aNS.aPa)) {
-                        a.dCa().bi(TbadkCoreApplication.getInst(), liveSyncHttpResponseMessage.ND().aNS.aPa);
-                    } else if (orginalMessage != null && orginalMessage.getTag() != null && orginalMessage.getTag().equals(a.this.mEF) && com.baidu.live.aa.a.Ph().Pi()) {
-                        a.this.bd(null, a.this.mEH);
+                    if (orginalMessage != null && orginalMessage.getTag() != null && orginalMessage.getTag().equals(a.this.mSE) && liveSyncHttpResponseMessage.PW() != null && liveSyncHttpResponseMessage.PW().aQS != null && !TextUtils.isEmpty(liveSyncHttpResponseMessage.PW().aQS.aSc)) {
+                        a.dHl().bm(TbadkCoreApplication.getInst(), liveSyncHttpResponseMessage.PW().aQS.aSc);
+                    } else if (orginalMessage != null && orginalMessage.getTag() != null && orginalMessage.getTag().equals(a.this.mSF) && com.baidu.live.ae.a.RB().RC()) {
+                        a.this.bh(null, a.this.mSH);
                     }
                 }
             }
@@ -137,16 +137,16 @@ public class a implements BdPageContextCreator {
     private a() {
     }
 
-    public static a dCa() {
+    public static a dHl() {
         a aVar;
-        if (mEx != null) {
-            return mEx;
+        if (mSx != null) {
+            return mSx;
         }
         synchronized (a.class) {
-            if (mEx == null) {
-                mEx = new a();
+            if (mSx == null) {
+                mSx = new a();
             }
-            aVar = mEx;
+            aVar = mSx;
         }
         return aVar;
     }
@@ -160,24 +160,29 @@ public class a implements BdPageContextCreator {
         TbConfig.PACKAGE_NAME = str;
     }
 
-    public void init(Application application) {
+    public static void SB(String str) {
+        TbConfig.FILE_PROVIDER_AUTHORITIES = str;
+    }
+
+    public static void SC(String str) {
+        TbConfig.FILE_OUTPUT_FILE_ROOT_PATH = str;
+    }
+
+    public void d(Application application) {
         TbadkCoreApplication.IS_SDK = true;
         TbConfig.setVersion("9.6.8.1");
         IScrollableHelper.defaultPageContextCreater = this;
         TbadkCoreApplication.getInst().onCreate(application);
-        if ((application.getApplicationInfo().flags & 2) == 0) {
-            TbadkCoreApplication.getInst().setDebugMode(true);
-        }
-        dCc();
-        dCd();
-        dCk();
-        dCl();
-        dCm();
-        dCn();
-        dCb();
+        dHn();
+        dHo();
+        dHv();
+        dHw();
+        dHx();
+        dHy();
+        dHm();
     }
 
-    private void dCb() {
+    private void dHm() {
         SchemeUtils.putCustomSchemePath("video/live", com.baidu.tieba.sdk.f.a.class);
         SchemeUtils.putCustomSchemePath("video/live/start", j.class);
         SchemeUtils.putCustomSchemePath("video/live/admin", b.class);
@@ -192,24 +197,24 @@ public class a implements BdPageContextCreator {
         SchemeUtils.putCustomSchemePath("video/live/realAuthen", i.class);
     }
 
-    private void dCc() {
+    private void dHn() {
         MessageManager.getInstance().addMessageRule(new com.baidu.tieba.sdk.a.a(0));
     }
 
-    private void dCd() {
+    private void dHo() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_ADD_FRAGMENT, null));
     }
 
-    public void dBX() {
+    public void dHi() {
         if (TbadkCoreApplication.getInst().getContext() != null) {
-            com.baidu.live.aa.a.Ph().Pj();
-            com.baidu.tieba.sdk.login.a.dCo().dCp();
+            com.baidu.live.ae.a.RB().RD();
+            com.baidu.tieba.sdk.login.a.dHz().dHA();
         }
     }
 
-    public void dBY() {
+    public void dHj() {
         if (TbadkCoreApplication.getInst().getContext() != null) {
-            dBZ();
+            dHk();
         }
     }
 
@@ -417,37 +422,37 @@ public class a implements BdPageContextCreator {
         }
     }
 
-    public void aZ(Context context, String str) {
-        if (TbadkCoreApplication.getInst().getContext() != null) {
-            com.baidu.tieba.sdk.login.a.dCo().dCq();
-            if (com.baidu.live.aa.a.Ph().Pi() && com.baidu.live.aa.a.Ph().bsh != null && com.baidu.live.aa.a.Ph().bsh.aNK != null) {
-                bd(context, str);
-                return;
-            }
-            this.mEH = str;
-            MessageManager.getInstance().registerListener(this.bsk);
-            MessageManager.getInstance().registerListener(this.syncListener);
-            this.mEF = BdUniqueId.gen();
-            com.baidu.live.aa.a.Ph().e(this.mEF);
-            com.baidu.live.aa.a.Ph().d(this.mEF);
-        }
-    }
-
-    public void aY(Context context, String str) {
-        com.baidu.tieba.sdk.login.a.dCo().dCq();
-        be(context, str);
-    }
-
     public void bd(Context context, String str) {
         if (TbadkCoreApplication.getInst().getContext() != null) {
-            bh(context, str);
-            this.mEH = null;
+            com.baidu.tieba.sdk.login.a.dHz().dHB();
+            if (com.baidu.live.ae.a.RB().RC() && com.baidu.live.ae.a.RB().bxq != null && com.baidu.live.ae.a.RB().bxq.aQK != null) {
+                bh(context, str);
+                return;
+            }
+            this.mSH = str;
+            MessageManager.getInstance().registerListener(this.bxt);
+            MessageManager.getInstance().registerListener(this.syncListener);
+            this.mSF = BdUniqueId.gen();
+            com.baidu.live.ae.a.RB().e(this.mSF);
+            com.baidu.live.ae.a.RB().d(this.mSF);
         }
     }
 
-    public void be(Context context, String str) {
-        bg(context, str);
-        this.mEH = null;
+    public void bc(Context context, String str) {
+        com.baidu.tieba.sdk.login.a.dHz().dHB();
+        bi(context, str);
+    }
+
+    public void bh(Context context, String str) {
+        if (TbadkCoreApplication.getInst().getContext() != null) {
+            bl(context, str);
+            this.mSH = null;
+        }
+    }
+
+    public void bi(Context context, String str) {
+        bk(context, str);
+        this.mSH = null;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0039  */
@@ -455,7 +460,7 @@ public class a implements BdPageContextCreator {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public BuyTBeanActivityConfig bf(Context context, String str) {
+    public BuyTBeanActivityConfig bj(Context context, String str) {
         JSONException e;
         String str2;
         String str3 = null;
@@ -496,53 +501,57 @@ public class a implements BdPageContextCreator {
         return buyTBeanActivityConfig2;
     }
 
-    public void Rp(String str) {
+    public void SD(String str) {
         if (TbadkCoreApplication.getInst().getContext() != null) {
-            com.baidu.tieba.sdk.login.a.dCo().dCp();
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, bf(TbadkCoreApplication.getInst(), str)));
+            com.baidu.tieba.sdk.login.a.dHz().dHA();
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, bj(TbadkCoreApplication.getInst(), str)));
         }
     }
 
     public void a(com.baidu.tieba.sdk.b.a aVar) {
-        com.baidu.tieba.sdk.login.a.dCo().b(aVar);
+        com.baidu.tieba.sdk.login.a.dHz().b(aVar);
     }
 
     public void a(d dVar) {
-        this.mEy = dVar;
+        this.mSy = dVar;
     }
 
-    public d dCe() {
-        return this.mEy;
+    public d dHp() {
+        return this.mSy;
     }
 
-    public d dCf() {
-        return this.mEB;
+    public void b(d dVar) {
+        this.mSB = dVar;
+    }
+
+    public d dHq() {
+        return this.mSB;
     }
 
     public void a(c cVar) {
-        this.mEz = cVar;
+        this.mSz = cVar;
     }
 
-    public c dCg() {
-        return this.mEz;
+    public c dHr() {
+        return this.mSz;
     }
 
-    public g dCh() {
-        return this.mEA;
+    public g dHs() {
+        return this.mSA;
     }
 
     public void a(e eVar) {
-        this.mEC = eVar;
+        this.mSC = eVar;
     }
 
-    public void gY(long j) {
+    public void hD(long j) {
         if (TbadkCoreApplication.getInst().getContext() != null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_RES_ZIP_DOWNLOADED_STATUS, Long.valueOf(j)));
         }
     }
 
-    public e dCi() {
-        return this.mEC;
+    public e dHt() {
+        return this.mSC;
     }
 
     public void a(final com.baidu.tieba.sdk.b.b bVar) {
@@ -567,14 +576,14 @@ public class a implements BdPageContextCreator {
     }
 
     public void a(f fVar) {
-        this.mED = fVar;
+        this.mSD = fVar;
     }
 
-    public f dCj() {
-        return this.mED;
+    public f dHu() {
+        return this.mSD;
     }
 
-    private void bg(Context context, String str) {
+    private void bk(Context context, String str) {
         if (TbadkCoreApplication.isLogin()) {
             YuyinAlaMasterLiveRoomActivityConfig yuyinAlaMasterLiveRoomActivityConfig = new YuyinAlaMasterLiveRoomActivityConfig(context != null ? context : TbadkCoreApplication.getInst().getApplicationContext(), null, null, TbadkCoreApplication.getCurrentAccount(), null, str);
             yuyinAlaMasterLiveRoomActivityConfig.setNeedStopImWhenClose(true);
@@ -582,7 +591,7 @@ public class a implements BdPageContextCreator {
         }
     }
 
-    private void bh(Context context, String str) {
+    private void bl(Context context, String str) {
         if (TbadkCoreApplication.getInst().getContext() != null && TbadkCoreApplication.isLogin()) {
             AlaMasterLiveRoomActivityConfig alaMasterLiveRoomActivityConfig = new AlaMasterLiveRoomActivityConfig(context != null ? context : TbadkCoreApplication.getInst().getApplicationContext(), null, null, TbadkCoreApplication.getCurrentAccount(), null, str);
             alaMasterLiveRoomActivityConfig.setNeedStopImWhenClose(true);
@@ -590,27 +599,27 @@ public class a implements BdPageContextCreator {
         }
     }
 
-    public void dBZ() {
+    public void dHk() {
         if (TbadkCoreApplication.getInst().getContext() != null) {
-            com.baidu.tieba.sdk.login.a.dCo().Sf();
-            com.baidu.live.aa.a.Ph().d(null);
-            com.baidu.live.aa.a.Ph().Pk();
+            com.baidu.tieba.sdk.login.a.dHz().UD();
+            com.baidu.live.ae.a.RB().d(null);
+            com.baidu.live.ae.a.RB().RE();
         }
     }
 
-    private void dCk() {
+    private void dHv() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, new com.baidu.tieba.sdk.e.b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private void dCl() {
+    private void dHw() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2501018, new com.baidu.tieba.sdk.e.c());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private void dCm() {
+    private void dHx() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913077, new com.baidu.tieba.sdk.g.b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
@@ -619,15 +628,15 @@ public class a implements BdPageContextCreator {
         MessageManager.getInstance().registerTask(customMessageTask2);
     }
 
-    private void dCn() {
+    private void dHy() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_OPEN_WEB_BROWSER, new com.baidu.tieba.sdk.h.a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         UrlManager.getInstance().setWebListener(new UrlManager.UrlWebDealListener() { // from class: com.baidu.tieba.sdk.d.a.2
             @Override // com.baidu.live.tbadk.core.util.UrlManager.UrlWebDealListener
             public void deal(TbPageContext<?> tbPageContext, String str, String str2, boolean z, UrlManager.UrlWebDialogCancelListener urlWebDialogCancelListener, boolean z2) {
-                if (a.this.mED != null) {
-                    a.this.mED.Ns(str2);
+                if (a.this.mSD != null) {
+                    a.this.mSD.Oz(str2);
                 }
             }
         });
@@ -661,23 +670,23 @@ public class a implements BdPageContextCreator {
         ExtraParamsManager.getInstance().init(iExtraParamsBuilder);
         final IExtraParams buildParamsExtra = ExtraParamsManager.getInstance().buildParamsExtra();
         if (buildParamsExtra != null) {
-            AlaLiveStreamSessionInfo.setIReplaceUrl(new bh() { // from class: com.baidu.tieba.sdk.d.a.3
-                @Override // com.baidu.live.data.bh
+            AlaLiveStreamSessionInfo.setIReplaceUrl(new bi() { // from class: com.baidu.tieba.sdk.d.a.3
+                @Override // com.baidu.live.data.bi
                 public String replacePushUrl(String str) {
                     return TextUtils.isEmpty(str) ? str : buildParamsExtra.replacePushUrl(str);
                 }
 
-                @Override // com.baidu.live.data.bh
+                @Override // com.baidu.live.data.bi
                 public String replaceFlvUrl(String str) {
                     return TextUtils.isEmpty(str) ? str : buildParamsExtra.replaceFlvUrl(str);
                 }
 
-                @Override // com.baidu.live.data.bh
+                @Override // com.baidu.live.data.bi
                 public String replaceRtmpUrl(String str) {
                     return TextUtils.isEmpty(str) ? str : buildParamsExtra.replaceRtmpUrl(str);
                 }
 
-                @Override // com.baidu.live.data.bh
+                @Override // com.baidu.live.data.bi
                 public String replaceHslUrl(String str) {
                     return TextUtils.isEmpty(str) ? str : buildParamsExtra.replaceHslUrl(str);
                 }
@@ -699,55 +708,55 @@ public class a implements BdPageContextCreator {
     }
 
     public void c(com.baidu.live.liveroom.e.e eVar) {
-        com.baidu.live.liveroom.e.i.Nj().a(eVar);
+        com.baidu.live.liveroom.e.i.PB().a(eVar);
     }
 
     public void a(com.baidu.live.liveroom.e.c cVar) {
-        com.baidu.live.liveroom.e.i.Nj().a(cVar);
+        com.baidu.live.liveroom.e.i.PB().a(cVar);
     }
 
-    public void e(Context context, String str, int i) {
+    public void f(Context context, String str, int i) {
         if (TbadkCoreApplication.getInst().getContext() != null) {
-            com.baidu.tieba.sdk.login.a.dCo().dCp();
+            com.baidu.tieba.sdk.login.a.dHz().dHA();
             if (StringUtils.isNull(str)) {
                 str = TbadkCoreApplication.getCurrentAccount();
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new x(context, false, str, i)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new y(context, false, str, i)));
         }
     }
 
-    public void fO(Context context) {
+    public void gx(Context context) {
         if (TbadkCoreApplication.getInst().getContext() != null) {
-            com.baidu.tieba.sdk.login.a.dCo().dCp();
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.b.a(context, "")));
+            com.baidu.tieba.sdk.login.a.dHz().dHA();
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.d.a(context, "")));
         }
     }
 
     public void a(Context context, long j, int i) {
         if (TbadkCoreApplication.getInst().getContext() != null) {
-            com.baidu.tieba.sdk.login.a.dCo().dCp();
+            com.baidu.tieba.sdk.login.a.dHz().dHA();
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new q(context, j, i)));
         }
     }
 
-    public void fP(Context context) {
+    public void gy(Context context) {
         if (TbadkCoreApplication.getInst().getContext() != null) {
-            com.baidu.tieba.sdk.login.a.dCo().dCp();
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.b.i(context)));
+            com.baidu.tieba.sdk.login.a.dHz().dHA();
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.d.i(context)));
         }
     }
 
-    public void fN(Context context) {
+    public void gw(Context context) {
         if (TbadkCoreApplication.getInst().getContext() != null) {
-            dBZ();
-            com.baidu.tieba.sdk.login.a.dCo().dCp();
+            dHk();
+            com.baidu.tieba.sdk.login.a.dHz().dHA();
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GuardClubJoinListActivityConfig(context)));
         }
     }
 
-    public void bc(Context context, String str) {
+    public void bg(Context context, String str) {
         if (TbadkCoreApplication.getInst().getContext() != null) {
-            com.baidu.tieba.sdk.login.a.dCo().dCp();
+            com.baidu.tieba.sdk.login.a.dHz().dHA();
             try {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GuardClubInfoActivityConfig(context, Long.valueOf(str).longValue(), 0L, true, "", true)));
             } catch (Exception e) {
@@ -756,9 +765,9 @@ public class a implements BdPageContextCreator {
         }
     }
 
-    public void w(Context context, String str, String str2) {
+    public void x(Context context, String str, String str2) {
         if (TbadkCoreApplication.getInst().getContext() != null) {
-            com.baidu.tieba.sdk.login.a.dCo().dCp();
+            com.baidu.tieba.sdk.login.a.dHz().dHA();
             if (StringUtils.isNull(str)) {
                 str = TbadkCoreApplication.getCurrentAccount();
             }
@@ -782,11 +791,11 @@ public class a implements BdPageContextCreator {
         return SchemeUtils.openScheme(context, str, schemeCallback);
     }
 
-    public void Rq(String str) {
+    public void SE(String str) {
         TbConfig.setFromHost(str);
     }
 
-    public void Rr(String str) {
+    public void SF(String str) {
         TbConfig.setCurrentFromHost(str);
     }
 
@@ -798,42 +807,42 @@ public class a implements BdPageContextCreator {
         TbConfig.setSubappVersionCode(i);
     }
 
-    public void bi(Context context, String str) {
+    public void bm(Context context, String str) {
         if (TbadkCoreApplication.getInst().getContext() != null) {
             Log.d("LiveSdkDelegate", "openSdkWebView url:" + str);
             if (!TextUtils.isEmpty(str)) {
                 if (!TbadkCoreApplication.getInst().isRegistedIntent(CommonWebViewActivityConfig.class)) {
                     TbadkCoreApplication.getInst().RegisterIntent(CommonWebViewActivityConfig.class, CommonWebViewActivity.class);
                 }
-                com.baidu.tieba.sdk.login.a.dCo().dCp();
+                com.baidu.tieba.sdk.login.a.dHz().dHA();
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CommonWebViewActivityConfig(context, str)));
             }
         }
     }
 
-    public void x(Context context, String str, String str2) {
+    public void y(Context context, String str, String str2) {
         String string;
         if (TbadkCoreApplication.getInst().getContext() != null && !TextUtils.isEmpty(str2) && !str2.equals("1") && !str2.equals("2")) {
             if (str2.equals("0")) {
-                dBZ();
-                com.baidu.tieba.sdk.login.a.dCo().dCp();
+                dHk();
+                com.baidu.tieba.sdk.login.a.dHz().dHA();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913222, new FaceRecognitionActivityConfig(context, str)));
             } else if (str2.equals("3")) {
-                if (com.baidu.live.aa.a.Ph().bms.aLw != null) {
-                    string = com.baidu.live.aa.a.Ph().bms.aLw.aMF;
+                if (com.baidu.live.ae.a.RB().brA.aOr != null) {
+                    string = com.baidu.live.ae.a.RB().brA.aOr.aPE;
                     if (TextUtils.isEmpty(string)) {
                         string = "";
                     }
                 } else {
-                    string = com.baidu.live.d.Aq().getString("ala_certify_refuse_url", "");
+                    string = com.baidu.live.d.BM().getString("ala_certify_refuse_url", "");
                 }
                 if (!TextUtils.isEmpty(string)) {
-                    dCa().bi(context, string);
+                    dHl().bm(context, string);
                     return;
                 }
-                this.mEG = BdUniqueId.gen();
+                this.mSG = BdUniqueId.gen();
                 MessageManager.getInstance().registerListener(this.syncListener);
-                com.baidu.live.aa.a.Ph().d(this.mEG);
+                com.baidu.live.ae.a.RB().d(this.mSG);
             }
         }
     }
@@ -842,7 +851,7 @@ public class a implements BdPageContextCreator {
         HostResourceManager.getInstance().setResourceAdapter(iResourceAdapter);
     }
 
-    public void bF(String str, int i) {
+    public void bI(String str, int i) {
         if (TbadkCoreApplication.getInst().getContext() != null && !StringUtils.isNull(str)) {
             UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
             updateAttentionData.isSucc = true;
@@ -860,6 +869,6 @@ public class a implements BdPageContextCreator {
     }
 
     public void a(com.baidu.live.liveroom.a.d dVar) {
-        com.baidu.live.liveroom.a.b.ML().blB = dVar;
+        com.baidu.live.liveroom.a.b.Pd().bqI = dVar;
     }
 }

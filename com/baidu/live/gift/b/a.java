@@ -1,53 +1,92 @@
 package com.baidu.live.gift.b;
 
-import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
-import com.baidu.live.gift.ac;
-import com.baidu.live.tbadk.TbConfig;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.live.gift.aa;
+import com.baidu.live.gift.widget.panel.GiftPanelPackageFragmentItemView;
+import com.baidu.live.sdk.a;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class a {
-    public static final String aUW = TbadkCoreApplication.getInst().getFilesDir() + "/" + TbConfig.getTempDirName() + "/.dynamicvideo/";
-    public static final String aUX = TbadkCoreApplication.getInst().getFilesDir() + "/" + TbConfig.getTempDirName() + "/" + AlaDynamicGiftLocalInfoConfig.DIR_NAME + "/";
-    private ac aUY;
+public class a extends BaseAdapter {
+    private List<aa.a> bep;
+    private int beq = -1;
 
-    /* renamed from: com.baidu.live.gift.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    private static class C0180a {
-        public static a baZ = new a();
+    public List<aa.a> getData() {
+        return this.bep;
     }
 
-    private a() {
-        this.aUY = new d();
+    public void setData(List<aa.a> list) {
+        if (this.bep == null) {
+            this.bep = new ArrayList();
+        }
+        this.bep.clear();
+        if (list != null) {
+            this.bep.addAll(list);
+        }
+        notifyDataSetChanged();
     }
 
-    public static a Iu() {
-        return C0180a.baZ;
-    }
-
-    public void gF(String str) {
-        this.aUY.gF(str);
-    }
-
-    public void Gn() {
-        this.aUY.Gn();
-    }
-
-    public void a(com.baidu.live.gift.b bVar, boolean z) {
-        a(bVar, z, false);
-    }
-
-    public void a(com.baidu.live.gift.b bVar, boolean z, boolean z2) {
-        if (bVar != null && bVar.aSr != null) {
-            boolean z3 = com.baidu.live.alphavideo.a.BC().BD() && bVar.ES();
-            this.aUY.a(bVar.giftId, bVar.giftName, bVar.aSr.zipName, z3 ? bVar.aSr.videoUrl : bVar.aSr.zipDownloadUrl, z3 ? bVar.aSr.videoMd5 : bVar.aSr.zipMD5, z3, z, z2, false);
+    public void et(int i) {
+        if (i != this.beq) {
+            this.beq = i;
+            notifyDataSetChanged();
         }
     }
 
-    public boolean ar(String str, String str2) {
-        return this.aUY.e(str, str2, false);
+    public void reset() {
+        setData(null);
+        et(-1);
     }
 
-    public void Go() {
-        this.aUY.Go();
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.bep != null) {
+            return this.bep.size();
+        }
+        return 0;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: eO */
+    public aa.a getItem(int i) {
+        if (getCount() > i) {
+            return this.bep.get(i);
+        }
+        return null;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        C0184a c0184a;
+        if (view == null) {
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.live_gift_panel_package_fragment_list_item, viewGroup, false);
+            C0184a c0184a2 = new C0184a();
+            c0184a2.ber = (GiftPanelPackageFragmentItemView) view.findViewById(a.f.item);
+            view.setTag(c0184a2);
+            c0184a = c0184a2;
+        } else {
+            c0184a = (C0184a) view.getTag();
+        }
+        aa.a item = getItem(i);
+        if (item != null) {
+            c0184a.ber.setSelected(this.beq == i);
+            c0184a.ber.setData(item);
+        }
+        return view;
+    }
+
+    /* renamed from: com.baidu.live.gift.b.a$a  reason: collision with other inner class name */
+    /* loaded from: classes4.dex */
+    public static class C0184a {
+        private GiftPanelPackageFragmentItemView ber;
     }
 }

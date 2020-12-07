@@ -16,7 +16,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/startCompass");
@@ -61,17 +61,17 @@ public class a extends aa {
             }
             c.i(MapController.COMPASS_LAYER_TAG, OneKeyLoginSdkCall.l);
             final k kVar = new k("compassChange", optParamsAsJo, optString);
-            com.baidu.swan.apps.al.e.a aKJ = com.baidu.swan.apps.al.e.a.aKJ();
-            aKJ.init(context);
-            aKJ.a(new a.InterfaceC0376a() { // from class: com.baidu.swan.apps.al.e.a.a.1
-                @Override // com.baidu.swan.apps.al.e.a.InterfaceC0376a
+            com.baidu.swan.apps.al.e.a aNQ = com.baidu.swan.apps.al.e.a.aNQ();
+            aNQ.init(context);
+            aNQ.a(new a.InterfaceC0388a() { // from class: com.baidu.swan.apps.al.e.a.a.1
+                @Override // com.baidu.swan.apps.al.e.a.InterfaceC0388a
                 public void b(float f, int i) {
                     c.i(MapController.COMPASS_LAYER_TAG, "handle compass change, angle:" + f + ",accuracy: " + i);
                     a.this.a(unitedSchemeEntity, callbackHandler, kVar, f, i);
                 }
             });
             c.i(MapController.COMPASS_LAYER_TAG, "start listen compass");
-            aKJ.aKK();
+            aNQ.aNR();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             kVar.a(unitedSchemeEntity, callbackHandler);
             return true;
@@ -83,7 +83,7 @@ public class a extends aa {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("direction", f);
-            jSONObject.put("accuracy", com.baidu.swan.apps.al.e.a.kY(i));
+            jSONObject.put("accuracy", com.baidu.swan.apps.al.e.a.lw(i));
             if (DEBUG) {
                 Log.d("SwanAppAction", "compassAngle : " + jSONObject.toString());
             }

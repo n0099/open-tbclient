@@ -7,11 +7,11 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4496a = a.class.getName();
+    private static final String f4266a = a.class.getName();
     private static final boolean b = f.b;
 
     public static String a(Object obj) {
@@ -51,7 +51,7 @@ public class a {
             }
             return jSONObject.toString();
         } catch (Exception e) {
-            c.b(f4496a, e.getMessage(), Boolean.valueOf(b));
+            c.b(f4266a, e.getMessage(), Boolean.valueOf(b));
             return null;
         }
     }

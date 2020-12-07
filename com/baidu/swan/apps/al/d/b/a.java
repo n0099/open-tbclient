@@ -6,21 +6,21 @@ import android.provider.Settings;
 import android.view.Window;
 import android.view.WindowManager;
 import com.baidu.swan.apps.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
     /* renamed from: com.baidu.swan.apps.al.d.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    private static class C0375a {
-        public static final a dzX = new a();
+    /* loaded from: classes25.dex */
+    private static class C0387a {
+        public static final a dGV = new a();
     }
 
     private a() {
     }
 
-    public static a aKI() {
-        return C0375a.dzX;
+    public static a aNP() {
+        return C0387a.dGV;
     }
 
     public void b(Activity activity, float f) {
@@ -35,14 +35,14 @@ public class a {
         if (activity != null) {
             WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
             if (attributes.screenBrightness < 0.0f) {
-                return cB(activity);
+                return dh(activity);
             }
             return attributes.screenBrightness;
         }
         return -1.0f;
     }
 
-    private static float cB(Context context) {
+    private static float dh(Context context) {
         int i = 0;
         try {
             i = Settings.System.getInt(context.getContentResolver(), "screen_brightness");

@@ -4,13 +4,13 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaCancelRandomChallengeResponseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.live.challenge.a gZT;
-    private int gZU;
+    private com.baidu.live.challenge.a hjC;
+    private int hjD;
 
     public AlaCancelRandomChallengeResponseMessage() {
         super(1021111);
-        this.gZU = -1;
-        this.gZT = null;
+        this.hjD = -1;
+        this.hjC = null;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -18,20 +18,20 @@ public class AlaCancelRandomChallengeResponseMessage extends JsonHttpResponsedMe
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.gZU = optJSONObject.optInt("cancel_status");
+            this.hjD = optJSONObject.optInt("cancel_status");
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("match_info");
             if (optJSONObject2 != null) {
-                this.gZT = new com.baidu.live.challenge.a();
-                this.gZT.parseJson(optJSONObject2);
+                this.hjC = new com.baidu.live.challenge.a();
+                this.hjC.parseJson(optJSONObject2);
             }
         }
     }
 
-    public com.baidu.live.challenge.a bYX() {
-        return this.gZT;
+    public com.baidu.live.challenge.a ccS() {
+        return this.hjC;
     }
 
-    public boolean bYZ() {
-        return this.gZU == 1;
+    public boolean ccU() {
+        return this.hjD == 1;
     }
 }

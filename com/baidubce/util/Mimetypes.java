@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.StringTokenizer;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class Mimetypes {
     public static final String MIMETYPE_OCTET_STREAM = "application/octet-stream";
     private static Mimetypes mimetypes = null;

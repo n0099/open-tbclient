@@ -18,25 +18,25 @@ public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
             if (DEBUG) {
                 Log.d("NetworkBroadcast", "——> onReceive: ");
             }
-            if (b.aRr().aRs() && SwanAppNetworkUtils.aBZ() == SwanAppNetworkUtils.NetType.WIFI) {
+            if (b.aUw().aUx() && SwanAppNetworkUtils.aFi() == SwanAppNetworkUtils.NetType.WIFI) {
                 if (ProcessUtils.isMainProcess()) {
-                    com.baidu.swan.gamecenter.appmanager.a.aRh().aRj();
+                    com.baidu.swan.gamecenter.appmanager.a.aUm().aUo();
                     return;
                 }
-                com.baidu.swan.apps.process.messaging.client.a aGD = com.baidu.swan.apps.runtime.d.aGI().aGD();
-                if (aGD != null) {
+                com.baidu.swan.apps.process.messaging.client.a aJL = com.baidu.swan.apps.runtime.d.aJQ().aJL();
+                if (aJL != null) {
                     Bundle bundle = new Bundle();
                     bundle.putString(KEY_OPERATION, "resumeAllDownload");
-                    aGD.b(bundle, d.class);
+                    aJL.b(bundle, d.class);
                 }
             } else if (ProcessUtils.isMainProcess()) {
-                com.baidu.swan.gamecenter.appmanager.a.aRh().aRk();
+                com.baidu.swan.gamecenter.appmanager.a.aUm().aUp();
             } else {
-                com.baidu.swan.apps.process.messaging.client.a aGD2 = com.baidu.swan.apps.runtime.d.aGI().aGD();
-                if (aGD2 != null) {
+                com.baidu.swan.apps.process.messaging.client.a aJL2 = com.baidu.swan.apps.runtime.d.aJQ().aJL();
+                if (aJL2 != null) {
                     Bundle bundle2 = new Bundle();
                     bundle2.putString(KEY_OPERATION, "pauseAllDownload");
-                    aGD2.b(bundle2, d.class);
+                    aJL2.b(bundle2, d.class);
                 }
             }
         }

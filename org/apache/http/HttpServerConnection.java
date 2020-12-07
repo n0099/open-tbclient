@@ -2,7 +2,7 @@ package org.apache.http;
 
 import java.io.IOException;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public interface HttpServerConnection extends HttpConnection {
     void flush() throws IOException;
 

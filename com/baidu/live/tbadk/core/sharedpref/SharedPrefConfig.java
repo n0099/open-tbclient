@@ -167,6 +167,7 @@ public class SharedPrefConfig {
     public static final String PERMOTED_MESSAGE = "permoted_message";
     public static final String PERSON_ITEM_ACTIVITY_PRIZE_RED_TIP = "person_item_activity_prize_red_tip";
     public static final String PHOTOLIVE_HOSTLEVEL = "photolive_hostLevel";
+    public static final String POKE_DIALOG_SHOWED = "poke_dialog_showed";
     public static final String PREFS_ABSTRACT_STATE = "new_abstract_state";
     public static final String PREFS_ADD_IMAGE_WATER = "add_image_water";
     public static final String PREFS_DEBUG_PLUGIN_SWITCHER = "debug_plugin_switcher";

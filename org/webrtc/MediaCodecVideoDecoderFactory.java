@@ -6,7 +6,7 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import java.util.ArrayList;
 import org.webrtc.EglBase;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
     private static final String TAG = "MediaCodecVideoDecoderFactory";
     @Nullable

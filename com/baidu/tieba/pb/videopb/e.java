@@ -5,32 +5,32 @@ import android.arch.lifecycle.w;
 import android.content.Intent;
 import android.graphics.Rect;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.pb.pb.main.PbModel;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class e extends w {
-    private d lNn = new d();
-    private int lNo = 0;
-    private PbModel lqh;
+    private PbModel lDQ;
+    private d mbp = new d();
+    private int mbq = 0;
 
     public void init(Intent intent) {
-        this.lNn.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
-        this.lNn.vz(intent.getBooleanExtra("key_jump_to_comment_area", false));
+        this.mbp.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
+        this.mbp.wc(intent.getBooleanExtra("key_jump_to_comment_area", false));
     }
 
     public void i(PbModel pbModel) {
-        this.lqh = pbModel;
+        this.lDQ = pbModel;
     }
 
     public void b(com.baidu.tieba.pb.data.f fVar, int i) {
         boolean z = true;
-        if (i >= this.lNo) {
-            this.lNo = i;
-            this.lNn.N(fVar);
+        if (i >= this.mbq) {
+            this.mbq = i;
+            this.mbp.O(fVar);
             if (fVar != null) {
-                d dVar = this.lNn;
-                if (fVar.getIsNewUrl() != 1 && !fVar.dik()) {
+                d dVar = this.mbp;
+                if (fVar.getIsNewUrl() != 1 && !fVar.dnx()) {
                     z = false;
                 }
                 dVar.setFromCDN(z);
@@ -38,111 +38,111 @@ public class e extends w {
         }
     }
 
-    public com.baidu.tieba.pb.data.f dqN() {
-        return this.lNn.dqN();
+    public com.baidu.tieba.pb.data.f dwg() {
+        return this.mbp.dwg();
     }
 
     public boolean isFromCDN() {
-        return this.lNn.isFromCDN();
+        return this.mbp.isFromCDN();
     }
 
-    public com.baidu.tieba.pb.data.f dqO() {
-        return this.lNn.dqO();
+    public com.baidu.tieba.pb.data.f dwh() {
+        return this.mbp.dwh();
     }
 
     public void c(com.baidu.tieba.pb.data.f fVar, int i) {
         if (i == 3) {
-            this.lNn.setData(fVar);
+            this.mbp.setData(fVar);
         }
     }
 
-    public p<bx> dqP() {
-        return this.lNn.dqP();
+    public p<by> dwi() {
+        return this.mbp.dwi();
     }
 
-    public Rect dqQ() {
-        if (this.lNn.dqQ() == null || this.lNn.dqQ().isEmpty()) {
+    public Rect dwj() {
+        if (this.mbp.dwj() == null || this.mbp.dwj().isEmpty()) {
             return null;
         }
-        return this.lNn.dqQ();
+        return this.mbp.dwj();
     }
 
-    public void vC(boolean z) {
-        if (this.lNn.dqU().getValue() != null) {
-            com.baidu.tieba.pb.data.f aK = this.lqh.aK(this.lNn.dqU().getValue());
+    public void wf(boolean z) {
+        if (this.mbp.dwn().getValue() != null) {
+            com.baidu.tieba.pb.data.f aK = this.lDQ.aK(this.mbp.dwn().getValue());
             if (aK != null) {
-                this.lNn.dqS().addLast(this.lNn.dqO());
-                this.lNn.setData(aK);
-                this.lNn.aS(!y.isEmpty(aK.dij()) ? aK.dij().get(0) : null);
-                this.lNn.aR(this.lNn.dqS().getLast() != null ? this.lNn.dqS().getLast().dhH() : null);
-                this.lqh.GA(z ? 21 : 22);
-                this.lqh.j(aK);
-                this.lNn.setIsLoading(true);
+                this.mbp.dwl().addLast(this.mbp.dwh());
+                this.mbp.setData(aK);
+                this.mbp.aS(!y.isEmpty(aK.dnw()) ? aK.dnw().get(0) : null);
+                this.mbp.aR(this.mbp.dwl().getLast() != null ? this.mbp.dwl().getLast().dmT() : null);
+                this.lDQ.Hq(z ? 21 : 22);
+                this.lDQ.j(aK);
+                this.mbp.setIsLoading(true);
             }
         }
     }
 
-    public void aT(bx bxVar) {
+    public void aT(by byVar) {
         com.baidu.tieba.pb.data.f aK;
-        if (bxVar != null && (aK = this.lqh.aK(bxVar)) != null) {
-            this.lNn.dqS().addLast(this.lNn.dqO());
-            this.lNn.setData(aK);
-            this.lNn.aS(!y.isEmpty(aK.dij()) ? aK.dij().get(0) : null);
-            this.lNn.aR(this.lNn.dqS().getLast() != null ? this.lNn.dqS().getLast().dhH() : null);
-            this.lqh.GA(20);
-            this.lqh.j(aK);
-            this.lNn.setIsLoading(true);
+        if (byVar != null && (aK = this.lDQ.aK(byVar)) != null) {
+            this.mbp.dwl().addLast(this.mbp.dwh());
+            this.mbp.setData(aK);
+            this.mbp.aS(!y.isEmpty(aK.dnw()) ? aK.dnw().get(0) : null);
+            this.mbp.aR(this.mbp.dwl().getLast() != null ? this.mbp.dwl().getLast().dmT() : null);
+            this.lDQ.Hq(20);
+            this.lDQ.j(aK);
+            this.mbp.setIsLoading(true);
         }
     }
 
-    public void dqZ() {
-        com.baidu.tieba.pb.data.f pollLast = this.lNn.dqS().pollLast();
+    public void dws() {
+        com.baidu.tieba.pb.data.f pollLast = this.mbp.dwl().pollLast();
         if (pollLast != null) {
-            this.lNn.setData(pollLast);
-            this.lNn.aS(!y.isEmpty(pollLast.dij()) ? pollLast.dij().get(0) : null);
-            this.lNn.aR(this.lNn.dqS().peekLast() != null ? this.lNn.dqS().peekLast().dhH() : null);
-            this.lqh.j(pollLast);
-            this.lNn.setIsLoading(true);
+            this.mbp.setData(pollLast);
+            this.mbp.aS(!y.isEmpty(pollLast.dnw()) ? pollLast.dnw().get(0) : null);
+            this.mbp.aR(this.mbp.dwl().peekLast() != null ? this.mbp.dwl().peekLast().dmT() : null);
+            this.lDQ.j(pollLast);
+            this.mbp.setIsLoading(true);
         }
     }
 
-    public p<bx> dqT() {
-        return this.lNn.dqT();
+    public p<by> dwm() {
+        return this.mbp.dwm();
     }
 
-    public p<bx> dqU() {
-        return this.lNn.dqU();
+    public p<by> dwn() {
+        return this.mbp.dwn();
     }
 
-    public p<Boolean> dqV() {
-        return this.lNn.dqV();
+    public p<Boolean> dwo() {
+        return this.mbp.dwo();
     }
 
-    public void vA(boolean z) {
-        this.lNn.vA(z);
+    public void wd(boolean z) {
+        this.mbp.wd(z);
     }
 
-    public p<Boolean> dqW() {
-        return this.lNn.dqW();
+    public p<Boolean> dwp() {
+        return this.mbp.dwp();
     }
 
-    public void vB(boolean z) {
-        this.lNn.vB(z);
+    public void we(boolean z) {
+        this.mbp.we(z);
     }
 
     public void setIsLoading(boolean z) {
-        this.lNn.setIsLoading(z);
+        this.mbp.setIsLoading(z);
     }
 
-    public p<Boolean> dqX() {
-        return this.lNn.dqX();
+    public p<Boolean> dwq() {
+        return this.mbp.dwq();
     }
 
-    public boolean dqR() {
-        return this.lNn.dqR();
+    public boolean dwk() {
+        return this.mbp.dwk();
     }
 
-    public p<Integer> dqY() {
-        return this.lNn.dqY();
+    public p<Integer> dwr() {
+        return this.mbp.dwr();
     }
 }

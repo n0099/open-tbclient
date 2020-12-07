@@ -13,6 +13,7 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.b.d;
 import com.baidu.android.pushservice.h.a.b;
@@ -21,7 +22,6 @@ import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.webkit.internal.ETAG;
 import com.heytap.mcssdk.callback.PushCallback;
 import com.heytap.mcssdk.mode.SubscribeResult;
 import java.util.List;
@@ -33,7 +33,7 @@ public class f {
     private static ConnectivityManager.NetworkCallback m;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1080a = -1;
+    public static int f1078a = -1;
     public static String b = null;
     public static String c = null;
     public static String d = null;
@@ -66,40 +66,40 @@ public class f {
     public static class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f1086a;
+        private Context f1084a;
 
         public b(Context context) {
-            this.f1086a = context;
+            this.f1084a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             String str = null;
-            long currentTimeMillis = System.currentTimeMillis() - com.baidu.android.pushservice.i.j.a(this.f1086a);
-            if (com.baidu.android.pushservice.b.d.k(this.f1086a)) {
-                str = com.baidu.android.pushservice.i.j.c(this.f1086a);
+            long currentTimeMillis = System.currentTimeMillis() - com.baidu.android.pushservice.i.j.a(this.f1084a);
+            if (com.baidu.android.pushservice.b.d.k(this.f1084a)) {
+                str = com.baidu.android.pushservice.i.j.c(this.f1084a);
                 if (currentTimeMillis > -1702967296) {
                     str = "";
                 }
-            } else if (com.baidu.android.pushservice.b.d.l(this.f1086a)) {
-                str = com.baidu.android.pushservice.i.j.b(this.f1086a);
+            } else if (com.baidu.android.pushservice.b.d.l(this.f1084a)) {
+                str = com.baidu.android.pushservice.i.j.b(this.f1084a);
                 if (currentTimeMillis > 86400000) {
                     str = "";
                 }
-            } else if (com.baidu.android.pushservice.b.d.j(this.f1086a)) {
-                str = com.baidu.android.pushservice.i.j.d(this.f1086a);
+            } else if (com.baidu.android.pushservice.b.d.j(this.f1084a)) {
+                str = com.baidu.android.pushservice.i.j.d(this.f1084a);
                 if (currentTimeMillis > 172800000) {
                     str = "";
                 }
             }
             if (!TextUtils.isEmpty(str)) {
-                f.a(this.f1086a, str);
+                f.a(this.f1084a, str);
                 return;
             }
             if (!f.j.isEmpty()) {
                 f.j.poll();
             }
-            f.k(this.f1086a);
+            f.k(this.f1084a);
         }
     }
 
@@ -139,7 +139,7 @@ public class f {
             String p = p(context);
             Intent intent = new Intent();
             intent.putExtra("method", "method_bind");
-            intent.putExtra("error_msg", 0);
+            intent.putExtra(AlaRecorderLog.KEY_ERROR_MSG, 0);
             intent.putExtra("content", p.getBytes());
             intent.putExtra("bind_status", 0);
             com.baidu.android.pushservice.f.a.a("PushManagerHandler", "new startWork> sendResult to " + context.getPackageName() + " ,method:method_bind ,errorCode : 0 ,content : " + p, context.getApplicationContext());
@@ -356,7 +356,7 @@ public class f {
         m.a(context, false);
         Intent intent = new Intent();
         intent.putExtra("method", "method_bind");
-        intent.putExtra("error_msg", i2);
+        intent.putExtra(AlaRecorderLog.KEY_ERROR_MSG, i2);
         intent.putExtra("content", str2.getBytes());
         intent.putExtra("bind_status", 0);
         m.b(context, intent, "com.baidu.android.pushservice.action.RECEIVE", context.getPackageName());
@@ -423,7 +423,7 @@ public class f {
         if (m(context)) {
             return null;
         }
-        int b2 = f1080a != -1 ? f1080a : com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
+        int b2 = f1078a != -1 ? f1078a : com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
         String q = q(context);
         if (TextUtils.isEmpty(q)) {
             com.baidu.android.pushservice.f.a.b("PushManagerHandler", "Can not acquire loginValue, please check if there is a right loginValue", context);
@@ -485,7 +485,7 @@ public class f {
                     if (!TextUtils.isEmpty(fragment) && (split = fragment.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) != null && split.length > 0) {
                         while (true) {
                             if (i2 < split.length) {
-                                if (split[i2].contains("S.bdpush_hwmsgid") && (split2 = split[i2].split(ETAG.EQUAL)) != null && 1 < split2.length) {
+                                if (split[i2].contains("S.bdpush_hwmsgid") && (split2 = split[i2].split("=")) != null && 1 < split2.length) {
                                     stringExtra2 = split2[1];
                                     intent.putExtra("bdpush_hwmsgid", stringExtra2);
                                     break;
@@ -599,7 +599,7 @@ public class f {
         String a2 = PushConstants.a(30602);
         intent.setAction("com.baidu.android.pushservice.action.RECEIVE");
         intent.putExtra("method", "method_bind");
-        intent.putExtra("error_msg", 30602);
+        intent.putExtra(AlaRecorderLog.KEY_ERROR_MSG, 30602);
         intent.putExtra("content", a2.getBytes());
         intent.setFlags(32);
         m.b(context, intent, intent.getAction(), context.getPackageName());
@@ -686,7 +686,7 @@ public class f {
             return false;
         }
         k++;
-        b(context, true, f1080a);
+        b(context, true, f1078a);
         return true;
     }
 

@@ -9,6 +9,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -26,11 +27,11 @@ import com.baidu.ufosdk.UfoSDK;
 import com.tencent.connect.common.Constants;
 import java.io.File;
 import java.util.Timer;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class FeedbackFacePageActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    private SharedPreferences.Editor f3734a;
+    private SharedPreferences.Editor f3737a;
     private SharedPreferences b;
     private RelativeLayout f;
     private LinearLayout g;
@@ -101,11 +102,11 @@ public class FeedbackFacePageActivity extends Activity {
             setContentView(this.f);
             this.b = getSharedPreferences("UfoSharePreference", 0);
             if (this.b != null) {
-                this.f3734a = this.b.edit();
+                this.f3737a = this.b.edit();
             }
-            if (this.f3734a != null) {
-                this.f3734a.putBoolean("ADD_PIC_FLAG", true);
-                this.f3734a.commit();
+            if (this.f3737a != null) {
+                this.f3737a.putBoolean("ADD_PIC_FLAG", true);
+                this.f3737a.commit();
             }
             Intent intent = getIntent();
             if (intent != null) {
@@ -197,7 +198,7 @@ public class FeedbackFacePageActivity extends Activity {
             this.i.setTextSize(com.baidu.ufosdk.b.U);
             this.i.setGravity(17);
             this.i.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.s, com.baidu.ufosdk.b.t, com.baidu.ufosdk.b.s, com.baidu.ufosdk.b.s));
-            this.i.setBackgroundColor(16777215);
+            this.i.setBackgroundColor(ViewCompat.MEASURED_SIZE_MASK);
             this.i.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 8.0f), 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 8.0f), 0);
             RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams5.addRule(11);
@@ -381,8 +382,8 @@ public class FeedbackFacePageActivity extends Activity {
                 }
                 this.n.setVisibility(8);
             } else {
-                this.f3734a.putBoolean("CHECK_WEBVIEW", false);
-                this.f3734a.commit();
+                this.f3737a.putBoolean("CHECK_WEBVIEW", false);
+                this.f3737a.commit();
                 this.g.setVisibility(8);
                 this.o.setVisibility(0);
                 this.o.getSettings().setCacheMode(-1);
@@ -423,7 +424,7 @@ public class FeedbackFacePageActivity extends Activity {
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        com.baidu.ufosdk.f.a.f3711a = null;
+        com.baidu.ufosdk.f.a.f3714a = null;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback

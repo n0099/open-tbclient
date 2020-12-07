@@ -5,7 +5,7 @@ import android.content.Context;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f3897a;
+    private static a f3900a;
     private Context b;
 
     private a(Context context) {
@@ -15,10 +15,10 @@ public class a {
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f3897a == null) {
-                f3897a = new a(context);
+            if (f3900a == null) {
+                f3900a = new a(context);
             }
-            aVar = f3897a;
+            aVar = f3900a;
         }
         return aVar;
     }

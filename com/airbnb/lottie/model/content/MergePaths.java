@@ -1,12 +1,12 @@
 package com.airbnb.lottie.model.content;
 
 import android.support.annotation.Nullable;
-/* loaded from: classes16.dex */
+/* loaded from: classes7.dex */
 public class MergePaths implements b {
-    private final MergePathsMode Ft;
+    private final MergePathsMode Gl;
     private final String name;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes7.dex */
     public enum MergePathsMode {
         Merge,
         Add,
@@ -34,7 +34,7 @@ public class MergePaths implements b {
 
     public MergePaths(String str, MergePathsMode mergePathsMode) {
         this.name = str;
-        this.Ft = mergePathsMode;
+        this.Gl = mergePathsMode;
     }
 
     public String getName() {
@@ -42,7 +42,7 @@ public class MergePaths implements b {
     }
 
     public MergePathsMode kc() {
-        return this.Ft;
+        return this.Gl;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -56,6 +56,6 @@ public class MergePaths implements b {
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.Ft + '}';
+        return "MergePaths{mode=" + this.Gl + '}';
     }
 }

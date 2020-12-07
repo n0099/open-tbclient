@@ -12,15 +12,15 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.baidu.swan.menu.g;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class MainMenuView extends BaseMenuView {
-    private RecyclerView eel;
-    private d eem;
-    private RecyclerView een;
-    private d eeo;
-    private List<List<i>> eep;
-    private View eeq;
-    private boolean eer;
+    private RecyclerView elm;
+    private d eln;
+    private RecyclerView elo;
+    private d elp;
+    private List<List<i>> elq;
+    private View elr;
+    private boolean els;
     private LinearLayout mContentView;
     private View mDivider;
     private View mHeaderView;
@@ -37,11 +37,11 @@ public class MainMenuView extends BaseMenuView {
         super(context, attributeSet, i);
         this.mContentView = new LinearLayout(context, attributeSet, i);
         this.mContentView.setOrientation(1);
-        this.eel = new RecyclerView(context, attributeSet, i);
-        this.eel.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
+        this.elm = new RecyclerView(context, attributeSet, i);
+        this.elm.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.eel.setPadding(0, (int) this.mContext.getResources().getDimension(g.b.aiapp_menu_gridview_padding_top), 0, 0);
-        this.mContentView.addView(this.eel, layoutParams);
+        this.elm.setPadding(0, (int) this.mContext.getResources().getDimension(g.b.aiapp_menu_gridview_padding_top), 0, 0);
+        this.mContentView.addView(this.elm, layoutParams);
         this.mDivider = new View(context);
         this.mDivider.setVisibility(8);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, 1);
@@ -49,16 +49,16 @@ public class MainMenuView extends BaseMenuView {
         layoutParams2.leftMargin = dimensionPixelSize;
         layoutParams2.rightMargin = dimensionPixelSize;
         this.mContentView.addView(this.mDivider, layoutParams2);
-        this.een = new RecyclerView(context, attributeSet, i);
-        this.een.setVisibility(8);
-        this.een.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-        this.mContentView.addView(this.een, new LinearLayout.LayoutParams(-1, -2));
+        this.elo = new RecyclerView(context, attributeSet, i);
+        this.elo.setVisibility(8);
+        this.elo.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
+        this.mContentView.addView(this.elo, new LinearLayout.LayoutParams(-1, -2));
         a(this.mContentView, new FrameLayout.LayoutParams(-1, -2));
     }
 
     @Override // com.baidu.swan.menu.BaseMenuView
-    public boolean aBm() {
-        return this.eep != null && this.eep.size() > 1;
+    public boolean aEv() {
+        return this.elq != null && this.elq.size() > 1;
     }
 
     public void a(List<List<i>> list, View view, boolean z, int i) {
@@ -78,66 +78,66 @@ public class MainMenuView extends BaseMenuView {
     }
 
     private void a(List<List<i>> list, boolean z, int i) {
-        this.eep = list;
-        this.eer = z;
+        this.elq = list;
+        this.els = z;
         if (z && list.size() > 1) {
-            mx(i);
+            mV(i);
         } else {
-            my(i);
+            mW(i);
         }
     }
 
-    private void mx(int i) {
+    private void mV(int i) {
         this.mDivider.setVisibility(0);
-        this.een.setVisibility(0);
-        if (this.eem == null) {
-            this.eem = new d(getContext());
-            this.eel.setAdapter(this.eem);
+        this.elo.setVisibility(0);
+        if (this.eln == null) {
+            this.eln = new d(getContext());
+            this.elm.setAdapter(this.eln);
         }
-        this.eem.b(this.eep.subList(0, 1), this.eer, i);
-        if (this.eeo == null) {
-            this.eeo = new d(getContext());
-            this.een.setAdapter(this.eeo);
+        this.eln.b(this.elq.subList(0, 1), this.els, i);
+        if (this.elp == null) {
+            this.elp = new d(getContext());
+            this.elo.setAdapter(this.elp);
         }
-        this.eeo.b(this.eep.subList(1, 2), this.eer, i);
+        this.elp.b(this.elq.subList(1, 2), this.els, i);
     }
 
-    private void my(int i) {
+    private void mW(int i) {
         this.mDivider.setVisibility(8);
-        this.een.setVisibility(8);
-        if (this.eem == null) {
-            this.eem = new d(getContext());
-            this.eel.setAdapter(this.eem);
+        this.elo.setVisibility(8);
+        if (this.eln == null) {
+            this.eln = new d(getContext());
+            this.elm.setAdapter(this.eln);
         }
-        this.eem.b(this.eep, this.eer, i);
+        this.eln.b(this.elq, this.els, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reset() {
-        if (this.eel != null) {
-            this.eel.scrollToPosition(0);
+        if (this.elm != null) {
+            this.elm.scrollToPosition(0);
         }
-        if (this.een != null) {
-            this.eel.scrollToPosition(0);
+        if (this.elo != null) {
+            this.elm.scrollToPosition(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aZK() {
-        if (this.eem != null) {
-            this.eem.notifyDataSetChanged();
+    public void bcP() {
+        if (this.eln != null) {
+            this.eln.notifyDataSetChanged();
         }
-        if (this.eeo != null) {
-            this.eeo.notifyDataSetChanged();
+        if (this.elp != null) {
+            this.elp.notifyDataSetChanged();
         }
     }
 
     @Nullable
     public View getCoverView() {
-        return this.eeq;
+        return this.elr;
     }
 
     public void setCoverView(View view) {
-        this.eeq = view;
+        this.elr = view;
     }
 }

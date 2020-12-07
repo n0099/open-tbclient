@@ -5,11 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.data.n;
+import com.baidu.tbadk.data.o;
 import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
-public class c extends com.baidu.adp.widget.ListView.a<n, com.baidu.tieba.person.b.c> {
-    private View.OnClickListener bxU;
+/* loaded from: classes24.dex */
+public class c extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.person.b.c> {
+    private View.OnClickListener bDc;
     private TbPageContext mTbPageContext;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -20,7 +20,7 @@ public class c extends com.baidu.adp.widget.ListView.a<n, com.baidu.tieba.person
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cz */
+    /* renamed from: cC */
     public com.baidu.tieba.person.b.c c(ViewGroup viewGroup) {
         return new com.baidu.tieba.person.b.c(LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(R.layout.user_pic_nomal_item, (ViewGroup) null));
     }
@@ -28,16 +28,16 @@ public class c extends com.baidu.adp.widget.ListView.a<n, com.baidu.tieba.person
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, n nVar, com.baidu.tieba.person.b.c cVar) {
-        if (cVar == null || nVar == null) {
+    public View a(int i, View view, ViewGroup viewGroup, o oVar, com.baidu.tieba.person.b.c cVar) {
+        if (cVar == null || oVar == null) {
             return null;
         }
-        cVar.F(this.bxU);
-        cVar.h(nVar);
+        cVar.F(this.bDc);
+        cVar.h(oVar);
         return cVar.getView();
     }
 
     public void F(View.OnClickListener onClickListener) {
-        this.bxU = onClickListener;
+        this.bDc = onClickListener;
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.IMJni;
 import com.baidu.android.imrtc.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes12.dex */
 public class BIMKickRequestRtcInfo extends BIMRtcInfo {
     private static final String TAG = "BIMKickRequestRtcInfo";
     private BIMUser mKickUser = null;

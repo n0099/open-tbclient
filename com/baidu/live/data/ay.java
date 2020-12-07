@@ -1,29 +1,33 @@
 package com.baidu.live.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ay {
-    public List<ax> aML;
-    public String liveId;
+    public AlaLiveUserInfoData aPJ;
+    public int rank;
+    public int type;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.liveId = jSONObject.optString("live_id");
-            JSONArray optJSONArray = jSONObject.optJSONArray("list");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.aML = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        ax axVar = new ax();
-                        axVar.parserJson(optJSONObject);
-                        this.aML.add(axVar);
-                    }
-                }
+            this.type = jSONObject.optInt("type");
+            this.rank = jSONObject.optInt("rank");
+            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
+            if (optJSONObject != null) {
+                this.aPJ = new AlaLiveUserInfoData();
+                this.aPJ.parserJson(optJSONObject);
             }
         }
+    }
+
+    public boolean FO() {
+        return this.type == 1;
+    }
+
+    public boolean isFirst() {
+        return this.rank == 1;
+    }
+
+    public boolean a(ay ayVar) {
+        return ayVar != null && ayVar.type == this.type && ayVar.rank == this.rank && this.aPJ != null && ayVar.aPJ != null && ayVar.aPJ.userId == this.aPJ.userId;
     }
 }

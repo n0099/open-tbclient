@@ -8,7 +8,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public @interface JSONField {
     String[] alternateNames() default {};
 

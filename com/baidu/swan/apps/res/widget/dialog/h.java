@@ -11,9 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class h extends c {
-    private a dqp;
+    private a dxq;
 
     public h(Context context, int i) {
         super(context, i);
@@ -27,56 +27,56 @@ public class h extends c {
         setEnableImmersion(false);
     }
 
-    public a aGu() {
-        return this.dqp;
+    public a aJC() {
+        return this.dxq;
     }
 
     void a(a aVar) {
-        this.dqp = aVar;
+        this.dxq = aVar;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static class a {
-        protected final b dqq;
-        protected final h dqr;
+        protected final b dxr;
+        protected final h dxs;
         private Context mContext;
         private boolean mSystemDialog = false;
 
         public a(Context context) {
-            this.dqr = cs(context);
-            this.dqr.a(this);
-            this.dqq = new b((ViewGroup) this.dqr.getWindow().getDecorView());
+            this.dxs = cY(context);
+            this.dxs.a(this);
+            this.dxr = new b((ViewGroup) this.dxs.getWindow().getDecorView());
             this.mContext = context;
         }
 
-        protected h cs(Context context) {
+        protected h cY(Context context) {
             return new h(context, a.i.NoTitleDialog);
         }
 
-        public a aB(View view) {
-            this.dqq.mDialogContent.removeAllViews();
-            this.dqq.mDialogContent.addView(view);
+        public a aD(View view) {
+            this.dxr.mDialogContent.removeAllViews();
+            this.dxr.mDialogContent.addView(view);
             return this;
         }
 
-        public h aGm() {
-            this.dqr.setOnCancelListener(this.dqq.mOnCancelListener);
-            this.dqr.setOnDismissListener(this.dqq.mOnDismissListener);
-            this.dqr.setOnShowListener(this.dqq.mOnShowListener);
-            this.dqr.a(this);
-            return this.dqr;
+        public h aJu() {
+            this.dxs.setOnCancelListener(this.dxr.mOnCancelListener);
+            this.dxs.setOnDismissListener(this.dxr.mOnDismissListener);
+            this.dxs.setOnShowListener(this.dxr.mOnShowListener);
+            this.dxs.a(this);
+            return this.dxs;
         }
 
-        public h aGv() {
-            h aGm = aGm();
+        public h aJD() {
+            h aJu = aJu();
             if (this.mSystemDialog) {
-                aGm.getWindow().setType(2003);
+                aJu.getWindow().setType(2003);
             }
             try {
-                aGm.show();
+                aJu.show();
             } catch (WindowManager.BadTokenException e) {
             }
-            return aGm;
+            return aJu;
         }
 
         public a f(int i, DialogInterface.OnClickListener onClickListener) {
@@ -84,13 +84,13 @@ public class h extends c {
         }
 
         public a d(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
-            this.dqq.mPositiveButton.setText(charSequence);
-            this.dqq.mPositiveButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.h.a.1
+            this.dxr.mPositiveButton.setText(charSequence);
+            this.dxr.mPositiveButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.h.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.dqr.dismiss();
+                    a.this.dxs.dismiss();
                     if (onClickListener != null) {
-                        onClickListener.onClick(a.this.dqr, -1);
+                        onClickListener.onClick(a.this.dxs, -1);
                     }
                 }
             });
@@ -102,13 +102,13 @@ public class h extends c {
         }
 
         public a e(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
-            this.dqq.mNegativeButton.setText(charSequence);
-            this.dqq.mNegativeButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.h.a.2
+            this.dxr.mNegativeButton.setText(charSequence);
+            this.dxr.mNegativeButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.h.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.dqr.dismiss();
+                    a.this.dxs.dismiss();
                     if (onClickListener != null) {
-                        onClickListener.onClick(a.this.dqr, -2);
+                        onClickListener.onClick(a.this.dxs, -2);
                     }
                 }
             });
@@ -116,21 +116,21 @@ public class h extends c {
         }
 
         public a b(DialogInterface.OnCancelListener onCancelListener) {
-            this.dqq.mOnCancelListener = onCancelListener;
+            this.dxr.mOnCancelListener = onCancelListener;
             return this;
         }
 
-        public a gA(boolean z) {
-            this.dqr.setCanceledOnTouchOutside(z);
+        public a gP(boolean z) {
+            this.dxs.setCanceledOnTouchOutside(z);
             return this;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static class b {
-        public FrameLayout dqj;
-        public FrameLayout dqk;
-        public View dql;
+        public FrameLayout dxk;
+        public FrameLayout dxl;
+        public View dxm;
         public LinearLayout mBtnPanelLayout;
         public View mCustomPanel;
         public FrameLayout mDialogContent;
@@ -146,7 +146,7 @@ public class h extends c {
         @SuppressLint({"CutPasteId"})
         public b(ViewGroup viewGroup) {
             this.mRoot = viewGroup;
-            this.dqk = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
+            this.dxl = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
             this.mPositiveButton = (TextView) viewGroup.findViewById(a.f.positive_button);
             this.mNegativeButton = (TextView) viewGroup.findViewById(a.f.negative_button);
             this.mDialogContentPanel = viewGroup.findViewById(a.f.dialog_customPanel);
@@ -154,8 +154,8 @@ public class h extends c {
             this.mDialogLayout = (RelativeLayout) viewGroup.findViewById(a.f.searchbox_alert_dialog);
             this.mBtnPanelLayout = (LinearLayout) viewGroup.findViewById(a.f.btn_panel);
             this.mCustomPanel = viewGroup.findViewById(a.f.dialog_customPanel);
-            this.dqj = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
-            this.dql = viewGroup.findViewById(a.f.nightmode_mask);
+            this.dxk = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
+            this.dxm = viewGroup.findViewById(a.f.nightmode_mask);
         }
     }
 }

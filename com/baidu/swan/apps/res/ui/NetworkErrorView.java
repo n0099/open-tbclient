@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.android.app.event.EventBusWrapper;
 import com.baidu.swan.apps.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class NetworkErrorView extends CommonEmptyView {
     public NetworkErrorView(Context context) {
         super(context);
@@ -60,19 +60,19 @@ public class NetworkErrorView extends CommonEmptyView {
     @Override // android.view.View
     public void setVisibility(int i) {
         if (i == 0) {
-            az(this);
+            aB(this);
         }
         super.setVisibility(i);
     }
 
-    public static void az(View view) {
+    public static void aB(View view) {
         a aVar = new a(1);
         aVar.arg0 = 1;
         aVar.obj = view;
         EventBusWrapper.post(aVar);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static class a {
         public int arg0;
         public int messageId;

@@ -84,7 +84,7 @@ public class DpNetworkUtils {
         TelephonyManager telephonyManager;
         String subscriberId;
         int i2;
-        int i3 = 3;
+        int i3 = 2;
         NetworkInfo b = b(context);
         if (b == null) {
             i = 0;
@@ -124,10 +124,14 @@ public class DpNetworkUtils {
         try {
             if (!c(context) || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (subscriberId = telephonyManager.getSubscriberId()) == null) {
                 i3 = 0;
-            } else if (subscriberId.startsWith("46000") || subscriberId.startsWith("46002")) {
+            } else if (subscriberId.startsWith("46000") || subscriberId.startsWith("46002") || subscriberId.startsWith("46007") || subscriberId.startsWith("46008")) {
                 i3 = 1;
-            } else if (!subscriberId.startsWith("46001")) {
-                i3 = subscriberId.startsWith("46003") ? 2 : 99;
+            } else if (subscriberId.startsWith("46001") || subscriberId.startsWith("46006") || subscriberId.startsWith("46009")) {
+                i3 = 3;
+            } else if (!subscriberId.startsWith("46003") && !subscriberId.startsWith("46005")) {
+                if (!subscriberId.startsWith("460011")) {
+                    i3 = 99;
+                }
             }
         } catch (Throwable th) {
             CyberLog.e("DpNetworkUtils", "network changed: " + th);

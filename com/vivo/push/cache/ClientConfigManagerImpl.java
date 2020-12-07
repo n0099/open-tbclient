@@ -3,7 +3,6 @@ package com.vivo.push.cache;
 import android.content.Context;
 import android.text.TextUtils;
 import com.vivo.push.util.p;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes11.dex */
@@ -60,7 +59,7 @@ public class ClientConfigManagerImpl implements e {
         if (TextUtils.isEmpty(c)) {
             return false;
         }
-        for (String str : c.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
+        for (String str : c.split(",")) {
             try {
                 if (!TextUtils.isEmpty(str) && Long.parseLong(str) == j) {
                     return true;
@@ -145,7 +144,7 @@ public class ClientConfigManagerImpl implements e {
         HashSet hashSet = new HashSet();
         String valueByKey = getValueByKey("WLL");
         if (!TextUtils.isEmpty(valueByKey)) {
-            String[] split = valueByKey.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split = valueByKey.split(",");
             for (String str : split) {
                 try {
                     hashSet.add(Long.valueOf(Long.parseLong(str)));

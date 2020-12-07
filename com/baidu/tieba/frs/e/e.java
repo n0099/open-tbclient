@@ -1,57 +1,57 @@
 package com.baidu.tieba.frs.e;
 /* loaded from: classes.dex */
 public class e {
-    private boolean iRD;
-    private boolean jhH;
-    private boolean jhI;
+    private boolean jcv;
+    private boolean jvk;
+    private boolean jvl;
 
     public e(String str) {
         if (str == null || !str.matches("\\d{1}_\\d{1}.*")) {
-            this.iRD = false;
-            this.jhH = true;
+            this.jcv = false;
+            this.jvk = true;
             return;
         }
-        this.iRD = str.substring(0, 1).contains("1");
-        this.jhH = str.substring(2, 3).contains("1");
+        this.jcv = str.substring(0, 1).contains("1");
+        this.jvk = str.substring(2, 3).contains("1");
         if (str.length() >= 5) {
-            this.jhI = str.substring(4, 5).contains("1");
+            this.jvl = str.substring(4, 5).contains("1");
         }
     }
 
     public e(boolean z, boolean z2) {
-        this.iRD = z;
-        this.jhH = z2;
+        this.jcv = z;
+        this.jvk = z2;
     }
 
     public String toString() {
         Object[] objArr = new Object[3];
-        objArr[0] = Integer.valueOf(this.iRD ? 1 : 0);
-        objArr[1] = Integer.valueOf(this.jhH ? 1 : 0);
-        objArr[2] = Integer.valueOf(this.jhI ? 1 : 0);
+        objArr[0] = Integer.valueOf(this.jcv ? 1 : 0);
+        objArr[1] = Integer.valueOf(this.jvk ? 1 : 0);
+        objArr[2] = Integer.valueOf(this.jvl ? 1 : 0);
         return String.format("%s_%s_%s", objArr);
     }
 
-    public boolean cEH() {
-        return this.iRD;
+    public boolean cJU() {
+        return this.jcv;
     }
 
-    public void qs(boolean z) {
-        this.iRD = z;
+    public void qT(boolean z) {
+        this.jcv = z;
     }
 
-    public boolean cEI() {
-        return this.jhH;
+    public boolean cJV() {
+        return this.jvk;
     }
 
-    public void qt(boolean z) {
-        this.jhH = z;
+    public void qU(boolean z) {
+        this.jvk = z;
     }
 
-    public void qu(boolean z) {
-        this.jhI = z;
+    public void qV(boolean z) {
+        this.jvl = z;
     }
 
-    public boolean cEJ() {
-        return this.jhI;
+    public boolean cJW() {
+        return this.jvl;
     }
 }

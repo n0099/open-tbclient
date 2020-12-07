@@ -5,16 +5,16 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.api.module.a.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class u implements com.baidu.swan.apps.adaptation.a.i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.apps.adaptation.a.i
-    public com.baidu.swan.apps.adaptation.a.c aho() {
+    public com.baidu.swan.apps.adaptation.a.c akw() {
         return new a();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     private class a implements com.baidu.swan.apps.adaptation.a.c {
         private a() {
         }
@@ -39,19 +39,19 @@ public class u implements com.baidu.swan.apps.adaptation.a.i {
 
         @Override // com.baidu.swan.apps.adaptation.a.c
         @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.c T(Context context, String str) {
+        public com.baidu.swan.apps.setting.oauth.a.c W(Context context, String str) {
             return new p(context, str);
         }
 
         @Override // com.baidu.swan.apps.adaptation.a.c
         @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.e bm(Context context) {
+        public com.baidu.swan.apps.setting.oauth.a.e bS(Context context) {
             return new r(context);
         }
 
         @Override // com.baidu.swan.apps.adaptation.a.c
         @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.d bn(Context context) {
+        public com.baidu.swan.apps.setting.oauth.a.d bT(Context context) {
             return new q(context);
         }
 
@@ -63,7 +63,7 @@ public class u implements com.baidu.swan.apps.adaptation.a.i {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.i
-    public com.baidu.swan.apps.adaptation.a.b ahp() {
+    public com.baidu.swan.apps.adaptation.a.b akx() {
         return new m();
     }
 }

@@ -8,14 +8,14 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
-    private w aDh;
+    private w aFN;
 
     public AlaEnterLiveHttpResonseMessage() {
         super(1031023);
     }
 
-    public w Gz() {
-        return this.aDh;
+    public w Iq() {
+        return this.aFN;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -28,16 +28,16 @@ public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
                 setErrorString(optJSONObject2.optString("usermsg"));
             }
             if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                this.aDh = new w();
-                this.aDh.br(true);
-                this.aDh.parserJson(optJSONObject);
-                com.baidu.live.aa.b.Pr().cy(this.aDh.aIj);
-                this.aDh.logId = jSONObject.optLong("logid");
-                if (this.aDh.mLiveInfo != null && this.aDh.mLiveInfo.live_id > 0) {
-                    com.baidu.live.d.Aq().putLong("ala_live_room_last_live_id", this.aDh.mLiveInfo.live_id);
+                this.aFN = new w();
+                this.aFN.bz(true);
+                this.aFN.parserJson(optJSONObject);
+                com.baidu.live.ae.b.RL().cM(this.aFN.aKV);
+                this.aFN.logId = jSONObject.optLong("logid");
+                if (this.aFN.mLiveInfo != null && this.aFN.mLiveInfo.live_id > 0) {
+                    com.baidu.live.d.BM().putLong("ala_live_room_last_live_id", this.aFN.mLiveInfo.live_id);
                 }
-                if (this.aDh.mLiveInfo != null && this.aDh.mLiveInfo.broadGiftMsgId > 0) {
-                    com.baidu.live.gift.a.broadGiftMsgId = this.aDh.mLiveInfo.broadGiftMsgId;
+                if (this.aFN.mLiveInfo != null && this.aFN.mLiveInfo.broadGiftMsgId > 0) {
+                    com.baidu.live.gift.a.broadGiftMsgId = this.aFN.mLiveInfo.broadGiftMsgId;
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("live_info");
                 if (optJSONObject3 != null) {

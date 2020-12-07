@@ -12,11 +12,11 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.HashSet;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final String f3938a = "BdboxApp:".toLowerCase();
+    protected static final String f3941a = "BdboxApp:".toLowerCase();
     public HashMap<String, Object> b;
     public WebView c;
     public String d;
@@ -55,7 +55,7 @@ public final class e {
                     if (method.getReturnType() != Void.TYPE) {
                         sb.append("return ");
                     }
-                    sb.append("prompt('").append(f3938a).append("'+");
+                    sb.append("prompt('").append(f3941a).append("'+");
                     sb.append("JSON.stringify({");
                     sb.append("obj:'").append(str).append("',");
                     sb.append("func:'").append(name).append("',");

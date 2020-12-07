@@ -4,7 +4,7 @@ import android.content.Intent;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.ILog;
-/* loaded from: classes17.dex */
+/* loaded from: classes9.dex */
 public interface IWXAPI {
     void detach();
 

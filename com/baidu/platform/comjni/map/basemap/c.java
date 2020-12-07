@@ -4,17 +4,17 @@ import android.os.Bundle;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Bundle f3169a;
+    final /* synthetic */ Bundle f3171a;
     final /* synthetic */ NABaseMap b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(NABaseMap nABaseMap, Bundle bundle) {
         this.b = nABaseMap;
-        this.f3169a = bundle;
+        this.f3171a = bundle;
     }
 
     @Override // java.lang.Runnable
@@ -34,8 +34,8 @@ public class c implements Runnable {
                 boolean tryLock = readWriteLock3.readLock().tryLock(2000L, TimeUnit.MILLISECONDS);
                 if (tryLock) {
                     try {
-                        if (this.f3169a != null) {
-                            a2 = this.b.a(this.f3169a.getLong("itemaddr", 0L));
+                        if (this.f3171a != null) {
+                            a2 = this.b.a(this.f3171a.getLong("itemaddr", 0L));
                             if (a2) {
                                 if (tryLock) {
                                     readWriteLock4 = this.b.c;
@@ -47,7 +47,7 @@ public class c implements Runnable {
                         }
                         NABaseMap nABaseMap = this.b;
                         j = this.b.b;
-                        nABaseMap.nativeRemoveItemData(j, this.f3169a);
+                        nABaseMap.nativeRemoveItemData(j, this.f3171a);
                     } catch (Throwable th2) {
                         z = tryLock;
                         th = th2;

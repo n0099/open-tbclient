@@ -1,17 +1,17 @@
 package com.baidu.ar.pose;
 
 import com.baidu.ar.d.b;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a extends b {
-    private float[] tf;
+    private float[] tS;
 
     public a(String str, float[] fArr, long j) {
-        this.tf = fArr;
-        T(str);
+        this.tS = fArr;
+        W(str);
         setTimestamp(j);
     }
 
-    public float[] fs() {
-        return this.tf;
+    public float[] fr() {
+        return this.tS;
     }
 }

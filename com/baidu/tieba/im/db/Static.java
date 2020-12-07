@@ -17,10 +17,10 @@ public class Static {
                     ad.b(new ac<Void>() { // from class: com.baidu.tieba.im.db.Static.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.ac
-                        /* renamed from: bJl */
+                        /* renamed from: bMT */
                         public Void doInBackground() {
                             if (customResponsedMessage.getData() instanceof String) {
-                                g.Mh((String) customResponsedMessage.getData());
+                                g.Np((String) customResponsedMessage.getData());
                                 return null;
                             }
                             return null;

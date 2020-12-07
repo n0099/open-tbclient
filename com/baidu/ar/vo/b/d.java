@@ -1,11 +1,11 @@
 package com.baidu.ar.vo.b;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class d {
-    public int yb;
-    public int yc;
-    public a yd;
+    public int yQ;
+    public int yR;
+    public a yS;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         float getAngle();
 

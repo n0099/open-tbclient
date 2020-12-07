@@ -7,7 +7,7 @@ public class ac {
     private String link_url;
     private long start_time;
 
-    public String bue() {
+    public String bxE() {
         return this.link_url;
     }
 

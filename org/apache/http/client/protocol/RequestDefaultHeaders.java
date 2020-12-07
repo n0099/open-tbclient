@@ -6,7 +6,7 @@ import org.apache.http.HttpRequest;
 import org.apache.http.HttpRequestInterceptor;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class RequestDefaultHeaders implements HttpRequestInterceptor {
     public RequestDefaultHeaders() {
         throw new RuntimeException("Stub!");

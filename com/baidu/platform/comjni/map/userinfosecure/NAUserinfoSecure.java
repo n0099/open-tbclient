@@ -1,11 +1,11 @@
 package com.baidu.platform.comjni.map.userinfosecure;
 
 import com.baidu.platform.comjni.JNIBaseApi;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class NAUserinfoSecure extends JNIBaseApi {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f3189a = 0;
+    private long f3191a = 0;
 
     private native void nativeCancel(long j);
 

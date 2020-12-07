@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.personalize.data;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Realtime.RealtimeResIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class RealTimeHttpResponse extends HttpResponsedMessage {
     public RealTimeHttpResponse() {
         super(1003072);

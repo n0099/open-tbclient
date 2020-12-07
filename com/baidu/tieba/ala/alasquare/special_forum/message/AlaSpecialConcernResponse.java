@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
     public List<d> followList;
     public boolean hasMore;

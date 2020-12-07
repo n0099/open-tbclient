@@ -1,33 +1,30 @@
 package kotlin.coroutines.experimental;
-
-import kotlin.h;
-import kotlin.jvm.a.m;
-@h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 public interface d {
 
-    @h
-    /* loaded from: classes9.dex */
+    @kotlin.e
+    /* loaded from: classes17.dex */
     public static final class a {
     }
 
-    @h
-    /* loaded from: classes9.dex */
+    @kotlin.e
+    /* loaded from: classes17.dex */
     public interface b extends d {
         @Override // kotlin.coroutines.experimental.d
         <E extends b> E a(c<E> cVar);
 
-        c<?> eBJ();
+        c<?> eDU();
     }
 
-    @h
-    /* loaded from: classes9.dex */
+    @kotlin.e
+    /* loaded from: classes17.dex */
     public interface c<E extends b> {
     }
+
+    <R> R a(R r, kotlin.jvm.a.c<? super R, ? super b, ? extends R> cVar);
 
     <E extends b> E a(c<E> cVar);
 
     d b(c<?> cVar);
-
-    <R> R fold(R r, m<? super R, ? super b, ? extends R> mVar);
 }

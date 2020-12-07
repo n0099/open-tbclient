@@ -17,39 +17,39 @@ import com.baidu.tieba.forumMember.member.s;
 import com.baidu.tieba.frs.n;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> biN = new ArrayList();
-    private BdTypeListView ghN;
-    private o iFe;
-    private r iFf;
+    private List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
+    private BdTypeListView gpX;
+    private o iPW;
+    private r iPX;
 
-    public List<com.baidu.adp.widget.ListView.a> bOC() {
-        return this.biN;
+    public List<com.baidu.adp.widget.ListView.a> bSn() {
+        return this.bnf;
     }
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
-        this.ghN = bdTypeListView;
-        this.biN.add(new i(baseActivity.getPageContext(), j.iEp));
-        this.biN.add(new l(baseActivity.getPageContext(), m.iEA));
-        this.biN.add(new g(baseActivity.getPageContext(), n.iHM));
-        this.biN.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.iDS));
-        this.biN.add(new d(baseActivity.getPageContext(), e.iDV));
-        this.biN.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
-        this.iFe = new o(baseActivity.getPageContext(), p.iER);
-        this.biN.add(this.iFe);
-        this.iFf = new r(baseActivity.getPageContext(), s.iFc);
-        this.biN.add(this.iFf);
+        this.gpX = bdTypeListView;
+        this.bnf.add(new i(baseActivity.getPageContext(), j.iPh));
+        this.bnf.add(new l(baseActivity.getPageContext(), m.iPs));
+        this.bnf.add(new g(baseActivity.getPageContext(), n.iSE));
+        this.bnf.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.iOK));
+        this.bnf.add(new d(baseActivity.getPageContext(), e.iON));
+        this.bnf.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
+        this.iPW = new o(baseActivity.getPageContext(), p.iPJ);
+        this.bnf.add(this.iPW);
+        this.iPX = new r(baseActivity.getPageContext(), s.iPU);
+        this.bnf.add(this.iPX);
     }
 
     public void notifyDataSetChanged() {
-        if (this.ghN != null && (this.ghN.getAdapter() instanceof f)) {
-            this.ghN.getAdapter().notifyDataSetChanged();
+        if (this.gpX != null && (this.gpX.getAdapter() instanceof f)) {
+            this.gpX.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        this.iFe.onDestroy();
-        this.iFf.onDestroy();
+        this.iPW.onDestroy();
+        this.iPX.onDestroy();
     }
 }

@@ -7,17 +7,17 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.os.SystemClock;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f3993a;
+    private static Context f3996a;
     private static boolean b = false;
-    private static b oJR = null;
-    private static a oJS = null;
-    private static c oJT = null;
-    private static c oJU = null;
-    private static c oJV = null;
+    private static b oYX = null;
+    private static a oYY = null;
+    private static c oYZ = null;
+    private static c oZa = null;
+    private static c oZb = null;
     private static Object h = new Object();
     private static HandlerThread i = null;
     private static Handler j = null;
@@ -45,16 +45,16 @@ public class b {
     private static void a(Context context, int i2, String str) {
         switch (i2) {
             case 0:
-                oJT = new c(oJR, 0, null);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, oJT);
+                oYZ = new c(oYX, 0, null);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, oYZ);
                 return;
             case 1:
-                oJU = new c(oJR, 1, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str), false, oJU);
+                oZa = new c(oYX, 1, str);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str), false, oZa);
                 return;
             case 2:
-                oJV = new c(oJR, 2, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str), false, oJV);
+                oZb = new c(oYX, 2, str);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str), false, oZb);
                 return;
             default:
                 return;
@@ -88,7 +88,7 @@ public class b {
                     return;
                 }
                 try {
-                    String unused = b.k = b.oJS.a(message.getData().getInt("type"), message.getData().getString("appid"));
+                    String unused = b.k = b.oYY.a(message.getData().getInt("type"), message.getData().getString("appid"));
                 } catch (Exception e) {
                     String unused2 = b.k = "";
                     com.bun.miitmdid.utils.a.a("VMS_IDLG_SDK_Client", "exception", e);
@@ -100,15 +100,15 @@ public class b {
         };
     }
 
-    public static b gP(Context context) {
-        if (oJR == null) {
-            oJR = new b();
-            f3993a = context;
+    public static b hy(Context context) {
+        if (oYX == null) {
+            oYX = new b();
+            f3996a = context;
             f();
-            oJS = new a(f3993a);
+            oYY = new a(f3996a);
             c();
         }
-        return oJR;
+        return oYX;
     }
 
     public String a(String str) {
@@ -117,8 +117,8 @@ public class b {
                 return m;
             }
             a(1, str);
-            if (oJU == null && m != null) {
-                a(f3993a, 1, str);
+            if (oZa == null && m != null) {
+                a(f3996a, 1, str);
             }
             return m;
         }
@@ -175,8 +175,8 @@ public class b {
                 return l;
             }
             a(0, (String) null);
-            if (oJT == null) {
-                a(f3993a, 0, null);
+            if (oYZ == null) {
+                a(f3996a, 0, null);
             }
             return l;
         }
@@ -189,8 +189,8 @@ public class b {
                 return n;
             }
             a(2, str);
-            if (oJV == null && n != null) {
-                a(f3993a, 2, str);
+            if (oZb == null && n != null) {
+                a(f3996a, 2, str);
             }
             return n;
         }

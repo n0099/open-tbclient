@@ -5,7 +5,6 @@ import android.content.Context;
 import android.location.Location;
 import android.net.http.Headers;
 import android.os.Handler;
-import com.baidu.down.request.task.AbstractTask;
 import com.baidu.location.Jni;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
@@ -31,7 +30,7 @@ import java.util.UUID;
 import javax.net.ssl.HttpsURLConnection;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class g {
     private Handler I;
     private static g j = null;
@@ -40,7 +39,7 @@ public class g {
     private double l = 0.699999988079071d;
     private String m = "3G|4G";
     private int n = 1;
-    private int o = AbstractTask.RANGE_BLOCK_SIZE;
+    private int o = 307200;
     private int p = 15;
     private int q = 1;
     private double r = 3.5d;
@@ -62,7 +61,7 @@ public class g {
     private int H = 500;
 
     /* renamed from: a  reason: collision with root package name */
-    long f1884a = 0;
+    long f1886a = 0;
     Location b = null;
     Location c = null;
     StringBuilder d = null;
@@ -77,11 +76,11 @@ public class g {
     double i = 40.245667323d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public class a extends com.baidu.location.e.f {
 
         /* renamed from: a  reason: collision with root package name */
-        String f1885a = null;
+        String f1887a = null;
 
         public a() {
             this.k = new HashMap();
@@ -90,13 +89,13 @@ public class g {
         @Override // com.baidu.location.e.f
         public void a() {
             this.h = "https://loc.map.baidu.com/cc.php";
-            String encode = Jni.encode(this.f1885a);
-            this.f1885a = null;
+            String encode = Jni.encode(this.f1887a);
+            this.f1887a = null;
             this.k.put(IXAdRequestInfo.COST_NAME, encode);
         }
 
         public void a(String str) {
-            this.f1885a = str;
+            this.f1887a = str;
             a(z.a().c(), "https://loc.map.baidu.com/cc.php");
         }
 
@@ -266,9 +265,9 @@ public class g {
             return;
         }
         try {
-            File file = new File(com.baidu.location.e.k.f1956a + "/grtcf.dat");
+            File file = new File(com.baidu.location.e.k.f1958a + "/grtcf.dat");
             if (!file.exists()) {
-                File file2 = new File(com.baidu.location.e.k.f1956a);
+                File file2 = new File(com.baidu.location.e.k.f1958a);
                 if (!file2.exists()) {
                     file2.mkdirs();
                 }
@@ -299,7 +298,7 @@ public class g {
     }
 
     private void c(Location location) {
-        if (System.currentTimeMillis() - this.f1884a < this.H || location == null) {
+        if (System.currentTimeMillis() - this.f1886a < this.H || location == null) {
             return;
         }
         if (location != null && location.hasSpeed() && location.getSpeed() > this.E) {
@@ -415,7 +414,7 @@ public class g {
     private void d(String str) {
         int i = 1;
         try {
-            File file = new File(com.baidu.location.e.k.f1956a + "/grtcf.dat");
+            File file = new File(com.baidu.location.e.k.f1958a + "/grtcf.dat");
             if (file.exists()) {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                 randomAccessFile.seek(2L);
@@ -511,9 +510,9 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     public void e(String str) {
         try {
-            File file = new File(com.baidu.location.e.k.f1956a + "/grtcf.dat");
+            File file = new File(com.baidu.location.e.k.f1958a + "/grtcf.dat");
             if (!file.exists()) {
-                File file2 = new File(com.baidu.location.e.k.f1956a);
+                File file2 = new File(com.baidu.location.e.k.f1958a);
                 if (!file2.exists()) {
                     file2.mkdirs();
                 }

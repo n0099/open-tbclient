@@ -5,23 +5,24 @@ import io.reactivex.j;
 import java.util.ArrayDeque;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+import org.a.d;
+/* loaded from: classes9.dex */
 public final class FlowableTakeLast<T> extends a<T, T> {
     final int count;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pOn.a((j) new TakeLastSubscriber(cVar, this.count));
+        this.pFg.a((j) new TakeLastSubscriber(cVar, this.count));
     }
 
-    /* loaded from: classes5.dex */
-    static final class TakeLastSubscriber<T> extends ArrayDeque<T> implements j<T>, org.a.d {
+    /* loaded from: classes9.dex */
+    static final class TakeLastSubscriber<T> extends ArrayDeque<T> implements j<T>, d {
         private static final long serialVersionUID = 7240042530241604978L;
         final org.a.c<? super T> actual;
         volatile boolean cancelled;
         final int count;
         volatile boolean done;
-        org.a.d s;
+        d s;
         final AtomicLong requested = new AtomicLong();
         final AtomicInteger wip = new AtomicInteger();
 
@@ -31,7 +32,7 @@ public final class FlowableTakeLast<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);

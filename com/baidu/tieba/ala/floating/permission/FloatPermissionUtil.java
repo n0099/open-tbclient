@@ -21,16 +21,16 @@ public final class FloatPermissionUtil {
         void onResult(int i);
     }
 
-    public static boolean Ng() {
-        b Nl = i.Nj().Nl();
-        return Nl == null || Nl.Ng();
+    public static boolean Py() {
+        b PD = i.PB().PD();
+        return PD == null || PD.Py();
     }
 
     public static boolean checkPermission(Context context) {
-        return Ng();
+        return Py();
     }
 
-    public static void ak(Activity activity) {
+    public static void al(Activity activity) {
         if (!checkPermission(activity)) {
             new com.baidu.tieba.ala.floating.permission.a().a(activity, new a() { // from class: com.baidu.tieba.ala.floating.permission.FloatPermissionUtil.1
                 @Override // com.baidu.tieba.ala.floating.permission.FloatPermissionUtil.a
@@ -41,24 +41,24 @@ public final class FloatPermissionUtil {
     }
 
     public static void b(Activity activity, a aVar) {
-        if (al(activity)) {
+        if (am(activity)) {
             PermissionFragment.b(activity, aVar);
         } else if (aVar != null) {
             aVar.onResult(2);
         }
     }
 
-    public static boolean al(Activity activity) {
+    public static boolean am(Activity activity) {
         return new Intent("android.settings.action.MANAGE_OVERLAY_PERMISSION", Uri.parse(new StringBuilder().append("package:").append(activity.getPackageName()).toString())).resolveActivity(activity.getPackageManager()) != null;
     }
 
     @SuppressLint({"ValidFragment"})
     /* loaded from: classes4.dex */
     public static class PermissionFragment extends Fragment {
-        private static a gBK = null;
+        private static a gKH = null;
 
         public static void b(Activity activity, a aVar) {
-            gBK = aVar;
+            gKH = aVar;
             activity.getFragmentManager().beginTransaction().add(new PermissionFragment(), activity.getLocalClassName()).commitAllowingStateLoss();
         }
 
@@ -66,14 +66,14 @@ public final class FloatPermissionUtil {
         public void onActivityCreated(Bundle bundle) {
             super.onActivityCreated(bundle);
             if (Build.VERSION.SDK_INT < 23) {
-                if (gBK != null) {
-                    gBK.onResult(0);
+                if (gKH != null) {
+                    gKH.onResult(0);
                     return;
                 }
                 return;
             }
             Activity activity = getActivity();
-            if (activity != null && FloatPermissionUtil.al(activity)) {
+            if (activity != null && FloatPermissionUtil.am(activity)) {
                 startActivityForResult(new Intent("android.settings.action.MANAGE_OVERLAY_PERMISSION", Uri.parse("package:" + activity.getPackageName())), Opcodes.IFNONNULL);
             }
         }
@@ -85,8 +85,8 @@ public final class FloatPermissionUtil {
                     @Override // java.lang.Runnable
                     public void run() {
                         boolean checkPermission = FloatPermissionUtil.checkPermission(PermissionFragment.this.getActivity());
-                        if (PermissionFragment.gBK != null) {
-                            PermissionFragment.gBK.onResult(checkPermission ? 0 : 1);
+                        if (PermissionFragment.gKH != null) {
+                            PermissionFragment.gKH.onResult(checkPermission ? 0 : 1);
                         }
                         if (PermissionFragment.this.getFragmentManager() != null) {
                             PermissionFragment.this.getFragmentManager().beginTransaction().remove(PermissionFragment.this).commitAllowingStateLoss();

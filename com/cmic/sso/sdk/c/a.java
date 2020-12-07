@@ -13,14 +13,14 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4006a;
+    private String f4009a;
     private String b;
 
     public c a(c cVar, b bVar, com.cmic.sso.sdk.a aVar) {
         List<String> list;
         Map<String, List<String>> b = bVar.b();
-        if (TextUtils.isEmpty(this.f4006a) && (list = b.get("pplocation")) != null && list.size() > 0) {
-            this.f4006a = list.get(0);
+        if (TextUtils.isEmpty(this.f4009a) && (list = b.get("pplocation")) != null && list.size() > 0) {
+            this.f4009a = list.get(0);
         }
         s.b(aVar, String.valueOf(bVar.a()));
         List<String> list2 = b.get(Headers.LOCATION);
@@ -40,8 +40,8 @@ public class a {
                 }
             }
         }
-        c a2 = a(this.b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.eiO().a()));
-        a2.f(cVar.eiN());
+        c a2 = a(this.b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.eoE().a()));
+        a2.f(cVar.eoD());
         return a2;
     }
 
@@ -55,9 +55,9 @@ public class a {
             s.a(aVar, "NONE");
         }
         s.b(aVar, String.valueOf(bVar.a()));
-        c a2 = a("http://www.cmpassport.com/unisdk" + this.f4006a, cVar.f(), "POST", new d(cVar.eiO().a(), "1.0", bVar.c()));
-        a2.f(cVar.eiN());
-        this.f4006a = null;
+        c a2 = a("http://www.cmpassport.com/unisdk" + this.f4009a, cVar.f(), "POST", new d(cVar.eoE().a(), "1.0", bVar.c()));
+        a2.f(cVar.eoD());
+        this.f4009a = null;
         return a2;
     }
 
@@ -70,6 +70,6 @@ public class a {
     }
 
     public String a() {
-        return this.f4006a;
+        return this.f4009a;
     }
 }

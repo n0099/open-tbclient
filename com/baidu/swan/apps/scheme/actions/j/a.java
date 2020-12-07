@@ -10,7 +10,7 @@ import com.baidu.swan.apps.core.d.f;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/startPullDownRefresh");
@@ -18,31 +18,31 @@ public class a extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (eVar != null && eVar.aiS()) {
+        if (eVar != null && eVar.ama()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
             return false;
         }
-        f afe = com.baidu.swan.apps.v.f.azg().afe();
-        if (afe == null) {
+        f aim = com.baidu.swan.apps.v.f.aCp().aim();
+        if (aim == null) {
             c.e("startPullDownRefresh", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!(afe.aot() instanceof com.baidu.swan.apps.core.d.e)) {
+        } else if (!(aim.arB() instanceof com.baidu.swan.apps.core.d.e)) {
             c.e("startPullDownRefresh", "top fragment error");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
-            com.baidu.swan.apps.core.d.e eVar2 = (com.baidu.swan.apps.core.d.e) afe.aot();
-            if (eVar2.ahR() == null) {
+            com.baidu.swan.apps.core.d.e eVar2 = (com.baidu.swan.apps.core.d.e) aim.arB();
+            if (eVar2.akZ() == null) {
                 c.e("startPullDownRefresh", "view is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
             c.i("startPullDownRefresh", "start pull refresh");
-            eVar2.ahR().doPullRefreshing(true, 100L);
+            eVar2.akZ().doPullRefreshing(true, 100L);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

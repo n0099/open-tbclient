@@ -9,10 +9,10 @@ import com.baidu.ar.statistic.StatisticConstants;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class c implements com.baidu.ar.lua.c {
     private Context mContext;
-    private a.InterfaceC0083a vs;
+    private a.InterfaceC0085a wg;
 
     public c(Context context) {
         this.mContext = context.getApplicationContext();
@@ -32,30 +32,30 @@ public class c implements com.baidu.ar.lua.c {
         }
         switch (com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1)) {
             case 10001:
-                b.p(this.mContext).b(this.vs);
+                b.q(this.mContext).b(this.wg);
                 return;
             case 10002:
-                b.p(this.mContext).stop();
+                b.q(this.mContext).stop();
                 return;
             case 10003:
             default:
                 return;
             case 10004:
-                b.p(this.mContext).U(true);
+                b.q(this.mContext).S(true);
                 return;
         }
     }
 
     public void b(com.baidu.ar.lua.b bVar) {
-        this.vs = new a.InterfaceC0083a() { // from class: com.baidu.ar.f.c.1
-            @Override // com.baidu.ar.f.a.InterfaceC0083a
+        this.wg = new a.InterfaceC0085a() { // from class: com.baidu.ar.f.c.1
+            @Override // com.baidu.ar.f.a.InterfaceC0085a
             public void b(float f, float f2, float f3, float f4) {
-                com.baidu.ar.g.b.aP("acc  x " + f + " , y : " + f2 + " , z " + f3);
+                com.baidu.ar.h.b.aS("acc  x " + f + " , y : " + f2 + " , z " + f3);
                 StatisticApi.onEvent(StatisticConstants.MODEL_PHONE_SHAKE);
                 c.c(f, f2, f3, f4);
             }
 
-            @Override // com.baidu.ar.f.a.InterfaceC0083a
+            @Override // com.baidu.ar.f.a.InterfaceC0085a
             public void destroy() {
             }
         };
@@ -68,15 +68,15 @@ public class c implements com.baidu.ar.lua.c {
     }
 
     public void release() {
-        b.p(this.mContext).destroy();
-        this.vs = null;
+        b.q(this.mContext).destroy();
+        this.wg = null;
         this.mContext = null;
     }
 
     public void reset() {
         if (this.mContext != null) {
             try {
-                b.p(this.mContext).stop();
+                b.q(this.mContext).stop();
             } catch (Throwable th) {
             }
         }

@@ -6,12 +6,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.a;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.fsg.base.statistics.j;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.CameraActivityConfig;
+import com.baidu.tbadk.n.k;
 import com.baidu.tbadk.n.l;
-import com.baidu.tbadk.n.m;
 import com.baidu.tieba.flutter.util.OpenFlutter;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
@@ -19,7 +20,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes18.dex */
+/* loaded from: classes19.dex */
 public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private static HashMap<String, String> flutterEngineStartInfo = new HashMap<>();
     private final CustomMessageListener mFlutterEngineInitListener = new CustomMessageListener(2921451) { // from class: com.baidu.performance_monitor.PerformanceMonitorPlugin.1
@@ -54,11 +55,11 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
                 return;
             }
             String str2 = (String) methodCall.argument("page");
-            double doubleValue = ((Double) methodCall.argument("fps")).doubleValue();
+            double doubleValue = ((Double) methodCall.argument(AlaRecorderLog.KEY_CANERA_START_FPS)).doubleValue();
             a statsItem = BdStatisticsManager.getInstance().getStatsItem(BdStatsConstant.StatsType.PERFORMANCE);
             statsItem.append("action", "fluency");
             statsItem.append("page", str2);
-            statsItem.append("fps", Double.valueOf(doubleValue));
+            statsItem.append(AlaRecorderLog.KEY_CANERA_START_FPS, Double.valueOf(doubleValue));
             statsItem.append("flutter", 1);
             HashMap hashMap2 = (HashMap) methodCall.argument("fatal");
             if (hashMap2 != null) {
@@ -81,18 +82,18 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
             BdStatisticsManager.getInstance().performance(str2, statsItem);
             result.success(null);
         } else if (methodCall.method.equals("reportPageLoadPerformance")) {
-            if (m.bBK().isSmallFlow() && methodCall.arguments != null && (hashMap = (HashMap) methodCall.arguments) != null && hashMap.get("viewCreateTime") != null && ((Double) hashMap.get("viewCreateTime")).doubleValue() > 0.0d) {
+            if (l.bFl().isSmallFlow() && methodCall.arguments != null && (hashMap = (HashMap) methodCall.arguments) != null && hashMap.get("viewCreateTime") != null && ((Double) hashMap.get("viewCreateTime")).doubleValue() > 0.0d) {
                 String str3 = (String) hashMap.get("pageName");
                 if (OpenFlutter.ACTIVITY_SIGN_TOGETHER.equals(str3)) {
                     str = "sign_all_flt";
                 } else {
                     str = OpenFlutter.FRAGMENT_MYTAB.equals(str3) ? "user_center_flt" : str3;
                 }
-                a mT = l.mT();
+                a mT = k.mT();
                 mT.append("action", "time");
                 mT.append("ishttp", hashMap.get("isHttp"));
                 mT.append("issuccess", hashMap.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
-                mT.append("nettype", m.bBK().getNetType());
+                mT.append("nettype", l.bFl().getNetType());
                 if (hashMap.containsKey("whiteTime") && (hashMap.get("whiteTime") instanceof Double)) {
                     mT.append("wt", Double.valueOf(((Double) hashMap.get("whiteTime")).doubleValue() * 1000.0d));
                 }

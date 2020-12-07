@@ -3,11 +3,11 @@ package com.baidu.mapapi.map;
 import android.view.View;
 import com.baidu.mapapi.common.SysOSUtil;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class InfoWindow {
 
     /* renamed from: a  reason: collision with root package name */
-    BitmapDescriptor f2013a;
+    BitmapDescriptor f2015a;
     View b;
     LatLng c;
     OnInfoWindowClickListener d;
@@ -20,13 +20,13 @@ public class InfoWindow {
     boolean k;
     private String l;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public interface OnInfoWindowClickListener {
         void onInfoWindowClick();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public interface a {
         void a(InfoWindow infoWindow);
 
@@ -77,7 +77,7 @@ public class InfoWindow {
         if (bitmapDescriptor == null || latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: bitmapDescriptor and position can not be null");
         }
-        this.f2013a = bitmapDescriptor;
+        this.f2015a = bitmapDescriptor;
         this.c = latLng;
         this.d = onInfoWindowClickListener;
         this.f = i;
@@ -85,7 +85,7 @@ public class InfoWindow {
     }
 
     public BitmapDescriptor getBitmapDescriptor() {
-        return this.f2013a;
+        return this.f2015a;
     }
 
     public LatLng getPosition() {
@@ -108,7 +108,7 @@ public class InfoWindow {
         if (bitmapDescriptor == null) {
             return;
         }
-        this.f2013a = bitmapDescriptor;
+        this.f2015a = bitmapDescriptor;
         this.e.b(this);
     }
 

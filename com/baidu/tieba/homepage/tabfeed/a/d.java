@@ -10,32 +10,32 @@ import com.baidu.card.am;
 import com.baidu.card.an;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.card.t;
-/* loaded from: classes21.dex */
-public class d extends com.baidu.adp.widget.ListView.a<bx, am<bx>> {
-    private ab<bx> afK;
-    private v alH;
-    public BdUniqueId fsa;
+/* loaded from: classes22.dex */
+public class d extends com.baidu.adp.widget.ListView.a<by, am<by>> {
+    private ab<by> agG;
+    private v amH;
+    public BdUniqueId fzO;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.afK = new ab<bx>() { // from class: com.baidu.tieba.homepage.tabfeed.a.d.1
+        this.agG = new ab<by>() { // from class: com.baidu.tieba.homepage.tabfeed.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
-            public void a(View view, bx bxVar) {
-                t.cnT().lO(true);
-                com.baidu.tieba.homepage.tabfeed.b.a(view, bxVar, d.this.mTabName);
+            public void a(View view, by byVar) {
+                t.csg().mj(true);
+                com.baidu.tieba.homepage.tabfeed.b.a(view, byVar, d.this.mTabName);
             }
         };
         this.mPageContext = tbPageContext;
-        this.fsa = bdUniqueId2;
+        this.fzO = bdUniqueId2;
         this.mTabName = str;
     }
 
@@ -43,27 +43,27 @@ public class d extends com.baidu.adp.widget.ListView.a<bx, am<bx>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aR */
-    public am<bx> c(ViewGroup viewGroup) {
+    public am<by> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity());
         com.baidu.card.e eVar = new com.baidu.card.e(this.mPageContext.getPageActivity());
-        eVar.setPageUniqueId(this.fsa);
+        eVar.setPageUniqueId(this.fzO);
         eVar.b(this.mPageContext);
         aVar.a(eVar);
         aVar.c(new com.baidu.card.c(this.mPageContext.getPageActivity()));
         aVar.a((com.baidu.card.i) new com.baidu.card.k(this.mPageContext.getPageActivity()));
         an anVar = new an(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-        dVar.exI = 1;
-        dVar.exO = 1;
+        dVar.eEJ = 1;
+        dVar.eEP = 1;
         anVar.setAgreeStatisticData(dVar);
         anVar.setFrom(1);
         anVar.setShareReportFrom(3);
         anVar.setFromForPb(2);
         aVar.b(anVar);
-        ak a2 = aVar.a(BaseCardInfo.SupportType.FULL, viewGroup, this.alH);
+        ak a2 = aVar.a(BaseCardInfo.SupportType.FULL, viewGroup, this.amH);
         a2.setSourceForPb(2);
-        am<bx> amVar = new am<>(a2);
-        amVar.setPageId(this.fsa);
+        am<by> amVar = new am<>(a2);
+        amVar.setPageId(this.fzO);
         a(new com.baidu.adp.widget.ListView.ab() { // from class: com.baidu.tieba.homepage.tabfeed.a.d.2
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, com.baidu.adp.widget.ListView.q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -76,16 +76,16 @@ public class d extends com.baidu.adp.widget.ListView.a<bx, am<bx>> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bx bxVar, am<bx> amVar) {
-        if (bxVar == null || amVar == null || amVar.getView() == null) {
+    public View a(int i, View view, ViewGroup viewGroup, by byVar, am<by> amVar) {
+        if (byVar == null || amVar == null || amVar.getView() == null) {
             return null;
         }
-        bxVar.eAb = getPositionByType(i) + 1;
-        amVar.tW().setPosition(i);
-        amVar.b((am<bx>) bxVar);
-        amVar.tW().a(this.afK);
-        amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.homepage.tabfeed.b.a(bxVar, this.mTabName);
+        byVar.eHa = getPositionByType(i) + 1;
+        amVar.tZ().setPosition(i);
+        amVar.b((am<by>) byVar);
+        amVar.tZ().a(this.agG);
+        amVar.tZ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        com.baidu.tieba.homepage.tabfeed.b.a(byVar, this.mTabName);
         return amVar.getView();
     }
 
@@ -95,11 +95,11 @@ public class d extends com.baidu.adp.widget.ListView.a<bx, am<bx>> {
             com.baidu.tieba.card.data.e eVar = (com.baidu.tieba.card.data.e) qVar;
             eVar.objType = 1;
             az.a((com.baidu.tbadk.core.data.a) eVar, view.getContext(), 2, false);
-            ((am) view.getTag()).tW().b(new a.C0096a(1));
+            ((am) view.getTag()).tZ().b(new a.C0097a(1));
         }
     }
 
     public void a(v vVar) {
-        this.alH = vVar;
+        this.amH = vVar;
     }
 }

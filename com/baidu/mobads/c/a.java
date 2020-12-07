@@ -20,8 +20,8 @@ import com.baidu.mobads.utils.h;
 import com.baidu.mobads.utils.m;
 import com.baidu.mobads.vo.a.d;
 import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.ugc.model.PublishType;
 import com.baidu.webkit.internal.ETAG;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -29,7 +29,7 @@ import java.util.Random;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final IXAdLogger f2321a = XAdSDKFoundationFacade.getInstance().getAdLogger();
+    protected final IXAdLogger f2323a = XAdSDKFoundationFacade.getInstance().getAdLogger();
     private Context e;
     private static a d = new a();
     public static volatile String b = "";
@@ -51,7 +51,7 @@ public class a {
     }
 
     public void a(Context context, com.baidu.mobads.command.a aVar) {
-        a(context, "9", aVar);
+        a(context, PublishType.TYPE_VIDEO_SHARE, aVar);
     }
 
     public void a(com.baidu.mobads.command.a aVar) {
@@ -178,21 +178,21 @@ public class a {
                     String encodeURIComponent = commonUtils.encodeURIComponent(str2);
                     String encodeURIComponent2 = commonUtils.encodeURIComponent(str3);
                     sb.append(encodeURIComponent);
-                    sb.append(ETAG.EQUAL);
+                    sb.append("=");
                     sb.append(encodeURIComponent2);
                     sb.append(ETAG.ITEM_SEPARATOR);
                     sb2.append(encodeURIComponent2);
-                    sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    sb2.append(",");
                 }
             }
             sb2.append("mobads,");
             String md5 = commonUtils.getMD5(sb2.toString());
-            this.f2321a.d("ExtraQuery.allValue:" + ((Object) sb2));
+            this.f2323a.d("ExtraQuery.allValue:" + ((Object) sb2));
             sb.append("vd=" + md5 + ETAG.ITEM_SEPARATOR);
-            this.f2321a.d("ExtraQuery.params:" + ((Object) sb));
+            this.f2323a.d("ExtraQuery.params:" + ((Object) sb));
             return "https://mobads-logs.baidu.com/dz.zb?" + sb.toString();
         } catch (Exception e) {
-            this.f2321a.d(e);
+            this.f2323a.d(e);
             return "";
         }
     }

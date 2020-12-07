@@ -1,6 +1,6 @@
 package io.reactivex.internal.a;
-
-import java.util.concurrent.Callable;
-/* loaded from: classes5.dex */
-public interface e extends Callable {
+/* loaded from: classes9.dex */
+public interface e<T> extends f<T> {
+    @Override // io.reactivex.internal.a.f
+    T poll();
 }

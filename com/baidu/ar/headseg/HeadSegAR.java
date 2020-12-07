@@ -1,83 +1,82 @@
 package com.baidu.ar.headseg;
 
 import android.os.Bundle;
-import com.baidu.ar.arrender.k;
+import com.baidu.ar.arrender.l;
 import com.baidu.ar.c;
 import com.baidu.ar.d.b;
 import com.baidu.ar.d.e;
-import com.baidu.ar.d.l;
 import com.baidu.ar.databasic.AlgoHandleAdapter;
 import com.baidu.ar.databasic.AlgoHandleController;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class HeadSegAR extends c {
     private static final String TAG = HeadSegAR.class.getSimpleName();
-    private HeadSegDetector qi;
-    private String bA = "ability_head_segmentation";
-    private AlgoHandleController bY = null;
-    private e qj = new e() { // from class: com.baidu.ar.headseg.HeadSegAR.1
+    private HeadSegDetector qy;
+    private String bD = "ability_head_segmentation";
+    private AlgoHandleController cb = null;
+    private e qz = new e() { // from class: com.baidu.ar.headseg.HeadSegAR.1
         @Override // com.baidu.ar.d.e
         public void a(b bVar) {
-            long df = bVar.df();
-            k r = HeadSegAR.this.r();
-            if (r == null || df <= 0 || HeadSegAR.this.bY == null) {
+            long de2 = bVar.de();
+            l r = HeadSegAR.this.r();
+            if (r == null || de2 <= 0 || HeadSegAR.this.cb == null) {
                 return;
             }
-            HeadSegAR.this.bY.sendHandleToRenderer(df, r, "ability_head_segmentation");
-            HeadSegAR.this.a(df);
+            HeadSegAR.this.cb.sendHandleToRenderer(de2, r, "ability_head_segmentation");
+            HeadSegAR.this.a(de2);
         }
 
         @Override // com.baidu.ar.d.e
-        public void a(l lVar) {
-            k r = HeadSegAR.this.r();
-            if (r == null || HeadSegAR.this.qi == null || lVar == null) {
+        public void a(com.baidu.ar.d.l lVar) {
+            l r = HeadSegAR.this.r();
+            if (r == null || HeadSegAR.this.qy == null || lVar == null) {
                 return;
             }
-            r.b(lVar.dl(), HeadSegAR.this.qi.dk());
+            r.b(lVar.dk(), HeadSegAR.this.qy.dj());
         }
 
         @Override // com.baidu.ar.d.e
-        public void b(l lVar) {
+        public void b(com.baidu.ar.d.l lVar) {
         }
     };
-    private e lp = new e() { // from class: com.baidu.ar.headseg.HeadSegAR.2
+    private e lE = new e() { // from class: com.baidu.ar.headseg.HeadSegAR.2
         @Override // com.baidu.ar.d.e
         public void a(b bVar) {
-            long df = bVar.df();
-            if (HeadSegAR.this.bY == null) {
+            long de2 = bVar.de();
+            if (HeadSegAR.this.cb == null) {
                 ARMdlInterfaceJNI.updateLastFaceInfo(0L);
-            } else if (HeadSegAR.this.bY.getHandleType(df) == 10) {
-                ARMdlInterfaceJNI.updateLastFaceInfo(df);
+            } else if (HeadSegAR.this.cb.getHandleType(de2) == 10) {
+                ARMdlInterfaceJNI.updateLastFaceInfo(de2);
             }
-            AlgoHandleAdapter.destroyHandle(df);
+            AlgoHandleAdapter.destroyHandle(de2);
         }
 
         @Override // com.baidu.ar.d.e
-        public void a(l lVar) {
+        public void a(com.baidu.ar.d.l lVar) {
         }
 
         @Override // com.baidu.ar.d.e
-        public void b(l lVar) {
+        public void b(com.baidu.ar.d.l lVar) {
         }
     };
 
     private void b(long j) {
-        if (this.bY == null || j <= 0) {
+        if (this.cb == null || j <= 0) {
             return;
         }
-        long handleType = this.bY.getHandleType(j);
-        if (this.qi == null || handleType != 22) {
+        long handleType = this.cb.getHandleType(j);
+        if (this.qy == null || handleType != 22) {
             return;
         }
-        this.qi.b(j);
+        this.qy.b(j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.ar.c
     public void a(long j) {
         super.a(j);
-        if (j <= 0 || this.bY == null || this.bY.getHandleType(j) != 22) {
+        if (j <= 0 || this.cb == null || this.cb.getHandleType(j) != 22) {
             return;
         }
         b(j);
@@ -86,18 +85,18 @@ public class HeadSegAR extends c {
     @Override // com.baidu.ar.c
     public void release() {
         b(false);
-        if (this.qi != null) {
-            this.qi.a((AlgoHandleController) null);
-            this.qi.au();
-            a(this.qi);
+        if (this.qy != null) {
+            this.qy.a((AlgoHandleController) null);
+            this.qy.av();
+            a(this.qy);
         }
-        if (this.bY != null) {
-            this.bY.release();
-            this.bY = null;
+        if (this.cb != null) {
+            this.cb.release();
+            this.cb = null;
         }
-        k r = r();
+        l r = r();
         if (r != null) {
-            r.o(22);
+            r.q(22);
         }
         super.release();
     }
@@ -105,17 +104,17 @@ public class HeadSegAR extends c {
     @Override // com.baidu.ar.c
     public void setup(HashMap<String, Object> hashMap) {
         super.setup(hashMap);
-        if (this.bY == null) {
-            this.bY = new AlgoHandleController();
+        if (this.cb == null) {
+            this.cb = new AlgoHandleController();
         }
-        this.qi = new HeadSegDetector();
-        this.qi.a(this.bY);
+        this.qy = new HeadSegDetector();
+        this.qy.a(this.cb);
         HashMap<String, Object> hashMap2 = new HashMap<>();
-        hashMap2.put("ability_name", this.bA);
-        a("FaceDetector", this.lp, hashMap2);
+        hashMap2.put("ability_name", this.bD);
+        a("FaceDetector", this.lE, hashMap2);
         b(true);
-        a(this.qi, this.qj);
-        com.baidu.ar.b.a.ar().a(getContext(), getMdlConfigs());
-        this.qi.b((Bundle) null);
+        a(this.qy, this.qz);
+        com.baidu.ar.b.a.as().a(getContext(), getMdlConfigs());
+        this.qy.b((Bundle) null);
     }
 }

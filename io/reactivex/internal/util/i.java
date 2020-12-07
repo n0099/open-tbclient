@@ -3,9 +3,9 @@ package io.reactivex.internal.util;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class i {
-    public static <T> io.reactivex.internal.a.g<T> RS(int i) {
+    public static <T> io.reactivex.internal.a.f<T> RS(int i) {
         return i < 0 ? new io.reactivex.internal.queue.a(-i) : new SpscArrayQueue(i);
     }
 
@@ -13,11 +13,11 @@ public final class i {
         dVar.request(i < 0 ? Long.MAX_VALUE : i);
     }
 
-    public static <T> boolean a(long j, org.a.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.c.e eVar) {
+    public static <T> boolean a(long j, org.a.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.b.e eVar) {
         long j2;
         do {
             j2 = atomicLong.get();
-        } while (!atomicLong.compareAndSet(j2, b.O(Long.MAX_VALUE & j2, j) | (j2 & Long.MIN_VALUE)));
+        } while (!atomicLong.compareAndSet(j2, b.N(Long.MAX_VALUE & j2, j) | (j2 & Long.MIN_VALUE)));
         if (j2 == Long.MIN_VALUE) {
             b(j | Long.MIN_VALUE, cVar, queue, atomicLong, eVar);
             return true;
@@ -25,7 +25,7 @@ public final class i {
         return false;
     }
 
-    static boolean a(io.reactivex.c.e eVar) {
+    static boolean a(io.reactivex.b.e eVar) {
         try {
             return eVar.getAsBoolean();
         } catch (Throwable th) {
@@ -34,7 +34,7 @@ public final class i {
         }
     }
 
-    static <T> boolean b(long j, org.a.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.c.e eVar) {
+    static <T> boolean b(long j, org.a.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.b.e eVar) {
         long j2 = j & Long.MIN_VALUE;
         while (true) {
             if (j2 != j) {
@@ -69,7 +69,7 @@ public final class i {
         }
     }
 
-    public static <T> void a(org.a.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.c.e eVar) {
+    public static <T> void a(org.a.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.b.e eVar) {
         long j;
         long j2;
         if (queue.isEmpty()) {

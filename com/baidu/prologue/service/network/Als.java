@@ -13,26 +13,26 @@ public class Als {
     private static final boolean DEBUG;
 
     static {
-        DEBUG = com.baidu.prologue.a.b.a.cft.get() != null && com.baidu.prologue.a.b.a.cft.get().abk();
+        DEBUG = com.baidu.prologue.a.b.a.clZ.get() != null && com.baidu.prologue.a.b.a.clZ.get().aes();
     }
 
     public static void a(@NonNull a aVar) {
-        com.baidu.prologue.a.b.a aVar2 = com.baidu.prologue.a.b.a.cft.get();
+        com.baidu.prologue.a.b.a aVar2 = com.baidu.prologue.a.b.a.clZ.get();
         if (aVar2 == null) {
             if (DEBUG) {
                 throw new IllegalStateException("宿主App未初始化IAppContext");
             }
             return;
         }
-        Request.a aVar3 = new Request.a(aVar2.aba(), "https://als.baidu.com/clog/clog");
+        Request.a aVar3 = new Request.a(aVar2.aei(), "https://als.baidu.com/clog/clog");
         a(aVar3, aVar2);
         JSONArray jSONArray = new JSONArray();
-        jSONArray.put(aVar.chv);
-        aVar3.bc(MapBundleKey.MapObjKey.OBJ_AD, jSONArray.toString());
-        aVar3.act().acr().a(new m() { // from class: com.baidu.prologue.service.network.Als.1
+        jSONArray.put(aVar.cod);
+        aVar3.bj(MapBundleKey.MapObjKey.OBJ_AD, jSONArray.toString());
+        aVar3.afB().afz().a(new m() { // from class: com.baidu.prologue.service.network.Als.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
-            /* renamed from: jw */
+            /* renamed from: fK */
             public void onResponse(String str) {
                 if (Als.DEBUG) {
                     Log.d("Als", "Als get correct response.");
@@ -49,21 +49,21 @@ public class Als {
     }
 
     public static void a(String str, String str2, String str3, long j, String str4) {
-        com.baidu.prologue.a.b.a aVar = com.baidu.prologue.a.b.a.cft.get();
+        com.baidu.prologue.a.b.a aVar = com.baidu.prologue.a.b.a.clZ.get();
         if (aVar == null) {
             if (DEBUG) {
                 throw new IllegalStateException("宿主App未初始化IAppContext");
             }
             return;
         }
-        Request.a aVar2 = new Request.a(aVar.aba(), "http://als.baidu.com/elog/plog");
+        Request.a aVar2 = new Request.a(aVar.aei(), "http://als.baidu.com/elog/plog");
         a(aVar2, aVar);
         a(aVar2);
         a(aVar2, str, str2, str3, j, str4);
-        aVar2.act().acr().a(new m() { // from class: com.baidu.prologue.service.network.Als.2
+        aVar2.afB().afz().a(new m() { // from class: com.baidu.prologue.service.network.Als.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
-            /* renamed from: jw */
+            /* renamed from: fK */
             public void onResponse(String str5) {
                 if (Als.DEBUG) {
                     Log.d("Als", "Als performance get correct response.");
@@ -80,76 +80,76 @@ public class Als {
     }
 
     private static void a(Request.a aVar, com.baidu.prologue.a.b.a aVar2) {
-        aVar.bc("_client_type", "2");
-        aVar.bc("_os_type", "2");
-        aVar.bc("_client_version", aVar2.abb());
-        aVar.bc("_os_version", aVar2.abc());
-        aVar.bc("model", aVar2.abe());
-        aVar.bc("cuid", aVar2.abd());
-        aVar.bc("productId", aVar2.abl());
-        aVar.bc("net_type", String.valueOf(new g(aVar2.aba()).acp()));
+        aVar.bj("_client_type", "2");
+        aVar.bj("_os_type", "2");
+        aVar.bj("_client_version", aVar2.aej());
+        aVar.bj("_os_version", aVar2.aek());
+        aVar.bj("model", aVar2.aem());
+        aVar.bj("cuid", aVar2.ael());
+        aVar.bj("productId", aVar2.aet());
+        aVar.bj("net_type", String.valueOf(new g(aVar2.aei()).afx()));
     }
 
     private static void a(Request.a aVar) {
-        aVar.bc("c_id", "1038");
-        aVar.bc("c_type", "every");
+        aVar.bj("c_id", "1038");
+        aVar.bj("c_type", "every");
     }
 
     private static void a(Request.a aVar, String str, String str2, String str3, long j, String str4) {
-        aVar.bc("f1", str);
-        aVar.bc("f2", str2);
-        aVar.bc("f3", str3);
-        aVar.bc("f4", j + "");
-        aVar.bc("f5", str4);
+        aVar.bj("f1", str);
+        aVar.bj("f2", str2);
+        aVar.bj("f3", str3);
+        aVar.bj("f4", j + "");
+        aVar.bj("f5", str4);
     }
 
     /* loaded from: classes14.dex */
     public static final class a {
-        private final JSONObject chv = new JSONObject();
+        private final JSONObject cod = new JSONObject();
 
         public a(@NonNull Type type) {
-            ba("da_type", type.value);
-            j("origin_time", Long.valueOf(System.currentTimeMillis()));
+            bh("da_type", type.value);
+            i("origin_time", Long.valueOf(System.currentTimeMillis()));
         }
 
         public a a(@NonNull Page page) {
-            return ba("da_page", page.value);
+            return bh("da_page", page.value);
         }
 
         public a b(@NonNull Area area) {
-            return ba("da_area", area.value);
+            return bh("da_area", area.value);
         }
 
-        public a jH(@NonNull String str) {
-            return ba("extra_param", str);
+        public a ko(@NonNull String str) {
+            return bh("extra_param", str);
         }
 
-        public a jI(@NonNull String str) {
-            return ba("da_ext1", str);
+        public a kp(@NonNull String str) {
+            return bh("da_ext1", str);
         }
 
-        public a jJ(@NonNull String str) {
-            return ba("da_ext2", str);
+        public a kq(@NonNull String str) {
+            return bh("da_ext2", str);
         }
 
-        public a jK(@NonNull String str) {
-            return ba("da_ext3", str);
+        public a kr(@NonNull String str) {
+            return bh("da_ext3", str);
         }
 
-        private a ba(String str, String str2) {
-            return k(str, str2);
+        private a bh(String str, String str2) {
+            return j(str, str2);
         }
 
-        private a j(String str, Object obj) {
-            return k(str, obj);
+        private a i(String str, Object obj) {
+            return j(str, obj);
         }
 
-        private <T> a k(String str, T t) {
-            if (Als.DEBUG && this.chv.has(str)) {
+        private <T> a j(String str, T t) {
+            if (Als.DEBUG && this.cod.has(str)) {
                 throw new IllegalArgumentException("key " + str + " has been set!");
             }
             try {
-                this.chv.put(str, t);
+                this.cod.put(str, t);
             } catch (JSONException e) {
                 if (Als.DEBUG) {
                     throw new IllegalArgumentException("Json put create invalid exception");

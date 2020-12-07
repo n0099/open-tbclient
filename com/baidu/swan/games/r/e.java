@@ -6,48 +6,49 @@ import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.searchbox.v8engine.event.JSEvent;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @V8JavascriptField
     public JsObject canvas = null;
-    private com.baidu.swan.games.f.b dPn;
+    private com.baidu.swan.games.f.b dWl;
 
     public e(com.baidu.swan.games.f.b bVar) {
-        this.dPn = bVar;
-        aVQ();
-        aVR();
+        this.dWl = bVar;
+        aYV();
+        aYW();
     }
 
-    private boolean aVQ() {
-        return dh(this.dPn.getInitBasePath(), "swan-game-open-data.js");
+    private boolean aYV() {
+        return m33do(this.dWl.getInitBasePath(), "swan-game-open-data.js");
     }
 
-    private boolean aVR() {
-        String ayN = com.baidu.swan.apps.v.f.azg().ayN();
-        String aVU = f.aVS().aVU();
+    private boolean aYW() {
+        String aBW = com.baidu.swan.apps.v.f.aCp().aBW();
+        String aYZ = f.aYX().aYZ();
         if (DEBUG) {
-            Log.d("SwanGameOpenDataContext", "baseFilePath: " + ayN);
-            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + aVU);
+            Log.d("SwanGameOpenDataContext", "baseFilePath: " + aBW);
+            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + aYZ);
         }
-        return dh(ayN, aVU);
+        return m33do(aBW, aYZ);
     }
 
     @JavascriptInterface
     public void destroyOpenDataContext() {
-        this.dPn.aUf().aUr();
+        this.dWl.aXk().aXw();
     }
 
     @JavascriptInterface
     public void postMessage(JsObject jsObject) {
-        this.dPn.aUi().dispatchEvent(new JSEvent("postmessage", jsObject));
+        this.dWl.aXn().dispatchEvent(new JSEvent("postmessage", jsObject));
     }
 
-    private boolean dh(String str, String str2) {
-        if (!f.aVS().aVT() || TextUtils.isEmpty(str)) {
+    /* renamed from: do  reason: not valid java name */
+    private boolean m33do(String str, String str2) {
+        if (!f.aYX().aYY() || TextUtils.isEmpty(str)) {
             return false;
         }
-        this.dPn.aUf().cU(str, str2);
+        this.dWl.aXk().db(str, str2);
         return true;
     }
 }

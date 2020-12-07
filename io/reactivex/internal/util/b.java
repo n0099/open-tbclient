@@ -1,9 +1,9 @@
 package io.reactivex.internal.util;
 
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class b {
-    public static long O(long j, long j2) {
+    public static long N(long j, long j2) {
         long j3 = j + j2;
         if (j3 < 0) {
             return Long.MAX_VALUE;
@@ -11,7 +11,7 @@ public final class b {
         return j3;
     }
 
-    public static long P(long j, long j2) {
+    public static long O(long j, long j2) {
         long j3 = j * j2;
         if (((j | j2) >>> 31) != 0 && j3 / j != j2) {
             return Long.MAX_VALUE;
@@ -26,7 +26,7 @@ public final class b {
             if (j2 == Long.MAX_VALUE) {
                 return Long.MAX_VALUE;
             }
-        } while (!atomicLong.compareAndSet(j2, O(j2, j)));
+        } while (!atomicLong.compareAndSet(j2, N(j2, j)));
         return j2;
     }
 
@@ -40,7 +40,7 @@ public final class b {
             if (j2 == Long.MAX_VALUE) {
                 return Long.MAX_VALUE;
             }
-        } while (!atomicLong.compareAndSet(j2, O(j2, j)));
+        } while (!atomicLong.compareAndSet(j2, N(j2, j)));
         return j2;
     }
 
@@ -54,7 +54,7 @@ public final class b {
             }
             j3 = j2 - j;
             if (j3 < 0) {
-                io.reactivex.e.a.onError(new IllegalStateException("More produced than requested: " + j3));
+                io.reactivex.d.a.onError(new IllegalStateException("More produced than requested: " + j3));
                 j3 = 0;
             }
         } while (!atomicLong.compareAndSet(j2, j3));
@@ -74,7 +74,7 @@ public final class b {
             }
             j3 = j2 - j;
             if (j3 < 0) {
-                io.reactivex.e.a.onError(new IllegalStateException("More produced than requested: " + j3));
+                io.reactivex.d.a.onError(new IllegalStateException("More produced than requested: " + j3));
                 j3 = 0;
             }
         } while (!atomicLong.compareAndSet(j2, j3));

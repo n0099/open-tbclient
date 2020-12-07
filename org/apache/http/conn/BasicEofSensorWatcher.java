@@ -3,7 +3,7 @@ package org.apache.http.conn;
 import java.io.IOException;
 import java.io.InputStream;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class BasicEofSensorWatcher implements EofSensorWatcher {
     protected boolean attemptReuse;
     protected ManagedClientConnection managedConn;

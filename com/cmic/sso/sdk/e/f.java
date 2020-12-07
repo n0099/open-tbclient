@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes10.dex */
 public class f {
-    private static PackageInfo U(Context context) {
+    private static PackageInfo V(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
         } catch (PackageManager.NameNotFoundException e) {
@@ -16,8 +16,8 @@ public class f {
     }
 
     private static String d(Context context) {
-        PackageInfo U = U(context);
-        return U == null ? "" : U.packageName;
+        PackageInfo V = V(context);
+        return V == null ? "" : V.packageName;
     }
 
     public static String a(Context context) {
@@ -27,11 +27,11 @@ public class f {
             String str = (String) packageManager.getApplicationLabel(packageManager.getApplicationInfo(d(context), 0));
             if (str == null) {
                 try {
-                    PackageInfo U = U(context);
-                    if (U == null) {
+                    PackageInfo V = V(context);
+                    if (V == null) {
                         return null;
                     }
-                    return context.getResources().getString(U.applicationInfo.labelRes);
+                    return context.getResources().getString(V.applicationInfo.labelRes);
                 } catch (Exception e2) {
                     e = e2;
                     e.printStackTrace();
@@ -46,9 +46,9 @@ public class f {
 
     public static String b(Context context) {
         try {
-            PackageInfo U = U(context);
-            if (U != null) {
-                return d(context) + ETAG.ITEM_SEPARATOR + U.versionName;
+            PackageInfo V = V(context);
+            if (V != null) {
+                return d(context) + ETAG.ITEM_SEPARATOR + V.versionName;
             }
         } catch (Exception e) {
             e.printStackTrace();

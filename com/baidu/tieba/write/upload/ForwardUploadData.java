@@ -7,7 +7,6 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.webkit.internal.ETAG;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class ForwardUploadData extends BaseUploadData implements Serializable {
@@ -196,7 +195,7 @@ public class ForwardUploadData extends BaseUploadData implements Serializable {
 
     public static String getThumbpic(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
-            int indexOf = str.indexOf(ETAG.EQUAL);
+            int indexOf = str.indexOf("=");
             int length = str.length();
             if (indexOf != -1 && indexOf + 1 != length) {
                 String urlDecode = k.getUrlDecode(str.substring(indexOf + 1));

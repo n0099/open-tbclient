@@ -17,7 +17,7 @@ import com.baidu.sofire.i.i;
 import com.baidu.sofire.i.u;
 import com.baidu.sofire.jni.Asc;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class F implements FI {
     private static F instance;
     private static Asc sAsc;
@@ -39,7 +39,7 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public String p(String str) {
         try {
-            ApkInfo apkInfo = f.a().f3615a.get(str);
+            ApkInfo apkInfo = f.a().f3618a.get(str);
             if (apkInfo == null) {
                 return null;
             }

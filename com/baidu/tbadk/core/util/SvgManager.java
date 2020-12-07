@@ -21,13 +21,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class SvgManager {
-    private b eMT;
+    private b eUf;
     private Resources mResources;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        static SvgManager eMU = new SvgManager();
+        static SvgManager eUg = new SvgManager();
     }
 
     /* loaded from: classes.dex */
@@ -52,7 +52,7 @@ public class SvgManager {
             int[] iArr = new int[this.stateCount];
             int[][] iArr2 = new int[this.stateCount];
             if (this.canPress) {
-                iArr[0] = com.baidu.tieba.tbadkCore.c.m(i, ap.eMy);
+                iArr[0] = com.baidu.tieba.tbadkCore.c.m(i, ap.eTK);
                 iArr2[0] = new int[]{16842919, 16842910};
                 i2 = 1;
             } else {
@@ -64,7 +64,7 @@ public class SvgManager {
                 iArr3[0] = 16842910;
                 iArr2[i2] = iArr3;
                 int i3 = i2 + 1;
-                iArr[i3] = com.baidu.tieba.tbadkCore.c.m(i, ap.eMz);
+                iArr[i3] = com.baidu.tieba.tbadkCore.c.m(i, ap.eTL);
                 iArr2[i3] = new int[0];
             } else {
                 iArr[i2] = i;
@@ -75,7 +75,7 @@ public class SvgManager {
     }
 
     private SvgManager() {
-        this.eMT = new b();
+        this.eUf = new b();
         try {
             this.mResources = (Resources) Class.forName("android.support.v7.widget.VectorEnabledTintResources").getDeclaredConstructor(Context.class, Resources.class).newInstance(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources());
         } catch (Exception e) {
@@ -83,10 +83,10 @@ public class SvgManager {
         }
     }
 
-    public static synchronized SvgManager bqB() {
+    public static synchronized SvgManager btW() {
         SvgManager svgManager;
         synchronized (SvgManager.class) {
-            svgManager = a.eMU;
+            svgManager = a.eUg;
         }
         return svgManager;
     }
@@ -168,8 +168,8 @@ public class SvgManager {
     }
 
     public Drawable a(int i, SvgResourceStateType svgResourceStateType) {
-        Drawable pw;
-        Drawable pw2;
+        Drawable pW;
+        Drawable pW2;
         if (i == 0) {
             return null;
         }
@@ -177,24 +177,24 @@ public class SvgManager {
             svgResourceStateType = SvgResourceStateType.NORMAL;
         }
         StateListDrawable stateListDrawable = new StateListDrawable();
-        if (svgResourceStateType.canDisable && (pw2 = pw(i)) != null) {
-            pw2.setAlpha((int) (ap.eMz * 255.0f));
-            stateListDrawable.addState(new int[]{-16842910}, pw2);
+        if (svgResourceStateType.canDisable && (pW2 = pW(i)) != null) {
+            pW2.setAlpha((int) (ap.eTL * 255.0f));
+            stateListDrawable.addState(new int[]{-16842910}, pW2);
         }
-        if (svgResourceStateType.canPress && (pw = pw(i)) != null) {
-            pw.setAlpha((int) (ap.eMy * 255.0f));
-            stateListDrawable.addState(new int[]{16842919}, pw);
+        if (svgResourceStateType.canPress && (pW = pW(i)) != null) {
+            pW.setAlpha((int) (ap.eTK * 255.0f));
+            stateListDrawable.addState(new int[]{16842919}, pW);
         }
-        Drawable pw3 = pw(i);
-        if (pw3 != null) {
-            stateListDrawable.addState(new int[0], pw3);
+        Drawable pW3 = pW(i);
+        if (pW3 != null) {
+            stateListDrawable.addState(new int[0], pW3);
             return stateListDrawable;
         }
         return null;
     }
 
-    public Drawable z(int i, int i2, int i3) {
-        Drawable pw;
+    public Drawable y(int i, int i2, int i3) {
+        Drawable pW;
         if (i <= 0) {
             return null;
         }
@@ -203,16 +203,16 @@ public class SvgManager {
         Drawable j = j(i, 1, false);
         if (j != null) {
             Drawable mutate = j(i, 1, false).mutate();
-            DrawableCompat.setTint(mutate, com.baidu.tieba.tbadkCore.c.m(ap.getColor(i3, i4), ap.eMz));
+            DrawableCompat.setTint(mutate, com.baidu.tieba.tbadkCore.c.m(ap.getColor(i3, i4), ap.eTL));
             stateListDrawable.addState(new int[]{-16842910}, mutate);
-            if (i2 > 0 && (pw = pw(i2)) != null) {
-                Drawable mutate2 = pw(i2).mutate();
-                mutate2.setAlpha((int) (255.0f * ap.eMy));
+            if (i2 > 0 && (pW = pW(i2)) != null) {
+                Drawable mutate2 = pW(i2).mutate();
+                mutate2.setAlpha((int) (255.0f * ap.eTK));
                 stateListDrawable.addState(new int[]{16842913, 16842919}, mutate2);
-                stateListDrawable.addState(new int[]{16842913}, pw);
+                stateListDrawable.addState(new int[]{16842913}, pW);
             }
             Drawable mutate3 = j(i, 1, false).mutate();
-            DrawableCompat.setTint(mutate3, com.baidu.tieba.tbadkCore.c.m(ap.getColor(i3, i4), ap.eMy));
+            DrawableCompat.setTint(mutate3, com.baidu.tieba.tbadkCore.c.m(ap.getColor(i3, i4), ap.eTK));
             stateListDrawable.addState(new int[]{16842919}, mutate3);
             DrawableCompat.setTint(j.mutate(), ap.getColor(i3, i4));
             stateListDrawable.addState(new int[0], j);
@@ -221,7 +221,7 @@ public class SvgManager {
         return null;
     }
 
-    private Drawable pw(int i) {
+    private Drawable pW(int i) {
         Drawable j;
         Drawable drawable = null;
         if (i != 0 && (j = j(i, 1, false)) != null) {
@@ -263,19 +263,19 @@ public class SvgManager {
                 }
                 switch (i2) {
                     case 1:
-                        VectorDrawableCompat px = this.eMT.px(i3);
-                        if (px == null) {
+                        VectorDrawableCompat pX = this.eUf.pX(i3);
+                        if (pX == null) {
                             return ap.getDrawable(skinType, this.mResources, ap.getVectorToDefaultResId(this.mResources, i));
                         }
-                        return px;
+                        return pX;
                     case 2:
-                        AnimatedVectorDrawableCompat py = this.eMT.py(i3);
-                        if (py == null) {
+                        AnimatedVectorDrawableCompat pY = this.eUf.pY(i3);
+                        if (pY == null) {
                             return ap.getDrawable(skinType, this.mResources, ap.getVectorToDefaultResId(this.mResources, i));
                         }
-                        return py;
+                        return pY;
                     case 3:
-                        StateListDrawable a2 = this.eMT.a(i3, this.mResources);
+                        StateListDrawable a2 = this.eUf.a(i3, this.mResources);
                         if (a2 == null) {
                             return ap.getDrawable(skinType, this.mResources, ap.getVectorToDefaultResId(this.mResources, i));
                         }
@@ -297,7 +297,7 @@ public class SvgManager {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        private LruCache<Integer, Drawable.ConstantState> eMV = new LruCache<>(50);
+        private LruCache<Integer, Drawable.ConstantState> eUh = new LruCache<>(50);
 
         b() {
         }
@@ -308,12 +308,12 @@ public class SvgManager {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public VectorDrawableCompat px(int i) {
+        public VectorDrawableCompat pX(int i) {
             Drawable.ConstantState constantState;
             Throwable th;
             VectorDrawableCompat vectorDrawableCompat;
             Drawable.ConstantState constantState2;
-            Drawable.ConstantState constantState3 = this.eMV.get(Integer.valueOf(i));
+            Drawable.ConstantState constantState3 = this.eUh.get(Integer.valueOf(i));
             if (constantState3 == null) {
                 try {
                     VectorDrawableCompat create = VectorDrawableCompat.create(TbadkCoreApplication.getInst().getResources(), i, null);
@@ -335,7 +335,7 @@ public class SvgManager {
                     }
                     if (constantState2 != null) {
                         try {
-                            this.eMV.put(Integer.valueOf(i), constantState2);
+                            this.eUh.put(Integer.valueOf(i), constantState2);
                         } catch (Throwable th3) {
                             th = th3;
                             constantState = constantState2;
@@ -378,7 +378,7 @@ public class SvgManager {
         public StateListDrawable a(int i, @NonNull Resources resources) {
             StateListDrawable stateListDrawable;
             StateListDrawable stateListDrawable2;
-            Drawable.ConstantState constantState = this.eMV.get(Integer.valueOf(i));
+            Drawable.ConstantState constantState = this.eUh.get(Integer.valueOf(i));
             if (constantState == null) {
                 try {
                     stateListDrawable2 = (StateListDrawable) ResourcesCompat.getDrawable(resources, i, null);
@@ -394,7 +394,7 @@ public class SvgManager {
                         }
                     }
                     if (constantState != null) {
-                        this.eMV.put(Integer.valueOf(i), constantState);
+                        this.eUh.put(Integer.valueOf(i), constantState);
                         Drawable newDrawable = constantState.newDrawable();
                         if (newDrawable instanceof StateListDrawable) {
                             return (StateListDrawable) newDrawable;
@@ -420,9 +420,9 @@ public class SvgManager {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public AnimatedVectorDrawableCompat py(int i) {
+        public AnimatedVectorDrawableCompat pY(int i) {
             AnimatedVectorDrawableCompat animatedVectorDrawableCompat;
-            Drawable.ConstantState constantState = this.eMV.get(Integer.valueOf(i));
+            Drawable.ConstantState constantState = this.eUh.get(Integer.valueOf(i));
             if (constantState == null) {
                 try {
                     animatedVectorDrawableCompat = AnimatedVectorDrawableCompat.create(TbadkCoreApplication.getInst(), i);
@@ -440,7 +440,7 @@ public class SvgManager {
                         }
                     }
                     if (constantState != null) {
-                        this.eMV.put(Integer.valueOf(i), constantState);
+                        this.eUh.put(Integer.valueOf(i), constantState);
                     }
                 } catch (Throwable th2) {
                     th = th2;

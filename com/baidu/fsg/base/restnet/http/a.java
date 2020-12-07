@@ -1,7 +1,6 @@
 package com.baidu.fsg.base.restnet.http;
 
 import com.baidu.fsg.base.restnet.http.HttpDefines;
-import com.xiaomi.mipush.sdk.Constants;
 import java.net.URI;
 import java.nio.charset.Charset;
 import java.text.ParseException;
@@ -19,11 +18,11 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class a implements b<String, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1473a = "Host";
+    public static final String f1475a = "Host";
     private static final String b = "Accept";
     private static final String c = "Accept-Charset";
     private static final String d = "Accept-Encoding";
@@ -157,7 +156,7 @@ public class a implements b<String, String> {
     }
 
     public void a(Set<HttpDefines.HttpMethod> set) {
-        a(f, a(set, Constants.ACCEPT_TIME_SEPARATOR_SP, "", ""));
+        a(f, a(set, ",", "", ""));
     }
 
     public String f() {

@@ -5,100 +5,100 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes4.dex */
 public class g implements com.baidu.live.liveroom.d.d {
-    private String aDE;
-    private String aZG;
-    private boolean bja;
-    private boolean bnH;
+    private String aGk;
+    private String bdg;
+    private boolean bns;
+    private boolean bsP;
     private String mLiveId;
-    private YuyinALaAudiencesActivity nTe;
-    com.baidu.live.h.b nTv = null;
+    private YuyinALaAudiencesActivity oic;
+    com.baidu.live.j.c oit = null;
 
     public g(YuyinALaAudiencesActivity yuyinALaAudiencesActivity) {
-        this.nTe = yuyinALaAudiencesActivity;
+        this.oic = yuyinALaAudiencesActivity;
     }
 
     public void createView() {
         com.baidu.live.noble.data.d dVar = new com.baidu.live.noble.data.d();
-        dVar.mTbPageContext = this.nTe.getPageContext();
+        dVar.mTbPageContext = this.oic.getPageContext();
         dVar.mLiveId = this.mLiveId;
-        dVar.bme = this.aDE;
-        dVar.mIsHost = this.bja;
-        dVar.bnH = this.bnH;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2501013, com.baidu.live.h.b.class, dVar);
+        dVar.brl = this.aGk;
+        dVar.mIsHost = this.bns;
+        dVar.bsP = this.bsP;
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2501013, com.baidu.live.j.c.class, dVar);
         if (runTask != null && runTask.getData() != null) {
-            this.nTv = (com.baidu.live.h.b) runTask.getData();
+            this.oit = (com.baidu.live.j.c) runTask.getData();
         }
     }
 
-    public g UU(String str) {
+    public g Wj(String str) {
         this.mLiveId = str;
         return this;
     }
 
-    public g yW(boolean z) {
-        this.bnH = z;
+    public g zA(boolean z) {
+        this.bsP = z;
         return this;
     }
 
-    public g yX(boolean z) {
-        this.bja = z;
+    public g zB(boolean z) {
+        this.bns = z;
         return this;
     }
 
-    public g UV(String str) {
-        this.aDE = str;
+    public g Wk(String str) {
+        this.aGk = str;
         return this;
     }
 
-    public g UW(String str) {
-        this.aZG = str;
+    public g Wl(String str) {
+        this.bdg = str;
         return this;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.nTv == null) {
+        if (this.oit == null) {
             return null;
         }
-        return this.nTv.getView();
+        return this.oit.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        if (this.nTv == null) {
+        if (this.oit == null) {
             return null;
         }
-        return this.nTv.getTitle();
+        return this.oit.getTitle();
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String KI() {
+    public String MK() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short KJ() {
+    public short ML() {
         return (short) 1;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterBackground() {
-        if (this.nTv != null) {
-            this.nTv.bS(false);
+        if (this.oit != null) {
+            this.oit.cb(false);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterForeground() {
-        if (this.nTv != null) {
-            this.nTv.bS(true);
+        if (this.oit != null) {
+            this.oit.cb(true);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.nTv != null) {
-            this.nTv.onDestroy();
+        if (this.oit != null) {
+            this.oit.onDestroy();
         }
     }
 
@@ -107,8 +107,8 @@ public class g implements com.baidu.live.liveroom.d.d {
     }
 
     public void loadData() {
-        if (this.nTv != null) {
-            this.nTv.Kd();
+        if (this.oit != null) {
+            this.oit.Mf();
         }
     }
 }

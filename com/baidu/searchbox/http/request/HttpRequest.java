@@ -21,7 +21,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public abstract class HttpRequest<T extends HttpRequestBuilder> {
     public static final String EXT_HEADER_TRACE_ID = "X-Bd-Traceid";
     public static final int REQUESTFROM_FEED = 1;
@@ -105,7 +105,7 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
             throw new IllegalArgumentException(" url not set, please check");
         }
         this.bdTraceId = HttpUtils.generateBdTraceId();
-        t.headersBuilder.add("X-Bd-Traceid", this.bdTraceId);
+        t.headersBuilder.add(EXT_HEADER_TRACE_ID, this.bdTraceId);
         this.headers = t.headersBuilder.build();
         if (this.isReqNetStatEnable) {
             this.requestNetStat = new NetworkStatRecord();

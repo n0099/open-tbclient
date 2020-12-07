@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class CheckUserFaceIdResult extends SapiResult {
     public static final int STATUS_AVAILABLE = 1;
     public static final int STATUS_UNAVAILABLE = 3;

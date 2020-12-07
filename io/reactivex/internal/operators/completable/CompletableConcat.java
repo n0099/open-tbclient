@@ -4,7 +4,8 @@ import io.reactivex.a;
 import io.reactivex.c;
 import io.reactivex.e;
 import io.reactivex.exceptions.MissingBackpressureException;
-import io.reactivex.internal.a.g;
+import io.reactivex.g;
+import io.reactivex.internal.a.f;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -14,17 +15,17 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.b;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class CompletableConcat extends a {
-    final b<? extends e> pOi;
+    final b<? extends e> pFb;
     final int prefetch;
 
     @Override // io.reactivex.a
     public void b(c cVar) {
-        this.pOi.subscribe(new CompletableConcatSubscriber(cVar, this.prefetch));
+        this.pFb.subscribe(new CompletableConcatSubscriber(cVar, this.prefetch));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class CompletableConcatSubscriber extends AtomicInteger implements io.reactivex.disposables.b, j<e> {
         private static final long serialVersionUID = 9032184911934499404L;
         volatile boolean active;
@@ -33,7 +34,7 @@ public final class CompletableConcat extends a {
         volatile boolean done;
         final int limit;
         final int prefetch;
-        g<e> queue;
+        f<e> queue;
         d s;
         int sourceFused;
         final ConcatInnerObserver inner = new ConcatInnerObserver(this);
@@ -69,7 +70,7 @@ public final class CompletableConcat extends a {
                     }
                 }
                 if (this.prefetch == Integer.MAX_VALUE) {
-                    this.queue = new io.reactivex.internal.queue.a(io.reactivex.g.eAw());
+                    this.queue = new io.reactivex.internal.queue.a(g.eCR());
                 } else {
                     this.queue = new SpscArrayQueue(this.prefetch);
                 }
@@ -95,7 +96,7 @@ public final class CompletableConcat extends a {
                 this.actual.onError(th);
                 return;
             }
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
 
         @Override // org.a.c
@@ -165,7 +166,7 @@ public final class CompletableConcat extends a {
                 this.actual.onError(th);
                 return;
             }
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
 
         void innerComplete() {
@@ -174,7 +175,7 @@ public final class CompletableConcat extends a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes9.dex */
         public static final class ConcatInnerObserver extends AtomicReference<io.reactivex.disposables.b> implements c {
             private static final long serialVersionUID = -5454794857847146511L;
             final CompletableConcatSubscriber parent;

@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<String> {
     private b mData;
 

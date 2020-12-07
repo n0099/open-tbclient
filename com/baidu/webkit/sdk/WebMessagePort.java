@@ -1,10 +1,10 @@
 package com.baidu.webkit.sdk;
 
 import android.os.Handler;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public abstract class WebMessagePort {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public static abstract class WebMessageCallback {
         public void onMessage(WebMessagePort webMessagePort, WebMessage webMessage) {
         }

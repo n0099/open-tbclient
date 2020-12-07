@@ -7,36 +7,36 @@ import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.nio.charset.Charset;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class i implements IHttpResponse {
-    private int qT;
-    private String qU;
-    private String qV;
-    private Charset qs;
-    private HttpURLConnection qv;
+    private Charset qI;
+    private HttpURLConnection qL;
+    private int rj;
+    private String rk;
+    private String rl;
 
     public i(HttpURLConnection httpURLConnection, Charset charset) {
-        this.qv = httpURLConnection;
-        this.qs = charset;
-        this.qT = httpURLConnection.getResponseCode();
-        this.qU = httpURLConnection.getResponseMessage();
+        this.qL = httpURLConnection;
+        this.qI = charset;
+        this.rj = httpURLConnection.getResponseCode();
+        this.rk = httpURLConnection.getResponseMessage();
     }
 
     @Override // com.baidu.ar.ihttp.IHttpResponse
     public int getCode() {
-        return this.qT;
+        return this.rj;
     }
 
     @Override // com.baidu.ar.ihttp.IHttpResponse
     public String getContent() {
-        if (this.qV != null) {
-            return this.qV;
+        if (this.rl != null) {
+            return this.rl;
         }
         InputStream stream = getStream();
         if (stream == null) {
             throw new IOException("Http请求响应输入流已不可访问，请不要在关闭输入流后再调用该方法");
         }
-        String name = this.qs.name();
+        String name = this.qI.name();
         InputStreamReader inputStreamReader = new InputStreamReader(stream, name);
         StringWriter stringWriter = new StringWriter();
         char[] cArr = new char[4096];
@@ -47,30 +47,30 @@ class i implements IHttpResponse {
         inputStreamReader.close();
         stringWriter.close();
         if ("utf-8".equalsIgnoreCase(name)) {
-            stringWriter2 = j.ap(stringWriter2);
+            stringWriter2 = j.as(stringWriter2);
         }
-        this.qV = stringWriter2;
+        this.rl = stringWriter2;
         return stringWriter2;
     }
 
     @Override // com.baidu.ar.ihttp.IHttpResponse
     public int getContentLength() {
-        return this.qv.getContentLength();
+        return this.qL.getContentLength();
     }
 
     @Override // com.baidu.ar.ihttp.IHttpResponse
     public String getHeader(String str) {
-        return this.qv.getHeaderField(str);
+        return this.qL.getHeaderField(str);
     }
 
     @Override // com.baidu.ar.ihttp.IHttpResponse
     public String getMessage() {
-        return this.qU;
+        return this.rk;
     }
 
     @Override // com.baidu.ar.ihttp.IHttpResponse
     public InputStream getStream() {
-        return this.qv.getInputStream();
+        return this.qL.getInputStream();
     }
 
     @Override // com.baidu.ar.ihttp.IHttpResponse

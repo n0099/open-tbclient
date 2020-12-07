@@ -1,10 +1,9 @@
 package common.network;
 
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class RegexValidator implements Serializable {
     private static final long serialVersionUID = -8832409930574867162L;
     private final Pattern[] patterns;
@@ -94,7 +93,7 @@ public class RegexValidator implements Serializable {
         sb.append("RegexValidator{");
         for (int i = 0; i < this.patterns.length; i++) {
             if (i > 0) {
-                sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                sb.append(",");
             }
             sb.append(this.patterns[i].pattern());
         }

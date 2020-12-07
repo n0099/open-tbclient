@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class u extends aa {
     public u(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/postMessage");
@@ -19,14 +19,14 @@ public class u extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        com.baidu.swan.apps.event.a.d oe = com.baidu.swan.apps.event.a.d.oe(str);
-        if (oe == null) {
+        com.baidu.swan.apps.event.a.d oN = com.baidu.swan.apps.event.a.d.oN(str);
+        if (oN == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         com.baidu.swan.apps.performance.h.D("postMessage", "PostEvent start");
-        com.baidu.swan.apps.v.f.azg().a(oe, true);
+        com.baidu.swan.apps.v.f.aCp().a(oN, true);
         com.baidu.swan.apps.performance.h.D("postMessage", "PostEvent end.");
         return true;
     }

@@ -20,9 +20,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes16.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private final a GN;
+    private final a HG;
     private final Context appContext;
     private final String url;
 
@@ -33,7 +33,7 @@ public class b {
     private b(Context context, String str) {
         this.appContext = context.getApplicationContext();
         this.url = str;
-        this.GN = new a(this.appContext, str);
+        this.HG = new a(this.appContext, str);
     }
 
     private m<e> kM() {
@@ -61,7 +61,7 @@ public class b {
     @Nullable
     private e kO() {
         l<e> c;
-        Pair<FileExtension, InputStream> kL = this.GN.kL();
+        Pair<FileExtension, InputStream> kL = this.HG.kL();
         if (kL == null) {
             return null;
         }
@@ -127,16 +127,16 @@ public class b {
                 case 0:
                     d.debug("Handling zip response.");
                     fileExtension = FileExtension.Zip;
-                    a2 = f.a(new ZipInputStream(new FileInputStream(this.GN.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
+                    a2 = f.a(new ZipInputStream(new FileInputStream(this.HG.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
                     break;
                 default:
                     d.debug("Received json response.");
                     fileExtension = FileExtension.Json;
-                    a2 = f.c(new FileInputStream(new File(this.GN.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
+                    a2 = f.c(new FileInputStream(new File(this.HG.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
                     break;
             }
             if (a2.getValue() != null) {
-                this.GN.a(fileExtension);
+                this.HG.a(fileExtension);
             }
             d.debug("Completed fetch from network. Success: " + (a2.getValue() != null));
             return a2;

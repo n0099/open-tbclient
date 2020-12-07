@@ -1,13 +1,13 @@
 package com.baidu.pass.ecommerce.c;
 
 import com.baidu.sapi2.result.SapiResult;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class a extends SapiResult {
     public static final int c = -901;
     public static final String d = "无权限";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2764a;
+    public String f2766a;
     public String b;
 
     public a() {

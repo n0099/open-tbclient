@@ -30,14 +30,14 @@ import java.util.zip.ZipFile;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2227a = f.class.getSimpleName();
+    private static final String f2229a = f.class.getSimpleName();
     private AsyncHttpClient b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public interface a {
         void a(int i, String str, String str2);
 
@@ -46,11 +46,11 @@ public class f {
         void a(boolean z, String str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     private static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final f f2228a = new f(null);
+        private static final f f2230a = new f(null);
     }
 
     private f() {
@@ -62,7 +62,7 @@ public class f {
     }
 
     public static f a() {
-        return b.f2228a;
+        return b.f2230a;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:44:0x005e A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -178,9 +178,9 @@ public class f {
             String next = it.next();
             String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(map.get(next));
             if (i2 == 0) {
-                sb.append(next).append(ETAG.EQUAL).append(encodeUrlParamsValue);
+                sb.append(next).append("=").append(encodeUrlParamsValue);
             } else {
-                sb.append(ETAG.ITEM_SEPARATOR).append(next).append(ETAG.EQUAL).append(encodeUrlParamsValue);
+                sb.append(ETAG.ITEM_SEPARATOR).append(next).append("=").append(encodeUrlParamsValue);
             }
             i = i2 + 1;
         }
@@ -292,7 +292,7 @@ public class f {
         } else {
             String a3 = a(context, str, z);
             if (TextUtils.isEmpty(a3)) {
-                Log.e(f2227a, "build request url failed");
+                Log.e(f2229a, "build request url failed");
             } else {
                 a(context, a3, str, aVar);
             }
@@ -345,7 +345,7 @@ public class f {
                                     zipFile2.close();
                                     zipFile3 = zipFile2;
                                 } catch (IOException e) {
-                                    String str2 = f2227a;
+                                    String str2 = f2229a;
                                     Log.e(str2, "Close zipFile failed", e);
                                     zipFile3 = str2;
                                 }
@@ -357,21 +357,21 @@ public class f {
                                 zipFile2.close();
                                 zipFile = zipFile2;
                             } catch (IOException e2) {
-                                String str3 = f2227a;
+                                String str3 = f2229a;
                                 Log.e(str3, "Close zipFile failed", e2);
                                 zipFile = str3;
                             }
                         }
                     } catch (FileNotFoundException e3) {
                         e = e3;
-                        Log.e(f2227a, "unzip style file FileNotFoundException", e);
+                        Log.e(f2229a, "unzip style file FileNotFoundException", e);
                         zipFile = zipFile2;
                         if (zipFile2 != null) {
                             try {
                                 zipFile2.close();
                                 zipFile = zipFile2;
                             } catch (IOException e4) {
-                                String str4 = f2227a;
+                                String str4 = f2229a;
                                 Log.e(str4, "Close zipFile failed", e4);
                                 zipFile = str4;
                             }
@@ -379,14 +379,14 @@ public class f {
                         return z;
                     } catch (IOException e5) {
                         e = e5;
-                        Log.e(f2227a, "unzip style file IOException", e);
+                        Log.e(f2229a, "unzip style file IOException", e);
                         zipFile = zipFile2;
                         if (zipFile2 != null) {
                             try {
                                 zipFile2.close();
                                 zipFile = zipFile2;
                             } catch (IOException e6) {
-                                String str5 = f2227a;
+                                String str5 = f2229a;
                                 Log.e(str5, "Close zipFile failed", e6);
                                 zipFile = str5;
                             }
@@ -394,14 +394,14 @@ public class f {
                         return z;
                     } catch (IllegalStateException e7) {
                         e = e7;
-                        Log.e(f2227a, "unzip style file IllegalStateException", e);
+                        Log.e(f2229a, "unzip style file IllegalStateException", e);
                         zipFile = zipFile2;
                         if (zipFile2 != null) {
                             try {
                                 zipFile2.close();
                                 zipFile = zipFile2;
                             } catch (IOException e8) {
-                                String str6 = f2227a;
+                                String str6 = f2229a;
                                 Log.e(str6, "Close zipFile failed", e8);
                                 zipFile = str6;
                             }
@@ -409,14 +409,14 @@ public class f {
                         return z;
                     } catch (NullPointerException e9) {
                         e = e9;
-                        Log.e(f2227a, "unzip style file NullPointerException", e);
+                        Log.e(f2229a, "unzip style file NullPointerException", e);
                         zipFile = zipFile2;
                         if (zipFile2 != null) {
                             try {
                                 zipFile2.close();
                                 zipFile = zipFile2;
                             } catch (IOException e10) {
-                                String str7 = f2227a;
+                                String str7 = f2229a;
                                 Log.e(str7, "Close zipFile failed", e10);
                                 zipFile = str7;
                             }
@@ -424,14 +424,14 @@ public class f {
                         return z;
                     } catch (SecurityException e11) {
                         e = e11;
-                        Log.e(f2227a, "unzip style file SecurityException", e);
+                        Log.e(f2229a, "unzip style file SecurityException", e);
                         zipFile = zipFile2;
                         if (zipFile2 != null) {
                             try {
                                 zipFile2.close();
                                 zipFile = zipFile2;
                             } catch (IOException e12) {
-                                String str8 = f2227a;
+                                String str8 = f2229a;
                                 Log.e(str8, "Close zipFile failed", e12);
                                 zipFile = str8;
                             }
@@ -439,14 +439,14 @@ public class f {
                         return z;
                     } catch (ZipException e13) {
                         e = e13;
-                        Log.e(f2227a, "unzip style file ZipException", e);
+                        Log.e(f2229a, "unzip style file ZipException", e);
                         zipFile = zipFile2;
                         if (zipFile2 != null) {
                             try {
                                 zipFile2.close();
                                 zipFile = zipFile2;
                             } catch (IOException e14) {
-                                String str9 = f2227a;
+                                String str9 = f2229a;
                                 Log.e(str9, "Close zipFile failed", e14);
                                 zipFile = str9;
                             }
@@ -457,7 +457,7 @@ public class f {
                             try {
                                 zipFile2.close();
                             } catch (IOException e16) {
-                                Log.e(f2227a, "Close zipFile failed", e16);
+                                Log.e(f2229a, "Close zipFile failed", e16);
                             }
                         }
                         return z;
@@ -468,7 +468,7 @@ public class f {
                         try {
                             zipFile.close();
                         } catch (IOException e17) {
-                            Log.e(f2227a, "Close zipFile failed", e17);
+                            Log.e(f2229a, "Close zipFile failed", e17);
                         }
                     }
                     throw th;
@@ -520,12 +520,12 @@ public class f {
                 try {
                     inputStream.close();
                 } catch (IOException e) {
-                    Log.e(f2227a, "Close InputStream error", e);
+                    Log.e(f2229a, "Close InputStream error", e);
                 }
                 try {
                     fileOutputStream.close();
                 } catch (IOException e2) {
-                    Log.e(f2227a, "Close OutputStream error", e2);
+                    Log.e(f2229a, "Close OutputStream error", e2);
                 }
             }
         }

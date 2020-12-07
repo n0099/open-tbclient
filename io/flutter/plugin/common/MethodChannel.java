@@ -1,35 +1,28 @@
 package io.flutter.plugin.common;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import io.flutter.plugin.common.BinaryMessenger;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public final class MethodChannel {
     private static final String TAG = "MethodChannel#";
     private final MethodCodec codec;
     private final BinaryMessenger messenger;
     private final String name;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface MethodCallHandler {
-        @UiThread
-        void onMethodCall(@NonNull MethodCall methodCall, @NonNull Result result);
+        void onMethodCall(MethodCall methodCall, Result result);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface Result {
-        @UiThread
-        void error(String str, @Nullable String str2, @Nullable Object obj);
+        void error(String str, String str2, Object obj);
 
-        @UiThread
         void notImplemented();
 
-        @UiThread
-        void success(@Nullable Object obj);
+        void success(Object obj);
     }
 
     public MethodChannel(BinaryMessenger binaryMessenger, String str) {
@@ -42,18 +35,15 @@ public final class MethodChannel {
         this.codec = methodCodec;
     }
 
-    @UiThread
-    public void invokeMethod(@NonNull String str, @Nullable Object obj) {
+    public void invokeMethod(String str, Object obj) {
         invokeMethod(str, obj, null);
     }
 
-    @UiThread
-    public void invokeMethod(String str, @Nullable Object obj, Result result) {
+    public void invokeMethod(String str, Object obj, Result result) {
         this.messenger.send(this.name, this.codec.encodeMethodCall(new MethodCall(str, obj)), result == null ? null : new IncomingResultHandler(result));
     }
 
-    @UiThread
-    public void setMethodCallHandler(@Nullable MethodCallHandler methodCallHandler) {
+    public void setMethodCallHandler(MethodCallHandler methodCallHandler) {
         this.messenger.setMessageHandler(this.name, methodCallHandler == null ? null : new IncomingMethodCallHandler(methodCallHandler));
     }
 
@@ -62,7 +52,7 @@ public final class MethodChannel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public final class IncomingResultHandler implements BinaryMessenger.BinaryReply {
         private final Result callback;
 
@@ -71,7 +61,6 @@ public final class MethodChannel {
         }
 
         @Override // io.flutter.plugin.common.BinaryMessenger.BinaryReply
-        @UiThread
         public void reply(ByteBuffer byteBuffer) {
             try {
                 if (byteBuffer != null) {
@@ -89,8 +78,9 @@ public final class MethodChannel {
         }
     }
 
-    /* loaded from: classes6.dex */
-    private final class IncomingMethodCallHandler implements BinaryMessenger.BinaryMessageHandler {
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes9.dex */
+    public final class IncomingMethodCallHandler implements BinaryMessenger.BinaryMessageHandler {
         private final MethodCallHandler handler;
 
         IncomingMethodCallHandler(MethodCallHandler methodCallHandler) {
@@ -98,7 +88,6 @@ public final class MethodChannel {
         }
 
         @Override // io.flutter.plugin.common.BinaryMessenger.BinaryMessageHandler
-        @UiThread
         public void onMessage(ByteBuffer byteBuffer, final BinaryMessenger.BinaryReply binaryReply) {
             try {
                 this.handler.onMethodCall(MethodChannel.this.codec.decodeMethodCall(byteBuffer), new Result() { // from class: io.flutter.plugin.common.MethodChannel.IncomingMethodCallHandler.1

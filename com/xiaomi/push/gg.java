@@ -10,39 +10,39 @@ import java.util.Set;
 public class gg implements gk {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4921a;
+    private String f4691a;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<gg> f390a;
+    private List<gg> f388a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String[] f391a;
+    private String[] f389a;
     private String b;
 
     /* renamed from: b  reason: collision with other field name */
-    private String[] f392b;
+    private String[] f390b;
     private String c;
 
     public gg(String str, String str2, String[] strArr, String[] strArr2) {
-        this.f391a = null;
-        this.f392b = null;
-        this.f390a = null;
-        this.f4921a = str;
+        this.f389a = null;
+        this.f390b = null;
+        this.f388a = null;
+        this.f4691a = str;
         this.b = str2;
-        this.f391a = strArr;
-        this.f392b = strArr2;
+        this.f389a = strArr;
+        this.f390b = strArr2;
     }
 
     public gg(String str, String str2, String[] strArr, String[] strArr2, String str3, List<gg> list) {
-        this.f391a = null;
-        this.f392b = null;
-        this.f390a = null;
-        this.f4921a = str;
+        this.f389a = null;
+        this.f390b = null;
+        this.f388a = null;
+        this.f4691a = str;
         this.b = str2;
-        this.f391a = strArr;
-        this.f392b = strArr2;
+        this.f389a = strArr;
+        this.f390b = strArr2;
         this.c = str3;
-        this.f390a = list;
+        this.f388a = list;
     }
 
     public static gg a(Bundle bundle) {
@@ -82,47 +82,47 @@ public class gg implements gk {
         }
         Parcelable[] parcelableArr = new Parcelable[ggVarArr.length];
         for (int i = 0; i < ggVarArr.length; i++) {
-            parcelableArr[i] = ggVarArr[i].m314a();
+            parcelableArr[i] = ggVarArr[i].m304a();
         }
         return parcelableArr;
     }
 
     public Bundle a() {
         Bundle bundle = new Bundle();
-        bundle.putString("ext_ele_name", this.f4921a);
+        bundle.putString("ext_ele_name", this.f4691a);
         bundle.putString("ext_ns", this.b);
         bundle.putString("ext_text", this.c);
         Bundle bundle2 = new Bundle();
-        if (this.f391a != null && this.f391a.length > 0) {
-            for (int i = 0; i < this.f391a.length; i++) {
-                bundle2.putString(this.f391a[i], this.f392b[i]);
+        if (this.f389a != null && this.f389a.length > 0) {
+            for (int i = 0; i < this.f389a.length; i++) {
+                bundle2.putString(this.f389a[i], this.f390b[i]);
             }
         }
         bundle.putBundle("attributes", bundle2);
-        if (this.f390a != null && this.f390a.size() > 0) {
-            bundle.putParcelableArray("children", a(this.f390a));
+        if (this.f388a != null && this.f388a.size() > 0) {
+            bundle.putParcelableArray("children", a(this.f388a));
         }
         return bundle;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Parcelable m314a() {
+    public Parcelable m304a() {
         return a();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m315a() {
-        return this.f4921a;
+    public String m305a() {
+        return this.f4691a;
     }
 
     public String a(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        if (this.f391a != null) {
-            for (int i = 0; i < this.f391a.length; i++) {
-                if (str.equals(this.f391a[i])) {
-                    return this.f392b[i];
+        if (this.f389a != null) {
+            for (int i = 0; i < this.f389a.length; i++) {
+                if (str.equals(this.f389a[i])) {
+                    return this.f390b[i];
                 }
             }
         }
@@ -130,7 +130,7 @@ public class gg implements gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m316a(String str) {
+    public void m306a(String str) {
         if (TextUtils.isEmpty(str)) {
             this.c = str;
         } else {
@@ -149,27 +149,27 @@ public class gg implements gk {
     @Override // com.xiaomi.push.gk
     public String d() {
         StringBuilder sb = new StringBuilder();
-        sb.append("<").append(this.f4921a);
+        sb.append("<").append(this.f4691a);
         if (!TextUtils.isEmpty(this.b)) {
             sb.append(" ").append("xmlns=").append("\"").append(this.b).append("\"");
         }
-        if (this.f391a != null && this.f391a.length > 0) {
-            for (int i = 0; i < this.f391a.length; i++) {
-                if (!TextUtils.isEmpty(this.f392b[i])) {
-                    sb.append(" ").append(this.f391a[i]).append("=\"").append(gu.a(this.f392b[i])).append("\"");
+        if (this.f389a != null && this.f389a.length > 0) {
+            for (int i = 0; i < this.f389a.length; i++) {
+                if (!TextUtils.isEmpty(this.f390b[i])) {
+                    sb.append(" ").append(this.f389a[i]).append("=\"").append(gu.a(this.f390b[i])).append("\"");
                 }
             }
         }
         if (!TextUtils.isEmpty(this.c)) {
-            sb.append(">").append(this.c).append("</").append(this.f4921a).append(">");
-        } else if (this.f390a == null || this.f390a.size() <= 0) {
+            sb.append(">").append(this.c).append("</").append(this.f4691a).append(">");
+        } else if (this.f388a == null || this.f388a.size() <= 0) {
             sb.append("/>");
         } else {
             sb.append(">");
-            for (gg ggVar : this.f390a) {
+            for (gg ggVar : this.f388a) {
                 sb.append(ggVar.d());
             }
-            sb.append("</").append(this.f4921a).append(">");
+            sb.append("</").append(this.f4691a).append(">");
         }
         return sb.toString();
     }

@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
-    public File gty = null;
+    public File gCh = null;
     public String mLoadingFile;
     public String mMd5;
     public String mType;
@@ -18,36 +18,36 @@ public class d {
     public String mVersion;
 
     public boolean isLoaded() {
-        return bPP() != null && bPP().exists();
+        return acr() != null && acr().exists();
     }
 
-    public void bPO() {
-        File file = new File(bPQ());
+    public void bTA() {
+        File file = new File(act());
         if (file != null) {
             com.baidu.tieba.ala.b.b.a.deleteDir(file);
         }
-        this.gty = null;
-        bPQ();
-        bPP();
+        this.gCh = null;
+        act();
+        acr();
     }
 
     public String getName() {
         return this.mVersion + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMd5;
     }
 
-    public File bPP() {
-        if (this.gty == null && !TextUtils.isEmpty(this.mVersion)) {
-            this.gty = new File(bPQ(), getName());
+    public File acr() {
+        if (this.gCh == null && !TextUtils.isEmpty(this.mVersion)) {
+            this.gCh = new File(act(), getName());
         }
-        return this.gty;
+        return this.gCh;
     }
 
     public String getFilePath() {
-        return bPP().getAbsolutePath();
+        return acr().getAbsolutePath();
     }
 
-    public String bPQ() {
-        return TextUtils.equals(this.mType, "so") ? c.bPM().getAbsolutePath() : c.bPN().getAbsolutePath();
+    public String act() {
+        return TextUtils.equals(this.mType, "so") ? c.bTy().getAbsolutePath() : c.bTz().getAbsolutePath();
     }
 
     public String getLoadingFile() {
@@ -79,21 +79,21 @@ public class d {
                 }
             }
             com.baidu.tieba.ala.b.b.a.unzipFile(file, file2.getAbsolutePath());
-            file2.renameTo(bPP());
+            file2.renameTo(acr());
         } catch (Exception e3) {
             z = false;
             e = e3;
         }
         if (isLoaded()) {
-            if (bPR()) {
+            if (bTB()) {
                 z = true;
                 if (!z) {
                     try {
-                        com.baidu.tieba.ala.b.b.a.deleteDir(bPP());
+                        com.baidu.tieba.ala.b.b.a.deleteDir(acr());
                     } catch (Exception e4) {
                         e = e4;
                         e.printStackTrace();
-                        com.baidu.tieba.ala.b.b.a.deleteDir(bPP());
+                        com.baidu.tieba.ala.b.b.a.deleteDir(acr());
                         return z;
                     }
                 }
@@ -108,10 +108,10 @@ public class d {
         return z;
     }
 
-    public boolean bPR() {
+    public boolean bTB() {
         JSONArray optJSONArray;
         try {
-            File file = new File(bPP(), "files.json");
+            File file = new File(acr(), "files.json");
             if (file == null || !file.exists()) {
                 return false;
             }
@@ -127,16 +127,16 @@ public class d {
             ArrayList<a> arrayList = new ArrayList<>();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                arrayList.add(a.Gc(optJSONArray.getString(i)));
+                arrayList.add(a.GQ(optJSONArray.getString(i)));
             }
-            return Z(arrayList);
+            return aa(arrayList);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
 
-    private boolean Z(ArrayList<a> arrayList) {
+    private boolean aa(ArrayList<a> arrayList) {
         File file;
         if (arrayList == null || arrayList.size() <= 0) {
             return false;
@@ -164,7 +164,7 @@ public class d {
         }
     }
 
-    public static d ek(String str, String str2) {
+    public static d er(String str, String str2) {
         d dVar = new d();
         dVar.mVersion = str;
         String str3 = "https://pic.rmb.bdstatic.com/baidu-ar-so-live-";
@@ -173,7 +173,7 @@ public class d {
         }
         String str4 = str3 + str + ".zip";
         dVar.mUrl = str4;
-        dVar.mMd5 = com.baidu.tieba.ala.b.b.b.el(str4, "MD5");
+        dVar.mMd5 = com.baidu.tieba.ala.b.b.b.es(str4, "MD5");
         dVar.mType = str2;
         return dVar;
     }
@@ -184,7 +184,7 @@ public class d {
         public String mName;
         public String mPath;
 
-        public static a Gc(String str) {
+        public static a GQ(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }

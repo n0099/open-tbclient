@@ -3,18 +3,18 @@ package com.baidu.mobstat;
 public class cv extends cy implements ct {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2610a = "*";
+    private String f2612a = "*";
 
     @Override // com.baidu.mobstat.ct
     public void a(String str) throws IllegalArgumentException {
         if (str == null) {
             throw new IllegalArgumentException("http resource descriptor must not be null");
         }
-        this.f2610a = str;
+        this.f2612a = str;
     }
 
     @Override // com.baidu.mobstat.cs
     public String a() {
-        return this.f2610a;
+        return this.f2612a;
     }
 }

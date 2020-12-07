@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.http.request.HttpRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class d extends h<JSONObject> {
     protected final Context mContext;
 
@@ -13,16 +13,16 @@ public class d extends h<JSONObject> {
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aIB() {
-        com.baidu.swan.apps.runtime.e aGM = com.baidu.swan.apps.runtime.e.aGM();
-        if (aGM != null) {
+    protected boolean aLJ() {
+        com.baidu.swan.apps.runtime.e aJU = com.baidu.swan.apps.runtime.e.aJU();
+        if (aJU != null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ma_id", aGM.id);
+                jSONObject.put("ma_id", aJU.id);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            cu("data", jSONObject.toString());
+            cB("data", jSONObject.toString());
             return true;
         }
         return true;
@@ -31,13 +31,13 @@ public class d extends h<JSONObject> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
-    /* renamed from: bV */
-    public JSONObject bO(JSONObject jSONObject) throws JSONException {
-        return com.baidu.swan.apps.setting.oauth.c.bQ(jSONObject);
+    /* renamed from: bX */
+    public JSONObject bQ(JSONObject jSONObject) throws JSONException {
+        return com.baidu.swan.apps.setting.oauth.c.bS(jSONObject);
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.h
     protected HttpRequest a(h hVar) {
-        return com.baidu.swan.apps.t.a.awe().j(this.mContext, hVar.aJc());
+        return com.baidu.swan.apps.t.a.azm().j(this.mContext, hVar.aMk());
     }
 }

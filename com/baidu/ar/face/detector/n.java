@@ -6,50 +6,53 @@ import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
 import com.baidu.ar.face.algo.FaceJniClient;
 import com.baidu.ar.statistic.StatisticApi;
 import java.nio.ByteBuffer;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class n extends a {
     private static final String TAG = n.class.getSimpleName();
-    private long pu;
+    private long pK;
+    private long time;
 
     public n(ByteBuffer byteBuffer) {
         super(byteBuffer);
     }
 
     @Override // com.baidu.ar.face.detector.a
-    void dG() {
-        com.baidu.ar.b.a.ar().a(13, true);
-        this.nL = FaceJniClient.trackFace(this.pu, this.nL, this.lQ);
-        com.baidu.ar.g.b.c(TAG, "detect_frame track task executing");
-        Log.e("vvv", "face track: " + this.lQ + "   ,  " + this.pu);
-        com.baidu.ar.b.a.ar().a(13, false);
+    void dF() {
+        com.baidu.ar.b.a.as().a(13, true);
+        this.time = System.currentTimeMillis();
+        this.ob = FaceJniClient.trackFace(this.pK, this.ob, this.mf);
+        com.baidu.ar.h.b.k(TAG, "track-time= " + (System.currentTimeMillis() - this.time));
+        com.baidu.ar.h.b.c(TAG, "detect_frame track task executing");
+        Log.d("vvv", "face track: " + this.mf + "   ,  " + this.pK);
+        com.baidu.ar.b.a.as().a(13, false);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.ar.face.detector.a
-    public void dH() {
-        super.dH();
+    public void dG() {
+        super.dG();
         int i = 0;
-        if (this.nL != null && this.nL.getFaceFrame() != null && this.nL.getFaceFrame().getFaceBoxes() != null) {
-            i = this.nL.getFaceFrame().getFaceBoxes().size();
+        if (this.ob != null && this.ob.getFaceFrame() != null && this.ob.getFaceFrame().getFaceBoxes() != null) {
+            i = this.ob.getFaceFrame().getFaceBoxes().size();
         }
-        StatisticApi.getPerformanceApi().recordAlgoTimeCost("face", ARPScriptEnvironment.KEY_DATA_PIP_TRACK, SystemClock.elapsedRealtime() - this.nP, i);
-        if (this.nN != null) {
-            this.nN.c(this.nQ);
+        StatisticApi.getPerformanceApi().recordAlgoTimeCost("face", ARPScriptEnvironment.KEY_DATA_PIP_TRACK, SystemClock.elapsedRealtime() - this.of, i);
+        if (this.od != null) {
+            this.od.c(this.og);
         }
     }
 
     @Override // com.baidu.ar.face.detector.a
-    public void dK() {
-        super.dK();
-        this.pu = this.nM.eb();
+    public void dJ() {
+        super.dJ();
+        this.pK = this.oc.ea();
     }
 
-    public void r(long j) {
-        this.nR = j;
+    public void p(long j) {
+        this.oh = j;
     }
 
     public void setFrontCamera(boolean z) {
-        this.nS = z;
+        this.oi = z;
     }
 
     public void setTimestamp(long j) {

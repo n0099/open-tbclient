@@ -14,7 +14,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class EmotionPreview extends LinearLayout {
-    private ImageView iur;
+    private ImageView iFj;
     private int mImageWidth;
 
     public EmotionPreview(Context context) {
@@ -43,17 +43,17 @@ public class EmotionPreview extends LinearLayout {
         if (!TextUtils.isEmpty(str)) {
             removeAllViews();
             if (z || i == 20) {
-                this.iur = new GifView(getContext());
-                ((GifView) this.iur).setSupportNoImage(false);
+                this.iFj = new GifView(getContext());
+                ((GifView) this.iFj).setSupportNoImage(false);
                 GifInfo gifInfo = new GifInfo();
                 gifInfo.mSharpText = str;
                 gifInfo.mDynamicUrl = str;
                 gifInfo.mStaticUrl = str2;
-                this.iur.setTag(gifInfo.mSharpText);
-                ((GifView) this.iur).a(gifInfo);
+                this.iFj.setTag(gifInfo.mSharpText);
+                ((GifView) this.iFj).a(gifInfo);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mImageWidth, this.mImageWidth);
                 layoutParams.gravity = 17;
-                addView(this.iur, layoutParams);
+                addView(this.iFj, layoutParams);
                 return;
             }
             c.mS().a(str, 10, new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.view.EmotionPreview.1
@@ -63,22 +63,22 @@ public class EmotionPreview extends LinearLayout {
                 public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str3, int i2) {
                     if (aVar != null) {
                         if (aVar.isGif()) {
-                            EmotionPreview.this.iur = new GifView(EmotionPreview.this.getContext());
-                            ((GifView) EmotionPreview.this.iur).setSupportNoImage(false);
+                            EmotionPreview.this.iFj = new GifView(EmotionPreview.this.getContext());
+                            ((GifView) EmotionPreview.this.iFj).setSupportNoImage(false);
                             GifInfo gifInfo2 = new GifInfo();
                             gifInfo2.mSharpText = str;
                             gifInfo2.mDynamicUrl = str;
                             gifInfo2.mStaticUrl = str2;
-                            EmotionPreview.this.iur.setTag(gifInfo2.mSharpText);
-                            ((GifView) EmotionPreview.this.iur).a(gifInfo2);
+                            EmotionPreview.this.iFj.setTag(gifInfo2.mSharpText);
+                            ((GifView) EmotionPreview.this.iFj).a(gifInfo2);
                         } else {
-                            EmotionPreview.this.iur = new TbImageView(EmotionPreview.this.getContext());
-                            ((TbImageView) EmotionPreview.this.iur).setGifIconSupport(false);
-                            aVar.drawImageTo(EmotionPreview.this.iur);
+                            EmotionPreview.this.iFj = new TbImageView(EmotionPreview.this.getContext());
+                            ((TbImageView) EmotionPreview.this.iFj).setGifIconSupport(false);
+                            aVar.drawImageTo(EmotionPreview.this.iFj);
                         }
                         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(EmotionPreview.this.mImageWidth, EmotionPreview.this.mImageWidth);
                         layoutParams2.gravity = 17;
-                        EmotionPreview.this.addView(EmotionPreview.this.iur, layoutParams2);
+                        EmotionPreview.this.addView(EmotionPreview.this.iFj, layoutParams2);
                     }
                 }
             }, null);

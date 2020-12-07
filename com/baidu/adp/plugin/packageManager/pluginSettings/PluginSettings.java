@@ -1,7 +1,6 @@
 package com.baidu.adp.plugin.packageManager.pluginSettings;
 
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -49,7 +48,7 @@ public class PluginSettings implements Serializable, Cloneable {
         String[] split;
         this.mForbiddenFeatures = str;
         this.mForbiddenFeaturesList.clear();
-        if (!TextUtils.isEmpty(str) && (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null) {
+        if (!TextUtils.isEmpty(str) && (split = str.split(",")) != null) {
             for (String str2 : split) {
                 this.mForbiddenFeaturesList.add(str2);
             }
@@ -121,14 +120,14 @@ public class PluginSettings implements Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public PluginSettings m13clone() {
+    public PluginSettings m12clone() {
         PluginSettings pluginSettings = new PluginSettings();
         pluginSettings.mContainerVersion = this.mContainerVersion;
         pluginSettings.setForbiddenFeatures(this.mForbiddenFeatures);
         for (Map.Entry<String, PluginSetting> entry : this.mPlugins.entrySet()) {
             PluginSetting value = entry.getValue();
             if (value != null) {
-                pluginSettings.insertOrUpdatePluginSetting(value.packageName, value.m12clone());
+                pluginSettings.insertOrUpdatePluginSetting(value.packageName, value.m11clone());
             }
         }
         return pluginSettings;

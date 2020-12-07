@@ -2,7 +2,7 @@ package protobuf.CommitReceivedPmsg;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class DataRes extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.INT64)
     public final Long groupId;
@@ -49,7 +49,7 @@ public final class DataRes extends Message {
         this.toUserType = builder.toUserType;
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public Long groupId;
         public Long readMsgId;

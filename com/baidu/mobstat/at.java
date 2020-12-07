@@ -30,7 +30,7 @@ public class at {
     private static final at u = new at();
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2547a;
+    private Context f2549a;
     private WeakReference<Activity> b;
     private Handler c;
     private long g;
@@ -118,7 +118,7 @@ public class at {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Activity activity, long j) {
-        this.f2547a = activity.getApplicationContext();
+        this.f2549a = activity.getApplicationContext();
         this.b = new WeakReference<>(activity);
         this.g = j;
         String e = bj.e(activity);
@@ -480,15 +480,15 @@ public class at {
                     String e = bj.e(activity);
                     String f = bj.f(activity);
                     ArrayList<Integer> a2 = a(activity, view);
-                    int a3 = ah.a(this.f2547a, a2.get(0).intValue());
-                    int a4 = ah.a(this.f2547a, a2.get(1).intValue());
+                    int a3 = ah.a(this.f2549a, a2.get(0).intValue());
+                    int a4 = ah.a(this.f2549a, a2.get(1).intValue());
                     ArrayList<Integer> b = bj.b(activity, view);
-                    int a5 = ah.a(this.f2547a, b.get(0).intValue());
-                    int a6 = ah.a(this.f2547a, b.get(1).intValue());
+                    int a5 = ah.a(this.f2549a, b.get(0).intValue());
+                    int a6 = ah.a(this.f2549a, b.get(1).intValue());
                     int i = a5 > a3 ? a5 : a3;
                     int i2 = a6 > a4 ? a6 : a4;
                     if (i != 0 && i2 != 0) {
-                        a(this.f2547a, new ao(e, f, this.l, j2 - j, j, a5, a6, i, i2, str, this.n, this.o));
+                        a(this.f2549a, new ao(e, f, this.l, j2 - j, j, a5, a6, i, i2, str, this.n, this.o));
                     }
                 }
             }
@@ -623,7 +623,7 @@ public class at {
         if (this.v != null) {
             this.v.a(arrayList);
         }
-        aw.a().a(this.f2547a, arrayList);
+        aw.a().a(this.f2549a, arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -865,7 +865,7 @@ public class at {
         if (this.v != null) {
             this.v.b(arrayList);
         }
-        aw.a().b(this.f2547a, arrayList);
+        aw.a().b(this.f2549a, arrayList);
     }
 
     private ArrayList<aq> h(HashMap<String, ArrayList<aq>> hashMap) {

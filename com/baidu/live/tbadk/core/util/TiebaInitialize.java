@@ -20,8 +20,6 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
-import com.baidu.webkit.internal.ETAG;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class TiebaInitialize {
@@ -411,9 +409,9 @@ public class TiebaInitialize {
             for (int i = 0; i < size; i++) {
                 stringBuffer.append(params.get(i));
                 if (i % 2 == 0) {
-                    stringBuffer.append(ETAG.EQUAL);
+                    stringBuffer.append("=");
                 } else if (i != size - 1) {
-                    stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    stringBuffer.append(",");
                 }
             }
         }

@@ -10,10 +10,10 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.chat.a;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class OfficialFeedItemBottom extends LinearLayout {
-    private TextView jZY;
-    private TextView jZZ;
+    private TextView knD;
+    private TextView knE;
     private Context mContext;
 
     public OfficialFeedItemBottom(Context context) {
@@ -29,31 +29,31 @@ public class OfficialFeedItemBottom extends LinearLayout {
     private void initView() {
         setOrientation(1);
         LayoutInflater.from(this.mContext).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
-        this.jZY = (TextView) findViewById(R.id.message_no_image_title);
-        this.jZZ = (TextView) findViewById(R.id.message_info);
-        cOX();
+        this.knD = (TextView) findViewById(R.id.message_no_image_title);
+        this.knE = (TextView) findViewById(R.id.message_info);
+        cUl();
     }
 
-    public void cOX() {
-        ap.setViewTextColor(this.jZZ, R.color.CAM_X0107);
-        ap.setViewTextColor(this.jZY, R.color.CAM_X0105);
+    public void cUl() {
+        ap.setViewTextColor(this.knE, R.color.CAM_X0107);
+        ap.setViewTextColor(this.knD, R.color.CAM_X0105);
     }
 
-    public void setData(a.C0766a c0766a, boolean z) {
-        int i = TextUtils.isEmpty(c0766a.text) ? 8 : 0;
-        this.jZY.setText(c0766a.title);
-        this.jZZ.setText(c0766a.text);
-        this.jZZ.setVisibility(i);
+    public void setData(a.C0782a c0782a, boolean z) {
+        int i = TextUtils.isEmpty(c0782a.text) ? 8 : 0;
+        this.knD.setText(c0782a.title);
+        this.knE.setText(c0782a.text);
+        this.knE.setVisibility(i);
         if (z) {
-            this.jZY.setVisibility(8);
+            this.knD.setVisibility(8);
         } else {
-            this.jZY.setVisibility(0);
+            this.knD.setVisibility(0);
         }
     }
 
-    public void Da(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jZZ.getLayoutParams();
+    public void DP(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.knE.getLayoutParams();
         layoutParams.topMargin = i;
-        this.jZZ.setLayoutParams(layoutParams);
+        this.knE.setLayoutParams(layoutParams);
     }
 }

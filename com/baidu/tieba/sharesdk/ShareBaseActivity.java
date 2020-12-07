@@ -3,7 +3,7 @@ package com.baidu.tieba.sharesdk;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public abstract class ShareBaseActivity extends BaseActivity<ShareBaseActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

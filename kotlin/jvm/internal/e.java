@@ -1,27 +1,27 @@
 package kotlin.jvm.internal;
 
 import java.util.NoSuchElementException;
-import kotlin.collections.ab;
-@kotlin.h
-/* loaded from: classes9.dex */
-final class e extends ab {
+import kotlin.collections.w;
+@kotlin.e
+/* loaded from: classes17.dex */
+final class e extends w {
     private int index;
-    private final float[] pUd;
+    private final float[] pKx;
 
     public e(float[] fArr) {
-        q.n(fArr, com.baidu.fsg.base.statistics.b.j);
-        this.pUd = fArr;
+        p.o(fArr, com.baidu.fsg.base.statistics.b.j);
+        this.pKx = fArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.pUd.length;
+        return this.index < this.pKx.length;
     }
 
-    @Override // kotlin.collections.ab
-    public float nextFloat() {
+    @Override // kotlin.collections.w
+    public float eDO() {
         try {
-            float[] fArr = this.pUd;
+            float[] fArr = this.pKx;
             int i = this.index;
             this.index = i + 1;
             return fArr[i];

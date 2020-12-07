@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.serializer;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public interface ValueFilter extends SerializeFilter {
     Object process(Object obj, String str, Object obj2);
 }

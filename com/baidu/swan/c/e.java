@@ -8,7 +8,7 @@ import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static String toMd5(byte[] bArr, boolean z) {
         try {

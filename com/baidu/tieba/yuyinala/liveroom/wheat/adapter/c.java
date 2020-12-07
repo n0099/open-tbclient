@@ -28,8 +28,8 @@ public class c extends BaseAdapter {
     private String authorUk;
     private Context context;
     private List<m> mList;
-    private a ocH;
-    private List<String> ocI = new ArrayList();
+    private a orH;
+    private List<String> orI = new ArrayList();
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -45,7 +45,7 @@ public class c extends BaseAdapter {
     }
 
     public void setData(List<m> list) {
-        this.ocI.clear();
+        this.orI.clear();
         this.mList = list;
         notifyDataSetChanged();
     }
@@ -78,19 +78,19 @@ public class c extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.context).inflate(a.g.yuyin_item_connection_wheat_invite, (ViewGroup) null);
             b bVar2 = new b();
-            bVar2.ocp = (TextView) view.findViewById(a.f.tv_rank_num);
-            bVar2.ocq = view.findViewById(a.f.margin_top_height);
-            bVar2.ocs = (HeadImageView) view.findViewById(a.f.user_avatar);
-            bVar2.ocu = (TextView) view.findViewById(a.f.tv_temp_nickname);
-            bVar2.oct = (TextView) view.findViewById(a.f.tv_nickname);
-            bVar2.ocw = (TextView) view.findViewById(a.f.tv_level);
-            bVar2.ocv = (ImageView) view.findViewById(a.f.iv_sex);
-            bVar2.ocy = (TbImageView) view.findViewById(a.f.iv_level);
-            bVar2.ocx = (FrameLayout) view.findViewById(a.f.level_container);
-            bVar2.ocz = (TbImageView) view.findViewById(a.f.iv_badge);
-            bVar2.ocL = (AlaAcceptAndInviteBtn) view.findViewById(a.f.tv_invite_connection_wheat);
-            bVar2.ocA = (LinearLayout) view.findViewById(a.f.content_container);
-            bVar2.ocB = (LinearLayout) view.findViewById(a.f.icon_container);
+            bVar2.orq = (TextView) view.findViewById(a.f.tv_rank_num);
+            bVar2.orr = view.findViewById(a.f.margin_top_height);
+            bVar2.ors = (HeadImageView) view.findViewById(a.f.user_avatar);
+            bVar2.oru = (TextView) view.findViewById(a.f.tv_temp_nickname);
+            bVar2.ort = (TextView) view.findViewById(a.f.tv_nickname);
+            bVar2.orw = (TextView) view.findViewById(a.f.tv_level);
+            bVar2.orv = (ImageView) view.findViewById(a.f.iv_sex);
+            bVar2.ory = (TbImageView) view.findViewById(a.f.iv_level);
+            bVar2.orx = (FrameLayout) view.findViewById(a.f.level_container);
+            bVar2.orz = (TbImageView) view.findViewById(a.f.iv_badge);
+            bVar2.orL = (AlaAcceptAndInviteBtn) view.findViewById(a.f.tv_invite_connection_wheat);
+            bVar2.orA = (LinearLayout) view.findViewById(a.f.content_container);
+            bVar2.orB = (LinearLayout) view.findViewById(a.f.icon_container);
             view.setTag(bVar2);
             bVar = bVar2;
         } else {
@@ -98,161 +98,161 @@ public class c extends BaseAdapter {
         }
         m mVar = (m) ListUtils.getItem(this.mList, i);
         if (mVar != null) {
-            bVar.ocp.setText(Integer.toString(i + 1));
-            bVar.ocs.setIsRound(true);
-            bVar.ocs.setAutoChangeStyle(false);
-            bVar.ocs.setDefaultResource(a.e.yuyin_sdk_default_avatar);
+            bVar.orq.setText(Integer.toString(i + 1));
+            bVar.ors.setIsRound(true);
+            bVar.ors.setAutoChangeStyle(false);
+            bVar.ors.setDefaultResource(a.e.yuyin_sdk_default_avatar);
             if (mVar != null && !TextUtils.isEmpty(mVar.portrait)) {
-                bVar.ocs.setScaleType(ImageView.ScaleType.FIT_XY);
-                bVar.ocs.setUrl(mVar.portrait);
-                bVar.ocs.startLoad(mVar.portrait, 12, false);
+                bVar.ors.setScaleType(ImageView.ScaleType.FIT_XY);
+                bVar.ors.setUrl(mVar.portrait);
+                bVar.ors.startLoad(mVar.portrait, 12, false);
             }
-            bVar.ocu.setText(mVar.userName);
-            bVar.oct.setText(mVar.userName);
+            bVar.oru.setText(mVar.userName);
+            bVar.ort.setText(mVar.userName);
             if (mVar.sex == 0) {
-                bVar.ocv.setVisibility(8);
+                bVar.orv.setVisibility(8);
             } else {
-                bVar.ocv.setVisibility(0);
-                bVar.ocv.setImageResource(mVar.sex == 1 ? a.e.yuyin_sdk_icon_mine_boy : a.e.yuyin_sdk_icon_mine_girl);
+                bVar.orv.setVisibility(0);
+                bVar.orv.setImageResource(mVar.sex == 1 ? a.e.yuyin_sdk_icon_mine_boy : a.e.yuyin_sdk_icon_mine_girl);
             }
             int i3 = mVar.sex == 0 ? 3 : 2;
-            bVar.ocx.setVisibility(8);
-            bVar.ocz.setVisibility(8);
+            bVar.orx.setVisibility(8);
+            bVar.orz.setVisibility(8);
             int c = e.c(14.0f, view.getContext()) + (e.c(4.0f, view.getContext()) * 2);
             if (mVar.mLiveMarkInfo != null) {
                 i2 = c;
                 for (int i4 = 0; i4 < mVar.mLiveMarkInfo.size() && i4 < i3; i4++) {
                     switch (mVar.mLiveMarkInfo.get(i4).type) {
                         case 1:
-                            bVar.ocx.setVisibility(0);
-                            bVar.ocy.startLoad(mVar.mLiveMarkInfo.get(i4).mark_pic, 10, false);
-                            bVar.ocw.setText(Integer.toString(mVar.level));
+                            bVar.orx.setVisibility(0);
+                            bVar.ory.startLoad(mVar.mLiveMarkInfo.get(i4).mark_pic, 10, false);
+                            bVar.orw.setText(Integer.toString(mVar.level));
                             i2 += e.c(13.0f, view.getContext()) + e.c(4.0f, view.getContext());
                             break;
                         case 105:
-                            bVar.ocz.setVisibility(0);
-                            bVar.ocz.startLoad(mVar.mLiveMarkInfo.get(i4).mark_pic, 10, false);
-                            i2 += e.c(42.0f, bVar.ocz.getContext()) + e.c(4.0f, view.getContext());
+                            bVar.orz.setVisibility(0);
+                            bVar.orz.startLoad(mVar.mLiveMarkInfo.get(i4).mark_pic, 10, false);
+                            i2 += e.c(42.0f, bVar.orz.getContext()) + e.c(4.0f, view.getContext());
                             break;
                     }
                 }
             } else {
                 i2 = c;
             }
-            bVar.ocs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.c.1
+            bVar.ors.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (c.this.ocH != null && view2.getTag() != null && (view2.getTag() instanceof m)) {
-                        c.this.ocH.a((m) view2.getTag());
+                    if (c.this.orH != null && view2.getTag() != null && (view2.getTag() instanceof m)) {
+                        c.this.orH.a((m) view2.getTag());
                     }
                 }
             });
-            bVar.oct.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.c.2
+            bVar.ort.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (c.this.ocH != null && view2.getTag() != null && (view2.getTag() instanceof m)) {
-                        c.this.ocH.a((m) view2.getTag());
+                    if (c.this.orH != null && view2.getTag() != null && (view2.getTag() instanceof m)) {
+                        c.this.orH.a((m) view2.getTag());
                     }
                 }
             });
-            bVar.ocs.setTag(mVar);
-            bVar.oct.setTag(mVar);
-            bVar.ocL.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
-            bVar.ocL.setTag(mVar);
-            bVar.ocL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.c.3
+            bVar.ors.setTag(mVar);
+            bVar.ort.setTag(mVar);
+            bVar.orL.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
+            bVar.orL.setTag(mVar);
+            bVar.orL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.c.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (view2.getTag() != null && (view2.getTag() instanceof m)) {
                         m mVar2 = (m) view2.getTag();
-                        if (c.this.ocH != null && mVar2.aGL == 0 && c.this.ocI != null && !c.this.ocI.contains(mVar2.uk)) {
-                            if (!mVar2.aGN && c.this.context != null) {
+                        if (c.this.orH != null && mVar2.aJv == 0 && c.this.orI != null && !c.this.orI.contains(mVar2.uk)) {
+                            if (!mVar2.aJx && c.this.context != null) {
                                 BdToast.makeText(c.this.context, c.this.context.getText(a.h.yuyin_ala_wheat_unable_newuser_text)).show();
                                 return;
                             }
-                            c.this.Vg(mVar2.uk);
-                            c.this.ocH.b((m) view2.getTag());
+                            c.this.Wv(mVar2.uk);
+                            c.this.orH.b((m) view2.getTag());
                         }
                     }
                 }
             });
-            bVar.ocL.setVisibility(0);
-            if (!Vf(mVar.uk)) {
-                if (mVar.DA()) {
-                    bVar.ocL.setText(TbadkCoreApplication.getInst().getString(a.h.yuyin_living));
-                    bVar.ocL.setBtnEnabled(false);
-                } else if (mVar.aGL == 0) {
-                    if (this.ocI != null && this.ocI.contains(mVar.uk)) {
-                        bVar.ocL.setText(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_have_invited_text));
-                        bVar.ocL.setBtnEnabled(false);
+            bVar.orL.setVisibility(0);
+            if (!Wu(mVar.uk)) {
+                if (mVar.Fl()) {
+                    bVar.orL.setText(TbadkCoreApplication.getInst().getString(a.h.yuyin_living));
+                    bVar.orL.setBtnEnabled(false);
+                } else if (mVar.aJv == 0) {
+                    if (this.orI != null && this.orI.contains(mVar.uk)) {
+                        bVar.orL.setText(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_have_invited_text));
+                        bVar.orL.setBtnEnabled(false);
                     } else {
-                        bVar.ocL.setText(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_invite_1_text));
-                        bVar.ocL.setBtnEnabled(true);
-                        bVar.ocL.setBtnEnabled(mVar.aGN);
+                        bVar.orL.setText(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_invite_1_text));
+                        bVar.orL.setBtnEnabled(true);
+                        bVar.orL.setBtnEnabled(mVar.aJx);
                     }
-                } else if (mVar.aGL == 1) {
-                    bVar.ocL.setText(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connecting_wheat_text_2));
-                    bVar.ocL.setBtnEnabled(true);
+                } else if (mVar.aJv == 1) {
+                    bVar.orL.setText(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connecting_wheat_text_2));
+                    bVar.orL.setBtnEnabled(true);
                 }
             } else {
-                bVar.ocL.setVisibility(8);
+                bVar.orL.setVisibility(8);
             }
-            bVar.oct.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.c.4
+            bVar.ort.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.c.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (bVar.ocu.getMeasuredWidth() + i2 > bVar.ocA.getMeasuredWidth()) {
-                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) bVar.oct.getLayoutParams();
+                    if (bVar.oru.getMeasuredWidth() + i2 > bVar.orA.getMeasuredWidth()) {
+                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) bVar.ort.getLayoutParams();
                         layoutParams.weight = 1.0f;
-                        bVar.oct.setLayoutParams(layoutParams);
+                        bVar.ort.setLayoutParams(layoutParams);
                         return;
                     }
-                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) bVar.oct.getLayoutParams();
+                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) bVar.ort.getLayoutParams();
                     layoutParams2.weight = 0.0f;
                     layoutParams2.width = -2;
-                    bVar.oct.setLayoutParams(layoutParams2);
+                    bVar.ort.setLayoutParams(layoutParams2);
                 }
             });
         }
         return view;
     }
 
-    private boolean Vf(String str) {
+    private boolean Wu(String str) {
         return str != null && TextUtils.equals(str, this.authorUk);
     }
 
     /* loaded from: classes4.dex */
     private class b {
-        private LinearLayout ocA;
-        private LinearLayout ocB;
-        private AlaAcceptAndInviteBtn ocL;
-        private TextView ocp;
-        private View ocq;
-        private HeadImageView ocs;
-        private TextView oct;
-        private TextView ocu;
-        private ImageView ocv;
-        private TextView ocw;
-        private FrameLayout ocx;
-        private TbImageView ocy;
-        private TbImageView ocz;
+        private LinearLayout orA;
+        private LinearLayout orB;
+        private AlaAcceptAndInviteBtn orL;
+        private TextView orq;
+        private View orr;
+        private HeadImageView ors;
+        private TextView ort;
+        private TextView oru;
+        private ImageView orv;
+        private TextView orw;
+        private FrameLayout orx;
+        private TbImageView ory;
+        private TbImageView orz;
 
         private b() {
         }
     }
 
     public void setOnItemClickLister(a aVar) {
-        this.ocH = aVar;
+        this.orH = aVar;
     }
 
-    public void Vg(String str) {
-        if (str != null && this.ocI != null && !this.ocI.contains(str)) {
-            this.ocI.add(str);
+    public void Wv(String str) {
+        if (str != null && this.orI != null && !this.orI.contains(str)) {
+            this.orI.add(str);
             notifyDataSetChanged();
         }
     }
 
     public void clear() {
-        if (this.ocI != null) {
-            this.ocI.clear();
+        if (this.orI != null) {
+            this.orI.clear();
         }
     }
 }

@@ -17,11 +17,11 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class LivenessVideoXfordView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final float f1761a = 230.0f;
+    private static final float f1763a = 230.0f;
     private static final float b = 20.0f;
     private float c;
     private float d;
@@ -45,14 +45,14 @@ public class LivenessVideoXfordView extends FrameLayout {
     private int v;
     private a w;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public enum VideoXfordViewState {
         FAILURE,
         SUCCESSING,
         SUCCESSED
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public interface a {
         void a();
     }
@@ -65,14 +65,14 @@ public class LivenessVideoXfordView extends FrameLayout {
 
     public LivenessVideoXfordView(@NonNull Context context) {
         super(context);
-        this.c = f1761a;
+        this.c = f1763a;
         this.d = b;
         a();
     }
 
     public LivenessVideoXfordView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.c = f1761a;
+        this.c = f1763a;
         this.d = b;
         a();
     }
@@ -135,7 +135,7 @@ public class LivenessVideoXfordView extends FrameLayout {
                 }
                 LivenessVideoXfordView.this.v += 2;
                 LivenessVideoXfordView.this.d = LivenessVideoXfordView.b + LivenessVideoXfordView.this.v;
-                LivenessVideoXfordView.this.c = (LivenessVideoXfordView.f1761a + (LivenessVideoXfordView.this.v * 1)) % 360.0f;
+                LivenessVideoXfordView.this.c = (LivenessVideoXfordView.f1763a + (LivenessVideoXfordView.this.v * 1)) % 360.0f;
                 LivenessVideoXfordView.this.invalidate();
                 LivenessVideoXfordView.this.t.postDelayed(LivenessVideoXfordView.this.u, 3L);
             }

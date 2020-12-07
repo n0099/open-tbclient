@@ -114,7 +114,7 @@ public class WeiboParameters {
             if (obj instanceof String) {
                 if (!TextUtils.isEmpty((String) obj)) {
                     try {
-                        sb.append(URLEncoder.encode(str2, "UTF-8") + ETAG.EQUAL + URLEncoder.encode(str, "UTF-8"));
+                        sb.append(URLEncoder.encode(str2, "UTF-8") + "=" + URLEncoder.encode(str, "UTF-8"));
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }

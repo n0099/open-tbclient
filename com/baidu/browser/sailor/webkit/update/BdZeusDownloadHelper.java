@@ -11,7 +11,7 @@ import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class BdZeusDownloadHelper {
     protected static String d;
     protected static String e;
@@ -20,15 +20,15 @@ public final class BdZeusDownloadHelper {
     private Context h;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1291a = BdZeusDownloadHelper.class.getSimpleName();
-    private static BdZeusDownloadHelper afC = null;
+    public static final String f1290a = BdZeusDownloadHelper.class.getSimpleName();
+    private static BdZeusDownloadHelper agy = null;
     protected static String f = "com.baidu.android.appswitchsdk:web";
     private String i = "";
     private String k = "";
     private int j = a.c;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public class ZeusDownloadTaskListener implements BdSailorClient.IDownloadTaskListener {
         private ZeusDownloadTaskListener() {
         }
@@ -58,7 +58,7 @@ public final class BdZeusDownloadHelper {
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
         @Keep
         public void onDownloadStart(String str, long j, String str2) {
-            BdZeusDownloadHelper.this.j = a.f1292a;
+            BdZeusDownloadHelper.this.j = a.f1291a;
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
@@ -106,24 +106,24 @@ public final class BdZeusDownloadHelper {
         public void onDownloading(String str, long j, long j2) {
             BdZeusDownloadHelper.this.b += j;
             BdZeusDownloadHelper.this.c = j2;
-            BdZeusDownloadHelper.this.j = a.f1292a;
+            BdZeusDownloadHelper.this.j = a.f1291a;
         }
     }
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f1292a = 1;
+        public static final int f1291a = 1;
         public static final int b = 2;
         public static final int c = 3;
         public static final int d = 4;
         public static final int e = 5;
         public static final int f = 6;
         public static final int g = 7;
-        private static final /* synthetic */ int[] h = {f1292a, b, c, d, e, f, g};
+        private static final /* synthetic */ int[] h = {f1291a, b, c, d, e, f, g};
     }
 
     private BdZeusDownloadHelper(Context context) {
@@ -134,15 +134,15 @@ public final class BdZeusDownloadHelper {
         }
     }
 
-    public static BdZeusDownloadHelper T(Context context) {
-        if (afC == null) {
+    public static BdZeusDownloadHelper U(Context context) {
+        if (agy == null) {
             synchronized (BdZeusDownloadHelper.class) {
-                if (afC == null) {
-                    afC = new BdZeusDownloadHelper(context);
+                if (agy == null) {
+                    agy = new BdZeusDownloadHelper(context);
                 }
             }
         }
-        return afC;
+        return agy;
     }
 
     public static void a() {

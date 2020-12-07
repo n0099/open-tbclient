@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import rx.d;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration, R> implements d.a<R> {
-    final rx.d<TLeft> qgf;
-    final rx.d<TRight> qgg;
-    final rx.functions.g<TLeft, TRight, R> qgj;
-    final rx.functions.f<TLeft, rx.d<TLeftDuration>> qgp;
-    final rx.functions.f<TRight, rx.d<TRightDuration>> qgq;
+    final rx.d<TLeft> pQh;
+    final rx.d<TRight> pQi;
+    final rx.functions.g<TLeft, TRight, R> pQl;
+    final rx.functions.f<TLeft, rx.d<TLeftDuration>> pQr;
+    final rx.functions.f<TRight, rx.d<TRightDuration>> pQs;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -22,7 +22,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public final class ResultSink extends HashMap<Integer, TLeft> {
         private static final long serialVersionUID = 3491669543549085380L;
         boolean leftDone;
@@ -47,12 +47,12 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             b bVar = new b();
             this.group.add(aVar);
             this.group.add(bVar);
-            OnSubscribeJoin.this.qgf.a((rx.j<? super TLeft>) aVar);
-            OnSubscribeJoin.this.qgg.a((rx.j<? super TRight>) bVar);
+            OnSubscribeJoin.this.pQh.a((rx.j<? super TLeft>) aVar);
+            OnSubscribeJoin.this.pQi.a((rx.j<? super TRight>) bVar);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes14.dex */
+        /* loaded from: classes12.dex */
         public final class a extends rx.j<TLeft> {
             a() {
             }
@@ -86,9 +86,9 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     i2 = ResultSink.this.rightId;
                 }
                 try {
-                    C1101a c1101a = new C1101a(i);
-                    ResultSink.this.group.add(c1101a);
-                    OnSubscribeJoin.this.qgp.call(tleft).a((rx.j<? super TLeftDuration>) c1101a);
+                    C1065a c1065a = new C1065a(i);
+                    ResultSink.this.group.add(c1065a);
+                    OnSubscribeJoin.this.pQr.call(tleft).a((rx.j<? super TLeftDuration>) c1065a);
                     ArrayList<Object> arrayList = new ArrayList();
                     synchronized (ResultSink.this) {
                         for (Map.Entry<Integer, TRight> entry : ResultSink.this.rightMap.entrySet()) {
@@ -98,7 +98,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         }
                     }
                     for (Object obj : arrayList) {
-                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.qgj.o(tleft, obj));
+                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.pQl.n(tleft, obj));
                     }
                 } catch (Throwable th) {
                     rx.exceptions.a.a(th, this);
@@ -129,12 +129,12 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             }
 
             /* renamed from: rx.internal.operators.OnSubscribeJoin$ResultSink$a$a  reason: collision with other inner class name */
-            /* loaded from: classes14.dex */
-            final class C1101a extends rx.j<TLeftDuration> {
+            /* loaded from: classes12.dex */
+            final class C1065a extends rx.j<TLeftDuration> {
                 final int id;
                 boolean once = true;
 
-                public C1101a(int i) {
+                public C1065a(int i) {
                     this.id = i;
                 }
 
@@ -159,7 +159,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes14.dex */
+        /* loaded from: classes12.dex */
         public final class b extends rx.j<TRight> {
             b() {
             }
@@ -196,7 +196,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 try {
                     a aVar = new a(i);
                     ResultSink.this.group.add(aVar);
-                    OnSubscribeJoin.this.qgq.call(tright).a((rx.j<? super TRightDuration>) aVar);
+                    OnSubscribeJoin.this.pQs.call(tright).a((rx.j<? super TRightDuration>) aVar);
                     ArrayList<Object> arrayList = new ArrayList();
                     synchronized (ResultSink.this) {
                         for (Map.Entry<Integer, TLeft> entry : ResultSink.this.leftMap().entrySet()) {
@@ -206,7 +206,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         }
                     }
                     for (Object obj : arrayList) {
-                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.qgj.o(obj, tright));
+                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.pQl.n(obj, tright));
                     }
                 } catch (Throwable th) {
                     rx.exceptions.a.a(th, this);
@@ -236,7 +236,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 ResultSink.this.group.a(this);
             }
 
-            /* loaded from: classes14.dex */
+            /* loaded from: classes12.dex */
             final class a extends rx.j<TRightDuration> {
                 final int id;
                 boolean once = true;

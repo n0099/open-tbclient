@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> implements io.reactivex.disposables.b, j<T>, d {
     private final c<? super T> actual;
     private volatile boolean cancelled;
@@ -17,7 +17,7 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
 
     @Override // io.reactivex.j, org.a.c
     public void onSubscribe(d dVar) {
-        this.pSd = Thread.currentThread();
+        this.pIR = Thread.currentThread();
         if (dVar == null) {
             this.errors.add(new NullPointerException("onSubscribe received a null Subscription"));
         } else if (!this.subscription.compareAndSet(null, dVar)) {
@@ -26,20 +26,20 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
                 this.errors.add(new IllegalStateException("onSubscribe received multiple subscriptions: " + dVar));
             }
         } else {
-            if (this.pSf != 0 && (dVar instanceof io.reactivex.internal.a.d)) {
+            if (this.pIT != 0 && (dVar instanceof io.reactivex.internal.a.d)) {
                 this.qs = (io.reactivex.internal.a.d) dVar;
-                int requestFusion = this.qs.requestFusion(this.pSf);
-                this.pSg = requestFusion;
+                int requestFusion = this.qs.requestFusion(this.pIT);
+                this.pIU = requestFusion;
                 if (requestFusion == 1) {
-                    this.pSe = true;
-                    this.pSd = Thread.currentThread();
+                    this.pIS = true;
+                    this.pIR = Thread.currentThread();
                     while (true) {
                         try {
                             T poll = this.qs.poll();
                             if (poll != null) {
                                 this.values.add(poll);
                             } else {
-                                this.pSc++;
+                                this.pIQ++;
                                 return;
                             }
                         } catch (Throwable th) {
@@ -63,14 +63,14 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
 
     @Override // org.a.c
     public void onNext(T t) {
-        if (!this.pSe) {
-            this.pSe = true;
+        if (!this.pIS) {
+            this.pIS = true;
             if (this.subscription.get() == null) {
                 this.errors.add(new IllegalStateException("onSubscribe not called in proper order"));
             }
         }
-        this.pSd = Thread.currentThread();
-        if (this.pSg != 2) {
+        this.pIR = Thread.currentThread();
+        if (this.pIU != 2) {
             this.values.add(t);
             if (t == null) {
                 this.errors.add(new NullPointerException("onNext received a null value"));
@@ -96,38 +96,38 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
 
     @Override // org.a.c
     public void onError(Throwable th) {
-        if (!this.pSe) {
-            this.pSe = true;
+        if (!this.pIS) {
+            this.pIS = true;
             if (this.subscription.get() == null) {
                 this.errors.add(new NullPointerException("onSubscribe not called in proper order"));
             }
         }
         try {
-            this.pSd = Thread.currentThread();
+            this.pIR = Thread.currentThread();
             this.errors.add(th);
             if (th == null) {
                 this.errors.add(new IllegalStateException("onError received a null Throwable"));
             }
             this.actual.onError(th);
         } finally {
-            this.pSb.countDown();
+            this.pIP.countDown();
         }
     }
 
     @Override // org.a.c
     public void onComplete() {
-        if (!this.pSe) {
-            this.pSe = true;
+        if (!this.pIS) {
+            this.pIS = true;
             if (this.subscription.get() == null) {
                 this.errors.add(new IllegalStateException("onSubscribe not called in proper order"));
             }
         }
         try {
-            this.pSd = Thread.currentThread();
-            this.pSc++;
+            this.pIR = Thread.currentThread();
+            this.pIQ++;
             this.actual.onComplete();
         } finally {
-            this.pSb.countDown();
+            this.pIP.countDown();
         }
     }
 
@@ -154,7 +154,7 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
         return this.cancelled;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     enum EmptySubscriber implements j<Object> {
         INSTANCE;
 

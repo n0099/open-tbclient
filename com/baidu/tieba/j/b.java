@@ -11,7 +11,7 @@ public class b {
         this.goods_url = goodsWin.goods_url;
     }
 
-    public boolean cHJ() {
+    public boolean cMX() {
         return this.show.intValue() == 1;
     }
 }

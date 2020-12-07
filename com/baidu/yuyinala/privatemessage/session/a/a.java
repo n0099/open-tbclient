@@ -12,20 +12,20 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class a extends c {
-    private LayoutInflater jUZ;
+    private LayoutInflater kiE;
     private Context mContext;
     private List<com.baidu.yuyinala.privatemessage.session.b.a> mDatas;
-    private Set<com.baidu.yuyinala.privatemessage.session.b.a> oIh = new HashSet();
+    private Set<com.baidu.yuyinala.privatemessage.session.b.a> oXn = new HashSet();
 
     public a(Context context, List<com.baidu.yuyinala.privatemessage.session.b.a> list) {
         this.mContext = context;
         this.mDatas = list;
         if (this.mContext != null) {
-            this.jUZ = LayoutInflater.from(context);
+            this.kiE = LayoutInflater.from(context);
         }
     }
 
-    public void OG(int i) {
+    public void PE(int i) {
         if (this.mDatas != null && this.mDatas.size() > i && i >= 0) {
             this.mDatas.remove(i);
             notifyDataSetChanged();
@@ -47,7 +47,7 @@ public class a extends c {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: OH */
+    /* renamed from: PF */
     public com.baidu.yuyinala.privatemessage.session.b.a getItem(int i) {
         return this.mDatas.get(i);
     }
@@ -60,8 +60,8 @@ public class a extends c {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.yuyinala.privatemessage.session.d.a aVar;
-        if (view == null && this.jUZ != null) {
-            view = this.jUZ.inflate(a.g.yuyin_item_user_message, viewGroup, false);
+        if (view == null && this.kiE != null) {
+            view = this.kiE.inflate(a.g.yuyin_item_user_message, viewGroup, false);
             com.baidu.yuyinala.privatemessage.session.d.a aVar2 = new com.baidu.yuyinala.privatemessage.session.d.a(view);
             view.setTag(aVar2);
             aVar = aVar2;

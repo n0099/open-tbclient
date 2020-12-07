@@ -9,13 +9,13 @@ import okhttp3.Interceptor;
 public interface a {
     void a(String str, HttpRequestBuilder httpRequestBuilder);
 
-    CookieManager axj();
+    CookieManager aAr();
 
-    int axo();
+    int aAw();
+
+    int aAx();
 
     Context getAppContext();
-
-    int getConnectionTimeout();
 
     int getReadTimeout();
 

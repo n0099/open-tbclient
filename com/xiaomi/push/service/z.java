@@ -7,20 +7,20 @@ import com.xiaomi.push.service.ap;
 public final class z implements ap.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XMPushService f5123a;
+    final /* synthetic */ XMPushService f4893a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(XMPushService xMPushService) {
-        this.f5123a = xMPushService;
+        this.f4893a = xMPushService;
     }
 
     @Override // com.xiaomi.push.service.ap.b.a
     public void a(ap.c cVar, ap.c cVar2, int i) {
         if (cVar2 == ap.c.binded) {
-            o.a(this.f5123a);
-            o.b(this.f5123a);
+            o.a(this.f4893a);
+            o.b(this.f4893a);
         } else if (cVar2 == ap.c.unbind) {
-            o.a(this.f5123a, ErrorCode.ERROR_SERVICE_UNAVAILABLE, " the push is not connected.");
+            o.a(this.f4893a, ErrorCode.ERROR_SERVICE_UNAVAILABLE, " the push is not connected.");
         }
     }
 }

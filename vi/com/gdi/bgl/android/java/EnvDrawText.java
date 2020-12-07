@@ -5,11 +5,12 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.support.v4.view.ViewCompat;
 import android.text.Layout;
 import android.text.TextPaint;
 import android.util.SparseArray;
 import java.nio.IntBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class EnvDrawText {
     private static final String DEVICE_VIVOX3L = "vivo X3L";
     private static final int FONT_STYLE_BOLD = 1;
@@ -98,7 +99,7 @@ public class EnvDrawText {
                         }
                     }
                     if (((-16777216) & i5) == 0) {
-                        canvas.drawColor(16777215);
+                        canvas.drawColor(ViewCompat.MEASURED_SIZE_MASK);
                     } else {
                         canvas.drawColor(i5);
                     }
@@ -169,7 +170,7 @@ public class EnvDrawText {
                                 }
                             }
                             if (((-16777216) & i5) == 0) {
-                                canvas.drawColor(16777215);
+                                canvas.drawColor(ViewCompat.MEASURED_SIZE_MASK);
                             } else {
                                 canvas.drawColor(i5);
                             }
@@ -405,7 +406,7 @@ public class EnvDrawText {
                         }
                     }
                     if (((-16777216) & i5) == 0) {
-                        canvas.drawColor(16777215);
+                        canvas.drawColor(ViewCompat.MEASURED_SIZE_MASK);
                     } else {
                         canvas.drawColor(i5);
                     }
@@ -465,7 +466,7 @@ public class EnvDrawText {
                                 }
                             }
                             if (((-16777216) & i5) == 0) {
-                                canvas.drawColor(16777215);
+                                canvas.drawColor(ViewCompat.MEASURED_SIZE_MASK);
                             } else {
                                 canvas.drawColor(i5);
                             }
@@ -620,7 +621,7 @@ public class EnvDrawText {
                 a aVar = fontCache.get(i);
                 if (aVar == null) {
                     a aVar2 = new a();
-                    aVar2.f5405a = typeface;
+                    aVar2.f5168a = typeface;
                     aVar2.b++;
                     fontCache.put(i, aVar2);
                 } else {

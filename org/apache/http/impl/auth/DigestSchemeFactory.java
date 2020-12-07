@@ -4,7 +4,7 @@ import org.apache.http.auth.AuthScheme;
 import org.apache.http.auth.AuthSchemeFactory;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class DigestSchemeFactory implements AuthSchemeFactory {
     public DigestSchemeFactory() {
         throw new RuntimeException("Stub!");

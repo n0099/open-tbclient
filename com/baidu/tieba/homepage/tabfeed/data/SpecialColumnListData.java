@@ -3,14 +3,14 @@ package com.baidu.tieba.homepage.tabfeed.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.as;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.at;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implements Parcelable {
     public static final int MAX_SIZE = 3;
     private List<SpecialColumnItemData> mListData;
@@ -27,7 +27,7 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Cn */
+        /* renamed from: Dc */
         public SpecialColumnListData[] newArray(int i) {
             return new SpecialColumnListData[i];
         }
@@ -78,16 +78,16 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bx bjd() {
+    public by bmn() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public as bjf() {
+    public at bmp() {
         return null;
     }
 
-    public List<SpecialColumnItemData> cLy() {
+    public List<SpecialColumnItemData> cQM() {
         return this.mListData;
     }
 
@@ -95,7 +95,7 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
         return this.title;
     }
 
-    public List<SpecialColumnItemData> bOG() {
+    public List<SpecialColumnItemData> bSr() {
         return this.mResultListData;
     }
 

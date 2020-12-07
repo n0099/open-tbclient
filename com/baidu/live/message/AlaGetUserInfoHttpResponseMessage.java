@@ -5,14 +5,14 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGetUserInfoHttpResponseMessage extends JsonHttpResponsedMessage {
-    private AlaLivePersonData bmm;
+    private AlaLivePersonData brt;
 
     public AlaGetUserInfoHttpResponseMessage() {
         super(1021039);
     }
 
-    public AlaLivePersonData Nu() {
-        return this.bmm;
+    public AlaLivePersonData PN() {
+        return this.brt;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -21,8 +21,8 @@ public class AlaGetUserInfoHttpResponseMessage extends JsonHttpResponsedMessage 
             super.decodeLogicInBackGround(i, jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.bmm = new AlaLivePersonData();
-                this.bmm.parseJson(optJSONObject);
+                this.brt = new AlaLivePersonData();
+                this.brt.parseJson(optJSONObject);
             }
         }
     }

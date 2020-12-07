@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean bT(String str) {
+    public static boolean bW(String str) {
         return str != null && str.contains("vnd.wap.wml");
     }
 

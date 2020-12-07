@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.group.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
@@ -24,7 +25,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMCreateGroupRequest extends GroupBaseHttpRequest {
     private static final String TAG = IMCreateGroupRequest.class.getSimpleName();
     private ArrayList<String> mAddingList;
@@ -32,7 +33,7 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
     private String mKey;
     private String mName;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);
@@ -47,7 +48,7 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
                 int i2 = jSONObject.getInt("error_code");
-                String optString = jSONObject.optString("error_msg", "");
+                String optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
                 if (i2 == 0 && jSONObject.has("response_params")) {
                     j2 = jSONObject.getJSONObject("response_params").optLong("group_id", -1L);
                 }

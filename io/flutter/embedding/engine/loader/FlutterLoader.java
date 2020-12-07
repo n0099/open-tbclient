@@ -9,15 +9,13 @@ import android.os.Looper;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.WindowManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import io.flutter.embedding.engine.FlutterJNI;
 import io.flutter.util.PathUtils;
 import io.flutter.view.VsyncWaiter;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class FlutterLoader {
     private static final String DEFAULT_AOT_SHARED_LIBRARY_NAME = "libapp.so";
     private static final String DEFAULT_FLUTTER_ASSETS_DIR = "flutter_assets";
@@ -28,9 +26,7 @@ public class FlutterLoader {
     private static final String SNAPSHOT_ASSET_PATH_KEY = "snapshot-asset-path";
     private static final String TAG = "FlutterLoader";
     private static FlutterLoader instance;
-    @Nullable
     private ResourceExtractor resourceExtractor;
-    @Nullable
     private Settings settings;
     private static final String AOT_SHARED_LIBRARY_NAME = "aot-shared-library-name";
     private static final String PUBLIC_AOT_SHARED_LIBRARY_NAME = FlutterLoader.class.getName() + '.' + AOT_SHARED_LIBRARY_NAME;
@@ -46,7 +42,6 @@ public class FlutterLoader {
     private String flutterAssetsDir = DEFAULT_FLUTTER_ASSETS_DIR;
     private boolean initialized = false;
 
-    @NonNull
     public static FlutterLoader getInstance() {
         if (instance == null) {
             instance = new FlutterLoader();
@@ -54,11 +49,11 @@ public class FlutterLoader {
         return instance;
     }
 
-    public void startInitialization(@NonNull Context context) {
+    public void startInitialization(Context context) {
         startInitialization(context, new Settings());
     }
 
-    public void startInitialization(@NonNull Context context, @NonNull Settings settings) {
+    public void startInitialization(Context context, Settings settings) {
         if (this.settings == null) {
             if (Looper.myLooper() != Looper.getMainLooper()) {
                 throw new IllegalStateException("startInitialization must be called on the main thread");
@@ -74,7 +69,7 @@ public class FlutterLoader {
         }
     }
 
-    public void ensureInitializationComplete(@NonNull Context context, @Nullable String[] strArr) {
+    public void ensureInitializationComplete(Context context, String[] strArr) {
         if (!this.initialized) {
             if (Looper.myLooper() != Looper.getMainLooper()) {
                 throw new IllegalStateException("ensureInitializationComplete must be called on the main thread");
@@ -108,7 +103,7 @@ public class FlutterLoader {
         }
     }
 
-    public void ensureInitializationCompleteAsync(@NonNull final Context context, @Nullable final String[] strArr, @NonNull final Handler handler, @NonNull final Runnable runnable) {
+    public void ensureInitializationCompleteAsync(final Context context, final String[] strArr, final Handler handler, final Runnable runnable) {
         if (Looper.myLooper() != Looper.getMainLooper()) {
             throw new IllegalStateException("ensureInitializationComplete must be called on the main thread");
         }
@@ -136,8 +131,7 @@ public class FlutterLoader {
         }
     }
 
-    @NonNull
-    private ApplicationInfo getApplicationInfo(@NonNull Context context) {
+    private ApplicationInfo getApplicationInfo(Context context) {
         try {
             return context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
         } catch (PackageManager.NameNotFoundException e) {
@@ -145,7 +139,7 @@ public class FlutterLoader {
         }
     }
 
-    private void initConfig(@NonNull Context context) {
+    private void initConfig(Context context) {
         Bundle bundle = getApplicationInfo(context).metaData;
         if (bundle != null) {
             this.aotSharedLibraryName = bundle.getString(PUBLIC_AOT_SHARED_LIBRARY_NAME, DEFAULT_AOT_SHARED_LIBRARY_NAME);
@@ -155,35 +149,30 @@ public class FlutterLoader {
         }
     }
 
-    private void initResources(@NonNull Context context) {
+    private void initResources(Context context) {
         new ResourceCleaner(context).start();
     }
 
-    @NonNull
     public String findAppBundlePath() {
         return this.flutterAssetsDir;
     }
 
-    @NonNull
-    public String getLookupKeyForAsset(@NonNull String str) {
+    public String getLookupKeyForAsset(String str) {
         return fullAssetPathFrom(str);
     }
 
-    @NonNull
-    public String getLookupKeyForAsset(@NonNull String str, @NonNull String str2) {
+    public String getLookupKeyForAsset(String str, String str2) {
         return getLookupKeyForAsset("packages" + File.separator + str2 + File.separator + str);
     }
 
-    @NonNull
-    private String fullAssetPathFrom(@NonNull String str) {
+    private String fullAssetPathFrom(String str) {
         return this.flutterAssetsDir + File.separator + str;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class Settings {
         private String logTag;
 
-        @Nullable
         public String getLogTag() {
             return this.logTag;
         }

@@ -4,11 +4,11 @@ import com.google.protobuf.micro.CodedInputStreamMicro;
 import com.google.protobuf.micro.CodedOutputStreamMicro;
 import com.google.protobuf.micro.MessageMicro;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class b extends MessageMicro {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f3107a;
+    public byte[] f3109a;
 
     @Override // com.google.protobuf.micro.MessageMicro
     public int getCachedSize() {

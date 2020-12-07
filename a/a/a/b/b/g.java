@@ -9,60 +9,60 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.Executor;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a.d {
     public Executor c;
     public String d;
     public int g;
     public List<a.a.a.b.a.b> j = new LinkedList();
-    public a.a.a.b.b yA;
-    public d.a yB;
-    public c yC;
-    public a.a.a.b.a.a yD;
-    public com.baidu.cloudbase.download.b yy;
-    public a yz;
+    public com.baidu.cloudbase.download.b zn;
+    public a zo;
+    public a.a.a.b.b zp;
+    public d.a zq;
+    public c zr;
+    public a.a.a.b.a.a zs;
 
     public g(com.baidu.cloudbase.download.b bVar, a aVar, Executor executor, String str, a.a.a.b.b bVar2, d.a aVar2) {
-        this.yy = bVar;
-        this.yz = aVar;
+        this.zn = bVar;
+        this.zo = aVar;
         this.c = executor;
         this.d = str;
-        this.yA = bVar2;
-        this.yB = aVar2;
-        this.yC = new c(this.yy.getName().toString(), this.yy.getUri(), this.yy.getFolder());
+        this.zp = bVar2;
+        this.zq = aVar2;
+        this.zr = new c(this.zn.getName().toString(), this.zn.getUri(), this.zn.getFolder());
     }
 
     public final void a() {
-        c cVar = this.yC;
-        File file = new File(cVar.b, cVar.f958a);
+        c cVar = this.zr;
+        File file = new File(cVar.b, cVar.f956a);
         if (file.exists() && file.isFile()) {
             file.delete();
         }
     }
 
     public void a(long j, long j2) {
-        a aVar = this.yz;
-        aVar.yw.setFinished(j);
-        aVar.yw.setLength(j2);
-        aVar.yw.setPercent((int) ((100 * j) / j2));
-        aVar.yw.setStatus(104);
-        aVar.yv.a(aVar.yw);
+        a aVar = this.zo;
+        aVar.zl.setFinished(j);
+        aVar.zl.setLength(j2);
+        aVar.zl.setPercent((int) ((100 * j) / j2));
+        aVar.zl.setStatus(104);
+        aVar.zk.a(aVar.zl);
     }
 
     public void a(DownloadException downloadException) {
-        if (((b) this.yD).b()) {
+        if (((b) this.zs).b()) {
             b();
             return;
         }
-        if (((b) this.yD).c == 106) {
+        if (((b) this.zs).c == 106) {
             d();
             return;
         }
         this.g = 108;
-        a aVar = this.yz;
-        aVar.yw.d(downloadException);
-        aVar.yw.setStatus(108);
-        aVar.yv.a(aVar.yw);
+        a aVar = this.zo;
+        aVar.zl.d(downloadException);
+        aVar.zl.setStatus(108);
+        aVar.zk.a(aVar.zl);
         onDestroy();
     }
 
@@ -89,10 +89,10 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
         }
         if (z) {
             this.g = 105;
-            a aVar = this.yz;
-            aVar.yw.setStatus(105);
-            aVar.yw.setSavedPath(str);
-            aVar.yv.a(aVar.yw);
+            a aVar = this.zo;
+            aVar.zl.setStatus(105);
+            aVar.zl.setSavedPath(str);
+            aVar.zk.a(aVar.zl);
             onDestroy();
         }
     }
@@ -100,9 +100,9 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
     public void b() {
         a();
         this.g = 107;
-        a aVar = this.yz;
-        aVar.yw.setStatus(107);
-        aVar.yv.a(aVar.yw);
+        a aVar = this.zo;
+        aVar.zl.setStatus(107);
+        aVar.zk.a(aVar.zl);
         onDestroy();
     }
 
@@ -120,10 +120,10 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
         }
         if (z) {
             this.g = 108;
-            a aVar = this.yz;
-            aVar.yw.d(downloadException);
-            aVar.yw.setStatus(108);
-            aVar.yv.a(aVar.yw);
+            a aVar = this.zo;
+            aVar.zl.d(downloadException);
+            aVar.zl.setStatus(108);
+            aVar.zk.a(aVar.zl);
             onDestroy();
         }
     }
@@ -143,16 +143,16 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
         if (z) {
             a();
             this.g = 107;
-            a aVar = this.yz;
-            aVar.yw.setStatus(107);
-            aVar.yv.a(aVar.yw);
+            a aVar = this.zo;
+            aVar.zl.setStatus(107);
+            aVar.zk.a(aVar.zl);
             onDestroy();
         }
     }
 
     @Override // com.baidu.cloudbase.download.a.d
     public void cancel() {
-        a.a.a.b.a.a aVar = this.yD;
+        a.a.a.b.a.a aVar = this.zs;
         if (aVar != null) {
             ((b) aVar).c = 107;
         }
@@ -179,9 +179,9 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
         }
         if (z) {
             this.g = 106;
-            a aVar = this.yz;
-            aVar.yw.setStatus(106);
-            aVar.yv.a(aVar.yw);
+            a aVar = this.zo;
+            aVar.zl.setStatus(106);
+            aVar.zk.a(aVar.zl);
             onDestroy();
         }
     }
@@ -193,12 +193,12 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
     }
 
     public void onDestroy() {
-        this.yB.a(this.d, this);
+        this.zq.a(this.d, this);
     }
 
     @Override // com.baidu.cloudbase.download.a.d
     public void pause() {
-        a.a.a.b.a.a aVar = this.yD;
+        a.a.a.b.a.a aVar = this.zs;
         if (aVar != null) {
             ((b) aVar).c = 106;
         }
@@ -214,10 +214,10 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
     @Override // com.baidu.cloudbase.download.a.d
     public void start() {
         this.g = 101;
-        a aVar = this.yz;
-        aVar.yw.setStatus(101);
-        aVar.yw.uG().onStarted();
-        this.yD = new b(this.yy.getUri(), this);
-        this.c.execute(this.yD);
+        a aVar = this.zo;
+        aVar.zl.setStatus(101);
+        aVar.zl.uJ().onStarted();
+        this.zs = new b(this.zn.getUri(), this);
+        this.c.execute(this.zs);
     }
 }

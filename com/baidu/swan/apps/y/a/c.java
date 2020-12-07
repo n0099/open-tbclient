@@ -1,49 +1,49 @@
 package com.baidu.swan.apps.y.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class c {
-    protected boolean dex;
-    protected int dfi;
-    protected String dfj;
-    protected long dfk;
+    protected boolean dlv;
+    protected int dmh;
+    protected String dmi;
+    protected long dmj;
 
     public c(int i) {
         this(i, null);
     }
 
     public c(int i, String str) {
-        this.dex = false;
-        this.dfi = i;
-        this.dfj = str;
+        this.dlv = false;
+        this.dmh = i;
+        this.dmi = str;
     }
 
     public c(int i, String str, long j) {
-        this.dex = false;
-        this.dfi = i;
-        this.dfj = str;
-        this.dfk = j;
+        this.dlv = false;
+        this.dmh = i;
+        this.dmi = str;
+        this.dmj = j;
     }
 
     public c(int i, String str, long j, boolean z) {
-        this.dex = false;
-        this.dfi = i;
-        this.dfj = str;
-        this.dfk = j;
-        this.dex = z;
+        this.dlv = false;
+        this.dmh = i;
+        this.dmi = str;
+        this.dmj = j;
+        this.dlv = z;
     }
 
     public int getId() {
-        return this.dfi;
+        return this.dmh;
     }
 
-    public String aBS() {
-        return this.dfj;
+    public String aFb() {
+        return this.dmi;
     }
 
-    public long aBT() {
-        return this.dfk;
+    public long aFc() {
+        return this.dmj;
     }
 
-    public boolean aBU() {
-        return this.dex;
+    public boolean aFd() {
+        return this.dlv;
     }
 }

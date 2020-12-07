@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaCloseLiveHttpResonpnseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.tieba.ala.liveroom.data.b hnU;
+    private com.baidu.tieba.ala.liveroom.data.b hxA;
 
     public AlaCloseLiveHttpResonpnseMessage() {
         super(1021036);
@@ -15,12 +15,12 @@ public class AlaCloseLiveHttpResonpnseMessage extends JsonHttpResponsedMessage {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONObject("data") != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            this.hnU = new com.baidu.tieba.ala.liveroom.data.b();
-            this.hnU.dL(optJSONObject);
+            this.hxA = new com.baidu.tieba.ala.liveroom.data.b();
+            this.hxA.dN(optJSONObject);
         }
     }
 
-    public com.baidu.tieba.ala.liveroom.data.b ceZ() {
-        return this.hnU;
+    public com.baidu.tieba.ala.liveroom.data.b ciT() {
+        return this.hxA;
     }
 }

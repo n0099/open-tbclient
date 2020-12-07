@@ -2,7 +2,7 @@ package okio;
 
 import javax.annotation.Nullable;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class Segment {
     static final int SHARE_MINIMUM = 1024;
     static final int SIZE = 8192;
@@ -31,18 +31,18 @@ public final class Segment {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Segment sharedCopy() {
+    public final Segment sharedCopy() {
         this.shared = true;
         return new Segment(this.data, this.pos, this.limit, true, false);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Segment unsharedCopy() {
+    public final Segment unsharedCopy() {
         return new Segment((byte[]) this.data.clone(), this.pos, this.limit, false, true);
     }
 
     @Nullable
-    public Segment pop() {
+    public final Segment pop() {
         Segment segment = this.next != this ? this.next : null;
         this.prev.next = this.next;
         this.next.prev = this.prev;
@@ -51,7 +51,7 @@ public final class Segment {
         return segment;
     }
 
-    public Segment push(Segment segment) {
+    public final Segment push(Segment segment) {
         segment.prev = this;
         segment.next = this.next;
         this.next.prev = segment;
@@ -59,7 +59,7 @@ public final class Segment {
         return segment;
     }
 
-    public Segment split(int i) {
+    public final Segment split(int i) {
         Segment take;
         if (i <= 0 || i > this.limit - this.pos) {
             throw new IllegalArgumentException();
@@ -76,7 +76,7 @@ public final class Segment {
         return take;
     }
 
-    public void compact() {
+    public final void compact() {
         if (this.prev == this) {
             throw new IllegalStateException();
         }
@@ -90,7 +90,7 @@ public final class Segment {
         }
     }
 
-    public void writeTo(Segment segment, int i) {
+    public final void writeTo(Segment segment, int i) {
         if (!segment.owner) {
             throw new IllegalArgumentException();
         }

@@ -10,43 +10,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends BaseAdapter {
-    private a bri;
-    private List<com.baidu.live.sdk.goods.a.a> brj;
+    private List<com.baidu.live.sdk.goods.a.a> bep;
+    private a bwt;
     private boolean isHost;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void v(String str, boolean z);
-
         void w(String str, boolean z);
+
+        void x(String str, boolean z);
     }
 
     public void a(a aVar) {
-        this.bri = aVar;
+        this.bwt = aVar;
     }
 
-    public void d(boolean z, List<com.baidu.live.sdk.goods.a.a> list) {
+    public void c(boolean z, List<com.baidu.live.sdk.goods.a.a> list) {
         this.isHost = z;
-        if (this.brj == null) {
-            this.brj = new ArrayList();
+        if (this.bep == null) {
+            this.bep = new ArrayList();
         }
-        this.brj.clear();
-        this.brj.addAll(list);
+        this.bep.clear();
+        this.bep.addAll(list);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.brj != null) {
-            return this.brj.size();
+        if (this.bep != null) {
+            return this.bep.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.brj != null) {
-            return this.brj.get(i);
+        if (this.bep != null) {
+            return this.bep.get(i);
         }
         return null;
     }
@@ -58,32 +58,32 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0197b c0197b;
+        C0207b c0207b;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.live_goods_display_list_item, viewGroup, false);
-            C0197b c0197b2 = new C0197b();
-            c0197b2.brm = (LiveGoodsDisplayItemView) view.findViewById(a.f.item_live_goods_display);
-            view.setTag(c0197b2);
-            c0197b = c0197b2;
+            C0207b c0207b2 = new C0207b();
+            c0207b2.bww = (LiveGoodsDisplayItemView) view.findViewById(a.f.item_live_goods_display);
+            view.setTag(c0207b2);
+            c0207b = c0207b2;
         } else {
-            c0197b = (C0197b) view.getTag();
+            c0207b = (C0207b) view.getTag();
         }
         final Object item = getItem(i);
         if (item instanceof com.baidu.live.sdk.goods.a.a) {
-            c0197b.brm.setHost(this.isHost);
-            c0197b.brm.setData(i + 1, (com.baidu.live.sdk.goods.a.a) item);
+            c0207b.bww.setHost(this.isHost);
+            c0207b.bww.setData(i + 1, (com.baidu.live.sdk.goods.a.a) item);
             if (this.isHost) {
-                c0197b.brm.setCallback(new LiveGoodsDisplayItemView.a() { // from class: com.baidu.live.sdk.goods.c.b.1
+                c0207b.bww.setCallback(new LiveGoodsDisplayItemView.a() { // from class: com.baidu.live.sdk.goods.c.b.1
                     @Override // com.baidu.live.sdk.goods.view.LiveGoodsDisplayItemView.a
-                    public void OU() {
-                        if (b.this.bri != null) {
-                            b.this.bri.w(((com.baidu.live.sdk.goods.a.a) item).gid, ((com.baidu.live.sdk.goods.a.a) item).bqD);
+                    public void Ro() {
+                        if (b.this.bwt != null) {
+                            b.this.bwt.x(((com.baidu.live.sdk.goods.a.a) item).gid, ((com.baidu.live.sdk.goods.a.a) item).bvO);
                         }
                     }
                 });
             }
-            if (this.bri != null) {
-                this.bri.v(((com.baidu.live.sdk.goods.a.a) item).gid, ((com.baidu.live.sdk.goods.a.a) item).bqD);
+            if (this.bwt != null) {
+                this.bwt.w(((com.baidu.live.sdk.goods.a.a) item).gid, ((com.baidu.live.sdk.goods.a.a) item).bvO);
             }
         }
         return view;
@@ -91,12 +91,12 @@ public class b extends BaseAdapter {
 
     /* renamed from: com.baidu.live.sdk.goods.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0197b {
-        private LiveGoodsDisplayItemView brm;
+    public static class C0207b {
+        private LiveGoodsDisplayItemView bww;
 
         public void recycle() {
-            if (this.brm != null) {
-                this.brm.release();
+            if (this.bww != null) {
+                this.bww.release();
             }
         }
     }

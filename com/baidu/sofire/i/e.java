@@ -25,6 +25,7 @@ import android.util.Base64;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ugc.model.PublishType;
 import com.baidu.sofire.MyActivity;
 import com.baidu.sofire.MyProvider;
 import com.baidu.sofire.MyReceiver;
@@ -56,7 +57,7 @@ import java.util.Properties;
 import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static String b;
     public static String c;
@@ -73,7 +74,7 @@ public final class e {
     private static int o;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f3631a = false;
+    public static boolean f3634a = false;
     public static int d = 0;
 
     static {
@@ -293,7 +294,7 @@ public final class e {
             }
             byte[] b2 = a.b("30212102dicudiab".getBytes(), (q(context) + hexString).toString().getBytes());
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            int i4 = eVar.f3621a.getInt("tk_sa_pu_cl", 0) + 1;
+            int i4 = eVar.f3624a.getInt("tk_sa_pu_cl", 0) + 1;
             eVar.c.putInt("tk_sa_pu_cl", i4);
             eVar.c.commit();
             String a2 = a(b2, i4);
@@ -837,7 +838,7 @@ public final class e {
 
     public static String b() {
         try {
-            return new String(F.getInstance().ad(Base64.decode(o.f3641a, 0), "30212102dicudiab".getBytes()));
+            return new String(F.getInstance().ad(Base64.decode(o.f3644a, 0), "30212102dicudiab".getBytes()));
         } catch (Throwable th) {
             return "";
         }
@@ -881,7 +882,7 @@ public final class e {
                 jSONObject2.put("6", 1);
                 jSONObject2.put("7", 0);
                 jSONObject2.put("8", "sofire");
-                jSONObject2.put("9", "3.4.4.1");
+                jSONObject2.put(PublishType.TYPE_VIDEO_SHARE, "3.4.4.1");
                 jSONObject2.put("10", str);
                 jSONObject.put("Common_section", jSONObject2);
                 if (map.size() > 0) {
@@ -973,7 +974,7 @@ public final class e {
             }
         }
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            String string = new com.baidu.sofire.e(context).f3621a.getString("svi", "");
+            String string = new com.baidu.sofire.e(context).f3624a.getString("svi", "");
             if (!TextUtils.isEmpty(string) && (split2 = string.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) != null && split2.length == 2) {
                 com.baidu.sofire.b.a();
                 return split2;
@@ -1008,7 +1009,7 @@ public final class e {
         try {
             if (com.baidu.sofire.core.c.b != null) {
                 com.baidu.sofire.e eVar = new com.baidu.sofire.e(com.baidu.sofire.core.c.b);
-                String string = eVar.f3621a.getString("ses_ic", "");
+                String string = eVar.f3624a.getString("ses_ic", "");
                 if (TextUtils.isEmpty(string)) {
                     map = new HashMap<>();
                     map.put(str, 1);
@@ -1043,7 +1044,7 @@ public final class e {
             g = new MyReceiver().a();
         }
         a(context, g, intentFilter);
-        f3631a = true;
+        f3634a = true;
         return false;
     }
 
@@ -1063,7 +1064,7 @@ public final class e {
     public static void h(Context context) {
         com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
         long currentTimeMillis = System.currentTimeMillis();
-        long j2 = eVar.f3621a.getLong("se_ae_fd", 0L);
+        long j2 = eVar.f3624a.getLong("se_ae_fd", 0L);
         if (j2 == 0) {
             j2 = System.currentTimeMillis();
             eVar.h();
@@ -1240,7 +1241,7 @@ public final class e {
             if (c2 == null) {
                 c2 = "";
             }
-            jSONObject.put("9", c2);
+            jSONObject.put(PublishType.TYPE_VIDEO_SHARE, c2);
             String d2 = h.d();
             if (d2 == null) {
                 d2 = "";
@@ -1270,7 +1271,7 @@ public final class e {
     }
 
     public static JSONObject a(Context context, com.baidu.sofire.d.a aVar, String str, boolean z) {
-        return a(context, aVar.f3620a, aVar.c, z ? aVar.d : aVar.e, str);
+        return a(context, aVar.f3623a, aVar.c, z ? aVar.d : aVar.e, str);
     }
 
     public static int m(Context context) {
@@ -1381,7 +1382,7 @@ public final class e {
             String optString2 = jSONObject3.optString("1");
             String optString3 = jSONObject3.optString("3");
             String optString4 = jSONObject3.optString("8");
-            str = jSONObject3.optString("9");
+            str = jSONObject3.optString(PublishType.TYPE_VIDEO_SHARE);
             str2 = optString4;
             str3 = optString3;
             str4 = optString2;
@@ -1397,7 +1398,7 @@ public final class e {
             jSONObject2.put("6", j2);
             jSONObject2.put("7", str4);
             jSONObject2.put("8", str3);
-            jSONObject2.put("9", str2);
+            jSONObject2.put(PublishType.TYPE_VIDEO_SHARE, str2);
             jSONObject2.put("10", str);
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
             jSONObject2.put("11", eVar.e.getString("re_a_cv", ""));
@@ -1467,9 +1468,9 @@ public final class e {
         g a2 = g.a(context);
         Message message = new Message();
         message.what = 8;
-        a2.f3632a.a(message);
+        a2.f3635a.a(message);
         com.baidu.sofire.d.a aVar2 = new com.baidu.sofire.d.a();
-        aVar2.f3620a = str;
+        aVar2.f3623a = str;
         aVar2.b = str2;
         aVar2.c = str3;
         aVar2.d = str4;
@@ -1491,8 +1492,8 @@ public final class e {
             }
             if (!eVar.e.getBoolean("re_net_ins_" + aVar2.e, false)) {
                 g a3 = g.a(context);
-                com.baidu.sofire.h.a aVar3 = a3.f3632a;
-                String d2 = aVar3.f3628a.d(aVar2.e);
+                com.baidu.sofire.h.a aVar3 = a3.f3635a;
+                String d2 = aVar3.f3631a.d(aVar2.e);
                 com.baidu.sofire.f.a aVar4 = new com.baidu.sofire.f.a();
                 aVar4.b = aVar2.e;
                 aVar4.g = 0;
@@ -1501,10 +1502,10 @@ public final class e {
                 aVar4.f = 1;
                 aVar4.d = a(aVar3.b, aVar2, d2, false).toString();
                 com.baidu.sofire.e.a.a(aVar3.b).a(aVar4);
-                com.baidu.sofire.e eVar2 = aVar3.f3628a;
+                com.baidu.sofire.e eVar2 = aVar3.f3631a;
                 eVar2.f.putBoolean("re_net_ins_" + aVar2.e, true);
                 eVar2.f.commit();
-                a3.f3632a.a(aVar2);
+                a3.f3635a.a(aVar2);
             }
             g.a(context).b();
             g.a(context).c();
@@ -1539,7 +1540,7 @@ public final class e {
             Message message = new Message();
             message.what = 1;
             message.obj = aVar;
-            a2.f3632a.a(message);
+            a2.f3635a.a(message);
         } catch (Throwable th) {
             com.baidu.sofire.b.d();
         }
@@ -1627,7 +1628,7 @@ public final class e {
             jSONObject2.put("6", 1);
             jSONObject2.put("7", 0);
             jSONObject2.put("8", str);
-            jSONObject2.put("9", str2);
+            jSONObject2.put(PublishType.TYPE_VIDEO_SHARE, str2);
             jSONObject2.put("10", str3);
             JSONObject jSONObject3 = !TextUtils.isEmpty(str4) ? new JSONObject(str4) : new JSONObject();
             jSONObject.put("Common_section", jSONObject2);
@@ -1730,7 +1731,7 @@ public final class e {
                     }
                 }
                 jSONObject2.put("8", packageInfo.versionName);
-                jSONObject2.put("9", String.valueOf(new com.baidu.sofire.e(context).f3621a.getInt("opi", 0)));
+                jSONObject2.put(PublishType.TYPE_VIDEO_SHARE, String.valueOf(new com.baidu.sofire.e(context).f3624a.getInt("opi", 0)));
                 jSONObject.put("1", jSONObject2);
                 String jSONObject3 = jSONObject.toString();
                 new StringBuilder().append(str).append("---").append(jSONObject3);
@@ -1758,7 +1759,7 @@ public final class e {
                 } else {
                     strArr = new String[]{b, c};
                 }
-                if (eVar.f3621a.getInt("appinv_ky", 1) == 1 && (strArr == null || strArr.length != 2 || TextUtils.isEmpty(strArr[0]) || TextUtils.isEmpty(strArr[1]))) {
+                if (eVar.f3624a.getInt("appinv_ky", 1) == 1 && (strArr == null || strArr.length != 2 || TextUtils.isEmpty(strArr[0]) || TextUtils.isEmpty(strArr[1]))) {
                     z = true;
                 }
                 if (z) {
@@ -1774,7 +1775,7 @@ public final class e {
                                 if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && (!e.equals(optString) || !f.equals(optString2))) {
                                     b = optString;
                                     c = optString2;
-                                    com.baidu.sofire.e eVar2 = a4.f3605a;
+                                    com.baidu.sofire.e eVar2 = a4.f3608a;
                                     eVar2.c.putString("svi_n", optString + Constants.ACCEPT_TIME_SEPARATOR_SERVER + optString2);
                                     eVar2.c.commit();
                                 }
@@ -1892,7 +1893,7 @@ public final class e {
                 if (optJSONObject3.optInt("1", -1) != 1) {
                     eVar4.b(false);
                 } else {
-                    eVar4.f3621a.getBoolean("se_fg_s", false);
+                    eVar4.f3624a.getBoolean("se_fg_s", false);
                     eVar4.b(true);
                 }
                 eVar4.c.putInt("appinv_sai", optJSONObject3.optInt("ai", 0));

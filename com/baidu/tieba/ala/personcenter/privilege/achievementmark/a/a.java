@@ -2,26 +2,26 @@ package com.baidu.tieba.ala.personcenter.privilege.achievementmark.a;
 
 import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private String hFr;
-    private ArrayList<b> hFs = new ArrayList<>();
+    private String hOY;
+    private ArrayList<b> hOZ = new ArrayList<>();
     private int type;
 
     public void b(b bVar) {
-        this.hFs.add(bVar);
+        this.hOZ.add(bVar);
     }
 
-    public b wV(int i) {
-        return (b) y.getItem(this.hFs, i);
+    public b xA(int i) {
+        return (b) y.getItem(this.hOZ, i);
     }
 
-    public String cjc() {
-        return this.hFr;
+    public String cmW() {
+        return this.hOY;
     }
 
-    public void Ii(String str) {
-        this.hFr = str;
+    public void IX(String str) {
+        this.hOY = str;
     }
 
     public int getType() {

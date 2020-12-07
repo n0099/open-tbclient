@@ -29,31 +29,31 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MainBottomLiveTabFragment extends BaseFragment {
-    private CustomViewPager eKk;
-    private LinearLayout ghi;
-    private TextView ghj;
-    private NoNetworkView ghk;
-    private FragmentAdapter ghl;
-    private List<a> ghm = new ArrayList();
-    private NoNetworkView.a ghn = new NoNetworkView.a() { // from class: com.baidu.tieba.ala.alasquare.MainBottomLiveTabFragment.1
+    private CustomViewPager eRw;
+    private LinearLayout gps;
+    private TextView gpt;
+    private NoNetworkView gpu;
+    private FragmentAdapter gpv;
+    private List<a> gpw = new ArrayList();
+    private NoNetworkView.a gpx = new NoNetworkView.a() { // from class: com.baidu.tieba.ala.alasquare.MainBottomLiveTabFragment.1
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
-            if (z && MainBottomLiveTabFragment.this.isPrimary() && MainBottomLiveTabFragment.this.ghl.getCount() > 0) {
-                Fragment item = MainBottomLiveTabFragment.this.ghl.getItem(0);
+            if (z && MainBottomLiveTabFragment.this.isPrimary() && MainBottomLiveTabFragment.this.gpv.getCount() > 0) {
+                Fragment item = MainBottomLiveTabFragment.this.gpv.getItem(0);
                 if (item instanceof AlaLiveTabFragment) {
                     ((AlaLiveTabFragment) item).reload();
                 }
             }
         }
     };
-    private CustomMessageListener gho = new CustomMessageListener(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK) { // from class: com.baidu.tieba.ala.alasquare.MainBottomLiveTabFragment.2
+    private CustomMessageListener gpy = new CustomMessageListener(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK) { // from class: com.baidu.tieba.ala.alasquare.MainBottomLiveTabFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 2) {
-                TiebaStatic.log(new ar("c13703").dR("uid", TbadkCoreApplication.getCurrentAccount()));
+                TiebaStatic.log(new ar("c13703").dY("uid", TbadkCoreApplication.getCurrentAccount()));
             }
         }
     };
@@ -61,43 +61,43 @@ public class MainBottomLiveTabFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.gho);
+        registerListener(this.gpy);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.main_bottom_live_tab_layout, (ViewGroup) null);
-        this.ghi = (LinearLayout) inflate.findViewById(R.id.tab_layout);
-        this.ghj = (TextView) inflate.findViewById(R.id.tab_view);
-        this.eKk = (CustomViewPager) inflate.findViewById(R.id.viewpager);
-        this.ghk = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
+        this.gps = (LinearLayout) inflate.findViewById(R.id.tab_layout);
+        this.gpt = (TextView) inflate.findViewById(R.id.tab_view);
+        this.eRw = (CustomViewPager) inflate.findViewById(R.id.viewpager);
+        this.gpu = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
         initView();
         return inflate;
     }
 
     private void initView() {
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.ghi.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
+            this.gps.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
         }
-        this.ghk.a(this.ghn);
-        this.eKk.setViewPagerScroll(0);
-        this.ghl = new FragmentAdapter(getChildFragmentManager());
-        this.eKk.setAdapter(this.ghl);
+        this.gpu.a(this.gpx);
+        this.eRw.setViewPagerScroll(0);
+        this.gpv = new FragmentAdapter(getChildFragmentManager());
+        this.eRw.setAdapter(this.gpv);
         a aVar = new a();
-        aVar.ghq = new AlaLiveTabFragment();
+        aVar.gpA = new AlaLiveTabFragment();
         aVar.title = TbadkCoreApplication.getInst().getResources().getString(R.string.ala_live);
-        this.ghm.add(aVar);
-        this.ghl.setData(this.ghm);
+        this.gpw.add(aVar);
+        this.gpv.setData(this.gpw);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void setUserVisibleHint(boolean z) {
         super.setUserVisibleHint(z);
-        if (z && this.ghl.getCount() > 0) {
-            Fragment item = this.ghl.getItem(0);
+        if (z && this.gpv.getCount() > 0) {
+            Fragment item = this.gpv.getItem(0);
             if (item instanceof AlaLiveTabFragment) {
                 AlaLiveTabFragment alaLiveTabFragment = (AlaLiveTabFragment) item;
-                if (alaLiveTabFragment.bOs()) {
+                if (alaLiveTabFragment.bSd()) {
                     alaLiveTabFragment.setUserVisibleHint(true);
                 }
             }
@@ -107,62 +107,62 @@ public class MainBottomLiveTabFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ap.setViewTextColor(this.ghj, R.color.CAM_X0105);
-        ap.setBackgroundColor(this.ghi, R.color.CAM_X0207);
+        ap.setViewTextColor(this.gpt, R.color.CAM_X0105);
+        ap.setBackgroundColor(this.gps, R.color.CAM_X0207);
         TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
         if (pageContext != null) {
-            this.ghk.onChangeSkinType(pageContext, i);
+            this.gpu.onChangeSkinType(pageContext, i);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.gho);
+        MessageManager.getInstance().unRegisterListener(this.gpy);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class FragmentAdapter extends FragmentStatePagerAdapter {
-        private List<a> ghm;
+        private List<a> gpw;
 
         public FragmentAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
-            this.ghm = new ArrayList();
+            this.gpw = new ArrayList();
         }
 
         public void setData(List<a> list) {
-            this.ghm.clear();
+            this.gpw.clear();
             if (!y.isEmpty(list)) {
-                this.ghm.addAll(list);
+                this.gpw.addAll(list);
             }
             notifyDataSetChanged();
         }
 
         @Override // android.support.v4.app.FragmentStatePagerAdapter
         public Fragment getItem(int i) {
-            a aVar = this.ghm.get(i);
+            a aVar = this.gpw.get(i);
             if (aVar != null) {
-                return aVar.ghq;
+                return aVar.gpA;
             }
             return null;
         }
 
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            return this.ghm.size();
+            return this.gpw.size();
         }
 
         @Override // android.support.v4.view.PagerAdapter
         @Nullable
         public CharSequence getPageTitle(int i) {
-            a aVar = this.ghm.get(i);
+            a aVar = this.gpw.get(i);
             return aVar != null ? aVar.title : "";
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a {
-        public AlaLiveTabFragment ghq;
+        public AlaLiveTabFragment gpA;
         public String title;
 
         public a() {

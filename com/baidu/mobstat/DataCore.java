@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class DataCore {
 
     /* renamed from: a  reason: collision with root package name */
-    private static JSONObject f2491a = new JSONObject();
+    private static JSONObject f2493a = new JSONObject();
     private static DataCore b = new DataCore();
     private StatService.WearListener h;
     private JSONObject i;
@@ -90,8 +90,8 @@ public class DataCore {
     }
 
     public void installHeader(Context context) {
-        synchronized (f2491a) {
-            CooperService.instance().getHeadObject().installHeader(context, f2491a);
+        synchronized (f2493a) {
+            CooperService.instance().getHeadObject().installHeader(context, f2493a);
         }
     }
 
@@ -104,8 +104,8 @@ public class DataCore {
             synchronized (this.d) {
                 jSONObject.put("ev", new JSONArray(this.d.toString()));
             }
-            synchronized (f2491a) {
-                jSONObject.put(Config.HEADER_PART, new JSONObject(f2491a.toString()));
+            synchronized (f2493a) {
+                jSONObject.put(Config.HEADER_PART, new JSONObject(f2493a.toString()));
             }
         } catch (Exception e) {
         }
@@ -214,10 +214,10 @@ public class DataCore {
                         try {
                             JSONObject jSONObject4 = jSONObject.getJSONObject(Config.HEADER_PART);
                             if (jSONObject4 != null) {
-                                synchronized (f2491a) {
-                                    f2491a = jSONObject4;
+                                synchronized (f2493a) {
+                                    f2493a = jSONObject4;
                                     if (TextUtils.isEmpty(bq.a().s(context))) {
-                                        String string = f2491a.getString(Config.DEVICE_ID_SEC);
+                                        String string = f2493a.getString(Config.DEVICE_ID_SEC);
                                         if (!TextUtils.isEmpty(string)) {
                                             bq.a().k(context, string);
                                         }
@@ -500,11 +500,11 @@ public class DataCore {
     public void saveLogData(Context context, boolean z, boolean z2, long j, boolean z3, JSONObject jSONObject) {
         HeadObject headObject = CooperService.instance().getHeadObject();
         if (headObject != null) {
-            synchronized (f2491a) {
+            synchronized (f2493a) {
                 if (TextUtils.isEmpty(headObject.e)) {
-                    headObject.installHeader(context, f2491a);
+                    headObject.installHeader(context, f2493a);
                 } else {
-                    headObject.updateHeader(context, f2491a);
+                    headObject.updateHeader(context, f2493a);
                 }
             }
             if (TextUtils.isEmpty(headObject.e)) {
@@ -513,17 +513,17 @@ public class DataCore {
             }
         }
         JSONObject jSONObject2 = new JSONObject();
-        synchronized (f2491a) {
+        synchronized (f2493a) {
             try {
-                f2491a.put("t", System.currentTimeMillis());
-                f2491a.put(Config.SEQUENCE_INDEX, z ? 0 : 1);
-                f2491a.put("ss", j);
+                f2493a.put("t", System.currentTimeMillis());
+                f2493a.put(Config.SEQUENCE_INDEX, z ? 0 : 1);
+                f2493a.put("ss", j);
                 synchronized (this.e) {
-                    f2491a.put(Config.WIFI_LOCATION, this.e);
+                    f2493a.put(Config.WIFI_LOCATION, this.e);
                 }
-                f2491a.put("sign", CooperService.instance().getUUID());
-                b(context, f2491a, jSONObject);
-                jSONObject2.put(Config.HEADER_PART, f2491a);
+                f2493a.put("sign", CooperService.instance().getUUID());
+                b(context, f2493a, jSONObject);
+                jSONObject2.put(Config.HEADER_PART, f2493a);
                 synchronized (this.c) {
                     try {
                         jSONObject2.put(Config.PRINCIPAL_PART, this.c);
@@ -584,8 +584,8 @@ public class DataCore {
 
     public void clearCache(Context context) {
         a(false);
-        synchronized (f2491a) {
-            f2491a = new JSONObject();
+        synchronized (f2493a) {
+            f2493a = new JSONObject();
         }
         installHeader(context);
         a(context);

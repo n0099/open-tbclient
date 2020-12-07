@@ -4,11 +4,11 @@ import android.graphics.Matrix;
 import android.graphics.Point;
 import android.support.v7.widget.ActivityChooserView;
 import android.view.View;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class RendererCommon {
     private static float BALANCED_VISIBLE_FRACTION = 0.5625f;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public interface GlDrawer {
         void drawOes(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7);
 
@@ -19,21 +19,21 @@ public class RendererCommon {
         void release();
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public interface RendererEvents {
         void onFirstFrameRendered();
 
         void onFrameResolutionChanged(int i, int i2, int i3);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public enum ScalingType {
         SCALE_ASPECT_FIT,
         SCALE_ASPECT_FILL,
         SCALE_ASPECT_BALANCED
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes12.dex */
     public static class VideoLayoutMeasure {
         private ScalingType scalingTypeMatchOrientation = ScalingType.SCALE_ASPECT_BALANCED;
         private ScalingType scalingTypeMismatchOrientation = ScalingType.SCALE_ASPECT_BALANCED;

@@ -10,14 +10,14 @@ import com.baidu.mobads.interfaces.utils.IXAdLogger;
 public class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g.c f2343a;
+    final /* synthetic */ g.c f2345a;
     final /* synthetic */ Handler b;
     final /* synthetic */ g c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(g gVar, g.c cVar, Handler handler) {
         this.c = gVar;
-        this.f2343a = cVar;
+        this.f2345a = cVar;
         this.b = handler;
     }
 
@@ -31,7 +31,7 @@ public class n implements Runnable {
         SharedPreferences l2;
         try {
             synchronized (g.class) {
-                this.c.b(this.f2343a, this.b);
+                this.c.b(this.f2345a, this.b);
             }
         } catch (Throwable th) {
             try {

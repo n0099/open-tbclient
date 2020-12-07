@@ -1,12 +1,29 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.tbadk.TbConfig;
+import org.json.JSONObject;
+import tbclient.BusinessAccountInfo;
 /* loaded from: classes.dex */
-public class d extends TbConfig {
-    public static final Long NEARBY_GUIDE_TIME = 86400000L;
-    private static int PB_LIST_ITEM_MAX_NUM = 300;
+public class d {
+    public boolean fsE;
+    public String fsF;
+    public String fsG;
+    public boolean isForumBusinessAccount;
 
-    public static int getPbListItemMaxNum() {
-        return PB_LIST_ITEM_MAX_NUM;
+    public void a(BusinessAccountInfo businessAccountInfo) {
+        if (businessAccountInfo != null) {
+            this.fsE = businessAccountInfo.is_business_account.intValue() == 1;
+            this.isForumBusinessAccount = businessAccountInfo.is_forum_business_account.intValue() == 1;
+            this.fsF = businessAccountInfo.business_name;
+            this.fsG = businessAccountInfo.identifi_explain;
+        }
+    }
+
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.fsE = jSONObject.optInt("is_business_account") == 1;
+            this.isForumBusinessAccount = jSONObject.optInt("is_forum_business_account") == 1;
+            this.fsF = jSONObject.optString("business_name");
+            this.fsG = jSONObject.optString("identifi_explain");
+        }
     }
 }

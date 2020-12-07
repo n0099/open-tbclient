@@ -6,38 +6,38 @@ import android.hardware.SensorEventListener;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.face.liveness.d.b;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a implements SensorEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b.a f2752a;
+    final /* synthetic */ b.a f2754a;
     final /* synthetic */ b b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(b bVar, b.a aVar) {
         this.b = bVar;
-        this.f2752a = aVar;
+        this.f2754a = aVar;
     }
 
     @Override // android.hardware.SensorEventListener
     public void onAccuracyChanged(Sensor sensor, int i) {
-        Log.w(b.f2753a, "onAccuracyChanged" + i);
+        Log.w(b.f2755a, "onAccuracyChanged" + i);
     }
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
         float f;
-        Log.w(b.f2753a, "onSensorChanged() time:" + System.currentTimeMillis());
+        Log.w(b.f2755a, "onSensorChanged() time:" + System.currentTimeMillis());
         float[] fArr = sensorEvent.values;
         if (fArr != null && fArr.length > 0) {
             this.b.h = fArr[0];
-            String str = b.f2753a;
+            String str = b.f2755a;
             StringBuilder append = new StringBuilder().append("onSensorChanged() event.values[0]:");
             f = this.b.h;
             Log.w(str, append.append(f).toString());
         }
         this.b.g = System.currentTimeMillis();
-        b.a aVar = this.f2752a;
+        b.a aVar = this.f2754a;
         if (aVar != null) {
             aVar.a(this.b.a());
         }

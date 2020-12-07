@@ -25,17 +25,21 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public boolean canUseChallenge;
     public int changeSex;
     public long charmCount;
+    public String clubGuardName;
     public int clubMemberLevel;
     public int contribution;
     public int createTime;
     public String description;
     public int disableClick;
+    public long enterLiveId;
     public JSONObject extraUserInfo;
     public int fansCount;
     public int followCount;
     public String greatAnchorDescGrade;
     public String greatAnchorDescRole;
     public String greatAnchorIcon;
+    private int guardGold;
+    public int guardGoldenType;
     public int hasTiebaName;
     public int isAdmin;
     public int isAdminOnline;
@@ -83,6 +87,10 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public int logined = 0;
     public AlaVideoBCChatData videoBCEnterData = new AlaVideoBCChatData();
 
+    public boolean isGold() {
+        return this.guardGold == 1;
+    }
+
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -122,6 +130,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             this.liveStatus = jSONObject.optInt("live_status");
             this.isLogin = jSONObject.optInt(ImageViewerConfig.IS_LOGIN);
             this.liveId = jSONObject.optLong("live_id");
+            this.enterLiveId = jSONObject.optLong("enter_live");
             this.createTime = jSONObject.optInt("create_time");
             this.changeSex = jSONObject.optInt("change_sex");
             this.recordCount = jSONObject.optInt("record_count");
@@ -168,7 +177,18 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             }
             this.throneUid = jSONObject.optString("is_guard_seat");
             this.rank = jSONObject.optInt("rank");
-            this.clubMemberLevel = jSONObject.optInt("member_level");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("guard_club");
+            if (optJSONObject2 != null) {
+                this.clubMemberLevel = optJSONObject2.optInt("member_guard_level");
+                this.guardGold = optJSONObject2.optInt("guard_show_golden_icon");
+                this.guardGoldenType = optJSONObject2.optInt("guard_golden_type");
+                this.clubGuardName = optJSONObject2.optString("guard_name");
+            } else {
+                this.clubMemberLevel = jSONObject.optInt("member_guard_level");
+                this.guardGold = jSONObject.optInt("guard_show_golden_icon");
+                this.guardGoldenType = jSONObject.optInt("guard_golden_type");
+                this.clubGuardName = jSONObject.optString("guard_name");
+            }
             if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
                 this.extraUserInfo = jSONObject.optJSONObject(TbConfig.getSubappType() + "_info");
             }
@@ -237,6 +257,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             jSONObject.put("live_status", this.liveStatus);
             jSONObject.put(ImageViewerConfig.IS_LOGIN, this.isLogin);
             jSONObject.put("live_id", this.liveId);
+            jSONObject.put("enter_live", this.enterLiveId);
             jSONObject.put("create_time", this.createTime);
             jSONObject.put("change_sex", this.changeSex);
             jSONObject.put("record_count", this.recordCount);
@@ -273,6 +294,9 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             jSONObject.put("is_guard_seat", this.throneUid);
             jSONObject.put("rank", this.rank);
             jSONObject.put("member_level", this.clubMemberLevel);
+            jSONObject.put("guard_show_golden_icon", this.guardGold);
+            jSONObject.put("guard_golden_type", this.guardGoldenType);
+            jSONObject.put("guard_name", this.clubGuardName);
             if (this.extraUserInfo != null) {
                 jSONObject.put(TbConfig.getSubappType() + "_info", this.extraUserInfo);
             }

@@ -18,19 +18,19 @@ public class o extends d {
     public View mContentView;
     public Context mContext;
     public View mConvertView;
-    public DarkImageView oyg;
-    public TextView oyh;
+    public DarkImageView oNm;
+    public TextView oNn;
 
     public o(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_receive_private_msg_item, (ViewGroup) null);
-        this.owU = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.owX = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.iQC = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
-        this.maa = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
-        this.owY = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
-        this.oyg = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_cover);
-        this.oyh = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_content);
+        this.oMa = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oMd = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.jbt = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
+        this.moi = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
+        this.oMe = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
+        this.oNm = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_cover);
+        this.oNn = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_content);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
         this.mConvertView.setTag(this);
     }
@@ -58,9 +58,9 @@ public class o extends d {
                 covers = signleGraphicTextMsg.getCover();
             }
             new SingleGraphicTextMsgExt(signleGraphicTextMsg);
-            com.baidu.yuyinala.privatemessage.implugin.util.b.gI(context);
-            ImageLoader.getInstance().displayImage(covers, this.oyg, com.baidu.yuyinala.privatemessage.implugin.util.b.eib());
-            this.oyh.setText(signleGraphicTextMsg.getDigest());
+            com.baidu.yuyinala.privatemessage.implugin.util.b.hr(context);
+            ImageLoader.getInstance().displayImage(covers, this.oNm, com.baidu.yuyinala.privatemessage.implugin.util.b.enQ());
+            this.oNn.setText(signleGraphicTextMsg.getDigest());
         }
     }
 }

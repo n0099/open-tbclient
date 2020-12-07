@@ -4,16 +4,16 @@ import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.l;
 import com.baidu.platform.core.a.d;
 import com.baidu.platform.core.a.e;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class DistrictSearch extends l {
 
     /* renamed from: a  reason: collision with root package name */
-    private e f2114a;
+    private e f2116a;
     private boolean b = false;
 
     DistrictSearch() {
-        this.f2114a = null;
-        this.f2114a = new d();
+        this.f2116a = null;
+        this.f2116a = new d();
     }
 
     public static DistrictSearch newInstance() {
@@ -26,27 +26,27 @@ public class DistrictSearch extends l {
             return;
         }
         this.b = true;
-        this.f2114a.a();
+        this.f2116a.a();
         BMapManager.destroy();
     }
 
     public boolean searchDistrict(DistrictSearchOption districtSearchOption) {
-        if (this.f2114a == null) {
+        if (this.f2116a == null) {
             throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
         }
         if (districtSearchOption == null || districtSearchOption.mCityName == null || districtSearchOption.mCityName.equals("")) {
             throw new IllegalArgumentException("BDMapSDKException: option or city name can not be null or empty.");
         }
-        return this.f2114a.a(districtSearchOption);
+        return this.f2116a.a(districtSearchOption);
     }
 
     public void setOnDistrictSearchListener(OnGetDistricSearchResultListener onGetDistricSearchResultListener) {
-        if (this.f2114a == null) {
+        if (this.f2116a == null) {
             throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
         }
         if (onGetDistricSearchResultListener == null) {
             throw new IllegalArgumentException("BDMapSDKException: listener can not be null");
         }
-        this.f2114a.a(onGetDistricSearchResultListener);
+        this.f2116a.a(onGetDistricSearchResultListener);
     }
 }

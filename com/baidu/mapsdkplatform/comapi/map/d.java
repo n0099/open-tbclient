@@ -37,7 +37,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"NewApi"})
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
     private static int D;
     private static int E;
@@ -64,7 +64,7 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
     static long j = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f2224a = 21.0f;
+    public float f2226a = 21.0f;
     public float b = 4.0f;
     public float c = 21.0f;
     private boolean o = true;
@@ -89,14 +89,14 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
     public List<ag> h = new ArrayList();
     private MapController S = new MapController();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Bundle f2225a;
+        public Bundle f2227a;
 
         public a(Bundle bundle) {
-            this.f2225a = bundle;
+            this.f2227a = bundle;
         }
     }
 
@@ -153,22 +153,22 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
 
     private void M() {
         if (!this.q && !this.n && !this.m && !this.r) {
-            this.f2224a = this.c;
+            this.f2226a = this.c;
             if (this.S != null) {
-                this.S.mMaxZoomLevel = this.f2224a;
+                this.S.mMaxZoomLevel = this.f2226a;
                 return;
             }
             return;
         }
-        if (this.f2224a > 20.0f) {
-            this.f2224a = 20.0f;
+        if (this.f2226a > 20.0f) {
+            this.f2226a = 20.0f;
             if (this.S != null) {
                 this.S.mMaxZoomLevel = 20.0f;
             }
         }
-        if (B().f2242a > 20.0f) {
+        if (B().f2244a > 20.0f) {
             w B = B();
-            B.f2242a = 20.0f;
+            B.f2244a = 20.0f;
             a(B);
         }
     }
@@ -204,7 +204,7 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
         if (this.i == null) {
             return -1L;
         }
-        switch (e.f2226a[mapLayer.ordinal()]) {
+        switch (e.f2228a[mapLayer.ordinal()]) {
             case 1:
                 if (this.T != null) {
                     return this.T.mLayerID;
@@ -212,7 +212,7 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
                 return -1L;
             case 2:
                 if (this.A != null) {
-                    return this.A.f2223a;
+                    return this.A.f2225a;
                 }
                 return -1L;
             case 3:
@@ -228,7 +228,7 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
         if (this.i == null) {
             return;
         }
-        cVar.f2223a = this.i.AddLayer(cVar.c, cVar.d, cVar.b);
+        cVar.f2225a = this.i.AddLayer(cVar.c, cVar.d, cVar.b);
         this.y.add(cVar);
     }
 
@@ -237,7 +237,7 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
             uVar = new u();
         }
         new w();
-        w wVar = uVar.f2240a;
+        w wVar = uVar.f2242a;
         this.s = uVar.f;
         this.t = uVar.d;
         this.e = uVar.e;
@@ -322,7 +322,7 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
         boolean z = false;
         if (bundle != null && this.i != null && (z = this.i.updateSDKTile(bundle))) {
             f(z);
-            this.i.UpdateLayers(this.v.f2223a);
+            this.i.UpdateLayers(this.v.f2225a);
         }
         return z;
     }
@@ -331,29 +331,29 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
         if (bundle.get("param") == null) {
             int i = bundle.getInt("type");
             if (i == i.ground.ordinal()) {
-                bundle.putLong("layer_addr", this.A.f2223a);
+                bundle.putLong("layer_addr", this.A.f2225a);
                 return;
             } else if (i >= i.arc.ordinal()) {
-                bundle.putLong("layer_addr", this.A.f2223a);
+                bundle.putLong("layer_addr", this.A.f2225a);
                 return;
             } else if (i == i.popup.ordinal()) {
-                bundle.putLong("layer_addr", this.A.f2223a);
+                bundle.putLong("layer_addr", this.A.f2225a);
                 return;
             } else {
-                bundle.putLong("layer_addr", this.A.f2223a);
+                bundle.putLong("layer_addr", this.A.f2225a);
                 return;
             }
         }
         Bundle bundle2 = (Bundle) bundle.get("param");
         int i2 = bundle2.getInt("type");
         if (i2 == i.ground.ordinal()) {
-            bundle2.putLong("layer_addr", this.A.f2223a);
+            bundle2.putLong("layer_addr", this.A.f2225a);
         } else if (i2 >= i.arc.ordinal()) {
-            bundle2.putLong("layer_addr", this.A.f2223a);
+            bundle2.putLong("layer_addr", this.A.f2225a);
         } else if (i2 == i.popup.ordinal()) {
-            bundle2.putLong("layer_addr", this.A.f2223a);
+            bundle2.putLong("layer_addr", this.A.f2225a);
         } else {
-            bundle2.putLong("layer_addr", this.A.f2223a);
+            bundle2.putLong("layer_addr", this.A.f2225a);
         }
     }
 
@@ -458,10 +458,10 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
 
     @Override // com.baidu.mapsdkplatform.comjni.a.a.a, com.baidu.platform.comjni.map.basemap.a
     public int a(Bundle bundle, long j2, int i) {
-        if (this.B != null && j2 == this.B.f2223a) {
+        if (this.B != null && j2 == this.B.f2225a) {
             bundle.putBundle("param", this.C.a(bundle.getInt("x"), bundle.getInt("y"), bundle.getInt("zoom")));
             return this.B.e;
-        } else if (this.v == null || j2 != this.v.f2223a) {
+        } else if (this.v == null || j2 != this.v.f2225a) {
             return 0;
         } else {
             bundle.putBundle("param", this.w.a(bundle.getInt("x"), bundle.getInt("y"), bundle.getInt("zoom"), this.x));
@@ -479,7 +479,7 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
     }
 
     public void a(float f, float f2) {
-        this.f2224a = f;
+        this.f2226a = f;
         this.c = f;
         this.b = f2;
         if (this.S != null) {
@@ -699,7 +699,7 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
     public boolean a(long j2) {
         Iterator<c> it = this.y.iterator();
         while (it.hasNext()) {
-            if (it.next().f2223a == j2) {
+            if (it.next().f2225a == j2) {
                 return true;
             }
         }
@@ -741,7 +741,7 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
         this.v = new aa();
         long AddLayer = this.i.AddLayer(this.v.c, this.v.d, this.v.b);
         if (AddLayer != 0) {
-            this.v.f2223a = AddLayer;
+            this.v.f2225a = AddLayer;
             this.y.add(this.v);
             bundle.putLong("sdktileaddr", AddLayer);
             return e(bundle) && f(bundle);
@@ -757,7 +757,7 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
     }
 
     public float b() {
-        return this.S != null ? this.S.mMaxZoomLevel : this.f2224a;
+        return this.S != null ? this.S.mMaxZoomLevel : this.f2226a;
     }
 
     public GeoPoint b(int i, int i2) {
@@ -788,7 +788,7 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
             return;
         }
         for (c cVar : this.y) {
-            this.i.ShowLayers(cVar.f2223a, false);
+            this.i.ShowLayers(cVar.f2225a, false);
         }
     }
 
@@ -808,10 +808,10 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
             if (this.Q) {
                 return;
             }
-            this.i.SwitchLayer(this.N.f2223a, this.A.f2223a);
+            this.i.SwitchLayer(this.N.f2225a, this.A.f2225a);
             this.Q = true;
         } else if (this.Q) {
-            this.i.SwitchLayer(this.A.f2223a, this.N.f2223a);
+            this.i.SwitchLayer(this.A.f2225a, this.N.f2225a);
             this.Q = false;
         }
     }
@@ -822,9 +822,9 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
         }
         for (c cVar : this.y) {
             if ((cVar instanceof com.baidu.mapsdkplatform.comapi.map.a) || (cVar instanceof k)) {
-                this.i.ShowLayers(cVar.f2223a, false);
+                this.i.ShowLayers(cVar.f2225a, false);
             } else {
-                this.i.ShowLayers(cVar.f2223a, true);
+                this.i.ShowLayers(cVar.f2225a, true);
             }
         }
         this.i.ShowTrafficMap(false);
@@ -836,7 +836,7 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
         }
         g(bundle);
         this.i.removeOneOverlayItem(bundle);
-        this.i.UpdateLayers(this.A.f2223a);
+        this.i.UpdateLayers(this.A.f2225a);
     }
 
     public void d(boolean z) {
@@ -847,11 +847,11 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
             if (this.R || this.T == null) {
                 return;
             }
-            this.i.SwitchLayer(this.A.f2223a, this.T.mLayerID);
+            this.i.SwitchLayer(this.A.f2225a, this.T.mLayerID);
             this.R = true;
         } else if (!this.R || this.T == null) {
         } else {
-            this.i.SwitchLayer(this.T.mLayerID, this.A.f2223a);
+            this.i.SwitchLayer(this.T.mLayerID, this.A.f2225a);
             this.R = false;
         }
     }
@@ -875,14 +875,14 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
         if (this.v == null || this.i == null) {
             return false;
         }
-        return this.i.cleanSDKTileDataCache(this.v.f2223a);
+        return this.i.cleanSDKTileDataCache(this.v.f2225a);
     }
 
     public void f(boolean z) {
         if (this.i == null || this.v == null) {
             return;
         }
-        this.i.ShowLayers(this.v.f2223a, z);
+        this.i.ShowLayers(this.v.f2225a, z);
     }
 
     public boolean f() {
@@ -967,13 +967,13 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
             return;
         }
         if (z) {
-            this.f2224a = 22.0f;
+            this.f2226a = 22.0f;
             this.c = 22.0f;
             if (this.S != null) {
                 this.S.mMaxZoomLevel = 22.0f;
             }
         } else {
-            this.f2224a = 21.0f;
+            this.f2226a = 21.0f;
             this.c = 21.0f;
             if (this.S != null) {
                 this.S.mMaxZoomLevel = 21.0f;
@@ -993,14 +993,14 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
         if (this.i == null) {
             return;
         }
-        this.i.ClearSDKLayer(this.A.f2223a);
+        this.i.ClearSDKLayer(this.A.f2225a);
     }
 
     public void n() {
         if (this.i == null || this.B == null) {
             return;
         }
-        this.i.UpdateLayers(this.B.f2223a);
+        this.i.UpdateLayers(this.B.f2225a);
     }
 
     public void n(boolean z) {
@@ -1067,7 +1067,7 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
             a(this.B);
         }
         this.q = z;
-        this.i.ShowLayers(this.B.f2223a, z);
+        this.i.ShowLayers(this.B.f2225a, z);
     }
 
     public boolean p() {
@@ -1116,7 +1116,7 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
         if (this.i == null || this.B == null) {
             return;
         }
-        this.i.UpdateLayers(this.B.f2223a);
+        this.i.UpdateLayers(this.B.f2225a);
     }
 
     public void t(boolean z) {

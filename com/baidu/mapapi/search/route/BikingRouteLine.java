@@ -10,14 +10,13 @@ import com.baidu.mapapi.search.core.RouteLine;
 import com.baidu.mapapi.search.core.RouteNode;
 import com.baidu.mapapi.search.core.RouteStep;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable {
     public static final Parcelable.Creator<BikingRouteLine> CREATOR = new a();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class BikingStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<BikingStep> CREATOR = new b();
         private int d;
@@ -55,7 +54,7 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
                 return null;
             }
             for (String str2 : split) {
-                String[] split2 = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split2 = str2.split(",");
                 if (split2 != null && split2.length >= 2) {
                     LatLng latLng = new LatLng(Double.valueOf(split2[1]).doubleValue(), Double.valueOf(split2[0]).doubleValue());
                     if (latLng != null && SDKInitializer.getCoordType() == CoordType.GCJ02) {

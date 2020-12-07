@@ -2,34 +2,32 @@ package kotlin.io;
 
 import java.io.File;
 import java.io.IOException;
-import kotlin.jvm.a.m;
 import kotlin.jvm.internal.Lambda;
-import kotlin.jvm.internal.q;
-import kotlin.l;
-@kotlin.h
-/* loaded from: classes9.dex */
-final class FilesKt__UtilsKt$copyRecursively$2 extends Lambda implements m<File, IOException, l> {
-    final /* synthetic */ m $onError;
+import kotlin.jvm.internal.p;
+@kotlin.e
+/* loaded from: classes17.dex */
+final class FilesKt__UtilsKt$copyRecursively$2 extends Lambda implements kotlin.jvm.a.c<File, IOException, kotlin.h> {
+    final /* synthetic */ kotlin.jvm.a.c $onError;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    FilesKt__UtilsKt$copyRecursively$2(m mVar) {
+    FilesKt__UtilsKt$copyRecursively$2(kotlin.jvm.a.c cVar) {
         super(2);
-        this.$onError = mVar;
+        this.$onError = cVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // kotlin.jvm.a.m
-    public /* bridge */ /* synthetic */ l invoke(File file, IOException iOException) {
+    @Override // kotlin.jvm.a.c
+    public /* bridge */ /* synthetic */ kotlin.h invoke(File file, IOException iOException) {
         invoke2(file, iOException);
-        return l.pTv;
+        return kotlin.h.pJY;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(File file, IOException iOException) {
-        q.n(file, "f");
-        q.n(iOException, "e");
-        if (((OnErrorAction) this.$onError.invoke(file, iOException)) == OnErrorAction.TERMINATE) {
+        p.o(file, "f");
+        p.o(iOException, "e");
+        if (p.l((OnErrorAction) this.$onError.invoke(file, iOException), OnErrorAction.TERMINATE)) {
             throw new TerminateException(file);
         }
     }

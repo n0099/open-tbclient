@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ugc.transcoder;
 
 import com.baidu.pyramid.runtime.service.d;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public interface IMediaTranscoder {
     public static final int MEDIA_ERROR = 100;
     public static final int MEDIA_ERROR_IO = -1004;
@@ -24,27 +24,27 @@ public interface IMediaTranscoder {
     public static final int TRANSCODER_MODE_MC = 0;
     public static final int TRANSCODER_MODE_SW = 1;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public interface OnCompletionListener {
         void onCompletion(IMediaTranscoder iMediaTranscoder);
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public interface OnErrorListener {
         boolean onError(IMediaTranscoder iMediaTranscoder, int i, int i2);
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public interface OnInfoListener {
         boolean onInfo(IMediaTranscoder iMediaTranscoder, int i, int i2, Object obj);
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public interface OnPreparedListener {
         void onPrepared(IMediaTranscoder iMediaTranscoder);
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public interface OnTerminalListener {
         void onTerminal(IMediaTranscoder iMediaTranscoder);
     }

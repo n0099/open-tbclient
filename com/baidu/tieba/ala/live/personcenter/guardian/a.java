@@ -11,12 +11,12 @@ public class a extends BaseData {
     public int fansCount;
     public int followCount;
     public int followStatus;
-    public String gQR;
-    public String gQS;
-    public int gQT;
-    public int gQU;
-    public String gQV;
-    public String gQW;
+    public String hae;
+    public String haf;
+    public int hag;
+    public int hah;
+    public String hai;
+    public String haj;
     public int isOfficial;
     public int levelId;
     public String nickName;
@@ -27,8 +27,8 @@ public class a extends BaseData {
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
-        this.gQR = jSONObject.optString("benefit_userid");
-        this.gQS = jSONObject.optString("pay_userid");
+        this.hae = jSONObject.optString("benefit_userid");
+        this.haf = jSONObject.optString("pay_userid");
         this.userName = jSONObject.optString("user_name");
         this.nickName = jSONObject.optString("user_nickname");
         this.userStatus = jSONObject.optInt("user_status");
@@ -37,16 +37,16 @@ public class a extends BaseData {
         if (StringUtils.isNull(this.portrait)) {
             this.portrait = jSONObject.optString("portrait");
         }
-        this.gQT = jSONObject.optInt("enter_live");
-        this.gQU = jSONObject.optInt("ancher_live");
-        this.gQV = jSONObject.optString("level_exp");
+        this.hag = jSONObject.optInt("enter_live");
+        this.hah = jSONObject.optInt("ancher_live");
+        this.hai = jSONObject.optString("level_exp");
         this.charmCount = jSONObject.optString("charm_count");
         this.isOfficial = jSONObject.optInt("is_official");
         this.levelId = jSONObject.optInt("level_id");
         this.followStatus = jSONObject.optInt("follow_status");
         this.followCount = jSONObject.optInt("follow_count");
         this.fansCount = jSONObject.optInt("fans_count");
-        this.gQW = jSONObject.optString("total_price");
+        this.haj = jSONObject.optString("total_price");
         this.appId = jSONObject.optString("third_app_id");
     }
 

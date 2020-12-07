@@ -1,36 +1,37 @@
 package com.baidu.ubc;
 
 import android.text.TextUtils;
-/* loaded from: classes17.dex */
+/* loaded from: classes8.dex */
 public class k {
-    private String eko;
-    private String ekp;
-    private int ekq;
-    private String ekr;
-    private int eks;
-    private int ekt;
-    private String eku;
+    private String erq;
+    private String ers;
+    private int ert;
+    private String eru;
+    private int erv;
+    private int erw;
+    private String erx;
     private String mCategory;
     private String mId;
     private int mRate;
     private String mType;
     private String mVersion;
-    private String osj;
-    private String osk;
-    private String osl;
-    private String osm;
-    private String osn;
+    private String oHm;
+    private String oHn;
+    private String oHo;
+    private String oHp;
+    private String oHq;
+    private int oHr = 2;
 
     public k(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.eko = str2;
-        this.ekp = str3;
-        this.ekq = i;
+        this.erq = str2;
+        this.ers = str3;
+        this.ert = i;
         this.mType = str4;
-        this.ekr = str5;
+        this.eru = str5;
     }
 
-    public void nf(int i) {
+    public void nD(int i) {
         this.mRate = i;
     }
 
@@ -38,47 +39,47 @@ public class k {
         this.mCategory = str;
     }
 
-    public void ng(int i) {
-        this.eks = i;
+    public void nE(int i) {
+        this.erv = i;
     }
 
-    public void nh(int i) {
-        this.ekt = i;
+    public void nF(int i) {
+        this.erw = i;
     }
 
-    public void Wu(String str) {
-        this.osj = str;
+    public void XK(String str) {
+        this.oHm = str;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String bcN() {
-        return this.eko;
+    public String bfS() {
+        return this.erq;
     }
 
-    public String bcO() {
-        return this.ekp;
+    public String bfT() {
+        return this.ers;
     }
 
     public int getTimeout() {
-        return this.ekq;
+        return this.ert;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String bcP() {
-        return this.ekr;
+    public String bfU() {
+        return this.eru;
     }
 
-    public String edg() {
-        return this.osj;
+    public String eiP() {
+        return this.oHm;
     }
 
-    public int bcQ() {
+    public int bfV() {
         return this.mRate;
     }
 
@@ -86,28 +87,28 @@ public class k {
         return this.mCategory;
     }
 
-    public int bcR() {
-        return this.eks;
+    public int bfW() {
+        return this.erv;
     }
 
-    public int bcS() {
-        return this.ekt;
+    public int bfX() {
+        return this.erw;
     }
 
-    public void yR(String str) {
-        this.eku = str;
+    public void zy(String str) {
+        this.erx = str;
     }
 
-    public String bcT() {
-        return this.eku;
+    public String bfY() {
+        return this.erx;
     }
 
-    public String edh() {
-        return this.osk;
+    public String eiQ() {
+        return this.oHn;
     }
 
-    public void Wv(String str) {
-        this.osk = str;
+    public void XL(String str) {
+        this.oHn = str;
     }
 
     public void setVersion(String str) {
@@ -118,27 +119,35 @@ public class k {
         return TextUtils.isEmpty(this.mVersion) ? "0" : this.mVersion;
     }
 
-    public void Ww(String str) {
-        this.osl = str;
+    public void XM(String str) {
+        this.oHo = str;
     }
 
-    public String edi() {
-        return this.osl;
+    public String eiR() {
+        return this.oHo;
     }
 
-    public void Wx(String str) {
-        this.osm = str;
+    public void XN(String str) {
+        this.oHp = str;
     }
 
-    public String edj() {
-        return this.osm;
+    public String eiS() {
+        return this.oHp;
     }
 
-    public String edk() {
-        return this.osn;
+    public String eiT() {
+        return this.oHq;
     }
 
-    public void Wy(String str) {
-        this.osn = str;
+    public void XO(String str) {
+        this.oHq = str;
+    }
+
+    public int eiU() {
+        return this.oHr;
+    }
+
+    public void OE(int i) {
+        this.oHr = i;
     }
 }

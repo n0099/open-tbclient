@@ -31,20 +31,20 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a extends aa {
-    private CallbackHandler cSD;
-    private e cyc;
+    private e cEU;
+    private CallbackHandler cZx;
     private Context mContext;
 
     /* renamed from: com.baidu.swan.apps.n.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0453a {
+    /* loaded from: classes25.dex */
+    public interface InterfaceC0465a {
         void a(@Nullable String str, @Nullable List<d> list, boolean z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public interface b {
         void a(@NonNull LinkedHashMap<String, Boolean> linkedHashMap, @NonNull List<String> list);
     }
@@ -69,8 +69,8 @@ public class a extends aa {
             return false;
         } else {
             this.mContext = context;
-            this.cyc = eVar;
-            this.cSD = callbackHandler;
+            this.cEU = eVar;
+            this.cZx = callbackHandler;
             JSONObject b2 = b(unitedSchemeEntity, "params");
             if (b2 == null || b2.length() == 0) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
@@ -136,7 +136,7 @@ public class a extends aa {
                     }
                 });
             } else {
-                bG(appKey, optString);
+                bN(appKey, optString);
             }
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
@@ -177,11 +177,11 @@ public class a extends aa {
     /* JADX INFO: Access modifiers changed from: private */
     @AnyThread
     public void a(final String str, final String str2, final String str3, final LinkedHashMap<String, Boolean> linkedHashMap, @NonNull final List<String> list, final boolean z, final boolean z2) {
-        com.baidu.swan.apps.t.a.awx().a(str2, linkedHashMap.keySet(), new InterfaceC0453a() { // from class: com.baidu.swan.apps.n.a.3
-            @Override // com.baidu.swan.apps.n.a.InterfaceC0453a
+        com.baidu.swan.apps.t.a.azF().a(str2, linkedHashMap.keySet(), new InterfaceC0465a() { // from class: com.baidu.swan.apps.n.a.3
+            @Override // com.baidu.swan.apps.n.a.InterfaceC0465a
             public void a(@Nullable final String str4, final List<d> list2, boolean z3) {
                 if (TextUtils.isEmpty(str4) || list2 == null || list2.size() <= 0) {
-                    a.this.cSD.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(500104, "请求模板内容失败").toString());
+                    a.this.cZx.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(500104, "请求模板内容失败").toString());
                     return;
                 }
                 p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.n.a.3.1
@@ -189,14 +189,14 @@ public class a extends aa {
                     public void run() {
                         ContentResolver contentResolver = a.this.mContext.getContentResolver();
                         for (d dVar : list2) {
-                            String str5 = dVar.cTc;
+                            String str5 = dVar.cZW;
                             Boolean bool = (Boolean) linkedHashMap.get(str5);
                             if (bool != null && !bool.booleanValue()) {
                                 ContentValues contentValues = new ContentValues();
                                 contentValues.put("appKey", str2);
                                 contentValues.put("templateId", str5);
                                 contentValues.put("result", (Integer) 0);
-                                contentValues.put("title", dVar.cTd);
+                                contentValues.put("title", dVar.cZX);
                                 contentValues.put(TableDefine.MessageColumns.COLUME_TIPS, str4);
                                 contentResolver.insert(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues);
                             }
@@ -206,7 +206,7 @@ public class a extends aa {
                 if (z3 && z2) {
                     a.this.a(str2, list2, str4, true);
                     for (d dVar : list2) {
-                        list.add(dVar.cTc);
+                        list.add(dVar.cZW);
                     }
                     a.this.a(str2, list, str3, z, str);
                     return;
@@ -223,7 +223,7 @@ public class a extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final String str, final String str2, final String str3, final String str4, final List<d> list, @NonNull final List<String> list2, final boolean z) {
-        c.a((Activity) this.mContext, this.cyc, str4, list, new c.a() { // from class: com.baidu.swan.apps.n.a.4
+        c.a((Activity) this.mContext, this.cEU, str4, list, new c.a() { // from class: com.baidu.swan.apps.n.a.4
             @Override // com.baidu.swan.apps.n.c.a
             public boolean a(DialogInterface dialogInterface, int i, List<d> list3) {
                 String str5;
@@ -237,12 +237,12 @@ public class a extends aa {
                 a.this.a(str2, list3, str4, z2);
                 if (z2) {
                     for (d dVar : list3) {
-                        list2.add(dVar.cTc);
+                        list2.add(dVar.cZW);
                     }
                     a.this.a(str2, list2, str3, z, str);
                     str5 = "permit_click";
                 } else {
-                    a.this.cSD.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(500102, "用户单次拒绝授权").toString());
+                    a.this.cZx.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(500102, "用户单次拒绝授权").toString());
                     str5 = "reject_click";
                 }
                 a.this.a(str5, list, list3);
@@ -251,7 +251,7 @@ public class a extends aa {
         }, new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.n.a.5
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                a.this.cSD.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(500103, "用户取消授权").toString());
+                a.this.cZx.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(500103, "用户取消授权").toString());
             }
         }).show();
         a("show", list, list);
@@ -259,56 +259,56 @@ public class a extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final String str, final List<d> list, final String str2, final boolean z) {
-        p.aLR().execute(new Runnable() { // from class: com.baidu.swan.apps.n.a.6
+        p.aOY().execute(new Runnable() { // from class: com.baidu.swan.apps.n.a.6
             @Override // java.lang.Runnable
             public void run() {
                 ContentResolver contentResolver = a.this.mContext.getContentResolver();
                 for (d dVar : list) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put("title", dVar.cTd);
+                    contentValues.put("title", dVar.cZX);
                     contentValues.put(TableDefine.MessageColumns.COLUME_TIPS, str2);
                     contentValues.put("result", Integer.valueOf(z ? 1 : -1));
-                    contentResolver.update(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues, "appKey=? and templateId=?", new String[]{str, dVar.cTc});
+                    contentResolver.update(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues, "appKey=? and templateId=?", new String[]{str, dVar.cZW});
                 }
             }
         });
     }
 
-    private void bG(@NonNull String str, @NonNull final String str2) {
-        com.baidu.swan.apps.t.a.awx().a(str, new com.baidu.swan.apps.n.b() { // from class: com.baidu.swan.apps.n.a.7
+    private void bN(@NonNull String str, @NonNull final String str2) {
+        com.baidu.swan.apps.t.a.azF().a(str, new com.baidu.swan.apps.n.b() { // from class: com.baidu.swan.apps.n.a.7
             @Override // com.baidu.swan.apps.ae.a
-            public void ay(JSONObject jSONObject) {
-                a.this.cSD.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-                if (com.baidu.swan.apps.t.a.avX().bo(a.this.mContext)) {
-                    com.baidu.swan.apps.ae.c.dkS.aFt();
+            public void aA(JSONObject jSONObject) {
+                a.this.cZx.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                if (com.baidu.swan.apps.t.a.azf().bU(a.this.mContext)) {
+                    com.baidu.swan.apps.ae.c.drS.aIB();
                 } else {
-                    com.baidu.swan.apps.ae.c.dkS.aFu();
+                    com.baidu.swan.apps.ae.c.drS.aIC();
                 }
             }
 
             @Override // com.baidu.swan.apps.ae.a
             public void onFail(String str3) {
-                a.this.cSD.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(500105, "请求formId失败").toString());
+                a.this.cZx.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(500105, "请求formId失败").toString());
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull String str, @NonNull List<String> list, @Nullable String str2, boolean z, @NonNull final String str3) {
-        com.baidu.swan.apps.t.a.awx().a(str, list, str2, z, new com.baidu.swan.apps.n.b() { // from class: com.baidu.swan.apps.n.a.8
+        com.baidu.swan.apps.t.a.azF().a(str, list, str2, z, new com.baidu.swan.apps.n.b() { // from class: com.baidu.swan.apps.n.a.8
             @Override // com.baidu.swan.apps.ae.a
-            public void ay(JSONObject jSONObject) {
-                a.this.cSD.handleSchemeDispatchCallback(str3, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-                if (com.baidu.swan.apps.t.a.avX().bo(a.this.mContext)) {
-                    com.baidu.swan.apps.ae.c.dkS.aFt();
+            public void aA(JSONObject jSONObject) {
+                a.this.cZx.handleSchemeDispatchCallback(str3, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                if (com.baidu.swan.apps.t.a.azf().bU(a.this.mContext)) {
+                    com.baidu.swan.apps.ae.c.drS.aIB();
                 } else {
-                    com.baidu.swan.apps.ae.c.dkS.aFu();
+                    com.baidu.swan.apps.ae.c.drS.aIC();
                 }
             }
 
             @Override // com.baidu.swan.apps.ae.a
             public void onFail(String str4) {
-                a.this.cSD.handleSchemeDispatchCallback(str3, UnitedSchemeUtility.wrapCallbackParams(500105, "请求formId失败").toString());
+                a.this.cZx.handleSchemeDispatchCallback(str3, UnitedSchemeUtility.wrapCallbackParams(500105, "请求formId失败").toString());
             }
         });
     }
@@ -321,20 +321,20 @@ public class a extends aa {
         if (list2 != null) {
             eVar.mValue = String.valueOf(list2.size());
         }
-        eVar.u("appkey", this.cyc.getAppId());
-        eVar.u("tpl", aG(list));
-        eVar.u("selected_tpl", aG(list2));
+        eVar.t("appkey", this.cEU.getAppId());
+        eVar.t("tpl", aJ(list));
+        eVar.t("selected_tpl", aJ(list2));
         if (DEBUG) {
             Log.d("GetFormIdAction", "event: " + eVar.toJSONObject());
         }
         h.a("1311", eVar);
     }
 
-    private JSONArray aG(List<d> list) {
+    private JSONArray aJ(List<d> list) {
         JSONArray jSONArray = new JSONArray();
         if (list != null && list.size() > 0) {
             for (d dVar : list) {
-                jSONArray.put(dVar.cTd);
+                jSONArray.put(dVar.cZX);
             }
         }
         return jSONArray;

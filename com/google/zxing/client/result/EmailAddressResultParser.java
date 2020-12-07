@@ -2,12 +2,11 @@ package com.google.zxing.client.result;
 
 import com.baidu.webkit.sdk.WebView;
 import com.google.zxing.Result;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class EmailAddressResultParser extends ResultParser {
-    private static final Pattern COMMA = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
+    private static final Pattern COMMA = Pattern.compile(",");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser

@@ -7,40 +7,40 @@ import com.baidu.swan.apps.r.d;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a implements com.baidu.swan.apps.u.d.a {
     public static List<af.a> getStorageList() {
-        List<af.a> list = (List) b.axC().oU("getStorageListCache");
+        List<af.a> list = (List) b.aAL().pB("getStorageListCache");
         if (list == null) {
             List<af.a> storageList = af.getStorageList();
-            b.axC().p("getStorageListCache", storageList);
+            b.aAL().o("getStorageListCache", storageList);
             return storageList;
         }
         return list;
     }
 
     public static void h(Boolean bool) {
-        b.axC().p("getNightModeStateCache", bool);
+        b.aAL().o("getNightModeStateCache", bool);
     }
 
-    public static Boolean fw(boolean z) {
-        Boolean bool = (Boolean) b.axC().oU("getNightModeStateCache");
+    public static Boolean fL(boolean z) {
+        Boolean bool = (Boolean) b.aAL().pB("getNightModeStateCache");
         if (bool == null) {
-            return Boolean.valueOf(com.baidu.swan.apps.t.a.awo().getNightModeSwitcherState());
+            return Boolean.valueOf(com.baidu.swan.apps.t.a.azw().getNightModeSwitcherState());
         }
         if (z) {
-            b.axC().oV("getNightModeStateCache");
+            b.aAL().pC("getNightModeStateCache");
             return bool;
         }
         return bool;
     }
 
-    public static SwanAppConfigData C(File file) {
+    public static SwanAppConfigData B(File file) {
         if (file == null || !file.exists()) {
             return null;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        SwanAppConfigData l = SwanAppConfigData.l(d.y(new File(file, "app.json")), file);
+        SwanAppConfigData l = SwanAppConfigData.l(d.x(new File(file, "app.json")), file);
         if (DEBUG) {
             Log.d("SwanPreProcess", "buildAppJsonConfig cost = " + (System.currentTimeMillis() - currentTimeMillis) + "ms ; current thread = " + Thread.currentThread().getId());
             return l;
@@ -48,16 +48,16 @@ public class a implements com.baidu.swan.apps.u.d.a {
         return l;
     }
 
-    public static SwanAppConfigData D(File file) {
+    public static SwanAppConfigData C(File file) {
         if (file == null || !file.exists()) {
             return null;
         }
-        if (c.aDs()) {
-            SwanAppConfigData swanAppConfigData = (SwanAppConfigData) b.axC().oU(file.getAbsolutePath());
+        if (c.aGA()) {
+            SwanAppConfigData swanAppConfigData = (SwanAppConfigData) b.aAL().pB(file.getAbsolutePath());
             if (swanAppConfigData == null) {
-                SwanAppConfigData C = C(file);
-                b.axC().p(file.getAbsolutePath(), C);
-                return C;
+                SwanAppConfigData B = B(file);
+                b.aAL().o(file.getAbsolutePath(), B);
+                return B;
             } else if (DEBUG) {
                 Log.d("SwanPreProcess", "adopt cached app.json");
                 return swanAppConfigData;
@@ -65,6 +65,6 @@ public class a implements com.baidu.swan.apps.u.d.a {
                 return swanAppConfigData;
             }
         }
-        return C(file);
+        return B(file);
     }
 }

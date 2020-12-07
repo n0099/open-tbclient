@@ -7,7 +7,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public class e<INFO> implements c<INFO> {
     private final List<c<? super INFO>> mListeners = new ArrayList(2);
 
@@ -22,7 +22,7 @@ public class e<INFO> implements c<INFO> {
         }
     }
 
-    public synchronized void elJ() {
+    public synchronized void ery() {
         this.mListeners.clear();
     }
 
@@ -31,13 +31,13 @@ public class e<INFO> implements c<INFO> {
     }
 
     @Override // com.facebook.drawee.controller.c
-    public synchronized void g(String str, Object obj) {
+    public synchronized void f(String str, Object obj) {
         int size = this.mListeners.size();
         for (int i = 0; i < size; i++) {
             try {
                 c<? super INFO> cVar = this.mListeners.get(i);
                 if (cVar != null) {
-                    cVar.g(str, obj);
+                    cVar.f(str, obj);
                 }
             } catch (Exception e) {
                 l("InternalListener exception in onSubmit", e);
@@ -61,13 +61,13 @@ public class e<INFO> implements c<INFO> {
     }
 
     @Override // com.facebook.drawee.controller.c
-    public void h(String str, @Nullable INFO info) {
+    public void g(String str, @Nullable INFO info) {
         int size = this.mListeners.size();
         for (int i = 0; i < size; i++) {
             try {
                 c<? super INFO> cVar = this.mListeners.get(i);
                 if (cVar != null) {
-                    cVar.h(str, (String) info);
+                    cVar.g(str, (String) info);
                 }
             } catch (Exception e) {
                 l("InternalListener exception in onIntermediateImageSet", e);
@@ -106,13 +106,13 @@ public class e<INFO> implements c<INFO> {
     }
 
     @Override // com.facebook.drawee.controller.c
-    public synchronized void hg(String str) {
+    public synchronized void hB(String str) {
         int size = this.mListeners.size();
         for (int i = 0; i < size; i++) {
             try {
                 c<? super INFO> cVar = this.mListeners.get(i);
                 if (cVar != null) {
-                    cVar.hg(str);
+                    cVar.hB(str);
                 }
             } catch (Exception e) {
                 l("InternalListener exception in onRelease", e);

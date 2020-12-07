@@ -1,29 +1,29 @@
 package com.baidu.ar.recorder;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class a {
-    private long tM;
-    private int tL = 100;
-    private long tN = 0;
-    private boolean iz = false;
+    private long uz;
+    private int uy = 100;
+    private long uA = 0;
+    private boolean iO = false;
 
     public a(long j) {
-        this.tM = 0L;
-        this.tM = j;
+        this.uz = 0L;
+        this.uz = j;
     }
 
-    public boolean fH() {
-        return this.iz;
+    public boolean fI() {
+        return this.iO;
     }
 
-    public void v(long j) {
-        this.tN = j;
-        this.iz = true;
+    public void t(long j) {
+        this.uA = j;
+        this.iO = true;
     }
 
-    public int w(long j) {
-        if (this.tM == 0 || this.tN == 0) {
+    public int u(long j) {
+        if (this.uz == 0 || this.uA == 0) {
             return 0;
         }
-        return (int) (((j - this.tN) * this.tL) / this.tM);
+        return (int) (((j - this.uA) * this.uy) / this.uz);
     }
 }

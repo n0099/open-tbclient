@@ -84,7 +84,7 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class SapiUtils implements NoProguard {
     public static final String COOKIE_HTTPS_URL_PREFIX = "https://";
     public static final String COOKIE_URL_PREFIX = "https://www.";
@@ -111,7 +111,7 @@ public class SapiUtils implements NoProguard {
     public static final String QR_LOGIN_LP_PC = "pc";
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f3531a = "cmd";
+    static final String f3534a = "cmd";
     static final String b = "error";
     static final String c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
     static final String d = Character.toString(2);
@@ -203,7 +203,7 @@ public class SapiUtils implements NoProguard {
             try {
                 String str4 = map.get(str3);
                 if (!TextUtils.isEmpty(str4)) {
-                    sb.append(str3).append(ETAG.EQUAL).append(URLEncoder.encode(str4, "UTF-8")).append(ETAG.ITEM_SEPARATOR);
+                    sb.append(str3).append("=").append(URLEncoder.encode(str4, "UTF-8")).append(ETAG.ITEM_SEPARATOR);
                 }
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);
@@ -236,9 +236,9 @@ public class SapiUtils implements NoProguard {
             for (PassNameValuePair passNameValuePair : list) {
                 if (!TextUtils.isEmpty(passNameValuePair.getName()) && !TextUtils.isEmpty(passNameValuePair.getValue())) {
                     if (TextUtils.isEmpty(sb.toString())) {
-                        sb.append(passNameValuePair.getName()).append(ETAG.EQUAL).append(passNameValuePair.getValue());
+                        sb.append(passNameValuePair.getName()).append("=").append(passNameValuePair.getValue());
                     } else {
-                        sb.append(ETAG.ITEM_SEPARATOR).append(passNameValuePair.getName()).append(ETAG.EQUAL).append(passNameValuePair.getValue());
+                        sb.append(ETAG.ITEM_SEPARATOR).append(passNameValuePair.getName()).append("=").append(passNameValuePair.getValue());
                     }
                 }
             }
@@ -290,7 +290,7 @@ public class SapiUtils implements NoProguard {
             }
             for (String str3 : cookie.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
                 String trim = str3.trim();
-                if (!TextUtils.isEmpty(trim) && (indexOf = trim.indexOf(ETAG.EQUAL)) > -1) {
+                if (!TextUtils.isEmpty(trim) && (indexOf = trim.indexOf("=")) > -1) {
                     String[] strArr = new String[2];
                     strArr[0] = trim.substring(0, indexOf);
                     int i = indexOf + 1;
@@ -843,7 +843,7 @@ public class SapiUtils implements NoProguard {
                     hashMap2.put("islogin", "1");
                 }
                 hashMap2.put("client", "android");
-                k.a(k.f3561a, hashMap2);
+                k.a(k.f3564a, hashMap2);
             }
             return urlParamsToMap;
         } else {
@@ -864,7 +864,7 @@ public class SapiUtils implements NoProguard {
     public static void sendSms(Context context, String str, List<String> list) {
         String defaultSmsPackage;
         String str2 = "";
-        String str3 = "Samsung".equalsIgnoreCase(Build.MANUFACTURER) ? Constants.ACCEPT_TIME_SEPARATOR_SP : ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
+        String str3 = "Samsung".equalsIgnoreCase(Build.MANUFACTURER) ? "," : ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
         if (list != null && !list.isEmpty()) {
             str2 = TextUtils.join(str3, list);
         }
@@ -936,7 +936,7 @@ public class SapiUtils implements NoProguard {
                 }
             }
             for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
-                String[] split = str2.split(ETAG.EQUAL);
+                String[] split = str2.split("=");
                 if (split.length == 2) {
                     hashMap.put(split[0], split[1]);
                 }
@@ -1151,13 +1151,13 @@ public class SapiUtils implements NoProguard {
             }
             if (value == null) {
                 try {
-                    sb.append(key).append(ETAG.EQUAL);
+                    sb.append(key).append("=");
                 } catch (Exception e2) {
-                    sb.append(key).append(ETAG.EQUAL).append((Object) value);
+                    sb.append(key).append("=").append((Object) value);
                     e2.printStackTrace();
                 }
             } else {
-                sb.append(key).append(ETAG.EQUAL).append(URLEncoder.encode(value.toString(), "UTF-8"));
+                sb.append(key).append("=").append(URLEncoder.encode(value.toString(), "UTF-8"));
             }
         }
         return sb.toString();
@@ -1166,7 +1166,7 @@ public class SapiUtils implements NoProguard {
     private static String a(String str, String str2, String str3, Date date, boolean z) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(c, Locale.US);
         simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-        return str2 + ETAG.EQUAL + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(date) + ";httponly" + (z ? ";secure" : "");
+        return str2 + "=" + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(date) + ";httponly" + (z ? ";secure" : "");
     }
 
     static String a(String str, String str2, String str3) {

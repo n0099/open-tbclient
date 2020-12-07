@@ -7,9 +7,9 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.ResponseGetGroupActivityLocalMessage;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class d implements CustomMessageTask.CustomRunnable<Integer> {
-    private ResponseGetGroupActivityLocalMessage cUS() {
+    private ResponseGetGroupActivityLocalMessage dae() {
         ResponseGetGroupActivityLocalMessage responseGetGroupActivityLocalMessage = new ResponseGetGroupActivityLocalMessage();
         responseGetGroupActivityLocalMessage.setError(-18);
         return responseGetGroupActivityLocalMessage;
@@ -18,14 +18,14 @@ public class d implements CustomMessageTask.CustomRunnable<Integer> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
         if (customMessage == null || !(customMessage instanceof RequestGetGroupActivityLocalMessage)) {
-            return cUS();
+            return dae();
         }
         RequestGetGroupActivityLocalMessage requestGetGroupActivityLocalMessage = (RequestGetGroupActivityLocalMessage) customMessage;
         String str = "";
         if (TbadkApplication.getCurrentAccountObj() != null) {
             str = TbadkApplication.getCurrentAccountObj().getID();
         }
-        byte[] bArr = com.baidu.tbadk.core.c.a.bob().AG("tb.im_groupactivity").get("group_activity" + str + requestGetGroupActivityLocalMessage.getData());
+        byte[] bArr = com.baidu.tbadk.core.c.a.brq().Bn("tb.im_groupactivity").get("group_activity" + str + requestGetGroupActivityLocalMessage.getData());
         ResponseGetGroupActivityLocalMessage responseGetGroupActivityLocalMessage = new ResponseGetGroupActivityLocalMessage();
         if (bArr != null) {
             try {
@@ -35,6 +35,6 @@ public class d implements CustomMessageTask.CustomRunnable<Integer> {
                 e.printStackTrace();
             }
         }
-        return cUS();
+        return dae();
     }
 }

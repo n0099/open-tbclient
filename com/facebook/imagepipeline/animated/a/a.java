@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public interface a {
     @Nullable
     com.facebook.imagepipeline.decoder.b a(Bitmap.Config config);
@@ -14,5 +14,5 @@ public interface a {
     com.facebook.imagepipeline.decoder.b b(Bitmap.Config config);
 
     @Nullable
-    com.facebook.imagepipeline.f.a gY(Context context);
+    com.facebook.imagepipeline.e.a hH(Context context);
 }

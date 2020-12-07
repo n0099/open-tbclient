@@ -2,6 +2,7 @@ package com.google.zxing.oned;
 
 import android.support.v7.widget.ActivityChooserView;
 import com.alibaba.fastjson.asm.Opcodes;
+import com.baidu.ar.face.algo.FAUEnum;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.DecodeHintType;
@@ -12,7 +13,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class Code39Reader extends OneDReader {
     static final String ALPHABET_STRING = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. *$/+%";
     static final int ASTERISK_ENCODING;
@@ -24,7 +25,7 @@ public final class Code39Reader extends OneDReader {
     private final boolean usingCheckDigit;
 
     static {
-        int[] iArr = {52, 289, 97, 352, 49, 304, 112, 37, 292, 100, 265, 73, 328, 25, 280, 88, 13, 268, 76, 28, 259, 67, 322, 19, 274, 82, 7, 262, 70, 22, 385, 193, 448, 145, 400, 208, 133, 388, 196, Opcodes.LCMP, 168, 162, 138, 42};
+        int[] iArr = {52, 289, 97, 352, 49, 304, 112, 37, 292, 100, 265, 73, 328, 25, 280, 88, 13, 268, 76, 28, 259, 67, 322, 19, 274, 82, 7, 262, 70, 22, 385, 193, 448, 145, 400, FAUEnum.PR_ANIMATE_FAILED, 133, 388, 196, Opcodes.LCMP, 168, 162, 138, 42};
         CHARACTER_ENCODINGS = iArr;
         ASTERISK_ENCODING = iArr[39];
     }

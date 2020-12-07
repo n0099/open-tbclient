@@ -12,7 +12,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public abstract class AsyncTaskLoader<D> extends Loader<D> {
     static final boolean DEBUG = false;
     static final String TAG = "AsyncTaskLoader";
@@ -27,7 +27,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
     public abstract D loadInBackground();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public final class LoadTask extends ModernAsyncTask<Void, Void, D> implements Runnable {
         private final CountDownLatch mDone = new CountDownLatch(1);
         boolean waiting;

@@ -2,49 +2,49 @@ package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.bx;
-/* loaded from: classes21.dex */
+import com.baidu.tbadk.core.data.by;
+/* loaded from: classes22.dex */
 public class o implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId loL = BdUniqueId.gen();
-    private bx akt;
-    private AntiData eTQ;
-    private boolean loM = false;
-    public boolean loN = false;
+    public static final BdUniqueId lCh = BdUniqueId.gen();
+    private by alu;
+    private AntiData fbn;
+    private boolean lCi = false;
+    public boolean lCj = false;
 
-    public o(bx bxVar, AntiData antiData) {
-        this.akt = bxVar;
-        this.eTQ = antiData;
+    public o(by byVar, AntiData antiData) {
+        this.alu = byVar;
+        this.fbn = antiData;
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return loL;
+        return lCh;
     }
 
-    public int bnf() {
-        if (this.akt != null) {
-            return this.akt.bnf();
+    public int bqs() {
+        if (this.alu != null) {
+            return this.alu.bqs();
         }
         return 0;
     }
 
-    public boolean diz() {
-        return this.akt != null && this.akt.bne() == 1;
+    public boolean dnO() {
+        return this.alu != null && this.alu.bqr() == 1;
     }
 
     public AntiData getAnti() {
-        return this.eTQ;
+        return this.fbn;
     }
 
-    public bx bjd() {
-        return this.akt;
+    public by bmn() {
+        return this.alu;
     }
 
-    public void tV(boolean z) {
-        this.loM = z;
+    public void ux(boolean z) {
+        this.lCi = z;
     }
 
-    public boolean diA() {
-        return this.loM;
+    public boolean dnP() {
+        return this.lCi;
     }
 }

@@ -5,94 +5,94 @@ import android.view.View;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.card.view.CardUserInfoLayout;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class e extends b<com.baidu.tbadk.core.data.a> {
-    private com.baidu.tbadk.core.data.a afN;
-    private CardUserInfoLayout afT;
-    private int afU;
-    private a afV;
+    private com.baidu.tbadk.core.data.a agJ;
+    private CardUserInfoLayout agP;
+    private int agQ;
+    private a agR;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     public interface a {
         void a(com.baidu.tbadk.core.data.a aVar, View view);
     }
 
     public e(Context context) {
         super(context);
-        this.afU = 34053;
-        this.afT = new CardUserInfoLayout(context);
-        this.afT.setShowFlag(this.afU);
-        this.afT.setUserAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.e.1
+        this.agQ = 34053;
+        this.agP = new CardUserInfoLayout(context);
+        this.agP.setShowFlag(this.agQ);
+        this.agP.setUserAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.afV != null) {
-                    e.this.afV.a(e.this.afN, view);
+                if (e.this.agR != null) {
+                    e.this.agR.a(e.this.agJ, view);
                 }
-                if (e.this.tB() != null) {
-                    e.this.tB().a(view, e.this.afN);
+                if (e.this.tE() != null) {
+                    e.this.tE().a(view, e.this.agJ);
                 }
             }
         });
     }
 
     @Override // com.baidu.card.b
-    public void bq(int i) {
-        this.afT.setShowFlag(this.afU);
+    public void bu(int i) {
+        this.agP.setShowFlag(this.agQ);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.afT;
+        return this.agP;
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.afT.onChangeSkinType(tbPageContext, i);
+        this.agP.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.card.b
-    public void bo(int i) {
-        this.afU |= i;
-        bq(this.afU);
+    public void bs(int i) {
+        this.agQ |= i;
+        bu(this.agQ);
     }
 
     @Override // com.baidu.card.b
-    public void bp(int i) {
-        this.afU &= i ^ (-1);
-        bq(this.afU);
+    public void bt(int i) {
+        this.agQ &= i ^ (-1);
+        bu(this.agQ);
     }
 
     @Override // com.baidu.card.b
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.afT.setPageUniqueId(bdUniqueId);
+        this.agP.setPageUniqueId(bdUniqueId);
     }
 
     public void a(a aVar) {
-        this.afV = aVar;
+        this.agR = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(com.baidu.tbadk.core.data.a aVar) {
-        this.afN = aVar;
-        this.afT.setData(aVar.bjd());
+        this.agJ = aVar;
+        this.agP.setData(aVar.bmn());
     }
 
-    public void aE(boolean z) {
-        if (this.afT != null && this.afT.getAvatar() != null) {
-            this.afT.getAvatar().setClickable(z);
+    public void aD(boolean z) {
+        if (this.agP != null && this.agP.getAvatar() != null) {
+            this.agP.getAvatar().setClickable(z);
         }
     }
 
-    public void aF(boolean z) {
-        if (this.afT != null && this.afT.getUserName() != null) {
-            this.afT.getUserName().setClickable(z);
+    public void aE(boolean z) {
+        if (this.agP != null && this.agP.getUserName() != null) {
+            this.agP.getUserName().setClickable(z);
         }
     }
 
     public void b(TbPageContext tbPageContext) {
-        this.afT.setPageContext(tbPageContext);
+        this.agP.setPageContext(tbPageContext);
     }
 }

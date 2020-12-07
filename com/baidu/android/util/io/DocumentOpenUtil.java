@@ -1,7 +1,9 @@
 package com.baidu.android.util.io;
 
 import android.text.TextUtils;
-/* loaded from: classes18.dex */
+import java.util.Locale;
+@Deprecated
+/* loaded from: classes6.dex */
 public class DocumentOpenUtil {
     public static final String DOC = "doc";
     public static final String DOCUMENT_TYPE = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
@@ -26,7 +28,7 @@ public class DocumentOpenUtil {
 
     public static String getFixSupportMimeType(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !getSupportMimeType(str)) {
-            String lowerCase = str2.toLowerCase();
+            String lowerCase = str2.toLowerCase(Locale.getDefault());
             char c = 65535;
             switch (lowerCase.hashCode()) {
                 case 99640:
@@ -114,7 +116,7 @@ public class DocumentOpenUtil {
             return "";
         }
         String str2 = "";
-        String lowerCase = str.toLowerCase();
+        String lowerCase = str.toLowerCase(Locale.getDefault());
         char c = 65535;
         switch (lowerCase.hashCode()) {
             case 99640:

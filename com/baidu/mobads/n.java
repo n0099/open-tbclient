@@ -7,11 +7,11 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 class n implements IOAdEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ InterstitialAd f2367a;
+    final /* synthetic */ InterstitialAd f2369a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(InterstitialAd interstitialAd) {
-        this.f2367a = interstitialAd;
+        this.f2369a = interstitialAd;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener

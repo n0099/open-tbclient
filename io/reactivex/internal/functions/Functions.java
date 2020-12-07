@@ -5,26 +5,22 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.Callable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class Functions {
-    static final io.reactivex.c.h<Object, Object> pNR = new g();
-    public static final Runnable pNS = new d();
-    public static final io.reactivex.c.a pNT = new a();
-    static final io.reactivex.c.g<Object> pNU = new b();
-    public static final io.reactivex.c.g<Throwable> pNV = new e();
-    public static final io.reactivex.c.g<Throwable> pNW = new k();
-    public static final io.reactivex.c.i pNX = new c();
-    static final io.reactivex.c.j<Object> pNY = new l();
-    static final io.reactivex.c.j<Object> pNZ = new f();
-    static final Callable<Object> pOa = new j();
-    static final Comparator<Object> pOb = new i();
-    public static final io.reactivex.c.g<org.a.d> pOc = new h();
+    static final io.reactivex.b.h<Object, Object> pEK = new g();
+    public static final Runnable pEL = new d();
+    public static final io.reactivex.b.a pEM = new a();
+    static final io.reactivex.b.g<Object> pEN = new b();
+    public static final io.reactivex.b.g<Throwable> pEO = new e();
+    public static final io.reactivex.b.g<Throwable> pEP = new k();
+    public static final io.reactivex.b.i pEQ = new c();
+    static final io.reactivex.b.j<Object> pER = new l();
+    static final io.reactivex.b.j<Object> pES = new f();
+    static final Callable<Object> pET = new j();
+    static final Comparator<Object> pEU = new i();
+    public static final io.reactivex.b.g<org.a.d> pEV = new h();
 
-    public static <T> io.reactivex.c.g<T> eAG() {
-        return (io.reactivex.c.g<T>) pNU;
-    }
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     enum HashSetCallable implements Callable<Set<Object>> {
         INSTANCE;
 
@@ -35,7 +31,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     enum NaturalComparator implements Comparator<Object> {
         INSTANCE;
 
@@ -45,12 +41,12 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes5.dex */
-    static final class g implements io.reactivex.c.h<Object, Object> {
+    /* loaded from: classes9.dex */
+    static final class g implements io.reactivex.b.h<Object, Object> {
         g() {
         }
 
-        @Override // io.reactivex.c.h
+        @Override // io.reactivex.b.h
         public Object apply(Object obj) {
             return obj;
         }
@@ -60,7 +56,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class d implements Runnable {
         d() {
         }
@@ -74,12 +70,12 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes5.dex */
-    static final class a implements io.reactivex.c.a {
+    /* loaded from: classes9.dex */
+    static final class a implements io.reactivex.b.a {
         a() {
         }
 
-        @Override // io.reactivex.c.a
+        @Override // io.reactivex.b.a
         public void run() {
         }
 
@@ -88,12 +84,12 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes5.dex */
-    static final class b implements io.reactivex.c.g<Object> {
+    /* loaded from: classes9.dex */
+    static final class b implements io.reactivex.b.g<Object> {
         b() {
         }
 
-        @Override // io.reactivex.c.g
+        @Override // io.reactivex.b.g
         public void accept(Object obj) {
         }
 
@@ -102,63 +98,59 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes5.dex */
-    static final class e implements io.reactivex.c.g<Throwable> {
+    /* loaded from: classes9.dex */
+    static final class e implements io.reactivex.b.g<Throwable> {
         e() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // io.reactivex.c.g
+        @Override // io.reactivex.b.g
         public void accept(Throwable th) {
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
     }
 
-    /* loaded from: classes5.dex */
-    static final class k implements io.reactivex.c.g<Throwable> {
+    /* loaded from: classes9.dex */
+    static final class k implements io.reactivex.b.g<Throwable> {
         k() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // io.reactivex.c.g
+        @Override // io.reactivex.b.g
         public void accept(Throwable th) {
-            io.reactivex.e.a.onError(new OnErrorNotImplementedException(th));
+            io.reactivex.d.a.onError(new OnErrorNotImplementedException(th));
         }
     }
 
-    /* loaded from: classes5.dex */
-    static final class c implements io.reactivex.c.i {
+    /* loaded from: classes9.dex */
+    static final class c implements io.reactivex.b.i {
         c() {
         }
-
-        @Override // io.reactivex.c.i
-        public void ih(long j) {
-        }
     }
 
-    /* loaded from: classes5.dex */
-    static final class l implements io.reactivex.c.j<Object> {
+    /* loaded from: classes9.dex */
+    static final class l implements io.reactivex.b.j<Object> {
         l() {
         }
 
-        @Override // io.reactivex.c.j
+        @Override // io.reactivex.b.j
         public boolean test(Object obj) {
             return true;
         }
     }
 
-    /* loaded from: classes5.dex */
-    static final class f implements io.reactivex.c.j<Object> {
+    /* loaded from: classes9.dex */
+    static final class f implements io.reactivex.b.j<Object> {
         f() {
         }
 
-        @Override // io.reactivex.c.j
+        @Override // io.reactivex.b.j
         public boolean test(Object obj) {
             return false;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class j implements Callable<Object> {
         j() {
         }
@@ -169,7 +161,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class i implements Comparator<Object> {
         i() {
         }
@@ -180,13 +172,13 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes5.dex */
-    static final class h implements io.reactivex.c.g<org.a.d> {
+    /* loaded from: classes9.dex */
+    static final class h implements io.reactivex.b.g<org.a.d> {
         h() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // io.reactivex.c.g
+        @Override // io.reactivex.b.g
         public void accept(org.a.d dVar) throws Exception {
             dVar.request(Long.MAX_VALUE);
         }

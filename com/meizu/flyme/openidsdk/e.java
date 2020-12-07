@@ -7,16 +7,16 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class e {
     public static boolean b;
-    public static volatile e pEw;
+    public static volatile e pyc;
     public Boolean g;
-    public BroadcastReceiver pEB;
-    public a pEx = new a("udid");
-    public a pEy = new a("oaid");
-    public a pEA = new a("vaid");
-    public a pEz = new a("aaid");
+    public BroadcastReceiver pyh;
+    public a pyd = new a("udid");
+    public a pye = new a("oaid");
+    public a pyg = new a("vaid");
+    public a pyf = new a("aaid");
 
     public static c A(Cursor cursor) {
         c cVar = new c(null, 0);
@@ -28,7 +28,7 @@ public class e {
             cursor.moveToFirst();
             int columnIndex = cursor.getColumnIndex("value");
             if (columnIndex >= 0) {
-                cVar.f4450a = cursor.getString(columnIndex);
+                cVar.f4220a = cursor.getString(columnIndex);
             } else {
                 a("parseValue fail, index < 0.");
             }
@@ -54,27 +54,27 @@ public class e {
         }
     }
 
-    public static final e ewA() {
-        if (pEw == null) {
+    public static final e ezx() {
+        if (pyc == null) {
             synchronized (e.class) {
-                pEw = new e();
+                pyc = new e();
             }
         }
-        return pEw;
+        return pyc;
     }
 
-    public a YB(String str) {
+    public a ZM(String str) {
         if ("oaid".equals(str)) {
-            return this.pEy;
+            return this.pye;
         }
         if ("vaid".equals(str)) {
-            return this.pEA;
+            return this.pyg;
         }
         if ("aaid".equals(str)) {
-            return this.pEz;
+            return this.pyf;
         }
         if ("udid".equals(str)) {
-            return this.pEx;
+            return this.pyd;
         }
         return null;
     }
@@ -139,7 +139,7 @@ public class e {
         }
         if (parse != 0) {
             c A = A(parse);
-            str2 = A.f4450a;
+            str2 = A.f4220a;
             try {
                 aVar.a(str2);
                 aVar.a(A.c);
@@ -186,11 +186,11 @@ public class e {
     }
 
     public final synchronized void a(Context context) {
-        if (this.pEB == null) {
+        if (this.pyh == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.meizu.flyme.openid.ACTION_OPEN_ID_CHANGE");
-            this.pEB = new d();
-            context.registerReceiver(this.pEB, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
+            this.pyh = new d();
+            context.registerReceiver(this.pyh, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
         }
     }
 
@@ -251,7 +251,7 @@ public class e {
         }
         if (cursor != null) {
             try {
-                String str2 = A(cursor).f4450a;
+                String str2 = A(cursor).f4220a;
                 cursor.close();
                 str = str2;
             } catch (Exception e3) {

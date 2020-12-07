@@ -3,7 +3,7 @@ package io.reactivex.internal.observers;
 import io.reactivex.exceptions.OnErrorNotImplementedException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class EmptyCompletableObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.c, io.reactivex.disposables.b {
     private static final long serialVersionUID = -7545121636549663526L;
 
@@ -25,7 +25,7 @@ public final class EmptyCompletableObserver extends AtomicReference<io.reactivex
     @Override // io.reactivex.c
     public void onError(Throwable th) {
         lazySet(DisposableHelper.DISPOSED);
-        io.reactivex.e.a.onError(new OnErrorNotImplementedException(th));
+        io.reactivex.d.a.onError(new OnErrorNotImplementedException(th));
     }
 
     @Override // io.reactivex.c

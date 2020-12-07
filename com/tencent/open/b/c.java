@@ -12,12 +12,12 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.webkit.internal.ETAG;
 import java.util.Locale;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class c {
     private static String d;
 
     /* renamed from: a  reason: collision with root package name */
-    static String f4588a = null;
+    static String f4358a = null;
     static String b = null;
     static String c = null;
     private static String e = null;
@@ -58,15 +58,15 @@ public class c {
     }
 
     public static String b(Context context) {
-        if (f4588a != null && f4588a.length() > 0) {
-            return f4588a;
+        if (f4358a != null && f4358a.length() > 0) {
+            return f4358a;
         }
         if (context == null) {
             return "";
         }
         try {
-            f4588a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-            return f4588a;
+            f4358a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+            return f4358a;
         } catch (Exception e2) {
             return "";
         }

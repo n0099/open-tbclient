@@ -54,7 +54,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class TextInputLayout extends LinearLayout implements WithHint {
     private static final int ANIMATION_DURATION = 200;
     private static final int INVALID_MAX_LENGTH = -1;
@@ -624,7 +624,7 @@ public class TextInputLayout extends LinearLayout implements WithHint {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.design.widget.TextInputLayout.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -962,7 +962,7 @@ public class TextInputLayout extends LinearLayout implements WithHint {
         return this.mHintExpanded;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     private class TextInputAccessibilityDelegate extends AccessibilityDelegateCompat {
         TextInputAccessibilityDelegate() {
         }

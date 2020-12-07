@@ -9,38 +9,38 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class DispatchedPvlLayout extends PriorityVerticalLinearLayout {
-    private boolean bLn;
-    private boolean bLo;
-    private a bLp;
+    private boolean bQs;
+    private boolean bQt;
+    private a bQu;
 
     public DispatchedPvlLayout(Context context) {
         super(context);
-        this.bLn = false;
-        this.bLo = false;
+        this.bQs = false;
+        this.bQt = false;
     }
 
     public DispatchedPvlLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bLn = false;
-        this.bLo = false;
+        this.bQs = false;
+        this.bQt = false;
     }
 
     public DispatchedPvlLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bLn = false;
-        this.bLo = false;
+        this.bQs = false;
+        this.bQt = false;
     }
 
     @Override // com.baidu.live.view.PriorityVerticalLinearLayout, android.view.ViewGroup
     public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
-        if ((!this.bLn || !b.a(view, this.bLp)) && layoutParams != null) {
+        if ((!this.bQs || !b.a(view, this.bQu)) && layoutParams != null) {
             super.addView(view, i, layoutParams);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
     public void removeView(View view) {
-        if (this.bLo || !this.bLn || !b.b(view, this.bLp)) {
+        if (this.bQt || !this.bQs || !b.b(view, this.bQu)) {
             super.removeView(view);
         }
     }
@@ -48,55 +48,55 @@ public class DispatchedPvlLayout extends PriorityVerticalLinearLayout {
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        if (this.bLn && this.bLp != null) {
-            this.bLp.Wi();
+        if (this.bQs && this.bQu != null) {
+            this.bQu.YI();
         }
     }
 
     @Override // android.view.ViewGroup
     public int indexOfChild(View view) {
-        if (!this.bLo && this.bLn) {
-            if (this.bLp == null || !this.bLp.ai(view)) {
+        if (!this.bQt && this.bQs) {
+            if (this.bQu == null || !this.bQu.ai(view)) {
                 return super.indexOfChild(view);
             }
-            return this.bLp.indexOfChild(view);
+            return this.bQu.indexOfChild(view);
         }
         return super.indexOfChild(view);
     }
 
     public void setViewActionDispatched(boolean z) {
-        if (this.bLn != z) {
-            this.bLn = z;
+        if (this.bQs != z) {
+            this.bQs = z;
             if (z) {
-                Wh();
+                YH();
             }
         }
     }
 
-    private void Wh() {
-        if (this.bLn && getChildCount() > 0 && this.bLp != null) {
+    private void YH() {
+        if (this.bQs && getChildCount() > 0 && this.bQu != null) {
             LinkedList linkedList = new LinkedList();
             for (int i = 0; i < getChildCount(); i++) {
                 View childAt = getChildAt(i);
-                if (this.bLp.ai(childAt)) {
+                if (this.bQu.ai(childAt)) {
                     linkedList.add(childAt);
                 }
             }
             if (!linkedList.isEmpty()) {
-                this.bLo = true;
+                this.bQt = true;
                 Iterator it = linkedList.iterator();
                 while (it.hasNext()) {
                     View view = (View) it.next();
                     super.removeView(view);
-                    this.bLp.onViewAdded(view);
+                    this.bQu.aj(view);
                 }
-                this.bLo = false;
+                this.bQt = false;
             }
         }
     }
 
     public void setViewActionDispatchListener(a aVar) {
-        this.bLp = aVar;
-        Wh();
+        this.bQu = aVar;
+        YH();
     }
 }

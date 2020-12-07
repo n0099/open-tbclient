@@ -1,42 +1,42 @@
 package com.baidu.ar.http;
 
 import com.baidu.ar.ihttp.HttpException;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class a implements l {
-    private com.baidu.ar.ihttp.a qp;
-    private HttpException qq;
+    private com.baidu.ar.ihttp.a qF;
+    private HttpException qG;
     private Object mLock = new Object();
-    private volatile boolean qr = false;
+    private volatile boolean qH = false;
 
     public a(HttpException httpException, com.baidu.ar.ihttp.a aVar) {
-        this.qq = httpException;
-        this.qp = aVar;
+        this.qG = httpException;
+        this.qF = aVar;
     }
 
     @Override // com.baidu.ar.http.l
     public void cancel() {
-        if (this.qr) {
+        if (this.qH) {
             return;
         }
         synchronized (this.mLock) {
             Boolean bool = true;
-            this.qr = bool.booleanValue();
+            this.qH = bool.booleanValue();
         }
     }
 
     @Override // com.baidu.ar.http.l
-    public i eI() {
+    public i eH() {
         return null;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         synchronized (this.mLock) {
-            if (this.qr) {
+            if (this.qH) {
                 return;
             }
-            if (this.qp != null) {
-                this.qp.a(this.qq);
+            if (this.qF != null) {
+                this.qF.a(this.qG);
             }
         }
     }

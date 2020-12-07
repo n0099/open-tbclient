@@ -11,52 +11,51 @@ import java.io.InputStream;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes17.dex */
+/* loaded from: classes20.dex */
 public class e {
-    private Map<String, List<Layer>> Bj;
-    private Map<String, com.tb.airbnb.lottie.model.c> Bk;
-    private SparseArrayCompat<com.tb.airbnb.lottie.model.d> Bl;
-    private LongSparseArray<Layer> Bm;
-    private List<Layer> Bn;
-    private float Bo;
-    private float Bp;
-    private float Bq;
+    private Map<String, List<Layer>> BZ;
+    private Map<String, com.tb.airbnb.lottie.model.c> Ca;
+    private SparseArrayCompat<com.tb.airbnb.lottie.model.d> Cb;
+    private LongSparseArray<Layer> Cc;
+    private List<Layer> Cd;
+    private float Ce;
+    private float Cf;
+    private float Cg;
     private Rect bounds;
     private Map<String, h> images;
-    private final o pJt = new o();
-    private final HashSet<String> Bi = new HashSet<>();
+    private final o pAx = new o();
+    private final HashSet<String> BY = new HashSet<>();
 
     public void a(Rect rect, float f, float f2, float f3, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, h> map2, SparseArrayCompat<com.tb.airbnb.lottie.model.d> sparseArrayCompat, Map<String, com.tb.airbnb.lottie.model.c> map3) {
         this.bounds = rect;
-        this.Bo = f;
-        this.Bp = f2;
-        this.Bq = f3;
-        this.Bn = list;
-        this.Bm = longSparseArray;
-        this.Bj = map;
+        this.Ce = f;
+        this.Cf = f2;
+        this.Cg = f3;
+        this.Cd = list;
+        this.Cc = longSparseArray;
+        this.BZ = map;
         this.images = map2;
-        this.Bl = sparseArrayCompat;
-        this.Bk = map3;
+        this.Cb = sparseArrayCompat;
+        this.Ca = map3;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public void bc(String str) {
+    public void bf(String str) {
         Log.w("LOTTIE", str);
-        this.Bi.add(str);
+        this.BY.add(str);
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
-        this.pJt.setEnabled(z);
+        this.pAx.setEnabled(z);
     }
 
     public o getPerformanceTracker() {
-        return this.pJt;
+        return this.pAx;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    /* renamed from: if  reason: not valid java name */
-    public Layer m56if(long j) {
-        return this.Bm.get(j);
+    public Layer iF(long j) {
+        return this.Cc.get(j);
     }
 
     public Rect iu() {
@@ -64,39 +63,39 @@ public class e {
     }
 
     public float iv() {
-        return (iD() / this.Bq) * 1000.0f;
+        return (iD() / this.Cg) * 1000.0f;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public float iw() {
-        return this.Bo;
+        return this.Ce;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public float ix() {
-        return this.Bp;
+        return this.Cf;
     }
 
     public float iy() {
-        return this.Bq;
+        return this.Cg;
     }
 
     public List<Layer> iz() {
-        return this.Bn;
+        return this.Cd;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public List<Layer> bd(String str) {
-        return this.Bj.get(str);
+    public List<Layer> bg(String str) {
+        return this.BZ.get(str);
     }
 
     public SparseArrayCompat<com.tb.airbnb.lottie.model.d> iA() {
-        return this.Bl;
+        return this.Cb;
     }
 
     public Map<String, com.tb.airbnb.lottie.model.c> iB() {
-        return this.Bk;
+        return this.Ca;
     }
 
     public Map<String, h> iC() {
@@ -104,43 +103,43 @@ public class e {
     }
 
     public float iD() {
-        return this.Bp - this.Bo;
+        return this.Cf - this.Ce;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder("LottieComposition:\n");
-        for (Layer layer : this.Bn) {
+        for (Layer layer : this.Cd) {
             sb.append(layer.toString("\t"));
         }
         return sb.toString();
     }
 
     @Deprecated
-    /* loaded from: classes17.dex */
+    /* loaded from: classes20.dex */
     public static class a {
         @Deprecated
         public static com.tb.airbnb.lottie.a a(InputStream inputStream, n nVar) {
-            C1042a c1042a = new C1042a(nVar);
-            f.j(inputStream, null).a(c1042a);
-            return c1042a;
+            C1020a c1020a = new C1020a(nVar);
+            f.i(inputStream, null).a(c1020a);
+            return c1020a;
         }
 
         /* renamed from: com.tb.airbnb.lottie.e$a$a  reason: collision with other inner class name */
-        /* loaded from: classes17.dex */
-        private static final class C1042a implements com.tb.airbnb.lottie.a, i<e> {
+        /* loaded from: classes20.dex */
+        private static final class C1020a implements com.tb.airbnb.lottie.a, i<e> {
             private boolean cancelled;
-            private final n pJu;
+            private final n pAy;
 
-            private C1042a(n nVar) {
+            private C1020a(n nVar) {
                 this.cancelled = false;
-                this.pJu = nVar;
+                this.pAy = nVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.tb.airbnb.lottie.i
             public void onResult(e eVar) {
                 if (!this.cancelled) {
-                    this.pJu.a(eVar);
+                    this.pAy.a(eVar);
                 }
             }
         }

@@ -5,10 +5,10 @@ import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes17.dex */
+/* loaded from: classes9.dex */
 public class WXNontaxPay {
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes9.dex */
     public static final class Req extends BaseReq {
         private static final String TAG = "MicroMsg.SDK.WXNontaxPay.Req";
         private static final int URL_LENGTH_LIMIT = 10240;
@@ -45,7 +45,7 @@ public class WXNontaxPay {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes9.dex */
     public static final class Resp extends BaseResp {
         public String wxOrderId;
 

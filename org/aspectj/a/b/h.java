@@ -1,66 +1,66 @@
 package org.aspectj.a.b;
 
 import java.lang.reflect.Modifier;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 class h {
-    static h qcd = new h();
-    static h qce;
-    static h qcf;
-    boolean qbU = true;
-    boolean qbV = true;
-    boolean qbW = false;
-    boolean qbX = false;
-    boolean qbY = false;
-    boolean qbZ = true;
-    boolean qca = true;
-    boolean qcb = true;
-    int qcc;
+    static h pMd = new h();
+    static h pMe;
+    static h pMf;
+    boolean pLU = true;
+    boolean pLV = true;
+    boolean pLW = false;
+    boolean pLX = false;
+    boolean pLY = false;
+    boolean pLZ = true;
+    boolean pMa = true;
+    boolean pMb = true;
+    int pMc;
 
     h() {
     }
 
     static {
-        qcd.qbU = true;
-        qcd.qbV = false;
-        qcd.qbW = false;
-        qcd.qbX = false;
-        qcd.qbY = true;
-        qcd.qbZ = false;
-        qcd.qca = false;
-        qcd.qcc = 0;
-        qce = new h();
-        qce.qbU = true;
-        qce.qbV = true;
-        qce.qbW = false;
-        qce.qbX = false;
-        qce.qbY = false;
-        qcd.qcc = 1;
-        qcf = new h();
-        qcf.qbU = false;
-        qcf.qbV = true;
-        qcf.qbW = false;
-        qcf.qbX = true;
-        qcf.qbY = false;
-        qcf.qcb = false;
-        qcf.qcc = 2;
+        pMd.pLU = true;
+        pMd.pLV = false;
+        pMd.pLW = false;
+        pMd.pLX = false;
+        pMd.pLY = true;
+        pMd.pLZ = false;
+        pMd.pMa = false;
+        pMd.pMc = 0;
+        pMe = new h();
+        pMe.pLU = true;
+        pMe.pLV = true;
+        pMe.pLW = false;
+        pMe.pLX = false;
+        pMe.pLY = false;
+        pMd.pMc = 1;
+        pMf = new h();
+        pMf.pLU = false;
+        pMf.pLV = true;
+        pMf.pLW = false;
+        pMf.pLX = true;
+        pMf.pLY = false;
+        pMf.pMb = false;
+        pMf.pMc = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String ZI(String str) {
+    public String aav(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String Sl(int i) {
-        if (this.qbX) {
+    public String Se(int i) {
+        if (this.pLX) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
         return "";
     }
 
-    String ZJ(String str) {
+    String aaw(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,18 +73,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return ZJ(str).replace('$', '.');
+            return aaw(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
     public String N(Class cls) {
-        return b(cls, cls.getName(), this.qbU);
+        return b(cls, cls.getName(), this.pLU);
     }
 
     public String k(Class cls, String str) {
-        return b(cls, str, this.qbY);
+        return b(cls, str, this.pLY);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.qbV) {
+            if (!this.pLV) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.qbW && clsArr != null && clsArr.length != 0) {
+        if (this.pLW && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

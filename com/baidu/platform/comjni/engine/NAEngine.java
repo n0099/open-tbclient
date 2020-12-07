@@ -4,11 +4,11 @@ import android.content.Context;
 import android.os.Bundle;
 import com.baidu.platform.comapi.longlink.LongLinkClient;
 import com.baidu.platform.comjni.NativeComponent;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class NAEngine extends NativeComponent {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LongLinkClient f3164a;
+    private static LongLinkClient f3166a;
     private static boolean b = false;
 
     public NAEngine() {
@@ -37,10 +37,10 @@ public class NAEngine extends NativeComponent {
 
     public static boolean b() {
         try {
-            if (f3164a != null) {
-                f3164a.unRegister(null);
-                f3164a.release();
-                f3164a = null;
+            if (f3166a != null) {
+                f3166a.unRegister(null);
+                f3166a.release();
+                f3166a = null;
             }
             return nativeUninitEngine();
         } catch (Throwable th) {
@@ -95,9 +95,9 @@ public class NAEngine extends NativeComponent {
     private static native boolean nativeUninitEngine();
 
     public static void restartLongLink() {
-        if (f3164a != null) {
+        if (f3166a != null) {
             try {
-                f3164a.start();
+                f3166a.start();
             } catch (Exception e) {
             }
         }
@@ -108,9 +108,9 @@ public class NAEngine extends NativeComponent {
     }
 
     public static void stopLongLink() {
-        if (f3164a != null) {
+        if (f3166a != null) {
             try {
-                f3164a.stop();
+                f3166a.stop();
             } catch (Exception e) {
             }
         }

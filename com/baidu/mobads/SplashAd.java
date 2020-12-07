@@ -14,7 +14,7 @@ public class SplashAd {
     private static boolean d;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.mobads.production.g.a f2307a;
+    private com.baidu.mobads.production.g.a f2309a;
     private int b;
     private volatile String c;
     private SplashAdListener e;
@@ -77,8 +77,8 @@ public class SplashAd {
     }
 
     public void destroy() {
-        if (this.f2307a != null) {
-            this.f2307a.p();
+        if (this.f2309a != null) {
+            this.f2309a.p();
         }
     }
 

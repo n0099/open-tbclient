@@ -1,15 +1,15 @@
 package com.baidu.tieba.write.b.a;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class g {
-    private static volatile f nJc;
+    private static volatile f nXi;
 
-    public static synchronized f dTQ() {
+    public static synchronized f dZk() {
         f fVar;
         synchronized (g.class) {
-            if (nJc == null) {
-                nJc = new f();
+            if (nXi == null) {
+                nXi = new f();
             }
-            fVar = nJc;
+            fVar = nXi;
         }
         return fVar;
     }

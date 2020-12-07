@@ -15,7 +15,7 @@ public class a extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String bim() {
+    public String blw() {
         return "TBHY_COMMON_Clipboard";
     }
 

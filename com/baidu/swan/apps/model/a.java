@@ -2,7 +2,7 @@ package com.baidu.swan.apps.model;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public interface a {
     boolean isValid();
 

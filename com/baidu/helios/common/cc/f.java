@@ -3,15 +3,15 @@ package com.baidu.helios.common.cc;
 import com.baidu.helios.common.cc.n;
 import java.lang.reflect.Method;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public final class f extends e {
-    private a awl;
+    private a axj;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Class<?> f1808a;
+        private Class<?> f1810a;
         private Method b;
         private Method c;
 
@@ -30,9 +30,9 @@ public final class f extends e {
 
         private void a() {
             try {
-                this.f1808a = Class.forName(n.a(i.a()), true, Object.class.getClassLoader());
-                this.b = n.a(this.f1808a, n.a(i.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                this.c = n.a(this.f1808a, n.a(i.c()), null);
+                this.f1810a = Class.forName(n.a(i.a()), true, Object.class.getClassLoader());
+                this.b = n.a(this.f1810a, n.a(i.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                this.c = n.a(this.f1810a, n.a(i.c()), null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -49,7 +49,7 @@ public final class f extends e {
 
         /* JADX INFO: Access modifiers changed from: private */
         public Object b() {
-            return this.f1808a.newInstance();
+            return this.f1810a.newInstance();
         }
     }
 
@@ -59,16 +59,16 @@ public final class f extends e {
         this.d = 32;
         this.e = i;
         this.f = i2;
-        this.awl = new a();
+        this.axj = new a();
     }
 
     @Override // com.baidu.helios.common.cc.e
     public com.baidu.helios.common.cc.a n(byte[] bArr, int i, int i2) {
         long j = 4294967295L;
         try {
-            Object b = this.awl.b();
-            this.awl.a(b, bArr, i, i2);
-            j = this.awl.G(b);
+            Object b = this.axj.b();
+            this.axj.a(b, bArr, i, i2);
+            j = this.axj.G(b);
         } catch (Exception e) {
         }
         return com.baidu.helios.common.cc.a.a(new long[]{j});

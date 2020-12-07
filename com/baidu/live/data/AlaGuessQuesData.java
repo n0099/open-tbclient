@@ -10,7 +10,12 @@ public class AlaGuessQuesData extends BaseData implements Serializable {
     public static final int NON = 0;
     public static final String QUESTION_INFO = "";
     private String answerInfo;
+    private String doubleCouponContent;
+    private String doubleCouponImgUrl;
+    private String doubleCouponTitle;
+    private int doubleTicketNumber;
     private String firstOpt;
+    private boolean isDoubleCoupon;
     private String secondOpt;
     private long roomId = 0;
     private long anchorId = 0;
@@ -23,9 +28,36 @@ public class AlaGuessQuesData extends BaseData implements Serializable {
     private long correctNum = 0;
     private double correctPercent = 0.0d;
     private float average = 0.0f;
+    private float doubleAverage = 0.0f;
     private long amount = 0;
     private int answer = 0;
     private int voucherNum = -1;
+    private boolean isMissGuess = false;
+    private boolean isUseDoubleTicket = false;
+
+    public float getDoubleAverage() {
+        return this.doubleAverage;
+    }
+
+    public void setDoubleAverage(float f) {
+        this.doubleAverage = f;
+    }
+
+    public int getDoubleTicketNumber() {
+        return this.doubleTicketNumber;
+    }
+
+    public void setDoubleTicketNumber(int i) {
+        this.doubleTicketNumber = i;
+    }
+
+    public boolean isUseDoubleTicket() {
+        return this.isUseDoubleTicket;
+    }
+
+    public void setUseDoubleTicket(boolean z) {
+        this.isUseDoubleTicket = z;
+    }
 
     public String getFirstOpt() {
         return this.firstOpt;
@@ -163,6 +195,14 @@ public class AlaGuessQuesData extends BaseData implements Serializable {
         this.voucherNum = i;
     }
 
+    public boolean isMissGuess() {
+        return this.isMissGuess;
+    }
+
+    public void setMissGuess(boolean z) {
+        this.isMissGuess = z;
+    }
+
     public void reset() {
         setAmount(0L);
         setAnswerTime(0);
@@ -180,9 +220,47 @@ public class AlaGuessQuesData extends BaseData implements Serializable {
         setAnswer(0);
         setAnswerInfo("");
         setVoucherNum(0);
+        setMissGuess(false);
+        setDoubleTicketNumber(0);
+        setDoubleTicketContent("");
+        setDoubleTicketTitle("");
+        setDoubleTicketImg("");
+        setDoubleTicketSwitch(false);
     }
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
+    }
+
+    public String getDoubleCouponImgUrl() {
+        return this.doubleCouponImgUrl;
+    }
+
+    public String getDoubleCouponTitle() {
+        return this.doubleCouponTitle;
+    }
+
+    public String getDoubleCouponContent() {
+        return this.doubleCouponContent;
+    }
+
+    public boolean isDoubleCoupon() {
+        return this.isDoubleCoupon;
+    }
+
+    public void setDoubleTicketImg(String str) {
+        this.doubleCouponImgUrl = str;
+    }
+
+    public void setDoubleTicketTitle(String str) {
+        this.doubleCouponTitle = str;
+    }
+
+    public void setDoubleTicketContent(String str) {
+        this.doubleCouponContent = str;
+    }
+
+    public void setDoubleTicketSwitch(boolean z) {
+        this.isDoubleCoupon = z;
     }
 }

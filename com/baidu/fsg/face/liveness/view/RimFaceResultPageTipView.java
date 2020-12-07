@@ -9,11 +9,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class RimFaceResultPageTipView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f1773a;
+    private TextView f1775a;
     private TextView b;
     private ImageView c;
     private TextView d;
@@ -24,14 +24,14 @@ public class RimFaceResultPageTipView extends LinearLayout {
     private a i;
     private b j;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public interface a {
         void a();
 
         void b();
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public interface b {
         void a();
     }
@@ -55,7 +55,7 @@ public class RimFaceResultPageTipView extends LinearLayout {
         this.f = (TextView) findViewById(R.id.rim_face_result_page_tip_msg);
         this.g = (LinearLayout) findViewById(R.id.layout_result_page_show_risk_tip);
         this.b = (TextView) findViewById(R.id.rim_face_result_page_confirm);
-        this.f1773a = (TextView) findViewById(R.id.rim_face_result_page_cancel);
+        this.f1775a = (TextView) findViewById(R.id.rim_face_result_page_cancel);
         this.h.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -72,7 +72,7 @@ public class RimFaceResultPageTipView extends LinearLayout {
                 }
             }
         });
-        this.f1773a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.3
+        this.f1775a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (RimFaceResultPageTipView.this.i != null) {
@@ -88,7 +88,7 @@ public class RimFaceResultPageTipView extends LinearLayout {
         this.e.setVisibility(4);
         this.h.setVisibility(4);
         this.g.setVisibility(4);
-        this.f1773a.setVisibility(4);
+        this.f1775a.setVisibility(4);
         this.b.setVisibility(4);
         this.j = null;
         this.i = null;
@@ -140,8 +140,8 @@ public class RimFaceResultPageTipView extends LinearLayout {
 
     public void setResultPageCancelText(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.f1773a.setVisibility(0);
-            this.f1773a.setText(str);
+            this.f1775a.setVisibility(0);
+            this.f1775a.setText(str);
         }
     }
 

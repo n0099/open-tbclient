@@ -15,11 +15,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class er extends Dialog {
 
     /* renamed from: a */
-    private final int f3864a;
+    private final int f3867a;
     private final int b;
     private final int c;
     private final int d;
@@ -33,13 +33,13 @@ public final class er extends Dialog {
 
     public er(Context context, String str) {
         super(context);
-        this.f3864a = R.xml.fileprovider_paths;
-        this.b = R.xml.network_security_config;
-        this.c = R.xml.nfc_tech_filter;
-        this.d = R.xml.null_network_security_config;
-        this.e = R.xml.pass_sdk_file_provider;
-        this.f = R.xml.tieba_file_paths;
-        this.g = R.xml.wallet_home_actionbar_back_color_selector;
+        this.f3867a = R.xml.fileprovider_paths;
+        this.b = R.xml.live_filepaths;
+        this.c = R.xml.network_security_config;
+        this.d = R.xml.nfc_tech_filter;
+        this.e = R.xml.null_network_security_config;
+        this.f = R.xml.pass_sdk_file_provider;
+        this.g = R.xml.tieba_file_paths;
         this.k = "";
         this.h = context;
         this.k = str;
@@ -62,7 +62,7 @@ public final class er extends Dialog {
         relativeLayout.setId(R.xml.fileprovider_paths);
         relativeLayout.setBackgroundDrawable(gradientDrawable);
         TextView textView = new TextView(this.h);
-        textView.setId(R.xml.wallet_home_actionbar_back_color_selector);
+        textView.setId(R.xml.tieba_file_paths);
         textView.setTextColor(ViewCompat.MEASURED_STATE_MASK);
         textView.setTextSize(18.0f);
         textView.getPaint().setFakeBoldText(true);
@@ -73,7 +73,7 @@ public final class er extends Dialog {
         layoutParams.addRule(14);
         relativeLayout.addView(textView, layoutParams);
         TextView textView2 = new TextView(this.h);
-        textView2.setId(R.xml.network_security_config);
+        textView2.setId(R.xml.live_filepaths);
         textView2.setTextColor(ViewCompat.MEASURED_STATE_MASK);
         textView2.setTextSize(15.0f);
         textView2.setText(com.baidu.ufosdk.f.s.a("39"));
@@ -91,7 +91,7 @@ public final class er extends Dialog {
         gradientDrawable2.setCornerRadius(a2);
         gradientDrawable2.setStroke(1, parseColor);
         this.j = new EditText(this.h);
-        this.j.setId(R.xml.nfc_tech_filter);
+        this.j.setId(R.xml.network_security_config);
         this.j.setTextSize(15.0f);
         this.j.setTextColor(-13421773);
         if (this.k.length() > 0) {
@@ -106,12 +106,12 @@ public final class er extends Dialog {
         layoutParams3.setMargins(com.baidu.ufosdk.f.i.a(this.h, 25.0f), com.baidu.ufosdk.f.i.a(this.h, 10.0f), com.baidu.ufosdk.f.i.a(this.h, 25.0f), com.baidu.ufosdk.f.i.a(this.h, 5.0f));
         relativeLayout.addView(this.j, layoutParams3);
         LinearLayout linearLayout = new LinearLayout(this.h);
-        linearLayout.setId(R.xml.null_network_security_config);
+        linearLayout.setId(R.xml.nfc_tech_filter);
         linearLayout.setOrientation(0);
         linearLayout.setBackgroundColor(0);
         linearLayout.setGravity(17);
         TextView textView3 = new TextView(this.h);
-        textView3.setId(R.xml.pass_sdk_file_provider);
+        textView3.setId(R.xml.null_network_security_config);
         textView3.setText(com.baidu.ufosdk.f.s.a("36"));
         textView3.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.t, com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.v));
         textView3.setBackgroundColor(0);
@@ -127,7 +127,7 @@ public final class er extends Dialog {
         view.setBackgroundColor(-6710887);
         linearLayout.addView(view, layoutParams5);
         TextView textView4 = new TextView(this.h);
-        textView4.setId(R.xml.tieba_file_paths);
+        textView4.setId(R.xml.pass_sdk_file_provider);
         textView4.setText(com.baidu.ufosdk.f.s.a(PayConfig.PAYMENT_POS_KEY_MANGA));
         textView4.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.t, com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.v));
         textView4.setBackgroundColor(0);

@@ -4,15 +4,15 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f extends BaseCardInfo {
-    public static final BdUniqueId glc = BdUniqueId.gen();
-    public AlaInfoData gpr;
-    public boolean gps;
+    public static final BdUniqueId gtl = BdUniqueId.gen();
+    public AlaInfoData gxA;
+    public boolean gxB;
     public UserData mUserData;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return glc;
+        return gtl;
     }
 }

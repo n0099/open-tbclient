@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.h;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class d extends com.baidu.adp.widget.ListView.a<h, a> {
     public d(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
@@ -25,7 +25,7 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cp */
+    /* renamed from: cs */
     public a c(ViewGroup viewGroup) {
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         int dimens = l.getDimens(this.mContext, R.dimen.M_W_X007);
@@ -61,51 +61,51 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
         if (hVar != null) {
             aVar.a(hVar);
         }
-        aVar.brT();
+        aVar.bvt();
         return view;
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public class a extends af.a implements View.OnClickListener {
-        View bHX;
-        View eHl;
-        ImageView jmX;
-        CardForumHeadLayout lEe;
-        private h lEf;
+        View bNf;
+        View eOv;
+        ImageView jAz;
+        CardForumHeadLayout lRV;
+        private h lRW;
 
         public a(View view) {
             super(view);
-            this.lEe = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-            if (this.lEe != null) {
-                this.lEe.setOnClickListener(this.lEe);
-                this.lEe.setAfterClickListener(this);
+            this.lRV = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+            if (this.lRV != null) {
+                this.lRV.setOnClickListener(this.lRV);
+                this.lRV.setAfterClickListener(this);
             }
-            this.eHl = ((ViewGroup) view).getChildAt(1);
-            this.jmX = (ImageView) ((ViewGroup) view).getChildAt(2);
-            this.bHX = ((ViewGroup) view).getChildAt(3);
+            this.eOv = ((ViewGroup) view).getChildAt(1);
+            this.jAz = (ImageView) ((ViewGroup) view).getChildAt(2);
+            this.bNf = ((ViewGroup) view).getChildAt(3);
         }
 
         public void a(h hVar) {
             if (hVar != null) {
-                this.lEf = hVar;
-                this.bHX.setVisibility(hVar.loi ? 0 : 8);
+                this.lRW = hVar;
+                this.bNf.setVisibility(hVar.lBG ? 0 : 8);
                 if (getView() != null) {
-                    getView().setPadding(0, 0, 0, hVar.loi ? l.getDimens(d.this.mContext, R.dimen.tbds42) : 0);
+                    getView().setPadding(0, 0, 0, hVar.lBG ? l.getDimens(d.this.mContext, R.dimen.tbds42) : 0);
                 }
-                this.lEe.setData(hVar.forumName, hVar.loh, hVar.postNum, hVar.memberNum);
+                this.lRV.setData(hVar.forumName, hVar.lBF, hVar.postNum, hVar.memberNum);
             }
         }
 
-        public void brT() {
-            WebPManager.a(this.jmX, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
-            ap.setBackgroundColor(this.eHl, R.color.CAM_X0203);
-            ap.setBackgroundColor(this.bHX, R.color.CAM_X0203);
-            this.lEe.onChangeSkinType();
+        public void bvt() {
+            WebPManager.a(this.jAz, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
+            ap.setBackgroundColor(this.eOv, R.color.CAM_X0203);
+            ap.setBackgroundColor(this.bNf, R.color.CAM_X0203);
+            this.lRV.onChangeSkinType();
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new ar("c13698").dR("tid", this.lEf.tid).dR("fid", this.lEf.fid).w("uid", TbadkCoreApplication.getCurrentAccountId()));
+            TiebaStatic.log(new ar("c13698").dY("tid", this.lRW.tid).dY("fid", this.lRW.fid).w("uid", TbadkCoreApplication.getCurrentAccountId()));
         }
     }
 }

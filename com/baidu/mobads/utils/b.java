@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f2436a;
+    private static Context f2438a;
     private static File e;
     private static String b = null;
     private static String c = "galaxy_sdk_dex.jar";
@@ -61,15 +61,15 @@ public class b {
     }
 
     private static void c(Context context) {
-        f2436a = context.getApplicationContext();
-        d = f2436a.getFilesDir().getAbsolutePath();
+        f2438a = context.getApplicationContext();
+        d = f2438a.getFilesDir().getAbsolutePath();
         d(context);
         e = new File(b + c);
     }
 
     private static void d(Context context) {
         if (TextUtils.isEmpty(b)) {
-            b = f2436a.getDir("baidu_ad_sdk", 0).getAbsolutePath() + "/";
+            b = f2438a.getDir("baidu_ad_sdk", 0).getAbsolutePath() + "/";
         }
     }
 
@@ -78,7 +78,7 @@ public class b {
             synchronized (b.class) {
                 String absolutePath = e.getAbsolutePath();
                 if (new File(absolutePath).exists()) {
-                    f = new DexClassLoader(absolutePath, d, null, f2436a.getClass().getClassLoader());
+                    f = new DexClassLoader(absolutePath, d, null, f2438a.getClass().getClassLoader());
                 } else {
                     f = null;
                 }

@@ -16,49 +16,49 @@ import com.baidu.tieba.yuyinala.liveroom.turntable.a;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes4.dex */
 public class b {
-    private Activity bMo;
-    private CustomMessageListener bMq;
-    private a.InterfaceC0918a obP;
-    private a obR;
+    private CustomMessageListener bRw;
+    private Activity beD;
+    private a.InterfaceC0935a oqP;
+    private a oqR;
 
     public b(Activity activity) {
-        this.bMo = activity;
-        Wp();
+        this.beD = activity;
+        YP();
     }
 
     public void a(String str, long j, long j2, long j3) {
-        this.obR = new a(this.bMo);
-        this.obR.a(this.obP);
-        this.obR.Wq().setBackgroundColor(hQ(str));
+        this.oqR = new a(this.beD);
+        this.oqR.a(this.oqP);
+        this.oqR.getWebView().setBackgroundColor(iu(str));
         g gVar = new g();
-        gVar.x(this.bMo).a(this.obR).a(this.obR.Wq().getSchemeCallback());
-        com.baidu.live.view.web.a[] Wo = gVar.Wo();
-        for (com.baidu.live.view.web.a aVar : Wo) {
-            this.obR.Wq().addJavascriptInterface(aVar, aVar.getName());
+        gVar.x(this.beD).a(this.oqR).a(this.oqR.getWebView().getSchemeCallback());
+        com.baidu.live.view.web.a[] YO = gVar.YO();
+        for (com.baidu.live.view.web.a aVar : YO) {
+            this.oqR.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.obR.FO(b(str, j, j2, j3));
+        this.oqR.GD(b(str, j, j2, j3));
     }
 
     public void dismiss() {
-        if (this.obR != null) {
-            this.obR.Wr();
+        if (this.oqR != null) {
+            this.oqR.YQ();
         }
     }
 
-    private void Wp() {
-        this.bMq = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.yuyinala.liveroom.turntable.b.1
+    private void YP() {
+        this.bRw = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.yuyinala.liveroom.turntable.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.obR != null && b.this.obR.isShowing()) {
-                    b.this.obR.dismiss();
+                if (b.this.oqR != null && b.this.oqR.isShowing()) {
+                    b.this.oqR.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bMq);
+        MessageManager.getInstance().registerListener(this.bRw);
     }
 
-    private int hQ(String str) {
+    private int iu(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
@@ -95,7 +95,7 @@ public class b {
         sb.append("&_sdk_version=");
         sb.append(TbConfig.SDK_VERSION);
         sb.append("&scene_from=");
-        sb.append(s.Ub());
+        sb.append(s.WB());
         return sb.toString();
     }
 }

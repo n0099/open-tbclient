@@ -29,7 +29,7 @@ public class WbUtils {
         Bundle bundle = new Bundle();
         if (str != null) {
             for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
-                String[] split = str2.split(ETAG.EQUAL);
+                String[] split = str2.split("=");
                 try {
                     bundle.putString(URLDecoder.decode(split[0], "UTF-8"), URLDecoder.decode(split[1], "UTF-8"));
                 } catch (UnsupportedEncodingException e) {

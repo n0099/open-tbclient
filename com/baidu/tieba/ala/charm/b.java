@@ -15,11 +15,11 @@ import com.baidu.tieba.ala.charm.model.a;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class b implements c {
-    private String aDE;
-    private boolean bja;
-    private com.baidu.tieba.ala.charm.model.a guS;
-    private c.a gvh;
-    private CustomMessageListener gvi;
+    private String aGk;
+    private boolean bns;
+    private com.baidu.tieba.ala.charm.model.a gDB;
+    private c.a gDQ;
+    private CustomMessageListener gDR;
     private String mGroupId;
     private String mLiveId;
     private String mOtherParams;
@@ -35,77 +35,77 @@ public class b implements c {
         this.mUserId = str;
         this.mGroupId = str2;
         this.mLiveId = str3;
-        this.bja = z;
-        this.aDE = str4;
+        this.bns = z;
+        this.aGk = str4;
         this.mOtherParams = str5;
         registerListener();
     }
 
     @Override // com.baidu.tieba.ala.charm.c
     public void a(c.a aVar) {
-        this.gvh = aVar;
+        this.gDQ = aVar;
     }
 
     @Override // com.baidu.tieba.ala.charm.c
-    public void bCq() {
-        if (this.guS == null) {
-            this.guS = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUserId, new a.InterfaceC0638a() { // from class: com.baidu.tieba.ala.charm.b.1
-                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0638a
+    public void bFR() {
+        if (this.gDB == null) {
+            this.gDB = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUserId, new a.InterfaceC0650a() { // from class: com.baidu.tieba.ala.charm.b.1
+                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0650a
                 public void a(ALaCharmDataList aLaCharmDataList) {
                     b.this.b(aLaCharmDataList);
                 }
 
-                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0638a
+                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0650a
                 public void t(int i, String str) {
-                    if (b.this.gvh != null) {
-                        b.this.gvh.uB(str);
+                    if (b.this.gDQ != null) {
+                        b.this.gDQ.vi(str);
                     }
                 }
             });
         }
-        this.guS.M(1, 20, 1);
+        this.gDB.L(1, 20, 1);
     }
 
     @Override // com.baidu.tieba.ala.charm.c
     public void a(ALaCharmData aLaCharmData) {
         if (aLaCharmData != null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913186));
-            if (this.gvh != null) {
-                this.gvh.onClose();
+            if (this.gDQ != null) {
+                this.gDQ.onClose();
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.mPageContext.getPageActivity(), aLaCharmData.pay_userid, aLaCharmData.user_name, aLaCharmData.portrait, aLaCharmData.sex, aLaCharmData.level_id, null, null, 0L, aLaCharmData.fans_count, aLaCharmData.follow_count, aLaCharmData.user_status, this.mGroupId, this.mLiveId, this.bja, this.aDE, null, aLaCharmData.user_name, this.mOtherParams)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.mPageContext.getPageActivity(), aLaCharmData.pay_userid, aLaCharmData.user_name, aLaCharmData.portrait, aLaCharmData.sex, aLaCharmData.level_id, null, null, 0L, aLaCharmData.fans_count, aLaCharmData.follow_count, aLaCharmData.user_status, this.mGroupId, this.mLiveId, this.bns, this.aGk, null, aLaCharmData.user_name, this.mOtherParams)));
         }
     }
 
     @Override // com.baidu.tieba.ala.charm.c
     public void release() {
-        this.gvh = null;
-        if (this.gvi != null) {
-            MessageManager.getInstance().unRegisterListener(this.gvi);
+        this.gDQ = null;
+        if (this.gDR != null) {
+            MessageManager.getInstance().unRegisterListener(this.gDR);
         }
-        if (this.guS != null) {
-            this.guS.onDestroy();
+        if (this.gDB != null) {
+            this.gDB.onDestroy();
         }
     }
 
     private void registerListener() {
-        this.gvi = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.charm.b.2
+        this.gDR = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.charm.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.gvh != null) {
-                    b.this.gvh.onClose();
+                if (b.this.gDQ != null) {
+                    b.this.gDQ.onClose();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.gvi);
+        MessageManager.getInstance().registerListener(this.gDR);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(ALaCharmDataList aLaCharmDataList) {
         ArrayList<ALaCharmData> arrayList;
         String str;
-        if (this.gvh != null && aLaCharmDataList != null && (arrayList = aLaCharmDataList.data) != null) {
+        if (this.gDQ != null && aLaCharmDataList != null && (arrayList = aLaCharmDataList.data) != null) {
             int size = arrayList.size();
             if (size > 3) {
                 if (size >= 20) {
@@ -113,10 +113,10 @@ public class b implements c {
                 } else {
                     str = "没有更多了哦";
                 }
-                this.gvh.b(arrayList.subList(0, 3), arrayList.subList(3, size), str);
+                this.gDQ.b(arrayList.subList(0, 3), arrayList.subList(3, size), str);
                 return;
             }
-            this.gvh.b(arrayList.subList(0, size), null, null);
+            this.gDQ.b(arrayList.subList(0, size), null, null);
         }
     }
 }

@@ -13,7 +13,7 @@ public class ActivityLifeObserver {
     private static final ActivityLifeObserver b = new ActivityLifeObserver();
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2458a;
+    private boolean f2460a;
     private Set<IActivityLifeCallback> c = new LinkedHashSet();
 
     /* loaded from: classes7.dex */
@@ -56,9 +56,9 @@ public class ActivityLifeObserver {
     }
 
     public void registerActivityLifeCallback(Context context) {
-        if (!this.f2458a && Build.VERSION.SDK_INT >= 14) {
+        if (!this.f2460a && Build.VERSION.SDK_INT >= 14) {
             doRegister(context);
-            this.f2458a = true;
+            this.f2460a = true;
         }
     }
 

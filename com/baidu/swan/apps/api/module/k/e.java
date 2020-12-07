@@ -8,22 +8,22 @@ import android.util.Pair;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class e extends com.baidu.swan.apps.api.a.d {
     public e(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b lE(String str) {
+    public com.baidu.swan.apps.api.c.b ml(String str) {
         if (DEBUG) {
             Log.d("Api-DeviceInfo", "start get device info");
         }
-        com.baidu.swan.apps.runtime.e aGN = com.baidu.swan.apps.runtime.e.aGN();
-        if (aGN == null) {
+        com.baidu.swan.apps.runtime.e aJV = com.baidu.swan.apps.runtime.e.aJV();
+        if (aJV == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "SwanApp is null");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bi = com.baidu.swan.apps.api.d.b.bi("Api-DeviceInfo", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bi.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bp = com.baidu.swan.apps.api.d.b.bp("Api-DeviceInfo", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bp.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-DeviceInfo", "parse fail");
@@ -31,37 +31,37 @@ public class e extends com.baidu.swan.apps.api.a.d {
             }
             return bVar;
         }
-        final String optString = ((JSONObject) bi.second).optString("cb");
+        final String optString = ((JSONObject) bp.second).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             return new com.baidu.swan.apps.api.c.b(202, "cb is required");
         }
         final Context context = getContext();
-        aGN.aGY().b(context, "scope_get_device_info", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.api.module.k.e.1
+        aJV.aKg().b(context, "scope_get_device_info", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.api.module.k.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
             public void M(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                 if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                    e.this.a(optString, new com.baidu.swan.apps.api.c.b(0, e.this.bC(context)));
+                    e.this.a(optString, new com.baidu.swan.apps.api.c.b(0, e.this.ci(context)));
                     return;
                 }
                 int errorCode = hVar.getErrorCode();
-                String hz = com.baidu.swan.apps.setting.oauth.c.hz(errorCode);
+                String hX = com.baidu.swan.apps.setting.oauth.c.hX(errorCode);
                 if (com.baidu.swan.apps.api.a.d.DEBUG) {
-                    Log.e("Api-DeviceInfo", "getDeviceInfo auth fail(" + errorCode + ", " + hz + ")");
+                    Log.e("Api-DeviceInfo", "getDeviceInfo auth fail(" + errorCode + ", " + hX + ")");
                 }
-                e.this.a(optString, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.hz(errorCode)));
+                e.this.a(optString, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.hX(errorCode)));
             }
         });
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject bC(Context context) {
+    public JSONObject ci(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("oaid", com.baidu.swan.apps.t.a.awY().bt(context));
-            jSONObject.put("androidId", com.baidu.swan.apps.t.a.awY().getAndroidId(context));
+            jSONObject.put("oaid", com.baidu.swan.apps.t.a.aAg().bZ(context));
+            jSONObject.put("androidId", com.baidu.swan.apps.t.a.aAg().getAndroidId(context));
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

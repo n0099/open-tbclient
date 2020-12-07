@@ -2,9 +2,8 @@ package kotlin.collections;
 
 import com.baidu.live.tbadk.core.util.StringHelper;
 import java.util.Collection;
-import kotlin.TypeCastException;
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 public abstract class a<E> implements Collection<E> {
     @Override // java.util.Collection
     public boolean add(E e) {
@@ -45,7 +44,7 @@ public abstract class a<E> implements Collection<E> {
 
     @Override // java.util.Collection
     public boolean containsAll(Collection<? extends Object> collection) {
-        kotlin.jvm.internal.q.n(collection, "elements");
+        kotlin.jvm.internal.p.o(collection, "elements");
         Collection<? extends Object> collection2 = collection;
         if (collection2.isEmpty()) {
             return true;
@@ -65,22 +64,22 @@ public abstract class a<E> implements Collection<E> {
 
     public String toString() {
         String a2;
-        a2 = o.a(this, (r14 & 1) != 0 ? ", " : ", ", (r14 & 2) != 0 ? "" : "[", (r14 & 4) != 0 ? "" : "]", (r14 & 8) != 0 ? -1 : 0, (r14 & 16) != 0 ? StringHelper.STRING_MORE : null, (r14 & 32) != 0 ? null : new AbstractCollection$toString$1(this));
+        a2 = n.a(this, (r14 & 1) != 0 ? ", " : ", ", (r14 & 2) != 0 ? "" : "[", (r14 & 4) != 0 ? "" : "]", (r14 & 8) != 0 ? -1 : 0, (r14 & 16) != 0 ? StringHelper.STRING_MORE : null, (r14 & 32) != 0 ? null : new AbstractCollection$toString$1(this));
         return a2;
     }
 
     @Override // java.util.Collection
     public Object[] toArray() {
-        return kotlin.jvm.internal.n.r(this);
+        Object[] r = kotlin.jvm.internal.n.r(this);
+        kotlin.jvm.internal.p.n(r, "kotlin.jvm.internal.Coll…Array.toArray(collection)");
+        return r;
     }
 
     @Override // java.util.Collection
     public <T> T[] toArray(T[] tArr) {
-        kotlin.jvm.internal.q.n(tArr, com.baidu.fsg.base.statistics.b.j);
+        kotlin.jvm.internal.p.o(tArr, com.baidu.fsg.base.statistics.b.j);
         T[] tArr2 = (T[]) kotlin.jvm.internal.n.a(this, tArr);
-        if (tArr2 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type kotlin.Array<T>");
-        }
+        kotlin.jvm.internal.p.n(tArr2, "kotlin.jvm.internal.Coll…oArray(collection, array)");
         return tArr2;
     }
 
@@ -90,7 +89,7 @@ public abstract class a<E> implements Collection<E> {
             return false;
         }
         for (E e : this) {
-            if (kotlin.jvm.internal.q.l(e, obj)) {
+            if (kotlin.jvm.internal.p.l(e, obj)) {
                 return true;
             }
         }

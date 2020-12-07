@@ -14,7 +14,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class r extends aa {
     public r(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/openStatisticFlowJar");
@@ -59,13 +59,13 @@ public class r extends aa {
         }
         switch (c) {
             case 0:
-                com.baidu.swan.apps.performance.i.aCY().aM(u(optParamsAsJo.optJSONArray("data"))).aCE();
+                com.baidu.swan.apps.performance.i.aGg().aP(v(optParamsAsJo.optJSONArray("data"))).aFM();
                 break;
             case 1:
-                v(optParamsAsJo.optJSONArray("data"));
+                w(optParamsAsJo.optJSONArray("data"));
                 break;
             case 2:
-                w(optParamsAsJo.optJSONArray("data"));
+                x(optParamsAsJo.optJSONArray("data"));
                 break;
             default:
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");
@@ -75,28 +75,28 @@ public class r extends aa {
         return true;
     }
 
-    List<UbcFlowEvent> u(JSONArray jSONArray) {
+    List<UbcFlowEvent> v(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < jSONArray.length(); i++) {
-            UbcFlowEvent aT = aT(jSONArray.optJSONObject(i));
-            if (aT != null) {
-                aT.qU("FE");
-                arrayList.add(aT);
+            UbcFlowEvent aV = aV(jSONArray.optJSONObject(i));
+            if (aV != null) {
+                aV.rB("FE");
+                arrayList.add(aV);
             }
         }
         return arrayList;
     }
 
-    UbcFlowEvent aT(JSONObject jSONObject) {
+    UbcFlowEvent aV(JSONObject jSONObject) {
         String optString = jSONObject.optString("actionId");
         long optLong = jSONObject.optLong("timestamp");
         if (TextUtils.isEmpty(optString)) {
             return null;
         }
-        return new UbcFlowEvent(optString).bY(optLong);
+        return new UbcFlowEvent(optString).cx(optLong);
     }
 
-    private void v(JSONArray jSONArray) {
+    private void w(JSONArray jSONArray) {
         if (jSONArray != null) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SearchFlowEvent from FE, data: " + jSONArray);
@@ -110,7 +110,7 @@ public class r extends aa {
                     SearchFlowEvent searchFlowEvent = new SearchFlowEvent(optString);
                     searchFlowEvent.timestamp = Long.valueOf(optString3).longValue();
                     searchFlowEvent.data = optString2;
-                    searchFlowEvent.dyP = SearchFlowEvent.EventType.END;
+                    searchFlowEvent.dFO = SearchFlowEvent.EventType.END;
                     com.baidu.swan.apps.statistic.search.b.a(searchFlowEvent);
                 }
             } catch (NumberFormatException e) {
@@ -121,10 +121,10 @@ public class r extends aa {
         }
     }
 
-    private void w(JSONArray jSONArray) {
+    private void x(JSONArray jSONArray) {
         long longValue;
-        com.baidu.swan.apps.core.d.e aou = com.baidu.swan.apps.v.f.azg().aou();
-        if (aou != null) {
+        com.baidu.swan.apps.core.d.e arC = com.baidu.swan.apps.v.f.aCp().arC();
+        if (arC != null) {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(0);
                 if (jSONObject != null) {
@@ -136,10 +136,10 @@ public class r extends aa {
                         } catch (NumberFormatException e) {
                             e.printStackTrace();
                         }
-                        aou.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                        arC.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                     }
                     longValue = 0;
-                    aou.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                    arC.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();

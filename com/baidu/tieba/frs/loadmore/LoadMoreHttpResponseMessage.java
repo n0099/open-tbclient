@@ -6,8 +6,8 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.al;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.am;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.recapp.report.b;
@@ -19,7 +19,7 @@ import org.json.JSONObject;
 import tbclient.ThreadInfo;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     private BannerListData bannerListData;
     private ArrayList<q> threadList;
@@ -73,25 +73,25 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                         ArrayList arrayList = new ArrayList();
                         for (int i3 = 0; i3 < list2.size(); i3++) {
                             ThreadInfo threadInfo = list2.get(i3);
-                            bx bxVar = new bx();
-                            aq.a(j, bxVar);
-                            bxVar.setUserMap(this.userMap);
-                            bxVar.a(threadInfo);
-                            bxVar.bmC();
-                            bxVar.eER = z;
-                            if (!TextUtils.isEmpty(bxVar.bmO())) {
-                                al alVar = new al();
-                                alVar.Al(bxVar.bmO());
-                                this.threadList.add(alVar);
+                            by byVar = new by();
+                            aq.a(j, byVar);
+                            byVar.setUserMap(this.userMap);
+                            byVar.a(threadInfo);
+                            byVar.bpP();
+                            byVar.eLT = z;
+                            if (!TextUtils.isEmpty(byVar.bqb())) {
+                                am amVar = new am();
+                                amVar.AS(byVar.bqb());
+                                this.threadList.add(amVar);
                             } else {
-                                this.threadList.add(bxVar);
+                                this.threadList.add(byVar);
                                 JSONObject f = b.f(threadInfo);
                                 if (f != null) {
                                     arrayList.add(f);
                                 }
                             }
                         }
-                        b.dAN().fz(arrayList);
+                        b.dGe().q("tag_frs_tab", arrayList);
                     }
                 }
                 this.bannerListData = null;

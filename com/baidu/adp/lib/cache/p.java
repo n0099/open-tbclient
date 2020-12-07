@@ -7,16 +7,16 @@ import android.database.sqlite.SQLiteDatabase;
 import com.baidu.live.adp.lib.cache.BdCacheSQLiteHelper;
 /* loaded from: classes.dex */
 public class p {
-    private final com.baidu.adp.base.a.b KE;
+    private final com.baidu.adp.base.a.b Lw;
 
     public p(Context context, com.baidu.adp.base.a.b bVar) {
-        this.KE = bVar;
+        this.Lw = bVar;
     }
 
-    public h bC(String str) {
+    public h bF(String str) {
         Cursor cursor;
         try {
-            cursor = this.KE.getOpenedDatabase().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
+            cursor = this.Lw.getOpenedDatabase().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
         } catch (Throwable th) {
             th = th;
             cursor = null;
@@ -25,7 +25,7 @@ public class p {
         } catch (Throwable th2) {
             th = th2;
             try {
-                this.KE.notifySQLException(th, "get");
+                this.Lw.notifySQLException(th, "get");
                 com.baidu.adp.lib.f.a.close(cursor);
                 return null;
             } finally {
@@ -54,23 +54,23 @@ public class p {
             contentValues.put("cacheVersion", Integer.valueOf(hVar.cacheVersion));
             contentValues.put("cacheType", hVar.cacheType);
             contentValues.put("lastActiveTime", Long.valueOf(hVar.lastActiveTime));
-            SQLiteDatabase openedDatabase = this.KE.getOpenedDatabase();
+            SQLiteDatabase openedDatabase = this.Lw.getOpenedDatabase();
             if (openedDatabase != null && openedDatabase.update(BdCacheSQLiteHelper.TABLE_CACHE_META_INFO, contentValues, "nameSpace = ?", new String[]{hVar.nameSpace}) == 0) {
                 openedDatabase.insert(BdCacheSQLiteHelper.TABLE_CACHE_META_INFO, null, contentValues);
             }
         } catch (Throwable th) {
-            this.KE.notifySQLException(th, "addOrUpdate");
+            this.Lw.notifySQLException(th, "addOrUpdate");
         }
     }
 
     public int delete(String str) {
         try {
-            if (bC(str) == null) {
+            if (bF(str) == null) {
                 return 0;
             }
-            return this.KE.getOpenedDatabase().delete(BdCacheSQLiteHelper.TABLE_CACHE_META_INFO, "nameSpace = ?", new String[]{str});
+            return this.Lw.getOpenedDatabase().delete(BdCacheSQLiteHelper.TABLE_CACHE_META_INFO, "nameSpace = ?", new String[]{str});
         } catch (Throwable th) {
-            this.KE.notifySQLException(th, "delete");
+            this.Lw.notifySQLException(th, "delete");
             return 0;
         }
     }

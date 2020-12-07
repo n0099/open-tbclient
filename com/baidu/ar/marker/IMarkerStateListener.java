@@ -1,0 +1,13 @@
+package com.baidu.ar.marker;
+
+import java.util.List;
+/* loaded from: classes10.dex */
+public interface IMarkerStateListener {
+    void onCoordinateResult(int i, double[] dArr);
+
+    void onError(int i, String str);
+
+    void onLocationResult(boolean z, List<com.baidu.ar.marker.a.a> list);
+
+    void onSessionCreated(boolean z, String str);
+}

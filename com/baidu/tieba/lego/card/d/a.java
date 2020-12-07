@@ -62,7 +62,7 @@ public class a {
         }
     }
 
-    public static int eC(List list) {
+    public static int eN(List list) {
         if (isNull(list) || list.isEmpty()) {
             return 0;
         }
@@ -99,15 +99,7 @@ public class a {
     }
 
     private static boolean n(List list, int i) {
-        if (isNull(list)) {
-            return false;
-        }
-        if (i < 0 || i >= list.size()) {
-            BdLog.e("list index out of bounds");
-            x(new IndexOutOfBoundsException());
-            return false;
-        }
-        return true;
+        return !isNull(list) && i >= 0 && i < list.size();
     }
 
     private static void x(Exception exc) {

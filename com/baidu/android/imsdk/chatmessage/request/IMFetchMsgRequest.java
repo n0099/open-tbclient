@@ -29,7 +29,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMFetchMsgRequest extends BaseHttpRequest {
     private static final String TAG = "IMFetchMsgRequest";
     private Long mAppid;
@@ -131,7 +131,7 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
                 str = "https://pim.baidu.com/";
                 break;
             case 1:
-                str = "http://cp01-ocean-749.epc.baidu.com:8111/";
+                str = "http://rd-im-server.bcc-szth.baidu.com:8111/";
                 break;
             case 2:
                 str = Constants.URL_HTTP_QA;

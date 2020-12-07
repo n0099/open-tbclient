@@ -3,65 +3,65 @@ package com.baidu.adp.widget.ListView;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 /* loaded from: classes.dex */
 public class l {
-    private float WN = 8.0f;
-    private float WO = 15.0f;
-    private float WP = 4.0f;
-    private float WQ = 60.0f;
-    private int WR = 150;
-    private int WS = 150;
-    private int WT = 500;
-    private float WU = 0.4f;
-    private float WV = 1.0f;
-    private float WW = 20.0f;
-    private float WX = 10.0f;
-    private int WY = EncoderTextureDrawer.X264_WIDTH;
-    private float WZ = 5.0f;
-
-    public float qV() {
-        return this.WN;
-    }
-
-    public float qW() {
-        return this.WO;
-    }
+    private float XK = 8.0f;
+    private float XL = 15.0f;
+    private float XM = 4.0f;
+    private float XN = 60.0f;
+    private int XO = 150;
+    private int XP = 150;
+    private int XQ = 500;
+    private float XR = 0.4f;
+    private float XS = 1.0f;
+    private float XT = 20.0f;
+    private float XU = 10.0f;
+    private int XV = EncoderTextureDrawer.X264_WIDTH;
+    private float XW = 5.0f;
 
     public float qX() {
-        return this.WP;
+        return this.XK;
     }
 
     public float qY() {
-        return this.WQ;
+        return this.XL;
     }
 
-    public int qZ() {
-        return this.WR;
+    public float qZ() {
+        return this.XM;
     }
 
-    public int ra() {
-        return this.WS;
+    public float ra() {
+        return this.XN;
     }
 
     public int rb() {
-        return this.WT;
+        return this.XO;
     }
 
-    public float rc() {
-        return this.WU;
+    public int rc() {
+        return this.XP;
     }
 
-    public float rd() {
-        return this.WV;
+    public int rd() {
+        return this.XQ;
     }
 
     public float re() {
-        return this.WW;
+        return this.XR;
     }
 
     public float rf() {
-        return this.WX;
+        return this.XS;
     }
 
-    public int rg() {
-        return this.WY;
+    public float rg() {
+        return this.XT;
+    }
+
+    public float rh() {
+        return this.XU;
+    }
+
+    public int ri() {
+        return this.XV;
     }
 }

@@ -1,14 +1,14 @@
 package com.baidu.ar.arplay.a.a;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public long dG;
-    public String dH;
-    public String dJ;
-    public String dK;
-    public int dI = 0;
-    public int dL = -1;
-    public String dM = "unstarted";
-    public String dN = "unstarted";
-    public int dO = 0;
-    public float dP = 0.0f;
+    public long dT;
+    public String dU;
+    public String dW;
+    public String dX;
+    public int dV = 0;
+    public int dY = -1;
+    public String dZ = "unstarted";
+    public String ea = "unstarted";
+    public int eb = 0;
+    public float ec = 0.0f;
 }

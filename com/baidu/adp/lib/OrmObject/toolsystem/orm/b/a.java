@@ -26,7 +26,7 @@ public class a implements c {
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
-    public void f(String str, Object obj) {
+    public void e(String str, Object obj) {
         if (obj instanceof Boolean) {
             this.bundle.putBoolean(str, ((Boolean) obj).booleanValue());
         } else if (obj instanceof Byte) {

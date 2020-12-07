@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
 public class BankCardResultActivity extends DxmPayBaseActivity implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3911a = BankCardResultActivity.class.getSimpleName();
+    private static final String f3914a = BankCardResultActivity.class.getSimpleName();
     private static Pattern i = Pattern.compile("\\d{1,20}");
     private TextView b;
     private View c;
@@ -107,7 +107,7 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
 
     public void onModuleEvent(EventBus.Event event) {
         if (!"BankCardResult".equals(event.mEventKey)) {
-            LogUtil.e(f3911a, "invalid bankcad result key", (Throwable) null);
+            LogUtil.e(f3914a, "invalid bankcad result key", (Throwable) null);
             finish();
             overridePendingTransition(0, 0);
         }

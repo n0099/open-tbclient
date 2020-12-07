@@ -17,9 +17,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class c {
-    private String ega;
-    private ArrayList<String> nFs;
-    private final String nNb = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private String enb;
+    private ArrayList<String> nTy;
+    private final String obt = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -39,10 +39,10 @@ public class c {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !y.isEmpty(this.nFs)) {
+        if (spannable != null && !y.isEmpty(this.nTy)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.nFs.iterator();
+                Iterator<String> it = this.nTy.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -91,7 +91,7 @@ public class c {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (y.isEmpty(dSS())) {
+        if (y.isEmpty(dYm())) {
             return false;
         }
         return i(editText) || i(editText2);
@@ -113,20 +113,20 @@ public class c {
         }
     }
 
-    public void bl(ArrayList<String> arrayList) {
-        this.nFs = arrayList;
+    public void bn(ArrayList<String> arrayList) {
+        this.nTy = arrayList;
     }
 
-    public ArrayList<String> dSS() {
-        return this.nFs;
+    public ArrayList<String> dYm() {
+        return this.nTy;
     }
 
-    public void Ul(String str) {
-        this.ega = str;
+    public void VA(String str) {
+        this.enb = str;
     }
 
-    public String dSW() {
-        return this.ega;
+    public String dYq() {
+        return this.enb;
     }
 
     private void c(Spannable spannable) {

@@ -1,98 +1,68 @@
 package com.baidu.tieba.pb.view;
 
-import android.animation.ValueAnimator;
+import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Interpolator;
-import android.widget.ImageView;
-import com.baidu.adp.lib.f.e;
-import com.baidu.adp.lib.util.l;
-import com.baidu.android.imsdk.internal.IMConnection;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.coreExtra.share.f;
+import android.widget.LinearLayout;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+import com.baidu.tieba.pb.pb.main.a.f;
+/* loaded from: classes22.dex */
 public class c {
-    private ImageView lRe;
-    private boolean eUh = false;
-    private Runnable lRf = new Runnable() { // from class: com.baidu.tieba.pb.view.c.1
-        @Override // java.lang.Runnable
-        public void run() {
-            c.this.eUh = true;
-            int bwP = f.bwP();
-            if (bwP > 0) {
-                ViewGroup.LayoutParams layoutParams = c.this.lRe.getLayoutParams();
-                int dimens = l.getDimens(c.this.lRe.getContext(), R.dimen.tbds62);
-                layoutParams.height = dimens;
-                layoutParams.width = dimens;
-                c.this.lRe.setLayoutParams(layoutParams);
-                SvgManager.bqB().a(c.this.lRe, bwP, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                if (c.this.fEb != null) {
-                    c.this.fEb.start();
-                }
-            }
-        }
-    };
-    private ValueAnimator fEb = new ValueAnimator();
+    private EMTextView eOk;
+    private BdTypeRecyclerView iYU;
+    private LinearLayout kNb;
+    private com.baidu.tieba.pb.pb.a.c lSU;
+    private View mfh;
+    private f mfi;
 
-    public c(ImageView imageView) {
-        this.lRe = imageView;
-        this.fEb.setDuration(4000L);
-        this.fEb.setFloatValues(0.0f, 1.0f);
-        this.fEb.setInterpolator(new Interpolator() { // from class: com.baidu.tieba.pb.view.c.2
-            @Override // android.animation.TimeInterpolator
-            public float getInterpolation(float f) {
-                return (float) (1.075d + (0.075d * Math.sin((18.84955592153876d * f) - 1.5707963267948966d)));
-            }
-        });
-        this.fEb.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.view.c.3
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (c.this.lRe != null) {
-                    c.this.lRe.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                    c.this.lRe.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                }
-            }
-        });
+    public c(TbPageContext<?> tbPageContext) {
+        init(tbPageContext.getPageActivity());
+        this.lSU = new com.baidu.tieba.pb.pb.a.c(tbPageContext, this.iYU);
+        this.mfi = new f(this.iYU, this.lSU);
+        onChangeSkinType();
     }
 
-    public void drX() {
-        if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().bug()) {
-            e.mY().removeCallbacks(this.lRf);
-            long buh = TbSingleton.getInstance().getSharePanelConfData().buh() * 1000;
-            if (buh <= 0) {
-                buh = IMConnection.RETRY_DELAY_TIMES;
-            }
-            e.mY().postDelayed(this.lRf, buh);
-        }
+    private void init(Context context) {
+        this.kNb = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.recom_thread_info_layout, (ViewGroup) null);
+        this.eOk = (EMTextView) this.kNb.findViewById(R.id.tv_title);
+        this.iYU = (BdTypeRecyclerView) this.kNb.findViewById(R.id.pb_recom_info_list);
+        this.iYU.setLayoutManager(new LinearLayoutManager(context));
+        this.iYU.setFadingEdgeLength(0);
+        this.iYU.setOverScrollMode(2);
+        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+        this.iYU.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
+        this.iYU.setNestedScrollingEnabled(false);
+        this.mfh = new View(context);
     }
 
-    public void setEnable(boolean z) {
-        this.eUh = z;
+    public void H(com.baidu.tieba.pb.data.f fVar) {
+        this.mfi.H(fVar);
     }
 
-    public boolean isEnable() {
-        return this.eUh;
-    }
-
-    public void onDestroy() {
-        e.mY().removeCallbacks(this.lRf);
-        if (this.fEb != null) {
-            this.fEb.removeAllListeners();
-            this.fEb.removeAllUpdateListeners();
-            this.fEb.cancel();
-        }
+    public void HW(int i) {
+        this.iYU.removeFooterView(this.mfh);
+        this.mfh.setLayoutParams(new ViewGroup.LayoutParams(1, i));
+        this.iYU.addFooterView(this.mfh);
     }
 
     public void onChangeSkinType() {
-        int bwP;
-        if (this.eUh && TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().bug() && (bwP = f.bwP()) > 0) {
-            ViewGroup.LayoutParams layoutParams = this.lRe.getLayoutParams();
-            int dimens = l.getDimens(this.lRe.getContext(), R.dimen.tbds62);
-            layoutParams.height = dimens;
-            layoutParams.width = dimens;
-            this.lRe.setLayoutParams(layoutParams);
-            SvgManager.bqB().a(this.lRe, bwP, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        }
+        ap.setBackgroundColor(this.kNb, R.color.CAM_X0204);
+        ap.setViewTextColor(this.eOk, R.color.CAM_X0105);
+        this.lSU.onChangeSkinType();
+    }
+
+    public View getView() {
+        return this.kNb;
+    }
+
+    public void setScrollable(boolean z) {
+        this.iYU.setNestedScrollingEnabled(z);
     }
 }

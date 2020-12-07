@@ -12,7 +12,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class JsUploadTask implements INoProGuard {
     private static final int CONN_TIMEOUT = 5000;
     private static final int READ_TIMEOUT = 10000;
@@ -70,7 +70,7 @@ public class JsUploadTask implements INoProGuard {
     private static JumpType mFirstJumpType = JumpType.DefaultJump;
     private static JumpType mLastJumpType = JumpType.DefaultJump;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public enum JumpType {
         DefaultJump,
         JsJump,
@@ -100,7 +100,7 @@ public class JsUploadTask implements INoProGuard {
                 sb.append(ETAG.ITEM_SEPARATOR);
             }
             sb.append(str);
-            sb.append(ETAG.EQUAL);
+            sb.append("=");
             sb.append(statisticParams.get(str));
         }
     }
@@ -110,7 +110,7 @@ public class JsUploadTask implements INoProGuard {
             sb.append(ETAG.ITEM_SEPARATOR);
         }
         sb.append(str);
-        sb.append(ETAG.EQUAL);
+        sb.append("=");
         sb.append(j);
     }
 
@@ -119,7 +119,7 @@ public class JsUploadTask implements INoProGuard {
             sb.append(ETAG.ITEM_SEPARATOR);
         }
         sb.append(str);
-        sb.append(ETAG.EQUAL);
+        sb.append("=");
         sb.append(str2);
     }
 
@@ -128,7 +128,7 @@ public class JsUploadTask implements INoProGuard {
             sb.append(ETAG.ITEM_SEPARATOR);
         }
         sb.append(str);
-        sb.append(ETAG.EQUAL);
+        sb.append("=");
         sb.append(z);
     }
 
@@ -150,7 +150,7 @@ public class JsUploadTask implements INoProGuard {
             boolean spdy31Enabled = WebSettingsGlobalBlink.getSpdy31Enabled();
             boolean http2Enabled = WebSettingsGlobalBlink.getHttp2Enabled();
             addRawLogItem(sb2, "appid", mAppid);
-            addRawLogItem(sb2, ETAG.KEY_APP_VERSION, mAppVersion);
+            addRawLogItem(sb2, "appversion", mAppVersion);
             addRawLogItem(sb2, "cuid", mCuid);
             addRawLogItem(sb2, "session_id", mStatisticsSessionId);
             addRawLogItem(sb2, ETAG.KEY_SEARCH_ID, mSearchId);
@@ -224,8 +224,8 @@ public class JsUploadTask implements INoProGuard {
                         String str = pageFeature.length() > 0 ? new String(Base64.encode(pageFeature.getBytes(), 0)) : "";
                         String pageFeature2 = WebSettingsGlobalBlink.getPageFeature("NoneDisplay");
                         String str2 = pageFeature2.length() > 0 ? new String(Base64.encode(pageFeature2.getBytes(), 0)) : "";
-                        jSONObject.put("HasOpacity", str.replace(ETAG.EQUAL, ""));
-                        jSONObject.put("NoneDisplay", str2.replace(ETAG.EQUAL, ""));
+                        jSONObject.put("HasOpacity", str.replace("=", ""));
+                        jSONObject.put("NoneDisplay", str2.replace("=", ""));
                     }
                     jSONObject.put(ETAG.KEY_WORMHOLE_ENABLE, WebSettingsGlobalBlink.getWormholeEnabled());
                     Log.w(TAG, "NetRecordList size " + CloudSettings.NetRecordList.size());
@@ -234,7 +234,7 @@ public class JsUploadTask implements INoProGuard {
                         CloudSettings.NetRecordList.remove(0);
                         Log.w(TAG, "NetRecordList size1 " + CloudSettings.NetRecordList.size());
                         jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.c);
-                        jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f3937a);
+                        jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f3940a);
                         jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.b);
                     }
                     if (WebSettingsGlobalBlink.isFeedProxyAdUrl(mCurrentUrl)) {
@@ -273,7 +273,7 @@ public class JsUploadTask implements INoProGuard {
             }
             boolean spdy31Enabled = WebSettingsGlobalBlink.getSpdy31Enabled();
             addRawLogItem(sb2, "appid", mAppid);
-            addRawLogItem(sb2, ETAG.KEY_APP_VERSION, mAppVersion);
+            addRawLogItem(sb2, "appversion", mAppVersion);
             addRawLogItem(sb2, "cuid", mCuid);
             addRawLogItem(sb2, "session_id", mStatisticsSessionId);
             addRawLogItem(sb2, ETAG.KEY_SEARCH_ID, mSearchId);

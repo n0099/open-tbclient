@@ -1,11 +1,11 @@
 package com.baidu.mapapi.bikenavi.model;
 
 import android.graphics.Typeface;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1980a;
+    private int f1982a;
     private boolean b;
     private int c;
     private boolean d;
@@ -14,7 +14,7 @@ public class b {
     private Typeface g;
 
     public int a() {
-        return this.f1980a;
+        return this.f1982a;
     }
 
     public boolean b() {
@@ -42,6 +42,6 @@ public class b {
     }
 
     public String toString() {
-        return "BikeNaviDisplayOption{mTopGuideLayout=" + this.f1980a + ", useCustomTopGuideLayout=" + this.b + ", mSpeedLayout=" + this.c + ", useCustomSpeedLayout=" + this.d + ", mBottomSettingLayout=" + this.e + ", useCustomBottomSetting=" + this.f + ", mBikeNaviTypeface=" + this.g + '}';
+        return "BikeNaviDisplayOption{mTopGuideLayout=" + this.f1982a + ", useCustomTopGuideLayout=" + this.b + ", mSpeedLayout=" + this.c + ", useCustomSpeedLayout=" + this.d + ", mBottomSettingLayout=" + this.e + ", useCustomBottomSetting=" + this.f + ", mBikeNaviTypeface=" + this.g + '}';
     }
 }

@@ -11,6 +11,7 @@ import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.n;
 import com.baidu.cyberplayer.sdk.remote.g;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.searchbox.logsystem.basic.LokiService;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -22,7 +23,7 @@ import java.util.concurrent.Executors;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f1401a;
+    private static b f1400a;
     private Context f;
     private final Object c = new Object();
     private volatile int e = 0;
@@ -98,10 +99,10 @@ public class b {
     public static synchronized b a() {
         b bVar;
         synchronized (b.class) {
-            if (f1401a == null) {
-                f1401a = new b();
+            if (f1400a == null) {
+                f1400a = new b();
             }
-            bVar = f1401a;
+            bVar = f1400a;
         }
         return bVar;
     }
@@ -125,7 +126,7 @@ public class b {
                 HashMap hashMap = new HashMap();
                 hashMap.put("loadcode", Integer.toString(i3));
                 hashMap.put("detail", str2);
-                hashMap.put("processname", n.l());
+                hashMap.put(LokiService.Constant.LOG_PROCESS_NAME, n.l());
                 b.this.a(hashMap);
                 Message obtainMessage = b.this.g.obtainMessage();
                 obtainMessage.what = 1;
@@ -149,7 +150,7 @@ public class b {
                 HashMap hashMap = new HashMap();
                 hashMap.put("loadcode", Integer.toString(0));
                 hashMap.put("corever", CyberPlayerManager.getCoreVersion());
-                hashMap.put("processname", n.l());
+                hashMap.put(LokiService.Constant.LOG_PROCESS_NAME, n.l());
                 b.this.a(hashMap);
                 if (n.m() && CyberPlayerManager.getRemoteServiceClass() != null && !CyberCfgManager.getInstance().getCfgBoolValue("remote_forbidden", false)) {
                     g.a().a(CyberPlayerManager.getRemoteServiceClass(), CyberPlayerManager.getClientID(), CyberPlayerManager.getInstallType(), CyberPlayerManager.getInstallOpts());

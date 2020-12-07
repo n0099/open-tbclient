@@ -10,49 +10,49 @@ import com.baidu.swan.apps.d.a.i;
 import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
 import com.baidu.swan.games.c.h;
 import com.baidu.swan.games.view.webview.GameWebViewManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b implements ba {
     @Override // com.baidu.swan.apps.adaptation.a.ba
-    public com.baidu.swan.apps.core.g.a h(Context context, int i) {
-        return new com.baidu.swan.apps.core.g.b().i(context, i);
+    public com.baidu.swan.apps.core.g.a q(Context context, int i) {
+        return new com.baidu.swan.apps.core.g.b().r(context, i);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ba
-    public com.baidu.swan.apps.adaptation.b.c bu(Context context) {
+    public com.baidu.swan.apps.adaptation.b.c ca(Context context) {
         return new SwanAppSlaveManager(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ba
-    public com.baidu.swan.apps.adaptation.b.a bv(Context context) {
+    public com.baidu.swan.apps.adaptation.b.a cb(Context context) {
         return new com.baidu.swan.apps.core.c.d(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ba
-    public com.baidu.swan.apps.adaptation.b.a bw(Context context) {
+    public com.baidu.swan.apps.adaptation.b.a cc(Context context) {
         return new h(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ba
-    public f bx(Context context) {
+    public f cd(Context context) {
         return new SwanAppSimpleH5Widget(context);
     }
 
-    public f bB(Context context) {
+    public f ch(Context context) {
         return new e(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ba
-    public f by(Context context) {
+    public f ce(Context context) {
         return new i(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ba
-    public f bz(Context context) {
+    public f cf(Context context) {
         return new com.baidu.swan.apps.d.a.b.a.b(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ba
-    public g bA(Context context) {
+    public g cg(Context context) {
         return new GameWebViewManager(context);
     }
 }

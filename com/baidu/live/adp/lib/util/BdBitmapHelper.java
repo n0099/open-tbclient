@@ -378,18 +378,24 @@ public class BdBitmapHelper {
         if (bitmap.getWidth() < i || bitmap.getHeight() < i2) {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
-            if (i2 / height > i / width) {
-                f = i / width;
-            } else {
-                f = i2 / height;
+            if (width > 0 && height > 0) {
+                if (i2 / height > i / width) {
+                    f = i / width;
+                } else {
+                    f = i2 / height;
+                }
+                if (f > 1.0f) {
+                    Matrix matrix = new Matrix();
+                    matrix.postScale(f, f);
+                    Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+                    if (createBitmap != bitmap) {
+                        bitmap.recycle();
+                    }
+                    return createBitmap;
+                }
+                return bitmap;
             }
-            Matrix matrix = new Matrix();
-            matrix.postScale(f, f);
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-            if (createBitmap != bitmap) {
-                bitmap.recycle();
-            }
-            return createBitmap;
+            return bitmap;
         }
         return bitmap;
     }

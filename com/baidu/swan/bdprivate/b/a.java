@@ -4,20 +4,21 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.swan.apps.ap.v;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a extends ActivityDelegation {
 
     /* renamed from: com.baidu.swan.bdprivate.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0500a {
-        void aNy();
+    /* loaded from: classes25.dex */
+    public interface InterfaceC0512a {
+        void aQE();
 
-        void kB(String str);
+        void li(String str);
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
@@ -27,7 +28,7 @@ public class a extends ActivityDelegation {
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
                     if (i == 0) {
-                        a.this.aNw();
+                        a.this.aQC();
                         return;
                     }
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "login failed");
@@ -36,24 +37,24 @@ public class a extends ActivityDelegation {
             });
             return false;
         }
-        aNw();
+        aQC();
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aNw() {
-        com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0500a() { // from class: com.baidu.swan.bdprivate.b.a.2
-            @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0500a
-            public void kB(String str) {
+    public void aQC() {
+        com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0512a() { // from class: com.baidu.swan.bdprivate.b.a.2
+            @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0512a
+            public void li(String str) {
                 if (TextUtils.isEmpty(str)) {
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "addressId == null");
                     a.this.finish();
                 }
-                a.this.uE(str);
+                a.this.vl(str);
             }
 
-            @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0500a
-            public void aNy() {
+            @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0512a
+            public void aQE() {
                 a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "choose addressId failed");
                 a.this.finish();
             }
@@ -61,8 +62,8 @@ public class a extends ActivityDelegation {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uE(String str) {
-        com.baidu.swan.a.c.a.bad().getRequest().url(com.baidu.swan.apps.i.c.processCommonParams(aNx())).addUrlParam("addr_id", str).cookieManager(com.baidu.swan.apps.t.a.awr().ahB()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.b.a.3
+    public void vl(String str) {
+        com.baidu.swan.a.c.a.bdi().getRequest().url(com.baidu.swan.apps.i.c.processCommonParams(aQD())).addUrlParam("addr_id", str).cookieManager(com.baidu.swan.apps.t.a.azz().akJ()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.b.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: a */
@@ -95,7 +96,7 @@ public class a extends ActivityDelegation {
         });
     }
 
-    public static String aNx() {
-        return String.format("%s/ma/address/detail", "https://mbd.baidu.com");
+    public static String aQD() {
+        return String.format("%s/ma/address/detail", BaseUrlManager.ONLINE_URL);
     }
 }

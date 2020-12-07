@@ -3,14 +3,14 @@ package com.baidu.searchbox.http.response;
 import android.text.TextUtils;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class ResponseException {
     public static final String CANCELED = "Canceled";
     public static final String NO_NETWORK = " no network connected";
     public static final String ONLY_WIFI_EXECUTE = " only allow wifi connected";
 
     public static boolean isCancel(Exception exc) {
-        return exc != null && exc.getMessage().contains("Canceled");
+        return (exc == null || TextUtils.isEmpty(exc.getMessage()) || !exc.getMessage().contains(CANCELED)) ? false : true;
     }
 
     public static IOException wrapNoNetworkExceptionWithDetail(Exception exc) {
@@ -18,11 +18,11 @@ public class ResponseException {
     }
 
     public static boolean isNoNetwork(Exception exc) {
-        return (exc == null || TextUtils.isEmpty(exc.getMessage()) || !exc.getMessage().startsWith(" no network connected")) ? false : true;
+        return (exc == null || TextUtils.isEmpty(exc.getMessage()) || !exc.getMessage().startsWith(NO_NETWORK)) ? false : true;
     }
 
     public static boolean isOnlyWifiException(Exception exc) {
-        return exc != null && " only allow wifi connected".equals(exc.getMessage());
+        return exc != null && ONLY_WIFI_EXECUTE.equals(exc.getMessage());
     }
 
     public static boolean isTimeoutException(Exception exc) {

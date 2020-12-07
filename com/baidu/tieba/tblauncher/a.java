@@ -1,5 +1,5 @@
 package com.baidu.tieba.tblauncher;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public interface a {
     int getCurrentTabType();
 }

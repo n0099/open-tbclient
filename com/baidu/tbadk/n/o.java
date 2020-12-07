@@ -1,147 +1,111 @@
 package com.baidu.tbadk.n;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.mobstat.Config;
-import java.util.Map;
+import android.os.Process;
+import android.os.SystemClock;
+import android.util.Log;
+import com.baidu.android.util.io.Closeables;
+import com.baidu.android.util.soloader.SoLoader;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.launch.utils.LaunchNativeUtils;
+import java.io.BufferedReader;
+import java.io.Closeable;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes.dex */
-public class o extends l {
-    public void a(i iVar) {
-        if (m.bBK().isSmallFlow()) {
-            com.baidu.adp.lib.stats.a mT = mT();
-            mT.append("action", "time");
-            mT.append("ishttp", iVar.fuE ? "1" : "0");
-            mT.append("issuccess", iVar.isSuccess ? "1" : "0");
-            mT.append("nettype", m.bBK().getNetType());
-            mT.append("wt", String.valueOf(iVar.fuB));
-            mT.append("qt", String.valueOf(iVar.fut));
-            mT.append("connt", String.valueOf(iVar.fuu));
-            mT.append("rwt", String.valueOf(iVar.fuv));
-            mT.append("fbt", String.valueOf(iVar.firstByteReachTime));
-            mT.append("abt", String.valueOf(iVar.allDataReadTime));
-            mT.append("dect", String.valueOf(iVar.fuw));
-            mT.append("parset", String.valueOf(iVar.fux));
-            mT.append("tqt", String.valueOf(iVar.fuz));
-            mT.append("rendert", String.valueOf(iVar.fuA));
-            mT.append("ss", String.valueOf(iVar.fuC));
-            mT.append("hs", String.valueOf(iVar.fuD));
-            if (iVar.fuE && iVar.socketErrNo != 0) {
-                mT.append("salno", String.valueOf(iVar.socketErrNo));
-                if (iVar.socketCostTime != 0) {
-                    mT.append("scosttime", String.valueOf(iVar.socketCostTime));
-                }
-            }
-            if (iVar.fuE) {
-                mT.append("hrtn", String.valueOf(iVar.fuF));
-                mT.append("hrtt", String.valueOf(iVar.fuG));
-            }
-            if (iVar.errCode != 0) {
-                mT.append("errcode", Integer.valueOf(iVar.errCode));
-            }
-            if (iVar.fuH) {
-                mT.append("pt", "1");
-            } else {
-                mT.append("sysct", String.valueOf(iVar.fuq));
-                mT.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(iVar.fus));
-                mT.append("lt", String.valueOf(iVar.fur));
-                mT.append("df", String.valueOf(iVar.fuy));
-            }
-            if (iVar.fuE) {
-                mT.append(BdStatsConstant.StatsKey.LOGID, String.valueOf(iVar.fuI));
-                if (iVar.sequenceID != 0) {
-                    mT.append(BdStatsConstant.StatsKey.SEQUENCEID, String.valueOf(iVar.sequenceID & 4294967295L));
-                }
-            } else {
-                mT.append(BdStatsConstant.StatsKey.SEQUENCEID, String.valueOf(iVar.sequenceID & 4294967295L));
-            }
-            if (iVar.extra != null && !iVar.extra.isEmpty()) {
-                for (Map.Entry<String, String> entry : iVar.extra.entrySet()) {
-                    mT.append(entry.getKey(), entry.getValue());
-                }
-            }
-            BdStatisticsManager.getInstance().performance(this.subType, mT);
-        }
+public final class o {
+    private long fDw = -1;
+    private long fDx = -1;
+    private long fDy = -1;
+    private long fDn = -1;
+    private long fDz = -1;
+
+    public void bFs() {
+        this.fDy = SystemClock.elapsedRealtime();
+        this.fDx = Process.getElapsedCpuTime();
     }
 
-    public void a(h hVar, String str) {
-        if (hVar != null && str != null && m.bBK().isSmallFlow()) {
-            com.baidu.adp.lib.stats.a mT = mT();
-            mT.append("action", "resource");
-            mT.append("actype", str);
-            mT.append("issuccess", hVar.isSuccess ? "1" : "0");
-            mT.append("isfs", hVar.fup ? "1" : "0");
-            mT.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.costTime));
-            mT.append("from", String.valueOf(hVar.resourceFromType));
-            BdStatisticsManager.getInstance().performance(this.subType, mT);
-        }
-    }
-
-    public void a(b bVar) {
-        if (bVar != null && m.bBK().isSmallFlow()) {
-            com.baidu.adp.lib.stats.a mT = mT();
-            mT.append("action", "fluency");
-            mT.append("fps", String.valueOf(bVar.getFps()));
-            BdStatisticsManager.getInstance().performance(this.subType, mT);
-            com.baidu.adp.lib.stats.a mT2 = mT();
-            mT2.append("action", "mem");
-            mT2.append("memp", String.valueOf(m.bBK().bBL()));
-            BdStatisticsManager.getInstance().performance(this.subType, mT2);
-        }
-    }
-
-    public void a(i iVar, boolean z) {
-        if (m.bBK().isSmallFlow()) {
-            if (!z || iVar.fuJ > 0) {
-                if (z || iVar.fuK > 0) {
-                    com.baidu.adp.lib.stats.a mT = mT();
-                    mT.append("action", "time");
-                    if (z) {
-                        mT.append("put", String.valueOf(iVar.fuJ));
-                    } else {
-                        mT.append("pdt", String.valueOf(iVar.fuK));
-                    }
-                    mT.append("ishttp", iVar.fuE ? "1" : "0");
-                    mT.append("issuccess", iVar.isSuccess ? "1" : "0");
-                    mT.append("nettype", m.bBK().getNetType());
-                    mT.append("qt", String.valueOf(iVar.fut));
-                    mT.append("connt", String.valueOf(iVar.fuu));
-                    mT.append("rwt", String.valueOf(iVar.fuv));
-                    mT.append("dect", String.valueOf(iVar.fuw));
-                    mT.append("parset", String.valueOf(iVar.fux));
-                    mT.append("rendert", String.valueOf(iVar.fuA));
-                    mT.append("ss", String.valueOf(iVar.fuC));
-                    mT.append("hs", String.valueOf(iVar.fuD));
-                    if (iVar.fuE && iVar.socketErrNo != 0) {
-                        mT.append("salno", String.valueOf(iVar.socketErrNo));
-                        if (iVar.socketCostTime != 0) {
-                            mT.append("scosttime", String.valueOf(iVar.socketCostTime));
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [133=4] */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0084  */
+    /* JADX WARN: Removed duplicated region for block: B:52:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void bFt() {
+        BufferedReader bufferedReader;
+        long j;
+        long bFr = m.bFp().bFr();
+        long j2 = -1;
+        try {
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/self/stat")), 1000);
+                try {
+                    String[] split = bufferedReader.readLine().split(" ");
+                    if (split.length > 21 && split[0].equals(String.valueOf(Process.myPid()))) {
+                        String str = split[21];
+                        try {
+                            SoLoader.load(AppRuntime.getAppContext(), "launch_native");
+                            j = LaunchNativeUtils.getClkTck();
+                        } catch (UnsatisfiedLinkError e) {
+                            Log.e("ZygoteSpeedStats", "load so failed, UnsatisfiedLinkError", e);
+                            j = 0;
                         }
+                        Log.d("ZygoteSpeedStats", "_SC_CLK_TCK " + j);
+                        if (j <= 0) {
+                            j = 100;
+                        }
+                        j2 = (Long.parseLong(str) * 1000) / j;
                     }
-                    if (iVar.errCode != 0) {
-                        mT.append("errcode", Integer.valueOf(iVar.errCode));
+                    Closeables.closeSafely(bufferedReader);
+                } catch (FileNotFoundException e2) {
+                    e = e2;
+                    Log.e("ZygoteSpeedStats", "can't read process status file", e);
+                    Closeables.closeSafely(bufferedReader);
+                    if (j2 <= 0) {
                     }
-                    BdStatisticsManager.getInstance().performance(this.subType, mT);
+                } catch (IOException e3) {
+                    e = e3;
+                    Log.e("ZygoteSpeedStats", "read process status failed", e);
+                    Closeables.closeSafely(bufferedReader);
+                    if (j2 <= 0) {
+                    }
+                } catch (NumberFormatException e4) {
+                    e = e4;
+                    Log.e("ZygoteSpeedStats", "parse status file failed", e);
+                    Closeables.closeSafely(bufferedReader);
+                    if (j2 <= 0) {
+                    }
                 }
+            } catch (Throwable th) {
+                th = th;
+                Closeables.closeSafely((Closeable) null);
+                throw th;
             }
+        } catch (FileNotFoundException e5) {
+            e = e5;
+            bufferedReader = null;
+        } catch (IOException e6) {
+            e = e6;
+            bufferedReader = null;
+        } catch (NumberFormatException e7) {
+            e = e7;
+            bufferedReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+            Closeables.closeSafely((Closeable) null);
+            throw th;
+        }
+        if (j2 <= 0) {
+            this.fDn = this.fDy - j2;
+            this.fDz = this.fDn - bFr;
         }
     }
 
-    public void a(i iVar, int i) {
-        if (m.bBK().isSmallFlow() && iVar.fuL > 0) {
-            com.baidu.adp.lib.stats.a mT = mT();
-            mT.append("action", "time");
-            mT.append("pct", String.valueOf(iVar.fuL));
-            switch (i) {
-                case 0:
-                    mT.append("pct_type", String.valueOf(100));
-                    break;
-                case 40:
-                    mT.append("pct_type", String.valueOf(101));
-                    break;
-                default:
-                    return;
-            }
-            BdStatisticsManager.getInstance().performance(this.subType, mT);
+    public long bFu() {
+        if (this.fDn == -1) {
+            bFt();
         }
+        return this.fDn;
     }
 }

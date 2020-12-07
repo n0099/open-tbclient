@@ -42,19 +42,19 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class f implements j {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final int[] dwF = {a.f.agreement_first, a.f.agreement_second, a.f.agreement_third, a.f.agreement_forth};
-    private static final int[] dwG = {a.f.agreement_layout_first, a.f.agreement_layout_second, a.f.agreement_layout_third, a.f.agreement_layout_forth};
-    private com.baidu.swan.apps.runtime.e cyc;
-    private e duv;
-    private JSONObject dwA;
-    private g.a dwB;
-    private TextView dwC;
-    private TextView dwD;
-    private TextView dwE;
-    private DialogInterface.OnClickListener dwz;
+    private static final int[] dDE = {a.f.agreement_first, a.f.agreement_second, a.f.agreement_third, a.f.agreement_forth};
+    private static final int[] dDF = {a.f.agreement_layout_first, a.f.agreement_layout_second, a.f.agreement_layout_third, a.f.agreement_layout_forth};
+    private com.baidu.swan.apps.runtime.e cEU;
+    private e dBu;
+    private g.a dDA;
+    private TextView dDB;
+    private TextView dDC;
+    private TextView dDD;
+    private DialogInterface.OnClickListener dDy;
+    private JSONObject dDz;
     protected Context mContext;
     private View mCustomView;
     private View mRootView;
@@ -64,91 +64,91 @@ public class f implements j {
         if (context == null || eVar == null || eVar2 == null) {
             return null;
         }
-        this.dwB = new g.a(context);
+        this.dDA = new g.a(context);
         this.mContext = context;
-        this.cyc = eVar;
-        this.duv = eVar2;
-        this.dwA = jSONObject;
-        this.dwz = onClickListener;
-        this.dwB.gs(true);
-        this.dwB.aA(aIN());
-        this.dwB.a(new com.baidu.swan.apps.view.c.a());
-        this.dwB.kc(a.e.aiapps_action_sheet_bg);
-        this.dwB.gx(false);
-        this.dwB.aGr();
-        this.dwB.gt(false);
-        return this.dwB;
+        this.cEU = eVar;
+        this.dBu = eVar2;
+        this.dDz = jSONObject;
+        this.dDy = onClickListener;
+        this.dDA.gH(true);
+        this.dDA.aC(aLV());
+        this.dDA.a(new com.baidu.swan.apps.view.c.a());
+        this.dDA.kA(a.e.aiapps_action_sheet_bg);
+        this.dDA.gM(false);
+        this.dDA.aJz();
+        this.dDA.gI(false);
+        return this.dDA;
     }
 
-    public View aIN() {
+    public View aLV() {
         this.mRootView = View.inflate(this.mContext, a.g.swan_app_auth_dialog_content_common, null);
-        aIO();
-        aIP();
-        aIT();
+        aLW();
+        aLX();
+        aMb();
         return this.mRootView;
     }
 
-    public void aIO() {
+    public void aLW() {
         List<e> list;
         Bitmap a2;
-        boolean z = (TextUtils.isEmpty(this.duv.dwq) || TextUtils.isEmpty(this.duv.dwr)) ? false : true;
+        boolean z = (TextUtils.isEmpty(this.dBu.dDp) || TextUtils.isEmpty(this.dBu.dDq)) ? false : true;
         SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) this.mRootView.findViewById(a.f.swan_app_icon);
         if (swanAppRoundedImageView != null) {
             if (z) {
-                a2 = ak.p(this.duv.dwr, "SwanAppAuthDialog", false);
+                a2 = ak.q(this.dBu.dDq, "SwanAppAuthDialog", false);
             } else {
-                a2 = ak.a((com.baidu.swan.apps.u.c.b) this.cyc.afg(), "SwanAppAuthDialog", false);
+                a2 = ak.a((com.baidu.swan.apps.u.c.b) this.cEU.aio(), "SwanAppAuthDialog", false);
             }
             swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(this.mContext.getResources(), a2));
             swanAppRoundedImageView.setBorderColor(this.mContext.getResources().getColor(a.c.swan_app_auth_icon_border));
         }
-        ((TextView) this.mRootView.findViewById(a.f.swan_app_name)).setText(z ? this.duv.dwq : this.cyc.getName());
-        this.dwC = (TextView) this.mRootView.findViewById(a.f.permission_name);
-        if (this.dwC != null) {
-            if (g(this.duv)) {
+        ((TextView) this.mRootView.findViewById(a.f.swan_app_name)).setText(z ? this.dBu.dDp : this.cEU.getName());
+        this.dDB = (TextView) this.mRootView.findViewById(a.f.permission_name);
+        if (this.dDB != null) {
+            if (g(this.dBu)) {
                 View findViewById = this.mRootView.findViewById(a.f.swan_app_action_text);
                 if (findViewById != null) {
                     findViewById.setVisibility(8);
                 }
-                this.dwC.setText(this.duv.dws);
+                this.dDB.setText(this.dBu.dDr);
             } else {
-                this.dwC.setText(this.duv.name);
+                this.dDB.setText(this.dBu.name);
             }
         }
-        if (g(this.duv) && (list = this.duv.dwt) != null && list.size() > 0) {
+        if (g(this.dBu) && (list = this.dBu.dDs) != null && list.size() > 0) {
             for (int i = 0; i < list.size() && i <= 3; i++) {
                 e eVar = list.get(i);
                 if (eVar != null) {
-                    this.mRootView.findViewById(dwG[i]).setVisibility(0);
-                    ((TextView) this.mRootView.findViewById(dwF[i])).setText(eVar.dwi);
+                    this.mRootView.findViewById(dDF[i]).setVisibility(0);
+                    ((TextView) this.mRootView.findViewById(dDE[i])).setText(eVar.dDh);
                 }
             }
         }
-        this.dwD = (TextView) this.mRootView.findViewById(a.f.auth_negative_button);
-        this.dwE = (TextView) this.mRootView.findViewById(a.f.auth_positive_button);
-        this.dwB.a(this.dwD, -2, this.dwz);
-        this.dwB.a(this.dwE, -1, this.dwz);
+        this.dDC = (TextView) this.mRootView.findViewById(a.f.auth_negative_button);
+        this.dDD = (TextView) this.mRootView.findViewById(a.f.auth_positive_button);
+        this.dDA.a(this.dDC, -2, this.dDy);
+        this.dDA.a(this.dDD, -1, this.dDy);
     }
 
-    public void aIP() {
-        if (g(this.duv)) {
-            aIR();
-        } else if (h(this.duv)) {
-            aIS();
+    public void aLX() {
+        if (g(this.dBu)) {
+            aLZ();
+        } else if (h(this.dBu)) {
+            aMa();
         } else {
-            aIQ();
+            aLY();
         }
     }
 
-    private void aIQ() {
+    private void aLY() {
         FrameLayout frameLayout = (FrameLayout) this.mRootView.findViewById(a.f.auth_custom_layout);
         if (frameLayout != null) {
             this.mRootView.findViewById(a.f.multi_auth_custom_layout).setVisibility(8);
             this.mRootView.findViewById(a.f.multi_auth_agreement_layout).setVisibility(8);
             this.mRootView.findViewById(a.f.auth_custom_layout).setVisibility(0);
             ((TextView) this.mRootView.findViewById(a.f.multi_auth_agreement_layout)).setVisibility(8);
-            this.mCustomView = a(this.mContext, this.duv, this.dwA);
-            String str = this.duv.id;
+            this.mCustomView = a(this.mContext, this.dBu, this.dDz);
+            String str = this.dBu.id;
             char c = 65535;
             switch (str.hashCode()) {
                 case -1068855134:
@@ -166,40 +166,40 @@ public class f implements j {
             }
             switch (c) {
                 case 0:
-                    if (this.dwA != null) {
-                        a(this.mContext, this.mCustomView, this.dwA);
+                    if (this.dDz != null) {
+                        a(this.mContext, this.mCustomView, this.dDz);
                         break;
                     } else {
-                        b(this.mCustomView, this.duv);
+                        b(this.mCustomView, this.dBu);
                         break;
                     }
                 case 1:
-                    a(this.mCustomView, this.duv);
+                    a(this.mCustomView, this.dBu);
                     break;
                 default:
-                    b(this.mCustomView, this.duv);
+                    b(this.mCustomView, this.dBu);
                     break;
             }
             frameLayout.addView(this.mCustomView);
         }
     }
 
-    private void aIR() {
+    private void aLZ() {
         if (((FrameLayout) this.mRootView.findViewById(a.f.multi_auth_custom_layout)) != null) {
             this.mRootView.findViewById(a.f.multi_auth_custom_layout).setVisibility(0);
             this.mRootView.findViewById(a.f.multi_auth_agreement_layout).setVisibility(0);
             this.mRootView.findViewById(a.f.auth_custom_layout).setVisibility(8);
-            this.duv.aIM();
-            b(true, this.mRootView.findViewById(a.f.auth_scope_detail_layout), this.dwE, this.duv);
+            this.dBu.aLU();
+            b(true, this.mRootView.findViewById(a.f.auth_scope_detail_layout), this.dDD, this.dBu);
             TextView textView = (TextView) this.mRootView.findViewById(a.f.multi_auth_agreement_layout);
             textView.setVisibility(0);
-            e.a aVar = this.duv.dwo;
-            String str = aVar.dwx;
-            JSONArray jSONArray = this.duv.dwo.dwy;
+            e.a aVar = this.dBu.dDn;
+            String str = aVar.dDw;
+            JSONArray jSONArray = this.dBu.dDn.dDx;
             StringBuilder sb = new StringBuilder();
             sb.append(this.mContext.getString(a.h.swanapp_multi_auth_agreement_head));
-            if (!TextUtils.isEmpty(aVar.dww)) {
-                sb.append(aVar.dww);
+            if (!TextUtils.isEmpty(aVar.dDv)) {
+                sb.append(aVar.dDv);
             }
             if (jSONArray != null && jSONArray.length() > 0) {
                 int length = jSONArray.length();
@@ -213,8 +213,8 @@ public class f implements j {
                 }
             }
             SpannableString spannableString = new SpannableString(sb.toString());
-            if (!TextUtils.isEmpty(aVar.dww)) {
-                a(spannableString, sb, aVar.dww, aVar.detailUrl, str);
+            if (!TextUtils.isEmpty(aVar.dDv)) {
+                a(spannableString, sb, aVar.dDv, aVar.detailUrl, str);
             }
             if (jSONArray != null && jSONArray.length() > 0) {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
@@ -233,15 +233,15 @@ public class f implements j {
         }
     }
 
-    private void aIS() {
+    private void aMa() {
         FrameLayout frameLayout = (FrameLayout) this.mRootView.findViewById(a.f.auth_custom_layout);
         if (frameLayout != null) {
             this.mRootView.findViewById(a.f.multi_auth_custom_layout).setVisibility(8);
             this.mRootView.findViewById(a.f.multi_auth_agreement_layout).setVisibility(8);
             this.mRootView.findViewById(a.f.auth_custom_layout).setVisibility(0);
             this.mCustomView = View.inflate(this.mContext, a.g.swan_app_auth_scope_detail, null);
-            this.duv.aIM();
-            a(false, this.mCustomView, this.dwE, this.duv);
+            this.dBu.aLU();
+            a(false, this.mCustomView, this.dDD, this.dBu);
             frameLayout.addView(this.mCustomView);
         }
     }
@@ -249,16 +249,16 @@ public class f implements j {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, final View view, final TextView textView, final e eVar) {
         Drawable drawable;
-        if (view != null && eVar != null && eVar.dwo != null) {
-            final e.a aVar = eVar.dwo;
+        if (view != null && eVar != null && eVar.dDn != null) {
+            final e.a aVar = eVar.dDn;
             TextView textView2 = (TextView) view.findViewById(a.f.auth_scope_detail);
-            if (textView2 != null && !TextUtils.isEmpty(aVar.dwu)) {
-                if (!aVar.dwu.startsWith("XXXX   ")) {
-                    aVar.dwu = "XXXX   " + aVar.dwu;
+            if (textView2 != null && !TextUtils.isEmpty(aVar.dDt)) {
+                if (!aVar.dDt.startsWith("XXXX   ")) {
+                    aVar.dDt = "XXXX   " + aVar.dDt;
                 }
-                textView2.setText(aVar.dwu);
+                textView2.setText(aVar.dDt);
                 try {
-                    textView2.setTextColor(Color.parseColor(aVar.dwv));
+                    textView2.setTextColor(Color.parseColor(aVar.dDu));
                 } catch (RuntimeException e) {
                     if (DEBUG) {
                         throw e;
@@ -296,11 +296,11 @@ public class f implements j {
                         f.this.a(!textView.isEnabled(), view, textView, eVar);
                     }
                 }, 0, 7, 33);
-                int length = TextUtils.isEmpty(aVar.dww) ? 0 : aVar.dww.length();
-                int indexOf = aVar.dwu.indexOf(aVar.dww);
+                int length = TextUtils.isEmpty(aVar.dDv) ? 0 : aVar.dDv.length();
+                int indexOf = aVar.dDt.indexOf(aVar.dDv);
                 int i = indexOf + length;
                 try {
-                    spannableString.setSpan(new ForegroundColorSpan(Color.parseColor(aVar.dwx)), indexOf, i, 33);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.parseColor(aVar.dDw)), indexOf, i, 33);
                 } catch (RuntimeException e2) {
                     if (DEBUG) {
                         throw e2;
@@ -315,7 +315,7 @@ public class f implements j {
 
                     @Override // android.text.style.ClickableSpan
                     public void onClick(@NonNull View view2) {
-                        f.this.ae(view.getContext(), aVar.detailUrl);
+                        f.this.ah(view.getContext(), aVar.detailUrl);
                     }
                 }, indexOf, i, 33);
                 textView2.setText(spannableString);
@@ -342,7 +342,7 @@ public class f implements j {
 
                 @Override // android.text.style.ClickableSpan
                 public void onClick(@NonNull View view) {
-                    f.this.ae(com.baidu.swan.apps.runtime.d.aGI().aGG(), str2);
+                    f.this.ah(com.baidu.swan.apps.runtime.d.aJQ().aJO(), str2);
                 }
             }, indexOf, i, 33);
         } catch (RuntimeException e) {
@@ -352,22 +352,22 @@ public class f implements j {
         }
     }
 
-    public void aIT() {
+    public void aMb() {
         final TextView textView;
-        if (!TextUtils.isEmpty(this.duv.dwm) && (textView = (TextView) this.mRootView.findViewById(a.f.permission_detail)) != null) {
-            if (this.cyc != null && this.cyc.afg() != null && TextUtils.equals(this.cyc.afg().axV(), "11010020") && TextUtils.equals(this.duv.id, "mobile")) {
-                a(this.duv, this.dwC, this.mRootView, textView, this.dwA, this.mCustomView);
+        if (!TextUtils.isEmpty(this.dBu.dDl) && (textView = (TextView) this.mRootView.findViewById(a.f.permission_detail)) != null) {
+            if (this.cEU != null && this.cEU.aio() != null && TextUtils.equals(this.cEU.aio().aBe(), "11010020") && TextUtils.equals(this.dBu.id, "mobile")) {
+                a(this.dBu, this.dDB, this.mRootView, textView, this.dDz, this.mCustomView);
                 textView.setTextColor(com.baidu.swan.support.v4.a.a.getColor(this.mContext, a.c.aiapps_black));
                 return;
             }
-            if (!g(this.duv)) {
+            if (!g(this.dBu)) {
                 com.baidu.swan.apps.view.b bVar = new com.baidu.swan.apps.view.b(this.mContext, a.e.swan_app_auth_question_mark_pressed);
                 SpannableString spannableString = new SpannableString(" # ");
                 spannableString.setSpan(bVar, 1, 2, 33);
                 spannableString.setSpan(new ClickableSpan() { // from class: com.baidu.swan.apps.setting.oauth.f.6
                     @Override // android.text.style.ClickableSpan
                     public void onClick(@NonNull View view) {
-                        f.this.a(f.this.duv, f.this.dwC, f.this.mRootView, textView, f.this.dwA, f.this.mCustomView);
+                        f.this.a(f.this.dBu, f.this.dDB, f.this.mRootView, textView, f.this.dDz, f.this.mCustomView);
                     }
 
                     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -376,11 +376,11 @@ public class f implements j {
                         textPaint.setUnderlineText(false);
                     }
                 }, 0, spannableString.length(), 33);
-                this.dwC.append(spannableString);
+                this.dDB.append(spannableString);
             }
-            this.dwC.setHighlightColor(com.baidu.swan.support.v4.a.a.getColor(this.mContext, a.c.aiapps_transparent));
-            this.dwC.setMovementMethod(LinkMovementMethod.getInstance());
-            this.dwC.setLongClickable(false);
+            this.dDB.setHighlightColor(com.baidu.swan.support.v4.a.a.getColor(this.mContext, a.c.aiapps_transparent));
+            this.dDB.setMovementMethod(LinkMovementMethod.getInstance());
+            this.dDB.setLongClickable(false);
         }
     }
 
@@ -401,8 +401,8 @@ public class f implements j {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(e eVar, TextView textView, View view, TextView textView2, JSONObject jSONObject, View view2) {
         if (eVar != null) {
-            if (eVar.dwm != null) {
-                textView2.setText(Html.fromHtml(eVar.dwm));
+            if (eVar.dDl != null) {
+                textView2.setText(Html.fromHtml(eVar.dDl));
             }
             textView.setText(eVar.name);
             ((LinearLayout) view.findViewById(a.f.permission_detail_layout)).setVisibility(0);
@@ -456,9 +456,9 @@ public class f implements j {
         if (context != null && view != null && jSONObject != null) {
             final SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) view.findViewById(a.f.user_icon);
             TextView textView = (TextView) view.findViewById(a.f.user_name);
-            Pair<String, String> bS = bS(jSONObject);
-            if (bS != null) {
-                s.a((String) bS.second, new s.a() { // from class: com.baidu.swan.apps.setting.oauth.f.7
+            Pair<String, String> bU = bU(jSONObject);
+            if (bU != null) {
+                s.a((String) bU.second, new s.a() { // from class: com.baidu.swan.apps.setting.oauth.f.7
                     @Override // com.baidu.swan.apps.ap.s.a
                     public void g(String str, Bitmap bitmap) {
                         if (bitmap == null) {
@@ -471,13 +471,13 @@ public class f implements j {
                     }
                 });
                 if (textView != null) {
-                    textView.setText((CharSequence) bS.first);
+                    textView.setText((CharSequence) bU.first);
                 }
             }
         }
     }
 
-    protected Pair<String, String> bS(JSONObject jSONObject) {
+    protected Pair<String, String> bU(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject(TableDefine.DB_TABLE_USERINFO);
         if (optJSONObject == null) {
             return null;
@@ -489,7 +489,7 @@ public class f implements j {
         if (view != null && eVar != null) {
             TextView textView = (TextView) view.findViewById(a.f.user_phone_number);
             StringBuilder sb = new StringBuilder();
-            for (String str : eVar.dwk) {
+            for (String str : eVar.dDj) {
                 sb.append(str);
             }
             if (textView != null) {
@@ -500,16 +500,16 @@ public class f implements j {
 
     private void b(View view, e eVar) {
         TextView textView;
-        SwanAppConfigData ayL;
+        SwanAppConfigData aBU;
         Map<String, String> map;
         if (view != null && eVar != null && (textView = (TextView) view.findViewById(a.f.permission_function)) != null) {
-            if (TextUtils.equals(eVar.id, "mapp_location") && (ayL = com.baidu.swan.apps.v.f.azg().ayL()) != null && ayL.dse != null && (map = ayL.dse.dsh.get("scope.userLocation")) != null) {
+            if (TextUtils.equals(eVar.id, "mapp_location") && (aBU = com.baidu.swan.apps.v.f.aCp().aBU()) != null && aBU.dzf != null && (map = aBU.dzf.dzi.get("scope.userLocation")) != null) {
                 String str = map.get("desc");
                 if (!TextUtils.isEmpty(str)) {
-                    eVar.dwn = str;
+                    eVar.dDm = str;
                 }
             }
-            textView.setText(eVar.dwn);
+            textView.setText(eVar.dDm);
         }
     }
 
@@ -517,7 +517,7 @@ public class f implements j {
     public void b(boolean z, final View view, final TextView textView, final e eVar) {
         TextView textView2;
         Drawable drawable;
-        if (view != null && eVar != null && eVar.dwo != null && (textView2 = (TextView) view.findViewById(a.f.auth_scope_detail)) != null) {
+        if (view != null && eVar != null && eVar.dDn != null && (textView2 = (TextView) view.findViewById(a.f.auth_scope_detail)) != null) {
             textView2.setText("XXXX   " + this.mContext.getString(a.h.swanapp_multi_auth_agreement_desc));
             textView.setEnabled(z);
             if (z) {
@@ -559,7 +559,7 @@ public class f implements j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ae(Context context, String str) {
+    public void ah(Context context, String str) {
         if (context instanceof SwanAppActivity) {
             SwanAppActivity swanAppActivity = (SwanAppActivity) context;
             ActivityResultDispatcher resultDispatcher = swanAppActivity.getResultDispatcher();
@@ -568,13 +568,13 @@ public class f implements j {
             resultDispatcher.addConsumer(new ActivityResultConsumer() { // from class: com.baidu.swan.apps.setting.oauth.f.1
                 @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
                 public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent2) {
-                    com.baidu.swan.apps.v.f.azg().ayH();
+                    com.baidu.swan.apps.v.f.aCp().aBQ();
                     return true;
                 }
             });
-            com.baidu.swan.apps.v.f.azg().ayG();
+            com.baidu.swan.apps.v.f.aCp().aBP();
             resultDispatcher.startActivityForResult(intent);
-            swanAppActivity.overridePendingTransition(a.C0367a.aiapps_slide_in_from_right, a.C0367a.aiapps_hold);
+            swanAppActivity.overridePendingTransition(a.C0379a.aiapps_slide_in_from_right, a.C0379a.aiapps_hold);
         }
     }
 }

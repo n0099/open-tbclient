@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.media.chooser.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public interface g {
-    void an(int i, int i2);
+    void ap(int i, int i2);
 }

@@ -15,6 +15,7 @@ import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
@@ -28,6 +29,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class n {
@@ -243,7 +246,7 @@ public class n {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [564=4, 565=4, 567=4, 568=4, 569=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [567=4, 568=4, 570=4, 571=4, 572=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x01c8 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:56:0x0196 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -373,11 +376,11 @@ public class n {
         return ((float) imageFileWH[0]) * equipmentDensity >= 100.0f && f >= 3.0f && f <= 50.0f;
     }
 
-    public static boolean Be(String str) {
+    public static boolean BL(String str) {
         return str.endsWith(".heif") || str.endsWith(".heic");
     }
 
-    public static boolean Bf(String str) {
+    public static boolean BM(String str) {
         return str != null && str.endsWith(".css");
     }
 
@@ -529,34 +532,37 @@ public class n {
         } else {
             dataDirectory = null;
         }
-        if (dataDirectory.exists() && !dataDirectory.isDirectory()) {
-            dataDirectory.delete();
-        }
-        if (!dataDirectory.exists()) {
-            dataDirectory.mkdirs();
-        }
-        File file = new File(dataDirectory, str2);
-        try {
-            if ((!file.exists() || file.delete()) && file.createNewFile()) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
-                while (byteArrayOutputStream.toByteArray().length > f) {
-                    byteArrayOutputStream.reset();
-                    i -= 5;
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
-                }
-                FileOutputStream fileOutputStream = new FileOutputStream(file);
-                fileOutputStream.write(byteArrayOutputStream.toByteArray());
-                fileOutputStream.flush();
-                fileOutputStream.close();
-                return file.getAbsolutePath();
+        if (dataDirectory != null) {
+            if (dataDirectory.exists() && !dataDirectory.isDirectory()) {
+                dataDirectory.delete();
             }
-            return null;
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
-            TiebaStatic.file(e2, com.baidu.adp.lib.util.k.join("FileHelper", ".", "compressBitmapToFile", " ", file.getAbsolutePath()));
-            return null;
+            if (!dataDirectory.exists()) {
+                dataDirectory.mkdirs();
+            }
+            File file = new File(dataDirectory, str2);
+            try {
+                if ((!file.exists() || file.delete()) && file.createNewFile()) {
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
+                    while (byteArrayOutputStream.toByteArray().length > f) {
+                        byteArrayOutputStream.reset();
+                        i -= 5;
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
+                    }
+                    FileOutputStream fileOutputStream = new FileOutputStream(file);
+                    fileOutputStream.write(byteArrayOutputStream.toByteArray());
+                    fileOutputStream.flush();
+                    fileOutputStream.close();
+                    return file.getAbsolutePath();
+                }
+                return null;
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                TiebaStatic.file(e2, com.baidu.adp.lib.util.k.join("FileHelper", ".", "compressBitmapToFile", " ", file.getAbsolutePath()));
+                return null;
+            }
         }
+        return null;
     }
 
     public static String saveFileToSDOrMemory(String str, Bitmap bitmap, int i) {
@@ -659,7 +665,7 @@ public class n {
         return c(null, str, bArr);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1127=5, 1128=5, 1130=5, 1131=5, 1132=10, 1133=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1125=5, 1126=5, 1128=5, 1129=5, 1130=10, 1131=5] */
     public static String c(String str, String str2, byte[] bArr) {
         String str3 = str != null ? EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + str + "/" : EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/";
         if (!CheckTempDir(str3) || bArr == null || str2 == null) {
@@ -769,8 +775,8 @@ public class n {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1188=4, 1189=4, 1191=4, 1192=4, 1193=4, 1197=4, 1198=4, 1200=4, 1201=4, 1202=4] */
-    public static boolean v(java.lang.String r8, java.lang.String r9, boolean r10) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1186=4, 1187=4, 1189=4, 1190=4, 1191=4, 1195=4, 1196=4, 1198=4, 1199=4, 1200=4] */
+    public static boolean w(java.lang.String r8, java.lang.String r9, boolean r10) {
         /*
             r0 = 0
             r3 = 0
@@ -1003,7 +1009,7 @@ public class n {
             r1 = move-exception
             goto La0
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.core.util.n.v(java.lang.String, java.lang.String, boolean):boolean");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.core.util.n.w(java.lang.String, java.lang.String, boolean):boolean");
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -1014,7 +1020,7 @@ public class n {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1244=4, 1245=4, 1247=4, 1248=4, 1249=4, 1253=4, 1254=4, 1256=4, 1257=4, 1258=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1242=4, 1243=4, 1245=4, 1246=4, 1247=4, 1251=4, 1252=4, 1254=4, 1255=4, 1256=4] */
     public static boolean copyFile(java.lang.String r7, java.lang.String r8) {
         /*
             r0 = 0
@@ -1249,7 +1255,7 @@ public class n {
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.core.util.n.copyFile(java.lang.String, java.lang.String):boolean");
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1324=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1322=5] */
     public static String saveFile(String str, InputStream inputStream) {
         FileOutputStream fileOutputStream;
         Throwable th;
@@ -1382,8 +1388,8 @@ public class n {
         }
     }
 
-    public static boolean dO(String str, String str2) {
-        return v(str, str2, false);
+    public static boolean dV(String str, String str2) {
+        return w(str, str2, false);
     }
 
     public static InputStream GetStreamFromFile(String str) {
@@ -1477,7 +1483,7 @@ public class n {
         return false;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1632=5, 1628=5, 1629=5, 1631=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1626=5, 1627=5, 1629=5, 1630=5] */
     public static boolean saveFileByAbsolutePath(String str, byte[] bArr) {
         FileOutputStream fileOutputStream = null;
         boolean z = false;
@@ -1820,6 +1826,46 @@ public class n {
             }
             return str2;
         }
+
+        public static String btd() {
+            File[] listFiles;
+            try {
+                File file = new File(PACKAGE_DATA_DIR + "/" + FileHelper.DataDir.PACKAGE_VERSION_CUR_DIR);
+                if (!file.exists() || !file.isDirectory() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
+                    return null;
+                }
+                Arrays.sort(listFiles, new C0590a());
+                File file2 = listFiles[0];
+                if (file2 != null) {
+                    return file2.getName();
+                }
+                return null;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+
+        /* renamed from: com.baidu.tbadk.core.util.n$a$a  reason: collision with other inner class name */
+        /* loaded from: classes.dex */
+        static class C0590a implements Comparator<File> {
+            C0590a() {
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // java.util.Comparator
+            /* renamed from: c */
+            public int compare(File file, File file2) {
+                long lastModified = file.lastModified() - file2.lastModified();
+                if (lastModified > 0) {
+                    return 1;
+                }
+                if (lastModified == 0) {
+                    return 0;
+                }
+                return -1;
+            }
+        }
     }
 
     public static int saveImageFileByUser(String str, byte[] bArr, Context context) {
@@ -1835,7 +1881,7 @@ public class n {
                 str2 = ".gif";
             }
             if (com.baidu.adp.lib.util.l.isDataWebpFormat(bArr) && (decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length)) != null) {
-                bArr = com.baidu.adp.lib.util.d.oi().Bitmap2Bytes(decodeByteArray, 100);
+                bArr = com.baidu.adp.lib.util.d.oh().Bitmap2Bytes(decodeByteArray, 100);
                 decodeByteArray.recycle();
             }
             String nameMd5FromUrl = aw.getNameMd5FromUrl(str);
@@ -1882,15 +1928,15 @@ public class n {
         }
         final int length = strArr.length;
         MediaScannerConnection.scanFile(TbadkCoreApplication.getInst(), strArr, null, new MediaScannerConnection.OnScanCompletedListener() { // from class: com.baidu.tbadk.core.util.n.1
-            int eKN = 0;
+            int eRZ = 0;
 
             @Override // android.media.MediaScannerConnection.OnScanCompletedListener
             public void onScanCompleted(String str3, Uri uri) {
-                this.eKN++;
+                this.eRZ++;
                 if (uri != null) {
                     hashMap.put(str3, uri.toString());
                 }
-                if (this.eKN == length) {
+                if (this.eRZ == length) {
                     com.baidu.adp.lib.f.e.mY().post(new Runnable() { // from class: com.baidu.tbadk.core.util.n.1.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -1994,7 +2040,7 @@ public class n {
         return str.toLowerCase().startsWith("content:") || str.toLowerCase().startsWith("file:");
     }
 
-    public static String Bg(String str) {
+    public static String BN(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -2002,7 +2048,7 @@ public class n {
         return parse.getLastPathSegment();
     }
 
-    public static String Bh(String str) {
+    public static String BO(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -2010,18 +2056,18 @@ public class n {
         return (TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/") + parse.getLastPathSegment();
     }
 
-    public static void Bi(@NonNull String str) {
+    public static void BP(@NonNull String str) {
         if (str != null) {
-            Q(new File(CACHE_DIR + "/" + str));
+            P(new File(CACHE_DIR + "/" + str));
         }
     }
 
-    private static void Q(File file) {
+    private static void P(File file) {
         File[] listFiles;
         if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    Q(file2);
+                    P(file2);
                     file2.delete();
                 } else {
                     file2.delete();

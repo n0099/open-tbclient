@@ -13,7 +13,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class c extends aa {
     public c(j jVar) {
         super(jVar, "/swanAPI/debug/replaceGameCore");
@@ -23,18 +23,18 @@ public class c extends aa {
     public boolean a(final Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         JSONObject b = b(unitedSchemeEntity, "params");
         if (b == null) {
-            com.baidu.swan.apps.res.widget.b.d.k(context, a.h.aiapps_debug_swan_core_params_empty).showToast();
+            com.baidu.swan.apps.res.widget.b.d.t(context, a.h.aiapps_debug_swan_core_params_empty).showToast();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "params is null");
             return false;
         }
         final String optString = b.optString("url");
         final String optString2 = b.optString("cb");
         if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
-            com.baidu.swan.apps.res.widget.b.d.k(context, a.h.aiapps_debug_swan_core_url_empty).showToast();
+            com.baidu.swan.apps.res.widget.b.d.t(context, a.h.aiapps_debug_swan_core_url_empty).showToast();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "game core url or cb is null");
             return false;
         }
-        eVar.aGY().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.c.1
+        eVar.aKg().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
@@ -54,29 +54,29 @@ public class c extends aa {
     public void a(final Context context, String str, final String str2, final CallbackHandler callbackHandler) {
         com.baidu.swan.games.l.a.c(str, new d.b() { // from class: com.baidu.swan.apps.extcore.c.a.c.2
             @Override // com.baidu.swan.apps.r.d.b
-            public void eW(int i) {
+            public void fu(int i) {
             }
 
             @Override // com.baidu.swan.apps.r.d.b
             public void onSuccess() {
-                File atz = com.baidu.swan.games.k.a.b.atz();
-                File atx = com.baidu.swan.games.k.a.b.atx();
+                File awH = com.baidu.swan.games.k.a.b.awH();
+                File awF = com.baidu.swan.games.k.a.b.awF();
                 if (c.DEBUG) {
-                    Log.d("replaceGameCore", "gameCoreZipFile: " + atz + " gameCoreDir: " + atx);
+                    Log.d("replaceGameCore", "gameCoreZipFile: " + awH + " gameCoreDir: " + awF);
                 }
-                if (atz.exists() && com.baidu.swan.c.d.unzipFile(atz.getPath(), atx.getPath())) {
-                    com.baidu.swan.apps.ad.a.a.gc(true);
-                    com.baidu.swan.apps.res.widget.b.d.k(context, a.h.aiapps_debug_game_core_download_success).showToast();
+                if (awH.exists() && com.baidu.swan.c.d.unzipFile(awH.getPath(), awF.getPath())) {
+                    com.baidu.swan.apps.ad.a.a.gr(true);
+                    com.baidu.swan.apps.res.widget.b.d.t(context, a.h.aiapps_debug_game_core_download_success).showToast();
                     callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                     return;
                 }
-                com.baidu.swan.apps.res.widget.b.d.k(context, a.h.aiapps_debug_game_core_download_failed).showToast();
+                com.baidu.swan.apps.res.widget.b.d.t(context, a.h.aiapps_debug_game_core_download_failed).showToast();
                 callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
 
             @Override // com.baidu.swan.apps.r.d.b
             public void onFailed() {
-                com.baidu.swan.apps.res.widget.b.d.k(context, a.h.aiapps_debug_game_core_download_failed).showToast();
+                com.baidu.swan.apps.res.widget.b.d.t(context, a.h.aiapps_debug_game_core_download_failed).showToast();
                 callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
             }
         });

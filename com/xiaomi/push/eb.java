@@ -17,7 +17,7 @@ public class eb extends ed {
         Bundle extras;
         StringBuilder sb = new StringBuilder();
         try {
-            Intent registerReceiver = this.f234a.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            Intent registerReceiver = this.f232a.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             if (registerReceiver != null && (extras = registerReceiver.getExtras()) != null) {
                 Set<String> keySet = extras.keySet();
                 JSONObject jSONObject = new JSONObject();
@@ -40,19 +40,19 @@ public class eb extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo169a() {
+    public int mo159a() {
         return 20;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo169a() {
+    public ho mo159a() {
         return ho.Battery;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo169a() {
+    public String mo159a() {
         return b();
     }
 }

@@ -6,7 +6,7 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class a {
     public static void a(Closeable closeable) {
         if (closeable == null) {

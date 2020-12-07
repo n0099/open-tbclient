@@ -5,7 +5,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import com.baidu.swan.apps.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class z {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 

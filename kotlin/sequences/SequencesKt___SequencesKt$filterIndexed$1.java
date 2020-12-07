@@ -1,29 +1,28 @@
 package kotlin.sequences;
 
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
-import kotlin.collections.ac;
-import kotlin.jvm.a.m;
+import kotlin.collections.x;
 import kotlin.jvm.internal.Lambda;
-import kotlin.jvm.internal.q;
-@kotlin.h
-/* loaded from: classes9.dex */
-final class SequencesKt___SequencesKt$filterIndexed$1 extends Lambda implements kotlin.jvm.a.b<ac<? extends T>, Boolean> {
-    final /* synthetic */ m $predicate;
+import kotlin.jvm.internal.p;
+@kotlin.e
+/* loaded from: classes17.dex */
+final class SequencesKt___SequencesKt$filterIndexed$1 extends Lambda implements kotlin.jvm.a.b<x<? extends T>, Boolean> {
+    final /* synthetic */ kotlin.jvm.a.c $predicate;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    SequencesKt___SequencesKt$filterIndexed$1(m mVar) {
+    SequencesKt___SequencesKt$filterIndexed$1(kotlin.jvm.a.c cVar) {
         super(1);
-        this.$predicate = mVar;
+        this.$predicate = cVar;
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.a.b
     public /* synthetic */ Boolean invoke(Object obj) {
-        return Boolean.valueOf(invoke((ac) obj));
+        return Boolean.valueOf(invoke((x) obj));
     }
 
-    public final boolean invoke(ac<? extends T> acVar) {
-        q.n(acVar, AdvanceSetting.NETWORK_TYPE);
-        return ((Boolean) this.$predicate.invoke(Integer.valueOf(acVar.getIndex()), acVar.getValue())).booleanValue();
+    public final boolean invoke(x<? extends T> xVar) {
+        p.o(xVar, AdvanceSetting.NETWORK_TYPE);
+        return ((Boolean) this.$predicate.invoke(Integer.valueOf(xVar.getIndex()), xVar.getValue())).booleanValue();
     }
 }

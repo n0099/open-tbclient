@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.personcenter.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface a {
-    void wU(int i);
+    void xz(int i);
 }

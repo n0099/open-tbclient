@@ -6,7 +6,7 @@ import org.json.JSONObject;
 class w implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private z f2632a = z.f2636a;
+    private z f2634a = z.f2638a;
     private Object b;
     private Class<?> c;
 
@@ -27,7 +27,7 @@ class w implements a {
             a(new Object[]{context, jSONObject}, "startDataAnynalyze", new Class[]{Context.class, JSONObject.class});
         } catch (Exception e) {
             bb.c().b(e);
-            this.f2632a.a(context, jSONObject);
+            this.f2634a.a(context, jSONObject);
         }
     }
 
@@ -37,7 +37,7 @@ class w implements a {
             a(new Object[]{context, str}, "saveRemoteConfig2", new Class[]{Context.class, String.class});
         } catch (Exception e) {
             bb.c().b(e);
-            this.f2632a.a(context, str);
+            this.f2634a.a(context, str);
         }
     }
 
@@ -47,7 +47,7 @@ class w implements a {
             a(new Object[]{context, str}, "saveRemoteSign", new Class[]{Context.class, String.class});
         } catch (Exception e) {
             bb.c().b(e);
-            this.f2632a.b(context, str);
+            this.f2634a.b(context, str);
         }
     }
 
@@ -57,7 +57,7 @@ class w implements a {
             a(new Object[]{context, Long.valueOf(j)}, "setLastUpdateTime", new Class[]{Context.class, Long.TYPE});
         } catch (Exception e) {
             bb.c().b(e);
-            this.f2632a.a(context, j);
+            this.f2634a.a(context, j);
         }
     }
 
@@ -67,7 +67,7 @@ class w implements a {
             return ((Boolean) a(new Object[]{context}, "needUpdate", new Class[]{Context.class})).booleanValue();
         } catch (Exception e) {
             bb.c().b(e);
-            return this.f2632a.a(context);
+            return this.f2634a.a(context);
         }
     }
 
@@ -77,7 +77,7 @@ class w implements a {
             return ((Boolean) a(new Object[]{context}, "canStartService", new Class[]{Context.class})).booleanValue();
         } catch (Exception e) {
             bb.c().b(e);
-            return this.f2632a.b(context);
+            return this.f2634a.b(context);
         }
     }
 

@@ -5,28 +5,28 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class e<T> implements j<b<T>> {
-    private final List<j<b<T>>> oNR;
+    private final List<j<b<T>>> pcZ;
 
     private e(List<j<b<T>>> list) {
         com.facebook.common.internal.g.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
-        this.oNR = list;
+        this.pcZ = list;
     }
 
-    public static <T> e<T> gy(List<j<b<T>>> list) {
+    public static <T> e<T> gN(List<j<b<T>>> list) {
         return new e<>(list);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: ekF */
+    /* renamed from: equ */
     public b<T> get() {
         return new a();
     }
 
     public int hashCode() {
-        return this.oNR.hashCode();
+        return this.pcZ.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -36,23 +36,23 @@ public class e<T> implements j<b<T>> {
         if (!(obj instanceof e)) {
             return false;
         }
-        return com.facebook.common.internal.f.equal(this.oNR, ((e) obj).oNR);
+        return com.facebook.common.internal.f.equal(this.pcZ, ((e) obj).pcZ);
     }
 
     public String toString() {
-        return com.facebook.common.internal.f.ba(this).F("list", this.oNR).toString();
+        return com.facebook.common.internal.f.ba(this).E("list", this.pcZ).toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @ThreadSafe
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public class a extends AbstractDataSource<T> {
         private int mIndex = 0;
-        private b<T> oNS = null;
-        private b<T> oNT = null;
+        private b<T> pda = null;
+        private b<T> pdb = null;
 
         public a() {
-            if (!ekG()) {
+            if (!eqv()) {
                 x(new RuntimeException("No data source supplier or supplier returned null."));
             }
         }
@@ -60,42 +60,42 @@ public class e<T> implements j<b<T>> {
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
         @Nullable
         public synchronized T getResult() {
-            b<T> ekI;
-            ekI = ekI();
-            return ekI != null ? ekI.getResult() : null;
+            b<T> eqx;
+            eqx = eqx();
+            return eqx != null ? eqx.getResult() : null;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public synchronized boolean ekz() {
+        public synchronized boolean eqo() {
             boolean z;
-            b<T> ekI = ekI();
-            if (ekI != null) {
-                z = ekI.ekz();
+            b<T> eqx = eqx();
+            if (eqx != null) {
+                z = eqx.eqo();
             }
             return z;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public boolean aoH() {
+        public boolean arP() {
             synchronized (this) {
-                if (!super.aoH()) {
+                if (!super.arP()) {
                     return false;
                 }
-                b<T> bVar = this.oNS;
-                this.oNS = null;
-                b<T> bVar2 = this.oNT;
-                this.oNT = null;
+                b<T> bVar = this.pda;
+                this.pda = null;
+                b<T> bVar2 = this.pdb;
+                this.pdb = null;
                 l(bVar2);
                 l(bVar);
                 return true;
             }
         }
 
-        private boolean ekG() {
-            j<b<T>> ekH = ekH();
-            b<T> bVar = ekH != null ? ekH.get() : null;
+        private boolean eqv() {
+            j<b<T>> eqw = eqw();
+            b<T> bVar = eqw != null ? eqw.get() : null;
             if (h(bVar) && bVar != null) {
-                bVar.a(new C0971a(), com.facebook.common.b.a.ejT());
+                bVar.a(new C0988a(), com.facebook.common.b.a.epI());
                 return true;
             }
             l(bVar);
@@ -103,12 +103,12 @@ public class e<T> implements j<b<T>> {
         }
 
         @Nullable
-        private synchronized j<b<T>> ekH() {
+        private synchronized j<b<T>> eqw() {
             j<b<T>> jVar;
-            if (isClosed() || this.mIndex >= e.this.oNR.size()) {
+            if (isClosed() || this.mIndex >= e.this.pcZ.size()) {
                 jVar = null;
             } else {
-                List list = e.this.oNR;
+                List list = e.this.pcZ;
                 int i = this.mIndex;
                 this.mIndex = i + 1;
                 jVar = (j) list.get(i);
@@ -121,7 +121,7 @@ public class e<T> implements j<b<T>> {
             if (isClosed()) {
                 z = false;
             } else {
-                this.oNS = bVar;
+                this.pda = bVar;
                 z = true;
             }
             return z;
@@ -129,27 +129,27 @@ public class e<T> implements j<b<T>> {
 
         private synchronized boolean i(b<T> bVar) {
             boolean z;
-            if (isClosed() || bVar != this.oNS) {
+            if (isClosed() || bVar != this.pda) {
                 z = false;
             } else {
-                this.oNS = null;
+                this.pda = null;
                 z = true;
             }
             return z;
         }
 
         @Nullable
-        private synchronized b<T> ekI() {
-            return this.oNT;
+        private synchronized b<T> eqx() {
+            return this.pdb;
         }
 
         private void a(b<T> bVar, boolean z) {
             b<T> bVar2 = null;
             synchronized (this) {
-                if (bVar == this.oNS && bVar != this.oNT) {
-                    if (this.oNT == null || z) {
-                        bVar2 = this.oNT;
-                        this.oNT = bVar;
+                if (bVar == this.pda && bVar != this.pdb) {
+                    if (this.pdb == null || z) {
+                        bVar2 = this.pdb;
+                        this.pdb = bVar;
                     }
                     l(bVar2);
                 }
@@ -159,11 +159,11 @@ public class e<T> implements j<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void j(b<T> bVar) {
             if (i(bVar)) {
-                if (bVar != ekI()) {
+                if (bVar != eqx()) {
                     l(bVar);
                 }
-                if (!ekG()) {
-                    x(bVar.ekB());
+                if (!eqv()) {
+                    x(bVar.eqq());
                 }
             }
         }
@@ -171,22 +171,22 @@ public class e<T> implements j<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void k(b<T> bVar) {
             a(bVar, bVar.isFinished());
-            if (bVar == ekI()) {
+            if (bVar == eqx()) {
                 b((a) null, bVar.isFinished());
             }
         }
 
         private void l(b<T> bVar) {
             if (bVar != null) {
-                bVar.aoH();
+                bVar.arP();
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.datasource.e$a$a  reason: collision with other inner class name */
-        /* loaded from: classes12.dex */
-        public class C0971a implements d<T> {
-            private C0971a() {
+        /* loaded from: classes19.dex */
+        public class C0988a implements d<T> {
+            private C0988a() {
             }
 
             @Override // com.facebook.datasource.d
@@ -200,7 +200,7 @@ public class e<T> implements j<b<T>> {
 
             @Override // com.facebook.datasource.d
             public void d(b<T> bVar) {
-                if (bVar.ekz()) {
+                if (bVar.eqo()) {
                     a.this.k(bVar);
                 } else if (bVar.isFinished()) {
                     a.this.j(bVar);
@@ -209,7 +209,7 @@ public class e<T> implements j<b<T>> {
 
             @Override // com.facebook.datasource.d
             public void f(b<T> bVar) {
-                a.this.bp(Math.max(a.this.getProgress(), bVar.getProgress()));
+                a.this.bq(Math.max(a.this.getProgress(), bVar.getProgress()));
             }
         }
     }

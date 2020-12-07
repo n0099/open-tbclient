@@ -7,12 +7,12 @@ import java.util.Set;
 import java.util.TreeSet;
 /* loaded from: classes.dex */
 public class b implements c {
-    private Cursor Kg;
+    private Cursor KZ;
     private final Set<String> keySet;
     private final ContentValues values;
 
     public b(Cursor cursor) {
-        this.Kg = cursor;
+        this.KZ = cursor;
         this.values = null;
         this.keySet = new TreeSet();
         if (cursor != null) {
@@ -49,53 +49,53 @@ public class b implements c {
     public Object getObject(String str) {
         Object valueOf;
         Object string;
-        int columnIndex = this.Kg.getColumnIndex(str);
-        if (columnIndex <= 0 || columnIndex >= this.Kg.getColumnCount()) {
+        int columnIndex = this.KZ.getColumnIndex(str);
+        if (columnIndex <= 0 || columnIndex >= this.KZ.getColumnCount()) {
             return null;
         }
         if (0 == 0) {
             try {
-                valueOf = Short.valueOf(this.Kg.getShort(columnIndex));
+                valueOf = Short.valueOf(this.KZ.getShort(columnIndex));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Integer.valueOf(this.Kg.getInt(columnIndex));
+                    valueOf = Integer.valueOf(this.KZ.getInt(columnIndex));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Long.valueOf(this.Kg.getLong(columnIndex));
+                    valueOf = Long.valueOf(this.KZ.getLong(columnIndex));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Float.valueOf(this.Kg.getFloat(columnIndex));
+                    valueOf = Float.valueOf(this.KZ.getFloat(columnIndex));
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Double.valueOf(this.Kg.getDouble(columnIndex));
+                    valueOf = Double.valueOf(this.KZ.getDouble(columnIndex));
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    string = this.Kg.getString(columnIndex);
+                    string = this.KZ.getString(columnIndex);
                 } catch (Exception e6) {
                     e6.printStackTrace();
                 }
                 if (string == null) {
                     try {
-                        return this.Kg.getBlob(columnIndex);
+                        return this.KZ.getBlob(columnIndex);
                     } catch (Exception e7) {
                         e7.printStackTrace();
                         return string;
@@ -124,7 +124,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
-    public void f(String str, Object obj) {
+    public void e(String str, Object obj) {
         if (str != null) {
             if (obj == null) {
                 this.values.putNull(str);

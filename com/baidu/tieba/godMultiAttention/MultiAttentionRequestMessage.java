@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.MFollow.DataReq;
 import tbclient.MFollow.MFollowReqIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class MultiAttentionRequestMessage extends NetMessage {
     private boolean isAttentionAll;
     private List<String> portraitList;

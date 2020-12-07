@@ -10,8 +10,8 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class CharmRankView extends LinearLayout {
-    private TextView ajV;
-    private ImageView nMc;
+    private TextView akV;
+    private ImageView oai;
 
     public CharmRankView(Context context) {
         super(context);
@@ -25,8 +25,8 @@ public class CharmRankView extends LinearLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyin_ala_liveroom_charm_rank_layout, this);
-        this.nMc = (ImageView) findViewById(a.f.iv_icon);
-        this.ajV = (TextView) findViewById(a.f.tv_text);
+        this.oai = (ImageView) findViewById(a.f.iv_icon);
+        this.akV = (TextView) findViewById(a.f.tv_text);
     }
 
     public void destory() {

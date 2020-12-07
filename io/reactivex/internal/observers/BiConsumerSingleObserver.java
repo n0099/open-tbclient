@@ -4,12 +4,12 @@ import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class BiConsumerSingleObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T> {
     private static final long serialVersionUID = 4943102778943297569L;
-    final io.reactivex.c.b<? super T, ? super Throwable> onCallback;
+    final io.reactivex.b.b<? super T, ? super Throwable> onCallback;
 
-    public BiConsumerSingleObserver(io.reactivex.c.b<? super T, ? super Throwable> bVar) {
+    public BiConsumerSingleObserver(io.reactivex.b.b<? super T, ? super Throwable> bVar) {
         this.onCallback = bVar;
     }
 
@@ -20,7 +20,7 @@ public final class BiConsumerSingleObserver<T> extends AtomicReference<io.reacti
             this.onCallback.i(null, th);
         } catch (Throwable th2) {
             io.reactivex.exceptions.a.J(th2);
-            io.reactivex.e.a.onError(new CompositeException(th, th2));
+            io.reactivex.d.a.onError(new CompositeException(th, th2));
         }
     }
 
@@ -36,7 +36,7 @@ public final class BiConsumerSingleObserver<T> extends AtomicReference<io.reacti
             this.onCallback.i(t, null);
         } catch (Throwable th) {
             io.reactivex.exceptions.a.J(th);
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
     }
 

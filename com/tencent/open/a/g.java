@@ -5,23 +5,23 @@ import java.io.Writer;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class g implements Iterable<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    private ConcurrentLinkedQueue<String> f4581a;
+    private ConcurrentLinkedQueue<String> f4351a;
     private AtomicInteger b;
 
     public g() {
-        this.f4581a = null;
+        this.f4351a = null;
         this.b = null;
-        this.f4581a = new ConcurrentLinkedQueue<>();
+        this.f4351a = new ConcurrentLinkedQueue<>();
         this.b = new AtomicInteger(0);
     }
 
     public int a(String str) {
         int length = str.length();
-        this.f4581a.add(str);
+        this.f4351a.add(str);
         return this.b.addAndGet(length);
     }
 
@@ -64,12 +64,12 @@ public class g implements Iterable<String> {
     }
 
     public void b() {
-        this.f4581a.clear();
+        this.f4351a.clear();
         this.b.set(0);
     }
 
     @Override // java.lang.Iterable
     public Iterator<String> iterator() {
-        return this.f4581a.iterator();
+        return this.f4351a.iterator();
     }
 }

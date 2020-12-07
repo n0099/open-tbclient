@@ -1,7 +1,5 @@
 package io.flutter.embedding.engine.systemchannels;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import io.flutter.Log;
 import io.flutter.embedding.engine.FlutterJNI;
 import io.flutter.embedding.engine.dart.DartExecutor;
@@ -9,19 +7,16 @@ import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.StandardMessageCodec;
 import io.flutter.view.AccessibilityBridge;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class AccessibilityChannel {
     private static final String TAG = "AccessibilityChannel";
-    @NonNull
     public final BasicMessageChannel<Object> channel;
-    @NonNull
     public final FlutterJNI flutterJNI;
-    @Nullable
     private AccessibilityMessageHandler handler;
     private final BasicMessageChannel.MessageHandler<Object> parsingMessageHandler = new BasicMessageChannel.MessageHandler<Object>() { // from class: io.flutter.embedding.engine.systemchannels.AccessibilityChannel.1
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
         @Override // io.flutter.plugin.common.BasicMessageChannel.MessageHandler
-        public void onMessage(@Nullable Object obj, @NonNull BasicMessageChannel.Reply<Object> reply) {
+        public void onMessage(Object obj, BasicMessageChannel.Reply<Object> reply) {
             char c;
             if (AccessibilityChannel.this.handler != null) {
                 HashMap hashMap = (HashMap) obj;
@@ -97,18 +92,18 @@ public class AccessibilityChannel {
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface AccessibilityMessageHandler extends FlutterJNI.AccessibilityDelegate {
-        void announce(@NonNull String str);
+        void announce(String str);
 
         void onLongPress(int i);
 
         void onTap(int i);
 
-        void onTooltip(@NonNull String str);
+        void onTooltip(String str);
     }
 
-    public AccessibilityChannel(@NonNull DartExecutor dartExecutor, @NonNull FlutterJNI flutterJNI) {
+    public AccessibilityChannel(DartExecutor dartExecutor, FlutterJNI flutterJNI) {
         this.channel = new BasicMessageChannel<>(dartExecutor, "flutter/accessibility", StandardMessageCodec.INSTANCE);
         this.channel.setMessageHandler(this.parsingMessageHandler);
         this.flutterJNI = flutterJNI;
@@ -126,15 +121,15 @@ public class AccessibilityChannel {
         this.flutterJNI.setAccessibilityFeatures(i);
     }
 
-    public void dispatchSemanticsAction(int i, @NonNull AccessibilityBridge.Action action) {
+    public void dispatchSemanticsAction(int i, AccessibilityBridge.Action action) {
         this.flutterJNI.dispatchSemanticsAction(i, action);
     }
 
-    public void dispatchSemanticsAction(int i, @NonNull AccessibilityBridge.Action action, @Nullable Object obj) {
+    public void dispatchSemanticsAction(int i, AccessibilityBridge.Action action, Object obj) {
         this.flutterJNI.dispatchSemanticsAction(i, action, obj);
     }
 
-    public void setAccessibilityMessageHandler(@Nullable AccessibilityMessageHandler accessibilityMessageHandler) {
+    public void setAccessibilityMessageHandler(AccessibilityMessageHandler accessibilityMessageHandler) {
         this.handler = accessibilityMessageHandler;
         this.flutterJNI.setAccessibilityDelegate(accessibilityMessageHandler);
     }

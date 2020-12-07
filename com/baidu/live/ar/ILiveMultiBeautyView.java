@@ -7,9 +7,9 @@ import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
 public abstract class ILiveMultiBeautyView extends LinearLayout {
-    public abstract void BQ();
+    public abstract void DA();
 
-    public abstract void BR();
+    public abstract void DB();
 
     public abstract void b(short s);
 

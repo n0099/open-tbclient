@@ -9,7 +9,7 @@ import java.util.Comparator;
 import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public abstract class a {
-    public static Comparator<a> avr = new Comparator<a>() { // from class: com.baidu.helios.channels.a.1
+    public static Comparator<a> awp = new Comparator<a>() { // from class: com.baidu.helios.channels.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -18,28 +18,28 @@ public abstract class a {
             return priority != 0 ? priority > 0 ? -1 : 1 : aVar.getName().compareTo(aVar2.getName());
         }
     };
-    protected C0146a avp;
-    protected a.C0151a avq;
+    protected C0144a awn;
+    protected a.C0149a awo;
     private final String b;
     private long c;
 
     /* renamed from: com.baidu.helios.channels.a$a  reason: collision with other inner class name */
     /* loaded from: classes14.dex */
-    public static class C0146a {
+    public static class C0144a {
         public Context applicationContext;
-        public com.baidu.helios.common.c.a avs;
-        public com.baidu.helios.ids.b avt;
+        public com.baidu.helios.common.c.a awq;
+        public com.baidu.helios.ids.b awr;
     }
 
     /* loaded from: classes14.dex */
     public static abstract class b {
-        private a.C0151a auZ;
+        private a.C0149a avX;
         private String b;
         private String c;
         private boolean d = true;
 
-        public b(a.C0151a c0151a, String str) {
-            this.auZ = c0151a;
+        public b(a.C0149a c0149a, String str) {
+            this.avX = c0149a;
             this.b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
@@ -52,11 +52,11 @@ public abstract class a {
 
         public abstract void k(JSONObject jSONObject);
 
-        public boolean zy() {
-            String q = this.auZ.q(this.c, true);
-            if (!TextUtils.isEmpty(q)) {
+        public boolean zq() {
+            String p = this.avX.p(this.c, true);
+            if (!TextUtils.isEmpty(p)) {
                 try {
-                    j(new JSONObject(q));
+                    j(new JSONObject(p));
                     aY(false);
                     return true;
                 } catch (Exception e) {
@@ -65,12 +65,12 @@ public abstract class a {
             return false;
         }
 
-        public boolean zz() {
+        public boolean zr() {
             if (this.d) {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     k(jSONObject);
-                    this.auZ.d(this.c, jSONObject.toString(), true);
+                    this.avX.d(this.c, jSONObject.toString(), true);
                     aY(false);
                     return true;
                 } catch (Exception e) {
@@ -92,17 +92,17 @@ public abstract class a {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f1797a;
+        private int f1799a;
         private int b;
         public Exception exception;
 
         public e(int i, int i2, Exception exc) {
-            this.f1797a = i;
+            this.f1799a = i;
             this.b = i2;
             this.exception = exc;
         }
 
-        public static e dm(int i) {
+        public static e dq(int i) {
             return new e(-1, i, null);
         }
 
@@ -110,12 +110,12 @@ public abstract class a {
             return new e(-1, 0, exc);
         }
 
-        public static e zA() {
+        public static e zs() {
             return new e(0, 0, null);
         }
 
-        public static e zB() {
-            return dm(0);
+        public static e zt() {
+            return dq(0);
         }
     }
 
@@ -136,7 +136,7 @@ public abstract class a {
             this.exception = exc;
         }
 
-        public static g dn(int i) {
+        public static g dr(int i) {
             return new g(i, null, null);
         }
 
@@ -144,7 +144,7 @@ public abstract class a {
             return new g(i, null, exc);
         }
 
-        public static g fv(String str) {
+        public static g fz(String str) {
             return new g(0, str, null);
         }
 
@@ -166,9 +166,9 @@ public abstract class a {
 
     public abstract g a(String str, f fVar);
 
-    public final void a(C0146a c0146a) {
-        this.avp = c0146a;
-        this.avq = c0146a.avs.zU().fx(IXAdRequestInfo.CS);
+    public final void a(C0144a c0144a) {
+        this.awn = c0144a;
+        this.awo = c0144a.awq.zO().fB(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);

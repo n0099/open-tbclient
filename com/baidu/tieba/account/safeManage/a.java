@@ -12,17 +12,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.setting.im.more.ResponsedPrivacyHttpMessage;
 import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a implements View.OnClickListener {
-    private b fRd;
-    private AccountSafeModel fRe;
+    private b fZm;
+    private AccountSafeModel fZn;
     private final BaseActivity mActivity;
     private com.baidu.adp.framework.listener.a mNetMessagelistener = new com.baidu.adp.framework.listener.a(1002501, CmdConfigSocket.CMD_GET_PRIVATE_INFO) { // from class: com.baidu.tieba.account.safeManage.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorString;
-            if (a.this.fRe != null) {
-                a.this.fRe.setLoading(false);
+            if (a.this.fZn != null) {
+                a.this.fZn.setLoading(false);
             }
             a.this.mActivity.closeLoadingDialog();
             if (responsedMessage != null) {
@@ -42,11 +42,11 @@ public class a implements View.OnClickListener {
                 if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                     aVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                 }
-                if (a.this.fRe != null) {
-                    a.this.fRe.a(aVar);
+                if (a.this.fZn != null) {
+                    a.this.fZn.a(aVar);
                 }
-                if (a.this.fRd != null && a.this.fRe != null && a.this.fRe.bIy() != null) {
-                    a.this.fRd.a(a.this.fRe.bIy().bIC());
+                if (a.this.fZm != null && a.this.fZn != null && a.this.fZn.bMg() != null) {
+                    a.this.fZm.a(a.this.fZn.bMg().bMk());
                 }
             }
         }
@@ -55,38 +55,38 @@ public class a implements View.OnClickListener {
     public a(BaseActivity baseActivity) {
         this.mActivity = baseActivity;
         this.mActivity.registerListener(this.mNetMessagelistener);
-        this.fRd = new b(this.mActivity, this);
-        this.fRe = new AccountSafeModel(this.mActivity);
+        this.fZm = new b(this.mActivity, this);
+        this.fZn = new AccountSafeModel(this.mActivity);
         if (j.isNetWorkAvailable()) {
-            bID();
+            bMl();
         } else {
             this.mActivity.showToast(R.string.neterror);
         }
     }
 
     public View getRootView() {
-        return this.fRd.getView();
+        return this.fZm.getView();
     }
 
-    private void bID() {
-        if (this.fRe != null && !this.fRe.isLoading()) {
-            this.fRe.bIA();
+    private void bMl() {
+        if (this.fZn != null && !this.fZn.isLoading()) {
+            this.fZn.bMi();
         }
     }
 
     public void onDestroy() {
         this.mActivity.closeLoadingDialog();
-        if (this.fRe != null) {
-            this.fRe.cancelLoadData();
+        if (this.fZn != null) {
+            this.fZn.cancelLoadData();
         }
-        if (this.fRd != null) {
-            this.fRd.release();
+        if (this.fZm != null) {
+            this.fZm.release();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.fRd != null) {
-            this.fRd.rx(i);
+        if (this.fZm != null) {
+            this.fZm.rY(i);
         }
     }
 
@@ -97,10 +97,10 @@ public class a implements View.OnClickListener {
             if (!j.isNetWorkAvailable()) {
                 this.mActivity.showToast(R.string.neterror);
             } else {
-                bf.bqF().b(this.mActivity.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
+                bf.bua().b(this.mActivity.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
             }
         } else if (view.getId() == R.id.account_status) {
-            AntiHelper.bk(this.mActivity, this.fRe != null ? this.fRe.Dz() : "");
+            AntiHelper.bo(this.mActivity, this.fZn != null ? this.fZn.Fk() : "");
         }
     }
 }

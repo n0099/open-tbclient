@@ -7,11 +7,11 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class SwipeDismissTouchListener implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2044a;
+    private int f2046a;
     private int b;
     private int c;
     private long d;
@@ -28,7 +28,7 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
     private boolean o;
     private boolean p;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public interface DismissCallbacks {
         boolean canDismiss(Object obj);
 
@@ -39,7 +39,7 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
 
     public SwipeDismissTouchListener(View view, Object obj, DismissCallbacks dismissCallbacks) {
         ViewConfiguration viewConfiguration = ViewConfiguration.get(view.getContext());
-        this.f2044a = viewConfiguration.getScaledTouchSlop();
+        this.f2046a = viewConfiguration.getScaledTouchSlop();
         this.b = viewConfiguration.getScaledMinimumFlingVelocity();
         this.c = viewConfiguration.getScaledMaximumFlingVelocity();
         this.d = view.getContext().getResources().getInteger(17694720);
@@ -115,9 +115,9 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
                     this.m.addMovement(motionEvent);
                     float rawX2 = motionEvent.getRawX() - this.h;
                     float rawY = motionEvent.getRawY() - this.i;
-                    if (Math.abs(rawX2) > this.f2044a && Math.abs(rawY) < Math.abs(rawX2) / 2.0f) {
+                    if (Math.abs(rawX2) > this.f2046a && Math.abs(rawY) < Math.abs(rawX2) / 2.0f) {
                         this.j = true;
-                        this.k = rawX2 > 0.0f ? this.f2044a : -this.f2044a;
+                        this.k = rawX2 > 0.0f ? this.f2046a : -this.f2046a;
                         this.e.getParent().requestDisallowInterceptTouchEvent(true);
                         if (!this.o) {
                             this.o = true;

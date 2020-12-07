@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.c.h;
+import io.reactivex.b.h;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.t;
@@ -11,23 +11,23 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
-public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.operators.observable.a<T, io.reactivex.d.b<K, V>> {
+/* loaded from: classes9.dex */
+public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.operators.observable.a<T, io.reactivex.c.b<K, V>> {
     final int bufferSize;
     final boolean delayError;
     final h<? super T, ? extends K> keySelector;
     final h<? super T, ? extends V> valueSelector;
 
     @Override // io.reactivex.q
-    public void a(u<? super io.reactivex.d.b<K, V>> uVar) {
+    public void a(u<? super io.reactivex.c.b<K, V>> uVar) {
         this.source.subscribe(new GroupByObserver(uVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class GroupByObserver<T, K, V> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         static final Object NULL_KEY = new Object();
         private static final long serialVersionUID = -3688291656102519502L;
-        final u<? super io.reactivex.d.b<K, V>> actual;
+        final u<? super io.reactivex.c.b<K, V>> actual;
         final int bufferSize;
         final boolean delayError;
         final h<? super T, ? extends K> keySelector;
@@ -36,7 +36,7 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
         final AtomicBoolean cancelled = new AtomicBoolean();
         final Map<Object, a<K, V>> groups = new ConcurrentHashMap();
 
-        public GroupByObserver(u<? super io.reactivex.d.b<K, V>> uVar, h<? super T, ? extends K> hVar, h<? super T, ? extends V> hVar2, int i, boolean z) {
+        public GroupByObserver(u<? super io.reactivex.c.b<K, V>> uVar, h<? super T, ? extends K> hVar, h<? super T, ? extends V> hVar2, int i, boolean z) {
             this.actual = uVar;
             this.keySelector = hVar;
             this.valueSelector = hVar2;
@@ -63,7 +63,7 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
                 a<K, V> aVar = this.groups.get(obj);
                 if (aVar == null) {
                     if (!this.cancelled.get()) {
-                        aVar = a.a(apply, this.bufferSize, (GroupByObserver<?, Object, T>) this, this.delayError);
+                        aVar = a.a(apply, this.bufferSize, this, this.delayError);
                         this.groups.put(obj, aVar);
                         getAndIncrement();
                         this.actual.onNext(aVar);
@@ -72,7 +72,7 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
                     }
                 }
                 try {
-                    aVar.onNext(io.reactivex.internal.functions.a.l(this.valueSelector.apply(t), "The value supplied is null"));
+                    aVar.onNext(io.reactivex.internal.functions.a.m(this.valueSelector.apply(t), "The value supplied is null"));
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.J(th);
                     this.s.dispose();
@@ -129,9 +129,9 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
-    public static final class a<K, T> extends io.reactivex.d.b<K, T> {
-        final State<T, K> pPQ;
+    /* loaded from: classes9.dex */
+    public static final class a<K, T> extends io.reactivex.c.b<K, T> {
+        final State<T, K> pGE;
 
         public static <T, K> a<K, T> a(K k, int i, GroupByObserver<?, K, T> groupByObserver, boolean z) {
             return new a<>(k, new State(i, groupByObserver, k, z));
@@ -139,29 +139,29 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
 
         protected a(K k, State<T, K> state) {
             super(k);
-            this.pPQ = state;
+            this.pGE = state;
         }
 
         @Override // io.reactivex.q
         protected void a(u<? super T> uVar) {
-            this.pPQ.subscribe(uVar);
+            this.pGE.subscribe(uVar);
         }
 
         public void onNext(T t) {
-            this.pPQ.onNext(t);
+            this.pGE.onNext(t);
         }
 
         public void onError(Throwable th) {
-            this.pPQ.onError(th);
+            this.pGE.onError(th);
         }
 
         public void onComplete() {
-            this.pPQ.onComplete();
+            this.pGE.onComplete();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class State<T, K> extends AtomicInteger implements io.reactivex.disposables.b, t<T> {
         private static final long serialVersionUID = -3852313036005250360L;
         final boolean delayError;

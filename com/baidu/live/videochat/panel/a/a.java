@@ -5,10 +5,10 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
     public String appId;
-    public int bIp;
-    public String bIq;
-    public String bIr;
-    public String bIs;
+    public String bNA;
+    public int bNx;
+    public String bNy;
+    public String bNz;
     public String cuid;
     public String liveId;
     public String portrait;
@@ -21,14 +21,14 @@ public class a {
             this.userId = jSONObject.optString("user_id");
             this.userName = jSONObject.optString("show_name");
             this.portrait = jSONObject.optString("portrait");
-            this.bIp = jSONObject.optInt("liveconnect_status");
+            this.bNx = jSONObject.optInt("liveconnect_status");
             this.cuid = jSONObject.optString("cuid");
             this.appId = jSONObject.optString("appid");
-            this.bIq = jSONObject.optString(HttpRequest.SUBAPP_VERSION);
+            this.bNy = jSONObject.optString(HttpRequest.SUBAPP_VERSION);
             this.liveId = jSONObject.optString("live_id");
             this.roomId = jSONObject.optString("room_id");
-            this.bIr = jSONObject.optString("im_uk");
-            this.bIs = jSONObject.optString("uk");
+            this.bNz = jSONObject.optString("im_uk");
+            this.bNA = jSONObject.optString("uk");
         }
     }
 }

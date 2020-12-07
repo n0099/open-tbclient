@@ -1,11 +1,11 @@
 package com.baidu.sapi2.utils;
 
 import android.util.Base64;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3555a = "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==";
+    public static final String f3558a = "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==";
     public static final String b = "aHR0cDovL3dhcHBhc3MuYmFpZHUuY29t";
     public static final String c = "aHR0cHM6Ly9vcGVuYXBpLmJhaWR1LmNvbQ==";
     public static final String d = "aHR0cHM6Ly93YXBwYXNzLmJkaW1nLmNvbQ==";

@@ -2,7 +2,7 @@ package org.apache.http.params;
 
 import java.io.Serializable;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public final class BasicHttpParams extends AbstractHttpParams implements Serializable {
     public BasicHttpParams() {
         throw new RuntimeException("Stub!");

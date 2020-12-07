@@ -7,7 +7,7 @@ import java.lang.ref.WeakReference;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes18.dex */
 public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCallbacks {
     private static final boolean DEBUG = false;
     private static final String TAG = "BdBoxActivityLifecycle";
@@ -17,7 +17,7 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
     private boolean mIsForeground = false;
     private CopyOnWriteArrayList<IActivityLifecycle> mCustomActivityLifeCycles = new CopyOnWriteArrayList<>();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes18.dex */
     public interface IActivityLifecycle {
         void onActivityCreated(Activity activity, Bundle bundle);
 
@@ -196,17 +196,15 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
     }
 
     public Activity getRealTopActivity() {
+        Activity activity;
         int size = this.mActivityStack.size();
         if (size < 2) {
             return getTopActivity();
         }
         for (int i = size - 1; i >= 0; i--) {
             WeakReference<Activity> weakReference = this.mActivityStack.get(i);
-            if (weakReference != null && weakReference.get() != null) {
-                Activity activity = weakReference.get();
-                if (!activity.isFinishing()) {
-                    return activity;
-                }
+            if (weakReference != null && (activity = weakReference.get()) != null && !activity.isFinishing()) {
+                return activity;
             }
         }
         return null;
@@ -228,29 +226,40 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
     }
 
     public Activity getSpecifiedActivity(Class cls) {
+        Activity activity;
         if (cls == null) {
             return null;
         }
-        Iterator<WeakReference<Activity>> it = this.mActivityStack.iterator();
-        while (it.hasNext()) {
-            WeakReference<Activity> next = it.next();
-            if (next != null && next.get() != null) {
-                Activity activity = next.get();
-                if (cls.getSimpleName().equals(activity.getClass().getSimpleName())) {
-                    return activity;
-                }
+        LinkedList linkedList = new LinkedList(this.mActivityStack);
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 >= linkedList.size()) {
+                return null;
+            }
+            WeakReference weakReference = (WeakReference) linkedList.get(i2);
+            if (weakReference == null || (activity = (Activity) weakReference.get()) == null || !cls.getSimpleName().equals(activity.getClass().getSimpleName())) {
+                i = i2 + 1;
+            } else {
+                return activity;
             }
         }
-        return null;
     }
 
     public void finishAllActivity() {
+        Activity activity;
         if (!this.mActivityStack.isEmpty()) {
-            Iterator<WeakReference<Activity>> it = this.mActivityStack.iterator();
-            while (it.hasNext()) {
-                WeakReference<Activity> next = it.next();
-                if (next != null && next.get() != null) {
-                    next.get().finish();
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.mActivityStack.size()) {
+                    WeakReference<Activity> weakReference = this.mActivityStack.get(i2);
+                    if (weakReference != null && (activity = weakReference.get()) != null) {
+                        activity.finish();
+                    }
+                    i = i2 + 1;
+                } else {
+                    return;
                 }
             }
         }
@@ -275,7 +284,7 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
         return sb.append("], this = ").append(this).toString();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes18.dex */
     public static class BackForegroundEvent {
         public boolean isForeground;
 

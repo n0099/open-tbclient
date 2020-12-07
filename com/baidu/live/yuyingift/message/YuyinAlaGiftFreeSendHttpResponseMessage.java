@@ -4,22 +4,22 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class YuyinAlaGiftFreeSendHttpResponseMessage extends JsonHttpResponsedMessage {
-    private long bck;
+    private long bgk;
 
     public YuyinAlaGiftFreeSendHttpResponseMessage() {
         super(1031056);
-        this.bck = 0L;
+        this.bgk = 0L;
     }
 
-    public long IJ() {
-        return this.bck;
+    public long KJ() {
+        return this.bgk;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null && i == 1031056) {
             super.decodeLogicInBackGround(i, jSONObject);
-            this.bck = jSONObject.optLong("left_petal");
+            this.bgk = jSONObject.optLong("left_petal");
         }
     }
 }

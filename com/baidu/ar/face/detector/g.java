@@ -1,61 +1,61 @@
 package com.baidu.ar.face.detector;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class g {
-    private int og;
-    private int[] od = {3, 10, 10, 10, 10};
-    private int oe = 4;
-    private int of = 0;
-    private boolean oh = false;
+    private int ow;
+    private int[] ot = {3, 10, 10, 10, 10};
+    private int ou = 4;
+    private int ov = 0;
+    private boolean ox = false;
 
-    public void C(int i) {
-        this.of = i;
+    public void E(int i) {
+        this.ov = i;
     }
 
-    public void D(int i) {
-        this.oe = i;
+    public void F(int i) {
+        this.ou = i;
     }
 
     public boolean a(f fVar) {
-        if (fVar.nL == null || fVar.nL.getFaceFrame() == null || fVar.nL.getFaceFrame().getProcessResult() == 200 || dT() > 0) {
+        if (fVar.ob == null || fVar.ob.getFaceFrame() == null || fVar.ob.getFaceFrame().getProcessResult() == 200 || dS() > 0) {
             return false;
         }
-        C(0);
+        E(0);
         return true;
     }
 
     public void b(int[] iArr) {
-        this.od = iArr;
+        this.ot = iArr;
     }
 
-    public boolean dP() {
-        if (this.og == 0) {
-            this.og++;
+    public boolean dO() {
+        if (this.ow == 0) {
+            this.ow++;
             return true;
-        } else if (this.oh) {
+        } else if (this.ox) {
             return false;
         } else {
-            this.og++;
-            if (this.og - 1 > this.od[this.of > this.oe ? this.oe : this.of]) {
-                this.og = 0;
+            this.ow++;
+            if (this.ow - 1 > this.ot[this.ov > this.ou ? this.ou : this.ov]) {
+                this.ow = 0;
                 return true;
             }
             return false;
         }
     }
 
-    public void dQ() {
-        this.oh = true;
+    public void dP() {
+        this.ox = true;
     }
 
-    public void dR() {
-        this.oh = false;
+    public void dQ() {
+        this.ox = false;
+    }
+
+    public int dR() {
+        return this.ou;
     }
 
     public int dS() {
-        return this.oe;
-    }
-
-    public int dT() {
-        return this.of;
+        return this.ov;
     }
 }

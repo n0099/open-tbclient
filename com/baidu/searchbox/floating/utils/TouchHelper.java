@@ -2,25 +2,24 @@ package com.baidu.searchbox.floating.utils;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.v4.app.NotificationCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import com.baidu.searchbox.floating.config.Config;
+import kotlin.c;
 import kotlin.d;
 import kotlin.e;
-import kotlin.h;
 import kotlin.jvm.internal.PropertyReference1Impl;
-import kotlin.jvm.internal.q;
-import kotlin.jvm.internal.t;
+import kotlin.jvm.internal.p;
+import kotlin.jvm.internal.s;
 import kotlin.reflect.j;
-@h
-/* loaded from: classes9.dex */
+@e
+/* loaded from: classes16.dex */
 public final class TouchHelper {
-    static final /* synthetic */ j[] $$delegatedProperties = {t.a(new PropertyReference1Impl(t.M(TouchHelper.class), "mScreenHeight", "getMScreenHeight()I")), t.a(new PropertyReference1Impl(t.M(TouchHelper.class), "navigationBarHeight", "getNavigationBarHeight()I")), t.a(new PropertyReference1Impl(t.M(TouchHelper.class), "mTouchSlop", "getMTouchSlop()I")), t.a(new PropertyReference1Impl(t.M(TouchHelper.class), "mBlockOffset", "getMBlockOffset()Landroid/graphics/Rect;"))};
+    static final /* synthetic */ j[] $$delegatedProperties = {s.a(new PropertyReference1Impl(s.M(TouchHelper.class), "mScreenHeight", "getMScreenHeight()I")), s.a(new PropertyReference1Impl(s.M(TouchHelper.class), "navigationBarHeight", "getNavigationBarHeight()I")), s.a(new PropertyReference1Impl(s.M(TouchHelper.class), "mTouchSlop", "getMTouchSlop()I")), s.a(new PropertyReference1Impl(s.M(TouchHelper.class), "mBlockOffset", "getMBlockOffset()Landroid/graphics/Rect;"))};
     private final Config config;
     private final Context context;
-    private final d mBlockOffset$delegate;
+    private final c mBlockOffset$delegate;
     private int mDisplayHeight;
     private Rect mDisplayRect;
     private int mDisplayWidth;
@@ -28,45 +27,45 @@ public final class TouchHelper {
     private boolean mHasStatusBar;
     private float mLastX;
     private float mLastY;
-    private final d mScreenHeight$delegate;
-    private final d mTouchSlop$delegate;
-    private final d navigationBarHeight$delegate;
+    private final c mScreenHeight$delegate;
+    private final c mTouchSlop$delegate;
+    private final c navigationBarHeight$delegate;
 
     private final Rect getMBlockOffset() {
-        d dVar = this.mBlockOffset$delegate;
+        c cVar = this.mBlockOffset$delegate;
         j jVar = $$delegatedProperties[3];
-        return (Rect) dVar.getValue();
+        return (Rect) cVar.getValue();
     }
 
     private final int getMScreenHeight() {
-        d dVar = this.mScreenHeight$delegate;
+        c cVar = this.mScreenHeight$delegate;
         j jVar = $$delegatedProperties[0];
-        return ((Number) dVar.getValue()).intValue();
+        return ((Number) cVar.getValue()).intValue();
     }
 
     private final int getMTouchSlop() {
-        d dVar = this.mTouchSlop$delegate;
+        c cVar = this.mTouchSlop$delegate;
         j jVar = $$delegatedProperties[2];
-        return ((Number) dVar.getValue()).intValue();
+        return ((Number) cVar.getValue()).intValue();
     }
 
     private final int getNavigationBarHeight() {
-        d dVar = this.navigationBarHeight$delegate;
+        c cVar = this.navigationBarHeight$delegate;
         j jVar = $$delegatedProperties[1];
-        return ((Number) dVar.getValue()).intValue();
+        return ((Number) cVar.getValue()).intValue();
     }
 
     public TouchHelper(Context context, Config config) {
-        q.n(context, "context");
-        q.n(config, "config");
+        p.o(context, "context");
+        p.o(config, "config");
         this.context = context;
         this.config = config;
         this.mDisplayRect = new Rect();
-        this.mScreenHeight$delegate = e.b(new TouchHelper$mScreenHeight$2(this));
-        this.navigationBarHeight$delegate = e.b(new TouchHelper$navigationBarHeight$2(this));
-        this.mTouchSlop$delegate = e.b(new TouchHelper$mTouchSlop$2(this));
+        this.mScreenHeight$delegate = d.b(new TouchHelper$mScreenHeight$2(this));
+        this.navigationBarHeight$delegate = d.b(new TouchHelper$navigationBarHeight$2(this));
+        this.mTouchSlop$delegate = d.b(new TouchHelper$mTouchSlop$2(this));
         this.mHasStatusBar = true;
-        this.mBlockOffset$delegate = e.b(new TouchHelper$mBlockOffset$2(this));
+        this.mBlockOffset$delegate = d.b(new TouchHelper$mBlockOffset$2(this));
     }
 
     public final Config getConfig() {
@@ -78,10 +77,10 @@ public final class TouchHelper {
     }
 
     public final void onTouch(View view, MotionEvent motionEvent, WindowManager windowManager, WindowManager.LayoutParams layoutParams) {
-        q.n(view, "view");
-        q.n(motionEvent, NotificationCompat.CATEGORY_EVENT);
-        q.n(windowManager, "windowManager");
-        q.n(layoutParams, "params");
+        p.o(view, "view");
+        p.o(motionEvent, "event");
+        p.o(windowManager, "windowManager");
+        p.o(layoutParams, "params");
         if (!this.config.getCanDrag() || this.config.isAnimating()) {
             this.config.setDragging(false);
             return;

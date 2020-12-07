@@ -1,11 +1,11 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.c.c;
+import io.reactivex.b.c;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class ObservableWithLatestFrom<T, U, R> extends io.reactivex.internal.operators.observable.a<T, R> {
     final c<? super T, ? super U, ? extends R> combiner;
     final t<? extends U> other;
@@ -19,7 +19,7 @@ public final class ObservableWithLatestFrom<T, U, R> extends io.reactivex.intern
         this.source.subscribe(withLatestFromObserver);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class WithLatestFromObserver<T, U, R> extends AtomicReference<U> implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -312246233408980075L;
         final u<? super R> actual;
@@ -42,7 +42,7 @@ public final class ObservableWithLatestFrom<T, U, R> extends io.reactivex.intern
             U u = get();
             if (u != null) {
                 try {
-                    this.actual.onNext(io.reactivex.internal.functions.a.l(this.combiner.apply(t, u), "The combiner returned a null value"));
+                    this.actual.onNext(io.reactivex.internal.functions.a.m(this.combiner.apply(t, u), "The combiner returned a null value"));
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.J(th);
                     dispose();
@@ -84,27 +84,27 @@ public final class ObservableWithLatestFrom<T, U, R> extends io.reactivex.intern
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     final class a implements u<U> {
-        private final WithLatestFromObserver<T, U, R> pQm;
+        private final WithLatestFromObserver<T, U, R> pHa;
 
         a(WithLatestFromObserver<T, U, R> withLatestFromObserver) {
-            this.pQm = withLatestFromObserver;
+            this.pHa = withLatestFromObserver;
         }
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            this.pQm.setOther(bVar);
+            this.pHa.setOther(bVar);
         }
 
         @Override // io.reactivex.u
         public void onNext(U u) {
-            this.pQm.lazySet(u);
+            this.pHa.lazySet(u);
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
-            this.pQm.otherError(th);
+            this.pHa.otherError(th);
         }
 
         @Override // io.reactivex.u

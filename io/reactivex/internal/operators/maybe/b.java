@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.maybe;
 
-import io.reactivex.c.h;
+import io.reactivex.b.h;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.m;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class b<T, R> extends io.reactivex.internal.operators.maybe.a<T, R> {
     final h<? super T, ? extends R> mapper;
 
@@ -12,7 +12,7 @@ public final class b<T, R> extends io.reactivex.internal.operators.maybe.a<T, R>
         this.source.a(new a(mVar, this.mapper));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class a<T, R> implements io.reactivex.disposables.b, m<T> {
         final m<? super R> actual;
         io.reactivex.disposables.b d;
@@ -47,7 +47,7 @@ public final class b<T, R> extends io.reactivex.internal.operators.maybe.a<T, R>
         @Override // io.reactivex.m
         public void onSuccess(T t) {
             try {
-                this.actual.onSuccess(io.reactivex.internal.functions.a.l(this.mapper.apply(t), "The mapper returned a null item"));
+                this.actual.onSuccess(io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper returned a null item"));
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.J(th);
                 this.actual.onError(th);

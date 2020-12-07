@@ -3,18 +3,18 @@ package com.airbnb.lottie.model.content;
 import android.graphics.PointF;
 import com.airbnb.lottie.a.a.n;
 import com.airbnb.lottie.model.a.m;
-/* loaded from: classes16.dex */
+/* loaded from: classes7.dex */
 public class f implements b {
-    private final m<PointF, PointF> EV;
-    private final com.airbnb.lottie.model.a.f Fb;
-    private final com.airbnb.lottie.model.a.b Fz;
+    private final m<PointF, PointF> FL;
+    private final com.airbnb.lottie.model.a.f FR;
+    private final com.airbnb.lottie.model.a.b Gr;
     private final String name;
 
     public f(String str, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.f fVar, com.airbnb.lottie.model.a.b bVar) {
         this.name = str;
-        this.EV = mVar;
-        this.Fb = fVar;
-        this.Fz = bVar;
+        this.FL = mVar;
+        this.FR = fVar;
+        this.Gr = bVar;
     }
 
     public String getName() {
@@ -22,15 +22,15 @@ public class f implements b {
     }
 
     public com.airbnb.lottie.model.a.b kj() {
-        return this.Fz;
+        return this.Gr;
     }
 
     public com.airbnb.lottie.model.a.f jN() {
-        return this.Fb;
+        return this.FR;
     }
 
     public m<PointF, PointF> jG() {
-        return this.EV;
+        return this.FL;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -39,6 +39,6 @@ public class f implements b {
     }
 
     public String toString() {
-        return "RectangleShape{position=" + this.EV + ", size=" + this.Fb + '}';
+        return "RectangleShape{position=" + this.FL + ", size=" + this.FR + '}';
     }
 }

@@ -1,44 +1,55 @@
 package com.baidu.live.af;
 
-import com.baidu.live.tbadk.ubc.IUbcManager;
-import com.baidu.pyramid.runtime.service.c;
-import com.baidu.ubc.Flow;
-import com.baidu.ubc.aa;
-import org.json.JSONObject;
+import android.view.ViewGroup;
+import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
-public class a implements IUbcManager {
-    @Override // com.baidu.live.tbadk.ubc.IUbcManager
-    public void onEvent(String str, JSONObject jSONObject) {
-        ((aa) c.a(aa.SERVICE_REFERENCE)).onEvent(str, jSONObject);
+public interface a {
+
+    /* renamed from: com.baidu.live.af.a$a  reason: collision with other inner class name */
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0172a {
+        void J(Object obj);
+
+        void RW();
+
+        void RX();
+
+        int RY();
+
+        int RZ();
+
+        int Sa();
+
+        int getImMsgListViewHeight();
     }
 
-    @Override // com.baidu.live.tbadk.ubc.IUbcManager
-    public Object flowBegin(String str, JSONObject jSONObject) {
-        return ((aa) c.a(aa.SERVICE_REFERENCE)).beginFlow(str, jSONObject);
-    }
+    void RU();
 
-    @Override // com.baidu.live.tbadk.ubc.IUbcManager
-    public void flowSetValueWithDuration(Object obj, JSONObject jSONObject) {
-        aa aaVar = (aa) c.a(aa.SERVICE_REFERENCE);
-        if (jSONObject != null) {
-            aaVar.flowSetValueWithDuration((Flow) obj, jSONObject.toString());
-        } else {
-            aaVar.flowSetValueWithDuration((Flow) obj, null);
-        }
-    }
+    void RV();
 
-    @Override // com.baidu.live.tbadk.ubc.IUbcManager
-    public void flowStartSlot(Object obj, String str, JSONObject jSONObject) {
-        ((aa) c.a(aa.SERVICE_REFERENCE)).a((Flow) obj, str, jSONObject);
-    }
+    void a(InterfaceC0172a interfaceC0172a);
 
-    @Override // com.baidu.live.tbadk.ubc.IUbcManager
-    public void flowEndSlot(Object obj, String str) {
-        ((aa) c.a(aa.SERVICE_REFERENCE)).flowEndSlot((Flow) obj, str);
-    }
+    void a(com.baidu.live.i.a aVar);
 
-    @Override // com.baidu.live.tbadk.ubc.IUbcManager
-    public void flowEnd(Object obj) {
-        ((aa) c.a(aa.SERVICE_REFERENCE)).flowEnd((Flow) obj);
-    }
+    void a(com.baidu.live.liveroom.b.a aVar);
+
+    void cN(boolean z);
+
+    void fy(int i);
+
+    void fz(int i);
+
+    void onDestroy();
+
+    void onKeyboardVisibilityChanged(boolean z);
+
+    void q(ViewGroup viewGroup);
+
+    void r(ViewGroup viewGroup);
+
+    void s(ViewGroup viewGroup);
+
+    void setLiveShowInfo(w wVar);
+
+    void setStickerCanOperate(boolean z);
 }

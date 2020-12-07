@@ -3,10 +3,10 @@ package com.baidu.ar.bean;
 import android.text.TextUtils;
 import com.baidu.ar.ARType;
 import com.baidu.ar.constants.ARConfigKey;
-import com.baidu.ar.g.l;
+import com.baidu.ar.h.l;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class ARConfig {
     private static final String AR_SDK_SALT_FIGURE = "777078ec21930de508131ba36035de6b";
     public static final int LAUNCH_AR_TAB = 2;
@@ -24,6 +24,7 @@ public class ARConfig {
     private static boolean mIsNeedLastPreview = false;
     private static String mARExtraInfo = "";
     private static String sCUID = "";
+    public static int TYPE_VPS = 11;
     public static String sFeaPointsDir = null;
 
     public static String getARExtraInfo() {
@@ -74,9 +75,9 @@ public class ARConfig {
         Object[] objArr = new Object[2];
         long currentTimeMillis = System.currentTimeMillis();
         if (isOpen(str)) {
-            objArr[0] = l.aR(str + AR_SDK_SALT_FIGURE + currentTimeMillis);
+            objArr[0] = l.aU(str + AR_SDK_SALT_FIGURE + currentTimeMillis);
         } else {
-            objArr[0] = l.aR(str + str2 + AR_SDK_SALT_FIGURE + currentTimeMillis);
+            objArr[0] = l.aU(str + str2 + AR_SDK_SALT_FIGURE + currentTimeMillis);
         }
         objArr[1] = Long.valueOf(currentTimeMillis);
         return objArr;

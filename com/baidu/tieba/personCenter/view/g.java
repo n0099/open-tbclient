@@ -39,52 +39,52 @@ import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.R;
 import com.baidu.tieba.personCenter.c.j;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.h> {
-    private TextView goG;
-    private ImageView jpf;
-    private View lXA;
-    private com.baidu.tieba.personCenter.c.h lXB;
-    private j lXC;
-    private View lXt;
-    private ImageView lXu;
-    private ImageView lXv;
-    private TextView lXw;
-    private TextView lXx;
-    private TextView lXy;
-    private View lXz;
+    private TextView gwP;
+    private ImageView jCH;
     private int mSkinType;
     private UserData mUserData;
+    private View mlB;
+    private ImageView mlC;
+    private ImageView mlD;
+    private TextView mlE;
+    private TextView mlF;
+    private TextView mlG;
+    private View mlH;
+    private View mlI;
+    private com.baidu.tieba.personCenter.c.h mlJ;
+    private j mlK;
 
     public g(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.lXt = view.findViewById(R.id.item_content);
-        this.lXz = view.findViewById(R.id.function_item_bottom_divider);
-        this.lXA = view.findViewById(R.id.function_item_bottom_divider_line);
-        this.lXu = (ImageView) view.findViewById(R.id.function_icon);
-        this.jpf = (ImageView) view.findViewById(R.id.function_right_arrow);
-        this.goG = (TextView) view.findViewById(R.id.function_title);
-        this.lXv = (ImageView) view.findViewById(R.id.function_red_tip);
-        this.lXw = (TextView) view.findViewById(R.id.function_desc);
-        this.lXx = (TextView) view.findViewById(R.id.right_text);
-        this.lXy = (TextView) view.findViewById(R.id.function_title_mark);
-        this.lXx.setOnClickListener(this);
-        this.lXt.setOnClickListener(this);
+        this.mlB = view.findViewById(R.id.item_content);
+        this.mlH = view.findViewById(R.id.function_item_bottom_divider);
+        this.mlI = view.findViewById(R.id.function_item_bottom_divider_line);
+        this.mlC = (ImageView) view.findViewById(R.id.function_icon);
+        this.jCH = (ImageView) view.findViewById(R.id.function_right_arrow);
+        this.gwP = (TextView) view.findViewById(R.id.function_title);
+        this.mlD = (ImageView) view.findViewById(R.id.function_red_tip);
+        this.mlE = (TextView) view.findViewById(R.id.function_desc);
+        this.mlF = (TextView) view.findViewById(R.id.right_text);
+        this.mlG = (TextView) view.findViewById(R.id.function_title_mark);
+        this.mlF.setOnClickListener(this);
+        this.mlB.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            SvgManager.bqB().a(this.jpf, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            com.baidu.tbadk.core.util.e.a.h(this.lXt, R.color.CAM_X0205, R.color.CAM_X0204);
-            ap.setImageResource(this.lXv, R.drawable.person_center_red_tip_shape);
-            ap.setBackgroundColor(this.lXz, R.color.CAM_X0205);
-            ap.setBackgroundColor(this.lXA, R.color.CAM_X0203);
-            ap.setViewTextColor(this.goG, R.color.CAM_X0105);
-            ap.setViewTextColor(this.lXw, R.color.CAM_X0109);
-            ap.setViewTextColor(this.lXx, R.color.CAM_X0105);
+            SvgManager.btW().a(this.jCH, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            com.baidu.tbadk.core.util.e.a.g(this.mlB, R.color.CAM_X0205, R.color.CAM_X0204);
+            ap.setImageResource(this.mlD, R.drawable.person_center_red_tip_shape);
+            ap.setBackgroundColor(this.mlH, R.color.CAM_X0205);
+            ap.setBackgroundColor(this.mlI, R.color.CAM_X0203);
+            ap.setViewTextColor(this.gwP, R.color.CAM_X0105);
+            ap.setViewTextColor(this.mlE, R.color.CAM_X0109);
+            ap.setViewTextColor(this.mlF, R.color.CAM_X0105);
             this.mSkinType = i;
         }
     }
@@ -98,113 +98,113 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.h> 
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.personCenter.c.h hVar) {
         if (hVar != null) {
-            this.lXB = hVar;
+            this.mlJ = hVar;
             this.mUserData = hVar.userData;
-            this.lXC = hVar.lWm;
-            this.goG.setText(hVar.title);
-            dtl();
+            this.mlK = hVar.mkt;
+            this.gwP.setText(hVar.title);
+            dyD();
             b(hVar);
-            a(this.lXC);
+            a(this.mlK);
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void dtl() {
-        if (this.lXB.gaP > 0) {
-            this.lXu.setVisibility(0);
-            if (this.lXB.lWj) {
-                if (this.lXB.lWk) {
-                    SvgManager.bqB().a(this.lXu, this.lXB.gaP, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL);
+    private void dyD() {
+        if (this.mlJ.gjb > 0) {
+            this.mlC.setVisibility(0);
+            if (this.mlJ.mkq) {
+                if (this.mlJ.mkr) {
+                    SvgManager.btW().a(this.mlC, this.mlJ.gjb, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL);
                     return;
                 } else {
-                    SvgManager.bqB().a(this.lXu, this.lXB.gaP, SvgManager.SvgResourceStateType.NORMAL);
+                    SvgManager.btW().a(this.mlC, this.mlJ.gjb, SvgManager.SvgResourceStateType.NORMAL);
                     return;
                 }
             }
-            ap.setImageResource(this.lXu, this.lXB.gaP);
+            ap.setImageResource(this.mlC, this.mlJ.gjb);
             return;
         }
-        this.lXu.setVisibility(8);
+        this.mlC.setVisibility(8);
     }
 
     private void b(com.baidu.tieba.personCenter.c.h hVar) {
-        if (hVar.lWl) {
-            this.lXz.setVisibility(0);
+        if (hVar.mks) {
+            this.mlH.setVisibility(0);
         } else {
-            this.lXz.setVisibility(8);
+            this.mlH.setVisibility(8);
         }
     }
 
     private void a(j jVar) {
         if (jVar != null) {
             if (jVar.isShowRedTip) {
-                this.lXv.setVisibility(0);
+                this.mlD.setVisibility(0);
             } else {
-                this.lXv.setVisibility(8);
+                this.mlD.setVisibility(8);
             }
-            if (!StringUtils.isNull(jVar.lWq)) {
-                this.lXw.setVisibility(0);
-                this.lXw.setText(jVar.lWq);
+            if (!StringUtils.isNull(jVar.mkx)) {
+                this.mlE.setVisibility(0);
+                this.mlE.setText(jVar.mkx);
             } else {
-                this.lXw.setVisibility(8);
+                this.mlE.setVisibility(8);
             }
-            if (jVar.lWu) {
-                this.lXy.setVisibility(0);
+            if (jVar.mkB) {
+                this.mlG.setVisibility(0);
             } else {
-                this.lXy.setVisibility(8);
+                this.mlG.setVisibility(8);
             }
             if (!TextUtils.isEmpty(jVar.text)) {
-                this.lXx.setVisibility(0);
-                this.lXx.setText(jVar.text);
-                this.lXx.setCompoundDrawablesWithIntrinsicBounds(jVar.lWr, jVar.lWs, jVar.lWt, jVar.lWt);
+                this.mlF.setVisibility(0);
+                this.mlF.setText(jVar.text);
+                this.mlF.setCompoundDrawablesWithIntrinsicBounds(jVar.mky, jVar.mkz, jVar.mkA, jVar.mkA);
                 return;
             }
-            this.lXx.setVisibility(8);
+            this.mlF.setVisibility(8);
             return;
         }
-        this.lXv.setVisibility(8);
-        this.lXw.setVisibility(8);
-        this.lXx.setVisibility(8);
-        this.lXy.setVisibility(8);
+        this.mlD.setVisibility(8);
+        this.mlE.setVisibility(8);
+        this.mlF.setVisibility(8);
+        this.mlG.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
-            if (view == this.lXt) {
-                if (this.lXB.type == 36 && "游戏".equals(this.lXB.title) && this.hWc != null) {
-                    this.hWc.a(view, this.lXB);
+            if (view == this.mlB) {
+                if (this.mlJ.type == 36 && "游戏".equals(this.mlJ.title) && this.igZ != null) {
+                    this.igZ.a(view, this.mlJ);
                     return;
                 } else {
-                    dtm();
+                    dyE();
                     return;
                 }
             }
-            dD(view);
+            dO(view);
         }
     }
 
-    private void dtm() {
-        if (this.lXB != null) {
-            switch (this.lXB.type) {
+    private void dyE() {
+        if (this.mlJ != null) {
+            switch (this.mlJ.type) {
                 case 10:
-                    com.baidu.tieba.q.a.dBC().h(1, false, true);
-                    TiebaStatic.log(new ar("c12523").ak("obj_locate", 13));
+                    com.baidu.tieba.q.a.dGN().h(1, false, true);
+                    TiebaStatic.log(new ar("c12523").al("obj_locate", 13));
                     if (this.mUserData != null) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.mTbPageContext.getPageActivity(), this.mUserData.getUserId(), this.mUserData.getUserName(), this.mUserData.getName_show(), this.mUserData.getSex(), "iowner_gift")));
                         return;
                     }
                     return;
                 case 11:
-                    TiebaStatic.log(new ar("c12523").ak("obj_locate", 16));
-                    if (!StringUtils.isNull(this.lXB.aGz)) {
-                        bf.bqF().b(this.mTbPageContext, new String[]{this.lXB.aGz});
+                    TiebaStatic.log(new ar("c12523").al("obj_locate", 16));
+                    if (!StringUtils.isNull(this.mlJ.aJj)) {
+                        bf.bua().b(this.mTbPageContext, new String[]{this.mlJ.aJj});
                         return;
                     }
                     return;
                 case 12:
-                    com.baidu.tieba.q.a.dBC().h(7, false, true);
-                    TiebaStatic.log(new ar("c12523").ak("obj_locate", 12));
+                    com.baidu.tieba.q.a.dGN().h(7, false, true);
+                    TiebaStatic.log(new ar("c12523").al("obj_locate", 12));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MembercenterActivityConfig(this.mTbPageContext.getPageActivity())));
                     return;
                 case 13:
@@ -227,21 +227,21 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.h> 
                 default:
                     return;
                 case 16:
-                    TiebaStatic.log(new ar("c12523").ak("obj_locate", 9));
-                    com.baidu.tieba.q.a.dBC().h(3, false, true);
+                    TiebaStatic.log(new ar("c12523").al("obj_locate", 9));
+                    com.baidu.tieba.q.a.dGN().h(3, false, true);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.LEFT_NAV_COLLECTION_CLICK));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_EDITMARK, new IntentConfig(this.mTbPageContext.getPageActivity())));
                     return;
                 case 17:
-                    TiebaStatic.log(new ar("c12523").ak("obj_locate", 10));
+                    TiebaStatic.log(new ar("c12523").al("obj_locate", 10));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbHistoryActivityConfig(this.mTbPageContext.getPageActivity())));
                     return;
                 case 18:
-                    TiebaStatic.log(new ar("c12523").ak("obj_locate", 15));
-                    bf.bqF().a(this.mTbPageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
+                    TiebaStatic.log(new ar("c12523").al("obj_locate", 15));
+                    bf.bua().a(this.mTbPageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
                     return;
                 case 22:
-                    TiebaStatic.log(new ar("c12523").ak("obj_locate", 11));
+                    TiebaStatic.log(new ar("c12523").al("obj_locate", 11));
                     if (this.mUserData != null) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonGroupActivityConfig(this.mTbPageContext.getPageActivity(), this.mUserData.getSex(), 0, 1)));
                         return;
@@ -249,40 +249,40 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.h> 
                     return;
                 case 25:
                     if (this.mUserData != null) {
-                        TiebaStatic.log(new ar("c12523").ak("obj_locate", 18));
+                        TiebaStatic.log(new ar("c12523").al("obj_locate", 18));
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterActivityConfig(this.mTbPageContext.getPageActivity(), this.mUserData.getUserId(), this.mUserData.getUserName(), this.mUserData.getPortrait(), this.mUserData.getSex(), true)));
                         return;
                     }
                     return;
                 case 30:
-                    TiebaStatic.log(new ar("c12523").ak("obj_locate", 17));
+                    TiebaStatic.log(new ar("c12523").al("obj_locate", 17));
                     if (!com.baidu.tbadk.plugins.b.k(this.mTbPageContext)) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotRanklistActivityConfig(getTbPageContext().getPageActivity()).createNormalConfig(VideoMiddlePageActivityConfig.FROM_HOTTOPIC, "all")));
                         return;
                     }
                     return;
                 case 31:
-                    com.baidu.tieba.q.a.dBC().h(10, false, true);
-                    com.baidu.tbadk.core.sharedPref.b.bpu().putBoolean(SharedPrefConfig.KEY_FEEDBACK_TIP_SHOW, false);
-                    TiebaStatic.log(new ar("c12523").ak("obj_locate", 19));
+                    com.baidu.tieba.q.a.dGN().h(10, false, true);
+                    com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean(SharedPrefConfig.KEY_FEEDBACK_TIP_SHOW, false);
+                    TiebaStatic.log(new ar("c12523").al("obj_locate", 19));
                     com.baidu.tbadk.browser.a.startWebActivity(this.mTbPageContext.getPageActivity(), TbConfig.URL_UEG_SERVICE_CENTER);
                     return;
                 case 33:
-                    TiebaStatic.log(new ar("c12523").ak("obj_locate", 21));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonMoreActivityConfig(this.mTbPageContext.getPageActivity(), this.lXB.lWn)));
+                    TiebaStatic.log(new ar("c12523").al("obj_locate", 21));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonMoreActivityConfig(this.mTbPageContext.getPageActivity(), this.mlJ.mku)));
                     return;
                 case 36:
-                    TiebaStatic.log(new ar("c12524").ak("obj_locate", this.lXB.itemId));
-                    PK(this.lXB.aGz);
+                    TiebaStatic.log(new ar("c12524").al("obj_locate", this.mlJ.itemId));
+                    QT(this.mlJ.aJj);
                     return;
                 case 37:
-                    TiebaStatic.log(new ar("c12523").ak("obj_locate", 24));
-                    com.baidu.tbadk.core.sharedPref.b.bpu().putBoolean(SharedPrefConfig.KEY_HAS_BORROW_CASH_CLICKED, true);
-                    if (this.lXB.lWm != null) {
-                        this.lXB.lWm.isShowRedTip = false;
+                    TiebaStatic.log(new ar("c12523").al("obj_locate", 24));
+                    com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean(SharedPrefConfig.KEY_HAS_BORROW_CASH_CLICKED, true);
+                    if (this.mlJ.mkt != null) {
+                        this.mlJ.mkt.isShowRedTip = false;
                     }
-                    this.lXv.setVisibility(8);
-                    String string = com.baidu.tbadk.core.sharedPref.b.bpu().getString("cash_pay", "");
+                    this.mlD.setVisibility(8);
+                    String string = com.baidu.tbadk.core.sharedPref.b.bsO().getString("cash_pay", "");
                     if (!StringUtils.isNull(string)) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_OPEN_WALLET_ICASH, string));
                         return;
@@ -294,8 +294,8 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.h> 
                         String h5Url = activityPrizeData.getH5Url();
                         if (!StringUtils.isNull(h5Url)) {
                             TiebaStatic.log(new ar("c12598"));
-                            com.baidu.tieba.q.a.dBC().h(9, false, true);
-                            bf.bqF().a(getTbPageContext(), new String[]{h5Url}, true);
+                            com.baidu.tieba.q.a.dGN().h(9, false, true);
+                            bf.bua().a(getTbPageContext(), new String[]{h5Url}, true);
                             return;
                         }
                         return;
@@ -305,54 +305,54 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.h> 
                     com.baidu.tbadk.browser.a.startWebActivity(true, (Context) this.mTbPageContext.getPageActivity(), this.mTbPageContext.getResources().getString(R.string.baidu_singkil), TbConfig.URL_BAIDU_SINGKIL);
                     return;
                 case 41:
-                    TiebaStatic.log(new ar("c12523").ak("obj_locate", 25));
-                    com.baidu.tbadk.core.sharedPref.b.bpu().putBoolean("key_baidu_financial_has_clicked", true);
-                    if (this.lXB.lWm != null) {
-                        this.lXB.lWm.isShowRedTip = false;
+                    TiebaStatic.log(new ar("c12523").al("obj_locate", 25));
+                    com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean("key_baidu_financial_has_clicked", true);
+                    if (this.mlJ.mkt != null) {
+                        this.mlJ.mkt.isShowRedTip = false;
                     }
-                    this.lXv.setVisibility(8);
+                    this.mlD.setVisibility(8);
                     MessageManager.getInstance().sendMessage(new CustomMessage(CmdConfigCustom.CMD_SLUMDOG_MILLIONAIRE_SHARE_DIALOG_DISMISS));
                     return;
                 case 43:
-                    cIT();
+                    cOi();
                     com.baidu.tbadk.browser.a.startWebActivity(this.mTbPageContext.getPageActivity(), "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=2&source=2-101-1&idfrom=2&tbioswk=1");
                     return;
                 case 44:
-                    TiebaStatic.log(new ar("c12523").ak("obj_locate", 26));
-                    if (!TextUtils.isEmpty(this.lXB.aGz)) {
-                        bf.bqF().b(this.mTbPageContext, new String[]{this.lXB.aGz});
+                    TiebaStatic.log(new ar("c12523").al("obj_locate", 26));
+                    if (!TextUtils.isEmpty(this.mlJ.aJj)) {
+                        bf.bua().b(this.mTbPageContext, new String[]{this.mlJ.aJj});
                     }
                     if (au.isEmpty(TbSingleton.getInstance().getProfileGameCenterKey()) || "f3TuxsL47kihWbLdWMiymiYwChMr52Rd".equals(TbSingleton.getInstance().getProfileGameCenterKey())) {
-                        TiebaStatic.log(new ar("c13274").dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("obj_name", getContext().getString(R.string.baidu_lite_game_center)).dR("obj_id", "11811875").dR("obj_source", "smallgame_center").ak("obj_param1", 0));
+                        TiebaStatic.log(new ar("c13274").dY("uid", TbadkCoreApplication.getCurrentAccount()).dY("obj_name", getContext().getString(R.string.baidu_lite_game_center)).dY("obj_id", "11811875").dY("obj_source", "smallgame_center").al("obj_param1", 0));
                         return;
                     } else {
-                        TiebaStatic.log(new ar("c13274").dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("obj_name", getContext().getString(R.string.third_lite_game_center)).dR("obj_id", TbSingleton.getInstance().getProfileGameCenterKey()).dR("obj_source", "smallgame_center").ak("obj_param1", 0));
+                        TiebaStatic.log(new ar("c13274").dY("uid", TbadkCoreApplication.getCurrentAccount()).dY("obj_name", getContext().getString(R.string.third_lite_game_center)).dY("obj_id", TbSingleton.getInstance().getProfileGameCenterKey()).dY("obj_source", "smallgame_center").al("obj_param1", 0));
                         return;
                     }
                 case 45:
-                    if (!TextUtils.isEmpty(this.lXB.aGz)) {
-                        com.baidu.tbadk.browser.a.startWebActivity(this.mContext, this.lXB.aGz);
+                    if (!TextUtils.isEmpty(this.mlJ.aJj)) {
+                        com.baidu.tbadk.browser.a.startWebActivity(this.mContext, this.mlJ.aJj);
                     }
-                    ar.Bs("c13548").bqy();
+                    ar.BZ("c13548").btT();
                     return;
                 case 46:
-                    bf.bqF().a(this.mTbPageContext, new String[]{this.lXB.aGz}, true);
+                    bf.bua().a(this.mTbPageContext, new String[]{this.mlJ.aJj}, true);
                     return;
             }
         }
     }
 
-    private void dD(View view) {
-        if (this.lXB != null && view == this.lXx) {
-            switch (this.lXB.type) {
+    private void dO(View view) {
+        if (this.mlJ != null && view == this.mlF) {
+            switch (this.mlJ.type) {
                 case 10:
                     BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(this.mTbPageContext.getPageActivity(), 0L);
                     buyTBeanActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_PERSONAL_CENTER, MemberPayStatistic.CLICK_ZONE_T_RECHARGE);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, buyTBeanActivityConfig));
                     return;
                 case 45:
-                    if (this.lXC != null && !TextUtils.isEmpty(this.lXC.linkUrl)) {
-                        bf.bqF().b(this.mTbPageContext, new String[]{this.lXC.linkUrl});
+                    if (this.mlK != null && !TextUtils.isEmpty(this.mlK.linkUrl)) {
+                        bf.bua().b(this.mTbPageContext, new String[]{this.mlK.linkUrl});
                         return;
                     }
                     return;
@@ -362,14 +362,14 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.h> 
         }
     }
 
-    private void PJ(String str) {
+    private void QS(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
                     l.showToast(this.mTbPageContext.getPageActivity(), R.string.cosume_record_plugin_not_install_tip);
                     return;
                 }
-                bf.bqF().b(this.mTbPageContext, new String[]{str.substring("tieba&".length())});
+                bf.bua().b(this.mTbPageContext, new String[]{str.substring("tieba&".length())});
             } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) || str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
                 com.baidu.tbadk.browser.a.startWebActivity((Context) this.mTbPageContext.getPageActivity(), true, str);
             } else {
@@ -378,22 +378,22 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.h> 
         }
     }
 
-    private void PK(String str) {
+    private void QT(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
-                PJ(str);
+                QS(str);
             } else if (str.startsWith("nohead:url")) {
-                bf.bqF().b(this.mTbPageContext, new String[]{str.replaceFirst(UrlSchemaHelper.PREFIX_BOOK_TOWN, "") + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "jump=open_full_screen_web_page&nonavigationbar=1"});
+                bf.bua().b(this.mTbPageContext, new String[]{str.replaceFirst(UrlSchemaHelper.PREFIX_BOOK_TOWN, "") + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "jump=open_full_screen_web_page&nonavigationbar=1"});
             } else {
-                bf.bqF().b(this.mTbPageContext, new String[]{str});
+                bf.bua().b(this.mTbPageContext, new String[]{str});
             }
         }
     }
 
-    private void cIT() {
+    private void cOi() {
         ar arVar = new ar("c13422");
-        arVar.ak("obj_type", 2);
-        arVar.ak("obj_locate", 5);
+        arVar.al("obj_type", 2);
+        arVar.al("obj_locate", 5);
         TiebaStatic.log(arVar);
     }
 }

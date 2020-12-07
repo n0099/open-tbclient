@@ -20,7 +20,7 @@ import com.baidu.fsg.face.base.d.d;
 import com.baidu.fsg.face.base.d.f;
 import com.baidu.fsg.face.liveness.camera.LivenessCameraSurfaceView;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity implements Camera.PreviewCallback, SurfaceHolder.Callback {
     private static final int b = 1;
     private static final int c = 2;
@@ -33,7 +33,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
     private int d = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f1602a = false;
+    boolean f1604a = false;
 
     abstract View a();
 
@@ -189,7 +189,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     private class a extends AsyncTask<Void, Void, String> {
         private a() {
         }
@@ -199,7 +199,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         @Override // android.os.AsyncTask
         /* renamed from: a */
         public String doInBackground(Void... voidArr) {
-            LivenessCameraBaseActivity.this.f1602a = LivenessCameraBaseActivity.this.cameraControl.a((Context) LivenessCameraBaseActivity.this.getActivity());
+            LivenessCameraBaseActivity.this.f1604a = LivenessCameraBaseActivity.this.cameraControl.a((Context) LivenessCameraBaseActivity.this.getActivity());
             LivenessCameraBaseActivity.this.cameraControl.a((Camera.PreviewCallback) LivenessCameraBaseActivity.this);
             return null;
         }
@@ -210,7 +210,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         /* renamed from: a */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
-            if (LivenessCameraBaseActivity.this.f1602a) {
+            if (LivenessCameraBaseActivity.this.f1604a) {
                 LivenessCameraBaseActivity.this.d();
             } else {
                 LivenessCameraBaseActivity.this.a(true, false, false);
@@ -256,7 +256,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     private static class b implements MediaPlayer.OnErrorListener {
         private b() {
         }

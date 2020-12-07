@@ -12,27 +12,27 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a {
-    public static final String cNj = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
-    private static final String cNk = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "libs";
-    public static final String cNl = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
+    public static final String cUc = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
+    private static final String cUd = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "libs";
+    public static final String cUe = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
 
-    public static f eW(boolean z) {
+    public static f fl(boolean z) {
         boolean z2 = true;
         if (z) {
-            return f.hH(SoLoader.load(AppRuntime.getAppContext(), "v8.engine"));
+            return f.hW(SoLoader.load(AppRuntime.getAppContext(), "v8.engine"));
         }
-        if (aqD()) {
-            aqC();
-            boolean l = d.l("zeusv8", cNk, true);
-            if (!d.l("arcore_sdk_c", cNj, false) || !d.l("arcore_sdk_jni", cNj, false) || !d.l("c++_shared", cNj, false) || !d.l("v8.engine", cNj, false)) {
+        if (atL()) {
+            atK();
+            boolean m = d.m("zeusv8", cUd, true);
+            if (!d.m("arcore_sdk_c", cUc, false) || !d.m("arcore_sdk_jni", cUc, false) || !d.m("c++_shared", cUc, false) || !d.m("v8.engine", cUc, false)) {
                 z2 = false;
             }
-            return f.u(l, z2);
+            return f.u(m, z2);
         }
-        d.l("zeusv8", cNl, true);
-        return f.hH(d.l("v8.engine", cNl, true));
+        d.m("zeusv8", cUe, true);
+        return f.hW(d.m("v8.engine", cUe, true));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [152=5, 153=4, 154=4, 156=4, 157=4, 158=4, 161=4] */
@@ -41,7 +41,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static void aqC() {
+    private static void atK() {
         FileChannel fileChannel;
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream;
@@ -53,11 +53,11 @@ public class a {
         fileLock = null;
         fileLock = null;
         fileLock = null;
-        File file = new File(cNj + File.separator + GlobalConstants.LIB_ZEUS_V8);
+        File file = new File(cUc + File.separator + GlobalConstants.LIB_ZEUS_V8);
         if (!file.exists() || file.length() <= 0) {
             return;
         }
-        File file2 = new File(cNk);
+        File file2 = new File(cUd);
         if (!file2.exists()) {
             file2.mkdirs();
         }
@@ -217,7 +217,7 @@ public class a {
         }
     }
 
-    public static boolean aqD() {
+    public static boolean atL() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true);
     }
 }

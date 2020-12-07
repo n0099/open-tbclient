@@ -19,7 +19,6 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import com.vivo.push.PushClientConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Array;
@@ -69,7 +68,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class TypeUtils {
     public static boolean compatibleWithFieldName;
     public static boolean compatibleWithJavaBean;
@@ -224,7 +223,7 @@ public class TypeUtils {
                 return null;
             }
             if (obj2.indexOf(44) != 0) {
-                obj2 = obj2.replaceAll(Constants.ACCEPT_TIME_SEPARATOR_SP, "");
+                obj2 = obj2.replaceAll(",", "");
             }
             return Float.valueOf(Float.parseFloat(obj2));
         }
@@ -244,7 +243,7 @@ public class TypeUtils {
                 return null;
             }
             if (obj2.indexOf(44) != 0) {
-                obj2 = obj2.replaceAll(Constants.ACCEPT_TIME_SEPARATOR_SP, "");
+                obj2 = obj2.replaceAll(",", "");
             }
             return Double.valueOf(Double.parseDouble(obj2));
         }
@@ -446,7 +445,7 @@ public class TypeUtils {
                 return null;
             }
             if (str.indexOf(44) != 0) {
-                str = str.replaceAll(Constants.ACCEPT_TIME_SEPARATOR_SP, "");
+                str = str.replaceAll(",", "");
             }
             try {
                 return Long.valueOf(Long.parseLong(str));
@@ -486,7 +485,7 @@ public class TypeUtils {
                 return null;
             }
             if (str.indexOf(44) != 0) {
-                str = str.replaceAll(Constants.ACCEPT_TIME_SEPARATOR_SP, "");
+                str = str.replaceAll(",", "");
             }
             return Integer.valueOf(Integer.parseInt(str));
         } else if (obj instanceof Boolean) {
@@ -2075,7 +2074,7 @@ public class TypeUtils {
     public static boolean isKotlin(Class cls) {
         if (kotlin_metadata == null && !kotlin_metadata_error) {
             try {
-                kotlin_metadata = Class.forName("kotlin.h");
+                kotlin_metadata = Class.forName("kotlin.e");
             } catch (Throwable th) {
                 kotlin_metadata_error = true;
             }

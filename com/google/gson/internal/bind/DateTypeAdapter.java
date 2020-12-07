@@ -17,10 +17,10 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes5.dex */
 public final class DateTypeAdapter extends TypeAdapter<Date> {
-    public static final TypeAdapterFactory pfu = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.DateTypeAdapter.1
+    public static final TypeAdapterFactory puD = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.DateTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-            if (aVar.etp() == Date.class) {
+            if (aVar.eyV() == Date.class) {
                 return new DateTypeAdapter();
             }
             return null;
@@ -33,7 +33,7 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateTimeInstance(2, 2));
         }
-        if (c.esK()) {
+        if (c.eym()) {
             this.dateFormats.add(f.ei(2, 2));
         }
     }
@@ -41,11 +41,11 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public Date read(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.esW() == JsonToken.NULL) {
-            aVar.etb();
+        if (aVar.eyy() == JsonToken.NULL) {
+            aVar.eyE();
             return null;
         }
-        return deserializeToDate(aVar.eta());
+        return deserializeToDate(aVar.eyC());
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0019, code lost:
@@ -79,9 +79,9 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
     @Override // com.google.gson.TypeAdapter
     public synchronized void write(com.google.gson.stream.b bVar, Date date) throws IOException {
         if (date == null) {
-            bVar.etl();
+            bVar.eyR();
         } else {
-            bVar.Yl(this.dateFormats.get(0).format(date));
+            bVar.ZG(this.dateFormats.get(0).format(date));
         }
     }
 }

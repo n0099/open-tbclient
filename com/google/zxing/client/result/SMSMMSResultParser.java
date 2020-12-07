@@ -5,7 +5,7 @@ import com.google.zxing.Result;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class SMSMMSResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser

@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class Constants {
     public static final int ACK_MAX_SIZE = 20;
     public static final String ACTION_METHOD = "com.baidu.android.imsdk.action.METHOD";
@@ -161,7 +161,7 @@ public final class Constants {
     public static final String KEY_USER_SETTING_NOT_CONCERNED = "user_setting_not_concerned";
     public static final String KEY_VCODE = "imsdk_product_vcode";
     public static final String KEY_ZID = "imsdk_product_zid";
-    public static final String LITTLE_VERSION = "6";
+    public static final String LITTLE_VERSION = "5";
     public static final int LOGIN_STATE_LOGIN = 3;
     public static final int LOGIN_STATE_LOGINING = 1;
     public static final int LOGIN_STATE_LOGIN_FAILED = 2;
@@ -219,7 +219,7 @@ public final class Constants {
     public static final int METHOD_MEDIA_NOTIFY = 226;
     public static final int METHOD_SEND_USER_MSG = 1048578;
     public static final int METHOD_SYNC_DIALOG = 94;
-    public static final String MIDDLE_VERSION = "3";
+    public static final String MIDDLE_VERSION = "8";
     public static final int MSG_NOTIFY = 1;
     public static final int MSG_NOT_NOTIFY = 0;
     public static final int NOT_CLEAR_AFTER_LOGOUT = 0;
@@ -259,7 +259,7 @@ public final class Constants {
     public static final String URL_HTTP_BOX = "http://180.97.36.95:8080/";
     public static final String URL_HTTP_ONLINE = "https://pim.baidu.com/";
     public static final String URL_HTTP_QA = "http://10.64.132.67:8080/";
-    public static final String URL_HTTP_RD = "http://cp01-ocean-749.epc.baidu.com:8080/";
+    public static final String URL_HTTP_RD = "http://rd-im-server.bcc-szth.baidu.com:8080/";
     private static final int URL_SOCKET_PORT_OL_BOX = 8100;
     private static final int URL_SOCKET_PORT_QA = 8100;
     private static final int URL_SOCKET_PORT_RD = 8100;
@@ -269,7 +269,7 @@ public final class Constants {
     private static final String URL_SOCKET_SERVER_OL_HQ = "pimc2.baidu.com";
     private static final String URL_SOCKET_SERVER_OL_SSL = "pimc.baidu.com";
     private static final String URL_SOCKET_SERVER_QA = "10.64.132.59";
-    private static final String URL_SOCKET_SERVER_RD = "cp01-ocean-749.epc.baidu.com";
+    private static final String URL_SOCKET_SERVER_RD = "rd-im-server.bcc-szth.baidu.com";
     private static final String URL_SOCKET_SERVER_TEST_BOX = "180.97.36.95";
     public static final String USERINFO_PREFIX = "USERINFO";
     public static final int USER_SETTING_UK_NOT_CONCERNED = -2;

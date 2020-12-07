@@ -9,7 +9,7 @@ import android.os.Message;
 public abstract class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f4630a;
+    protected Context f4400a;
     protected Handler b;
     private final Object c = new Object();
 
@@ -22,7 +22,7 @@ public abstract class aa {
     }
 
     public final void a(Context context) {
-        this.f4630a = context;
+        this.f4400a = context;
     }
 
     public final void a(Message message) {

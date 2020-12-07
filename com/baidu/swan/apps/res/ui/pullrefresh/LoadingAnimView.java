@@ -12,45 +12,45 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.ap.ah;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class LoadingAnimView extends View {
-    private float dnF;
+    private float duH;
+    private Camera duI;
     private ValueAnimator mAnimator;
     private Bitmap mBitmap;
-    private Camera mCamera;
     private Canvas mCanvas;
     private Matrix mMatrix;
     private Paint mPaint;
 
     public LoadingAnimView(Context context) {
         super(context);
-        this.dnF = 0.0f;
+        this.duH = 0.0f;
         init();
     }
 
     public LoadingAnimView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dnF = 0.0f;
+        this.duH = 0.0f;
         init();
     }
 
     public LoadingAnimView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dnF = 0.0f;
+        this.duH = 0.0f;
         init();
     }
 
     public void init() {
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.mCamera = new Camera();
+        this.duI = new Camera();
         this.mMatrix = new Matrix();
         startAnim();
     }
 
     public void startAnim() {
         if (this.mAnimator != null) {
-            aFQ();
+            aIY();
         }
         this.mAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
         this.mAnimator.setDuration(750L);
@@ -62,11 +62,11 @@ public class LoadingAnimView extends View {
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (floatValue < 0.4f) {
-                    LoadingAnimView.this.dnF = (floatValue / 0.4f) * 0.25f;
+                    LoadingAnimView.this.duH = (floatValue / 0.4f) * 0.25f;
                 } else if (floatValue < 0.6f) {
-                    LoadingAnimView.this.dnF = (((floatValue - 0.4f) / 0.2f) * 0.5f) + 0.25f;
+                    LoadingAnimView.this.duH = (((floatValue - 0.4f) / 0.2f) * 0.5f) + 0.25f;
                 } else {
-                    LoadingAnimView.this.dnF = (((floatValue - 0.6f) / 0.4f) * 0.25f) + 0.75f;
+                    LoadingAnimView.this.duH = (((floatValue - 0.6f) / 0.4f) * 0.25f) + 0.75f;
                 }
                 LoadingAnimView.this.postInvalidate();
             }
@@ -77,7 +77,7 @@ public class LoadingAnimView extends View {
     }
 
     public void stopAnim() {
-        aFQ();
+        aIY();
         clearAnimation();
     }
 
@@ -91,14 +91,14 @@ public class LoadingAnimView extends View {
             this.mBitmap.eraseColor(0);
             this.mPaint.setStyle(Paint.Style.FILL);
             this.mPaint.setColor(getResources().getColor(a.c.aiapps_pull_load_footer_image_color));
-            this.mPaint.setAlpha((int) (255.0d * (((1.0d - (2.0d * Math.abs(this.dnF - 0.5d))) * 0.3d) + 0.3d)));
+            this.mPaint.setAlpha((int) (255.0d * (((1.0d - (2.0d * Math.abs(this.duH - 0.5d))) * 0.3d) + 0.3d)));
             this.mCanvas.drawCircle(measuredWidth / 2.0f, measuredHeight / 2.0f, dip2px, this.mPaint);
             this.mMatrix.reset();
-            this.mCamera.save();
-            this.mCamera.setLocation(0.0f, 0.0f, -100.0f);
-            this.mCamera.rotateY(this.dnF * 360.0f);
-            this.mCamera.getMatrix(this.mMatrix);
-            this.mCamera.restore();
+            this.duI.save();
+            this.duI.setLocation(0.0f, 0.0f, -100.0f);
+            this.duI.rotateY(this.duH * 360.0f);
+            this.duI.getMatrix(this.mMatrix);
+            this.duI.restore();
             this.mMatrix.preTranslate((-measuredWidth) / 2.0f, (-measuredHeight) / 2.0f);
             this.mMatrix.postTranslate(measuredWidth / 2.0f, measuredHeight / 2.0f);
             canvas.drawBitmap(this.mBitmap, this.mMatrix, null);
@@ -112,7 +112,7 @@ public class LoadingAnimView extends View {
         this.mCanvas = new Canvas(this.mBitmap);
     }
 
-    private void aFQ() {
+    private void aIY() {
         if (this.mAnimator != null) {
             this.mAnimator.setRepeatCount(0);
             this.mAnimator.removeAllUpdateListeners();

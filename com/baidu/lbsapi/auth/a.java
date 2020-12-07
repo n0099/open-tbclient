@@ -2,11 +2,11 @@ package com.baidu.lbsapi.auth;
 
 import android.util.Log;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1833a = false;
+    public static boolean f1835a = false;
     private static String b = "BaiduApiAuth";
 
     public static String a() {
@@ -15,7 +15,7 @@ class a {
     }
 
     public static void a(String str) {
-        if (!f1833a || Thread.currentThread().getStackTrace().length == 0) {
+        if (!f1835a || Thread.currentThread().getStackTrace().length == 0) {
             return;
         }
         Log.d(b, a() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str);
@@ -29,7 +29,7 @@ class a {
     }
 
     public static void c(String str) {
-        if (!f1833a || Thread.currentThread().getStackTrace().length == 0) {
+        if (!f1835a || Thread.currentThread().getStackTrace().length == 0) {
             return;
         }
         Log.e(b, a() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str);

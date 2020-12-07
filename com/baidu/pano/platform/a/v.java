@@ -1,22 +1,22 @@
 package com.baidu.pano.platform.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class v extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    public final l f2663a;
+    public final l f2665a;
     private long b;
 
     public v() {
-        this.f2663a = null;
+        this.f2665a = null;
     }
 
     public v(l lVar) {
-        this.f2663a = lVar;
+        this.f2665a = lVar;
     }
 
     public v(Throwable th) {
         super(th);
-        this.f2663a = null;
+        this.f2665a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

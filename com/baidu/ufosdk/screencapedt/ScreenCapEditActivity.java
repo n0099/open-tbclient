@@ -40,11 +40,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class ScreenCapEditActivity extends Activity implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3723a = b() + "/ufo/ufo_screen.jpeg";
+    public static String f3726a = b() + "/ufo/ufo_screen.jpeg";
     public static int b = SupportMenu.CATEGORY_MASK;
     public static int d = 0;
     private float A;
@@ -381,9 +381,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         String str = b() + "/ufo";
         try {
             File file = new File(str);
-            f3723a = str + "/ufo_" + System.currentTimeMillis() + ".jpeg";
-            com.baidu.ufosdk.f.c.b("--savePic--" + f3723a);
-            File file2 = new File(f3723a);
+            f3726a = str + "/ufo_" + System.currentTimeMillis() + ".jpeg";
+            com.baidu.ufosdk.f.c.b("--savePic--" + f3726a);
+            File file2 = new File(f3726a);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -405,6 +405,13 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ ImageView m(ScreenCapEditActivity screenCapEditActivity) {
         return screenCapEditActivity.e;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.ufosdk.screencapedt.g.onClick(android.view.View):void] */
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ Handler o(ScreenCapEditActivity screenCapEditActivity) {
+        return screenCapEditActivity.N;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback

@@ -1,30 +1,29 @@
 package io.flutter.embedding.engine.plugins;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.platform.PlatformViewRegistry;
 import io.flutter.view.TextureRegistry;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public interface FlutterPlugin {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface FlutterAssets {
-        String getAssetFilePathByName(@NonNull String str);
+        String getAssetFilePathByName(String str);
 
-        String getAssetFilePathByName(@NonNull String str, @NonNull String str2);
+        String getAssetFilePathByName(String str, String str2);
 
-        String getAssetFilePathBySubpath(@NonNull String str);
+        String getAssetFilePathBySubpath(String str);
 
-        String getAssetFilePathBySubpath(@NonNull String str, @NonNull String str2);
+        String getAssetFilePathBySubpath(String str, String str2);
     }
 
-    void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding);
+    void onAttachedToEngine(FlutterPluginBinding flutterPluginBinding);
 
-    void onDetachedFromEngine(@NonNull FlutterPluginBinding flutterPluginBinding);
+    void onDetachedFromEngine(FlutterPluginBinding flutterPluginBinding);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class FlutterPluginBinding {
         private final Context applicationContext;
         private final BinaryMessenger binaryMessenger;
@@ -33,7 +32,7 @@ public interface FlutterPlugin {
         private final PlatformViewRegistry platformViewRegistry;
         private final TextureRegistry textureRegistry;
 
-        public FlutterPluginBinding(@NonNull Context context, @NonNull FlutterEngine flutterEngine, @NonNull BinaryMessenger binaryMessenger, @NonNull TextureRegistry textureRegistry, @NonNull PlatformViewRegistry platformViewRegistry, @NonNull FlutterAssets flutterAssets) {
+        public FlutterPluginBinding(Context context, FlutterEngine flutterEngine, BinaryMessenger binaryMessenger, TextureRegistry textureRegistry, PlatformViewRegistry platformViewRegistry, FlutterAssets flutterAssets) {
             this.applicationContext = context;
             this.flutterEngine = flutterEngine;
             this.binaryMessenger = binaryMessenger;
@@ -42,33 +41,27 @@ public interface FlutterPlugin {
             this.flutterAssets = flutterAssets;
         }
 
-        @NonNull
         public Context getApplicationContext() {
             return this.applicationContext;
         }
 
-        @NonNull
         @Deprecated
         public FlutterEngine getFlutterEngine() {
             return this.flutterEngine;
         }
 
-        @NonNull
         public BinaryMessenger getBinaryMessenger() {
             return this.binaryMessenger;
         }
 
-        @NonNull
         public TextureRegistry getTextureRegistry() {
             return this.textureRegistry;
         }
 
-        @NonNull
         public PlatformViewRegistry getPlatformViewRegistry() {
             return this.platformViewRegistry;
         }
 
-        @NonNull
         public FlutterAssets getFlutterAssets() {
             return this.flutterAssets;
         }

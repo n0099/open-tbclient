@@ -3,13 +3,13 @@ package com.baidu.vi;
 import android.os.Handler;
 import android.os.Message;
 import com.baidu.vi.AudioRecorder;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 final class a extends Handler {
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         boolean z;
         boolean z2;
-        AudioRecorder audioRecorder = ((AudioRecorder.a) message.obj).f3900a;
+        AudioRecorder audioRecorder = ((AudioRecorder.a) message.obj).f3903a;
         switch (message.what) {
             case 1:
                 z2 = audioRecorder.h;

@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.hotTopic.tab.b;
 import android.support.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import tbclient.ThreadInfo;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class f extends e {
     public String forumName;
 
@@ -14,6 +14,6 @@ public class f extends e {
 
     @Override // com.baidu.tieba.homepage.hotTopic.tab.b.e, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return a.jCM;
+        return a.jQo;
     }
 }

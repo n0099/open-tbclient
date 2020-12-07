@@ -3,6 +3,12 @@ package com.baidu.tieba.tbadkCore.util;
 import android.app.Activity;
 import android.content.Context;
 import android.util.Pair;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 import com.baidu.adp.base.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -15,9 +21,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AccountRestoreActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.util.PageType;
 import com.baidu.tieba.R;
@@ -50,19 +58,19 @@ public class AntiHelper {
         if (au.isEmpty(str)) {
             str = TbadkCoreApplication.getInst().getContext().getString(R.string.anti_account_exception_appealing);
         }
-        BdToast.a(TbadkCoreApplication.getInst().getContext(), str, R.drawable.icon_pure_toast_mistake40_svg, 3000, false).bom();
+        BdToast.a(TbadkCoreApplication.getInst().getContext(), str, R.drawable.icon_pure_toast_mistake40_svg, 3000, false).brB();
         return true;
     }
 
-    public static boolean Ko(int i) {
+    public static boolean Le(int i) {
         return i == 3250002 || i == 3250001 || i == 3250003 || i == 3250004 || i == 3250013;
     }
 
-    public static com.baidu.tbadk.core.dialog.a bj(Context context, String str) {
-        return f(context, str, 0);
+    public static com.baidu.tbadk.core.dialog.a bn(Context context, String str) {
+        return g(context, str, 0);
     }
 
-    public static com.baidu.tbadk.core.dialog.a f(Context context, String str, int i) {
+    public static com.baidu.tbadk.core.dialog.a g(Context context, String str, int i) {
         if (str == null) {
             str = "";
         }
@@ -90,11 +98,11 @@ public class AntiHelper {
         if (blockPopInfoData == null) {
             return null;
         }
-        com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(i.I(context).getPageActivity());
+        com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(i.J(context).getPageActivity());
         if (blockPopInfoData.block_info == null) {
             blockPopInfoData.block_info = "";
         }
-        aVar2.AJ(blockPopInfoData.block_info);
+        aVar2.Bq(blockPopInfoData.block_info);
         aVar2.a(au.isEmpty(blockPopInfoData.ahead_info) ? context.getString(R.string.anti_vcode_pos) : blockPopInfoData.ahead_info, new a.b() { // from class: com.baidu.tieba.tbadkCore.util.AntiHelper.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
@@ -115,7 +123,7 @@ public class AntiHelper {
             }
         });
         if (context instanceof Activity) {
-            aVar2.b(i.I(context)).bog();
+            aVar2.b(i.J(context)).brv();
             return aVar2;
         }
         return null;
@@ -123,7 +131,7 @@ public class AntiHelper {
 
     public static boolean a(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         if (!f(antiData)) {
-            dKL();
+            dQd();
         }
         if (c(antiData) || e(antiData)) {
             if (antiData.isHas_chance()) {
@@ -162,7 +170,7 @@ public class AntiHelper {
     private static void b(final Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         String string;
         String string2;
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(i.I(context).getPageActivity());
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(i.J(context).getPageActivity());
         if (operationType == OperationType.SIGN) {
             String string3 = context.getString(R.string.anti_appeal_sign_base_tip);
             if (c(antiData)) {
@@ -178,7 +186,7 @@ public class AntiHelper {
         } else {
             string = context.getString(R.string.anti_account_exception_tip);
         }
-        aVar.AJ(string);
+        aVar.Bq(string);
         aVar.a(context.getString(R.string.anti_vcode_pos), new a.b() { // from class: com.baidu.tieba.tbadkCore.util.AntiHelper.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -193,14 +201,14 @@ public class AntiHelper {
             }
         });
         if (context instanceof Activity) {
-            aVar.b(i.I(context)).bog();
+            aVar.b(i.J(context)).brv();
         }
     }
 
     private static void a(final Context context, AntiData antiData, OperationType operationType) {
         String format;
         String string;
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(i.I(context).getPageActivity());
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(i.J(context).getPageActivity());
         if (operationType == OperationType.SIGN) {
             String string2 = context.getString(R.string.anti_appeal_sign_base_tip);
             if (c(antiData)) {
@@ -216,7 +224,7 @@ public class AntiHelper {
         } else {
             format = MessageFormat.format(context.getString(R.string.anti_appeal_com_tip), antiData.getBlock_forum_name(), Integer.valueOf(antiData.getDays_tofree()));
         }
-        aVar.AJ(format);
+        aVar.Bq(format);
         aVar.a(context.getString(R.string.anti_vcode_pos), new a.b() { // from class: com.baidu.tieba.tbadkCore.util.AntiHelper.6
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -231,14 +239,14 @@ public class AntiHelper {
             }
         });
         if (context instanceof Activity) {
-            aVar.b(i.I(context)).bog();
+            aVar.b(i.J(context)).brv();
         }
     }
 
     private static void b(Context context, AntiData antiData, OperationType operationType) {
         String string;
         String string2;
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(i.I(context).getPageActivity());
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(i.J(context).getPageActivity());
         if (operationType == OperationType.SIGN) {
             String string3 = context.getString(R.string.anti_appeal_sign_base_tip);
             if (c(antiData)) {
@@ -254,7 +262,7 @@ public class AntiHelper {
         } else {
             string = context.getString(R.string.anti_no_chance_com_tip);
         }
-        aVar.AJ(string);
+        aVar.Bq(string);
         aVar.a(context.getString(R.string.confirm), new a.b() { // from class: com.baidu.tieba.tbadkCore.util.AntiHelper.8
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -262,15 +270,15 @@ public class AntiHelper {
             }
         });
         if (context instanceof Activity) {
-            aVar.b(i.I(context)).bog();
+            aVar.b(i.J(context)).brv();
         }
     }
 
     private static void a(final Context context, AntiData antiData, final PageType pageType) {
-        if (!com.baidu.tbadk.core.sharedPref.b.bpu().getBoolean(SharedPrefConfig.ANTI_VCODE_NO_LONGER_TIP, false)) {
+        if (!com.baidu.tbadk.core.sharedPref.b.bsO().getBoolean(SharedPrefConfig.ANTI_VCODE_NO_LONGER_TIP, false)) {
             boolean isHas_chance = antiData.isHas_chance();
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(i.I(context).getPageActivity());
-            aVar.AJ(context.getString(isHas_chance ? R.string.anti_vocode_on_chance_tip : R.string.anti_vcode_tip));
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(i.J(context).getPageActivity());
+            aVar.Bq(context.getString(isHas_chance ? R.string.anti_vocode_on_chance_tip : R.string.anti_vcode_tip));
             if (!isHas_chance) {
                 aVar.b(context.getString(R.string.anti_vcode_pos), new a.b() { // from class: com.baidu.tieba.tbadkCore.util.AntiHelper.9
                     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -290,29 +298,29 @@ public class AntiHelper {
             aVar.a(context.getString(R.string.anti_vcode_neg), new a.b() { // from class: com.baidu.tieba.tbadkCore.util.AntiHelper.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    com.baidu.tbadk.core.sharedPref.b.bpu().putBoolean(SharedPrefConfig.ANTI_VCODE_NO_LONGER_TIP, true);
+                    com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean(SharedPrefConfig.ANTI_VCODE_NO_LONGER_TIP, true);
                     aVar2.dismiss();
                 }
             });
             if (context instanceof Activity) {
-                aVar.b(i.I(context)).bog();
+                aVar.b(i.J(context)).brv();
             }
         }
     }
 
     public static boolean c(Context context, int i, String str) {
-        if (Kp(i)) {
-            bk(context, str);
+        if (Lf(i)) {
+            bo(context, str);
             return true;
         }
         return false;
     }
 
-    public static boolean Kp(int i) {
+    public static boolean Lf(int i) {
         return i == 3250012;
     }
 
-    public static void bk(Context context, String str) {
+    public static void bo(Context context, String str) {
         if (context != null && !au.isEmpty(str)) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new Pair("nomenu", "1"));
@@ -321,24 +329,48 @@ public class AntiHelper {
         }
     }
 
-    private static void dKL() {
-        com.baidu.tbadk.core.sharedPref.b.bpu().remove(SharedPrefConfig.ANTI_VCODE_NO_LONGER_TIP);
+    private static void dQd() {
+        com.baidu.tbadk.core.sharedPref.b.bsO().remove(SharedPrefConfig.ANTI_VCODE_NO_LONGER_TIP);
     }
 
-    public static boolean ba(bx bxVar) {
-        return bxVar != null && bxVar.bkm() && bxVar.forbidComment;
+    public static boolean ba(by byVar) {
+        return byVar != null && byVar.bnz() && byVar.forbidComment;
     }
 
     public static boolean a(VideoItemData videoItemData) {
         return videoItemData != null && videoItemData.isBjhVideo && videoItemData.forbidComment;
     }
 
-    public static boolean b(TbPageContext<?> tbPageContext, bx bxVar) {
-        if (tbPageContext != null && ba(bxVar)) {
-            l.showToast(tbPageContext.getPageActivity(), StringUtils.isNull(bxVar.noCommetStr) ? tbPageContext.getString(R.string.forbiden_comment_text) : bxVar.noCommetStr);
+    public static boolean b(TbPageContext<?> tbPageContext, by byVar) {
+        if (tbPageContext != null && ba(byVar)) {
+            l.showToast(tbPageContext.getPageActivity(), StringUtils.isNull(byVar.noCommetStr) ? tbPageContext.getString(R.string.forbiden_comment_text) : byVar.noCommetStr);
             return true;
         }
         return false;
+    }
+
+    public static boolean a(TbPageContext<?> tbPageContext, AntiData antiData) {
+        if (tbPageContext == null || antiData == null || antiData.mFrsForbidenDialogInfo == null || antiData.mFrsForbidenDialogInfo.canPost()) {
+            return false;
+        }
+        z(tbPageContext.getPageActivity(), antiData.mFrsForbidenDialogInfo.block_info, antiData.mFrsForbidenDialogInfo.sub_block_info);
+        return true;
+    }
+
+    public static void z(Context context, String str, String str2) {
+        View inflate = LayoutInflater.from(context).inflate(R.layout.pb_level_toast, (ViewGroup) null);
+        TextView textView = (TextView) inflate.findViewById(R.id.toast_title);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.toast_tip);
+        ap.setViewTextColor(textView, R.color.CAM_X0101);
+        ap.setViewTextColor(textView2, R.color.CAM_X0101);
+        ((ImageView) inflate.findViewById(R.id.toast_img)).setImageDrawable(WebPManager.a(R.drawable.icon_pure_toast_mistake_40, ap.getColor(R.color.CAM_X0101), (WebPManager.ResourceStateType) null));
+        textView.setText(str);
+        textView2.setText(str2);
+        Toast toast = new Toast(context);
+        toast.setView(inflate);
+        toast.setGravity(17, 0, 0);
+        toast.setDuration(2000);
+        toast.show();
     }
 
     public static boolean a(TbPageContext<?> tbPageContext, VideoItemData videoItemData) {
@@ -349,12 +381,12 @@ public class AntiHelper {
         return false;
     }
 
-    public static boolean bb(bx bxVar) {
-        return bxVar != null && bxVar.eEA && bxVar.bkm();
+    public static boolean bb(by byVar) {
+        return byVar != null && byVar.eLC && byVar.bnz();
     }
 
-    public static boolean d(Context context, bx bxVar) {
-        if (context == null || !bb(bxVar)) {
+    public static boolean d(Context context, by byVar) {
+        if (context == null || !bb(byVar)) {
             return false;
         }
         l.showToast(context, R.string.feed_thread_state_under_review_text);

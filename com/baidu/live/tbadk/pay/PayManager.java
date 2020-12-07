@@ -50,12 +50,13 @@ public class PayManager {
         }
     }
 
-    public void doPayByWallet(IntentConfig intentConfig) {
+    public boolean doPayByWallet(IntentConfig intentConfig) {
         if (intentConfig == null) {
             showToast(a.h.sdk_plugin_pay_error);
-            return;
+            return false;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, intentConfig));
+        return true;
     }
 
     private void showToast(int i) {

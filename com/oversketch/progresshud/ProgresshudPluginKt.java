@@ -2,10 +2,10 @@ package com.oversketch.progresshud;
 
 import android.app.Activity;
 import com.bigkoo.svprogresshud.SVProgressHUD;
-import kotlin.h;
-import kotlin.jvm.internal.q;
-@h
-/* loaded from: classes16.dex */
+import kotlin.e;
+import kotlin.jvm.internal.p;
+@e
+/* loaded from: classes5.dex */
 public final class ProgresshudPluginKt {
     public static SVProgressHUD dialog;
     private static Activity mCurrentActivity;
@@ -14,26 +14,26 @@ public final class ProgresshudPluginKt {
     public static final SVProgressHUD getDialog() {
         SVProgressHUD sVProgressHUD = dialog;
         if (sVProgressHUD == null) {
-            q.ZA("dialog");
+            p.aar("dialog");
         }
         return sVProgressHUD;
     }
 
     public static final void setDialog(SVProgressHUD sVProgressHUD) {
-        q.n(sVProgressHUD, "<set-?>");
+        p.o(sVProgressHUD, "<set-?>");
         dialog = sVProgressHUD;
     }
 
     public static final SVProgressHUD.SVProgressHUDMaskType getMaskType() {
         SVProgressHUD.SVProgressHUDMaskType sVProgressHUDMaskType = maskType;
         if (sVProgressHUDMaskType == null) {
-            q.ZA("maskType");
+            p.aar("maskType");
         }
         return sVProgressHUDMaskType;
     }
 
     public static final void setMaskType(SVProgressHUD.SVProgressHUDMaskType sVProgressHUDMaskType) {
-        q.n(sVProgressHUDMaskType, "<set-?>");
+        p.o(sVProgressHUDMaskType, "<set-?>");
         maskType = sVProgressHUDMaskType;
     }
 }

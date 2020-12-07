@@ -10,9 +10,9 @@ import com.facebook.common.internal.g;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public final class a {
-    private static final Pools.SynchronizedPool<ByteBuffer> pbW = new Pools.SynchronizedPool<>(12);
+    private static final Pools.SynchronizedPool<ByteBuffer> pqO = new Pools.SynchronizedPool<>(12);
 
     @SuppressLint({"NewApi"})
     public static int am(@Nullable Bitmap bitmap) {
@@ -32,10 +32,10 @@ public final class a {
     }
 
     @Nullable
-    public static Pair<Integer, Integer> x(InputStream inputStream) {
+    public static Pair<Integer, Integer> y(InputStream inputStream) {
         Pair<Integer, Integer> pair = null;
         g.checkNotNull(inputStream);
-        ByteBuffer acquire = pbW.acquire();
+        ByteBuffer acquire = pqO.acquire();
         if (acquire == null) {
             acquire = ByteBuffer.allocate(16384);
         }
@@ -49,38 +49,38 @@ public final class a {
             }
             return pair;
         } finally {
-            pbW.release(acquire);
+            pqO.release(acquire);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.facebook.d.a$1  reason: invalid class name */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] pbX = new int[Bitmap.Config.values().length];
+        static final /* synthetic */ int[] pqP = new int[Bitmap.Config.values().length];
 
         static {
             try {
-                pbX[Bitmap.Config.ARGB_8888.ordinal()] = 1;
+                pqP[Bitmap.Config.ARGB_8888.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                pbX[Bitmap.Config.ALPHA_8.ordinal()] = 2;
+                pqP[Bitmap.Config.ALPHA_8.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                pbX[Bitmap.Config.ARGB_4444.ordinal()] = 3;
+                pqP[Bitmap.Config.ARGB_4444.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                pbX[Bitmap.Config.RGB_565.ordinal()] = 4;
+                pqP[Bitmap.Config.RGB_565.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
         }
     }
 
-    public static int e(Bitmap.Config config) {
-        switch (AnonymousClass1.pbX[config.ordinal()]) {
+    public static int d(Bitmap.Config config) {
+        switch (AnonymousClass1.pqP[config.ordinal()]) {
             case 1:
                 return 4;
             case 2:
@@ -94,6 +94,6 @@ public final class a {
     }
 
     public static int e(int i, int i2, Bitmap.Config config) {
-        return i * i2 * e(config);
+        return i * i2 * d(config);
     }
 }

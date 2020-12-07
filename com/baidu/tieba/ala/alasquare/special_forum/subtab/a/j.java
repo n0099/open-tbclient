@@ -1,12 +1,12 @@
 package com.baidu.tieba.ala.alasquare.special_forum.subtab.a;
 
 import com.baidu.adp.widget.ListView.af;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class j extends af.a {
-    public i gpi;
+    public i gxr;
 
     public j(i iVar) {
         super(iVar.getView());
-        this.gpi = iVar;
+        this.gxr = iVar;
     }
 }

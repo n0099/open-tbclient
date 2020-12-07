@@ -13,7 +13,7 @@ import com.baidu.location.PoiRegion;
 import com.baidu.location.b.l;
 import com.baidu.mobstat.Config;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class o extends l {
     private double A;
     private double B;
@@ -57,24 +57,24 @@ public class o extends l {
     private boolean R = false;
     private boolean S = true;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     private class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ o f1903a;
+        final /* synthetic */ o f1905a;
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f1903a.G) {
-                this.f1903a.G = false;
-                if (!this.f1903a.H) {
+            if (this.f1905a.G) {
+                this.f1905a.G = false;
+                if (!this.f1905a.H) {
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public class b implements Runnable {
         private b() {
         }
@@ -109,11 +109,11 @@ public class o extends l {
     }
 
     private boolean a(com.baidu.location.c.h hVar) {
-        this.f1891a = com.baidu.location.c.i.a().o();
-        if (hVar == this.f1891a) {
+        this.f1893a = com.baidu.location.c.i.a().o();
+        if (hVar == this.f1893a) {
             return false;
         }
-        return this.f1891a == null || hVar == null || !hVar.c(this.f1891a);
+        return this.f1893a == null || hVar == null || !hVar.c(this.f1893a);
     }
 
     public static synchronized o c() {
@@ -135,7 +135,7 @@ public class o extends l {
             return;
         }
         if (com.baidu.location.e.l.b()) {
-            Log.d(com.baidu.location.e.a.f1944a, "isInforbiddenTime on request location ...");
+            Log.d(com.baidu.location.e.a.f1946a, "isInforbiddenTime on request location ...");
         }
         boolean z = message.getData().getBoolean("isWaitingLocTag", false);
         if (z) {
@@ -307,9 +307,9 @@ public class o extends l {
                 a2 = a2 + this.k;
                 this.k = null;
             }
-            this.e.a(a2, this.f1891a != null ? this.f1891a.f() : 0L);
+            this.e.a(a2, this.f1893a != null ? this.f1893a.f() : 0L);
             this.o = this.b;
-            this.n = this.f1891a;
+            this.n = this.f1893a;
             if (this.r) {
                 this.r = false;
                 if (!com.baidu.location.c.i.a().i() || message == null || com.baidu.location.b.b.a().e(message) < 1000) {

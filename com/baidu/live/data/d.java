@@ -1,37 +1,31 @@
 package com.baidu.live.data;
 
-import com.baidu.live.adp.lib.util.StringUtils;
-import com.heytap.mcssdk.mode.CommandMessage;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import android.text.TextUtils;
+import com.baidu.live.tbadk.core.data.BaseData;
+import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class d {
-    private List<String> aGa;
-    private boolean aGb = false;
+public class d extends BaseData {
+    private int aIJ;
+    public String aIK;
+    public String des;
+    public String downloadUrl;
+    public String icon;
+    public String packageName;
 
-    public void parse(JSONObject jSONObject) {
+    @Override // com.baidu.live.tbadk.core.data.BaseData
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aGb = jSONObject.optInt("tags_switch", 0) == 1;
-            JSONArray optJSONArray = jSONObject.optJSONArray(CommandMessage.TYPE_TAGS);
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.aGa = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null && !StringUtils.isNull(optJSONObject.optString("member"))) {
-                        this.aGa.add(optJSONObject.optString("member"));
-                    }
-                }
-            }
+            this.aIJ = jSONObject.optInt("switch");
+            this.icon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
+            this.des = jSONObject.optString("text");
+            this.downloadUrl = jSONObject.optString("download_url");
+            this.packageName = jSONObject.optString("package_name");
+            this.aIK = jSONObject.optString("cmd");
         }
     }
 
-    public List<String> Ds() {
-        return this.aGa;
-    }
-
-    public boolean Dt() {
-        return this.aGb;
+    public boolean Fe() {
+        return (this.aIJ != 1 || TextUtils.isEmpty(this.aIK) || TextUtils.isEmpty(this.packageName)) ? false : true;
     }
 }

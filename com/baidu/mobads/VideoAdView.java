@@ -8,7 +8,7 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 public class VideoAdView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.mobads.production.h.b f2311a;
+    private com.baidu.mobads.production.h.b f2313a;
     private IOAdEventListener b;
     private VideoAdViewListener c;
 
@@ -30,15 +30,15 @@ public class VideoAdView extends RelativeLayout {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2312a;
+        private int f2314a;
 
         VideoDuration(int i) {
-            this.f2312a = i;
+            this.f2314a = i;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         public int getValue() {
-            return this.f2312a;
+            return this.f2314a;
         }
     }
 
@@ -49,17 +49,17 @@ public class VideoAdView extends RelativeLayout {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2313a;
+        private int f2315a;
         private int b;
 
         VideoSize(int i, int i2) {
-            this.f2313a = i;
+            this.f2315a = i;
             this.b = i2;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         public int getWidth() {
-            return this.f2313a;
+            return this.f2315a;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -69,19 +69,19 @@ public class VideoAdView extends RelativeLayout {
     }
 
     public void requestAd(VideoAdRequest videoAdRequest) {
-        this.f2311a = new com.baidu.mobads.production.h.b(getContext(), "TODO");
-        this.f2311a.setActivity(getContext());
-        this.f2311a.setAdSlotBase(this);
-        this.f2311a.addEventListener(IXAdEvent.AD_CLICK_THRU, this.b);
-        this.f2311a.addEventListener(IXAdEvent.AD_LOADED, this.b);
-        this.f2311a.addEventListener(IXAdEvent.AD_STARTED, this.b);
-        this.f2311a.addEventListener(IXAdEvent.AD_STOPPED, this.b);
-        this.f2311a.addEventListener(IXAdEvent.AD_ERROR, this.b);
-        this.f2311a.request();
+        this.f2313a = new com.baidu.mobads.production.h.b(getContext(), "TODO");
+        this.f2313a.setActivity(getContext());
+        this.f2313a.setAdSlotBase(this);
+        this.f2313a.addEventListener(IXAdEvent.AD_CLICK_THRU, this.b);
+        this.f2313a.addEventListener(IXAdEvent.AD_LOADED, this.b);
+        this.f2313a.addEventListener(IXAdEvent.AD_STARTED, this.b);
+        this.f2313a.addEventListener(IXAdEvent.AD_STOPPED, this.b);
+        this.f2313a.addEventListener(IXAdEvent.AD_ERROR, this.b);
+        this.f2313a.request();
     }
 
     public void startVideo() {
-        this.f2311a.start();
+        this.f2313a.start();
     }
 
     public static void setAppSid(Context context, String str) {

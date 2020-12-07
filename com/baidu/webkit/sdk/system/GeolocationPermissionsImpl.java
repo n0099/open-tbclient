@@ -4,10 +4,10 @@ import android.webkit.GeolocationPermissions;
 import android.webkit.ValueCallback;
 import com.baidu.webkit.sdk.GeolocationPermissions;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 final class GeolocationPermissionsImpl extends GeolocationPermissions {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     static class CallbackWrapper implements GeolocationPermissions.Callback {
         private final GeolocationPermissions.Callback mCallback;
 

@@ -2,9 +2,8 @@ package io.flutter.view;
 
 import android.view.Choreographer;
 import android.view.WindowManager;
-import androidx.annotation.NonNull;
 import io.flutter.embedding.engine.FlutterJNI;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class VsyncWaiter {
     private static VsyncWaiter instance;
     private final FlutterJNI.AsyncWaitForVsyncDelegate asyncWaitForVsyncDelegate = new FlutterJNI.AsyncWaitForVsyncDelegate() { // from class: io.flutter.view.VsyncWaiter.1
@@ -18,18 +17,16 @@ public class VsyncWaiter {
             });
         }
     };
-    @NonNull
     private final WindowManager windowManager;
 
-    @NonNull
-    public static VsyncWaiter getInstance(@NonNull WindowManager windowManager) {
+    public static VsyncWaiter getInstance(WindowManager windowManager) {
         if (instance == null) {
             instance = new VsyncWaiter(windowManager);
         }
         return instance;
     }
 
-    private VsyncWaiter(@NonNull WindowManager windowManager) {
+    private VsyncWaiter(WindowManager windowManager) {
         this.windowManager = windowManager;
     }
 

@@ -19,7 +19,6 @@ import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.vo.XAdInstanceInfo;
 import com.baidu.platform.comapi.UIMsg;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -32,7 +31,7 @@ import org.json.JSONObject;
 public class q implements IXAdContainerEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2425a;
+    private Context f2427a;
     private final b b;
     private int g = 0;
     private int h = 2;
@@ -60,7 +59,7 @@ public class q implements IXAdContainerEventListener {
     }
 
     public q(Context context, b bVar) {
-        this.f2425a = context;
+        this.f2427a = context;
         this.b = bVar;
     }
 
@@ -244,7 +243,7 @@ public class q implements IXAdContainerEventListener {
         if (Looper.myLooper() == Looper.getMainLooper()) {
             this.b.a(iXAdContainer, hashMap);
         } else {
-            new Handler(this.f2425a.getMainLooper()).post(new t(this, iXAdContainer, hashMap));
+            new Handler(this.f2427a.getMainLooper()).post(new t(this, iXAdContainer, hashMap));
         }
     }
 
@@ -253,7 +252,7 @@ public class q implements IXAdContainerEventListener {
         if (Looper.myLooper() == Looper.getMainLooper()) {
             this.b.b(iXAdContainer, hashMap);
         } else {
-            new Handler(this.f2425a.getMainLooper()).post(new u(this, iXAdContainer, hashMap));
+            new Handler(this.f2427a.getMainLooper()).post(new u(this, iXAdContainer, hashMap));
         }
     }
 
@@ -284,7 +283,7 @@ public class q implements IXAdContainerEventListener {
         if (!this.e.get()) {
             if (hashMap != null) {
                 com.baidu.mobads.utils.h adConstants = XAdSDKFoundationFacade.getInstance().getAdConstants();
-                com.baidu.mobads.c.a.a().a(hashMap.get(adConstants.getInfoKeyErrorCode()) + Constants.ACCEPT_TIME_SEPARATOR_SP + hashMap.get(adConstants.getInfoKeyErrorMessage()) + Constants.ACCEPT_TIME_SEPARATOR_SP + hashMap.get(adConstants.getInfoKeyErrorModule()));
+                com.baidu.mobads.c.a.a().a(hashMap.get(adConstants.getInfoKeyErrorCode()) + "," + hashMap.get(adConstants.getInfoKeyErrorMessage()) + "," + hashMap.get(adConstants.getInfoKeyErrorModule()));
             }
             this.e.set(true);
             this.b.dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_ERROR, hashMap));

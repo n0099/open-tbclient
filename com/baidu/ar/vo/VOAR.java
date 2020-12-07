@@ -1,10 +1,10 @@
 package com.baidu.ar.vo;
 
-import com.baidu.ar.arplay.core.engine.ARPEngine;
+import com.baidu.ar.arplay.core.engine.ARPDataInteraction;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.c;
 import com.baidu.ar.d.l;
-import com.baidu.ar.g.r;
+import com.baidu.ar.h.r;
 import com.baidu.ar.imu.f;
 import com.baidu.ar.imu.g;
 import com.baidu.ar.imu.i;
@@ -14,20 +14,20 @@ import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class VOAR extends c {
     private static final String TAG = VOAR.class.getSimpleName();
-    private g rR;
-    private com.baidu.ar.lua.c rw;
-    private f xA;
-    private com.baidu.ar.vo.a.b xv;
-    private e xw;
-    private com.baidu.ar.d.e xx;
-    private com.baidu.ar.vo.b.c xy;
-    private b xz;
+    private com.baidu.ar.lua.c rN;
+    private g si;
+    private com.baidu.ar.vo.a.b yk;
+    private e yl;
+    private com.baidu.ar.d.e ym;
+    private com.baidu.ar.vo.b.c yn;
+    private b yo;
+    private f yp;
 
     private com.baidu.ar.vo.c.g a(d dVar) {
-        com.baidu.ar.vo.c.g gVar = new com.baidu.ar.vo.c.g(r(), this.xv, this.xy, new a() { // from class: com.baidu.ar.vo.VOAR.3
+        com.baidu.ar.vo.c.g gVar = new com.baidu.ar.vo.c.g(r(), this.yk, this.yn, new a() { // from class: com.baidu.ar.vo.VOAR.3
             @Override // com.baidu.ar.vo.a
             public void b(int i, HashMap<String, Object> hashMap) {
                 VOAR.this.b(i, hashMap);
@@ -38,32 +38,32 @@ public class VOAR extends c {
                 VOAR.this.d(hashMap);
             }
         });
-        gVar.setPreviewSize(dVar.yb, dVar.yc);
+        gVar.setPreviewSize(dVar.yQ, dVar.yR);
         return gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(int i, int i2, HashMap<String, Object> hashMap) {
-        if (this.xz == null) {
+        if (this.yo == null) {
             return;
         }
         switch (i) {
             case 401:
-                if (this.xz == null || hashMap == null || !(hashMap.get("app_type") instanceof String)) {
+                if (this.yo == null || hashMap == null || !(hashMap.get("app_type") instanceof String)) {
                     return;
                 }
-                this.xz.W("None".equals((String) hashMap.get("app_type")));
+                this.yo.U("None".equals((String) hashMap.get("app_type")));
                 return;
             case ARPMessageType.MSG_TYPE_LUA_SDK_BRIDGE /* 1901 */:
                 if (hashMap != null) {
                     int a2 = com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1);
                     if (4100 == a2) {
                         com.baidu.ar.vo.c.b s = s(hashMap);
-                        s.yl = true;
-                        this.xz.a(s);
+                        s.za = true;
+                        this.yo.a(s);
                         return;
                     } else if (4200 == a2) {
-                        this.xz.start();
+                        this.yo.start();
                         return;
                     } else {
                         return;
@@ -72,8 +72,8 @@ public class VOAR extends c {
                 return;
             case 4100:
                 com.baidu.ar.vo.c.b s2 = s(hashMap);
-                s2.yl = false;
-                this.xz.a(s2);
+                s2.za = false;
+                this.yo.a(s2);
                 return;
             default:
                 return;
@@ -82,9 +82,9 @@ public class VOAR extends c {
 
     private d gX() {
         d dVar = new d();
-        dVar.yb = PlatformPlugin.DEFAULT_SYSTEM_UI;
-        dVar.yc = 720;
-        dVar.yd = new d.a() { // from class: com.baidu.ar.vo.VOAR.2
+        dVar.yQ = PlatformPlugin.DEFAULT_SYSTEM_UI;
+        dVar.yR = 720;
+        dVar.yS = new d.a() { // from class: com.baidu.ar.vo.VOAR.2
             @Override // com.baidu.ar.vo.b.d.a
             public float getAngle() {
                 return VOAR.this.hc();
@@ -99,24 +99,24 @@ public class VOAR extends c {
     }
 
     private void gY() {
-        a(this.xw);
-        if (this.rw != null) {
-            b(this.rw);
-            this.rw = null;
+        a(this.yl);
+        if (this.rN != null) {
+            b(this.rN);
+            this.rN = null;
         }
-        if (this.rR != null) {
-            a(this.rR);
-            this.rR = null;
+        if (this.si != null) {
+            a(this.si);
+            this.si = null;
         }
-        this.xw = null;
-        this.xx = null;
-        if (this.xz != null) {
-            this.xz.release();
-            this.xz = null;
+        this.yl = null;
+        this.ym = null;
+        if (this.yo != null) {
+            this.yo.release();
+            this.yo = null;
         }
-        if (this.xy != null) {
-            this.xy.release();
-            this.xy = null;
+        if (this.yn != null) {
+            this.yn.release();
+            this.yn = null;
         }
     }
 
@@ -146,29 +146,29 @@ public class VOAR extends c {
     private void ha() {
         i iVar = new i();
         iVar.b(com.baidu.ar.imu.b.WORLD);
-        iVar.L(0);
-        iVar.I(false);
-        iVar.J(true);
-        this.rR = new g() { // from class: com.baidu.ar.vo.VOAR.6
+        iVar.N(0);
+        iVar.G(false);
+        iVar.H(true);
+        this.si = new g() { // from class: com.baidu.ar.vo.VOAR.6
             @Override // com.baidu.ar.imu.g
             public void onImuUpdate(f fVar) {
-                VOAR.this.xA = fVar;
+                VOAR.this.yp = fVar;
             }
         };
-        a(iVar, this.rR);
+        a(iVar, this.si);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public float[] hb() {
-        if (this.xA == null) {
+        if (this.yp == null) {
             return null;
         }
-        return this.xA.getMatrix();
+        return this.yp.getMatrix();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public float hc() {
-        return (this.xA == null ? null : Float.valueOf(this.xA.getAngle())).floatValue();
+        return (this.yp == null ? null : Float.valueOf(this.yp.getAngle())).floatValue();
     }
 
     private com.baidu.ar.vo.c.b s(HashMap<String, Object> hashMap) {
@@ -176,26 +176,27 @@ public class VOAR extends c {
         bVar.x = ((Float) hashMap.get("x")).floatValue();
         bVar.y = ((Float) hashMap.get("y")).floatValue();
         bVar.type = ((Integer) hashMap.get("type")).intValue();
-        bVar.yk = ((Float) hashMap.get("distance")).floatValue();
-        bVar.yl = true;
+        bVar.yZ = ((Float) hashMap.get("distance")).floatValue();
+        bVar.za = true;
         return bVar;
     }
 
     @Override // com.baidu.ar.c
     public void onCaseCreate(String str) {
         ha();
-        r().n(true);
-        r().o(true);
-        r().a(56.144978f);
-        r().a(new ARPEngine.d() { // from class: com.baidu.ar.vo.VOAR.4
-            @Override // com.baidu.ar.arplay.core.engine.ARPEngine.d
+        r().l(true);
+        r().m(true);
+        r().setFieldOfView(56.144978f);
+        r().initWorldAxis();
+        r().a(new ARPDataInteraction.b() { // from class: com.baidu.ar.vo.VOAR.4
+            @Override // com.baidu.ar.arplay.core.engine.ARPDataInteraction.b
             public void a(float f, float f2, float f3) {
-                if (VOAR.this.xz != null) {
-                    VOAR.this.xz.c(f, f2, f3);
+                if (VOAR.this.yo != null) {
+                    VOAR.this.yo.c(f, f2, f3);
                 }
             }
         });
-        a(this.xw, this.xx);
+        a(this.yl, this.ym);
     }
 
     @Override // com.baidu.ar.c
@@ -211,36 +212,36 @@ public class VOAR extends c {
     @Override // com.baidu.ar.c
     public void setup(HashMap<String, Object> hashMap) {
         super.setup(hashMap);
-        this.xv = com.baidu.ar.vo.a.a.aT(r().bA());
+        this.yk = com.baidu.ar.vo.a.a.aW(r().bx());
         d gX = gX();
-        this.xy = new com.baidu.ar.vo.b.c(gX);
-        this.xw = new e(this.xv, this.xy);
-        this.xx = new com.baidu.ar.d.e() { // from class: com.baidu.ar.vo.VOAR.1
-            private int xB = 0;
+        this.yn = new com.baidu.ar.vo.b.c(gX);
+        this.yl = new e(this.yk, this.yn);
+        this.ym = new com.baidu.ar.d.e() { // from class: com.baidu.ar.vo.VOAR.1
+            private int yq = 0;
 
             @Override // com.baidu.ar.d.e
             public void a(com.baidu.ar.d.b bVar) {
-                if (VOAR.this.xz == null || bVar == null || !(bVar instanceof com.baidu.ar.vo.b.f)) {
+                if (VOAR.this.yo == null || bVar == null || !(bVar instanceof com.baidu.ar.vo.b.f)) {
                     return;
                 }
-                if (this.xB < 3) {
-                    this.xB++;
+                if (this.yq < 3) {
+                    this.yq++;
                     return;
                 }
-                VOAR.this.xz.a((com.baidu.ar.vo.b.f) bVar, VOAR.this.hb());
+                VOAR.this.yo.a((com.baidu.ar.vo.b.f) bVar, VOAR.this.hb());
             }
 
             @Override // com.baidu.ar.d.e
             public void a(l lVar) {
-                this.xB = 0;
+                this.yq = 0;
             }
 
             @Override // com.baidu.ar.d.e
             public void b(l lVar) {
             }
         };
-        this.xz = new b(a(gX), this.xv, this.xy, gX);
-        this.rw = gZ();
-        a(this.rw);
+        this.yo = new b(a(gX), this.yk, this.yn, gX);
+        this.rN = gZ();
+        a(this.rN);
     }
 }

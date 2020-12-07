@@ -1,4 +1,4 @@
 package com.baidu.turbonet.net;
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 public class HttpCacheType {
 }

@@ -17,13 +17,13 @@ import android.view.ViewConfiguration;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 @TargetApi(8)
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnScaleGestureListener, View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutListener {
     public static final float o = 12.0f;
     private static ZoomImageView p;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f3577a;
+    public float f3580a;
     private final float[] b;
     private boolean c;
     private ScaleGestureDetector d;
@@ -176,7 +176,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
             } else {
                 max = Math.max(((getWidth() * 1.0f) - (this.m * 2)) / intrinsicWidth, ((getHeight() * 1.0f) - (this.n * 2)) / intrinsicHeight);
             }
-            this.f3577a = max;
+            this.f3580a = max;
             this.e.postTranslate((width - intrinsicWidth) / 2, (height - intrinsicHeight) / 2);
             this.e.postScale(max, max, width / 2, height / 2);
             setImageMatrix(this.e);
@@ -276,7 +276,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
 
     public ZoomImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f3577a = 1.0f;
+        this.f3580a = 1.0f;
         this.b = new float[9];
         this.c = true;
         this.e = new Matrix();

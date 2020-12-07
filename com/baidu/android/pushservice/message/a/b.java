@@ -10,17 +10,17 @@ import org.json.JSONObject;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f1171a;
+    protected Context f1169a;
 
     public b(Context context) {
-        this.f1171a = context;
+        this.f1169a = context;
     }
 
     public abstract com.baidu.android.pushservice.message.g a(k kVar, byte[] bArr);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String a(String str) {
-        return ("com.baidu.searchbox_samsung".equals(str) && GlobalConstants.SEARCHBOX_PACKAGE_NAME.equals(this.f1171a.getPackageName())) ? GlobalConstants.SEARCHBOX_PACKAGE_NAME : str;
+        return ("com.baidu.searchbox_samsung".equals(str) && GlobalConstants.SEARCHBOX_PACKAGE_NAME.equals(this.f1169a.getPackageName())) ? GlobalConstants.SEARCHBOX_PACKAGE_NAME : str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -35,7 +35,7 @@ public abstract class b {
         try {
             jSONObject = new JSONObject(new String(bArr));
         } catch (Exception e) {
-            new b.c(this.f1171a).a(Log.getStackTraceString(e)).a();
+            new b.c(this.f1169a).a(Log.getStackTraceString(e)).a();
         }
         if (!jSONObject.isNull("bccs_fb")) {
             i = Integer.parseInt(jSONObject.getString("bccs_fb"));

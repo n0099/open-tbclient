@@ -1,7 +1,7 @@
 package com.baidu.mapsdkplatform.comjni.util;
 
 import com.baidu.platform.comapi.util.h;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class AppMD5 {
     public static String encodeUrlParamsValue(String str) {
         return JNIMD5.encodeUrlParamsValue(str);

@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private static y f2635a;
+    private static y f2637a;
     private Context b;
     private JSONObject c = new JSONObject();
     private long d = 24;
@@ -28,14 +28,14 @@ public class y {
     private String q = "";
 
     public static y a(Context context) {
-        if (f2635a == null) {
+        if (f2637a == null) {
             synchronized (y.class) {
-                if (f2635a == null) {
-                    f2635a = new y(context);
+                if (f2637a == null) {
+                    f2637a = new y(context);
                 }
             }
         }
-        return f2635a;
+        return f2637a;
     }
 
     private y(Context context) {

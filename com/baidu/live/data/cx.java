@@ -1,47 +1,40 @@
 package com.baidu.live.data;
 
-import com.baidu.android.imrtc.utils.RtcConstants;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class cx {
-    public String aRe;
-    public String aRf;
-    public int aRg;
-    public int aRh;
-    public a aRi;
-    public int aRj;
-    public String bg_cover;
-    public String cover;
-    public String croom_id;
-    public boolean is_followed;
-    public String live_id;
-    public String room_name;
-
-    /* loaded from: classes4.dex */
-    public static class a {
-        public String content;
-        public String title;
-    }
+    public String aUb;
+    public String aUc;
+    public int aUd;
+    public String aUe;
+    public int level_id = -1;
+    public List<AlaLiveMarkData> live_mark_info_new;
+    public String uk;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.croom_id = jSONObject.optString("croom_id");
-            this.aRe = jSONObject.optString("room_id");
-            this.aRf = jSONObject.optString(RtcConstants.EXTRA_RTC_ROOM_ID);
-            this.room_name = jSONObject.optString(DpStatConstants.KEY_ROOM_NAME);
-            this.cover = jSONObject.optString("cover");
-            this.bg_cover = jSONObject.optString("bg_cover");
-            this.live_id = jSONObject.optString("live_id");
-            this.aRg = jSONObject.optInt("phone_host_num");
-            this.aRh = jSONObject.optInt("phone_normal_num");
-            this.is_followed = jSONObject.optInt("is_followed") == 1;
-            this.aRj = jSONObject.optInt("room_daily_rank");
-            JSONObject optJSONObject = jSONObject.optJSONObject("play_rules");
-            if (optJSONObject != null) {
-                this.aRi = new a();
-                this.aRi.title = optJSONObject.optString("game_title");
-                this.aRi.content = optJSONObject.optString("game_content");
+            this.uk = jSONObject.optString("uk");
+            this.aUb = jSONObject.optString("head_img");
+            this.aUc = jSONObject.optString("nick_name");
+            this.aUd = jSONObject.optInt("noble_role_id");
+            this.aUe = jSONObject.optString("noble_role_name");
+            this.level_id = jSONObject.optInt("level_id");
+            if (jSONObject.has("identity_icon")) {
+                if (this.live_mark_info_new == null) {
+                    this.live_mark_info_new = new ArrayList();
+                }
+                JSONArray optJSONArray = jSONObject.optJSONArray("identity_icon");
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        AlaLiveMarkData alaLiveMarkData = new AlaLiveMarkData();
+                        alaLiveMarkData.parserJson(optJSONObject);
+                        this.live_mark_info_new.add(alaLiveMarkData);
+                    }
+                }
             }
         }
     }

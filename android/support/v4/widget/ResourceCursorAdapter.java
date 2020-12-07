@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public abstract class ResourceCursorAdapter extends CursorAdapter {
     private int mDropDownLayout;
     private LayoutInflater mInflater;

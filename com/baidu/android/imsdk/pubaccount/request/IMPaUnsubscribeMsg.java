@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMPaUnsubscribeMsg extends Message {
     private Context mContext;
     private long mPaId;
@@ -62,6 +62,7 @@ public class IMPaUnsubscribeMsg extends Message {
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
+        super.handleMessageResult(context, jSONObject, i, str);
         PaManagerImpl.getInstance(context).onUnsubscribePaResult(getListenerKey(), i, str, this.mPaId);
     }
 }

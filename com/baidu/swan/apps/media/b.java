@@ -4,48 +4,48 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class b {
-    private static ArrayList<a> cYZ = new ArrayList<>();
+    private static ArrayList<a> dfZ = new ArrayList<>();
 
-    public static void fD(boolean z) {
-        for (int size = cYZ.size() - 1; size >= 0; size--) {
-            a aVar = cYZ.get(size);
+    public static void fS(boolean z) {
+        for (int size = dfZ.size() - 1; size >= 0; size--) {
+            a aVar = dfZ.get(size);
             if (aVar != null) {
-                aVar.fB(z);
+                aVar.fQ(z);
             }
         }
     }
 
-    public static void fC(boolean z) {
-        for (int size = cYZ.size() - 1; size >= 0; size--) {
-            a aVar = cYZ.get(size);
+    public static void fR(boolean z) {
+        for (int size = dfZ.size() - 1; size >= 0; size--) {
+            a aVar = dfZ.get(size);
             if (aVar != null) {
-                aVar.fC(z);
+                aVar.fR(z);
             }
         }
     }
 
-    public static a pI(String str) {
+    public static a qp(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (int size = cYZ.size() - 1; size >= 0; size--) {
-            a aVar = cYZ.get(size);
-            if (aVar != null && TextUtils.equals(str, aVar.avy())) {
+        for (int size = dfZ.size() - 1; size >= 0; size--) {
+            a aVar = dfZ.get(size);
+            if (aVar != null && TextUtils.equals(str, aVar.ayG())) {
                 return aVar;
             }
         }
         return null;
     }
 
-    public static a O(@Nullable String str, @Nullable String str2, @NonNull String str3) {
+    public static a R(@Nullable String str, @Nullable String str2, @NonNull String str3) {
         if (TextUtils.isEmpty(str3)) {
             return null;
         }
-        for (int size = cYZ.size() - 1; size >= 0; size--) {
-            a aVar = cYZ.get(size);
-            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.azz())) || TextUtils.equals(str3, aVar.avy())))) {
+        for (int size = dfZ.size() - 1; size >= 0; size--) {
+            a aVar = dfZ.get(size);
+            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.aCI())) || TextUtils.equals(str3, aVar.ayG())))) {
                 return aVar;
             }
         }
@@ -53,27 +53,27 @@ public final class b {
     }
 
     public static void a(a aVar) {
-        if (aVar != null && !cYZ.contains(aVar)) {
-            cYZ.add(aVar);
+        if (aVar != null && !dfZ.contains(aVar)) {
+            dfZ.add(aVar);
         }
     }
 
     public static void b(a aVar) {
         if (aVar != null) {
-            cYZ.remove(aVar);
+            dfZ.remove(aVar);
         }
     }
 
-    public static void azB() {
-        cYZ.clear();
+    public static void aCK() {
+        dfZ.clear();
     }
 
-    public static boolean pJ(String str) {
+    public static boolean qq(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (int size = cYZ.size() - 1; size >= 0; size--) {
-            a aVar = cYZ.get(size);
+        for (int size = dfZ.size() - 1; size >= 0; size--) {
+            a aVar = dfZ.get(size);
             if (aVar != null && TextUtils.equals(str, aVar.getSlaveId()) && aVar.onBackPressed()) {
                 return true;
             }
@@ -81,10 +81,10 @@ public final class b {
         return false;
     }
 
-    public static void hE(String str) {
+    public static void ie(String str) {
         if (!TextUtils.isEmpty(str)) {
-            for (int size = cYZ.size() - 1; size >= 0; size--) {
-                a aVar = cYZ.get(size);
+            for (int size = dfZ.size() - 1; size >= 0; size--) {
+                a aVar = dfZ.get(size);
                 if (aVar != null && TextUtils.equals(str, aVar.getSlaveId())) {
                     aVar.onDestroy();
                 }
@@ -93,8 +93,8 @@ public final class b {
     }
 
     public static void destroy() {
-        for (int size = cYZ.size() - 1; size >= 0; size--) {
-            a aVar = cYZ.get(size);
+        for (int size = dfZ.size() - 1; size >= 0; size--) {
+            a aVar = dfZ.get(size);
             if (aVar != null) {
                 aVar.onDestroy();
             }

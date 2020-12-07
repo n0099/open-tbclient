@@ -10,13 +10,13 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class b {
     public static String b = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDjTe6LTkPFvWowhciLFGS+nqhc\nhfaYCwBhVIkmZXNNiqdBMcNBUmqaAIKYB8lh1+UFf/KmuO14QbAKqzE/FjHWAV51\n68IJCk+DLxu885hYRiNH+kJDRuzDVMOv4NudroOwY1zB3c8VOjjLuz7xE7rRet7d\nAjH9k8YPZuedladalwIDAQAB";
     public static String c = "1_0";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3956a;
+    public String f3959a;
     public HashMap<String, a> d = new HashMap<>();
     public HashMap<String, String> e = new HashMap<>();
     private HashMap<String, c> f = new HashMap<>();

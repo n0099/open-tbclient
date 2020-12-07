@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.sapi2.SapiContext;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMSendQuizOptMsg extends Message {
     private static final String TAG = "IMSendQuizOptMsg";
     private int mAnsWer;
@@ -36,7 +36,7 @@ public class IMSendQuizOptMsg extends Message {
         this.mOptExt = str;
         setListenerKey(this.mListenerKey);
         setNeedReplay(true);
-        setType(Constants.METHOD_IM_SEND_QUIZ_ANSWER_CAST);
+        setType(210);
     }
 
     public static IMSendQuizOptMsg newInstance(Context context, Intent intent) {
@@ -51,7 +51,7 @@ public class IMSendQuizOptMsg extends Message {
         long j;
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("method", Constants.METHOD_IM_SEND_QUIZ_ANSWER_CAST);
+            jSONObject.put("method", 210);
             jSONObject.put("appid", this.mAppid);
             jSONObject.put("uk", this.mUk);
             try {
@@ -98,12 +98,14 @@ public class IMSendQuizOptMsg extends Message {
             } catch (Exception e) {
                 LogUtils.e(TAG, "handle sendQuizOptMsg exception :", e);
             }
+            super.handleMessageResult(context, jSONObject, i2, str2);
             LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str2);
             ConversationStudioManImpl.getInstance(this.mContext).onSendQuizOptsResult(getListenerKey(), i2, str2, j, this.mRoomId);
         }
         j = -1;
         str2 = str;
         i2 = i;
+        super.handleMessageResult(context, jSONObject, i2, str2);
         LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str2);
         ConversationStudioManImpl.getInstance(this.mContext).onSendQuizOptsResult(getListenerKey(), i2, str2, j, this.mRoomId);
     }

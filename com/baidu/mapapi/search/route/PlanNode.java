@@ -3,30 +3,30 @@ package com.baidu.mapapi.search.route;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class PlanNode implements Parcelable {
     public static final Parcelable.Creator<PlanNode> CREATOR = new m();
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f2145a;
+    private LatLng f2147a;
     private String b;
     private String c;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public PlanNode(Parcel parcel) {
-        this.f2145a = null;
+        this.f2147a = null;
         this.b = null;
         this.c = null;
-        this.f2145a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.f2147a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
         this.b = parcel.readString();
         this.c = parcel.readString();
     }
 
     PlanNode(LatLng latLng, String str, String str2) {
-        this.f2145a = null;
+        this.f2147a = null;
         this.b = null;
         this.c = null;
-        this.f2145a = latLng;
+        this.f2147a = latLng;
         this.b = str;
         this.c = str2;
     }
@@ -53,7 +53,7 @@ public class PlanNode implements Parcelable {
     }
 
     public LatLng getLocation() {
-        return this.f2145a;
+        return this.f2147a;
     }
 
     public String getName() {
@@ -62,7 +62,7 @@ public class PlanNode implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeValue(this.f2145a);
+        parcel.writeValue(this.f2147a);
         parcel.writeString(this.b);
         parcel.writeString(this.c);
     }

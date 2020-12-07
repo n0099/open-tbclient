@@ -1,16 +1,16 @@
 package com.baidu.adp.newwidget.ImageView;
 /* loaded from: classes.dex */
 public class f {
-    public static f RH = new f();
+    public static f SB = new f();
 
     private f() {
     }
 
-    public static f pd() {
-        return RH;
+    public static f pe() {
+        return SB;
     }
 
-    public a aE(int i) {
+    public a aI(int i) {
         switch (i) {
             case 0:
                 return new c();

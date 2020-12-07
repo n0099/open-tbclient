@@ -1,5 +1,11 @@
 package com.baidu.tieba.recapp;
 /* loaded from: classes.dex */
 public interface l {
-    i getVideoOrVrView();
+    int ba(String str, boolean z);
+
+    int bb(String str, boolean z);
+
+    void dER();
+
+    void f(String str, int i, boolean z);
 }

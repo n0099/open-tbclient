@@ -30,7 +30,7 @@ public class QuanminGiftLogger implements IGiftLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", "liveroom");
-            jSONObject.put("k", LogConfig.KEY_NOTICE);
+            jSONObject.put("k", "notice");
             jSONObject.put("v", "live_gift_send_request");
             jSONObject.put("name", str4);
             jSONObject.put(LogConfig.LOG_OTHER_ID, str2);

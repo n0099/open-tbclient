@@ -4,7 +4,7 @@ import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Timeout {
     public static final Timeout NONE = new Timeout() { // from class: okio.Timeout.1
         @Override // okio.Timeout
@@ -79,9 +79,9 @@ public class Timeout {
 
     public void throwIfReached() throws IOException {
         if (Thread.interrupted()) {
-            throw new InterruptedIOException("thread interrupted");
-        }
-        if (this.hasDeadline && this.deadlineNanoTime - System.nanoTime() <= 0) {
+            Thread.currentThread().interrupt();
+            throw new InterruptedIOException("interrupted");
+        } else if (this.hasDeadline && this.deadlineNanoTime - System.nanoTime() <= 0) {
             throw new InterruptedIOException("deadline reached");
         }
     }
@@ -110,6 +110,7 @@ public class Timeout {
                 throw new InterruptedIOException("timeout");
             }
         } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
             throw new InterruptedIOException("interrupted");
         }
     }

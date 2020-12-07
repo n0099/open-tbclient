@@ -1,44 +1,28 @@
 package com.baidu.live.data;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class az {
-    public int aMM;
-    public int aMN;
-    public int aMO;
-    public int aMP;
-    public String aMQ;
-    public bv aMR;
-    public long anchorScore;
-    public long challengeId;
-    public int challengeResult;
-    public long endTime;
-    public long nowTime;
-    public long rivalScore;
-    public long stageEndTime;
-    public long stageStartTime;
-    public long startTime;
+    public List<ay> aPK;
+    public String liveId;
 
-    public void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.challengeId = jSONObject.optLong("challenge_id");
-            this.aMM = jSONObject.optInt("challenge_status");
-            this.challengeResult = jSONObject.optInt("challenge_ret");
-            this.aMN = jSONObject.optInt("challenge_ret_type");
-            this.startTime = jSONObject.optLong("start_time");
-            this.endTime = jSONObject.optLong("end_time");
-            this.stageStartTime = jSONObject.optLong("stage_start_time");
-            this.stageEndTime = jSONObject.optLong("stage_end_time");
-            this.nowTime = jSONObject.optLong("now_time");
-            this.anchorScore = jSONObject.optLong("anchor_score");
-            this.rivalScore = jSONObject.optLong("rival_score");
-            this.aMO = jSONObject.optInt("winning_num");
-            this.aMP = jSONObject.optInt("anchor_rank");
-            this.aMQ = jSONObject.optString("rank_url");
-            this.aMR = new bv();
-            JSONObject optJSONObject = jSONObject.optJSONObject("punish_stage_close_info");
-            if (optJSONObject != null) {
-                this.aMR.parseJson(optJSONObject);
+            this.liveId = jSONObject.optString("live_id");
+            JSONArray optJSONArray = jSONObject.optJSONArray("list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                this.aPK = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        ay ayVar = new ay();
+                        ayVar.parserJson(optJSONObject);
+                        this.aPK.add(ayVar);
+                    }
+                }
             }
         }
     }

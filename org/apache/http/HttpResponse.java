@@ -2,7 +2,7 @@ package org.apache.http;
 
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public interface HttpResponse extends HttpMessage {
     HttpEntity getEntity();
 

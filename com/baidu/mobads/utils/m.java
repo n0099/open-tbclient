@@ -6,17 +6,17 @@ import com.baidu.mobads.interfaces.utils.IXAdLogger;
 public class m implements IXAdLogger {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile m f2445a = null;
+    private static volatile m f2447a = null;
 
     public static m a() {
-        if (f2445a == null) {
+        if (f2447a == null) {
             synchronized (m.class) {
-                if (f2445a == null) {
-                    f2445a = new m();
+                if (f2447a == null) {
+                    f2447a = new m();
                 }
             }
         }
-        return f2445a;
+        return f2447a;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdLogger

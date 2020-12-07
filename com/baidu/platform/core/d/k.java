@@ -17,7 +17,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class k extends com.baidu.platform.base.d {
     SuggestAddrInfo b = null;
     protected boolean c;

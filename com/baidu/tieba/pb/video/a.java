@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.tieba.pb.pb.main.o;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a extends o<b, c> {
-    public View.OnClickListener fUG;
+    public View.OnClickListener gcQ;
 
     public a(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
@@ -20,7 +20,7 @@ public class a extends o<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cs */
+    /* renamed from: cv */
     public c c(ViewGroup viewGroup) {
         return new c(LayoutInflater.from(this.mContext).inflate(R.layout.pb_god_reply_look_more_item, viewGroup, false));
     }
@@ -30,14 +30,14 @@ public class a extends o<b, c> {
     @Override // com.baidu.tieba.pb.pb.main.o, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.a(i, view, viewGroup, (ViewGroup) bVar, (b) cVar);
-        if (cVar != null && cVar.hYO != null) {
-            if (this.fUG != null) {
-                cVar.hYO.setOnClickListener(this.fUG);
+        if (cVar != null && cVar.ijL != null) {
+            if (this.gcQ != null) {
+                cVar.ijL.setOnClickListener(this.gcQ);
             }
-            if (cVar.ajv != TbadkCoreApplication.getInst().getSkinType()) {
-                cVar.ajv = TbadkCoreApplication.getInst().getSkinType();
-                ap.setViewTextColor(cVar.hYO, R.color.CAM_X0106);
-                ap.setBackgroundResource(cVar.hYO, R.drawable.more_all);
+            if (cVar.aku != TbadkCoreApplication.getInst().getSkinType()) {
+                cVar.aku = TbadkCoreApplication.getInst().getSkinType();
+                ap.setViewTextColor(cVar.ijL, R.color.CAM_X0106);
+                ap.setBackgroundResource(cVar.ijL, R.drawable.more_all);
                 ap.setBackgroundResource(cVar.dividerLine, R.color.CAM_X0204);
             }
         }
@@ -45,6 +45,6 @@ public class a extends o<b, c> {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.fUG = onClickListener;
+        this.gcQ = onClickListener;
     }
 }

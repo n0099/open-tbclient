@@ -3,26 +3,26 @@ package com.baidu.swan.impl.map.location;
 import com.baidu.mapapi.search.core.PoiInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class g {
-    public PoiInfo ecM;
-    public boolean ecN;
+    public PoiInfo ejN;
+    public boolean ejO;
     public boolean isSelected;
 
     public g(PoiInfo poiInfo, boolean z, boolean z2) {
         if (poiInfo == null) {
-            this.ecM = new PoiInfo();
+            this.ejN = new PoiInfo();
         }
-        this.ecM = poiInfo;
+        this.ejN = poiInfo;
         this.isSelected = z;
-        this.ecN = z2;
+        this.ejO = z2;
     }
 
     public g(PoiInfo poiInfo) {
         this(poiInfo, false, false);
     }
 
-    public static List<g> aU(List<PoiInfo> list) {
+    public static List<g> aX(List<PoiInfo> list) {
         if (list == null || list.size() <= 0) {
             return new ArrayList();
         }

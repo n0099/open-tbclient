@@ -21,7 +21,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-import com.baidu.k.a.a;
+import com.baidu.l.a.a;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.views.ClipBoxView;
 import com.baidu.sapi2.views.ZoomImageView;
@@ -30,7 +30,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class ImageClipActivity extends Activity {
     public static final int BUSSINESS_FROM_INVOICE_BUILD = 1;
     public static final int BUSSINESS_SET_PORTRAIT = 0;
@@ -47,7 +47,7 @@ public class ImageClipActivity extends Activity {
     private static final String n = "content://downloads/public_downloads";
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3356a = 0;
+    private int f3359a = 0;
     private int b = 0;
     private int c = 0;
     private int d = 0;
@@ -120,7 +120,7 @@ public class ImageClipActivity extends Activity {
     }
 
     protected void setPendingTransition(int i, int i2, int i3, int i4) {
-        this.f3356a = i;
+        this.f3359a = i;
         this.b = i2;
         this.c = i3;
         this.d = i4;
@@ -193,7 +193,7 @@ public class ImageClipActivity extends Activity {
             clipBoxView.E = ClipBoxView.G;
             clipBoxView.F = false;
         }
-        setPendingTransition(a.C0163a.sapi_sdk_slide_right_in, a.C0163a.sapi_sdk_slide_left_out, a.C0163a.sapi_sdk_slide_left_in, a.C0163a.sapi_sdk_slide_right_out);
+        setPendingTransition(a.C0164a.sapi_sdk_slide_right_in, a.C0164a.sapi_sdk_slide_left_out, a.C0164a.sapi_sdk_slide_left_in, a.C0164a.sapi_sdk_slide_right_out);
         Button button = (Button) findViewById(a.e.sure_clip_btn);
         Button button2 = (Button) findViewById(a.e.cancel_clip_btn);
         if (Build.VERSION.SDK_INT >= 19) {
@@ -217,11 +217,11 @@ public class ImageClipActivity extends Activity {
     }
 
     private void c() {
-        if (this.f3356a == 0 && this.b == 0) {
+        if (this.f3359a == 0 && this.b == 0) {
             return;
         }
-        overridePendingTransition(this.f3356a, this.b);
-        this.f3356a = 0;
+        overridePendingTransition(this.f3359a, this.b);
+        this.f3359a = 0;
         this.b = 0;
     }
 

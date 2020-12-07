@@ -4,9 +4,9 @@ import android.graphics.Canvas;
 import android.text.TextUtils;
 import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class ai extends a {
-    private int cAq = 0;
+    private int cHi = 0;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
@@ -14,13 +14,13 @@ public class ai extends a {
             if (jSONArray.length() > 0) {
                 String optString = jSONArray.optString(0);
                 if (TextUtils.equals(optString, VerticalTranslateLayout.TOP)) {
-                    this.cAq = 1;
+                    this.cHi = 1;
                 } else if (TextUtils.equals(optString, "middle")) {
-                    this.cAq = 2;
+                    this.cHi = 2;
                 } else if (TextUtils.equals(optString, VerticalTranslateLayout.BOTTOM)) {
-                    this.cAq = 3;
+                    this.cHi = 3;
                 } else {
-                    this.cAq = 0;
+                    this.cHi = 0;
                 }
             }
         } catch (Exception e) {
@@ -32,6 +32,6 @@ public class ai extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        bVar.cAq = this.cAq;
+        bVar.cHi = this.cHi;
     }
 }

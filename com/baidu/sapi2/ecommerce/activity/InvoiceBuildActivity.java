@@ -3,7 +3,7 @@ package com.baidu.sapi2.ecommerce.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.k.a.a;
+import com.baidu.l.a.a;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.SlideActiviy;
@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes16.dex */
 public class InvoiceBuildActivity extends SlideActiviy {
     private static final String EXTRA_PARAMS_ISCHECK = "isCheck";
     private static final String EXTRA_PARAMS_ISCHECKTAG = "isCheckTag";

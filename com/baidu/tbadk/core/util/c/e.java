@@ -4,16 +4,16 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.e.a;
 /* loaded from: classes.dex */
 public class e implements a.InterfaceC0021a {
-    private DiskFileOperate eOw = null;
+    private DiskFileOperate eVL = null;
 
     public void f(DiskFileOperate diskFileOperate) {
-        this.eOw = diskFileOperate;
+        this.eVL = diskFileOperate;
     }
 
     @Override // com.baidu.adp.lib.e.a.InterfaceC0021a
     public void cancel() {
-        if (this.eOw != null) {
-            com.baidu.adp.lib.Disk.d.lL().d(this.eOw);
+        if (this.eVL != null) {
+            com.baidu.adp.lib.Disk.d.lL().d(this.eVL);
         }
     }
 }

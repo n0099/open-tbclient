@@ -8,27 +8,30 @@ import java.util.List;
 public abstract class a {
     public static final String PROXY_CLASS_NAME_SUFFIX = "_Proxy";
     public static final String PROXY_CLASS_PACKAGE_NAME = "com.baidu.tieba.h5power";
-    protected HashMap<String, List<String>> mAsyncCallBackNameList;
+    protected HashMap<String, List<b>> mAsyncCallBackMethodList;
     protected HashSet<String> mNotificationNameList;
 
-    public abstract b dispatch(d dVar, b bVar);
+    public abstract c dispatch(e eVar, c cVar);
 
-    public abstract List<b> processNotification(String str, HashMap hashMap);
+    public abstract List<c> processNotification(String str, HashMap hashMap);
 
-    public b addObserver(String str, b bVar) {
-        if (bVar == null) {
-            bVar = new b();
+    public c addObserver(String str, c cVar, boolean z) {
+        if (cVar == null) {
+            cVar = new c();
         }
         if (this.mNotificationNameList.contains(str)) {
-            bVar.xB(false);
-            bVar.xA(true);
-            List<String> list = this.mAsyncCallBackNameList.get(str);
+            cVar.yg(false);
+            cVar.yf(true);
+            List<b> list = this.mAsyncCallBackMethodList.get(str);
             if (list == null) {
                 list = new ArrayList<>();
             }
-            list.add(bVar.getMethodName());
-            this.mAsyncCallBackNameList.put(str, list);
+            b bVar = new b();
+            bVar.setName(cVar.getMethodName());
+            bVar.yd(z);
+            list.add(bVar);
+            this.mAsyncCallBackMethodList.put(str, list);
         }
-        return bVar;
+        return cVar;
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.data.AlaWheatInfoData;
 import com.baidu.live.data.AlaWheatInfoDataWrapper;
 import com.baidu.live.data.w;
-import com.baidu.live.gift.al;
+import com.baidu.live.gift.an;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
@@ -15,34 +15,34 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public static void a(al alVar) {
+    public static void a(an anVar) {
         int i;
         int i2;
         int i3;
         int i4 = 0;
-        if (alVar != null) {
+        if (anVar != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                w WE = com.baidu.live.al.b.Wy().WE();
-                if (WE != null && WE.aHZ != null) {
-                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WE.aHZ.croom_id);
+                w Zd = com.baidu.live.ap.b.YX().Zd();
+                if (Zd != null && Zd.aKL != null) {
+                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, Zd.aKL.croom_id);
                 }
-                AlaWheatInfoDataWrapper alaWheatInfoDataWrapper = com.baidu.live.al.b.Wy().WE().aIe;
+                AlaWheatInfoDataWrapper alaWheatInfoDataWrapper = com.baidu.live.ap.b.YX().Zd().aKQ;
                 if (alaWheatInfoDataWrapper != null) {
                     jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, alaWheatInfoDataWrapper.getRoomMode() == 0 ? "normal" : "dating");
                 }
-                jSONObject.put(LogConfig.LOG_GIFT_VALUE, alVar.aTM);
-                jSONObject.put(LogConfig.LOG_GIFT_ID, alVar.giftId);
-                jSONObject.put("gift_name", alVar.giftName);
+                jSONObject.put(LogConfig.LOG_GIFT_VALUE, anVar.aWQ);
+                jSONObject.put(LogConfig.LOG_GIFT_ID, anVar.giftId);
+                jSONObject.put("gift_name", anVar.giftName);
                 JSONObject jSONObject2 = new JSONObject();
-                List<r.a> iB = r.iB(alVar.aVa);
+                List<r.a> jf = r.jf(anVar.aYl);
                 int i5 = 0;
                 int i6 = 0;
-                for (r.a aVar : iB) {
-                    AlaWheatInfoData iS = com.baidu.live.al.b.Wy().iS(aVar.uk);
-                    if (iS != null) {
-                        switch (iS.userIdentity) {
+                for (r.a aVar : jf) {
+                    AlaWheatInfoData jw = com.baidu.live.ap.b.YX().jw(aVar.uk);
+                    if (jw != null) {
+                        switch (jw.userIdentity) {
                             case 1:
                                 i = i4;
                                 i2 = i5;
@@ -86,7 +86,7 @@ public class a {
                     i5 = i2;
                     i4 = i;
                 }
-                jSONObject2.put("owner", iB.size());
+                jSONObject2.put("owner", jf.size());
                 jSONObject2.put("accomany", i4);
                 jSONObject2.put("host", i6);
                 jSONObject2.put("guest", i5);

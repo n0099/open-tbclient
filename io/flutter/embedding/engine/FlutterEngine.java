@@ -1,8 +1,6 @@
 package io.flutter.embedding.engine;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import io.flutter.Log;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.loader.FlutterLoader;
@@ -24,68 +22,52 @@ import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 import io.flutter.plugin.platform.PlatformViewsController;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class FlutterEngine {
     private static final String TAG = "FlutterEngine";
-    @NonNull
     private final AccessibilityChannel accessibilityChannel;
-    @NonNull
     private final DartExecutor dartExecutor;
-    @NonNull
     private final EngineLifecycleListener engineLifecycleListener;
-    @NonNull
     private final Set<EngineLifecycleListener> engineLifecycleListeners;
-    @NonNull
     private final FlutterJNI flutterJNI;
-    @NonNull
     private final KeyEventChannel keyEventChannel;
-    @NonNull
     private final LifecycleChannel lifecycleChannel;
-    @NonNull
     private final LocalizationChannel localizationChannel;
-    @NonNull
     private final NavigationChannel navigationChannel;
-    @NonNull
     private final PlatformChannel platformChannel;
-    @NonNull
     private final PlatformViewsController platformViewsController;
-    @NonNull
     private final FlutterEnginePluginRegistry pluginRegistry;
-    @NonNull
     private final FlutterRenderer renderer;
-    @NonNull
     private final SettingsChannel settingsChannel;
-    @NonNull
     private final SystemChannel systemChannel;
-    @NonNull
     private final TextInputChannel textInputChannel;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface EngineLifecycleListener {
         void onPreEngineRestart();
     }
 
-    public FlutterEngine(@NonNull Context context) {
+    public FlutterEngine(Context context) {
         this(context, null);
     }
 
-    public FlutterEngine(@NonNull Context context, @Nullable String[] strArr) {
+    public FlutterEngine(Context context, String[] strArr) {
         this(context, FlutterLoader.getInstance(), new FlutterJNI(), strArr, true);
     }
 
-    public FlutterEngine(@NonNull Context context, @Nullable String[] strArr, boolean z) {
+    public FlutterEngine(Context context, String[] strArr, boolean z) {
         this(context, FlutterLoader.getInstance(), new FlutterJNI(), strArr, z);
     }
 
-    public FlutterEngine(@NonNull Context context, @NonNull FlutterLoader flutterLoader, @NonNull FlutterJNI flutterJNI) {
+    public FlutterEngine(Context context, FlutterLoader flutterLoader, FlutterJNI flutterJNI) {
         this(context, flutterLoader, flutterJNI, null, true);
     }
 
-    public FlutterEngine(@NonNull Context context, @NonNull FlutterLoader flutterLoader, @NonNull FlutterJNI flutterJNI, @Nullable String[] strArr, boolean z) {
+    public FlutterEngine(Context context, FlutterLoader flutterLoader, FlutterJNI flutterJNI, String[] strArr, boolean z) {
         this(context, flutterLoader, flutterJNI, new PlatformViewsController(), strArr, z);
     }
 
-    public FlutterEngine(@NonNull Context context, @NonNull FlutterLoader flutterLoader, @NonNull FlutterJNI flutterJNI, @NonNull PlatformViewsController platformViewsController, @Nullable String[] strArr, boolean z) {
+    public FlutterEngine(Context context, FlutterLoader flutterLoader, FlutterJNI flutterJNI, PlatformViewsController platformViewsController, String[] strArr, boolean z) {
         this.engineLifecycleListeners = new HashSet();
         this.engineLifecycleListener = new EngineLifecycleListener() { // from class: io.flutter.embedding.engine.FlutterEngine.1
             @Override // io.flutter.embedding.engine.FlutterEngine.EngineLifecycleListener
@@ -149,95 +131,78 @@ public class FlutterEngine {
         this.flutterJNI.detachFromNativeAndReleaseResources();
     }
 
-    public void addEngineLifecycleListener(@NonNull EngineLifecycleListener engineLifecycleListener) {
+    public void addEngineLifecycleListener(EngineLifecycleListener engineLifecycleListener) {
         this.engineLifecycleListeners.add(engineLifecycleListener);
     }
 
-    public void removeEngineLifecycleListener(@NonNull EngineLifecycleListener engineLifecycleListener) {
+    public void removeEngineLifecycleListener(EngineLifecycleListener engineLifecycleListener) {
         this.engineLifecycleListeners.remove(engineLifecycleListener);
     }
 
-    @NonNull
     public DartExecutor getDartExecutor() {
         return this.dartExecutor;
     }
 
-    @NonNull
     public FlutterRenderer getRenderer() {
         return this.renderer;
     }
 
-    @NonNull
     public AccessibilityChannel getAccessibilityChannel() {
         return this.accessibilityChannel;
     }
 
-    @NonNull
     public KeyEventChannel getKeyEventChannel() {
         return this.keyEventChannel;
     }
 
-    @NonNull
     public LifecycleChannel getLifecycleChannel() {
         return this.lifecycleChannel;
     }
 
-    @NonNull
     public LocalizationChannel getLocalizationChannel() {
         return this.localizationChannel;
     }
 
-    @NonNull
     public NavigationChannel getNavigationChannel() {
         return this.navigationChannel;
     }
 
-    @NonNull
     public PlatformChannel getPlatformChannel() {
         return this.platformChannel;
     }
 
-    @NonNull
     public SettingsChannel getSettingsChannel() {
         return this.settingsChannel;
     }
 
-    @NonNull
     public SystemChannel getSystemChannel() {
         return this.systemChannel;
     }
 
-    @NonNull
     public TextInputChannel getTextInputChannel() {
         return this.textInputChannel;
     }
 
-    @NonNull
     public PluginRegistry getPlugins() {
         return this.pluginRegistry;
     }
 
-    @NonNull
     public PlatformViewsController getPlatformViewsController() {
         return this.platformViewsController;
     }
 
-    @NonNull
     public ActivityControlSurface getActivityControlSurface() {
         return this.pluginRegistry;
     }
 
-    @NonNull
     public ServiceControlSurface getServiceControlSurface() {
         return this.pluginRegistry;
     }
 
-    @NonNull
     public BroadcastReceiverControlSurface getBroadcastReceiverControlSurface() {
         return this.pluginRegistry;
     }
 
-    @NonNull
     public ContentProviderControlSurface getContentProviderControlSurface() {
         return this.pluginRegistry;
     }

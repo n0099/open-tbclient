@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 public abstract class at {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f5066a = "1";
+    public static String f4836a = "1";
     public static String b = "2";
     public static String c = "3";
     public static String d = "com.xiaomi.push.OPEN_CHANNEL";

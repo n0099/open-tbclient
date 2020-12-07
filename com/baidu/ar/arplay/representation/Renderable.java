@@ -2,7 +2,7 @@ package com.baidu.ar.arplay.representation;
 
 import java.io.Serializable;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class Renderable implements Serializable {
     private static final long serialVersionUID = 6701586807666461858L;
     protected boolean dirty = true;

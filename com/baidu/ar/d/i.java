@@ -1,7 +1,8 @@
 package com.baidu.ar.d;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public enum i {
     TRACK2D,
+    TRACK3D,
     RECG,
     SEG,
     SLAM,

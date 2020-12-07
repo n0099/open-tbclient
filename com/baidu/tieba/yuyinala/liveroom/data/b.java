@@ -5,15 +5,15 @@ import com.baidu.live.data.AlaLiveUserInfoData;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    public AlaLiveUserInfoData aHk;
+    public AlaLiveUserInfoData aJV;
     public AlaLiveInfoData mLiveInfo;
 
-    public void dL(JSONObject jSONObject) {
+    public void dN(JSONObject jSONObject) {
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
             if (optJSONObject != null) {
-                this.aHk = new AlaLiveUserInfoData();
-                this.aHk.parserJson(optJSONObject);
+                this.aJV = new AlaLiveUserInfoData();
+                this.aJV.parserJson(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("live_info");
             if (optJSONObject2 != null) {

@@ -1,5 +1,5 @@
 package com.baidu.ar.arplay.representation;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class Vector3f extends Renderable {
     private static final long serialVersionUID = -4565578579900616220L;
     protected float[] points;

@@ -2,27 +2,26 @@ package com.baidu.ubs.analytics.d;
 
 import android.os.Build;
 import android.os.Environment;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes17.dex */
 public final class g {
-    private static String[] otC = {"android.permission.WRITE_EXTERNAL_STORAGE"};
-    private static File otD = null;
-    private static RandomAccessFile otE = null;
+    private static String[] oIJ = {"android.permission.WRITE_EXTERNAL_STORAGE"};
+    private static File oIK = null;
+    private static RandomAccessFile oIL = null;
 
     public static synchronized boolean b(String str, String str2, String str3) {
         boolean z = false;
         synchronized (g.class) {
-            if (edZ() && f(str2, str3)) {
+            if (ejM() && f(str2, str3)) {
                 try {
-                    otD = new File(str2 + str3);
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(otD, "rwd");
-                    otE = randomAccessFile;
-                    randomAccessFile.seek(otD.length());
-                    otE.write((str + "\r\n").getBytes("UTF-8"));
-                    otE.close();
+                    oIK = new File(str2 + str3);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(oIK, "rwd");
+                    oIL = randomAccessFile;
+                    randomAccessFile.seek(oIK.length());
+                    oIL.write((str + "\r\n").getBytes("UTF-8"));
+                    oIL.close();
                     z = true;
                 } catch (Exception e) {
                     j.b(e);
@@ -35,29 +34,29 @@ public final class g {
     public static synchronized String W(String str, String str2) {
         String str3;
         synchronized (g.class) {
-            if (edZ()) {
-                if (WM(str + str2)) {
+            if (ejM()) {
+                if (Yh(str + str2)) {
                     try {
-                        otD = new File(str + str2);
-                        otE = new RandomAccessFile(otD, "r");
+                        oIK = new File(str + str2);
+                        oIL = new RandomAccessFile(oIK, "r");
                         StringBuffer stringBuffer = new StringBuffer();
                         while (true) {
-                            String readLine = otE.readLine();
+                            String readLine = oIL.readLine();
                             if (readLine == null) {
                                 break;
                             }
-                            stringBuffer.append(new String(readLine.getBytes("ISO-8859-1"), "utf-8")).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                            stringBuffer.append(new String(readLine.getBytes("ISO-8859-1"), "utf-8")).append(",");
                         }
                         str3 = stringBuffer.toString();
                         try {
-                            otE.close();
+                            oIL.close();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         try {
-                            otE.close();
+                            oIL.close();
                         } catch (IOException e3) {
                             e3.printStackTrace();
                         }
@@ -71,39 +70,39 @@ public final class g {
         return str3;
     }
 
-    private static boolean edZ() {
+    private static boolean ejM() {
         String externalStorageState = Environment.getExternalStorageState();
-        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.edz().getContext().checkCallingOrSelfPermission(otC[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
+        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.ejn().getContext().checkCallingOrSelfPermission(oIJ[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
     }
 
-    public static boolean WM(String str) {
+    public static boolean Yh(String str) {
         File file = new File(str);
-        otD = file;
+        oIK = file;
         return file.exists();
     }
 
-    public static boolean WN(String str) {
+    public static boolean Yi(String str) {
         File file = new File(str);
-        otD = file;
+        oIK = file;
         return file.delete();
     }
 
     private static boolean f(String str, String str2) {
         try {
-            otD = new File(str);
-            if (!WM(str)) {
-                otD.mkdirs();
+            oIK = new File(str);
+            if (!Yh(str)) {
+                oIK.mkdirs();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         try {
             File file = new File(str + str2);
-            otD = file;
+            oIK = file;
             if (file.exists()) {
                 return true;
             }
-            return otD.createNewFile();
+            return oIK.createNewFile();
         } catch (Exception e2) {
             e2.printStackTrace();
             return false;

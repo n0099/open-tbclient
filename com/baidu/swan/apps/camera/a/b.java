@@ -12,10 +12,10 @@ import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
 import com.baidu.webkit.sdk.PermissionRequest;
 import rx.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b extends a {
     @Nullable
-    private j czz;
+    private j cGr;
 
     public b(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/camera/insert");
@@ -29,13 +29,13 @@ public class b extends a {
             return false;
         }
         final com.baidu.swan.apps.camera.d.a aVar = (com.baidu.swan.apps.camera.d.a) c(unitedSchemeEntity);
-        this.czz = new com.baidu.swan.apps.component.components.c.a(context, aVar).akg();
-        if (this.czz == null) {
+        this.cGr = new com.baidu.swan.apps.component.components.c.a(context, aVar).ano();
+        if (this.cGr == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCameraManager", "camera component insert delayed fail");
             return false;
         }
-        eVar.aGY().b(context, PermissionProxy.SCOPE_ID_CAMERA, new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.camera.a.b.1
+        eVar.aKg().b(context, PermissionProxy.SCOPE_ID_CAMERA, new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.camera.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
@@ -45,8 +45,8 @@ public class b extends a {
                     return;
                 }
                 com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, unitedSchemeEntity);
-                if (b.this.czz != null) {
-                    b.this.czz.onError(new Throwable());
+                if (b.this.cGr != null) {
+                    b.this.cGr.onError(new Throwable());
                 } else {
                     com.baidu.swan.apps.console.c.e("SwanAppCameraManager", "camera authorize failure with a null subscriber ");
                 }
@@ -66,7 +66,7 @@ public class b extends a {
         com.baidu.swan.apps.console.c.i("SwanAppCameraManager", "handleAuthorized start");
         com.baidu.swan.apps.ab.a.a(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1, context, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.camera.a.b.2
             @Override // com.baidu.swan.apps.ab.b
-            public void kn(String str) {
+            public void kU(String str) {
                 b.this.a(unitedSchemeEntity, callbackHandler, b.this.a(context, aVar));
                 com.baidu.swan.apps.console.c.e("SwanAppCameraManager", str + "");
             }
@@ -74,8 +74,8 @@ public class b extends a {
             @Override // com.baidu.swan.apps.ab.b
             public void af(int i, String str) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 10005);
-                if (b.this.czz != null) {
-                    b.this.czz.onError(new Throwable());
+                if (b.this.cGr != null) {
+                    b.this.cGr.onError(new Throwable());
                 } else {
                     com.baidu.swan.apps.console.c.e("SwanAppCameraManager", "handleAuthorized end, failure with a null subscriber ");
                 }
@@ -92,15 +92,15 @@ public class b extends a {
             return false;
         }
         String str = aVar.cameraId;
-        com.baidu.swan.apps.model.a.a.a aVar2 = aVar.cCe;
+        com.baidu.swan.apps.model.a.a.a aVar2 = aVar.cIZ;
         if (TextUtils.isEmpty(str) || aVar2 == null || !aVar2.isValid()) {
             com.baidu.swan.apps.console.c.e("SwanAppCameraManager", "cameraId = " + str + " ; position = " + (aVar2 == null));
             return false;
-        } else if (this.czz == null) {
-            com.baidu.swan.apps.component.e.a.bl("SwanAppCameraManager", "executionInstruction with a null subscriber");
+        } else if (this.cGr == null) {
+            com.baidu.swan.apps.component.e.a.bs("SwanAppCameraManager", "executionInstruction with a null subscriber");
             return false;
         } else {
-            this.czz.onCompleted();
+            this.cGr.onCompleted();
             com.baidu.swan.apps.console.c.i("SwanAppCameraManager", "handle insert camera instruction end");
             return true;
         }

@@ -21,7 +21,7 @@ public class f extends HttpMessage {
         addParam("connect_user_id2", j2);
     }
 
-    public void aQ(long j) {
+    public void bo(long j) {
         addParam(Config.PACKAGE_NAME, j);
     }
 

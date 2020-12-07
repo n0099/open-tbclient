@@ -2,14 +2,14 @@ package com.baidu.tieba.ala.frsgamelive.message;
 
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.frsgamelive.b.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
     private boolean hasMore;
     private int liveCount;
@@ -39,9 +39,9 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                 if (optJSONObject2 != null) {
                     c cVar = new c();
-                    bx bxVar = new bx();
-                    bxVar.parserJson(optJSONObject2);
-                    cVar.evQ = bxVar;
+                    by byVar = new by();
+                    byVar.parserJson(optJSONObject2);
+                    cVar.eCR = byVar;
                     this.liveList.add(cVar);
                 }
             }
@@ -53,9 +53,9 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                 if (optJSONObject3 != null) {
                     c cVar2 = new c();
-                    bx bxVar2 = new bx();
-                    bxVar2.parserJson(optJSONObject3);
-                    cVar2.evQ = bxVar2;
+                    by byVar2 = new by();
+                    byVar2.parserJson(optJSONObject3);
+                    cVar2.eCR = byVar2;
                     this.recommandList.add(cVar2);
                 }
             }

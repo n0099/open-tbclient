@@ -1,6 +1,6 @@
 package org.apache.http.auth.params;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public interface AuthPNames {
     public static final String CREDENTIAL_CHARSET = "http.auth.credential-charset";
 }

@@ -9,7 +9,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/closeTextarea");
@@ -32,14 +32,14 @@ public class a extends aa {
         }
         com.baidu.swan.apps.component.components.textarea.a aVar = (com.baidu.swan.apps.component.components.textarea.a) com.baidu.swan.apps.component.container.a.d(bVar);
         if (aVar == null) {
-            String str = "can't find textarea component:#" + bVar.cCa;
+            String str = "can't find textarea component:#" + bVar.cIV;
             com.baidu.swan.apps.console.c.e("CloseTextAreaAction", str);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
             return false;
         }
-        com.baidu.swan.apps.component.b.c akh = aVar.akh();
-        if (!akh.isSuccess()) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, akh.msg);
+        com.baidu.swan.apps.component.b.c anp = aVar.anp();
+        if (!anp.isSuccess()) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, anp.msg);
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

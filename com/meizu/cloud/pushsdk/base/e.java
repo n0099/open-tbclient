@@ -12,19 +12,19 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class e {
     private BufferedWriter d;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4374a = "EncryptionWriter";
+    private String f4144a = "EncryptionWriter";
     private SimpleDateFormat b = new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT);
     private int e = 7;
     private String f = ".log.txt";
     private d c = new d("lo");
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public class a implements Comparator<File> {
         a() {
         }
@@ -75,7 +75,7 @@ public class e {
             if (file2.createNewFile()) {
                 a(file);
             } else {
-                Log.e(this.f4374a, "create new file " + format + " failed !!!");
+                Log.e(this.f4144a, "create new file " + format + " failed !!!");
             }
         }
         this.d = new BufferedWriter(new FileWriter(file2, true));

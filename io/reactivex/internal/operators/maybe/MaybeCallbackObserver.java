@@ -1,19 +1,19 @@
 package io.reactivex.internal.operators.maybe;
 
-import io.reactivex.c.g;
+import io.reactivex.b.g;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.Functions;
 import io.reactivex.m;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class MaybeCallbackObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
     private static final long serialVersionUID = -6076952298809384986L;
-    final io.reactivex.c.a onComplete;
+    final io.reactivex.b.a onComplete;
     final g<? super Throwable> onError;
     final g<? super T> onSuccess;
 
-    public MaybeCallbackObserver(g<? super T> gVar, g<? super Throwable> gVar2, io.reactivex.c.a aVar) {
+    public MaybeCallbackObserver(g<? super T> gVar, g<? super Throwable> gVar2, io.reactivex.b.a aVar) {
         this.onSuccess = gVar;
         this.onError = gVar2;
         this.onComplete = aVar;
@@ -41,7 +41,7 @@ public final class MaybeCallbackObserver<T> extends AtomicReference<io.reactivex
             this.onSuccess.accept(t);
         } catch (Throwable th) {
             io.reactivex.exceptions.a.J(th);
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
     }
 
@@ -52,7 +52,7 @@ public final class MaybeCallbackObserver<T> extends AtomicReference<io.reactivex
             this.onError.accept(th);
         } catch (Throwable th2) {
             io.reactivex.exceptions.a.J(th2);
-            io.reactivex.e.a.onError(new CompositeException(th, th2));
+            io.reactivex.d.a.onError(new CompositeException(th, th2));
         }
     }
 
@@ -63,11 +63,11 @@ public final class MaybeCallbackObserver<T> extends AtomicReference<io.reactivex
             this.onComplete.run();
         } catch (Throwable th) {
             io.reactivex.exceptions.a.J(th);
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.pNW;
+        return this.onError != Functions.pEP;
     }
 }

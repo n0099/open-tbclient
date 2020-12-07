@@ -8,11 +8,11 @@ import android.text.TextUtils;
 import java.io.CharArrayWriter;
 import java.io.File;
 import java.io.FileReader;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3643a = "";
+    private static String f3646a = "";
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
         jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
@@ -190,11 +190,11 @@ public final class q {
     }
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f3643a)) {
+        if (TextUtils.isEmpty(f3646a)) {
             new q();
-            f3643a = b(context);
+            f3646a = b(context);
         }
-        return f3643a;
+        return f3646a;
     }
 
     private static String c(Context context) {

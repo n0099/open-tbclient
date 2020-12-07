@@ -3,15 +3,15 @@ package io.reactivex.internal.util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
-/* loaded from: classes5.dex */
-public enum ArrayListSupplier implements io.reactivex.c.h<Object, List<Object>>, Callable<List<Object>> {
+/* loaded from: classes9.dex */
+public enum ArrayListSupplier implements io.reactivex.b.h<Object, List<Object>>, Callable<List<Object>> {
     INSTANCE;
 
     public static <T> Callable<List<T>> asCallable() {
         return INSTANCE;
     }
 
-    public static <T, O> io.reactivex.c.h<O, List<T>> asFunction() {
+    public static <T, O> io.reactivex.b.h<O, List<T>> asFunction() {
         return INSTANCE;
     }
 
@@ -22,7 +22,7 @@ public enum ArrayListSupplier implements io.reactivex.c.h<Object, List<Object>>,
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // io.reactivex.c.h
+    @Override // io.reactivex.b.h
     public List<Object> apply(Object obj) throws Exception {
         return new ArrayList();
     }

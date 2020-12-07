@@ -8,22 +8,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a ljY = null;
-    private final a.InterfaceC0572a ljZ = new a.InterfaceC0572a() { // from class: com.baidu.tieba.passaccount.a.a.1
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0572a
+    private static a lxx = null;
+    private final a.InterfaceC0584a lxy = new a.InterfaceC0584a() { // from class: com.baidu.tieba.passaccount.a.a.1
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0584a
         public void onBeforeLogin(String str) {
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0572a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0584a
         public void a(AccountData accountData) {
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0572a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0584a
         public void onFailure(final String str, int i, String str2) {
             if (i == 1) {
-                ReloginManager.bpm().e(null);
+                ReloginManager.bsG().e(null);
             }
             BdAsyncTask<Void, Void, AccountData> bdAsyncTask = new BdAsyncTask<Void, Void, AccountData>() { // from class: com.baidu.tieba.passaccount.a.a.1.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 /* renamed from: j */
                 public AccountData doInBackground(Void... voidArr) {
-                    return com.baidu.tbadk.core.a.b.zY(str);
+                    return com.baidu.tbadk.core.a.b.AF(str);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                 public void onPostExecute(AccountData accountData) {
                     super.onPostExecute(accountData);
                     if (accountData != null && !TextUtils.isEmpty(accountData.getID())) {
-                        com.baidu.tbadk.core.a.b.zX(accountData.getID());
+                        com.baidu.tbadk.core.a.b.AE(accountData.getID());
                     }
                 }
             };
@@ -53,15 +53,15 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a dgL() {
-        if (ljY == null) {
-            ljY = new a();
+    public static a dlX() {
+        if (lxx == null) {
+            lxx = new a();
         }
-        return ljY;
+        return lxx;
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public a.b zW(String str) {
+    public a.b AD(String str) {
         a.b bVar;
         Exception e;
         if (str != null) {
@@ -95,9 +95,9 @@ public class a extends com.baidu.tbadk.core.a.a {
         if (j.isNetWorkAvailable()) {
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                a.b zW = zW(currentAccountObj.getBDUSS());
-                if (zW != null) {
-                    com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), zW.mBduss, zW.mPtoken, currentAccountObj.getStoken(), this.ljZ);
+                a.b AD = AD(currentAccountObj.getBDUSS());
+                if (AD != null) {
+                    com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), AD.mBduss, AD.mPtoken, currentAccountObj.getStoken(), this.lxy);
                     return;
                 }
                 return;
@@ -107,7 +107,7 @@ public class a extends com.baidu.tbadk.core.a.a {
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0572a interfaceC0572a) {
-        return com.baidu.tieba.model.b.a(str, str2, str3, str4, interfaceC0572a);
+    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0584a interfaceC0584a) {
+        return com.baidu.tieba.model.b.a(str, str2, str3, str4, interfaceC0584a);
     }
 }

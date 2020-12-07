@@ -1,22 +1,22 @@
 package com.baidu.ar.statistic;
 
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 final class m extends i {
-    private long wc;
+    private long wQ;
 
     public m(d dVar, int i, e eVar, boolean z) {
         super(dVar, i, eVar, z);
-        this.wc = 0L;
+        this.wQ = 0L;
     }
 
     @Override // com.baidu.ar.statistic.i
     public List<List<a>> gn() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.wc < 1000) {
+        if (currentTimeMillis - this.wQ < 1000) {
             return null;
         }
-        this.wc = currentTimeMillis;
+        this.wQ = currentTimeMillis;
         List<List<a>> gn = super.gn();
         return gn.size() > 1 ? gn.subList(0, 1) : gn;
     }

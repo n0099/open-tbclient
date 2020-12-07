@@ -11,15 +11,15 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4504a;
+    private static String f4274a;
 
     static {
         b.class.getSimpleName();
-        f4504a = "RSA/ECB/PKCS1Padding";
+        f4274a = "RSA/ECB/PKCS1Padding";
         Boolean.valueOf(f.b);
     }
 
@@ -36,7 +36,7 @@ public class b extends com.sdk.base.framework.f.a {
             throw new Exception("解密公钥为空, 请设置");
         }
         try {
-            Cipher cipher = Cipher.getInstance(f4504a);
+            Cipher cipher = Cipher.getInstance(f4274a);
             cipher.init(2, rSAPublicKey);
             return cipher.doFinal(bArr);
         } catch (InvalidKeyException e) {
@@ -54,7 +54,7 @@ public class b extends com.sdk.base.framework.f.a {
 
     public static String b(String str, String str2) {
         PublicKey a2 = a.a(str);
-        Cipher cipher = Cipher.getInstance(f4504a);
+        Cipher cipher = Cipher.getInstance(f4274a);
         cipher.init(1, a2);
         return com.sdk.base.framework.f.j.c.a(cipher.doFinal(str2.getBytes(Charset.defaultCharset()))).toString();
     }

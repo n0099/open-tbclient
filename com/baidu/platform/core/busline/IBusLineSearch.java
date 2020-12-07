@@ -2,7 +2,7 @@ package com.baidu.platform.core.busline;
 
 import com.baidu.mapapi.search.busline.BusLineSearchOption;
 import com.baidu.mapapi.search.busline.OnGetBusLineSearchResultListener;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public interface IBusLineSearch {
     void a();
 

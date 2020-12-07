@@ -1,7 +1,9 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.c.h;
+import io.reactivex.b.h;
 import io.reactivex.exceptions.MissingBackpressureException;
+import io.reactivex.g;
+import io.reactivex.internal.a.f;
 import io.reactivex.internal.operators.flowable.FlowableGroupJoin;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.ExceptionHelper;
@@ -11,11 +13,12 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+import org.a.d;
+/* loaded from: classes9.dex */
 public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends a<TLeft, R> {
     final h<? super TLeft, ? extends org.a.b<TLeftEnd>> leftEnd;
-    final org.a.b<? extends TRight> pOM;
-    final io.reactivex.c.c<? super TLeft, ? super TRight, ? extends R> resultSelector;
+    final org.a.b<? extends TRight> pFA;
+    final io.reactivex.b.c<? super TLeft, ? super TRight, ? extends R> resultSelector;
     final h<? super TRight, ? extends org.a.b<TRightEnd>> rightEnd;
 
     @Override // io.reactivex.g
@@ -26,18 +29,18 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends a
         joinSubscription.disposables.a(leftRightSubscriber);
         FlowableGroupJoin.LeftRightSubscriber leftRightSubscriber2 = new FlowableGroupJoin.LeftRightSubscriber(joinSubscription, false);
         joinSubscription.disposables.a(leftRightSubscriber2);
-        this.pOn.a((j) leftRightSubscriber);
-        this.pOM.subscribe(leftRightSubscriber2);
+        this.pFg.a((j) leftRightSubscriber);
+        this.pFA.subscribe(leftRightSubscriber2);
     }
 
-    /* loaded from: classes5.dex */
-    static final class JoinSubscription<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AtomicInteger implements FlowableGroupJoin.a, org.a.d {
+    /* loaded from: classes9.dex */
+    static final class JoinSubscription<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AtomicInteger implements FlowableGroupJoin.a, d {
         private static final long serialVersionUID = -6071216598687999801L;
         final org.a.c<? super R> actual;
         volatile boolean cancelled;
         final h<? super TLeft, ? extends org.a.b<TLeftEnd>> leftEnd;
         int leftIndex;
-        final io.reactivex.c.c<? super TLeft, ? super TRight, ? extends R> resultSelector;
+        final io.reactivex.b.c<? super TLeft, ? super TRight, ? extends R> resultSelector;
         final h<? super TRight, ? extends org.a.b<TRightEnd>> rightEnd;
         int rightIndex;
         static final Integer LEFT_VALUE = 1;
@@ -46,13 +49,13 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends a
         static final Integer RIGHT_CLOSE = 4;
         final AtomicLong requested = new AtomicLong();
         final io.reactivex.disposables.a disposables = new io.reactivex.disposables.a();
-        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.eAw());
+        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(g.eCR());
         final Map<Integer, TLeft> lefts = new LinkedHashMap();
         final Map<Integer, TRight> rights = new LinkedHashMap();
         final AtomicReference<Throwable> error = new AtomicReference<>();
         final AtomicInteger active = new AtomicInteger(2);
 
-        JoinSubscription(org.a.c<? super R> cVar, h<? super TLeft, ? extends org.a.b<TLeftEnd>> hVar, h<? super TRight, ? extends org.a.b<TRightEnd>> hVar2, io.reactivex.c.c<? super TLeft, ? super TRight, ? extends R> cVar2) {
+        JoinSubscription(org.a.c<? super R> cVar, h<? super TLeft, ? extends org.a.b<TLeftEnd>> hVar, h<? super TRight, ? extends org.a.b<TRightEnd>> hVar2, io.reactivex.b.c<? super TLeft, ? super TRight, ? extends R> cVar2) {
             this.actual = cVar;
             this.leftEnd = hVar;
             this.rightEnd = hVar2;
@@ -88,10 +91,10 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends a
             cVar.onError(terminate);
         }
 
-        void fail(Throwable th, org.a.c<?> cVar, io.reactivex.internal.a.g<?> gVar) {
+        void fail(Throwable th, org.a.c<?> cVar, f<?> fVar) {
             io.reactivex.exceptions.a.J(th);
             ExceptionHelper.addThrowable(this.error, th);
-            gVar.clear();
+            fVar.clear();
             cancelAll();
             errorAll(cVar);
         }
@@ -127,7 +130,7 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends a
                             this.leftIndex = i2 + 1;
                             this.lefts.put(Integer.valueOf(i2), poll);
                             try {
-                                org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.l(this.leftEnd.apply(poll), "The leftEnd returned a null Publisher");
+                                org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.m(this.leftEnd.apply(poll), "The leftEnd returned a null Publisher");
                                 FlowableGroupJoin.LeftRightEndSubscriber leftRightEndSubscriber = new FlowableGroupJoin.LeftRightEndSubscriber(this, true, i2);
                                 this.disposables.a(leftRightEndSubscriber);
                                 bVar.subscribe(leftRightEndSubscriber);
@@ -141,7 +144,7 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends a
                                 long j2 = 0;
                                 for (TRight tright : this.rights.values()) {
                                     try {
-                                        Object obj = (Object) io.reactivex.internal.functions.a.l(this.resultSelector.apply(poll, tright), "The resultSelector returned a null value");
+                                        Object obj = (Object) io.reactivex.internal.functions.a.m(this.resultSelector.apply(poll, tright), "The resultSelector returned a null value");
                                         if (j2 != j) {
                                             cVar.onNext(obj);
                                             j2++;
@@ -169,7 +172,7 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends a
                             this.rightIndex = i3 + 1;
                             this.rights.put(Integer.valueOf(i3), poll);
                             try {
-                                org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.l(this.rightEnd.apply(poll), "The rightEnd returned a null Publisher");
+                                org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.m(this.rightEnd.apply(poll), "The rightEnd returned a null Publisher");
                                 FlowableGroupJoin.LeftRightEndSubscriber leftRightEndSubscriber2 = new FlowableGroupJoin.LeftRightEndSubscriber(this, false, i3);
                                 this.disposables.a(leftRightEndSubscriber2);
                                 bVar2.subscribe(leftRightEndSubscriber2);
@@ -183,7 +186,7 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends a
                                 long j4 = 0;
                                 for (TLeft tleft : this.lefts.values()) {
                                     try {
-                                        Object obj2 = (Object) io.reactivex.internal.functions.a.l(this.resultSelector.apply(tleft, poll), "The resultSelector returned a null value");
+                                        Object obj2 = (Object) io.reactivex.internal.functions.a.m(this.resultSelector.apply(tleft, poll), "The resultSelector returned a null value");
                                         if (j4 != j3) {
                                             cVar.onNext(obj2);
                                             j4++;
@@ -234,7 +237,7 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends a
                 drain();
                 return;
             }
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableGroupJoin.a
@@ -265,7 +268,7 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends a
             if (ExceptionHelper.addThrowable(this.error, th)) {
                 drain();
             } else {
-                io.reactivex.e.a.onError(th);
+                io.reactivex.d.a.onError(th);
             }
         }
     }

@@ -6,7 +6,7 @@ import java.nio.ByteBuffer;
 public class co extends cr implements cn {
 
     /* renamed from: a  reason: collision with root package name */
-    static final ByteBuffer f2607a = ByteBuffer.allocate(0);
+    static final ByteBuffer f2609a = ByteBuffer.allocate(0);
     private int f;
     private String g;
 
@@ -106,6 +106,6 @@ public class co extends cr implements cn {
 
     @Override // com.baidu.mobstat.cr, com.baidu.mobstat.cq
     public ByteBuffer c() {
-        return this.f == 1005 ? f2607a : super.c();
+        return this.f == 1005 ? f2609a : super.c();
     }
 }

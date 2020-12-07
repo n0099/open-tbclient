@@ -1,130 +1,149 @@
 package com.baidu.ubc;
 
-import android.content.Context;
-import android.util.SparseArray;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import org.json.JSONArray;
-/* loaded from: classes15.dex */
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public class w {
-    private final x ost;
+    private static final boolean DEBUG = AppConfig.isDebug();
+    private int erU;
+    private JSONObject erV;
+    private List<k> erW = new ArrayList();
+    private String mSign;
+    private int mThreshold;
+    private JSONObject oHs;
+    private JSONObject oHt;
+    private String oHu;
+    private String oHv;
+    private int oHw;
+    private int oHx;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public w(Context context) {
-        this.ost = x.gn(context);
+    public w(String str, JSONObject jSONObject) {
+        this.mSign = str;
+        this.erV = jSONObject;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(n nVar) {
-        this.ost.a(nVar);
+    public int bgq() {
+        return this.mThreshold;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void aX(List<n> list) {
-        this.ost.aX(list);
+    public int bgr() {
+        return this.erU;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean edo() {
-        return this.ost.edo();
+    public List<k> bgs() {
+        return this.erW;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(p pVar) {
-        this.ost.b(pVar);
+    public void fx(List<k> list) {
+        this.erW = list;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(String str, int i, long j, JSONArray jSONArray) {
-        this.ost.a(str, i, j, jSONArray);
+    public String eiV() {
+        return this.oHv;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void K(String str, int i) {
-        this.ost.K(str, i);
+    public JSONObject eiW() {
+        return this.oHt;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void i(String str, int i, String str2) {
-        this.ost.i(str, i, str2);
+    public int eiX() {
+        return this.oHw;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void bcq() {
-        this.ost.bcq();
+    public int eiY() {
+        return this.oHx;
     }
 
-    public void a(f fVar) {
-        this.ost.a(fVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(SparseArray<ArrayList> sparseArray) {
-        this.ost.b(sparseArray);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k Wz(String str) {
-        return this.ost.Wz(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean WA(String str) {
-        return this.ost.WA(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int a(ArrayList<j> arrayList, ah ahVar) {
-        return this.ost.a(arrayList, ahVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int c(ah ahVar) {
-        return this.ost.c(ahVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int d(ah ahVar) {
-        return this.ost.d(ahVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean a(k kVar) {
-        return this.ost.a(kVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean a(SparseArray<Integer> sparseArray, ArrayList<String> arrayList, boolean z, String str) {
-        return this.ost.a(sparseArray, arrayList, z, str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o WB(String str) {
-        return this.ost.WB(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void yD(String str) {
-        this.ost.yD(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void bcr() {
-        this.ost.bcr();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void yE(String str) {
-        this.ost.yE(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void du(String str, String str2) {
-        this.ost.du(str, str2);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void bcs() {
-        this.ost.bcs();
+    public boolean bgt() {
+        try {
+            if (this.erV == null) {
+                return false;
+            }
+            JSONObject jSONObject = this.erV;
+            this.oHs = jSONObject.optJSONObject("set");
+            this.mThreshold = jSONObject.optInt("threshold", 10000);
+            this.erU = jSONObject.optInt("timeup", PersonListModel.CACHETIME);
+            this.oHv = jSONObject.optString("step");
+            this.oHu = jSONObject.optString("replace");
+            this.oHt = jSONObject.optJSONObject("del");
+            this.oHw = jSONObject.optInt("all_size", 614400);
+            this.oHx = jSONObject.optInt("single_size", 153600);
+            if (this.oHs != null) {
+                Iterator<String> keys = this.oHs.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    JSONObject jSONObject2 = this.oHs.getJSONObject(next);
+                    if (jSONObject2 != null) {
+                        JSONObject jSONObject3 = jSONObject2.getJSONObject("data");
+                        String string = jSONObject2.getString("version");
+                        if (jSONObject3 != null && !TextUtils.isEmpty(string)) {
+                            String string2 = jSONObject3.getString("switch");
+                            String string3 = jSONObject3.getString("isreal");
+                            String string4 = jSONObject3.getString("isAbtest");
+                            int i = jSONObject3.getInt("timeout");
+                            String string5 = jSONObject3.getString("type");
+                            if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string5)) {
+                                k kVar = new k(next, string2, string3, i, string5, string4);
+                                if (jSONObject3.has("rate")) {
+                                    kVar.nD(jSONObject3.getInt("rate"));
+                                }
+                                if (jSONObject3.has("c")) {
+                                    kVar.setCategory(jSONObject3.getString("c"));
+                                }
+                                if (jSONObject3.has("limitUnit")) {
+                                    kVar.nE(jSONObject3.getInt("limitUnit"));
+                                }
+                                if (jSONObject3.has("limitCnt")) {
+                                    kVar.nF(jSONObject3.getInt("limitCnt"));
+                                }
+                                if (jSONObject3.has("idtype")) {
+                                    kVar.zy(jSONObject3.getString("idtype"));
+                                }
+                                if (jSONObject3.has("ch")) {
+                                    kVar.XK(jSONObject3.getString("ch"));
+                                }
+                                if (jSONObject3.has("dfc")) {
+                                    kVar.XL(jSONObject3.getString("dfc"));
+                                }
+                                if (jSONObject3.has("reallog")) {
+                                    kVar.XM(jSONObject3.getString("reallog"));
+                                }
+                                if (jSONObject3.has("gflow")) {
+                                    String string6 = jSONObject3.getString("gflow");
+                                    if (!TextUtils.isEmpty(string6) && !TextUtils.equals(string6, "0")) {
+                                        kVar.XN(string6);
+                                    }
+                                }
+                                if (jSONObject3.has("uploadType")) {
+                                    String string7 = jSONObject3.getString("uploadType");
+                                    if (!TextUtils.isEmpty(string7)) {
+                                        kVar.XO(string7);
+                                    }
+                                }
+                                int optInt = jSONObject3.optInt("lcache", 2);
+                                if (optInt == 1 || optInt == 0) {
+                                    kVar.OE(optInt);
+                                }
+                                kVar.setVersion(string);
+                                this.erW.add(kVar);
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
+        } catch (JSONException e) {
+            if (DEBUG) {
+                Log.d("OriginalConfigData", e.getMessage());
+            }
+            return false;
+        }
     }
 }

@@ -6,7 +6,7 @@ import android.content.Context;
 public class ff extends fd {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f4900a = 3600000;
+    private static int f4670a = 3600000;
 
     public ff(Context context) {
         super(context);
@@ -15,6 +15,6 @@ public class ff extends fd {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.xiaomi.push.fd, com.xiaomi.push.fc.a
     public long a() {
-        return f4900a;
+        return f4670a;
     }
 }

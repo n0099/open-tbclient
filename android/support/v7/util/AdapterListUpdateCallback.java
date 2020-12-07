@@ -2,7 +2,7 @@ package android.support.v7.util;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-/* loaded from: classes8.dex */
+/* loaded from: classes14.dex */
 public final class AdapterListUpdateCallback implements ListUpdateCallback {
     @NonNull
     private final RecyclerView.Adapter mAdapter;

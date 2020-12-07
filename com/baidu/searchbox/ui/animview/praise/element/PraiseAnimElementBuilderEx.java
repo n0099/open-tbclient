@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class PraiseAnimElementBuilderEx implements IPraiseElementBuilder<Map<Integer, List<IAnimatedElement>>> {
     private static final int CACHEDATA_MAX_CONCURRENT_CNT = 2;
     private Map<String, List<CacheData>> mCacheMap;
@@ -27,7 +27,7 @@ public class PraiseAnimElementBuilderEx implements IPraiseElementBuilder<Map<Int
     private static String[] sPkgNightTag = {"night_l", "night_m", "night_r"};
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class CacheData {
         public Map<Integer, List<IAnimatedElement>> elementListMap;
         public Map<Integer, IAnimatedElement> elementSingleMap;
@@ -44,7 +44,7 @@ public class PraiseAnimElementBuilderEx implements IPraiseElementBuilder<Map<Int
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static final class Holder {
         private static final PraiseAnimElementBuilderEx sINSTANCE = new PraiseAnimElementBuilderEx();
 

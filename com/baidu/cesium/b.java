@@ -1,9 +1,9 @@
 package com.baidu.cesium;
 
 import android.content.pm.ApplicationInfo;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class b {
-    public ApplicationInfo acX;
+    public ApplicationInfo adT;
     public int b = 0;
     public boolean c = false;
     public boolean d = false;

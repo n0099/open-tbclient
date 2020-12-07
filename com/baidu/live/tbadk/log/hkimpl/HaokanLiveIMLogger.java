@@ -12,7 +12,7 @@ public class HaokanLiveIMLogger implements ILiveIMLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put("k", LogConfig.KEY_NOTICE);
+            jSONObject.put("k", "notice");
             jSONObject.put("v", LogConfig.VALUE_IM_STATUS);
             jSONObject.put("tab", str2);
             jSONObject.put("tag", str3);
@@ -36,7 +36,7 @@ public class HaokanLiveIMLogger implements ILiveIMLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put("k", LogConfig.KEY_NOTICE);
+            jSONObject.put("k", "notice");
             jSONObject.put("v", LogConfig.VALUE_IM_GIFT);
             jSONObject.put("tab", "");
             jSONObject.put("tag", "");

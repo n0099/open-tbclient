@@ -14,7 +14,7 @@ import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a extends aa {
     private String mCallback;
 
@@ -28,7 +28,7 @@ public class a extends aa {
             c.i("ChooseAddress", "swanApp is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
-        } else if (eVar.aiS()) {
+        } else if (eVar.ama()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
@@ -42,7 +42,7 @@ public class a extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            eVar.aGY().a(context, "mapp_choose_address", com.baidu.swan.apps.setting.oauth.c.bP(parseString), new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.b.a.a.1
+            eVar.aKg().a(context, "mapp_choose_address", com.baidu.swan.apps.setting.oauth.c.bR(parseString), new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.b.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: a */
@@ -75,14 +75,14 @@ public class a extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, e eVar) {
-        com.baidu.swan.apps.t.a.avY().a(context, eVar.id, eVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.b.a.a.2
+        com.baidu.swan.apps.t.a.azg().a(context, eVar.id, eVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.b.a.a.2
             @Override // com.baidu.swan.apps.b.a.b
-            public void ax(JSONObject jSONObject) {
+            public void az(JSONObject jSONObject) {
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), a.this.mCallback);
             }
 
             @Override // com.baidu.swan.apps.b.a.b
-            public void hm(int i) {
+            public void hK(int i) {
                 if (i == 1) {
                     UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1002, "user cancel this operation").toString(), a.this.mCallback);
                 } else {

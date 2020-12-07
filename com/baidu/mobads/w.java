@@ -6,13 +6,13 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 class w implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IOAdEvent f2457a;
+    final /* synthetic */ IOAdEvent f2459a;
     final /* synthetic */ v b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(v vVar, IOAdEvent iOAdEvent) {
         this.b = vVar;
-        this.f2457a = iOAdEvent;
+        this.f2459a = iOAdEvent;
     }
 
     @Override // java.lang.Runnable
@@ -22,25 +22,25 @@ class w implements Runnable {
         VideoAdViewListener videoAdViewListener3;
         VideoAdViewListener videoAdViewListener4;
         VideoAdViewListener videoAdViewListener5;
-        if (IXAdEvent.AD_LOADED.equals(this.f2457a.getType())) {
-            videoAdViewListener5 = this.b.f2450a.c;
+        if (IXAdEvent.AD_LOADED.equals(this.f2459a.getType())) {
+            videoAdViewListener5 = this.b.f2452a.c;
             videoAdViewListener5.onVideoPrepared();
         }
-        if (IXAdEvent.AD_STARTED.equals(this.f2457a.getType())) {
-            videoAdViewListener4 = this.b.f2450a.c;
+        if (IXAdEvent.AD_STARTED.equals(this.f2459a.getType())) {
+            videoAdViewListener4 = this.b.f2452a.c;
             videoAdViewListener4.onVideoStart();
         }
-        if (IXAdEvent.AD_CLICK_THRU.equals(this.f2457a.getType())) {
-            videoAdViewListener3 = this.b.f2450a.c;
+        if (IXAdEvent.AD_CLICK_THRU.equals(this.f2459a.getType())) {
+            videoAdViewListener3 = this.b.f2452a.c;
             videoAdViewListener3.onVideoClickAd();
         }
-        if (IXAdEvent.AD_STOPPED.equals(this.f2457a.getType())) {
-            videoAdViewListener2 = this.b.f2450a.c;
+        if (IXAdEvent.AD_STOPPED.equals(this.f2459a.getType())) {
+            videoAdViewListener2 = this.b.f2452a.c;
             videoAdViewListener2.onVideoFinish();
         }
-        if (IXAdEvent.AD_ERROR.equals(this.f2457a.getType())) {
-            String str = (String) this.f2457a.getData().get("message");
-            videoAdViewListener = this.b.f2450a.c;
+        if (IXAdEvent.AD_ERROR.equals(this.f2459a.getType())) {
+            String str = (String) this.f2459a.getData().get("message");
+            videoAdViewListener = this.b.f2452a.c;
             videoAdViewListener.onVideoError();
         }
     }

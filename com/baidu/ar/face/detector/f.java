@@ -4,10 +4,11 @@ import android.os.SystemClock;
 import com.baidu.ar.face.algo.FaceJniClient;
 import com.baidu.ar.statistic.StatisticApi;
 import java.nio.ByteBuffer;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class f extends a {
     private static final String TAG = f.class.getSimpleName();
-    protected long oc;
+    protected long os;
+    private long time;
 
     public f(ByteBuffer byteBuffer) {
         super(byteBuffer);
@@ -15,44 +16,46 @@ class f extends a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.ar.face.detector.a
-    public void dF() {
-        super.dF();
+    public void dE() {
+        super.dE();
     }
 
     @Override // com.baidu.ar.face.detector.a
-    void dG() {
-        com.baidu.ar.b.a.ar().a(12, true);
-        this.nL = FaceJniClient.detectFace(this.oc, this.nL, this.lQ);
-        com.baidu.ar.g.b.l(TAG, "detect_frame detect task executing faceboxes：" + this.nL.getFaceFrame().getFaceBoxes());
-        com.baidu.ar.b.a.ar().a(12, false);
+    void dF() {
+        com.baidu.ar.b.a.as().a(12, true);
+        this.time = System.currentTimeMillis();
+        this.ob = FaceJniClient.detectFace(this.os, this.ob, this.mf);
+        com.baidu.ar.h.b.k(TAG, "detect-time= " + (System.currentTimeMillis() - this.time));
+        com.baidu.ar.h.b.l(TAG, "detect_frame detect task executing faceboxes：" + this.ob.getFaceFrame().getFaceBoxes());
+        com.baidu.ar.b.a.as().a(12, false);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.ar.face.detector.a
-    public void dH() {
-        super.dH();
+    public void dG() {
+        super.dG();
         int i = 0;
-        if (this.nL != null && this.nL.getFaceFrame() != null && this.nL.getFaceFrame().getFaceBoxes() != null) {
-            i = this.nL.getFaceFrame().getFaceBoxes().size();
+        if (this.ob != null && this.ob.getFaceFrame() != null && this.ob.getFaceFrame().getFaceBoxes() != null) {
+            i = this.ob.getFaceFrame().getFaceBoxes().size();
         }
-        StatisticApi.getPerformanceApi().recordAlgoTimeCost("face", "detect", SystemClock.elapsedRealtime() - this.nP, i);
-        if (this.nN != null) {
-            this.nN.a(this.nQ);
+        StatisticApi.getPerformanceApi().recordAlgoTimeCost("face", "detect", SystemClock.elapsedRealtime() - this.of, i);
+        if (this.od != null) {
+            this.od.a(this.og);
         }
     }
 
     @Override // com.baidu.ar.face.detector.a
-    public void dK() {
-        super.dK();
-        this.oc = this.nM.ea();
+    public void dJ() {
+        super.dJ();
+        this.os = this.oc.dZ();
     }
 
-    public void r(long j) {
-        this.nR = j;
+    public void p(long j) {
+        this.oh = j;
     }
 
     public void setFrontCamera(boolean z) {
-        this.nS = z;
+        this.oi = z;
     }
 
     public void setTimestamp(long j) {

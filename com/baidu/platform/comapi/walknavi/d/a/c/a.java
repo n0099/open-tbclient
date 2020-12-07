@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.d.a.c;
 import com.baidu.platform.comapi.walknavi.d.a.a.b;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class a {
     public static b a(JSONObject jSONObject) {
         b bVar = new b();

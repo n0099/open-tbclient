@@ -17,7 +17,6 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.data.ExceptionData;
 import com.baidu.live.tbadk.util.DaemonServiceManager;
 import com.baidu.platform.comapi.map.MapController;
-import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -139,7 +138,7 @@ public class UExceptionHandler implements Thread.UncaughtExceptionHandler {
         try {
             fileWriter.append((CharSequence) str);
             if (str2 != null) {
-                fileWriter.append(ETAG.EQUAL);
+                fileWriter.append("=");
                 fileWriter.append((CharSequence) str2);
             }
             fileWriter.append("\n");

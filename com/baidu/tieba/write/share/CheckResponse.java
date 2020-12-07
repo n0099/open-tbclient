@@ -1,5 +1,6 @@
 package com.baidu.tieba.write.share;
 
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
@@ -15,15 +16,15 @@ public class CheckResponse extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (i == 1003417 && jSONObject != null) {
             setError(jSONObject.optInt("error_code"));
-            setErrorString(jSONObject.optString("error_msg"));
+            setErrorString(jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG));
             if (getError() == 0) {
                 this.mCheckResponseData = new c();
                 this.mCheckResponseData.appKey = jSONObject.optString("tbopen_app_key");
                 this.mCheckResponseData.appName = jSONObject.optString("tbopen_app_name");
-                this.mCheckResponseData.nJy = jSONObject.optString("tbopen_app_icon");
+                this.mCheckResponseData.nXE = jSONObject.optString("tbopen_app_icon");
                 JSONObject optJSONObject = jSONObject.optJSONObject("config");
                 if (optJSONObject != null) {
-                    this.mCheckResponseData.nJA = optJSONObject.optString("default_pic");
+                    this.mCheckResponseData.nXG = optJSONObject.optString("default_pic");
                 }
             }
         }

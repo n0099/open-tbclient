@@ -10,35 +10,24 @@ import android.view.inputmethod.BaseInputConnection;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 import io.flutter.plugin.platform.PlatformViewsController;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class TextInputPlugin {
-    @Nullable
     private TextInputChannel.Configuration configuration;
-    @NonNull
     private InputTarget inputTarget = new InputTarget(InputTarget.Type.NO_TARGET, 0);
     private boolean isInputConnectionLocked;
-    @Nullable
     private InputConnection lastInputConnection;
-    @Nullable
     private Editable mEditable;
-    @NonNull
     private final InputMethodManager mImm;
     private boolean mRestartInputPending;
-    @NonNull
     private final View mView;
-    @NonNull
     private PlatformViewsController platformViewsController;
     private final boolean restartAlwaysRequired;
-    @NonNull
     private final TextInputChannel textInputChannel;
 
-    public TextInputPlugin(View view, @NonNull DartExecutor dartExecutor, @NonNull PlatformViewsController platformViewsController) {
+    public TextInputPlugin(View view, DartExecutor dartExecutor, PlatformViewsController platformViewsController) {
         this.mView = view;
         this.mImm = (InputMethodManager) view.getContext().getSystemService("input_method");
         this.textInputChannel = new TextInputChannel(dartExecutor);
@@ -79,12 +68,10 @@ public class TextInputPlugin {
         this.restartAlwaysRequired = isRestartAlwaysRequired();
     }
 
-    @NonNull
     public InputMethodManager getInputMethodManager() {
         return this.mImm;
     }
 
-    @VisibleForTesting
     Editable getEditable() {
         return this.mEditable;
     }
@@ -184,7 +171,6 @@ public class TextInputPlugin {
         }
     }
 
-    @Nullable
     public InputConnection getLastInputConnection() {
         return this.lastInputConnection;
     }
@@ -209,7 +195,6 @@ public class TextInputPlugin {
         this.mImm.hideSoftInputFromWindow(view.getApplicationWindowToken(), 0);
     }
 
-    @VisibleForTesting
     void setTextInputClient(int i, TextInputChannel.Configuration configuration) {
         this.inputTarget = new InputTarget(InputTarget.Type.FRAMEWORK_CLIENT, i);
         this.configuration = configuration;
@@ -236,7 +221,6 @@ public class TextInputPlugin {
         }
     }
 
-    @VisibleForTesting
     void setTextInputEditingState(View view, TextInputChannel.TextEditState textEditState) {
         if (!textEditState.text.equals(this.mEditable.toString())) {
             this.mEditable.replace(0, this.mEditable.length(), textEditState.text);
@@ -267,21 +251,20 @@ public class TextInputPlugin {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class InputTarget {
         int id;
-        @NonNull
         Type type;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes6.dex */
+        /* loaded from: classes9.dex */
         public enum Type {
             NO_TARGET,
             FRAMEWORK_CLIENT,
             PLATFORM_VIEW
         }
 
-        public InputTarget(@NonNull Type type, int i) {
+        public InputTarget(Type type, int i) {
             this.type = type;
             this.id = i;
         }

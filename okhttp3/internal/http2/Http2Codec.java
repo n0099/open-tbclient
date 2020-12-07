@@ -1,7 +1,5 @@
 package okhttp3.internal.http2;
 
-import android.net.http.Headers;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import java.io.IOException;
 import java.net.ProtocolException;
 import java.util.ArrayList;
@@ -31,21 +29,21 @@ import okio.Sink;
 import okio.Source;
 /* loaded from: classes15.dex */
 public final class Http2Codec implements HttpCodec {
+    private static final String CONNECTION = "connection";
+    private static final String HOST = "host";
+    private static final String PROXY_CONNECTION = "proxy-connection";
+    private static final String TRANSFER_ENCODING = "transfer-encoding";
+    private static final String UPGRADE = "upgrade";
     private final Interceptor.Chain chain;
     private final Http2Connection connection;
     private final Protocol protocol;
     private Http2Stream stream;
     final StreamAllocation streamAllocation;
-    private static final ByteString CONNECTION = ByteString.encodeUtf8(Headers.CONN_DIRECTIVE);
-    private static final ByteString HOST = ByteString.encodeUtf8("host");
-    private static final ByteString KEEP_ALIVE = ByteString.encodeUtf8("keep-alive");
-    private static final ByteString PROXY_CONNECTION = ByteString.encodeUtf8(Headers.PROXY_CONNECTION);
-    private static final ByteString TRANSFER_ENCODING = ByteString.encodeUtf8(Headers.TRANSFER_ENCODING);
-    private static final ByteString TE = ByteString.encodeUtf8("te");
-    private static final ByteString ENCODING = ByteString.encodeUtf8("encoding");
-    private static final ByteString UPGRADE = ByteString.encodeUtf8(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
-    private static final List<ByteString> HTTP_2_SKIPPED_REQUEST_HEADERS = Util.immutableList(CONNECTION, HOST, KEEP_ALIVE, PROXY_CONNECTION, TE, TRANSFER_ENCODING, ENCODING, UPGRADE, Header.TARGET_METHOD, Header.TARGET_PATH, Header.TARGET_SCHEME, Header.TARGET_AUTHORITY);
-    private static final List<ByteString> HTTP_2_SKIPPED_RESPONSE_HEADERS = Util.immutableList(CONNECTION, HOST, KEEP_ALIVE, PROXY_CONNECTION, TE, TRANSFER_ENCODING, ENCODING, UPGRADE);
+    private static final String KEEP_ALIVE = "keep-alive";
+    private static final String TE = "te";
+    private static final String ENCODING = "encoding";
+    private static final List<String> HTTP_2_SKIPPED_REQUEST_HEADERS = Util.immutableList("connection", "host", KEEP_ALIVE, "proxy-connection", TE, "transfer-encoding", ENCODING, "upgrade", Header.TARGET_METHOD_UTF8, Header.TARGET_PATH_UTF8, Header.TARGET_SCHEME_UTF8, Header.TARGET_AUTHORITY_UTF8);
+    private static final List<String> HTTP_2_SKIPPED_RESPONSE_HEADERS = Util.immutableList("connection", "host", KEEP_ALIVE, "proxy-connection", TE, "transfer-encoding", ENCODING, "upgrade");
 
     public Http2Codec(OkHttpClient okHttpClient, Interceptor.Chain chain, StreamAllocation streamAllocation, Http2Connection http2Connection) {
         this.chain = chain;
@@ -80,7 +78,7 @@ public final class Http2Codec implements HttpCodec {
 
     @Override // okhttp3.internal.http.HttpCodec
     public Response.Builder readResponseHeaders(boolean z) throws IOException {
-        Response.Builder readHttp2HeadersList = readHttp2HeadersList(this.stream.takeResponseHeaders(), this.protocol);
+        Response.Builder readHttp2HeadersList = readHttp2HeadersList(this.stream.takeHeaders(), this.protocol);
         if (z && Internal.instance.code(readHttp2HeadersList) == 100) {
             return null;
         }
@@ -88,7 +86,7 @@ public final class Http2Codec implements HttpCodec {
     }
 
     public static List<Header> http2HeadersList(Request request) {
-        okhttp3.Headers headers = request.headers();
+        Headers headers = request.headers();
         ArrayList arrayList = new ArrayList(headers.size() + 4);
         arrayList.add(new Header(Header.TARGET_METHOD, request.method()));
         arrayList.add(new Header(Header.TARGET_PATH, RequestLine.requestPath(request.url())));
@@ -100,52 +98,30 @@ public final class Http2Codec implements HttpCodec {
         int size = headers.size();
         for (int i = 0; i < size; i++) {
             ByteString encodeUtf8 = ByteString.encodeUtf8(headers.name(i).toLowerCase(Locale.US));
-            if (!HTTP_2_SKIPPED_REQUEST_HEADERS.contains(encodeUtf8)) {
+            if (!HTTP_2_SKIPPED_REQUEST_HEADERS.contains(encodeUtf8.utf8())) {
                 arrayList.add(new Header(encodeUtf8, headers.value(i)));
             }
         }
         return arrayList;
     }
 
-    public static Response.Builder readHttp2HeadersList(List<Header> list, Protocol protocol) throws IOException {
-        StatusLine parse;
-        Headers.Builder builder;
-        Headers.Builder builder2 = new Headers.Builder();
-        int size = list.size();
-        int i = 0;
+    public static Response.Builder readHttp2HeadersList(Headers headers, Protocol protocol) throws IOException {
+        Headers.Builder builder = new Headers.Builder();
+        int size = headers.size();
         StatusLine statusLine = null;
-        while (i < size) {
-            Header header = list.get(i);
-            if (header == null) {
-                if (statusLine != null && statusLine.code == 100) {
-                    builder = new Headers.Builder();
-                    parse = null;
-                }
-                builder = builder2;
-                parse = statusLine;
-            } else {
-                ByteString byteString = header.name;
-                String utf8 = header.value.utf8();
-                if (byteString.equals(Header.RESPONSE_STATUS)) {
-                    Headers.Builder builder3 = builder2;
-                    parse = StatusLine.parse("HTTP/1.1 " + utf8);
-                    builder = builder3;
-                } else {
-                    if (!HTTP_2_SKIPPED_RESPONSE_HEADERS.contains(byteString)) {
-                        Internal.instance.addLenient(builder2, byteString.utf8(), utf8);
-                    }
-                    builder = builder2;
-                    parse = statusLine;
-                }
+        for (int i = 0; i < size; i++) {
+            String name = headers.name(i);
+            String value = headers.value(i);
+            if (name.equals(Header.RESPONSE_STATUS_UTF8)) {
+                statusLine = StatusLine.parse("HTTP/1.1 " + value);
+            } else if (!HTTP_2_SKIPPED_RESPONSE_HEADERS.contains(name)) {
+                Internal.instance.addLenient(builder, name, value);
             }
-            i++;
-            statusLine = parse;
-            builder2 = builder;
         }
         if (statusLine == null) {
             throw new ProtocolException("Expected ':status' header not present");
         }
-        return new Response.Builder().protocol(protocol).code(statusLine.code).message(statusLine.message).headers(builder2.build());
+        return new Response.Builder().protocol(protocol).code(statusLine.code).message(statusLine.message).headers(builder.build());
     }
 
     @Override // okhttp3.internal.http.HttpCodec

@@ -4,25 +4,24 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ah;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class e implements ah, d {
     private int height;
-    private ArrayList<PreLoadImageInfo> lKF;
-    public String lKG;
+    private ArrayList<PreLoadImageInfo> lYD;
+    public String lYE;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.lKF = new ArrayList<>(1);
+            this.lYD = new ArrayList<>(1);
             this.src = excContent.src;
-            this.lKG = excContent.bsize;
-            if (this.lKG != null) {
+            this.lYE = excContent.bsize;
+            if (this.lYE != null) {
                 try {
-                    String[] split = this.lKG.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = this.lYE.split(",");
                     this.width = com.baidu.adp.lib.f.b.toInt(split[0], 0);
                     this.height = com.baidu.adp.lib.f.b.toInt(split[1], 0);
                 } catch (Exception e) {
@@ -45,7 +44,7 @@ public class e implements ah, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.lKF.add(preLoadImageInfo);
+            this.lYD.add(preLoadImageInfo);
         }
     }
 
@@ -53,7 +52,7 @@ public class e implements ah, d {
         return this.src;
     }
 
-    public int GU(int i) {
+    public int HL(int i) {
         if (i <= 0) {
             return 0;
         }
@@ -67,6 +66,6 @@ public class e implements ah, d {
 
     @Override // com.baidu.tbadk.core.util.ah
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.lKF;
+        return this.lYD;
     }
 }

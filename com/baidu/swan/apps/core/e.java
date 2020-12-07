@@ -8,6 +8,7 @@ import android.support.v7.appcompat.R;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.perfframe.ioc.Constant;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.statistic.c;
@@ -22,13 +23,12 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.nio.channels.FileChannel;
 import org.json.JSONObject;
-import tv.chushou.basis.http.HttpConsts;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean agv() {
-        return com.baidu.swan.apps.t.a.awe().agv();
+    public static boolean ajD() {
+        return com.baidu.swan.apps.t.a.azm().ajD();
     }
 
     public static void g(File file, File file2) throws IOException {
@@ -61,11 +61,11 @@ public class e {
         }
     }
 
-    public static void mz(String str) {
+    public static void ng(String str) {
         b(str, null, null, true);
     }
 
-    public static void G(String str, String str2, String str3) {
+    public static void J(String str, String str2, String str3) {
         b(str, str2, str3, false);
     }
 
@@ -81,7 +81,7 @@ public class e {
             String absolutePath = file.getParentFile().getAbsolutePath();
             String name = file.getName();
             File file2 = new File(absolutePath + File.separator + name + ".tmp");
-            File file3 = new File(absolutePath + File.separator + name + HttpConsts.FILE_BACKUP_SUFFIX);
+            File file3 = new File(absolutePath + File.separator + name + ".bak");
             if (z) {
                 if (file3.exists()) {
                     file3.renameTo(file);
@@ -177,7 +177,7 @@ public class e {
         }
     }
 
-    public static void bU(@NonNull Context context) {
+    public static void cA(@NonNull Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
             Class<?> cls = Class.forName("android.content.res.AssetManager");
@@ -234,15 +234,15 @@ public class e {
         if (DEBUG) {
             Log.d("SwanAppCoreUtils", "reportFatalInfo: " + jSONObject2);
         }
-        new c.a(10006).sS(jSONObject2).sR(com.baidu.swan.apps.runtime.e.aGO()).atj();
+        new c.a(10006).tz(jSONObject2).ty(com.baidu.swan.apps.runtime.e.aJW()).awr();
     }
 
-    public static void H(String str, String str2, String str3) {
+    public static void K(String str, String str2, String str3) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("url", str);
             jSONObject.put("package", AppRuntime.getApplication().getPackageName());
-            jSONObject.put("processName", ProcessUtils.getCurProcessName());
+            jSONObject.put(Constant.KEY_PROCESS_NAME, ProcessUtils.getCurProcessName());
             jSONObject.put("appId", str2);
             jSONObject.put("errMessage", str3);
             jSONObject.put("isMainThread", ak.isOnUiThread());
@@ -254,7 +254,7 @@ public class e {
             if (DEBUG) {
                 Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: " + jSONObject2);
             }
-            new c.a(10008).sS(jSONObject2).sR(com.baidu.swan.apps.runtime.e.aGO()).atj();
+            new c.a(10008).tz(jSONObject2).ty(com.baidu.swan.apps.runtime.e.aJW()).awr();
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();

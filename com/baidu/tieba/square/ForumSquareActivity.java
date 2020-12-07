@@ -2,25 +2,25 @@ package com.baidu.tieba.square;
 
 import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
-    private a mQp;
+    private a neu;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mQp = new a(this, getPageContext());
-        this.mQp.V(getIntent());
-        setContentView(this.mQp.mQr.getRootLayout());
-        this.mQp.startLoadData();
+        this.neu = new a(this, getPageContext());
+        this.neu.V(getIntent());
+        setContentView(this.neu.f5new.getRootLayout());
+        this.neu.startLoadData();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.mQp.mQr != null) {
-            this.mQp.mQr.changeSkinType(i);
+        if (this.neu.f5new != null) {
+            this.neu.f5new.changeSkinType(i);
         }
     }
 
@@ -30,8 +30,8 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         super.onResume();
     }
 
-    public a dHL() {
-        return this.mQp;
+    public a dNb() {
+        return this.neu;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a

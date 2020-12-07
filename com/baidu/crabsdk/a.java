@@ -5,13 +5,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static OnAnrCrashListener P;
     public static OnCrashExceedListener Q;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1338a = "";
+    public static String f1337a = "";
     public static String b = "alpha";
     public static String c = null;
     public static String d = "UNSET";

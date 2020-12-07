@@ -5,35 +5,34 @@ import java.util.Iterator;
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 /* JADX INFO: Access modifiers changed from: package-private */
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 public final class j implements i {
-    private final CharSequence pVe;
-    private final g pVm;
-    private final Matcher pVn;
+    private final Matcher pLA;
+    private final CharSequence pLq;
+    private final MatchResult pLy;
+    private final g pLz;
 
     public j(Matcher matcher, CharSequence charSequence) {
-        kotlin.jvm.internal.q.n(matcher, "matcher");
-        kotlin.jvm.internal.q.n(charSequence, Config.INPUT_PART);
-        this.pVn = matcher;
-        this.pVe = charSequence;
-        this.pVm = new a();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public final MatchResult eCn() {
-        return this.pVn;
+        kotlin.jvm.internal.p.o(matcher, "matcher");
+        kotlin.jvm.internal.p.o(charSequence, Config.INPUT_PART);
+        this.pLA = matcher;
+        this.pLq = charSequence;
+        this.pLy = this.pLA.toMatchResult();
+        this.pLz = new a();
     }
 
     @Override // kotlin.text.i
-    public kotlin.b.h eCl() {
+    public kotlin.b.h eEr() {
         kotlin.b.h a2;
-        a2 = k.a(eCn());
+        MatchResult matchResult = this.pLy;
+        kotlin.jvm.internal.p.n(matchResult, "matchResult");
+        a2 = k.a(matchResult);
         return a2;
     }
 
-    @kotlin.h
-    /* loaded from: classes9.dex */
+    @kotlin.e
+    /* loaded from: classes17.dex */
     public static final class a extends kotlin.collections.a<f> implements h {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
@@ -53,7 +52,7 @@ public final class j implements i {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return j.this.eCn().groupCount() + 1;
+            return j.this.pLy.groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -63,15 +62,17 @@ public final class j implements i {
 
         @Override // java.util.Collection, java.lang.Iterable
         public Iterator<f> iterator() {
-            return kotlin.sequences.e.c(kotlin.collections.o.i(kotlin.collections.o.o(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
+            return kotlin.sequences.d.c(kotlin.collections.n.i(kotlin.collections.n.o(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
         }
 
-        public f RZ(int i) {
+        public f RX(int i) {
             kotlin.b.h a2;
-            a2 = k.a(j.this.eCn(), i);
-            if (a2.eCc().intValue() >= 0) {
-                String group = j.this.eCn().group(i);
-                kotlin.jvm.internal.q.m(group, "matchResult.group(index)");
+            MatchResult matchResult = j.this.pLy;
+            kotlin.jvm.internal.p.n(matchResult, "matchResult");
+            a2 = k.a(matchResult, i);
+            if (a2.eEi().intValue() >= 0) {
+                String group = j.this.pLy.group(i);
+                kotlin.jvm.internal.p.n(group, "matchResult.group(index)");
                 return new f(group, a2);
             }
             return null;
@@ -79,13 +80,11 @@ public final class j implements i {
     }
 
     @Override // kotlin.text.i
-    public i eCm() {
+    public i eEs() {
         i a2;
-        int end = (eCn().end() == eCn().start() ? 1 : 0) + eCn().end();
-        if (end <= this.pVe.length()) {
-            Matcher matcher = this.pVn.pattern().matcher(this.pVe);
-            kotlin.jvm.internal.q.m(matcher, "matcher.pattern().matcher(input)");
-            a2 = k.a(matcher, end, this.pVe);
+        int end = (this.pLy.end() == this.pLy.start() ? 1 : 0) + this.pLy.end();
+        if (end <= this.pLq.length()) {
+            a2 = k.a(this.pLA, end, this.pLq);
             return a2;
         }
         return null;

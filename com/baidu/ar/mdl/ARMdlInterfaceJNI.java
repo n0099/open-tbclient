@@ -2,10 +2,10 @@ package com.baidu.ar.mdl;
 
 import android.content.res.AssetManager;
 import java.nio.ByteBuffer;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class ARMdlInterfaceJNI {
     static {
-        com.baidu.ar.libloader.b.as("ARMdlSDK2");
+        com.baidu.ar.libloader.a.require("ARMdlSDK2");
     }
 
     public static native int getVersion();

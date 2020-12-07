@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.f;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class PbThreadPostView extends LinearLayout {
-    public View lHT;
-    public TextView lHU;
-    public TextView lHV;
-    private f lre;
+    private f lEN;
+    public View lVN;
+    public TextView lVO;
+    public TextView lVP;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -36,30 +36,30 @@ public class PbThreadPostView extends LinearLayout {
         setOrientation(1);
         setGravity(17);
         LayoutInflater.from(getContext()).inflate(R.layout.pb_thread_post_view, (ViewGroup) this, true);
-        ul();
+        uo();
     }
 
-    private void ul() {
-        this.lHT = findViewById(R.id.pb_thread_post_container);
-        this.lHU = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.lHV = (TextView) findViewById(R.id.pb_thread_post_button);
+    private void uo() {
+        this.lVN = findViewById(R.id.pb_thread_post_container);
+        this.lVO = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.lVP = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
     public void setData(f fVar) {
-        this.lre = fVar;
-        vc(TbadkCoreApplication.getInst().getSkinType());
+        this.lEN = fVar;
+        vJ(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.lHV.setOnClickListener(this.mOnClickListener);
+            this.lVP.setOnClickListener(this.mOnClickListener);
         }
     }
 
-    public void vc(int i) {
-        ap.setBackgroundColor(this.lHT, R.color.CAM_X0205, i);
-        ap.setViewTextColor(this.lHU, R.color.CAM_X0107);
-        ap.setViewTextColor(this.lHV, R.color.CAM_X0302);
+    public void vJ(int i) {
+        ap.setBackgroundColor(this.lVN, R.color.CAM_X0205, i);
+        ap.setViewTextColor(this.lVO, R.color.CAM_X0107);
+        ap.setViewTextColor(this.lVP, R.color.CAM_X0302);
     }
 }

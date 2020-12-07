@@ -30,26 +30,26 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3540a = "d";
+    public static final String f3543a = "d";
     private static final String b = "file:///android_asset/";
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class a extends WebViewClient {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ WebView f3541a;
+        final /* synthetic */ WebView f3544a;
         final /* synthetic */ String b;
         final /* synthetic */ com.baidu.sapi2.callback.a.a c;
 
         /* renamed from: com.baidu.sapi2.utils.d$a$a  reason: collision with other inner class name */
-        /* loaded from: classes15.dex */
-        class C0343a implements ValueCallback<String> {
-            C0343a() {
+        /* loaded from: classes6.dex */
+        class C0354a implements ValueCallback<String> {
+            C0354a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -57,12 +57,12 @@ public class d {
             /* renamed from: a */
             public void onReceiveValue(String str) {
                 a.this.c.a(str);
-                a.this.f3541a.destroy();
+                a.this.f3544a.destroy();
             }
         }
 
         a(WebView webView, String str, com.baidu.sapi2.callback.a.a aVar) {
-            this.f3541a = webView;
+            this.f3544a = webView;
             this.b = str;
             this.c = aVar;
         }
@@ -71,11 +71,11 @@ public class d {
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
             if (Build.VERSION.SDK_INT >= 19) {
-                this.f3541a.evaluateJavascript(this.b, new C0343a());
+                this.f3544a.evaluateJavascript(this.b, new C0354a());
                 return;
             }
             this.c.a(null);
-            this.f3541a.destroy();
+            this.f3544a.destroy();
         }
     }
 
@@ -191,7 +191,7 @@ public class d {
                     str2 = "chmod " + b2.substring(0, 2) + "1 " + file;
                 } else {
                     str = b2;
-                    Log.e(f3540a, "chmodFile", "command", str3, "originPer", str);
+                    Log.e(f3543a, "chmodFile", "command", str3, "originPer", str);
                     if (str3 == null) {
                         process = runtime.exec(str3);
                         try {
@@ -218,7 +218,7 @@ public class d {
                 }
                 str3 = str2;
                 str = b2;
-                Log.e(f3540a, "chmodFile", "command", str3, "originPer", str);
+                Log.e(f3543a, "chmodFile", "command", str3, "originPer", str);
                 if (str3 == null) {
                 }
                 if (process == null) {

@@ -5,11 +5,11 @@ import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class f implements r {
 
     /* renamed from: a  reason: collision with root package name */
-    ExecutorService f2652a = Executors.newSingleThreadExecutor();
+    ExecutorService f2654a = Executors.newSingleThreadExecutor();
     private final Executor b = new g(this);
 
     public f(Handler handler) {
@@ -34,7 +34,7 @@ public class f implements r {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public class a implements Runnable {
         private final n b;
         private final q c;
@@ -53,7 +53,7 @@ public class f implements r {
                 return;
             }
             if (this.c.a()) {
-                this.b.a((n) this.c.f2662a);
+                this.b.a((n) this.c.f2664a);
             } else {
                 this.b.b(this.c.c);
             }

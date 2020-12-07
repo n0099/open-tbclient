@@ -24,13 +24,12 @@ import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.mobstat.Config;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class b {
     private static com.baidu.mapframework.open.aidl.a d;
     private static IComOpenClient e;
@@ -40,7 +39,7 @@ public class b {
     private static final String c = b.class.getName();
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2158a = -1;
+    public static int f2160a = -1;
     private static String g = null;
     private static String h = null;
     private static String i = null;
@@ -146,34 +145,34 @@ public class b {
         t = false;
         switch (i2) {
             case 0:
-                f2158a = 0;
+                f2160a = 0;
                 break;
             case 1:
-                f2158a = 1;
+                f2160a = 1;
                 break;
             case 2:
-                f2158a = 2;
+                f2160a = 2;
                 break;
             case 3:
-                f2158a = 3;
+                f2160a = 3;
                 break;
             case 4:
-                f2158a = 4;
+                f2160a = 4;
                 break;
             case 5:
-                f2158a = 5;
+                f2160a = 5;
                 break;
             case 6:
-                f2158a = 6;
+                f2160a = 6;
                 break;
             case 7:
-                f2158a = 7;
+                f2160a = 7;
                 break;
             case 8:
-                f2158a = 8;
+                f2160a = 8;
                 break;
             case 9:
-                f2158a = 9;
+                f2160a = 9;
                 break;
         }
         if (i2 == 9) {
@@ -349,22 +348,22 @@ public class b {
             k = CoordTrans.gcjToBaidu(k);
         }
         if (!TextUtils.isEmpty(m) && k != null) {
-            sb.append("name:").append(m).append("|latlng:").append(k.latitude).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(k.longitude);
+            sb.append("name:").append(m).append("|latlng:").append(k.latitude).append(",").append(k.longitude);
         } else if (!TextUtils.isEmpty(m)) {
             sb.append(m);
         } else if (k != null) {
-            sb.append(k.latitude).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(k.longitude);
+            sb.append(k.latitude).append(",").append(k.longitude);
         }
         sb.append("&destination=");
         if (l != null && SDKInitializer.getCoordType() == CoordType.GCJ02) {
             l = CoordTrans.gcjToBaidu(l);
         }
         if (!TextUtils.isEmpty(n) && l != null) {
-            sb.append("name:").append(n).append("|latlng:").append(l.latitude).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(l.longitude);
+            sb.append("name:").append(n).append("|latlng:").append(l.latitude).append(",").append(l.longitude);
         } else if (!TextUtils.isEmpty(n)) {
             sb.append(n);
         } else if (l != null) {
-            sb.append(l.latitude).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(l.longitude);
+            sb.append(l.latitude).append(",").append(l.longitude);
         }
         sb.append("&mode=").append(strArr[i2]);
         sb.append("&target=").append("1");
@@ -383,7 +382,7 @@ public class b {
         if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
             r = CoordTrans.gcjToBaidu(r);
         }
-        sb.append("center=").append(r.latitude).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(r.longitude);
+        sb.append("center=").append(r.latitude).append(",").append(r.longitude);
         sb.append("&query=").append(q).append("&radius=").append(s);
         sb.append("&src=").append("sdk_[" + g + "]");
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
@@ -401,8 +400,8 @@ public class b {
             k = CoordTrans.gcjToBaidu(k);
             l = CoordTrans.gcjToBaidu(l);
         }
-        sb.append("origin=").append(k.latitude).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(k.longitude);
-        sb.append("&location=").append(l.latitude).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(l.longitude);
+        sb.append("origin=").append(k.latitude).append(",").append(k.longitude);
+        sb.append("&location=").append(l.latitude).append(",").append(l.longitude);
         sb.append("&src=").append("sdk_[" + g + "]");
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
         intent.setFlags(268435456);
@@ -419,8 +418,8 @@ public class b {
             k = CoordTrans.gcjToBaidu(k);
             l = CoordTrans.gcjToBaidu(l);
         }
-        sb.append("origin=").append(k.latitude).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(k.longitude);
-        sb.append("&destination=").append(l.latitude).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(l.longitude);
+        sb.append("origin=").append(k.latitude).append(",").append(k.longitude);
+        sb.append("&destination=").append(l.latitude).append(",").append(l.longitude);
         sb.append("&src=").append("sdk_[" + g + "]");
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
         intent.setFlags(268435456);
@@ -437,8 +436,8 @@ public class b {
             k = CoordTrans.gcjToBaidu(k);
             l = CoordTrans.gcjToBaidu(l);
         }
-        sb.append("origin=").append(k.latitude).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(k.longitude);
-        sb.append("&destination=").append(l.latitude).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(l.longitude);
+        sb.append("origin=").append(k.latitude).append(",").append(k.longitude);
+        sb.append("&destination=").append(l.latitude).append(",").append(l.longitude);
         sb.append("&src=").append("sdk_[" + g + "]");
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
         intent.setFlags(268435456);
@@ -510,8 +509,8 @@ public class b {
             k = CoordTrans.gcjToBaidu(k);
             l = CoordTrans.gcjToBaidu(l);
         }
-        sb.append("origin=").append(k.latitude).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(k.longitude);
-        sb.append("&destination=").append(l.latitude).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(l.longitude);
+        sb.append("origin=").append(k.latitude).append(",").append(k.longitude);
+        sb.append("&destination=").append(l.latitude).append(",").append(l.longitude);
         sb.append("&mode=").append("walking_ar");
         sb.append("&src=").append("sdk_[" + g + "]");
         Log.e("test", sb.toString());

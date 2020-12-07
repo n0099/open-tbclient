@@ -6,7 +6,7 @@ import com.baidu.platform.comapi.basestruct.a;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.platform.comjni.tools.ParcelItem;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class CoordinateUtil {
     public static native Point bd09llTobd09mc(double d, double d2);
 
@@ -77,7 +77,7 @@ public class CoordinateUtil {
                 }
             }
             aVar.d.trimToSize();
-            aVar.f2825a = (int) bundle.getDouble("type");
+            aVar.f2827a = (int) bundle.getDouble("type");
             return aVar;
         }
         return null;
@@ -100,7 +100,7 @@ public class CoordinateUtil {
                         aVar.c = new Point((int) bundle4.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTX), (int) bundle4.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTY));
                     }
                 }
-                aVar.f2825a = (int) bundle.getDouble("type");
+                aVar.f2827a = (int) bundle.getDouble("type");
             }
         }
         return aVar;

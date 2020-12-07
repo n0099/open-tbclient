@@ -7,14 +7,14 @@ import com.baidu.tieba.yuyinala.liveroom.introduce.f;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaModifyRoomIntroduceHttpResponseMessage extends JsonHttpResponsedMessage {
-    private f nYl;
+    private f onl;
 
     public AlaModifyRoomIntroduceHttpResponseMessage() {
         super(1031034);
     }
 
-    public f dYe() {
-        return this.nYl;
+    public f edI() {
+        return this.onl;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -22,11 +22,11 @@ public class AlaModifyRoomIntroduceHttpResponseMessage extends JsonHttpResponsed
         JSONObject jSONObject2;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031034) {
-            this.nYl = new f();
-            this.nYl.nYy = new f.a();
+            this.onl = new f();
+            this.onl.ony = new f.a();
             if (jSONObject.has(BdStatsConstant.StatsType.ERROR) && (jSONObject2 = jSONObject.getJSONObject(BdStatsConstant.StatsType.ERROR)) != null) {
-                this.nYl.nYy.errno = jSONObject2.optInt(BaseJsonData.TAG_ERRNO);
-                this.nYl.nYy.usermsg = jSONObject2.optString("usermsg");
+                this.onl.ony.errno = jSONObject2.optInt(BaseJsonData.TAG_ERRNO);
+                this.onl.ony.usermsg = jSONObject2.optString("usermsg");
             }
         }
     }

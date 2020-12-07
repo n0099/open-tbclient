@@ -30,21 +30,21 @@ import kotlin.TypeCastException;
 import kotlin.h;
 import kotlin.jvm.internal.Ref;
 import kotlin.jvm.internal.o;
-import kotlin.jvm.internal.q;
-import kotlin.jvm.internal.v;
-import kotlin.l;
+import kotlin.jvm.internal.p;
+import kotlin.jvm.internal.u;
+import kotlin.text.l;
 import org.json.JSONObject;
-@h
-/* loaded from: classes17.dex */
+@kotlin.e
+/* loaded from: classes18.dex */
 public final class d {
     private final Context context;
-    private b pFn;
-    public static final a pFq = new a(null);
-    private static final LinkedBlockingQueue<Runnable> pFo = new LinkedBlockingQueue<>();
-    private static ThreadPoolExecutor pFp = new ThreadPoolExecutor(3, 10, 60000, TimeUnit.MILLISECONDS, pFo);
+    private b pyT;
+    public static final a pyW = new a(null);
+    private static final LinkedBlockingQueue<Runnable> pyU = new LinkedBlockingQueue<>();
+    private static ThreadPoolExecutor pyV = new ThreadPoolExecutor(3, 10, 60000, TimeUnit.MILLISECONDS, pyU);
 
-    @h
-    /* loaded from: classes17.dex */
+    @kotlin.e
+    /* loaded from: classes18.dex */
     public interface c {
         void a(com.opensource.svgaplayer.f fVar);
 
@@ -52,45 +52,45 @@ public final class d {
     }
 
     public d(Context context) {
-        q.n(context, "context");
+        p.o(context, "context");
         this.context = context;
-        this.pFn = new b();
+        this.pyT = new b();
     }
 
-    @h
-    /* loaded from: classes17.dex */
+    @kotlin.e
+    /* loaded from: classes18.dex */
     public static class b {
         private boolean noCache;
 
-        public final boolean ewP() {
+        public final boolean ezM() {
             return this.noCache;
         }
 
-        public kotlin.jvm.a.a<l> a(URL url, kotlin.jvm.a.b<? super InputStream, l> bVar, kotlin.jvm.a.b<? super Exception, l> bVar2) {
-            q.n(url, "url");
-            q.n(bVar, com.baidu.mobads.openad.c.b.COMPLETE);
-            q.n(bVar2, SmsLoginView.f.l);
+        public kotlin.jvm.a.a<h> a(URL url, kotlin.jvm.a.b<? super InputStream, h> bVar, kotlin.jvm.a.b<? super Exception, h> bVar2) {
+            p.o(url, "url");
+            p.o(bVar, com.baidu.mobads.openad.c.b.COMPLETE);
+            p.o(bVar2, SmsLoginView.f.l);
             Ref.BooleanRef booleanRef = new Ref.BooleanRef();
             booleanRef.element = false;
             SVGAParser$FileDownloader$resume$cancelBlock$1 sVGAParser$FileDownloader$resume$cancelBlock$1 = new SVGAParser$FileDownloader$resume$cancelBlock$1(booleanRef);
-            d.pFq.ewO().execute(new a(url, booleanRef, bVar, bVar2));
+            d.pyW.ezL().execute(new a(url, booleanRef, bVar, bVar2));
             return sVGAParser$FileDownloader$resume$cancelBlock$1;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        @h
-        /* loaded from: classes17.dex */
+        @kotlin.e
+        /* loaded from: classes18.dex */
         public static final class a implements Runnable {
             final /* synthetic */ Ref.BooleanRef $cancelled;
             final /* synthetic */ URL $url;
-            final /* synthetic */ kotlin.jvm.a.b pFs;
-            final /* synthetic */ kotlin.jvm.a.b pFt;
+            final /* synthetic */ kotlin.jvm.a.b pyY;
+            final /* synthetic */ kotlin.jvm.a.b pyZ;
 
             a(URL url, Ref.BooleanRef booleanRef, kotlin.jvm.a.b bVar, kotlin.jvm.a.b bVar2) {
                 this.$url = url;
                 this.$cancelled = booleanRef;
-                this.pFs = bVar;
-                this.pFt = bVar2;
+                this.pyY = bVar;
+                this.pyZ = bVar2;
             }
 
             /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [52=4] */
@@ -99,7 +99,7 @@ public final class d {
             public final void run() {
                 int read;
                 try {
-                    if (HttpResponseCache.getInstalled() == null && !b.this.ewP()) {
+                    if (HttpResponseCache.getInstalled() == null && !b.this.ezM()) {
                         Log.e("SVGAParser", "SVGAParser can not handle cache before install HttpResponseCache. see https://github.com/yyued/SVGAPlayer-Android#cache");
                         Log.e("SVGAParser", "在配置 HttpResponseCache 前 SVGAParser 无法缓存. 查看 https://github.com/yyued/SVGAPlayer-Android#cache ");
                     }
@@ -127,12 +127,12 @@ public final class d {
                         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream2.toByteArray());
                         Throwable th3 = null;
                         try {
-                            this.pFs.invoke(byteArrayInputStream);
-                            l lVar = l.pTv;
+                            this.pyY.invoke(byteArrayInputStream);
+                            h hVar = h.pJY;
                             kotlin.io.a.a(byteArrayInputStream, th3);
-                            l lVar2 = l.pTv;
+                            h hVar2 = h.pJY;
                             kotlin.io.a.a(byteArrayOutputStream, th2);
-                            l lVar3 = l.pTv;
+                            h hVar3 = h.pJY;
                             kotlin.io.a.a(inputStream, th);
                         } catch (Throwable th4) {
                             try {
@@ -145,14 +145,14 @@ public final class d {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    this.pFt.invoke(e);
+                    this.pyZ.invoke(e);
                 }
             }
         }
     }
 
-    @h
-    /* loaded from: classes17.dex */
+    @kotlin.e
+    /* loaded from: classes18.dex */
     public static final class a {
         private a() {
         }
@@ -161,37 +161,37 @@ public final class d {
             this();
         }
 
-        public final ThreadPoolExecutor ewO() {
-            return d.pFp;
+        public final ThreadPoolExecutor ezL() {
+            return d.pyV;
         }
     }
 
     public final void a(String str, c cVar) {
-        q.n(str, "name");
-        q.n(cVar, BuyTBeanActivityConfig.CALLBACK);
+        p.o(str, "name");
+        p.o(cVar, BuyTBeanActivityConfig.CALLBACK);
         try {
             InputStream open = this.context.getAssets().open(str);
             if (open != null) {
-                a(open, YD("file:///assets/" + str), cVar, true);
+                a(open, ZO("file:///assets/" + str), cVar, true);
             }
         } catch (Exception e2) {
             a(e2, cVar);
         }
     }
 
-    public final kotlin.jvm.a.a<l> a(URL url, c cVar) {
-        q.n(url, "url");
-        q.n(cVar, BuyTBeanActivityConfig.CALLBACK);
-        if (YC(d(url))) {
-            pFp.execute(new e(url, cVar));
+    public final kotlin.jvm.a.a<h> a(URL url, c cVar) {
+        p.o(url, "url");
+        p.o(cVar, BuyTBeanActivityConfig.CALLBACK);
+        if (ZN(d(url))) {
+            pyV.execute(new e(url, cVar));
             return null;
         }
-        return this.pFn.a(url, new SVGAParser$decodeFromURL$2(this, url, cVar), new SVGAParser$decodeFromURL$3(this, cVar));
+        return this.pyT.a(url, new SVGAParser$decodeFromURL$2(this, url, cVar), new SVGAParser$decodeFromURL$3(this, cVar));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    @h
-    /* loaded from: classes17.dex */
+    @kotlin.e
+    /* loaded from: classes18.dex */
     public static final class e implements Runnable {
         final /* synthetic */ c $callback;
         final /* synthetic */ URL $url;
@@ -215,20 +215,20 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    @h
+    @kotlin.e
     /* renamed from: com.opensource.svgaplayer.d$d  reason: collision with other inner class name */
-    /* loaded from: classes17.dex */
-    public static final class RunnableC1036d implements Runnable {
+    /* loaded from: classes18.dex */
+    public static final class RunnableC1015d implements Runnable {
         final /* synthetic */ c $callback;
-        final /* synthetic */ InputStream pFu;
-        final /* synthetic */ String pFv;
-        final /* synthetic */ boolean pFw;
+        final /* synthetic */ InputStream pza;
+        final /* synthetic */ String pzb;
+        final /* synthetic */ boolean pzc;
 
-        RunnableC1036d(InputStream inputStream, String str, c cVar, boolean z) {
-            this.pFu = inputStream;
-            this.pFv = str;
+        RunnableC1015d(InputStream inputStream, String str, c cVar, boolean z) {
+            this.pza = inputStream;
+            this.pzb = str;
             this.$callback = cVar;
-            this.pFw = z;
+            this.pzc = z;
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IGET, INVOKE, IF] complete} */
@@ -237,23 +237,23 @@ public final class d {
         public final void run() {
             try {
                 try {
-                    byte[] K = d.this.K(this.pFu);
-                    if (K != null) {
-                        if (K.length <= 4 || K[0] != 80 || K[1] != 75 || K[2] != 3 || K[3] != 4) {
-                            byte[] as = d.this.as(K);
-                            if (as != null) {
-                                MovieEntity decode = MovieEntity.ADAPTER.decode(as);
-                                q.m(decode, "MovieEntity.ADAPTER.decode(it)");
-                                com.opensource.svgaplayer.f fVar = new com.opensource.svgaplayer.f(decode, new File(this.pFv));
+                    byte[] L = d.this.L(this.pza);
+                    if (L != null) {
+                        if (L.length <= 4 || L[0] != 80 || L[1] != 75 || L[2] != 3 || L[3] != 4) {
+                            byte[] au = d.this.au(L);
+                            if (au != null) {
+                                MovieEntity decode = MovieEntity.ADAPTER.decode(au);
+                                p.n(decode, "MovieEntity.ADAPTER.decode(it)");
+                                com.opensource.svgaplayer.f fVar = new com.opensource.svgaplayer.f(decode, new File(this.pzb));
                                 fVar.a(new SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$2(fVar, this));
                             }
                         } else {
-                            if (!d.this.YE(this.pFv).exists()) {
-                                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(K);
+                            if (!d.this.ZP(this.pzb).exists()) {
+                                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(L);
                                 Throwable th = null;
                                 try {
-                                    d.this.i(byteArrayInputStream, this.pFv);
-                                    l lVar = l.pTv;
+                                    d.this.h(byteArrayInputStream, this.pzb);
+                                    h hVar = h.pJY;
                                     kotlin.io.a.a(byteArrayInputStream, th);
                                 } catch (Throwable th2) {
                                     try {
@@ -264,56 +264,56 @@ public final class d {
                                     }
                                 }
                             }
-                            d.this.c(this.pFv, this.$callback);
+                            d.this.c(this.pzb, this.$callback);
                         }
                     }
-                    if (this.pFw) {
-                        this.pFu.close();
+                    if (this.pzc) {
+                        this.pza.close();
                     }
                 } catch (Throwable th4) {
-                    if (this.pFw) {
-                        this.pFu.close();
+                    if (this.pzc) {
+                        this.pza.close();
                     }
                     throw th4;
                 }
             } catch (Exception e) {
                 d.this.a(e, this.$callback);
-                if (this.pFw) {
-                    this.pFu.close();
+                if (this.pzc) {
+                    this.pza.close();
                 }
             }
         }
     }
 
     public final void a(InputStream inputStream, String str, c cVar, boolean z) {
-        q.n(inputStream, "inputStream");
-        q.n(str, "cacheKey");
-        q.n(cVar, BuyTBeanActivityConfig.CALLBACK);
-        pFp.execute(new RunnableC1036d(inputStream, str, cVar, z));
+        p.o(inputStream, "inputStream");
+        p.o(str, "cacheKey");
+        p.o(cVar, BuyTBeanActivityConfig.CALLBACK);
+        pyV.execute(new RunnableC1015d(inputStream, str, cVar, z));
     }
 
     public final void b(String str, c cVar) {
-        q.n(str, "assetsName");
-        q.n(cVar, BuyTBeanActivityConfig.CALLBACK);
+        p.o(str, "assetsName");
+        p.o(cVar, BuyTBeanActivityConfig.CALLBACK);
         a(str, cVar);
     }
 
     public final void b(URL url, c cVar) {
-        q.n(url, "url");
-        q.n(cVar, BuyTBeanActivityConfig.CALLBACK);
+        p.o(url, "url");
+        p.o(cVar, BuyTBeanActivityConfig.CALLBACK);
         a(url, cVar);
     }
 
     public final void b(InputStream inputStream, String str, c cVar, boolean z) {
-        q.n(inputStream, "inputStream");
-        q.n(str, "cacheKey");
-        q.n(cVar, BuyTBeanActivityConfig.CALLBACK);
+        p.o(inputStream, "inputStream");
+        p.o(str, "cacheKey");
+        p.o(cVar, BuyTBeanActivityConfig.CALLBACK);
         a(inputStream, str, cVar, z);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    @h
-    /* loaded from: classes17.dex */
+    @kotlin.e
+    /* loaded from: classes18.dex */
     public static final class f implements Runnable {
         final /* synthetic */ c $callback;
         final /* synthetic */ com.opensource.svgaplayer.f $videoItem;
@@ -341,8 +341,8 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    @h
-    /* loaded from: classes17.dex */
+    @kotlin.e
+    /* loaded from: classes18.dex */
     public static final class g implements Runnable {
         final /* synthetic */ c $callback;
 
@@ -356,8 +356,8 @@ public final class d {
         }
     }
 
-    private final boolean YC(String str) {
-        return YE(str).exists();
+    private final boolean ZN(String str) {
+        return ZP(str).exists();
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [210=4] */
@@ -367,7 +367,7 @@ public final class d {
         try {
             StringBuilder sb = new StringBuilder();
             File cacheDir = this.context.getCacheDir();
-            q.m(cacheDir, "context.cacheDir");
+            p.n(cacheDir, "context.cacheDir");
             File file = new File(sb.append(cacheDir.getAbsolutePath()).append("/").append(str).append("/").toString());
             File file2 = new File(file, "movie.binary");
             File file3 = file2.isFile() ? file2 : null;
@@ -376,9 +376,9 @@ public final class d {
                     FileInputStream fileInputStream = new FileInputStream(file3);
                     Throwable th = null;
                     MovieEntity decode = MovieEntity.ADAPTER.decode(fileInputStream);
-                    q.m(decode, "MovieEntity.ADAPTER.decode(it)");
+                    p.n(decode, "MovieEntity.ADAPTER.decode(it)");
                     a(new com.opensource.svgaplayer.f(decode, file), cVar);
-                    l lVar = l.pTv;
+                    h hVar = h.pJY;
                     kotlin.io.a.a(fileInputStream, th);
                 } catch (Exception e2) {
                     file.delete();
@@ -404,9 +404,9 @@ public final class d {
                         int read = fileInputStream3.read(bArr, 0, bArr.length);
                         if (read == -1) {
                             a(new com.opensource.svgaplayer.f(new JSONObject(byteArrayOutputStream2.toString()), file), cVar);
-                            l lVar2 = l.pTv;
+                            h hVar2 = h.pJY;
                             kotlin.io.a.a(byteArrayOutputStream, th3);
-                            l lVar3 = l.pTv;
+                            h hVar3 = h.pJY;
                             kotlin.io.a.a(fileInputStream2, th2);
                             return;
                         }
@@ -430,24 +430,24 @@ public final class d {
         }
     }
 
-    private final String YD(String str) {
+    private final String ZO(String str) {
         MessageDigest messageDigest = MessageDigest.getInstance("MD5");
         Charset forName = Charset.forName("UTF-8");
-        q.m(forName, "Charset.forName(charsetName)");
+        p.n(forName, "Charset.forName(charsetName)");
         if (str == null) {
             throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
         }
         byte[] bytes = str.getBytes(forName);
-        q.m(bytes, "(this as java.lang.String).getBytes(charset)");
+        p.n(bytes, "(this as java.lang.String).getBytes(charset)");
         messageDigest.update(bytes);
         byte[] digest = messageDigest.digest();
         String str2 = "";
         for (byte b2 : digest) {
             StringBuilder append = new StringBuilder().append(str2);
-            v vVar = v.pUm;
+            u uVar = u.pKF;
             Object[] objArr = {Byte.valueOf(b2)};
             String format = String.format("%02x", Arrays.copyOf(objArr, objArr.length));
-            q.m(format, "java.lang.String.format(format, *args)");
+            p.n(format, "java.lang.String.format(format, *args)");
             str2 = append.append(format).toString();
         }
         return str2;
@@ -456,21 +456,21 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: private */
     public final String d(URL url) {
         String url2 = url.toString();
-        q.m(url2, "url.toString()");
-        return YD(url2);
+        p.n(url2, "url.toString()");
+        return ZO(url2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final File YE(String str) {
+    public final File ZP(String str) {
         StringBuilder sb = new StringBuilder();
         File cacheDir = this.context.getCacheDir();
-        q.m(cacheDir, "context.cacheDir");
+        p.n(cacheDir, "context.cacheDir");
         return new File(sb.append(cacheDir.getAbsolutePath()).append("/").append(str).append("/").toString());
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     /* JADX INFO: Access modifiers changed from: private */
-    public final byte[] K(InputStream inputStream) {
+    public final byte[] L(InputStream inputStream) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         Throwable th = null;
         try {
@@ -492,7 +492,7 @@ public final class d {
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     /* JADX INFO: Access modifiers changed from: private */
-    public final byte[] as(byte[] bArr) {
+    public final byte[] au(byte[] bArr) {
         Inflater inflater = new Inflater();
         inflater.setInput(bArr, 0, bArr.length);
         byte[] bArr2 = new byte[2048];
@@ -520,12 +520,12 @@ public final class d {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [300=4] */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     /* JADX INFO: Access modifiers changed from: private */
-    public final void i(InputStream inputStream, String str) {
+    public final void h(InputStream inputStream, String str) {
         int i;
-        i = com.opensource.svgaplayer.e.pFx;
+        i = com.opensource.svgaplayer.e.pzd;
         synchronized (Integer.valueOf(i)) {
-            File YE = YE(str);
-            YE.mkdirs();
+            File ZP = ZP(str);
+            ZP.mkdirs();
             try {
                 FileOutputStream bufferedInputStream = new BufferedInputStream(inputStream);
                 Throwable th = null;
@@ -537,9 +537,9 @@ public final class d {
                         ZipEntry nextEntry = zipInputStream2.getNextEntry();
                         if (nextEntry != null) {
                             String name = nextEntry.getName();
-                            q.m(name, "zipItem.name");
-                            if (!kotlin.text.l.a((CharSequence) name, (CharSequence) "/", false, 2, (Object) null)) {
-                                bufferedInputStream = new FileOutputStream(new File(YE, nextEntry.getName()));
+                            p.n(name, "zipItem.name");
+                            if (!l.a((CharSequence) name, (CharSequence) "/", false, 2, (Object) null)) {
+                                bufferedInputStream = new FileOutputStream(new File(ZP, nextEntry.getName()));
                                 Throwable th3 = null;
                                 try {
                                     FileOutputStream fileOutputStream = bufferedInputStream;
@@ -551,7 +551,7 @@ public final class d {
                                         }
                                         fileOutputStream.write(bArr, 0, read);
                                     }
-                                    l lVar = l.pTv;
+                                    h hVar = h.pJY;
                                     kotlin.io.a.a(bufferedInputStream, th3);
                                     zipInputStream2.closeEntry();
                                 } finally {
@@ -562,17 +562,17 @@ public final class d {
                                 }
                             }
                         } else {
-                            l lVar2 = l.pTv;
+                            h hVar2 = h.pJY;
                             kotlin.io.a.a(zipInputStream, th2);
-                            l lVar3 = l.pTv;
+                            h hVar3 = h.pJY;
                             kotlin.io.a.a(bufferedInputStream, th);
-                            l lVar4 = l.pTv;
+                            h hVar4 = h.pJY;
                         }
                     }
                 } finally {
                 }
             } catch (Exception e2) {
-                YE.delete();
+                ZP.delete();
                 throw e2;
             }
         }

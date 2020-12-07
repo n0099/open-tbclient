@@ -7,32 +7,32 @@ import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.core.util.au;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b {
     private static final String BAWU_LIST_REASON = TbConfig.SERVER_ADDRESS + Config.BAWU_LIST_REASON;
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.b$b  reason: collision with other inner class name */
-    /* loaded from: classes21.dex */
-    public interface InterfaceC0811b {
+    /* loaded from: classes22.dex */
+    public interface InterfaceC0827b {
         void a(ForbidTplData forbidTplData);
 
         void b(ForbidTplData forbidTplData);
     }
 
-    public static void a(String str, String str2, InterfaceC0811b interfaceC0811b) {
-        new a(str, str2, interfaceC0811b).execute(new String[0]);
+    public static void a(String str, String str2, InterfaceC0827b interfaceC0827b) {
+        new a(str, str2, interfaceC0827b).execute(new String[0]);
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String llE;
-        private String llF;
-        private InterfaceC0811b llG;
+        private String lze;
+        private String lzf;
+        private InterfaceC0827b lzg;
 
-        public a(String str, String str2, InterfaceC0811b interfaceC0811b) {
-            this.llE = str;
-            this.llF = str2;
-            this.llG = interfaceC0811b;
+        public a(String str, String str2, InterfaceC0827b interfaceC0827b) {
+            this.lze = str;
+            this.lzf = str2;
+            this.lzg = interfaceC0827b;
             setPriority(3);
         }
 
@@ -42,10 +42,10 @@ public class b {
         /* renamed from: R */
         public ForbidTplData doInBackground(String... strArr) {
             aa aaVar = new aa(b.BAWU_LIST_REASON);
-            aaVar.addPostData("forum_id", this.llE);
-            aaVar.addPostData("user_id", this.llF);
+            aaVar.addPostData("forum_id", this.lze);
+            aaVar.addPostData("user_id", this.lzf);
             String postNetData = aaVar.postNetData();
-            if (aaVar.bqa().bqI().isRequestSuccess()) {
+            if (aaVar.btv().buf().isRequestSuccess()) {
                 try {
                     return (ForbidTplData) OrmObject.objectWithJsonStr(postNetData, ForbidTplData.class);
                 } catch (Exception e) {
@@ -67,11 +67,11 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            if (this.llG != null) {
+            if (this.lzg != null) {
                 if (forbidTplData.error.errno == 0 && au.isEmpty(forbidTplData.error.errMsg)) {
-                    this.llG.a(forbidTplData);
+                    this.lzg.a(forbidTplData);
                 } else {
-                    this.llG.b(forbidTplData);
+                    this.lzg.b(forbidTplData);
                 }
             }
         }

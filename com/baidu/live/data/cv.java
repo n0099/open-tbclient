@@ -1,41 +1,61 @@
 package com.baidu.live.data;
 
+import com.baidu.android.imsdk.db.TableDefine;
+import com.heytap.mcssdk.mode.Message;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class cv {
-    public String aQZ;
-    public String aRa;
-    public int aRb;
-    public String aRc;
-    public int level_id = -1;
-    public List<AlaLiveMarkData> live_mark_info_new;
-    public String uk;
+    public int aTQ;
+    public List<a> aTR = new ArrayList();
+    public ArrayList<String> aTS;
+    public String aTT;
+    public int mStep;
 
     public void parserJson(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         if (jSONObject != null) {
-            this.uk = jSONObject.optString("uk");
-            this.aQZ = jSONObject.optString("head_img");
-            this.aRa = jSONObject.optString("nick_name");
-            this.aRb = jSONObject.optInt("noble_role_id");
-            this.aRc = jSONObject.optString("noble_role_name");
-            this.level_id = jSONObject.optInt("level_id");
-            if (jSONObject.has("identity_icon")) {
-                if (this.live_mark_info_new == null) {
-                    this.live_mark_info_new = new ArrayList();
-                }
-                JSONArray optJSONArray = jSONObject.optJSONArray("identity_icon");
+            this.mStep = jSONObject.optInt("step");
+            this.aTT = jSONObject.optString(Message.RULE);
+            this.aTQ = jSONObject.optInt("num_fields");
+            JSONArray optJSONArray = jSONObject.optJSONArray(TableDefine.MessageColumns.COLUME_TIPS);
+            if (optJSONArray != null) {
+                this.aTS = new ArrayList<>();
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        AlaLiveMarkData alaLiveMarkData = new AlaLiveMarkData();
-                        alaLiveMarkData.parserJson(optJSONObject);
-                        this.live_mark_info_new.add(alaLiveMarkData);
+                    try {
+                        this.aTS.add(optJSONArray.getString(i));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
             }
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("sweet_moments");
+            if (optJSONArray2 != null) {
+                for (int i2 = 0; i2 < optJSONArray2.length() && (optJSONObject = optJSONArray2.optJSONObject(i2)) != null; i2++) {
+                    a aVar = new a();
+                    aVar.aTU = optJSONObject.optInt("end_time");
+                    aVar.aTV = optJSONObject.optString("uk_1");
+                    aVar.aTW = optJSONObject.optString("avatar_1");
+                    aVar.aTX = optJSONObject.optString("uk_2");
+                    aVar.aTY = optJSONObject.optString("avatar_2");
+                    this.aTR.add(aVar);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a {
+        public int aTU;
+        public String aTV;
+        public String aTW;
+        public String aTX;
+        public String aTY;
+
+        public a() {
         }
     }
 }

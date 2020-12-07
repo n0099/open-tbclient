@@ -6,7 +6,7 @@ import com.baidu.webkit.internal.ETAG;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public abstract class BaseCloudSearchInfo extends BaseSearchInfo {
     public String filter;
     public int pageIndex;
@@ -24,7 +24,7 @@ public abstract class BaseCloudSearchInfo extends BaseSearchInfo {
             if (this.q != null && !this.q.equals("") && this.q.length() <= 45) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append(IXAdRequestInfo.COST_NAME);
-                sb.append(ETAG.EQUAL);
+                sb.append("=");
                 try {
                     sb.append(URLEncoder.encode(this.q, "UTF-8"));
                 } catch (UnsupportedEncodingException e) {
@@ -34,7 +34,7 @@ public abstract class BaseCloudSearchInfo extends BaseSearchInfo {
             if (this.tags != null && !this.tags.equals("") && this.tags.length() <= 45) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append(CommandMessage.TYPE_TAGS);
-                sb.append(ETAG.EQUAL);
+                sb.append("=");
                 try {
                     sb.append(URLEncoder.encode(this.tags, "UTF-8"));
                 } catch (UnsupportedEncodingException e2) {
@@ -44,25 +44,25 @@ public abstract class BaseCloudSearchInfo extends BaseSearchInfo {
             if (this.sortby != null && !this.sortby.equals("")) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("sortby");
-                sb.append(ETAG.EQUAL);
+                sb.append("=");
                 sb.append(this.sortby);
             }
             if (this.filter != null && !this.filter.equals("")) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append(FilterImageAction.ACTION_NAME);
-                sb.append(ETAG.EQUAL);
+                sb.append("=");
                 sb.append(this.filter);
             }
             if (this.pageIndex >= 0) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("page_index");
-                sb.append(ETAG.EQUAL);
+                sb.append("=");
                 sb.append(this.pageIndex);
             }
             if (this.pageSize >= 0 && this.pageSize <= 50) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("page_size");
-                sb.append(ETAG.EQUAL);
+                sb.append("=");
                 sb.append(this.pageSize);
             }
             return sb.toString();

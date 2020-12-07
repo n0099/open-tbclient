@@ -6,6 +6,7 @@ import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.os.Process;
 import android.telephony.TelephonyManager;
+import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.webkit.internal.CpuInfo;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.DumperService;
@@ -28,7 +29,7 @@ import java.text.DateFormat;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     private static final long APPROXIMATE_START_TIME = System.currentTimeMillis();
     private static final boolean DEBUG = false;
@@ -45,12 +46,12 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     private CrashFilter mFilter;
     private final Thread.UncaughtExceptionHandler mPreviousHandler;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public interface CrashFilter {
         boolean filt(Thread thread, Throwable th);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public enum ExtraInfo {
         CUID("CUID"),
         EMULATOR("Emulator"),
@@ -79,7 +80,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public static final class ZeusCrashHandlerClient {
         private static final String TAG = "CrashHandlerClientImpl";
         private PackageInfo mAppPackageInfo;
@@ -240,7 +241,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                 if (context != null) {
                     Intent intent = new Intent();
                     intent.setClass(context, DumperService.class);
-                    intent.putExtra("LOG_TYPE", ZeusLogUploader.CRASH_LOG);
+                    intent.putExtra("LOG_TYPE", "crashlog");
                     intent.putExtra("CRASH_TIME", this.mHandler.getCrashTimestamp());
                     intent.putExtra("CRASH_FILE", file.getAbsolutePath());
                     intent.putExtra("CRASH_SIGNAL", 0);
@@ -383,7 +384,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     }
 
     private void dumpSystemInfo(Writer writer) throws IOException {
-        File file = new File("/proc/version");
+        File file = new File(SnapshotConstant.DeviceFilePathConstants.DEVICE_VERSION);
         if (file.exists() && file.canRead()) {
             writer.write("Operating system: Android\n");
             writeFile(writer, file);

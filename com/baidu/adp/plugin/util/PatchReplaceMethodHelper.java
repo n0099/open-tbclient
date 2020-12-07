@@ -3,7 +3,6 @@ package com.baidu.adp.plugin.util;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.Plugin;
-import com.baidu.adp.plugin.PluginNative;
 import com.baidu.adp.plugin.PluginPatchAnnotation;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
@@ -23,8 +22,8 @@ public class PatchReplaceMethodHelper {
         if (plugin2 == null || context == null) {
             return false;
         }
-        PluginSetting cA = PluginPackageManager.pT().cA(plugin2.getPackageName());
-        if (cA == null || TextUtils.isEmpty(cA.replaceMethodClasses)) {
+        PluginSetting cD = PluginPackageManager.pV().cD(plugin2.getPackageName());
+        if (cD == null || TextUtils.isEmpty(cD.replaceMethodClasses)) {
             return false;
         }
         try {
@@ -56,11 +55,8 @@ public class PatchReplaceMethodHelper {
                             PluginPatchAnnotation pluginPatchAnnotation = (PluginPatchAnnotation) declaredMethods[i].getAnnotation(PluginPatchAnnotation.class);
                             if (pluginPatchAnnotation == null) {
                                 cls = cls2;
-                            } else {
-                                if (cls2 == null) {
-                                    cls2 = Class.forName(pluginPatchAnnotation.clazz(), true, context.getClassLoader());
-                                }
-                                PluginNative.replaceMethod(cls2.getDeclaredMethod(pluginPatchAnnotation.method(), declaredMethods[i].getParameterTypes()), declaredMethods[i]);
+                            } else if (cls2 == null) {
+                                cls = Class.forName(pluginPatchAnnotation.clazz(), true, context.getClassLoader());
                             }
                         }
                         i++;
@@ -74,26 +70,19 @@ public class PatchReplaceMethodHelper {
             }
             return true;
         } catch (IOException e) {
-            com.baidu.adp.plugin.b.a.pD().h("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e.getMessage());
+            com.baidu.adp.plugin.b.a.pF().h("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e.getMessage());
             e.printStackTrace();
             return false;
         } catch (ClassNotFoundException e2) {
-            com.baidu.adp.plugin.b.a.pD().h("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e2.getMessage());
+            com.baidu.adp.plugin.b.a.pF().h("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e2.getMessage());
             e2.printStackTrace();
-            return false;
-        } catch (NoSuchMethodException e3) {
-            com.baidu.adp.plugin.b.a.pD().h("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e3.getMessage());
-            e3.printStackTrace();
             return false;
         }
     }
 
     private static void setFieldsFlag(Class<?> cls) {
         Field[] declaredFields;
-        if (cls != null && (declaredFields = cls.getDeclaredFields()) != null && declaredFields.length != 0) {
-            for (Field field : declaredFields) {
-                PluginNative.setFieldPublicFlag(field);
-            }
+        if (cls != null && (declaredFields = cls.getDeclaredFields()) != null && declaredFields.length == 0) {
         }
     }
 }

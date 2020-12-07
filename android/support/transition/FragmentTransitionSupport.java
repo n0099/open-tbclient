@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class FragmentTransitionSupport extends FragmentTransitionImpl {
     @Override // android.support.v4.app.FragmentTransitionImpl
     public boolean canHandle(Object obj) {
@@ -22,7 +22,7 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
         if (obj == null) {
             return null;
         }
-        return ((Transition) obj).m1clone();
+        return ((Transition) obj).m0clone();
     }
 
     @Override // android.support.v4.app.FragmentTransitionImpl

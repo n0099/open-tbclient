@@ -5,15 +5,15 @@ import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import java.util.List;
 /* loaded from: classes4.dex */
 public interface c extends ISendMessageListener {
-    void egh();
+    void elV();
 
-    void egi();
+    void elW();
 
-    void egm();
+    void ema();
 
-    void gr(List<ChatMsg> list);
+    void gG(List<ChatMsg> list);
 
-    void gs(List<Long> list);
+    void gH(List<Long> list);
 
     void h(ChatMsg chatMsg);
 

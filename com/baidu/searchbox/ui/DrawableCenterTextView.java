@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.baidu.android.common.others.UIUtils;
 import com.baidu.android.common.others.java.Pair;
 import com.baidu.android.util.devices.DeviceUtil;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class DrawableCenterTextView extends TextView {
     public static final int POSITION_BOTTOM = 3;
     public static final int POSITION_LEFT = 0;

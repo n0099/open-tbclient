@@ -1,10 +1,9 @@
 package com.baidu.android.imsdk.utils;
 
-import com.baidu.webkit.internal.ETAG;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class Base64 {
     private static final char[] legalChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".toCharArray();
 
@@ -34,7 +33,7 @@ public class Base64 {
             stringBuffer.append(legalChars[(i7 >> 18) & 63]);
             stringBuffer.append(legalChars[(i7 >> 12) & 63]);
             stringBuffer.append(legalChars[(i7 >> 6) & 63]);
-            stringBuffer.append(ETAG.EQUAL);
+            stringBuffer.append("=");
         } else if (i3 == (0 + length) - 1) {
             int i8 = (bArr[i3] & 255) << 16;
             stringBuffer.append(legalChars[(i8 >> 18) & 63]);

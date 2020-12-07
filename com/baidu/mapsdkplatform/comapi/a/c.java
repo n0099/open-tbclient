@@ -4,7 +4,7 @@ import android.animation.Animator;
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.map.Marker;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public abstract class c {
     public abstract void a();
 

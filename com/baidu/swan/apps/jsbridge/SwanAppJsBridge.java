@@ -15,7 +15,7 @@ import com.baidu.swan.apps.event.a.d;
 import com.baidu.swan.apps.performance.h;
 import com.baidu.swan.apps.v.f;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class SwanAppJsBridge extends a {
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_aiapps_jsbridge";
     private static final String TAG = "SwanAppJsBridge";
@@ -36,7 +36,7 @@ public class SwanAppJsBridge extends a {
         } else {
             d dVar = new d(str, str2);
             h.D("postMessage", "PostMsg setData start");
-            f.azg().a(dVar, false);
+            f.aCp().a(dVar, false);
             h.D("postMessage", "PostMsg setData end");
         }
         return UnitedSchemeUtility.wrapCallbackParams(i).toString();

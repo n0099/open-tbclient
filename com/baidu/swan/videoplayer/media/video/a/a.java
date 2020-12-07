@@ -33,12 +33,12 @@ public class a {
             }
         }
         c.d("VideoStatusEventHelper", "Video dispatch Params : " + jSONObject2.toString());
-        com.baidu.swan.apps.view.b.b.a.b(str2, str, "video", str3, jSONObject2);
+        com.baidu.swan.apps.view.b.b.a.c(str2, str, "video", str3, jSONObject2);
     }
 
     public static void a(final String str, final String str2, final boolean z, VideoContainerManager videoContainerManager) {
-        final SwanAppComponentContainerView bei = videoContainerManager.bei();
-        bei.post(new Runnable() { // from class: com.baidu.swan.videoplayer.media.video.a.a.1
+        final SwanAppComponentContainerView bhn = videoContainerManager.bhn();
+        bhn.post(new Runnable() { // from class: com.baidu.swan.videoplayer.media.video.a.a.1
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject jSONObject = new JSONObject();

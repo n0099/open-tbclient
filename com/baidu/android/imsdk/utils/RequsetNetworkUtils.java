@@ -10,7 +10,7 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class RequsetNetworkUtils extends BaseUtils {
     private static final String TAG = "RequsetNetworkUtils";
     private static ConnectivityManager mConnManager = null;
@@ -26,7 +26,7 @@ public class RequsetNetworkUtils extends BaseUtils {
                 return "https://pim.baidu.com/";
             case 1:
             case 2:
-                return "http://cp01-ocean-749.epc.baidu.com:8080/";
+                return Constants.URL_HTTP_RD;
             case 3:
                 return Constants.URL_HTTP_BOX;
             default:

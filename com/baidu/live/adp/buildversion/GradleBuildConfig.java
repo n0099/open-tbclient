@@ -1,7 +1,7 @@
 package com.baidu.live.adp.buildversion;
 /* loaded from: classes4.dex */
 public class GradleBuildConfig {
-    private static final String GIT_BUILD_DATE = "2020-11-13 20:03:55";
-    private static final String GIT_COMMIT_ID = "00021e1bfdfe2620e62592bd82e806d4a3baa750";
-    private static final String GIT_VERSION = "00021e1";
+    private static final String GIT_BUILD_DATE = "2020-12-06 17:39:38";
+    private static final String GIT_COMMIT_ID = "cb6607f9f1f32471770c79d69d02c0e2333e8458";
+    private static final String GIT_VERSION = "cb6607f";
 }

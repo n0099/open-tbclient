@@ -1,19 +1,19 @@
 package com.baidu.helios.common.b.a;
 
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private String awt;
-    private boolean awu;
-    private boolean awv;
+    private String axr;
+    private boolean axs;
+    private boolean axt;
 
     public b(String str, boolean z, boolean z2) {
-        this.awt = str;
-        this.awu = z;
-        this.awv = z2;
+        this.axr = str;
+        this.axs = z;
+        this.axt = z2;
     }
 
-    private static int dp(int i) {
+    private static int dt(int i) {
         switch (i) {
             case 1:
                 return 6;
@@ -44,7 +44,7 @@ public class b {
                     i2--;
                 }
             }
-            int dp = dp(i2);
+            int dt = dt(i2);
             iArr[0] = (byte) ((sArr[0] >> 3) & 31);
             iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
             iArr[2] = (byte) ((sArr[1] >> 1) & 31);
@@ -53,15 +53,15 @@ public class b {
             iArr[5] = (byte) ((sArr[3] >> 2) & 31);
             iArr[6] = (byte) (((sArr[3] & 3) << 3) | ((sArr[4] >> 5) & 7));
             iArr[7] = (byte) (sArr[4] & 31);
-            for (int i4 = 0; i4 < iArr.length - dp; i4++) {
-                char charAt = this.awt.charAt(iArr[i4]);
-                if (this.awv) {
+            for (int i4 = 0; i4 < iArr.length - dt; i4++) {
+                char charAt = this.axr.charAt(iArr[i4]);
+                if (this.axt) {
                     charAt = Character.toLowerCase(charAt);
                 }
                 byteArrayOutputStream.write(charAt);
             }
-            if (this.awu) {
-                for (int length = iArr.length - dp; length < iArr.length; length++) {
+            if (this.axs) {
+                for (int length = iArr.length - dt; length < iArr.length; length++) {
                     byteArrayOutputStream.write(61);
                 }
             }

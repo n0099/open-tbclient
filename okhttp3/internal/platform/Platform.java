@@ -38,6 +38,7 @@ public class Platform {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
+    @Nullable
     public X509TrustManager trustManager(SSLSocketFactory sSLSocketFactory) {
         try {
             Object readFieldOrNull = readFieldOrNull(sSLSocketFactory, Class.forName("sun.security.ssl.SSLContextImpl"), "context");
@@ -50,7 +51,7 @@ public class Platform {
         }
     }
 
-    public void configureTlsExtensions(SSLSocket sSLSocket, String str, List<Protocol> list) {
+    public void configureTlsExtensions(SSLSocket sSLSocket, @Nullable String str, List<Protocol> list) throws IOException {
     }
 
     public void afterHandshake(SSLSocket sSLSocket) {
@@ -65,7 +66,7 @@ public class Platform {
         socket.connect(inetSocketAddress, i);
     }
 
-    public void log(int i, String str, Throwable th) {
+    public void log(int i, String str, @Nullable Throwable th) {
         logger.log(i == 5 ? Level.WARNING : Level.INFO, str, th);
     }
 
@@ -119,20 +120,32 @@ public class Platform {
     }
 
     private static Platform findPlatform() {
-        Platform buildIfSupported;
-        Platform buildIfSupported2 = AndroidPlatform.buildIfSupported();
-        if (buildIfSupported2 == null) {
-            if (!isConscryptPreferred() || (buildIfSupported = ConscryptPlatform.buildIfSupported()) == null) {
-                Jdk9Platform buildIfSupported3 = Jdk9Platform.buildIfSupported();
-                if (buildIfSupported3 == null) {
-                    Platform buildIfSupported4 = JdkWithJettyBootPlatform.buildIfSupported();
-                    return buildIfSupported4 == null ? new Platform() : buildIfSupported4;
-                }
-                return buildIfSupported3;
+        return isAndroid() ? findAndroidPlatform() : findJvmPlatform();
+    }
+
+    public static boolean isAndroid() {
+        return "Dalvik".equals(System.getProperty("java.vm.name"));
+    }
+
+    private static Platform findJvmPlatform() {
+        ConscryptPlatform buildIfSupported;
+        if (!isConscryptPreferred() || (buildIfSupported = ConscryptPlatform.buildIfSupported()) == null) {
+            Jdk9Platform buildIfSupported2 = Jdk9Platform.buildIfSupported();
+            if (buildIfSupported2 == null) {
+                Platform buildIfSupported3 = JdkWithJettyBootPlatform.buildIfSupported();
+                return buildIfSupported3 == null ? new Platform() : buildIfSupported3;
             }
-            return buildIfSupported;
+            return buildIfSupported2;
         }
-        return buildIfSupported2;
+        return buildIfSupported;
+    }
+
+    private static Platform findAndroidPlatform() {
+        Platform buildIfSupported = Android10Platform.buildIfSupported();
+        if (buildIfSupported == null && (buildIfSupported = AndroidPlatform.buildIfSupported()) == null) {
+            throw new NullPointerException("No platform found on Android");
+        }
+        return buildIfSupported;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -150,6 +163,7 @@ public class Platform {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    @Nullable
     public static <T> T readFieldOrNull(Object obj, Class<T> cls, String str) {
         Object readFieldOrNull;
         for (Class<?> cls2 = obj.getClass(); cls2 != Object.class; cls2 = cls2.getSuperclass()) {
@@ -191,5 +205,9 @@ public class Platform {
     }
 
     public void configureSslSocketFactory(SSLSocketFactory sSLSocketFactory) {
+    }
+
+    public String toString() {
+        return getClass().getSimpleName();
     }
 }

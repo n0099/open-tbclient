@@ -13,6 +13,7 @@ import com.baidu.searchbox.http.cookie.CookieJarImpl;
 import com.baidu.searchbox.http.interceptor.LogInterceptor;
 import com.baidu.searchbox.http.interceptor.ParamInterceptor;
 import com.baidu.searchbox.http.response.ResponseException;
+import com.baidu.searchbox.http.response.StatusCodeException;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import okhttp3.Call;
@@ -21,7 +22,7 @@ import okhttp3.Dns;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class RequestCall implements Cancelable {
     private static final String TAG = RequestCall.class.getSimpleName();
     private OkHttpClient client;
@@ -95,7 +96,7 @@ public class RequestCall implements Cancelable {
 
     private void checkExecuteWifiOnly() throws IOException {
         if (this.httpRequest.isWifiOnly && !this.httpRequest.httpManager.isWifi()) {
-            throw new IOException(" only allow wifi connected");
+            throw new IOException(ResponseException.ONLY_WIFI_EXECUTE);
         }
     }
 
@@ -111,7 +112,11 @@ public class RequestCall implements Cancelable {
         try {
             try {
                 executePreCheck();
-                return this.realCall.execute();
+                Response execute = this.realCall.execute();
+                if (execute != null) {
+                    recordStatusCode(this.httpRequest.okRequest, execute.code(), execute.message());
+                }
+                return execute;
             } catch (IOException e) {
                 IOException wrapNoNetworkExceptionWithDetail = this.httpRequest.httpManager.isNetWorkConnected() ? e : ResponseException.wrapNoNetworkExceptionWithDetail(e);
                 if (this.httpRequest.networkStat != null) {
@@ -121,6 +126,14 @@ public class RequestCall implements Cancelable {
                     this.httpRequest.requestNetStat.exception = wrapNoNetworkExceptionWithDetail;
                 }
                 throw wrapNoNetworkExceptionWithDetail;
+            } catch (NullPointerException e2) {
+                if (this.httpRequest.networkStat != null) {
+                    this.httpRequest.networkStat.onException(this.httpRequest.okRequest, e2);
+                }
+                if (this.httpRequest.requestNetStat != null) {
+                    this.httpRequest.requestNetStat.exception = e2;
+                }
+                throw e2;
             }
         } finally {
             long currentTimeMillis = System.currentTimeMillis();
@@ -198,13 +211,13 @@ public class RequestCall implements Cancelable {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sendFailResult(Handler handler, final ResponseCallback responseCallback, Exception exc) {
+        final Exception wrapNoNetworkExceptionWithDetail = this.httpRequest.httpManager.isNetWorkConnected() ? exc : ResponseException.wrapNoNetworkExceptionWithDetail(exc);
+        if (this.httpRequest.networkStat != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.httpRequest.networkStat.onException(this.httpRequest.okRequest, exc);
+            this.httpRequest.networkStat.onFinish(this.httpRequest.okRequest, currentTimeMillis);
+        }
         if (responseCallback != null) {
-            final Exception wrapNoNetworkExceptionWithDetail = this.httpRequest.httpManager.isNetWorkConnected() ? exc : ResponseException.wrapNoNetworkExceptionWithDetail(exc);
-            if (this.httpRequest.networkStat != null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                this.httpRequest.networkStat.onException(this.httpRequest.okRequest, exc);
-                this.httpRequest.networkStat.onFinish(this.httpRequest.okRequest, currentTimeMillis);
-            }
             if (handler != null) {
                 handler.post(new Runnable() { // from class: com.baidu.searchbox.http.request.RequestCall.3
                     @Override // java.lang.Runnable
@@ -250,16 +263,19 @@ public class RequestCall implements Cancelable {
 
     /* JADX INFO: Access modifiers changed from: private */
     public <T> void sendSuccessResult(Handler handler, final StatResponseCallback<T> statResponseCallback, final Response response) {
-        if (statResponseCallback != null) {
-            try {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (this.httpRequest.networkStat != null) {
-                    this.httpRequest.networkStat.onFinish(this.httpRequest.okRequest, currentTimeMillis);
-                }
-                if (this.httpRequest.requestNetStat != null) {
-                    this.httpRequest.requestNetStat.finishTs = currentTimeMillis;
-                    this.httpRequest.requestNetStat.netType = this.httpRequest.httpManager.getNetworkInfo();
-                }
+        try {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (this.httpRequest.networkStat != null) {
+                this.httpRequest.networkStat.onFinish(this.httpRequest.okRequest, currentTimeMillis);
+            }
+            if (this.httpRequest.requestNetStat != null) {
+                this.httpRequest.requestNetStat.finishTs = currentTimeMillis;
+                this.httpRequest.requestNetStat.netType = this.httpRequest.httpManager.getNetworkInfo();
+            }
+            if (response != null) {
+                recordStatusCode(this.httpRequest.okRequest, response.code(), response.message());
+            }
+            if (statResponseCallback != null) {
                 final T parseResponse = statResponseCallback.parseResponse(response, response.code(), this.httpRequest.requestNetStat);
                 if (handler != null) {
                     handler.post(new Runnable() { // from class: com.baidu.searchbox.http.request.RequestCall.5
@@ -277,19 +293,22 @@ public class RequestCall implements Cancelable {
                 } else {
                     statResponseCallback.onFail(new IOException("parse response return null"));
                 }
-            } catch (Exception e) {
-                sendFailResult(handler, statResponseCallback, e);
             }
+        } catch (Exception e) {
+            sendFailResult(handler, statResponseCallback, e);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public <T> void sendSuccessResult(Handler handler, final ResponseCallback<T> responseCallback, final Response response) {
-        if (responseCallback != null) {
-            try {
-                if (this.httpRequest.networkStat != null) {
-                    this.httpRequest.networkStat.onFinish(this.httpRequest.okRequest, System.currentTimeMillis());
-                }
+        try {
+            if (this.httpRequest.networkStat != null) {
+                this.httpRequest.networkStat.onFinish(this.httpRequest.okRequest, System.currentTimeMillis());
+            }
+            if (response != null) {
+                recordStatusCode(this.httpRequest.okRequest, response.code(), response.message());
+            }
+            if (responseCallback != null) {
                 final T parseResponse = responseCallback.parseResponse(response, response.code());
                 if (handler != null) {
                     handler.post(new Runnable() { // from class: com.baidu.searchbox.http.request.RequestCall.6
@@ -307,9 +326,9 @@ public class RequestCall implements Cancelable {
                 } else {
                     responseCallback.onFail(new IOException("parse response return null"));
                 }
-            } catch (Exception e) {
-                sendFailResult(handler, responseCallback, e);
             }
+        } catch (Exception e) {
+            sendFailResult(handler, responseCallback, e);
         }
     }
 
@@ -332,6 +351,22 @@ public class RequestCall implements Cancelable {
     public void cancel() {
         if (this.realCall != null) {
             this.realCall.cancel();
+        }
+    }
+
+    private void recordStatusCode(Request request, int i, String str) {
+        if (request != null && StatusCodeException.isStatusCodeMatched(i)) {
+            StatusCodeException statusCodeException = new StatusCodeException(String.format(StatusCodeException.ERROR_MSG_FORMATED, Integer.valueOf(i), str));
+            try {
+                if (this.httpRequest.networkStat != null) {
+                    this.httpRequest.networkStat.onException(request, statusCodeException);
+                }
+                if (this.httpRequest.requestNetStat != null) {
+                    this.httpRequest.requestNetStat.exception = statusCodeException;
+                }
+                this.httpRequest.requestNetStat.netType = this.httpRequest.httpManager.getNetworkInfo();
+            } catch (Throwable th) {
+            }
         }
     }
 }

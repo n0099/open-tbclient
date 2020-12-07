@@ -5,21 +5,21 @@ import com.meizu.cloud.pushsdk.b.c.c;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private final f f4334a;
+    private final f f4104a;
     private final String b;
     private final c c;
     private final j d;
     private final Object e;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private f f4335a;
+        private f f4105a;
         private String b = "GET";
         private c.a c = new c.a();
         private j d;
@@ -38,7 +38,7 @@ public class i {
             if (fVar == null) {
                 throw new IllegalArgumentException("url == null");
             }
-            this.f4335a = fVar;
+            this.f4105a = fVar;
             return this;
         }
 
@@ -95,7 +95,7 @@ public class i {
         }
 
         public i c() {
-            if (this.f4335a == null) {
+            if (this.f4105a == null) {
                 throw new IllegalStateException("url == null");
             }
             return new i(this);
@@ -107,7 +107,7 @@ public class i {
     }
 
     private i(a aVar) {
-        this.f4334a = aVar.f4335a;
+        this.f4104a = aVar.f4105a;
         this.b = aVar.b;
         this.c = aVar.c.a();
         this.d = aVar.d;
@@ -115,7 +115,7 @@ public class i {
     }
 
     public f a() {
-        return this.f4334a;
+        return this.f4104a;
     }
 
     public String a(String str) {
@@ -154,10 +154,10 @@ public class i {
     }
 
     public boolean f() {
-        return this.f4334a.a();
+        return this.f4104a.a();
     }
 
     public String toString() {
-        return "Request{method=" + this.b + ", url=" + this.f4334a + ", tag=" + (this.e != this ? this.e : null) + '}';
+        return "Request{method=" + this.b + ", url=" + this.f4104a + ", tag=" + (this.e != this ? this.e : null) + '}';
     }
 }

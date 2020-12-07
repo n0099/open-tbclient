@@ -14,216 +14,235 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class b extends a {
     private float centerX;
     private float centerY;
-    private StateListDrawable eOZ;
-    private int ePA;
-    private int ePB;
-    private int[] ePe;
-    private float ePf;
-    private boolean ePi;
-    private boolean ePj;
-    private boolean ePk;
-    private boolean ePl;
-    private boolean ePm;
-    private int ePs;
-    private int ePt;
-    private int ePu;
-    private int ePv;
-    private int ePw;
-    private int ePx;
-    private int ePy;
-    private int ePz;
+    private boolean eWA;
+    private boolean eWB;
+    private int eWH;
+    private int eWI;
+    private int eWJ;
+    private int eWK;
+    private int eWL;
+    private int eWM;
+    private int eWN;
+    private int eWO;
+    private int eWP;
+    private int eWQ;
+    private StateListDrawable eWo;
+    private int[] eWt;
+    private float eWu;
+    private boolean eWx;
+    private boolean eWy;
+    private boolean eWz;
     private int height;
     private int width;
-    private int ePa = 1;
-    private int ePb = 1;
-    private float ePc = 1.0f;
-    private float ePd = 1.0f;
-    private int ePg = 0;
-    private String ePh = "TOP_BOTTOM";
-    private float ePn = 0.0f;
-    private float ePo = 0.0f;
-    private float ePp = 0.0f;
-    private float ePq = 0.0f;
-    private int eHr = 0;
+    private int eWp = 1;
+    private int eWq = 1;
+    private float eWr = 1.0f;
+    private float eWs = 1.0f;
+    private int eWv = 0;
+    private String eWw = "TOP_BOTTOM";
+    private float eWC = 0.0f;
+    private float eWD = 0.0f;
+    private float eWE = 0.0f;
+    private float eWF = 0.0f;
+    private int eOB = 0;
     private int mCornerRadius = 0;
-    private int ePr = 0;
-    private boolean ePC = false;
-    private boolean ePD = false;
-    private boolean ePE = false;
-    private boolean ePF = false;
-    private boolean ePG = false;
-    private boolean ePH = false;
-    private boolean ePI = false;
-    private boolean ePJ = false;
+    private int eWG = 0;
+    private boolean eWR = false;
+    private boolean eWS = false;
+    private boolean eWT = false;
+    private boolean eWU = false;
+    private boolean eWV = false;
+    private boolean eWW = false;
+    private boolean eWX = false;
+    private boolean eWY = false;
 
-    public static b brd() {
+    public static b buA() {
         return new b();
     }
 
     public b g(Drawable drawable) {
-        this.efm = drawable;
-        if (!this.eOU) {
-            this.eOQ = drawable;
+        this.emn = drawable;
+        if (!this.eWj) {
+            this.eWf = drawable;
         }
-        if (!this.eOV) {
-            this.eOT = drawable;
+        if (!this.eWk) {
+            this.eWi = drawable;
         }
-        if (!this.eOW) {
-            this.eOR = drawable;
+        if (!this.eWl) {
+            this.eWg = drawable;
         }
-        if (!this.eOX) {
-            this.eOS = drawable;
+        if (!this.eWm) {
+            this.eWh = drawable;
         }
         return this;
     }
 
     public b h(Drawable drawable) {
-        this.eOT = drawable;
-        this.eOV = true;
+        this.eWi = drawable;
+        this.eWk = true;
         return this;
     }
 
-    public b pD(@DrawableRes int i) {
+    public b qd(@DrawableRes int i) {
         return g(com.baidu.tbadk.core.util.e.c.a.getDrawable(i));
     }
 
-    public b pE(@DrawableRes int i) {
+    public b qe(@DrawableRes int i) {
         return h(com.baidu.tbadk.core.util.e.c.a.getDrawable(i));
     }
 
-    public b pF(int i) {
-        this.eHr = i;
+    public b qf(int i) {
+        this.eOB = i;
         return this;
     }
 
-    public b pG(@ColorRes int i) {
+    public b qg(@ColorRes int i) {
         int color = com.baidu.tbadk.core.util.e.c.a.getColor(i);
-        this.ePs = color;
-        this.ePi = true;
-        if (!this.ePC) {
-            this.ePt = color;
+        this.eWH = color;
+        this.eWx = true;
+        if (!this.eWR) {
+            this.eWI = color;
         }
-        if (!this.ePD) {
-            this.ePu = color;
+        if (!this.eWS) {
+            this.eWJ = color;
         }
-        if (!this.ePE) {
-            this.ePv = color;
+        if (!this.eWT) {
+            this.eWK = color;
         }
-        if (!this.ePF) {
-            this.ePw = color;
-        }
-        return this;
-    }
-
-    public b pH(int i) {
-        this.ePs = i;
-        this.ePi = true;
-        if (!this.ePC) {
-            this.ePt = i;
-        }
-        if (!this.ePD) {
-            this.ePu = i;
-        }
-        if (!this.ePE) {
-            this.ePv = i;
-        }
-        if (!this.ePF) {
-            this.ePw = i;
+        if (!this.eWU) {
+            this.eWL = color;
         }
         return this;
     }
 
-    public b pI(@ColorRes int i) {
+    public b qh(int i) {
+        this.eWH = i;
+        this.eWx = true;
+        if (!this.eWR) {
+            this.eWI = i;
+        }
+        if (!this.eWS) {
+            this.eWJ = i;
+        }
+        if (!this.eWT) {
+            this.eWK = i;
+        }
+        if (!this.eWU) {
+            this.eWL = i;
+        }
+        return this;
+    }
+
+    public b Ct(String str) {
+        int sI = com.baidu.tbadk.core.util.e.c.a.sI(str);
+        this.eWH = sI;
+        this.eWx = true;
+        if (!this.eWR) {
+            this.eWI = sI;
+        }
+        if (!this.eWS) {
+            this.eWJ = sI;
+        }
+        if (!this.eWT) {
+            this.eWK = sI;
+        }
+        if (!this.eWU) {
+            this.eWL = sI;
+        }
+        return this;
+    }
+
+    public b qi(@ColorRes int i) {
         int color = TbadkCoreApplication.getInst().getApp().getResources().getColor(i);
-        this.ePs = color;
-        this.ePi = true;
-        if (!this.ePC) {
-            this.ePt = color;
+        this.eWH = color;
+        this.eWx = true;
+        if (!this.eWR) {
+            this.eWI = color;
         }
-        if (!this.ePD) {
-            this.ePu = color;
+        if (!this.eWS) {
+            this.eWJ = color;
         }
-        if (!this.ePE) {
-            this.ePv = color;
+        if (!this.eWT) {
+            this.eWK = color;
         }
-        if (!this.ePF) {
-            this.ePw = color;
-        }
-        return this;
-    }
-
-    public b pJ(int i) {
-        this.ePs = i;
-        this.ePi = true;
-        if (!this.ePC) {
-            this.ePt = i;
-        }
-        if (!this.ePD) {
-            this.ePu = i;
-        }
-        if (!this.ePE) {
-            this.ePv = i;
-        }
-        if (!this.ePF) {
-            this.ePw = i;
+        if (!this.eWU) {
+            this.eWL = color;
         }
         return this;
     }
 
-    public b pK(@ColorRes int i) {
-        this.ePu = com.baidu.tbadk.core.util.e.c.a.getColor(i);
-        this.ePD = true;
-        this.ePi = true;
+    public b qj(int i) {
+        this.eWH = i;
+        this.eWx = true;
+        if (!this.eWR) {
+            this.eWI = i;
+        }
+        if (!this.eWS) {
+            this.eWJ = i;
+        }
+        if (!this.eWT) {
+            this.eWK = i;
+        }
+        if (!this.eWU) {
+            this.eWL = i;
+        }
         return this;
     }
 
-    public b pL(@ColorRes int i) {
+    public b qk(@ColorRes int i) {
+        this.eWJ = com.baidu.tbadk.core.util.e.c.a.getColor(i);
+        this.eWS = true;
+        this.eWx = true;
+        return this;
+    }
+
+    public b ql(@ColorRes int i) {
         int color = com.baidu.tbadk.core.util.e.c.a.getColor(i);
-        this.ePx = color;
-        this.ePj = true;
-        if (!this.ePG) {
-            this.ePy = color;
+        this.eWM = color;
+        this.eWy = true;
+        if (!this.eWV) {
+            this.eWN = color;
         }
-        if (!this.ePH) {
-            this.ePz = color;
+        if (!this.eWW) {
+            this.eWO = color;
         }
-        if (!this.ePI) {
-            this.ePA = color;
+        if (!this.eWX) {
+            this.eWP = color;
         }
-        if (!this.ePJ) {
-            this.ePB = color;
+        if (!this.eWY) {
+            this.eWQ = color;
         }
         return this;
     }
 
-    public b pM(int i) {
+    public b qm(int i) {
         this.mCornerRadius = i;
         return this;
     }
 
-    public b pN(int i) {
-        this.ePr = i;
+    public b qn(int i) {
+        this.eWG = i;
         return this;
     }
 
-    public b aR(@ColorRes int i, @ColorRes int i2) {
-        this.ePl = true;
-        this.ePe = new int[2];
-        this.ePe[0] = com.baidu.tbadk.core.util.e.c.a.getColor(i);
-        this.ePe[1] = com.baidu.tbadk.core.util.e.c.a.getColor(i2);
-        this.ePg = 0;
-        this.ePh = "TOP_BOTTOM";
+    public b aT(@ColorRes int i, @ColorRes int i2) {
+        this.eWA = true;
+        this.eWt = new int[2];
+        this.eWt[0] = com.baidu.tbadk.core.util.e.c.a.getColor(i);
+        this.eWt[1] = com.baidu.tbadk.core.util.e.c.a.getColor(i2);
+        this.eWv = 0;
+        this.eWw = "TOP_BOTTOM";
         return this;
     }
 
     public b l(@ColorRes int... iArr) {
-        this.ePl = true;
-        this.ePg = 0;
-        this.ePh = "TOP_BOTTOM";
+        this.eWA = true;
+        this.eWv = 0;
+        this.eWw = "TOP_BOTTOM";
         if (iArr.length > 1) {
-            this.ePe = new int[iArr.length];
+            this.eWt = new int[iArr.length];
             for (int i = 0; i < iArr.length; i++) {
-                this.ePe[i] = com.baidu.tbadk.core.util.e.c.a.getColor(iArr[i]);
+                this.eWt[i] = com.baidu.tbadk.core.util.e.c.a.getColor(iArr[i]);
             }
             return this;
         }
@@ -231,13 +250,13 @@ public class b extends a {
     }
 
     public b m(@ColorRes int... iArr) {
-        this.ePl = true;
-        this.ePg = 0;
-        this.ePh = "TOP_BOTTOM";
+        this.eWA = true;
+        this.eWv = 0;
+        this.eWw = "TOP_BOTTOM";
         if (iArr.length > 1) {
-            this.ePe = new int[iArr.length];
+            this.eWt = new int[iArr.length];
             for (int i = 0; i < iArr.length; i++) {
-                this.ePe[i] = TbadkCoreApplication.getInst().getApp().getResources().getColor(iArr[i]);
+                this.eWt[i] = TbadkCoreApplication.getInst().getApp().getResources().getColor(iArr[i]);
             }
             return this;
         }
@@ -245,13 +264,13 @@ public class b extends a {
     }
 
     public b b(String str, @ColorRes int... iArr) {
-        this.ePl = true;
-        this.ePg = 0;
-        this.ePh = str;
+        this.eWA = true;
+        this.eWv = 0;
+        this.eWw = str;
         if (iArr.length > 1) {
-            this.ePe = new int[iArr.length];
+            this.eWt = new int[iArr.length];
             for (int i = 0; i < iArr.length; i++) {
-                this.ePe[i] = com.baidu.tbadk.core.util.e.c.a.getColor(iArr[i]);
+                this.eWt[i] = com.baidu.tbadk.core.util.e.c.a.getColor(iArr[i]);
             }
             return this;
         }
@@ -259,52 +278,52 @@ public class b extends a {
     }
 
     public b ac(float f) {
-        this.ePm = true;
-        this.ePn = f;
-        this.ePo = f;
-        this.ePp = f;
-        this.ePq = f;
+        this.eWB = true;
+        this.eWC = f;
+        this.eWD = f;
+        this.eWE = f;
+        this.eWF = f;
         return this;
     }
 
     public b ad(float f) {
-        this.ePm = true;
-        this.ePn = f;
+        this.eWB = true;
+        this.eWC = f;
         return this;
     }
 
     public b ae(float f) {
-        this.ePm = true;
-        this.ePo = f;
+        this.eWB = true;
+        this.eWD = f;
         return this;
     }
 
     public b af(float f) {
-        this.ePm = true;
-        this.ePp = f;
+        this.eWB = true;
+        this.eWE = f;
         return this;
     }
 
     public b ag(float f) {
-        this.ePm = true;
-        this.ePq = f;
+        this.eWB = true;
+        this.eWF = f;
         return this;
     }
 
-    public b pO(int i) {
+    public b qo(int i) {
         this.mType = i;
         return this;
     }
 
-    public b pP(@IntRange(from = 0, to = 255) int i) {
+    public b qp(@IntRange(from = 0, to = 255) int i) {
         this.mAlpha = i;
-        this.eOY = true;
+        this.eWn = true;
         return this;
     }
 
-    private GradientDrawable.Orientation bre() {
+    private GradientDrawable.Orientation buB() {
         GradientDrawable.Orientation orientation = GradientDrawable.Orientation.TOP_BOTTOM;
-        String str = this.ePh;
+        String str = this.eWw;
         char c = 65535;
         switch (str.hashCode()) {
             case -1196165855:
@@ -378,32 +397,32 @@ public class b extends a {
         }
     }
 
-    private GradientDrawable r(int i, int i2, int i3, int i4) {
+    private GradientDrawable v(int i, int i2, int i3, int i4) {
         GradientDrawable gradientDrawable;
-        if (this.ePl && this.ePe != null && this.ePe.length > 1) {
-            gradientDrawable = new GradientDrawable(bre(), this.ePe);
-            gradientDrawable.setGradientType(this.ePg);
-            switch (this.ePg) {
+        if (this.eWA && this.eWt != null && this.eWt.length > 1) {
+            gradientDrawable = new GradientDrawable(buB(), this.eWt);
+            gradientDrawable.setGradientType(this.eWv);
+            switch (this.eWv) {
                 case 1:
-                    gradientDrawable.setGradientRadius(this.ePf);
+                    gradientDrawable.setGradientRadius(this.eWu);
                     break;
             }
         } else {
             gradientDrawable = new GradientDrawable();
         }
         gradientDrawable.setShape(i);
-        if (this.ePi) {
+        if (this.eWx) {
             gradientDrawable.setColor(i2);
         }
-        if (this.ePj) {
-            gradientDrawable.setStroke(this.ePr, i3);
-        } else if (this.ePk) {
-            gradientDrawable.setStroke(this.ePa, i4, this.ePc, this.ePd);
+        if (this.eWy) {
+            gradientDrawable.setStroke(this.eWG, i3);
+        } else if (this.eWz) {
+            gradientDrawable.setStroke(this.eWp, i4, this.eWr, this.eWs);
         }
         if (this.mCornerRadius > 0) {
             gradientDrawable.setCornerRadius(this.mCornerRadius);
-        } else if (this.ePm) {
-            gradientDrawable.setCornerRadii(new float[]{this.ePo, this.ePo, this.ePn, this.ePn, this.ePp, this.ePp, this.ePq, this.ePq});
+        } else if (this.eWB) {
+            gradientDrawable.setCornerRadii(new float[]{this.eWD, this.eWD, this.eWC, this.eWC, this.eWE, this.eWE, this.eWF, this.eWF});
         }
         if (this.width > 0 && this.height > 0) {
             gradientDrawable.setSize(this.width, this.height);
@@ -415,100 +434,100 @@ public class b extends a {
         return gradientDrawable;
     }
 
-    public void bn(View view) {
+    public void bq(View view) {
         if (view != null) {
-            brf();
+            buC();
             if (this.mType == 2) {
                 if (view instanceof ImageView) {
-                    ((ImageView) view).setImageDrawable(this.eOZ);
+                    ((ImageView) view).setImageDrawable(this.eWo);
                 }
             } else if (this.mType == 1) {
-                view.setBackgroundDrawable(this.eOZ);
+                view.setBackgroundDrawable(this.eWo);
             }
         }
     }
 
-    public StateListDrawable brf() {
-        this.eOZ = brg();
-        return this.eOZ;
+    public StateListDrawable buC() {
+        this.eWo = buD();
+        return this.eWo;
     }
 
-    public StateListDrawable brg() {
+    public StateListDrawable buD() {
         StateListDrawable stateListDrawable = new StateListDrawable();
-        Drawable brh = brh();
-        if (brh != null) {
-            stateListDrawable.addState(new int[]{-16842910}, brh);
+        Drawable buE = buE();
+        if (buE != null) {
+            stateListDrawable.addState(new int[]{-16842910}, buE);
         }
-        Drawable bri = bri();
-        if (bri != null) {
-            stateListDrawable.addState(new int[]{16842919}, bri);
+        Drawable buF = buF();
+        if (buF != null) {
+            stateListDrawable.addState(new int[]{16842919}, buF);
         }
-        Drawable brj = brj();
-        if (brj != null) {
-            stateListDrawable.addState(new int[]{16842913}, brj);
+        Drawable buG = buG();
+        if (buG != null) {
+            stateListDrawable.addState(new int[]{16842913}, buG);
         }
-        Drawable brk = brk();
-        if (brk != null) {
-            stateListDrawable.addState(new int[]{16842908}, brk);
+        Drawable buH = buH();
+        if (buH != null) {
+            stateListDrawable.addState(new int[]{16842908}, buH);
         }
-        Drawable brl = brl();
-        if (brl == null) {
-            brl = new ColorDrawable(0);
+        Drawable buI = buI();
+        if (buI == null) {
+            buI = new ColorDrawable(0);
         }
-        if (brl != null) {
-            stateListDrawable.addState(new int[0], brl);
+        if (buI != null) {
+            stateListDrawable.addState(new int[0], buI);
         }
         return stateListDrawable;
     }
 
-    public Drawable brh() {
-        Drawable drawable = this.eOQ;
-        if (this.eOU) {
-            drawable = this.eOQ;
+    public Drawable buE() {
+        Drawable drawable = this.eWf;
+        if (this.eWj) {
+            drawable = this.eWf;
         }
-        if (this.ePC || this.ePG) {
-            return r(this.eHr, this.ePt, this.ePy, this.ePb);
-        }
-        return drawable;
-    }
-
-    public Drawable bri() {
-        Drawable drawable = this.eOT;
-        if (this.eOV) {
-            return this.eOT;
-        }
-        if (this.ePD || this.ePH) {
-            return r(this.eHr, this.ePu, this.ePz, this.ePb);
+        if (this.eWR || this.eWV) {
+            return v(this.eOB, this.eWI, this.eWN, this.eWq);
         }
         return drawable;
     }
 
-    public Drawable brj() {
-        Drawable drawable = this.eOR;
-        if (this.eOW) {
-            return this.eOR;
+    public Drawable buF() {
+        Drawable drawable = this.eWi;
+        if (this.eWk) {
+            return this.eWi;
         }
-        if (this.ePE || this.ePI) {
-            return r(this.eHr, this.ePv, this.ePA, this.ePb);
-        }
-        return drawable;
-    }
-
-    public Drawable brk() {
-        Drawable drawable = this.eOS;
-        if (this.eOX) {
-            return this.eOS;
-        }
-        if (this.ePF || this.ePJ) {
-            return r(this.eHr, this.ePw, this.ePB, this.ePb);
+        if (this.eWS || this.eWW) {
+            return v(this.eOB, this.eWJ, this.eWO, this.eWq);
         }
         return drawable;
     }
 
-    public Drawable brl() {
-        Drawable drawable = this.efm;
-        if (this.efm == null) {
-            return r(this.eHr, this.ePs, this.ePx, this.ePb);
+    public Drawable buG() {
+        Drawable drawable = this.eWg;
+        if (this.eWl) {
+            return this.eWg;
+        }
+        if (this.eWT || this.eWX) {
+            return v(this.eOB, this.eWK, this.eWP, this.eWq);
+        }
+        return drawable;
+    }
+
+    public Drawable buH() {
+        Drawable drawable = this.eWh;
+        if (this.eWm) {
+            return this.eWh;
+        }
+        if (this.eWU || this.eWY) {
+            return v(this.eOB, this.eWL, this.eWQ, this.eWq);
+        }
+        return drawable;
+    }
+
+    public Drawable buI() {
+        Drawable drawable = this.emn;
+        if (this.emn == null) {
+            return v(this.eOB, this.eWH, this.eWM, this.eWq);
         }
         return drawable;
     }

@@ -7,7 +7,7 @@ import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public class g extends Drawable implements Drawable.Callback, c, q, r {
     private static final Matrix sTempTransform = new Matrix();
     private Drawable mCurrentDelegate;

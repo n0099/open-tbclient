@@ -5,22 +5,22 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
 /* loaded from: classes4.dex */
 public class GuardClubRankFragmentPageAdapter extends FragmentPagerAdapter {
-    public Fragment bcG;
-    private Fragment[] bcH;
+    public Fragment bgG;
+    private Fragment[] bgH;
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        return this.bcH[i];
+        return this.bgH[i];
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.bcH.length;
+        return this.bgH.length;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter, android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
-        this.bcG = (Fragment) obj;
+        this.bgG = (Fragment) obj;
         super.setPrimaryItem(viewGroup, i, obj);
     }
 }

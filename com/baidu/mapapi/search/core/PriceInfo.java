@@ -2,12 +2,12 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class PriceInfo implements Parcelable {
     public static final Parcelable.Creator<PriceInfo> CREATOR = new i();
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2104a;
+    private int f2106a;
     private double b;
 
     public PriceInfo() {
@@ -15,7 +15,7 @@ public class PriceInfo implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public PriceInfo(Parcel parcel) {
-        this.f2104a = parcel.readInt();
+        this.f2106a = parcel.readInt();
         this.b = parcel.readDouble();
     }
 
@@ -29,7 +29,7 @@ public class PriceInfo implements Parcelable {
     }
 
     public int getTicketType() {
-        return this.f2104a;
+        return this.f2106a;
     }
 
     public void setTicketPrice(double d) {
@@ -37,12 +37,12 @@ public class PriceInfo implements Parcelable {
     }
 
     public void setTicketType(int i) {
-        this.f2104a = i;
+        this.f2106a = i;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f2104a);
+        parcel.writeInt(this.f2106a);
         parcel.writeDouble(this.b);
     }
 }

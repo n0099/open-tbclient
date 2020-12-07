@@ -3,29 +3,28 @@ package com.baidu.yuyinala.privatemessage.session.b;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class h {
-    private static h oIo = null;
-    private Map<String, String> oIp = new HashMap();
-    private HashSet<String> oIq = new HashSet<>();
+    private static h oXu = null;
+    private Map<String, String> oXv = new HashMap();
+    private HashSet<String> oXw = new HashSet<>();
 
-    public static h eiv() {
-        if (oIo == null) {
+    public static h eol() {
+        if (oXu == null) {
             synchronized (h.class) {
-                if (oIo == null) {
-                    oIo = new h();
+                if (oXu == null) {
+                    oXu = new h();
                 }
             }
         }
-        return oIo;
+        return oXu;
     }
 
-    public Map<String, String> eiw() {
-        return this.oIp;
+    public Map<String, String> eom() {
+        return this.oXv;
     }
 
     public static String encode(String str) {
@@ -38,12 +37,12 @@ public class h {
         sb.append("uk=");
         boolean z = false;
         if (!TextUtils.isEmpty(str)) {
-            sb.append(str + Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append(str + ",");
             z = true;
         }
         if (!z) {
             if (gVar != null) {
-                gVar.aSj();
+                gVar.aVo();
                 return;
             }
             return;
@@ -55,7 +54,7 @@ public class h {
     private void a(Context context, HashMap<String, String> hashMap, g gVar) {
     }
 
-    public String Xu(String str) {
-        return this.oIp.get(str);
+    public String YP(String str) {
+        return this.oXv.get(str);
     }
 }

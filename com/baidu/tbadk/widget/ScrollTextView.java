@@ -5,52 +5,52 @@ import android.util.AttributeSet;
 import android.view.animation.LinearInterpolator;
 import android.widget.Scroller;
 import android.widget.TextView;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class ScrollTextView extends TextView implements Runnable {
-    private Scroller fzJ;
-    private boolean fzK;
+    private boolean fHA;
+    private Scroller fHz;
     private float speed;
 
     public ScrollTextView(Context context) {
         super(context);
         this.speed = 15.0f;
-        this.fzK = true;
+        this.fHA = true;
         setup(context);
     }
 
     public ScrollTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.speed = 15.0f;
-        this.fzK = true;
+        this.fHA = true;
         setup(context);
     }
 
     private void setup(Context context) {
-        this.fzJ = new Scroller(context, new LinearInterpolator());
-        setScroller(this.fzJ);
+        this.fHz = new Scroller(context, new LinearInterpolator());
+        setScroller(this.fHz);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.fzJ.isFinished()) {
-            bDJ();
+        if (this.fHz.isFinished()) {
+            bHl();
         }
     }
 
-    private void bDJ() {
+    private void bHl() {
         int height = (getHeight() - getPaddingBottom()) - getPaddingTop();
         int lineHeight = height + (getLineHeight() * (getLineCount() - 1));
-        this.fzJ.startScroll(0, height * (-1), 0, lineHeight, (int) (lineHeight * this.speed));
-        if (this.fzK) {
+        this.fHz.startScroll(0, height * (-1), 0, lineHeight, (int) (lineHeight * this.speed));
+        if (this.fHA) {
             post(this);
         }
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.fzJ.isFinished()) {
-            bDJ();
+        if (this.fHz.isFinished()) {
+            bHl();
         } else {
             post(this);
         }
@@ -65,6 +65,6 @@ public class ScrollTextView extends TextView implements Runnable {
     }
 
     public void setContinuousScrolling(boolean z) {
-        this.fzK = z;
+        this.fHA = z;
     }
 }

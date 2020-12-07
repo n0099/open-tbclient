@@ -1,11 +1,11 @@
 package com.baidu.platform.comapi.walknavi.d;
 
 import android.graphics.Bitmap;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f2964a;
+    protected String f2966a;
     protected String b;
     protected String c;
     protected String d;
@@ -23,11 +23,11 @@ public class a {
     }
 
     public String c() {
-        return this.f2964a;
+        return this.f2966a;
     }
 
     public void a(String str) {
-        this.f2964a = str;
+        this.f2966a = str;
     }
 
     public void b(String str) {

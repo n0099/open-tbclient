@@ -5,7 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.f.e;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.a;
 import com.baidu.adp.lib.util.StringUtils;
@@ -25,6 +28,7 @@ import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.pageExtra.d;
 import com.baidu.tbadk.switchs.FlutterConcernForumEnableSwitch;
 import com.baidu.tbadk.switchs.FlutterForumDetailEnableSwitch;
 import com.baidu.tbadk.switchs.FlutterPersonAttentionEnableSwitch;
@@ -36,7 +40,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class OpenFlutter {
     public static final String ACTIVITY_CONCERN_FORUM = "ConcernForum";
     public static final String ACTIVITY_FANS = "PersonFansList";
@@ -146,11 +150,11 @@ public class OpenFlutter {
         if (ACTIVITY_PERSON_CENTER.equals(str)) {
             String uri2 = uri.toString();
             if (f.p(uri)) {
-                f.bfS().d(uri, new f.a() { // from class: com.baidu.tieba.flutter.util.OpenFlutter.1
+                f.biX().d(uri, new f.a() { // from class: com.baidu.tieba.flutter.util.OpenFlutter.1
                     @Override // com.baidu.tbadk.BdToken.f.a
                     public void onCallBack(HashMap<String, Object> hashMap2) {
-                        if (hashMap2 != null && (hashMap2.get(f.eqh) instanceof String)) {
-                            String str2 = (String) hashMap2.get(f.eqh);
+                        if (hashMap2 != null && (hashMap2.get(f.exh) instanceof String)) {
+                            String str2 = (String) hashMap2.get(f.exh);
                             if (!StringUtils.isNull(str2)) {
                                 hashMap.put("portrait", str2);
                             }
@@ -195,7 +199,7 @@ public class OpenFlutter {
 
     public static boolean checkSwitch(String str) {
         if (str.contains(ACTIVITY_SIGN_TOGETHER)) {
-            return !b.zG("flutter_page_test") && FlutterSignAllEnableSwitch.isOn();
+            return !b.An("flutter_page_test") && FlutterSignAllEnableSwitch.isOn();
         } else if (str.contains(ACTIVITY_FANS)) {
             return FlutterPersonAttentionEnableSwitch.isOn();
         } else {
@@ -230,6 +234,12 @@ public class OpenFlutter {
             str = ACTIVITY_CONCERN_FORUM;
         } else if ((intentConfig instanceof PersonPolymericActivityConfig) || (intentConfig instanceof PersonInfoActivityConfig)) {
             str = ACTIVITY_PERSON_CENTER;
+            e.mY().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.util.OpenFlutter.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921521, d.bET()));
+                }
+            }, 100L);
         } else {
             return customMessage;
         }
@@ -256,15 +266,15 @@ public class OpenFlutter {
     }
 
     public static boolean checkPluginEnable(String str) {
-        PluginSetting findPluginSetting = c.qv().findPluginSetting("com.baidu.tieba.pluginFlutter");
+        PluginSetting findPluginSetting = c.qx().findPluginSetting("com.baidu.tieba.pluginFlutter");
         if ((findPluginSetting == null || findPluginSetting.apkPath == null) && !TbadkCoreApplication.getInst().isDebugMode()) {
             a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("page", str);
             statsItem.append("staticversion", BdStatisticsManager.getInstance().getAppVersion());
             statsItem.append("version", TbConfig.getVersion());
             statsItem.append("sub_version", TbConfig.getSubVersion());
-            statsItem.append("setting", PluginPackageManager.pT().qe());
-            statsItem.append("pluginInit", PluginPackageManager.pT().qe());
+            statsItem.append("setting", PluginPackageManager.pV().qg());
+            statsItem.append("pluginInit", PluginPackageManager.pV().qg());
             BdStatisticsManager.getInstance().debug("pluginproxy", statsItem);
             return false;
         }

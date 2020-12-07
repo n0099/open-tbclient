@@ -14,16 +14,16 @@ import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a extends RecyclerView.Adapter<b> {
     private Context mContext;
     private List<String> mDataList;
-    private InterfaceC0849a mQG = null;
-    private int mQH = 0;
+    private InterfaceC0864a neL = null;
+    private int neM = 0;
 
     /* renamed from: com.baidu.tieba.square.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes21.dex */
-    public interface InterfaceC0849a {
+    /* loaded from: classes22.dex */
+    public interface InterfaceC0864a {
         void a(View view, int i, String str);
     }
 
@@ -45,32 +45,32 @@ public class a extends RecyclerView.Adapter<b> {
     public void onBindViewHolder(@NonNull final b bVar, final int i) {
         final String str = this.mDataList.get(i);
         bVar.itemView.setTag(Integer.valueOf(i));
-        bVar.mQK.setText(str);
-        if (this.mQH == i) {
-            bVar.mQL.setVisibility(0);
-            ap.setBackgroundColor(bVar.mQL, R.color.CAM_X0302);
+        bVar.neP.setText(str);
+        if (this.neM == i) {
+            bVar.neQ.setVisibility(0);
+            ap.setBackgroundColor(bVar.neQ, R.color.CAM_X0302);
             ap.setBackgroundColor(bVar.itemView, R.color.CAM_X0205);
-            ap.setViewTextColor(bVar.mQK, (int) R.color.CAM_X0105);
+            ap.setViewTextColor(bVar.neP, (int) R.color.CAM_X0105);
         } else {
-            bVar.mQL.setVisibility(8);
+            bVar.neQ.setVisibility(8);
             ap.setBackgroundColor(bVar.itemView, R.color.CAM_X0204);
-            ap.setViewTextColor(bVar.mQK, (int) R.color.CAM_X0107);
+            ap.setViewTextColor(bVar.neP, (int) R.color.CAM_X0107);
         }
-        if ("推荐".equals(dIb())) {
+        if ("推荐".equals(dNr())) {
             ar arVar = new ar("c13641");
             arVar.w("uid", TbadkApplication.getCurrentAccountId());
-            arVar.ak("obj_locate", 3);
+            arVar.al("obj_locate", 3);
             TiebaStatic.log(arVar);
         }
         bVar.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.vm(i);
-                if (a.this.mQG != null) {
-                    a.this.mQG.a(bVar.itemView, i, str);
+                a.this.vT(i);
+                if (a.this.neL != null) {
+                    a.this.neL.a(bVar.itemView, i, str);
                 }
                 ar arVar2 = new ar("c13649");
-                arVar2.dR("resource_id", str);
+                arVar2.dY("resource_id", str);
                 TiebaStatic.log(arVar2);
             }
         });
@@ -84,42 +84,42 @@ public class a extends RecyclerView.Adapter<b> {
         return this.mDataList.size();
     }
 
-    public void b(InterfaceC0849a interfaceC0849a) {
-        this.mQG = interfaceC0849a;
+    public void b(InterfaceC0864a interfaceC0864a) {
+        this.neL = interfaceC0864a;
     }
 
     public void p(int i, List<String> list) {
-        this.mQH = i;
+        this.neM = i;
         this.mDataList = list;
         notifyDataSetChanged();
     }
 
-    public void vm(int i) {
-        this.mQH = i;
+    public void vT(int i) {
+        this.neM = i;
         notifyDataSetChanged();
     }
 
-    public String dIb() {
-        return JP(this.mQH);
+    public String dNr() {
+        return KF(this.neM);
     }
 
-    public String JP(int i) {
+    public String KF(int i) {
         return (String) y.getItem(this.mDataList, i);
     }
 
-    public int RW(String str) {
+    public int Tk(String str) {
         return y.getPosition(this.mDataList, str);
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public class b extends RecyclerView.ViewHolder {
-        private TextView mQK;
-        private View mQL;
+        private TextView neP;
+        private View neQ;
 
         public b(@NonNull View view) {
             super(view);
-            this.mQK = (TextView) view.findViewById(R.id.tv_class_name);
-            this.mQL = view.findViewById(R.id.tv_line);
+            this.neP = (TextView) view.findViewById(R.id.tv_class_name);
+            this.neQ = view.findViewById(R.id.tv_line);
         }
     }
 }

@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tieba.im.model.OfficialBarFeedMsglistModel;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivity> implements OfficialBarFeedMsglistModel.IFeedHeadLoadCallback {
-    private OfficialBarFeedMsglistView jYE;
-    private OfficialBarFeedMsglistModel jYF;
-    private boolean jYG = false;
-    private int jYH = 3;
+    private OfficialBarFeedMsglistView kmj;
+    private OfficialBarFeedMsglistModel kmk;
+    private boolean kml = false;
+    private int kmm = 3;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -27,11 +27,11 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.jYH != i) {
-            this.jYH = i;
+        if (this.kmm != i) {
+            this.kmm = i;
             super.onChangeSkinType(i);
-            if (this.jYE != null) {
-                this.jYE.onChangeSkinType(i);
+            if (this.kmj != null) {
+                this.kmj.onChangeSkinType(i);
             }
         }
     }
@@ -40,12 +40,12 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.jYF != null && this.jYG) {
-            this.jYF.LoadData(false);
+        if (this.kmk != null && this.kml) {
+            this.kmk.LoadData(false);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8)));
         ar arVar = new ar("c13861");
-        arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+        arVar.dY("uid", TbadkCoreApplication.getCurrentAccount());
         TiebaStatic.log(arVar);
     }
 
@@ -53,9 +53,9 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.jYG = true;
-        if (this.jYF != null) {
-            this.jYF.cancelLoadData();
+        this.kml = true;
+        if (this.kmk != null) {
+            this.kmk.cancelLoadData();
         }
     }
 
@@ -63,32 +63,32 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.jYF != null) {
-            this.jYF.onDestroy();
+        if (this.kmk != null) {
+            this.kmk.onDestroy();
         }
     }
 
     private void initData() {
         try {
-            this.jYF = new OfficialBarFeedMsglistModel(getPageContext());
-            this.jYF.setHeadLoadCallback(this);
-            this.jYF.LoadData(true);
+            this.kmk = new OfficialBarFeedMsglistModel(getPageContext());
+            this.kmk.setHeadLoadCallback(this);
+            this.kmk.LoadData(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private void initView() {
-        this.jYE = new OfficialBarFeedMsglistView(this);
+        this.kmj = new OfficialBarFeedMsglistView(this);
     }
 
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
     public void onListDataLoad(List<com.baidu.tieba.im.message.chat.b> list, List<com.baidu.tieba.im.db.pojo.a> list2) {
-        this.jYE.z(list, list2);
+        this.kmj.y(list, list2);
     }
 
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
     public void onReadCountLoad(LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray) {
-        this.jYE.a(longSparseArray);
+        this.kmj.a(longSparseArray);
     }
 }

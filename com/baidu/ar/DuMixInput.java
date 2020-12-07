@@ -5,110 +5,110 @@ import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.ar.arrender.Texture;
 import com.baidu.ar.bean.MirriorType;
 import com.baidu.ar.bean.RotationType;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class DuMixInput {
-    private int R;
-    private int S;
-    private SurfaceTexture be;
-    private Texture bf;
-    private boolean bg;
-    private boolean bh;
-    private RotationType bi;
-    private MirriorType bj;
+    private SurfaceTexture bh;
+    private Texture bi;
+    private boolean bj;
     private boolean bk;
-    private boolean bl;
+    private MirriorType bl;
+    private boolean bm;
+    private boolean bn;
     private boolean mFrontCamera;
+    private int mInputHeight;
+    private int mInputWidth;
+    private RotationType mRotationType;
 
     public DuMixInput() {
-        this.R = 0;
-        this.S = 0;
-        this.bg = true;
+        this.mInputWidth = 0;
+        this.mInputHeight = 0;
+        this.bj = true;
         this.mFrontCamera = true;
-        this.bh = true;
-        this.bi = RotationType.ROTATE_90;
-        this.bj = MirriorType.NO_MIRRIOR;
-        this.bk = false;
-        this.bl = false;
+        this.bk = true;
+        this.mRotationType = RotationType.ROTATE_90;
+        this.bl = MirriorType.NO_MIRRIOR;
+        this.bm = false;
+        this.bn = false;
     }
 
     public DuMixInput(int i, int i2) {
-        this.R = 0;
-        this.S = 0;
-        this.bg = true;
+        this.mInputWidth = 0;
+        this.mInputHeight = 0;
+        this.bj = true;
         this.mFrontCamera = true;
-        this.bh = true;
-        this.bi = RotationType.ROTATE_90;
-        this.bj = MirriorType.NO_MIRRIOR;
-        this.bk = false;
-        this.bl = false;
-        this.R = i;
-        this.S = i2;
+        this.bk = true;
+        this.mRotationType = RotationType.ROTATE_90;
+        this.bl = MirriorType.NO_MIRRIOR;
+        this.bm = false;
+        this.bn = false;
+        this.mInputWidth = i;
+        this.mInputHeight = i2;
     }
 
     public DuMixInput(SurfaceTexture surfaceTexture, int i, int i2) {
-        this.R = 0;
-        this.S = 0;
-        this.bg = true;
+        this.mInputWidth = 0;
+        this.mInputHeight = 0;
+        this.bj = true;
         this.mFrontCamera = true;
-        this.bh = true;
-        this.bi = RotationType.ROTATE_90;
-        this.bj = MirriorType.NO_MIRRIOR;
-        this.bk = false;
-        this.bl = false;
-        this.be = surfaceTexture;
-        this.R = i;
-        this.S = i2;
+        this.bk = true;
+        this.mRotationType = RotationType.ROTATE_90;
+        this.bl = MirriorType.NO_MIRRIOR;
+        this.bm = false;
+        this.bn = false;
+        this.bh = surfaceTexture;
+        this.mInputWidth = i;
+        this.mInputHeight = i2;
     }
 
     public DuMixInput(Texture texture, int i, int i2) {
-        this.R = 0;
-        this.S = 0;
-        this.bg = true;
+        this.mInputWidth = 0;
+        this.mInputHeight = 0;
+        this.bj = true;
         this.mFrontCamera = true;
-        this.bh = true;
-        this.bi = RotationType.ROTATE_90;
-        this.bj = MirriorType.NO_MIRRIOR;
-        this.bk = false;
-        this.bl = false;
-        this.bf = texture;
-        this.R = i;
-        this.S = i2;
+        this.bk = true;
+        this.mRotationType = RotationType.ROTATE_90;
+        this.bl = MirriorType.NO_MIRRIOR;
+        this.bm = false;
+        this.bn = false;
+        this.bi = texture;
+        this.mInputWidth = i;
+        this.mInputHeight = i2;
     }
 
     public int getInputDegree() {
-        return this.bi.getDegree();
+        return this.mRotationType.getDegree();
     }
 
     public int getInputHeight() {
-        return this.S;
+        return this.mInputHeight;
     }
 
     public SurfaceTexture getInputSurface() {
-        return this.be;
+        return this.bh;
     }
 
     public Texture getInputTexture() {
-        return this.bf;
-    }
-
-    public int getInputWidth() {
-        return this.R;
-    }
-
-    public MirriorType getMirriorType() {
-        return this.bj;
-    }
-
-    public RotationType getRotationType() {
         return this.bi;
     }
 
+    public int getInputWidth() {
+        return this.mInputWidth;
+    }
+
+    public MirriorType getMirriorType() {
+        return this.bl;
+    }
+
+    public RotationType getRotationType() {
+        return this.mRotationType;
+    }
+
     public boolean isCameraInput() {
-        return this.bg;
+        return this.bj;
     }
 
     public boolean isFitCameraAuto() {
-        return this.bh;
+        return this.bk;
     }
 
     public boolean isFrontCamera() {
@@ -116,19 +116,19 @@ public class DuMixInput {
     }
 
     public boolean isSingleFrame() {
-        return this.bl;
+        return this.bn;
     }
 
     public boolean isSyncInputContent() {
-        return this.bk;
+        return this.bm;
     }
 
     public void setCameraInput(boolean z) {
-        this.bg = z;
+        this.bj = z;
     }
 
     public void setFitCameraAuto(boolean z) {
-        this.bh = z;
+        this.bk = z;
     }
 
     public void setFrontCamera(boolean z) {
@@ -139,16 +139,16 @@ public class DuMixInput {
         int i2 = ((i % EncoderTextureDrawer.X264_WIDTH) + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
         switch (i) {
             case 0:
-                this.bi = RotationType.ROTATE_0;
+                this.mRotationType = RotationType.ROTATE_0;
                 return;
             case 90:
-                this.bi = RotationType.ROTATE_90;
+                this.mRotationType = RotationType.ROTATE_90;
                 return;
             case 180:
-                this.bi = RotationType.ROTATE_180;
+                this.mRotationType = RotationType.ROTATE_180;
                 return;
             case 270:
-                this.bi = RotationType.ROTATE_270;
+                this.mRotationType = RotationType.ROTATE_270;
                 return;
             default:
                 return;
@@ -156,39 +156,39 @@ public class DuMixInput {
     }
 
     public void setInputHeight(int i) {
-        this.S = i;
+        this.mInputHeight = i;
     }
 
     public void setInputSurface(SurfaceTexture surfaceTexture) {
-        this.be = surfaceTexture;
+        this.bh = surfaceTexture;
     }
 
     public void setInputTexture(Texture texture) {
-        this.bf = texture;
+        this.bi = texture;
     }
 
     public void setInputWidth(int i) {
-        this.R = i;
+        this.mInputWidth = i;
     }
 
     public void setMirriorType(MirriorType mirriorType) {
-        this.bj = mirriorType;
+        this.bl = mirriorType;
     }
 
     public void setRotationType(RotationType rotationType) {
-        this.bi = rotationType;
+        this.mRotationType = rotationType;
     }
 
     public void setSingleFrame(boolean z) {
-        this.bl = z;
+        this.bn = z;
         if (z) {
-            this.bk = true;
-            this.bg = false;
+            this.bm = true;
+            this.bj = false;
             this.mFrontCamera = false;
         }
     }
 
     public void setSyncInputContent(boolean z) {
-        this.bk = z;
+        this.bm = z;
     }
 }

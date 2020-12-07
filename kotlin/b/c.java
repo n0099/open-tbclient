@@ -1,11 +1,12 @@
 package kotlin.b;
 
 import com.baidu.android.common.others.IStringUtil;
-@kotlin.h
-/* loaded from: classes9.dex */
+import kotlin.jvm.internal.o;
+@kotlin.e
+/* loaded from: classes17.dex */
 public final class c extends kotlin.b.a {
-    public static final a pUx = new a(null);
-    private static final c pUw = new c((char) 1, (char) 0);
+    public static final a pKL = new a(null);
+    private static final c pKK = new c((char) 1, (char) 0);
 
     public c(char c, char c2) {
         super(c, c2, 1);
@@ -13,12 +14,12 @@ public final class c extends kotlin.b.a {
 
     @Override // kotlin.b.a
     public boolean isEmpty() {
-        return eBX() > eBY();
+        return eEd() > eEe();
     }
 
     @Override // kotlin.b.a
     public boolean equals(Object obj) {
-        return (obj instanceof c) && ((isEmpty() && ((c) obj).isEmpty()) || (eBX() == ((c) obj).eBX() && eBY() == ((c) obj).eBY()));
+        return (obj instanceof c) && ((isEmpty() && ((c) obj).isEmpty()) || (eEd() == ((c) obj).eEd() && eEe() == ((c) obj).eEe()));
     }
 
     @Override // kotlin.b.a
@@ -26,21 +27,21 @@ public final class c extends kotlin.b.a {
         if (isEmpty()) {
             return -1;
         }
-        return (eBX() * 31) + eBY();
+        return (eEd() * 31) + eEe();
     }
 
     @Override // kotlin.b.a
     public String toString() {
-        return eBX() + IStringUtil.TOP_PATH + eBY();
+        return "" + eEd() + IStringUtil.TOP_PATH + eEe();
     }
 
-    @kotlin.h
-    /* loaded from: classes9.dex */
+    @kotlin.e
+    /* loaded from: classes17.dex */
     public static final class a {
         private a() {
         }
 
-        public /* synthetic */ a(kotlin.jvm.internal.o oVar) {
+        public /* synthetic */ a(o oVar) {
             this();
         }
     }

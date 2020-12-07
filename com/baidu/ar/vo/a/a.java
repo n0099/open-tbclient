@@ -1,13 +1,13 @@
 package com.baidu.ar.vo.a;
 
-import com.baidu.ar.g.i;
+import com.baidu.ar.h.i;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public static b aT(String str) {
+    public static b aW(String str) {
         File file = new File(str, "targets.json");
         if (file.exists()) {
             try {
@@ -32,22 +32,22 @@ public class a {
                 bVar.setId(jSONObject.getString("id"));
             }
             if (jSONObject.has("place_type")) {
-                bVar.Q(jSONObject.getInt("place_type"));
+                bVar.T(jSONObject.getInt("place_type"));
             }
             if (jSONObject.has("position")) {
-                bVar.aU(jSONObject.getString("position"));
+                bVar.aX(jSONObject.getString("position"));
             }
             if (jSONObject.has("distance")) {
-                bVar.R(jSONObject.getInt("distance"));
+                bVar.U(jSONObject.getInt("distance"));
             }
             if (jSONObject.has("pitch_angle")) {
-                bVar.S(jSONObject.getInt("pitch_angle"));
+                bVar.V(jSONObject.getInt("pitch_angle"));
             }
             if (jSONObject.has(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION)) {
-                bVar.aV(jSONObject.getString(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION));
+                bVar.aY(jSONObject.getString(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION));
             }
             if (jSONObject.has("immediately_place_model")) {
-                bVar.X(jSONObject.getInt("immediately_place_model") == 1);
+                bVar.V(jSONObject.getInt("immediately_place_model") == 1);
                 return bVar;
             }
             return bVar;

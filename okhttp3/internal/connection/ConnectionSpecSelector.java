@@ -7,6 +7,7 @@ import java.net.UnknownServiceException;
 import java.security.cert.CertificateException;
 import java.util.Arrays;
 import java.util.List;
+import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLProtocolException;
@@ -58,7 +59,7 @@ public final class ConnectionSpecSelector {
         if (((iOException instanceof SSLHandshakeException) && (iOException.getCause() instanceof CertificateException)) || (iOException instanceof SSLPeerUnverifiedException)) {
             return false;
         }
-        return (iOException instanceof SSLHandshakeException) || (iOException instanceof SSLProtocolException);
+        return (iOException instanceof SSLHandshakeException) || (iOException instanceof SSLProtocolException) || (iOException instanceof SSLException);
     }
 
     private boolean isFallbackPossible(SSLSocket sSLSocket) {

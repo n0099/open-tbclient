@@ -7,14 +7,15 @@ import com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
-import com.baidu.ubc.aa;
+import com.baidu.ubc.ab;
 import com.baidu.ubc.s;
-import com.baidu.ubc.v;
+import com.baidu.ubc.w;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes18.dex */
 public class UBCCloudControlProcessor implements ICloudControlProcessor {
+    private static final String KEY_STATISTIC_DATA_COUNT = "count";
     private static final String SP_UBC_FILE_NAME = "com.baidu.searchbox_ubc";
     static final String UBC_CLOUDCONFIG_VERSION = "ubc_cloudconfig_version";
     private static final String UBC_KEY = "ubc";
@@ -32,19 +33,20 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                 str = option.optString(UBC_VERSION_ASC);
             }
             boolean z = !"0".equals(str);
-            v vVar = new v("", serviceData);
-            vVar.bdo();
-            ((aa) c.a(aa.SERVICE_REFERENCE)).b(vVar, z, new s() { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
-                @Override // com.baidu.ubc.s
-                public void setUBCConfigStatisticData(JSONObject jSONObject) {
-                    if (jSONObject != null && iCloudControlUBCCallBack != null) {
-                        iCloudControlUBCCallBack.setServiceInfo(jSONObject);
+            w wVar = new w("", serviceData);
+            if (wVar.bgt()) {
+                final String eiV = wVar.eiV();
+                ((ab) c.a(ab.SERVICE_REFERENCE)).b(wVar, z, new s() { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
+                    @Override // com.baidu.ubc.s
+                    public void setUBCConfigStatisticData(JSONObject jSONObject) {
+                        if (jSONObject != null && iCloudControlUBCCallBack != null) {
+                            iCloudControlUBCCallBack.setServiceInfo(jSONObject);
+                            if (UBCCloudControlProcessor.this.checkStatisticData(jSONObject) && !TextUtils.isEmpty(eiV)) {
+                                UBCCloudControlProcessor.sharedPrefsWrapper().putString(UBCCloudControlProcessor.UBC_CLOUDCONFIG_VERSION, eiV);
+                            }
+                        }
                     }
-                }
-            });
-            String edm = vVar.edm();
-            if (!TextUtils.isEmpty(edm)) {
-                sharedPrefsWrapper().putString(UBC_CLOUDCONFIG_VERSION, edm);
+                });
             }
             List<UBCCloudConfigObserver> list = new UBCCloudConfigObservers().mObservers.getList();
             if (list != null && !list.isEmpty()) {
@@ -68,7 +70,25 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
         return null;
     }
 
-    private static SharedPrefsWrapper sharedPrefsWrapper() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public static SharedPrefsWrapper sharedPrefsWrapper() {
         return new SharedPrefsWrapper(SP_UBC_FILE_NAME);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean checkStatisticData(JSONObject jSONObject) {
+        String[] split;
+        if (jSONObject == null || jSONObject.length() == 0) {
+            return false;
+        }
+        String optString = jSONObject.optString("count");
+        if (TextUtils.isEmpty(optString) || (split = optString.split(",")) == null || split.length != 3) {
+            return false;
+        }
+        try {
+            return Integer.parseInt(split[0]) == Integer.parseInt(split[2]) + Integer.parseInt(split[1]);
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }

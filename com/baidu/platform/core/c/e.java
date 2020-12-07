@@ -2,7 +2,7 @@ package com.baidu.platform.core.c;
 
 import android.util.Log;
 import com.baidu.mapapi.search.poi.PoiDetailSearchOption;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class e extends com.baidu.platform.base.e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(PoiDetailSearchOption poiDetailSearchOption) {
@@ -17,9 +17,9 @@ public class e extends com.baidu.platform.base.e {
         if (!poiDetailSearchOption.isSearchByUids()) {
             poiDetailSearchOption.poiUids(poiDetailSearchOption.getUid());
         }
-        this.f2816a.a("uids", poiDetailSearchOption.getUids());
-        this.f2816a.a("output", "json");
-        this.f2816a.a("scope", "2");
+        this.f2818a.a("uids", poiDetailSearchOption.getUids());
+        this.f2818a.a("output", "json");
+        this.f2818a.a("scope", "2");
     }
 
     @Override // com.baidu.platform.base.e

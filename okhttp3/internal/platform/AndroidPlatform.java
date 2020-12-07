@@ -35,7 +35,8 @@ public class AndroidPlatform extends Platform {
     private final OptionalMethod<Socket> setUseSessionTickets;
     private final Class<?> sslParametersClass;
 
-    AndroidPlatform(Class<?> cls, OptionalMethod<Socket> optionalMethod, OptionalMethod<Socket> optionalMethod2, OptionalMethod<Socket> optionalMethod3, OptionalMethod<Socket> optionalMethod4) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public AndroidPlatform(Class<?> cls, OptionalMethod<Socket> optionalMethod, OptionalMethod<Socket> optionalMethod2, OptionalMethod<Socket> optionalMethod3, OptionalMethod<Socket> optionalMethod4) {
         this.sslParametersClass = cls;
         this.setUseSessionTickets = optionalMethod;
         this.setHostname = optionalMethod2;
@@ -68,6 +69,7 @@ public class AndroidPlatform extends Platform {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // okhttp3.internal.platform.Platform
+    @Nullable
     public X509TrustManager trustManager(SSLSocketFactory sSLSocketFactory) {
         Object readFieldOrNull;
         Object readFieldOrNull2 = readFieldOrNull(sSLSocketFactory, this.sslParametersClass, "sslParameters");
@@ -85,7 +87,7 @@ public class AndroidPlatform extends Platform {
     }
 
     @Override // okhttp3.internal.platform.Platform
-    public void configureTlsExtensions(SSLSocket sSLSocket, String str, List<Protocol> list) {
+    public void configureTlsExtensions(SSLSocket sSLSocket, String str, List<Protocol> list) throws IOException {
         if (str != null) {
             this.setUseSessionTickets.invokeOptionalWithoutCheckedException(sSLSocket, true);
             this.setHostname.invokeOptionalWithoutCheckedException(sSLSocket, str);
@@ -106,7 +108,7 @@ public class AndroidPlatform extends Platform {
     }
 
     @Override // okhttp3.internal.platform.Platform
-    public void log(int i, String str, Throwable th) {
+    public void log(int i, String str, @Nullable Throwable th) {
         int min;
         int i2 = i == 5 ? 5 : 3;
         if (th != null) {
@@ -145,6 +147,9 @@ public class AndroidPlatform extends Platform {
 
     @Override // okhttp3.internal.platform.Platform
     public boolean isCleartextTrafficPermitted(String str) {
+        if (Build.VERSION.SDK_INT < 23) {
+            return super.isCleartextTrafficPermitted(str);
+        }
         try {
             Class<?> cls = Class.forName("android.security.NetworkSecurityPolicy");
             return api24IsCleartextTrafficPermitted(str, cls, cls.getMethod("getInstance", new Class[0]).invoke(null, new Object[0]));
@@ -206,25 +211,28 @@ public class AndroidPlatform extends Platform {
         Class<?> cls;
         OptionalMethod optionalMethod;
         OptionalMethod optionalMethod2;
-        try {
+        if (Platform.isAndroid()) {
             try {
-                cls = Class.forName("com.android.org.conscrypt.SSLParametersImpl");
-            } catch (ClassNotFoundException e) {
-                cls = Class.forName("org.apache.harmony.xnet.provider.jsse.SSLParametersImpl");
+                try {
+                    cls = Class.forName("com.android.org.conscrypt.SSLParametersImpl");
+                } catch (ClassNotFoundException e) {
+                    cls = Class.forName("org.apache.harmony.xnet.provider.jsse.SSLParametersImpl");
+                }
+                OptionalMethod optionalMethod3 = new OptionalMethod(null, "setUseSessionTickets", Boolean.TYPE);
+                OptionalMethod optionalMethod4 = new OptionalMethod(null, "setHostname", String.class);
+                if (supportsAlpn()) {
+                    optionalMethod2 = new OptionalMethod(byte[].class, "getAlpnSelectedProtocol", new Class[0]);
+                    optionalMethod = new OptionalMethod(null, "setAlpnProtocols", byte[].class);
+                } else {
+                    optionalMethod = null;
+                    optionalMethod2 = null;
+                }
+                return new AndroidPlatform(cls, optionalMethod3, optionalMethod4, optionalMethod2, optionalMethod);
+            } catch (ClassNotFoundException e2) {
+                return null;
             }
-            OptionalMethod optionalMethod3 = new OptionalMethod(null, "setUseSessionTickets", Boolean.TYPE);
-            OptionalMethod optionalMethod4 = new OptionalMethod(null, "setHostname", String.class);
-            if (supportsAlpn()) {
-                optionalMethod2 = new OptionalMethod(byte[].class, "getAlpnSelectedProtocol", new Class[0]);
-                optionalMethod = new OptionalMethod(null, "setAlpnProtocols", byte[].class);
-            } else {
-                optionalMethod = null;
-                optionalMethod2 = null;
-            }
-            return new AndroidPlatform(cls, optionalMethod3, optionalMethod4, optionalMethod2, optionalMethod);
-        } catch (ClassNotFoundException e2) {
-            return null;
         }
+        return null;
     }
 
     @Override // okhttp3.internal.platform.Platform
@@ -364,18 +372,40 @@ public class AndroidPlatform extends Platform {
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x000b, code lost:
+        if (android.os.Build.VERSION.SDK_INT < 22) goto L8;
+     */
     @Override // okhttp3.internal.platform.Platform
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public SSLContext getSSLContext() {
-        if (Build.VERSION.SDK_INT >= 16 && Build.VERSION.SDK_INT < 22) {
+        boolean z = true;
+        try {
+            if (Build.VERSION.SDK_INT >= 16) {
+            }
+            z = false;
+        } catch (NoClassDefFoundError e) {
+        }
+        if (z) {
             try {
                 return SSLContext.getInstance("TLSv1.2");
-            } catch (NoSuchAlgorithmException e) {
+            } catch (NoSuchAlgorithmException e2) {
             }
         }
         try {
             return SSLContext.getInstance("TLS");
-        } catch (NoSuchAlgorithmException e2) {
-            throw new IllegalStateException("No TLS provider", e2);
+        } catch (NoSuchAlgorithmException e3) {
+            throw new IllegalStateException("No TLS provider", e3);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static int getSdkInt() {
+        try {
+            return Build.VERSION.SDK_INT;
+        } catch (NoClassDefFoundError e) {
+            return 0;
         }
     }
 }

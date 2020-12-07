@@ -32,8 +32,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public class FlatManifestWriterImpl extends AbstractManifestWriter {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final Logger LOG;
@@ -102,7 +101,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 createElement3.setAttribute("MaxWidth", Long.toString(aVar.width));
                 createElement3.setAttribute("MaxHeight", Long.toString(aVar.height));
                 createElement3.setAttribute("CodecPrivateData", aVar.codecPrivateData);
-                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.phR));
+                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.pxa));
                 createElement2.appendChild(createElement3);
             }
             for (int i2 = 0; i2 < this.videoFragmentsDurations.length; i2++) {
@@ -113,7 +112,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             }
             if (this.audioFragmentsDurations != null) {
                 Element createElement5 = newDocument.createElement("StreamIndex");
-                createElement5.setAttribute("Type", MediaStreamTrack.AUDIO_TRACK_KIND);
+                createElement5.setAttribute("Type", "audio");
                 createElement5.setAttribute("TimeScale", Long.toString(j));
                 createElement5.setAttribute("Chunks", Integer.toString(this.audioFragmentsDurations.length));
                 createElement5.setAttribute("Url", "audio/{bitrate}/{start time}");
@@ -210,9 +209,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 1:
                     s2 = (short) (s2 + 1);
                     if (entry.num_dep_sub > 0) {
-                        a etE = new a(b2, b, entry).etE();
-                        b2 = (byte) (b2 | etE.etC());
-                        b = (byte) (b | etE.etD());
+                        a ezk = new a(b2, b, entry).ezk();
+                        b2 = (byte) (b2 | ezk.ezi());
+                        b = (byte) (b | ezk.ezj());
                         break;
                     } else {
                         b2 = (byte) (b2 | 32);
@@ -221,9 +220,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 2:
                     s2 = (short) (s2 + 2);
                     if (entry.num_dep_sub > 0) {
-                        a etE2 = new a(b2, b, entry).etE();
-                        b2 = (byte) (b2 | etE2.etC());
-                        b = (byte) (b | etE2.etD());
+                        a ezk2 = new a(b2, b, entry).ezk();
+                        b2 = (byte) (b2 | ezk2.ezi());
+                        b = (byte) (b | ezk2.ezj());
                         break;
                     } else {
                         b2 = (byte) (b2 | 192);
@@ -232,9 +231,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 3:
                     s2 = (short) (s2 + 3);
                     if (entry.num_dep_sub > 0) {
-                        a etE3 = new a(b2, b, entry).etE();
-                        b2 = (byte) (b2 | etE3.etC());
-                        b = (byte) (b | etE3.etD());
+                        a ezk3 = new a(b2, b, entry).ezk();
+                        b2 = (byte) (b2 | ezk3.ezi());
+                        b = (byte) (b | ezk3.ezj());
                         break;
                     } else {
                         b2 = (byte) (b2 | 224);
@@ -243,9 +242,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 4:
                     s2 = (short) (s2 + 3);
                     if (entry.num_dep_sub > 0) {
-                        a etE4 = new a(b2, b, entry).etE();
-                        b2 = (byte) (b2 | etE4.etC());
-                        b = (byte) (b | etE4.etD());
+                        a ezk4 = new a(b2, b, entry).ezk();
+                        b2 = (byte) (b2 | ezk4.ezi());
+                        b = (byte) (b | ezk4.ezj());
                         break;
                     } else {
                         b2 = (byte) (b2 | 192);
@@ -255,9 +254,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 5:
                     s2 = (short) (s2 + 4);
                     if (entry.num_dep_sub > 0) {
-                        a etE5 = new a(b2, b, entry).etE();
-                        b2 = (byte) (b2 | etE5.etC());
-                        b = (byte) (b | etE5.etD());
+                        a ezk5 = new a(b2, b, entry).ezk();
+                        b2 = (byte) (b2 | ezk5.ezi());
+                        b = (byte) (b | ezk5.ezj());
                         break;
                     } else {
                         b2 = (byte) (b2 | 224);
@@ -267,9 +266,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 6:
                     s2 = (short) (s2 + 4);
                     if (entry.num_dep_sub > 0) {
-                        a etE6 = new a(b2, b, entry).etE();
-                        b2 = (byte) (b2 | etE6.etC());
-                        b = (byte) (b | etE6.etD());
+                        a ezk6 = new a(b2, b, entry).ezk();
+                        b2 = (byte) (b2 | ezk6.ezi());
+                        b = (byte) (b | ezk6.ezj());
                         break;
                     } else {
                         b2 = (byte) (b2 | 204);
@@ -278,9 +277,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 7:
                     s2 = (short) (s2 + 5);
                     if (entry.num_dep_sub > 0) {
-                        a etE7 = new a(b2, b, entry).etE();
-                        b2 = (byte) (b2 | etE7.etC());
-                        b = (byte) (b | etE7.etD());
+                        a ezk7 = new a(b2, b, entry).ezk();
+                        b2 = (byte) (b2 | ezk7.ezi());
+                        b = (byte) (b | ezk7.ezj());
                         break;
                     } else {
                         b2 = (byte) (b2 | 236);
@@ -464,7 +463,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             aVar.fourCC = "AVC1";
             aVar.width = visualSampleEntry.getWidth();
             aVar.height = visualSampleEntry.getHeight();
-            aVar.phR = avcConfigurationBox.getLengthSizeMinusOne() + 1;
+            aVar.pxa = avcConfigurationBox.getLengthSizeMinusOne() + 1;
             return aVar;
         }
         throw new InternalError("I don't know how to handle video of type " + getFormat(visualSampleEntry));
@@ -494,45 +493,45 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes7.dex */
     public class a {
-        private byte phN;
-        private byte phO;
-        private EC3SpecificBox.Entry phP;
+        private byte pwW;
+        private byte pwX;
+        private EC3SpecificBox.Entry pwY;
 
         public a(byte b, byte b2, EC3SpecificBox.Entry entry) {
-            this.phN = b;
-            this.phO = b2;
-            this.phP = entry;
+            this.pwW = b;
+            this.pwX = b2;
+            this.pwY = entry;
         }
 
-        public byte etC() {
-            return this.phN;
+        public byte ezi() {
+            return this.pwW;
         }
 
-        public byte etD() {
-            return this.phO;
+        public byte ezj() {
+            return this.pwX;
         }
 
-        public a etE() {
-            switch (this.phP.chan_loc) {
+        public a ezk() {
+            switch (this.pwY.chan_loc) {
                 case 0:
-                    this.phN = (byte) (this.phN | 3);
+                    this.pwW = (byte) (this.pwW | 3);
                     break;
                 case 1:
-                    this.phN = (byte) (this.phN | 12);
+                    this.pwW = (byte) (this.pwW | 12);
                     break;
                 case 2:
-                    this.phO = (byte) (this.phO | 128);
+                    this.pwX = (byte) (this.pwX | 128);
                     break;
                 case 3:
-                    this.phO = (byte) (this.phO | 8);
+                    this.pwX = (byte) (this.pwX | 8);
                     break;
                 case 6:
-                    this.phO = (byte) (this.phO | 5);
+                    this.pwX = (byte) (this.pwX | 5);
                     break;
                 case 7:
-                    this.phO = (byte) (this.phO | 2);
+                    this.pwX = (byte) (this.pwX | 2);
                     break;
             }
             return this;

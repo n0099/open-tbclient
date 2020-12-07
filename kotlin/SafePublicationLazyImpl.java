@@ -3,33 +3,34 @@ package kotlin;
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 import kotlin.jvm.internal.o;
-import kotlin.jvm.internal.q;
-@h
-/* loaded from: classes9.dex */
-final class SafePublicationLazyImpl<T> implements Serializable, d<T> {
+import kotlin.jvm.internal.p;
+/* JADX INFO: Access modifiers changed from: package-private */
+@e
+/* loaded from: classes17.dex */
+public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
     public static final a Companion = new a(null);
-    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> pTt = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
+    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> pJW = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
     private volatile Object _value;
 
     /* renamed from: final  reason: not valid java name */
-    private final Object f947final;
+    private final Object f945final;
     private volatile kotlin.jvm.a.a<? extends T> initializer;
 
     public SafePublicationLazyImpl(kotlin.jvm.a.a<? extends T> aVar) {
-        q.n(aVar, "initializer");
+        p.o(aVar, "initializer");
         this.initializer = aVar;
-        this._value = k.pTu;
-        this.f947final = k.pTu;
+        this._value = g.pJX;
+        this.f945final = g.pJX;
     }
 
-    @Override // kotlin.d
+    @Override // kotlin.c
     public T getValue() {
         T t = (T) this._value;
-        if (t == k.pTu) {
+        if (t == g.pJX) {
             kotlin.jvm.a.a<? extends T> aVar = this.initializer;
             if (aVar != null) {
                 T invoke = aVar.invoke();
-                if (pTt.compareAndSet(this, k.pTu, invoke)) {
+                if (Companion.eDD().compareAndSet(this, g.pJX, invoke)) {
                     this.initializer = null;
                     return invoke;
                 }
@@ -40,7 +41,7 @@ final class SafePublicationLazyImpl<T> implements Serializable, d<T> {
     }
 
     public boolean isInitialized() {
-        return this._value != k.pTu;
+        return this._value != g.pJX;
     }
 
     public String toString() {
@@ -51,14 +52,19 @@ final class SafePublicationLazyImpl<T> implements Serializable, d<T> {
         return new InitializedLazyImpl(getValue());
     }
 
-    @h
-    /* loaded from: classes9.dex */
+    @e
+    /* loaded from: classes17.dex */
     public static final class a {
         private a() {
         }
 
         public /* synthetic */ a(o oVar) {
             this();
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> eDD() {
+            return SafePublicationLazyImpl.pJW;
         }
     }
 }

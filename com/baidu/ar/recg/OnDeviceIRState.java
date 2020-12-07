@@ -1,5 +1,5 @@
 package com.baidu.ar.recg;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public enum OnDeviceIRState {
     START,
     DB_DOWNLOADED,

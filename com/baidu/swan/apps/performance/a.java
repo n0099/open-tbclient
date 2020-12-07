@@ -5,7 +5,7 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -16,10 +16,10 @@ public class a implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
         if (DEBUG) {
             Log.i("FlowJarToH5Reporter", "report: flow=" + hybridUbcFlow);
         }
-        if (com.baidu.swan.apps.v.f.azg().azi()) {
-            if (DEBUG || com.baidu.swan.apps.v.f.azg().ayK()) {
+        if (com.baidu.swan.apps.v.f.aCp().aCr()) {
+            if (DEBUG || com.baidu.swan.apps.v.f.aCp().aBT()) {
                 try {
-                    k.aDb().bp(c(hybridUbcFlow));
+                    k.aGj().br(c(hybridUbcFlow));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -31,15 +31,15 @@ public class a implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
 
     private JSONObject c(HybridUbcFlow hybridUbcFlow) throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        if (hybridUbcFlow != null && !hybridUbcFlow.dhd.isEmpty()) {
-            jSONObject.put("flowId", hybridUbcFlow.aCB());
+        if (hybridUbcFlow != null && !hybridUbcFlow.doe.isEmpty()) {
+            jSONObject.put("flowId", hybridUbcFlow.getUbcId());
             JSONArray jSONArray = new JSONArray();
-            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.dhd) {
-                if (!ubcFlowEvent.aDe() && !TextUtils.isEmpty(ubcFlowEvent.id)) {
+            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.doe) {
+                if (!ubcFlowEvent.aGm() && !TextUtils.isEmpty(ubcFlowEvent.id)) {
                     if (DEBUG) {
                         Log.i("FlowJarToH5Reporter", "buildJoMsg: event=" + ubcFlowEvent);
                     }
-                    jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.id).put("timestamp", ubcFlowEvent.aDc()));
+                    jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.id).put("timestamp", ubcFlowEvent.aGk()));
                 }
             }
             jSONObject.put("data", jSONArray);

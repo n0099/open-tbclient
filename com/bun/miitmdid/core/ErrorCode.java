@@ -2,7 +2,7 @@ package com.bun.miitmdid.core;
 
 import android.support.annotation.Keep;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes18.dex */
 public class ErrorCode {
     @Keep
     public static final int INIT_ERROR_BEGIN = 1008610;

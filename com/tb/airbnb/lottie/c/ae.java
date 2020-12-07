@@ -4,7 +4,7 @@ import android.graphics.Path;
 import android.util.JsonReader;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
-/* loaded from: classes17.dex */
+/* loaded from: classes20.dex */
 class ae {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.tb.airbnb.lottie.model.content.i w(JsonReader jsonReader, com.tb.airbnb.lottie.e eVar) throws IOException {

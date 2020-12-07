@@ -8,49 +8,49 @@ import com.baidu.live.adp.framework.task.CustomMessageTask;
 /* loaded from: classes4.dex */
 public class AlaPkRankInitialize {
     static {
-        bLp();
-        bLq();
-        bLr();
-        bLs();
+        bOY();
+        bOZ();
+        bPa();
+        bPb();
     }
 
-    private static void bLp() {
+    private static void bOY() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913225, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaPkRankInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.live.r.a> run(CustomMessage<Context> customMessage) {
-                return new CustomResponsedMessage<>(2913225, new com.baidu.tieba.ala.d.f(customMessage.getData()));
+            public CustomResponsedMessage<com.baidu.live.t.a> run(CustomMessage<Context> customMessage) {
+                return new CustomResponsedMessage<>(2913225, new com.baidu.tieba.ala.d.g(customMessage.getData()));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bLq() {
+    private static void bOZ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913226, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaPkRankInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.live.r.b> run(CustomMessage<Context> customMessage) {
-                return new CustomResponsedMessage<>(2913226, new com.baidu.tieba.ala.d.c(customMessage.getData()));
+            public CustomResponsedMessage<com.baidu.live.t.b> run(CustomMessage<Context> customMessage) {
+                return new CustomResponsedMessage<>(2913226, new com.baidu.tieba.ala.d.d(customMessage.getData()));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bLr() {
+    private static void bPa() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913229, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaPkRankInitialize.3
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.live.r.d> run(CustomMessage<Context> customMessage) {
-                return new CustomResponsedMessage<>(2913229, com.baidu.tieba.ala.h.c.ckt());
+            public CustomResponsedMessage<com.baidu.live.t.d> run(CustomMessage<Context> customMessage) {
+                return new CustomResponsedMessage<>(2913229, com.baidu.tieba.ala.h.c.coL());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bLs() {
+    private static void bPb() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913230, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaPkRankInitialize.4
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.live.r.c> run(CustomMessage<Context> customMessage) {
+            public CustomResponsedMessage<com.baidu.live.t.c> run(CustomMessage<Context> customMessage) {
                 return new CustomResponsedMessage<>(2913230, new com.baidu.tieba.ala.h.a());
             }
         });

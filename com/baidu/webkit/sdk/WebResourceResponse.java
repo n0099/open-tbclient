@@ -3,7 +3,7 @@ package com.baidu.webkit.sdk;
 import java.io.InputStream;
 import java.io.StringBufferInputStream;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class WebResourceResponse {
     private String mEncoding;
     private boolean mImmutable;

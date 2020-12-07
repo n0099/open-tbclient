@@ -13,11 +13,11 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class d extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1712a;
+    private int f1714a;
     private int b;
     private LivenessRecogDTO c;
 
@@ -26,7 +26,7 @@ public class d extends BaseBean {
     }
 
     public void a(int i) {
-        this.f1712a = i;
+        this.f1714a = i;
     }
 
     public void b(int i) {
@@ -65,7 +65,7 @@ public class d extends BaseBean {
                 arrayList.add(new RestNameValuePair("type", "outer"));
                 arrayList.add(new RestNameValuePair("exuid", this.c.exUid));
             }
-            arrayList.add(new RestNameValuePair(UgcConstant.UGC_TAG_OPTION, String.valueOf(this.f1712a)));
+            arrayList.add(new RestNameValuePair(UgcConstant.UGC_TAG_OPTION, String.valueOf(this.f1714a)));
             arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.c.serviceType));
             arrayList.add(new RestNameValuePair("living_type", String.valueOf(this.b)));
         }

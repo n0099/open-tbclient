@@ -11,11 +11,11 @@ import com.baidu.fsg.base.utils.LogUtil;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final boolean f1732a = true;
+    protected static final boolean f1734a = true;
     public static final String b = "video/avc";
     protected static final int c = 10000;
     protected int d;

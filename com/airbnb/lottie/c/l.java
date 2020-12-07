@@ -7,12 +7,12 @@ import android.util.JsonToken;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes7.dex */
 public class l implements aj<com.airbnb.lottie.model.content.c> {
-    private int GU;
+    private int HL;
 
     public l(int i) {
-        this.GU = i;
+        this.HL = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,14 +30,14 @@ public class l implements aj<com.airbnb.lottie.model.content.c> {
         if (z) {
             jsonReader.endArray();
         }
-        if (this.GU == -1) {
-            this.GU = arrayList.size() / 4;
+        if (this.HL == -1) {
+            this.HL = arrayList.size() / 4;
         }
-        float[] fArr = new float[this.GU];
-        int[] iArr = new int[this.GU];
+        float[] fArr = new float[this.HL];
+        int[] iArr = new int[this.HL];
         int i = 0;
         int i2 = 0;
-        for (int i3 = 0; i3 < this.GU * 4; i3++) {
+        for (int i3 = 0; i3 < this.HL * 4; i3++) {
             int i4 = i3 / 4;
             double floatValue = arrayList.get(i3).floatValue();
             switch (i3 % 4) {
@@ -62,7 +62,7 @@ public class l implements aj<com.airbnb.lottie.model.content.c> {
 
     private void a(com.airbnb.lottie.model.content.c cVar, List<Float> list) {
         int i;
-        int i2 = this.GU * 4;
+        int i2 = this.HL * 4;
         if (list.size() > i2) {
             int size = (list.size() - i2) / 2;
             double[] dArr = new double[size];

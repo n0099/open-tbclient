@@ -4,28 +4,28 @@ import android.content.Context;
 import com.baidu.mapapi.map.MapStatus;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
 
-    public static a aYH() {
+    public static a bbM() {
         return new a();
     }
 
     private boolean b(Context context, com.baidu.swan.apps.w.a.c cVar, com.baidu.swan.apps.w.b bVar, com.baidu.swan.apps.runtime.e eVar, JSONObject jSONObject) {
         com.baidu.swan.apps.console.c.i("map", "GetCenterLcationAction start");
-        com.baidu.swan.apps.adaptation.b.e nB = com.baidu.swan.apps.v.f.azg().nB(cVar.cCb);
-        if (!(nB instanceof com.baidu.swan.apps.adaptation.b.c)) {
+        com.baidu.swan.apps.adaptation.b.e oj = com.baidu.swan.apps.v.f.aCp().oj(cVar.cIW);
+        if (!(oj instanceof com.baidu.swan.apps.adaptation.b.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        com.baidu.swan.impl.map.item.c xZ = com.baidu.swan.impl.map.c.aYC().h((com.baidu.swan.apps.adaptation.b.c) nB).xZ(cVar.cCa);
-        if (xZ == null) {
-            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + cVar.cCa);
+        com.baidu.swan.impl.map.item.c yG = com.baidu.swan.impl.map.c.bbH().h((com.baidu.swan.apps.adaptation.b.c) oj).yG(cVar.cIV);
+        if (yG == null) {
+            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + cVar.cIV);
             return false;
         }
-        MapStatus mapStatus = xZ.eca.getMap().getMapStatus();
+        MapStatus mapStatus = yG.ejb.getMap().getMapStatus();
         com.baidu.swan.apps.w.a.a.c cVar2 = new com.baidu.swan.apps.w.a.a.c();
         cVar2.latitude = mapStatus.target.latitude;
         cVar2.longitude = mapStatus.target.longitude;

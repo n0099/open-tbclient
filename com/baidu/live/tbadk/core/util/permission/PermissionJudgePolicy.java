@@ -13,7 +13,7 @@ import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.util.ListUtils;
-import com.baidu.m.a;
+import com.baidu.n.a;
 import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -56,7 +56,7 @@ public class PermissionJudgePolicy {
     }
 
     public boolean startRequestPermission(Activity activity, boolean z, boolean z2) {
-        if (!a.aah()) {
+        if (!a.adp()) {
             onPermissionsGranted();
             return false;
         } else if (ListUtils.isEmpty(this.requestPermissionList)) {
@@ -80,7 +80,7 @@ public class PermissionJudgePolicy {
         if (activity == null) {
             return false;
         }
-        return com.baidu.m.a.a.checkPermissionGranted(activity, str);
+        return com.baidu.n.a.a.checkPermissionGranted(activity, str);
     }
 
     public boolean checkPermissionListGranted(Activity activity) {
@@ -110,7 +110,7 @@ public class PermissionJudgePolicy {
         String currentAppType = currentAppType(activity);
         boolean z2 = SharedPrefHelper.getInstance().getBoolean(str, false);
         SharedPrefHelper.getInstance().putBoolean(str, true);
-        if (!z2 || com.baidu.m.a.a.shouldShowRequestPermissionRationale(activity, str)) {
+        if (!z2 || com.baidu.n.a.a.shouldShowRequestPermissionRationale(activity, str)) {
             return true;
         }
         if (!z) {
@@ -157,7 +157,7 @@ public class PermissionJudgePolicy {
     private void startRequestPermissionInternal(Activity activity) {
         if (activity != null) {
             try {
-                com.baidu.m.a.a.requestPermissions(activity, (String[]) this.requestPermissionList.toArray(new String[this.requestPermissionList.size()]), RequestResponseCode.REQUEST_PERMISSION_JUDGEMENT);
+                com.baidu.n.a.a.requestPermissions(activity, (String[]) this.requestPermissionList.toArray(new String[this.requestPermissionList.size()]), RequestResponseCode.REQUEST_PERMISSION_JUDGEMENT);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

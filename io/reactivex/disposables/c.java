@@ -1,14 +1,14 @@
 package io.reactivex.disposables;
 
 import io.reactivex.internal.disposables.EmptyDisposable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class c {
-    public static b J(Runnable runnable) {
-        io.reactivex.internal.functions.a.l(runnable, "run is null");
+    public static b I(Runnable runnable) {
+        io.reactivex.internal.functions.a.m(runnable, "run is null");
         return new RunnableDisposable(runnable);
     }
 
-    public static b eAE() {
+    public static b eCW() {
         return EmptyDisposable.INSTANCE;
     }
 }

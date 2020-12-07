@@ -8,7 +8,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     protected Context mContext;
     protected boolean mIsNeedSaveToDb;
@@ -79,7 +79,7 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
                 return "https://pim.baidu.com/";
             case 1:
             case 2:
-                return "http://cp01-ocean-749.epc.baidu.com:8080/";
+                return Constants.URL_HTTP_RD;
             case 3:
                 return Constants.URL_HTTP_BOX;
             default:

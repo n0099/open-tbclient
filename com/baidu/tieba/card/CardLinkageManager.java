@@ -32,14 +32,14 @@ public enum CardLinkageManager {
                         if (item2 instanceof BaseCardInfo) {
                             BaseCardInfo baseCardInfo2 = (BaseCardInfo) item2;
                             if (baseCardInfo.position == baseCardInfo2.position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null) {
-                                if ((com.baidu.tbadk.a.d.bhw() && !baseCardInfo2.isSupportNone()) || baseCardInfo2.isSupportContent() || baseCardInfo2.isSupportExtend()) {
+                                if ((com.baidu.tbadk.a.d.bkA() && !baseCardInfo2.forceNoTest && !baseCardInfo2.isSupportNone()) || baseCardInfo2.isSupportContent() || baseCardInfo2.isSupportExtend()) {
                                     ap.setBackgroundColor(findViewByPosition, z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                                 } else if (baseCardInfo2.isSupportFull()) {
-                                    com.baidu.tbadk.core.elementsMaven.c.bj(findViewByPosition).pa(0).pb(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
+                                    com.baidu.tbadk.core.elementsMaven.c.bm(findViewByPosition).pz(0).pA(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                                 } else if (baseCardInfo2.isSupportTop()) {
-                                    com.baidu.tbadk.core.elementsMaven.c.bj(findViewByPosition).pa(1).pb(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
+                                    com.baidu.tbadk.core.elementsMaven.c.bm(findViewByPosition).pz(1).pA(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                                 } else if (baseCardInfo2.isSupportBottom()) {
-                                    com.baidu.tbadk.core.elementsMaven.c.bj(findViewByPosition).pa(2).pb(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
+                                    com.baidu.tbadk.core.elementsMaven.c.bm(findViewByPosition).pz(2).pA(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                                 }
                             }
                         }

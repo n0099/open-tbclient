@@ -1,12 +1,28 @@
 package com.baidu.ar.arrender;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class Texture {
-    private long ia = -1;
-    private int mId = -1;
-    private int ib = 3553;
+    public static final long NOT_CREATE_INSIDE = -1;
+    public static final int NO_TEXTURE = -1;
+    private long iq;
+    private int ir;
+    private int mId;
+
+    public Texture() {
+        this.iq = -1L;
+        this.mId = -1;
+        this.ir = 3553;
+    }
+
+    public Texture(int i, int i2) {
+        this.iq = -1L;
+        this.mId = -1;
+        this.ir = 3553;
+        this.mId = i;
+        this.ir = i2;
+    }
 
     public long getHandle() {
-        return this.ia;
+        return this.iq;
     }
 
     public int getId() {
@@ -14,11 +30,11 @@ public class Texture {
     }
 
     public int getType() {
-        return this.ib;
+        return this.ir;
     }
 
     public void setHandle(long j) {
-        this.ia = j;
+        this.iq = j;
     }
 
     public void setId(int i) {
@@ -26,6 +42,6 @@ public class Texture {
     }
 
     public void setType(int i) {
-        this.ib = i;
+        this.ir = i;
     }
 }

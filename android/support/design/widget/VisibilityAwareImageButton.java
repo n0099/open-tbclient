@@ -3,7 +3,7 @@ package android.support.design.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageButton;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 class VisibilityAwareImageButton extends ImageButton {
     private int mUserSetVisibility;
 

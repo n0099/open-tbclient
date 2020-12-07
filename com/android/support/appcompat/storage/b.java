@@ -5,13 +5,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.CancellationSignal;
 import java.util.Arrays;
-/* loaded from: classes15.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public Bundle HA;
-    public String HB;
-    public CancellationSignal HC;
-    public a HD;
-    public String Hz;
+    public String It;
+    public Bundle Iu;
+    public String Iv;
+    public CancellationSignal Iw;
+    public a Ix;
     public String mimeType;
     public String[] selectionArgs;
     public long timeStamp;
@@ -19,6 +19,6 @@ public class b {
     public ContentValues values;
 
     public String toString() {
-        return "RequestInfo{uri=" + this.uri + ", fileOpenMode='" + this.Hz + "', mimeType='" + this.mimeType + "', opts=" + this.HA + ", where='" + this.HB + "', selectionArgs=" + Arrays.toString(this.selectionArgs) + ", values=" + this.values + ", cancellationSignal=" + this.HC + ", requestCallback=" + this.HD + ", timeStamp=" + this.timeStamp + '}';
+        return "RequestInfo{uri=" + this.uri + ", fileOpenMode='" + this.It + "', mimeType='" + this.mimeType + "', opts=" + this.Iu + ", where='" + this.Iv + "', selectionArgs=" + Arrays.toString(this.selectionArgs) + ", values=" + this.values + ", cancellationSignal=" + this.Iw + ", requestCallback=" + this.Ix + ", timeStamp=" + this.timeStamp + '}';
     }
 }

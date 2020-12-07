@@ -1,22 +1,14 @@
 package com.baidu.tbadk.core.view;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class RoundTbImageView extends TbClipImageView {
-    private float eRp;
-    private float eRq;
-    private int height;
     private int mDefaultBgId;
     private int mDefaultId;
-    private int mMaskColor;
-    private Paint mPaint;
-    private int width;
 
     public RoundTbImageView(Context context) {
         this(context, null, 0);
@@ -28,7 +20,6 @@ public class RoundTbImageView extends TbClipImageView {
 
     public RoundTbImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mMaskColor = 0;
         this.mDefaultId = R.drawable.transparent_bg;
         this.mDefaultBgId = R.color.CAM_X0209;
         init();
@@ -47,38 +38,5 @@ public class RoundTbImageView extends TbClipImageView {
         setScaleType(ImageView.ScaleType.CENTER_CROP);
         setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         setPlaceHolder(1);
-        this.mPaint = new Paint();
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView
-    public void startLogPerf() {
-        if (!this.canLogPerf) {
-            this.canLogPerf = true;
-        } else if (this.fAp != null && this.fAp.fup) {
-            this.fAp.bBF();
-        }
-    }
-
-    @Override // android.view.View
-    protected void dispatchDraw(Canvas canvas) {
-        super.dispatchDraw(canvas);
-        if (canvas != null && this.mMaskColor != 0) {
-            this.mPaint.setColor(this.mMaskColor);
-            canvas.drawCircle(this.eRp, this.eRq, this.eRp, this.mPaint);
-        }
-    }
-
-    public void setMaskColor(int i) {
-        this.mMaskColor = i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.newwidget.ImageView.BDImageView, android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        this.width = getWidth();
-        this.height = getHeight();
-        this.eRp = this.width / 2.0f;
-        this.eRq = this.height / 2.0f;
     }
 }

@@ -9,42 +9,42 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> biN;
-    private BdTypeListView ghN;
-    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a hGM;
-    private c hGN;
+    private List<com.baidu.adp.widget.ListView.a> bnf;
+    private BdTypeListView gpX;
+    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a hQt;
+    private c hQu;
     private List<q> mDataList;
     private TbPageContext mPageContext;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
     }
 
     public b(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mPageContext = tbPageContext;
-        this.ghN = bdTypeListView;
-        Lp();
+        this.gpX = bdTypeListView;
+        Nt();
     }
 
-    private void Lp() {
-        this.biN = new ArrayList();
-        this.hGM = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
-        this.biN.add(this.hGM);
-        this.hGN = new c(this.mPageContext.getPageActivity());
-        this.biN.add(this.hGN);
-        this.ghN.addAdapters(this.biN);
+    private void Nt() {
+        this.bnf = new ArrayList();
+        this.hQt = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
+        this.bnf.add(this.hQt);
+        this.hQu = new c(this.mPageContext.getPageActivity());
+        this.bnf.add(this.hQu);
+        this.gpX.addAdapters(this.bnf);
     }
 
     public void setData(List<q> list) {
         if (!y.isEmpty(list)) {
-            this.ghN.setData(list);
-            this.mDataList = this.ghN.getData();
+            this.gpX.setData(list);
+            this.mDataList = this.gpX.getData();
         }
     }
 
-    public void aD(String str, boolean z) {
+    public void aE(String str, boolean z) {
         if (!TextUtils.isEmpty(str) && this.mDataList != null) {
             for (q qVar : this.mDataList) {
                 if (qVar instanceof AlaEnterEffectData) {
@@ -60,7 +60,7 @@ public class b {
         }
     }
 
-    public void aE(String str, boolean z) {
+    public void aF(String str, boolean z) {
         if (!TextUtils.isEmpty(str) && this.mDataList != null) {
             for (q qVar : this.mDataList) {
                 if (qVar instanceof AlaEnterEffectData) {
@@ -75,7 +75,7 @@ public class b {
         }
     }
 
-    public void aK(String str, int i) {
+    public void aL(String str, int i) {
         if (!StringUtils.isNull(str) && this.mDataList != null) {
             for (q qVar : this.mDataList) {
                 if (qVar instanceof AlaEnterEffectData) {
@@ -90,7 +90,7 @@ public class b {
     }
 
     public void notifyDataSetChanged() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.biN) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bnf) {
             aVar.notifyDataSetChanged();
         }
     }

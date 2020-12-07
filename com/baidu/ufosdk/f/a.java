@@ -12,11 +12,11 @@ import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @SuppressLint({"HandlerLeak"})
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f3711a;
+    public static a f3714a;
     private static HashMap b;
     private static ExecutorService c;
 
@@ -130,13 +130,13 @@ public final class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f3711a == null) {
-                f3711a = new a();
+            if (f3714a == null) {
+                f3714a = new a();
                 if (c == null) {
                     c = Executors.newFixedThreadPool(1);
                 }
             }
-            aVar = f3711a;
+            aVar = f3714a;
         }
         return aVar;
     }

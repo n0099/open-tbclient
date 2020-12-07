@@ -10,38 +10,38 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.guardthrone.messages.AlaGuardThroneResponseMessage;
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0655a gJQ;
-    private HttpMessageListener gJR;
+    private InterfaceC0668a gTc;
+    private HttpMessageListener gTd;
 
     /* renamed from: com.baidu.tieba.ala.guardthrone.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0655a {
+    public interface InterfaceC0668a {
         void a(com.baidu.tieba.ala.guardthrone.b.a aVar);
 
         void onFail(int i, String str);
     }
 
-    public a(BdPageContext<?> bdPageContext, InterfaceC0655a interfaceC0655a) {
+    public a(BdPageContext<?> bdPageContext, InterfaceC0668a interfaceC0668a) {
         super(bdPageContext);
-        this.gJR = new HttpMessageListener(1021164) { // from class: com.baidu.tieba.ala.guardthrone.d.a.1
+        this.gTd = new HttpMessageListener(1021164) { // from class: com.baidu.tieba.ala.guardthrone.d.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021164 && (httpResponsedMessage instanceof AlaGuardThroneResponseMessage)) {
                     AlaGuardThroneResponseMessage alaGuardThroneResponseMessage = (AlaGuardThroneResponseMessage) httpResponsedMessage;
-                    if (a.this.gJQ != null) {
+                    if (a.this.gTc != null) {
                         if (alaGuardThroneResponseMessage.getError() != 0 || !alaGuardThroneResponseMessage.isSuccess()) {
-                            a.this.gJQ.onFail(alaGuardThroneResponseMessage.getError(), alaGuardThroneResponseMessage.getErrorString());
+                            a.this.gTc.onFail(alaGuardThroneResponseMessage.getError(), alaGuardThroneResponseMessage.getErrorString());
                         } else {
-                            a.this.gJQ.a(alaGuardThroneResponseMessage.bTl());
+                            a.this.gTc.a(alaGuardThroneResponseMessage.bWV());
                         }
                     }
                 }
             }
         };
-        this.gJQ = interfaceC0655a;
+        this.gTc = interfaceC0668a;
         registerTask();
-        registerListener(this.gJR);
+        registerListener(this.gTd);
     }
 
     private void registerTask() {
@@ -53,7 +53,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void en(String str, String str2) {
+    public void eu(String str, String str2) {
         HttpMessage httpMessage = new HttpMessage(1021164);
         httpMessage.addParam("live_id", str);
         httpMessage.addParam("anchor_id", str2);
@@ -71,7 +71,7 @@ public class a extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gJR);
+        MessageManager.getInstance().unRegisterListener(this.gTd);
         MessageManager.getInstance().unRegisterTask(1021164);
     }
 }

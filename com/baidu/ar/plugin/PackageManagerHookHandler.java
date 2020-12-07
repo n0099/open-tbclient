@@ -5,7 +5,7 @@ import android.util.Log;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class PackageManagerHookHandler implements InvocationHandler {
     private Object mBase;
     private PluginPackageParser mPPP;

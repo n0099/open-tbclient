@@ -11,7 +11,7 @@ import com.baidu.ala.ndk.AlaAudioFrame;
 import com.baidu.ala.ndk.AudioProcessModule;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class AlaAudioRecorder {
     public static final int BUFFER_LENGTH = 2048;
     private int mChannels;
@@ -33,7 +33,7 @@ public class AlaAudioRecorder {
     private int[] mNativePosArr = new int[1];
     private int[] mNativeLenArr = new int[1];
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes9.dex */
     public interface AlaAudioRecorderCallback {
         void onAudioRecordError(String str);
 

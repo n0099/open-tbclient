@@ -10,22 +10,22 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class a extends Dialog implements View.OnClickListener {
     private Context context;
-    private boolean hzA;
-    private View hzx;
-    private View hzy;
-    private InterfaceC0929a okr;
+    private View hJc;
+    private View hJd;
+    private boolean hJf;
+    private InterfaceC0946a ozr;
 
     /* renamed from: com.baidu.tieba.yuyinala.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0929a {
-        void ciB();
+    public interface InterfaceC0946a {
+        void cmv();
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(a.g.ala_person_dialog_report);
-        if (this.hzA) {
+        if (this.hJf) {
             resize();
         } else {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(this.context);
@@ -36,16 +36,16 @@ public class a extends Dialog implements View.OnClickListener {
         }
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.hzx = findViewById(a.f.report);
-        this.hzy = findViewById(a.f.report_cancel);
-        this.hzx.setOnClickListener(this);
-        this.hzy.setOnClickListener(this);
+        this.hJc = findViewById(a.f.report);
+        this.hJd = findViewById(a.f.report_cancel);
+        this.hJc.setOnClickListener(this);
+        this.hJd.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == a.f.report && this.okr != null) {
-            this.okr.ciB();
+        if (view.getId() == a.f.report && this.ozr != null) {
+            this.ozr.cmv();
         }
         dismiss();
     }

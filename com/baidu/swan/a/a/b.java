@@ -11,7 +11,7 @@ public class b extends DeleteRequest.DeleteRequestBuilder {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.DeleteRequest.DeleteRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
     public DeleteRequest build() {
-        com.baidu.swan.a.b.aZZ().a(this.httpUrl.toString(), this);
+        com.baidu.swan.a.b.bde().a(this.httpUrl.toString(), this);
         return super.build();
     }
 }

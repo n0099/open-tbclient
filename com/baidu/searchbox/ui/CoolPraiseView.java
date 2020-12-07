@@ -31,6 +31,7 @@ import com.baidu.android.ext.widget.toast.UniversalToast;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import com.baidu.searchbox.skin.NightModeHelper;
 import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
 import com.baidu.searchbox.ui.animview.praise.IExPraiseAnimListener;
@@ -45,7 +46,7 @@ import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.searchbox.ui.animview.praise.resource.CoolPraiseIconResource;
 import com.baidu.searchbox.ui.animview.util.DebugUtil;
 import com.baidu.searchbox.ui.animview.util.LinkageControlUtil;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class CoolPraiseView extends LinearLayout {
     private static final boolean DEBUG = DebugUtil.isApkInDebug();
     private static final String NET_ERROR_TIP = "网络不给力，请稍后重试";
@@ -87,12 +88,12 @@ public class CoolPraiseView extends LinearLayout {
     private ColorStateList mUnPraisedTextColorStateList;
     private LinearLayout mWrapperLayout;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public interface ExtraTouchEventListener {
         void onTouchEvent(MotionEvent motionEvent);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public interface OnClickPraiseListener {
         void onClick(boolean z, int i);
     }
@@ -623,9 +624,9 @@ public class CoolPraiseView extends LinearLayout {
                         CoolPraiseView.this.mOnClickPraiseListener.onClick(CoolPraiseView.this.mIsPraised, CoolPraiseView.this.mPraiseCount);
                         if (CoolPraiseView.DEBUG) {
                             if (CoolPraiseView.this.mIsPraised) {
-                                Log.d(CoolPraiseView.TAG, "onClick called from setup, praiseStatus:false->true, praiseCnt:" + (CoolPraiseView.this.mPraiseCount - 1) + "->" + CoolPraiseView.this.mPraiseCount);
+                                Log.d(CoolPraiseView.TAG, "onClick called from setup, praiseStatus:false->true, praiseCnt:" + (CoolPraiseView.this.mPraiseCount - 1) + PerfFrameTrackUIUtil.SEPERATOR_ARROR + CoolPraiseView.this.mPraiseCount);
                             } else {
-                                Log.d(CoolPraiseView.TAG, "onClick called from setup, praiseStatus:true->false, praiseCnt:" + (CoolPraiseView.this.mPraiseCount + 1) + "->" + CoolPraiseView.this.mPraiseCount);
+                                Log.d(CoolPraiseView.TAG, "onClick called from setup, praiseStatus:true->false, praiseCnt:" + (CoolPraiseView.this.mPraiseCount + 1) + PerfFrameTrackUIUtil.SEPERATOR_ARROR + CoolPraiseView.this.mPraiseCount);
                             }
                         }
                     }
@@ -704,7 +705,7 @@ public class CoolPraiseView extends LinearLayout {
                     if (CoolPraiseView.this.mOnClickPraiseListener != null) {
                         CoolPraiseView.this.mOnClickPraiseListener.onClick(true, CoolPraiseView.this.mPraiseCount);
                         if (CoolPraiseView.DEBUG) {
-                            Log.d(CoolPraiseView.TAG, "onClick called from onPraiseAnimStart, praiseStatus:false->true, praiseCnt:" + (CoolPraiseView.this.mPraiseCount - 1) + "->" + CoolPraiseView.this.mPraiseCount);
+                            Log.d(CoolPraiseView.TAG, "onClick called from onPraiseAnimStart, praiseStatus:false->true, praiseCnt:" + (CoolPraiseView.this.mPraiseCount - 1) + PerfFrameTrackUIUtil.SEPERATOR_ARROR + CoolPraiseView.this.mPraiseCount);
                         }
                     }
                     CoolPraiseView.this.mIsPraised = !CoolPraiseView.this.mIsPraised;
@@ -747,7 +748,7 @@ public class CoolPraiseView extends LinearLayout {
                         if (CoolPraiseView.this.mOnClickPraiseListener != null) {
                             CoolPraiseView.this.mOnClickPraiseListener.onClick(false, CoolPraiseView.this.mPraiseCount);
                             if (CoolPraiseView.DEBUG) {
-                                Log.d(CoolPraiseView.TAG, "onClick called from onPraiseAnimEnd, praiseStatus:true->false, praiseCnt:" + (CoolPraiseView.this.mPraiseCount + 1) + "->" + CoolPraiseView.this.mPraiseCount);
+                                Log.d(CoolPraiseView.TAG, "onClick called from onPraiseAnimEnd, praiseStatus:true->false, praiseCnt:" + (CoolPraiseView.this.mPraiseCount + 1) + PerfFrameTrackUIUtil.SEPERATOR_ARROR + CoolPraiseView.this.mPraiseCount);
                             }
                         }
                     }
@@ -770,7 +771,7 @@ public class CoolPraiseView extends LinearLayout {
         return this;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class PraiseAnimState {
         public static final int ANIM_STATE_PREVENTED = 3;
         public static final int ANIM_STATE_STARTED = 1;

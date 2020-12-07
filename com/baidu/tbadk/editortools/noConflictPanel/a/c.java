@@ -10,59 +10,59 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.editortools.noConflictPanel.b.d;
 /* loaded from: classes.dex */
 public class c {
-    private int cse = -1;
-    private final View fon;
-    private final boolean foo;
-    private com.baidu.tbadk.editortools.noConflictPanel.a fop;
+    private int cza = -1;
+    private final View fvS;
+    private final boolean fvT;
+    private com.baidu.tbadk.editortools.noConflictPanel.a fvU;
     private final int mStatusBarHeight;
 
     public c(View view) {
-        this.fon = view;
+        this.fvS = view;
         this.mStatusBarHeight = com.baidu.tbadk.editortools.noConflictPanel.b.c.getStatusBarHeight(view.getContext());
-        this.foo = d.B((Activity) view.getContext());
+        this.fvT = d.B((Activity) view.getContext());
     }
 
     @TargetApi(16)
-    public void ac(int i, int i2) {
-        if (this.foo && Build.VERSION.SDK_INT >= 16 && this.fon.getFitsSystemWindows()) {
+    public void ae(int i, int i2) {
+        if (this.fvT && Build.VERSION.SDK_INT >= 16 && this.fvS.getFitsSystemWindows()) {
             Rect rect = new Rect();
-            this.fon.getWindowVisibleDisplayFrame(rect);
+            this.fvS.getWindowVisibleDisplayFrame(rect);
             i2 = rect.bottom - rect.top;
         }
         Log.d("KPSRootLayoutHandler", "onMeasure, width: " + i + " height: " + i2);
         if (i2 >= 0) {
-            if (this.cse < 0) {
-                this.cse = i2;
+            if (this.cza < 0) {
+                this.cza = i2;
                 return;
             }
-            int i3 = this.cse - i2;
+            int i3 = this.cza - i2;
             if (i3 == 0) {
                 Log.d("KPSRootLayoutHandler", "" + i3 + " == 0 break;");
             } else if (Math.abs(i3) == this.mStatusBarHeight) {
                 Log.w("KPSRootLayoutHandler", String.format("offset just equal statusBar height %d", Integer.valueOf(i3)));
             } else {
-                this.cse = i2;
-                com.baidu.tbadk.editortools.noConflictPanel.a bF = bF(this.fon);
-                if (bF == null) {
+                this.cza = i2;
+                com.baidu.tbadk.editortools.noConflictPanel.a bI = bI(this.fvS);
+                if (bI == null) {
                     Log.w("KPSRootLayoutHandler", "can't find the valid panel conflict layout, give up!");
-                } else if (Math.abs(i3) < com.baidu.tbadk.editortools.noConflictPanel.b.b.em(this.fon.getContext())) {
+                } else if (Math.abs(i3) < com.baidu.tbadk.editortools.noConflictPanel.b.b.eR(this.fvS.getContext())) {
                     Log.w("KPSRootLayoutHandler", "system bottom-menu-bar(such as HuaWei Mate7) causes layout changed");
                 } else if (i3 > 0) {
-                    bF.aeJ();
-                } else if (bF.bzm() && bF.isVisible()) {
-                    bF.aeI();
+                    bI.ahR();
+                } else if (bI.bCM() && bI.isVisible()) {
+                    bI.ahQ();
                 }
             }
         }
     }
 
-    private com.baidu.tbadk.editortools.noConflictPanel.a bF(View view) {
-        if (this.fop != null) {
-            return this.fop;
+    private com.baidu.tbadk.editortools.noConflictPanel.a bI(View view) {
+        if (this.fvU != null) {
+            return this.fvU;
         }
         if (view instanceof com.baidu.tbadk.editortools.noConflictPanel.a) {
-            this.fop = (com.baidu.tbadk.editortools.noConflictPanel.a) view;
-            return this.fop;
+            this.fvU = (com.baidu.tbadk.editortools.noConflictPanel.a) view;
+            return this.fvU;
         }
         if (view instanceof ViewGroup) {
             int i = 0;
@@ -71,12 +71,12 @@ public class c {
                 if (i2 >= ((ViewGroup) view).getChildCount()) {
                     break;
                 }
-                com.baidu.tbadk.editortools.noConflictPanel.a bF = bF(((ViewGroup) view).getChildAt(i2));
-                if (bF == null) {
+                com.baidu.tbadk.editortools.noConflictPanel.a bI = bI(((ViewGroup) view).getChildAt(i2));
+                if (bI == null) {
                     i = i2 + 1;
                 } else {
-                    this.fop = bF;
-                    return this.fop;
+                    this.fvU = bI;
+                    return this.fvU;
                 }
             }
         }

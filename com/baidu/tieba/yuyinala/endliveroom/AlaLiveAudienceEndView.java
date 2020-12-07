@@ -35,35 +35,35 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class AlaLiveAudienceEndView extends RelativeLayout {
-    private static final LinearInterpolator gAy = new LinearInterpolator();
-    private w aDh;
-    private AlaLiveUserInfoData aHG;
-    private String aTN;
-    private Activity bMo;
-    private TextView gAB;
-    private LinearLayout gAG;
-    private LinearLayout gAH;
-    private RelativeLayout gAI;
-    private RelativeLayout gAJ;
-    private TbImageView gAK;
-    private TextView gAL;
-    private TextView gAM;
-    private ProgressBar gAN;
-    private TbImageView gAO;
-    private TextView gAP;
-    private TextView gAQ;
-    private ProgressBar gAR;
-    private TextView gAS;
-    private LinearLayout gAT;
-    private TextView gAU;
-    private TextView gAV;
-    private View gAW;
-    private boolean gAX;
-    private boolean gAY;
-    private int gAZ;
-    private ArrayList<AlaLiveInfoData> gBa;
-    private ValueAnimator gBb;
-    private Set<Long> gBc;
+    private static final LinearInterpolator gJv = new LinearInterpolator();
+    private w aFN;
+    private AlaLiveUserInfoData aKr;
+    private String aWR;
+    private Activity beD;
+    private LinearLayout gJD;
+    private LinearLayout gJE;
+    private RelativeLayout gJF;
+    private RelativeLayout gJG;
+    private TbImageView gJH;
+    private TextView gJI;
+    private TextView gJJ;
+    private ProgressBar gJK;
+    private TbImageView gJL;
+    private TextView gJM;
+    private TextView gJN;
+    private ProgressBar gJO;
+    private TextView gJP;
+    private LinearLayout gJQ;
+    private TextView gJR;
+    private TextView gJS;
+    private View gJT;
+    private boolean gJU;
+    private boolean gJV;
+    private int gJW;
+    private ArrayList<AlaLiveInfoData> gJX;
+    private ValueAnimator gJY;
+    private Set<Long> gJZ;
+    private TextView gJy;
     private String liveId;
     private ImageView mCloseBtn;
     private AlaLiveInfoData mLiveInfo;
@@ -71,36 +71,36 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
     private String mPortrait;
     private TbPageContext mTbPageContext;
     private View mView;
-    private a nVd;
-    private BarImageView nVe;
-    private TextView nVf;
-    private TextView nVg;
-    private TextView nVh;
-    private TextView nVi;
-    private TextView nVj;
-    private TextView nVk;
-    private LinearLayout nVl;
-    private LinearLayout nVm;
-    private TextView nVn;
-    private TextView nVo;
+    private a okb;
+    private BarImageView okc;
+    private TextView okd;
+    private TextView oke;
+    private TextView okf;
+    private TextView okg;
+    private TextView okh;
+    private TextView oki;
+    private LinearLayout okj;
+    private LinearLayout okk;
+    private TextView okl;
+    private TextView okm;
     private String roomId;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void Nd();
+        void Pv();
 
         void f(AlaLiveInfoData alaLiveInfoData);
 
-        void mf(boolean z);
+        void mA(boolean z);
     }
 
     public AlaLiveAudienceEndView(@NonNull Context context) {
         super(context);
-        this.gAX = false;
+        this.gJU = false;
         this.mPortrait = "";
-        this.gAY = false;
-        this.gAZ = 0;
-        this.gBc = new HashSet();
+        this.gJV = false;
+        this.gJW = 0;
+        this.gJZ = new HashSet();
         initUI();
     }
 
@@ -110,232 +110,232 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
         this.mCloseBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.endliveroom.AlaLiveAudienceEndView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaLiveAudienceEndView.this.nVd != null) {
-                    AlaLiveAudienceEndView.this.nVd.Nd();
+                if (AlaLiveAudienceEndView.this.okb != null) {
+                    AlaLiveAudienceEndView.this.okb.Pv();
                 }
             }
         });
-        this.nVe = (BarImageView) this.mView.findViewById(a.f.avatar_img);
-        this.gAB = (TextView) this.mView.findViewById(a.f.user_name);
-        this.nVf = (TextView) this.mView.findViewById(a.f.tv_user_id);
-        this.gAV = (TextView) this.mView.findViewById(a.f.endText_textView);
-        this.nVg = (TextView) this.mView.findViewById(a.f.tv_live_end_newcharmnum);
-        this.nVh = (TextView) this.mView.findViewById(a.f.tv_live_end_givernum);
-        this.nVi = (TextView) this.mView.findViewById(a.f.tv_live_end_watchnum);
-        this.nVj = (TextView) this.mView.findViewById(a.f.tv_live_end_newfansnum);
-        this.nVk = (TextView) this.mView.findViewById(a.f.endText_textView_master);
-        this.nVl = (LinearLayout) this.mView.findViewById(a.f.ll_master_bottomview);
-        this.nVm = (LinearLayout) this.mView.findViewById(a.f.ll_audience_bottomview);
-        this.gAT = (LinearLayout) this.mView.findViewById(a.f.llFollowLabel);
-        this.gAS = (TextView) this.mView.findViewById(a.f.follow_label);
-        this.gAU = (TextView) this.mView.findViewById(a.f.live_over_name);
-        bRB();
+        this.okc = (BarImageView) this.mView.findViewById(a.f.avatar_img);
+        this.gJy = (TextView) this.mView.findViewById(a.f.user_name);
+        this.okd = (TextView) this.mView.findViewById(a.f.tv_user_id);
+        this.gJS = (TextView) this.mView.findViewById(a.f.endText_textView);
+        this.oke = (TextView) this.mView.findViewById(a.f.tv_live_end_newcharmnum);
+        this.okf = (TextView) this.mView.findViewById(a.f.tv_live_end_givernum);
+        this.okg = (TextView) this.mView.findViewById(a.f.tv_live_end_watchnum);
+        this.okh = (TextView) this.mView.findViewById(a.f.tv_live_end_newfansnum);
+        this.oki = (TextView) this.mView.findViewById(a.f.endText_textView_master);
+        this.okj = (LinearLayout) this.mView.findViewById(a.f.ll_master_bottomview);
+        this.okk = (LinearLayout) this.mView.findViewById(a.f.ll_audience_bottomview);
+        this.gJQ = (LinearLayout) this.mView.findViewById(a.f.llFollowLabel);
+        this.gJP = (TextView) this.mView.findViewById(a.f.follow_label);
+        this.gJR = (TextView) this.mView.findViewById(a.f.live_over_name);
+        bVl();
     }
 
     private void setUserTypeForView(boolean z) {
         if (z) {
-            this.nVl.setVisibility(0);
-            this.nVm.setVisibility(8);
+            this.okj.setVisibility(0);
+            this.okk.setVisibility(8);
             return;
         }
-        this.nVl.setVisibility(8);
-        this.nVm.setVisibility(0);
+        this.okj.setVisibility(8);
+        this.okk.setVisibility(0);
     }
 
-    private void dXr() {
-        this.nVi.setText(j.numFormatOverWanNaForAudienceNum(this.mLiveInfo.familyFansCount));
-        if (this.mLiveInfo.newFansCount < 0) {
-            this.nVj.setText(String.valueOf(this.mLiveInfo.newFansCount));
+    private void ecV() {
+        this.okg.setText(j.numFormatOverWanNaForAudienceNum(this.mLiveInfo.familyFansCount));
+        if (this.mLiveInfo.newFansCount <= 0) {
+            this.okh.setText(String.valueOf(this.mLiveInfo.newFansCount));
         } else {
-            this.nVj.setText(j.numFormatOverWanNaForAudienceNum(this.mLiveInfo.newFansCount));
+            this.okh.setText(j.numFormatOverWanNaForAudienceNum(this.mLiveInfo.newFansCount));
         }
-        this.nVh.setText(j.numFormatOverWanNaForAudienceNum(this.mLiveInfo.rewardUserCount));
-        this.nVg.setText(j.numFormatOverWanNaForAudienceNum(this.mLiveInfo.charm_count));
+        this.okf.setText(j.numFormatOverWanNaForAudienceNum(this.mLiveInfo.rewardUserCount));
+        this.oke.setText(j.numFormatOverWanNaForAudienceNum(this.mLiveInfo.charm_count));
     }
 
     public void setCallback(a aVar) {
-        this.nVd = aVar;
+        this.okb = aVar;
     }
 
     public void setData(TbPageContext tbPageContext, w wVar, boolean z, boolean z2, String str, String str2) {
-        this.aDh = wVar;
-        this.gAY = z;
+        this.aFN = wVar;
+        this.gJV = z;
         this.mTbPageContext = tbPageContext;
-        this.bMo = tbPageContext.getPageActivity();
-        this.aDh = wVar;
+        this.beD = tbPageContext.getPageActivity();
+        this.aFN = wVar;
         this.mLiveInfo = wVar.mLiveInfo;
-        this.aHG = wVar.aHG;
-        this.gAX = z2;
+        this.aKr = wVar.aKr;
+        this.gJU = z2;
         this.mPortrait = str;
-        this.gAY = z;
+        this.gJV = z;
         this.liveId = this.mLiveInfo.live_id + "";
         this.roomId = this.mLiveInfo.room_id + "";
-        this.aTN = this.mLiveInfo.feed_id;
+        this.aWR = this.mLiveInfo.feed_id;
         this.mOtherParams = str2;
-        if (this.aTN == null || TextUtils.equals(this.aTN, "null")) {
-            this.aTN = "";
+        if (this.aWR == null || TextUtils.equals(this.aWR, "null")) {
+            this.aWR = "";
         }
         if (this.mOtherParams == null || TextUtils.equals(this.mOtherParams, "null")) {
             this.mOtherParams = "";
         }
-        this.nVe.setShowOval(true);
-        this.nVe.setBorderColor(this.bMo.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
-        this.nVe.setAutoChangeStyle(false);
-        this.nVe.setAccuracyWith(30.0f);
+        this.okc.setShowOval(true);
+        this.okc.setBorderColor(this.beD.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
+        this.okc.setAutoChangeStyle(false);
+        this.okc.setAccuracyWith(30.0f);
         if (TextUtils.isEmpty(this.mPortrait)) {
-            this.nVe.setDefaultResource(a.e.pic_avatar_moren);
+            this.okc.setDefaultResource(a.e.pic_avatar_moren);
         } else {
-            this.nVe.startLoad(this.mPortrait, 12, false, false);
+            this.okc.startLoad(this.mPortrait, 12, false, false);
         }
-        this.gAB.setText(this.aDh.aHZ.room_name);
-        this.nVf.setText(this.bMo.getResources().getString(a.h.room_id_name) + wVar.aHZ.croom_id);
-        this.gAT.setVisibility(TextUtils.isEmpty(this.mPortrait) ? 4 : 0);
-        if (this.aDh != null && this.aDh.mLiveInfo != null && this.aDh.mLiveInfo.mLiveCloseData != null && !TextUtils.isEmpty(this.aDh.mLiveInfo.mLiveCloseData.title)) {
-            this.gAU.setText(this.aDh.mLiveInfo.mLiveCloseData.title);
-        } else if (this.gAY) {
-            this.gAU.setText(a.h.yuyin_live_closed);
+        this.gJy.setText(this.aFN.aKL.room_name);
+        this.okd.setText(this.beD.getResources().getString(a.h.room_id_name) + wVar.aKL.croom_id);
+        this.gJQ.setVisibility(TextUtils.isEmpty(this.mPortrait) ? 4 : 0);
+        if (this.aFN != null && this.aFN.mLiveInfo != null && this.aFN.mLiveInfo.mLiveCloseData != null && !TextUtils.isEmpty(this.aFN.mLiveInfo.mLiveCloseData.title)) {
+            this.gJR.setText(this.aFN.mLiveInfo.mLiveCloseData.title);
+        } else if (this.gJV) {
+            this.gJR.setText(a.h.yuyin_live_closed);
         } else {
-            this.gAU.setText(a.h.yuyin_live_over_name);
+            this.gJR.setText(a.h.yuyin_live_over_name);
         }
-        mg(this.gAX);
-        if (this.aDh != null && this.aDh.mLiveInfo != null && this.aDh.mLiveInfo.mLiveCloseData != null) {
-            if (TextUtils.isEmpty(this.aDh.mLiveInfo.mLiveCloseData.title)) {
-                this.gAU.setText(a.h.yuyin_live_over_name);
+        mB(this.gJU);
+        if (this.aFN != null && this.aFN.mLiveInfo != null && this.aFN.mLiveInfo.mLiveCloseData != null) {
+            if (TextUtils.isEmpty(this.aFN.mLiveInfo.mLiveCloseData.title)) {
+                this.gJR.setText(a.h.yuyin_live_over_name);
             } else {
-                this.gAU.setText(this.aDh.mLiveInfo.mLiveCloseData.title);
+                this.gJR.setText(this.aFN.mLiveInfo.mLiveCloseData.title);
             }
-        } else if (this.gAY) {
-            this.gAU.setText(a.h.yuyin_live_closed);
+        } else if (this.gJV) {
+            this.gJR.setText(a.h.yuyin_live_closed);
         } else {
-            this.gAU.setText(a.h.yuyin_live_over_name);
+            this.gJR.setText(a.h.yuyin_live_over_name);
         }
-        if (this.aHG.userType == 1 || this.aHG.userType == 2) {
+        if (this.aKr.userType == 1 || this.aKr.userType == 2) {
             setUserTypeForView(true);
-            dXr();
+            ecV();
             if (TextUtils.isEmpty(this.mLiveInfo.close_reason)) {
-                this.nVk.setVisibility(8);
+                this.oki.setVisibility(8);
                 return;
             }
-            this.nVk.setVisibility(0);
-            this.nVk.setText(this.mLiveInfo.close_reason);
+            this.oki.setVisibility(0);
+            this.oki.setText(this.mLiveInfo.close_reason);
             return;
         }
         setUserTypeForView(false);
-        this.gAT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.endliveroom.AlaLiveAudienceEndView.2
+        this.gJQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.endliveroom.AlaLiveAudienceEndView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaLiveAudienceEndView.this.aDh == null || AlaLiveAudienceEndView.this.aDh.mLiveInfo == null || AlaLiveAudienceEndView.this.aDh.mLiveInfo.mLiveCloseData == null) {
-                    if (AlaLiveAudienceEndView.this.nVd != null) {
-                        if (AlaLiveAudienceEndView.this.gAX) {
-                            AlaLiveAudienceEndView.this.bRE();
+                if (AlaLiveAudienceEndView.this.aFN == null || AlaLiveAudienceEndView.this.aFN.mLiveInfo == null || AlaLiveAudienceEndView.this.aFN.mLiveInfo.mLiveCloseData == null) {
+                    if (AlaLiveAudienceEndView.this.okb != null) {
+                        if (AlaLiveAudienceEndView.this.gJU) {
+                            AlaLiveAudienceEndView.this.bVo();
                             return;
                         }
-                        LogManager.getLiveCloseLogger().doFollowClickLiveCloseGuestLog(AlaLiveAudienceEndView.this.liveId, AlaLiveAudienceEndView.this.roomId, AlaLiveAudienceEndView.this.aTN, AlaLiveAudienceEndView.this.mOtherParams);
-                        AlaLiveAudienceEndView.this.nVd.mf(AlaLiveAudienceEndView.this.gAX);
+                        LogManager.getLiveCloseLogger().doFollowClickLiveCloseGuestLog(AlaLiveAudienceEndView.this.liveId, AlaLiveAudienceEndView.this.roomId, AlaLiveAudienceEndView.this.aWR, AlaLiveAudienceEndView.this.mOtherParams);
+                        AlaLiveAudienceEndView.this.okb.mA(AlaLiveAudienceEndView.this.gJU);
                     }
-                } else if (!TextUtils.isEmpty(AlaLiveAudienceEndView.this.aDh.mLiveInfo.mLiveCloseData.actionScheme)) {
-                    BrowserHelper.startInternalWebActivity(AlaLiveAudienceEndView.this.bMo, AlaLiveAudienceEndView.this.aDh.mLiveInfo.mLiveCloseData.actionScheme);
+                } else if (!TextUtils.isEmpty(AlaLiveAudienceEndView.this.aFN.mLiveInfo.mLiveCloseData.actionScheme)) {
+                    BrowserHelper.startInternalWebActivity(AlaLiveAudienceEndView.this.beD, AlaLiveAudienceEndView.this.aFN.mLiveInfo.mLiveCloseData.actionScheme);
                 }
             }
         });
     }
 
-    public void mg(boolean z) {
-        this.gAX = z;
-        if (this.aDh != null && this.aDh.mLiveInfo != null && this.aDh.mLiveInfo.mLiveCloseData != null) {
-            if (TextUtils.isEmpty(this.aDh.mLiveInfo.mLiveCloseData.tips)) {
-                this.gAV.setText("");
+    public void mB(boolean z) {
+        this.gJU = z;
+        if (this.aFN != null && this.aFN.mLiveInfo != null && this.aFN.mLiveInfo.mLiveCloseData != null) {
+            if (TextUtils.isEmpty(this.aFN.mLiveInfo.mLiveCloseData.tips)) {
+                this.gJS.setText("");
             } else {
-                this.gAV.setText(this.aDh.mLiveInfo.mLiveCloseData.tips);
+                this.gJS.setText(this.aFN.mLiveInfo.mLiveCloseData.tips);
             }
-            if (TextUtils.isEmpty(this.aDh.mLiveInfo.mLiveCloseData.actionText)) {
-                this.gAT.setVisibility(8);
-                this.gAS.setText("");
+            if (TextUtils.isEmpty(this.aFN.mLiveInfo.mLiveCloseData.actionText)) {
+                this.gJQ.setVisibility(8);
+                this.gJP.setText("");
             } else {
-                this.gAT.setVisibility(0);
-                this.gAS.setText(this.aDh.mLiveInfo.mLiveCloseData.actionText);
-                this.gAT.setBackgroundResource(a.e.round_btn_collection_highlight);
+                this.gJQ.setVisibility(0);
+                this.gJP.setText(this.aFN.mLiveInfo.mLiveCloseData.actionText);
+                this.gJQ.setBackgroundResource(a.e.round_btn_collection_highlight);
             }
             setRecommendViewVisible(8);
             return;
         }
-        this.gAT.setVisibility(TextUtils.isEmpty(this.mPortrait) ? 4 : 0);
-        if (this.gAX) {
-            this.gAV.setText(a.h.yuyin_endtext_followed);
-            this.gAS.setText(a.h.yuyinala_live_end_view_followed);
-            this.gAT.setBackgroundResource(a.e.round_btn_collection_lowlight);
+        this.gJQ.setVisibility(TextUtils.isEmpty(this.mPortrait) ? 4 : 0);
+        if (this.gJU) {
+            this.gJS.setText(a.h.yuyin_endtext_followed);
+            this.gJP.setText(a.h.yuyinala_live_end_view_followed);
+            this.gJQ.setBackgroundResource(a.e.round_btn_collection_lowlight);
             return;
         }
-        this.gAV.setText(a.h.yuyin_endtext_follow);
-        this.gAS.setText(a.h.yuyinala_live_end_view_follow);
-        this.gAT.setBackgroundResource(a.e.round_btn_collection_highlight);
+        this.gJS.setText(a.h.yuyin_endtext_follow);
+        this.gJP.setText(a.h.yuyinala_live_end_view_follow);
+        this.gJQ.setBackgroundResource(a.e.round_btn_collection_highlight);
     }
 
-    private void bRB() {
-        this.gAG = (LinearLayout) this.mView.findViewById(a.f.llFeedVideoLabel);
-        this.gAH = (LinearLayout) this.mView.findViewById(a.f.video_audience_ll);
-        this.gAW = this.mView.findViewById(a.f.change_layout);
-        this.gAK = (TbImageView) this.mView.findViewById(a.f.feed_video_item1_cover);
-        this.gAL = (TextView) this.mView.findViewById(a.f.feed_video_item1_name);
-        this.gAM = (TextView) this.mView.findViewById(a.f.feed_video_item1_watch_num);
-        this.nVn = (TextView) this.mView.findViewById(a.f.live_label_1);
-        this.gAO = (TbImageView) this.mView.findViewById(a.f.feed_video_item2_cover);
-        this.gAP = (TextView) this.mView.findViewById(a.f.feed_video_item2_name);
-        this.gAQ = (TextView) this.mView.findViewById(a.f.feed_video_item2_watch_num);
-        this.nVo = (TextView) this.mView.findViewById(a.f.live_label_2);
-        this.gAI = (RelativeLayout) this.mView.findViewById(a.f.rl_recom_video_cover_1);
-        this.gAJ = (RelativeLayout) this.mView.findViewById(a.f.rl_recom_video_cover_2);
-        this.gAN = (ProgressBar) this.mView.findViewById(a.f.feed_video_item1_progressBar);
-        this.gAR = (ProgressBar) this.mView.findViewById(a.f.feed_video_item2_progressBar);
+    private void bVl() {
+        this.gJD = (LinearLayout) this.mView.findViewById(a.f.llFeedVideoLabel);
+        this.gJE = (LinearLayout) this.mView.findViewById(a.f.video_audience_ll);
+        this.gJT = this.mView.findViewById(a.f.change_layout);
+        this.gJH = (TbImageView) this.mView.findViewById(a.f.feed_video_item1_cover);
+        this.gJI = (TextView) this.mView.findViewById(a.f.feed_video_item1_name);
+        this.gJJ = (TextView) this.mView.findViewById(a.f.feed_video_item1_watch_num);
+        this.okl = (TextView) this.mView.findViewById(a.f.live_label_1);
+        this.gJL = (TbImageView) this.mView.findViewById(a.f.feed_video_item2_cover);
+        this.gJM = (TextView) this.mView.findViewById(a.f.feed_video_item2_name);
+        this.gJN = (TextView) this.mView.findViewById(a.f.feed_video_item2_watch_num);
+        this.okm = (TextView) this.mView.findViewById(a.f.live_label_2);
+        this.gJF = (RelativeLayout) this.mView.findViewById(a.f.rl_recom_video_cover_1);
+        this.gJG = (RelativeLayout) this.mView.findViewById(a.f.rl_recom_video_cover_2);
+        this.gJK = (ProgressBar) this.mView.findViewById(a.f.feed_video_item1_progressBar);
+        this.gJO = (ProgressBar) this.mView.findViewById(a.f.feed_video_item2_progressBar);
     }
 
     private void setRecommendViewVisible(int i) {
-        this.gAG.setVisibility(i);
-        this.gAH.setVisibility(i);
+        this.gJD.setVisibility(i);
+        this.gJE.setVisibility(i);
     }
 
-    public void ac(ArrayList<AlaLiveInfoData> arrayList) {
+    public void ad(ArrayList<AlaLiveInfoData> arrayList) {
         if (arrayList == null || arrayList.size() <= 1) {
             setRecommendViewVisible(8);
-        } else if (this.aDh != null) {
-            if (this.aDh.mLiveInfo == null || this.aDh.mLiveInfo.mLiveCloseData == null) {
+        } else if (this.aFN != null) {
+            if (this.aFN.mLiveInfo == null || this.aFN.mLiveInfo.mLiveCloseData == null) {
                 setRecommendViewVisible(0);
                 boolean z = arrayList.size() > 2;
-                this.gBa = arrayList;
-                this.gAZ = 0;
-                a(this.gAZ, arrayList.get(this.gAZ), this.gAZ + 1, arrayList.get(this.gAZ + 1), z);
-                this.gAZ++;
-                if (this.gBb == null) {
-                    this.gBb = ValueAnimator.ofInt(100, 0);
-                    this.gBb.setDuration(5000L);
-                    this.gBb.setInterpolator(gAy);
-                    this.gBb.setRepeatCount(-1);
-                    this.gBb.setRepeatMode(1);
-                    this.gBb.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.endliveroom.AlaLiveAudienceEndView.3
+                this.gJX = arrayList;
+                this.gJW = 0;
+                a(this.gJW, arrayList.get(this.gJW), this.gJW + 1, arrayList.get(this.gJW + 1), z);
+                this.gJW++;
+                if (this.gJY == null) {
+                    this.gJY = ValueAnimator.ofInt(100, 0);
+                    this.gJY.setDuration(5000L);
+                    this.gJY.setInterpolator(gJv);
+                    this.gJY.setRepeatCount(-1);
+                    this.gJY.setRepeatMode(1);
+                    this.gJY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.endliveroom.AlaLiveAudienceEndView.3
                         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                         public void onAnimationUpdate(ValueAnimator valueAnimator) {
                             int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                            AlaLiveAudienceEndView.this.gAN.setProgress(intValue);
-                            AlaLiveAudienceEndView.this.gAR.setProgress(intValue);
+                            AlaLiveAudienceEndView.this.gJK.setProgress(intValue);
+                            AlaLiveAudienceEndView.this.gJO.setProgress(intValue);
                         }
                     });
-                    this.gBb.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.yuyinala.endliveroom.AlaLiveAudienceEndView.4
+                    this.gJY.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.yuyinala.endliveroom.AlaLiveAudienceEndView.4
                         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                         public void onAnimationRepeat(Animator animator) {
-                            AlaLiveAudienceEndView.this.bRD();
+                            AlaLiveAudienceEndView.this.bVn();
                         }
                     });
                 }
                 if (z) {
-                    this.gBb.start();
-                    this.gAW.setVisibility(0);
-                    this.gAW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.endliveroom.AlaLiveAudienceEndView.5
+                    this.gJY.start();
+                    this.gJT.setVisibility(0);
+                    this.gJT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.endliveroom.AlaLiveAudienceEndView.5
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            LogManager.getLiveCloseLogger().doClickChangeSomeLiveCloseGuestLog(AlaLiveAudienceEndView.this.liveId, AlaLiveAudienceEndView.this.roomId, AlaLiveAudienceEndView.this.aTN, AlaLiveAudienceEndView.this.mOtherParams);
-                            AlaLiveAudienceEndView.this.gBb.cancel();
-                            AlaLiveAudienceEndView.this.bRD();
-                            AlaLiveAudienceEndView.this.gBb.start();
+                            LogManager.getLiveCloseLogger().doClickChangeSomeLiveCloseGuestLog(AlaLiveAudienceEndView.this.liveId, AlaLiveAudienceEndView.this.roomId, AlaLiveAudienceEndView.this.aWR, AlaLiveAudienceEndView.this.mOtherParams);
+                            AlaLiveAudienceEndView.this.gJY.cancel();
+                            AlaLiveAudienceEndView.this.bVn();
+                            AlaLiveAudienceEndView.this.gJY.start();
                         }
                     });
                 }
@@ -344,26 +344,26 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRD() {
-        int i = this.gAZ + 1;
-        this.gAZ = i;
-        if (i >= this.gBa.size()) {
-            this.gAZ = 0;
+    public void bVn() {
+        int i = this.gJW + 1;
+        this.gJW = i;
+        if (i >= this.gJX.size()) {
+            this.gJW = 0;
             i = 0;
         }
-        int i2 = this.gAZ + 1;
-        this.gAZ = i2;
-        if (i2 >= this.gBa.size()) {
-            this.gAZ = 0;
+        int i2 = this.gJW + 1;
+        this.gJW = i2;
+        if (i2 >= this.gJX.size()) {
+            this.gJW = 0;
             i2 = 0;
         }
-        this.gAZ = i2;
-        a(i, this.gBa.get(i), i2, this.gBa.get(i2), true);
+        this.gJW = i2;
+        a(i, this.gJX.get(i), i2, this.gJX.get(i2), true);
     }
 
     public void a(int i, AlaLiveInfoData alaLiveInfoData, int i2, AlaLiveInfoData alaLiveInfoData2, boolean z) {
-        a(this.gAI, this.gAK, this.gAL, this.gAM, this.gAN, this.nVn, alaLiveInfoData, z, i);
-        a(this.gAJ, this.gAO, this.gAP, this.gAQ, this.gAR, this.nVo, alaLiveInfoData2, z, i2);
+        a(this.gJF, this.gJH, this.gJI, this.gJJ, this.gJK, this.okl, alaLiveInfoData, z, i);
+        a(this.gJG, this.gJL, this.gJM, this.gJN, this.gJO, this.okm, alaLiveInfoData2, z, i2);
     }
 
     public void a(View view, TbImageView tbImageView, TextView textView, TextView textView2, ProgressBar progressBar, TextView textView3, final AlaLiveInfoData alaLiveInfoData, boolean z, int i) {
@@ -377,9 +377,9 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        BdUtilHelper.showToast(AlaLiveAudienceEndView.this.bMo, a.h.sdk_no_network_guide);
-                    } else if (AlaLiveAudienceEndView.this.nVd != null) {
-                        AlaLiveAudienceEndView.this.nVd.f(alaLiveInfoData);
+                        BdUtilHelper.showToast(AlaLiveAudienceEndView.this.beD, a.h.sdk_no_network_guide);
+                    } else if (AlaLiveAudienceEndView.this.okb != null) {
+                        AlaLiveAudienceEndView.this.okb.f(alaLiveInfoData);
                     }
                 }
             });
@@ -406,14 +406,14 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
     }
 
     public ViewGroup getRecParentView() {
-        return this.gAG;
+        return this.gJD;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRE() {
-        if (this.bMo != null) {
-            BdAlertDialog bdAlertDialog = new BdAlertDialog(this.bMo);
-            bdAlertDialog.setMessage(this.bMo.getResources().getString(a.h.yuyinala_live_end_dialog_nomore_attention_msg));
+    public void bVo() {
+        if (this.beD != null) {
+            BdAlertDialog bdAlertDialog = new BdAlertDialog(this.beD);
+            bdAlertDialog.setMessage(this.beD.getResources().getString(a.h.yuyinala_live_end_dialog_nomore_attention_msg));
             bdAlertDialog.setNegativeButton(a.h.yuyinala_live_end_dialog_cancel_msg, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.yuyinala.endliveroom.AlaLiveAudienceEndView.7
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog2) {
@@ -423,14 +423,14 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
             bdAlertDialog.setPositiveButton(a.h.yuyinala_live_end_dialog_confirm_msg, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.yuyinala.endliveroom.AlaLiveAudienceEndView.8
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog2) {
-                    LogManager.getLiveCloseLogger().doClickNoFollowLiveCloseGuestLog(AlaLiveAudienceEndView.this.liveId, AlaLiveAudienceEndView.this.roomId, AlaLiveAudienceEndView.this.aTN, AlaLiveAudienceEndView.this.mOtherParams);
-                    AlaLiveAudienceEndView.this.nVd.mf(AlaLiveAudienceEndView.this.gAX);
+                    LogManager.getLiveCloseLogger().doClickNoFollowLiveCloseGuestLog(AlaLiveAudienceEndView.this.liveId, AlaLiveAudienceEndView.this.roomId, AlaLiveAudienceEndView.this.aWR, AlaLiveAudienceEndView.this.mOtherParams);
+                    AlaLiveAudienceEndView.this.okb.mA(AlaLiveAudienceEndView.this.gJU);
                     bdAlertDialog2.dismiss();
                 }
             });
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                bdAlertDialog.setPositiveButtonTextColor(this.bMo.getResources().getColorStateList(a.e.sdk_dialog_gray_button_txt_selector));
-                bdAlertDialog.setNagetiveButtonTextColor(this.bMo.getResources().getColorStateList(a.e.sdk_dialog_gray_button_txt_selector));
+                bdAlertDialog.setPositiveButtonTextColor(this.beD.getResources().getColorStateList(a.e.sdk_dialog_gray_button_txt_selector));
+                bdAlertDialog.setNagetiveButtonTextColor(this.beD.getResources().getColorStateList(a.e.sdk_dialog_gray_button_txt_selector));
             } else if (TbadkCoreApplication.getInst().isHaokan()) {
                 bdAlertDialog.setPositiveButtonTextColor(1714631475);
                 bdAlertDialog.setNagetiveButtonTextColor(-13421773);
@@ -443,8 +443,8 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
     }
 
     public void onDestory() {
-        if (this.gBb != null) {
-            this.gBb.cancel();
+        if (this.gJY != null) {
+            this.gJY.cancel();
         }
     }
 }

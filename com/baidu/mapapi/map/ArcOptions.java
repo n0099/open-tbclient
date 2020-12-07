@@ -3,12 +3,12 @@ package com.baidu.mapapi.map;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class ArcOptions extends OverlayOptions {
     private static final String d = ArcOptions.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    int f1996a;
+    int f1998a;
     Bundle c;
     private LatLng g;
     private LatLng h;
@@ -22,9 +22,9 @@ public final class ArcOptions extends OverlayOptions {
     public Overlay a() {
         Arc arc = new Arc();
         arc.B = this.b;
-        arc.A = this.f1996a;
+        arc.A = this.f1998a;
         arc.C = this.c;
-        arc.f1995a = this.e;
+        arc.f1997a = this.e;
         arc.b = this.f;
         arc.c = this.g;
         arc.d = this.h;
@@ -67,7 +67,7 @@ public final class ArcOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f1996a;
+        return this.f1998a;
     }
 
     public boolean isVisible() {
@@ -100,7 +100,7 @@ public final class ArcOptions extends OverlayOptions {
     }
 
     public ArcOptions zIndex(int i) {
-        this.f1996a = i;
+        this.f1998a = i;
         return this;
     }
 }

@@ -20,7 +20,8 @@ public class ForumDetailActivityConfig extends IntentConfig {
         GAME_FRS_GOOD,
         FRS_GAME_INFO,
         FRS_GAME_STRATEGY,
-        FRS_GAME_LIVE
+        FRS_GAME_LIVE,
+        BLUEV_SETTLE
     }
 
     public ForumDetailActivityConfig(Context context, String str, FromType fromType) {

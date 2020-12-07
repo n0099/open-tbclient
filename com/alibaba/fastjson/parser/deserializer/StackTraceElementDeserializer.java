@@ -8,7 +8,7 @@ import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.JSONToken;
 import com.vivo.push.PushClientConstants;
 import java.lang.reflect.Type;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class StackTraceElementDeserializer implements ObjectDeserializer {
     public static final StackTraceElementDeserializer instance = new StackTraceElementDeserializer();
 

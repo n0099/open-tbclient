@@ -3,19 +3,19 @@ package com.baidu.live.talentshow.d;
 import com.baidu.live.alablmsdk.config.enums.BLMRoomMode;
 /* loaded from: classes4.dex */
 public class d {
-    public static String bwN = "liveshow_battle";
-    public static int bwO = 0;
-    public static int bwP = 1;
-    public static int bwQ = 2;
-    public static int bwR = 3;
-    public static int bwS = 4;
-    public static BLMRoomMode bwT = BLMRoomMode.BLMROOMMODE_1VN;
-    public static int bwU = -1;
-    public static int bwV = -2;
-    public static int bwW = -3;
-    public static int bwX = -4;
-    public static int bwY = -5;
-    public static int bwZ = -6;
-    public static int bxa = -7;
-    public static int bxb = -8;
+    public static String bBV = "liveshow_battle";
+    public static int bBW = 0;
+    public static int bBX = 1;
+    public static int bBY = 2;
+    public static int bBZ = 3;
+    public static int bCa = 4;
+    public static BLMRoomMode bCb = BLMRoomMode.BLMROOMMODE_1VN;
+    public static int bCc = -1;
+    public static int bCd = -2;
+    public static int bCe = -3;
+    public static int bCf = -4;
+    public static int bCg = -5;
+    public static int bCh = -6;
+    public static int bCi = -7;
+    public static int bCj = -8;
 }

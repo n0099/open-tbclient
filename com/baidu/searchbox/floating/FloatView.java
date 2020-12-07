@@ -12,13 +12,13 @@ import com.baidu.searchbox.floating.utils.OverlayPermissionCheck;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.List;
 import kotlin.Pair;
+import kotlin.e;
 import kotlin.h;
 import kotlin.jvm.a.a;
 import kotlin.jvm.internal.o;
-import kotlin.jvm.internal.q;
-import kotlin.l;
-@h
-/* loaded from: classes9.dex */
+import kotlin.jvm.internal.p;
+@e
+/* loaded from: classes16.dex */
 public final class FloatView {
     public static final Companion Companion = new Companion(null);
     public static final String TAG = "FloatView";
@@ -37,8 +37,8 @@ public final class FloatView {
         return Companion.with(context);
     }
 
-    @h
-    /* loaded from: classes9.dex */
+    @e
+    /* loaded from: classes16.dex */
     public static final class Companion {
         private Companion() {
         }
@@ -64,12 +64,12 @@ public final class FloatView {
         }
 
         public final Builder with(Context context) {
-            q.n(context, "context");
+            p.o(context, "context");
             return new Builder(context);
         }
 
         public final void showAppFloatView(Context context) {
-            q.n(context, "context");
+            p.o(context, "context");
             FloatViewService.Companion.setVisible(context, true);
         }
 
@@ -81,12 +81,12 @@ public final class FloatView {
         }
 
         public final void dismissAppFloatView(Context context, boolean z) {
-            q.n(context, "context");
+            p.o(context, "context");
             FloatViewService.Companion.dismiss(context, z);
         }
 
         public final void hideAppFloatView(Context context) {
-            q.n(context, "context");
+            p.o(context, "context");
             FloatViewService.Companion.setVisible(context, false);
         }
 
@@ -107,7 +107,7 @@ public final class FloatView {
         }
 
         public final void invalidate(Context context) {
-            q.n(context, "context");
+            p.o(context, "context");
             FloatViewService.Companion.invalidate(context);
         }
 
@@ -121,16 +121,16 @@ public final class FloatView {
             return false;
         }
 
-        public final void registerLifeCycle(a<l> aVar) {
-            q.n(aVar, "lifeCycle");
+        public final void registerLifeCycle(a<h> aVar) {
+            p.o(aVar, "lifeCycle");
             if (!isRegisterLifecycle()) {
                 setRegisterLifecycle(true);
                 aVar.invoke();
             }
         }
 
-        public final void unregisterLifecycle(a<l> aVar) {
-            q.n(aVar, "lifeCycle");
+        public final void unregisterLifecycle(a<h> aVar) {
+            p.o(aVar, "lifeCycle");
             if (isRegisterLifecycle()) {
                 setRegisterLifecycle(false);
                 aVar.invoke();
@@ -138,14 +138,14 @@ public final class FloatView {
         }
     }
 
-    @h
-    /* loaded from: classes9.dex */
+    @e
+    /* loaded from: classes16.dex */
     public static final class Builder {
         private final Context context;
         private Config mConfig;
 
         public Builder(Context context) {
-            q.n(context, "context");
+            p.o(context, "context");
             this.context = context;
             this.mConfig = new Config();
         }
@@ -155,7 +155,7 @@ public final class FloatView {
         }
 
         public final Builder setConfig(Config config) {
-            q.n(config, "config");
+            p.o(config, "config");
             this.mConfig = config;
             return this;
         }
@@ -176,26 +176,26 @@ public final class FloatView {
         }
 
         public final Builder setAnimator(FloatViewAnimator floatViewAnimator) {
-            q.n(floatViewAnimator, "animator");
+            p.o(floatViewAnimator, "animator");
             this.mConfig.setAnimator(floatViewAnimator);
             return this;
         }
 
         public final Builder startForeground(Notification notification) {
-            q.n(notification, ActionJsonData.TAG_NOTIFICATION);
+            p.o(notification, ActionJsonData.TAG_NOTIFICATION);
             this.mConfig.setNotification(notification);
             this.mConfig.setForeground(true);
             return this;
         }
 
         public final Builder addFloatListener(FloatViewListener floatViewListener) {
-            q.n(floatViewListener, "listener");
+            p.o(floatViewListener, "listener");
             this.mConfig.getFloatViewListeners().add(floatViewListener);
             return this;
         }
 
         public final Builder bindContext(IFloating iFloating) {
-            q.n(iFloating, "context");
+            p.o(iFloating, "context");
             this.mConfig.setFloatingContext(iFloating);
             return this;
         }
@@ -223,7 +223,7 @@ public final class FloatView {
         }
 
         public final Builder filters(List<String> list) {
-            q.n(list, "filters");
+            p.o(list, "filters");
             this.mConfig.getFilter().clear();
             this.mConfig.getFilter().addAll(list);
             return this;

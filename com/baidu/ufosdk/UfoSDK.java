@@ -10,6 +10,7 @@ import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.live.tbadk.pay.PayHelper;
+import com.baidu.searchbox.ugc.model.PublishType;
 import com.baidu.swan.games.utils.so.SoUtils;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.ufosdk.f.i;
@@ -26,7 +27,7 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class UfoSDK {
     public static boolean localFirstCall;
     private static Context mApplication;
@@ -80,7 +81,7 @@ public class UfoSDK {
         hashMap.put("6", "请描述您遇到的问题");
         hashMap.put("7", "帮助与反馈");
         hashMap.put("8", "常见问题");
-        hashMap.put("9", "小时以前");
+        hashMap.put(PublishType.TYPE_VIDEO_SHARE, "小时以前");
         hashMap.put("10", "我要反馈");
         hashMap.put("11", "刚刚");
         hashMap.put("12", "请输入反馈内容不少于4个有效字符");
@@ -145,7 +146,7 @@ public class UfoSDK {
         hashMap.put("6", "Please describe the problems");
         hashMap.put("7", "Help & Feedback");
         hashMap.put("8", "FAQ");
-        hashMap.put("9", " hours ago");
+        hashMap.put(PublishType.TYPE_VIDEO_SHARE, " hours ago");
         hashMap.put("10", "Feeback");
         hashMap.put("11", "just now");
         hashMap.put("12", "Please input feedback not less than 4 valid characters");
@@ -567,7 +568,7 @@ public class UfoSDK {
     }
 
     public static void openLogcatSwitch() {
-        b.f3700a = true;
+        b.f3703a = true;
     }
 
     public static void openRobotAnswer() {

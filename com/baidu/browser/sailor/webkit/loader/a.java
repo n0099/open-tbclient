@@ -9,11 +9,11 @@ import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class a implements WebKitFactory.WebkitInstallListener {
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f1290a = a.class.getSimpleName();
+    static final String f1289a = a.class.getSimpleName();
     byte b;
     long c;
 
@@ -23,10 +23,10 @@ public class a implements WebKitFactory.WebkitInstallListener {
         WebKitFactory.setApkLibLoadType(z);
         if (BdWebkitManager.a.c == i || BdWebkitManager.a.b == i) {
             WebKitFactory.setEngine(1);
-            Log.d(f1290a, "zeus version =" + WebKitFactory.getZeusVersionName());
+            Log.d(f1289a, "zeus version =" + WebKitFactory.getZeusVersionName());
         } else {
             WebKitFactory.setEngine(0);
-            Log.d(f1290a, "zeus version =" + WebKitFactory.getZeusVersionName());
+            Log.d(f1289a, "zeus version =" + WebKitFactory.getZeusVersionName());
         }
         Log.i(EngineManager.LOG_TAG, "so in=" + WebKitFactory.getZeusVersionName());
         Log.i(EngineManager.LOG_TAG, "so out=" + WebKitFactory.getSdkVersionName());
@@ -55,15 +55,15 @@ public class a implements WebKitFactory.WebkitInstallListener {
                     BdSailorPlatform.getWebkitManager().onLoadZeusSDKSuccess();
                 }
             }
-            Log.d(f1290a, "install success!");
+            Log.d(f1289a, "install success!");
             BdSailorPlatform.getWebkitManager().onInstallZeusPluginSuccess(BdSailorPlatform.getInstance().getAppContext(), str, this.b);
         } else {
-            Log.d(f1290a, "install failed!");
+            Log.d(f1289a, "install failed!");
             BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.b, WebKitFactory.getLoadErrorCode());
         }
         BdZeusDownloadHelper.a();
         BdSailorPlatform.getWebkitManager().enableBdWebkit();
-        Log.i(f1290a, "total timecost: " + String.valueOf(System.currentTimeMillis() - this.c));
+        Log.i(f1289a, "total timecost: " + String.valueOf(System.currentTimeMillis() - this.c));
     }
 
     @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener

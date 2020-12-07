@@ -13,9 +13,9 @@ import java.io.InputStreamReader;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private SparseArray<a> cy = new SparseArray<>();
+    private SparseArray<a> cD = new SparseArray<>();
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: java.lang.String */
     /* JADX WARN: Multi-variable type inference failed */
@@ -107,8 +107,8 @@ public class b {
                 int length2 = jSONArray2.length();
                 a aVar = new a();
                 aVar.type = i2;
-                aVar.sI = z;
-                aVar.sJ = new String[length2];
+                aVar.f1195tv = z;
+                aVar.tw = new String[length2];
                 for (int i3 = 0; i3 < length2; i3++) {
                     JSONObject jSONObject2 = jSONArray2.getJSONObject(i3);
                     int optInt = jSONObject2.optInt(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, i3);
@@ -118,9 +118,9 @@ public class b {
                     if (z) {
                         absolutePath = absolutePath.substring(1);
                     }
-                    aVar.sJ[optInt] = absolutePath;
+                    aVar.tw[optInt] = absolutePath;
                 }
-                this.cy.put(i2, aVar);
+                this.cD.put(i2, aVar);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -162,7 +162,7 @@ public class b {
         a(d(context, substring + "dl_config.json"), substring, true);
     }
 
-    public SparseArray<a> fn() {
-        return this.cy;
+    public SparseArray<a> fm() {
+        return this.cD;
     }
 }

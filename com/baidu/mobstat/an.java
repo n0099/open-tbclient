@@ -34,7 +34,7 @@ public class an {
     private final Handler b = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with root package name */
-    private final b f2539a = new b();
+    private final b f2541a = new b();
 
     public static void a() {
         d = 0;
@@ -183,8 +183,8 @@ public class an {
 
     public Bitmap b(Activity activity) {
         List list;
-        this.f2539a.a(activity);
-        FutureTask futureTask = new FutureTask(this.f2539a);
+        this.f2541a.a(activity);
+        FutureTask futureTask = new FutureTask(this.f2541a);
         this.b.post(futureTask);
         List emptyList = Collections.emptyList();
         if (futureTask != null) {
@@ -204,7 +204,7 @@ public class an {
         if (emptyList.size() == 0) {
             return null;
         }
-        return ((c) emptyList.get(0)).c.f2540a;
+        return ((c) emptyList.get(0)).c.f2542a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -212,14 +212,14 @@ public class an {
     public static class b implements Callable<List<c>> {
 
         /* renamed from: a  reason: collision with root package name */
-        private Activity f2541a;
+        private Activity f2543a;
         private final int e = 160;
         private final DisplayMetrics c = new DisplayMetrics();
         private final List<c> b = new ArrayList();
         private final a d = new a();
 
         public void a(Activity activity) {
-            this.f2541a = activity;
+            this.f2543a = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -228,7 +228,7 @@ public class an {
         public List<c> call() throws Exception {
             this.b.clear();
             HashSet<Activity> hashSet = new HashSet(1);
-            hashSet.add(this.f2541a);
+            hashSet.add(this.f2543a);
             for (Activity activity : hashSet) {
                 String canonicalName = activity.getClass().getCanonicalName();
                 View b = bj.b(activity);
@@ -245,11 +245,11 @@ public class an {
         }
 
         private void b() {
-            ai.a(this.f2541a, false);
+            ai.a(this.f2543a, false);
         }
 
         private void c() {
-            ai.a(this.f2541a, true);
+            ai.a(this.f2543a, true);
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [359=5] */
@@ -343,21 +343,21 @@ public class an {
         private final Paint b = new Paint(2);
 
         /* renamed from: a  reason: collision with root package name */
-        private Bitmap f2540a = null;
+        private Bitmap f2542a = null;
 
         public synchronized void a(int i, int i2, int i3, Bitmap bitmap) {
-            if (this.f2540a == null || this.f2540a.getWidth() != i || this.f2540a.getHeight() != i2) {
+            if (this.f2542a == null || this.f2542a.getWidth() != i || this.f2542a.getHeight() != i2) {
                 try {
-                    this.f2540a = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
+                    this.f2542a = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
                 } catch (OutOfMemoryError e) {
-                    this.f2540a = null;
+                    this.f2542a = null;
                 }
-                if (this.f2540a != null) {
-                    this.f2540a.setDensity(i3);
+                if (this.f2542a != null) {
+                    this.f2542a.setDensity(i3);
                 }
             }
-            if (this.f2540a != null) {
-                new Canvas(this.f2540a).drawBitmap(bitmap, 0.0f, 0.0f, this.b);
+            if (this.f2542a != null) {
+                new Canvas(this.f2542a).drawBitmap(bitmap, 0.0f, 0.0f, this.b);
             }
         }
     }
@@ -367,13 +367,13 @@ public class an {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f2542a;
+        public final String f2544a;
         public final View b;
         public a c = null;
         public float d = 1.0f;
 
         public c(String str, View view) {
-            this.f2542a = str;
+            this.f2544a = str;
             this.b = view;
         }
     }

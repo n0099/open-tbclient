@@ -3,52 +3,52 @@ package com.baidu.ar.cloud;
 import com.baidu.ar.c;
 import com.baidu.ar.d;
 import java.lang.ref.WeakReference;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a extends d implements ICloudIR {
-    private WeakReference<ICloudIR> lU;
-    private ICloudIRStateChangedListener lV;
+    private WeakReference<ICloudIR> mj;
+    private ICloudIRStateChangedListener mk;
 
     @Override // com.baidu.ar.d
     public void a(c cVar) {
         if (cVar instanceof ICloudIR) {
-            this.lU = new WeakReference<>((ICloudIR) cVar);
-            if (this.lV != null) {
-                ((ICloudIR) cVar).setStateChangedListener(this.lV);
+            this.mj = new WeakReference<>((ICloudIR) cVar);
+            if (this.mk != null) {
+                ((ICloudIR) cVar).setStateChangedListener(this.mk);
             }
         }
     }
 
     @Override // com.baidu.ar.cloud.ICloudIR
     public void pause() {
-        if (this.lU == null || this.lU.get() == null) {
+        if (this.mj == null || this.mj.get() == null) {
             return;
         }
-        this.lU.get().pause();
+        this.mj.get().pause();
     }
 
     @Override // com.baidu.ar.d
     public void release() {
-        if (this.lU != null) {
-            this.lU.clear();
-            this.lU = null;
+        if (this.mj != null) {
+            this.mj.clear();
+            this.mj = null;
         }
-        this.lV = null;
+        this.mk = null;
     }
 
     @Override // com.baidu.ar.cloud.ICloudIR
     public void resume() {
-        if (this.lU == null || this.lU.get() == null) {
+        if (this.mj == null || this.mj.get() == null) {
             return;
         }
-        this.lU.get().resume();
+        this.mj.get().resume();
     }
 
     @Override // com.baidu.ar.cloud.ICloudIR
     public void setStateChangedListener(ICloudIRStateChangedListener iCloudIRStateChangedListener) {
-        this.lV = iCloudIRStateChangedListener;
-        if (this.lV == null || this.lU == null || this.lU.get() == null) {
+        this.mk = iCloudIRStateChangedListener;
+        if (this.mk == null || this.mj == null || this.mj.get() == null) {
             return;
         }
-        this.lU.get().setStateChangedListener(this.lV);
+        this.mj.get().setStateChangedListener(this.mk);
     }
 }

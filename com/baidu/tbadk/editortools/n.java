@@ -3,8 +3,6 @@ package com.baidu.tbadk.editortools;
 public interface n extends b {
     void b(a aVar);
 
-    void display();
-
     int getToolId();
 
     void hide();
@@ -16,4 +14,6 @@ public interface n extends b {
     void setEditorTools(EditorTools editorTools);
 
     void setToolId(int i);
+
+    void su();
 }

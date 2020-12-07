@@ -3,7 +3,7 @@ package android.view;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.os.Bundle;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public abstract class ViewStructure {
     public abstract int addChildCount(int i);
 

@@ -1,11 +1,11 @@
 package com.baidu.searchbox.floating.utils;
 
 import android.graphics.Rect;
-import kotlin.h;
+import kotlin.e;
 import kotlin.jvm.a.a;
 import kotlin.jvm.internal.Lambda;
-@h
-/* loaded from: classes9.dex */
+@e
+/* loaded from: classes16.dex */
 final class TouchHelper$mBlockOffset$2 extends Lambda implements a<Rect> {
     final /* synthetic */ TouchHelper this$0;
 

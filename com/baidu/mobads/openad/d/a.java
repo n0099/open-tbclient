@@ -23,7 +23,7 @@ import org.apache.http.protocol.HTTP;
 public class a extends com.baidu.mobads.openad.c.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2384a = 1024;
+    public static int f2386a = 1024;
     private static final TimeUnit h = TimeUnit.SECONDS;
     private static int i = 5;
     private static BlockingQueue<Runnable> j = new LinkedBlockingQueue();
@@ -64,7 +64,7 @@ public class a extends com.baidu.mobads.openad.c.c {
 
     public void a(c cVar, double d) {
         try {
-            k.execute(new RunnableC0262a(cVar, d));
+            k.execute(new RunnableC0272a(cVar, d));
         } catch (Exception e) {
         }
     }
@@ -72,11 +72,11 @@ public class a extends com.baidu.mobads.openad.c.c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mobads.openad.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class RunnableC0262a implements Runnable {
+    public class RunnableC0272a implements Runnable {
         private c b;
         private double c;
 
-        public RunnableC0262a(c cVar, double d) {
+        public RunnableC0272a(c cVar, double d) {
             this.b = cVar;
             this.c = d;
         }
@@ -91,7 +91,7 @@ public class a extends com.baidu.mobads.openad.c.c {
                     Thread.sleep(this.b.c);
                 }
                 a.this.d.set(true);
-                a.this.f = (HttpURLConnection) new URL(this.b.f2387a).openConnection();
+                a.this.f = (HttpURLConnection) new URL(this.b.f2389a).openConnection();
                 a.this.f.setConnectTimeout((int) this.c);
                 a.this.f.setUseCaches(false);
                 if (this.b.b != null && this.b.b.length() > 0) {

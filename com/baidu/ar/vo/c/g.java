@@ -7,44 +7,44 @@ import com.baidu.ar.arplay.representation.Matrix;
 import com.baidu.ar.arplay.representation.Matrixf4x4;
 import com.baidu.ar.arplay.representation.Quaternion;
 import com.baidu.ar.arplay.representation.Vector3f;
-import com.baidu.ar.arrender.k;
 import com.baidu.ar.arrender.l;
+import com.baidu.ar.arrender.m;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class g implements d {
     private int mPreviewHeight;
     private int mPreviewWidth;
-    private com.baidu.ar.vo.a.b ym;
-    private com.baidu.ar.vo.b.a yn;
-    private k yo;
-    private com.baidu.ar.vo.a yp;
-    private boolean yq = true;
-    private int yr = 0;
-    private volatile Runnable ys;
+    private com.baidu.ar.vo.a.b zb;
+    private com.baidu.ar.vo.b.a zc;
+    private l zd;
+    private com.baidu.ar.vo.a ze;
+    private boolean zf = true;
+    private int zg = 0;
+    private volatile Runnable zh;
 
-    public g(k kVar, com.baidu.ar.vo.a.b bVar, com.baidu.ar.vo.b.a aVar, com.baidu.ar.vo.a aVar2) {
-        this.yo = kVar;
-        this.ym = bVar;
-        this.yn = aVar;
-        this.yp = aVar2;
+    public g(l lVar, com.baidu.ar.vo.a.b bVar, com.baidu.ar.vo.b.a aVar, com.baidu.ar.vo.a aVar2) {
+        this.zd = lVar;
+        this.zb = bVar;
+        this.zc = aVar;
+        this.ze = aVar2;
     }
 
     private boolean hp() {
-        if (this.yr == 0) {
-            this.yr = this.yo.isDriverdByARPVersion() ? 1 : -1;
+        if (this.zg == 0) {
+            this.zg = this.zd.isDriverdByARPVersion() ? 1 : -1;
         }
-        return this.yr == 1;
+        return this.zg == 1;
     }
 
-    private void j(int i, int i2) {
+    private void k(int i, int i2) {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", 4101);
         hashMap.put("guideDirection", Integer.valueOf(i2));
         hashMap.put("switchGuide", Integer.valueOf(i));
-        this.yp.d(hashMap);
+        this.ze.d(hashMap);
     }
 
-    private float[] t(float[] fArr) {
+    private float[] s(float[] fArr) {
         if (fArr == null || fArr.length != 16) {
             return null;
         }
@@ -72,7 +72,7 @@ public class g implements d {
         if (bVar == null) {
             return;
         }
-        if (bVar.yl) {
+        if (bVar.za) {
             int[] b = b(bVar.x, bVar.y);
             f = b[1];
             f2 = b[0];
@@ -81,26 +81,26 @@ public class g implements d {
             f = bVar.y;
             f2 = f3;
         }
-        String a2 = a(this.ym);
+        String a2 = a(this.zb);
         if (bVar.type == 3) {
-            this.yn.hi();
-            a(a2, (int) f2, (int) f, null, (int) bVar.yk);
-            this.ys = new Runnable() { // from class: com.baidu.ar.vo.c.g.1
+            this.zc.hi();
+            a(a2, (int) f2, (int) f, null, (int) bVar.yZ);
+            this.zh = new Runnable() { // from class: com.baidu.ar.vo.c.g.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (g.this.yo != null) {
-                        g.this.yo.sceneRotateToCamera();
+                    if (g.this.zd != null) {
+                        g.this.zd.sceneRotateToCamera();
                     }
                 }
             };
         } else if (bVar.type == 2) {
-            this.yn.hi();
-            a(a2, (int) f2, (int) f, null, (int) bVar.yk);
-            this.ys = new Runnable() { // from class: com.baidu.ar.vo.c.g.2
+            this.zc.hi();
+            a(a2, (int) f2, (int) f, null, (int) bVar.yZ);
+            this.zh = new Runnable() { // from class: com.baidu.ar.vo.c.g.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (g.this.yo != null) {
-                        g.this.yo.sceneWorldPositionToOrigin();
+                    if (g.this.zd != null) {
+                        g.this.zd.sceneWorldPositionToOrigin();
                     }
                 }
             };
@@ -109,8 +109,8 @@ public class g implements d {
 
     @Override // com.baidu.ar.vo.c.d
     public void a(String str, int i, int i2, float[] fArr, float f) {
-        if (this.yn != null) {
-            this.yn.insertModel(str, i, i2, fArr, f);
+        if (this.zc != null) {
+            this.zc.insertModel(str, i, i2, fArr, f);
         }
     }
 
@@ -129,53 +129,53 @@ public class g implements d {
 
     @Override // com.baidu.ar.vo.c.d
     public void hl() {
-        j(1, 0);
+        k(1, 0);
     }
 
     @Override // com.baidu.ar.vo.c.d
     public void hm() {
-        j(1, 1);
+        k(1, 1);
     }
 
     @Override // com.baidu.ar.vo.c.d
     public void hn() {
-        j(0, 1);
+        k(0, 1);
     }
 
     @Override // com.baidu.ar.vo.c.d
     public void ho() {
-        this.yo.i(true);
+        this.zd.setOffScreenGuideWork(true);
+    }
+
+    @Override // com.baidu.ar.vo.c.d
+    public void r(float[] fArr) {
+        if (this.zd == null || fArr == null || fArr.length != 16) {
+            return;
+        }
+        if (this.zh != null) {
+            this.zh.run();
+            this.zh = null;
+        }
+        this.zd.a(ARPScriptEnvironment.KEY_DATA_PIP_SLAM, fArr);
+        if (this.zf) {
+            this.zf = false;
+            this.ze.b(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, null);
+        }
+        if (hp()) {
+            fArr = s(fArr);
+        }
+        m mVar = new m();
+        mVar.r("ability_vo");
+        mVar.setMatrix(fArr);
+        this.zd.a(mVar);
     }
 
     @Override // com.baidu.ar.vo.c.d
     public void release() {
-        this.yn = null;
-        this.ys = null;
-        this.yo = null;
-        this.yp = null;
-    }
-
-    @Override // com.baidu.ar.vo.c.d
-    public void s(float[] fArr) {
-        if (this.yo == null || fArr == null || fArr.length != 16) {
-            return;
-        }
-        if (this.ys != null) {
-            this.ys.run();
-            this.ys = null;
-        }
-        this.yo.b(ARPScriptEnvironment.KEY_DATA_PIP_SLAM, fArr);
-        if (this.yq) {
-            this.yq = false;
-            this.yp.b(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, null);
-        }
-        if (hp()) {
-            fArr = t(fArr);
-        }
-        l lVar = new l();
-        lVar.p("ability_vo");
-        lVar.setMatrix(fArr);
-        this.yo.a(lVar);
+        this.zc = null;
+        this.zh = null;
+        this.zd = null;
+        this.ze = null;
     }
 
     public void setPreviewSize(int i, int i2) {

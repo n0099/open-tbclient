@@ -15,15 +15,15 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.forumMember.bawu.h;
 import com.baidu.tieba.forumMember.member.p;
 import java.util.ArrayList;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class g {
-    private BdListView Wa;
-    private com.baidu.tbadk.coreExtra.view.b fbf;
-    private NoNetworkView fwR;
-    private BawuTeamInfoActivity iDF;
-    private h iDG;
-    private boolean iDH = false;
-    private h.b iDI;
+    private BdListView WX;
+    private NoNetworkView fEG;
+    private com.baidu.tbadk.coreExtra.view.b fiF;
+    private h.b iOA;
+    private BawuTeamInfoActivity iOx;
+    private h iOy;
+    private boolean iOz = false;
     private NavigationBar mNavigationBar;
     private View mParent;
     private View mRoot;
@@ -33,88 +33,88 @@ public class g {
     }
 
     public g(BawuTeamInfoActivity bawuTeamInfoActivity) {
-        this.iDF = bawuTeamInfoActivity;
-        this.mRoot = LayoutInflater.from(this.iDF.getPageContext().getPageActivity()).inflate(R.layout.bawu_team_info_activity_layout, (ViewGroup) null);
-        this.iDF.setContentView(this.mRoot);
+        this.iOx = bawuTeamInfoActivity;
+        this.mRoot = LayoutInflater.from(this.iOx.getPageContext().getPageActivity()).inflate(R.layout.bawu_team_info_activity_layout, (ViewGroup) null);
+        this.iOx.setContentView(this.mRoot);
         this.mParent = this.mRoot.findViewById(R.id.root_bawu_team_info);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
-        this.mNavigationBar.setCenterTextTitle(this.iDF.getString(R.string.bawu_manager_team));
+        this.mNavigationBar.setCenterTextTitle(this.iOx.getString(R.string.bawu_manager_team));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.fwR = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
-        this.Wa = (BdListView) this.mRoot.findViewById(R.id.listview_bawu_team_info);
-        this.iDG = new h(this.iDF.getPageContext());
-        this.Wa.setAdapter((ListAdapter) this.iDG);
-        this.iDI = new h.b() { // from class: com.baidu.tieba.forumMember.bawu.g.1
+        this.fEG = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
+        this.WX = (BdListView) this.mRoot.findViewById(R.id.listview_bawu_team_info);
+        this.iOy = new h(this.iOx.getPageContext());
+        this.WX.setAdapter((ListAdapter) this.iOy);
+        this.iOA = new h.b() { // from class: com.baidu.tieba.forumMember.bawu.g.1
             /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.baidu.tieba.forumMember.bawu.h.b
-            public void JI(String str) {
+            public void Ky(String str) {
                 if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    bf.bqF().b(g.this.iDF.getPageContext(), new String[]{str});
+                    bf.bua().b(g.this.iOx.getPageContext(), new String[]{str});
                 } else {
                     g.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 }
             }
         };
-        this.iDG.a(this.iDI);
+        this.iOy.a(this.iOA);
     }
 
     public void a(ArrayList<i> arrayList, p pVar, boolean z) {
         if (arrayList == null || arrayList.size() <= 0) {
-            this.iDH = true;
+            this.iOz = true;
         } else {
-            this.iDH = false;
+            this.iOz = false;
         }
-        if (z && this.iDH) {
-            cwe();
+        if (z && this.iOz) {
+            cAt();
             return;
         }
-        cwf();
-        this.iDG.ax(arrayList);
-        this.iDG.a(pVar);
-        this.iDG.notifyDataSetChanged();
+        cAu();
+        this.iOy.ay(arrayList);
+        this.iOy.a(pVar);
+        this.iOy.notifyDataSetChanged();
     }
 
-    public boolean cwd() {
-        return this.iDH;
+    public boolean cAs() {
+        return this.iOz;
     }
 
     public void onChangeSkinType(int i) {
-        this.iDF.getLayoutMode().setNightMode(i == 1);
-        this.iDF.getLayoutMode().onModeChanged(this.mRoot);
-        this.mNavigationBar.onChangeSkinType(this.iDF.getPageContext(), i);
-        this.fwR.onChangeSkinType(this.iDF.getPageContext(), i);
-        this.iDG.notifyDataSetChanged();
+        this.iOx.getLayoutMode().setNightMode(i == 1);
+        this.iOx.getLayoutMode().onModeChanged(this.mRoot);
+        this.mNavigationBar.onChangeSkinType(this.iOx.getPageContext(), i);
+        this.fEG.onChangeSkinType(this.iOx.getPageContext(), i);
+        this.iOy.notifyDataSetChanged();
     }
 
-    public void cwe() {
-        this.Wa.setVisibility(8);
-        this.iDF.showNetRefreshView(this.mRoot, this.iDF.getPageContext().getResources().getString(R.string.no_data_text), true);
+    public void cAt() {
+        this.WX.setVisibility(8);
+        this.iOx.showNetRefreshView(this.mRoot, this.iOx.getPageContext().getResources().getString(R.string.no_data_text), true);
     }
 
-    public void cwf() {
-        this.iDF.hideNetRefreshView(this.mRoot);
-        this.Wa.setVisibility(0);
+    public void cAu() {
+        this.iOx.hideNetRefreshView(this.mRoot);
+        this.WX.setVisibility(0);
     }
 
     public void e(NoNetworkView.a aVar) {
-        this.fwR.a(aVar);
+        this.fEG.a(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(AccountData accountData) {
-        if (this.fbf == null) {
-            this.fbf = new com.baidu.tbadk.coreExtra.view.b(this.iDF);
+        if (this.fiF == null) {
+            this.fiF = new com.baidu.tbadk.coreExtra.view.b(this.iOx);
         }
-        this.fbf.bxh();
-        this.fbf.setAccountData(accountData);
-        this.fbf.rr(1);
+        this.fiF.bAH();
+        this.fiF.setAccountData(accountData);
+        this.fiF.rS(1);
     }
 
     public void onDestroy() {
-        if (this.fbf != null) {
-            this.fbf.onDestroy();
+        if (this.fiF != null) {
+            this.fiF.onDestroy();
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.live.im.data;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class ImSendMsgData implements Serializable {
-    public b barrageCardInfo;
+    public d barrageCardInfo;
     public String barrageId;
     public int barrageType;
     public boolean isQuick;

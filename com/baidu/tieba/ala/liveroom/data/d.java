@@ -6,12 +6,12 @@ public class d {
     public String forumName;
     public String gameId;
     public String gameName;
-    public boolean hgA;
-    public boolean hgv;
-    public boolean hgw;
-    public String hgx;
-    public boolean hgy;
-    public boolean hgz;
+    public boolean hqc;
+    public boolean hqd;
+    public String hqe;
+    public boolean hqf;
+    public boolean hqg;
+    public boolean hqh;
     public int liveType;
     public String title;
 }

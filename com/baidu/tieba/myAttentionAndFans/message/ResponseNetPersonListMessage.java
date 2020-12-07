@@ -3,16 +3,17 @@ package com.baidu.tieba.myAttentionAndFans.message;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.cache.l;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.c.a;
-import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.be;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
-    private bd data;
+    private be data;
     private int mErrCode;
     private String mErrMsg;
 
@@ -30,7 +31,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         return this.mErrMsg;
     }
 
-    public bd getData() {
+    public be getData() {
         return this.data;
     }
 
@@ -40,8 +41,8 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt("error_code");
-            this.mErrMsg = jSONObject.optString("error_msg");
-            this.data = new bd();
+            this.mErrMsg = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
+            this.data = new be();
             this.data.parserJson(jSONObject);
         }
     }
@@ -63,9 +64,9 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                         z = false;
                     }
                     String str = new String(bArr);
-                    l<String> AH = a.bob().AH("tb.my_pages");
-                    if (AH != null) {
-                        AH.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + map.get("id"), str, 604800000L);
+                    l<String> Bo = a.brq().Bo("tb.my_pages");
+                    if (Bo != null) {
+                        Bo.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + map.get("id"), str, 604800000L);
                     }
                 }
             }

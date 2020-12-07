@@ -12,8 +12,8 @@ import com.baidu.card.am;
 import com.baidu.card.o;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.az;
@@ -24,27 +24,27 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.card.t;
-/* loaded from: classes21.dex */
-public class b extends com.baidu.adp.widget.ListView.a<bw, am<bx>> {
-    private ab<bx> afK;
-    private boolean akn;
-    private v alH;
-    private com.baidu.adp.lib.d.b<ImageView> fFn;
-    private com.baidu.adp.lib.d.b<GifView> fFo;
-    public BdUniqueId fsa;
+/* loaded from: classes22.dex */
+public class b extends com.baidu.adp.widget.ListView.a<bx, am<by>> {
+    private ab<by> agG;
+    private boolean alo;
+    private v amH;
+    private com.baidu.adp.lib.d.b<ImageView> fMZ;
+    private com.baidu.adp.lib.d.b<GifView> fNa;
+    public BdUniqueId fzO;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.akn = true;
-        this.fFn = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.1
+        this.alo = true;
+        this.fMZ = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bFZ */
+            /* renamed from: bJz */
             public ImageView makeObject() {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(b.this.mPageContext.getPageActivity());
-                boolean isShowImages = com.baidu.tbadk.core.k.biL().isShowImages();
+                boolean isShowImages = com.baidu.tbadk.core.k.blV().isShowImages();
                 foreDrawableImageView.setDefaultBg(ap.getDrawable(R.color.common_color_10220));
                 if (isShowImages) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -80,7 +80,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bw, am<bx>> {
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (com.baidu.tbadk.core.k.biL().isShowImages()) {
+                    if (com.baidu.tbadk.core.k.blV().isShowImages()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -110,13 +110,13 @@ public class b extends com.baidu.adp.widget.ListView.a<bw, am<bx>> {
                 return imageView;
             }
         }, 12, 0);
-        this.fFo = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.2
+        this.fNa = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: csv */
+            /* renamed from: cwK */
             public GifView makeObject() {
                 GifView gifView = new GifView(b.this.mPageContext.getPageActivity());
-                boolean isShowImages = com.baidu.tbadk.core.k.biL().isShowImages();
+                boolean isShowImages = com.baidu.tbadk.core.k.blV().isShowImages();
                 gifView.setDefaultBg(ap.getDrawable(R.color.common_color_10220));
                 if (isShowImages) {
                     gifView.setAdjustViewBounds(false);
@@ -146,7 +146,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bw, am<bx>> {
             /* renamed from: h */
             public GifView activateObject(GifView gifView) {
                 gifView.setTag(null);
-                if (com.baidu.tbadk.core.k.biL().isShowImages()) {
+                if (com.baidu.tbadk.core.k.blV().isShowImages()) {
                     gifView.setAdjustViewBounds(false);
                     gifView.setInterceptOnClick(false);
                 } else {
@@ -164,7 +164,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bw, am<bx>> {
                 gifView.release();
                 gifView.onDestroy();
                 gifView.setImageDrawable(null);
-                gifView.bAr();
+                gifView.bDT();
                 gifView.setBackgroundDrawable(null);
                 gifView.setTag(null);
                 gifView.setOnClickListener(null);
@@ -172,22 +172,22 @@ public class b extends com.baidu.adp.widget.ListView.a<bw, am<bx>> {
                 return gifView;
             }
         }, 20, 0);
-        this.afK = new ab<bx>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.3
+        this.agG = new ab<by>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
-            public void a(View view, bx bxVar) {
-                t.cnT().lO(true);
-                com.baidu.tieba.enterForum.a.a(view, bxVar, b.this.mTabName);
+            public void a(View view, by byVar) {
+                t.csg().mj(true);
+                com.baidu.tieba.enterForum.a.a(view, byVar, b.this.mTabName);
             }
         };
         this.mPageContext = tbPageContext;
-        this.fsa = bdUniqueId2;
+        this.fzO = bdUniqueId2;
         this.mTabName = str;
     }
 
     public void a(v vVar) {
-        this.alH = vVar;
+        this.amH = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -199,27 +199,27 @@ public class b extends com.baidu.adp.widget.ListView.a<bw, am<bx>> {
         o oVar = new o(this.mPageContext.getPageActivity());
         oVar.setFrom("index");
         oVar.setFromForPb(2);
-        oVar.setObjectPool(this.fFn, this.fFo);
-        oVar.e(com.baidu.tbadk.a.b.a.bhB(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004), com.baidu.tbadk.a.b.a.bhB(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004));
-        oVar.setFromCDN(this.akn);
+        oVar.setObjectPool(this.fMZ, this.fNa);
+        oVar.e(com.baidu.tbadk.a.b.a.bkK(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004), com.baidu.tbadk.a.b.a.bkK(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004));
+        oVar.setFromCDN(this.alo);
         oVar.setCornerStyle(1);
         aVar.c(oVar);
-        ak a2 = aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.alH);
+        ak a2 = aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.amH);
         a2.setSourceForPb(2);
         am amVar = new am(a2);
-        amVar.setPageId(this.fsa);
+        amVar.setPageId(this.fzO);
         a(new com.baidu.adp.widget.ListView.ab() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.4
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                if ((qVar instanceof bw) && (view.getTag() instanceof am)) {
+                if ((qVar instanceof bx) && (view.getTag() instanceof am)) {
                     am amVar2 = (am) view.getTag();
-                    bx bxVar = ((bw) qVar).evQ;
-                    bxVar.objType = 1;
-                    if (b.this.afK != null) {
-                        b.this.afK.a(amVar2.getView(), bxVar);
+                    by byVar = ((bx) qVar).eCR;
+                    byVar.objType = 1;
+                    if (b.this.agG != null) {
+                        b.this.agG.a(amVar2.getView(), byVar);
                     }
-                    az.a((com.baidu.tbadk.core.data.a) bxVar, view.getContext(), 2, false);
-                    amVar2.tW().b(new a.C0096a(1));
+                    az.a((com.baidu.tbadk.core.data.a) byVar, view.getContext(), 2, false);
+                    amVar2.tZ().b(new a.C0097a(1));
                 }
             }
         });
@@ -229,20 +229,20 @@ public class b extends com.baidu.adp.widget.ListView.a<bw, am<bx>> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bw bwVar, am<bx> amVar) {
-        if (bwVar == null || amVar == null || amVar.getView() == null || bwVar.evQ == null) {
+    public View a(int i, View view, ViewGroup viewGroup, bx bxVar, am<by> amVar) {
+        if (bxVar == null || amVar == null || amVar.getView() == null || bxVar.eCR == null) {
             return null;
         }
-        bwVar.evQ.eAb = getPositionByType(i) + 1;
-        amVar.tW().setPosition(i);
-        amVar.b((am<bx>) bwVar.evQ);
-        amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        amVar.tW().a(this.afK);
-        com.baidu.tieba.enterForum.a.a(bwVar, this.mTabName);
+        bxVar.eCR.eHa = getPositionByType(i) + 1;
+        amVar.tZ().setPosition(i);
+        amVar.b((am<by>) bxVar.eCR);
+        amVar.tZ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        amVar.tZ().a(this.agG);
+        com.baidu.tieba.enterForum.a.a(bxVar, this.mTabName);
         return amVar.getView();
     }
 
     public void setFromCDN(boolean z) {
-        this.akn = z;
+        this.alo = z;
     }
 }

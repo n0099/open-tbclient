@@ -2,7 +2,7 @@ package org.apache.http.params;
 
 import org.apache.http.HttpVersion;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class HttpProtocolParamBean extends HttpAbstractParamBean {
     public HttpProtocolParamBean(HttpParams httpParams) {
         super(null);

@@ -6,11 +6,11 @@ import android.graphics.Color;
 import android.widget.TextView;
 import com.baidu.pass.biometrics.face.liveness.view.XfordView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class d implements ValueAnimator.AnimatorUpdateListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private IntEvaluator f2733a = new IntEvaluator();
+    private IntEvaluator f2735a = new IntEvaluator();
     final /* synthetic */ LivenessRecogActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,11 +25,11 @@ public class d implements ValueAnimator.AnimatorUpdateListener {
         XfordView xfordView2;
         XfordView xfordView3;
         float intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue() / 100.0f;
-        int intValue2 = this.f2733a.evaluate(intValue, (Integer) 255, (Integer) 51).intValue();
+        int intValue2 = this.f2735a.evaluate(intValue, (Integer) 255, (Integer) 51).intValue();
         textView = this.b.x;
         textView.setTextColor(Color.rgb(intValue2, intValue2, intValue2));
-        int intValue3 = this.f2733a.evaluate(intValue, (Integer) 0, (Integer) 255).intValue();
-        int intValue4 = this.f2733a.evaluate(intValue, (Integer) 66, (Integer) 255).intValue();
+        int intValue3 = this.f2735a.evaluate(intValue, (Integer) 0, (Integer) 255).intValue();
+        int intValue4 = this.f2735a.evaluate(intValue, (Integer) 66, (Integer) 255).intValue();
         xfordView = this.b.E;
         if (xfordView != null) {
             xfordView2 = this.b.E;

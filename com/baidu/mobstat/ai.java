@@ -84,7 +84,7 @@ public class ai {
         textView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.mobstat.ai.2
 
             /* renamed from: a  reason: collision with root package name */
-            int f2525a = 0;
+            int f2527a = 0;
             int b = 0;
             int c = 0;
             int d = 0;
@@ -95,13 +95,13 @@ public class ai {
                 int rawY = (int) motionEvent.getRawY();
                 switch (motionEvent.getAction()) {
                     case 0:
-                        this.f2525a = rawX;
+                        this.f2527a = rawX;
                         this.b = rawY;
                         this.c = rawX - view2.getLeft();
                         this.d = rawY - view2.getTop();
                         return true;
                     case 1:
-                        if (ai.b(this.f2525a, (int) motionEvent.getRawX(), this.b, (int) motionEvent.getRawY())) {
+                        if (ai.b(this.f2527a, (int) motionEvent.getRawX(), this.b, (int) motionEvent.getRawY())) {
                             ai.b((Context) activity);
                             return true;
                         }

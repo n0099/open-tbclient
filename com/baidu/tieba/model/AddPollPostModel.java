@@ -11,9 +11,9 @@ import com.baidu.tieba.model.message.AddPollPostRequestNetMessage;
 import com.baidu.tieba.model.message.AddPollPostSocketResponseMessage;
 /* loaded from: classes.dex */
 public class AddPollPostModel extends BdBaseModel {
-    private long eoP;
-    private a kXi;
-    private com.baidu.adp.framework.listener.a kXj;
+    private long evO;
+    private a lkB;
+    private com.baidu.adp.framework.listener.a lkC;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -22,12 +22,12 @@ public class AddPollPostModel extends BdBaseModel {
 
     public AddPollPostModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.kXj = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_ADD_POLL_POST, 309006) { // from class: com.baidu.tieba.model.AddPollPostModel.1
+        this.lkC = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_ADD_POLL_POST, 309006) { // from class: com.baidu.tieba.model.AddPollPostModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 String str;
                 int i;
-                if (responsedMessage != null && (responsedMessage.getOrginalMessage().getExtra() instanceof AddPollPostRequestNetMessage) && AddPollPostModel.this.eoP == ((AddPollPostRequestNetMessage) responsedMessage.getOrginalMessage().getExtra()).getThreadId()) {
+                if (responsedMessage != null && (responsedMessage.getOrginalMessage().getExtra() instanceof AddPollPostRequestNetMessage) && AddPollPostModel.this.evO == ((AddPollPostRequestNetMessage) responsedMessage.getOrginalMessage().getExtra()).getThreadId()) {
                     if ((responsedMessage instanceof AddPollPostHttpResponseMessage) || (responsedMessage instanceof AddPollPostSocketResponseMessage)) {
                         AddPollPostHttpResponseMessage addPollPostHttpResponseMessage = responsedMessage instanceof AddPollPostHttpResponseMessage ? (AddPollPostHttpResponseMessage) responsedMessage : null;
                         AddPollPostSocketResponseMessage addPollPostSocketResponseMessage = responsedMessage instanceof AddPollPostSocketResponseMessage ? (AddPollPostSocketResponseMessage) responsedMessage : null;
@@ -45,17 +45,17 @@ public class AddPollPostModel extends BdBaseModel {
                             i = addPollPostSocketResponseMessage.getIdl().data.error_code.intValue();
                             str = addPollPostSocketResponseMessage.getIdl().data.error_msg;
                         }
-                        if (AddPollPostModel.this.kXi != null) {
-                            AddPollPostModel.this.kXi.aE(i, str);
+                        if (AddPollPostModel.this.lkB != null) {
+                            AddPollPostModel.this.lkB.aE(i, str);
                         }
                     }
                 }
             }
         };
-        cHT();
+        cNh();
     }
 
-    private void cHT() {
+    private void cNh() {
         com.baidu.tieba.tbadkCore.a.a.a(309006, AddPollPostSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
     }
@@ -71,19 +71,19 @@ public class AddPollPostModel extends BdBaseModel {
     }
 
     public void registerListener() {
-        registerListener(this.kXj);
+        registerListener(this.lkC);
     }
 
     public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.kXj);
+        MessageManager.getInstance().unRegisterListener(this.lkC);
     }
 
     public void a(a aVar) {
-        this.kXi = aVar;
+        this.lkB = aVar;
     }
 
     public void setTid(long j) {
-        this.eoP = j;
+        this.evO = j;
     }
 
     public void j(String str, String str2, long j) {

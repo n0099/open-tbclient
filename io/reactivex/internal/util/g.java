@@ -1,10 +1,10 @@
 package io.reactivex.internal.util;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class g<T> {
     final float loadFactor;
     int mask;
     int maxSize;
-    T[] pSa;
+    T[] pIO;
     int size;
 
     public g() {
@@ -16,12 +16,12 @@ public final class g<T> {
         int RR = h.RR(i);
         this.mask = RR - 1;
         this.maxSize = (int) (RR * f);
-        this.pSa = (T[]) new Object[RR];
+        this.pIO = (T[]) new Object[RR];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.pSa;
+        T[] tArr = this.pIO;
         int i = this.mask;
         int RQ = RQ(t.hashCode()) & i;
         T t3 = tArr[RQ];
@@ -48,7 +48,7 @@ public final class g<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.pSa;
+        T[] tArr = this.pIO;
         int i = this.mask;
         int RQ = RQ(t.hashCode()) & i;
         T t3 = tArr[RQ];
@@ -97,7 +97,7 @@ public final class g<T> {
     }
 
     void rehash() {
-        T[] tArr = this.pSa;
+        T[] tArr = this.pIO;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -121,7 +121,7 @@ public final class g<T> {
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.pSa = tArr2;
+                this.pIO = tArr2;
                 return;
             }
         }
@@ -132,8 +132,8 @@ public final class g<T> {
         return i2 ^ (i2 >>> 16);
     }
 
-    public Object[] eBb() {
-        return this.pSa;
+    public Object[] eDs() {
+        return this.pIO;
     }
 
     public int size() {

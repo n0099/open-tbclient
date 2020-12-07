@@ -3,18 +3,18 @@ package com.baidu.swan.apps.adlanding.customer;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class CustomerAdScrollView extends ScrollView {
-    private boolean cuR;
-    private boolean cuS;
-    private float cuT;
-    private a cuU;
+    private boolean cBJ;
+    private boolean cBK;
+    private float cBL;
+    private a cBM;
 
     public CustomerAdScrollView(Context context) {
         super(context);
-        this.cuR = false;
-        this.cuS = false;
-        this.cuU = null;
+        this.cBJ = false;
+        this.cBK = false;
+        this.cBM = null;
         setVerticalScrollBarEnabled(false);
     }
 
@@ -23,14 +23,14 @@ public class CustomerAdScrollView extends ScrollView {
         float y = motionEvent.getY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.cuT = y;
+                this.cBL = y;
                 break;
             case 2:
-                if (y - this.cuT < 0.0f) {
-                    if (!this.cuR || this.cuS) {
+                if (y - this.cBL < 0.0f) {
+                    if (!this.cBJ || this.cBK) {
                         return false;
                     }
-                } else if (!this.cuS) {
+                } else if (!this.cBK) {
                     return false;
                 }
                 break;
@@ -41,20 +41,20 @@ public class CustomerAdScrollView extends ScrollView {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.cuU != null) {
-            this.cuU.onScrollChanged(i, i2, i3, i4);
+        if (this.cBM != null) {
+            this.cBM.onScrollChanged(i, i2, i3, i4);
         }
     }
 
     public void setScrollViewListener(a aVar) {
-        this.cuU = aVar;
+        this.cBM = aVar;
     }
 
     public void setIsWebViewOnBottom(boolean z) {
-        this.cuR = z;
+        this.cBJ = z;
     }
 
     public void setIsFooterLayoutShow(boolean z) {
-        this.cuS = z;
+        this.cBK = z;
     }
 }

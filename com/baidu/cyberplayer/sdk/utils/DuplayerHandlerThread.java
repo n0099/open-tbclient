@@ -10,23 +10,23 @@ public class DuplayerHandlerThread extends HandlerThread {
     public static final String TAG = "DuplayerHandlerThread";
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1438a;
+    private long f1440a;
     private volatile int b;
 
     public DuplayerHandlerThread(String str) {
         super(str);
         this.b = 0;
-        this.f1438a = -1L;
+        this.f1440a = -1L;
     }
 
     public DuplayerHandlerThread(String str, int i) {
         super(str, i);
         this.b = 0;
-        this.f1438a = -1L;
+        this.f1440a = -1L;
     }
 
     public long getIdleBeginTime() {
-        return this.f1438a;
+        return this.f1440a;
     }
 
     public int getRunState() {
@@ -34,7 +34,7 @@ public class DuplayerHandlerThread extends HandlerThread {
     }
 
     public void setIdleBeginTime(long j) {
-        this.f1438a = j;
+        this.f1440a = j;
     }
 
     public void setRunState(int i) {

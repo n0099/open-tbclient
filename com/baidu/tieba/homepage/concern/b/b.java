@@ -28,147 +28,147 @@ import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.concern.a.d;
 import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.tbadkCore.ad;
+import com.baidu.tieba.tbadkCore.ae;
 import com.baidu.tieba.view.FollowUserButton;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener {
-    private byte jxF;
-    private d jye;
-    private LikeModel jyf;
-    private ad jyg;
-    private a jyh;
-    private com.baidu.tbadk.core.view.commonBtn.b jyi;
-    private com.baidu.tbadk.core.view.commonBtn.b jyj;
-    public TextView jyk;
-    public BarImageView[] jyl;
-    public TextView[] jym;
-    public TextView[] jyn;
-    public TextView[] jyo;
-    public TextView[] jyp;
-    public TextView[] jyq;
-    public FollowUserButton[] jyr;
-    private final int[] jys;
-    private final int[] jyt;
+    private d jLG;
+    private LikeModel jLH;
+    private ae jLI;
+    private a jLJ;
+    private com.baidu.tbadk.core.view.commonBtn.b jLK;
+    private com.baidu.tbadk.core.view.commonBtn.b jLL;
+    public TextView jLM;
+    public BarImageView[] jLN;
+    public TextView[] jLO;
+    public TextView[] jLP;
+    public TextView[] jLQ;
+    public TextView[] jLR;
+    public TextView[] jLS;
+    public FollowUserButton[] jLT;
+    private final int[] jLU;
+    private final int[] jLV;
+    private byte jLh;
     private boolean loading;
     private TbPageContext<?> pageContext;
 
     public b(View view, TbPageContext<?> tbPageContext, byte b) {
         super(view);
         this.loading = false;
-        this.jyi = new com.baidu.tbadk.core.view.commonBtn.b();
-        this.jyj = new com.baidu.tbadk.core.view.commonBtn.b();
-        this.jyl = new BarImageView[3];
-        this.jym = new TextView[3];
-        this.jyn = new TextView[3];
-        this.jyo = new TextView[3];
-        this.jyp = new TextView[3];
-        this.jyq = new TextView[3];
-        this.jyr = new FollowUserButton[3];
-        this.jys = new int[]{R.id.recommend_bar_info_1, R.id.recommend_bar_info_2, R.id.recommend_bar_info_3};
-        this.jyt = new int[]{R.color.CAM_X0301, R.color.CAM_X0305, R.color.CAM_X0312};
+        this.jLK = new com.baidu.tbadk.core.view.commonBtn.b();
+        this.jLL = new com.baidu.tbadk.core.view.commonBtn.b();
+        this.jLN = new BarImageView[3];
+        this.jLO = new TextView[3];
+        this.jLP = new TextView[3];
+        this.jLQ = new TextView[3];
+        this.jLR = new TextView[3];
+        this.jLS = new TextView[3];
+        this.jLT = new FollowUserButton[3];
+        this.jLU = new int[]{R.id.recommend_bar_info_1, R.id.recommend_bar_info_2, R.id.recommend_bar_info_3};
+        this.jLV = new int[]{R.color.CAM_X0301, R.color.CAM_X0305, R.color.CAM_X0312};
         this.pageContext = tbPageContext;
-        this.jxF = b;
-        al(view);
+        this.jLh = b;
+        an(view);
     }
 
-    private void al(View view) {
-        this.jyk = (TextView) view.findViewById(R.id.recommend_bar_item_title);
-        this.jyi.qI(R.color.CAM_X0109);
-        this.jyi.a(0, 0, TBSpecificationButtonConfig.IconType.SVG);
-        this.jyj.qG(R.color.CAM_X0304);
-        this.jyj.a(0, 0, TBSpecificationButtonConfig.IconType.SVG);
-        this.jyj.qF(UtilHelper.getDimenPixelSize(R.dimen.tbds4));
+    private void an(View view) {
+        this.jLM = (TextView) view.findViewById(R.id.recommend_bar_item_title);
+        this.jLK.rj(R.color.CAM_X0109);
+        this.jLK.a(0, 0, TBSpecificationButtonConfig.IconType.SVG);
+        this.jLL.rh(R.color.CAM_X0304);
+        this.jLL.a(0, 0, TBSpecificationButtonConfig.IconType.SVG);
+        this.jLL.rg(UtilHelper.getDimenPixelSize(R.dimen.tbds4));
         for (int i = 0; i < 3; i++) {
-            View findViewById = view.findViewById(this.jys[i]);
+            View findViewById = view.findViewById(this.jLU[i]);
             findViewById.setTag(Integer.valueOf(i));
             findViewById.setOnClickListener(this);
-            this.jyl[i] = (BarImageView) findViewById.findViewById(R.id.recommend_bar_icon);
-            this.jym[i] = (TextView) findViewById.findViewById(R.id.recommend_bar_title_index);
-            this.jyn[i] = (TextView) findViewById.findViewById(R.id.recommend_bar_name);
-            this.jyo[i] = (TextView) findViewById.findViewById(R.id.recommend_bar_desc);
-            this.jyp[i] = (TextView) findViewById.findViewById(R.id.recommend_bar_concern_info);
-            this.jyq[i] = (TextView) findViewById.findViewById(R.id.recommend_bar_thread_info);
-            this.jyr[i] = (FollowUserButton) findViewById.findViewById(R.id.recommend_bar_concern_btn);
-            this.jyr[i].setOnClickListener(this);
-            this.jym[i].setText(String.valueOf(i + 1));
-            this.jyl[i].setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.jyl[i].setShowInnerBorder(true);
-            this.jyl[i].setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            this.jyl[i].setShowOval(true);
-            this.jyl[i].setPlaceHolder(2);
-            this.jyl[i].setShowOuterBorder(false);
-            this.jyl[i].setStrokeColorResId(R.color.CAM_X0401);
-            if (com.baidu.tbadk.a.d.bhw()) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.jyl[i].getLayoutParams();
+            this.jLN[i] = (BarImageView) findViewById.findViewById(R.id.recommend_bar_icon);
+            this.jLO[i] = (TextView) findViewById.findViewById(R.id.recommend_bar_title_index);
+            this.jLP[i] = (TextView) findViewById.findViewById(R.id.recommend_bar_name);
+            this.jLQ[i] = (TextView) findViewById.findViewById(R.id.recommend_bar_desc);
+            this.jLR[i] = (TextView) findViewById.findViewById(R.id.recommend_bar_concern_info);
+            this.jLS[i] = (TextView) findViewById.findViewById(R.id.recommend_bar_thread_info);
+            this.jLT[i] = (FollowUserButton) findViewById.findViewById(R.id.recommend_bar_concern_btn);
+            this.jLT[i].setOnClickListener(this);
+            this.jLO[i].setText(String.valueOf(i + 1));
+            this.jLN[i].setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.jLN[i].setShowInnerBorder(true);
+            this.jLN[i].setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.jLN[i].setShowOval(true);
+            this.jLN[i].setPlaceHolder(2);
+            this.jLN[i].setShowOuterBorder(false);
+            this.jLN[i].setStrokeColorResId(R.color.CAM_X0401);
+            if (com.baidu.tbadk.a.d.bkA()) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.jLN[i].getLayoutParams();
                 marginLayoutParams.leftMargin = l.getDimens(this.pageContext.getPageActivity(), R.dimen.M_W_X007);
-                this.jyl[i].setLayoutParams(marginLayoutParams);
+                this.jLN[i].setLayoutParams(marginLayoutParams);
             }
         }
-        if (com.baidu.tbadk.a.d.bhw()) {
-            this.jyk.setPadding(l.getDimens(this.pageContext.getPageActivity(), R.dimen.M_W_X007), 0, 0, 0);
+        if (com.baidu.tbadk.a.d.bkA()) {
+            this.jLM.setPadding(l.getDimens(this.pageContext.getPageActivity(), R.dimen.M_W_X007), 0, 0, 0);
         }
         onSkinTypeChanged(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a
     public void onSkinTypeChanged(int i) {
-        if (this.ajv != i) {
-            this.ajv = i;
-            ap.setViewTextColor(this.jyk, R.color.CAM_X0108);
+        if (this.aku != i) {
+            this.aku = i;
+            ap.setViewTextColor(this.jLM, R.color.CAM_X0108);
             for (int i2 = 0; i2 < 3; i2++) {
-                if (this.jym[i2].getVisibility() == 0) {
-                    ap.setViewTextColor(this.jym[i2], R.color.CAM_X0101);
-                    com.baidu.tbadk.core.util.e.a.brc().pG(this.jyt[i2]).pM(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds8)).bn(this.jym[i2]);
+                if (this.jLO[i2].getVisibility() == 0) {
+                    ap.setViewTextColor(this.jLO[i2], R.color.CAM_X0101);
+                    com.baidu.tbadk.core.util.e.a.buz().qg(this.jLV[i2]).qm(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds8)).bq(this.jLO[i2]);
                 }
-                this.jyr[i2].onChangeSkinType(i);
-                ap.setViewTextColor(this.jyn[i2], R.color.CAM_X0105);
-                ap.setViewTextColor(this.jyo[i2], R.color.CAM_X0109);
-                ap.setViewTextColor(this.jyp[i2], R.color.CAM_X0109);
-                ap.setViewTextColor(this.jyq[i2], R.color.CAM_X0109);
+                this.jLT[i2].onChangeSkinType(i);
+                ap.setViewTextColor(this.jLP[i2], R.color.CAM_X0105);
+                ap.setViewTextColor(this.jLQ[i2], R.color.CAM_X0109);
+                ap.setViewTextColor(this.jLR[i2], R.color.CAM_X0109);
+                ap.setViewTextColor(this.jLS[i2], R.color.CAM_X0109);
             }
         }
     }
 
-    public void qV(boolean z) {
-        this.jyk.setVisibility(z ? 0 : 8);
+    public void rw(boolean z) {
+        this.jLM.setVisibility(z ? 0 : 8);
     }
 
-    public d cIK() {
-        return this.jye;
+    public d cNZ() {
+        return this.jLG;
     }
 
     public void W(int i, boolean z) {
-        if (this.jye != null) {
+        if (this.jLG != null) {
             if (z) {
-                a(this.jyr[i], true);
-                this.jye.jxT[i].qS(true);
+                a(this.jLT[i], true);
+                this.jLG.jLv[i].rt(true);
                 return;
             }
-            a(this.jyr[i], false);
-            this.jye.jxT[i].qS(false);
+            a(this.jLT[i], false);
+            this.jLG.jLv[i].rt(false);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a
     public void a(q qVar) {
         if (qVar instanceof d) {
-            this.jye = (d) qVar;
-            this.jyk.setText(this.jye.jxR);
+            this.jLG = (d) qVar;
+            this.jLM.setText(this.jLG.jLt);
             for (int i = 0; i < 3; i++) {
-                this.jyl[i].startLoad(this.jye.jxT[i].cIE(), 10, false);
-                this.jyn[i].setText(this.jye.jxT[i].cIF());
-                this.jyq[i].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_thread, new Object[]{au.dy(this.jye.jxT[i].cII())}));
-                this.jyp[i].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_concern, new Object[]{au.dy(this.jye.jxT[i].cIH())}));
-                this.jyr[i].setTag(Integer.valueOf(i));
-                a(this.jyr[i], this.jye.jxT[i].cIJ());
-                this.jym[i].setVisibility(this.jye.jxS ? 0 : 8);
-                ((LinearLayout.LayoutParams) this.jyn[i].getLayoutParams()).leftMargin = l.getDimens(this.pageContext.getPageActivity(), this.jye.jxS ? R.dimen.tbds15 : R.dimen.tbds0);
-                if (!StringUtils.isNull(this.jye.jxT[i].getSlogan()) && com.baidu.tbadk.a.d.bht()) {
-                    this.jyo[i].setText(this.jye.jxT[i].getSlogan());
-                } else if (!StringUtils.isNull(this.jye.jxT[i].cIG()) && com.baidu.tbadk.a.d.bhu()) {
-                    this.jyo[i].setText(this.jye.jxT[i].cIG());
+                this.jLN[i].startLoad(this.jLG.jLv[i].cNT(), 10, false);
+                this.jLP[i].setText(this.jLG.jLv[i].cNU());
+                this.jLS[i].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_thread, new Object[]{au.dX(this.jLG.jLv[i].cNX())}));
+                this.jLR[i].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_concern, new Object[]{au.dX(this.jLG.jLv[i].cNW())}));
+                this.jLT[i].setTag(Integer.valueOf(i));
+                a(this.jLT[i], this.jLG.jLv[i].cNY());
+                this.jLO[i].setVisibility(this.jLG.jLu ? 0 : 8);
+                ((LinearLayout.LayoutParams) this.jLP[i].getLayoutParams()).leftMargin = l.getDimens(this.pageContext.getPageActivity(), this.jLG.jLu ? R.dimen.tbds15 : R.dimen.tbds0);
+                if (!StringUtils.isNull(this.jLG.jLv[i].getSlogan()) && com.baidu.tbadk.a.d.bkx()) {
+                    this.jLQ[i].setText(this.jLG.jLv[i].getSlogan());
+                } else if (!StringUtils.isNull(this.jLG.jLv[i].cNV()) && com.baidu.tbadk.a.d.bky()) {
+                    this.jLQ[i].setText(this.jLG.jLv[i].cNV());
                 } else {
-                    this.jyo[i].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_desc));
+                    this.jLQ[i].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_desc));
                 }
             }
         }
@@ -176,36 +176,36 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jye != null && view != null) {
+        if (this.jLG != null && view != null) {
             int id = view.getId();
             int intValue = ((Integer) view.getTag()).intValue();
-            d.a aVar = this.jye.jxT[intValue];
+            d.a aVar = this.jLG.jLv[intValue];
             if (view instanceof TBSpecificationBtn) {
-                if (aVar.cIJ()) {
-                    b(aVar, this.jyr[intValue]);
+                if (aVar.cNY()) {
+                    b(aVar, this.jLT[intValue]);
                     return;
                 }
-                a(aVar, this.jyr[intValue]);
-                ar ak = new ar("c13644").w("fid", aVar.getForumId()).dR("uid", TbadkApplication.getCurrentAccount()).ak("obj_locate", this.jxF);
-                if (!StringUtils.isNull(this.jye.jxR)) {
-                    ak = ak.dR("obj_name", this.jye.jxR);
+                a(aVar, this.jLT[intValue]);
+                ar al = new ar("c13644").w("fid", aVar.getForumId()).dY("uid", TbadkApplication.getCurrentAccount()).al("obj_locate", this.jLh);
+                if (!StringUtils.isNull(this.jLG.jLt)) {
+                    al = al.dY("obj_name", this.jLG.jLt);
                 }
-                TiebaStatic.log(ak);
+                TiebaStatic.log(al);
             } else if (id == R.id.recommend_bar_info_1 || id == R.id.recommend_bar_info_2 || id == R.id.recommend_bar_info_3) {
-                FrsActivityConfig callFrom = new FrsActivityConfig(this.pageContext.getPageActivity()).createNormalCfg(aVar.cIF(), FrsActivityConfig.FRS_FROM_RECOMMEND_BAR_CAR).setCallFrom(3);
-                if (com.baidu.tbadk.a.d.bhu()) {
+                FrsActivityConfig callFrom = new FrsActivityConfig(this.pageContext.getPageActivity()).createNormalCfg(aVar.cNU(), FrsActivityConfig.FRS_FROM_RECOMMEND_BAR_CAR).setCallFrom(3);
+                if (com.baidu.tbadk.a.d.bky()) {
                     Intent intent = callFrom.getIntent();
-                    if (aVar.cqN() != 0 && intent != null) {
+                    if (aVar.cvb() != 0 && intent != null) {
                         intent.putExtra("transition_type", 0);
-                        intent.putExtra(FrsActivityConfig.FRS_HOT_THREAD_ID, aVar.cqN());
+                        intent.putExtra(FrsActivityConfig.FRS_HOT_THREAD_ID, aVar.cvb());
                     }
                 }
                 this.pageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, callFrom));
-                ar ak2 = new ar("c13988").w("fid", aVar.getForumId()).dR("uid", TbadkApplication.getCurrentAccount()).ak("obj_locate", this.jxF);
-                if (!StringUtils.isNull(this.jye.jxR)) {
-                    ak2 = ak2.dR("obj_name", this.jye.jxR);
+                ar al2 = new ar("c13988").w("fid", aVar.getForumId()).dY("uid", TbadkApplication.getCurrentAccount()).al("obj_locate", this.jLh);
+                if (!StringUtils.isNull(this.jLG.jLt)) {
+                    al2 = al2.dY("obj_name", this.jLG.jLt);
                 }
-                TiebaStatic.log(ak2);
+                TiebaStatic.log(al2);
             }
         }
     }
@@ -213,7 +213,7 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(FollowUserButton followUserButton, boolean z) {
         if (followUserButton != null) {
-            followUserButton.setConfig(z ? this.jyi : this.jyj);
+            followUserButton.setConfig(z ? this.jLK : this.jLL);
             followUserButton.setText(TbadkCoreApplication.getInst().getString(z ? R.string.followed : R.string.attention));
             followUserButton.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -223,19 +223,19 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
         if (!this.loading) {
             if (!l.isNetOk()) {
                 UtilHelper.showToast(this.pageContext.getPageActivity(), this.pageContext.getString(R.string.neterror));
-            } else if (aVar != null && !StringUtils.isNull(aVar.cIF()) && aVar.getForumId() > 0 && bh.checkUpIsLogin(this.pageContext.getPageActivity())) {
-                if (this.jyh == null) {
-                    this.jyh = new a();
+            } else if (aVar != null && !StringUtils.isNull(aVar.cNU()) && aVar.getForumId() > 0 && bh.checkUpIsLogin(this.pageContext.getPageActivity())) {
+                if (this.jLJ == null) {
+                    this.jLJ = new a();
                 }
-                if (this.jyf == null) {
-                    this.jyf = new LikeModel(this.pageContext);
-                    this.jyf.setLoadDataCallBack(this.jyh);
+                if (this.jLH == null) {
+                    this.jLH = new LikeModel(this.pageContext);
+                    this.jLH.setLoadDataCallBack(this.jLJ);
                 }
-                this.jyh.a(followUserButton, aVar);
-                if (au.isForumName(aVar.cIF())) {
+                this.jLJ.a(followUserButton, aVar);
+                if (au.isForumName(aVar.cNU())) {
                     this.loading = true;
-                    this.jyf.dJj();
-                    this.jyf.gp(aVar.cIF(), String.valueOf(aVar.getForumId()));
+                    this.jLH.dOA();
+                    this.jLH.gu(aVar.cNU(), String.valueOf(aVar.getForumId()));
                 }
             }
         }
@@ -245,58 +245,58 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
         if (!this.loading) {
             if (!l.isNetOk()) {
                 UtilHelper.showToast(this.pageContext.getPageActivity(), this.pageContext.getString(R.string.neterror));
-            } else if (aVar != null && !StringUtils.isNull(aVar.cIF()) && aVar.getForumId() > 0 && bh.checkUpIsLogin(this.pageContext.getPageActivity())) {
-                if (this.jyh == null) {
-                    this.jyh = new a();
+            } else if (aVar != null && !StringUtils.isNull(aVar.cNU()) && aVar.getForumId() > 0 && bh.checkUpIsLogin(this.pageContext.getPageActivity())) {
+                if (this.jLJ == null) {
+                    this.jLJ = new a();
                 }
-                if (this.jyg == null) {
-                    this.jyg = new ad();
-                    this.jyg.a(this.jyh);
+                if (this.jLI == null) {
+                    this.jLI = new ae();
+                    this.jLI.a(this.jLJ);
                 }
-                this.jyh.a(followUserButton, aVar);
+                this.jLJ.a(followUserButton, aVar);
                 this.loading = true;
-                this.jyg.O(aVar.cIF(), aVar.getForumId());
+                this.jLI.O(aVar.cNU(), aVar.getForumId());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes21.dex */
-    public class a extends com.baidu.adp.base.d implements ad.a {
-        private d.a jyu;
-        private FollowUserButton jyv;
+    /* loaded from: classes22.dex */
+    public class a extends com.baidu.adp.base.d implements ae.a {
+        private d.a jLW;
+        private FollowUserButton jLX;
 
         private a() {
         }
 
         public void a(FollowUserButton followUserButton, d.a aVar) {
-            this.jyu = aVar;
-            this.jyv = followUserButton;
+            this.jLW = aVar;
+            this.jLX = followUserButton;
         }
 
         @Override // com.baidu.adp.base.d
         public void callback(Object obj) {
             b.this.loading = false;
-            if (b.this.jyf.getErrorCode() == 22) {
+            if (b.this.jLH.getErrorCode() == 22) {
                 l.showToast(b.this.pageContext.getPageActivity(), b.this.pageContext.getString(R.string.had_liked_forum));
             } else if (obj != null) {
-                if (b.this.jyf.getErrorCode() != 0) {
-                    l.showToast(b.this.pageContext.getPageActivity(), b.this.jyf.getErrorString());
+                if (b.this.jLH.getErrorCode() != 0) {
+                    l.showToast(b.this.pageContext.getPageActivity(), b.this.jLH.getErrorString());
                     return;
                 }
-                b.this.a(this.jyv, true);
-                this.jyu.qS(true);
+                b.this.a(this.jLX, true);
+                this.jLW.rt(true);
             }
         }
 
-        @Override // com.baidu.tieba.tbadkCore.ad.a
+        @Override // com.baidu.tieba.tbadkCore.ae.a
         public void C(String str, long j) {
             b.this.loading = false;
-            b.this.a(this.jyv, false);
-            this.jyu.qS(false);
+            b.this.a(this.jLX, false);
+            this.jLW.rt(false);
         }
 
-        @Override // com.baidu.tieba.tbadkCore.ad.a
+        @Override // com.baidu.tieba.tbadkCore.ae.a
         public void D(String str, long j) {
             b.this.loading = false;
         }

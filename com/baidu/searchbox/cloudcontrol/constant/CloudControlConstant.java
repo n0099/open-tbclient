@@ -4,6 +4,7 @@ public class CloudControlConstant {
     public static final String CONNECT_RUN_TYPE = "lcs";
     public static final String COOL_RUN_TIME = "0";
     public static final String HOT_RUN_TIME = "1";
+    public static final String LOGIN_RUN_TYPE = "lcslogin";
     public static final String SP_KEY_BLACK_PUBPARAM = "pubparam_in_black";
     public static final String SP_KEY_DEGRADE_LIST = "degrade_list";
     public static final String SP_KEY_DEGRADE_LIST_VERSION = "degrade_list_version";

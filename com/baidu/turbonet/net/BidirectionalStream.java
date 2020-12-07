@@ -4,19 +4,19 @@ import com.baidu.turbonet.net.UrlResponseInfo;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.nio.ByteBuffer;
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 public abstract class BidirectionalStream {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes14.dex */
     public static class Builder {
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes12.dex */
+        /* loaded from: classes14.dex */
         public @interface StreamPriority {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes14.dex */
     public static abstract class Callback {
         public abstract void a(BidirectionalStream bidirectionalStream) throws Exception;
 

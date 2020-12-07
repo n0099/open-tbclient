@@ -4,11 +4,11 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.internal.util.ExceptionHelper;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class v {
-    static final long pNC = TimeUnit.MINUTES.toNanos(Long.getLong("rx2.scheduler.drift-tolerance", 15).longValue());
+    static final long pEy = TimeUnit.MINUTES.toNanos(Long.getLong("rx2.scheduler.drift-tolerance", 15).longValue());
 
-    public abstract c eAB();
+    public abstract c eCV();
 
     public long a(TimeUnit timeUnit) {
         return timeUnit.convert(System.currentTimeMillis(), TimeUnit.MILLISECONDS);
@@ -17,39 +17,39 @@ public abstract class v {
     public void start() {
     }
 
-    public io.reactivex.disposables.b H(Runnable runnable) {
+    public io.reactivex.disposables.b G(Runnable runnable) {
         return b(runnable, 0L, TimeUnit.NANOSECONDS);
     }
 
     public io.reactivex.disposables.b b(Runnable runnable, long j, TimeUnit timeUnit) {
-        c eAB = eAB();
-        a aVar = new a(io.reactivex.e.a.K(runnable), eAB);
-        eAB.c(aVar, j, timeUnit);
+        c eCV = eCV();
+        a aVar = new a(io.reactivex.d.a.J(runnable), eCV);
+        eCV.c(aVar, j, timeUnit);
         return aVar;
     }
 
     public io.reactivex.disposables.b a(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
-        c eAB = eAB();
-        b bVar = new b(io.reactivex.e.a.K(runnable), eAB);
-        io.reactivex.disposables.b b2 = eAB.b(bVar, j, j2, timeUnit);
+        c eCV = eCV();
+        b bVar = new b(io.reactivex.d.a.J(runnable), eCV);
+        io.reactivex.disposables.b b2 = eCV.b(bVar, j, j2, timeUnit);
         return b2 == EmptyDisposable.INSTANCE ? b2 : bVar;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static abstract class c implements io.reactivex.disposables.b {
         public abstract io.reactivex.disposables.b c(Runnable runnable, long j, TimeUnit timeUnit);
 
-        public io.reactivex.disposables.b I(Runnable runnable) {
+        public io.reactivex.disposables.b H(Runnable runnable) {
             return c(runnable, 0L, TimeUnit.NANOSECONDS);
         }
 
         public io.reactivex.disposables.b b(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
             SequentialDisposable sequentialDisposable = new SequentialDisposable();
             SequentialDisposable sequentialDisposable2 = new SequentialDisposable(sequentialDisposable);
-            Runnable K = io.reactivex.e.a.K(runnable);
+            Runnable J = io.reactivex.d.a.J(runnable);
             long nanos = timeUnit.toNanos(j2);
             long a2 = a(TimeUnit.NANOSECONDS);
-            io.reactivex.disposables.b c = c(new a(a2 + timeUnit.toNanos(j), K, a2, sequentialDisposable2, nanos), j, timeUnit);
+            io.reactivex.disposables.b c = c(new a(a2 + timeUnit.toNanos(j), J, a2, sequentialDisposable2, nanos), j, timeUnit);
             if (c == EmptyDisposable.INSTANCE) {
                 return c;
             }
@@ -62,56 +62,56 @@ public abstract class v {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes9.dex */
         public final class a implements Runnable {
             long count;
-            final Runnable decoratedRun;
-            final long pNE;
-            long pNF;
-            long pNG;
+            final long pEC;
+            long pED;
+            long pEE;
+            final Runnable pEz;
             final SequentialDisposable sd;
 
             a(long j, Runnable runnable, long j2, SequentialDisposable sequentialDisposable, long j3) {
-                this.decoratedRun = runnable;
+                this.pEz = runnable;
                 this.sd = sequentialDisposable;
-                this.pNE = j3;
-                this.pNF = j2;
-                this.pNG = j;
+                this.pEC = j3;
+                this.pED = j2;
+                this.pEE = j;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 long j;
-                this.decoratedRun.run();
+                this.pEz.run();
                 if (!this.sd.isDisposed()) {
                     long a2 = c.this.a(TimeUnit.NANOSECONDS);
-                    if (v.pNC + a2 < this.pNF || a2 >= this.pNF + this.pNE + v.pNC) {
-                        j = this.pNE + a2;
-                        long j2 = this.pNE;
+                    if (v.pEy + a2 < this.pED || a2 >= this.pED + this.pEC + v.pEy) {
+                        j = this.pEC + a2;
+                        long j2 = this.pEC;
                         long j3 = this.count + 1;
                         this.count = j3;
-                        this.pNG = j - (j2 * j3);
+                        this.pEE = j - (j2 * j3);
                     } else {
-                        long j4 = this.pNG;
+                        long j4 = this.pEE;
                         long j5 = this.count + 1;
                         this.count = j5;
-                        j = j4 + (j5 * this.pNE);
+                        j = j4 + (j5 * this.pEC);
                     }
-                    this.pNF = a2;
+                    this.pED = a2;
                     this.sd.replace(c.this.c(this, j - a2, TimeUnit.NANOSECONDS));
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static class b implements io.reactivex.disposables.b, Runnable {
         volatile boolean disposed;
-        final Runnable pND;
+        final Runnable pEB;
         final c worker;
 
         b(Runnable runnable, c cVar) {
-            this.pND = runnable;
+            this.pEB = runnable;
             this.worker = cVar;
         }
 
@@ -119,7 +119,7 @@ public abstract class v {
         public void run() {
             if (!this.disposed) {
                 try {
-                    this.pND.run();
+                    this.pEB.run();
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.J(th);
                     this.worker.dispose();
@@ -141,22 +141,22 @@ public abstract class v {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class a implements io.reactivex.disposables.b, Runnable {
-        final Runnable decoratedRun;
+        final c pEA;
+        final Runnable pEz;
         Thread runner;
-        final c w;
 
         a(Runnable runnable, c cVar) {
-            this.decoratedRun = runnable;
-            this.w = cVar;
+            this.pEz = runnable;
+            this.pEA = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             this.runner = Thread.currentThread();
             try {
-                this.decoratedRun.run();
+                this.pEz.run();
             } finally {
                 dispose();
                 this.runner = null;
@@ -165,16 +165,16 @@ public abstract class v {
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
-            if (this.runner == Thread.currentThread() && (this.w instanceof io.reactivex.internal.schedulers.f)) {
-                ((io.reactivex.internal.schedulers.f) this.w).shutdown();
+            if (this.runner == Thread.currentThread() && (this.pEA instanceof io.reactivex.internal.schedulers.f)) {
+                ((io.reactivex.internal.schedulers.f) this.pEA).shutdown();
             } else {
-                this.w.dispose();
+                this.pEA.dispose();
             }
         }
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return this.w.isDisposed();
+            return this.pEA.isDisposed();
         }
     }
 }

@@ -21,6 +21,7 @@ public final class Request {
     private List<InetAddress> addressList;
     @Nullable
     final RequestBody body;
+    @Nullable
     private volatile CacheControl cacheControl;
     final Headers headers;
     private boolean isFallbackConn;
@@ -124,12 +125,14 @@ public final class Request {
     /* loaded from: classes15.dex */
     public static class Builder {
         List<InetAddress> addressList;
+        @Nullable
         RequestBody body;
         Headers.Builder headers;
         boolean isFallbackConn;
         String method;
         Headers.Builder proxyHeaders;
         Map<Class<?>, Object> tags;
+        @Nullable
         HttpUrl url;
 
         public Builder() {

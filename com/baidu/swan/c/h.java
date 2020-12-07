@@ -7,9 +7,9 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class h {
-    public static String zf(String str) {
+    public static String zM(String str) {
         int displayWidth = a.getDisplayWidth();
         int displayHeight = a.getDisplayHeight();
         int densityDpi = a.getDensityDpi();
@@ -32,7 +32,7 @@ public class h {
         StringBuilder sb2;
         String str4 = null;
         if (!TextUtils.isEmpty(str)) {
-            String str5 = str2 + ETAG.EQUAL;
+            String str5 = str2 + "=";
             int indexOf = str.indexOf("?");
             if (indexOf < 0) {
                 int indexOf2 = str.indexOf("#");
@@ -72,12 +72,12 @@ public class h {
     }
 
     @NonNull
-    public static Map<String, String> xQ(@NonNull String str) {
+    public static Map<String, String> yx(@NonNull String str) {
         String[] split;
         HashMap hashMap = new HashMap();
         for (String str2 : str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
-            if (str2 != null && str2.contains(ETAG.EQUAL)) {
-                int indexOf = str2.indexOf(ETAG.EQUAL);
+            if (str2 != null && str2.contains("=")) {
+                int indexOf = str2.indexOf("=");
                 hashMap.put(str2.substring(0, indexOf).trim().toUpperCase(), str2.substring(indexOf + 1));
             }
         }

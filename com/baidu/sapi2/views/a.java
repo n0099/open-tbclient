@@ -7,13 +7,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.k.a.a;
+import com.baidu.l.a.a;
 import com.baidu.sapi2.SapiAccountManager;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class a extends Dialog implements com.baidu.sapi2.g.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f3578a;
+    private LinearLayout f3581a;
     private TextView b;
     private TextView c;
     private TextView d;
@@ -24,41 +24,41 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
     private Context i;
 
     /* renamed from: com.baidu.sapi2.views.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    class View$OnClickListenerC0345a implements View.OnClickListener {
+    /* loaded from: classes6.dex */
+    class View$OnClickListenerC0356a implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ View.OnClickListener f3579a;
+        final /* synthetic */ View.OnClickListener f3582a;
 
-        View$OnClickListenerC0345a(View.OnClickListener onClickListener) {
-            this.f3579a = onClickListener;
+        View$OnClickListenerC0356a(View.OnClickListener onClickListener) {
+            this.f3582a = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             try {
                 ViewUtility.dismissDialog((Activity) a.this.i, a.this);
-                this.f3579a.onClick(view);
+                this.f3582a.onClick(view);
             } catch (Exception e) {
             }
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     class b implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ View.OnClickListener f3580a;
+        final /* synthetic */ View.OnClickListener f3583a;
 
         b(View.OnClickListener onClickListener) {
-            this.f3580a = onClickListener;
+            this.f3583a = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             try {
                 ViewUtility.dismissDialog((Activity) a.this.i, a.this);
-                this.f3580a.onClick(view);
+                this.f3583a.onClick(view);
             } catch (Exception e) {
             }
         }
@@ -68,7 +68,7 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
         super(context, a.h.SapiSdkBeautyDialog);
         this.i = context;
         setContentView(a.f.layout_sapi_sdk_fingerprint_dialog);
-        this.f3578a = (LinearLayout) findViewById(a.e.bg_layout);
+        this.f3581a = (LinearLayout) findViewById(a.e.bg_layout);
         this.b = (TextView) findViewById(a.e.title);
         this.c = (TextView) findViewById(a.e.sub_title);
         this.d = (TextView) findViewById(a.e.negative_btn);
@@ -85,7 +85,7 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
 
     private void c() {
         if (SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-            this.f3578a.setBackgroundResource(a.d.sapi_sdk_fingerprint_dialog_dark_mode);
+            this.f3581a.setBackgroundResource(a.d.sapi_sdk_fingerprint_dialog_dark_mode);
             this.f.setImageResource(a.d.sapi_sdk_fingerprint_dark_mode);
             this.b.setTextColor(this.i.getResources().getColor(a.b.sapi_sdk_dark_mode_edit_text_color));
             this.c.setTextColor(this.i.getResources().getColor(a.b.sapi_sdk_fingerprint_dialog_sub_tv_color));
@@ -135,7 +135,7 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
     @Override // com.baidu.sapi2.g.b
     public com.baidu.sapi2.g.b a(String str, View.OnClickListener onClickListener) {
         this.d.setText(str);
-        this.d.setOnClickListener(new View$OnClickListenerC0345a(onClickListener));
+        this.d.setOnClickListener(new View$OnClickListenerC0356a(onClickListener));
         return this;
     }
 

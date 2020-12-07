@@ -11,15 +11,15 @@ import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class c implements Interceptor {
-    private static boolean dfW = true;
+    private static boolean dmV = true;
 
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
         HttpUrl resolve;
         Request request = chain.request();
-        if (!dfW) {
+        if (!dmV) {
             return chain.proceed(request);
         }
         if (!b(request)) {
@@ -31,7 +31,7 @@ public class c implements Interceptor {
         Response proceed = chain.proceed(c(request));
         if (c(proceed)) {
             String header = proceed.header(com.baidubce.http.Headers.LOCATION);
-            if (!TextUtils.isEmpty(header) && (resolve = proceed.request().url().resolve(header)) != null && com.baidu.swan.apps.ag.a.b.S(str, resolve.toString(), str2) != 0) {
+            if (!TextUtils.isEmpty(header) && (resolve = proceed.request().url().resolve(header)) != null && com.baidu.swan.apps.ag.a.b.V(str, resolve.toString(), str2) != 0) {
                 String str3 = "redirect error:" + resolve.toString() + " scheme illegal or not in domain list";
                 com.baidu.swan.apps.console.c.w("SafeRedirectCheck", str3);
                 throw new InterruptedIOException(str3);
@@ -67,7 +67,7 @@ public class c implements Interceptor {
     }
 
     public static Request a(Request request, String str, String str2) {
-        if (dfW && request != null) {
+        if (dmV && request != null) {
             if (str == null) {
                 str = "";
             }
@@ -80,7 +80,7 @@ public class c implements Interceptor {
     }
 
     public static HttpRequest a(HttpRequest httpRequest, String str, String str2) {
-        if (dfW && httpRequest != null) {
+        if (dmV && httpRequest != null) {
             if (str == null) {
                 str = "";
             }
@@ -92,9 +92,9 @@ public class c implements Interceptor {
         return httpRequest;
     }
 
-    public static Map<String, String> cc(String str, String str2) {
+    public static Map<String, String> cj(String str, String str2) {
         HashMap hashMap = new HashMap();
-        if (dfW) {
+        if (dmV) {
             if (str == null) {
                 str = "";
             }

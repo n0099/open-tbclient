@@ -8,7 +8,7 @@ public class b implements IOAdEvent {
     public static final String EVENT_MESSAGE = "message";
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f2382a;
+    private final String f2384a;
     private final HashMap<String, Object> b;
     private final int c;
     private Object d;
@@ -30,7 +30,7 @@ public class b implements IOAdEvent {
     }
 
     public b(String str, int i, HashMap<String, Object> hashMap) {
-        this.f2382a = str;
+        this.f2384a = str;
         this.c = i;
         this.b = hashMap;
     }
@@ -42,7 +42,7 @@ public class b implements IOAdEvent {
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent
     public String getType() {
-        return this.f2382a;
+        return this.f2384a;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent

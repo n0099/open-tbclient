@@ -6,13 +6,13 @@ import java.util.List;
 public class d {
     private String abTag;
     private String currentPageKey;
+    public String fBB;
+    private String fBC;
+    public String fBD;
     private long fid;
-    public String ftP;
-    private String ftQ;
-    public String ftR;
     public boolean isRouteStat = false;
     public String isVertical;
-    private com.baidu.tbadk.l.b mTbPageExtra;
+    private com.baidu.tbadk.pageExtra.c mTbPageExtra;
     private String nid;
     public String objID;
     public String objParam1;
@@ -23,12 +23,12 @@ public class d {
     public String task_id;
     private long tid;
 
-    public com.baidu.tbadk.l.b getTbPageExtra() {
+    public com.baidu.tbadk.pageExtra.c getTbPageExtra() {
         return this.mTbPageExtra;
     }
 
-    public void b(com.baidu.tbadk.l.b bVar) {
-        this.mTbPageExtra = bVar;
+    public void b(com.baidu.tbadk.pageExtra.c cVar) {
+        this.mTbPageExtra = cVar;
     }
 
     public List<String> getSorceKeyList() {
@@ -95,20 +95,20 @@ public class d {
         return this.task_id;
     }
 
-    public String bBu() {
+    public String bEX() {
         return this.abTag;
     }
 
-    public void DJ(String str) {
+    public void Eu(String str) {
         this.abTag = str;
     }
 
-    public String bBv() {
-        return this.ftQ;
+    public String bEY() {
+        return this.fBC;
     }
 
-    public void DK(String str) {
-        this.ftQ = str;
+    public void Ev(String str) {
+        this.fBC = str;
     }
 
     public boolean isDirtyData() {

@@ -6,7 +6,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.request.HttpRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class c extends h<JSONObject> {
     protected String mAppKey;
     protected final Context mContext;
@@ -17,33 +17,33 @@ public class c extends h<JSONObject> {
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aIB() {
+    protected boolean aLJ() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("app_key", this.mAppKey);
             jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            String ahs = com.baidu.swan.apps.t.a.awe().ahs();
-            if (!TextUtils.isEmpty(ahs)) {
-                jSONObject.put("host_api_key", ahs);
+            String akA = com.baidu.swan.apps.t.a.azm().akA();
+            if (!TextUtils.isEmpty(akA)) {
+                jSONObject.put("host_api_key", akA);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        cu("data", jSONObject.toString());
+        cB("data", jSONObject.toString());
         return true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
-    /* renamed from: bV */
-    public JSONObject bO(JSONObject jSONObject) throws JSONException {
-        return com.baidu.swan.apps.setting.oauth.c.bQ(jSONObject);
+    /* renamed from: bX */
+    public JSONObject bQ(JSONObject jSONObject) throws JSONException {
+        return com.baidu.swan.apps.setting.oauth.c.bS(jSONObject);
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.h
     protected HttpRequest a(h hVar) {
-        return com.baidu.swan.apps.t.a.awe().h(this.mContext, hVar.aJc());
+        return com.baidu.swan.apps.t.a.azm().h(this.mContext, hVar.aMk());
     }
 }

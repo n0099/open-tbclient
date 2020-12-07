@@ -15,56 +15,56 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class a extends SQLiteOpenHelper {
     private static final int DB_VERSION = 10;
-    private static volatile a efN;
-    private ConcurrentHashMap<Class<?>, com.baidu.swan.pms.database.b.a> efM;
+    private static volatile a emO;
+    private ConcurrentHashMap<Class<?>, com.baidu.swan.pms.database.b.a> emN;
 
-    private void baG() {
-        this.efM = new ConcurrentHashMap<>();
-        this.efM.put(f.class, new e());
-        this.efM.put(g.class, new com.baidu.swan.pms.database.b.f());
-        this.efM.put(PMSAppInfo.class, new com.baidu.swan.pms.database.b.b());
-        this.efM.put(d.class, new com.baidu.swan.pms.database.b.d());
-        this.efM.put(com.baidu.swan.pms.model.b.class, new c());
-        this.efM.put(h.class, new com.baidu.swan.pms.database.b.g());
-        this.efM.put(com.baidu.swan.pms.b.a.class, new com.baidu.swan.pms.b.a.a());
-        this.efM.put(i.class, new com.baidu.swan.pms.database.b.h());
+    private void bdL() {
+        this.emN = new ConcurrentHashMap<>();
+        this.emN.put(f.class, new e());
+        this.emN.put(g.class, new com.baidu.swan.pms.database.b.f());
+        this.emN.put(PMSAppInfo.class, new com.baidu.swan.pms.database.b.b());
+        this.emN.put(d.class, new com.baidu.swan.pms.database.b.d());
+        this.emN.put(com.baidu.swan.pms.model.b.class, new c());
+        this.emN.put(h.class, new com.baidu.swan.pms.database.b.g());
+        this.emN.put(com.baidu.swan.pms.b.a.class, new com.baidu.swan.pms.b.a.a());
+        this.emN.put(i.class, new com.baidu.swan.pms.database.b.h());
     }
 
     private a() {
         this("ai_apps_pms.db", DB_VERSION);
-        baG();
+        bdL();
     }
 
     private a(String str, int i) {
         super(AppRuntime.getAppContext(), str, null, i, null);
     }
 
-    public static a baH() {
-        if (efN == null) {
+    public static a bdM() {
+        if (emO == null) {
             synchronized (a.class) {
-                if (efN == null) {
-                    efN = new a();
+                if (emO == null) {
+                    emO = new a();
                 }
             }
         }
-        return efN;
+        return emO;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        for (com.baidu.swan.pms.database.b.a aVar : this.efM.values()) {
+        for (com.baidu.swan.pms.database.b.a aVar : this.emN.values()) {
             aVar.onCreate(sQLiteDatabase);
         }
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        for (com.baidu.swan.pms.database.b.a aVar : this.efM.values()) {
+        for (com.baidu.swan.pms.database.b.a aVar : this.emN.values()) {
             aVar.onUpgrade(sQLiteDatabase, i, i2);
         }
     }
 
     public void release() {
-        efN = null;
+        emO = null;
     }
 }

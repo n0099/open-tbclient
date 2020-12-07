@@ -7,22 +7,22 @@ import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4418a;
+    private int f4188a;
     private String b = String.valueOf(-1);
     private String c = "";
     private String d = "";
     private int e = -1;
     private String f = "";
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f4419a;
+        public String f4189a;
         public String b;
         String c;
 
@@ -54,7 +54,7 @@ public class e {
         }
 
         public void a(String str) {
-            this.f4419a = str;
+            this.f4189a = str;
         }
 
         public void b(String str) {
@@ -66,7 +66,7 @@ public class e {
         }
 
         public String toString() {
-            return "PublicKeyStatus{code='" + this.f4419a + "', message='" + this.b + "', publicKey='" + this.c + "'}";
+            return "PublicKeyStatus{code='" + this.f4189a + "', message='" + this.b + "', publicKey='" + this.c + "'}";
         }
     }
 
@@ -185,11 +185,11 @@ public class e {
     }
 
     public int a() {
-        return this.f4418a;
+        return this.f4188a;
     }
 
     public void a(int i) {
-        this.f4418a = i;
+        this.f4188a = i;
     }
 
     public void a(String str) {
@@ -233,6 +233,6 @@ public class e {
     }
 
     public String toString() {
-        return "SecurityMessage{timestamp=" + this.f4418a + ", taskId='" + this.b + "', title='" + this.c + "', content='" + this.d + "', clickType=" + this.e + ", params='" + this.f + "'}";
+        return "SecurityMessage{timestamp=" + this.f4188a + ", taskId='" + this.b + "', title='" + this.c + "', content='" + this.d + "', clickType=" + this.e + ", params='" + this.f + "'}";
     }
 }

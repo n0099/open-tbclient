@@ -8,12 +8,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.switchs.AppLegoSwitch;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -99,9 +98,9 @@ public class AppData extends OrmObject {
         this.app_time = 0;
         this.goods_info = null;
         this.goods = null;
-        ICardInfo Nh = com.baidu.tieba.lego.card.b.Nh(str);
-        if (Nh != null) {
-            ICardInfo viewItem = Nh.getViewItem(0, 4);
+        ICardInfo Oo = com.baidu.tieba.lego.card.b.Oo(str);
+        if (Oo != null) {
+            ICardInfo viewItem = Oo.getViewItem(0, 4);
             if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                 this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                 if (this.legoCard != null) {
@@ -120,7 +119,7 @@ public class AppData extends OrmObject {
     }
 
     public AppData(App app) {
-        ICardInfo Nh;
+        ICardInfo Oo;
         this.legoCard = null;
         this.mDiscardReason = -1;
         if (app == null) {
@@ -172,8 +171,8 @@ public class AppData extends OrmObject {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
                     this.goods = new AppGoods(goodsInfo);
-                    if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (Nh = com.baidu.tieba.lego.card.b.Nh(this.goods.lego_card)) != null) {
-                        ICardInfo viewItem = Nh.getViewItem(0, 1);
+                    if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (Oo = com.baidu.tieba.lego.card.b.Oo(this.goods.lego_card)) != null) {
+                        ICardInfo viewItem = Oo.getViewItem(0, 1);
                         if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                             this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                             return;
@@ -188,7 +187,7 @@ public class AppData extends OrmObject {
         }
     }
 
-    public int bjt() {
+    public int bmD() {
         if (this.goods == null) {
             return 25;
         }
@@ -213,21 +212,21 @@ public class AppData extends OrmObject {
                 return 41;
             }
             return 32;
-        } else if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.k.biL().isShowImages() && !this.legoCard.isNoPicAd()) {
+        } else if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.k.blV().isShowImages() && !this.legoCard.isNoPicAd()) {
             return 34;
         } else {
             if (this.legoCard.getCardType() == 12) {
                 return 12;
             }
-            if (!bx.eCF.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
+            if (!by.eJH.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
                 return 31;
             }
             if (this.url_type == 3) {
-                if (!bju()) {
+                if (!bmE()) {
                     return 26;
                 }
             } else if (this.url_type == 1) {
-                if (!bjv()) {
+                if (!bmF()) {
                     return 27;
                 }
             } else {
@@ -237,11 +236,11 @@ public class AppData extends OrmObject {
         }
     }
 
-    public boolean bju() {
+    public boolean bmE() {
         return (this.goods == null || this.goods.goods_style != 1001) && this.url_type == 3 && !StringUtils.isNull(this.apk_name) && !StringUtils.isNull(this.apk_url);
     }
 
-    public boolean bjv() {
+    public boolean bmF() {
         if (this.goods == null || this.goods.goods_style != 1001) {
             if (this.goods == null || this.goods.goods_style != -1001) {
                 if (this.url_type == 1) {
@@ -358,7 +357,7 @@ public class AppData extends OrmObject {
             String str = goodsInfo.tag_name_wh;
             if (str != null) {
                 try {
-                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = str.split(",");
                     int i = com.baidu.adp.lib.f.b.toInt(split[0], 1);
                     int i2 = com.baidu.adp.lib.f.b.toInt(split[1], 1);
                     if (i2 != 0) {

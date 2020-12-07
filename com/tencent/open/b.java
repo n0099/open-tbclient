@@ -8,11 +8,11 @@ import android.os.Bundle;
 import android.webkit.ConsoleMessage;
 import android.webkit.WebChromeClient;
 import com.tencent.open.a.f;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class b extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    protected a f4584a;
+    protected a f4354a;
     @SuppressLint({"NewApi"})
     protected final WebChromeClient b;
 
@@ -47,6 +47,6 @@ public abstract class b extends Dialog {
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f4584a = new a();
+        this.f4354a = new a();
     }
 }

@@ -29,63 +29,63 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class SelectCoverModel extends BdBaseModel {
-    private final HttpMessageListener lSr;
     private TbPageContext mPageContext;
-    private h mZc;
-    private com.baidu.tieba.video.editvideo.a npA;
-    private a npB;
-    private final HttpMessageListener npC;
+    private final HttpMessageListener mgw;
+    private com.baidu.tieba.video.editvideo.a nDB;
+    private a nDC;
+    private final HttpMessageListener nDD;
+    private h nnb;
 
     public SelectCoverModel(TbPageContext tbPageContext, com.baidu.tieba.video.editvideo.a aVar, h hVar) {
         super(tbPageContext);
-        this.lSr = new HttpMessageListener(1003356) { // from class: com.baidu.tieba.video.editvideo.model.SelectCoverModel.1
+        this.mgw = new HttpMessageListener(1003356) { // from class: com.baidu.tieba.video.editvideo.model.SelectCoverModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003356 && (httpResponsedMessage instanceof VideoCheckUegResponseMessage)) {
                     String status = ((VideoCheckUegResponseMessage) httpResponsedMessage).getStatus();
                     if (VideoCheckUegResponseMessage.STATUS_OK.equals(status)) {
-                        SelectCoverModel.this.npA.dsh();
+                        SelectCoverModel.this.nDB.dxz();
                     } else if (VideoCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                         String msg = ((VideoCheckUegResponseMessage) httpResponsedMessage).getMsg();
                         if (TextUtils.isEmpty(msg)) {
                             msg = TbadkCoreApplication.getInst().getResources().getString(R.string.video_ueg_fail);
                         }
-                        SelectCoverModel.this.npA.PG(msg);
+                        SelectCoverModel.this.nDB.QP(msg);
                     } else {
                         String errorString = httpResponsedMessage.getErrorString();
                         if (TextUtils.isEmpty(errorString)) {
                             errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.video_fail);
                         }
-                        SelectCoverModel.this.npA.PG(errorString);
-                        if (SelectCoverModel.this.mZc != null) {
-                            SelectCoverModel.this.mZc.bF(201, errorString);
+                        SelectCoverModel.this.nDB.QP(errorString);
+                        if (SelectCoverModel.this.nnb != null) {
+                            SelectCoverModel.this.nnb.bF(201, errorString);
                         }
                     }
                 }
             }
         };
-        this.npC = new HttpMessageListener(1003377) { // from class: com.baidu.tieba.video.editvideo.model.SelectCoverModel.2
+        this.nDD = new HttpMessageListener(1003377) { // from class: com.baidu.tieba.video.editvideo.model.SelectCoverModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003377 && (httpResponsedMessage instanceof VideoPendantResponseMessage) && ((VideoPendantResponseMessage) httpResponsedMessage).pendantDatas != null) {
-                    SelectCoverModel.this.npA.fR(((VideoPendantResponseMessage) httpResponsedMessage).pendantDatas);
+                    SelectCoverModel.this.nDB.gf(((VideoPendantResponseMessage) httpResponsedMessage).pendantDatas);
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.npA = aVar;
-        this.mZc = hVar;
+        this.nDB = aVar;
+        this.nnb = hVar;
         registerTask();
-        this.lSr.setTag(getUniqueId());
-        this.lSr.setSelfListener(true);
-        registerListener(this.lSr);
-        this.npC.setTag(getUniqueId());
-        this.npC.setSelfListener(true);
-        registerListener(this.npC);
+        this.mgw.setTag(getUniqueId());
+        this.mgw.setSelfListener(true);
+        registerListener(this.mgw);
+        this.nDD.setTag(getUniqueId());
+        this.nDD.setSelfListener(true);
+        registerListener(this.nDD);
     }
 
     private void registerTask() {
@@ -97,7 +97,7 @@ public class SelectCoverModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
     }
 
-    public void dPn() {
+    public void dUF() {
         if (!j.isNetWorkAvailable()) {
             this.mPageContext.showToast(R.string.no_network);
         } else {
@@ -105,15 +105,15 @@ public class SelectCoverModel extends BdBaseModel {
         }
     }
 
-    public void PI(String str) {
+    public void QR(String str) {
         HttpMessage httpMessage = new HttpMessage(1003356);
         httpMessage.addParam("text", str);
         sendMessage(httpMessage);
     }
 
-    public void bM(String str, int i) {
-        this.npB = new a(str, i);
-        this.npB.execute(new Void[0]);
+    public void bP(String str, int i) {
+        this.nDC = new a(str, i);
+        this.nDC.execute(new Void[0]);
     }
 
     public void b(final Bitmap bitmap, final String str) {
@@ -133,21 +133,21 @@ public class SelectCoverModel extends BdBaseModel {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(String str2) {
                     super.onPostExecute((AnonymousClass3) str2);
-                    SelectCoverModel.this.npA.Ts(str2);
+                    SelectCoverModel.this.nDB.UH(str2);
                 }
             }.execute(new Void[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public class a extends BdAsyncTask<Void, Integer, Bitmap> {
-        private int ZV;
+        private int aaR;
         private String videoPath;
 
         public a(String str, int i) {
             this.videoPath = str;
-            this.ZV = i;
+            this.aaR = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -161,13 +161,13 @@ public class SelectCoverModel extends BdBaseModel {
             try {
                 MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                 mediaMetadataRetriever.setDataSource(this.videoPath);
-                bitmap = mediaMetadataRetriever.getFrameAtTime(this.ZV * 1000);
+                bitmap = mediaMetadataRetriever.getFrameAtTime(this.aaR * 1000);
                 mediaMetadataRetriever.release();
                 return bitmap;
             } catch (Exception e) {
                 e.printStackTrace();
-                if (SelectCoverModel.this.mZc != null) {
-                    SelectCoverModel.this.mZc.bF(203, com.baidu.tieba.l.a.r(e));
+                if (SelectCoverModel.this.nnb != null) {
+                    SelectCoverModel.this.nnb.bF(203, com.baidu.tieba.l.a.r(e));
                     return bitmap;
                 }
                 return bitmap;
@@ -179,7 +179,7 @@ public class SelectCoverModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            SelectCoverModel.this.npA.M(bitmap);
+            SelectCoverModel.this.nDB.M(bitmap);
         }
     }
 
@@ -218,8 +218,8 @@ public class SelectCoverModel extends BdBaseModel {
                 } catch (Exception e3) {
                     e = e3;
                     e.printStackTrace();
-                    if (this.mZc != null) {
-                        this.mZc.bF(202, com.baidu.tieba.l.a.r(e));
+                    if (this.nnb != null) {
+                        this.nnb.bF(202, com.baidu.tieba.l.a.r(e));
                     }
                     com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream);
                     com.baidu.adp.lib.f.a.close((OutputStream) bufferedOutputStream);
@@ -243,7 +243,7 @@ public class SelectCoverModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public static class VideoPendantResponseMessage extends JsonHttpResponsedMessage {
         public List<PendantData> pendantDatas;
 
@@ -268,7 +268,7 @@ public class SelectCoverModel extends BdBaseModel {
                             if (i3 < jSONArray.length()) {
                                 PendantData pendantData = (PendantData) OrmObject.objectWithJsonStr(jSONArray.optString(i3), PendantData.class);
                                 if (pendantData != null) {
-                                    pendantData.dPh();
+                                    pendantData.dUz();
                                     this.pendantDatas.add(pendantData);
                                 }
                                 i2 = i3 + 1;
@@ -282,7 +282,7 @@ public class SelectCoverModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public static class VideoCheckUegResponseMessage extends JsonHttpResponsedMessage {
         private String msg;
         private String status;
@@ -323,10 +323,10 @@ public class SelectCoverModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.lSr);
+        MessageManager.getInstance().unRegisterListener(this.mgw);
         MessageManager.getInstance().unRegisterTask(1003356);
-        if (this.npB != null) {
-            this.npB.cancel();
+        if (this.nDC != null) {
+            this.nDC.cancel();
             return false;
         }
         return false;

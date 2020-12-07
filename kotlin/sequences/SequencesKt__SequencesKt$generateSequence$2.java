@@ -1,8 +1,8 @@
 package kotlin.sequences;
 
 import kotlin.jvm.internal.Lambda;
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 final class SequencesKt__SequencesKt$generateSequence$2 extends Lambda implements kotlin.jvm.a.a<T> {
     final /* synthetic */ Object $seed;
 

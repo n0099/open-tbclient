@@ -1,22 +1,22 @@
 package com.baidu.swan.game.ad.c;
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 public class b {
-    public String dMg;
-    public String dMh;
-    public String dMi;
-    public String dMj;
-    public String dMk;
-    public String dMl;
-    public String dMm;
-    public String dMn;
-    public String dMo;
-    public String dMp;
-    public String dMq;
-    public String dMr;
-    public String dMs;
-    public String dMt;
-    public String dMu;
-    public String mClickId;
+    public String dTc;
+    public String dTe;
+    public String dTf;
+    public String dTg;
+    public String dTh;
+    public String dTi;
+    public String dTj;
+    public String dTk;
+    public String dTl;
+    public String dTm;
+    public String dTn;
+    public String dTo;
+    public String dTp;
+    public String dTq;
+    public String dTr;
+    public String dTs;
     public String mEndTime;
     public String mStatus;
     public String mType;

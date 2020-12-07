@@ -5,7 +5,7 @@ import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-/* loaded from: classes16.dex */
+/* loaded from: classes10.dex */
 public abstract class MATabActivity extends TabActivity {
     public static final String TAG = "MATabActivity";
 

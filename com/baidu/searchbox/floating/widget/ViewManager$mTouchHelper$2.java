@@ -1,12 +1,12 @@
 package com.baidu.searchbox.floating.widget;
 
 import com.baidu.searchbox.floating.utils.TouchHelper;
-import kotlin.h;
+import kotlin.e;
 import kotlin.jvm.a.a;
 import kotlin.jvm.internal.Lambda;
 /* JADX INFO: Access modifiers changed from: package-private */
-@h
-/* loaded from: classes9.dex */
+@e
+/* loaded from: classes16.dex */
 public final class ViewManager$mTouchHelper$2 extends Lambda implements a<TouchHelper> {
     final /* synthetic */ ViewManager this$0;
 

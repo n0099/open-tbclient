@@ -10,7 +10,7 @@ import java.util.List;
 public abstract class cd {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2601a = 1000;
+    public static int f2603a = 1000;
     public static int b = 64;
     public static final byte[] c = dc.a("<policy-file-request/>\u0000");
     protected by.b d = null;

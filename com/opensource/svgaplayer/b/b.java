@@ -1,8 +1,6 @@
 package com.opensource.svgaplayer.b;
-
-import kotlin.h;
-@h
-/* loaded from: classes17.dex */
+@kotlin.e
+/* loaded from: classes18.dex */
 public final class b {
     private final int length;
     private final int location;
@@ -11,7 +9,7 @@ public final class b {
         return this.location;
     }
 
-    public final int wo() {
+    public final int wg() {
         return this.length;
     }
 }

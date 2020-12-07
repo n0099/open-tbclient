@@ -6,9 +6,9 @@ import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.adp.framework.task.HttpMessageTask;
-import com.baidu.live.b.n;
-import com.baidu.live.b.p;
-import com.baidu.live.b.v;
+import com.baidu.live.d.n;
+import com.baidu.live.d.p;
+import com.baidu.live.d.w;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
@@ -17,22 +17,22 @@ import com.baidu.tieba.ala.message.AlaUpdateWishListResponseMessage;
 /* loaded from: classes4.dex */
 public class AlaHostWishInitialize {
     static {
-        TbadkCoreApplication.getInst().RegisterIntent(com.baidu.live.b.e.class, AlaChooseGiftActivity.class);
-        TbadkCoreApplication.getInst().RegisterIntent(v.class, AlaWishListActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(com.baidu.live.d.e.class, AlaChooseGiftActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(w.class, AlaWishListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(n.class, AlaLiveAddWishActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(p.class, AlaLiveWishListActivity.class);
-        TbadkCoreApplication.getInst().RegisterIntent(com.baidu.live.b.f.class, AlaDeleteWishActivity.class);
-        bLf();
-        bLg();
-        bLh();
-        bLi();
-        bLj();
+        TbadkCoreApplication.getInst().RegisterIntent(com.baidu.live.d.f.class, AlaDeleteWishActivity.class);
+        bOO();
+        bOP();
+        bOQ();
+        bOR();
+        bOS();
     }
 
-    public static void bLf() {
+    public static void bOO() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913149, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaHostWishInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.live.j.a> run(CustomMessage<Context> customMessage) {
+            public CustomResponsedMessage<com.baidu.live.l.a> run(CustomMessage<Context> customMessage) {
                 return new CustomResponsedMessage<>(2913149, new com.baidu.tieba.ala.livewishlist.a(customMessage.getData()));
             }
         });
@@ -40,7 +40,7 @@ public class AlaHostWishInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bLg() {
+    private static void bOP() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021165, TbConfig.SERVER_HOST + "liveserver/wishlist/getwishlist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -50,7 +50,7 @@ public class AlaHostWishInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bLh() {
+    private static void bOQ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021168, TbConfig.SERVER_HOST + "liveserver/wishlist/updatewishlist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -60,7 +60,7 @@ public class AlaHostWishInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bLi() {
+    private static void bOR() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021169, TbConfig.SERVER_HOST + "liveserver/wishlist/updatewishlist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -70,7 +70,7 @@ public class AlaHostWishInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bLj() {
+    private static void bOS() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021170, TbConfig.SERVER_HOST + "liveserver/wishlist/updatewishlist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

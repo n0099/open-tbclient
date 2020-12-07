@@ -7,44 +7,44 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.live_tab.a.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private BdTypeRecyclerView Xi;
-    private List<com.baidu.adp.widget.ListView.a> biN;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a gjc;
-    private d gjp;
-    private boolean gjq = false;
+    private BdTypeRecyclerView Yf;
+    private List<com.baidu.adp.widget.ListView.a> bnf;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a grl;
+    private d gry;
+    private boolean grz = false;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.Xi = bdTypeRecyclerView;
-        Lp();
+        this.Yf = bdTypeRecyclerView;
+        Nt();
     }
 
-    private void Lp() {
-        this.biN = new ArrayList();
-        this.gjp = new d(this.mPageContext);
-        this.gjp.lE(this.gjq);
-        this.gjc = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.biN.add(this.gjp);
-        this.biN.add(this.gjc);
-        this.Xi.addAdapters(this.biN);
+    private void Nt() {
+        this.bnf = new ArrayList();
+        this.gry = new d(this.mPageContext);
+        this.gry.lZ(this.grz);
+        this.grl = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.bnf.add(this.gry);
+        this.bnf.add(this.grl);
+        this.Yf.addAdapters(this.bnf);
     }
 
     public void setData(List<q> list) {
-        this.Xi.setData(list);
+        this.Yf.setData(list);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Xi != null) {
-            this.Xi.getListAdapter().notifyDataSetChanged();
+        if (this.Yf != null) {
+            this.Yf.getListAdapter().notifyDataSetChanged();
         }
     }
 
-    public void lE(boolean z) {
-        this.gjq = z;
+    public void lZ(boolean z) {
+        this.grz = z;
     }
 }

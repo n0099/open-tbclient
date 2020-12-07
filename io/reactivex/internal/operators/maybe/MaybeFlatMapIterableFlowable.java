@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.maybe;
 
-import io.reactivex.c.h;
+import io.reactivex.b.h;
 import io.reactivex.g;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.BasicIntQueueSubscription;
@@ -10,7 +10,7 @@ import io.reactivex.o;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 import org.a.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
     final h<? super T, ? extends Iterable<? extends R>> mapper;
     final o<T> source;
@@ -20,7 +20,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
         this.source.a(new FlatMapIterableObserver(cVar, this.mapper));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class FlatMapIterableObserver<T, R> extends BasicIntQueueSubscription<R> implements m<T> {
         private static final long serialVersionUID = -8938804753851907758L;
         final c<? super R> actual;
@@ -135,7 +135,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
                         while (j2 != j) {
                             if (!this.cancelled) {
                                 try {
-                                    cVar.onNext((Object) io.reactivex.internal.functions.a.l(it2.next(), "The iterator returned a null value"));
+                                    cVar.onNext((Object) io.reactivex.internal.functions.a.m(it2.next(), "The iterator returned a null value"));
                                     if (!this.cancelled) {
                                         j2++;
                                         try {
@@ -188,21 +188,21 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
             return 0;
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public void clear() {
             this.it = null;
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public boolean isEmpty() {
             return this.it == null;
         }
 
-        @Override // io.reactivex.internal.a.g
+        @Override // io.reactivex.internal.a.f
         public R poll() throws Exception {
             Iterator<? extends R> it = this.it;
             if (it != null) {
-                R r = (R) io.reactivex.internal.functions.a.l(it.next(), "The iterator returned a null value");
+                R r = (R) io.reactivex.internal.functions.a.m(it.next(), "The iterator returned a null value");
                 if (!it.hasNext()) {
                     this.it = null;
                     return r;

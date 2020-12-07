@@ -36,35 +36,35 @@ import java.lang.ref.SoftReference;
 /* loaded from: classes4.dex */
 public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.b, a.b {
     private static int mMode = 3;
-    private static int oCi = 200;
-    private View kGn;
-    private RelativeLayout mEl;
+    private static int oRo = 200;
+    private View kTF;
     private String mKey;
     private LinearLayout mRootLayout;
-    private int oBS;
-    private int oBT;
-    private View oBU;
-    private View oBV;
-    private EmojiconEditText oBW;
-    private ImageButton oBX;
-    private ImageButtonText oBY;
-    private RelativeLayout oBZ;
-    private c oBc;
-    private FrameLayout oCa;
-    private RelativeLayout oCb;
-    private LinearLayout oCc;
-    private EmojiconsFragment oCj;
-    private boolean oCk;
-    private ActivityChat.c oCl;
-    private ActivityChat owg;
-    private boolean oCd = false;
-    private int oCe = 55;
-    private boolean oCf = false;
-    private int oCg = 0;
-    private int cCB = 0;
-    private boolean oCh = false;
+    private RelativeLayout mSk;
+    private ActivityChat oLm;
+    private int oQY;
+    private int oQZ;
+    private c oQi;
+    private View oRa;
+    private View oRb;
+    private EmojiconEditText oRc;
+    private ImageButton oRd;
+    private ImageButtonText oRe;
+    private RelativeLayout oRf;
+    private FrameLayout oRg;
+    private RelativeLayout oRh;
+    private LinearLayout oRi;
+    private EmojiconsFragment oRp;
+    private boolean oRq;
+    private ActivityChat.c oRr;
+    private boolean oRj = false;
+    private int oRk = 55;
+    private boolean oRl = false;
+    private int oRm = 0;
+    private int cJw = 0;
+    private boolean oRn = false;
     @SuppressLint({"HandlerLeak"})
-    private a oCm = new a();
+    private a oRs = new a();
 
     public static b a(ActivityChat activityChat, View view, String str, ActivityChat.c cVar) {
         return new b(activityChat, cVar, str, view);
@@ -72,149 +72,149 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
 
     public b(ActivityChat activityChat, ActivityChat.c cVar, String str, View view) {
         this.mKey = "";
-        this.oCl = cVar;
+        this.oRr = cVar;
         this.mKey = str;
-        d.egL().a(this);
-        this.owg = activityChat;
-        this.oBS = (int) this.owg.getResources().getDimension(a.d.bd_im_chat_bottom_bar);
+        d.emz().a(this);
+        this.oLm = activityChat;
+        this.oQY = (int) this.oLm.getResources().getDimension(a.d.bd_im_chat_bottom_bar);
         com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this);
-        this.kGn = view;
-        o(this.kGn, egE());
-        al(this.kGn);
-        this.oBW.addTextChangedListener(this);
-        egH();
+        this.kTF = view;
+        o(this.kTF, ems());
+        an(this.kTF);
+        this.oRc.addTextChangedListener(this);
+        emv();
     }
 
-    private void al(View view) {
-        this.oCa = (FrameLayout) view.findViewById(a.f.bd_im_showemoji);
-        this.oBZ = (RelativeLayout) view.findViewById(a.f.bd_im_chat_emoji_layout);
-        this.oCb = (RelativeLayout) view.findViewById(a.f.bd_im_chat_bottom_layout);
-        this.oBX = (ImageButton) view.findViewById(a.f.bd_im_chat_emoji_btn);
+    private void an(View view) {
+        this.oRg = (FrameLayout) view.findViewById(a.f.bd_im_showemoji);
+        this.oRf = (RelativeLayout) view.findViewById(a.f.bd_im_chat_emoji_layout);
+        this.oRh = (RelativeLayout) view.findViewById(a.f.bd_im_chat_bottom_layout);
+        this.oRd = (ImageButton) view.findViewById(a.f.bd_im_chat_emoji_btn);
         this.mRootLayout = (LinearLayout) view.findViewById(a.f.bd_im_input_root_layout);
-        this.oBY = (ImageButtonText) view.findViewById(a.f.bd_im_chat_input_right_btn);
-        if (!com.baidu.yuyinala.privatemessage.implugin.util.b.b.h(this.owg.getApplicationContext(), com.baidu.yuyinala.privatemessage.implugin.util.b.a.oGH, false) && ((ChatInfo.oyr != ChatInfo.ChatCategory.GROUP || ChatInfo.kbE != 2) && ChatInfo.oyr != ChatInfo.ChatCategory.DUZHAN)) {
-            this.oBY.setTipOn(true);
+        this.oRe = (ImageButtonText) view.findViewById(a.f.bd_im_chat_input_right_btn);
+        if (!com.baidu.yuyinala.privatemessage.implugin.util.b.b.i(this.oLm.getApplicationContext(), com.baidu.yuyinala.privatemessage.implugin.util.b.a.oVN, false) && ((ChatInfo.oNx != ChatInfo.ChatCategory.GROUP || ChatInfo.kpi != 2) && ChatInfo.oNx != ChatInfo.ChatCategory.DUZHAN)) {
+            this.oRe.setTipOn(true);
         }
-        this.oBW = (EmojiconEditText) view.findViewById(a.f.bd_im_chat_input_txt);
-        this.oBW.clearFocus();
-        this.oBW.setOnTouchListener(this);
-        this.oBW.setBackgroundResource(a.e.bd_im_input_edit_bg);
-        this.mEl = (RelativeLayout) view.findViewById(a.f.bd_im_chat_input_background);
-        this.oBU = view.findViewById(a.f.bd_im_chat_showemoji_layout);
-        this.oBV = view.findViewById(a.f.bd_im_chat_keyborad_layout);
-        this.oCc = (LinearLayout) view.findViewById(a.f.bd_im_chat_input_layout);
-        if (ChatInfo.ChatCategory.SMART == ChatInfo.oyr) {
-            this.oCc.setVisibility(8);
+        this.oRc = (EmojiconEditText) view.findViewById(a.f.bd_im_chat_input_txt);
+        this.oRc.clearFocus();
+        this.oRc.setOnTouchListener(this);
+        this.oRc.setBackgroundResource(a.e.bd_im_input_edit_bg);
+        this.mSk = (RelativeLayout) view.findViewById(a.f.bd_im_chat_input_background);
+        this.oRa = view.findViewById(a.f.bd_im_chat_showemoji_layout);
+        this.oRb = view.findViewById(a.f.bd_im_chat_keyborad_layout);
+        this.oRi = (LinearLayout) view.findViewById(a.f.bd_im_chat_input_layout);
+        if (ChatInfo.ChatCategory.SMART == ChatInfo.oNx) {
+            this.oRi.setVisibility(8);
         } else {
-            this.oCc.setVisibility(0);
+            this.oRi.setVisibility(0);
         }
         try {
-            this.oCj = EmojiconsFragment.d(this.owg, this.oCa);
+            this.oRp = EmojiconsFragment.d(this.oLm, this.oRg);
         } catch (Exception e) {
             LogUtils.e("InputFragment", e.getMessage());
-            com.baidu.yuyinala.privatemessage.implugin.d.b.eft().c(this.owg.getActivity(), e);
+            com.baidu.yuyinala.privatemessage.implugin.d.b.elg().c(this.oLm.getActivity(), e);
         }
-        egC();
+        emq();
     }
 
-    private void egC() {
-        this.oBZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.1
+    private void emq() {
+        this.oRf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (com.baidu.yuyinala.privatemessage.implugin.d.b.eft().isCuidLogin(b.this.owg.getActivity()) || com.baidu.yuyinala.privatemessage.implugin.d.b.eft().efu()) {
+                if (com.baidu.yuyinala.privatemessage.implugin.d.b.elg().isCuidLogin(b.this.oLm.getActivity()) || com.baidu.yuyinala.privatemessage.implugin.d.b.elg().elh()) {
                     b.this.login();
                     return;
                 }
-                f.egK();
+                f.emy();
                 if (b.mMode != 4) {
                     int unused = b.mMode = 4;
                 } else {
                     int unused2 = b.mMode = 0;
                 }
-                b.this.egH();
+                b.this.emv();
             }
         });
-        this.oBY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.2
+        this.oRe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
-                if (!com.baidu.yuyinala.privatemessage.implugin.util.b.b.h((Context) b.this.owg.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.b.a.oGH, false)) {
-                    com.baidu.yuyinala.privatemessage.implugin.util.b.b.i((Context) b.this.owg.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.b.a.oGH, true);
-                    b.this.oBY.setTipOn(false);
+                if (!com.baidu.yuyinala.privatemessage.implugin.util.b.b.i((Context) b.this.oLm.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.b.a.oVN, false)) {
+                    com.baidu.yuyinala.privatemessage.implugin.util.b.b.j((Context) b.this.oLm.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.b.a.oVN, true);
+                    b.this.oRe.setTipOn(false);
                 }
-                f.egK();
-                String obj = b.this.oBW.getEditableText().toString();
+                f.emy();
+                String obj = b.this.oRc.getEditableText().toString();
                 if (!TextUtils.isEmpty(obj.trim())) {
-                    b.this.oBW.setText("");
+                    b.this.oRc.setText("");
                     TextMsg textMsg = new TextMsg();
                     textMsg.setContacter(ChatInfo.mContacter);
-                    textMsg.setFromUser(ChatInfo.oyt);
+                    textMsg.setFromUser(ChatInfo.oNz);
                     textMsg.setText(obj);
                     textMsg.setStatus(1);
-                    if (com.baidu.yuyinala.privatemessage.implugin.d.b.eft().getUserId(b.this.owg.getActivity()) != null) {
-                        str = com.baidu.yuyinala.privatemessage.implugin.d.b.eft().getUserId(b.this.owg.getActivity());
+                    if (com.baidu.yuyinala.privatemessage.implugin.d.b.elg().getUserId(b.this.oLm.getActivity()) != null) {
+                        str = com.baidu.yuyinala.privatemessage.implugin.d.b.elg().getUserId(b.this.oLm.getActivity());
                     } else {
                         str = "0";
                     }
                     textMsg.setSenderUid(str);
-                    if (ChatInfo.oyr == ChatInfo.ChatCategory.C2C) {
+                    if (ChatInfo.oNx == ChatInfo.ChatCategory.C2C) {
                         textMsg.setCategory(0);
                         textMsg.setChatType(0);
                         textMsg.setContacterBduid(ChatInfo.mUid + "");
-                    } else if (ChatInfo.oyr == ChatInfo.ChatCategory.GROUP) {
+                    } else if (ChatInfo.oNx == ChatInfo.ChatCategory.GROUP) {
                         textMsg.setCategory(1);
                         textMsg.setChatType(3);
                         textMsg.setContacterBduid(ChatInfo.mUid + "");
-                    } else if (ChatInfo.oyr == ChatInfo.ChatCategory.DUZHAN) {
+                    } else if (ChatInfo.oNx == ChatInfo.ChatCategory.DUZHAN) {
                         textMsg.setCategory(0);
                         textMsg.setChatType(7);
                         textMsg.setContacterBduid(ChatInfo.mUid + "");
                     }
                     textMsg.setMsgTime(System.currentTimeMillis() / 1000);
-                    com.baidu.yuyinala.privatemessage.model.message.a.eij().c(b.this.owg.getActivity(), textMsg);
-                    b.this.oBc = d.egL().Xp(b.this.mKey);
-                    if (b.this.oBc != null) {
-                        b.this.oBc.h(textMsg);
+                    com.baidu.yuyinala.privatemessage.model.message.a.enY().c(b.this.oLm.getActivity(), textMsg);
+                    b.this.oQi = d.emz().YK(b.this.mKey);
+                    if (b.this.oQi != null) {
+                        b.this.oQi.h(textMsg);
                         return;
                     }
                     return;
                 }
-                b.this.egH();
+                b.this.emv();
             }
         });
     }
 
     public void onResume() {
-        LogUtils.d("InputFragment", "onResume " + this.oCd);
-        this.oBW.addTextChangedListener(this);
-        egH();
+        LogUtils.d("InputFragment", "onResume " + this.oRj);
+        this.oRc.addTextChangedListener(this);
+        emv();
     }
 
     public void onPause() {
-        this.oBW.removeTextChangedListener(this);
-        egD();
+        this.oRc.removeTextChangedListener(this);
+        emr();
     }
 
     public void onStop() {
-        egD();
+        emr();
     }
 
     public void onStart() {
-        egD();
+        emr();
     }
 
     public void onDestroy() {
-        com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.ehc();
+        com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.emQ();
     }
 
-    public void egD() {
+    public void emr() {
         try {
-            if (this.oBW != null) {
-                this.oBW.clearFocus();
+            if (this.oRc != null) {
+                this.oRc.clearFocus();
             }
             mMode = 3;
             LogUtils.e("InputFragment", "mMode : " + mMode);
-            egH();
+            emv();
         } catch (Exception e) {
             LogUtils.e("InputFragment", e.getMessage());
         }
@@ -227,51 +227,51 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
                 Rect rect = new Rect();
                 view.getWindowVisibleDisplayFrame(rect);
                 int height = view.getRootView().getHeight() - rect.bottom;
-                int cN = f.cN(b.this.owg.getActivity());
-                if (height == cN || height - b.this.oCg == cN) {
-                    b.this.oCf = true;
-                } else if (height == 0 || height - b.this.oCg == (-cN)) {
-                    b.this.oCf = false;
+                int dt = f.dt(b.this.oLm.getActivity());
+                if (height == dt || height - b.this.oRm == dt) {
+                    b.this.oRl = true;
+                } else if (height == 0 || height - b.this.oRm == (-dt)) {
+                    b.this.oRl = false;
                 }
-                if (b.this.oCf) {
-                    height -= cN;
+                if (b.this.oRl) {
+                    height -= dt;
                 }
-                int i = z ? height - (b.this.oCe * 2) : height;
+                int i = z ? height - (b.this.oRk * 2) : height;
                 if (i > 100) {
-                    if (b.this.oCg != i) {
-                        com.baidu.yuyinala.privatemessage.implugin.util.b.b.h((Context) b.this.owg.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.b.a.oGF, i);
+                    if (b.this.oRm != i) {
+                        com.baidu.yuyinala.privatemessage.implugin.util.b.b.i(b.this.oLm.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.b.a.oVL, i);
                         LogUtils.d("InputFragment", "difference write to xml:" + i);
-                        if (b.this.oCg > 100) {
+                        if (b.this.oRm > 100) {
                             LogUtils.d("InputFragment", "resize of Keyboard");
-                            b.this.egF();
+                            b.this.emt();
                         }
                     } else {
                         return;
                     }
                 }
-                b.this.oCg = i;
+                b.this.oRm = i;
                 if (b.mMode == 0 || b.mMode == 3) {
-                    b.this.cCB = com.baidu.yuyinala.privatemessage.implugin.util.b.b.i(b.this.owg.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.b.a.oGF, 0);
-                    b.this.oCk = i <= 100;
-                    e.egZ().Ol((i > 100 ? i : b.this.cCB) + b.this.oBS);
-                    if (b.this.oCk && b.this.oCh && b.mMode == 0) {
-                        if (!b.this.oCm.hasMessages(1)) {
-                            b.this.oCm.sendEmptyMessageDelayed(1, b.oCi);
+                    b.this.cJw = com.baidu.yuyinala.privatemessage.implugin.util.b.b.j(b.this.oLm.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.b.a.oVL, 0);
+                    b.this.oRq = i <= 100;
+                    e.emN().Pj((i > 100 ? i : b.this.cJw) + b.this.oQY);
+                    if (b.this.oRq && b.this.oRn && b.mMode == 0) {
+                        if (!b.this.oRs.hasMessages(1)) {
+                            b.this.oRs.sendEmptyMessageDelayed(1, b.oRo);
                             return;
                         }
-                        int unused = b.oCi = 30;
-                        b.this.oCm.removeMessages(1);
+                        int unused = b.oRo = 30;
+                        b.this.oRs.removeMessages(1);
                     }
                 }
             }
         });
     }
 
-    private boolean egE() {
-        if (this.kGn != null) {
+    private boolean ems() {
+        if (this.kTF != null) {
             Rect rect = new Rect();
-            this.kGn.getWindowVisibleDisplayFrame(rect);
-            if (this.kGn.getRootView().getHeight() - rect.bottom == this.oCe * 2) {
+            this.kTF.getWindowVisibleDisplayFrame(rect);
+            if (this.kTF.getRootView().getHeight() - rect.bottom == this.oRk * 2) {
                 return true;
             }
         }
@@ -279,67 +279,67 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void egF() {
-        this.oCj.egB();
+    public void emt() {
+        this.oRp.emp();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zV(boolean z) {
-        if (this.owg != null) {
-            int i = this.owg.getActivity().getWindow().getAttributes().softInputMode;
+    public void Az(boolean z) {
+        if (this.oLm != null) {
+            int i = this.oLm.getActivity().getWindow().getAttributes().softInputMode;
             if (z && i != 16) {
-                if (this.oBV != null) {
-                    ViewGroup.LayoutParams layoutParams = this.oBV.getLayoutParams();
+                if (this.oRb != null) {
+                    ViewGroup.LayoutParams layoutParams = this.oRb.getLayoutParams();
                     layoutParams.width = -1;
-                    layoutParams.height = this.cCB;
-                    this.oBV.setLayoutParams(layoutParams);
-                    this.oBV.setVisibility(0);
+                    layoutParams.height = this.cJw;
+                    this.oRb.setLayoutParams(layoutParams);
+                    this.oRb.setVisibility(0);
                 }
-                this.oCh = true;
+                this.oRn = true;
                 return;
             }
-            if (this.oBV != null) {
-                this.oBV.setVisibility(8);
+            if (this.oRb != null) {
+                this.oRb.setVisibility(8);
             }
-            this.oCh = false;
+            this.oRn = false;
         }
     }
 
-    private void aD(boolean z, boolean z2) {
-        if (z && this.oBU != null) {
-            ViewGroup.LayoutParams layoutParams = this.oBU.getLayoutParams();
+    private void aE(boolean z, boolean z2) {
+        if (z && this.oRa != null) {
+            ViewGroup.LayoutParams layoutParams = this.oRa.getLayoutParams();
             layoutParams.width = -1;
-            this.cCB = com.baidu.yuyinala.privatemessage.implugin.util.b.b.i(this.owg.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.b.a.oGF, 0);
-            int dimension = (int) this.owg.getActivity().getResources().getDimension(a.d.bd_im_more_width);
-            if (this.cCB > 100) {
-                layoutParams.height = Math.max(this.cCB, dimension);
+            this.cJw = com.baidu.yuyinala.privatemessage.implugin.util.b.b.j(this.oLm.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.b.a.oVL, 0);
+            int dimension = (int) this.oLm.getActivity().getResources().getDimension(a.d.bd_im_more_width);
+            if (this.cJw > 100) {
+                layoutParams.height = Math.max(this.cJw, dimension);
             } else {
                 layoutParams.height = dimension;
             }
-            this.oBT = layoutParams.height;
-            this.oBU.setLayoutParams(layoutParams);
-            this.oBU.setVisibility(0);
-        } else if (this.oBU != null) {
-            this.oBU.setVisibility(8);
+            this.oQZ = layoutParams.height;
+            this.oRa.setLayoutParams(layoutParams);
+            this.oRa.setVisibility(0);
+        } else if (this.oRa != null) {
+            this.oRa.setVisibility(8);
         }
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.b
-    public void egG() {
-        egD();
+    public void emu() {
+        emr();
     }
 
     @Override // android.view.View.OnTouchListener
     @SuppressLint({"ClickableViewAccessibility", "NewApi"})
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (view.getId() == a.f.bd_im_chat_input_txt && motionEvent.getAction() == 1) {
-            if (com.baidu.yuyinala.privatemessage.implugin.d.b.eft().isCuidLogin(this.owg) || com.baidu.yuyinala.privatemessage.implugin.d.b.eft().efu()) {
+            if (com.baidu.yuyinala.privatemessage.implugin.d.b.elg().isCuidLogin(this.oLm) || com.baidu.yuyinala.privatemessage.implugin.d.b.elg().elh()) {
                 login();
                 return true;
             }
-            f.egK();
+            f.emy();
             mMode = 0;
-            egH();
+            emv();
         }
         return false;
     }
@@ -354,111 +354,111 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        x(editable);
+        y(editable);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void egH() {
+    public void emv() {
         switch (mMode) {
             case 0:
-                zW(true);
-                this.oBc = d.egL().Xp(this.mKey);
-                if (this.oBc != null) {
-                    this.oBc.egm();
+                AA(true);
+                this.oQi = d.emz().YK(this.mKey);
+                if (this.oQi != null) {
+                    this.oQi.ema();
                     break;
                 }
                 break;
             case 1:
             case 2:
             default:
-                zW(true);
+                AA(true);
                 break;
             case 3:
-                zW(false);
+                AA(false);
                 break;
             case 4:
-                egI();
-                this.oBc = d.egL().Xp(this.mKey);
-                if (this.oBc != null) {
-                    this.oBc.egm();
+                emw();
+                this.oQi = d.emz().YK(this.mKey);
+                if (this.oQi != null) {
+                    this.oQi.ema();
                     break;
                 }
                 break;
         }
-        x(this.oBW.getText().toString());
+        y(this.oRc.getText().toString());
     }
 
-    private void zW(boolean z) {
-        if (this.oBX != null) {
-            this.oBX.setImageResource(a.e.bd_im_emoji_status);
+    private void AA(boolean z) {
+        if (this.oRd != null) {
+            this.oRd.setImageResource(a.e.bd_im_emoji_status);
         }
         if (z) {
-            f.f(this.owg.getActivity(), this.oBW);
-            zV(true);
+            f.f(this.oLm.getActivity(), this.oRc);
+            Az(true);
         } else {
-            f.e(this.owg.getActivity(), this.oBW);
-            zV(false);
+            f.e(this.oLm.getActivity(), this.oRc);
+            Az(false);
         }
-        aD(false, false);
-        if (this.mEl != null) {
-            this.mEl.setVisibility(0);
+        aE(false, false);
+        if (this.mSk != null) {
+            this.mSk.setVisibility(0);
         }
-        this.oCk = z;
+        this.oRq = z;
     }
 
-    private void egI() {
-        f.e(this.owg.getActivity(), this.oBW);
-        zV(false);
-        aD(true, false);
-        this.mEl.setVisibility(0);
-        this.oBX.setImageResource(ThemeManager.L(this.owg.getActivity(), a.e.bd_im_input_icon_status));
-        e.egZ().Ol(this.oBT + this.oBS);
+    private void emw() {
+        f.e(this.oLm.getActivity(), this.oRc);
+        Az(false);
+        aE(true, false);
+        this.mSk.setVisibility(0);
+        this.oRd.setImageResource(ThemeManager.U(this.oLm.getActivity(), a.e.bd_im_input_icon_status));
+        e.emN().Pj(this.oQZ + this.oQY);
     }
 
-    private void x(CharSequence charSequence) {
-        if (this.oBY != null) {
-            this.oBY.setBackgroundResource(0);
+    private void y(CharSequence charSequence) {
+        if (this.oRe != null) {
+            this.oRe.setBackgroundResource(0);
             if (TextUtils.isEmpty(charSequence.toString().trim())) {
-                this.oBY.setTipOn(false);
-                this.oBY.setClickable(false);
-                this.oBY.setImageDrawable(null);
-                this.oBY.setBackgroundResource(a.e.bd_im_subscribe_button_disable);
-                this.oBY.setTextSize(this.owg.getActivity().getResources().getDimension(a.d.bd_im_right_btn_text_size));
-                this.oBY.setColor(Color.parseColor("#77FF1E66"));
-                this.oBY.setText(this.owg.getActivity().getString(a.h.bd_im_conversation_send));
+                this.oRe.setTipOn(false);
+                this.oRe.setClickable(false);
+                this.oRe.setImageDrawable(null);
+                this.oRe.setBackgroundResource(a.e.bd_im_subscribe_button_disable);
+                this.oRe.setTextSize(this.oLm.getActivity().getResources().getDimension(a.d.bd_im_right_btn_text_size));
+                this.oRe.setColor(Color.parseColor("#77FF1E66"));
+                this.oRe.setText(this.oLm.getActivity().getString(a.h.bd_im_conversation_send));
                 return;
             }
-            this.oBY.setClickable(true);
-            this.oBY.setTipOn(false);
-            this.oBY.setImageDrawable(null);
-            this.oBY.setBackgroundResource(a.e.bd_im_subscribe_button_pressed);
-            this.oBY.setTextSize(this.owg.getActivity().getResources().getDimension(a.d.bd_im_right_btn_text_size));
-            this.oBY.setColor(Color.parseColor("#FF1E66"));
-            this.oBY.setText(this.owg.getActivity().getString(a.h.bd_im_conversation_send));
+            this.oRe.setClickable(true);
+            this.oRe.setTipOn(false);
+            this.oRe.setImageDrawable(null);
+            this.oRe.setBackgroundResource(a.e.bd_im_subscribe_button_pressed);
+            this.oRe.setTextSize(this.oLm.getActivity().getResources().getDimension(a.d.bd_im_right_btn_text_size));
+            this.oRe.setColor(Color.parseColor("#FF1E66"));
+            this.oRe.setText(this.oLm.getActivity().getString(a.h.bd_im_conversation_send));
         }
     }
 
     /* loaded from: classes4.dex */
     private static class a extends Handler {
-        private final SoftReference<b> oCq;
+        private final SoftReference<b> oRw;
 
         private a(b bVar) {
-            this.oCq = new SoftReference<>(bVar);
+            this.oRw = new SoftReference<>(bVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            if (this.oCq.get() != null) {
+            if (this.oRw.get() != null) {
                 try {
                     switch (message.what) {
                         case 1:
-                            this.oCq.get().zV(false);
+                            this.oRw.get().Az(false);
                             break;
                         case 3:
                             String str = (String) message.obj;
                             if (!TextUtils.isEmpty(str)) {
-                                e.egZ().bn(this.oCq.get().owg, str);
+                                e.emN().br(this.oRw.get().oLm, str);
                                 break;
                             }
                             break;
@@ -470,29 +470,29 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
         }
     }
 
-    public void egw() {
+    public void emk() {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.b
     public void a(Emojicon emojicon) {
-        EmojiconsFragment.a(this.oBW, emojicon);
+        EmojiconsFragment.a(this.oRc, emojicon);
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.b
-    public void ea(View view) {
-        EmojiconsFragment.n(this.oBW);
+    public void el(View view) {
+        EmojiconsFragment.n(this.oRc);
     }
 
     public void login() {
-        if (com.baidu.yuyinala.privatemessage.implugin.d.b.eft().efu()) {
+        if (com.baidu.yuyinala.privatemessage.implugin.d.b.elg().elh()) {
             LogUtils.d("InputFragment", "will do bindPhone ");
-            com.baidu.yuyinala.privatemessage.implugin.d.b.eft().a(new b.d() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.4
+            com.baidu.yuyinala.privatemessage.implugin.d.b.elg().a(new b.d() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.4
                 @Override // com.baidu.yuyinala.privatemessage.implugin.ma.a
                 public void onResult(int i) {
                     LogUtils.d("InputFragment", "bindPhone result code = " + i);
                 }
             });
-        } else if (com.baidu.yuyinala.privatemessage.implugin.d.b.eft().isCuidLogin(this.owg)) {
+        } else if (com.baidu.yuyinala.privatemessage.implugin.d.b.elg().isCuidLogin(this.oLm)) {
             LogUtils.d("InputFragment", "will do bindPhone ");
             f.b(new b.d() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.5
                 @Override // com.baidu.yuyinala.privatemessage.implugin.ma.a

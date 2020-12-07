@@ -7,49 +7,49 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.majorsearch.model.SearchMajorModel;
 import java.util.List;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class SearchMajorActivity extends BaseActivity<SearchMajorActivity> implements SearchMajorModel.a {
-    private com.baidu.tieba.majorsearch.b.a kNQ;
-    private SearchMajorModel kNR;
+    private com.baidu.tieba.majorsearch.b.a lbi;
+    private SearchMajorModel lbj;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.kNQ = new com.baidu.tieba.majorsearch.b.a(this);
-        this.kNR = new SearchMajorModel(getPageContext(), this);
+        this.lbi = new com.baidu.tieba.majorsearch.b.a(this);
+        this.lbj = new SearchMajorModel(getPageContext(), this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.kNQ.onResume();
+        this.lbi.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.kNQ != null) {
-            this.kNQ.onChangeSkinType(i);
+        if (this.lbi != null) {
+            this.lbi.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tieba.majorsearch.model.SearchMajorModel.a
-    public void af(List<String> list) {
-        if (this.kNQ != null && this.kNQ.dbJ() != null) {
-            this.kNQ.eH(list);
-            hideNetRefreshView(this.kNQ.dbJ().dbE());
+    public void ah(List<String> list) {
+        if (this.lbi != null && this.lbi.dgV() != null) {
+            this.lbi.eS(list);
+            hideNetRefreshView(this.lbi.dgV().dgQ());
         }
     }
 
     @Override // com.baidu.tieba.majorsearch.model.SearchMajorModel.a
     public void b(ErrorData errorData) {
-        if (this.kNQ != null && this.kNQ.dbJ() != null) {
-            this.kNQ.d(errorData);
-            getRefreshView().sc(R.drawable.new_pic_emotion_07);
-            showNetRefreshViewNoClick(this.kNQ.dbJ().dbE(), null);
-            getRefreshView().DC(getString(R.string.search_major_no_data));
+        if (this.lbi != null && this.lbi.dgV() != null) {
+            this.lbi.d(errorData);
+            getRefreshView().sD(R.drawable.new_pic_emotion_07);
+            showNetRefreshViewNoClick(this.lbi.dgV().dgQ(), null);
+            getRefreshView().Ek(getString(R.string.search_major_no_data));
         }
     }
 

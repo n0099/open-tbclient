@@ -1,11 +1,11 @@
 package com.baidu.tbadk.s;
 /* loaded from: classes.dex */
 public interface b {
-    void abB();
+    void aeJ();
 
-    void ay(String str, boolean z);
+    void az(String str, boolean z);
 
-    void bif();
+    void blp();
 
     void g(String str, boolean z, boolean z2);
 }

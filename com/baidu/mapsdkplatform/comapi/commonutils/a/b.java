@@ -12,18 +12,18 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2209a;
+    private String f2211a;
     private File b;
     private a c;
     private d.b d;
     private volatile boolean e = false;
 
     public b(String str, File file, a aVar, d.b bVar) {
-        this.f2209a = str;
+        this.f2211a = str;
         this.b = file;
         this.c = aVar;
         this.d = bVar;
@@ -48,7 +48,7 @@ public class b implements Runnable {
         r4 = null;
         InputStream inputStream2 = null;
         try {
-            URL url = new URL(this.f2209a);
+            URL url = new URL(this.f2211a);
             if (HttpClient.isHttpsEnable) {
                 HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) url.openConnection();
                 httpsURLConnection2.setHostnameVerifier(new c(this));

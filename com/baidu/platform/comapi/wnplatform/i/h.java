@@ -4,15 +4,15 @@ import com.baidu.mapapi.map.MapStatus;
 import com.baidu.platform.comapi.walknavi.d.l;
 import java.text.DecimalFormat;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class h implements com.baidu.platform.comapi.wnplatform.k.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f3121a;
+    final /* synthetic */ f f3123a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar) {
-        this.f3121a = fVar;
+        this.f3123a = fVar;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.k.b
@@ -23,7 +23,7 @@ public class h implements com.baidu.platform.comapi.wnplatform.k.b {
         new DecimalFormat("######0.00");
         double d = aVar.d;
         double h = com.baidu.platform.comapi.walknavi.b.a().J().h();
-        com.baidu.platform.comapi.walknavi.b.a().G().a(aVar.f3134a, aVar.b, aVar.c, d, aVar.e, aVar.f);
+        com.baidu.platform.comapi.walknavi.b.a().G().a(aVar.f3136a, aVar.b, aVar.c, d, aVar.e, aVar.f);
         if (com.baidu.platform.comapi.walknavi.b.a().J().j() != null) {
             double d2 = aVar.d - h;
             com.baidu.platform.comapi.walknavi.d.e c = com.baidu.platform.comapi.walknavi.d.e.c();

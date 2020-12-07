@@ -10,11 +10,11 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class LogUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1516a = "apollon_rest";
+    private static final String f1518a = "apollon_rest";
     public static final boolean DEBUG = ApollonConstants.DEBUG;
     private static final boolean b = ApollonConstants.DEBUG;
     private static final boolean c = ApollonConstants.DEBUG;

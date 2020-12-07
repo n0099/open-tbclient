@@ -1,18 +1,18 @@
 package com.baidu.swan.apps.an;
 
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class a {
-    private static String dBs;
+    private static String dIq;
 
-    public static String tW(String str) {
-        return String.format("%s %s", str, aLn());
+    public static String uD(String str) {
+        return String.format("%s %s", str, aOu());
     }
 
-    public static String aLn() {
-        if (TextUtils.isEmpty(dBs)) {
-            dBs = b.aLn();
+    public static String aOu() {
+        if (TextUtils.isEmpty(dIq)) {
+            dIq = b.aOu();
         }
-        return dBs;
+        return dIq;
     }
 }

@@ -6,7 +6,7 @@ import android.os.StatFs;
 public final class a {
     private static String[] sFiledsSysMemInfo = {"MemTotal:", "MemFree:", "Buffers:", "Cached:", "Active:", "Inactive:", "Dirty:"};
 
-    public static float tw() {
+    public static float tz() {
         Exception e;
         long j;
         StatFs statFs;

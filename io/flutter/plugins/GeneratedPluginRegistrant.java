@@ -11,13 +11,14 @@ import com.example.image_loader_plugin.ImageLoaderPlugin;
 import com.example.image_picker.ImagePickerPlugin;
 import com.example.shareplugin.SharepluginPlugin;
 import com.example.utility_plugin.UtilityPlugin;
+import com.example.videopalyerplugin.VideopalyerpluginPlugin;
 import com.idlefish.flutterboost.FlutterBoostPlugin;
 import com.oversketch.progresshud.ProgresshudPlugin;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.plugins.shim.ShimPluginRegistry;
 import io.flutter.plugins.pathprovider.PathProviderPlugin;
 import io.flutter.plugins.webviewflutter.WebViewFlutterPlugin;
-/* loaded from: classes15.dex */
+/* loaded from: classes7.dex */
 public final class GeneratedPluginRegistrant {
     public static void registerWith(FlutterEngine flutterEngine) {
         ShimPluginRegistry shimPluginRegistry = new ShimPluginRegistry(flutterEngine);
@@ -29,7 +30,7 @@ public final class GeneratedPluginRegistrant {
         flutterEngine.getPlugins().add(new GlobalStateSyncPlugin());
         flutterEngine.getPlugins().add(new ImageLoaderPlugin());
         flutterEngine.getPlugins().add(new ImagePickerPlugin());
-        flutterEngine.getPlugins().add(new com.baidu.j.a());
+        flutterEngine.getPlugins().add(new com.baidu.k.a());
         flutterEngine.getPlugins().add(new b());
         flutterEngine.getPlugins().add(new ProgresshudPlugin());
         flutterEngine.getPlugins().add(new PathProviderPlugin());
@@ -37,5 +38,6 @@ public final class GeneratedPluginRegistrant {
         flutterEngine.getPlugins().add(new SharepluginPlugin());
         flutterEngine.getPlugins().add(new UtilityPlugin());
         flutterEngine.getPlugins().add(new WebViewFlutterPlugin());
+        flutterEngine.getPlugins().add(new VideopalyerpluginPlugin());
     }
 }

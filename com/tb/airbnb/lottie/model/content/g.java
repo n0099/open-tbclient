@@ -3,34 +3,34 @@ package com.tb.airbnb.lottie.model.content;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.a.o;
 import com.tb.airbnb.lottie.model.a.l;
-/* loaded from: classes17.dex */
+/* loaded from: classes20.dex */
 public class g implements b {
     private final String name;
-    private final com.tb.airbnb.lottie.model.a.b pLr;
-    private final com.tb.airbnb.lottie.model.a.b pLs;
-    private final l pLt;
+    private final com.tb.airbnb.lottie.model.a.b pCv;
+    private final com.tb.airbnb.lottie.model.a.b pCw;
+    private final l pCx;
 
     public g(String str, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2, l lVar) {
         this.name = str;
-        this.pLr = bVar;
-        this.pLs = bVar2;
-        this.pLt = lVar;
+        this.pCv = bVar;
+        this.pCw = bVar2;
+        this.pCx = lVar;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.b ezp() {
-        return this.pLr;
+    public com.tb.airbnb.lottie.model.a.b eBL() {
+        return this.pCv;
     }
 
-    public com.tb.airbnb.lottie.model.a.b ezq() {
-        return this.pLs;
+    public com.tb.airbnb.lottie.model.a.b eBM() {
+        return this.pCw;
     }
 
-    public l ezr() {
-        return this.pLt;
+    public l eBN() {
+        return this.pCx;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b

@@ -4,7 +4,7 @@ import android.support.annotation.Nullable;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import org.webrtc.EglBase;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
     private final VideoDecoderFactory hardwareVideoDecoderFactory;
     @Nullable

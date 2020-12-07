@@ -1,58 +1,84 @@
 package okhttp3;
 
 import java.nio.charset.Charset;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Locale;
+import java.util.Map;
 import javax.annotation.Nullable;
 import okhttp3.internal.Util;
 /* loaded from: classes15.dex */
 public final class Challenge {
-    private final Charset charset;
-    private final String realm;
+    private final Map<String, String> authParams;
     private final String scheme;
 
-    public Challenge(String str, String str2) {
-        this(str, str2, Util.ISO_8859_1);
+    public Challenge(String str, Map<String, String> map) {
+        if (str == null) {
+            throw new NullPointerException("scheme == null");
+        }
+        if (map == null) {
+            throw new NullPointerException("authParams == null");
+        }
+        this.scheme = str;
+        LinkedHashMap linkedHashMap = new LinkedHashMap();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            linkedHashMap.put(entry.getKey() == null ? null : entry.getKey().toLowerCase(Locale.US), entry.getValue());
+        }
+        this.authParams = Collections.unmodifiableMap(linkedHashMap);
     }
 
-    private Challenge(String str, String str2, Charset charset) {
+    public Challenge(String str, String str2) {
         if (str == null) {
             throw new NullPointerException("scheme == null");
         }
         if (str2 == null) {
             throw new NullPointerException("realm == null");
         }
-        if (charset == null) {
-            throw new NullPointerException("charset == null");
-        }
         this.scheme = str;
-        this.realm = str2;
-        this.charset = charset;
+        this.authParams = Collections.singletonMap("realm", str2);
     }
 
     public Challenge withCharset(Charset charset) {
-        return new Challenge(this.scheme, this.realm, charset);
+        if (charset == null) {
+            throw new NullPointerException("charset == null");
+        }
+        LinkedHashMap linkedHashMap = new LinkedHashMap(this.authParams);
+        linkedHashMap.put("charset", charset.name());
+        return new Challenge(this.scheme, linkedHashMap);
     }
 
     public String scheme() {
         return this.scheme;
     }
 
+    public Map<String, String> authParams() {
+        return this.authParams;
+    }
+
     public String realm() {
-        return this.realm;
+        return this.authParams.get("realm");
     }
 
     public Charset charset() {
-        return this.charset;
+        String str = this.authParams.get("charset");
+        if (str != null) {
+            try {
+                return Charset.forName(str);
+            } catch (Exception e) {
+            }
+        }
+        return Util.ISO_8859_1;
     }
 
     public boolean equals(@Nullable Object obj) {
-        return (obj instanceof Challenge) && ((Challenge) obj).scheme.equals(this.scheme) && ((Challenge) obj).realm.equals(this.realm) && ((Challenge) obj).charset.equals(this.charset);
+        return (obj instanceof Challenge) && ((Challenge) obj).scheme.equals(this.scheme) && ((Challenge) obj).authParams.equals(this.authParams);
     }
 
     public int hashCode() {
-        return ((((this.realm.hashCode() + 899) * 31) + this.scheme.hashCode()) * 31) + this.charset.hashCode();
+        return ((this.scheme.hashCode() + 899) * 31) + this.authParams.hashCode();
     }
 
     public String toString() {
-        return this.scheme + " realm=\"" + this.realm + "\" charset=\"" + this.charset + "\"";
+        return this.scheme + " authParams=" + this.authParams;
     }
 }

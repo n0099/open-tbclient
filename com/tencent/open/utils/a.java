@@ -9,24 +9,24 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.Properties;
 import java.util.zip.ZipException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final k f4608a = new k(101010256);
+    private static final k f4378a = new k(101010256);
     private static final l b = new l(38651);
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tencent.open.utils.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class C1055a {
+    /* loaded from: classes12.dex */
+    public static class C1033a {
 
         /* renamed from: a  reason: collision with root package name */
-        Properties f4609a;
+        Properties f4379a;
         byte[] b;
 
-        private C1055a() {
-            this.f4609a = new Properties();
+        private C1033a() {
+            this.f4379a = new Properties();
         }
 
         void a(byte[] bArr) throws IOException {
@@ -45,7 +45,7 @@ public final class a {
                     if ((bArr.length - length) - 2 >= b) {
                         byte[] bArr4 = new byte[b];
                         wrap.get(bArr4);
-                        this.f4609a.load(new ByteArrayInputStream(bArr4));
+                        this.f4379a.load(new ByteArrayInputStream(bArr4));
                         int length2 = ((bArr.length - length) - b) - 2;
                         if (length2 > 0) {
                             this.b = new byte[length2];
@@ -57,7 +57,7 @@ public final class a {
         }
 
         public String toString() {
-            return "ApkExternalInfo [p=" + this.f4609a + ", otherData=" + Arrays.toString(this.b) + "]";
+            return "ApkExternalInfo [p=" + this.f4379a + ", otherData=" + Arrays.toString(this.b) + "]";
         }
     }
 
@@ -71,9 +71,9 @@ public final class a {
             try {
                 byte[] a2 = a(randomAccessFile);
                 if (a2 != null) {
-                    C1055a c1055a = new C1055a();
-                    c1055a.a(a2);
-                    str2 = c1055a.f4609a.getProperty(str);
+                    C1033a c1033a = new C1033a();
+                    c1033a.a(a2);
+                    str2 = c1033a.f4379a.getProperty(str);
                     if (randomAccessFile != null) {
                         randomAccessFile.close();
                     }
@@ -102,7 +102,7 @@ public final class a {
         boolean z = true;
         long length = randomAccessFile.length() - 22;
         randomAccessFile.seek(length);
-        byte[] a2 = f4608a.a();
+        byte[] a2 = f4378a.a();
         int read = randomAccessFile.read();
         while (true) {
             if (read == -1) {

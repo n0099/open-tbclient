@@ -1,79 +1,76 @@
 package com.baidu.live.o;
 
 import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.text.TextUtils;
-import android.util.Base64;
+import com.baidu.ala.AlaCmdConfigCustom;
+import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.live.adp.base.BdBaseModel;
 import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.listener.HttpMessageListener;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.HttpMessage;
+import com.baidu.live.adp.framework.message.HttpResponsedMessage;
+import com.baidu.live.data.as;
+import com.baidu.live.e;
+import com.baidu.live.message.AlaGiftRefreshScoresHttpResponseMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.log.LogConfig;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class c {
-    private static Handler handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.live.o.c.1
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            String str;
-            String str2;
-            switch (message.what) {
-                case 1:
-                    String[] strArr = (String[]) message.obj;
-                    String str3 = strArr[0];
-                    String str4 = strArr[1];
-                    if (strArr.length <= 2) {
-                        str2 = "";
-                    } else {
-                        str2 = strArr[2];
-                    }
-                    c.m(str3, str4, str2, null);
-                    return;
-                case 2:
-                    String[] strArr2 = (String[]) message.obj;
-                    String str5 = strArr2[0];
-                    String str6 = strArr2[1];
-                    if (strArr2.length <= 2) {
-                        str = "";
-                    } else {
-                        str = strArr2[2];
-                    }
-                    c.m(str5, str6, null, str);
-                    return;
-                default:
-                    return;
+public class c extends BdBaseModel {
+    private e brY;
+    private Handler handler = new Handler();
+    private HttpMessageListener brZ = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES) { // from class: com.baidu.live.o.c.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.live.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGiftRefreshScoresHttpResponseMessage)) {
+                AlaGiftRefreshScoresHttpResponseMessage alaGiftRefreshScoresHttpResponseMessage = (AlaGiftRefreshScoresHttpResponseMessage) httpResponsedMessage;
+                if (alaGiftRefreshScoresHttpResponseMessage.getError() == 0) {
+                    as PO = alaGiftRefreshScoresHttpResponseMessage.PO();
+                    TbadkCoreApplication.getInst().currentAccountTdouNum = PO.mTDouScores;
+                    TbadkCoreApplication.getInst().currentAccountFlowerNum = PO.mPetalTotal;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA));
+                }
+                if (c.this.brY != null) {
+                    c.this.handler.post(new Runnable() { // from class: com.baidu.live.o.c.1.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            c.this.brY.BN();
+                        }
+                    });
+                }
             }
         }
     };
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void m(String str, String str2, String str3, String str4) {
-        HttpMessage httpMessage = new HttpMessage(1031062);
-        httpMessage.addParam("live_id", str);
-        httpMessage.addParam("is_jiaoyou", 1);
-        httpMessage.addParam("content_type", str2);
-        if (!TextUtils.isEmpty(str4)) {
-            httpMessage.addParam("ext_data", str4);
-        } else if (!TextUtils.isEmpty(str3)) {
-            httpMessage.addParam("ext", str3);
-        }
-        MessageManager.getInstance().sendMessage(httpMessage);
+    public void initListener() {
+        registerListener(this.brZ);
     }
 
-    public static void a(String str, long j, long j2, String str2) {
-        Message message = new Message();
-        message.what = 1;
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("live_id", str);
-            jSONObject.put("red_packet_id", j + "");
-            jSONObject.put("anchor_id", TbadkCoreApplication.getCurrentAccount());
-            jSONObject.put(LogConfig.LOG_AMOUNT, j2 + "");
-        } catch (JSONException e) {
+    public void a(e eVar) {
+        this.brY = eVar;
+    }
+
+    public boolean refreshCurUserScores() {
+        if (!TbadkCoreApplication.isLogin()) {
+            return false;
         }
-        TbadkCoreApplication.getCurrentAccount();
-        message.obj = new String[]{str, str2, Base64.encodeToString(jSONObject.toString().getBytes(), 0)};
-        handler.sendMessage(message);
+        HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES);
+        httpMessage.addParam("tbs", TbadkCoreApplication.getCurrentTbs());
+        sendMessage(httpMessage);
+        return true;
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    protected boolean loadData() {
+        return false;
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void onDestroy() {
+        MessageManager.getInstance().unRegisterListener(this.brZ);
+        this.handler.removeCallbacksAndMessages(null);
     }
 }

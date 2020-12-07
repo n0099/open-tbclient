@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class h implements Runnable {
-    private final i dSs;
-    private AtomicBoolean dTo = new AtomicBoolean(false);
-    private List<h> dTp = Collections.synchronizedList(new ArrayList());
+    private final i dZq;
+    private AtomicBoolean eam = new AtomicBoolean(false);
+    private List<h> ean = Collections.synchronizedList(new ArrayList());
     private String[] mPaths;
     private final Runnable mRunnable;
     private String mTag;
 
     public h(i iVar, Runnable runnable, String str, String[] strArr) {
-        this.dSs = iVar;
+        this.dZq = iVar;
         this.mRunnable = runnable;
         this.mTag = str;
         this.mPaths = strArr;
@@ -24,17 +24,17 @@ public class h implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         try {
-            aUw();
+            aXB();
         } finally {
-            this.dSs.c(this);
+            this.dZq.c(this);
         }
     }
 
-    public void aUw() {
+    public void aXB() {
         this.mRunnable.run();
     }
 
-    public void aUx() {
+    public void aXC() {
         p.postOnIO(this, this.mTag);
     }
 
@@ -42,29 +42,29 @@ public class h implements Runnable {
         return this.mTag;
     }
 
-    public String[] aUy() {
+    public String[] aXD() {
         return this.mPaths;
     }
 
-    public boolean aUz() {
-        return this.dTo.get();
+    public boolean aXE() {
+        return this.eam.get();
     }
 
-    public void aUA() {
-        this.dTo.set(true);
+    public void aXF() {
+        this.eam.set(true);
     }
 
     public void a(h hVar) {
-        if (!this.dTp.contains(hVar)) {
-            this.dTp.add(hVar);
+        if (!this.ean.contains(hVar)) {
+            this.ean.add(hVar);
         }
     }
 
     public void b(h hVar) {
-        this.dTp.remove(hVar);
+        this.ean.remove(hVar);
     }
 
-    public boolean aUB() {
-        return this.dTp.isEmpty();
+    public boolean aXG() {
+        return this.ean.isEmpty();
     }
 }

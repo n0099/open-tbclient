@@ -7,27 +7,27 @@ import java.util.concurrent.TimeUnit;
 import rx.g;
 import rx.k;
 import rx.subscriptions.e;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class TestScheduler extends g {
-    static long qlA;
+    static long pVB;
     final Queue<c> queue = new PriorityQueue(11, new a());
     long time;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     public static final class c {
         final rx.functions.a action;
         private final long count;
-        final g.a qlF;
+        final g.a pVG;
         final long time;
 
         c(g.a aVar, long j, rx.functions.a aVar2) {
-            long j2 = TestScheduler.qlA;
-            TestScheduler.qlA = 1 + j2;
+            long j2 = TestScheduler.pVB;
+            TestScheduler.pVB = 1 + j2;
             this.count = j2;
             this.time = j;
             this.action = aVar2;
-            this.qlF = aVar;
+            this.pVG = aVar;
         }
 
         public String toString() {
@@ -35,7 +35,7 @@ public class TestScheduler extends g {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     static final class a implements Comparator<c> {
         a() {
         }
@@ -67,14 +67,14 @@ public class TestScheduler extends g {
     }
 
     public void advanceTimeTo(long j, TimeUnit timeUnit) {
-        iD(timeUnit.toNanos(j));
+        iQ(timeUnit.toNanos(j));
     }
 
     public void triggerActions() {
-        iD(this.time);
+        iQ(this.time);
     }
 
-    private void iD(long j) {
+    private void iQ(long j) {
         while (!this.queue.isEmpty()) {
             c peek = this.queue.peek();
             if (peek.time > j) {
@@ -82,7 +82,7 @@ public class TestScheduler extends g {
             }
             this.time = peek.time == 0 ? this.time : peek.time;
             this.queue.remove();
-            if (!peek.qlF.isUnsubscribed()) {
+            if (!peek.pVG.isUnsubscribed()) {
                 peek.action.call();
             }
         }
@@ -94,21 +94,21 @@ public class TestScheduler extends g {
         return new b();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     final class b extends g.a {
-        private final rx.subscriptions.a qlB = new rx.subscriptions.a();
+        private final rx.subscriptions.a pVC = new rx.subscriptions.a();
 
         b() {
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.qlB.unsubscribe();
+            this.pVC.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.qlB.isUnsubscribed();
+            return this.pVC.isUnsubscribed();
         }
 
         @Override // rx.g.a

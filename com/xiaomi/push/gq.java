@@ -12,23 +12,23 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public class gq {
 
     /* renamed from: a  reason: collision with root package name */
-    private static gq f4932a;
+    private static gq f4702a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Map<String, Object> f408a = new ConcurrentHashMap();
+    private Map<String, Object> f406a = new ConcurrentHashMap();
     private Map<String, Object> b = new ConcurrentHashMap();
 
     private gq() {
-        m325a();
+        m315a();
     }
 
     public static synchronized gq a() {
         gq gqVar;
         synchronized (gq.class) {
-            if (f4932a == null) {
-                f4932a = new gq();
+            if (f4702a == null) {
+                f4702a = new gq();
             }
-            gqVar = f4932a;
+            gqVar = f4702a;
         }
         return gqVar;
     }
@@ -43,7 +43,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private ClassLoader[] m323a() {
+    private ClassLoader[] m313a() {
         ClassLoader[] classLoaderArr = {gq.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (ClassLoader classLoader : classLoaderArr) {
@@ -55,14 +55,14 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Object m324a(String str, String str2) {
-        return this.f408a.get(a(str, str2));
+    public Object m314a(String str, String str2) {
+        return this.f406a.get(a(str, str2));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    protected void m325a() {
+    protected void m315a() {
         try {
-            for (ClassLoader classLoader : m323a()) {
+            for (ClassLoader classLoader : m313a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack.providers");
                 while (resources.hasMoreElements()) {
                     InputStream openStream = resources.nextElement().openStream();
@@ -106,13 +106,13 @@ public class gq {
                                 newPullParser.next();
                                 String nextText6 = newPullParser.nextText();
                                 String a3 = a(nextText4, nextText5);
-                                if (!this.f408a.containsKey(a3)) {
+                                if (!this.f406a.containsKey(a3)) {
                                     try {
                                         Class<?> cls2 = Class.forName(nextText6);
                                         if (gp.class.isAssignableFrom(cls2)) {
-                                            this.f408a.put(a3, cls2.newInstance());
+                                            this.f406a.put(a3, cls2.newInstance());
                                         } else if (gk.class.isAssignableFrom(cls2)) {
-                                            this.f408a.put(a3, cls2);
+                                            this.f406a.put(a3, cls2);
                                         }
                                     } catch (ClassNotFoundException e2) {
                                         e2.printStackTrace();
@@ -137,6 +137,6 @@ public class gq {
         if (!(obj instanceof gp) && !(obj instanceof Class)) {
             throw new IllegalArgumentException("Provider must be a PacketExtensionProvider or a Class instance.");
         }
-        this.f408a.put(a(str, str2), obj);
+        this.f406a.put(a(str, str2), obj);
     }
 }

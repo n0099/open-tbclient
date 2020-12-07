@@ -8,24 +8,24 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class e {
-    public static <K, V> Map<K, V> aaH() {
+    public static <K, V> Map<K, V> adP() {
         return Build.VERSION.SDK_INT >= 19 ? new ArrayMap() : new HashMap();
     }
 
-    public static Map<String, String> al(JSONObject jSONObject) {
-        Map<String, String> aaH = aaH();
+    public static Map<String, String> an(JSONObject jSONObject) {
+        Map<String, String> adP = adP();
         if (jSONObject != null) {
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 if (!TextUtils.isEmpty(next)) {
-                    aaH.put(next, jSONObject.optString(next));
+                    adP.put(next, jSONObject.optString(next));
                 }
             }
         }
-        return aaH;
+        return adP;
     }
 
     public static Bundle l(Map<String, String> map) {

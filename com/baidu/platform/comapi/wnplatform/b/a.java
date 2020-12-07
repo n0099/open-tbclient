@@ -9,11 +9,11 @@ import com.baidu.platform.comjni.bikenavi.JNIGuidanceControl;
 import com.google.protobuf.micro.MessageMicro;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class a extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    int f3100a;
+    int f3102a;
     private JNIGuidanceControl b;
     private long c;
     private boolean d;
@@ -42,9 +42,9 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
 
     public boolean a(int[] iArr, int[] iArr2, int[] iArr3, int[] iArr4) {
         if (this.b != null) {
-            this.f3100a = iArr.length;
-            String[] strArr = new String[this.f3100a];
-            String[] strArr2 = new String[this.f3100a];
+            this.f3102a = iArr.length;
+            String[] strArr = new String[this.f3102a];
+            String[] strArr2 = new String[this.f3102a];
             for (int i = 0; i < strArr.length; i++) {
                 strArr[i] = "";
             }
@@ -58,14 +58,14 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
 
     public boolean a(int[] iArr, int[] iArr2, int[] iArr3, int[] iArr4, String[] strArr, String[] strArr2) {
         if (this.b != null) {
-            this.f3100a = iArr.length;
+            this.f3102a = iArr.length;
             return this.b.setNaviNodes(this.c, iArr, iArr2, iArr3, iArr4, strArr, strArr2, null, null);
         }
         return false;
     }
 
     public int a() {
-        return this.f3100a;
+        return this.f3102a;
     }
 
     public int b() {

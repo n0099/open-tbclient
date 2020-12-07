@@ -7,7 +7,7 @@ import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.CookieSpec;
 import org.apache.http.cookie.MalformedCookieException;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class BestMatchSpec implements CookieSpec {
     public BestMatchSpec(String[] strArr, boolean z) {
         throw new RuntimeException("Stub!");

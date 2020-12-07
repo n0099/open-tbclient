@@ -1,5 +1,5 @@
 package android.net.compatibility;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class WebAddress {
     public WebAddress(String str) throws IllegalArgumentException {
         throw new RuntimeException("Stub!");

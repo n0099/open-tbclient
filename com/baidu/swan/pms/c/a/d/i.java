@@ -7,33 +7,33 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class i implements b {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private com.baidu.swan.pms.a.d cVx;
-    private List<com.baidu.swan.pms.model.e> egJ = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> egK = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> egL = new ArrayList();
-    private List<com.baidu.swan.pms.c.a.b> egI = new ArrayList();
+    private com.baidu.swan.pms.a.d dct;
+    private List<com.baidu.swan.pms.model.e> enK = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> enL = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> enM = new ArrayList();
+    private List<com.baidu.swan.pms.c.a.b> enJ = new ArrayList();
 
     public i(com.baidu.swan.pms.a.d dVar) {
-        this.cVx = dVar;
-        d.bbb().c(this);
+        this.dct = dVar;
+        d.beg().c(this);
     }
 
     public void a(com.baidu.swan.pms.c.a.b bVar) {
         if (bVar != null) {
-            this.egI.add(bVar);
+            this.enJ.add(bVar);
         }
     }
 
-    public void bbn() {
-        if (!bbo()) {
+    public void bes() {
+        if (!bet()) {
             if (DEBUG) {
-                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bau().getProcessName() + " startDownload: total=" + this.egI.size());
+                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bdz().getProcessName() + " startDownload: total=" + this.enJ.size());
             }
-            for (com.baidu.swan.pms.c.a.b bVar : this.egI) {
+            for (com.baidu.swan.pms.c.a.b bVar : this.enJ) {
                 if (DEBUG) {
-                    Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bau().getProcessName() + " startDownload: for handler=" + bVar);
+                    Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bdz().getProcessName() + " startDownload: for handler=" + bVar);
                 }
-                bVar.hU(false);
+                bVar.ij(false);
             }
         }
     }
@@ -44,43 +44,43 @@ public class i implements b {
 
     @Override // com.baidu.swan.pms.c.a.d.b
     public <T> void e(f<T> fVar) {
-        if (!fVar.bbm()) {
-            Iterator<com.baidu.swan.pms.c.a.b> it = this.egI.iterator();
+        if (!fVar.ber()) {
+            Iterator<com.baidu.swan.pms.c.a.b> it = this.enJ.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 com.baidu.swan.pms.c.a.b next = it.next();
                 if (next.a(fVar)) {
-                    int bbe = fVar.bbe();
-                    this.egI.remove(next);
-                    switch (bbe) {
+                    int bej = fVar.bej();
+                    this.enJ.remove(next);
+                    switch (bej) {
                         case 2:
-                            this.egL.add(next.baV().egA.egz);
+                            this.enM.add(next.bea().enC.enB);
                             break;
                         case 3:
-                            this.egK.add(next.baV().egA.egz);
+                            this.enL.add(next.bea().enC.enB);
                             break;
                         case 10:
-                            this.egJ.add(next.baV().egA.egz);
+                            this.enK.add(next.bea().enC.enB);
                             break;
                         default:
                             if (com.baidu.swan.pms.d.DEBUG) {
-                                Log.e("PMSTaskGroup", "notifyTaskEnd error state:" + bbe);
+                                Log.e("PMSTaskGroup", "notifyTaskEnd error state:" + bej);
                                 break;
                             }
                             break;
                     }
                 }
             }
-            bbo();
+            bet();
         }
     }
 
-    private boolean bbo() {
-        if (this.egI.isEmpty()) {
-            this.cVx.apz();
-            d.bbb().d(this);
+    private boolean bet() {
+        if (this.enJ.isEmpty()) {
+            this.dct.asH();
+            d.beg().d(this);
             return true;
         }
         return false;

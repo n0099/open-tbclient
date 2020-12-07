@@ -3,28 +3,28 @@ package com.baidu.webkit.logsdk.upload;
 import android.text.TextUtils;
 import com.baidu.webkit.logsdk.d;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class c implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f3967a;
+    final /* synthetic */ a f3970a;
     final /* synthetic */ b b;
 
     public c(b bVar, a aVar) {
         this.b = bVar;
-        this.f3967a = aVar;
+        this.f3970a = aVar;
     }
 
     @Override // com.baidu.webkit.logsdk.d
     public final void a(byte[] bArr) {
         if (bArr == null) {
-            this.b.a(this.f3967a);
+            this.b.a(this.f3970a);
             return;
         }
         b bVar = this.b;
-        a aVar = this.f3967a;
+        a aVar = this.f3970a;
         com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "onUploadSuccess", null);
-        String str = aVar.e.f3955a;
+        String str = aVar.e.f3958a;
         if (aVar.e.b == 3) {
             com.baidu.webkit.logsdk.a.b.a().e();
             com.baidu.webkit.logsdk.b.b.a(str, System.currentTimeMillis());

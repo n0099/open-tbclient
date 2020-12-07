@@ -17,7 +17,7 @@ public final class JsonParser {
         try {
             a aVar = new a(reader);
             JsonElement parse = parse(aVar);
-            if (!parse.isJsonNull() && aVar.esW() != JsonToken.END_DOCUMENT) {
+            if (!parse.isJsonNull() && aVar.eyy() != JsonToken.END_DOCUMENT) {
                 throw new JsonSyntaxException("Did not consume the entire document.");
             }
             return parse;
@@ -31,8 +31,8 @@ public final class JsonParser {
     }
 
     public JsonElement parse(a aVar) throws JsonIOException, JsonSyntaxException {
-        boolean etq = aVar.etq();
-        aVar.AG(true);
+        boolean eyW = aVar.eyW();
+        aVar.Bd(true);
         try {
             try {
                 return h.parse(aVar);
@@ -42,7 +42,7 @@ public final class JsonParser {
                 throw new JsonParseException("Failed parsing JSON source: " + aVar + " to Json", e2);
             }
         } finally {
-            aVar.AG(etq);
+            aVar.Bd(eyW);
         }
     }
 }

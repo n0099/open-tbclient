@@ -19,9 +19,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class CommonOverflowMenuView extends LinearLayout implements a.b {
-    private SwanAppScrollView dlV;
+    private SwanAppScrollView dsW;
     private HashMap<com.baidu.swan.apps.res.widget.a.b, ImageView> mBdMenuItemIconMap;
     private List<TextView> mBdMenuItemTexList;
     private SparseArray<View> mChildView;
@@ -66,7 +66,7 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
     private void init(Context context) {
         this.mContentView = LayoutInflater.from(context).inflate(a.g.aiapps_menu_scroll_view, (ViewGroup) this, true);
         this.mLinearContent = (LinearLayout) this.mContentView.findViewById(a.f.menu_linear);
-        this.dlV = (SwanAppScrollView) this.mContentView.findViewById(a.f.menu_scrollview);
+        this.dsW = (SwanAppScrollView) this.mContentView.findViewById(a.f.menu_scrollview);
         setFocusable(true);
         setFocusableInTouchMode(true);
         updateUI();
@@ -156,18 +156,18 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.res.widget.a.b bVar) {
-        b.a aGA = bVar.aGA();
-        if (aGA != null) {
-            aGA.b(bVar);
+        b.a aJI = bVar.aJI();
+        if (aJI != null) {
+            aJI.b(bVar);
         }
     }
 
     public void setMaxHeightRes(int i) {
-        this.dlV.setMaxHeight(getContext().getResources().getDimensionPixelSize(i));
+        this.dsW.setMaxHeight(getContext().getResources().getDimensionPixelSize(i));
     }
 
     public void setMaxHeightPixel(int i) {
-        this.dlV.setMaxHeight(i);
+        this.dsW.setMaxHeight(i);
     }
 
     public LinearLayout getLinearContent() {
@@ -185,7 +185,7 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        com.baidu.swan.apps.t.a.awo().a(this.mNightModeRegister, new com.baidu.swan.apps.aj.a() { // from class: com.baidu.swan.apps.res.ui.CommonOverflowMenuView.2
+        com.baidu.swan.apps.t.a.azw().a(this.mNightModeRegister, new com.baidu.swan.apps.aj.a() { // from class: com.baidu.swan.apps.res.ui.CommonOverflowMenuView.2
         });
         updateUI();
     }
@@ -207,6 +207,6 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.swan.apps.t.a.awo().unsubscribeNightModeChangedEvent(this.mNightModeRegister);
+        com.baidu.swan.apps.t.a.azw().unsubscribeNightModeChangedEvent(this.mNightModeRegister);
     }
 }

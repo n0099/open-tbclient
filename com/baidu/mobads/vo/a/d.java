@@ -8,7 +8,6 @@ import com.baidu.mobads.utils.e;
 import com.baidu.mobads.utils.m;
 import com.baidu.mobads.vo.a.a;
 import com.baidu.webkit.internal.ETAG;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class d extends a {
@@ -16,7 +15,7 @@ public class d extends a {
     private HashMap<String, String> p;
 
     public d(String str, IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo, HashMap<String, String> hashMap) {
-        super(new a.C0263a(iXAdInstanceInfo, iXAdProdInfo));
+        super(new a.C0273a(iXAdInstanceInfo, iXAdProdInfo));
         this.o = "";
         this.p = null;
         this.o = str;
@@ -43,11 +42,11 @@ public class d extends a {
                     String encodeURIComponent = commonUtils.encodeURIComponent(str);
                     String encodeURIComponent2 = commonUtils.encodeURIComponent(str2);
                     sb.append(encodeURIComponent);
-                    sb.append(ETAG.EQUAL);
+                    sb.append("=");
                     sb.append(encodeURIComponent2);
                     sb.append(ETAG.ITEM_SEPARATOR);
                     sb2.append(encodeURIComponent2);
-                    sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    sb2.append(",");
                 }
             }
             return "https://mobads-logs.baidu.com/dz.zb?" + sb.toString();

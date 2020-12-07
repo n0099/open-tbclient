@@ -1,5 +1,5 @@
 package com.baidu.android.common.galaxy_full;
-/* loaded from: classes11.dex */
+/* loaded from: classes17.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.android.common.galaxy_full";
     public static final String BUILD_TYPE = "release";

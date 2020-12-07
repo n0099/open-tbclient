@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1018a;
+    private String f1016a;
     private String b;
     private int c;
     private ArrayList<e> d;
@@ -26,7 +26,7 @@ public class c {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1019a;
+        public int f1017a;
         public int b;
 
         public a() {
@@ -34,7 +34,7 @@ public class c {
     }
 
     public c(Context context, String str) {
-        this.f1018a = str;
+        this.f1016a = str;
         a(context, str);
     }
 
@@ -136,7 +136,7 @@ public class c {
 
     public void a(int i, int i2) {
         this.h = new a();
-        this.h.f1019a = i;
+        this.h.f1017a = i;
         this.h.b = i2;
     }
 
@@ -193,6 +193,6 @@ public class c {
     }
 
     public String toString() {
-        return this.f1018a;
+        return this.f1016a;
     }
 }

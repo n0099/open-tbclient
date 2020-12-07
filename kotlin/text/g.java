@@ -1,7 +1,7 @@
 package kotlin.text;
 
 import java.util.Collection;
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 public interface g extends Collection<f> {
 }

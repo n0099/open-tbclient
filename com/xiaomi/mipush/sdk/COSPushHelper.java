@@ -7,10 +7,10 @@ import android.os.SystemClock;
 public class COSPushHelper {
 
     /* renamed from: a  reason: collision with other field name */
-    private static volatile boolean f27a = false;
+    private static volatile boolean f25a = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f4733a = 0;
+    private static long f4503a = 0;
 
     public static void convertMessage(Intent intent) {
         h.a(intent);
@@ -19,19 +19,19 @@ public class COSPushHelper {
     public static void doInNetworkChange(Context context) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         if (getNeedRegister()) {
-            if (f4733a <= 0 || f4733a + 300000 <= elapsedRealtime) {
-                f4733a = elapsedRealtime;
+            if (f4503a <= 0 || f4503a + 300000 <= elapsedRealtime) {
+                f4503a = elapsedRealtime;
                 registerCOSAssemblePush(context);
             }
         }
     }
 
     public static boolean getNeedRegister() {
-        return f27a;
+        return f25a;
     }
 
     public static boolean hasNetwork(Context context) {
-        return h.m117a(context);
+        return h.m107a(context);
     }
 
     public static void onNotificationMessageCome(Context context, String str) {
@@ -43,14 +43,14 @@ public class COSPushHelper {
     public static void registerCOSAssemblePush(Context context) {
         AbstractPushManager a2 = e.a(context).a(d.ASSEMBLE_PUSH_COS);
         if (a2 != null) {
-            com.xiaomi.channel.commonutils.logger.b.m57a("ASSEMBLE_PUSH :  register cos when network change!");
+            com.xiaomi.channel.commonutils.logger.b.m47a("ASSEMBLE_PUSH :  register cos when network change!");
             a2.register();
         }
     }
 
     public static synchronized void setNeedRegister(boolean z) {
         synchronized (COSPushHelper.class) {
-            f27a = z;
+            f25a = z;
         }
     }
 

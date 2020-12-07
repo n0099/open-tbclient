@@ -6,7 +6,6 @@ import com.baidu.live.tbadk.core.data.BlockPopInfoData;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.util.httpnet.HttpResponse;
-import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttentionData> {
@@ -50,7 +49,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttenti
                         this.status = jSONObject.optInt("status");
                         this.isShowMessage = z && (optJSONObject.optInt("is_toast", 0) == 1);
                         this.showMsg = optJSONObject.optString("toast_text");
-                        JSONObject optJSONObject2 = jSONObject.optJSONObject(LogConfig.KEY_NOTICE);
+                        JSONObject optJSONObject2 = jSONObject.optJSONObject("notice");
                         if (optJSONObject2 != null) {
                             this.showPop = optJSONObject2.optInt("is_pop") == 1;
                             this.autoOpenStatus = optJSONObject2.optInt("automatic_open");

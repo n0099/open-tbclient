@@ -1,16 +1,15 @@
 package kotlin.collections;
 
 import com.baidu.live.tbadk.core.util.StringHelper;
-import com.baidu.webkit.internal.ETAG;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import kotlin.TypeCastException;
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 public abstract class e<K, V> implements Map<K, V> {
-    public static final a pTD = new a(null);
+    public static final a pKg = new a(null);
 
     public abstract Set getEntries();
 
@@ -35,7 +34,7 @@ public abstract class e<K, V> implements Map<K, V> {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.Map<K, V>");
             }
             V v = get(key);
-            if (!kotlin.jvm.internal.q.l(value, v)) {
+            if (!kotlin.jvm.internal.p.l(value, v)) {
                 return false;
             }
             if (v == null) {
@@ -89,21 +88,21 @@ public abstract class e<K, V> implements Map<K, V> {
 
     public String toString() {
         String a2;
-        a2 = o.a(entrySet(), (r14 & 1) != 0 ? ", " : ", ", (r14 & 2) != 0 ? "" : "{", (r14 & 4) != 0 ? "" : "}", (r14 & 8) != 0 ? -1 : 0, (r14 & 16) != 0 ? StringHelper.STRING_MORE : null, (r14 & 32) != 0 ? null : new AbstractMap$toString$1(this));
+        a2 = n.a(entrySet(), (r14 & 1) != 0 ? ", " : ", ", (r14 & 2) != 0 ? "" : "{", (r14 & 4) != 0 ? "" : "}", (r14 & 8) != 0 ? -1 : 0, (r14 & 16) != 0 ? StringHelper.STRING_MORE : null, (r14 & 32) != 0 ? null : new AbstractMap$toString$1(this));
         return a2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final String c(Map.Entry<? extends K, ? extends V> entry) {
-        return toString(entry.getKey()) + ETAG.EQUAL + toString(entry.getValue());
+        return toString(entry.getKey()) + "=" + toString(entry.getValue());
     }
 
     private final String toString(Object obj) {
         return obj == this ? "(this Map)" : String.valueOf(obj);
     }
 
-    @kotlin.h
-    /* loaded from: classes9.dex */
+    @kotlin.e
+    /* loaded from: classes17.dex */
     public static final class a {
         private a() {
         }

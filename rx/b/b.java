@@ -4,11 +4,11 @@ import rx.exceptions.CompositeException;
 import rx.exceptions.OnCompletedFailedException;
 import rx.exceptions.OnErrorFailedException;
 import rx.k;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public final class b implements rx.c, k {
     final rx.c actual;
     boolean done;
-    k qkP;
+    k pUQ;
 
     public b(rx.c cVar) {
         this.actual = cVar;
@@ -43,7 +43,7 @@ public final class b implements rx.c, k {
 
     @Override // rx.c
     public void onSubscribe(k kVar) {
-        this.qkP = kVar;
+        this.pUQ = kVar;
         try {
             this.actual.onSubscribe(this);
         } catch (Throwable th) {
@@ -55,11 +55,11 @@ public final class b implements rx.c, k {
 
     @Override // rx.k
     public void unsubscribe() {
-        this.qkP.unsubscribe();
+        this.pUQ.unsubscribe();
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.done || this.qkP.isUnsubscribed();
+        return this.done || this.pUQ.isUnsubscribed();
     }
 }

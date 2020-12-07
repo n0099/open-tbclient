@@ -2,12 +2,12 @@ package com.baidu.webkit.net;
 
 import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.sdk.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class f {
     private static final String b = f.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    BdNetTask f3974a;
+    BdNetTask f3977a;
     private BdNet c;
     private BdNetEngine d;
 
@@ -21,7 +21,7 @@ public class f {
     }
 
     public final boolean a() {
-        return this.f3974a != null;
+        return this.f3977a != null;
     }
 
     public final boolean a(BdNetTask bdNetTask) {
@@ -29,9 +29,9 @@ public class f {
             return false;
         }
         try {
-            this.f3974a = bdNetTask;
-            this.f3974a.setNet(this.c);
-            this.f3974a.setWorker(this);
+            this.f3977a = bdNetTask;
+            this.f3977a.setNet(this.c);
+            this.f3977a.setWorker(this);
             if (e.a().c == null) {
                 e.a().c = this.c.getContext();
             }
@@ -40,14 +40,14 @@ public class f {
                 this.d.setEventListener(this.c);
                 e.a();
                 if (!e.b()) {
-                    this.d.startDownload(this.f3974a);
-                } else if (this.f3974a.isHigherPriority()) {
-                    this.d.startDownload(this.f3974a);
+                    this.d.startDownload(this.f3977a);
+                } else if (this.f3977a.isHigherPriority()) {
+                    this.d.startDownload(this.f3977a);
                 }
             } else {
                 e.a();
-                if (!e.b() || this.f3974a.isHigherPriority()) {
-                    BdNetTask bdNetTask2 = this.f3974a;
+                if (!e.b() || this.f3977a.isHigherPriority()) {
+                    BdNetTask bdNetTask2 = this.f3977a;
                     if (bdNetTask2.getTaskPriority$78f3a484() == 0) {
                         e.a().a(bdNetTask2, BdNetTask.b.b - 1);
                     } else {
@@ -70,10 +70,10 @@ public class f {
 
     public final void b() {
         try {
-            if (this.f3974a != null) {
-                this.f3974a.setWorker(null);
-                this.f3974a.stop();
-                this.f3974a = null;
+            if (this.f3977a != null) {
+                this.f3977a.setWorker(null);
+                this.f3977a.stop();
+                this.f3977a = null;
             }
         } catch (Exception e) {
             Log.d(b, "stop Exception", e);

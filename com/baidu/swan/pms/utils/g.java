@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import com.baidu.swan.c.i;
 /* loaded from: classes6.dex */
 public class g {
-    public static SharedPreferences bbY() {
+    public static SharedPreferences bfd() {
         return new i("key_pms_sp_name");
     }
 }

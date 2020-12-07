@@ -1,14 +1,15 @@
 package com.baidu.live.ag;
 
-import android.content.Context;
-import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
-public class a {
-    public static int a(Context context, boolean z, boolean z2, boolean z3) {
-        return b.c(z, z2, z3) + context.getResources().getDimensionPixelSize(a.d.sdk_tbds130) + context.getResources().getDimensionPixelOffset(a.d.sdk_ds80) + context.getResources().getDimensionPixelOffset(a.d.sdk_ds20) + context.getResources().getDimensionPixelOffset(a.d.sdk_ds6);
-    }
-
-    public static int h(boolean z, boolean z2) {
-        return b.c(z, z2, false) + b.cW(z);
-    }
+interface a {
+    public static final String bxI = TbadkCoreApplication.getInst().getApp().getFilesDir() + "/live_sdk";
+    public static final String bxJ = bxI + "/resource";
+    public static final String bxK = bxI + "/permanent";
+    public static final String bxL = bxJ + "/dynamic_gift";
+    public static final String bxM = bxJ + "/enter_effect";
+    public static final String bxN = bxJ + "/pk_rank";
+    public static final String bxO = bxJ + "/dating_anim";
+    public static final String bxP = bxJ + "/poke";
+    public static final String bxQ = bxJ + "/apk";
 }

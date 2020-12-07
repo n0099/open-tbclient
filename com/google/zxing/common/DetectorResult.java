@@ -1,7 +1,7 @@
 package com.google.zxing.common;
 
 import com.google.zxing.ResultPoint;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class DetectorResult {
     private final BitMatrix bits;
     private final ResultPoint[] points;

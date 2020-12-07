@@ -24,10 +24,10 @@ import java.util.Iterator;
 public class au extends be.a implements cz.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f5067a;
+    private long f4837a;
 
     /* renamed from: a  reason: collision with other field name */
-    private XMPushService f871a;
+    private XMPushService f869a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes18.dex */
@@ -48,7 +48,7 @@ public class au extends be.a implements cz.a {
             int port = url.getPort() == -1 ? 80 : url.getPort();
             try {
                 long currentTimeMillis = System.currentTimeMillis();
-                String a2 = com.xiaomi.push.az.a(com.xiaomi.push.t.m586a(), url);
+                String a2 = com.xiaomi.push.az.a(com.xiaomi.push.t.m576a(), url);
                 hg.a(url.getHost() + ":" + port, (int) (System.currentTimeMillis() - currentTimeMillis), null);
                 return a2;
             } catch (IOException e) {
@@ -68,19 +68,19 @@ public class au extends be.a implements cz.a {
         @Override // com.xiaomi.push.cz
         public String a(ArrayList<String> arrayList, String str, String str2, boolean z) {
             try {
-                if (he.m337a().m342a()) {
-                    str2 = be.m562a();
+                if (he.m327a().m332a()) {
+                    str2 = be.m552a();
                 }
                 return super.a(arrayList, str, str2, z);
             } catch (IOException e) {
-                hg.a(0, fh.GSLB_ERR.a(), 1, null, com.xiaomi.push.az.b(f4848a) ? 1 : 0);
+                hg.a(0, fh.GSLB_ERR.a(), 1, null, com.xiaomi.push.az.b(f4618a) ? 1 : 0);
                 throw e;
             }
         }
     }
 
     au(XMPushService xMPushService) {
-        this.f871a = xMPushService;
+        this.f869a = xMPushService;
     }
 
     public static void a(XMPushService xMPushService) {
@@ -105,33 +105,33 @@ public class au extends be.a implements cz.a {
     public void a(ek.b bVar) {
         cv b2;
         boolean z;
-        if (bVar.b() && bVar.a() && System.currentTimeMillis() - this.f5067a > BdKVCache.MILLS_1Hour) {
-            com.xiaomi.channel.commonutils.logger.b.m57a("fetch bucket :" + bVar.a());
-            this.f5067a = System.currentTimeMillis();
+        if (bVar.b() && bVar.a() && System.currentTimeMillis() - this.f4837a > BdKVCache.MILLS_1Hour) {
+            com.xiaomi.channel.commonutils.logger.b.m47a("fetch bucket :" + bVar.a());
+            this.f4837a = System.currentTimeMillis();
             cz a2 = cz.a();
-            a2.m221a();
-            a2.m224b();
-            fs m522a = this.f871a.m522a();
-            if (m522a == null || (b2 = a2.b(m522a.m296a().c())) == null) {
+            a2.m211a();
+            a2.m214b();
+            fs m512a = this.f869a.m512a();
+            if (m512a == null || (b2 = a2.b(m512a.m286a().c())) == null) {
                 return;
             }
-            ArrayList<String> m209a = b2.m209a();
-            Iterator<String> it = m209a.iterator();
+            ArrayList<String> m199a = b2.m199a();
+            Iterator<String> it = m199a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = true;
                     break;
-                } else if (it.next().equals(m522a.m297a())) {
+                } else if (it.next().equals(m512a.m287a())) {
                     z = false;
                     break;
                 }
             }
-            if (!z || m209a.isEmpty()) {
+            if (!z || m199a.isEmpty()) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m57a("bucket changed, force reconnect");
-            this.f871a.a(0, (Exception) null);
-            this.f871a.a(false);
+            com.xiaomi.channel.commonutils.logger.b.m47a("bucket changed, force reconnect");
+            this.f869a.a(0, (Exception) null);
+            this.f869a.a(false);
         }
     }
 }

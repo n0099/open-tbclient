@@ -21,11 +21,11 @@ import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PassFaceRecogManager implements PassBiometric {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final long f2723a = 300;
+    private static final long f2725a = 300;
     private static PassFaceRecogManager b;
     private PassBiometricConfiguration c;
     private PassFaceRecogCallback d;

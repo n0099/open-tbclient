@@ -3,7 +3,7 @@ package com.baidu.ala.dumixar;
 import android.content.Context;
 import java.io.File;
 import java.util.Objects;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class ArSourceConfig {
     private static ArSourceConfig sInst;
     private String mAssetsSourcePath = "arsource";

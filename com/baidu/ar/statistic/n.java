@@ -1,13 +1,13 @@
 package com.baidu.ar.statistic;
 
-import com.baidu.ar.g.s;
+import com.baidu.ar.h.s;
 import com.baidu.ar.ihttp.HttpFactory;
 import com.baidu.ar.ihttp.IHttpRequest;
 import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 final class n extends j implements e {
     @Override // com.baidu.ar.statistic.j
     protected JSONObject a(JSONObject jSONObject, a aVar) {

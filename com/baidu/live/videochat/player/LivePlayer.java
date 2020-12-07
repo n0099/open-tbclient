@@ -7,62 +7,62 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.baidu.live.aa.a;
 import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.live.ae.a;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.data.AlaLiveStreamSessionInfo;
-import com.baidu.live.data.bn;
+import com.baidu.live.data.bo;
 import com.baidu.live.liveroom.e.d;
 import com.baidu.live.liveroom.e.g;
 import com.baidu.live.liveroom.e.i;
-import com.baidu.live.s.b;
-import com.baidu.live.s.f;
-import com.baidu.live.s.h;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.u.b;
+import com.baidu.live.u.f;
+import com.baidu.live.u.h;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class LivePlayer extends FrameLayout implements f {
-    private d bIN;
-    private b bIO;
-    private String bIP;
-    private AlaLiveInfoData bld;
+    private d bNV;
+    private b bNW;
+    private String bNX;
+    private AlaLiveInfoData bqm;
     private Context mContext;
 
     public LivePlayer(Context context) {
         super(context);
-        d ay;
-        this.bIP = "";
+        d bc;
+        this.bNX = "";
         this.mContext = context;
-        boolean z = a.Ph().bms.aJP;
+        boolean z = a.RB().brA.aMK;
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            ay = i.Nj().ay(context);
+            bc = i.PB().bc(context);
         } else if (z) {
-            ay = i.Nj().az(context);
+            bc = i.PB().bd(context);
         } else {
-            ay = i.Nj().ay(context);
+            bc = i.PB().bc(context);
         }
-        this.bIN = ay;
+        this.bNV = bc;
     }
 
-    private FrameLayout.LayoutParams VI() {
+    private FrameLayout.LayoutParams Yi() {
         return new FrameLayout.LayoutParams(-1, -1);
     }
 
-    @Override // com.baidu.live.s.f
+    @Override // com.baidu.live.u.f
     public void c(AlaLiveInfoData alaLiveInfoData) {
         int i;
         int i2 = 1;
         if (alaLiveInfoData != null) {
-            this.bld = alaLiveInfoData;
-            FrameLayout.LayoutParams VI = VI();
-            bn bnVar = a.Ph().bsh;
-            if (bnVar != null && bnVar.aNT != null && ((i = bnVar.aNT.decodeMode) == 1 || i == 2)) {
+            this.bqm = alaLiveInfoData;
+            FrameLayout.LayoutParams Yi = Yi();
+            bo boVar = a.RB().bxq;
+            if (boVar != null && boVar.aQT != null && ((i = boVar.aQT.aRI) == 1 || i == 2)) {
                 i2 = i;
             }
             if ("ZTE A0622".equals(Build.MODEL)) {
                 i2 = 2;
             }
-            a(alaLiveInfoData, VI, i2, alaLiveInfoData.screen_direction != 2 ? 0 : 2);
+            a(alaLiveInfoData, Yi, i2, alaLiveInfoData.screen_direction != 2 ? 0 : 2);
         }
     }
 
@@ -77,8 +77,8 @@ public class LivePlayer extends FrameLayout implements f {
             if (BdLog.isDebugMode()) {
                 BdLog.e("VideoChatLivePlayer startLive=url=" + str);
             }
-            this.bIP = str;
-            final d dVar = this.bIN;
+            this.bNX = str;
+            final d dVar = this.bNV;
             if (dVar.getPlayerView() != null && dVar.getPlayerView().getParent() != null) {
                 ((ViewGroup) dVar.getPlayerView().getParent()).removeView(dVar.getPlayerView());
             }
@@ -86,7 +86,7 @@ public class LivePlayer extends FrameLayout implements f {
             try {
                 jSONObject.put("sessionId", alaLiveInfoData.getSessionID());
                 jSONObject.put("liveId", alaLiveInfoData.getLiveID());
-                jSONObject.put("clientIp", a.Ph().bms.clientIP);
+                jSONObject.put("clientIp", a.RB().brA.clientIP);
                 jSONObject.put("level", AlaLiveStreamSessionInfo.STREAM_LEVEL_DEFAULT);
                 jSONObject.put("sessionLine", 1);
                 dVar.b(1, jSONObject);
@@ -98,16 +98,16 @@ public class LivePlayer extends FrameLayout implements f {
             dVar.setPlayerCallback(null);
             dVar.d(this.mContext, Uri.parse(str));
             dVar.setDecodeMode(i);
-            dVar.eM(4);
+            dVar.fj(4);
             addView(dVar.getPlayerView(), layoutParams);
             dVar.setPlayerCallback(new g() { // from class: com.baidu.live.videochat.player.LivePlayer.1
                 @Override // com.baidu.live.liveroom.e.g, com.baidu.live.liveroom.e.f
                 public void a(d dVar2, int i3, int i4) {
                     if (i3 == 904) {
-                        if (LivePlayer.this.bIO != null) {
-                            LivePlayer.this.bIO.dI(1);
+                        if (LivePlayer.this.bNW != null) {
+                            LivePlayer.this.bNW.eb(1);
                         }
-                        dVar.eM(0);
+                        dVar.fj(0);
                     }
                 }
             });
@@ -117,47 +117,47 @@ public class LivePlayer extends FrameLayout implements f {
         }
     }
 
-    private void VJ() {
-        if (this.bIN != null && this.bIN.getPlayerView() != null && this.bIN.getPlayerView().getParent() != null) {
-            ((ViewGroup) this.bIN.getPlayerView().getParent()).removeView(this.bIN.getPlayerView());
+    private void Yj() {
+        if (this.bNV != null && this.bNV.getPlayerView() != null && this.bNV.getPlayerView().getParent() != null) {
+            ((ViewGroup) this.bNV.getPlayerView().getParent()).removeView(this.bNV.getPlayerView());
         }
         removeAllViews();
     }
 
-    @Override // com.baidu.live.s.f
-    public void cq(boolean z) {
+    @Override // com.baidu.live.u.f
+    public void cE(boolean z) {
         if (BdLog.isDebugMode()) {
             BdLog.e("VideoChatLivePlayer stopLivePlayer()");
         }
         if (z) {
-            VJ();
+            Yj();
         }
-        this.bIP = "";
-        if (this.bIN != null) {
-            this.bIN.setPlayerCallback(null);
-            this.bIN.stop();
+        this.bNX = "";
+        if (this.bNV != null) {
+            this.bNV.setPlayerCallback(null);
+            this.bNV.stop();
         }
     }
 
-    @Override // com.baidu.live.s.f
+    @Override // com.baidu.live.u.f
     public View getLivePlayer() {
         return this;
     }
 
     public void destroy() {
-        if (this.bIN != null) {
-            this.bIN.setPlayerCallback(null);
-            this.bIN.release();
-            this.bIN = null;
+        if (this.bNV != null) {
+            this.bNV.setPlayerCallback(null);
+            this.bNV.release();
+            this.bNV = null;
         }
     }
 
     public void setIPlayerCallBack(b bVar) {
-        this.bIO = bVar;
+        this.bNW = bVar;
     }
 
-    @Override // com.baidu.live.s.f
+    @Override // com.baidu.live.u.f
     public String getVideoPath() {
-        return this.bIP;
+        return this.bNX;
     }
 }

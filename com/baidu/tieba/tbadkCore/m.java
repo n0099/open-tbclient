@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.data.af;
 import com.baidu.tbadk.core.data.ag;
-import com.baidu.tbadk.core.data.al;
-import com.baidu.tbadk.core.data.aw;
-import com.baidu.tbadk.core.data.be;
-import com.baidu.tbadk.core.data.bm;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.am;
+import com.baidu.tbadk.core.data.ax;
+import com.baidu.tbadk.core.data.bf;
+import com.baidu.tbadk.core.data.bn;
 import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.card.data.BaseCardInfo;
@@ -32,6 +32,7 @@ import tbclient.AlaLiveNotify;
 import tbclient.BottomMenu;
 import tbclient.CategoryInfo;
 import tbclient.ForumArIno;
+import tbclient.ForumRuleStatus;
 import tbclient.FrsPage.ActivityConfig;
 import tbclient.FrsPage.AgreeBanner;
 import tbclient.FrsPage.ColorEgg;
@@ -65,7 +66,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
     public List<BottomMenu> bottomMenuList;
     public com.baidu.tieba.frs.d brandAdData;
     private i businessPromot;
-    private bx cardVideoInfo;
+    private by cardVideoInfo;
     private com.baidu.tbadk.core.data.r carrierEnterData;
     private List<CategoryInfo> categoryInfos;
     private b chatGroup;
@@ -76,10 +77,11 @@ public class m implements com.baidu.tbadk.mvc.b.c {
     public ForumActiveInfo forumActiveInfo;
     public ForumArIno forumArIno;
     private ForumHeadIcon forumHeadIcon;
+    public ForumRuleStatus forumRule;
     private String gameName;
     private List<FrsTabInfo> gameTabInfo;
     private String gameUrl;
-    protected q gconAccount;
+    protected r gconAccount;
     private boolean hasGame;
     public boolean isBrandForum;
     public boolean isFrsVideoAutoPlay;
@@ -91,7 +93,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
     private NavTabInfo mEntelechyTabInfo;
     private g mFrsInsertLiveData;
     private h mFrsStageLiveData;
-    private p mFrsVideoActivityData;
+    private q mFrsVideoActivityData;
     private com.baidu.tieba.i.b mGameRankListData;
     public boolean mHasThreadExceptTop;
     private HotUserRankEntry mHotUserRankData;
@@ -100,12 +102,12 @@ public class m implements com.baidu.tbadk.mvc.b.c {
     public List<WindowToast> mWindowToast;
     public NebulaHotThreads nebulaHotThreads;
     public List<OriForumInfo> oriForumInfoList;
-    protected aw page;
+    protected ax page;
     private int photoLivePos;
-    private be privateForumTotalData;
+    private bf privateForumTotalData;
     public List<RecmForumInfo> recm_forum_list;
-    private bm schoolRecommendInfo;
-    public z serviceAreaData;
+    private bn schoolRecommendInfo;
+    public aa serviceAreaData;
     public SmartApp smartApp;
     public List<String> smartAppAvatar;
     private n star;
@@ -116,7 +118,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
     private UserData userData;
     public List<User> userList;
     private HashMap<String, MetaData> userMap;
-    private com.baidu.tieba.frs.y userRecommend;
+    private com.baidu.tieba.frs.x userRecommend;
     public int needLog = 0;
     private List<k> starEnter = new ArrayList();
     private int isNewUrl = 0;
@@ -151,13 +153,13 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.threadList = new ArrayList<>();
         this.topThreadList = new ArrayList();
         this.userMap = new HashMap<>();
-        this.page = new aw();
+        this.page = new ax();
         this.star = new n();
         this.userData = new UserData();
-        this.gconAccount = new q();
+        this.gconAccount = new r();
         setAnti(new AntiData());
         setChatGroup(new b());
-        this.privateForumTotalData = new be();
+        this.privateForumTotalData = new bf();
         this.mCardShipinNew = new ArrayList();
         this.mCardShipinPos = new ArrayList();
     }
@@ -324,55 +326,55 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                     this.businessPromot.a(dataRes.business_promot);
                 }
                 if (dataRes.card_shipin_info != null && dataRes.card_shipin_info.size() > 0) {
-                    this.cardVideoInfo = new bx();
-                    this.cardVideoInfo.iP(true);
-                    this.cardVideoInfo.ol(this.photoLivePos);
+                    this.cardVideoInfo = new by();
+                    this.cardVideoInfo.je(true);
+                    this.cardVideoInfo.oJ(this.photoLivePos);
                     this.cardVideoInfo.setUserMap(this.userMap);
                     this.cardVideoInfo.a(dataRes.card_shipin_info.get(0));
-                    this.cardVideoInfo.bmC();
-                    this.cardVideoInfo.eER = this.isBrandForum;
+                    this.cardVideoInfo.bpP();
+                    this.cardVideoInfo.eLT = this.isBrandForum;
                     if (this.cardVideoInfo.getFid() == 0 && j != 0) {
                         this.cardVideoInfo.setFid(j);
                     }
                     this.cardVideoInfo.F(this.color_eggs);
-                    this.cardVideoInfo.iO(!this.cardVideoInfo.blh());
-                    if (this.cardVideoInfo.blC() != null && this.cardVideoInfo.blC().getPendantData() == null && (metaData = this.userMap.get(this.cardVideoInfo.blC().getUserId())) != null && metaData.getPendantData() != null) {
-                        com.baidu.tbadk.data.m mVar = new com.baidu.tbadk.data.m();
-                        mVar.dF(metaData.getPendantData().bym());
-                        mVar.As(metaData.getPendantData().bjy());
-                        this.cardVideoInfo.blC().setPendantData(mVar);
+                    this.cardVideoInfo.jd(!this.cardVideoInfo.bou());
+                    if (this.cardVideoInfo.boP() != null && this.cardVideoInfo.boP().getPendantData() == null && (metaData = this.userMap.get(this.cardVideoInfo.boP().getUserId())) != null && metaData.getPendantData() != null) {
+                        com.baidu.tbadk.data.n nVar = new com.baidu.tbadk.data.n();
+                        nVar.ee(metaData.getPendantData().bBM());
+                        nVar.AZ(metaData.getPendantData().bmL());
+                        this.cardVideoInfo.boP().setPendantData(nVar);
                     }
                 }
                 if (dataRes.ala_live_insert != null && dataRes.ala_live_insert.ala_live_list != null && dataRes.ala_live_insert.ala_live_list.size() > 0) {
                     this.mFrsInsertLiveData = new g();
-                    this.mFrsInsertLiveData.mVA = dataRes.ala_insert_floor.intValue();
+                    this.mFrsInsertLiveData.njy = dataRes.ala_insert_floor.intValue();
                     ArrayList arrayList = new ArrayList();
                     for (int i4 = 0; i4 < dataRes.ala_live_insert.ala_live_list.size(); i4++) {
                         if (dataRes.ala_live_insert.ala_live_list.get(i4) != null) {
-                            bx bxVar = new bx();
-                            bxVar.a(dataRes.ala_live_insert.ala_live_list.get(i4));
-                            bxVar.eER = this.isBrandForum;
-                            arrayList.add(bxVar);
+                            by byVar = new by();
+                            byVar.a(dataRes.ala_live_insert.ala_live_list.get(i4));
+                            byVar.eLT = this.isBrandForum;
+                            arrayList.add(byVar);
                         }
                     }
-                    this.mFrsInsertLiveData.mVz = arrayList;
+                    this.mFrsInsertLiveData.njx = arrayList;
                 }
                 if (dataRes.ala_stage_list != null) {
                     this.mFrsStageLiveData = new h();
                     ArrayList arrayList2 = new ArrayList();
                     for (int i5 = 0; i5 < dataRes.ala_stage_list.size(); i5++) {
                         if (dataRes.ala_stage_list.get(i5) != null) {
-                            bx bxVar2 = new bx();
-                            bxVar2.a(dataRes.ala_stage_list.get(i5));
-                            bxVar2.eER = this.isBrandForum;
-                            arrayList2.add(bxVar2);
+                            by byVar2 = new by();
+                            byVar2.a(dataRes.ala_stage_list.get(i5));
+                            byVar2.eLT = this.isBrandForum;
+                            arrayList2.add(byVar2);
                         }
                     }
-                    this.mFrsStageLiveData.mVC = arrayList2;
+                    this.mFrsStageLiveData.njA = arrayList2;
                 }
                 if (dataRes.school_recom_info != null) {
                     this.schoolRecommendPos = dataRes.school_recom_pos.intValue();
-                    this.schoolRecommendInfo = new bm();
+                    this.schoolRecommendInfo = new bn();
                     this.schoolRecommendInfo.a(dataRes.school_recom_info);
                 }
                 if (dataRes.carrier_enter != null) {
@@ -385,18 +387,18 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                 }
                 this.mSortType = dataRes.sort_type.intValue();
                 this.needLog = dataRes.need_log.intValue();
-                com.baidu.tieba.recapp.d.a.dAG().Rb(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.d.a.dFX().Sk(dataRes.asp_shown_info);
                 this.mCardShipinPos = dataRes.card_shipin_pos;
                 if (dataRes.card_shipin_new != null) {
                     for (int i6 = 0; i6 < dataRes.card_shipin_new.size(); i6++) {
-                        bx bxVar3 = new bx();
+                        by byVar3 = new by();
                         if (this.mCardShipinPos != null && this.mCardShipinPos.size() >= dataRes.card_shipin_new.size()) {
-                            bxVar3.ol(this.mCardShipinPos.get(i6).intValue());
+                            byVar3.oJ(this.mCardShipinPos.get(i6).intValue());
                         }
-                        bxVar3.iP(true);
-                        bxVar3.a(dataRes.card_shipin_new.get(i6));
-                        bxVar3.eER = this.isBrandForum;
-                        this.mCardShipinNew.add(bxVar3);
+                        byVar3.je(true);
+                        byVar3.a(dataRes.card_shipin_new.get(i6));
+                        byVar3.eLT = this.isBrandForum;
+                        this.mCardShipinNew.add(byVar3);
                     }
                 }
                 this.enterFrsDialogInfo = dataRes.enter_pop_info;
@@ -406,7 +408,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                 }
                 this.agreeBanner = dataRes.agree_banner;
                 if (dataRes.user_extend != null) {
-                    this.userRecommend = new com.baidu.tieba.frs.y();
+                    this.userRecommend = new com.baidu.tieba.frs.x();
                     this.userRecommend.a(dataRes.user_extend);
                 }
                 this.liveNotify = dataRes.live_frs_notify;
@@ -414,7 +416,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                 this.gameDefaultTabId = dataRes.game_default_tab_id.intValue();
                 this.forumHeadIcon = dataRes.forum_head_icon;
                 if (dataRes.video != null && dataRes.video.video_act != null) {
-                    this.mFrsVideoActivityData = new p();
+                    this.mFrsVideoActivityData = new q();
                     this.mFrsVideoActivityData.a(dataRes.video.video_act);
                 }
                 if (dataRes.info != null) {
@@ -441,45 +443,46 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                 this.mHotUserRankData = dataRes.hot_user_entry;
                 this.bazhuExam = dataRes.bazhu_exam_fail;
                 if (!com.baidu.tbadk.core.util.y.isEmpty(dataRes.service_area)) {
-                    this.serviceAreaData = new z();
+                    this.serviceAreaData = new aa();
                     ArrayList arrayList3 = new ArrayList();
                     int i7 = 0;
                     for (ServiceArea serviceArea : dataRes.service_area) {
                         if (serviceArea != null) {
-                            aa aaVar = new aa();
-                            aaVar.imageUrl = serviceArea.picurl;
-                            aaVar.name = serviceArea.servicename;
-                            aaVar.category = serviceArea.service_type;
-                            if (aaVar.category != null && aaVar.category.equals("原生小程序") && serviceArea.area_smart_app != null) {
-                                aaVar.imageUrl = serviceArea.area_smart_app.avatar;
-                                aaVar.name = serviceArea.area_smart_app.name;
+                            ab abVar = new ab();
+                            abVar.imageUrl = serviceArea.picurl;
+                            abVar.name = serviceArea.servicename;
+                            abVar.category = serviceArea.service_type;
+                            if (abVar.category != null && abVar.category.equals("原生小程序") && serviceArea.area_smart_app != null) {
+                                abVar.imageUrl = serviceArea.area_smart_app.avatar;
+                                abVar.name = serviceArea.area_smart_app.name;
                             }
-                            aaVar.link = serviceArea.serviceurl;
-                            aaVar.version = serviceArea.version;
-                            String string = com.baidu.tbadk.core.sharedPref.b.bpu().getString("frs_service_version_" + this.forum.getName() + aaVar.name, "");
-                            aaVar.bdX = TextUtils.isEmpty(string) || !string.equals(serviceArea.version);
+                            abVar.link = serviceArea.serviceurl;
+                            abVar.version = serviceArea.version;
+                            String string = com.baidu.tbadk.core.sharedPref.b.bsO().getString("frs_service_version_" + this.forum.getName() + abVar.name, "");
+                            abVar.ivV = TextUtils.isEmpty(string) || !string.equals(serviceArea.version);
                             if (serviceArea.area_smart_app != null) {
-                                ab abVar = new ab();
-                                abVar.c(serviceArea.area_smart_app);
-                                aaVar.mWQ = abVar;
+                                ac acVar = new ac();
+                                acVar.c(serviceArea.area_smart_app);
+                                abVar.nkO = acVar;
                             }
                             if (this.forum != null) {
-                                aaVar.forumName = this.forum.getName();
-                                aaVar.forumId = this.forum.getId();
+                                abVar.forumName = this.forum.getName();
+                                abVar.forumId = this.forum.getId();
                             }
-                            aaVar.index = i7;
+                            abVar.index = i7;
                             i = i7 + 1;
-                            arrayList3.add(aaVar);
+                            arrayList3.add(abVar);
                         } else {
                             i = i7;
                         }
                         i7 = i;
                     }
-                    this.serviceAreaData.mWP = arrayList3.size();
+                    this.serviceAreaData.nkN = arrayList3.size();
                     this.serviceAreaData.dataList = arrayList3;
                 }
                 this.itemInfo = dataRes.item_info;
                 this.toLoadHorseData = dataRes.is_get_horse_race_lamp;
+                this.forumRule = dataRes.forum_rule;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -527,34 +530,35 @@ public class m implements com.baidu.tbadk.mvc.b.c {
             ArrayList arrayList = new ArrayList();
             for (ThreadInfo threadInfo : list) {
                 if (threadInfo != null) {
-                    bx bxVar = new bx();
-                    aq.a(j, bxVar);
-                    bxVar.setUserMap(this.userMap);
-                    bxVar.iV(true);
-                    bxVar.a(threadInfo);
-                    bxVar.bmC();
-                    if (bxVar.getFid() == 0 && j != 0) {
-                        bxVar.setFid(j);
+                    by byVar = new by();
+                    aq.a(j, byVar);
+                    byVar.setUserMap(this.userMap);
+                    byVar.jk(true);
+                    byVar.a(threadInfo);
+                    byVar.bpP();
+                    byVar.bor();
+                    if (byVar.getFid() == 0 && j != 0) {
+                        byVar.setFid(j);
                     }
-                    if (StringUtils.isNull(bxVar.blG())) {
-                        bxVar.Ax(this.forum.getName());
+                    if (StringUtils.isNull(byVar.boT())) {
+                        byVar.Be(this.forum.getName());
                     }
-                    bxVar.F(this.color_eggs);
-                    bxVar.eER = this.forum.isBrandForum;
-                    if (!TextUtils.isEmpty(bxVar.bmO())) {
-                        al alVar = new al();
-                        alVar.Al(bxVar.bmO());
-                        this.threadList.add(alVar);
+                    byVar.F(this.color_eggs);
+                    byVar.eLT = this.forum.isBrandForum;
+                    if (!TextUtils.isEmpty(byVar.bqb())) {
+                        am amVar = new am();
+                        amVar.AS(byVar.bqb());
+                        this.threadList.add(amVar);
                     } else {
-                        this.threadList.add(bxVar);
-                        JSONObject a2 = com.baidu.tieba.recapp.report.b.a(threadInfo, bxVar.blG());
+                        this.threadList.add(byVar);
+                        JSONObject a2 = com.baidu.tieba.recapp.report.b.a(threadInfo, byVar.boT());
                         if (a2 != null) {
                             arrayList.add(a2);
                         }
                     }
                 }
             }
-            com.baidu.tieba.recapp.report.b.dAN().fz(arrayList);
+            com.baidu.tieba.recapp.report.b.dGe().q("tag_frs_tab", arrayList);
         }
     }
 
@@ -573,191 +577,212 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         int i3 = 0;
         while (it.hasNext()) {
             com.baidu.adp.widget.ListView.q next = it.next();
-            if (next instanceof al) {
-                ((al) next).position = i3;
+            if (next instanceof am) {
+                ((am) next).position = i3;
                 arrayList2.add(next);
                 i = i3 + 1;
-            } else if (next instanceof bx) {
-                bx bxVar = (bx) next;
-                com.baidu.tbadk.a.a.a.a(bxVar);
-                int[] imageWidthAndHeight = bxVar.getImageWidthAndHeight();
-                if (bxVar.getType() == bx.eBR && !bxVar.isTop()) {
-                    bw bwVar = new bw();
-                    bwVar.evQ = bxVar;
-                    bwVar.position = i3;
-                    bwVar.eBx = true;
-                    bwVar.setSupportType(BaseCardInfo.SupportType.TOP);
-                    arrayList2.add(bwVar);
-                    bw bwVar2 = new bw();
-                    bwVar2.evQ = bxVar;
-                    bwVar2.position = i3;
-                    if (bxVar.bnz()) {
-                        bwVar2.eBC = true;
-                    } else if (bxVar.bmK() == 1) {
-                        bwVar2.eBA = true;
-                        bwVar2.eBO = imageWidthAndHeight[0];
-                        bwVar2.eBP = imageWidthAndHeight[1];
-                    } else if (bxVar.bmK() >= 2) {
-                        bwVar2.eBB = true;
-                    } else {
-                        bwVar2.eBy = true;
-                    }
-                    bwVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    arrayList2.add(bwVar2);
-                    if (bxVar.bnJ() != null) {
-                        bw bwVar3 = new bw();
-                        bwVar3.eBK = true;
-                        bwVar3.evQ = bxVar;
-                        bwVar3.position = i3;
-                        bwVar3.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                        arrayList2.add(bwVar3);
-                    }
-                    if (bxVar.bmr() != null) {
-                        bw bwVar4 = new bw();
-                        bwVar4.eBH = true;
-                        bwVar4.evQ = bxVar;
-                        bwVar4.position = i3;
-                        bwVar4.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                        arrayList2.add(bwVar4);
-                    }
-                    if (!com.baidu.tbadk.core.util.y.isEmpty(bxVar.bnK()) || !com.baidu.tbadk.core.util.y.isEmpty(bxVar.bnL())) {
-                        bw bwVar5 = new bw();
-                        if (com.baidu.tbadk.core.util.y.getCount(bxVar.bnK()) + com.baidu.tbadk.core.util.y.getCount(bxVar.bnL()) == 1) {
-                            bwVar5.eBL = true;
-                        } else if (com.baidu.tbadk.core.util.y.getCount(bxVar.bnK()) + com.baidu.tbadk.core.util.y.getCount(bxVar.bnL()) > 1) {
-                            bwVar5.eBM = true;
-                        }
-                        bwVar5.evQ = bxVar;
-                        bwVar5.position = i3;
-                        bwVar5.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                        arrayList2.add(bwVar5);
-                    }
-                    if (bxVar.bnh() != null) {
-                        bw bwVar6 = new bw();
-                        bwVar6.eBE = true;
-                        bwVar6.evQ = bxVar;
-                        bwVar6.position = i3;
-                        bwVar6.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                        arrayList2.add(bwVar6);
-                    }
-                    bw bwVar7 = new bw();
-                    bwVar7.eBD = true;
-                    bwVar7.evQ = bxVar;
-                    bwVar7.position = i3;
-                    bwVar7.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                    arrayList2.add(bwVar7);
-                    i2 = i3 + 1;
-                } else if (bxVar.getType() == bx.eCo && !bxVar.isTop()) {
-                    bw bwVar8 = new bw();
-                    bwVar8.evQ = bxVar;
-                    bwVar8.position = i3;
-                    bwVar8.eBx = true;
-                    bwVar8.setSupportType(BaseCardInfo.SupportType.TOP);
-                    arrayList2.add(bwVar8);
-                    bw bwVar9 = new bw();
-                    bwVar9.evQ = bxVar;
-                    bwVar9.position = i3;
-                    bwVar9.eBF = true;
-                    bwVar9.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    arrayList2.add(bwVar9);
-                    if (bxVar.bnJ() != null) {
-                        bw bwVar10 = new bw();
-                        bwVar10.eBK = true;
-                        bwVar10.evQ = bxVar;
-                        bwVar10.position = i3;
-                        bwVar10.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                        arrayList2.add(bwVar10);
-                    }
-                    if (bxVar.bmr() != null) {
-                        bw bwVar11 = new bw();
-                        bwVar11.eBH = true;
-                        bwVar11.evQ = bxVar;
-                        bwVar11.position = i3;
-                        bwVar11.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                        arrayList2.add(bwVar11);
-                    }
-                    if (bxVar.bnh() != null) {
-                        bw bwVar12 = new bw();
-                        bwVar12.eBE = true;
-                        bwVar12.evQ = bxVar;
-                        bwVar12.position = i3;
-                        bwVar12.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                        arrayList2.add(bwVar12);
-                    }
-                    bw bwVar13 = new bw();
-                    bwVar13.eBD = true;
-                    bwVar13.evQ = bxVar;
-                    bwVar13.position = i3;
-                    bwVar13.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                    arrayList2.add(bwVar13);
-                    i2 = i3 + 1;
-                } else if (bxVar.blU() != null && !bxVar.bmJ() && bxVar.blF()) {
-                    bw bwVar14 = new bw();
-                    bwVar14.evQ = bxVar;
-                    bwVar14.position = i3;
-                    bwVar14.eBx = true;
-                    bwVar14.setSupportType(BaseCardInfo.SupportType.TOP);
-                    arrayList2.add(bwVar14);
-                    bw bwVar15 = new bw();
-                    bwVar15.evQ = bxVar;
-                    bwVar15.position = i3;
-                    bwVar15.eBG = true;
-                    bwVar15.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    arrayList2.add(bwVar15);
-                    if (bxVar.bnJ() != null) {
-                        bw bwVar16 = new bw();
-                        bwVar16.eBK = true;
-                        bwVar16.evQ = bxVar;
-                        bwVar16.position = i3;
-                        bwVar16.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                        arrayList2.add(bwVar16);
-                    }
-                    if (bxVar.bmr() != null) {
-                        bw bwVar17 = new bw();
-                        bwVar17.eBH = true;
-                        bwVar17.evQ = bxVar;
-                        bwVar17.position = i3;
-                        bwVar17.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                        arrayList2.add(bwVar17);
-                    }
-                    if (bxVar.bnh() != null) {
-                        bw bwVar18 = new bw();
-                        bwVar18.eBE = true;
-                        bwVar18.evQ = bxVar;
-                        bwVar18.position = i3;
-                        bwVar18.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                        arrayList2.add(bwVar18);
-                    }
-                    bw bwVar19 = new bw();
-                    bwVar19.eBD = true;
-                    bwVar19.evQ = bxVar;
-                    bwVar19.position = i3;
-                    bwVar19.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                    arrayList2.add(bwVar19);
-                    i2 = i3 + 1;
-                } else if (bxVar.getType() == bx.eCg && bxVar.bkk()) {
+            } else if (next instanceof by) {
+                by byVar = (by) next;
+                com.baidu.tbadk.a.a.a.a(byVar);
+                int[] imageWidthAndHeight = byVar.getImageWidthAndHeight();
+                if (byVar.getType() == by.eIS && !byVar.isTop()) {
+                    bx bxVar = new bx();
+                    bxVar.eCR = byVar;
                     bxVar.position = i3;
+                    bxVar.eIy = true;
+                    bxVar.setSupportType(BaseCardInfo.SupportType.TOP);
                     arrayList2.add(bxVar);
+                    bx bxVar2 = new bx();
+                    bxVar2.eCR = byVar;
+                    bxVar2.position = i3;
+                    if (byVar.bqM()) {
+                        bxVar2.eID = true;
+                    } else if (byVar.bpX() == 1) {
+                        bxVar2.eIB = true;
+                        bxVar2.eIP = imageWidthAndHeight[0];
+                        bxVar2.eIQ = imageWidthAndHeight[1];
+                    } else if (byVar.bpX() >= 2) {
+                        bxVar2.eIC = true;
+                    } else {
+                        bxVar2.eIz = true;
+                    }
+                    bxVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                    arrayList2.add(bxVar2);
+                    if (byVar.bqX() != null) {
+                        bx bxVar3 = new bx();
+                        bxVar3.eIL = true;
+                        bxVar3.eCR = byVar;
+                        bxVar3.position = i3;
+                        bxVar3.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList2.add(bxVar3);
+                    }
+                    if (byVar.bpE() != null) {
+                        bx bxVar4 = new bx();
+                        bxVar4.eII = true;
+                        bxVar4.eCR = byVar;
+                        bxVar4.position = i3;
+                        bxVar4.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList2.add(bxVar4);
+                    }
+                    if (!com.baidu.tbadk.core.util.y.isEmpty(byVar.bqY()) || !com.baidu.tbadk.core.util.y.isEmpty(byVar.bqZ())) {
+                        bx bxVar5 = new bx();
+                        if (com.baidu.tbadk.core.util.y.getCount(byVar.bqY()) + com.baidu.tbadk.core.util.y.getCount(byVar.bqZ()) == 1) {
+                            bxVar5.eIM = true;
+                        } else if (com.baidu.tbadk.core.util.y.getCount(byVar.bqY()) + com.baidu.tbadk.core.util.y.getCount(byVar.bqZ()) > 1) {
+                            bxVar5.eIN = true;
+                        }
+                        bxVar5.eCR = byVar;
+                        bxVar5.position = i3;
+                        bxVar5.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList2.add(bxVar5);
+                    }
+                    if (byVar.bqu() != null) {
+                        bx bxVar6 = new bx();
+                        bxVar6.eIF = true;
+                        bxVar6.eCR = byVar;
+                        bxVar6.position = i3;
+                        bxVar6.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList2.add(bxVar6);
+                    }
+                    if (byVar.bqV() != null && !byVar.bpS()) {
+                        bx bxVar7 = new bx();
+                        bxVar7.eIK = true;
+                        bxVar7.eCR = byVar;
+                        bxVar7.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList2.add(bxVar7);
+                    }
+                    bx bxVar8 = new bx();
+                    bxVar8.eIE = true;
+                    bxVar8.eCR = byVar;
+                    bxVar8.position = i3;
+                    bxVar8.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                    arrayList2.add(bxVar8);
+                    i2 = i3 + 1;
+                } else if (byVar.getType() == by.eJq && !byVar.isTop()) {
+                    bx bxVar9 = new bx();
+                    bxVar9.eCR = byVar;
+                    bxVar9.position = i3;
+                    bxVar9.eIy = true;
+                    bxVar9.setSupportType(BaseCardInfo.SupportType.TOP);
+                    arrayList2.add(bxVar9);
+                    bx bxVar10 = new bx();
+                    bxVar10.eCR = byVar;
+                    bxVar10.position = i3;
+                    bxVar10.eIG = true;
+                    bxVar10.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                    arrayList2.add(bxVar10);
+                    if (byVar.bqX() != null) {
+                        bx bxVar11 = new bx();
+                        bxVar11.eIL = true;
+                        bxVar11.eCR = byVar;
+                        bxVar11.position = i3;
+                        bxVar11.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList2.add(bxVar11);
+                    }
+                    if (byVar.bpE() != null) {
+                        bx bxVar12 = new bx();
+                        bxVar12.eII = true;
+                        bxVar12.eCR = byVar;
+                        bxVar12.position = i3;
+                        bxVar12.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList2.add(bxVar12);
+                    }
+                    if (byVar.bqu() != null) {
+                        bx bxVar13 = new bx();
+                        bxVar13.eIF = true;
+                        bxVar13.eCR = byVar;
+                        bxVar13.position = i3;
+                        bxVar13.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList2.add(bxVar13);
+                    }
+                    if (byVar.bqV() != null && !byVar.bpS()) {
+                        bx bxVar14 = new bx();
+                        bxVar14.eIK = true;
+                        bxVar14.eCR = byVar;
+                        bxVar14.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList2.add(bxVar14);
+                    }
+                    bx bxVar15 = new bx();
+                    bxVar15.eIE = true;
+                    bxVar15.eCR = byVar;
+                    bxVar15.position = i3;
+                    bxVar15.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                    arrayList2.add(bxVar15);
+                    i2 = i3 + 1;
+                } else if (byVar.bph() != null && !byVar.bpW() && byVar.boS()) {
+                    bx bxVar16 = new bx();
+                    bxVar16.eCR = byVar;
+                    bxVar16.position = i3;
+                    bxVar16.eIy = true;
+                    bxVar16.setSupportType(BaseCardInfo.SupportType.TOP);
+                    arrayList2.add(bxVar16);
+                    bx bxVar17 = new bx();
+                    bxVar17.eCR = byVar;
+                    bxVar17.position = i3;
+                    bxVar17.eIH = true;
+                    bxVar17.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                    arrayList2.add(bxVar17);
+                    if (byVar.bqX() != null) {
+                        bx bxVar18 = new bx();
+                        bxVar18.eIL = true;
+                        bxVar18.eCR = byVar;
+                        bxVar18.position = i3;
+                        bxVar18.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList2.add(bxVar18);
+                    }
+                    if (byVar.bpE() != null) {
+                        bx bxVar19 = new bx();
+                        bxVar19.eII = true;
+                        bxVar19.eCR = byVar;
+                        bxVar19.position = i3;
+                        bxVar19.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList2.add(bxVar19);
+                    }
+                    if (byVar.bqu() != null) {
+                        bx bxVar20 = new bx();
+                        bxVar20.eIF = true;
+                        bxVar20.eCR = byVar;
+                        bxVar20.position = i3;
+                        bxVar20.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList2.add(bxVar20);
+                    }
+                    if (byVar.bqV() != null && !byVar.bpS()) {
+                        bx bxVar21 = new bx();
+                        bxVar21.eIK = true;
+                        bxVar21.eCR = byVar;
+                        bxVar21.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList2.add(bxVar21);
+                    }
+                    bx bxVar22 = new bx();
+                    bxVar22.eIE = true;
+                    bxVar22.eCR = byVar;
+                    bxVar22.position = i3;
+                    bxVar22.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                    arrayList2.add(bxVar22);
+                    i2 = i3 + 1;
+                } else if (byVar.getType() == by.eJh && byVar.bnx()) {
+                    byVar.position = i3;
+                    arrayList2.add(byVar);
                     i2 = i3 + 1;
                 } else {
-                    bw bwVar20 = new bw();
-                    bwVar20.evQ = bxVar;
-                    bwVar20.position = i3;
-                    arrayList2.add(bwVar20);
+                    bx bxVar23 = new bx();
+                    bxVar23.eCR = byVar;
+                    bxVar23.position = i3;
+                    arrayList2.add(bxVar23);
                     i2 = i3 + 1;
                 }
-                bxVar.setSupportType(BaseCardInfo.SupportType.TOP);
+                byVar.setSupportType(BaseCardInfo.SupportType.TOP);
                 i = i2;
             } else {
                 arrayList2.add(next);
                 i = i3 + 1;
             }
-            if (next != null && next.getType() != bx.eBQ) {
+            if (next != null && next.getType() != by.eIR) {
                 this.mHasThreadExceptTop = true;
             }
             i3 = i;
         }
-        com.baidu.tbadk.a.a.a.be(arrayList2);
+        com.baidu.tbadk.a.a.a.bh(arrayList2);
         return arrayList2;
     }
 
@@ -840,12 +865,12 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.anti = antiData;
     }
 
-    public aw getPage() {
+    public ax getPage() {
         return this.page;
     }
 
-    public void setPage(aw awVar) {
-        this.page = awVar;
+    public void setPage(ax axVar) {
+        this.page = axVar;
     }
 
     public n getStar() {
@@ -880,12 +905,12 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.fortuneDesc = str;
     }
 
-    public q getGconAccount() {
+    public r getGconAccount() {
         return this.gconAccount;
     }
 
-    public void setGconAccount(q qVar) {
-        this.gconAccount = qVar;
+    public void setGconAccount(r rVar) {
+        this.gconAccount = rVar;
     }
 
     public UserData getUserData() {
@@ -1003,12 +1028,12 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         return this.bawuCenterUrl;
     }
 
-    public bx getCardVideoInfo() {
+    public by getCardVideoInfo() {
         return this.cardVideoInfo;
     }
 
-    public void setCardVideoInfo(bx bxVar) {
-        this.cardVideoInfo = bxVar;
+    public void setCardVideoInfo(by byVar) {
+        this.cardVideoInfo = byVar;
     }
 
     public int getFrsDefaultTabId() {
@@ -1051,12 +1076,12 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.schoolRecommendPos = i;
     }
 
-    public bm getSchoolRecommendUserInfo() {
+    public bn getSchoolRecommendUserInfo() {
         return this.schoolRecommendInfo;
     }
 
-    public void setSchoolRecommendInfo(bm bmVar) {
-        this.schoolRecommendInfo = bmVar;
+    public void setSchoolRecommendInfo(bn bnVar) {
+        this.schoolRecommendInfo = bnVar;
     }
 
     public NavTabInfo getEntelechyTabInfo() {
@@ -1147,20 +1172,20 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         return this.gameDefaultTabId;
     }
 
-    public void setUserRecommend(com.baidu.tieba.frs.y yVar) {
-        this.userRecommend = yVar;
+    public void setUserRecommend(com.baidu.tieba.frs.x xVar) {
+        this.userRecommend = xVar;
     }
 
-    public com.baidu.tieba.frs.y getUserRecommend() {
+    public com.baidu.tieba.frs.x getUserRecommend() {
         return this.userRecommend;
     }
 
-    public p getFrsVideoActivityData() {
+    public q getFrsVideoActivityData() {
         return this.mFrsVideoActivityData;
     }
 
-    public void setFrsVideoActivityData(p pVar) {
-        this.mFrsVideoActivityData = pVar;
+    public void setFrsVideoActivityData(q qVar) {
+        this.mFrsVideoActivityData = qVar;
     }
 
     public g getFrsInsertLiveData() {
@@ -1179,12 +1204,12 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.mFrsStageLiveData = hVar;
     }
 
-    public be getPrivateForumTotalInfo() {
+    public bf getPrivateForumTotalInfo() {
         return this.privateForumTotalData;
     }
 
-    public void setPrivateForumTotalInfo(be beVar) {
-        this.privateForumTotalData = beVar;
+    public void setPrivateForumTotalInfo(bf bfVar) {
+        this.privateForumTotalData = bfVar;
     }
 
     public HotUserRankEntry getHotUserRankData() {

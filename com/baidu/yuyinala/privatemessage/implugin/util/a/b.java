@@ -18,13 +18,13 @@ import java.io.IOException;
 /* loaded from: classes4.dex */
 public class b {
     private static final String TAG;
-    private static final boolean oGr;
-    public static double oGs;
+    private static final boolean oVx;
+    public static double oVy;
 
     static {
-        oGr = Build.VERSION.SDK_INT >= 11;
+        oVx = Build.VERSION.SDK_INT >= 11;
         TAG = b.class.getSimpleName();
-        oGs = 1.778d;
+        oVy = 1.778d;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [106=5, 108=4, 109=4, 110=4] */
@@ -129,7 +129,7 @@ public class b {
                 if (Math.max(options.outWidth, options.outHeight) > 0) {
                     float max = f / Math.max(options.outWidth, options.outHeight);
                     float f2 = max <= 1.0f ? max : 1.0f;
-                    options.inSampleSize = bo(f2);
+                    options.inSampleSize = bp(f2);
                     options.inJustDecodeBounds = false;
                     options.inPreferredConfig = Bitmap.Config.ARGB_4444;
                     b(options);
@@ -187,7 +187,7 @@ public class b {
 
     @TargetApi(11)
     private static void b(BitmapFactory.Options options) {
-        if (oGr) {
+        if (oVx) {
             options.inMutable = true;
         }
     }
@@ -213,15 +213,15 @@ public class b {
         }
     }
 
-    private static int bo(float f) {
+    private static int bp(float f) {
         int floor = (int) Math.floor(1.0f / f);
         if (floor <= 1) {
             return 1;
         }
-        return floor <= 8 ? OA(floor) : (floor / 8) * 8;
+        return floor <= 8 ? Py(floor) : (floor / 8) * 8;
     }
 
-    private static int OA(int i) throws IllegalArgumentException {
+    private static int Py(int i) throws IllegalArgumentException {
         if (i <= 0) {
             throw new IllegalArgumentException();
         }
@@ -236,7 +236,7 @@ public class b {
         return createBitmap;
     }
 
-    public static int[] c(Context context, int i, int i2) {
+    public static int[] d(Context context, int i, int i2) {
         int i3;
         int[] iArr = new int[2];
         int i4 = ((int) context.getResources().getDisplayMetrics().density) * 120;

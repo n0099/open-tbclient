@@ -1,13 +1,13 @@
 package com.baidu.swan.apps.scheme;
 
 import com.baidu.swan.apps.scheme.actions.w;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class i extends j {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.apps.scheme.j
-    protected void aHT() {
-        this.dti.clear();
+    protected void aLb() {
+        this.dAi.clear();
         a(new com.baidu.swan.apps.u.a(this));
         a(new com.baidu.swan.apps.console.debugger.a.a(this));
         a(new com.baidu.swan.apps.console.debugger.b.a(this));

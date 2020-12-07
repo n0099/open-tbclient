@@ -1,6 +1,8 @@
 package okhttp3.internal;
 
+import java.io.IOException;
 import java.net.Socket;
+import javax.annotation.Nullable;
 import javax.net.ssl.SSLSocket;
 import okhttp3.Address;
 import okhttp3.Call;
@@ -46,6 +48,9 @@ public abstract class Internal {
     public abstract void setCache(OkHttpClient.Builder builder, InternalCache internalCache);
 
     public abstract StreamAllocation streamAllocation(Call call);
+
+    @Nullable
+    public abstract IOException timeoutExit(Call call, @Nullable IOException iOException);
 
     public static void initializeInstanceForTests() {
         new OkHttpClient();

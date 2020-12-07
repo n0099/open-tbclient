@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import org.apache.http.HttpHost;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public final class WebpUtils {
     public static final String TYPE_IMG_WEBP = "webp";
     public static final String TYPE_PARAM_H5 = "imgtype";
@@ -49,7 +49,7 @@ public final class WebpUtils {
         StringBuilder sb2;
         String str4 = null;
         if (!TextUtils.isEmpty(str)) {
-            String str5 = str2 + ETAG.EQUAL;
+            String str5 = str2 + "=";
             int indexOf = str.indexOf("?");
             if (indexOf < 0) {
                 int indexOf2 = str.indexOf("#");
@@ -139,7 +139,7 @@ public final class WebpUtils {
                 }
             }
             sb.append(encode);
-            sb.append(ETAG.EQUAL);
+            sb.append("=");
             sb.append(str2 != null ? URLEncoder.encode(str2, "UTF-8") : "");
         }
         return sb.toString();
@@ -152,7 +152,7 @@ public final class WebpUtils {
         }
         StringBuilder sb = new StringBuilder();
         for (String str2 : split) {
-            String[] split2 = str2.split(ETAG.EQUAL);
+            String[] split2 = str2.split("=");
             if (split2.length > 0 && !set.contains(split2[0])) {
                 sb.append(str2).append(ETAG.ITEM_SEPARATOR);
             }

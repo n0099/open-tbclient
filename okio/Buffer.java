@@ -20,7 +20,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class Buffer implements Cloneable, ByteChannel, BufferedSink, BufferedSource {
     private static final byte[] DIGITS = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
     static final int REPLACEMENT_CHARACTER = 65533;
@@ -28,7 +28,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
     Segment head;
     long size;
 
-    public long size() {
+    public final long size() {
         return this.size;
     }
 
@@ -123,11 +123,11 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         };
     }
 
-    public Buffer copyTo(OutputStream outputStream) throws IOException {
+    public final Buffer copyTo(OutputStream outputStream) throws IOException {
         return copyTo(outputStream, 0L, this.size);
     }
 
-    public Buffer copyTo(OutputStream outputStream, long j, long j2) throws IOException {
+    public final Buffer copyTo(OutputStream outputStream, long j, long j2) throws IOException {
         int i;
         if (outputStream == null) {
             throw new IllegalArgumentException("out == null");
@@ -150,7 +150,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         return this;
     }
 
-    public Buffer copyTo(Buffer buffer, long j, long j2) {
+    public final Buffer copyTo(Buffer buffer, long j, long j2) {
         if (buffer == null) {
             throw new IllegalArgumentException("out == null");
         }
@@ -181,11 +181,11 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         return this;
     }
 
-    public Buffer writeTo(OutputStream outputStream) throws IOException {
+    public final Buffer writeTo(OutputStream outputStream) throws IOException {
         return writeTo(outputStream, this.size);
     }
 
-    public Buffer writeTo(OutputStream outputStream, long j) throws IOException {
+    public final Buffer writeTo(OutputStream outputStream, long j) throws IOException {
         Segment segment;
         if (outputStream == null) {
             throw new IllegalArgumentException("out == null");
@@ -210,12 +210,12 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         return this;
     }
 
-    public Buffer readFrom(InputStream inputStream) throws IOException {
+    public final Buffer readFrom(InputStream inputStream) throws IOException {
         readFrom(inputStream, Long.MAX_VALUE, true);
         return this;
     }
 
-    public Buffer readFrom(InputStream inputStream, long j) throws IOException {
+    public final Buffer readFrom(InputStream inputStream, long j) throws IOException {
         if (j < 0) {
             throw new IllegalArgumentException("byteCount < 0: " + j);
         }
@@ -246,7 +246,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         }
     }
 
-    public long completeSegmentByteCount() {
+    public final long completeSegmentByteCount() {
         long j = this.size;
         if (j == 0) {
             return 0L;
@@ -278,7 +278,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         return b;
     }
 
-    public byte getByte(long j) {
+    public final byte getByte(long j) {
         Util.checkOffsetAndCount(this.size, j, 1L);
         if (this.size - j > j) {
             Segment segment = this.head;
@@ -541,39 +541,127 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
 
     @Override // okio.BufferedSource
     public int select(Options options) {
-        Segment segment = this.head;
-        if (segment == null) {
-            return options.indexOf(ByteString.EMPTY);
+        int selectPrefix = selectPrefix(options, false);
+        if (selectPrefix == -1) {
+            return -1;
         }
-        ByteString[] byteStringArr = options.byteStrings;
-        int length = byteStringArr.length;
-        for (int i = 0; i < length; i++) {
-            ByteString byteString = byteStringArr[i];
-            if (this.size >= byteString.size() && rangeEquals(segment, segment.pos, byteString, 0, byteString.size())) {
-                try {
-                    skip(byteString.size());
-                    return i;
-                } catch (EOFException e) {
-                    throw new AssertionError(e);
-                }
-            }
+        try {
+            skip(options.byteStrings[selectPrefix].size());
+            return selectPrefix;
+        } catch (EOFException e) {
+            throw new AssertionError();
         }
-        return -1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int selectPrefix(Options options) {
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0028, code lost:
+        if (r15 == false) goto L27;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x002a, code lost:
+        return -2;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:?, code lost:
+        return r0;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public int selectPrefix(Options options, boolean z) {
+        int i;
+        int i2;
         Segment segment = this.head;
-        ByteString[] byteStringArr = options.byteStrings;
-        int length = byteStringArr.length;
-        for (int i = 0; i < length; i++) {
-            ByteString byteString = byteStringArr[i];
-            int min = (int) Math.min(this.size, byteString.size());
-            if (min == 0 || rangeEquals(segment, segment.pos, byteString, 0, min)) {
+        if (segment == null) {
+            if (z) {
+                return -2;
+            }
+            return options.indexOf(ByteString.EMPTY);
+        }
+        byte[] bArr = segment.data;
+        int i3 = segment.pos;
+        int i4 = segment.limit;
+        int[] iArr = options.trie;
+        int i5 = 0;
+        int i6 = -1;
+        Segment segment2 = segment;
+        loop0: while (true) {
+            int i7 = i5 + 1;
+            int i8 = iArr[i5];
+            int i9 = i7 + 1;
+            int i10 = iArr[i7];
+            if (i10 != -1) {
+                i6 = i10;
+            }
+            if (segment2 == null) {
+                break;
+            }
+            if (i8 < 0) {
+                int i11 = i9 + (i8 * (-1));
+                int i12 = i4;
+                int i13 = i3;
+                int i14 = i12;
+                while (true) {
+                    int i15 = i13 + 1;
+                    int i16 = bArr[i13] & 255;
+                    int i17 = i9 + 1;
+                    if (i16 == iArr[i9]) {
+                        boolean z2 = i17 == i11;
+                        if (i15 == i14) {
+                            segment2 = segment2.next;
+                            i3 = segment2.pos;
+                            bArr = segment2.data;
+                            i2 = segment2.limit;
+                            if (segment2 == segment) {
+                                if (!z2) {
+                                    break loop0;
+                                }
+                                segment2 = null;
+                            }
+                        } else {
+                            i2 = i14;
+                            i3 = i15;
+                        }
+                        if (z2) {
+                            int i18 = iArr[i17];
+                            i4 = i2;
+                            i = i18;
+                            break;
+                        }
+                        i13 = i3;
+                        i14 = i2;
+                        i9 = i17;
+                    } else {
+                        return i6;
+                    }
+                }
+            } else {
+                int i19 = i3 + 1;
+                int i20 = bArr[i3] & 255;
+                int i21 = i9 + i8;
+                while (i9 != i21) {
+                    if (i20 == iArr[i9]) {
+                        i = iArr[i9 + i8];
+                        if (i19 == i4) {
+                            segment2 = segment2.next;
+                            i3 = segment2.pos;
+                            bArr = segment2.data;
+                            i4 = segment2.limit;
+                            if (segment2 == segment) {
+                                segment2 = null;
+                            }
+                        } else {
+                            i3 = i19;
+                        }
+                    } else {
+                        i9++;
+                    }
+                }
+                return i6;
+            }
+            if (i >= 0) {
                 return i;
             }
+            i5 = -i;
         }
-        return -1;
     }
 
     @Override // okio.BufferedSource
@@ -821,7 +909,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         return min;
     }
 
-    public void clear() {
+    public final void clear() {
         try {
             skip(this.size);
         } catch (EOFException e) {
@@ -1574,19 +1662,19 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         return arrayList;
     }
 
-    public ByteString md5() {
+    public final ByteString md5() {
         return digest("MD5");
     }
 
-    public ByteString sha1() {
+    public final ByteString sha1() {
         return digest("SHA-1");
     }
 
-    public ByteString sha256() {
+    public final ByteString sha256() {
         return digest("SHA-256");
     }
 
-    public ByteString sha512() {
+    public final ByteString sha512() {
         return digest("SHA-512");
     }
 
@@ -1605,15 +1693,15 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         }
     }
 
-    public ByteString hmacSha1(ByteString byteString) {
+    public final ByteString hmacSha1(ByteString byteString) {
         return hmac("HmacSHA1", byteString);
     }
 
-    public ByteString hmacSha256(ByteString byteString) {
+    public final ByteString hmacSha256(ByteString byteString) {
         return hmac("HmacSHA256", byteString);
     }
 
-    public ByteString hmacSha512(ByteString byteString) {
+    public final ByteString hmacSha512(ByteString byteString) {
         return hmac("HmacSHA512", byteString);
     }
 
@@ -1722,22 +1810,22 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         return buffer;
     }
 
-    public ByteString snapshot() {
+    public final ByteString snapshot() {
         if (this.size > 2147483647L) {
             throw new IllegalArgumentException("size > Integer.MAX_VALUE: " + this.size);
         }
         return snapshot((int) this.size);
     }
 
-    public ByteString snapshot(int i) {
+    public final ByteString snapshot(int i) {
         return i == 0 ? ByteString.EMPTY : new SegmentedByteString(this, i);
     }
 
-    public UnsafeCursor readUnsafe() {
+    public final UnsafeCursor readUnsafe() {
         return readUnsafe(new UnsafeCursor());
     }
 
-    public UnsafeCursor readUnsafe(UnsafeCursor unsafeCursor) {
+    public final UnsafeCursor readUnsafe(UnsafeCursor unsafeCursor) {
         if (unsafeCursor.buffer != null) {
             throw new IllegalStateException("already attached to a buffer");
         }
@@ -1746,11 +1834,11 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         return unsafeCursor;
     }
 
-    public UnsafeCursor readAndWriteUnsafe() {
+    public final UnsafeCursor readAndWriteUnsafe() {
         return readAndWriteUnsafe(new UnsafeCursor());
     }
 
-    public UnsafeCursor readAndWriteUnsafe(UnsafeCursor unsafeCursor) {
+    public final UnsafeCursor readAndWriteUnsafe(UnsafeCursor unsafeCursor) {
         if (unsafeCursor.buffer != null) {
             throw new IllegalStateException("already attached to a buffer");
         }
@@ -1759,7 +1847,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         return unsafeCursor;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class UnsafeCursor implements Closeable {
         public Buffer buffer;
         public byte[] data;
@@ -1769,14 +1857,14 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         public int start = -1;
         public int end = -1;
 
-        public int next() {
+        public final int next() {
             if (this.offset == this.buffer.size) {
                 throw new IllegalStateException();
             }
             return this.offset == -1 ? seek(0L) : seek(this.offset + (this.end - this.start));
         }
 
-        public int seek(long j) {
+        public final int seek(long j) {
             long j2;
             long j3;
             if (j < -1 || j > this.buffer.size) {
@@ -1836,7 +1924,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             return this.end - this.start;
         }
 
-        public long resizeBuffer(long j) {
+        public final long resizeBuffer(long j) {
             if (this.buffer == null) {
                 throw new IllegalStateException("not attached to a buffer");
             }
@@ -1891,7 +1979,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             return j2;
         }
 
-        public long expandBuffer(int i) {
+        public final long expandBuffer(int i) {
             if (i <= 0) {
                 throw new IllegalArgumentException("minByteCount <= 0: " + i);
             }

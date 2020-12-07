@@ -8,11 +8,11 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1499a = "LogSender";
+    private static final String f1501a = "LogSender";
     private static final int b = 10000;
     private static final int c = 10001;
 
@@ -21,11 +21,11 @@ public class l {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static l f1500a = new l(null);
+        private static l f1502a = new l(null);
 
         private a() {
         }
@@ -35,7 +35,7 @@ public class l {
     }
 
     public static l a() {
-        return a.f1500a;
+        return a.f1502a;
     }
 
     public void a(String str) {
@@ -43,7 +43,7 @@ public class l {
 
     void b(String str) {
         Context appContext;
-        LogUtil.d(f1499a, new StringBuilder().append("=====sendLogData=====").append(str).toString() == b.p ? "normal" : "crash");
+        LogUtil.d(f1501a, new StringBuilder().append("=====sendLogData=====").append(str).toString() == b.p ? "normal" : "crash");
         if ((!str.equals(b.o) || !f.a().c()) && (appContext = RimStatisticsUtil.getAppContext()) != null && com.baidu.fsg.base.statistics.a.a(appContext)) {
             JSONArray jSONArray = null;
             h[] b2 = i.a(RimStatisticsUtil.getAppContext()).b();
@@ -82,7 +82,7 @@ public class l {
     private JSONArray a(h[] hVarArr) {
         JSONArray jSONArray = new JSONArray();
         for (h hVar : hVarArr) {
-            LogUtil.d(f1499a, hVar.a().toString());
+            LogUtil.d(f1501a, hVar.a().toString());
             jSONArray.put(hVar.a());
         }
         return jSONArray;

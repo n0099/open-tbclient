@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import android.webkit.CookieManager;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     private String mContentType;
     private Context mContext;
@@ -104,7 +105,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                 }
             } else {
                 int i5 = jSONObject.getInt("error_code");
-                str3 = jSONObject.getString("error_msg");
+                str3 = jSONObject.getString(AlaRecorderLog.KEY_ERROR_MSG);
                 i3 = i5;
                 hashMap2 = null;
                 str4 = null;
@@ -151,7 +152,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
             case 0:
                 return "https://pim.baidu.com/rest/3.0/im/bos/generate_bos_url";
             case 1:
-                return "http://cp01-ocean-749.epc.baidu.com:8111/rest/3.0/im/bos/generate_bos_url";
+                return "http://rd-im-server.bcc-szth.baidu.com:8111/rest/3.0/im/bos/generate_bos_url";
             case 2:
                 return "http://10.64.132.67:8080/rest/3.0/im/bos/generate_bos_url";
             case 3:

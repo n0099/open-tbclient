@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class URLDecodeUtil {
     public static final String PERCENT_PATTEN = "%(?![0-9a-fA-F]{2})";
     public static final String PERCENT_TO_REPLACE = "%25";

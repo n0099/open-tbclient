@@ -4,12 +4,12 @@ import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class CircleOptions extends OverlayOptions {
     private static final String d = CircleOptions.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    int f2004a;
+    int f2006a;
     Bundle c;
     private LatLng e;
     private int g;
@@ -26,10 +26,10 @@ public final class CircleOptions extends OverlayOptions {
     public Overlay a() {
         Circle circle = new Circle();
         circle.B = this.b;
-        circle.A = this.f2004a;
+        circle.A = this.f2006a;
         circle.C = this.c;
         circle.b = this.f;
-        circle.f2001a = this.e;
+        circle.f2003a = this.e;
         circle.c = this.g;
         circle.d = this.h;
         circle.e = this.i;
@@ -98,7 +98,7 @@ public final class CircleOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2004a;
+        return this.f2006a;
     }
 
     public boolean isVisible() {
@@ -121,7 +121,7 @@ public final class CircleOptions extends OverlayOptions {
     }
 
     public CircleOptions zIndex(int i) {
-        this.f2004a = i;
+        this.f2006a = i;
         return this;
     }
 }

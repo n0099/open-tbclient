@@ -1,15 +1,15 @@
 package io.reactivex.internal.operators.observable;
 
+import io.reactivex.b.h;
 import io.reactivex.c;
-import io.reactivex.c.h;
 import io.reactivex.e;
-import io.reactivex.internal.a.g;
+import io.reactivex.internal.a.f;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
     final int bufferSize;
     final h<? super T, ? extends e> mapper;
@@ -20,7 +20,7 @@ public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
         this.source.subscribe(new SourceObserver(cVar, this.mapper, this.bufferSize));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class SourceObserver<T> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = 6893587405571511048L;
         volatile boolean active;
@@ -30,7 +30,7 @@ public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
         volatile boolean done;
         final InnerObserver inner;
         final h<? super T, ? extends e> mapper;
-        g<T> queue;
+        f<T> queue;
         io.reactivex.disposables.b s;
         int sourceMode;
 
@@ -80,7 +80,7 @@ public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.e.a.onError(th);
+                io.reactivex.d.a.onError(th);
                 return;
             }
             this.done = true;
@@ -130,7 +130,7 @@ public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
                                 return;
                             } else if (!z2) {
                                 try {
-                                    e eVar = (e) io.reactivex.internal.functions.a.l(this.mapper.apply(poll), "The mapper returned a null CompletableSource");
+                                    e eVar = (e) io.reactivex.internal.functions.a.m(this.mapper.apply(poll), "The mapper returned a null CompletableSource");
                                     this.active = true;
                                     eVar.a(this.inner);
                                 } catch (Throwable th) {
@@ -158,7 +158,7 @@ public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes9.dex */
         public static final class InnerObserver extends AtomicReference<io.reactivex.disposables.b> implements c {
             private static final long serialVersionUID = -5987419458390772447L;
             final c actual;

@@ -2,23 +2,23 @@ package com.baidu.crabsdk.a;
 
 import android.os.Handler;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class o implements Runnable {
-    final /* synthetic */ n aop;
+    final /* synthetic */ n apd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.aop = nVar;
+        this.apd = nVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Runnable runnable;
-        this.aop.o();
-        if (this.aop.aom.get()) {
-            Handler vi2 = j.vi();
-            runnable = this.aop.aoo;
-            vi2.postDelayed(runnable, this.aop.aon);
+        this.apd.o();
+        if (this.apd.apa.get()) {
+            Handler uX = j.uX();
+            runnable = this.apd.apc;
+            uX.postDelayed(runnable, this.apd.apb);
         }
     }
 }

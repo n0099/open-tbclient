@@ -3,14 +3,13 @@ package com.baidu.tieba.advert.sdk.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class AdInfo implements Serializable {
     private static final long serialVersionUID = 1;
     public int adHeight;
@@ -79,11 +78,11 @@ public class AdInfo implements Serializable {
     }
 
     public boolean shouldDownloadVideo() {
-        b Fl = b.Fl(com.baidu.tieba.advert.sdk.c.a.bJR());
-        if (TextUtils.isEmpty(Fl.videoLocalPath)) {
+        b FZ = b.FZ(com.baidu.tieba.advert.sdk.c.a.bNz());
+        if (TextUtils.isEmpty(FZ.videoLocalPath)) {
             return true;
         }
-        return TextUtils.isEmpty(Fl.adVideoUrl) ? !TextUtils.isEmpty(this.adVideoUrl) : !Fl.adVideoUrl.equals(this.adVideoUrl);
+        return TextUtils.isEmpty(FZ.adVideoUrl) ? !TextUtils.isEmpty(this.adVideoUrl) : !FZ.adVideoUrl.equals(this.adVideoUrl);
     }
 
     public void parseFromJson(JSONObject jSONObject) {
@@ -136,7 +135,7 @@ public class AdInfo implements Serializable {
     public static ArrayList<String> convertStrToList(String str) {
         ArrayList<String> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(str)) {
-            for (String str2 : str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
+            for (String str2 : str.split(",")) {
                 try {
                     arrayList.add(URLDecoder.decode(str2, "utf-8"));
                 } catch (Exception e) {

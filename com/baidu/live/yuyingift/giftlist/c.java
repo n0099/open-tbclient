@@ -16,7 +16,7 @@ public class c extends HttpMessage {
         return this.isHost;
     }
 
-    public String Iq() {
+    public String Kq() {
         return this.giftId;
     }
 }

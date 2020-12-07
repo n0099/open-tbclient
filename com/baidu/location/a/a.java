@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.lbsapi.auth.LBSAuthManagerListener;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class a implements LBSAuthManagerListener {
     private static Object b = new Object();
     private static a c = null;
@@ -15,7 +15,7 @@ public class a implements LBSAuthManagerListener {
     private String g = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f1861a = 0;
+    public int f1863a = 0;
 
     public static a a() {
         a aVar;
@@ -76,9 +76,9 @@ public class a implements LBSAuthManagerListener {
     public void onAuthResult(int i, String str) {
         this.d = i;
         if (this.d == 0) {
-            Log.i(com.baidu.location.e.a.f1944a, "LocationAuthManager Authentication AUTHENTICATE_SUCC");
+            Log.i(com.baidu.location.e.a.f1946a, "LocationAuthManager Authentication AUTHENTICATE_SUCC");
         } else {
-            Log.i(com.baidu.location.e.a.f1944a, "LocationAuthManager Authentication Error errorcode = " + i + " , msg = " + str);
+            Log.i(com.baidu.location.e.a.f1946a, "LocationAuthManager Authentication Error errorcode = " + i + " , msg = " + str);
         }
         if (str != null) {
             try {
@@ -89,8 +89,8 @@ public class a implements LBSAuthManagerListener {
                 if (jSONObject == null || !jSONObject.has("ak_permission") || jSONObject.getInt("ak_permission") == 0) {
                     return;
                 }
-                this.f1861a = jSONObject.getInt("ak_permission");
-                Log.i(com.baidu.location.e.a.f1944a, "LocationAuthManager ak_permission = " + this.f1861a);
+                this.f1863a = jSONObject.getInt("ak_permission");
+                Log.i(com.baidu.location.e.a.f1946a, "LocationAuthManager ak_permission = " + this.f1863a);
             } catch (Exception e) {
                 e.printStackTrace();
             }

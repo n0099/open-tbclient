@@ -3,7 +3,7 @@ package com.baidu.tieba.im.forum.broadcast.data;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetForumBroadcastList.GetForumBroadcastListResIdl;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class ResponseSocketMajorHistoryMessage extends SocketResponsedMessage {
     a majorHistoryData;
 
@@ -26,7 +26,7 @@ public class ResponseSocketMajorHistoryMessage extends SocketResponsedMessage {
                 setErrorString(getForumBroadcastListResIdl.error.usermsg);
                 if (getError() == 0) {
                     this.majorHistoryData.a(getForumBroadcastListResIdl.data);
-                    this.majorHistoryData.cRc();
+                    this.majorHistoryData.cWq();
                 }
             }
         }

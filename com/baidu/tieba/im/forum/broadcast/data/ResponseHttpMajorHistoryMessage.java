@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetForumBroadcastList.GetForumBroadcastListResIdl;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class ResponseHttpMajorHistoryMessage extends TbHttpResponsedMessage {
     a majorHistoryData;
 
@@ -28,7 +28,7 @@ public class ResponseHttpMajorHistoryMessage extends TbHttpResponsedMessage {
                 setErrorString(getForumBroadcastListResIdl.error.usermsg);
                 if (getError() == 0) {
                     this.majorHistoryData.a(getForumBroadcastListResIdl.data);
-                    this.majorHistoryData.cRc();
+                    this.majorHistoryData.cWq();
                 }
             }
         }

@@ -1,21 +1,18 @@
 package com.baidu.live.gift;
 
 import android.view.View;
+import com.baidu.live.data.AlaLiveInfoData;
+import com.baidu.live.data.AlaLiveUserInfoData;
+import com.baidu.live.tbadk.core.data.AlaBroadcastGiftToastData;
 /* loaded from: classes4.dex */
 public interface ab {
-    View FX();
+    View Ip();
 
-    View FY();
+    void a(AlaLiveInfoData alaLiveInfoData, AlaLiveUserInfoData alaLiveUserInfoData);
 
-    void FZ();
+    void a(AlaBroadcastGiftToastData alaBroadcastGiftToastData);
 
-    void Ga();
-
-    void bt(boolean z);
-
-    void dQ(int i);
-
-    void dR(int i);
+    void en(int i);
 
     void onDestroy();
 }

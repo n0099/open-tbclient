@@ -7,12 +7,12 @@ import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.core.TransitResultNode;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class MassTransitRouteResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<MassTransitRouteResult> CREATOR = new l();
 
     /* renamed from: a  reason: collision with root package name */
-    private TransitResultNode f2144a;
+    private TransitResultNode f2146a;
     private TransitResultNode b;
     private TaxiInfo c;
     private int d;
@@ -24,7 +24,7 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public MassTransitRouteResult(Parcel parcel) {
-        this.f2144a = (TransitResultNode) parcel.readParcelable(TransitResultNode.class.getClassLoader());
+        this.f2146a = (TransitResultNode) parcel.readParcelable(TransitResultNode.class.getClassLoader());
         this.b = (TransitResultNode) parcel.readParcelable(TransitResultNode.class.getClassLoader());
         this.c = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
         this.d = parcel.readInt();
@@ -43,7 +43,7 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
     }
 
     public TransitResultNode getOrigin() {
-        return this.f2144a;
+        return this.f2146a;
     }
 
     public List<MassTransitRouteLine> getRouteLines() {
@@ -67,7 +67,7 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
     }
 
     public void setOrigin(TransitResultNode transitResultNode) {
-        this.f2144a = transitResultNode;
+        this.f2146a = transitResultNode;
     }
 
     public void setRoutelines(List<MassTransitRouteLine> list) {
@@ -88,7 +88,7 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f2144a, 1);
+        parcel.writeParcelable(this.f2146a, 1);
         parcel.writeParcelable(this.b, 1);
         parcel.writeParcelable(this.c, 1);
         parcel.writeInt(this.d);

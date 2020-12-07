@@ -2,28 +2,28 @@ package com.baidu.ar.face.attributes;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.ar.arrender.k;
+import com.baidu.ar.arrender.l;
 import com.baidu.ar.face.FaceResultData;
 import com.baidu.ar.face.algo.FAUFaceBox;
 import com.baidu.ar.face.algo.FaceAlgoData;
 import com.baidu.ar.face.algo.FaceFrame;
 import com.baidu.ar.face.detector.m;
-import com.baidu.ar.g.b;
+import com.baidu.ar.h.b;
 import java.io.File;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private HashMap<Integer, float[]> nI = new HashMap<>();
-    private boolean nJ = false;
-    private k nK;
+    private HashMap<Integer, float[]> nY = new HashMap<>();
+    private boolean nZ = false;
+    private l oa;
 
-    public a(k kVar) {
-        this.nK = kVar;
+    public a(l lVar) {
+        this.oa = lVar;
     }
 
-    private boolean W(String str) {
+    private boolean Z(String str) {
         if (new File(str).exists()) {
             return true;
         }
@@ -50,7 +50,7 @@ public class a {
     }
 
     private boolean d(m mVar) {
-        if (this.nJ) {
+        if (this.nZ) {
             if (mVar.isTracked()) {
                 return true;
             }
@@ -62,8 +62,8 @@ public class a {
 
     public void a(m mVar, FaceResultData faceResultData, int i, int i2) {
         if (d(mVar)) {
-            FaceAlgoData eD = mVar.eD();
-            FaceFrame faceFrame = eD == null ? null : eD.getFaceFrame();
+            FaceAlgoData eC = mVar.eC();
+            FaceFrame faceFrame = eC == null ? null : eC.getFaceFrame();
             if (faceFrame == null) {
                 b.c("FaceAttributesManager", "faceFrame == null.");
                 return;
@@ -76,19 +76,19 @@ public class a {
             }
             faceResultData.setFaceIds(faceIDList);
             int i3 = faceIDList[0];
-            float[] fArr = this.nI.get(Integer.valueOf(i3));
+            float[] fArr = this.nY.get(Integer.valueOf(i3));
             if (fArr != null) {
                 faceResultData.setGenders(fArr);
                 return;
             }
-            float[] a2 = a(mVar.eC(), faceBoxes.get(0), i, i2);
-            if (a2 == null || !this.nJ) {
+            float[] a2 = a(mVar.eB(), faceBoxes.get(0), i, i2);
+            if (a2 == null || !this.nZ) {
                 return;
             }
-            this.nI.put(Integer.valueOf(i3), a2);
+            this.nY.put(Integer.valueOf(i3), a2);
             faceResultData.setGenders(a2);
-            if (this.nK != null) {
-                this.nK.b("face_gender_predict", Float.valueOf(a2[0]));
+            if (this.oa != null) {
+                this.oa.a("face_gender_predict", Float.valueOf(a2[0]));
             }
         }
     }
@@ -98,10 +98,10 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             b.b("FaceAttributesManager", "gender model path is empty.");
             return -1;
-        } else if (this.nJ) {
+        } else if (this.nZ) {
             return 0;
         } else {
-            if (FaceAttributesJni.nH) {
+            if (FaceAttributesJni.nX) {
                 if (str.startsWith("file:///android_asset/")) {
                     String replace = str.replace("file:///android_asset/", "");
                     if (!c(context, replace)) {
@@ -109,12 +109,12 @@ public class a {
                     }
                     FaceAttributesJni.setAssetManager(context.getAssets());
                     initGenderDetect = FaceAttributesJni.initGenderDetectFromAssets(replace);
-                } else if (!W(str)) {
+                } else if (!Z(str)) {
                     return -1;
                 } else {
                     initGenderDetect = FaceAttributesJni.initGenderDetect(str);
                 }
-                this.nJ = initGenderDetect == 0;
+                this.nZ = initGenderDetect == 0;
                 return initGenderDetect;
             }
             return -1;
@@ -122,14 +122,14 @@ public class a {
     }
 
     public void release() {
-        this.nK = null;
-        if (this.nJ) {
-            this.nJ = false;
+        this.oa = null;
+        if (this.nZ) {
+            this.nZ = false;
             FaceAttributesJni.releaseGenderDetect();
         }
     }
 
     public void reset() {
-        this.nI.clear();
+        this.nY.clear();
     }
 }

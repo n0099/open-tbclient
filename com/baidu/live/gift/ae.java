@@ -1,17 +1,13 @@
 package com.baidu.live.gift;
-
-import android.view.View;
 /* loaded from: classes4.dex */
 public interface ae {
-    View GL();
+    void Ic();
 
-    void bu(boolean z);
+    void Id();
 
-    void bv(boolean z);
+    void a(String str, String str2, String str3, String str4, String str5, boolean z, boolean z2, boolean z3, boolean z4);
 
-    void onDestroy();
+    boolean e(String str, String str2, boolean z);
 
-    void onPause();
-
-    void onResume();
+    void ha(String str);
 }

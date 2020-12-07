@@ -5,9 +5,9 @@ import android.util.Log;
 import android.webkit.JavascriptInterface;
 import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 public class f {
-    private a dNe;
+    private a dUc;
     @V8JavascriptField
     public int height;
     @V8JavascriptField
@@ -21,9 +21,9 @@ public class f {
     @V8JavascriptField
     public int width;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes14.dex */
     public interface a {
-        void vH(String str);
+        void wo(String str);
     }
 
     public f(@NonNull com.baidu.swan.games.binding.model.c cVar) {
@@ -42,12 +42,12 @@ public class f {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.dNe != null) {
-            this.dNe.vH(str);
+        if (this.dUc != null) {
+            this.dUc.wo(str);
         }
     }
 
     public void a(a aVar) {
-        this.dNe = aVar;
+        this.dUc = aVar;
     }
 }

@@ -1,0 +1,148 @@
+package com.baidu.tieba.ala.poke.startanim;
+
+import android.text.TextUtils;
+import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.listener.HttpMessageListener;
+import com.baidu.live.adp.framework.message.HttpResponsedMessage;
+import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
+import com.baidu.live.data.al;
+import com.baidu.live.data.bw;
+import com.baidu.live.message.AlaSyncHttpResponseMessage;
+import java.io.File;
+import java.util.List;
+/* loaded from: classes4.dex */
+public class c implements com.baidu.live.v.c {
+    private static final String hTn = com.baidu.live.ag.b.Sh();
+    private static final String hTo = com.baidu.live.ag.b.Sj();
+    private static final String hTp = com.baidu.live.ag.b.Sl();
+    private boolean hTq;
+    private HttpMessageListener hTr;
+    private d hTs;
+    private String hTt;
+
+    public static c cov() {
+        return a.hTw;
+    }
+
+    public String cow() {
+        return this.hTt;
+    }
+
+    @Override // com.baidu.live.v.c
+    public void Qy() {
+        final al alVar = com.baidu.live.ae.a.RB().brA;
+        if (alVar == null || alVar.aOH == null || TextUtils.isEmpty(alVar.aOH.downloadUrl)) {
+            bXm();
+        } else if (!this.hTq) {
+            this.hTt = "";
+            this.hTq = true;
+            new BdAsyncTask<bw, Void, bw>() { // from class: com.baidu.tieba.ala.poke.startanim.c.1
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
+                /* renamed from: a */
+                public bw doInBackground(bw... bwVarArr) {
+                    bw Jd;
+                    if (bwVarArr == null || bwVarArr.length == 0) {
+                        return null;
+                    }
+                    bw bwVar = bwVarArr[0];
+                    String string = com.baidu.live.d.BM().getString("live_poke_start_anim", "");
+                    if (TextUtils.isEmpty(string) || (Jd = b.Jd(string)) == null || !bwVar.downloadUrl.equals(Jd.downloadUrl) || !bwVar.aRG.equals(Jd.aRG) || TextUtils.isEmpty(Jd.videoMd5) || !Jd.videoMd5.equals(c.this.cox())) {
+                        c.this.coy();
+                        return null;
+                    }
+                    return Jd;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
+                /* renamed from: c */
+                public void onPostExecute(bw bwVar) {
+                    super.onPostExecute(bwVar);
+                    if (bwVar == null) {
+                        c.this.b(alVar.aOH);
+                        return;
+                    }
+                    c.this.hTt = bwVar.videoPath;
+                }
+            }.execute(alVar.aOH);
+        }
+    }
+
+    @Override // com.baidu.live.v.c
+    public void release() {
+        this.hTq = false;
+        this.hTt = "";
+        MessageManager.getInstance().unRegisterListener(this.hTr);
+        this.hTr = null;
+        if (this.hTs != null) {
+            this.hTs.release();
+        }
+        com.baidu.live.h.b.ei(21);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void cJ(List<bw> list) {
+        if (list != null && !list.isEmpty()) {
+            bw bwVar = list.get(0);
+            this.hTt = bwVar.videoPath;
+            com.baidu.live.d.BM().putString("live_poke_start_anim", b.a(bwVar));
+        }
+    }
+
+    private void bXm() {
+        if (this.hTr == null) {
+            this.hTr = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.ala.poke.startanim.c.2
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.live.adp.framework.listener.MessageListener
+                public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+                    if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021011 && (httpResponsedMessage instanceof AlaSyncHttpResponseMessage)) {
+                        c.this.Qy();
+                    }
+                }
+            };
+            MessageManager.getInstance().registerListener(this.hTr);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String cox() {
+        File[] listFiles = new File(hTp).listFiles();
+        if (listFiles == null || listFiles.length == 0) {
+            return null;
+        }
+        for (File file : listFiles) {
+            if (!file.isDirectory()) {
+                return com.baidu.live.h.a.getFileMd5(file);
+            }
+        }
+        return null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(bw bwVar) {
+        if (bwVar != null && !TextUtils.isEmpty(bwVar.downloadUrl)) {
+            this.hTs = new d();
+            this.hTs.z(bwVar.downloadUrl, bwVar.aRG, hTo, hTp);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void coy() {
+        this.hTt = "";
+        com.baidu.live.d.BM().putString("live_poke_start_anim", "");
+        com.baidu.live.h.a.cleanDir(new File(hTn));
+    }
+
+    private c() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes4.dex */
+    public static class a {
+        private static c hTw = new c();
+    }
+}

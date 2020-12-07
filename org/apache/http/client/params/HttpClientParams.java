@@ -2,7 +2,7 @@ package org.apache.http.client.params;
 
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class HttpClientParams {
     HttpClientParams() {
         throw new RuntimeException("Stub!");

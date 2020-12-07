@@ -11,7 +11,7 @@ import java.util.zip.GZIPOutputStream;
 public class db {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f2615a;
+    static final /* synthetic */ boolean f2617a;
     private static final byte[] b;
     private static final byte[] c;
     private static final byte[] d;
@@ -20,7 +20,7 @@ public class db {
     private static final byte[] g;
 
     static {
-        f2615a = !db.class.desiredAssertionStatus();
+        f2617a = !db.class.desiredAssertionStatus();
         b = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
         c = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, Constants.GZIP_CAST_TYPE, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
         d = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
@@ -90,11 +90,11 @@ public class db {
         try {
             str = a(bArr, 0, bArr.length, 0);
         } catch (IOException e2) {
-            if (!f2615a) {
+            if (!f2617a) {
                 throw new AssertionError(e2.getMessage());
             }
         }
-        if (f2615a || str != null) {
+        if (f2617a || str != null) {
             return str;
         }
         throw new AssertionError();
@@ -276,7 +276,7 @@ public class db {
     public static class a extends FilterOutputStream {
 
         /* renamed from: a  reason: collision with root package name */
-        private boolean f2616a;
+        private boolean f2618a;
         private int b;
         private byte[] c;
         private int d;
@@ -290,8 +290,8 @@ public class db {
         public a(OutputStream outputStream, int i) {
             super(outputStream);
             this.f = (i & 8) != 0;
-            this.f2616a = (i & 1) != 0;
-            this.d = this.f2616a ? 3 : 4;
+            this.f2618a = (i & 1) != 0;
+            this.d = this.f2618a ? 3 : 4;
             this.c = new byte[this.d];
             this.b = 0;
             this.e = 0;
@@ -305,7 +305,7 @@ public class db {
         public void write(int i) throws IOException {
             if (this.h) {
                 this.out.write(i);
-            } else if (this.f2616a) {
+            } else if (this.f2618a) {
                 byte[] bArr = this.c;
                 int i2 = this.b;
                 this.b = i2 + 1;
@@ -346,7 +346,7 @@ public class db {
 
         public void a() throws IOException {
             if (this.b > 0) {
-                if (this.f2616a) {
+                if (this.f2618a) {
                     this.out.write(db.b(this.g, this.c, this.b, this.i));
                     this.b = 0;
                     return;

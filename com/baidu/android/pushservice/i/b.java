@@ -9,12 +9,12 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<Long, c> f1149a;
+    private static Map<Long, c> f1147a;
 
     public static synchronized void a(long j) {
         synchronized (b.class) {
-            if (f1149a.containsKey(Long.valueOf(j))) {
-                f1149a.remove(f1149a.get(Long.valueOf(j)));
+            if (f1147a.containsKey(Long.valueOf(j))) {
+                f1147a.remove(f1147a.get(Long.valueOf(j)));
             }
         }
     }
@@ -22,23 +22,23 @@ public class b {
     public static void a(Intent intent) {
         if (intent.hasExtra("bd.cross.request.COMMAND_TYPE") && TextUtils.equals(intent.getStringExtra("bd.cross.request.COMMAND_TYPE"), "bd.cross.command.MESSAGE_ACK")) {
             long longExtra = intent.getLongExtra("bd.cross.request.ID", 0L);
-            if (longExtra == 0 || f1149a == null || !f1149a.containsKey(Long.valueOf(longExtra))) {
+            if (longExtra == 0 || f1147a == null || !f1147a.containsKey(Long.valueOf(longExtra))) {
                 return;
             }
-            f1149a.get(Long.valueOf(longExtra)).a(intent);
-            f1149a.remove(f1149a.get(Long.valueOf(longExtra)));
+            f1147a.get(Long.valueOf(longExtra)).a(intent);
+            f1147a.remove(f1147a.get(Long.valueOf(longExtra)));
         }
     }
 
     public static synchronized void a(c cVar) {
         synchronized (b.class) {
-            if (f1149a == null) {
-                f1149a = Collections.synchronizedMap(new HashMap());
+            if (f1147a == null) {
+                f1147a = Collections.synchronizedMap(new HashMap());
             }
-            if (f1149a.containsKey(Long.valueOf(cVar.a()))) {
-                f1149a.remove(cVar).a();
+            if (f1147a.containsKey(Long.valueOf(cVar.a()))) {
+                f1147a.remove(cVar).a();
             }
-            f1149a.put(Long.valueOf(cVar.a()), cVar);
+            f1147a.put(Long.valueOf(cVar.a()), cVar);
         }
     }
 }

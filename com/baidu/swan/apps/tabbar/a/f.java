@@ -6,7 +6,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class f extends a {
     public f(j jVar) {
         super(jVar, "/swanAPI/openTabBarRedDot");
@@ -21,17 +21,17 @@ public class f extends a {
             return false;
         }
         int optInt = optParamsAsJo.optInt("index");
-        if (ajc()) {
+        if (amk()) {
             com.baidu.swan.apps.console.c.e("OpenTabBarRedDotAction", "fail not TabBar page");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
             return false;
         }
-        com.baidu.swan.apps.tabbar.b.a ajb = ajb();
-        if (ajb == null) {
+        com.baidu.swan.apps.tabbar.b.a amj = amj();
+        if (amj == null) {
             com.baidu.swan.apps.console.c.e("OpenTabBarRedDotAction", "tabBarViewController is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!ajb.le(optInt)) {
+        } else if (!amj.lC(optInt)) {
             com.baidu.swan.apps.console.c.e("openTabBarRedDot", "open red dot fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

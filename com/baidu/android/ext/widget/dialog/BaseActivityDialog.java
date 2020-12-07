@@ -25,7 +25,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.skin.ioc.SkinResourcesRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class BaseActivityDialog extends Activity implements DialogInterface {
     private static final boolean DEBUG = false;
     private static final String KEY_FOR_BUILDER = "BOX_ACTIVITY_DIALOG_FOR_BUILDER";
@@ -355,7 +355,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         return skinResources != null ? skinResources : super.getResources();
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes20.dex */
     public static class Builder {
         public static final int DIALOG_NEGATIVE_TEXT_CANCEL = R.string.dialog_negative_title_cancel;
         public static final int DIALOG_POSITIVE_TEXT_OK = R.string.dialog_positive_title_ok;
@@ -622,7 +622,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes19.dex */
+        /* loaded from: classes20.dex */
         public static class EventObject {
             private DialogInterface dialog;
             private int which;
@@ -634,7 +634,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes19.dex */
+        /* loaded from: classes20.dex */
         public static class DismissEventObject {
             private Object tag;
 

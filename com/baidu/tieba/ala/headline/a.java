@@ -4,7 +4,7 @@ import java.math.RoundingMode;
 import java.text.NumberFormat;
 /* loaded from: classes4.dex */
 public class a {
-    public static String eI(long j) {
+    public static String fm(long j) {
         if (j >= 100000000) {
             NumberFormat numberInstance = NumberFormat.getNumberInstance();
             numberInstance.setMaximumFractionDigits(3);

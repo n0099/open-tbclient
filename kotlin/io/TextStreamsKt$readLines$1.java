@@ -3,11 +3,10 @@ package kotlin.io;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.util.ArrayList;
 import kotlin.jvm.internal.Lambda;
-import kotlin.jvm.internal.q;
-import kotlin.l;
-@kotlin.h
-/* loaded from: classes9.dex */
-final class TextStreamsKt$readLines$1 extends Lambda implements kotlin.jvm.a.b<String, l> {
+import kotlin.jvm.internal.p;
+@kotlin.e
+/* loaded from: classes17.dex */
+final class TextStreamsKt$readLines$1 extends Lambda implements kotlin.jvm.a.b<String, kotlin.h> {
     final /* synthetic */ ArrayList $result;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -19,14 +18,14 @@ final class TextStreamsKt$readLines$1 extends Lambda implements kotlin.jvm.a.b<S
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.a.b
-    public /* bridge */ /* synthetic */ l invoke(String str) {
+    public /* bridge */ /* synthetic */ kotlin.h invoke(String str) {
         invoke2(str);
-        return l.pTv;
+        return kotlin.h.pJY;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(String str) {
-        q.n(str, AdvanceSetting.NETWORK_TYPE);
+        p.o(str, AdvanceSetting.NETWORK_TYPE);
         this.$result.add(str);
     }
 }

@@ -4,7 +4,7 @@ import android.util.Pair;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.platform.comapi.map.MapStatus;
 import com.baidu.platform.comapi.map.b.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class c extends a {
     private boolean b;
     private long c;
@@ -32,24 +32,24 @@ public class c extends a {
 
     @Override // com.baidu.platform.comapi.map.b.b.a
     public void a(com.baidu.platform.comapi.map.b.a.b bVar, Pair<a.d, a.d> pair) {
-        MapStatus mapStatus = this.f2907a.getMapStatus();
+        MapStatus mapStatus = this.f2909a.getMapStatus();
         if (mapStatus.bOverlookSpringback) {
             if (mapStatus.overlooking > 0) {
                 mapStatus.overlooking = 0;
             } else {
                 mapStatus.overlooking = mapStatus.minOverlooking;
             }
-            this.f2907a.setMapStatusWithAnimation(mapStatus, 200);
+            this.f2909a.setMapStatusWithAnimation(mapStatus, 200);
         }
     }
 
     @Override // com.baidu.platform.comapi.map.b.b.a
     public void b(com.baidu.platform.comapi.map.b.a.b bVar) {
-        a.C0279a c0279a = bVar.b;
-        a.C0279a c0279a2 = bVar.c;
-        MapStatus mapStatus = this.f2907a.getMapStatus();
-        double d = c0279a2.f2901a.b - c0279a.f2901a.b;
-        double d2 = c0279a2.b.b - c0279a.b.b;
+        a.C0290a c0290a = bVar.b;
+        a.C0290a c0290a2 = bVar.c;
+        MapStatus mapStatus = this.f2909a.getMapStatus();
+        double d = c0290a2.f2903a.b - c0290a.f2903a.b;
+        double d2 = c0290a2.b.b - c0290a.b.b;
         if (d * d2 > 0.0d) {
             a(d, mapStatus);
         } else if (d * d2 == 0.0d) {
@@ -63,10 +63,10 @@ public class c extends a {
         } else {
             a(d2, mapStatus);
         }
-        this.f2907a.setMapStatus(mapStatus);
+        this.f2909a.setMapStatus(mapStatus);
         if (this.b) {
             this.b = false;
-            this.f2907a.getGestureMonitor().d();
+            this.f2909a.getGestureMonitor().d();
         }
     }
 }

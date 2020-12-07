@@ -7,11 +7,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f1871a = new Object();
+    private static Object f1873a = new Object();
     private static ac b = null;
     private HandlerThread c;
     private Handler d;
@@ -22,7 +22,7 @@ public class ac {
 
     public static ac a() {
         ac acVar;
-        synchronized (f1871a) {
+        synchronized (f1873a) {
             if (b == null) {
                 b = new ac();
             }

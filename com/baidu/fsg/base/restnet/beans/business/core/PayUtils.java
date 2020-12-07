@@ -22,7 +22,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class PayUtils {
     private static final String API_SECRET = "";
     public static final String KEY_CARD_NO = "card_no";
@@ -60,7 +60,7 @@ public final class PayUtils {
     public static String genAPIsig(List<RestNameValuePair> list) {
         ArrayList arrayList = new ArrayList();
         for (RestNameValuePair restNameValuePair : list) {
-            arrayList.add(restNameValuePair.getName() + ETAG.EQUAL + restNameValuePair.getValue());
+            arrayList.add(restNameValuePair.getName() + "=" + restNameValuePair.getValue());
         }
         return getSign(arrayList);
     }
@@ -183,7 +183,7 @@ public final class PayUtils {
     public static List<String> mapToList(Map<String, String> map) {
         ArrayList arrayList = new ArrayList();
         for (Map.Entry<String, String> entry : map.entrySet()) {
-            arrayList.add(entry.getKey().toString() + ETAG.EQUAL + (TextUtils.isEmpty(entry.getValue()) ? "" : entry.getValue().toString()));
+            arrayList.add(entry.getKey().toString() + "=" + (TextUtils.isEmpty(entry.getValue()) ? "" : entry.getValue().toString()));
         }
         if (arrayList == null || arrayList.size() <= 0) {
             return null;
@@ -204,7 +204,7 @@ public final class PayUtils {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public static class ParamComparator implements Comparator<String> {
         private ParamComparator() {
         }

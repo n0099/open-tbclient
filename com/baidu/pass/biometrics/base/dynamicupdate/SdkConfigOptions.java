@@ -15,7 +15,7 @@ public class SdkConfigOptions {
     public static final String TAG = "SdkConfigOptions";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2696a = "face_sdk";
+    private static final String f2698a = "face_sdk";
     private static final String b = "host_version";
     private static final String c = "zip_version";
     private static final String d = "updateFail";
@@ -40,7 +40,7 @@ public class SdkConfigOptions {
     public static class DistributedFile {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f2697a = "name";
+        private static final String f2699a = "name";
         private static final String b = "url";
         private static final String c = "hash";
         public String fileName = null;
@@ -95,7 +95,7 @@ public class SdkConfigOptions {
         int i2 = 0;
         SdkConfigOptions sdkConfigOptions = new SdkConfigOptions();
         sdkConfigOptions.livenessConfigOption = LivenessConfigOption.fromJson(jSONObject);
-        JSONArray optJSONArray = jSONObject.optJSONArray(f2696a);
+        JSONArray optJSONArray = jSONObject.optJSONArray(f2698a);
         if (optJSONArray == null) {
             return sdkConfigOptions;
         }
@@ -176,7 +176,7 @@ public class SdkConfigOptions {
         public static final int LIVENESS_RECOG_TYPE_OPEN_MOUTH = 2;
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f2698a = "min_face_size";
+        private static final String f2700a = "min_face_size";
         private static final String b = "illum_thr";
         private static final String c = "track_interval";
         private static final String d = "detect_interval";
@@ -235,7 +235,7 @@ public class SdkConfigOptions {
         public static LivenessConfigOption fromJson(JSONObject jSONObject) {
             LivenessConfigOption livenessConfigOption = new LivenessConfigOption();
             if (jSONObject != null) {
-                livenessConfigOption.minFaceSize = jSONObject.optString(f2698a);
+                livenessConfigOption.minFaceSize = jSONObject.optString(f2700a);
                 livenessConfigOption.D = jSONObject.optString(b);
                 livenessConfigOption.E = jSONObject.optString(c);
                 livenessConfigOption.F = jSONObject.optString(d);
@@ -464,7 +464,7 @@ public class SdkConfigOptions {
         public JSONObject toJSON() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(f2698a, this.minFaceSize);
+                jSONObject.put(f2700a, this.minFaceSize);
                 jSONObject.put(b, this.D);
                 jSONObject.put(c, this.E);
                 jSONObject.put(d, this.F);

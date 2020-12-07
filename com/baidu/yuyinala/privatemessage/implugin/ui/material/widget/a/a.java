@@ -4,17 +4,17 @@ import android.graphics.drawable.Drawable;
 /* loaded from: classes4.dex */
 public class a {
     private Drawable icon;
-    private int oEX;
-    private boolean oEY;
+    private int oUd;
+    private boolean oUe;
     private String title;
     private int titleColor;
 
     public a(int i, String str, Drawable drawable) {
         this.titleColor = -1;
-        this.oEX = -1;
+        this.oUd = -1;
         this.title = str;
         this.icon = drawable;
-        this.oEX = i;
+        this.oUd = i;
     }
 
     public a() {
@@ -33,11 +33,11 @@ public class a {
         return this.icon;
     }
 
-    public int ehr() {
-        return this.oEX;
+    public int eng() {
+        return this.oUd;
     }
 
     public boolean isSticky() {
-        return this.oEY;
+        return this.oUe;
     }
 }

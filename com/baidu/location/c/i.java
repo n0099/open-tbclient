@@ -19,7 +19,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.location.e.l;
 import com.baidu.webkit.internal.ETAG;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class i {
     private WifiManager c = null;
     private a d = null;
@@ -35,10 +35,10 @@ public class i {
     private static i b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f1938a = 0;
+    public static long f1940a = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public class a extends BroadcastReceiver {
         private long b;
         private boolean c;
@@ -55,7 +55,7 @@ public class i {
             }
             String action = intent.getAction();
             if (action.equals("android.net.wifi.SCAN_RESULTS")) {
-                i.f1938a = System.currentTimeMillis() / 1000;
+                i.f1940a = System.currentTimeMillis() / 1000;
                 i.this.j.post(new j(this, intent.getBooleanExtra("resultsUpdated", true)));
             } else if (action.equals(McastConfig.ACTION_NETWORK_STATE_CHANGED) && ((NetworkInfo) intent.getParcelableExtra("networkInfo")).getState().equals(NetworkInfo.State.CONNECTED) && System.currentTimeMillis() - this.b >= 5000) {
                 this.b = System.currentTimeMillis();
@@ -107,8 +107,8 @@ public class i {
         if (hVar == null || hVar2 == null) {
             return false;
         }
-        List<ScanResult> list = hVar.f1937a;
-        List<ScanResult> list2 = hVar2.f1937a;
+        List<ScanResult> list = hVar.f1939a;
+        List<ScanResult> list2 = hVar2.f1939a;
         if (list == list2) {
             return true;
         }
@@ -188,7 +188,7 @@ public class i {
         if (this.h) {
             try {
                 com.baidu.location.f.getServiceContext().unregisterReceiver(this.d);
-                f1938a = 0L;
+                f1940a = 0L;
             } catch (Exception e) {
             }
             this.d = null;
@@ -213,7 +213,7 @@ public class i {
         }
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.f > 0) {
-            if (currentTimeMillis - this.f <= this.l + 5000 || currentTimeMillis - (f1938a * 1000) <= this.l + 5000) {
+            if (currentTimeMillis - this.f <= this.l + 5000 || currentTimeMillis - (f1940a * 1000) <= this.l + 5000) {
                 return false;
             }
             if (Build.VERSION.SDK_INT >= 28 && currentTimeMillis - this.f < 25000) {

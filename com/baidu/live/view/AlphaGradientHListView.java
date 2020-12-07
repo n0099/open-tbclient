@@ -12,18 +12,18 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tieba.horizonallist.widget.HListView;
 /* loaded from: classes4.dex */
 public class AlphaGradientHListView extends HListView {
-    private int bEZ;
-    private int bJP;
-    private int bJQ;
-    private Paint bkA;
+    private int bKi;
+    private int bOX;
+    private int bOY;
+    private Paint bpJ;
     private int lastHeight;
     private int lastWidth;
     private int mDirection;
 
     public AlphaGradientHListView(Context context) {
         super(context);
-        this.bEZ = 0;
-        this.bJQ = 0;
+        this.bKi = 0;
+        this.bOY = 0;
         this.lastWidth = -1;
         this.lastHeight = -1;
         this.mDirection = 1;
@@ -32,8 +32,8 @@ public class AlphaGradientHListView extends HListView {
 
     public AlphaGradientHListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bEZ = 0;
-        this.bJQ = 0;
+        this.bKi = 0;
+        this.bOY = 0;
         this.lastWidth = -1;
         this.lastHeight = -1;
         this.mDirection = 1;
@@ -42,8 +42,8 @@ public class AlphaGradientHListView extends HListView {
 
     public AlphaGradientHListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bEZ = 0;
-        this.bJQ = 0;
+        this.bKi = 0;
+        this.bOY = 0;
         this.lastWidth = -1;
         this.lastHeight = -1;
         this.mDirection = 1;
@@ -55,8 +55,8 @@ public class AlphaGradientHListView extends HListView {
     }
 
     public void setColor(int i, int i2) {
-        this.bEZ = i;
-        this.bJQ = i2;
+        this.bKi = i;
+        this.bOY = i2;
     }
 
     public void setDirection(int i) {
@@ -64,23 +64,23 @@ public class AlphaGradientHListView extends HListView {
     }
 
     public void setShadowWidth(int i) {
-        this.bJP = i;
+        this.bOX = i;
     }
 
     public void setNeedAlphaShade(boolean z) {
         if (z) {
-            if (this.bJP <= 0) {
-                this.bJP = getResources().getDimensionPixelSize(a.d.sdk_ds28);
+            if (this.bOX <= 0) {
+                this.bOX = getResources().getDimensionPixelSize(a.d.sdk_ds28);
             }
-            this.bkA = new Paint();
-            this.bkA.setStyle(Paint.Style.FILL_AND_STROKE);
-            this.bkA.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
+            this.bpJ = new Paint();
+            this.bpJ.setStyle(Paint.Style.FILL_AND_STROKE);
+            this.bpJ.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
             if (this.mDirection == 2) {
-                this.bkA.setShader(new LinearGradient(0.0f, 0.0f, this.bJP, 0.0f, this.bEZ, this.bJQ, Shader.TileMode.CLAMP));
+                this.bpJ.setShader(new LinearGradient(0.0f, 0.0f, this.bOX, 0.0f, this.bKi, this.bOY, Shader.TileMode.CLAMP));
             }
         } else {
-            this.bJP = 0;
-            this.bkA = null;
+            this.bOX = 0;
+            this.bpJ = null;
         }
         invalidate();
     }
@@ -90,14 +90,14 @@ public class AlphaGradientHListView extends HListView {
     public void onMeasure(int i, int i2) {
         LinearGradient linearGradient;
         super.onMeasure(i, i2);
-        if (this.bkA != null) {
+        if (this.bpJ != null) {
             if (this.lastWidth != getMeasuredWidth() || this.lastHeight != getMeasuredHeight()) {
                 if (this.mDirection == 2) {
-                    linearGradient = new LinearGradient(0.0f, 0.0f, this.bJP, 0.0f, this.bEZ, this.bJQ, Shader.TileMode.CLAMP);
+                    linearGradient = new LinearGradient(0.0f, 0.0f, this.bOX, 0.0f, this.bKi, this.bOY, Shader.TileMode.CLAMP);
                 } else {
-                    linearGradient = new LinearGradient(getMeasuredWidth() - this.bJP, 0.0f, getMeasuredWidth(), 0.0f, this.bEZ, this.bJQ, Shader.TileMode.CLAMP);
+                    linearGradient = new LinearGradient(getMeasuredWidth() - this.bOX, 0.0f, getMeasuredWidth(), 0.0f, this.bKi, this.bOY, Shader.TileMode.CLAMP);
                 }
-                this.bkA.setShader(linearGradient);
+                this.bpJ.setShader(linearGradient);
                 this.lastWidth = getMeasuredWidth();
                 this.lastHeight = getMeasuredHeight();
             }
@@ -108,11 +108,11 @@ public class AlphaGradientHListView extends HListView {
     @Override // com.baidu.live.tieba.horizonallist.widget.HListView, com.baidu.live.tieba.horizonallist.widget.AbsHListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.bkA != null) {
+        if (this.bpJ != null) {
             if (this.mDirection == 2) {
-                canvas.drawRect(0.0f, 0.0f, this.bJP, getMeasuredHeight(), this.bkA);
+                canvas.drawRect(0.0f, 0.0f, this.bOX, getMeasuredHeight(), this.bpJ);
             } else {
-                canvas.drawRect(getMeasuredWidth() - this.bJP, 0.0f, getMeasuredWidth(), getMeasuredHeight(), this.bkA);
+                canvas.drawRect(getMeasuredWidth() - this.bOX, 0.0f, getMeasuredWidth(), getMeasuredHeight(), this.bpJ);
             }
         }
     }

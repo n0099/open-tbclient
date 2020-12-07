@@ -1,12 +1,8 @@
 package kotlin;
-
-import kotlin.jvm.internal.q;
-/* JADX INFO: Access modifiers changed from: package-private */
-@h
-/* loaded from: classes9.dex */
-public class f {
-    public static final <T> d<T> b(kotlin.jvm.a.a<? extends T> aVar) {
-        q.n(aVar, "initializer");
-        return new SynchronizedLazyImpl(aVar, null, 2, null);
+@e
+/* loaded from: classes17.dex */
+public final class f {
+    public static final <A, B> Pair<A, B> k(A a2, B b) {
+        return new Pair<>(a2, b);
     }
 }

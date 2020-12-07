@@ -1,0 +1,29 @@
+package com.baidu.searchbox.ruka.ioc;
+/* loaded from: classes18.dex */
+public class Constant {
+    public static final String KEY_ANR_TIMESTAMP = "anrTimeStamp";
+    public static final String KEY_APP_VERSION = "appversion";
+    public static final String KEY_CPU = "cpu";
+    public static final String KEY_CPU_RATE = "cpuusage";
+    public static final String KEY_DEVICE_SCORE = "devicecore";
+    public static final String KEY_FILE_ID = "fileid";
+    public static final String KEY_LOG_ID = "logid";
+    public static final String KEY_MEMORY = "memory";
+    public static final String KEY_NETWORK = "network";
+    public static final String KEY_OS_VERSION = "osversion";
+    public static final String KEY_PACKAGE_NAME = "packagename";
+    public static final String KEY_PAGE = "page";
+    public static final String KEY_PROCESS_LAUNCHTIME = "launchTime";
+    public static final String KEY_RUKA_CONFIG = "ruka_config";
+    public static final String KEY_SDK_VERSION = "sdkversion";
+    public static final String KEY_STACK = "stacktrace";
+    public static final String KEY_TIME_COST_END = "endlagtime";
+    public static final String KEY_TIME_COST_START = "startlagtime";
+    public static final String KEY_TIME_DURATION = "duration";
+    public static final String KEY_TYPE = "type";
+    public static final String PAGE_TRACE = "pageTrace";
+    public static final String PAGE_TRACE_EVENT = "event";
+    public static final String PAGE_TRACE_PAGE = "page";
+    public static final String PAGE_TRACE_TAG = "tag";
+    public static final String PAGE_TRACE_TIME = "time";
+}

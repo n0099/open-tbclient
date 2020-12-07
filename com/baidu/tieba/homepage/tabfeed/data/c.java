@@ -4,13 +4,13 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.data.aj;
 import com.baidu.tbadk.core.data.l;
 import java.util.ArrayList;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c {
-    public ArrayList<q> jJr;
-    public l jJs;
-    public aj jJt;
-    public int jHr = 0;
-    public int jHq = 0;
-    public boolean fNx = true;
+    public ArrayList<q> jWU;
+    public l jWV;
+    public aj jWW;
+    public int jUU = 0;
+    public int jUT = 0;
+    public boolean fVi = true;
     public boolean hasMore = true;
 }

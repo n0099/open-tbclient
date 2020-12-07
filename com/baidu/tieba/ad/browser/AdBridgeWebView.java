@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.webkit.WebChromeClient;
 import android.webkit.WebViewClient;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 final class AdBridgeWebView extends AdBaseWebView {
     public WebChromeClient chromeClient;
     public WebViewClient webViewClient;

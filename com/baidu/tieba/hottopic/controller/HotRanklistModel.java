@@ -10,21 +10,21 @@ import com.baidu.tieba.hottopic.data.j;
 import com.baidu.tieba.hottopic.message.RequestHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseHttpHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotRanklistMessage;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class HotRanklistModel extends BdBaseModel {
-    private j jOX;
-    private a jOY;
+    private j kcA;
+    private a kcB;
     private com.baidu.adp.framework.listener.a netMessageListener;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     public interface a {
         void a(boolean z, j jVar, int i, String str);
     }
 
     public HotRanklistModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.jOX = null;
-        this.jOY = null;
+        this.kcA = null;
+        this.kcB = null;
         this.netMessageListener = new com.baidu.adp.framework.listener.a(1003078, CmdConfigSocket.CMD_HOT_TOPIC_RANKLIST) { // from class: com.baidu.tieba.hottopic.controller.HotRanklistModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -33,21 +33,21 @@ public class HotRanklistModel extends BdBaseModel {
                         if (!responsedMessage.hasError()) {
                             HotRanklistModel.this.i(responsedMessage);
                         } else {
-                            HotRanklistModel.this.jOY.a(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
+                            HotRanklistModel.this.kcB.a(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
                         }
                     }
                 }
             }
         };
         registerListener(this.netMessageListener);
-        this.jOX = new j();
+        this.kcA = new j();
     }
 
-    public void f(String str, String str2, String str3, long j) {
-        g(str, str2, str3, j);
+    public void g(String str, String str2, String str3, long j) {
+        h(str, str2, str3, j);
     }
 
-    private void g(String str, String str2, String str3, long j) {
+    private void h(String str, String str2, String str3, long j) {
         RequestHotRanklistMessage requestHotRanklistMessage = new RequestHotRanklistMessage();
         requestHotRanklistMessage.setCallFrom(str);
         requestHotRanklistMessage.setListType(str2);
@@ -76,12 +76,12 @@ public class HotRanklistModel extends BdBaseModel {
                     if ((responsedMessage instanceof ResponseSocketHotRanklistMessage) && ((ResponseSocketHotRanklistMessage) responsedMessage).getHotRanklistData() != null) {
                         jVar = ((ResponseSocketHotRanklistMessage) responsedMessage).getHotRanklistData();
                     }
-                    if (!StringUtils.isNull(str) && !y.isEmpty(jVar.jQA)) {
-                        jVar.type = jVar.jQA.get(0).gJM;
+                    if (!StringUtils.isNull(str) && !y.isEmpty(jVar.ked)) {
+                        jVar.type = jVar.ked.get(0).gSX;
                     } else {
                         jVar.type = str;
                     }
-                    this.jOY.a(responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
+                    this.kcB.a(responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
                 }
             }
             str = null;
@@ -94,12 +94,12 @@ public class HotRanklistModel extends BdBaseModel {
             if (!StringUtils.isNull(str)) {
             }
             jVar.type = str;
-            this.jOY.a(responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
+            this.kcB.a(responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
         }
     }
 
     public void a(a aVar) {
-        this.jOY = aVar;
+        this.kcB = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

@@ -4,8 +4,9 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.searchbox.http.request.HttpRequest;
 import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
 import com.baidu.searchbox.http.statistics.NetworkStat;
+import okhttp3.EventListener;
 import okhttp3.Request;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public interface IHttpContext {
     public static final IHttpContext EMPTY = new IHttpContext() { // from class: com.baidu.searchbox.http.IHttpContext.1
         @Override // com.baidu.searchbox.http.IHttpContext
@@ -49,11 +50,25 @@ public interface IHttpContext {
         public int getFallbackConnectDelayMs() {
             return 0;
         }
+
+        @Override // com.baidu.searchbox.http.IHttpContext
+        public EventListener getEventListener() {
+            return null;
+        }
+
+        @Override // com.baidu.searchbox.http.IHttpContext
+        public IClientIPProvider getClientIPProvider() {
+            return null;
+        }
     };
 
     boolean forceHttpDnsIPv4OnlyInDualStack(HttpRequest httpRequest);
 
+    IClientIPProvider getClientIPProvider();
+
     CookieManager getCookieManager(boolean z, boolean z2);
+
+    EventListener getEventListener();
 
     int getFallbackConnectDelayMs();
 

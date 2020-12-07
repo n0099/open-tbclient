@@ -1,23 +1,23 @@
 package com.baidu.tieba.ad.statis;
 
 import com.baidu.live.tbadk.pay.PayHelper;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a implements com.baidu.tieba.s.a {
     private a() {
     }
 
     /* renamed from: com.baidu.tieba.ad.statis.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    private static class C0608a {
-        private static a fSC = new a();
+    /* loaded from: classes21.dex */
+    private static class C0620a {
+        private static a gaM = new a();
     }
 
-    public static a bJb() {
-        return C0608a.fSC;
+    public static a bMJ() {
+        return C0620a.gaM;
     }
 
     @Override // com.baidu.tieba.s.a
-    public void d(long j, String str, String str2) {
+    public void e(long j, String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "pageshow");
         init.addParam("f2", str2);
@@ -27,7 +27,7 @@ public class a implements com.baidu.tieba.s.a {
     }
 
     @Override // com.baidu.tieba.s.a
-    public void ed(String str, String str2) {
+    public void el(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "cardshow");
         init.addParam("f2", str2);
@@ -36,7 +36,7 @@ public class a implements com.baidu.tieba.s.a {
     }
 
     @Override // com.baidu.tieba.s.a
-    public void ee(String str, String str2) {
+    public void em(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "cardclick");
         init.addParam("f2", str2);
@@ -45,7 +45,7 @@ public class a implements com.baidu.tieba.s.a {
     }
 
     @Override // com.baidu.tieba.s.a
-    public void ef(String str, String str2) {
+    public void en(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "fullvideoshow");
         init.addParam("f2", str2);
@@ -65,7 +65,7 @@ public class a implements com.baidu.tieba.s.a {
     }
 
     @Override // com.baidu.tieba.s.a
-    public void an(String str, String str2, String str3) {
+    public void ap(String str, String str2, String str3) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "alert_click");
         init.addParam("f2", str);

@@ -14,76 +14,76 @@ public class b extends m {
 
     public b(Context context, String str) {
         super(context, (String) null, 15);
-        this.fns = false;
+        this.fuW = false;
         this.context = context;
-        this.fnr = 3;
-        this.fmx = new EditorInfoContainer(context, str);
-        this.fnt = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
+        this.fuV = 3;
+        this.fub = new EditorInfoContainer(context, str);
+        this.fuX = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
     }
 
-    public void dta() {
+    public void dys() {
         BaseActivity baseActivity = (BaseActivity) this.context;
-        e eVar = new e(baseActivity.getPageContext(), (View) this.fmx);
-        eVar.fq(R.drawable.bg_tip_blue_left_less_than_right_down);
-        eVar.fp(16);
-        eVar.oJ(true);
+        e eVar = new e(baseActivity.getPageContext(), (View) this.fub);
+        eVar.fO(R.drawable.bg_tip_blue_left_less_than_right_down);
+        eVar.fN(16);
+        eVar.pf(true);
         eVar.setAnchor(2);
         eVar.setUseDirectOffset(true);
-        eVar.xO(l.getDimens(baseActivity, R.dimen.ds32));
-        eVar.xL(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds27));
-        eVar.xM(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds41));
-        eVar.fr((int) IMConnection.RETRY_DELAY_TIMES);
-        eVar.oI(false);
-        if (eVar.z(baseActivity.getString(R.string.write_location_topic_hint_title), "write_hint_tip_key", true)) {
-            ((EditorInfoContainer) this.fmx).hh(IMConnection.RETRY_DELAY_TIMES);
+        eVar.yt(l.getDimens(baseActivity, R.dimen.ds32));
+        eVar.yq(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds27));
+        eVar.yr(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds41));
+        eVar.fP((int) IMConnection.RETRY_DELAY_TIMES);
+        eVar.pe(false);
+        if (eVar.A(baseActivity.getString(R.string.write_location_topic_hint_title), "write_hint_tip_key", true)) {
+            ((EditorInfoContainer) this.fub).hM(IMConnection.RETRY_DELAY_TIMES);
         }
     }
 
     public void setFrom(String str) {
-        if (this.fmx instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fmx).setFrom(str);
+        if (this.fub instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fub).setFrom(str);
         }
     }
 
-    public void bP(String str, int i) {
-        if (this.fmx instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fmx).bP(str, i);
+    public void bS(String str, int i) {
+        if (this.fub instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fub).bS(str, i);
         }
     }
 
-    public void LT(int i) {
-        if (this.fmx instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fmx).LT(i);
+    public void ML(int i) {
+        if (this.fub instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fub).ML(i);
         }
     }
 
-    public void yF(boolean z) {
-        if (this.fmx instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fmx).yF(z);
+    public void zk(boolean z) {
+        if (this.fub instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fub).zk(z);
         }
     }
 
-    public void crO() {
-        if (this.fmx instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fmx).crO();
+    public void cwd() {
+        if (this.fub instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fub).cwd();
         }
     }
 
-    public void dTG() {
-        if (this.fmx instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fmx).dTG();
+    public void dZa() {
+        if (this.fub instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fub).dZa();
         }
     }
 
-    public void dTI() {
-        if (this.fmx instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fmx).hide();
+    public void dZc() {
+        if (this.fub instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fub).hide();
         }
     }
 
-    public void yG(boolean z) {
-        if (this.fmx instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fmx).yG(z);
+    public void zl(boolean z) {
+        if (this.fub instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fub).zl(z);
         }
     }
 }

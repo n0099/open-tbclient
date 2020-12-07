@@ -1,63 +1,63 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes6.dex */
 public class f extends g {
-    private String eha;
-    private String ehd;
-    private String ehe;
-    private int ehf;
-    private String ehh;
-    private int ehj;
+    private String eob;
+    private String eoe;
+    private String eog;
+    private int eoh;
+    private String eoj;
+    private int eol;
 
     public f(String str, int i, String str2, int i2) {
         super(i2);
-        this.ehf = -1;
-        this.eha = str;
-        this.ehh = str2;
-        this.ehj = i;
+        this.eoh = -1;
+        this.eob = str;
+        this.eoj = str2;
+        this.eol = i;
     }
 
     public f(String str, String str2, String str3, int i) {
         super(i);
-        this.ehf = -1;
-        this.eha = str;
-        this.ehh = str3;
+        this.eoh = -1;
+        this.eob = str;
+        this.eoj = str3;
         try {
-            this.ehj = Integer.valueOf(str2).intValue();
+            this.eol = Integer.valueOf(str2).intValue();
         } catch (NumberFormatException e) {
-            this.ehj = 0;
+            this.eol = 0;
         }
     }
 
-    public f yt(String str) {
-        this.ehd = str;
+    public f za(String str) {
+        this.eoe = str;
         return this;
     }
 
-    public int bbt() {
-        return this.ehf;
+    public int bey() {
+        return this.eoh;
     }
 
-    public void yu(String str) {
-        this.ehe = str;
+    public void zb(String str) {
+        this.eog = str;
     }
 
     public String getBundleId() {
-        return this.eha;
+        return this.eob;
     }
 
-    public String bby() {
-        return this.ehh;
+    public String beD() {
+        return this.eoj;
     }
 
-    public int bbA() {
-        return this.ehj;
+    public int beF() {
+        return this.eol;
     }
 
-    public String bbu() {
-        return this.ehd;
+    public String bez() {
+        return this.eoe;
     }
 
-    public String bbv() {
-        return this.ehe;
+    public String beA() {
+        return this.eog;
     }
 }

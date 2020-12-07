@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-import com.baidu.k.a.a.a;
+import com.baidu.l.a.a.a;
 import com.baidu.sapi2.social.SocialLoginBase;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.ParamsUtil;
@@ -16,7 +16,7 @@ import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WbAuthListener;
 import com.sina.weibo.sdk.auth.WbConnectErrorMessage;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
     private static final int SUCCESS_RESULTCODE = -1;
     private static final String TAG = SinaSSOLoginActivity.class.getSimpleName();

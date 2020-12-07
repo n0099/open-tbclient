@@ -3,9 +3,9 @@ package com.tb.airbnb.lottie;
 import android.graphics.Bitmap;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
-/* loaded from: classes17.dex */
+/* loaded from: classes20.dex */
 public class h {
-    private final String BU;
+    private final String CL;
     @Nullable
     private Bitmap bitmap;
     private final String fileName;
@@ -19,7 +19,7 @@ public class h {
         this.height = i2;
         this.id = str;
         this.fileName = str2;
-        this.BU = str3;
+        this.CL = str3;
     }
 
     public int getWidth() {
@@ -39,7 +39,7 @@ public class h {
     }
 
     public String iN() {
-        return this.BU;
+        return this.CL;
     }
 
     @Nullable

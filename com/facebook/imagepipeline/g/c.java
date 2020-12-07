@@ -1,30 +1,14 @@
 package com.facebook.imagepipeline.g;
 
-import java.io.Closeable;
-/* loaded from: classes17.dex */
-public abstract class c implements f, Closeable {
-    public abstract void close();
+import com.facebook.imagepipeline.producers.am;
+import com.facebook.imagepipeline.request.ImageRequest;
+/* loaded from: classes15.dex */
+public interface c extends am {
+    void Zn(String str);
 
-    public abstract int getSizeInBytes();
+    void a(ImageRequest imageRequest, Object obj, String str, boolean z);
 
-    public abstract boolean isClosed();
+    void a(ImageRequest imageRequest, String str, Throwable th, boolean z);
 
-    public h epP() {
-        return g.oYA;
-    }
-
-    public boolean isStateful() {
-        return false;
-    }
-
-    protected void finalize() throws Throwable {
-        if (!isClosed()) {
-            com.facebook.common.c.a.j("CloseableImage", "finalize: %s %x still open.", getClass().getSimpleName(), Integer.valueOf(System.identityHashCode(this)));
-            try {
-                close();
-            } finally {
-                super.finalize();
-            }
-        }
-    }
+    void a(ImageRequest imageRequest, String str, boolean z);
 }

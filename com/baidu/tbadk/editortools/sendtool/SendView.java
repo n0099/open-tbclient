@@ -12,20 +12,20 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.c;
 /* loaded from: classes.dex */
 public class SendView extends TextView implements n {
-    private EditorTools abp;
-    private int abq;
-    private int ajv;
-    private boolean[] flags;
-    private int[] fpp;
+    private EditorTools acn;
+    private int aco;
+    private int aku;
+    private boolean[] fwU;
+    private int[] fwV;
     private int mType;
-    public static int fpq = 1;
+    public static int fwW = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
-        this.flags = new boolean[]{false, false, false, false, false};
-        this.fpp = new int[]{0, 0};
-        this.ajv = 0;
+        this.fwU = new boolean[]{false, false, false, false, false};
+        this.fwV = new int[]{0, 0};
+        this.aku = 0;
         this.mType = ALL;
         setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds17), context.getResources().getDimensionPixelSize(R.dimen.ds28), context.getResources().getDimensionPixelSize(R.dimen.ds10), context.getResources().getDimensionPixelSize(R.dimen.ds28));
         setGravity(17);
@@ -48,90 +48,90 @@ public class SendView extends TextView implements n {
             switch (aVar.code) {
                 case 4:
                     if (aVar.data == null || ((aVar.data instanceof String) && StringUtils.isNull((String) aVar.data))) {
-                        this.flags[0] = false;
+                        this.fwU[0] = false;
                         break;
                     } else {
-                        this.flags[0] = true;
+                        this.fwU[0] = true;
                         break;
                     }
                     break;
                 case 9:
-                    this.flags[0] = false;
-                    this.flags[1] = false;
-                    this.flags[2] = false;
-                    this.flags[3] = false;
-                    this.flags[4] = false;
-                    this.fpp[0] = 0;
-                    this.fpp[1] = 0;
+                    this.fwU[0] = false;
+                    this.fwU[1] = false;
+                    this.fwU[2] = false;
+                    this.fwU[3] = false;
+                    this.fwU[4] = false;
+                    this.fwV[0] = 0;
+                    this.fwV[1] = 0;
                     break;
                 case 10:
-                    this.flags[2] = true;
+                    this.fwU[2] = true;
                     break;
                 case 11:
-                    this.flags[2] = false;
+                    this.fwU[2] = false;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.fnE != null) {
-                            if (aVar2.fnE.getChosedFiles() != null) {
-                                this.fpp[0] = aVar2.fnE.getChosedFiles().size();
+                        if (aVar2.fvi != null) {
+                            if (aVar2.fvi.getChosedFiles() != null) {
+                                this.fwV[0] = aVar2.fvi.getChosedFiles().size();
                             } else {
-                                this.fpp[0] = 0;
+                                this.fwV[0] = 0;
                             }
                         }
-                        if (this.fpp[0] > 0) {
-                            this.flags[1] = true;
+                        if (this.fwV[0] > 0) {
+                            this.fwU[1] = true;
                             break;
                         } else {
-                            this.flags[1] = false;
+                            this.fwU[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.fpp;
+                    int[] iArr = this.fwV;
                     iArr[0] = iArr[0] - 1;
-                    if (this.fpp[0] > 0) {
-                        this.flags[1] = true;
+                    if (this.fwV[0] > 0) {
+                        this.fwU[1] = true;
                         break;
                     } else {
-                        this.flags[1] = false;
+                        this.fwU[1] = false;
                         break;
                     }
                 case 28:
                 case 39:
-                    this.flags[3] = true;
+                    this.fwU[3] = true;
                     break;
                 case 29:
-                    this.flags[3] = false;
+                    this.fwU[3] = false;
                     break;
             }
-            rU(this.mType);
+            sv(this.mType);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void setEditorTools(EditorTools editorTools) {
-        this.abp = editorTools;
+        this.acn = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.abp != null) {
-            this.abp.b(aVar);
+        if (this.acn != null) {
+            this.acn.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void setToolId(int i) {
-        this.abq = i;
+        this.aco = i;
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public int getToolId() {
-        return this.abq;
+        return this.aco;
     }
 
     @Override // com.baidu.tbadk.editortools.n
@@ -140,7 +140,7 @@ public class SendView extends TextView implements n {
     }
 
     @Override // com.baidu.tbadk.editortools.n
-    public void display() {
+    public void su() {
         setVisibility(0);
     }
 
@@ -151,24 +151,24 @@ public class SendView extends TextView implements n {
 
     @Override // com.baidu.tbadk.editortools.n
     public void onChangeSkinType(int i) {
-        this.ajv = i;
+        this.aku = i;
         int color = ap.getColor(i, R.color.CAM_X0302);
-        setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{c.m(color, ap.eMz), c.m(color, ap.eMy), color}));
+        setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{c.m(color, ap.eTL), c.m(color, ap.eTK), color}));
     }
 
     public void setType(int i) {
         this.mType = i;
     }
 
-    public void rU(int i) {
+    public void sv(int i) {
         if (i == ALL) {
-            if (this.flags[0] || this.flags[1] || this.flags[2] || this.flags[3] || this.flags[4]) {
+            if (this.fwU[0] || this.fwU[1] || this.fwU[2] || this.fwU[3] || this.fwU[4]) {
                 setEnabled(true);
             } else {
                 setEnabled(false);
             }
-        } else if (i == fpq) {
-            if (this.flags[1]) {
+        } else if (i == fwW) {
+            if (this.fwU[1]) {
                 setEnabled(true);
             } else {
                 setEnabled(false);

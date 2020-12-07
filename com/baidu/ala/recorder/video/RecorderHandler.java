@@ -6,8 +6,9 @@ import android.os.Looper;
 import android.os.Message;
 import com.baidu.ala.helper.AlaLiveDebugInfo;
 import com.baidu.ala.recorder.RecorderCallback;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class RecorderHandler extends Handler {
+    private static final String KEY_BUFFER_CHANGED = "buffer_chenged";
     private static final String KEY_CURLEVEL = "curlevel";
     private static final String KEY_ERROR_CODE = "error_code";
     private static final String KEY_ERROR_MSG = "error_msg";
@@ -15,7 +16,11 @@ public class RecorderHandler extends Handler {
     private static final String KEY_ISFIRSTLEVEL = "isfirstlevel";
     private static final String KEY_LEVELPERCENT = "levelpercent";
     private static final String KEY_LOST_RATE = "lostrate";
+    private static final String KEY_NET_STATE = "net_state";
+    private static final String KEY_NET_STATE_VALUE = "net_state_value";
+    private static final int MEG_SEND_BUFFER_CHANGED = 17;
     private static final int MEG_SEND_FU_FACE_TRACK_STATUS = 15;
+    private static final int MEG_SEND_NET_STATE = 16;
     private static final int MSG_AUDIO_OPENED = 7;
     private static final int MSG_LOST_RATE = 3;
     private static final int MSG_SEND_DEBUG_INFO = 11;
@@ -108,7 +113,7 @@ public class RecorderHandler extends Handler {
         Message obtainMessage = obtainMessage(12);
         Bundle bundle = new Bundle();
         bundle.putInt("error_code", i);
-        bundle.putString(KEY_ERROR_MSG, str);
+        bundle.putString("error_msg", str);
         obtainMessage.setData(bundle);
         sendMessage(obtainMessage);
     }
@@ -127,6 +132,21 @@ public class RecorderHandler extends Handler {
         sendMessage(obtainMessage(15, i, 0));
     }
 
+    public void sendNetState(int i, int i2) {
+        Message obtainMessage = obtainMessage(16);
+        Bundle bundle = new Bundle();
+        bundle.putInt(KEY_NET_STATE, i);
+        bundle.putInt(KEY_NET_STATE_VALUE, i2);
+        obtainMessage.setData(bundle);
+        sendMessage(obtainMessage);
+    }
+
+    public void sendBufferChanged(int i) {
+        Message obtainMessage = obtainMessage(17);
+        obtainMessage.arg1 = i;
+        sendMessage(obtainMessage);
+    }
+
     public void setRecorderCallback(RecorderCallback recorderCallback) {
         this.mRecorderCallback = recorderCallback;
     }
@@ -136,6 +156,7 @@ public class RecorderHandler extends Handler {
         Bundle data;
         Bundle data2;
         Bundle data3;
+        Bundle data4;
         int i = message.what;
         switch (i) {
             case 1:
@@ -151,14 +172,14 @@ public class RecorderHandler extends Handler {
                 }
                 return;
             case 3:
-                if (this.mRecorderCallback != null && (data3 = message.getData()) != null) {
-                    this.mRecorderCallback.streamLostPackageRateReceived(data3.getDouble(KEY_LOST_RATE));
+                if (this.mRecorderCallback != null && (data4 = message.getData()) != null) {
+                    this.mRecorderCallback.streamLostPackageRateReceived(data4.getDouble(KEY_LOST_RATE));
                     return;
                 }
                 return;
             case 4:
-                if (this.mRecorderCallback != null && (data2 = message.getData()) != null) {
-                    this.mRecorderCallback.streamStateReceived(data2.getInt(KEY_LEVELPERCENT), data2.getBoolean(KEY_ISFIRSTLEVEL), data2.getInt(KEY_CURLEVEL), data2.getBoolean(KEY_ISBETTER));
+                if (this.mRecorderCallback != null && (data3 = message.getData()) != null) {
+                    this.mRecorderCallback.streamStateReceived(data3.getInt(KEY_LEVELPERCENT), data3.getBoolean(KEY_ISFIRSTLEVEL), data3.getInt(KEY_CURLEVEL), data3.getBoolean(KEY_ISBETTER));
                     return;
                 }
                 return;
@@ -192,8 +213,8 @@ public class RecorderHandler extends Handler {
                 }
                 return;
             case 12:
-                if (this.mRecorderCallback != null && (data = message.getData()) != null) {
-                    this.mRecorderCallback.onError(data.getInt("error_code"), data.getString(KEY_ERROR_MSG));
+                if (this.mRecorderCallback != null && (data2 = message.getData()) != null) {
+                    this.mRecorderCallback.onError(data2.getInt("error_code"), data2.getString("error_msg"));
                     return;
                 }
                 return;
@@ -212,6 +233,18 @@ public class RecorderHandler extends Handler {
             case 15:
                 if (this.mRecorderCallback != null) {
                     this.mRecorderCallback.onFaceUnityEvent(8, message.arg1, null);
+                    return;
+                }
+                return;
+            case 16:
+                if (this.mRecorderCallback != null && (data = message.getData()) != null) {
+                    this.mRecorderCallback.onNetStateReport(data.getInt(KEY_NET_STATE), data.getInt(KEY_NET_STATE_VALUE));
+                    return;
+                }
+                return;
+            case 17:
+                if (this.mRecorderCallback != null) {
+                    this.mRecorderCallback.sendBufferChanged(message.arg1);
                     return;
                 }
                 return;

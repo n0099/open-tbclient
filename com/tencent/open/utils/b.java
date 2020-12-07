@@ -13,12 +13,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b {
     private static String c;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4610a;
+    private String f4380a;
     private c b;
     private long d;
     private Handler e;
@@ -27,12 +27,12 @@ public class b {
         public void run() {
             boolean z;
             com.tencent.open.a.f.a("AsynLoadImg", "saveFileRunnable:");
-            String str = "share_qq_" + j.f(b.this.f4610a) + ".jpg";
+            String str = "share_qq_" + j.f(b.this.f4380a) + ".jpg";
             String str2 = b.c + str;
             File file = new File(str2);
             Message obtainMessage = b.this.e.obtainMessage();
             if (!file.exists()) {
-                Bitmap a2 = b.a(b.this.f4610a);
+                Bitmap a2 = b.a(b.this.f4380a);
                 if (a2 != null) {
                     z = b.this.a(a2, str);
                 } else {
@@ -78,7 +78,7 @@ public class b {
         } else {
             c = Environment.getExternalStorageDirectory() + "/tmp/";
             this.d = System.currentTimeMillis();
-            this.f4610a = str;
+            this.f4380a = str;
             this.b = cVar;
             new Thread(this.f).start();
         }

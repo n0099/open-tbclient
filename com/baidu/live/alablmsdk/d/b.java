@@ -1,16 +1,16 @@
 package com.baidu.live.alablmsdk.d;
 /* loaded from: classes4.dex */
 public class b {
-    private c azx;
+    private c aCb;
 
     public b(c cVar) {
-        this.azx = cVar;
+        this.aCb = cVar;
     }
 
-    public void ba(boolean z) {
-        if (this.azx != null) {
-            com.baidu.live.alablmsdk.a.b.ag("BLMRtcRoom muteMicrophone " + z, "");
-            this.azx.ba(z);
+    public void bg(boolean z) {
+        if (this.aCb != null) {
+            com.baidu.live.alablmsdk.a.b.a.ak("BLMRtcRoom muteMicrophone " + z, "");
+            this.aCb.bg(z);
         }
     }
 }

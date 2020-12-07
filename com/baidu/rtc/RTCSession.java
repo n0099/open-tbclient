@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import com.baidu.ala.helper.AlaLiveBaseInfo;
 import com.baidu.ala.helper.StreamConfig;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.rtc.RtcConfig;
 import com.baidu.rtc.ndk.AlaNDKPlayerAdapter;
 import com.baidu.rtc.ndk.AlaNDKRecorderAdapter;
@@ -15,7 +16,7 @@ import com.baidu.rtc.utils.NetworkManager;
 import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes16.dex */
+/* loaded from: classes11.dex */
 public class RTCSession {
     private static final int NETWORK_UNAVAILABLE = 0;
     private static final int NETWORK_WWAN = 2;
@@ -61,8 +62,8 @@ public class RTCSession {
         @Override // com.baidu.rtc.ndk.AlaNDKRecorderAdapter.OnNDKCallback
         public void onRemoteUserOnLine(int i, long j, int i2) {
             RTCSession.this.mNdkPlayer.startPlayerNative(String.format("rtc://%s:%d?room_id=%d&line_index=%d&user_id=%d", RTCSession.this.mRtcConfig.hostName, Integer.valueOf(RTCSession.this.mRtcConfig.hostPort), Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)), RTCSession.this.mPlayMediaIndex, RTCSession.this.getNetworkState(), RTCSession.this.mBaseInfo.toJsonString(), RTCSession.this.mRtcConfig.enableAudio, RTCSession.this.mRtcConfig.enableVideo);
-            if (RTCSession.this.mVideoDevices.adV() != null) {
-                RTCSession.this.mVideoDevices.adV().aes();
+            if (RTCSession.this.mVideoDevices.ahd() != null) {
+                RTCSession.this.mVideoDevices.ahd().ahA();
             }
             if (RTCSession.this.mRtcHandler != null) {
                 RTCSession.this.mRtcHandler.onRemoteUserOnLine(i, i2);
@@ -99,8 +100,8 @@ public class RTCSession {
         this.mNDKAdapter.setNDKCallback(this.mRecorderCallback);
         this.mNdkPlayer = new AlaNDKPlayerAdapter();
         this.mNdkPlayer.setNDKCallback(this.mPlayerCallback);
-        if (!NetworkManager.aeu().aev()) {
-            NetworkManager.aeu().init((Application) context.getApplicationContext());
+        if (!NetworkManager.ahC().ahD()) {
+            NetworkManager.ahC().d((Application) context.getApplicationContext());
         }
         this.mPlayerService.submit(new Runnable() { // from class: com.baidu.rtc.RTCSession.4
             @Override // java.lang.Runnable
@@ -114,7 +115,7 @@ public class RTCSession {
                 Thread.currentThread().setName("com_baidu_rtc_audio_session_recorder");
             }
         });
-        this.mRtcHandler.onLoadLibrary("rtc");
+        this.mRtcHandler.onLoadLibrary(AlaRecorderLog.Protocol.RTC);
         this.mVideoDevices = new com.baidu.rtc.a.b(this.mContext, this.mRtcConfig, this.mNDKAdapter, this.mNdkPlayer);
     }
 
@@ -147,7 +148,7 @@ public class RTCSession {
                 startAudioRecord();
                 startAudioPlayer();
                 this.mVideoDevices.a(this.mRtcConfig);
-                NetworkManager.aeu().a(this.mNetworkChangeListener);
+                NetworkManager.ahC().a(this.mNetworkChangeListener);
                 this.mHasStart = true;
                 this.mIsStop = false;
                 return 0;
@@ -165,7 +166,7 @@ public class RTCSession {
         if (stopNativeObject() != 0) {
             Log.e(TAG, "stopNativeObject failed");
         }
-        NetworkManager.aeu().b(this.mNetworkChangeListener);
+        NetworkManager.ahC().b(this.mNetworkChangeListener);
         this.mIsStop = true;
         if (this.mHasStart && this.mRtcHandler != null && this.mRtcConfig != null) {
             this.mRtcHandler.onStop(this.mRtcConfig.roomId, this.mRtcConfig.lineId);
@@ -179,7 +180,7 @@ public class RTCSession {
     }
 
     public View getPlayerView() {
-        return this.mVideoDevices.adV();
+        return this.mVideoDevices.ahd();
     }
 
     public void destroy() {
@@ -293,7 +294,7 @@ public class RTCSession {
         this.mPlayerService.submit(new Runnable() { // from class: com.baidu.rtc.RTCSession.6
             @Override // java.lang.Runnable
             public void run() {
-                if (!RTCSession.this.mAudioDevices.Z(com.baidu.rtc.utils.d.OUTPUT_SAMPLE_RATE, 4)) {
+                if (!RTCSession.this.mAudioDevices.ab(com.baidu.rtc.utils.d.OUTPUT_SAMPLE_RATE, 4)) {
                     Log.e(RTCSession.TAG, "initAudioPlayer failed");
                     RTCSession.this.mAudioDevices.stopAudioPlayer();
                 } else if (!com.baidu.rtc.utils.d.useOpenSLES()) {
@@ -330,15 +331,15 @@ public class RTCSession {
         this.mRecordService.submit(new Runnable() { // from class: com.baidu.rtc.RTCSession.8
             @Override // java.lang.Runnable
             public void run() {
-                if (!RTCSession.this.mAudioDevices.aa(com.baidu.rtc.utils.d.OUTPUT_SAMPLE_RATE, 16)) {
+                if (!RTCSession.this.mAudioDevices.ac(com.baidu.rtc.utils.d.OUTPUT_SAMPLE_RATE, 16)) {
                     Log.e(RTCSession.TAG, "initAudioRecord failed");
                     RTCSession.this.mAudioDevices.stopAudioRecord();
                 } else if (!com.baidu.rtc.utils.d.useOpenSLES()) {
                     while (!RTCSession.this.mIsStop && !RTCSession.this.mRecordService.isShutdown()) {
                         try {
-                            byte[] adS = RTCSession.this.mAudioDevices.adS();
-                            if (adS != null) {
-                                RTCSession.this.mNDKAdapter.sendPCMDataNative2(adS, 2048);
+                            byte[] aha = RTCSession.this.mAudioDevices.aha();
+                            if (aha != null) {
+                                RTCSession.this.mNDKAdapter.sendPCMDataNative2(aha, 2048);
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -362,7 +363,7 @@ public class RTCSession {
         com.baidu.rtc.utils.c.getAppVersion(this.mContext);
         this.mBaseInfo.mStreamType = AlaLiveBaseInfo.STREAM_TYPE_SEND;
         this.mBaseInfo.mUid = "" + this.mRtcConfig.userId;
-        this.mBaseInfo.mNetWork = NetworkManager.aeu().aew().toString();
+        this.mBaseInfo.mNetWork = NetworkManager.ahC().ahE().toString();
         this.mBaseInfo.mCuid = this.mRtcConfig.cuid;
     }
 
@@ -404,12 +405,12 @@ public class RTCSession {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getNetworkState() {
-        int aex = NetworkManager.aeu().aex();
-        if (aex <= 0) {
+        int ahF = NetworkManager.ahC().ahF();
+        if (ahF <= 0) {
             return 0;
         }
-        if (aex < 2) {
-            return aex;
+        if (ahF < 2) {
+            return ahF;
         }
         return 2;
     }

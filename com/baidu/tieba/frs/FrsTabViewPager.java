@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class FrsTabViewPager extends BdBaseViewPager {
     public FrsTabViewPager(Context context) {
         this(context, null);
@@ -20,10 +20,10 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                pN(true);
+                qk(true);
                 break;
             case 1:
-                pN(false);
+                qk(false);
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -33,46 +33,46 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 1:
-                pN(false);
+                qk(false);
                 break;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void pN(boolean z) {
+    public void qk(boolean z) {
         a aVar = new a();
-        aVar.pO(czU());
-        aVar.pP(z);
+        aVar.ql(cEk());
+        aVar.qm(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void czT() {
-        pN(false);
+    public void cEj() {
+        qk(false);
     }
 
-    private boolean czU() {
+    private boolean cEk() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public static class a {
-        private boolean iMH;
-        private boolean iMI;
+        private boolean iXy;
+        private boolean iXz;
 
-        public boolean czV() {
-            return this.iMH;
+        public boolean cEl() {
+            return this.iXy;
         }
 
-        public void pO(boolean z) {
-            this.iMH = z;
+        public void ql(boolean z) {
+            this.iXy = z;
         }
 
-        public boolean czW() {
-            return this.iMI;
+        public boolean cEm() {
+            return this.iXz;
         }
 
-        public void pP(boolean z) {
-            this.iMI = z;
+        public void qm(boolean z) {
+            this.iXz = z;
         }
     }
 }

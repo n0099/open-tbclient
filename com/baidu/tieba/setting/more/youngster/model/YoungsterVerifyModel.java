@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.more.youngster.message.YoungsterVerifyHttpResponsedMessage;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class YoungsterVerifyModel extends BdBaseModel {
     private HttpMessageListener mHttpMessageListener;
-    a mKn;
+    a mYp;
     TbPageContext<?> pageContext;
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes26.dex */
     public interface a {
         void b(ErrorData errorData);
 
@@ -50,9 +50,9 @@ public class YoungsterVerifyModel extends BdBaseModel {
                         youngsterVerifyHttpResponsedMessage = (YoungsterVerifyHttpResponsedMessage) httpResponsedMessage;
                     }
                     if (youngsterVerifyHttpResponsedMessage != null && youngsterVerifyHttpResponsedMessage.getData() != null && youngsterVerifyHttpResponsedMessage.getData().isSuccess) {
-                        YoungsterVerifyModel.this.mKn.onSuccess();
+                        YoungsterVerifyModel.this.mYp.onSuccess();
                     } else {
-                        YoungsterVerifyModel.this.mKn.b(errorData);
+                        YoungsterVerifyModel.this.mYp.b(errorData);
                     }
                 }
             }
@@ -60,7 +60,7 @@ public class YoungsterVerifyModel extends BdBaseModel {
         this.pageContext = tbPageContext;
         this.mHttpMessageListener.setSelfListener(true);
         registerListener(this.mHttpMessageListener);
-        this.mKn = aVar;
+        this.mYp = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -74,7 +74,7 @@ public class YoungsterVerifyModel extends BdBaseModel {
         return false;
     }
 
-    public void RB(String str) {
+    public void SP(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID);
         httpMessage.addParam(YoungsterVerifyActivityConfig.PARAMA_AUTH_ID, str);
         httpMessage.addParam("scene", YoungsterVerifyActivityConfig.PARAMA_TIEBA_AUTH);

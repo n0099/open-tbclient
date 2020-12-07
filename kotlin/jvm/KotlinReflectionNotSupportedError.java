@@ -1,8 +1,5 @@
 package kotlin.jvm;
-
-import kotlin.h;
-@h
-/* loaded from: classes9.dex */
+/* loaded from: classes17.dex */
 public class KotlinReflectionNotSupportedError extends Error {
     public KotlinReflectionNotSupportedError() {
         super("Kotlin reflection implementation is not found at runtime. Make sure you have kotlin-reflect.jar in the classpath");

@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class o extends com.baidu.tieba.frs.k<p, q> {
-    private static final int iEP = R.id.assist_apply_tip;
-    private com.baidu.tbadk.coreExtra.view.b fbf;
+    private static final int iPH = R.id.assist_apply_tip;
+    private com.baidu.tbadk.coreExtra.view.b fiF;
     private View.OnClickListener mClickListener;
 
     public o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -25,11 +25,11 @@ public class o extends com.baidu.tieba.frs.k<p, q> {
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.o.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Object tag = view.getTag(o.iEP);
+                Object tag = view.getTag(o.iPH);
                 if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
                     o.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 } else {
-                    bf.bqF().b((TbPageContext) com.baidu.adp.base.i.I(o.this.mContext), new String[]{tag.toString()});
+                    bf.bua().b((TbPageContext) com.baidu.adp.base.i.J(o.this.mContext), new String[]{tag.toString()});
                 }
             }
         };
@@ -53,23 +53,23 @@ public class o extends com.baidu.tieba.frs.k<p, q> {
                 qVar.mRootLayout.setVisibility(8);
             } else {
                 if (qVar.mSkinType != this.mSkinType) {
-                    ap.setViewTextColor(qVar.iEY, R.color.CAM_X0109, 1);
-                    ap.setViewTextColor(qVar.iEX, R.color.CAM_X0105, 1);
-                    ap.setBackgroundResource(qVar.iEZ, R.drawable.frs_member_manito_bg);
+                    ap.setViewTextColor(qVar.iPQ, R.color.CAM_X0109, 1);
+                    ap.setViewTextColor(qVar.iPP, R.color.CAM_X0105, 1);
+                    ap.setBackgroundResource(qVar.iPR, R.drawable.frs_member_manito_bg);
                 }
-                int cwl = pVar.cwl();
-                if (cwl > 0) {
-                    qVar.iEY.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), au.numberUniformFormat(cwl)));
-                    qVar.iEZ.setTag(iEP, pVar.cwm());
-                    qVar.iEZ.setOnClickListener(this.mClickListener);
-                    qVar.iEZ.setEnabled(true);
-                    qVar.iEZ.setClickable(true);
+                int cAA = pVar.cAA();
+                if (cAA > 0) {
+                    qVar.iPQ.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), au.numberUniformFormat(cAA)));
+                    qVar.iPR.setTag(iPH, pVar.cAB());
+                    qVar.iPR.setOnClickListener(this.mClickListener);
+                    qVar.iPR.setEnabled(true);
+                    qVar.iPR.setClickable(true);
                 } else {
-                    qVar.iEY.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-                    qVar.iEZ.setEnabled(false);
-                    qVar.iEZ.setClickable(false);
+                    qVar.iPQ.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+                    qVar.iPR.setEnabled(false);
+                    qVar.iPR.setClickable(false);
                 }
-                qVar.iEY.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                qVar.iPQ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                 qVar.mSkinType = this.mSkinType;
             }
         }
@@ -79,23 +79,23 @@ public class o extends com.baidu.tieba.frs.k<p, q> {
     /* JADX INFO: Access modifiers changed from: private */
     public void i(AccountData accountData) {
         Activity activity;
-        com.baidu.adp.base.e<?> I = com.baidu.adp.base.i.I(this.mContext);
-        if (!(I instanceof TbPageContext)) {
+        com.baidu.adp.base.e<?> J = com.baidu.adp.base.i.J(this.mContext);
+        if (!(J instanceof TbPageContext)) {
             activity = null;
         } else {
-            activity = ((TbPageContext) I).getPageActivity();
+            activity = ((TbPageContext) J).getPageActivity();
         }
-        if (this.fbf == null) {
-            this.fbf = new com.baidu.tbadk.coreExtra.view.b(activity);
+        if (this.fiF == null) {
+            this.fiF = new com.baidu.tbadk.coreExtra.view.b(activity);
         }
-        this.fbf.bxh();
-        this.fbf.setAccountData(accountData);
-        this.fbf.rr(1);
+        this.fiF.bAH();
+        this.fiF.setAccountData(accountData);
+        this.fiF.rS(1);
     }
 
     public void onDestroy() {
-        if (this.fbf != null) {
-            this.fbf.onDestroy();
+        if (this.fiF != null) {
+            this.fiF.onDestroy();
         }
     }
 }

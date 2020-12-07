@@ -4,36 +4,36 @@ import android.app.Activity;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewTreeObserver;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b {
-    private a dAN;
+    private a dHL;
     private View rootView;
     private int rootViewVisibleHeight;
-    private int dAM = 0;
-    private int cNY = 200;
+    private int dHK = 0;
+    private int cUR = 200;
 
     private b(final String str, Activity activity) {
         this.rootView = activity.getWindow().getDecorView();
         this.rootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.apps.textarea.b.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
-                if (b.this.dAN != null) {
-                    b.this.dAN.mf(str);
+                if (b.this.dHL != null) {
+                    b.this.dHL.mM(str);
                 }
                 Rect rect = new Rect();
                 b.this.rootView.getWindowVisibleDisplayFrame(rect);
                 int height = rect.height();
-                if (b.this.rootViewVisibleHeight == b.this.dAM) {
+                if (b.this.rootViewVisibleHeight == b.this.dHK) {
                     b.this.rootViewVisibleHeight = height;
                 } else if (b.this.rootViewVisibleHeight != height) {
-                    if (b.this.rootViewVisibleHeight - height > b.this.cNY) {
-                        if (b.this.dAN != null) {
-                            b.this.dAN.M(str, b.this.rootViewVisibleHeight - height);
+                    if (b.this.rootViewVisibleHeight - height > b.this.cUR) {
+                        if (b.this.dHL != null) {
+                            b.this.dHL.N(str, b.this.rootViewVisibleHeight - height);
                         }
                         b.this.rootViewVisibleHeight = height;
-                    } else if (height - b.this.rootViewVisibleHeight > b.this.cNY) {
-                        if (b.this.dAN != null) {
-                            b.this.dAN.N(str, height - b.this.rootViewVisibleHeight);
+                    } else if (height - b.this.rootViewVisibleHeight > b.this.cUR) {
+                        if (b.this.dHL != null) {
+                            b.this.dHL.O(str, height - b.this.rootViewVisibleHeight);
                         }
                         b.this.rootViewVisibleHeight = height;
                     }
@@ -43,7 +43,7 @@ public class b {
     }
 
     private void a(a aVar) {
-        this.dAN = aVar;
+        this.dHL = aVar;
     }
 
     public static void a(String str, Activity activity, a aVar) {

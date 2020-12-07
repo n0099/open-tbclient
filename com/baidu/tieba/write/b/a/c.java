@@ -8,15 +8,15 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c implements CookieManager {
-    private static String nIW;
-    private boolean nDE;
-    private boolean nIX;
+    private static String nXc;
+    private boolean nRG;
+    private boolean nXd;
 
     public c(boolean z, boolean z2) {
-        this.nDE = true;
-        this.nIX = false;
-        this.nDE = z;
-        this.nIX = z2;
+        this.nRG = true;
+        this.nXd = false;
+        this.nRG = z;
+        this.nXd = z2;
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -24,7 +24,7 @@ public class c implements CookieManager {
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.nIX || !Uv(str2);
+        return this.nXd || !VK(str2);
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -41,7 +41,7 @@ public class c implements CookieManager {
                 for (String str2 : list) {
                     cookieManager.setCookie(str, str2);
                 }
-                if (this.nDE && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
+                if (this.nRG && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
                     cookieSyncManager.sync();
                 }
             } catch (Exception e) {
@@ -52,18 +52,18 @@ public class c implements CookieManager {
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
-        return nIW;
+        return nXc;
     }
 
-    public static void bP(String str) {
-        nIW = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
+    public static void bS(String str) {
+        nXc = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
     }
 
-    public static void dTO() {
-        nIW = "";
+    public static void dZi() {
+        nXc = "";
     }
 
-    public static boolean Uv(String str) {
+    public static boolean VK(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

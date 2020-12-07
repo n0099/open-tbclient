@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.account.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMTrack;
@@ -14,7 +15,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMGetPaidByAppidRequest extends BaseHttpRequest {
     private long mAppid;
     private String mBduss;
@@ -47,7 +48,7 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
                 }
             } else {
                 i3 = jSONObject.getInt("error_code");
-                str3 = jSONObject.getString("error_msg");
+                str3 = jSONObject.getString(AlaRecorderLog.KEY_ERROR_MSG);
             }
             j = j2;
             String str4 = str3;
@@ -76,7 +77,7 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
                 return "https://pim.baidu.com/rest/2.0/im/zhidahao";
             case 1:
             case 2:
-                return "https://cp01-ocean-749.epc.baidu.com:8444/rest/2.0/im/zhidahao";
+                return "https://rd-im-server.bcc-szth.baidu.com:8444/rest/2.0/im/zhidahao";
             case 3:
                 return "http://180.97.36.95:8080/rest/2.0/im/zhidahao";
             default:

@@ -12,15 +12,13 @@ import com.baidu.location.e.l;
 import com.baidu.mobstat.Config;
 import com.baidu.platform.comapi.location.CoordinateType;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.webkit.internal.ETAG;
 import com.heytap.mcssdk.mode.CommandMessage;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class BDLocation implements Parcelable {
     public static final String BDLOCATION_BD09LL_TO_GCJ02 = "bd09ll2gcj";
     public static final String BDLOCATION_BD09_TO_GCJ02 = "bd092gcj";
@@ -101,7 +99,7 @@ public final class BDLocation implements Parcelable {
     private double Z;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1854a;
+    private int f1856a;
     private int aa;
     private int ab;
     private BDLocation ac;
@@ -132,7 +130,7 @@ public final class BDLocation implements Parcelable {
     private int z;
 
     public BDLocation() {
-        this.f1854a = 0;
+        this.f1856a = 0;
         this.b = null;
         this.c = Double.MIN_VALUE;
         this.d = Double.MIN_VALUE;
@@ -188,7 +186,7 @@ public final class BDLocation implements Parcelable {
     }
 
     private BDLocation(Parcel parcel) {
-        this.f1854a = 0;
+        this.f1856a = 0;
         this.b = null;
         this.c = Double.MIN_VALUE;
         this.d = Double.MIN_VALUE;
@@ -241,7 +239,7 @@ public final class BDLocation implements Parcelable {
         this.Z = -1.0d;
         this.aa = 0;
         this.ab = -1;
-        this.f1854a = parcel.readInt();
+        this.f1856a = parcel.readInt();
         this.b = parcel.readString();
         this.c = parcel.readDouble();
         this.d = parcel.readDouble();
@@ -344,7 +342,7 @@ public final class BDLocation implements Parcelable {
 
     public BDLocation(BDLocation bDLocation) {
         int i = 0;
-        this.f1854a = 0;
+        this.f1856a = 0;
         this.b = null;
         this.c = Double.MIN_VALUE;
         this.d = Double.MIN_VALUE;
@@ -397,7 +395,7 @@ public final class BDLocation implements Parcelable {
         this.Z = -1.0d;
         this.aa = 0;
         this.ab = -1;
-        this.f1854a = bDLocation.f1854a;
+        this.f1856a = bDLocation.f1856a;
         this.b = bDLocation.b;
         this.c = bDLocation.c;
         this.d = bDLocation.d;
@@ -483,7 +481,7 @@ public final class BDLocation implements Parcelable {
         String str10;
         String str11;
         boolean z2;
-        this.f1854a = 0;
+        this.f1856a = 0;
         this.b = null;
         this.c = Double.MIN_VALUE;
         this.d = Double.MIN_VALUE;
@@ -671,7 +669,7 @@ public final class BDLocation implements Parcelable {
                             }
                         } else {
                             try {
-                                String[] split2 = jSONObject8.getString("addr").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                                String[] split2 = jSONObject8.getString("addr").split(",");
                                 int length = split2.length;
                                 r9 = length > 0 ? split2[0] : null;
                                 r8 = length > 1 ? split2[1] : null;
@@ -783,7 +781,7 @@ public final class BDLocation implements Parcelable {
                                 try {
                                     String[] split3 = jSONObject13.getString("ret_fields").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
                                     for (String str14 : split3) {
-                                        String[] split4 = str14.split(ETAG.EQUAL);
+                                        String[] split4 = str14.split("=");
                                         if (split4 != null && split4.length >= 2) {
                                             this.P.putString(split4[0], split4[1]);
                                         }
@@ -818,7 +816,7 @@ public final class BDLocation implements Parcelable {
                     }
                     if (jSONObject8.has("navi_client") && (string = jSONObject8.getString("navi_client")) != null) {
                         try {
-                            if (string.contains(Constants.ACCEPT_TIME_SEPARATOR_SP) && (split = string.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split.length >= 2) {
+                            if (string.contains(",") && (split = string.split(",")) != null && split.length >= 2) {
                                 int intValue2 = Integer.valueOf(split[0]).intValue();
                                 Integer.valueOf(split[1]).intValue();
                                 if (intValue2 > 0) {
@@ -844,12 +842,12 @@ public final class BDLocation implements Parcelable {
                 }
             } catch (Exception e8) {
                 e8.printStackTrace();
-                this.f1854a = 0;
+                this.f1856a = 0;
                 this.o = false;
             }
         } catch (Error e9) {
             e9.printStackTrace();
-            this.f1854a = 0;
+            this.f1856a = 0;
             this.o = false;
         }
     }
@@ -987,7 +985,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public int getLocType() {
-        return this.f1854a;
+        return this.f1856a;
     }
 
     public String getLocTypeDescription() {
@@ -1256,7 +1254,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public void setLocType(int i) {
-        this.f1854a = i;
+        this.f1856a = i;
         switch (i) {
             case 61:
                 setLocTypeDescription("GPS location successful!");
@@ -1399,7 +1397,7 @@ public final class BDLocation implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f1854a);
+        parcel.writeInt(this.f1856a);
         parcel.writeString(this.b);
         parcel.writeDouble(this.c);
         parcel.writeDouble(this.d);

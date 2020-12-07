@@ -10,7 +10,7 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 @TargetApi(16)
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class GlUtil {
     public static final float[] IDENTITY_MATRIX = new float[16];
     private static final int SIZEOF_FLOAT = 4;
@@ -179,7 +179,7 @@ public class GlUtil {
         return createBitmap;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes9.dex */
     public static class FrameBufferObject {
         private int mFramebufferID;
 

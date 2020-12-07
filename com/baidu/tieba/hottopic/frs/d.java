@@ -15,73 +15,73 @@ import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.s;
-import com.baidu.tieba.frs.v;
+import com.baidu.tieba.frs.u;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class d {
-    private BdTypeRecyclerView Xi;
-    private PbListView giV;
-    private final a jQY;
-    private final b jQZ;
+    private BdTypeRecyclerView Yf;
+    private PbListView gre;
+    private final a keC;
+    private final b keD;
     private final TbPageContext mPageContext;
     private View mRootView;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     public interface a {
     }
 
     public d(a aVar, View view, TbPageContext tbPageContext) {
         this.mRootView = view;
         this.mPageContext = tbPageContext;
-        this.jQY = aVar;
-        this.Xi = (BdTypeRecyclerView) view.findViewById(R.id.frs_hottopic_lv_thread);
-        this.Xi.setLayoutManager(new LinearLayoutManager(this.Xi.getContext()));
-        this.Xi.setFadingEdgeLength(0);
-        this.Xi.setOverScrollMode(2);
-        this.giV = new PbListView(tbPageContext.getPageActivity());
-        this.giV.createView();
-        this.giV.setContainerBackgroundColorResId(R.color.CAM_X0205);
-        this.giV.setHeight(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds182));
-        this.giV.setLineGone();
-        this.giV.setTextSize(R.dimen.tbfontsize33);
-        this.giV.setNoMoreTextColorId(R.color.CAM_X0110);
-        this.Xi.setNextPage(this.giV);
-        this.giV.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.giV.endLoadData();
-        this.giV.setText(tbPageContext.getResources().getString(R.string.list_no_more));
+        this.keC = aVar;
+        this.Yf = (BdTypeRecyclerView) view.findViewById(R.id.frs_hottopic_lv_thread);
+        this.Yf.setLayoutManager(new LinearLayoutManager(this.Yf.getContext()));
+        this.Yf.setFadingEdgeLength(0);
+        this.Yf.setOverScrollMode(2);
+        this.gre = new PbListView(tbPageContext.getPageActivity());
+        this.gre.createView();
+        this.gre.setContainerBackgroundColorResId(R.color.CAM_X0205);
+        this.gre.setHeight(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds182));
+        this.gre.setLineGone();
+        this.gre.setTextSize(R.dimen.tbfontsize33);
+        this.gre.setNoMoreTextColorId(R.color.CAM_X0110);
+        this.Yf.setNextPage(this.gre);
+        this.gre.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.gre.endLoadData();
+        this.gre.setText(tbPageContext.getResources().getString(R.string.list_no_more));
         onChangeSkinType();
-        this.jQZ = new b(tbPageContext, this.Xi);
+        this.keD = new b(tbPageContext, this.Yf);
     }
 
     public void b(TbPageTag tbPageTag) {
-        this.jQZ.b(tbPageTag);
+        this.keD.b(tbPageTag);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (this.giV != null) {
-            this.giV.setTextColor(ap.getColor(R.color.CAM_X0107));
-            this.giV.changeSkin(skinType);
+        if (this.gre != null) {
+            this.gre.setTextColor(ap.getColor(R.color.CAM_X0107));
+            this.gre.changeSkin(skinType);
         }
-        if (this.Xi != null && this.Xi.getAdapter() != null) {
-            this.Xi.getAdapter().notifyDataSetChanged();
+        if (this.Yf != null && this.Yf.getAdapter() != null) {
+            this.Yf.getAdapter().notifyDataSetChanged();
         }
     }
 
-    public void pU(boolean z) {
+    public void qr(boolean z) {
         if (z) {
-            this.Xi.setVisibility(0);
+            this.Yf.setVisibility(0);
         } else {
-            this.Xi.setVisibility(8);
+            this.Yf.setVisibility(8);
         }
     }
 
     public void setRefreshing(boolean z) {
-        v vVar = new v();
-        vVar.tabId = 401;
-        vVar.fNx = z;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, vVar));
+        u uVar = new u();
+        uVar.tabId = 401;
+        uVar.fVi = z;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
     }
 
     public View getRootView() {
@@ -90,21 +90,21 @@ public class d {
 
     public void setData(List<q> list) {
         if (!y.isEmpty(list)) {
-            this.Xi.setData(list);
+            this.Yf.setData(list);
         }
     }
 
     public void showNoDataView() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new s());
-        this.Xi.setData(arrayList);
+        this.Yf.setData(arrayList);
     }
 
-    public void cxv() {
-        this.Xi.scrollToPosition(0);
+    public void cBL() {
+        this.Yf.scrollToPosition(0);
     }
 
     public boolean hasData() {
-        return (this.Xi == null || y.isEmpty(this.Xi.getData())) ? false : true;
+        return (this.Yf == null || y.isEmpty(this.Yf.getData())) ? false : true;
     }
 }

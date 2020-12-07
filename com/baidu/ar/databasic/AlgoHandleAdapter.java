@@ -1,11 +1,11 @@
 package com.baidu.ar.databasic;
 
-import com.baidu.ar.libloader.b;
+import com.baidu.ar.libloader.a;
 import java.nio.ByteBuffer;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class AlgoHandleAdapter {
     static {
-        b.as("ardatabasic2");
+        a.require("ardatabasic2");
     }
 
     public static native long createHandle();

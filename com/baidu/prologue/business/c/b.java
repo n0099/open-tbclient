@@ -21,44 +21,44 @@ import com.baidu.prologue.business.data.SplashStyleRecorder;
 /* loaded from: classes14.dex */
 public abstract class b<T extends com.baidu.prologue.business.b.a> implements View.OnClickListener, View.OnTouchListener, a {
     public static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
-    private TextView cgA;
-    private View cgB;
-    private TextView cgC;
-    private TextView cgD;
-    private long cgE;
-    private LinearLayout cgF;
-    private long cgJ;
-    private String cgM;
-    private ImageView cgx;
-    private ImageView cgy;
-    private RelativeLayout cgz;
+    private ImageView cne;
+    private ImageView cnf;
+    private RelativeLayout cng;
+    private TextView cnh;
+    private View cni;
+    private TextView cnj;
+    private TextView cnk;
+    private long cnl;
+    private LinearLayout cnm;
+    private long cnq;
+    private String cnu;
     private Context mContext;
     private LayoutInflater mInflater;
     ViewGroup mRootView = null;
-    private View cgn = null;
-    private T cgw = null;
+    private View cmU = null;
+    private T cnd = null;
     private String labelName = "广告";
-    private String cgG = "";
-    boolean cgp = false;
-    private boolean cgH = true;
-    private boolean cgI = true;
-    private long cgK = 0;
-    boolean cgL = false;
+    private String cnn = "";
+    boolean cmW = false;
+    private boolean cno = true;
+    private boolean cnp = true;
+    private long cnr = 0;
+    boolean cns = false;
     protected Handler mUiHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.prologue.business.c.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 0:
                     if (b.DEBUG) {
-                        g.cfv.d("SplashAbsBaseViewBuilder", "quit count");
+                        g.cmb.d("SplashAbsBaseViewBuilder", "quit count");
                     }
-                    b.this.cgw.rD();
-                    b.this.acb();
+                    b.this.cnd.rF();
+                    b.this.afj();
                     return;
                 case 1:
-                    b.this.ace();
+                    b.this.afm();
                     if (b.DEBUG) {
-                        g.cfv.d("SplashAbsBaseViewBuilder", "update countdown");
+                        g.cmb.d("SplashAbsBaseViewBuilder", "update countdown");
                         return;
                     }
                     return;
@@ -77,89 +77,89 @@ public abstract class b<T extends com.baidu.prologue.business.b.a> implements Vi
     }
 
     public b<T> a(T t) {
-        this.cgw = t;
-        if (this.cgw != null) {
-            this.cgw.a(this);
+        this.cnd = t;
+        if (this.cnd != null) {
+            this.cnd.a(this);
         }
         return this;
     }
 
-    public b<T> dK(boolean z) {
-        this.cgp = z;
+    public b<T> ea(boolean z) {
+        this.cmW = z;
         return this;
     }
 
-    public b<T> jB(String str) {
-        this.cgG = str;
+    public b<T> ki(String str) {
+        this.cnn = str;
         return this;
     }
 
-    public b<T> gV(int i) {
-        this.cgJ = i;
+    public b<T> ht(int i) {
+        this.cnq = i;
         return this;
     }
 
-    public b<T> jC(String str) {
+    public b<T> kj(String str) {
         this.labelName = str;
         return this;
     }
 
-    public b<T> jD(String str) {
-        this.cgM = str;
+    public b<T> kk(String str) {
+        this.cnu = str;
         return this;
     }
 
-    public b<T> dL(boolean z) {
-        this.cgL = z;
+    public b<T> eb(boolean z) {
+        this.cns = z;
         return this;
     }
 
-    public long abX() {
-        return System.currentTimeMillis() - this.cgK;
+    public long aff() {
+        return System.currentTimeMillis() - this.cnr;
     }
 
-    public long abY() {
-        return this.cgE;
+    public long afg() {
+        return this.cnl;
     }
 
-    public T abZ() {
-        return this.cgw;
+    public T afh() {
+        return this.cnd;
     }
 
     @SuppressLint({"ResourceType"})
     public void build() {
-        int abs;
+        int aeA;
         ViewGroup.LayoutParams layoutParams;
         this.mRootView = (ViewGroup) this.mInflater.inflate(getLayoutId(), (ViewGroup) null, false);
-        Xh();
-        this.cgn = abU();
-        if (this.cgn != null) {
-            this.cgn.setOnTouchListener(this);
+        ZG();
+        this.cmU = afc();
+        if (this.cmU != null) {
+            this.cmU.setOnTouchListener(this);
         } else {
-            g.cfv.e("SplashAbsBaseViewBuilder", "Splash Ad didn't set up clickable view!");
+            g.cmb.e("SplashAbsBaseViewBuilder", "Splash Ad didn't set up clickable view!");
         }
-        this.cgz = (RelativeLayout) this.mRootView.findViewById(b.C0316b.image_logo_view);
-        this.cgy = (ImageView) this.mRootView.findViewById(b.C0316b.image_logo_img);
-        if (this.cgp) {
-            if (this.cgz != null && (layoutParams = this.cgz.getLayoutParams()) != null) {
+        this.cng = (RelativeLayout) this.mRootView.findViewById(b.C0327b.image_logo_view);
+        this.cnf = (ImageView) this.mRootView.findViewById(b.C0327b.image_logo_img);
+        if (this.cmW) {
+            if (this.cng != null && (layoutParams = this.cng.getLayoutParams()) != null) {
                 layoutParams.height = 0;
             }
-            this.cgx = (ImageView) this.mRootView.findViewById(b.C0316b.image_small_logo_img);
-            if (this.cgx != null && (TextUtils.equals(this.cgG, "0") || TextUtils.equals(this.cgG, "1"))) {
-                this.cgx.setVisibility(0);
-                ImageView imageView = this.cgx;
-                if (TextUtils.equals(this.cgG, "0")) {
-                    abs = com.baidu.prologue.a.b.a.cft.get().abt();
+            this.cne = (ImageView) this.mRootView.findViewById(b.C0327b.image_small_logo_img);
+            if (this.cne != null && (TextUtils.equals(this.cnn, "0") || TextUtils.equals(this.cnn, "1"))) {
+                this.cne.setVisibility(0);
+                ImageView imageView = this.cne;
+                if (TextUtils.equals(this.cnn, "0")) {
+                    aeA = com.baidu.prologue.a.b.a.clZ.get().aeB();
                 } else {
-                    abs = com.baidu.prologue.a.b.a.cft.get().abs();
+                    aeA = com.baidu.prologue.a.b.a.clZ.get().aeA();
                 }
-                imageView.setImageResource(abs);
-                e.a(this.cgx, SplashStyleRecorder.SplashElements.LOGO, this.cgp);
+                imageView.setImageResource(aeA);
+                e.a(this.cne, SplashStyleRecorder.SplashElements.LOGO, this.cmW);
             }
         } else {
-            this.cgy.setImageResource(com.baidu.prologue.a.b.a.cft.get().abu());
+            this.cnf.setImageResource(com.baidu.prologue.a.b.a.clZ.get().aeC());
         }
-        aca();
+        afi();
         onAdShow();
     }
 
@@ -169,65 +169,65 @@ public abstract class b<T extends com.baidu.prologue.business.b.a> implements Vi
             int[] iArr = {0, 0};
             iArr[1] = (int) motionEvent.getRawY();
             iArr[0] = (int) motionEvent.getRawX();
-            this.cgw.jz(com.baidu.prologue.business.b.abz().a(this.mRootView, iArr));
-            acb();
+            this.cnd.kg(com.baidu.prologue.business.b.aeH().a(this.mRootView, iArr));
+            afj();
         }
         return true;
     }
 
-    protected void aca() {
-        acd();
+    protected void afi() {
+        afl();
         if (!TextUtils.isEmpty(this.labelName)) {
-            this.cgA = (TextView) this.mRootView.findViewById(b.C0316b.splash_ad_label);
-            e.a(this.cgA, SplashStyleRecorder.SplashElements.LABEL, this.cgp);
-            this.cgA.setText(this.labelName);
-            this.cgA.setVisibility(0);
+            this.cnh = (TextView) this.mRootView.findViewById(b.C0327b.splash_ad_label);
+            e.a(this.cnh, SplashStyleRecorder.SplashElements.LABEL, this.cmW);
+            this.cnh.setText(this.labelName);
+            this.cnh.setVisibility(0);
         }
     }
 
     protected void onAdShow() {
-        this.cgw.onAdShow();
+        this.cnd.onAdShow();
     }
 
-    public void acb() {
-        acc();
+    public void afj() {
+        afk();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void acc() {
+    public void afk() {
         if (this.mUiHandler != null) {
             this.mUiHandler.removeCallbacksAndMessages(null);
         }
     }
 
-    protected void acd() {
-        this.cgC = (TextView) this.mRootView.findViewById(b.C0316b.splash_ad_btn_skip);
-        this.cgD = (TextView) this.mRootView.findViewById(b.C0316b.splash_ad_countdown);
-        this.cgF = (LinearLayout) this.mRootView.findViewById(b.C0316b.splash_countdown_skip);
-        this.cgB = this.mRootView.findViewById(b.C0316b.splash_countdown_skip_click);
-        e.a(this.cgB, SplashStyleRecorder.SplashElements.SKIP, this.cgp);
-        if (this.cgJ <= 0) {
-            if ("splash_image".equals(this.cgM)) {
-                this.cgJ = 3L;
+    protected void afl() {
+        this.cnj = (TextView) this.mRootView.findViewById(b.C0327b.splash_ad_btn_skip);
+        this.cnk = (TextView) this.mRootView.findViewById(b.C0327b.splash_ad_countdown);
+        this.cnm = (LinearLayout) this.mRootView.findViewById(b.C0327b.splash_countdown_skip);
+        this.cni = this.mRootView.findViewById(b.C0327b.splash_countdown_skip_click);
+        e.a(this.cni, SplashStyleRecorder.SplashElements.SKIP, this.cmW);
+        if (this.cnq <= 0) {
+            if ("splash_image".equals(this.cnu)) {
+                this.cnq = 3L;
             } else {
-                this.cgJ = 5L;
+                this.cnq = 5L;
             }
         }
-        this.cgE = this.cgJ * 1000;
-        if (this.cgH) {
-            this.cgF.setVisibility(0);
-            this.cgD.setVisibility(0);
-            this.cgF.setOnClickListener(this);
-            this.cgK = System.currentTimeMillis();
-            this.cgD.setText(String.format("%02d", Long.valueOf(this.cgE / 1000)));
+        this.cnl = this.cnq * 1000;
+        if (this.cno) {
+            this.cnm.setVisibility(0);
+            this.cnk.setVisibility(0);
+            this.cnm.setOnClickListener(this);
+            this.cnr = System.currentTimeMillis();
+            this.cnk.setText(String.format("%02d", Long.valueOf(this.cnl / 1000)));
             this.mUiHandler.sendEmptyMessageDelayed(1, 250L);
         } else {
-            this.mUiHandler.sendEmptyMessageDelayed(0, this.cgE);
+            this.mUiHandler.sendEmptyMessageDelayed(0, this.cnl);
         }
-        if (this.cgI) {
-            this.cgF.setVisibility(0);
-            this.cgC.setVisibility(0);
-            this.cgF.setOnClickListener(this);
+        if (this.cnp) {
+            this.cnm.setVisibility(0);
+            this.cnj.setVisibility(0);
+            this.cnm.setOnClickListener(this);
         }
     }
 
@@ -239,24 +239,24 @@ public abstract class b<T extends com.baidu.prologue.business.b.a> implements Vi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ace() {
-        if (this.cgD != null) {
-            long currentTimeMillis = this.cgE - (System.currentTimeMillis() - this.cgK);
+    public void afm() {
+        if (this.cnk != null) {
+            long currentTimeMillis = this.cnl - (System.currentTimeMillis() - this.cnr);
             if (currentTimeMillis > 0) {
-                this.cgD.setText(String.format("%02d", Long.valueOf((currentTimeMillis / 1000) + 1)));
+                this.cnk.setText(String.format("%02d", Long.valueOf((currentTimeMillis / 1000) + 1)));
                 this.mUiHandler.sendEmptyMessageDelayed(1, 250L);
             } else {
                 this.mUiHandler.sendEmptyMessage(0);
             }
-            this.cgD.invalidate();
+            this.cnk.invalidate();
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cgF) {
-            this.cgw.abD();
-            acb();
+        if (view == this.cnm) {
+            this.cnd.aeL();
+            afj();
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala;
 
-import com.baidu.tbadk.core.data.bx;
-/* loaded from: classes4.dex */
+import com.baidu.tbadk.core.data.by;
+/* loaded from: classes6.dex */
 public interface f {
-    void R(bx bxVar);
+    void R(by byVar);
 }

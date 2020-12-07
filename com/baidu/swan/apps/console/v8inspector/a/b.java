@@ -16,26 +16,26 @@ import java.util.concurrent.LinkedBlockingQueue;
 import org.java_websocket.c.h;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private LinkedBlockingQueue<String> cEV = new LinkedBlockingQueue<>();
-    private InspectorNativeClient cEW;
-    private com.baidu.swan.games.f.a cEX;
-    private final a.InterfaceC0411a cEY;
-    private org.java_websocket.a.a cFc;
+    private LinkedBlockingQueue<String> cLP = new LinkedBlockingQueue<>();
+    private InspectorNativeClient cLQ;
+    private com.baidu.swan.games.f.a cLR;
+    private final a.InterfaceC0423a cLS;
+    private org.java_websocket.a.a cLW;
     private String mUrl;
 
-    public b(String str, a.InterfaceC0411a interfaceC0411a) {
+    public b(String str, a.InterfaceC0423a interfaceC0423a) {
         this.mUrl = str;
-        this.cEY = interfaceC0411a;
+        this.cLS = interfaceC0423a;
     }
 
     @Override // com.baidu.swan.apps.console.v8inspector.a.b
     public void start() {
         try {
-            this.cFc = new C0414b(new URI(this.mUrl));
-            this.cFc.connect();
+            this.cLW = new C0426b(new URI(this.mUrl));
+            this.cLW.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
@@ -43,46 +43,46 @@ public class b implements a.b {
 
     @Override // com.baidu.swan.apps.console.v8inspector.a.b
     public void stop() {
-        if (this.cFc != null) {
-            this.cFc.close();
-            this.cFc = null;
+        if (this.cLW != null) {
+            this.cLW.close();
+            this.cLW = null;
         }
     }
 
     /* renamed from: com.baidu.swan.apps.console.v8inspector.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    private class C0414b extends org.java_websocket.a.a {
-        C0414b(URI uri) {
+    /* loaded from: classes25.dex */
+    private class C0426b extends org.java_websocket.a.a {
+        C0426b(URI uri) {
             super(uri);
         }
 
         @Override // org.java_websocket.a.a
         public void onOpen(h hVar) {
             com.baidu.swan.apps.console.c.i("V8InspectorClient", "V8 inspector opened");
-            com.baidu.swan.apps.core.g.a arr = com.baidu.swan.apps.core.turbo.d.ara().arr();
-            if (arr instanceof e) {
-                b.this.cEX = (com.baidu.swan.games.f.a) arr.aiP();
+            com.baidu.swan.apps.core.g.a auz = com.baidu.swan.apps.core.turbo.d.aui().auz();
+            if (auz instanceof e) {
+                b.this.cLR = (com.baidu.swan.games.f.a) auz.alX();
             }
-            if (b.this.cEX == null) {
+            if (b.this.cLR == null) {
                 com.baidu.swan.apps.console.c.i("V8InspectorClient", "inner error, V8 mEngine is null");
                 close();
                 return;
             }
-            b.this.cEW = b.this.cEX.initInspector(new a());
+            b.this.cLQ = b.this.cLR.initInspector(new a());
         }
 
         @Override // org.java_websocket.a.a
         public void onMessage(String str) {
-            b.this.cEV.offer(str);
-            b.this.cEX.postOnJSThread(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.b.b.1
+            b.this.cLP.offer(str);
+            b.this.cLR.postOnJSThread(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.b.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    String str2 = (String) b.this.cEV.poll();
+                    String str2 = (String) b.this.cLP.poll();
                     while (str2 != null) {
-                        b.this.cEW.dispatchProtocolMessage(str2);
-                        C0414b.this.mu(str2);
-                        C0414b.this.mv(str2);
-                        str2 = (String) b.this.cEV.poll();
+                        b.this.cLQ.dispatchProtocolMessage(str2);
+                        C0426b.this.nb(str2);
+                        C0426b.this.nc(str2);
+                        str2 = (String) b.this.cLP.poll();
                     }
                 }
             });
@@ -99,17 +99,17 @@ public class b implements a.b {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void mu(String str) {
-            if (!TextUtils.isEmpty(str) && b.this.cEY != null) {
+        public void nb(String str) {
+            if (!TextUtils.isEmpty(str) && b.this.cLS != null) {
                 try {
                     if (TextUtils.equals(new JSONObject(str).optString("method"), "Debugger.enable")) {
-                        com.baidu.swan.apps.runtime.d aGI = com.baidu.swan.apps.runtime.d.aGI();
-                        SwanAppActivity aGG = aGI.aGG();
-                        if (aGI.aEV() && aGG != null) {
-                            aGG.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.b.b.2
+                        com.baidu.swan.apps.runtime.d aJQ = com.baidu.swan.apps.runtime.d.aJQ();
+                        SwanAppActivity aJO = aJQ.aJO();
+                        if (aJQ.aId() && aJO != null) {
+                            aJO.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.b.b.2
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    b.this.cEY.onConnected();
+                                    b.this.cLS.onConnected();
                                 }
                             });
                         }
@@ -123,7 +123,7 @@ public class b implements a.b {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void mv(String str) {
+        public void nc(String str) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
@@ -155,7 +155,7 @@ public class b implements a.b {
                                 return;
                             case 1:
                                 com.baidu.swan.apps.console.c.i("V8InspectorClient", "v8 inspector close");
-                                com.baidu.swan.apps.console.debugger.b.d.alv();
+                                com.baidu.swan.apps.console.debugger.b.d.aoD();
                                 return;
                             default:
                                 com.baidu.swan.apps.console.c.e("V8InspectorClient", "Undefined command");
@@ -171,7 +171,7 @@ public class b implements a.b {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public class a extends InspectorNativeChannel {
         public a() {
         }
@@ -179,8 +179,8 @@ public class b implements a.b {
         @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
         public void sendMessage(String str) {
             try {
-                if (b.this.cFc != null) {
-                    b.this.cFc.send(str);
+                if (b.this.cLW != null) {
+                    b.this.cLW.send(str);
                 }
             } catch (Exception e) {
                 if (b.DEBUG) {
@@ -195,7 +195,7 @@ public class b implements a.b {
                 Log.d("V8InspectorClient", "getInspectorMessage");
             }
             try {
-                return (String) b.this.cEV.take();
+                return (String) b.this.cLP.take();
             } catch (InterruptedException e) {
                 if (b.DEBUG) {
                     Log.e("V8InspectorClient", "awaitMessage on Debugger", e);

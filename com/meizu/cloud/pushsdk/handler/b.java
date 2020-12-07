@@ -7,7 +7,7 @@ import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public interface b {
     void a(Context context, MzPushMessage mzPushMessage);
 

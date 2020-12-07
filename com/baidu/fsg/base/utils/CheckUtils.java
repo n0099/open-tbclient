@@ -10,11 +10,11 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.regex.Pattern;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class CheckUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1507a = "CheckUtils";
+    private static final String f1509a = "CheckUtils";
     private static final int b = 3;
     private static final int c = 12;
     private static final int d = 4;
@@ -115,7 +115,7 @@ public final class CheckUtils {
         }
         try {
             for (String str31 : str.toUpperCase().split(ETAG.ITEM_SEPARATOR)) {
-                String[] split = str31.split(ETAG.EQUAL);
+                String[] split = str31.split("=");
                 if (split != null && !TextUtils.isEmpty(split[0])) {
                     if ("CURRENCY".equals(split[0])) {
                         if (split.length > 1 && (decode = URLDecoder.decode(split[1])) != null && !Pattern.compile("^1$").matcher(decode).matches()) {
@@ -262,7 +262,7 @@ public final class CheckUtils {
                         z = file.createNewFile();
                     } catch (IOException e2) {
                         if (ApollonConstants.DEBUG) {
-                            Log.w(f1507a, "isExternalStorageWriteable() can't create test file.");
+                            Log.w(f1509a, "isExternalStorageWriteable() can't create test file.");
                         }
                     }
                 }
@@ -270,7 +270,7 @@ public final class CheckUtils {
         }
         long currentTimeMillis2 = System.currentTimeMillis();
         if (ApollonConstants.DEBUG) {
-            Log.i(f1507a, "Utility.isExternalStorageWriteable(" + z + ") cost " + (currentTimeMillis2 - currentTimeMillis) + "ms.");
+            Log.i(f1509a, "Utility.isExternalStorageWriteable(" + z + ") cost " + (currentTimeMillis2 - currentTimeMillis) + "ms.");
         }
         return z;
     }

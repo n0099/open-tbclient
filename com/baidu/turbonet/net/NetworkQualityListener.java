@@ -1,7 +1,7 @@
 package com.baidu.turbonet.net;
 
 import java.util.concurrent.Executor;
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 public abstract class NetworkQualityListener {
     private final Executor mExecutor;
 
@@ -11,6 +11,6 @@ public abstract class NetworkQualityListener {
         return this.mExecutor;
     }
 
-    public void VZ(String str) {
+    public void Xo(String str) {
     }
 }

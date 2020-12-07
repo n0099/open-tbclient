@@ -20,14 +20,14 @@ public class TransparentActivity extends BaseFragmentActivity {
     private String params;
     private String type;
     private Handler handler = new Handler();
-    private CustomMessageListener ayx = new CustomMessageListener(2913129) { // from class: com.baidu.live.activity.TransparentActivity.1
+    private CustomMessageListener aAS = new CustomMessageListener(2913129) { // from class: com.baidu.live.activity.TransparentActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             TransparentActivity.this.finish();
         }
     };
-    private CustomMessageListener ayy = new CustomMessageListener(2913236) { // from class: com.baidu.live.activity.TransparentActivity.2
+    private CustomMessageListener aAT = new CustomMessageListener(2913236) { // from class: com.baidu.live.activity.TransparentActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -54,8 +54,8 @@ public class TransparentActivity extends BaseFragmentActivity {
             this.contentView = new View(getActivity());
             this.contentView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             setContentView(this.contentView);
-            MessageManager.getInstance().registerListener(this.ayx);
-            MessageManager.getInstance().registerListener(this.ayy);
+            MessageManager.getInstance().registerListener(this.aAS);
+            MessageManager.getInstance().registerListener(this.aAT);
             this.handler.postDelayed(new Runnable() { // from class: com.baidu.live.activity.TransparentActivity.3
                 @Override // java.lang.Runnable
                 public void run() {
@@ -70,17 +70,17 @@ public class TransparentActivity extends BaseFragmentActivity {
             this.handler.post(new Runnable() { // from class: com.baidu.live.activity.TransparentActivity.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    TransparentActivity.this.Au();
+                    TransparentActivity.this.BQ();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Au() {
+    public void BQ() {
         Log.i("ModifyNicknameHelper", "@@ ModifyNickname TransparentActivity deal type = " + this.type);
         if (TextUtils.equals(this.type, "showModifyNicknameDialog")) {
-            com.baidu.live.n.a.s(getActivity());
+            com.baidu.live.p.a.s(getActivity());
         }
     }
 
@@ -107,8 +107,8 @@ public class TransparentActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.ayx);
-        MessageManager.getInstance().unRegisterListener(this.ayy);
+        MessageManager.getInstance().unRegisterListener(this.aAS);
+        MessageManager.getInstance().unRegisterListener(this.aAT);
         this.handler.removeCallbacksAndMessages(null);
     }
 }

@@ -6,7 +6,7 @@ import java.util.Map;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b implements Interceptor {
     private HashMap<String, String> mHeaders = new HashMap<>();
 

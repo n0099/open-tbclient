@@ -1,25 +1,8 @@
 package com.baidu.live.data;
 
-import org.json.JSONObject;
+import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class ab {
-    public int aIv;
-    public long aIw;
-    public long aIx;
-    public String division;
-    public String iconUrl;
-    public int maxStar;
-    public String name;
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.division = jSONObject.optString("division");
-            this.aIv = jSONObject.optInt("cur_star");
-            this.maxStar = jSONObject.optInt("max_star", 5);
-            this.aIw = jSONObject.optInt("min_score");
-            this.aIx = jSONObject.optInt("max_score");
-            this.name = jSONObject.optString("name");
-            this.iconUrl = jSONObject.optString("icon_url");
-        }
-    }
+    public TbPageContext pageContext;
+    public String userId;
 }

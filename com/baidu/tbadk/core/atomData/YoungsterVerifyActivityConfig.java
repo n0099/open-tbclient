@@ -18,7 +18,7 @@ public class YoungsterVerifyActivityConfig extends TbWebViewActivityConfig {
 
     public static String getYoungsterVerifyUrl() {
         try {
-            return VERIFY_URL_PREFIX + URLEncoder.encode(TbConfig.SERVER_ADDRESS + TbConfig.URL_YOUNGSTER_VERIFY_AUTHID, "utf-8") + ETAG.ITEM_SEPARATOR + "scene" + ETAG.EQUAL + PARAMA_TIEBA_AUTH;
+            return VERIFY_URL_PREFIX + URLEncoder.encode(TbConfig.SERVER_ADDRESS + TbConfig.URL_YOUNGSTER_VERIFY_AUTHID, "utf-8") + ETAG.ITEM_SEPARATOR + "scene=" + PARAMA_TIEBA_AUTH;
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             return "";

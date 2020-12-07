@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.map;
 
 import com.baidu.platform.comjni.map.basemap.AppBaseMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class d extends InnerOverlay {
     public d() {
         super(20);

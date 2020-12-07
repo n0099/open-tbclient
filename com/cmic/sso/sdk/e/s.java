@@ -8,7 +8,7 @@ import java.util.UUID;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private static char[] f4031a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static char[] f4034a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(byte[] bArr) {
@@ -19,9 +19,9 @@ public class s {
         int i = 0;
         for (byte b : bArr) {
             int i2 = i + 1;
-            cArr[i] = f4031a[(b >>> 4) & 15];
+            cArr[i] = f4034a[(b >>> 4) & 15];
             i = i2 + 1;
-            cArr[i2] = f4031a[b & 15];
+            cArr[i2] = f4034a[b & 15];
         }
         return new String(cArr);
     }

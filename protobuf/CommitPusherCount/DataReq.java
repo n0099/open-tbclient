@@ -2,7 +2,7 @@ package protobuf.CommitPusherCount;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class DataReq extends Message {
     @ProtoField(tag = 3, type = Message.Datatype.INT64)
     public final Long downFlowSize;
@@ -49,7 +49,7 @@ public final class DataReq extends Message {
         this.enterForeCount = builder.enterForeCount;
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Long downFlowSize;
         public Long enterForeCount;

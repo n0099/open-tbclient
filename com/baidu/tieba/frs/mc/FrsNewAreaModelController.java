@@ -6,7 +6,7 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.mvc.message.MvcHttpMessage;
@@ -18,22 +18,20 @@ import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b<FrsRequestData, com.baidu.tieba.tbadkCore.m> {
-    private FrsViewData iHB;
-    private String iHV;
-    private long inr;
-
-    /* renamed from: int  reason: not valid java name */
-    private long f6int;
-    private long inu;
-    private long inv;
-    private FrsNetModel<FrsNewAreaFragment> jcH;
-    private FrsRequestData jcI;
-    private com.baidu.tieba.tbadkCore.f jcJ;
-    private String jcK;
-    private FrsNewAreaFragment jeM;
-    private int jeb;
+    private String iSN;
+    private FrsViewData iSt;
+    private long iyk;
+    private long iyl;
+    private long iym;
+    private long iyn;
+    private FrsNetModel<FrsNewAreaFragment> jqk;
+    private FrsRequestData jql;
+    private com.baidu.tieba.tbadkCore.f jqm;
+    private String jqn;
+    private int jrE;
+    private FrsNewAreaFragment jsp;
     private int mFlag;
     private String mFrom;
     private int mPn;
@@ -42,54 +40,54 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
 
     public FrsNewAreaModelController(FrsNewAreaFragment frsNewAreaFragment) {
         super(frsNewAreaFragment.getPageContext());
-        this.iHV = null;
+        this.iSN = null;
         this.mType = 3;
         this.mPn = 1;
         this.mFrom = null;
         this.mFlag = 0;
         this.mSource = null;
-        this.jcK = null;
-        this.jeb = -1;
-        this.inr = 0L;
-        this.f6int = 0L;
-        this.inu = 0L;
-        this.inv = 0L;
-        this.jeM = frsNewAreaFragment;
+        this.jqn = null;
+        this.jrE = -1;
+        this.iyk = 0L;
+        this.iyl = 0L;
+        this.iym = 0L;
+        this.iyn = 0L;
+        this.jsp = frsNewAreaFragment;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cDp() {
-        this.jcH.cancelLoadData();
+    public void cIC() {
+        this.jqk.cancelLoadData();
     }
 
     public void aj(Bundle bundle) {
         if (bundle != null) {
-            this.iHV = bundle.getString("name");
+            this.iSN = bundle.getString("name");
             this.mFrom = bundle.getString("from");
             this.mFlag = bundle.getInt(FrsActivityConfig.FLAG, 0);
         }
-        if (TextUtils.isEmpty(this.iHV)) {
-            this.iHV = "";
+        if (TextUtils.isEmpty(this.iSN)) {
+            this.iSN = "";
         }
         if (TextUtils.isEmpty(this.mFrom)) {
             this.mFrom = "";
         }
         this.mSource = this.mFrom;
-        this.jcI = new FrsRequestData();
+        this.jql = new FrsRequestData();
         if (FrsActivityConfig.FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD.equals(this.mSource)) {
-            Ay(3);
+            Bm(3);
         } else if (FrsActivityConfig.FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(this.mSource)) {
-            Ay(6);
+            Bm(6);
         } else {
-            Ay(2);
+            Bm(2);
         }
-        this.iHB = new FrsViewData();
-        this.jcI.go("forum_name", com.baidu.adp.lib.util.k.getUrlEncode(this.iHV));
-        this.jcI.go("client_type", "2");
-        this.jcH = new FrsNetModel<>(this.jeM.getPageContext(), this.jcI);
-        this.jcH.a(this);
-        this.jcH.setUniqueId(this.jeM.getUniqueId());
-        if (this.iHV != null && this.iHV.length() > 0) {
+        this.iSt = new FrsViewData();
+        this.jql.gt("forum_name", com.baidu.adp.lib.util.k.getUrlEncode(this.iSN));
+        this.jql.gt("client_type", "2");
+        this.jqk = new FrsNetModel<>(this.jsp.getPageContext(), this.jql);
+        this.jqk.a(this);
+        this.jqk.setUniqueId(this.jsp.getUniqueId());
+        if (this.iSN != null && this.iSN.length() > 0) {
             if (this.mFrom == null || this.mFrom.length() <= 0) {
                 this.mFrom = "tb_forumlist";
             }
@@ -97,77 +95,77 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
     }
 
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putString("name", this.iHV);
+        bundle.putString("name", this.iSN);
         bundle.putString("from", this.mFrom);
         bundle.putInt(FrsActivityConfig.FLAG, this.mFlag);
         bundle.putBoolean(FrsActivityConfig.GOOD, true);
     }
 
-    public boolean cDq() {
-        FrsRequestData frsRequestData = (FrsRequestData) FrsRequestData.objectWithJson(FrsRequestData.jsonWithObject(this.jcI), FrsRequestData.class);
+    public boolean cID() {
+        FrsRequestData frsRequestData = (FrsRequestData) FrsRequestData.objectWithJson(FrsRequestData.jsonWithObject(this.jql), FrsRequestData.class);
         frsRequestData.setPn(1);
         a(frsRequestData, 3);
         return true;
     }
 
-    public void At(int i) {
-        if (!this.jcH.isLoading()) {
-            FrsRequestData frsRequestData = (FrsRequestData) FrsRequestData.objectWithJson(FrsRequestData.jsonWithObject(this.jcI), FrsRequestData.class);
+    public void Bh(int i) {
+        if (!this.jqk.isLoading()) {
+            FrsRequestData frsRequestData = (FrsRequestData) FrsRequestData.objectWithJson(FrsRequestData.jsonWithObject(this.jql), FrsRequestData.class);
             frsRequestData.setPn(i);
             a(frsRequestData, 4);
         }
     }
 
     private void a(FrsRequestData frsRequestData, int i) {
-        if (this.jeM != null && this.jeM.isAdded() && this.jeM.getPageContext() != null) {
-            this.jeM.iJH.ze(i);
-            this.jcH.a(frsRequestData);
+        if (this.jsp != null && this.jsp.isAdded() && this.jsp.getPageContext() != null) {
+            this.jsp.iUz.zJ(i);
+            this.jqk.a(frsRequestData);
             this.mType = i;
-            frsRequestData.setKw(this.iHV);
+            frsRequestData.setKw(this.iSN);
             frsRequestData.setWithGroup(1);
             frsRequestData.setIsGood(0);
             frsRequestData.setCid(0);
-            com.baidu.tieba.frs.f.i.a(this.jeb, frsRequestData);
-            int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(this.jeM.getPageContext().getPageActivity());
-            int equipmentHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(this.jeM.getPageContext().getPageActivity());
+            com.baidu.tieba.frs.f.j.a(this.jrE, frsRequestData);
+            int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(this.jsp.getPageContext().getPageActivity());
+            int equipmentHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(this.jsp.getPageContext().getPageActivity());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-            int i2 = av.bqC().bqD() ? 2 : 1;
+            int i2 = av.btX().btY() ? 2 : 1;
             frsRequestData.setScrW(equipmentWidth);
             frsRequestData.setScrH(equipmentHeight);
             frsRequestData.setScrDip(f);
             frsRequestData.setqType(i2);
-            frsRequestData.setLastId(this.jcK);
+            frsRequestData.setLastId(this.jqn);
             if (this.mSource != null) {
                 frsRequestData.setStType(this.mSource);
             }
-            if (FrsFragment.iIk != 0) {
-                frsRequestData.setCtime((int) FrsFragment.iIk);
+            if (FrsFragment.iTc != 0) {
+                frsRequestData.setCtime((int) FrsFragment.iTc);
             }
-            if (FrsFragment.iIl != 0) {
-                frsRequestData.setDataSize((int) FrsFragment.iIl);
+            if (FrsFragment.iTd != 0) {
+                frsRequestData.setDataSize((int) FrsFragment.iTd);
             }
             if (FrsFragment.mNetError != 0) {
                 frsRequestData.setNetError(FrsFragment.mNetError);
             }
             frsRequestData.setUpdateType(this.mType);
             frsRequestData.setNeedCache(false);
-            cDs();
+            cIF();
         }
     }
 
     private boolean a(FrsRequestData frsRequestData, com.baidu.tieba.tbadkCore.m mVar) {
-        this.iHB.receiveData(mVar);
-        this.iHB.frsCurrentTabId = 503;
+        this.iSt.receiveData(mVar);
+        this.iSt.frsCurrentTabId = 503;
         if (frsRequestData != null) {
-            this.jcI = frsRequestData;
-            this.mPn = this.jcI.getPn();
-            this.iHV = this.jcI.getKw();
-            this.jeM.Ko(this.iHV);
-            this.jeM.setFrom(this.mFrom);
-            this.jeM.setPn(this.mPn);
-            this.jeM.setFlag(this.mFlag);
+            this.jql = frsRequestData;
+            this.mPn = this.jql.getPn();
+            this.iSN = this.jql.getKw();
+            this.jsp.Lv(this.iSN);
+            this.jsp.setFrom(this.mFrom);
+            this.jsp.setPn(this.mPn);
+            this.jsp.setFlag(this.mFlag);
         }
-        this.jeM.iJH.a(this.mType, false, this.jcJ);
+        this.jsp.iUz.a(this.mType, false, this.jqm);
         this.mSource = null;
         return true;
     }
@@ -177,12 +175,12 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
         FrsRequestData frsRequestData;
         if (mvcSocketResponsedMessage != null) {
             com.baidu.tieba.tbadkCore.f fVar = new com.baidu.tieba.tbadkCore.f();
-            fVar.isc = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
+            fVar.iCU = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
             fVar.isSuccess = !mvcSocketResponsedMessage.hasError();
             fVar.errorCode = mvcSocketResponsedMessage.getError();
             fVar.errorMsg = mvcSocketResponsedMessage.getErrorString();
-            fVar.mVx = mvcSocketResponsedMessage.getDownSize();
-            this.jcJ = fVar;
+            fVar.njv = mvcSocketResponsedMessage.getDownSize();
+            this.jqm = fVar;
             FrsRequestData frsRequestData2 = null;
             com.baidu.tieba.tbadkCore.m data = mvcSocketResponsedMessage.getData();
             if (mvcSocketMessage != null) {
@@ -222,12 +220,12 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
         FrsRequestData frsRequestData;
         if (mvcHttpResponsedMessage != null) {
             com.baidu.tieba.tbadkCore.f fVar = new com.baidu.tieba.tbadkCore.f();
-            fVar.isc = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
+            fVar.iCU = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
             fVar.isSuccess = !mvcHttpResponsedMessage.hasError();
             fVar.errorCode = mvcHttpResponsedMessage.getError();
             fVar.errorMsg = mvcHttpResponsedMessage.getErrorString();
-            fVar.mVx = mvcHttpResponsedMessage.getDownSize();
-            this.jcJ = fVar;
+            fVar.njv = mvcHttpResponsedMessage.getDownSize();
+            this.jqm = fVar;
             FrsRequestData frsRequestData2 = null;
             com.baidu.tieba.tbadkCore.m data = mvcHttpResponsedMessage.getData();
             if (mvcHttpMessage != null) {
@@ -260,11 +258,11 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
         }
     }
 
-    public void cym() {
-        if (this.iHB != null && this.iHB.getForum() != null && this.iHB.getForum().getBannerListData() != null) {
-            String lastIds = this.iHB.getForum().getBannerListData().getLastIds();
+    public void cCD() {
+        if (this.iSt != null && this.iSt.getForum() != null && this.iSt.getForum().getBannerListData() != null) {
+            String lastIds = this.iSt.getForum().getBannerListData().getLastIds();
             if (!TextUtils.isEmpty(lastIds)) {
-                this.jcK = lastIds;
+                this.jqn = lastIds;
             }
         }
     }
@@ -273,40 +271,40 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
         return this.mType;
     }
 
-    public FrsViewData cDr() {
-        return this.iHB;
+    public FrsViewData cIE() {
+        return this.iSt;
     }
 
-    private void cDs() {
-        this.inr = System.currentTimeMillis();
-        this.jcH.loadData();
+    private void cIF() {
+        this.iyk = System.currentTimeMillis();
+        this.jqk.loadData();
     }
 
-    public long crW() {
-        return this.inv;
+    public long cwl() {
+        return this.iyn;
     }
 
-    public long crX() {
-        return this.f6int;
+    public long cwm() {
+        return this.iyl;
     }
 
-    public long crY() {
-        return this.inu;
+    public long cwn() {
+        return this.iym;
     }
 
-    public long crZ() {
-        return this.inr;
+    public long cwo() {
+        return this.iyk;
     }
 
     public boolean isLoading() {
-        return this.jcH.isLoading();
+        return this.jqk.isLoading();
     }
 
     public void loadData() {
-        cDq();
+        cID();
     }
 
-    public boolean cDt() {
+    public boolean cIG() {
         return true;
     }
 
@@ -320,27 +318,27 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
         return false;
     }
 
-    public void Ay(int i) {
-        this.jeb = i;
+    public void Bm(int i) {
+        this.jrE = i;
         if (7 == i) {
-            com.baidu.tieba.tbadkCore.util.e.dLc();
+            com.baidu.tieba.tbadkCore.util.e.dQu();
         } else {
-            com.baidu.tieba.tbadkCore.util.e.dLd();
+            com.baidu.tieba.tbadkCore.util.e.dQv();
         }
     }
 
-    public int cDV() {
-        return this.jeb;
+    public int cJi() {
+        return this.jrE;
     }
 
-    public void ap(bx bxVar) {
-        if (bxVar != null && this.iHB != null && this.iHB.getThreadList() != null) {
-            if (y.isEmpty(this.iHB.getThreadList())) {
-                this.iHB.getThreadList().add(bxVar);
+    public void ap(by byVar) {
+        if (byVar != null && this.iSt != null && this.iSt.getThreadList() != null) {
+            if (y.isEmpty(this.iSt.getThreadList())) {
+                this.iSt.getThreadList().add(byVar);
             } else {
-                this.iHB.getThreadList().add(0, bxVar);
+                this.iSt.getThreadList().add(0, byVar);
             }
-            this.jeM.e(this.iHB);
+            this.jsp.e(this.iSt);
         }
     }
 }

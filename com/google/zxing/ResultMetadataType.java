@@ -1,5 +1,5 @@
 package com.google.zxing;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public enum ResultMetadataType {
     OTHER,
     ORIENTATION,

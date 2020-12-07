@@ -2,30 +2,28 @@ package kotlin.coroutines.experimental;
 
 import kotlin.TypeCastException;
 import kotlin.coroutines.experimental.d;
-import kotlin.h;
-import kotlin.jvm.a.m;
-import kotlin.jvm.internal.q;
-@h
-/* loaded from: classes9.dex */
+import kotlin.jvm.internal.p;
+@kotlin.e
+/* loaded from: classes17.dex */
 public final class a implements d {
-    private final d pTL;
-    private final d.b pTM;
+    private final d pKl;
+    private final d.b pKm;
 
     public a(d dVar, d.b bVar) {
-        q.n(dVar, "left");
-        q.n(bVar, "element");
-        this.pTL = dVar;
-        this.pTM = bVar;
+        p.o(dVar, "left");
+        p.o(bVar, "element");
+        this.pKl = dVar;
+        this.pKm = bVar;
     }
 
     @Override // kotlin.coroutines.experimental.d
     public <E extends d.b> E a(d.c<E> cVar) {
-        q.n(cVar, "key");
+        p.o(cVar, "key");
         a aVar = this;
         while (true) {
-            E e = (E) aVar.pTM.a(cVar);
+            E e = (E) aVar.pKm.a(cVar);
             if (e == null) {
-                d dVar = aVar.pTL;
+                d dVar = aVar.pKl;
                 if (dVar instanceof a) {
                     aVar = (a) dVar;
                 } else {
@@ -38,35 +36,35 @@ public final class a implements d {
     }
 
     @Override // kotlin.coroutines.experimental.d
-    public <R> R fold(R r, m<? super R, ? super d.b, ? extends R> mVar) {
-        q.n(mVar, "operation");
-        return mVar.invoke((Object) this.pTL.fold(r, mVar), this.pTM);
+    public <R> R a(R r, kotlin.jvm.a.c<? super R, ? super d.b, ? extends R> cVar) {
+        p.o(cVar, "operation");
+        return cVar.invoke((Object) this.pKl.a(r, cVar), this.pKm);
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
-        q.n(cVar, "key");
-        if (this.pTM.a(cVar) != null) {
-            return this.pTL;
+        p.o(cVar, "key");
+        if (this.pKm.a(cVar) != null) {
+            return this.pKl;
         }
-        d b = this.pTL.b(cVar);
-        return b == this.pTL ? this : b == e.pTP ? this.pTM : new a(b, this.pTM);
+        d b = this.pKl.b(cVar);
+        return b == this.pKl ? this : b == e.pKp ? this.pKm : new a(b, this.pKm);
     }
 
     private final int size() {
-        if (this.pTL instanceof a) {
-            return ((a) this.pTL).size() + 1;
+        if (this.pKl instanceof a) {
+            return ((a) this.pKl).size() + 1;
         }
         return 2;
     }
 
     private final boolean a(d.b bVar) {
-        return q.l(a((d.c<d.b>) bVar.eBJ()), bVar);
+        return p.l(a((d.c<d.b>) bVar.eDU()), bVar);
     }
 
     private final boolean a(a aVar) {
-        while (a(aVar.pTM)) {
-            d dVar = aVar.pTL;
+        while (a(aVar.pKm)) {
+            d dVar = aVar.pKl;
             if (dVar instanceof a) {
                 aVar = (a) dVar;
             } else if (dVar == null) {
@@ -83,10 +81,10 @@ public final class a implements d {
     }
 
     public int hashCode() {
-        return this.pTL.hashCode() + this.pTM.hashCode();
+        return this.pKl.hashCode() + this.pKm.hashCode();
     }
 
     public String toString() {
-        return "[" + ((String) fold("", CombinedContext$toString$1.INSTANCE)) + "]";
+        return "[" + ((String) a("", CombinedContext$toString$1.INSTANCE)) + "]";
     }
 }

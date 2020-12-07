@@ -19,12 +19,12 @@ import com.baidu.live.view.web.CommonWebLayout;
 import com.baidu.live.view.web.f;
 /* loaded from: classes4.dex */
 public class b extends e implements f {
-    private int bMu;
-    private RoundRectRelativeLayout boV;
-    private CommonWebLayout boW;
-    private View boX;
-    private float boY;
-    private boolean gUn;
+    private int bRA;
+    private RoundRectRelativeLayout bue;
+    private CommonWebLayout bug;
+    private View buh;
+    private float bui;
+    private boolean hdA;
     private Activity mActivity;
 
     public b(Activity activity) {
@@ -33,35 +33,35 @@ public class b extends e implements f {
         init();
     }
 
-    public CommonWebLayout Wq() {
-        return this.boW;
+    public CommonWebLayout getWebView() {
+        return this.bug;
     }
 
     @Override // com.baidu.live.view.e, android.widget.PopupWindow
     public void dismiss() {
-        if (!Ww()) {
-            Wr();
+        if (!YV()) {
+            YQ();
         }
     }
 
-    public void aG(String str, int i) {
+    public void aH(String str, int i) {
         View findViewById;
         if (!this.mActivity.isFinishing() && (findViewById = this.mActivity.getWindow().getDecorView().findViewById(16908290)) != null) {
-            this.bMu = 80;
-            int Ws = Ws();
-            this.boV.setCornerRadius(this.boY, this.boY, 0.0f, 0.0f);
-            setWidth(Ws);
+            this.bRA = 80;
+            int YR = YR();
+            this.bue.setCornerRadius(this.bui, this.bui, 0.0f, 0.0f);
+            setWidth(YR);
             setHeight((int) (ScreenHelper.getRealScreenHeight(this.mActivity) * 0.7f));
             showAtLocation(findViewById, 85, 0, 0);
             if (i == 2) {
-                ah(this.boV);
+                ah(this.bue);
             }
-            Mi();
-            this.boW.loadUrl(str);
+            OD();
+            this.bug.loadUrl(str);
         }
     }
 
-    public void Wr() {
+    public void YQ() {
         super.dismiss();
     }
 
@@ -74,76 +74,76 @@ public class b extends e implements f {
         setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.a.b.1
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                if (b.this.boW != null) {
-                    b.this.boW.release();
+                if (b.this.bug != null) {
+                    b.this.bug.release();
                 }
             }
         });
     }
 
     private void initView() {
-        this.boY = this.mActivity.getResources().getDimensionPixelOffset(a.d.sdk_ds26);
-        this.boV = new RoundRectRelativeLayout(this.mActivity);
-        n(this.boV);
-        o(this.boV);
-        setContentView(this.boV);
+        this.bui = this.mActivity.getResources().getDimensionPixelOffset(a.d.sdk_ds26);
+        this.bue = new RoundRectRelativeLayout(this.mActivity);
+        n(this.bue);
+        o(this.bue);
+        setContentView(this.bue);
     }
 
     private void n(ViewGroup viewGroup) {
-        this.boW = new CommonWebLayout(this.mActivity);
-        this.boW.setBackgroundColor(this.mActivity.getResources().getColor(a.c.sdk_black_alpha85));
-        this.boW.setCallback(new com.baidu.live.view.web.c() { // from class: com.baidu.tieba.yuyinala.liveroom.a.b.2
+        this.bug = new CommonWebLayout(this.mActivity);
+        this.bug.setBackgroundColor(this.mActivity.getResources().getColor(a.c.sdk_black_alpha85));
+        this.bug.setCallback(new com.baidu.live.view.web.c() { // from class: com.baidu.tieba.yuyinala.liveroom.a.b.2
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            public void hO(String str) {
-                super.hO(str);
-                if (b.this.boX != null) {
-                    b.this.boX.setVisibility(0);
+            public void is(String str) {
+                super.is(str);
+                if (b.this.buh != null) {
+                    b.this.buh.setVisibility(0);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            public void eW(int i) {
-                super.eW(i);
-                if (i == 100 && b.this.boX != null) {
-                    b.this.boX.setVisibility(8);
+            public void fu(int i) {
+                super.fu(i);
+                if (i == 100 && b.this.buh != null) {
+                    b.this.buh.setVisibility(8);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            public void hP(String str) {
-                super.hP(str);
-                if (b.this.boX != null) {
-                    b.this.boX.setVisibility(8);
+            public void it(String str) {
+                super.it(str);
+                if (b.this.buh != null) {
+                    b.this.buh.setVisibility(8);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
             public void e(String str, int i, String str2) {
                 super.e(str, i, str2);
-                if (b.this.boX != null) {
-                    b.this.boX.setVisibility(8);
+                if (b.this.buh != null) {
+                    b.this.buh.setVisibility(8);
                 }
             }
         });
-        viewGroup.addView(this.boW, new ViewGroup.LayoutParams(-1, -1));
+        viewGroup.addView(this.bug, new ViewGroup.LayoutParams(-1, -1));
     }
 
     private void o(ViewGroup viewGroup) {
-        this.boX = LayoutInflater.from(this.mActivity).inflate(a.g.live_web_pop_progress, (ViewGroup) null);
+        this.buh = LayoutInflater.from(this.mActivity).inflate(a.g.live_web_pop_progress, (ViewGroup) null);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
-        viewGroup.addView(this.boX, layoutParams);
-        this.boX.setVisibility(8);
+        viewGroup.addView(this.buh, layoutParams);
+        this.buh.setVisibility(8);
     }
 
-    private int Ws() {
+    private int YR() {
         return ScreenHelper.getRealScreenWidth(this.mActivity);
     }
 
-    private void Mi() {
+    private void OD() {
         if (getContentView() != null) {
             TranslateAnimation translateAnimation = null;
-            switch (this.bMu) {
+            switch (this.bRA) {
                 case 5:
                     translateAnimation = new TranslateAnimation(1, 1.0f, 1, 0.0f, 1, 0.0f, 1, 0.0f);
                     break;
@@ -159,15 +159,15 @@ public class b extends e implements f {
         }
     }
 
-    private boolean Ww() {
+    private boolean YV() {
         if (getContentView() == null) {
             return false;
         }
-        if (this.gUn) {
+        if (this.hdA) {
             return true;
         }
         TranslateAnimation translateAnimation = null;
-        switch (this.bMu) {
+        switch (this.bRA) {
             case 5:
                 translateAnimation = new TranslateAnimation(1, 0.0f, 1, 1.0f, 1, 0.0f, 1, 0.0f);
                 break;
@@ -185,8 +185,8 @@ public class b extends e implements f {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    b.this.Wr();
-                    b.this.gUn = false;
+                    b.this.YQ();
+                    b.this.hdA = false;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -194,17 +194,17 @@ public class b extends e implements f {
                 }
             });
             getContentView().startAnimation(translateAnimation);
-            this.gUn = true;
+            this.hdA = true;
             return true;
         }
         return false;
     }
 
     @Override // com.baidu.live.view.web.f
-    public void eT(int i) {
+    public void fr(int i) {
         dismiss();
-        if (this.boW != null) {
-            this.boW.release();
+        if (this.bug != null) {
+            this.bug.release();
         }
     }
 

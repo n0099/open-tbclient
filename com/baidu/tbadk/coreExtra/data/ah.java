@@ -5,10 +5,10 @@ import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ah {
-    private VcodeExtra fcI;
+    private VcodeExtra fkh;
     private String vcode_md5 = null;
     private String vcode_pic_url = null;
-    private String fcH = null;
+    private String fkg = null;
 
     public String getVcode_md5() {
         return this.vcode_md5;
@@ -18,12 +18,12 @@ public class ah {
         return this.vcode_pic_url;
     }
 
-    public String bul() {
-        return this.fcH;
+    public String bxL() {
+        return this.fkg;
     }
 
-    public VcodeExtra bum() {
-        return this.fcI;
+    public VcodeExtra bxM() {
+        return this.fkh;
     }
 
     public void parserJson(String str) {
@@ -44,14 +44,14 @@ public class ah {
             try {
                 this.vcode_md5 = jSONObject.optString("vcode_md5");
                 this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
-                this.fcH = jSONObject.optString("vcode_type");
+                this.fkg = jSONObject.optString("vcode_type");
                 JSONObject jSONObject2 = jSONObject.getJSONObject("vcode_extra");
-                this.fcI = new VcodeExtra();
-                this.fcI.textImg = jSONObject2.optString("textimg");
-                this.fcI.slideImg = jSONObject2.optString("slideimg");
-                this.fcI.endPoint = jSONObject2.optString("endpoint");
-                this.fcI.successImg = jSONObject2.optString("successimg");
-                this.fcI.slideEndPoint = jSONObject2.optString("slideendpoint");
+                this.fkh = new VcodeExtra();
+                this.fkh.textImg = jSONObject2.optString("textimg");
+                this.fkh.slideImg = jSONObject2.optString("slideimg");
+                this.fkh.endPoint = jSONObject2.optString("endpoint");
+                this.fkh.successImg = jSONObject2.optString("successimg");
+                this.fkh.slideEndPoint = jSONObject2.optString("slideendpoint");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

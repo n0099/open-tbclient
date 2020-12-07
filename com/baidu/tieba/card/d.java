@@ -9,52 +9,52 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class d extends com.baidu.tieba.horizonalList.widget.e {
-    public BarImageView fDG;
-    public TextView fDH;
-    public EntelechyUserLikeButton fDJ;
-    private com.baidu.tieba.card.data.g hWo;
+    public BarImageView fLs;
+    public TextView fLt;
+    public EntelechyUserLikeButton fLv;
+    private com.baidu.tieba.card.data.g ihl;
     private int mSkinType;
 
     public d(View view) {
         super(view);
-        this.fDG = null;
-        this.fDH = null;
-        this.fDJ = null;
+        this.fLs = null;
+        this.fLt = null;
+        this.fLv = null;
         this.mSkinType = 3;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.e
     public void a(com.baidu.tieba.horizonalList.widget.c cVar) {
         if (cVar != null && (cVar instanceof com.baidu.tieba.card.data.g)) {
-            this.hWo = (com.baidu.tieba.card.data.g) cVar;
-            this.fDG.setTag(this.hWo.forumAvatar);
-            this.fDG.setTag(R.id.tag_forum_name, this.hWo.forumName);
-            this.fDG.startLoad(this.hWo.forumAvatar, 15, false);
-            this.fDH.setText(au.getFixedText(this.hWo.forumName, 4, true) + getView().getContext().getResources().getString(R.string.forum));
-            this.fDH.setTag(R.id.tag_forum_name, this.hWo.forumName);
-            this.fDJ.setTag(R.id.tag_forum_id, Long.valueOf(this.hWo.forumId));
-            this.fDJ.setTag(R.id.tag_forum_name, this.hWo.forumName);
-            getView().setTag(R.id.tag_forum_id, Long.valueOf(this.hWo.forumId));
-            getView().setTag(R.id.tag_forum_name, this.hWo.forumName);
-            a(this.fDJ, this.hWo.isLiked);
-            this.fDG.setOnClickListener(this.fhp);
-            this.fDJ.setOnClickListener(this.fhp);
-            this.fDH.setOnClickListener(this.fhp);
-            getView().setOnClickListener(this.fhp);
+            this.ihl = (com.baidu.tieba.card.data.g) cVar;
+            this.fLs.setTag(this.ihl.forumAvatar);
+            this.fLs.setTag(R.id.tag_forum_name, this.ihl.forumName);
+            this.fLs.startLoad(this.ihl.forumAvatar, 15, false);
+            this.fLt.setText(au.getFixedText(this.ihl.forumName, 4, true) + getView().getContext().getResources().getString(R.string.forum));
+            this.fLt.setTag(R.id.tag_forum_name, this.ihl.forumName);
+            this.fLv.setTag(R.id.tag_forum_id, Long.valueOf(this.ihl.forumId));
+            this.fLv.setTag(R.id.tag_forum_name, this.ihl.forumName);
+            getView().setTag(R.id.tag_forum_id, Long.valueOf(this.ihl.forumId));
+            getView().setTag(R.id.tag_forum_name, this.ihl.forumName);
+            a(this.fLv, this.ihl.isLiked);
+            this.fLs.setOnClickListener(this.foP);
+            this.fLv.setOnClickListener(this.foP);
+            this.fLt.setOnClickListener(this.foP);
+            getView().setOnClickListener(this.foP);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.e
-    public com.baidu.tieba.horizonalList.widget.e ct(View view) {
+    public com.baidu.tieba.horizonalList.widget.e cA(View view) {
         d dVar = new d(view);
-        dVar.fDG = (BarImageView) view.findViewById(R.id.forum_avatar);
-        dVar.fDG.setGifIconSupport(false);
-        dVar.fDH = (TextView) view.findViewById(R.id.m_forum_name_textview);
-        dVar.fDJ = (EntelechyUserLikeButton) view.findViewById(R.id.forum_add_love);
-        dVar.jNM = 16908308;
+        dVar.fLs = (BarImageView) view.findViewById(R.id.forum_avatar);
+        dVar.fLs.setGifIconSupport(false);
+        dVar.fLt = (TextView) view.findViewById(R.id.m_forum_name_textview);
+        dVar.fLv = (EntelechyUserLikeButton) view.findViewById(R.id.forum_add_love);
+        dVar.kbp = 16908308;
         return dVar;
     }
 
@@ -62,8 +62,8 @@ public class d extends com.baidu.tieba.horizonalList.widget.e {
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             ap.setBackgroundColor(getView(), R.color.CAM_X0201);
-            ap.setViewTextColor(this.fDH, R.color.CAM_X0105);
-            a(this.fDJ, this.hWo.isLiked);
+            ap.setViewTextColor(this.fLt, R.color.CAM_X0105);
+            a(this.fLv, this.ihl.isLiked);
         }
         this.mSkinType = i;
     }

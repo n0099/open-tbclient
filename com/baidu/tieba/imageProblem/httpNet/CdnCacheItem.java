@@ -1,7 +1,6 @@
 package com.baidu.tieba.imageProblem.httpNet;
 
 import com.baidu.adp.lib.util.j;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,7 +64,7 @@ public class CdnCacheItem implements Serializable {
         int size = this.ipList.size();
         for (int i = 0; i < size; i++) {
             sb.append(this.ipList.get(i).cdnIp);
-            sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append(",");
         }
         return sb.toString();
     }

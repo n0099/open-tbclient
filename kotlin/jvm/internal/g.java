@@ -2,8 +2,8 @@ package kotlin.jvm.internal;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 final class g<T> implements Iterator<T> {
     private final T[] array;
     private int index;
@@ -14,7 +14,7 @@ final class g<T> implements Iterator<T> {
     }
 
     public g(T[] tArr) {
-        q.n(tArr, com.baidu.fsg.base.statistics.b.j);
+        p.o(tArr, com.baidu.fsg.base.statistics.b.j);
         this.array = tArr;
     }
 

@@ -11,6 +11,7 @@ import okhttp3.Response;
 import okhttp3.internal.Internal;
 import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.http.HttpHeaders;
+import okhttp3.internal.http.StatusLine;
 /* loaded from: classes15.dex */
 public final class CacheStrategy {
     @Nullable
@@ -30,7 +31,7 @@ public final class CacheStrategy {
             case 204:
             case 300:
             case 301:
-            case 308:
+            case StatusLine.HTTP_PERM_REDIRECT /* 308 */:
             case 404:
             case 405:
             case 410:
@@ -120,9 +121,6 @@ public final class CacheStrategy {
                 return new CacheStrategy(this.request, null);
             }
             CacheControl cacheControl2 = this.cacheResponse.cacheControl();
-            if (cacheControl2.immutable()) {
-                return new CacheStrategy(null, this.cacheResponse);
-            }
             long cacheResponseAge = cacheResponseAge();
             long computeFreshnessLifetime = computeFreshnessLifetime();
             if (cacheControl.maxAgeSeconds() != -1) {

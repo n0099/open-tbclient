@@ -1,24 +1,40 @@
 package com.facebook.imagepipeline.c;
 
-import android.support.v7.widget.ActivityChooserView;
-/* loaded from: classes15.dex */
-public class k implements com.facebook.common.internal.j<q> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.common.internal.j
-    /* renamed from: enu */
-    public q get() {
-        int env = env();
-        return new q(env, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, env, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, env / 8);
+import android.os.Process;
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
+/* loaded from: classes7.dex */
+public class k implements ThreadFactory {
+    private final AtomicInteger cfq = new AtomicInteger(1);
+    private final int cfs;
+    private final String mPrefix;
+    private final boolean pmw;
+
+    public k(int i, String str, boolean z) {
+        this.cfs = i;
+        this.mPrefix = str;
+        this.pmw = z;
     }
 
-    private int env() {
-        int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
-        if (min < 16777216) {
-            return 1048576;
+    @Override // java.util.concurrent.ThreadFactory
+    public Thread newThread(final Runnable runnable) {
+        String str;
+        Runnable runnable2 = new Runnable() { // from class: com.facebook.imagepipeline.c.k.1
+            @Override // java.lang.Runnable
+            public void run() {
+                try {
+                    Process.setThreadPriority(k.this.cfs);
+                } catch (Throwable th) {
+                }
+                runnable.run();
+            }
+        };
+        if (this.pmw) {
+            str = this.mPrefix + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.cfq.getAndIncrement();
+        } else {
+            str = this.mPrefix;
         }
-        if (min < 33554432) {
-            return 2097152;
-        }
-        return 4194304;
+        return new Thread(runnable2, str);
     }
 }

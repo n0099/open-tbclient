@@ -2,11 +2,10 @@ package com.alibaba.fastjson.asm;
 
 import android.support.media.ExifInterface;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class TypeCollector {
     private static final Map<String, String> primitives = new HashMap<String, String>() { // from class: com.alibaba.fastjson.asm.TypeCollector.1
         {
@@ -73,6 +72,6 @@ public class TypeCollector {
     }
 
     public String[] getParameterNamesForMethod() {
-        return (this.collector == null || !this.collector.debugInfoPresent) ? new String[0] : this.collector.getResult().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        return (this.collector == null || !this.collector.debugInfoPresent) ? new String[0] : this.collector.getResult().split(",");
     }
 }

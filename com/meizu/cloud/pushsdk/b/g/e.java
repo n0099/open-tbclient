@@ -10,11 +10,11 @@ import java.lang.reflect.Field;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class e implements Serializable, Comparable<e> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final char[] f4349a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    static final char[] f4119a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     public static final e b = a(new byte[0]);
     private static final long serialVersionUID = 1;
     final byte[] c;
@@ -49,7 +49,7 @@ public class e implements Serializable, Comparable<e> {
         if (str == null) {
             throw new IllegalArgumentException("s == null");
         }
-        e eVar = new e(str.getBytes(o.f4360a));
+        e eVar = new e(str.getBytes(o.f4130a));
         eVar.e = str;
         return eVar;
     }
@@ -116,7 +116,7 @@ public class e implements Serializable, Comparable<e> {
         if (str != null) {
             return str;
         }
-        String str2 = new String(this.c, o.f4360a);
+        String str2 = new String(this.c, o.f4130a);
         this.e = str2;
         return str2;
     }
@@ -140,9 +140,9 @@ public class e implements Serializable, Comparable<e> {
         int i = 0;
         for (byte b2 : this.c) {
             int i2 = i + 1;
-            cArr[i] = f4349a[(b2 >> 4) & 15];
+            cArr[i] = f4119a[(b2 >> 4) & 15];
             i = i2 + 1;
-            cArr[i2] = f4349a[b2 & 15];
+            cArr[i2] = f4119a[b2 & 15];
         }
         return new String(cArr);
     }

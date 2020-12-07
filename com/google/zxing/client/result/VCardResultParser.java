@@ -2,9 +2,7 @@ package com.google.zxing.client.result;
 
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.browser.sailor.BdSailorConfig;
-import com.baidu.webkit.internal.ETAG;
 import com.google.zxing.Result;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
@@ -13,17 +11,17 @@ import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class VCardResultParser extends ResultParser {
     private static final Pattern BEGIN_VCARD = Pattern.compile("BEGIN:VCARD", 2);
     private static final Pattern VCARD_LIKE_DATE = Pattern.compile("\\d{4}-?\\d{2}-?\\d{2}");
     private static final Pattern CR_LF_SPACE_TAB = Pattern.compile("\r\n[ \t]");
     private static final Pattern NEWLINE_ESCAPE = Pattern.compile("\\\\[nN]");
     private static final Pattern VCARD_ESCAPES = Pattern.compile("\\\\([,;\\\\])");
-    private static final Pattern EQUALS = Pattern.compile(ETAG.EQUAL);
+    private static final Pattern EQUALS = Pattern.compile("=");
     private static final Pattern SEMICOLON = Pattern.compile(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
     private static final Pattern UNESCAPED_SEMICOLONS = Pattern.compile("(?<!\\\\);+");
-    private static final Pattern COMMA = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
+    private static final Pattern COMMA = Pattern.compile(",");
     private static final Pattern SEMICOLON_OR_COMMA = Pattern.compile("[;,]");
 
     /* JADX DEBUG: Method merged with bridge method */

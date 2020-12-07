@@ -13,16 +13,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.c.l, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a>> {
-    private TextView gtq;
-    private String hDm;
+    private TextView gBU;
+    private String hMT;
     private TbPageContext mPageContext;
     private String user_id;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public i(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.l.hDT);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.l.hNA);
         this.mPageContext = tbPageContext;
     }
 
@@ -38,26 +38,26 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.l lVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.coz() == null) {
+        if (aVar.csM() == null) {
             return null;
         }
-        a(lVar, aVar.coz());
-        aVar.coz().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.i.1
+        a(lVar, aVar.csM());
+        aVar.csM().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.i.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 i.this.click();
             }
         });
-        return aVar.coz().getView();
+        return aVar.csM().getView();
     }
 
     private void a(com.baidu.tieba.ala.personcenter.c.l lVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = lVar.getPersonCenterData();
         if (personCenterData != null && aVar != null) {
-            this.gtq = aVar.cju();
-            this.user_id = personCenterData.ciV().user_id;
+            this.gBU = aVar.cno();
+            this.user_id = personCenterData.cmP().user_id;
             a(personCenterData, aVar);
-            aVar.wY(8);
+            aVar.xD(8);
             aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_privilege));
             aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
@@ -89,11 +89,11 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: private */
     public void click() {
         AlaSharedPrefHelper.getInstance().putBoolean(AlaSharedPrefConfig.ALA_MY_LIVE_PRIVILEGE_HAS_ENTERED, true);
-        a(this.gtq, this.hDm, false);
+        a(this.gBU, this.hMT, false);
         ar arVar = new ar("c13333");
-        arVar.dR("uid", TbadkApplication.getCurrentAccount());
+        arVar.dY("uid", TbadkApplication.getCurrentAccount());
         TiebaStatic.log(arVar);
-        String string = com.baidu.tbadk.core.sharedPref.b.bpu().getString("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
+        String string = com.baidu.tbadk.core.sharedPref.b.bsO().getString("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
         if (string != null) {
             if (string.endsWith("/")) {
                 string = string.substring(0, string.length() - 1);

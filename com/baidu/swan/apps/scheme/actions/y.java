@@ -20,7 +20,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URI;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class y extends aa {
     public y(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/saveImageToPhotosAlbum");
@@ -53,7 +53,7 @@ public class y extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                 return false;
             }
-            eVar.aGY().b(context, "mapp_images", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
+            eVar.aKg().b(context, "mapp_images", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: a */
@@ -87,8 +87,8 @@ public class y extends aa {
     public void a(@NonNull final Context context, final File file, @NonNull final UnitedSchemeEntity unitedSchemeEntity, @NonNull final CallbackHandler callbackHandler, final String str) {
         com.baidu.swan.apps.ab.a.a("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.scheme.actions.y.2
             @Override // com.baidu.swan.apps.ab.b
-            public void kn(String str2) {
-                boolean f = com.baidu.swan.apps.ap.c.aLx() ? y.this.f(context, file) : y.this.g(context, file);
+            public void kU(String str2) {
+                boolean f = com.baidu.swan.apps.ap.c.aOE() ? y.this.f(context, file) : y.this.g(context, file);
                 int i = f ? 0 : 1001;
                 String str3 = f ? "save success" : "can not save to album : " + file;
                 com.baidu.swan.apps.console.c.i("SaveImage", str3);
@@ -104,19 +104,19 @@ public class y extends aa {
     }
 
     private File a(com.baidu.swan.apps.runtime.e eVar, String str, URI uri) {
-        String tB;
-        com.baidu.swan.apps.storage.b.c ayM = com.baidu.swan.apps.v.f.azg().ayM();
+        String ui;
+        com.baidu.swan.apps.storage.b.c aBV = com.baidu.swan.apps.v.f.aCp().aBV();
         if ("bdfile".equalsIgnoreCase(uri.getScheme())) {
-            tB = ayM.tC(str);
-        } else if (com.baidu.swan.apps.ad.a.a.j(eVar.afg())) {
-            tB = ayM.tr(str);
+            ui = aBV.uj(str);
+        } else if (com.baidu.swan.apps.ad.a.a.j(eVar.aio())) {
+            ui = aBV.tY(str);
         } else {
-            tB = ayM.tB(str);
+            ui = aBV.ui(str);
         }
-        if (TextUtils.isEmpty(tB)) {
+        if (TextUtils.isEmpty(ui)) {
             return null;
         }
-        return new File(tB);
+        return new File(ui);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -193,7 +193,7 @@ public class y extends aa {
         decodeFile.recycle();
         File externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         com.baidu.swan.c.d.ensureDirectoryExist(externalStoragePublicDirectory);
-        File file2 = new File(externalStoragePublicDirectory, J(file));
+        File file2 = new File(externalStoragePublicDirectory, I(file));
         if (com.baidu.swan.c.d.copyFile(file, file2) != 0) {
             h(context, file2);
             return true;
@@ -201,10 +201,10 @@ public class y extends aa {
         return false;
     }
 
-    private String J(File file) {
-        String zc = com.baidu.swan.c.d.zc(file.getPath());
+    private String I(File file) {
+        String zJ = com.baidu.swan.c.d.zJ(file.getPath());
         String valueOf = String.valueOf(System.currentTimeMillis());
-        return TextUtils.isEmpty(zc) ? valueOf : valueOf + "." + zc;
+        return TextUtils.isEmpty(zJ) ? valueOf : valueOf + "." + zJ;
     }
 
     private void h(Context context, File file) {

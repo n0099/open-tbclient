@@ -8,7 +8,7 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.File;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class PathUtils {
     private static final boolean DEBUG = false;
     private static final String DIRCTORY_APP = "xxx";
@@ -54,6 +54,7 @@ public final class PathUtils {
         return file.getAbsolutePath();
     }
 
+    @Deprecated
     public static String getImageCacheDirectoryForOthers(Context context) {
         if (TextUtils.isEmpty(sImageCacheDirForOther)) {
             sImageCacheDirForOther = getImageCacheDirForOthers(context);
@@ -61,6 +62,7 @@ public final class PathUtils {
         return sImageCacheDirForOther;
     }
 
+    @Deprecated
     public static String getImageCacheDirectoryBaseForFresco(Context context) {
         if (TextUtils.isEmpty(sImageCacheDirBaseForFresco)) {
             sImageCacheDirBaseForFresco = getCacheDirectory(context);
@@ -68,6 +70,7 @@ public final class PathUtils {
         return sImageCacheDirBaseForFresco;
     }
 
+    @Deprecated
     public static String getImageCacheDirctoryForImageLoader(Context context) {
         if (TextUtils.isEmpty(sImageCacheDirForImageloader)) {
             sImageCacheDirForImageloader = getImageCacheDirForImageLoader(context);
@@ -100,6 +103,7 @@ public final class PathUtils {
         return sCacheDir;
     }
 
+    @Deprecated
     public static boolean deleteDirectory(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
@@ -187,6 +191,7 @@ public final class PathUtils {
         }
     }
 
+    @Deprecated
     public static void deleteOldFiles(Context context) {
         if (TextUtils.equals("mounted", Environment.getExternalStorageState())) {
             SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);

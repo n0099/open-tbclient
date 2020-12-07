@@ -4,31 +4,31 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class b extends Handler {
-    private final d ki;
-    private final int kj;
-    private final a kk;
-    private boolean kl;
-    private boolean km;
+    private boolean kA;
+    private boolean kB;
+    private final d kx;
+    private final int ky;
+    private final a kz;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(a aVar, Looper looper, int i) {
         super(looper);
-        this.km = false;
-        this.kk = aVar;
-        this.kj = i;
-        this.ki = new d();
+        this.kB = false;
+        this.kz = aVar;
+        this.ky = i;
+        this.kx = new d();
     }
 
     public void c(g gVar, Object obj) {
         c d = c.d(gVar, obj);
         synchronized (this) {
-            this.ki.c(d);
-            if (!this.kl) {
-                this.kl = true;
+            this.kx.c(d);
+            if (!this.kA) {
+                this.kA = true;
                 if (!sendMessage(obtainMessage())) {
-                    com.baidu.ar.g.b.aP("Could not send handler message");
+                    com.baidu.ar.h.b.aS("Could not send handler message");
                 }
             }
         }
@@ -38,32 +38,32 @@ public class b extends Handler {
     public void handleMessage(Message message) {
         try {
             long uptimeMillis = SystemClock.uptimeMillis();
-            while (!this.km) {
-                c cI = this.ki.cI();
-                if (cI == null) {
+            while (!this.kB) {
+                c cH = this.kx.cH();
+                if (cH == null) {
                     synchronized (this) {
-                        cI = this.ki.cI();
-                        if (cI == null) {
-                            this.kl = false;
+                        cH = this.kx.cH();
+                        if (cH == null) {
+                            this.kA = false;
                             return;
                         }
                     }
                 }
-                this.kk.a(cI);
-                if (SystemClock.uptimeMillis() - uptimeMillis >= this.kj) {
+                this.kz.a(cH);
+                if (SystemClock.uptimeMillis() - uptimeMillis >= this.ky) {
                     if (!sendMessage(obtainMessage())) {
-                        com.baidu.ar.g.b.aP("Could not send handler message");
+                        com.baidu.ar.h.b.aS("Could not send handler message");
                     }
-                    this.kl = true;
+                    this.kA = true;
                     return;
                 }
             }
         } finally {
-            this.kl = false;
+            this.kA = false;
         }
     }
 
     public void release() {
-        this.km = true;
+        this.kB = true;
     }
 }

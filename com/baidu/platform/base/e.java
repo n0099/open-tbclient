@@ -12,14 +12,13 @@ import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.webkit.internal.ETAG;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public abstract class e {
     private boolean b = true;
     private boolean c = true;
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.platform.util.a f2816a = new com.baidu.platform.util.a();
+    protected com.baidu.platform.util.a f2818a = new com.baidu.platform.util.a();
 
     private String a(SearchType searchType, String str) {
         if (TextUtils.isEmpty(str)) {
@@ -56,7 +55,7 @@ public abstract class e {
         if (location != null) {
             String str2 = str + "\"type\":1,";
             Point ll2point = CoordUtil.ll2point(location);
-            return str2 + "\"xy\":\"" + ll2point.x + Constants.ACCEPT_TIME_SEPARATOR_SP + ll2point.y + "\"}";
+            return str2 + "\"xy\":\"" + ll2point.x + "," + ll2point.y + "\"}";
         } else if (planNode.getName() != null) {
             return (str + "\"type\":2,") + "\"keyword\":\"" + planNode.getName() + "\"}";
         } else {
@@ -77,9 +76,9 @@ public abstract class e {
             authToken = HttpClient.getAuthToken();
         }
         if (this.b) {
-            this.f2816a.a("token", authToken);
+            this.f2818a.a("token", authToken);
         }
-        String a3 = this.f2816a.a();
+        String a3 = this.f2818a.a();
         if (b(searchType)) {
             a3 = a(searchType, a3);
         }

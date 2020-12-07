@@ -3,7 +3,7 @@ package com.vivo.push.b;
 public final class n extends u {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4644a;
+    private int f4414a;
 
     public n() {
         super(2016);
@@ -13,17 +13,17 @@ public final class n extends u {
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("key_dispatch_environment", this.f4644a);
+        aVar.a("key_dispatch_environment", this.f4414a);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.f4644a = aVar.b("key_dispatch_environment", 0);
+        this.f4414a = aVar.b("key_dispatch_environment", 0);
     }
 
     public final int d() {
-        return this.f4644a;
+        return this.f4414a;
     }
 }

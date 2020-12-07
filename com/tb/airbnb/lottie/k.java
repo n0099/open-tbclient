@@ -2,30 +2,30 @@ package com.tb.airbnb.lottie;
 
 import android.graphics.ColorFilter;
 import android.graphics.PointF;
-/* loaded from: classes17.dex */
+/* loaded from: classes20.dex */
 public interface k {
-    public static final Integer BV = 1;
-    public static final Integer BW = 2;
-    public static final Integer BX = 3;
-    public static final Integer BY = 4;
-    public static final PointF BZ = new PointF();
-    public static final PointF Ca = new PointF();
-    public static final PointF Cb = new PointF();
-    public static final PointF Cc = new PointF();
-    public static final com.tb.airbnb.lottie.e.d pJG = new com.tb.airbnb.lottie.e.d();
-    public static final Float Ce = Float.valueOf(1.0f);
-    public static final Float Cf = Float.valueOf(2.0f);
-    public static final Float Cg = Float.valueOf(3.0f);
-    public static final Float Ch = Float.valueOf(4.0f);
-    public static final Float Ci = Float.valueOf(5.0f);
-    public static final Float Cj = Float.valueOf(6.0f);
-    public static final Float Ck = Float.valueOf(7.0f);
-    public static final Float Cl = Float.valueOf(8.0f);
-    public static final Float Cm = Float.valueOf(9.0f);
-    public static final Float Cn = Float.valueOf(10.0f);
-    public static final Float Co = Float.valueOf(11.0f);
-    public static final Float Cp = Float.valueOf(12.0f);
-    public static final Float Cq = Float.valueOf(12.0f);
-    public static final Float Cr = Float.valueOf(13.0f);
-    public static final ColorFilter Cs = new ColorFilter();
+    public static final Integer CN = 1;
+    public static final Integer CO = 2;
+    public static final Integer CP = 3;
+    public static final Integer CQ = 4;
+    public static final PointF CV = new PointF();
+    public static final PointF CW = new PointF();
+    public static final PointF CX = new PointF();
+    public static final PointF CY = new PointF();
+    public static final com.tb.airbnb.lottie.e.d pAK = new com.tb.airbnb.lottie.e.d();
+    public static final Float Da = Float.valueOf(1.0f);
+    public static final Float Db = Float.valueOf(2.0f);
+    public static final Float Dc = Float.valueOf(3.0f);
+    public static final Float Dd = Float.valueOf(4.0f);
+    public static final Float De = Float.valueOf(5.0f);
+    public static final Float Df = Float.valueOf(6.0f);
+    public static final Float Dg = Float.valueOf(7.0f);
+    public static final Float Dh = Float.valueOf(8.0f);
+    public static final Float Di = Float.valueOf(9.0f);
+    public static final Float Dj = Float.valueOf(10.0f);
+    public static final Float Dk = Float.valueOf(11.0f);
+    public static final Float Dl = Float.valueOf(12.0f);
+    public static final Float Dm = Float.valueOf(12.0f);
+    public static final Float Dn = Float.valueOf(13.0f);
+    public static final ColorFilter Do = new ColorFilter();
 }

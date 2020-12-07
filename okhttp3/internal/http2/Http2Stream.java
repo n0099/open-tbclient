@@ -4,8 +4,14 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.net.SocketTimeoutException;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
+import javax.annotation.Nullable;
+import okhttp3.Headers;
+import okhttp3.internal.Util;
+import okhttp3.internal.http2.Header;
 import okio.AsyncTimeout;
 import okio.Buffer;
 import okio.BufferedSource;
@@ -18,12 +24,12 @@ public final class Http2Stream {
     long bytesLeftInWriteWindow;
     final Http2Connection connection;
     private boolean hasResponseHeaders;
+    private Header.Listener headersListener;
     final int id;
-    private final List<Header> requestHeaders;
-    private List<Header> responseHeaders;
     final FramingSink sink;
     private final FramingSource source;
     long unacknowledgedBytesRead = 0;
+    private final Deque<Headers> headersQueue = new ArrayDeque();
     final StreamTimeout readTimeout = new StreamTimeout();
     final StreamTimeout writeTimeout = new StreamTimeout();
     ErrorCode errorCode = null;
@@ -33,12 +39,9 @@ public final class Http2Stream {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Http2Stream(int i, Http2Connection http2Connection, boolean z, boolean z2, List<Header> list) {
+    public Http2Stream(int i, Http2Connection http2Connection, boolean z, boolean z2, @Nullable Headers headers) {
         if (http2Connection == null) {
             throw new NullPointerException("connection == null");
-        }
-        if (list == null) {
-            throw new NullPointerException("requestHeaders == null");
         }
         this.id = i;
         this.connection = http2Connection;
@@ -47,7 +50,15 @@ public final class Http2Stream {
         this.sink = new FramingSink();
         this.source.finished = z2;
         this.sink.finished = z;
-        this.requestHeaders = list;
+        if (headers != null) {
+            this.headersQueue.add(headers);
+        }
+        if (isLocallyInitiated() && headers != null) {
+            throw new IllegalStateException("locally-initiated streams shouldn't have headers yet");
+        }
+        if (!isLocallyInitiated() && headers == null) {
+            throw new IllegalStateException("remotely-initiated streams should have headers");
+        }
     }
 
     public int getId() {
@@ -80,41 +91,31 @@ public final class Http2Stream {
         return this.connection;
     }
 
-    public List<Header> getRequestHeaders() {
-        return this.requestHeaders;
-    }
-
-    public synchronized List<Header> takeResponseHeaders() throws IOException {
-        List<Header> list;
-        if (!isLocallyInitiated()) {
-            throw new IllegalStateException("servers cannot read response headers");
-        }
+    public synchronized Headers takeHeaders() throws IOException {
         this.readTimeout.enter();
-        while (this.responseHeaders == null && this.errorCode == null) {
+        while (this.headersQueue.isEmpty() && this.errorCode == null) {
             waitForIo();
         }
         this.readTimeout.exitAndThrowIfTimedOut();
-        list = this.responseHeaders;
-        if (list != null) {
-            this.responseHeaders = null;
+        if (!this.headersQueue.isEmpty()) {
         } else {
             throw new StreamResetException(this.errorCode);
         }
-        return list;
+        return this.headersQueue.removeFirst();
     }
 
     public synchronized ErrorCode getErrorCode() {
         return this.errorCode;
     }
 
-    public void sendResponseHeaders(List<Header> list, boolean z) throws IOException {
+    public void writeHeaders(List<Header> list, boolean z) throws IOException {
         boolean z2;
         boolean z3;
         if (!$assertionsDisabled && Thread.holdsLock(this)) {
             throw new AssertionError();
         }
         if (list == null) {
-            throw new NullPointerException("responseHeaders == null");
+            throw new NullPointerException("headers == null");
         }
         synchronized (this) {
             this.hasResponseHeaders = true;
@@ -191,25 +192,17 @@ public final class Http2Stream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void receiveHeaders(List<Header> list) {
-        boolean z = true;
+        boolean isOpen;
         if (!$assertionsDisabled && Thread.holdsLock(this)) {
             throw new AssertionError();
         }
         synchronized (this) {
             this.hasResponseHeaders = true;
-            if (this.responseHeaders == null) {
-                this.responseHeaders = list;
-                z = isOpen();
-                notifyAll();
-            } else {
-                ArrayList arrayList = new ArrayList();
-                arrayList.addAll(this.responseHeaders);
-                arrayList.add(null);
-                arrayList.addAll(list);
-                this.responseHeaders = arrayList;
-            }
+            this.headersQueue.add(Util.toHeaders(list));
+            isOpen = isOpen();
+            notifyAll();
         }
-        if (!z) {
+        if (!isOpen) {
             this.connection.removeStream(this.id);
         }
     }
@@ -246,6 +239,13 @@ public final class Http2Stream {
         }
     }
 
+    public synchronized void setHeadersListener(Header.Listener listener) {
+        this.headersListener = listener;
+        if (!this.headersQueue.isEmpty() && listener != null) {
+            notifyAll();
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes15.dex */
     public final class FramingSource implements Source {
@@ -264,33 +264,67 @@ public final class Http2Stream {
             this.maxByteCount = j;
         }
 
+        /* JADX WARN: Code restructure failed: missing block: B:21:0x0059, code lost:
+            throw new java.io.IOException("stream closed");
+         */
         @Override // okio.Source
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public long read(Buffer buffer, long j) throws IOException {
             ErrorCode errorCode;
-            long j2;
+            long read;
+            Header.Listener listener;
+            Headers headers;
             if (j < 0) {
                 throw new IllegalArgumentException("byteCount < 0: " + j);
             }
-            synchronized (Http2Stream.this) {
-                waitUntilReadable();
-                if (this.closed) {
-                    throw new IOException("stream closed");
-                }
-                errorCode = Http2Stream.this.errorCode;
-                if (this.readBuffer.size() > 0) {
-                    j2 = this.readBuffer.read(buffer, Math.min(j, this.readBuffer.size()));
-                    Http2Stream.this.unacknowledgedBytesRead += j2;
-                } else {
-                    j2 = -1;
-                }
-                if (errorCode == null && Http2Stream.this.unacknowledgedBytesRead >= Http2Stream.this.connection.okHttpSettings.getInitialWindowSize() / 2) {
-                    Http2Stream.this.connection.writeWindowUpdateLater(Http2Stream.this.id, Http2Stream.this.unacknowledgedBytesRead);
-                    Http2Stream.this.unacknowledgedBytesRead = 0L;
+            while (true) {
+                synchronized (Http2Stream.this) {
+                    Http2Stream.this.readTimeout.enter();
+                    if (Http2Stream.this.errorCode == null) {
+                        errorCode = null;
+                    } else {
+                        errorCode = Http2Stream.this.errorCode;
+                    }
+                    if (this.closed) {
+                        break;
+                    }
+                    if (!Http2Stream.this.headersQueue.isEmpty() && Http2Stream.this.headersListener != null) {
+                        Headers headers2 = (Headers) Http2Stream.this.headersQueue.removeFirst();
+                        listener = Http2Stream.this.headersListener;
+                        headers = headers2;
+                        read = -1;
+                    } else if (this.readBuffer.size() > 0) {
+                        read = this.readBuffer.read(buffer, Math.min(j, this.readBuffer.size()));
+                        Http2Stream.this.unacknowledgedBytesRead += read;
+                        if (errorCode != null || Http2Stream.this.unacknowledgedBytesRead < Http2Stream.this.connection.okHttpSettings.getInitialWindowSize() / 2) {
+                            listener = null;
+                            headers = null;
+                        } else {
+                            Http2Stream.this.connection.writeWindowUpdateLater(Http2Stream.this.id, Http2Stream.this.unacknowledgedBytesRead);
+                            Http2Stream.this.unacknowledgedBytesRead = 0L;
+                            listener = null;
+                            headers = null;
+                        }
+                    } else if (this.finished || errorCode != null) {
+                        read = -1;
+                        listener = null;
+                        headers = null;
+                    } else {
+                        Http2Stream.this.waitForIo();
+                        Http2Stream.this.readTimeout.exitAndThrowIfTimedOut();
+                    }
+                    Http2Stream.this.readTimeout.exitAndThrowIfTimedOut();
+                    if (headers == null || listener == null) {
+                        break;
+                    }
+                    listener.onHeaders(headers);
                 }
             }
-            if (j2 != -1) {
-                updateConnectionFlowControl(j2);
-                return j2;
+            if (read != -1) {
+                updateConnectionFlowControl(read);
+                return read;
             } else if (errorCode != null) {
                 throw new StreamResetException(errorCode);
             } else {
@@ -305,20 +339,10 @@ public final class Http2Stream {
             Http2Stream.this.connection.updateConnectionFlowControl(j);
         }
 
-        private void waitUntilReadable() throws IOException {
-            Http2Stream.this.readTimeout.enter();
-            while (this.readBuffer.size() == 0 && !this.finished && !this.closed && Http2Stream.this.errorCode == null) {
-                try {
-                    Http2Stream.this.waitForIo();
-                } finally {
-                    Http2Stream.this.readTimeout.exitAndThrowIfTimedOut();
-                }
-            }
-        }
-
         void receive(BufferedSource bufferedSource, long j) throws IOException {
             boolean z;
             boolean z2;
+            long j2;
             if (!$assertionsDisabled && Thread.holdsLock(Http2Stream.this)) {
                 throw new AssertionError();
             }
@@ -341,11 +365,20 @@ public final class Http2Stream {
                     }
                     j -= read;
                     synchronized (Http2Stream.this) {
-                        boolean z3 = this.readBuffer.size() == 0;
-                        this.readBuffer.writeAll(this.receiveBuffer);
-                        if (z3) {
-                            Http2Stream.this.notifyAll();
+                        if (this.closed) {
+                            j2 = this.receiveBuffer.size();
+                            this.receiveBuffer.clear();
+                        } else {
+                            boolean z3 = this.readBuffer.size() == 0;
+                            this.readBuffer.writeAll(this.receiveBuffer);
+                            if (z3) {
+                                Http2Stream.this.notifyAll();
+                            }
+                            j2 = 0;
                         }
+                    }
+                    if (j2 > 0) {
+                        updateConnectionFlowControl(j2);
                     }
                 }
             }
@@ -359,16 +392,31 @@ public final class Http2Stream {
         @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             long size;
+            Header.Listener listener;
+            ArrayList<Headers> arrayList = null;
             synchronized (Http2Stream.this) {
                 this.closed = true;
                 size = this.readBuffer.size();
                 this.readBuffer.clear();
+                if (Http2Stream.this.headersQueue.isEmpty() || Http2Stream.this.headersListener == null) {
+                    listener = null;
+                } else {
+                    ArrayList arrayList2 = new ArrayList(Http2Stream.this.headersQueue);
+                    Http2Stream.this.headersQueue.clear();
+                    arrayList = arrayList2;
+                    listener = Http2Stream.this.headersListener;
+                }
                 Http2Stream.this.notifyAll();
             }
             if (size > 0) {
                 updateConnectionFlowControl(size);
             }
             Http2Stream.this.cancelStreamIfNecessary();
+            if (listener != null) {
+                for (Headers headers : arrayList) {
+                    listener.onHeaders(headers);
+                }
+            }
         }
     }
 
@@ -519,6 +567,7 @@ public final class Http2Stream {
         @Override // okio.AsyncTimeout
         protected void timedOut() {
             Http2Stream.this.closeLater(ErrorCode.CANCEL);
+            Http2Stream.this.connection.sendDegradedPingLater();
         }
 
         @Override // okio.AsyncTimeout

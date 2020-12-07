@@ -7,9 +7,9 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class PersonalTalkSettingViewSettingView extends LinearLayout {
-    private SettingTextSwitchView ksA;
+    private SettingTextSwitchView kFV;
 
     public PersonalTalkSettingViewSettingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -22,23 +22,23 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
-        if (this.ksA != null) {
-            this.ksA.setSwitchStateChangeListener(aVar);
+        if (this.kFV != null) {
+            this.kFV.setSwitchStateChangeListener(aVar);
         }
     }
 
     private void initUI() {
         setOrientation(1);
         inflate(getContext(), R.layout.p2ptalk_setting_detail_view, this);
-        this.ksA = (SettingTextSwitchView) findViewById(R.id.sv_person_msg_notify);
-        ap.setBackgroundColor(this.ksA.getView(), R.color.common_color_10163);
+        this.kFV = (SettingTextSwitchView) findViewById(R.id.sv_person_msg_notify);
+        ap.setBackgroundColor(this.kFV.getView(), R.color.common_color_10163);
     }
 
-    public void sz(boolean z) {
+    public void tb(boolean z) {
         if (z) {
-            this.ksA.turnOn(false);
+            this.kFV.turnOn(false);
         } else {
-            this.ksA.turnOff(false);
+            this.kFV.turnOff(false);
         }
     }
 }

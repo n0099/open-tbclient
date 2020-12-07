@@ -6,7 +6,7 @@ import android.widget.PopupWindow;
 import com.baidu.android.ext.widget.menu.BdMenu;
 import com.baidu.android.ext.widget.menu.BdMenuItem;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class CommonOverflowMenu extends BdMenu {
     private int mDelatX;
     private int mDelatY;

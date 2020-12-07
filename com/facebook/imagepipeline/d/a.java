@@ -1,41 +1,79 @@
 package com.facebook.imagepipeline.d;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-/* loaded from: classes17.dex */
-public class a implements e {
-    private final Executor oWu;
-    private final Executor oWv;
-    private final Executor oWt = Executors.newFixedThreadPool(2, new k(10, "FrescoIoBoundExecutor", true));
-    private final Executor oWw = Executors.newFixedThreadPool(1, new k(10, "FrescoLightWeightBackgroundExecutor", true));
+import com.facebook.common.internal.g;
+import com.facebook.datasource.AbstractDataSource;
+import com.facebook.imagepipeline.producers.aj;
+import com.facebook.imagepipeline.producers.ap;
+import com.facebook.imagepipeline.producers.k;
+import javax.annotation.Nullable;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
+/* loaded from: classes15.dex */
+public abstract class a<T> extends AbstractDataSource<T> {
+    private final com.facebook.imagepipeline.g.c plp;
+    private final ap pmQ;
 
-    public a(int i) {
-        this.oWu = Executors.newFixedThreadPool(i, new k(10, "FrescoDecodeExecutor", true));
-        this.oWv = Executors.newFixedThreadPool(i, new k(10, "FrescoBackgroundExecutor", true));
+    /* JADX INFO: Access modifiers changed from: protected */
+    public a(aj<T> ajVar, ap apVar, com.facebook.imagepipeline.g.c cVar) {
+        this.pmQ = apVar;
+        this.plp = cVar;
+        this.plp.a(apVar.ewv(), this.pmQ.erm(), this.pmQ.getId(), this.pmQ.ewy());
+        ajVar.a(evi(), apVar);
     }
 
-    @Override // com.facebook.imagepipeline.d.e
-    public Executor eoa() {
-        return this.oWt;
+    private k<T> evi() {
+        return new com.facebook.imagepipeline.producers.b<T>() { // from class: com.facebook.imagepipeline.d.a.1
+            @Override // com.facebook.imagepipeline.producers.b
+            protected void g(@Nullable T t, int i) {
+                a.this.g(t, i);
+            }
+
+            @Override // com.facebook.imagepipeline.producers.b
+            protected void D(Throwable th) {
+                a.this.D(th);
+            }
+
+            @Override // com.facebook.imagepipeline.producers.b
+            protected void evj() {
+                a.this.evj();
+            }
+
+            @Override // com.facebook.imagepipeline.producers.b
+            protected void by(float f) {
+                a.this.bq(f);
+            }
+        };
     }
 
-    @Override // com.facebook.imagepipeline.d.e
-    public Executor eob() {
-        return this.oWt;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void g(@Nullable T t, int i) {
+        boolean Rh = com.facebook.imagepipeline.producers.b.Rh(i);
+        if (super.b(t, Rh) && Rh) {
+            this.plp.a(this.pmQ.ewv(), this.pmQ.getId(), this.pmQ.ewy());
+        }
     }
 
-    @Override // com.facebook.imagepipeline.d.e
-    public Executor eoc() {
-        return this.oWu;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void D(Throwable th) {
+        if (super.x(th)) {
+            this.plp.a(this.pmQ.ewv(), this.pmQ.getId(), th, this.pmQ.ewy());
+        }
     }
 
-    @Override // com.facebook.imagepipeline.d.e
-    public Executor eod() {
-        return this.oWv;
+    /* JADX INFO: Access modifiers changed from: private */
+    public synchronized void evj() {
+        g.checkState(isClosed());
     }
 
-    @Override // com.facebook.imagepipeline.d.e
-    public Executor eoe() {
-        return this.oWw;
+    @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
+    public boolean arP() {
+        if (!super.arP()) {
+            return false;
+        }
+        if (!super.isFinished()) {
+            this.plp.Zn(this.pmQ.getId());
+            this.pmQ.cancel();
+        }
+        return true;
     }
 }

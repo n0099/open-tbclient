@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.dynamic;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.mvc.b.c;
 import com.squareup.wire.Message;
@@ -15,7 +15,7 @@ import tbclient.StarTrends.DataRes;
 import tbclient.StarTrends.StarTrendsResIdl;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a implements c {
     public static final Wire WIRE = new Wire(new Class[0]);
     public boolean hasMore;
@@ -23,7 +23,7 @@ public class a implements c {
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public int mErrorNo = 0;
 
-    public StarTrendsResIdl af(byte[] bArr) {
+    public StarTrendsResIdl ah(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -57,17 +57,18 @@ public class a implements c {
             if (!y.isEmpty(dataRes.thread_list)) {
                 for (ThreadInfo threadInfo : dataRes.thread_list) {
                     if (threadInfo != null) {
-                        bx bxVar = new bx();
-                        bxVar.setUserMap(this.userMap);
-                        bxVar.a(threadInfo);
-                        bxVar.bmC();
-                        if (bxVar.getType() == bx.eBR || bxVar.getType() == bx.eCn || bxVar.getType() == bx.eCt || bxVar.getType() == bx.eCo || bxVar.getType() == bx.eCx || bxVar.getType() == bx.eCy) {
-                            this.threadList.add(bxVar);
+                        by byVar = new by();
+                        byVar.setUserMap(this.userMap);
+                        byVar.a(threadInfo);
+                        byVar.bpP();
+                        byVar.bor();
+                        if (byVar.getType() == by.eIS || byVar.getType() == by.eJp || byVar.getType() == by.eJv || byVar.getType() == by.eJq || byVar.getType() == by.eJz || byVar.getType() == by.eJA) {
+                            this.threadList.add(byVar);
                         }
                     }
                 }
             }
-            com.baidu.tbadk.a.a.a.be(this.threadList);
+            com.baidu.tbadk.a.a.a.bh(this.threadList);
             this.hasMore = dataRes.has_more.intValue() == 1;
         }
     }

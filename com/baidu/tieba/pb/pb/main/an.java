@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class an extends o<com.baidu.tieba.pb.data.l, com.baidu.tieba.pb.pb.a.b> {
     public an(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
         super(bVar, bdUniqueId);
@@ -15,7 +15,7 @@ public class an extends o<com.baidu.tieba.pb.data.l, com.baidu.tieba.pb.pb.a.b> 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cj */
+    /* renamed from: cm */
     public com.baidu.tieba.pb.pb.a.b c(ViewGroup viewGroup) {
         return new com.baidu.tieba.pb.pb.a.b(LayoutInflater.from(this.mContext).inflate(R.layout.pb_no_data_item_layout, viewGroup, false), this.mContext);
     }
@@ -26,25 +26,25 @@ public class an extends o<com.baidu.tieba.pb.data.l, com.baidu.tieba.pb.pb.a.b> 
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.l lVar, com.baidu.tieba.pb.pb.a.b bVar) {
         super.a(i, view, viewGroup, (ViewGroup) lVar, (com.baidu.tieba.pb.data.l) bVar);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        bVar.mTextView.setText(lVar.lox);
-        if (lVar.lov != 0) {
-            com.baidu.tbadk.core.util.ap.setImageResource(bVar.mImageView, lVar.lov);
+        bVar.mTextView.setText(lVar.lBT);
+        if (lVar.lBS != 0) {
+            com.baidu.tbadk.core.util.ap.setImageResource(bVar.mImageView, lVar.lBS);
         } else {
             com.baidu.tbadk.core.util.ap.setImageResource(bVar.mImageView, R.drawable.new_pic_emotion_06);
         }
         com.baidu.tbadk.core.util.ap.setViewTextColor(bVar.mTextView, R.color.CAM_X0109);
-        if (lVar.gjk != 0 && view.getLayoutParams() != null) {
-            view.getLayoutParams().height = lVar.gjk;
+        if (lVar.grt != 0 && view.getLayoutParams() != null) {
+            view.getLayoutParams().height = lVar.grt;
         }
-        if (lVar.loy != 0) {
+        if (lVar.lBU != 0) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) bVar.mImageView.getLayoutParams();
-            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, lVar.loy, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
+            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, lVar.lBU, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
         }
-        if (lVar.loz != 0) {
+        if (lVar.lBV != 0) {
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) bVar.mTextView.getLayoutParams();
-            marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.leftMargin, marginLayoutParams2.rightMargin, lVar.loz);
+            marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.leftMargin, marginLayoutParams2.rightMargin, lVar.lBV);
         }
-        bVar.mImageView.setVisibility(lVar.loA);
+        bVar.mImageView.setVisibility(lVar.lBW);
         return view;
     }
 }

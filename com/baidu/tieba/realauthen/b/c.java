@@ -9,7 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    public static String aG(String str, String str2, String str3) {
+    public static String aJ(String str, String str2, String str3) {
         String next;
         if (TextUtils.isEmpty(str)) {
             str = "1200532349";
@@ -41,7 +41,7 @@ public class c {
             } catch (JSONException e3) {
                 e3.printStackTrace();
             }
-            sb.append(URLEncoder.encode(next) + ETAG.EQUAL + URLEncoder.encode(str4) + ETAG.ITEM_SEPARATOR);
+            sb.append(URLEncoder.encode(next) + "=" + URLEncoder.encode(str4) + ETAG.ITEM_SEPARATOR);
         }
         sb.deleteCharAt(sb.length() - 1);
         return sb.toString();

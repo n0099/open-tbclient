@@ -25,7 +25,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class GroupMessageManagerImpl {
     private static Context mContext;
     private static GroupMessageManagerImpl mInstance;

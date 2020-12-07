@@ -1,104 +1,74 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tieba.R;
-import tbclient.BawuThrones;
-/* loaded from: classes20.dex */
-public class x {
-    private TextView cKm;
-    private ImageView hVU;
-    private com.baidu.tbadk.core.dialog.a iLS;
-    private TextView iLT;
-    private boolean mIsChecked;
-    private TextView mTitleView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.data.FeatureCardGod;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPageUserExtend;
+import tbclient.User;
+/* loaded from: classes.dex */
+public class x implements com.baidu.adp.widget.ListView.q {
+    public static final BdUniqueId iWR = BdUniqueId.gen();
+    private List<MetaData> iWO;
+    private int iWN = 0;
+    private String iWP = "本吧都在关注";
+    private boolean iWQ = false;
 
-    public void b(TbPageContext tbPageContext, final String str, final String str2) {
-        if (this.iLS == null || !this.iLS.isShowing()) {
-            this.iLS = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            this.iLS.ov(1);
-            this.iLS.ou(R.color.CAM_X0105);
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
-            this.mTitleView = (TextView) inflate.findViewById(R.id.title);
-            this.mTitleView.setText(R.string.frs_recommend_thread_sure_title);
-            this.cKm = (TextView) inflate.findViewById(R.id.call_fans_intro);
-            BawuThrones cwT = c.cwS().cwT();
-            if (cwT != null) {
-                this.cKm.setText(String.format(tbPageContext.getString(R.string.frs_recommend_thread_sure_content), cwT.bazhu_level, cwT.total_recommend_num, Integer.valueOf(cwT.total_recommend_num.intValue() - cwT.used_recommend_num.intValue())));
-            } else {
-                this.cKm.setText(String.format(tbPageContext.getString(R.string.frs_recommend_thread_sure_content), "D", 2, 2));
+    @Override // com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return iWR;
+    }
+
+    public void a(FrsPageUserExtend frsPageUserExtend) {
+        if (frsPageUserExtend != null && !com.baidu.tbadk.core.util.y.isEmpty(frsPageUserExtend.data)) {
+            List<User> list = frsPageUserExtend.data;
+            this.iWN = frsPageUserExtend.user_extend_storey.intValue();
+            this.iWO = new ArrayList(list.size());
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < list.size()) {
+                    User user = list.get(i2);
+                    if (user != null && user.id.longValue() != 0) {
+                        MetaData metaData = new MetaData();
+                        metaData.parserProtobuf(list.get(i2));
+                        this.iWO.add(metaData);
+                    }
+                    i = i2 + 1;
+                } else {
+                    this.iWP = frsPageUserExtend.tips;
+                    return;
+                }
             }
-            this.hVU = (ImageView) inflate.findViewById(R.id.checkbox);
-            this.iLT = (TextView) inflate.findViewById(R.id.no_tip_again_text);
-            inflate.findViewById(R.id.no_tip_again_group).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.x.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    x.this.mIsChecked = !x.this.mIsChecked;
-                    x.this.bod();
-                }
-            });
-            onChangeSkinType();
-            this.iLS.bg(inflate);
-            this.iLS.a(tbPageContext.getString(R.string.frs_recommend_thread_confirm), new a.b() { // from class: com.baidu.tieba.frs.x.2
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    com.baidu.tbadk.core.sharedPref.b.bpu().putBoolean("key_frs_recommend_tip", !x.this.mIsChecked);
-                    c.cwS().eS(str, str2);
-                    x.this.iLS.dismiss();
-                    x.this.iLS = null;
-                }
-            });
-            this.iLS.b(tbPageContext.getString(R.string.next_time), new a.b() { // from class: com.baidu.tieba.frs.x.3
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    x.this.mIsChecked = false;
-                    x.this.iLS.dismiss();
-                    x.this.iLS = null;
-                }
-            });
-            this.iLS.b(tbPageContext).bog();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bod() {
-        Drawable a2;
-        if (this.hVU != null) {
-            ImageView imageView = this.hVU;
-            if (this.mIsChecked) {
-                a2 = SvgManager.bqB().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
-            } else {
-                a2 = SvgManager.bqB().a(R.drawable.ic_icon_mask_use_check16_svg, null);
-            }
-            imageView.setImageDrawable(a2);
+    public void a(FeatureCardGod featureCardGod) {
+        if (featureCardGod != null && !com.baidu.tbadk.core.util.y.isEmpty(featureCardGod.sub_nodes)) {
+            this.iWN = featureCardGod.floor.intValue();
+            this.iWO = featureCardGod.sub_nodes;
+            this.iWP = featureCardGod.title;
         }
     }
 
-    private void onChangeSkinType() {
-        if (this.mTitleView != null) {
-            com.baidu.tbadk.core.util.ap.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
-        }
-        if (this.cKm != null) {
-            com.baidu.tbadk.core.util.ap.setViewTextColor(this.cKm, R.color.CAM_X0107);
-        }
-        bod();
-        if (this.iLT != null) {
-            com.baidu.tbadk.core.util.ap.setViewTextColor(this.iLT, R.color.CAM_X0107);
-        }
+    public int bqf() {
+        return this.iWN;
     }
 
-    public void onDestory() {
-        this.iLS = null;
-        this.mTitleView = null;
-        this.cKm = null;
-        this.hVU = null;
-        this.iLT = null;
+    public List<MetaData> getUserInfo() {
+        return this.iWO;
+    }
+
+    public String cDV() {
+        return this.iWP;
+    }
+
+    public boolean cDW() {
+        return this.iWQ;
+    }
+
+    public void qh(boolean z) {
+        this.iWQ = z;
     }
 }

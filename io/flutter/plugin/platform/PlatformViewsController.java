@@ -7,9 +7,6 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.UiThread;
-import androidx.annotation.VisibleForTesting;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.systemchannels.PlatformViewsChannel;
 import io.flutter.plugin.editing.TextInputPlugin;
@@ -19,7 +16,7 @@ import io.flutter.view.TextureRegistry;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class PlatformViewsController implements PlatformViewsAccessibilityDelegate {
     private static final int MINIMAL_SDK = 20;
     private static final String TAG = "PlatformViewsController";
@@ -30,20 +27,19 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
     private TextureRegistry textureRegistry;
     private final PlatformViewsChannel.PlatformViewsHandler channelHandler = new AnonymousClass1();
     private final PlatformViewRegistryImpl registry = new PlatformViewRegistryImpl();
-    @VisibleForTesting
     final HashMap<Integer, VirtualDisplayController> vdControllers = new HashMap<>();
     private final AccessibilityEventsDelegate accessibilityEventsDelegate = new AccessibilityEventsDelegate();
     private final HashMap<Context, View> contextToPlatformView = new HashMap<>();
 
     /* renamed from: io.flutter.plugin.platform.PlatformViewsController$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     class AnonymousClass1 implements PlatformViewsChannel.PlatformViewsHandler {
         AnonymousClass1() {
         }
 
         @Override // io.flutter.embedding.engine.systemchannels.PlatformViewsChannel.PlatformViewsHandler
         @TargetApi(17)
-        public long createPlatformView(@NonNull final PlatformViewsChannel.PlatformViewCreationRequest platformViewCreationRequest) {
+        public long createPlatformView(final PlatformViewsChannel.PlatformViewCreationRequest platformViewCreationRequest) {
             ensureValidAndroidVersion();
             if (!PlatformViewsController.validateDirection(platformViewCreationRequest.direction)) {
                 throw new IllegalStateException("Trying to create a view with unknown direction value: " + platformViewCreationRequest.direction + "(view id: " + platformViewCreationRequest.viewId + ")");
@@ -115,7 +111,7 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
         }
 
         @Override // io.flutter.embedding.engine.systemchannels.PlatformViewsChannel.PlatformViewsHandler
-        public void resizePlatformView(@NonNull PlatformViewsChannel.PlatformViewResizeRequest platformViewResizeRequest, @NonNull final Runnable runnable) {
+        public void resizePlatformView(PlatformViewsChannel.PlatformViewResizeRequest platformViewResizeRequest, final Runnable runnable) {
             ensureValidAndroidVersion();
             final VirtualDisplayController virtualDisplayController = PlatformViewsController.this.vdControllers.get(Integer.valueOf(platformViewResizeRequest.viewId));
             if (virtualDisplayController != null) {
@@ -136,7 +132,7 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
         }
 
         @Override // io.flutter.embedding.engine.systemchannels.PlatformViewsChannel.PlatformViewsHandler
-        public void onTouch(@NonNull PlatformViewsChannel.PlatformViewTouch platformViewTouch) {
+        public void onTouch(PlatformViewsChannel.PlatformViewTouch platformViewTouch) {
             ensureValidAndroidVersion();
             float f = PlatformViewsController.this.context.getResources().getDisplayMetrics().density;
             MotionEvent.PointerProperties[] pointerPropertiesArr = (MotionEvent.PointerProperties[]) PlatformViewsController.parsePointerPropertiesList(platformViewTouch.rawPointerPropertiesList).toArray(new MotionEvent.PointerProperties[platformViewTouch.pointerCount]);
@@ -173,7 +169,7 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
         }
     }
 
-    public void attach(Context context, TextureRegistry textureRegistry, @NonNull DartExecutor dartExecutor) {
+    public void attach(Context context, TextureRegistry textureRegistry, DartExecutor dartExecutor) {
         if (this.context != null) {
             throw new AssertionError("A PlatformViewsController can only be attached to a single output target.\nattach was called while the PlatformViewsController was already attached.");
         }
@@ -183,7 +179,6 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
         this.platformViewsChannel.setPlatformViewsHandler(this.channelHandler);
     }
 
-    @UiThread
     public void detach() {
         this.platformViewsChannel.setPlatformViewsHandler(null);
         this.platformViewsChannel = null;
@@ -191,7 +186,7 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
         this.textureRegistry = null;
     }
 
-    public void attachToView(@NonNull View view) {
+    public void attachToView(View view) {
         this.flutterView = view;
         for (VirtualDisplayController virtualDisplayController : this.vdControllers.values()) {
             virtualDisplayController.onFlutterViewAttached(view);
@@ -256,7 +251,7 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lockInputConnection(@NonNull VirtualDisplayController virtualDisplayController) {
+    public void lockInputConnection(VirtualDisplayController virtualDisplayController) {
         if (this.textInputPlugin != null) {
             this.textInputPlugin.lockPlatformViewInputConnection();
             virtualDisplayController.onInputConnectionLocked();
@@ -264,7 +259,7 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void unlockInputConnection(@NonNull VirtualDisplayController virtualDisplayController) {
+    public void unlockInputConnection(VirtualDisplayController virtualDisplayController) {
         if (this.textInputPlugin != null) {
             this.textInputPlugin.unlockPlatformViewInputConnection();
             virtualDisplayController.onInputConnectionUnlocked();

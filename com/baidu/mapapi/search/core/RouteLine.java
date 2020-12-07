@@ -8,11 +8,11 @@ import com.baidu.mapapi.search.route.DrivingRouteLine;
 import com.baidu.mapapi.search.route.TransitRouteLine;
 import com.baidu.mapapi.search.route.WalkingRouteLine;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class RouteLine<T extends RouteStep> implements Parcelable {
 
     /* renamed from: a  reason: collision with root package name */
-    TYPE f2105a;
+    TYPE f2107a;
     private RouteNode b;
     private RouteNode c;
     private String d;
@@ -21,7 +21,7 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
     private int g;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public enum TYPE {
         DRIVESTEP(0),
         TRANSITSTEP(1),
@@ -30,15 +30,15 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2106a;
+        private int f2108a;
 
         TYPE(int i) {
-            this.f2106a = i;
+            this.f2108a = i;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
-            return this.f2106a;
+            return this.f2108a;
         }
     }
 
@@ -100,7 +100,7 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
     }
 
     protected TYPE getType() {
-        return this.f2105a;
+        return this.f2107a;
     }
 
     public void setDistance(int i) {
@@ -129,20 +129,20 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setType(TYPE type) {
-        this.f2105a = type;
+        this.f2107a = type;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        if (this.f2105a != null) {
-            parcel.writeInt(this.f2105a.a());
+        if (this.f2107a != null) {
+            parcel.writeInt(this.f2107a.a());
         } else {
             parcel.writeInt(10);
         }
         parcel.writeValue(this.b);
         parcel.writeValue(this.c);
         parcel.writeString(this.d);
-        if (this.f2105a != null) {
+        if (this.f2107a != null) {
             parcel.writeTypedList(this.e);
         }
         parcel.writeInt(this.f);

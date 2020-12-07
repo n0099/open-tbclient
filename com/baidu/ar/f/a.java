@@ -6,27 +6,25 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import java.util.LinkedList;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a implements SensorEventListener {
     private Context mContext;
-    private SensorManager rq;
-    private Sensor ve;
-    private InterfaceC0083a vf;
-    private boolean vg = true;
-    private LinkedList<Double> vh = new LinkedList<>();
-
-    /* renamed from: vi  reason: collision with root package name */
-    private LinkedList<Float> f1194vi = new LinkedList<>();
-    private LinkedList<Float> vj = new LinkedList<>();
-    private LinkedList<Float> vk = new LinkedList<>();
-    private int vl = 10;
-    private double vm = 0.0d;
-    private boolean vn = true;
-    private boolean vo = false;
+    private SensorManager rH;
+    private Sensor vS;
+    private InterfaceC0085a vT;
+    private boolean vU = true;
+    private LinkedList<Double> vV = new LinkedList<>();
+    private LinkedList<Float> vW = new LinkedList<>();
+    private LinkedList<Float> vX = new LinkedList<>();
+    private LinkedList<Float> vY = new LinkedList<>();
+    private int vZ = 10;
+    private double wa = 0.0d;
+    private boolean wb = true;
+    private boolean wc = false;
 
     /* renamed from: com.baidu.ar.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    public interface InterfaceC0083a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0085a {
         void b(float f, float f2, float f3, float f4);
 
         void destroy();
@@ -36,23 +34,23 @@ public class a implements SensorEventListener {
         this.mContext = context;
     }
 
-    public void U(boolean z) {
-        this.vg = z;
+    public void S(boolean z) {
+        this.vU = z;
     }
 
-    public void a(InterfaceC0083a interfaceC0083a) {
-        this.vf = interfaceC0083a;
+    public void a(InterfaceC0085a interfaceC0085a) {
+        this.vT = interfaceC0085a;
     }
 
     public void a(LinkedList linkedList, double d) {
-        if (linkedList.size() >= this.vl) {
+        if (linkedList.size() >= this.vZ) {
             linkedList.poll();
         }
         linkedList.offer(Double.valueOf(d));
     }
 
     public void a(LinkedList linkedList, float f) {
-        if (linkedList.size() >= this.vl) {
+        if (linkedList.size() >= this.vZ) {
             linkedList.poll();
         }
         linkedList.offer(Float.valueOf(f));
@@ -60,15 +58,15 @@ public class a implements SensorEventListener {
 
     public void b(float f, float f2, float f3) {
         double sqrt = Math.sqrt((f * f) + (f2 * f2) + (f3 * f3));
-        if (sqrt > this.vm) {
-            this.vm = sqrt;
+        if (sqrt > this.wa) {
+            this.wa = sqrt;
         }
-        com.baidu.ar.g.b.aN("max acc is : " + this.vm);
-        a(this.vh, sqrt);
-        a((LinkedList) this.f1194vi, Math.abs(f));
-        a((LinkedList) this.vj, Math.abs(f2));
-        a((LinkedList) this.vk, Math.abs(f3));
-        if (this.vh.size() == this.vl) {
+        com.baidu.ar.h.b.aQ("max acc is : " + this.wa);
+        a(this.vV, sqrt);
+        a((LinkedList) this.vW, Math.abs(f));
+        a((LinkedList) this.vX, Math.abs(f2));
+        a((LinkedList) this.vY, Math.abs(f3));
+        if (this.vV.size() == this.vZ) {
             int i = 0;
             double d = 0.0d;
             float f4 = 0.0f;
@@ -76,40 +74,40 @@ public class a implements SensorEventListener {
             float f6 = 0.0f;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.vh.size()) {
+                if (i2 >= this.vV.size()) {
                     break;
                 }
-                d += this.vh.get(i2).doubleValue();
-                f4 += this.f1194vi.get(i2).floatValue();
-                f5 += this.vj.get(i2).floatValue();
-                f6 += this.vk.get(i2).floatValue();
+                d += this.vV.get(i2).doubleValue();
+                f4 += this.vW.get(i2).floatValue();
+                f5 += this.vX.get(i2).floatValue();
+                f6 += this.vY.get(i2).floatValue();
                 i = i2 + 1;
             }
-            double d2 = d / this.vl;
-            float f7 = f4 / this.vl;
-            float f8 = f5 / this.vl;
-            float f9 = f6 / this.vl;
-            if (this.vo) {
-                if (this.vn) {
+            double d2 = d / this.vZ;
+            float f7 = f4 / this.vZ;
+            float f8 = f5 / this.vZ;
+            float f9 = f6 / this.vZ;
+            if (this.wc) {
+                if (this.wb) {
                     if (d2 > 10.0d) {
-                        this.vn = false;
+                        this.wb = false;
                     }
                 } else if (d2 < 10.0d) {
-                    this.vn = true;
-                    if (this.vf != null) {
-                        this.vf.b(f7, f8, f9, (float) this.vm);
-                        this.vm = 0.0d;
+                    this.wb = true;
+                    if (this.vT != null) {
+                        this.vT.b(f7, f8, f9, (float) this.wa);
+                        this.wa = 0.0d;
                     }
                 }
-            } else if (this.vn) {
+            } else if (this.wb) {
                 if (d2 > 5.0d) {
-                    this.vn = false;
+                    this.wb = false;
                 }
             } else if (d2 < 5.0d) {
-                this.vn = true;
-                if (this.vf != null) {
-                    this.vf.b(f7, f8, f9, (float) this.vm);
-                    this.vm = 0.0d;
+                this.wb = true;
+                if (this.vT != null) {
+                    this.vT.b(f7, f8, f9, (float) this.wa);
+                    this.wa = 0.0d;
                 }
             }
         }
@@ -121,39 +119,39 @@ public class a implements SensorEventListener {
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
-        if (this.vg) {
+        if (this.vU) {
             float f = sensorEvent.values[0];
             float f2 = sensorEvent.values[1];
             float f3 = sensorEvent.values[2];
             b(f, f2, f3);
-            com.baidu.ar.g.b.aN("acc  x : " + f + " , y : " + f2 + ", z : " + f3);
+            com.baidu.ar.h.b.aQ("acc  x : " + f + " , y : " + f2 + ", z : " + f3);
         }
     }
 
     public void start() {
-        this.rq = (SensorManager) this.mContext.getSystemService("sensor");
-        if (this.rq != null) {
-            this.ve = this.rq.getDefaultSensor(10);
-            if (this.ve == null) {
-                this.ve = this.rq.getDefaultSensor(1);
-                this.vo = true;
+        this.rH = (SensorManager) this.mContext.getSystemService("sensor");
+        if (this.rH != null) {
+            this.vS = this.rH.getDefaultSensor(10);
+            if (this.vS == null) {
+                this.vS = this.rH.getDefaultSensor(1);
+                this.wc = true;
             }
         }
-        if (this.ve == null || this.rq == null) {
+        if (this.vS == null || this.rH == null) {
             return;
         }
-        this.rq.registerListener(this, this.ve, 1);
+        this.rH.registerListener(this, this.vS, 1);
     }
 
     public void stop() {
-        if (this.vf != null) {
-            this.vf.destroy();
-            this.vf = null;
+        if (this.vT != null) {
+            this.vT.destroy();
+            this.vT = null;
         }
-        if (this.rq != null) {
-            this.rq.unregisterListener(this);
-            this.rq = null;
+        if (this.rH != null) {
+            this.rH.unregisterListener(this);
+            this.rH = null;
         }
-        this.vo = false;
+        this.wc = false;
     }
 }

@@ -3,7 +3,7 @@ package okio;
 import java.io.IOException;
 import java.util.zip.CRC32;
 import java.util.zip.Deflater;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class GzipSink implements Sink {
     private boolean closed;
     private final CRC32 crc = new CRC32();
@@ -75,7 +75,7 @@ public final class GzipSink implements Sink {
         }
     }
 
-    public Deflater deflater() {
+    public final Deflater deflater() {
         return this.deflater;
     }
 

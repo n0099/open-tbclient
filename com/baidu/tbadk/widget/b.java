@@ -8,15 +8,15 @@ import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class b extends ImageSpan {
-    private int fAh;
+    private int fHW;
     private WeakReference<Drawable> mDrawableRef;
     private int verticalOffset;
 
     public b(Drawable drawable, int i) {
         super(drawable);
         this.verticalOffset = 0;
-        this.fAh = 1;
-        this.fAh = i;
+        this.fHW = 1;
+        this.fHW = i;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
@@ -45,7 +45,7 @@ public class b extends ImageSpan {
         Drawable cachedDrawable;
         float f2;
         if (getCachedDrawable() != null) {
-            switch (this.fAh) {
+            switch (this.fHW) {
                 case 0:
                     f2 = 0.1f;
                     break;

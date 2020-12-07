@@ -3,7 +3,7 @@ package com.baidu.down.request.taskmanager;
 import android.util.Log;
 import java.util.LinkedList;
 import java.util.Queue;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class ByteArrayInfoMng {
     private static final boolean DEBUG = false;
     private static final String TAG = "ByteArrayInfoMng";

@@ -2,8 +2,8 @@ package kotlin.jvm.internal;
 
 import java.io.Serializable;
 @Deprecated
-/* loaded from: classes9.dex */
-public abstract class FunctionImpl implements Serializable, kotlin.c, kotlin.jvm.a.a, kotlin.jvm.a.b, kotlin.jvm.a.c, kotlin.jvm.a.d, kotlin.jvm.a.e, kotlin.jvm.a.f, kotlin.jvm.a.g, kotlin.jvm.a.h, kotlin.jvm.a.i, kotlin.jvm.a.j, kotlin.jvm.a.k, kotlin.jvm.a.l, kotlin.jvm.a.m, kotlin.jvm.a.n, kotlin.jvm.a.o, kotlin.jvm.a.p, kotlin.jvm.a.q, kotlin.jvm.a.r, kotlin.jvm.a.s, kotlin.jvm.a.t, kotlin.jvm.a.u, kotlin.jvm.a.v, kotlin.jvm.a.w {
+/* loaded from: classes17.dex */
+public abstract class FunctionImpl implements Serializable, kotlin.jvm.a.a, kotlin.jvm.a.b, kotlin.jvm.a.c, kotlin.jvm.a.d {
     public abstract int getArity();
 
     public Object invokeVararg(Object... objArr) {
@@ -32,7 +32,7 @@ public abstract class FunctionImpl implements Serializable, kotlin.c, kotlin.jvm
         return invokeVararg(obj);
     }
 
-    @Override // kotlin.jvm.a.m
+    @Override // kotlin.jvm.a.c
     public Object invoke(Object obj, Object obj2) {
         checkArity(2);
         return invokeVararg(obj, obj2);
@@ -43,7 +43,7 @@ public abstract class FunctionImpl implements Serializable, kotlin.c, kotlin.jvm
         return invokeVararg(obj, obj2, obj3);
     }
 
-    @Override // kotlin.jvm.a.r
+    @Override // kotlin.jvm.a.d
     public Object invoke(Object obj, Object obj2, Object obj3, Object obj4) {
         checkArity(4);
         return invokeVararg(obj, obj2, obj3, obj4);

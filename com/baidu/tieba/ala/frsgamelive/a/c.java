@@ -8,9 +8,9 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.ala.frsgamelive.c.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.gamelist.b.a, c.a> {
-    private com.baidu.tieba.ala.f gCi;
+    private com.baidu.tieba.ala.f gLf;
     private String labelName;
     private TbPageContext<?> mPageContext;
 
@@ -34,24 +34,24 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.gamel
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.gamelist.b.a aVar, c.a aVar2) {
-        aVar2.gDz.a(aVar);
-        aVar2.gDz.c(this.gCi);
+        aVar2.gMw.a(aVar);
+        aVar2.gMw.c(this.gLf);
         String str = "";
-        if (!StringUtils.isNull(aVar.gEr.blW().appId)) {
-            str = aVar.gEr.blW().appId;
+        if (!StringUtils.isNull(aVar.gNo.bpj().appId)) {
+            str = aVar.gNo.bpj().appId;
         }
-        com.baidu.tieba.ala.c.bLH().e(new ar("c12115").w("obj_id", aVar.gEr.blW().live_id).dR(TiebaInitialize.Params.OBJ_PARAM3, str));
-        if (aVar.gEs != null) {
+        com.baidu.tieba.ala.c.bPq().e(new ar("c12115").w("obj_id", aVar.gNo.bpj().live_id).dY(TiebaInitialize.Params.OBJ_PARAM3, str));
+        if (aVar.gNp != null) {
             String str2 = "";
-            if (!StringUtils.isNull(aVar.gEs.blW().appId)) {
-                str2 = aVar.gEs.blW().appId;
+            if (!StringUtils.isNull(aVar.gNp.bpj().appId)) {
+                str2 = aVar.gNp.bpj().appId;
             }
-            com.baidu.tieba.ala.c.bLH().e(new ar("c12115").w("obj_id", aVar.gEs.blW().live_id).dR(TiebaInitialize.Params.OBJ_PARAM3, str2));
+            com.baidu.tieba.ala.c.bPq().e(new ar("c12115").w("obj_id", aVar.gNp.bpj().live_id).dY(TiebaInitialize.Params.OBJ_PARAM3, str2));
         }
         return aVar2.getView();
     }
 
     public void a(com.baidu.tieba.ala.f fVar) {
-        this.gCi = fVar;
+        this.gLf = fVar;
     }
 }

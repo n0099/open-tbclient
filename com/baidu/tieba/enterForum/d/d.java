@@ -6,35 +6,35 @@ import com.baidu.card.view.RecommendForumLayout;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bl;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class d {
-    private RecommendForumLayout itu;
+    private RecommendForumLayout iEm;
     private TbPageContext<?> mPageContext;
-    private View.OnClickListener ire = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.d.d.1
+    private View.OnClickListener iBW = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.d.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             com.baidu.tieba.enterForum.b.d(d.this.mPageContext, null);
         }
     };
-    private PullLeftRefreshLayout.a alx = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.enterForum.d.d.2
+    private PullLeftRefreshLayout.a amx = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.enterForum.d.d.2
         @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-        public void bEy() {
+        public void bHZ() {
             com.baidu.tieba.enterForum.b.d(d.this.mPageContext, null);
         }
     };
-    private com.baidu.tbadk.h.f aiR = new com.baidu.tbadk.h.f<bj>() { // from class: com.baidu.tieba.enterForum.d.d.3
+    private com.baidu.tbadk.h.f ajQ = new com.baidu.tbadk.h.f<bk>() { // from class: com.baidu.tieba.enterForum.d.d.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.h.f
-        public void a(View view, bj bjVar, int i, long j) {
-            if (bjVar == null) {
+        public void a(View view, bk bkVar, int i, long j) {
+            if (bkVar == null) {
                 com.baidu.tieba.enterForum.b.d(d.this.mPageContext, null);
                 return;
             }
-            String forumName = bjVar.getForumName();
+            String forumName = bkVar.getForumName();
             if (au.isForumName(forumName)) {
                 d.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(d.this.mPageContext.getPageActivity()).createNormalCfg(forumName, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
             }
@@ -42,27 +42,27 @@ public class d {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.h.f
-        public void b(View view, bj bjVar, int i, long j) {
+        public void b(View view, bk bkVar, int i, long j) {
         }
     };
 
     public d(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.itu = new RecommendForumLayout(tbPageContext);
-        this.itu.setShowMore(true);
-        this.itu.setSquareEntranceAtStart(true);
-        this.itu.setTabName(null);
-        this.itu.setFrom(0);
-        this.itu.setOnClickRightArrowListener(this.ire);
-        this.itu.setOnRullOkCallbackr(this.alx);
-        this.itu.setOnItemCoverListener(this.aiR);
+        this.iEm = new RecommendForumLayout(tbPageContext);
+        this.iEm.setShowMore(true);
+        this.iEm.setSquareEntranceAtStart(true);
+        this.iEm.setTabName(null);
+        this.iEm.setFrom(0);
+        this.iEm.setOnClickRightArrowListener(this.iBW);
+        this.iEm.setOnRullOkCallbackr(this.amx);
+        this.iEm.setOnItemCoverListener(this.ajQ);
     }
 
-    public RecommendForumLayout ctp() {
-        return this.itu;
+    public RecommendForumLayout cxE() {
+        return this.iEm;
     }
 
-    public void d(bk bkVar) {
-        this.itu.b(bkVar);
+    public void d(bl blVar) {
+        this.iEm.b(blVar);
     }
 }

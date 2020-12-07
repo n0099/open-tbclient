@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
-import com.baidu.live.data.be;
+import com.baidu.live.data.bf;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
@@ -15,8 +15,8 @@ import com.baidu.live.tbadk.data.Config;
 /* loaded from: classes4.dex */
 public class c {
     private Context context;
-    private a hBw;
-    private b hBx;
+    private a hLb;
+    private b hLc;
     private boolean hasMore;
     private TbPageContext mTbPageContext;
     private int pn = 0;
@@ -39,10 +39,10 @@ public class c {
         this.pn = i;
     }
 
-    public void c(int i, String str, String str2) {
+    public void e(int i, String str, String str2) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.hBw != null) {
-                this.hBw.onFail(this.context.getResources().getString(a.h.sdk_no_network));
+            if (this.hLb != null) {
+                this.hLb.onFail(this.context.getResources().getString(a.h.sdk_no_network));
                 return;
             }
             return;
@@ -54,21 +54,21 @@ public class c {
             this.url = TbConfig.SERVER_ADDRESS + "ala/user/followList";
         }
         this.pn++;
-        this.hBx = new b();
-        this.hBx.execute(str, str2);
+        this.hLc = new b();
+        this.hLc.execute(str, str2);
     }
 
     public void cancel() {
-        if (this.hBx != null && !this.hBx.isCancelled()) {
-            this.hBx.cancel();
+        if (this.hLc != null && !this.hLc.isCancelled()) {
+            this.hLc.cancel();
         }
-        if (this.hBw != null) {
-            this.hBw.onFail(null);
+        if (this.hLb != null) {
+            this.hLb.onFail(null);
         }
     }
 
     public void a(a aVar) {
-        this.hBw = aVar;
+        this.hLb = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -121,8 +121,8 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (c.this.hBw != null) {
-                c.this.hBw.c((com.baidu.tieba.ala.person.a.c) obj);
+            if (c.this.hLb != null) {
+                c.this.hLb.c((com.baidu.tieba.ala.person.a.c) obj);
             }
         }
     }
@@ -130,10 +130,10 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, com.baidu.tieba.ala.person.a.c cVar) {
         if (cVar != null && cVar.user_list != null && !cVar.user_list.isEmpty()) {
-            for (be beVar : cVar.user_list) {
+            for (bf bfVar : cVar.user_list) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.equals(str)) {
-                    beVar.aNb = 1;
+                    bfVar.aQa = 1;
                 }
             }
         }

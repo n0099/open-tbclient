@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.shield.request;
 
 import android.content.Context;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public static final String TAG = "IMGetSubscriptionRequest";
 
@@ -43,7 +44,7 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
             JSONObject jSONObject = new JSONObject(str4);
             int optInt = jSONObject.optInt("error_code");
             if (optInt == 0) {
-                str5 = jSONObject.optString("error_msg", "");
+                str5 = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
                 j2 = jSONObject.optLong("pa_uid");
                 str6 = jSONObject.optString("pa_avatar");
                 str7 = jSONObject.optString("pa_nickname");

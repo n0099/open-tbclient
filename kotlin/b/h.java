@@ -1,21 +1,22 @@
 package kotlin.b;
 
 import com.baidu.android.common.others.IStringUtil;
-@kotlin.h
-/* loaded from: classes9.dex */
+import kotlin.jvm.internal.o;
+@kotlin.e
+/* loaded from: classes17.dex */
 public final class h extends f {
-    public static final a pUF = new a(null);
-    private static final h pUE = new h(1, 0);
+    public static final a pKT = new a(null);
+    private static final h pKS = new h(1, 0);
 
     public h(int i, int i2) {
         super(i, i2, 1);
     }
 
-    public Integer eCc() {
+    public Integer eEi() {
         return Integer.valueOf(getFirst());
     }
 
-    public Integer eCd() {
+    public Integer eEj() {
         return Integer.valueOf(getLast());
     }
 
@@ -39,21 +40,21 @@ public final class h extends f {
 
     @Override // kotlin.b.f
     public String toString() {
-        return getFirst() + IStringUtil.TOP_PATH + getLast();
+        return "" + getFirst() + IStringUtil.TOP_PATH + getLast();
     }
 
-    @kotlin.h
-    /* loaded from: classes9.dex */
+    @kotlin.e
+    /* loaded from: classes17.dex */
     public static final class a {
         private a() {
         }
 
-        public /* synthetic */ a(kotlin.jvm.internal.o oVar) {
+        public /* synthetic */ a(o oVar) {
             this();
         }
 
-        public final h eCf() {
-            return h.pUE;
+        public final h eEl() {
+            return h.pKS;
         }
     }
 }

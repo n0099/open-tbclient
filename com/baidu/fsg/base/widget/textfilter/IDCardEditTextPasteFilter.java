@@ -1,11 +1,11 @@
 package com.baidu.fsg.base.widget.textfilter;
 
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class IDCardEditTextPasteFilter implements IEditTextPasteFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1562a = IDCardEditTextPasteFilter.class.getSimpleName();
+    private static final String f1564a = IDCardEditTextPasteFilter.class.getSimpleName();
 
     @Override // com.baidu.fsg.base.widget.textfilter.IEditTextPasteFilter
     public String intercept(String str) {

@@ -14,35 +14,35 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class g extends com.baidu.tieba.yuyinala.liveroom.a {
-    private w aDh;
-    public PlayIntroduceView nYz;
+    private w aFN;
+    public PlayIntroduceView onz;
 
     public g(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
-    public void U(w wVar) {
-        this.aDh = wVar;
+    public void Z(w wVar) {
+        this.aFN = wVar;
     }
 
-    public void cCd() {
-        if (this.nYz != null) {
-            this.nYz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.g.1
+    public void cGw() {
+        if (this.onz != null) {
+            this.onz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.g.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    new d(g.this.getPageContext().getPageActivity()).X(g.this.aDh);
-                    g.this.dYf();
+                    new d(g.this.getPageContext().getPageActivity()).ac(g.this.aFN);
+                    g.this.edJ();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dYf() {
+    public void edJ() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aDh.aHZ.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aFN.aKL.croom_id);
         } catch (Exception e) {
             BdLog.e(e);
         }
@@ -56,44 +56,44 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.a {
     }
 
     private void aB(ViewGroup viewGroup) {
-        if (this.nYz != null && this.nYz.getParent() != null) {
-            ((ViewGroup) this.nYz.getParent()).removeView(this.nYz);
+        if (this.onz != null && this.onz.getParent() != null) {
+            ((ViewGroup) this.onz.getParent()).removeView(this.onz);
         }
-        if (this.nYz == null) {
-            this.nYz = new PlayIntroduceView(getPageContext().getPageActivity());
+        if (this.onz == null) {
+            this.onz = new PlayIntroduceView(getPageContext().getPageActivity());
         }
-        this.nYz.setId(a.f.ala_liveroom_play_introduce);
+        this.onz.setId(a.f.ala_liveroom_play_introduce);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(1, a.f.ala_liveroom_charm_rank);
         layoutParams.addRule(3, a.f.ala_liveroom_hostheader);
         layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds19);
         layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds14);
-        viewGroup.addView(this.nYz, layoutParams);
+        viewGroup.addView(this.onz, layoutParams);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void CD() {
-        super.CD();
-        if (this.nYz != null && this.nYz.getParent() != null) {
-            ((ViewGroup) this.nYz.getParent()).removeView(this.nYz);
+    public void En() {
+        super.En();
+        if (this.onz != null && this.onz.getParent() != null) {
+            ((ViewGroup) this.onz.getParent()).removeView(this.onz);
         }
-        if (this.nYz != null) {
-            this.nYz.destory();
-            this.nYz = null;
+        if (this.onz != null) {
+            this.onz.destory();
+            this.onz = null;
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        if (this.nYz != null) {
-            this.nYz.destory();
-            this.nYz = null;
+        if (this.onz != null) {
+            this.onz.destory();
+            this.onz = null;
         }
     }
 
-    public void cgu() {
+    public void cko() {
     }
 
-    public void cgv() {
+    public void ckp() {
     }
 }

@@ -20,7 +20,7 @@ import android.widget.TextView;
 import java.lang.ref.WeakReference;
 import java.util.Locale;
 @ViewPager.DecorView
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class PagerTitleStrip extends ViewGroup {
     private static final float SIDE_ALPHA = 0.6f;
     private static final int TEXT_SPACING = 16;
@@ -42,7 +42,7 @@ public class PagerTitleStrip extends ViewGroup {
     private static final int[] TEXT_ATTRS = {16843660};
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes11.dex */
     public static class SingleLineAllCapsTransform extends SingleLineTransformationMethod {
         private Locale mLocale;
 
@@ -136,7 +136,7 @@ public class PagerTitleStrip extends ViewGroup {
 
     public void setNonPrimaryAlpha(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         this.mNonPrimaryAlpha = ((int) (255.0f * f)) & 255;
-        int i = (this.mNonPrimaryAlpha << 24) | (this.mTextColor & 16777215);
+        int i = (this.mNonPrimaryAlpha << 24) | (this.mTextColor & ViewCompat.MEASURED_SIZE_MASK);
         this.mPrevText.setTextColor(i);
         this.mNextText.setTextColor(i);
     }
@@ -144,7 +144,7 @@ public class PagerTitleStrip extends ViewGroup {
     public void setTextColor(@ColorInt int i) {
         this.mTextColor = i;
         this.mCurrText.setTextColor(i);
-        int i2 = (this.mNonPrimaryAlpha << 24) | (this.mTextColor & 16777215);
+        int i2 = (this.mNonPrimaryAlpha << 24) | (this.mTextColor & ViewCompat.MEASURED_SIZE_MASK);
         this.mPrevText.setTextColor(i2);
         this.mNextText.setTextColor(i2);
     }
@@ -335,7 +335,7 @@ public class PagerTitleStrip extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes11.dex */
     public class PageListener extends DataSetObserver implements ViewPager.OnAdapterChangeListener, ViewPager.OnPageChangeListener {
         private int mScrollState;
 

@@ -7,7 +7,7 @@ public class ax {
     private static final ax c = new ax();
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2571a = false;
+    private boolean f2573a = false;
     private volatile boolean b;
 
     public static ax a() {
@@ -18,7 +18,7 @@ public class ax {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = (JSONObject) new JSONObject(str).opt("full");
-                this.f2571a = (jSONObject != null ? jSONObject.optInt("close") : 0) != 0;
+                this.f2573a = (jSONObject != null ? jSONObject.optInt("close") : 0) != 0;
             } catch (Exception e) {
             }
             this.b = true;
@@ -26,6 +26,6 @@ public class ax {
     }
 
     public boolean b() {
-        return this.f2571a;
+        return this.f2573a;
     }
 }

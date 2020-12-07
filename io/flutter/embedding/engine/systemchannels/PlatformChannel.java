@@ -2,9 +2,6 @@ package io.flutter.embedding.engine.systemchannels;
 
 import android.graphics.Rect;
 import android.support.v4.view.ViewCompat;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.widget.HorizontalTranslateLayout;
 import com.baidu.live.adp.widget.VerticalTranslateLayout;
@@ -19,13 +16,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class PlatformChannel {
     private static final String TAG = "PlatformChannel";
-    @NonNull
     public final MethodChannel channel;
-    @NonNull
-    @VisibleForTesting
     protected final MethodChannel.MethodCallHandler parsingMethodCallHandler = new MethodChannel.MethodCallHandler() { // from class: io.flutter.embedding.engine.systemchannels.PlatformChannel.1
         /* JADX WARN: Removed duplicated region for block: B:93:0x0240 A[Catch: JSONException -> 0x003e, TryCatch #10 {JSONException -> 0x003e, blocks: (B:6:0x0030, B:7:0x0034, B:8:0x0037, B:9:0x003a, B:49:0x00ea, B:54:0x010d, B:73:0x019f, B:79:0x01d3, B:80:0x01e2, B:82:0x01ee, B:83:0x01fa, B:84:0x0205, B:86:0x0209, B:87:0x0215, B:88:0x022c, B:90:0x0230, B:91:0x0234, B:93:0x0240, B:97:0x026e, B:95:0x0251, B:98:0x0274, B:52:0x0100, B:57:0x0123, B:62:0x0148, B:67:0x016d, B:72:0x0192, B:78:0x01c6, B:13:0x005e, B:16:0x0069, B:19:0x0074, B:22:0x007f, B:25:0x008a, B:28:0x0095, B:31:0x00a0, B:34:0x00ab, B:37:0x00b6, B:40:0x00c3, B:43:0x00d0, B:46:0x00dd, B:64:0x0155), top: B:114:0x0030, inners: #5, #6, #8, #9 }] */
         /* JADX WARN: Removed duplicated region for block: B:97:0x026e A[Catch: JSONException -> 0x003e, TryCatch #10 {JSONException -> 0x003e, blocks: (B:6:0x0030, B:7:0x0034, B:8:0x0037, B:9:0x003a, B:49:0x00ea, B:54:0x010d, B:73:0x019f, B:79:0x01d3, B:80:0x01e2, B:82:0x01ee, B:83:0x01fa, B:84:0x0205, B:86:0x0209, B:87:0x0215, B:88:0x022c, B:90:0x0230, B:91:0x0234, B:93:0x0240, B:97:0x026e, B:95:0x0251, B:98:0x0274, B:52:0x0100, B:57:0x0123, B:62:0x0148, B:67:0x016d, B:72:0x0192, B:78:0x01c6, B:13:0x005e, B:16:0x0069, B:19:0x0074, B:22:0x007f, B:25:0x008a, B:28:0x0095, B:31:0x00a0, B:34:0x00ab, B:37:0x00b6, B:40:0x00c3, B:43:0x00d0, B:46:0x00dd, B:64:0x0155), top: B:114:0x0030, inners: #5, #6, #8, #9 }] */
@@ -33,7 +27,7 @@ public class PlatformChannel {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void onMethodCall(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
+        public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
             String str;
             ClipboardContentFormat fromValue;
             CharSequence clipboardData;
@@ -234,49 +228,47 @@ public class PlatformChannel {
             }
         }
     };
-    @Nullable
     private PlatformMessageHandler platformMessageHandler;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface PlatformMessageHandler {
-        @Nullable
-        CharSequence getClipboardData(@Nullable ClipboardContentFormat clipboardContentFormat);
+        CharSequence getClipboardData(ClipboardContentFormat clipboardContentFormat);
 
         List<Rect> getSystemGestureExclusionRects();
 
-        void playSystemSound(@NonNull SoundType soundType);
+        void playSystemSound(SoundType soundType);
 
         void popSystemNavigator();
 
         void restoreSystemUiOverlays();
 
-        void setApplicationSwitcherDescription(@NonNull AppSwitcherDescription appSwitcherDescription);
+        void setApplicationSwitcherDescription(AppSwitcherDescription appSwitcherDescription);
 
-        void setClipboardData(@NonNull String str);
+        void setClipboardData(String str);
 
         void setPreferredOrientations(int i);
 
-        void setSystemGestureExclusionRects(@NonNull ArrayList<Rect> arrayList);
+        void setSystemGestureExclusionRects(ArrayList<Rect> arrayList);
 
-        void setSystemUiOverlayStyle(@NonNull SystemChromeStyle systemChromeStyle);
+        void setSystemUiOverlayStyle(SystemChromeStyle systemChromeStyle);
 
-        void showSystemOverlays(@NonNull List<SystemUiOverlay> list);
+        void showSystemOverlays(List<SystemUiOverlay> list);
 
-        void vibrateHapticFeedback(@NonNull HapticFeedbackType hapticFeedbackType);
+        void vibrateHapticFeedback(HapticFeedbackType hapticFeedbackType);
     }
 
-    public PlatformChannel(@NonNull DartExecutor dartExecutor) {
+    public PlatformChannel(DartExecutor dartExecutor) {
         this.channel = new MethodChannel(dartExecutor, "flutter/platform", JSONMethodCodec.INSTANCE);
         this.channel.setMethodCallHandler(this.parsingMethodCallHandler);
     }
 
-    public void setPlatformMessageHandler(@Nullable PlatformMessageHandler platformMessageHandler) {
+    public void setPlatformMessageHandler(PlatformMessageHandler platformMessageHandler) {
         this.platformMessageHandler = platformMessageHandler;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public int decodeOrientations(@NonNull JSONArray jSONArray) throws JSONException, NoSuchFieldException {
+    public int decodeOrientations(JSONArray jSONArray) throws JSONException, NoSuchFieldException {
         boolean z = false;
         boolean z2 = false;
         for (int i = 0; i < jSONArray.length(); i++) {
@@ -339,8 +331,7 @@ public class PlatformChannel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    @NonNull
-    public ArrayList<Rect> decodeExclusionRects(@NonNull JSONArray jSONArray) throws JSONException {
+    public ArrayList<Rect> decodeExclusionRects(JSONArray jSONArray) throws JSONException {
         ArrayList<Rect> arrayList = new ArrayList<>();
         for (int i = 0; i < jSONArray.length(); i++) {
             JSONObject jSONObject = jSONArray.getJSONObject(i);
@@ -368,8 +359,7 @@ public class PlatformChannel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    @NonNull
-    public AppSwitcherDescription decodeAppSwitcherDescription(@NonNull JSONObject jSONObject) throws JSONException {
+    public AppSwitcherDescription decodeAppSwitcherDescription(JSONObject jSONObject) throws JSONException {
         int i = jSONObject.getInt("primaryColor");
         if (i != 0) {
             i |= ViewCompat.MEASURED_STATE_MASK;
@@ -378,8 +368,7 @@ public class PlatformChannel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    @NonNull
-    public List<SystemUiOverlay> decodeSystemUiOverlays(@NonNull JSONArray jSONArray) throws JSONException, NoSuchFieldException {
+    public List<SystemUiOverlay> decodeSystemUiOverlays(JSONArray jSONArray) throws JSONException, NoSuchFieldException {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < jSONArray.length(); i++) {
             switch (SystemUiOverlay.fromValue(jSONArray.getString(i))) {
@@ -395,22 +384,19 @@ public class PlatformChannel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    @NonNull
-    public SystemChromeStyle decodeSystemChromeStyle(@NonNull JSONObject jSONObject) throws JSONException, NoSuchFieldException {
+    public SystemChromeStyle decodeSystemChromeStyle(JSONObject jSONObject) throws JSONException, NoSuchFieldException {
         Brightness fromValue = !jSONObject.isNull("systemNavigationBarIconBrightness") ? Brightness.fromValue(jSONObject.getString("systemNavigationBarIconBrightness")) : null;
         Integer valueOf = !jSONObject.isNull("systemNavigationBarColor") ? Integer.valueOf(jSONObject.getInt("systemNavigationBarColor")) : null;
         return new SystemChromeStyle(!jSONObject.isNull("statusBarColor") ? Integer.valueOf(jSONObject.getInt("statusBarColor")) : null, !jSONObject.isNull("statusBarIconBrightness") ? Brightness.fromValue(jSONObject.getString("statusBarIconBrightness")) : null, valueOf, fromValue, !jSONObject.isNull("systemNavigationBarDividerColor") ? Integer.valueOf(jSONObject.getInt("systemNavigationBarDividerColor")) : null);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public enum SoundType {
         CLICK("SystemSoundType.click");
         
-        @NonNull
         private final String encodedName;
 
-        @NonNull
-        static SoundType fromValue(@NonNull String str) throws NoSuchFieldException {
+        static SoundType fromValue(String str) throws NoSuchFieldException {
             SoundType[] values;
             for (SoundType soundType : values()) {
                 if (soundType.encodedName.equals(str)) {
@@ -420,12 +406,12 @@ public class PlatformChannel {
             throw new NoSuchFieldException("No such SoundType: " + str);
         }
 
-        SoundType(@NonNull String str) {
+        SoundType(String str) {
             this.encodedName = str;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public enum HapticFeedbackType {
         STANDARD(null),
         LIGHT_IMPACT("HapticFeedbackType.lightImpact"),
@@ -433,11 +419,9 @@ public class PlatformChannel {
         HEAVY_IMPACT("HapticFeedbackType.heavyImpact"),
         SELECTION_CLICK("HapticFeedbackType.selectionClick");
         
-        @Nullable
         private final String encodedName;
 
-        @NonNull
-        static HapticFeedbackType fromValue(@Nullable String str) throws NoSuchFieldException {
+        static HapticFeedbackType fromValue(String str) throws NoSuchFieldException {
             HapticFeedbackType[] values;
             for (HapticFeedbackType hapticFeedbackType : values()) {
                 if ((hapticFeedbackType.encodedName == null && str == null) || (hapticFeedbackType.encodedName != null && hapticFeedbackType.encodedName.equals(str))) {
@@ -447,23 +431,21 @@ public class PlatformChannel {
             throw new NoSuchFieldException("No such HapticFeedbackType: " + str);
         }
 
-        HapticFeedbackType(@Nullable String str) {
+        HapticFeedbackType(String str) {
             this.encodedName = str;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public enum DeviceOrientation {
         PORTRAIT_UP("DeviceOrientation.portraitUp"),
         PORTRAIT_DOWN("DeviceOrientation.portraitDown"),
         LANDSCAPE_LEFT("DeviceOrientation.landscapeLeft"),
         LANDSCAPE_RIGHT("DeviceOrientation.landscapeRight");
         
-        @NonNull
         private String encodedName;
 
-        @NonNull
-        static DeviceOrientation fromValue(@NonNull String str) throws NoSuchFieldException {
+        static DeviceOrientation fromValue(String str) throws NoSuchFieldException {
             DeviceOrientation[] values;
             for (DeviceOrientation deviceOrientation : values()) {
                 if (deviceOrientation.encodedName.equals(str)) {
@@ -473,21 +455,19 @@ public class PlatformChannel {
             throw new NoSuchFieldException("No such DeviceOrientation: " + str);
         }
 
-        DeviceOrientation(@NonNull String str) {
+        DeviceOrientation(String str) {
             this.encodedName = str;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public enum SystemUiOverlay {
         TOP_OVERLAYS("SystemUiOverlay.top"),
         BOTTOM_OVERLAYS("SystemUiOverlay.bottom");
         
-        @NonNull
         private String encodedName;
 
-        @NonNull
-        static SystemUiOverlay fromValue(@NonNull String str) throws NoSuchFieldException {
+        static SystemUiOverlay fromValue(String str) throws NoSuchFieldException {
             SystemUiOverlay[] values;
             for (SystemUiOverlay systemUiOverlay : values()) {
                 if (systemUiOverlay.encodedName.equals(str)) {
@@ -497,37 +477,31 @@ public class PlatformChannel {
             throw new NoSuchFieldException("No such SystemUiOverlay: " + str);
         }
 
-        SystemUiOverlay(@NonNull String str) {
+        SystemUiOverlay(String str) {
             this.encodedName = str;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class AppSwitcherDescription {
         public final int color;
-        @NonNull
         public final String label;
 
-        public AppSwitcherDescription(int i, @NonNull String str) {
+        public AppSwitcherDescription(int i, String str) {
             this.color = i;
             this.label = str;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class SystemChromeStyle {
-        @Nullable
         public final Integer statusBarColor;
-        @Nullable
         public final Brightness statusBarIconBrightness;
-        @Nullable
         public final Integer systemNavigationBarColor;
-        @Nullable
         public final Integer systemNavigationBarDividerColor;
-        @Nullable
         public final Brightness systemNavigationBarIconBrightness;
 
-        public SystemChromeStyle(@Nullable Integer num, @Nullable Brightness brightness, @Nullable Integer num2, @Nullable Brightness brightness2, @Nullable Integer num3) {
+        public SystemChromeStyle(Integer num, Brightness brightness, Integer num2, Brightness brightness2, Integer num3) {
             this.statusBarColor = num;
             this.statusBarIconBrightness = brightness;
             this.systemNavigationBarColor = num2;
@@ -536,16 +510,14 @@ public class PlatformChannel {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public enum Brightness {
         LIGHT("Brightness.light"),
         DARK("Brightness.dark");
         
-        @NonNull
         private String encodedName;
 
-        @NonNull
-        static Brightness fromValue(@NonNull String str) throws NoSuchFieldException {
+        static Brightness fromValue(String str) throws NoSuchFieldException {
             Brightness[] values;
             for (Brightness brightness : values()) {
                 if (brightness.encodedName.equals(str)) {
@@ -555,20 +527,18 @@ public class PlatformChannel {
             throw new NoSuchFieldException("No such Brightness: " + str);
         }
 
-        Brightness(@NonNull String str) {
+        Brightness(String str) {
             this.encodedName = str;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public enum ClipboardContentFormat {
         PLAIN_TEXT("text/plain");
         
-        @NonNull
         private String encodedName;
 
-        @NonNull
-        static ClipboardContentFormat fromValue(@NonNull String str) throws NoSuchFieldException {
+        static ClipboardContentFormat fromValue(String str) throws NoSuchFieldException {
             ClipboardContentFormat[] values;
             for (ClipboardContentFormat clipboardContentFormat : values()) {
                 if (clipboardContentFormat.encodedName.equals(str)) {
@@ -578,7 +548,7 @@ public class PlatformChannel {
             throw new NoSuchFieldException("No such ClipboardContentFormat: " + str);
         }
 
-        ClipboardContentFormat(@NonNull String str) {
+        ClipboardContentFormat(String str) {
             this.encodedName = str;
         }
     }

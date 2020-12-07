@@ -7,7 +7,7 @@ import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetLevelInfo.DataRes;
 import tbclient.GetLevelInfo.GetLevelInfoResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class GetLevelInfoSocketResponsedMessage extends SocketResponsedMessage {
     private DataRes mResult;
 

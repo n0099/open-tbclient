@@ -5,24 +5,24 @@ import com.baidu.webkit.internal.ETAG;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class o {
-    private Charset qs = StandardCharsets.UTF_8;
-    private String ra;
-    private StringBuilder rb;
+    private Charset qI = StandardCharsets.UTF_8;
+    private String rq;
+    private StringBuilder rr;
 
     public void a(Charset charset) {
-        this.qs = charset;
+        this.qI = charset;
     }
 
-    public void ar(String str) {
-        this.ra = str;
+    public void au(String str) {
+        this.rq = str;
     }
 
-    public URL eP() {
-        String str = this.ra == null ? "" : this.ra;
-        if (this.rb != null && this.rb.length() > 0) {
-            str = str + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + this.rb.toString();
+    public URL eO() {
+        String str = this.rq == null ? "" : this.rq;
+        if (this.rr != null && this.rr.length() > 0) {
+            str = str + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + this.rr.toString();
         }
         return new URL(str);
     }
@@ -31,13 +31,13 @@ class o {
         if (str2 == null || TextUtils.isEmpty(str)) {
             return;
         }
-        if (this.rb == null) {
-            this.rb = new StringBuilder();
-        } else if (this.rb.length() > 0) {
-            this.rb.append(ETAG.ITEM_SEPARATOR);
+        if (this.rr == null) {
+            this.rr = new StringBuilder();
+        } else if (this.rr.length() > 0) {
+            this.rr.append(ETAG.ITEM_SEPARATOR);
         }
-        this.rb.append(j.a(str, this.qs));
-        this.rb.append(ETAG.EQUAL);
-        this.rb.append(j.a(str2, this.qs));
+        this.rr.append(j.a(str, this.qI));
+        this.rr.append("=");
+        this.rr.append(j.a(str2, this.qI));
     }
 }

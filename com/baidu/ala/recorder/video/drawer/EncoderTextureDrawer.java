@@ -17,6 +17,7 @@ import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
 import com.baidu.ala.recorder.video.IVideoRecorder;
 import com.baidu.ala.recorder.video.RecorderHandler;
 import com.baidu.ala.recorder.video.VideoFormat;
+import com.baidu.ala.recorder.video.drawer.BitrateHelper;
 import com.baidu.ala.recorder.video.gles.AFullFrameRect;
 import com.baidu.ala.recorder.video.gles.EglCore;
 import com.baidu.ala.recorder.video.gles.GlUtil;
@@ -29,7 +30,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.nio.ByteBuffer;
 @TargetApi(19)
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class EncoderTextureDrawer {
     public static final int IDENTITY_90_MATRIX = 2;
     public static final int IDENTITY_MATRIX = 1;
@@ -56,6 +57,17 @@ public class EncoderTextureDrawer {
     private SWEncoder mSWEncoder = new SWEncoder();
     private HWEncoder mHWEncoder = new HWEncoder();
     private int mFrames = 0;
+    private BitrateHelper mBitrateHelper = new BitrateHelper(new BitrateHelper.Callback() { // from class: com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer.3
+        @Override // com.baidu.ala.recorder.video.drawer.BitrateHelper.Callback
+        public void onBitrate(long j) {
+            if (EncoderTextureDrawer.this.mVideoConfig != null && EncoderTextureDrawer.this.mVideoConfig.isSupportResetHWEncoder() && (EncoderTextureDrawer.this.mVideoConfig.getBitStream() * EncoderTextureDrawer.this.mVideoConfig.getResetHwEncoderThreshold()) / 1000.0f > j) {
+                EncoderTextureDrawer.this.mHWEncoder.requestReset = true;
+                if (EncoderTextureDrawer.this.mListener != null) {
+                    EncoderTextureDrawer.this.mListener.sendError(18, "video encode bitrate exception:" + j);
+                }
+            }
+        }
+    });
     private EglCore mEglCore = null;
 
     public EncoderTextureDrawer(RecorderHandler recorderHandler, IVideoRecorder.IVideoDataCallBack iVideoDataCallBack) {
@@ -371,6 +383,9 @@ public class EncoderTextureDrawer {
                         if (EncoderTextureDrawer.this.mDataCallback != null) {
                             EncoderTextureDrawer.this.mDataCallback.onEncodeVideoFrameRecived(bArr, i, i2, i3 == 2 ? 1 : 0, j, j2);
                         }
+                        if (EncoderTextureDrawer.this.mBitrateHelper != null && EncoderTextureDrawer.this.mVideoConfig != null && EncoderTextureDrawer.this.mVideoConfig.isSupportResetHWEncoder()) {
+                            EncoderTextureDrawer.this.mBitrateHelper.inputData(i3 == 2, i2, j2);
+                        }
                     }
                 }
 
@@ -429,7 +444,7 @@ public class EncoderTextureDrawer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes9.dex */
     public static class SWEncoder {
         public ImageReader imageReader;
         public byte[] sendBuffer;
@@ -448,7 +463,7 @@ public class EncoderTextureDrawer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes9.dex */
     public static class HWEncoder {
         public TextureEncoder encoder;
         public boolean requestReset = false;

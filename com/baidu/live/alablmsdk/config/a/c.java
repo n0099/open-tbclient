@@ -15,7 +15,7 @@ public class c {
         this.height = i4;
     }
 
-    public String AL() {
+    public String Ct() {
         StringBuilder sb = new StringBuilder();
         sb.append(this.x).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(this.y).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(this.width).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(this.height);
         return sb.toString();

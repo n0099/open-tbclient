@@ -9,10 +9,10 @@ import com.baidu.live.tbadk.share.single.ShareSingleManager;
 import com.baidu.live.tbadk.share.single.interfaces.IShareChannel;
 /* loaded from: classes4.dex */
 public class AlaLandscapeShareView extends LinearLayout implements View.OnClickListener {
-    private ShareEntity hsj;
+    private ShareEntity hBN;
     private TbPageContext mContext;
     private IShareChannel mShareChannel;
-    private a obD;
+    private a oqD;
 
     /* loaded from: classes4.dex */
     interface a {
@@ -30,20 +30,20 @@ public class AlaLandscapeShareView extends LinearLayout implements View.OnClickL
         }
         int id = view.getId();
         if (id == a.f.ala_sdk_weixin_container) {
-            this.hsj.shareType = 2;
-            this.mShareChannel.shareToWeixin(this.hsj, null);
+            this.hBN.shareType = 2;
+            this.mShareChannel.shareToWeixin(this.hBN, null);
         } else if (id == a.f.ala_sdk_timeline_container) {
-            this.hsj.shareType = 3;
-            this.mShareChannel.shareToWeixinCircle(this.hsj, null);
+            this.hBN.shareType = 3;
+            this.mShareChannel.shareToWeixinCircle(this.hBN, null);
         } else if (id == a.f.ala_sdk_qq_container) {
-            this.hsj.shareType = 4;
-            this.mShareChannel.shareToQQ(this.hsj, null);
+            this.hBN.shareType = 4;
+            this.mShareChannel.shareToQQ(this.hBN, null);
         } else if (id == a.f.ala_sdk_sina_container) {
-            this.hsj.shareType = 1;
-            this.mShareChannel.shareToSinaWeibo(this.hsj, null);
+            this.hBN.shareType = 1;
+            this.mShareChannel.shareToSinaWeibo(this.hBN, null);
         }
-        if (this.obD != null) {
-            this.obD.onClick(view);
+        if (this.oqD != null) {
+            this.oqD.onClick(view);
         }
     }
 }

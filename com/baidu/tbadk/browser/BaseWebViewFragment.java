@@ -16,7 +16,7 @@ public class BaseWebViewFragment extends BaseFragment {
     public String mUrl;
     private String mUrlTitle;
 
-    public void zK(String str) {
+    public void Ar(String str) {
         this.mUrlTitle = str;
     }
 
@@ -36,22 +36,22 @@ public class BaseWebViewFragment extends BaseFragment {
     }
 
     public boolean isNeedShowNavigationBar() {
-        return dC(this.mUrl, "nonavigationbar");
+        return dJ(this.mUrl, "nonavigationbar");
     }
 
     public boolean isNeedShowShareItem() {
-        return dC(this.mUrl, "noshare");
+        return dJ(this.mUrl, "noshare");
     }
 
     public boolean isNeedShowMenuItem() {
-        return dC(this.mUrl, "nomenu");
+        return dJ(this.mUrl, "nomenu");
     }
 
-    public boolean zL(String str) {
-        return dC(str, "blank");
+    public boolean As(String str) {
+        return dJ(str, "blank");
     }
 
-    public boolean dC(String str, String str2) {
+    public boolean dJ(String str, String str2) {
         String[] split;
         if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             return true;
@@ -62,7 +62,7 @@ public class BaseWebViewFragment extends BaseFragment {
                 return true;
             }
             for (String str3 : split) {
-                String[] split2 = str3.split(ETAG.EQUAL);
+                String[] split2 = str3.split("=");
                 if (split2 != null && split2.length == 2) {
                     String str4 = split2[0];
                     String str5 = split2[1];

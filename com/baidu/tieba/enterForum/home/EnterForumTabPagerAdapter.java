@@ -8,18 +8,18 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.enterForum.tabfeed.EnterForumTabFeedFragment;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements com.baidu.tbadk.widget.tab.a {
-    private BaseFragment ilb;
     private boolean isPrimary;
+    private BaseFragment ivU;
     private FragmentManager mFragmentManager;
     private List<a> mFragments;
     private int mPrimaryPosition;
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public static class a {
-        public boolean bdX;
         public Fragment fragment;
+        public boolean ivV;
         public String tabName;
         public String title;
     }
@@ -66,11 +66,11 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
     }
 
     @Override // com.baidu.tbadk.widget.tab.a
-    public boolean tc(int i) {
+    public boolean tF(int i) {
         if (this.mFragments == null || i < 0 || i >= this.mFragments.size() || this.mFragments.get(i) == null || !(this.mFragments.get(i).fragment instanceof EnterForumTabFeedFragment)) {
             return false;
         }
-        return this.mFragments.get(i).bdX;
+        return this.mFragments.get(i).ivV;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter, android.support.v4.view.PagerAdapter
@@ -84,7 +84,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
             if (obj instanceof BaseFragment) {
                 BaseFragment baseFragment = (BaseFragment) obj;
                 baseFragment.setPrimary(true);
-                this.ilb = baseFragment;
+                this.ivU = baseFragment;
             }
         }
     }
@@ -94,8 +94,8 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
     }
 
     public String getCurrentPageKey() {
-        if (this.ilb instanceof BaseFragment) {
-            return this.ilb.getCurrentPageKey();
+        if (this.ivU instanceof BaseFragment) {
+            return this.ivU.getCurrentPageKey();
         }
         return null;
     }

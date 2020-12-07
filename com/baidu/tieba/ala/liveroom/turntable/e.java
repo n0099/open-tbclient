@@ -16,76 +16,76 @@ import com.baidu.tieba.ala.liveroom.turntable.d;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes4.dex */
 public class e {
-    private Activity bMo;
-    private CustomMessageListener bMq;
-    private d.a htn;
-    private d htp;
+    private CustomMessageListener bRw;
+    private Activity beD;
+    private d.a hCR;
+    private d hCT;
 
     public e(Activity activity) {
-        this.bMo = activity;
-        Wp();
+        this.beD = activity;
+        YP();
     }
 
     public void a(String str, long j, long j2, long j3) {
-        this.htp = new d(this.bMo);
-        this.htp.a(this.htn);
-        this.htp.Wq().setBackgroundColor(hQ(str));
+        this.hCT = new d(this.beD);
+        this.hCT.a(this.hCR);
+        this.hCT.getWebView().setBackgroundColor(iu(str));
         g gVar = new g();
-        gVar.x(this.bMo).a(this.htp).a(this.htp.Wq().getSchemeCallback());
-        com.baidu.live.view.web.a[] Wo = gVar.Wo();
-        for (com.baidu.live.view.web.a aVar : Wo) {
-            this.htp.Wq().addJavascriptInterface(aVar, aVar.getName());
+        gVar.x(this.beD).a(this.hCT).a(this.hCT.getWebView().getSchemeCallback());
+        com.baidu.live.view.web.a[] YO = gVar.YO();
+        for (com.baidu.live.view.web.a aVar : YO) {
+            this.hCT.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.htp.FO(b(str, j, j2, j3));
+        this.hCT.GD(b(str, j, j2, j3));
     }
 
     public void resume() {
-        if (this.htp != null && this.htp.isShowing() && this.htp.Wq() != null) {
-            this.htp.Wq().onResume();
+        if (this.hCT != null && this.hCT.isShowing() && this.hCT.getWebView() != null) {
+            this.hCT.getWebView().onResume();
         }
     }
 
     public void pause() {
-        if (this.htp != null && this.htp.isShowing() && this.htp.Wq() != null) {
-            this.htp.Wq().onPause();
+        if (this.hCT != null && this.hCT.isShowing() && this.hCT.getWebView() != null) {
+            this.hCT.getWebView().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.htp != null) {
-            this.htp.Wr();
+        if (this.hCT != null) {
+            this.hCT.YQ();
         }
     }
 
-    public void dE(int i) {
-        if (this.htp != null && this.htp.isShowing()) {
-            this.htp.dE(i);
+    public void dX(int i) {
+        if (this.hCT != null && this.hCT.isShowing()) {
+            this.hCT.dX(i);
         }
     }
 
-    public void GK() {
+    public void IB() {
         dismiss();
     }
 
     public void release() {
-        GK();
-        MessageManager.getInstance().unRegisterListener(this.bMq);
+        IB();
+        MessageManager.getInstance().unRegisterListener(this.bRw);
     }
 
-    private void Wp() {
-        this.bMq = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
+    private void YP() {
+        this.bRw = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (e.this.htp != null && e.this.htp.isShowing()) {
-                    e.this.htp.dismiss();
+                if (e.this.hCT != null && e.this.hCT.isShowing()) {
+                    e.this.hCT.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bMq);
+        MessageManager.getInstance().registerListener(this.bRw);
     }
 
-    private int hQ(String str) {
+    private int iu(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
@@ -122,15 +122,15 @@ public class e {
         sb.append("&_sdk_version=");
         sb.append(TbConfig.SDK_VERSION);
         sb.append("&scene_from=");
-        sb.append(p.Ub());
+        sb.append(p.WB());
         return sb.toString();
     }
 
     public void a(d.a aVar) {
-        this.htn = aVar;
+        this.hCR = aVar;
     }
 
-    public d.a cgN() {
-        return this.htn;
+    public d.a ckH() {
+        return this.hCR;
     }
 }

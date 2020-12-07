@@ -4,7 +4,7 @@ import android.graphics.Rect;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.ui.animview.base.IResourceProvider;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class LeftLayoutStrategy extends BaseLayoutStrategy {
     private static final float PRAISELEVEL_FACTOR_POS_X_BASED_PRAISELEVEL = 0.14f;
     private static final float PRAISELEVEL_SIZE_DP = 360.0f;

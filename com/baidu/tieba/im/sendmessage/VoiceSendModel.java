@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class VoiceSendModel extends BdBaseModel {
-    private a kpA;
-    private b kpB;
+    private a kCW;
+    private b kCX;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -29,24 +29,24 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.kpA = new a(str, chatMessage);
-        this.kpA.execute(new Object[0]);
+        this.kCW = new a(str, chatMessage);
+        this.kCW.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.kpB = bVar;
+        this.kCX = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private ChatMessage kpC;
-        private com.baidu.tieba.im.sendmessage.b kpD = new com.baidu.tieba.im.sendmessage.b();
+        private ChatMessage kCY;
+        private com.baidu.tieba.im.sendmessage.b kCZ = new com.baidu.tieba.im.sendmessage.b();
         private String mVid;
 
         public a(String str, ChatMessage chatMessage) {
             this.mVid = str;
-            this.kpC = chatMessage;
+            this.kCY = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +55,7 @@ public class VoiceSendModel extends BdBaseModel {
         /* renamed from: k */
         public String doInBackground(Object... objArr) {
             try {
-                return this.kpD.MH(this.mVid);
+                return this.kCZ.NP(this.mVid);
             } catch (Exception e) {
                 return null;
             }
@@ -66,8 +66,8 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (VoiceSendModel.this.kpB != null) {
-                VoiceSendModel.this.kpB.a(str, this.kpC);
+            if (VoiceSendModel.this.kCX != null) {
+                VoiceSendModel.this.kCX.a(str, this.kCY);
             }
         }
     }

@@ -24,18 +24,18 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreFunctionDialogData> implements a.b, a.InterfaceC0944a {
-    private View eej;
-    private com.baidu.live.tieba.pb.interactionpopupwindow.c hcM;
-    private AlaMoreFunctionDialogData ovE;
-    private TextView ovG;
-    private TextView ovH;
-    private HListView ovI;
-    private HListView ovJ;
-    private com.baidu.yuyinala.more.a.a ovK;
-    private com.baidu.yuyinala.more.a.a ovL;
-    private com.baidu.yuyinala.more.c.a ovM;
-    private com.baidu.live.c.c ovN;
+public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreFunctionDialogData> implements a.b, a.InterfaceC0961a {
+    private View elk;
+    private com.baidu.live.tieba.pb.interactionpopupwindow.c hmu;
+    private AlaMoreFunctionDialogData oKK;
+    private TextView oKM;
+    private TextView oKN;
+    private HListView oKO;
+    private HListView oKP;
+    private com.baidu.yuyinala.more.a.a oKQ;
+    private com.baidu.yuyinala.more.a.a oKR;
+    private com.baidu.yuyinala.more.c.a oKS;
+    private com.baidu.live.e.c oKT;
 
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -49,68 +49,68 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public void a(AlaMoreFunctionDialogData alaMoreFunctionDialogData) {
-        this.ovE = alaMoreFunctionDialogData;
-        if (this.ovE != null) {
-            this.ovM.O(this.ovE.getLiveId(), this.ovE.getRoomId(), this.ovE.getCustomRoomId(), this.ovE.getGroupId());
-            gp(new ArrayList(this.ovE.getGroupList()));
+        this.oKK = alaMoreFunctionDialogData;
+        if (this.oKK != null) {
+            this.oKS.O(this.oKK.getLiveId(), this.oKK.getRoomId(), this.oKK.getCustomRoomId(), this.oKK.getGroupId());
+            gE(new ArrayList(this.oKK.getGroupList()));
         }
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public void initView() {
-        this.ovG = (TextView) getViewGroup().findViewById(a.f.func_group_title1_tv);
-        this.ovH = (TextView) getViewGroup().findViewById(a.f.func_group_title2_tv);
-        this.ovI = (HListView) getViewGroup().findViewById(a.f.function_hlv1);
-        this.ovJ = (HListView) getViewGroup().findViewById(a.f.function_hlv2);
-        this.eej = getViewGroup().findViewById(a.f.group_divider_view);
-        this.ovK = new com.baidu.yuyinala.more.a.a(getTbPageContext());
-        this.ovL = new com.baidu.yuyinala.more.a.a(getTbPageContext());
-        this.ovM = new com.baidu.yuyinala.more.c.a(this);
-        this.ovI.setAdapter((ListAdapter) this.ovK);
-        this.ovJ.setAdapter((ListAdapter) this.ovL);
-        this.ovK.a(this);
-        this.ovL.a(this);
+        this.oKM = (TextView) getViewGroup().findViewById(a.f.func_group_title1_tv);
+        this.oKN = (TextView) getViewGroup().findViewById(a.f.func_group_title2_tv);
+        this.oKO = (HListView) getViewGroup().findViewById(a.f.function_hlv1);
+        this.oKP = (HListView) getViewGroup().findViewById(a.f.function_hlv2);
+        this.elk = getViewGroup().findViewById(a.f.group_divider_view);
+        this.oKQ = new com.baidu.yuyinala.more.a.a(getTbPageContext());
+        this.oKR = new com.baidu.yuyinala.more.a.a(getTbPageContext());
+        this.oKS = new com.baidu.yuyinala.more.c.a(this);
+        this.oKO.setAdapter((ListAdapter) this.oKQ);
+        this.oKP.setAdapter((ListAdapter) this.oKR);
+        this.oKQ.a(this);
+        this.oKR.a(this);
         int dimension = (int) this.mTbPageContext.getPageActivity().getResources().getDimension(a.d.sdk_ds138);
-        ViewGroup.LayoutParams layoutParams = this.ovI.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.oKO.getLayoutParams();
         layoutParams.height = dimension;
-        this.ovI.setLayoutParams(layoutParams);
-        ViewGroup.LayoutParams layoutParams2 = this.ovI.getLayoutParams();
+        this.oKO.setLayoutParams(layoutParams);
+        ViewGroup.LayoutParams layoutParams2 = this.oKO.getLayoutParams();
         layoutParams2.height = dimension;
-        this.ovJ.setLayoutParams(layoutParams2);
+        this.oKP.setLayoutParams(layoutParams2);
     }
 
-    public void b(com.baidu.live.c.c cVar) {
-        this.ovN = cVar;
+    public void b(com.baidu.live.e.c cVar) {
+        this.oKT = cVar;
     }
 
     public void a(com.baidu.live.tieba.pb.interactionpopupwindow.c cVar) {
-        this.hcM = cVar;
+        this.hmu = cVar;
     }
 
-    private void gp(List<com.baidu.yuyinala.more.b.b> list) {
+    private void gE(List<com.baidu.yuyinala.more.b.b> list) {
         int count = ListUtils.getCount(list);
         com.baidu.yuyinala.more.b.b bVar = (com.baidu.yuyinala.more.b.b) ListUtils.getItem(list, count - 2);
         if (bVar != null) {
-            this.ovG.setText(bVar.getTitle());
-            this.ovK.gq(bVar.efa());
-            this.ovG.setVisibility(0);
-            this.ovI.setVisibility(0);
-            this.eej.setVisibility(0);
+            this.oKM.setText(bVar.getTitle());
+            this.oKQ.gF(bVar.ekN());
+            this.oKM.setVisibility(0);
+            this.oKO.setVisibility(0);
+            this.elk.setVisibility(0);
         } else {
-            this.ovG.setVisibility(8);
-            this.ovI.setVisibility(8);
-            this.eej.setVisibility(8);
+            this.oKM.setVisibility(8);
+            this.oKO.setVisibility(8);
+            this.elk.setVisibility(8);
         }
         com.baidu.yuyinala.more.b.b bVar2 = (com.baidu.yuyinala.more.b.b) ListUtils.getItem(list, count - 1);
         if (bVar2 != null) {
-            this.ovH.setText(bVar2.getTitle());
-            this.ovL.gq(bVar2.efa());
-            this.ovH.setVisibility(0);
-            this.ovJ.setVisibility(0);
+            this.oKN.setText(bVar2.getTitle());
+            this.oKR.gF(bVar2.ekN());
+            this.oKN.setVisibility(0);
+            this.oKP.setVisibility(0);
             return;
         }
-        this.ovH.setVisibility(8);
-        this.ovJ.setVisibility(8);
+        this.oKN.setVisibility(8);
+        this.oKP.setVisibility(8);
     }
 
     @Override // com.baidu.yuyinala.more.a.a.b
@@ -189,41 +189,41 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
             }
             switch (c) {
                 case 0:
-                    if (this.ovN != null) {
-                        this.ovN.BW();
+                    if (this.oKT != null) {
+                        this.oKT.DG();
                         break;
                     }
                     break;
                 case 1:
-                    if (this.ovN != null) {
-                        this.ovN.BX();
+                    if (this.oKT != null) {
+                        this.oKT.DH();
                         break;
                     }
                     break;
                 case 2:
-                    if (this.ovN != null) {
-                        this.ovN.BY();
+                    if (this.oKT != null) {
+                        this.oKT.DI();
                         break;
                     }
                     break;
                 case 3:
-                    if (this.ovN != null) {
-                        this.ovN.Ca();
+                    if (this.oKT != null) {
+                        this.oKT.DK();
                         break;
                     }
                     break;
                 case 4:
-                    eeV();
+                    ekI();
                     break;
                 case 5:
-                    eeW();
+                    ekJ();
                     break;
                 case 6:
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501002));
                     break;
                 case 7:
-                    if (this.ovN != null) {
-                        this.ovN.BZ();
+                    if (this.oKT != null) {
+                        this.oKT.DJ();
                         break;
                     }
                     break;
@@ -237,22 +237,22 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501005));
                     break;
             }
-            gR(aVar.getAction(), aVar.getId());
-            this.hcM.dismiss();
+            gZ(aVar.getAction(), aVar.getId());
+            this.hmu.dismiss();
             if (z) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501017, Boolean.valueOf(eeU())));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501017, Boolean.valueOf(ekH())));
             }
         }
     }
 
-    private boolean eeU() {
-        if (this.ovE == null || ListUtils.isEmpty(this.ovE.getGroupList())) {
+    private boolean ekH() {
+        if (this.oKK == null || ListUtils.isEmpty(this.oKK.getGroupList())) {
             return false;
         }
-        for (com.baidu.yuyinala.more.b.b bVar : this.ovE.getGroupList()) {
-            if (bVar != null && !ListUtils.isEmpty(bVar.efa())) {
-                for (com.baidu.yuyinala.more.b.a aVar : bVar.efa()) {
-                    if (aVar != null && aVar.eeZ()) {
+        for (com.baidu.yuyinala.more.b.b bVar : this.oKK.getGroupList()) {
+            if (bVar != null && !ListUtils.isEmpty(bVar.ekN())) {
+                for (com.baidu.yuyinala.more.b.a aVar : bVar.ekN()) {
+                    if (aVar != null && aVar.ekM()) {
                         return true;
                     }
                 }
@@ -262,73 +262,73 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
         return false;
     }
 
-    private void eeV() {
+    private void ekI() {
         final com.baidu.live.view.c cVar = new com.baidu.live.view.c(getTbPageContext().getPageActivity());
         cVar.setCancelable(false);
         cVar.setCanceledOnTouchOutside(false);
-        cVar.di(false);
+        cVar.dw(false);
         cVar.o(getTbPageContext().getString(a.h.clear_charm_title), getTbPageContext().getString(a.h.clear_charm_content), getTbPageContext().getString(a.h.sdk_alert_yes_button), getTbPageContext().getString(a.h.sdk_live_cancel));
-        cVar.gp(getTbPageContext().getResources().getColor(a.c.sdk_black_alpha100));
-        cVar.gq(getTbPageContext().getResources().getColor(a.c.sdk_black_alpha100));
-        cVar.dk(false);
-        cVar.dl(false);
-        cVar.B(getTbPageContext().getResources().getDimension(a.d.sdk_ds12));
+        cVar.gN(getTbPageContext().getResources().getColor(a.c.sdk_black_alpha100));
+        cVar.gO(getTbPageContext().getResources().getColor(a.c.sdk_black_alpha100));
+        cVar.dy(false);
+        cVar.dz(false);
+        cVar.A(getTbPageContext().getResources().getDimension(a.d.sdk_ds12));
         cVar.setTitleTextSize(getTbPageContext().getResources().getDimension(a.d.sdk_fontsize34));
-        cVar.gn(getTbPageContext().getResources().getColor(a.c.sdk_common_color_10215));
-        cVar.C(getTbPageContext().getResources().getDimension(a.d.sdk_fontsize28));
+        cVar.gM(getTbPageContext().getResources().getColor(a.c.sdk_common_color_10215));
+        cVar.B(getTbPageContext().getResources().getDimension(a.d.sdk_fontsize28));
         cVar.a(new c.a() { // from class: com.baidu.yuyinala.more.c.1
             @Override // com.baidu.live.view.c.a
-            public void OZ() {
-                c.this.ovM.efb();
+            public void Rt() {
+                c.this.oKS.ekO();
                 cVar.dismiss();
-                c.this.Xa("xdremove_cfm");
+                c.this.Yv("xdremove_cfm");
             }
 
             @Override // com.baidu.live.view.c.a
-            public void Pa() {
+            public void Ru() {
                 cVar.dismiss();
             }
         });
         cVar.show();
     }
 
-    private void eeW() {
+    private void ekJ() {
         final com.baidu.live.view.c cVar = new com.baidu.live.view.c(getTbPageContext().getPageActivity());
         cVar.setCancelable(false);
         cVar.setCanceledOnTouchOutside(false);
-        cVar.di(false);
+        cVar.dw(false);
         cVar.o(getTbPageContext().getString(a.h.ala_audio_close_room_title), "", getTbPageContext().getString(a.h.sdk_alert_yes_button), getTbPageContext().getString(a.h.sdk_live_cancel));
-        cVar.gp(getTbPageContext().getResources().getColor(a.c.sdk_black_alpha100));
-        cVar.gq(getTbPageContext().getResources().getColor(a.c.sdk_black_alpha100));
-        cVar.dk(false);
-        cVar.dl(false);
-        cVar.B(getTbPageContext().getResources().getDimension(a.d.sdk_ds12));
+        cVar.gN(getTbPageContext().getResources().getColor(a.c.sdk_black_alpha100));
+        cVar.gO(getTbPageContext().getResources().getColor(a.c.sdk_black_alpha100));
+        cVar.dy(false);
+        cVar.dz(false);
+        cVar.A(getTbPageContext().getResources().getDimension(a.d.sdk_ds12));
         cVar.setTitleTextSize(getTbPageContext().getResources().getDimension(a.d.sdk_fontsize34));
-        cVar.dj(false);
+        cVar.dx(false);
         cVar.a(new c.a() { // from class: com.baidu.yuyinala.more.c.2
             @Override // com.baidu.live.view.c.a
-            public void OZ() {
-                c.this.ovM.efc();
-                c.this.ovM.efd();
+            public void Rt() {
+                c.this.oKS.ekP();
+                c.this.oKS.ekQ();
                 cVar.dismiss();
-                c.this.Xa("roomclose_cfm");
+                c.this.Yv("roomclose_cfm");
             }
 
             @Override // com.baidu.live.view.c.a
-            public void Pa() {
+            public void Ru() {
                 cVar.dismiss();
             }
         });
         cVar.show();
     }
 
-    private void gR(String str, String str2) {
+    private void gZ(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "moretab");
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            if (this.ovE != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.ovE.getCustomRoomId());
+            if (this.oKK != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oKK.getCustomRoomId());
             }
             if (str == "first_recharge" || str == "super_recharge" || str == "transfer") {
                 jSONObject.put("cloudctl_id", str2);
@@ -336,10 +336,10 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
         } catch (JSONException e) {
             BdLog.e(e);
         }
-        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, WZ(str)).setContentExt(jSONObject));
+        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, Yu(str)).setContentExt(jSONObject));
     }
 
-    private String WZ(String str) {
+    private String Yu(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -2061609278:
@@ -428,13 +428,13 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Xa(String str) {
+    public void Yv(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "moretab");
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            if (this.ovE != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.ovE.getCustomRoomId());
+            if (this.oKK != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oKK.getCustomRoomId());
             }
         } catch (JSONException e) {
             BdLog.e(e);
@@ -442,13 +442,13 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, str).setContentExt(jSONObject));
     }
 
-    @Override // com.baidu.yuyinala.more.c.a.InterfaceC0944a
-    public void zO(boolean z) {
+    @Override // com.baidu.yuyinala.more.c.a.InterfaceC0961a
+    public void As(boolean z) {
         this.mTbPageContext.showToast(z ? a.h.ala_audio_clear_charm_succ : a.h.ala_audio_clear_charm_fail);
     }
 
-    @Override // com.baidu.yuyinala.more.c.a.InterfaceC0944a
-    public void eeX() {
+    @Override // com.baidu.yuyinala.more.c.a.InterfaceC0961a
+    public void ekK() {
         this.mTbPageContext.showToast(a.h.ala_audio_close_room_fail);
     }
 }

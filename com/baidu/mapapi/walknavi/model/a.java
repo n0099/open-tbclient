@@ -1,12 +1,12 @@
 package com.baidu.mapapi.walknavi.model;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class a {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2180a;
+        private String f2182a;
         private String b;
         private String c;
         private String d;
@@ -16,11 +16,11 @@ public class a {
         private String h;
 
         public String a() {
-            return this.f2180a;
+            return this.f2182a;
         }
 
         public void a(String str) {
-            this.f2180a = str;
+            this.f2182a = str;
         }
 
         public String b() {
@@ -80,15 +80,15 @@ public class a {
         }
 
         public String toString() {
-            return "TopGuideLayoutID{guideLayoutID='" + this.f2180a + "', guideLayotBgResource='" + this.b + "', guideIconID='" + this.c + "', guideGpsWeakLayoutID='" + this.d + "', guideGpsWeakID='" + this.e + "', guideGpsHintID='" + this.f + "', guideRemainTextID='" + this.g + "', guideTextID='" + this.h + "'}";
+            return "TopGuideLayoutID{guideLayoutID='" + this.f2182a + "', guideLayotBgResource='" + this.b + "', guideIconID='" + this.c + "', guideGpsWeakLayoutID='" + this.d + "', guideGpsWeakID='" + this.e + "', guideGpsHintID='" + this.f + "', guideRemainTextID='" + this.g + "', guideTextID='" + this.h + "'}";
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2179a;
+        private String f2181a;
         private String b;
         private String c;
         private String d;
@@ -97,11 +97,11 @@ public class a {
         private String g;
 
         public String a() {
-            return this.f2179a;
+            return this.f2181a;
         }
 
         public void a(String str) {
-            this.f2179a = str;
+            this.f2181a = str;
         }
 
         public String b() {
@@ -153,27 +153,27 @@ public class a {
         }
 
         public String toString() {
-            return "CalorieLayoutID{calorieLayoutID='" + this.f2179a + "', calorieConsumeID='" + this.b + "', calorieConsumeIconID='" + this.c + "', calorieConsumeTimesID='" + this.d + "', calorieLayoutBtnID='" + this.e + "', calorieConsumeNumberID='" + this.f + "', calorieUnitID='" + this.g + "'}";
+            return "CalorieLayoutID{calorieLayoutID='" + this.f2181a + "', calorieConsumeID='" + this.b + "', calorieConsumeIconID='" + this.c + "', calorieConsumeTimesID='" + this.d + "', calorieLayoutBtnID='" + this.e + "', calorieConsumeNumberID='" + this.f + "', calorieUnitID='" + this.g + "'}";
         }
     }
 
     /* renamed from: com.baidu.mapapi.walknavi.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0250a {
+    /* loaded from: classes26.dex */
+    public static class C0259a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2178a;
+        private String f2180a;
         private String b;
         private String c;
         private String d;
         private String e;
 
         public String a() {
-            return this.f2178a;
+            return this.f2180a;
         }
 
         public void a(String str) {
-            this.f2178a = str;
+            this.f2180a = str;
         }
 
         public String b() {

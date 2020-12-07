@@ -16,7 +16,7 @@ public class be {
         return date.getYear() == date2.getYear() && date.getMonth() == date2.getMonth() && date.getDay() == date2.getDay();
     }
 
-    public static boolean dC(long j) {
+    public static boolean eb(long j) {
         return new Date(j).getYear() == new Date(System.currentTimeMillis()).getYear();
     }
 }

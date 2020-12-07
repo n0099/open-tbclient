@@ -1,79 +1,81 @@
 package kotlin.sequences;
 
 import java.util.Iterator;
-import kotlin.Result;
-import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
-import kotlin.jvm.a.m;
-import kotlin.jvm.internal.q;
-import kotlin.l;
-@kotlin.coroutines.jvm.internal.c(c = "kotlin/sequences/SequencesKt___SequencesKt$zipWithNext$2", eBL = {1693}, f = "_Sequences.kt", m = "invokeSuspend")
-@kotlin.h
-/* loaded from: classes9.dex */
-final class SequencesKt___SequencesKt$zipWithNext$2 extends RestrictedSuspendLambda implements m<d<? super R>, kotlin.coroutines.a<? super l>, Object> {
-    final /* synthetic */ c $this_zipWithNext;
-    final /* synthetic */ m $transform;
+import kotlin.coroutines.experimental.jvm.internal.CoroutineImpl;
+import kotlin.h;
+import kotlin.jvm.internal.p;
+@kotlin.e
+/* loaded from: classes17.dex */
+final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implements kotlin.jvm.a.c<kotlin.coroutines.experimental.f<? super R>, kotlin.coroutines.experimental.b<? super h>, Object> {
+    final /* synthetic */ kotlin.jvm.a.c $transform;
     Object L$0;
     Object L$1;
     Object L$2;
     Object L$3;
-    int label;
-    private d p$;
+    private kotlin.coroutines.experimental.f p$;
+    final /* synthetic */ c receiver$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    SequencesKt___SequencesKt$zipWithNext$2(c cVar, m mVar, kotlin.coroutines.a aVar) {
-        super(2, aVar);
-        this.$this_zipWithNext = cVar;
-        this.$transform = mVar;
+    SequencesKt___SequencesKt$zipWithNext$2(c cVar, kotlin.jvm.a.c cVar2, kotlin.coroutines.experimental.b bVar) {
+        super(2, bVar);
+        this.receiver$0 = cVar;
+        this.$transform = cVar2;
     }
 
-    @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final kotlin.coroutines.a<l> create(Object obj, kotlin.coroutines.a<?> aVar) {
-        q.n(aVar, "completion");
-        SequencesKt___SequencesKt$zipWithNext$2 sequencesKt___SequencesKt$zipWithNext$2 = new SequencesKt___SequencesKt$zipWithNext$2(this.$this_zipWithNext, this.$transform, aVar);
-        d dVar = (d) obj;
-        sequencesKt___SequencesKt$zipWithNext$2.p$ = (d) obj;
+    @Override // kotlin.coroutines.experimental.jvm.internal.CoroutineImpl
+    public /* bridge */ /* synthetic */ kotlin.coroutines.experimental.b create(Object obj, kotlin.coroutines.experimental.b bVar) {
+        return create((kotlin.coroutines.experimental.f) obj, (kotlin.coroutines.experimental.b<? super h>) bVar);
+    }
+
+    public final kotlin.coroutines.experimental.b<h> create(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super h> bVar) {
+        p.o(fVar, "$receiver");
+        p.o(bVar, "continuation");
+        SequencesKt___SequencesKt$zipWithNext$2 sequencesKt___SequencesKt$zipWithNext$2 = new SequencesKt___SequencesKt$zipWithNext$2(this.receiver$0, this.$transform, bVar);
+        sequencesKt___SequencesKt$zipWithNext$2.p$ = fVar;
         return sequencesKt___SequencesKt$zipWithNext$2;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
-    @Override // kotlin.jvm.a.m
-    public final Object invoke(Object obj, kotlin.coroutines.a<? super l> aVar) {
-        return ((SequencesKt___SequencesKt$zipWithNext$2) create(obj, aVar)).invokeSuspend(l.pTv);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlin.jvm.a.c
+    public final Object invoke(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super h> bVar) {
+        p.o(fVar, "$receiver");
+        p.o(bVar, "continuation");
+        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(h.pJY, null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1687=4] */
-    @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Object invokeSuspend(Object obj) {
-        d dVar;
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1615=4] */
+    @Override // kotlin.coroutines.experimental.jvm.internal.CoroutineImpl
+    public final Object doResume(Object obj, Throwable th) {
+        kotlin.coroutines.experimental.f fVar;
         Iterator it;
         Object obj2;
-        Object eBK = kotlin.coroutines.intrinsics.a.eBK();
+        Object eDV = kotlin.coroutines.experimental.a.a.eDV();
         switch (this.label) {
             case 0:
-                if (!(obj instanceof Result.Failure)) {
-                    dVar = this.p$;
-                    it = this.$this_zipWithNext.iterator();
+                if (th == null) {
+                    fVar = this.p$;
+                    it = this.receiver$0.iterator();
                     if (it.hasNext()) {
                         obj2 = it.next();
                         break;
                     } else {
-                        return l.pTv;
+                        return h.pJY;
                     }
                 } else {
-                    throw ((Result.Failure) obj).exception;
+                    throw th;
                 }
             case 1:
                 Object obj3 = this.L$3;
                 Object obj4 = this.L$2;
                 Iterator it2 = (Iterator) this.L$1;
-                d dVar2 = (d) this.L$0;
-                if (!(obj instanceof Result.Failure)) {
-                    dVar = dVar2;
+                kotlin.coroutines.experimental.f fVar2 = (kotlin.coroutines.experimental.f) this.L$0;
+                if (th == null) {
+                    fVar = fVar2;
                     it = it2;
                     obj2 = obj3;
                     break;
                 } else {
-                    throw ((Result.Failure) obj).exception;
+                    throw th;
                 }
             default:
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
@@ -81,16 +83,16 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends RestrictedSuspendLam
         while (it.hasNext()) {
             Object next = it.next();
             Object invoke = this.$transform.invoke(obj2, next);
-            this.L$0 = dVar;
+            this.L$0 = fVar;
             this.L$1 = it;
             this.L$2 = obj2;
             this.L$3 = next;
             this.label = 1;
-            if (dVar.a((d) invoke, (kotlin.coroutines.a<? super l>) this) == eBK) {
-                return eBK;
+            if (fVar.a(invoke, this) == eDV) {
+                return eDV;
             }
             obj2 = next;
         }
-        return l.pTv;
+        return h.pJY;
     }
 }

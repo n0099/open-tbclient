@@ -2,28 +2,30 @@ package com.baidu.ar.arrender;
 
 import com.baidu.ar.DuMixOutput;
 import com.baidu.ar.DuMixStateListener;
-import com.baidu.ar.arplay.core.filter.OnRenderFinishedListener;
-import com.baidu.ar.arplay.core.filter.OnRenderStartedListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public interface IRenderer {
+    void addFrameRenderListener(FrameRenderListener frameRenderListener);
+
     void addOutputSurface(DuMixOutput duMixOutput);
 
     void cancelAysncRenderTask(Runnable runnable);
 
+    void removeFrameRenderListener(FrameRenderListener frameRenderListener);
+
     void removeOutputSurface(DuMixOutput duMixOutput);
+
+    void render();
 
     void runAsyncOnRenderContext(Runnable runnable);
 
     void runSyncOnRenderContext(Runnable runnable);
 
-    void setCameraSwitchListener(f fVar);
+    void setCameraSwitchListener(g gVar);
 
     void setDefaultPipeLine(String str);
 
-    void setRenderFinishedListener(OnRenderFinishedListener onRenderFinishedListener);
-
-    void setRenderStartedListener(OnRenderStartedListener onRenderStartedListener);
+    void setInputMatrix(float[] fArr);
 
     void setStateListener(DuMixStateListener duMixStateListener);
 }

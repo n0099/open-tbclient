@@ -16,59 +16,59 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static b cGf;
+    private static b cMZ;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static final class a {
-        static final int cGh = com.baidu.swan.apps.t.a.avV().agf();
-        static final int cGi = com.baidu.swan.apps.t.a.avV().agg();
-        static final double cGj = com.baidu.swan.apps.t.a.avV().agh();
-        static final boolean cGk = com.baidu.swan.apps.t.a.avV().agi();
-        public static final double cGl = com.baidu.swan.apps.t.a.avV().agk();
-        public static final double cGm = com.baidu.swan.apps.t.a.avV().agj();
-        static final int cGn = com.baidu.swan.apps.t.a.avV().agl();
+        static final int cNb = com.baidu.swan.apps.t.a.azd().ajn();
+        static final int cNc = com.baidu.swan.apps.t.a.azd().ajo();
+        static final double cNd = com.baidu.swan.apps.t.a.azd().ajp();
+        static final boolean cNe = com.baidu.swan.apps.t.a.azd().ajq();
+        public static final double cNf = com.baidu.swan.apps.t.a.azd().ajs();
+        public static final double cNg = com.baidu.swan.apps.t.a.azd().ajr();
+        static final int cNh = com.baidu.swan.apps.t.a.azd().ajt();
     }
 
     private f() {
     }
 
-    public static synchronized void eF(boolean z) {
+    public static synchronized void eU(boolean z) {
         synchronized (f.class) {
-            if (a.cGk && com.baidu.swan.apps.runtime.d.aGI().aeW() != 1) {
-                if (z || cGf == null) {
-                    aml();
+            if (a.cNe && com.baidu.swan.apps.runtime.d.aJQ().aie() != 1) {
+                if (z || cMZ == null) {
+                    apu();
                 }
-                cGf.amn();
+                cMZ.apw();
             }
         }
     }
 
-    public static void bo(final String str, final String str2) {
+    public static void bv(final String str, final String str2) {
         a(new SwanAppNetworkUtils.a() { // from class: com.baidu.swan.apps.core.f.1
             @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.a
             public void onResult(int i) {
                 switch (i) {
                     case 1:
                         f.log(str2 + "; 网络：正常");
-                        d.bn(str, FrsActivityConfig.GOOD);
+                        d.bu(str, FrsActivityConfig.GOOD);
                         com.baidu.swan.apps.core.c.showToast(a.h.swanapp_tip_loading_slow);
                         return;
                     case 2:
                         f.log(str2 + "; 网络：较差");
-                        d.bn(str, "bad");
+                        d.bu(str, "bad");
                         com.baidu.swan.apps.core.c.showToast(a.h.swanapp_tip_net_unavailable);
                         return;
                     case 3:
                         f.log(str2 + "; 网络：离线");
-                        d.bn(str, "offline");
+                        d.bu(str, "offline");
                         com.baidu.swan.apps.core.c.showToast(a.h.swanapp_tip_net_unavailable);
                         return;
                     default:
                         f.log(str2 + "; 网络：未知");
-                        d.bn(str, "unknown");
+                        d.bu(str, "unknown");
                         com.baidu.swan.apps.core.c.showToast(a.h.swanapp_tip_loading_slow);
                         return;
                 }
@@ -77,202 +77,202 @@ public final class f {
     }
 
     public static void a(SwanAppNetworkUtils.a aVar) {
-        if (a.cGk) {
+        if (a.cNe) {
             synchronized (f.class) {
-                if (cGf == null) {
-                    aml();
+                if (cMZ == null) {
+                    apu();
                 }
             }
-            cGf.a(aVar);
+            cMZ.a(aVar);
         }
     }
 
     public static void log(String str) {
-        if (a.cGk) {
+        if (a.cNe) {
             synchronized (f.class) {
-                if (cGf == null) {
-                    aml();
+                if (cMZ == null) {
+                    apu();
                 }
             }
-            cGf.log(str);
+            cMZ.log(str);
         }
     }
 
-    private static synchronized void aml() {
+    private static synchronized void apu() {
         synchronized (f.class) {
             com.baidu.swan.apps.core.c.reset();
-            if (cGf != null) {
-                cGf.cancel();
+            if (cMZ != null) {
+                cMZ.cancel();
             }
-            cGf = new b();
+            cMZ = new b();
         }
     }
 
-    public static void amm() {
-        if (a.cGk && cGf != null) {
-            cGf.amm();
+    public static void apv() {
+        if (a.cNe && cMZ != null) {
+            cMZ.apv();
         }
     }
 
-    public static void bz(long j) {
-        if (a.cGk && cGf != null) {
-            cGf.bz(j);
+    public static void bY(long j) {
+        if (a.cNe && cMZ != null) {
+            cMZ.bY(j);
         }
     }
 
-    public static void bA(long j) {
-        if (a.cGk && cGf != null) {
-            cGf.bA(j);
+    public static void bZ(long j) {
+        if (a.cNe && cMZ != null) {
+            cMZ.bZ(j);
         }
     }
 
-    public static void mA(String str) {
-        if (a.cGk && cGf != null) {
-            cGf.mA(str);
+    public static void nh(String str) {
+        if (a.cNe && cMZ != null) {
+            cMZ.nh(str);
         }
     }
 
-    public static void O(String str, int i) {
-        if (a.cGk && cGf != null) {
-            cGf.O(str, i);
+    public static void P(String str, int i) {
+        if (a.cNe && cMZ != null) {
+            cMZ.P(str, i);
         }
     }
 
     public static void j(String str, long j) {
-        if (a.cGk && cGf != null) {
-            cGf.j(str, j);
+        if (a.cNe && cMZ != null) {
+            cMZ.j(str, j);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static final class b {
-        private long cGo;
-        private long cGp;
-        private boolean cGq;
-        private List<c> cGr;
-        private List<c> cGs;
-        private List<c> cGt;
-        private volatile boolean cGu;
-        private String cGv;
-        private boolean cGw;
+        private long cNi;
+        private long cNj;
+        private boolean cNk;
+        private List<c> cNl;
+        private List<c> cNm;
+        private List<c> cNn;
+        private volatile boolean cNo;
+        private String cNp;
+        private boolean cNq;
         private Timer mTimer;
 
         private b() {
-            this.cGo = 0L;
-            this.cGp = 0L;
-            this.cGq = false;
-            this.cGr = new ArrayList();
-            this.cGs = new ArrayList();
-            this.cGt = new ArrayList();
-            this.cGu = a.cGk;
-            this.cGv = "";
-            this.cGw = false;
+            this.cNi = 0L;
+            this.cNj = 0L;
+            this.cNk = false;
+            this.cNl = new ArrayList();
+            this.cNm = new ArrayList();
+            this.cNn = new ArrayList();
+            this.cNo = a.cNe;
+            this.cNp = "";
+            this.cNq = false;
         }
 
-        void amn() {
-            if (this.cGu && a.cGh > 0) {
+        void apw() {
+            if (this.cNo && a.cNb > 0) {
                 this.mTimer = new Timer();
                 this.mTimer.schedule(new TimerTask() { // from class: com.baidu.swan.apps.core.f.b.1
                     @Override // java.util.TimerTask, java.lang.Runnable
                     public void run() {
-                        b.this.amr();
-                        b.this.amp();
-                        final SwanAppActivity ayQ = com.baidu.swan.apps.v.f.azg().ayQ();
-                        if (ayQ != null && !ayQ.isFinishing()) {
-                            ayQ.a(new com.baidu.swan.apps.framework.a() { // from class: com.baidu.swan.apps.core.f.b.1.1
+                        b.this.apz();
+                        b.this.apy();
+                        final SwanAppActivity aBZ = com.baidu.swan.apps.v.f.aCp().aBZ();
+                        if (aBZ != null && !aBZ.isFinishing()) {
+                            aBZ.a(new com.baidu.swan.apps.framework.a() { // from class: com.baidu.swan.apps.core.f.b.1.1
                                 @Override // com.baidu.swan.apps.framework.a, com.baidu.swan.apps.framework.b
-                                public void ams() {
-                                    if (b.this.amo()) {
-                                        ayQ.b(this);
+                                public void apA() {
+                                    if (b.this.apx()) {
+                                        aBZ.b(this);
                                     }
                                 }
                             });
                         }
                     }
-                }, a.cGh);
+                }, a.cNb);
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public boolean amo() {
-            if (!this.cGw || TextUtils.isEmpty(this.cGv)) {
+        public boolean apx() {
+            if (!this.cNq || TextUtils.isEmpty(this.cNp)) {
                 return false;
             }
-            com.baidu.swan.apps.core.b.g(amq(), this.cGv);
-            this.cGw = false;
+            com.baidu.swan.apps.core.b.i(getLaunchTime(), this.cNp);
+            this.cNq = false;
             return true;
         }
 
-        void amm() {
-            SwanAppActivity ayQ = com.baidu.swan.apps.v.f.azg().ayQ();
-            if (ayQ != null && !ayQ.isFinishing()) {
-                StringBuilder append = new StringBuilder(ayQ.getText(a.h.swanapp_tip_cur_title)).append(TextUtils.isEmpty(this.cGv) ? "未检测到异常\n" : this.cGv);
-                String amh = com.baidu.swan.apps.core.b.amh();
-                if (!TextUtils.isEmpty(amh)) {
-                    append.append(amh);
+        void apv() {
+            SwanAppActivity aBZ = com.baidu.swan.apps.v.f.aCp().aBZ();
+            if (aBZ != null && !aBZ.isFinishing()) {
+                StringBuilder append = new StringBuilder(aBZ.getText(a.h.swanapp_tip_cur_title)).append(TextUtils.isEmpty(this.cNp) ? "未检测到异常\n" : this.cNp);
+                String apq = com.baidu.swan.apps.core.b.apq();
+                if (!TextUtils.isEmpty(apq)) {
+                    append.append(apq);
                 }
-                g.a aVar = new g.a(ayQ);
-                aVar.ib(a.h.swanapp_tip_title).rL(append.toString()).aGq().a(new com.baidu.swan.apps.view.c.a()).gu(false);
+                g.a aVar = new g.a(aBZ);
+                aVar.iz(a.h.swanapp_tip_title).st(append.toString()).aJy().a(new com.baidu.swan.apps.view.c.a()).gJ(false);
                 aVar.c(a.h.swanapp_tip_dialog_close, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.f.b.2
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                     }
                 });
-                aVar.aGt();
+                aVar.aJB();
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void amp() {
+        public void apy() {
             if (this.mTimer != null) {
                 this.mTimer.cancel();
                 this.mTimer = null;
             }
         }
 
-        void bz(long j) {
-            if (this.cGo == 0) {
-                this.cGo = j;
-                bB(this.cGo);
+        void bY(long j) {
+            if (this.cNi == 0) {
+                this.cNi = j;
+                ca(this.cNi);
             }
         }
 
-        void bA(long j) {
-            if (this.cGp == 0) {
-                this.cGp = j;
-                bB(this.cGp);
+        void bZ(long j) {
+            if (this.cNj == 0) {
+                this.cNj = j;
+                ca(this.cNj);
             }
         }
 
-        private void bB(long j) {
-            if (!this.cGq) {
-                this.cGq = true;
-                long amq = amq();
-                if (amq != 0 && j - amq > a.cGn) {
+        private void ca(long j) {
+            if (!this.cNk) {
+                this.cNk = true;
+                long launchTime = getLaunchTime();
+                if (launchTime != 0 && j - launchTime > a.cNh) {
                     a(new SwanAppNetworkUtils.a() { // from class: com.baidu.swan.apps.core.f.b.3
                         @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.a
                         public void onResult(int i) {
-                            if (ak.aMl()) {
+                            if (ak.aPs()) {
                                 switch (i) {
                                     case 1:
-                                        b.this.log(com.baidu.swan.apps.core.a.cFX + "; 网络：正常");
-                                        d.bn("fmp_timeout", FrsActivityConfig.GOOD);
+                                        b.this.log(com.baidu.swan.apps.core.a.cMR + "; 网络：正常");
+                                        d.bu("fmp_timeout", FrsActivityConfig.GOOD);
                                         com.baidu.swan.apps.core.c.showToast(a.h.swanapp_tip_loading_slow);
                                         return;
                                     case 2:
-                                        b.this.log(com.baidu.swan.apps.core.a.cFX + "; 网络：较差");
-                                        d.bn("fmp_timeout", "bad");
+                                        b.this.log(com.baidu.swan.apps.core.a.cMR + "; 网络：较差");
+                                        d.bu("fmp_timeout", "bad");
                                         com.baidu.swan.apps.core.c.showToast(a.h.swanapp_tip_net_unavailable);
                                         return;
                                     case 3:
-                                        b.this.log(com.baidu.swan.apps.core.a.cFX + "; 网络：离线");
-                                        d.bn("fmp_timeout", "offline");
+                                        b.this.log(com.baidu.swan.apps.core.a.cMR + "; 网络：离线");
+                                        d.bu("fmp_timeout", "offline");
                                         com.baidu.swan.apps.core.c.showToast(a.h.swanapp_tip_net_unavailable);
                                         return;
                                     default:
-                                        b.this.log(com.baidu.swan.apps.core.a.cFX + "; 网络：未知");
-                                        d.bn("fmp_timeout", "unknown");
+                                        b.this.log(com.baidu.swan.apps.core.a.cMR + "; 网络：未知");
+                                        d.bu("fmp_timeout", "unknown");
                                         com.baidu.swan.apps.core.c.showToast(a.h.swanapp_tip_loading_slow);
                                         return;
                                 }
@@ -283,48 +283,48 @@ public final class f {
             }
         }
 
-        private long amq() {
-            com.baidu.swan.apps.runtime.e aGN = com.baidu.swan.apps.runtime.e.aGN();
-            if (aGN != null) {
-                return aGN.aGQ().getLong("launch_time", 0L);
+        private long getLaunchTime() {
+            com.baidu.swan.apps.runtime.e aJV = com.baidu.swan.apps.runtime.e.aJV();
+            if (aJV != null) {
+                return aJV.aJY().getLong("launch_time", 0L);
             }
             return 0L;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public synchronized void amr() {
+        public synchronized void apz() {
             c cVar;
             int i;
             int i2 = 0;
             synchronized (this) {
-                this.cGu = false;
+                this.cNo = false;
                 long currentTimeMillis = System.currentTimeMillis();
-                for (c cVar2 : this.cGr) {
-                    cVar2.cGz = currentTimeMillis - cVar2.mStartTime;
-                    this.cGs.add(cVar2);
+                for (c cVar2 : this.cNl) {
+                    cVar2.cNt = currentTimeMillis - cVar2.mStartTime;
+                    this.cNm.add(cVar2);
                 }
                 int i3 = 0;
                 int i4 = 0;
-                while (i3 < this.cGt.size()) {
-                    c cVar3 = this.cGt.get(i3);
+                while (i3 < this.cNn.size()) {
+                    c cVar3 = this.cNn.get(i3);
                     i3++;
                     i4 = (cVar3 == null || cVar3.mErrCode < 400 || cVar3.mErrCode >= 600) ? i4 : i4 + 1;
                 }
-                int size = this.cGs.size();
+                int size = this.cNm.size();
                 if (i4 > 0) {
                     log("检查request状况，总请求次数：" + (i4 + size) + ", 失败次数: " + i4);
                 }
-                if (i4 / (size + i4) >= a.cGj) {
-                    log(com.baidu.swan.apps.core.a.cGa);
-                    this.cGw = true;
+                if (i4 / (size + i4) >= a.cNd) {
+                    log(com.baidu.swan.apps.core.a.cMU);
+                    this.cNq = true;
                     com.baidu.swan.apps.core.c.showToast(a.h.swanapp_tip_service_unavailable);
-                    d.jM("request_fail");
+                    d.kt("request_fail");
                 } else {
                     int i5 = 0;
-                    while (i2 < this.cGs.size()) {
-                        if (this.cGs.get(i2).cGz > a.cGi) {
+                    while (i2 < this.cNm.size()) {
+                        if (this.cNm.get(i2).cNt > a.cNc) {
                             try {
-                                log("请求 " + new URL(cVar.mUrl).getPath() + " 耗时较长 ：" + cVar.cGz + "ms");
+                                log("请求 " + new URL(cVar.mUrl).getPath() + " 耗时较长 ：" + cVar.cNt + "ms");
                             } catch (MalformedURLException e) {
                                 if (f.DEBUG) {
                                     e.printStackTrace();
@@ -338,69 +338,69 @@ public final class f {
                         i5 = i;
                     }
                     if (i5 >= 2) {
-                        final String format = String.format("检测到%s个请求耗时大于 %s ms", Integer.valueOf(i5), Integer.valueOf(a.cGi));
+                        final String format = String.format("检测到%s个请求耗时大于 %s ms", Integer.valueOf(i5), Integer.valueOf(a.cNc));
                         a(new SwanAppNetworkUtils.a() { // from class: com.baidu.swan.apps.core.f.b.4
                             @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.a
                             public void onResult(int i6) {
                                 switch (i6) {
                                     case 1:
                                         b.this.log(format + "; 网络：正常");
-                                        d.bn("request_slow", FrsActivityConfig.GOOD);
+                                        d.bu("request_slow", FrsActivityConfig.GOOD);
                                         com.baidu.swan.apps.core.c.showToast(a.h.swanapp_tip_service_slow);
                                         return;
                                     case 2:
                                         b.this.log(format + "; 网络：较差");
-                                        d.bn("request_slow", "bad");
+                                        d.bu("request_slow", "bad");
                                         com.baidu.swan.apps.core.c.showToast(a.h.swanapp_tip_net_unavailable);
                                         return;
                                     case 3:
                                         b.this.log(format + "; 网络：离线");
-                                        d.bn("request_slow", "offline");
+                                        d.bu("request_slow", "offline");
                                         com.baidu.swan.apps.core.c.showToast(a.h.swanapp_tip_net_unavailable);
                                         return;
                                     default:
                                         b.this.log(format + "; 网络：未知");
-                                        d.bn("request_slow", "unknown");
+                                        d.bu("request_slow", "unknown");
                                         com.baidu.swan.apps.core.c.showToast(a.h.swanapp_tip_loading_slow);
                                         return;
                                 }
                             }
                         });
                     }
-                    this.cGr.clear();
-                    this.cGs.clear();
-                    this.cGt.clear();
+                    this.cNl.clear();
+                    this.cNm.clear();
+                    this.cNn.clear();
                 }
             }
         }
 
-        synchronized void mA(String str) {
-            if (this.cGu) {
-                this.cGr.add(new c(str, System.currentTimeMillis(), 0L));
+        synchronized void nh(String str) {
+            if (this.cNo) {
+                this.cNl.add(new c(str, System.currentTimeMillis(), 0L));
             }
         }
 
-        synchronized void O(String str, int i) {
-            if (this.cGu) {
-                this.cGt.add(new c(str, 0L, 0L, i));
-                mB(str);
+        synchronized void P(String str, int i) {
+            if (this.cNo) {
+                this.cNn.add(new c(str, 0L, 0L, i));
+                ni(str);
             }
         }
 
         synchronized void j(String str, long j) {
-            if (this.cGu) {
-                this.cGs.add(new c(str, 0L, j));
-                mB(str);
+            if (this.cNo) {
+                this.cNm.add(new c(str, 0L, j));
+                ni(str);
             }
         }
 
-        private void mB(String str) {
+        private void ni(String str) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.cGr.size()) {
-                    if (TextUtils.equals(this.cGr.get(i2).mUrl, str)) {
-                        this.cGr.remove(this.cGr.get(i2));
+                if (i2 < this.cNl.size()) {
+                    if (TextUtils.equals(this.cNl.get(i2).mUrl, str)) {
+                        this.cNl.remove(this.cNl.get(i2));
                     }
                     i = i2 + 1;
                 } else {
@@ -410,26 +410,26 @@ public final class f {
         }
 
         void a(SwanAppNetworkUtils.a aVar) {
-            this.cGw = true;
+            this.cNq = true;
             SwanAppNetworkUtils.a(aVar);
         }
 
         void log(String str) {
-            this.cGv += j.h(System.currentTimeMillis(), "【HH:mm:ss】") + str + "\n";
+            this.cNp += j.j(System.currentTimeMillis(), "【HH:mm:ss】") + str + "\n";
             if (f.DEBUG) {
                 Log.d("SwanAppLaunchTips", str);
             }
         }
 
         public void cancel() {
-            amp();
+            apy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static final class c {
-        long cGz;
+        long cNt;
         int mErrCode;
         long mStartTime;
         String mUrl;
@@ -441,7 +441,7 @@ public final class f {
         c(String str, long j, long j2, int i) {
             this.mUrl = str;
             this.mStartTime = j;
-            this.cGz = j2;
+            this.cNt = j2;
             this.mErrCode = i;
         }
     }

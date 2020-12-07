@@ -7,13 +7,13 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public class TrackProductionApertureDimensionsAtom extends AbstractFullBox {
     public static final String TYPE = "prof";
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_3 = null;
     double height;
     double width;
 
@@ -58,7 +58,7 @@ public class TrackProductionApertureDimensionsAtom extends AbstractFullBox {
     }
 
     public void setWidth(double d) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.P(d)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.R(d)));
         this.width = d;
     }
 
@@ -68,7 +68,7 @@ public class TrackProductionApertureDimensionsAtom extends AbstractFullBox {
     }
 
     public void setHeight(double d) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.P(d)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.R(d)));
         this.height = d;
     }
 }

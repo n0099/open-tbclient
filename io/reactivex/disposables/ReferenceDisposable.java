@@ -1,7 +1,7 @@
 package io.reactivex.disposables;
 
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 abstract class ReferenceDisposable<T> extends AtomicReference<T> implements b {
     private static final long serialVersionUID = 6537757548749041217L;
 
@@ -9,7 +9,7 @@ abstract class ReferenceDisposable<T> extends AtomicReference<T> implements b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ReferenceDisposable(T t) {
-        super(io.reactivex.internal.functions.a.l(t, "value is null"));
+        super(io.reactivex.internal.functions.a.m(t, "value is null"));
     }
 
     @Override // io.reactivex.disposables.b

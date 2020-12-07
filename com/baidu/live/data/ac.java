@@ -3,45 +3,23 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ac {
-    private String aIA;
-    private boolean aIy;
-    private String aIz;
-    private int height;
-    private int position;
-    private int width;
+    public int aLk;
+    public long aLl;
+    public long aLm;
+    public String division;
+    public String iconUrl;
+    public int maxStar;
+    public String name;
 
-    public void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.position = jSONObject.optInt("position");
-            this.height = jSONObject.optInt("high");
-            this.width = jSONObject.optInt("wide");
-            this.aIy = jSONObject.optInt("is_show") == 1;
-            this.aIz = jSONObject.optString("pk_url");
-            this.aIA = jSONObject.optString("pk_data");
+            this.division = jSONObject.optString("division");
+            this.aLk = jSONObject.optInt("cur_star");
+            this.maxStar = jSONObject.optInt("max_star", 5);
+            this.aLl = jSONObject.optInt("min_score");
+            this.aLm = jSONObject.optInt("max_score");
+            this.name = jSONObject.optString("name");
+            this.iconUrl = jSONObject.optString("icon_url");
         }
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public String DG() {
-        return this.aIz;
-    }
-
-    public String DH() {
-        return this.aIA;
-    }
-
-    public int getWidth() {
-        return this.width;
-    }
-
-    public boolean DI() {
-        return this.aIy;
-    }
-
-    public String toString() {
-        return "AlaPkPanelInfo{position=" + this.position + ", height=" + this.height + ", width=" + this.width + ", isOpenAction=" + this.aIy + ", pkUrl='" + this.aIz + "', urlDataParams='" + this.aIA + "'}";
     }
 }

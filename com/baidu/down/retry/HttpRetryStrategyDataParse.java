@@ -16,7 +16,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class HttpRetryStrategyDataParse {
     private static final boolean DEBUG = false;
     private static final String DOWNFLOW_DOWNLOAD_INNER = "download_inner";
@@ -48,7 +48,7 @@ public class HttpRetryStrategyDataParse {
     private long mFetchServerDataElapsedTime;
     private Timer mFetchServerDataOverTime;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public interface OnFetchRetryDataRequestListener {
         void afterRequest(boolean z, HttpDNSCacheInfo httpDNSCacheInfo, int i);
     }
@@ -88,7 +88,7 @@ public class HttpRetryStrategyDataParse {
                                 if (jSONObject.optInt(HttpRetryStrategyDataParse.DOWNFLOW_FSTAT, 1) == 0 && optJSONObject != null) {
                                     httpDNSCacheInfo.mMode = Integer.parseInt(optJSONObject.optString("mode", "-1"));
                                     httpDNSCacheInfo.mDownloadUri = optJSONObject.optString(HttpRetryStrategyDataParse.DOWNFLOW_DOWNLOAD_INNER, "");
-                                    httpDNSCacheInfo.mDownFlowLiveTime = optJSONObject.optInt(HttpRetryStrategyDataParse.DOWNFLOW_LIVE_TIME, 600);
+                                    httpDNSCacheInfo.mDownFlowLiveTime = optJSONObject.optInt("ftime", 600);
                                     httpDNSCacheInfo.mRetryRequestUrl = new ArrayList();
                                     if (httpDNSCacheInfo.mMode == 4 || httpDNSCacheInfo.mMode == 5 || httpDNSCacheInfo.mMode == 7) {
                                         JSONArray optJSONArray = optJSONObject.optJSONArray(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_ARR);

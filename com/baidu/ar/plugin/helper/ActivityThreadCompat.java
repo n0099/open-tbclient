@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import com.baidu.ar.plugin.reflect.MethodUtils;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class ActivityThreadCompat {
     private static Object sActivityThread;
     private static Class sClass = null;

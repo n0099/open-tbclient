@@ -11,7 +11,7 @@ import com.baidu.ubc.IRemoteUBCService;
 import java.util.Map;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class UBC {
     public static final String CONTENT_KEY_DURATION = "duration";
     public static final String CONTENT_KEY_EXT = "ext";
@@ -34,7 +34,7 @@ public class UBC {
     private static volatile IRemoteUBCService sProxy;
 
     public static final q getUBCContext() {
-        return com.baidu.tieba.r.h.dGE();
+        return com.baidu.tieba.r.p.dLV();
     }
 
     public static final void onEvent(String str) {
@@ -58,23 +58,23 @@ public class UBC {
     }
 
     public static final void onEvent(String str, Map<String, String> map, int i) {
-        ((ad) com.baidu.pyramid.runtime.service.c.a(ad.SERVICE_REFERENCE)).onEvent(str, map, i);
+        ((af) com.baidu.pyramid.runtime.service.c.a(af.SERVICE_REFERENCE)).onEvent(str, map, i);
     }
 
     public static void onEvent(String str, String str2, int i) {
-        ((ad) com.baidu.pyramid.runtime.service.c.a(ad.SERVICE_REFERENCE)).onEvent(str, str2, i);
+        ((af) com.baidu.pyramid.runtime.service.c.a(af.SERVICE_REFERENCE)).onEvent(str, str2, i);
     }
 
     public static void onEvent(String str, JSONObject jSONObject, int i) {
-        ((ad) com.baidu.pyramid.runtime.service.c.a(ad.SERVICE_REFERENCE)).onEvent(str, jSONObject, i);
+        ((af) com.baidu.pyramid.runtime.service.c.a(af.SERVICE_REFERENCE)).onEvent(str, jSONObject, i);
     }
 
     public static void onMutilProcessEvent(String str, String str2, String str3) {
-        String WC = com.baidu.p.a.WC(str3);
+        String XV = com.baidu.q.a.XV(str3);
         if (DEBUG) {
-            Log.d(TAG, "on onMutilProcessEvent id:" + str + " value:" + str2 + " name: " + WC);
+            Log.d(TAG, "on onMutilProcessEvent id:" + str + " value:" + str2 + " name: " + XV);
         }
-        d.edc().i(str, str2, WC, 8);
+        d.eiH().i(str, str2, XV, 8);
     }
 
     public static final Flow beginFlow(String str) {
@@ -98,29 +98,29 @@ public class UBC {
     }
 
     public static final Flow beginFlow(String str, Map<String, String> map, int i) {
-        return ((ad) com.baidu.pyramid.runtime.service.c.a(ad.SERVICE_REFERENCE)).beginFlow(str, map, i);
+        return ((af) com.baidu.pyramid.runtime.service.c.a(af.SERVICE_REFERENCE)).beginFlow(str, map, i);
     }
 
     public static Flow beginFlow(String str, String str2, int i) {
-        return ((ad) com.baidu.pyramid.runtime.service.c.a(ad.SERVICE_REFERENCE)).beginFlow(str, str2, i);
+        return ((af) com.baidu.pyramid.runtime.service.c.a(af.SERVICE_REFERENCE)).beginFlow(str, str2, i);
     }
 
     public static Flow beginFlow(String str, JSONObject jSONObject, int i) {
-        return ((ad) com.baidu.pyramid.runtime.service.c.a(ad.SERVICE_REFERENCE)).beginFlow(str, jSONObject, i);
+        return ((af) com.baidu.pyramid.runtime.service.c.a(af.SERVICE_REFERENCE)).beginFlow(str, jSONObject, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void uploadLocalDatas() {
-        ad adVar = (ad) com.baidu.pyramid.runtime.service.c.a(ad.SERVICE_REFERENCE);
-        if (adVar != null) {
-            adVar.uploadLocalDatas();
+        af afVar = (af) com.baidu.pyramid.runtime.service.c.a(af.SERVICE_REFERENCE);
+        if (afVar != null) {
+            afVar.uploadLocalDatas();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String getUploadType(String str) {
-        ad adVar = (ad) com.baidu.pyramid.runtime.service.c.a(ad.SERVICE_REFERENCE);
-        return adVar != null ? adVar.getUploadType(str) : "";
+        af afVar = (af) com.baidu.pyramid.runtime.service.c.a(af.SERVICE_REFERENCE);
+        return afVar != null ? afVar.getUploadType(str) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -133,12 +133,12 @@ public class UBC {
         if (sProxy == null) {
             synchronized (UBC.class) {
                 if (sProxy == null) {
-                    IBinder J = IPCServiceManager.J(UBC_REMOTE_SERVICE_NAME, true);
-                    if (J == null) {
+                    IBinder K = IPCServiceManager.K(UBC_REMOTE_SERVICE_NAME, true);
+                    if (K == null) {
                         throw new RemoteException("UBC get remote service empty !");
                     }
-                    if (J != null) {
-                        sProxy = IRemoteUBCService.Stub.asInterface(J);
+                    if (K != null) {
+                        sProxy = IRemoteUBCService.Stub.asInterface(K);
                     }
                 }
             }

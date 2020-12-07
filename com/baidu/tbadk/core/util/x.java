@@ -28,7 +28,7 @@ public class x {
         }
     }
 
-    public static void e(Application application) {
+    public static void f(Application application) {
         final InputMethodManager inputMethodManager;
         if (application != null && (inputMethodManager = (InputMethodManager) application.getSystemService("input_method")) != null) {
             String[] strArr = {"mCurRootView", "mServedView", "mNextServedView"};

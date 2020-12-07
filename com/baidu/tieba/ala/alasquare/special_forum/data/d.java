@@ -3,13 +3,13 @@ package com.baidu.tieba.ala.alasquare.special_forum.data;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.UserData;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
     public UserData mUserData = new UserData();
-    public AlaInfoData gpq = new AlaInfoData();
+    public AlaInfoData gxz = new AlaInfoData();
 
     public void e(JSONObject jSONObject, JSONObject jSONObject2) {
         this.mUserData.parserJson(jSONObject);
-        this.gpq.parserJson(jSONObject2);
+        this.gxz.parserJson(jSONObject2);
     }
 }

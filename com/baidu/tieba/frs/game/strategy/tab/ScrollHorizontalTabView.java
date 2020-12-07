@@ -19,10 +19,10 @@ import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
-    private final a iWO;
-    private b iWP;
+    private final a jkn;
+    private b jko;
     private float mCurrentPositionOffset;
     private int mCurrentTabIndex;
     private final int mIndicatorHeight;
@@ -38,7 +38,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     private final List<TextView> mTabItemView;
     private LinearLayout mTabsContainer;
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public interface b {
         boolean a(int i, e eVar);
 
@@ -57,7 +57,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
-        this.iWO = new a();
+        this.jkn = new a();
         this.mOnItemClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollHorizontalTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -94,7 +94,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
-        this.iWO = new a();
+        this.jkn = new a();
         this.mOnItemClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollHorizontalTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -131,7 +131,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         this.mCurrentPositionOffset = 0.0f;
         this.mScrollOffset = 52;
         this.mLastScrollX = 0;
-        this.iWO = new a();
+        this.jkn = new a();
         this.mOnItemClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollHorizontalTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -229,12 +229,12 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public void setViewPager(ViewPager viewPager) {
         this.mPager = viewPager;
         if (viewPager.getAdapter() != null) {
-            viewPager.setOnPageChangeListener(this.iWO);
+            viewPager.setOnPageChangeListener(this.jkn);
         }
     }
 
     public void setScrollTabPageListener(b bVar) {
-        this.iWP = bVar;
+        this.jko = bVar;
     }
 
     public int getCurrentIndex() {
@@ -332,7 +332,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     private class a implements ViewPager.OnPageChangeListener {
         private int mLastPosition;
 
@@ -364,9 +364,9 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
             e eVar = (e) y.getItem(ScrollHorizontalTabView.this.mTabDataList, i);
-            if (ScrollHorizontalTabView.this.iWP == null || ScrollHorizontalTabView.this.iWP.a(i, eVar)) {
-                if (ScrollHorizontalTabView.this.iWP != null) {
-                    ScrollHorizontalTabView.this.iWP.b(i, eVar);
+            if (ScrollHorizontalTabView.this.jko == null || ScrollHorizontalTabView.this.jko.a(i, eVar)) {
+                if (ScrollHorizontalTabView.this.jko != null) {
+                    ScrollHorizontalTabView.this.jko.b(i, eVar);
                 }
                 if (ScrollHorizontalTabView.this.mIsClicked) {
                     if (ScrollHorizontalTabView.this.mCurrentTabIndex != i) {

@@ -1,9 +1,9 @@
 package com.baidu.tieba.homepage.tabfeed;
 
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.data.bp;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bq;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tieba.homepage.tabfeed.a.d;
 import com.baidu.tieba.homepage.tabfeed.a.e;
 import com.baidu.tieba.homepage.tabfeed.a.f;
@@ -21,100 +21,100 @@ import com.baidu.tieba.homepage.tabfeed.a.q;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> biN = new LinkedList();
-    private BdTypeRecyclerView ipO;
-    private j jIA;
-    private n jIB;
-    private HomePageTabFeedFragment jIk;
-    private p jIl;
-    private e jIm;
-    private g jIn;
-    private f jIo;
-    private h jIp;
-    private q jIq;
-    private i jIr;
-    private k jIs;
-    private m jIt;
-    private l jIu;
-    private o jIv;
-    private d jIw;
-    private com.baidu.tieba.homepage.tabfeed.a.b jIx;
-    private com.baidu.tieba.homepage.tabfeed.a.a jIy;
-    private com.baidu.tieba.homepage.tabfeed.a.c jIz;
+    private List<com.baidu.adp.widget.ListView.a> bnf = new LinkedList();
+    private BdTypeRecyclerView iAG;
+    private HomePageTabFeedFragment jVN;
+    private p jVO;
+    private e jVP;
+    private g jVQ;
+    private f jVR;
+    private h jVS;
+    private q jVT;
+    private i jVU;
+    private k jVV;
+    private m jVW;
+    private l jVX;
+    private o jVY;
+    private d jVZ;
+    private com.baidu.tieba.homepage.tabfeed.a.b jWa;
+    private com.baidu.tieba.homepage.tabfeed.a.a jWb;
+    private com.baidu.tieba.homepage.tabfeed.a.c jWc;
+    private j jWd;
+    private n jWe;
 
     public a(HomePageTabFeedFragment homePageTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.jIk = homePageTabFeedFragment;
-        this.ipO = bdTypeRecyclerView;
-        Lp();
+        this.jVN = homePageTabFeedFragment;
+        this.iAG = bdTypeRecyclerView;
+        Nt();
     }
 
-    private void Lp() {
-        this.jIl = new p(this.jIk.getPageContext(), bx.eBX, this.jIk.getUniqueId(), this.jIk.getTabName());
-        this.jIl.a(this.ipO);
-        this.biN.add(this.jIl);
-        this.jIm = new e(this.jIk.getPageContext(), bx.eCc, this.jIk.getUniqueId(), this.jIk.getTabName());
-        this.jIm.a(this.ipO);
-        this.biN.add(this.jIm);
-        this.jIn = new g(this.jIk.getPageContext(), bx.eCa, this.jIk.getUniqueId(), this.jIk.getTabName());
-        this.jIn.a(this.ipO);
-        this.biN.add(this.jIn);
-        this.jIo = new f(this.jIk.getPageContext(), bx.eCb, this.jIk.getUniqueId(), this.jIk.getTabName());
-        this.jIo.a(this.ipO);
-        this.biN.add(this.jIo);
-        this.jIp = new h(this.jIk.getPageContext(), bx.eBY, this.jIk.getUniqueId(), this.jIk.getTabName());
-        this.jIp.a(this.ipO);
-        this.biN.add(this.jIp);
-        this.jIq = new q(this.jIk.getPageContext(), bx.eCo, this.jIk.getUniqueId(), this.jIk.getTabName());
-        this.jIq.a(this.ipO);
-        this.biN.add(this.jIq);
-        this.jIr = new i(this.jIk.getPageContext(), bx.eCh, this.jIk.getUniqueId(), this.jIk.getTabName());
-        this.jIr.a(this.ipO);
-        this.biN.add(this.jIr);
-        this.jIs = new k(this.jIk.getPageContext(), bx.eCi, this.jIk.getUniqueId(), this.jIk.getTabName());
-        this.jIs.a(this.ipO);
-        this.biN.add(this.jIs);
-        this.jIt = new m(this.jIk.getPageContext(), bx.eCk, this.jIk.getUniqueId(), this.jIk.getTabName());
-        this.jIt.a(this.ipO);
-        this.biN.add(this.jIt);
-        this.jIu = new l(this.jIk.getPageContext(), bx.eCl, this.jIk.getUniqueId(), this.jIk.getTabName());
-        this.jIu.a(this.ipO);
-        this.biN.add(this.jIu);
-        this.jIv = new o(this.jIk.getPageContext(), bx.eCd, this.jIk.getUniqueId(), this.jIk.getTabName());
-        this.jIv.a(this.ipO);
-        this.biN.add(this.jIv);
-        this.jIw = new d(this.jIk.getPageContext(), bx.eCg, this.jIk.getUniqueId(), this.jIk.getTabName());
-        this.jIw.a(this.ipO);
-        this.biN.add(this.jIw);
-        this.jIz = new com.baidu.tieba.homepage.tabfeed.a.c(this.jIk.getPageContext(), com.baidu.tieba.card.data.j.TYPE, this.jIk.getTabName());
-        this.biN.add(this.jIz);
-        this.jIx = new com.baidu.tieba.homepage.tabfeed.a.b(this.jIk.getPageContext(), bp.eyF);
-        this.jIx.a(this.ipO);
-        this.biN.add(this.jIx);
-        this.jIy = new com.baidu.tieba.homepage.tabfeed.a.a(this.jIk.getPageContext(), bk.eyF);
-        this.jIy.a(this.ipO);
-        this.biN.add(this.jIy);
-        this.jIA = new j(this.jIk.getPageContext());
-        this.jIA.a(this.ipO);
-        this.biN.add(this.jIA);
-        this.jIB = new n(this.jIk.getPageContext());
-        this.jIB.a(this.ipO);
-        this.biN.add(this.jIB);
-        this.ipO.addAdapters(this.biN);
+    private void Nt() {
+        this.jVO = new p(this.jVN.getPageContext(), by.eIY, this.jVN.getUniqueId(), this.jVN.getTabName());
+        this.jVO.a(this.iAG);
+        this.bnf.add(this.jVO);
+        this.jVP = new e(this.jVN.getPageContext(), by.eJd, this.jVN.getUniqueId(), this.jVN.getTabName());
+        this.jVP.a(this.iAG);
+        this.bnf.add(this.jVP);
+        this.jVQ = new g(this.jVN.getPageContext(), by.eJb, this.jVN.getUniqueId(), this.jVN.getTabName());
+        this.jVQ.a(this.iAG);
+        this.bnf.add(this.jVQ);
+        this.jVR = new f(this.jVN.getPageContext(), by.eJc, this.jVN.getUniqueId(), this.jVN.getTabName());
+        this.jVR.a(this.iAG);
+        this.bnf.add(this.jVR);
+        this.jVS = new h(this.jVN.getPageContext(), by.eIZ, this.jVN.getUniqueId(), this.jVN.getTabName());
+        this.jVS.a(this.iAG);
+        this.bnf.add(this.jVS);
+        this.jVT = new q(this.jVN.getPageContext(), by.eJq, this.jVN.getUniqueId(), this.jVN.getTabName());
+        this.jVT.a(this.iAG);
+        this.bnf.add(this.jVT);
+        this.jVU = new i(this.jVN.getPageContext(), by.eJi, this.jVN.getUniqueId(), this.jVN.getTabName());
+        this.jVU.a(this.iAG);
+        this.bnf.add(this.jVU);
+        this.jVV = new k(this.jVN.getPageContext(), by.eJj, this.jVN.getUniqueId(), this.jVN.getTabName());
+        this.jVV.a(this.iAG);
+        this.bnf.add(this.jVV);
+        this.jVW = new m(this.jVN.getPageContext(), by.eJl, this.jVN.getUniqueId(), this.jVN.getTabName());
+        this.jVW.a(this.iAG);
+        this.bnf.add(this.jVW);
+        this.jVX = new l(this.jVN.getPageContext(), by.eJm, this.jVN.getUniqueId(), this.jVN.getTabName());
+        this.jVX.a(this.iAG);
+        this.bnf.add(this.jVX);
+        this.jVY = new o(this.jVN.getPageContext(), by.eJe, this.jVN.getUniqueId(), this.jVN.getTabName());
+        this.jVY.a(this.iAG);
+        this.bnf.add(this.jVY);
+        this.jVZ = new d(this.jVN.getPageContext(), by.eJh, this.jVN.getUniqueId(), this.jVN.getTabName());
+        this.jVZ.a(this.iAG);
+        this.bnf.add(this.jVZ);
+        this.jWc = new com.baidu.tieba.homepage.tabfeed.a.c(this.jVN.getPageContext(), com.baidu.tieba.card.data.j.TYPE, this.jVN.getTabName());
+        this.bnf.add(this.jWc);
+        this.jWa = new com.baidu.tieba.homepage.tabfeed.a.b(this.jVN.getPageContext(), bq.eFE);
+        this.jWa.a(this.iAG);
+        this.bnf.add(this.jWa);
+        this.jWb = new com.baidu.tieba.homepage.tabfeed.a.a(this.jVN.getPageContext(), bl.eFE);
+        this.jWb.a(this.iAG);
+        this.bnf.add(this.jWb);
+        this.jWd = new j(this.jVN.getPageContext());
+        this.jWd.a(this.iAG);
+        this.bnf.add(this.jWd);
+        this.jWe = new n(this.jVN.getPageContext());
+        this.jWe.a(this.iAG);
+        this.bnf.add(this.jWe);
+        this.iAG.addAdapters(this.bnf);
     }
 
     public void notifyDataSetChanged() {
-        this.ipO.getAdapter().notifyDataSetChanged();
+        this.iAG.getAdapter().notifyDataSetChanged();
     }
 
     public void setData(ArrayList<com.baidu.adp.widget.ListView.q> arrayList) {
-        this.ipO.setData(arrayList);
+        this.iAG.setData(arrayList);
     }
 
     public void setTabName(String str) {
-        if (this.jIy != null) {
-            this.jIy.setTabName(str);
+        if (this.jWb != null) {
+            this.jWb.setTabName(str);
         }
     }
 }

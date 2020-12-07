@@ -36,7 +36,7 @@ public class PushMessageHelper {
 
     public static MiPushMessage generateMessage(ip ipVar, hz hzVar, boolean z) {
         MiPushMessage miPushMessage = new MiPushMessage();
-        miPushMessage.setMessageId(ipVar.m456a());
+        miPushMessage.setMessageId(ipVar.m446a());
         if (!TextUtils.isEmpty(ipVar.d())) {
             miPushMessage.setMessageType(1);
             miPushMessage.setAlias(ipVar.d());
@@ -55,17 +55,17 @@ public class PushMessageHelper {
         }
         if (hzVar != null) {
             if (TextUtils.isEmpty(miPushMessage.getMessageId())) {
-                miPushMessage.setMessageId(hzVar.m380a());
+                miPushMessage.setMessageId(hzVar.m370a());
             }
             if (TextUtils.isEmpty(miPushMessage.getTopic())) {
-                miPushMessage.setTopic(hzVar.m385b());
+                miPushMessage.setTopic(hzVar.m375b());
             }
             miPushMessage.setDescription(hzVar.d());
-            miPushMessage.setTitle(hzVar.m388c());
+            miPushMessage.setTitle(hzVar.m378c());
             miPushMessage.setNotifyType(hzVar.a());
             miPushMessage.setNotifyId(hzVar.c());
             miPushMessage.setPassThrough(hzVar.b());
-            miPushMessage.setExtra(hzVar.m381a());
+            miPushMessage.setExtra(hzVar.m371a());
         }
         miPushMessage.setNotified(z);
         return miPushMessage;

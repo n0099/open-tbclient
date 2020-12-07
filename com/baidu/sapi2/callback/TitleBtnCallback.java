@@ -1,5 +1,5 @@
 package com.baidu.sapi2.callback;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public interface TitleBtnCallback {
     boolean onLeftBtnClick();
 

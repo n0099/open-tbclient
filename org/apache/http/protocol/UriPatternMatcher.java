@@ -2,7 +2,7 @@ package org.apache.http.protocol;
 
 import java.util.Map;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class UriPatternMatcher {
     public UriPatternMatcher() {
         throw new RuntimeException("Stub!");

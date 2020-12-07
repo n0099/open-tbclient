@@ -1,7 +1,7 @@
 package com.baidu.swan.game.ad.e;
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 public interface j {
-    void hn(boolean z);
+    void hC(boolean z);
 
     void onError(String str);
 

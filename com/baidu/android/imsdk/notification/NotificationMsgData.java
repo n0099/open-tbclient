@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class NotificationMsgData {
     public static final String TAG = "NotificationMsgData";
     ChatMsg mMsg;

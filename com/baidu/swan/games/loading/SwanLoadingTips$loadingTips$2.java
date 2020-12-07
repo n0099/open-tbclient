@@ -3,10 +3,10 @@ package com.baidu.swan.games.loading;
 import android.app.Application;
 import android.content.res.Resources;
 import com.baidu.swan.apps.a;
-import kotlin.h;
+import kotlin.e;
 import kotlin.jvm.internal.Lambda;
-@h
-/* loaded from: classes7.dex */
+@e
+/* loaded from: classes25.dex */
 final class SwanLoadingTips$loadingTips$2 extends Lambda implements kotlin.jvm.a.a<String[]> {
     public static final SwanLoadingTips$loadingTips$2 INSTANCE = new SwanLoadingTips$loadingTips$2();
 
@@ -21,14 +21,14 @@ final class SwanLoadingTips$loadingTips$2 extends Lambda implements kotlin.jvm.a
         Resources resources2;
         switch ((int) (Math.random() * 2)) {
             case 0:
-                Application avS = com.baidu.swan.apps.t.a.avS();
-                if (avS == null || (resources = avS.getResources()) == null) {
+                Application aza = com.baidu.swan.apps.t.a.aza();
+                if (aza == null || (resources = aza.getResources()) == null) {
                     return null;
                 }
                 return resources.getStringArray(a.b.aiapps_loading_tips_skill);
             default:
-                Application avS2 = com.baidu.swan.apps.t.a.avS();
-                if (avS2 == null || (resources2 = avS2.getResources()) == null) {
+                Application aza2 = com.baidu.swan.apps.t.a.aza();
+                if (aza2 == null || (resources2 = aza2.getResources()) == null) {
                     return null;
                 }
                 return resources2.getStringArray(a.b.aiapps_loading_tips_prepare);

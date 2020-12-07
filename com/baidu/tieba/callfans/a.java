@@ -21,18 +21,18 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private TbPageContext eGu;
-    private TextView gwO;
-    private ImageView hVU;
-    private TextView hVV;
-    boolean hVW = false;
+    private TbPageContext eNx;
+    private TextView gFz;
+    private ImageView igR;
+    private TextView igS;
+    boolean igT = false;
     private String mThreadId;
     private TextView mTitle;
 
     public a(TbPageContext tbPageContext) {
-        this.eGu = tbPageContext;
+        this.eNx = tbPageContext;
         registerTask();
     }
 
@@ -40,57 +40,57 @@ public class a {
         this.mThreadId = str;
     }
 
-    public void cnp() {
+    public void crC() {
         if (!TbSingleton.getInstance().mCanCallFans) {
-            this.eGu.showToast(R.string.have_used_call_fans_this_week);
-        } else if (b.bpu().getBoolean("key_call_fans_no_tip_again", false)) {
-            cnq();
+            this.eNx.showToast(R.string.have_used_call_fans_this_week);
+        } else if (b.bsO().getBoolean("key_call_fans_no_tip_again", false)) {
+            crD();
         } else {
-            final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eGu.getPageActivity());
-            aVar.ov(1);
-            View inflate = LayoutInflater.from(this.eGu.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
+            final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eNx.getPageActivity());
+            aVar.oT(1);
+            View inflate = LayoutInflater.from(this.eNx.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
             this.mTitle = (TextView) inflate.findViewById(R.id.title);
-            this.gwO = (TextView) inflate.findViewById(R.id.call_fans_intro);
-            this.hVV = (TextView) inflate.findViewById(R.id.no_tip_again_text);
-            this.hVU = (ImageView) inflate.findViewById(R.id.checkbox);
-            bod();
-            this.hVU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.callfans.a.1
+            this.gFz = (TextView) inflate.findViewById(R.id.call_fans_intro);
+            this.igS = (TextView) inflate.findViewById(R.id.no_tip_again_text);
+            this.igR = (ImageView) inflate.findViewById(R.id.checkbox);
+            brs();
+            this.igR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.callfans.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.hVW = !a.this.hVW;
-                    a.this.bod();
-                    b.bpu().putBoolean("key_call_fans_no_tip_again", a.this.hVW);
+                    a.this.igT = !a.this.igT;
+                    a.this.brs();
+                    b.bsO().putBoolean("key_call_fans_no_tip_again", a.this.igT);
                 }
             });
             onChangeSkinType();
-            aVar.bg(inflate);
-            aVar.a(this.eGu.getString(R.string.call_fans), new a.b() { // from class: com.baidu.tieba.callfans.a.2
+            aVar.bi(inflate);
+            aVar.a(this.eNx.getString(R.string.call_fans), new a.b() { // from class: com.baidu.tieba.callfans.a.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    a.this.cnq();
+                    a.this.crD();
                     aVar.dismiss();
                 }
             });
-            aVar.b(this.eGu.getString(R.string.next_time), new a.b() { // from class: com.baidu.tieba.callfans.a.3
+            aVar.b(this.eNx.getString(R.string.next_time), new a.b() { // from class: com.baidu.tieba.callfans.a.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    b.bpu().putBoolean("key_call_fans_no_tip_again", false);
+                    b.bsO().putBoolean("key_call_fans_no_tip_again", false);
                     aVar.dismiss();
                 }
             });
-            aVar.b(this.eGu).bog();
+            aVar.b(this.eNx).brv();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bod() {
+    public void brs() {
         Drawable a2;
-        if (this.hVU != null) {
-            ImageView imageView = this.hVU;
-            if (this.hVW) {
-                a2 = SvgManager.bqB().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
+        if (this.igR != null) {
+            ImageView imageView = this.igR;
+            if (this.igT) {
+                a2 = SvgManager.btW().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
             } else {
-                a2 = SvgManager.bqB().a(R.drawable.ic_icon_mask_use_check16_svg, null);
+                a2 = SvgManager.btW().a(R.drawable.ic_icon_mask_use_check16_svg, null);
             }
             imageView.setImageDrawable(a2);
         }
@@ -98,9 +98,9 @@ public class a {
 
     public void onChangeSkinType() {
         ap.setViewTextColor(this.mTitle, R.color.CAM_X0105);
-        ap.setViewTextColor(this.gwO, R.color.CAM_X0107);
-        bod();
-        ap.setViewTextColor(this.hVV, R.color.CAM_X0107);
+        ap.setViewTextColor(this.gFz, R.color.CAM_X0107);
+        brs();
+        ap.setViewTextColor(this.igS, R.color.CAM_X0107);
     }
 
     private void registerTask() {
@@ -112,16 +112,16 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cnq() {
+    public void crD() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CALL_FANS);
         httpMessage.addParam("thread_id", this.mThreadId);
         MessageManager.getInstance().sendMessage(httpMessage);
-        this.eGu.showToast(R.string.your_thread_is_recommended_to_fans);
+        this.eNx.showToast(R.string.your_thread_is_recommended_to_fans);
         TbSingleton.getInstance().mCallFansTid = this.mThreadId;
         TbSingleton.getInstance().mCanCallFans = false;
     }
 
-    public void k(int i, int i2, String str) {
-        TiebaStatic.log(new ar("c13847").ak("obj_source", i).ak("obj_type", i2).dR("tid", str).dR("uid", TbadkCoreApplication.getCurrentAccount()));
+    public void l(int i, int i2, String str) {
+        TiebaStatic.log(new ar("c13847").al("obj_source", i).al("obj_type", i2).dY("tid", str).dY("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 }

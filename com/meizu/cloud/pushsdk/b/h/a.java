@@ -12,11 +12,11 @@ import java.net.UnknownHostException;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class a extends SSLSocketFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4361a = "TlsSessionTicket";
+    private String f4131a = "TlsSessionTicket";
     private SSLSocketFactory b;
 
     public a(Context context) {
@@ -26,20 +26,20 @@ public class a extends SSLSocketFactory {
             try {
                 sSLSessionCache = new SSLSessionCache(new File(Environment.getExternalStorageDirectory(), "sslCache"));
             } catch (IOException e) {
-                com.meizu.cloud.a.a.e(this.f4361a, e.getMessage());
+                com.meizu.cloud.a.a.e(this.f4131a, e.getMessage());
                 sSLSessionCache = new SSLSessionCache(context);
             }
-            com.meizu.cloud.a.a.i(this.f4361a, "install tls session cache " + com.meizu.cloud.pushsdk.base.a.a.a(sSLSessionCache).a(Config.INPUT_INSTALLED_PKG, SSLSessionCache.class, SSLContext.class).a(sSLSessionCache, sSLSessionCache, sSLContext).f4367a);
+            com.meizu.cloud.a.a.i(this.f4131a, "install tls session cache " + com.meizu.cloud.pushsdk.base.a.a.a(sSLSessionCache).a(Config.INPUT_INSTALLED_PKG, SSLSessionCache.class, SSLContext.class).a(sSLSessionCache, sSLSessionCache, sSLContext).f4137a);
             this.b = sSLContext.getSocketFactory();
         } catch (Exception e2) {
-            com.meizu.cloud.a.a.e(this.f4361a, e2.getMessage());
+            com.meizu.cloud.a.a.e(this.f4131a, e2.getMessage());
             this.b = (SSLSocketFactory) SSLSocketFactory.getDefault();
         }
     }
 
     private Socket a(Socket socket) {
         if (socket instanceof SSLSocket) {
-            com.meizu.cloud.a.a.i(this.f4361a, "set ssl session ticket support " + com.meizu.cloud.pushsdk.base.a.a.a(socket).a("setUseSessionTickets", Boolean.TYPE).a(socket, true).f4367a);
+            com.meizu.cloud.a.a.i(this.f4131a, "set ssl session ticket support " + com.meizu.cloud.pushsdk.base.a.a.a(socket).a("setUseSessionTickets", Boolean.TYPE).a(socket, true).f4137a);
         }
         return socket;
     }

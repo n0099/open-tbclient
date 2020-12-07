@@ -7,13 +7,13 @@ import android.util.Log;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void a(int i, String str, String str2, @Nullable Bundle bundle) {
-        a rm = rm(str);
-        if (rm == null) {
+        a rT = rT(str);
+        if (rT == null) {
             if (DEBUG) {
                 throw new RuntimeException("Messenger创建代理类失败");
             }
@@ -26,14 +26,14 @@ public class b {
         if (bundle == null) {
             bundle = new Bundle();
         }
-        rm.djz = bundle;
-        rm.djA = i;
-        rm.djB = str2;
-        rm.y(bundle);
+        rT.dqy = bundle;
+        rT.dqz = i;
+        rT.dqA = str2;
+        rT.y(bundle);
     }
 
     public static void a(int i, String str, @Nullable Bundle bundle) {
-        if (!com.baidu.swan.apps.process.a.b.d.a.rn(str)) {
+        if (!com.baidu.swan.apps.process.a.b.d.a.rU(str)) {
             if (DEBUG) {
                 Log.d("MDelegate-Delegation", "send result to client: " + i + " observer: " + str);
             }
@@ -56,7 +56,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static a rm(@Nullable String str) {
+    private static a rT(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.e("MDelegate-Delegation", "create delegation with null delegate name");

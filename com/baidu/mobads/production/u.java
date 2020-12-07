@@ -6,14 +6,14 @@ import java.util.HashMap;
 class u implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IXAdContainer f2429a;
+    final /* synthetic */ IXAdContainer f2431a;
     final /* synthetic */ HashMap b;
     final /* synthetic */ q c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(q qVar, IXAdContainer iXAdContainer, HashMap hashMap) {
         this.c = qVar;
-        this.f2429a = iXAdContainer;
+        this.f2431a = iXAdContainer;
         this.b = hashMap;
     }
 
@@ -21,6 +21,6 @@ class u implements Runnable {
     public void run() {
         b bVar;
         bVar = this.c.b;
-        bVar.b(this.f2429a, this.b);
+        bVar.b(this.f2431a, this.b);
     }
 }

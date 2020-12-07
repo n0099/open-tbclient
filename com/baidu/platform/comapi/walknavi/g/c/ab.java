@@ -3,25 +3,25 @@ package com.baidu.platform.comapi.walknavi.g.c;
 import com.baidu.mapapi.walknavi.adapter.IWNPCEngineInitListener;
 import com.baidu.mapapi.walknavi.adapter.IWNPCLoadAndInitListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class ab implements IWNPCEngineInitListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f3024a;
+    final /* synthetic */ String f3026a;
     final /* synthetic */ String b;
     final /* synthetic */ c c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(c cVar, String str, String str2) {
         this.c = cVar;
-        this.f3024a = str;
+        this.f3026a = str;
         this.b = str2;
     }
 
     @Override // com.baidu.mapapi.walknavi.adapter.IWNPCEngineInitListener
     public void onSuccess() {
-        this.c.b(this.f3024a, this.b);
-        com.baidu.platform.comapi.walknavi.b.a().K().b(this.f3024a, this.b);
+        this.c.b(this.f3026a, this.b);
+        com.baidu.platform.comapi.walknavi.b.a().K().b(this.f3026a, this.b);
     }
 
     @Override // com.baidu.mapapi.walknavi.adapter.IWNPCEngineInitListener

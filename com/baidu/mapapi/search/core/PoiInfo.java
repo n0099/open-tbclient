@@ -3,7 +3,7 @@ package com.baidu.mapapi.search.core;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class PoiInfo implements Parcelable {
     public static final Parcelable.Creator<PoiInfo> CREATOR = new g();
     public String address;
@@ -26,7 +26,7 @@ public class PoiInfo implements Parcelable {
     public POITYPE type;
     public String uid;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public enum POITYPE {
         POINT(0),
         BUS_STATION(1),
@@ -36,10 +36,10 @@ public class PoiInfo implements Parcelable {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2103a;
+        private int f2105a;
 
         POITYPE(int i) {
-            this.f2103a = i;
+            this.f2105a = i;
         }
 
         public static POITYPE fromInt(int i) {
@@ -60,11 +60,11 @@ public class PoiInfo implements Parcelable {
         }
 
         public int getInt() {
-            return this.f2103a;
+            return this.f2105a;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class ParentPoiInfo implements Parcelable {
         public static final Parcelable.Creator<ParentPoiInfo> CREATOR = new h();
         public String parentPoiAddress;

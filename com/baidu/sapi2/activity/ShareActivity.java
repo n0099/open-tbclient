@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.k.a.a;
+import com.baidu.l.a.a;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -22,7 +22,7 @@ import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class ShareActivity extends BaseActivity {
     private static final String u = "share_fail_reason";
     private static final String v = "share_account";
@@ -101,7 +101,7 @@ public class ShareActivity extends BaseActivity {
             }
             jSONObject.put("portrait", getIntent().getStringExtra("android.intent.extra.TEXT"));
             jSONObject.put("session_id", getIntent().getStringExtra(b.b));
-            jSONObject.put("trace_id", getIntent().getStringExtra(b.f3514a));
+            jSONObject.put("trace_id", getIntent().getStringExtra(b.f3517a));
             this.t = getIntent().getStringExtra(b.c);
         } catch (Exception e) {
             Log.e(e);
@@ -199,7 +199,7 @@ public class ShareActivity extends BaseActivity {
                 LoginActivity.supportShareLogin = true;
                 SapiAccountManager.getInstance().getConfignation().supportFaceLogin = z;
                 ShareActivity.this.q.setResultCode(d.g);
-                ShareActivity.this.q.setResultMsg(String.format(d.f3518a, ShareActivity.this.s));
+                ShareActivity.this.q.setResultMsg(String.format(d.f3521a, ShareActivity.this.s));
                 ShareActivity.this.c();
             }
 
@@ -229,7 +229,7 @@ public class ShareActivity extends BaseActivity {
             return;
         }
         this.q.setResultCode(d.g);
-        this.q.setResultMsg(String.format(d.f3518a, this.s));
+        this.q.setResultMsg(String.format(d.f3521a, this.s));
         c();
     }
 

@@ -2,47 +2,47 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class o extends bx {
-    public static final BdUniqueId eyd = BdUniqueId.gen();
-    private boolean eyf = false;
-    private boolean eyg = false;
-    private boolean eyh = false;
-    private int eyi;
+public class o extends by {
+    public static final BdUniqueId eFe = BdUniqueId.gen();
+    private boolean eFf = false;
+    private boolean eFg = false;
+    private boolean eFh = false;
+    private int eFi;
 
-    public boolean bjB() {
-        return this.eyf;
+    public boolean bmO() {
+        return this.eFf;
     }
 
-    public void iI(boolean z) {
-        this.eyf = z;
+    public void iX(boolean z) {
+        this.eFf = z;
     }
 
-    public boolean bjC() {
-        return this.eyg;
+    public boolean bmP() {
+        return this.eFg;
     }
 
-    public void iJ(boolean z) {
-        this.eyg = z;
+    public void iY(boolean z) {
+        this.eFg = z;
     }
 
-    public boolean bjD() {
-        return this.eyh;
+    public boolean bmQ() {
+        return this.eFh;
     }
 
-    public void iK(boolean z) {
-        this.eyh = z;
+    public void iZ(boolean z) {
+        this.eFh = z;
     }
 
-    @Override // com.baidu.tbadk.core.data.bx, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tbadk.core.data.by, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return eyd;
+        return eFe;
     }
 
     public void setFloorNum(int i) {
-        this.eyi = i;
+        this.eFi = i;
     }
 
     public int getFloorNum() {
-        return this.eyi;
+        return this.eFi;
     }
 }

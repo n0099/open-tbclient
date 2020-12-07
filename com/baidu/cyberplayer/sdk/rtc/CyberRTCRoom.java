@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.Surface;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.d;
+import com.baidu.cyberplayer.sdk.rtc.CyberRTCAudioSamples;
 import com.baidu.cyberplayer.sdk.rtc.CyberRTCSetting;
 import com.baidu.cyberplayer.sdk.rtc.RTCRoomProvider;
 @Keep
@@ -27,15 +28,29 @@ public class CyberRTCRoom {
         }
     }
 
+    public boolean configLiveServerWithUrl(String str, boolean z, boolean z2, String str2, RTCRoomProvider.CyberRtcLiveTransferMode cyberRtcLiveTransferMode) {
+        if (this.f1421a != null) {
+            return this.f1421a.configLiveServerWithUrl(str, z, z2, str2, cyberRtcLiveTransferMode);
+        }
+        return false;
+    }
+
     public void destroy() {
         if (this.f1421a != null) {
             this.f1421a.destroy();
         }
+        this.f1421a = null;
     }
 
     public void destroyExternalSurface(long j, Surface surface) {
         if (this.f1421a != null) {
             this.f1421a.destroyExternalSurface(j, surface);
+        }
+    }
+
+    public void disbandRoom() {
+        if (this.f1421a != null) {
+            this.f1421a.disbandRoom();
         }
     }
 
@@ -54,6 +69,12 @@ public class CyberRTCRoom {
     public void enableExternalVideoCapturer(boolean z) {
         if (this.f1421a != null) {
             this.f1421a.enableExternalVideoCapturer(z);
+        }
+    }
+
+    public void enableStatsToServer(boolean z, String str) {
+        if (this.f1421a != null) {
+            this.f1421a.enableStatsToServer(z, str);
         }
     }
 
@@ -83,6 +104,26 @@ public class CyberRTCRoom {
         return this.f1421a != null ? this.f1421a.initWithAppID(context, str, str2, str3, z) : false;
     }
 
+    public void kickOffUserWithID(long j) {
+        if (this.f1421a != null) {
+            this.f1421a.kickOffUserWithID(j);
+        }
+    }
+
+    public boolean loginRtcRoomWithRoomName(String str, long j, String str2) {
+        if (this.f1421a != null) {
+            return this.f1421a.loginRtcRoomWithRoomName(str, j, str2);
+        }
+        return false;
+    }
+
+    public boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z) {
+        if (this.f1421a != null) {
+            return this.f1421a.loginRtcRoomWithRoomName(str, j, str2, z);
+        }
+        return false;
+    }
+
     public boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z, boolean z2) {
         if (this.f1421a != null) {
             return this.f1421a.loginRtcRoomWithRoomName(str, j, str2, z, z2);
@@ -109,6 +150,12 @@ public class CyberRTCRoom {
         }
     }
 
+    public void presetLoudSpeaker(boolean z) {
+        if (this.f1421a != null) {
+            this.f1421a.presetLoudSpeaker(z);
+        }
+    }
+
     public void publishStreaming() {
         if (this.f1421a != null) {
             this.f1421a.publishStreaming();
@@ -118,6 +165,12 @@ public class CyberRTCRoom {
     public void sendMessageToUser(String str, long j) {
         if (this.f1421a != null) {
             this.f1421a.sendMessageToUser(str, j);
+        }
+    }
+
+    public void setAudioRecordDelegate(CyberRTCAudioSamples.CyberRTCSamplesReadyCallback cyberRTCSamplesReadyCallback) {
+        if (this.f1421a != null) {
+            this.f1421a.setAudioRecordDelegate(cyberRTCSamplesReadyCallback);
         }
     }
 
@@ -145,6 +198,12 @@ public class CyberRTCRoom {
         }
     }
 
+    public void setRemoteDisplay(CyberRTCVideoView cyberRTCVideoView) {
+        if (this.f1421a != null) {
+            this.f1421a.setRemoteDisplay(cyberRTCVideoView);
+        }
+    }
+
     public void setRemoteVideoPlayState(boolean z, long j) {
         if (this.f1421a != null) {
             this.f1421a.setRemoteVideoPlayState(z, j);
@@ -160,6 +219,18 @@ public class CyberRTCRoom {
     public void setUserAttribute(String str) {
         if (this.f1421a != null) {
             this.f1421a.setUserAttribute(str);
+        }
+    }
+
+    public void shutUpUserWithID(long j) {
+        if (this.f1421a != null) {
+            this.f1421a.shutUpUserWithID(j);
+        }
+    }
+
+    public void shutUpUserWithID(long j, boolean z) {
+        if (this.f1421a != null) {
+            this.f1421a.shutUpUserWithID(j, z);
         }
     }
 

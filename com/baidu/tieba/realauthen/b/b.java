@@ -1,7 +1,6 @@
 package com.baidu.tieba.realauthen.b;
 
 import android.support.v4.view.InputDeviceCompat;
-import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -12,12 +11,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class b {
-    private static char[] msN = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static char[] mGU = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String toMD5(String str, String str2) {
         if (str != null) {
             try {
-                return ai(str.getBytes(str2));
+                return ak(str.getBytes(str2));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -44,7 +43,7 @@ public final class b {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                sb.append(str3 + ETAG.EQUAL + str4 + str2);
+                sb.append(str3 + "=" + str4 + str2);
                 i = i2 + 1;
             } else {
                 sb.append("key=" + str);
@@ -53,7 +52,7 @@ public final class b {
         }
     }
 
-    private static synchronized String ai(byte[] bArr) {
+    private static synchronized String ak(byte[] bArr) {
         String str;
         synchronized (b.class) {
             try {

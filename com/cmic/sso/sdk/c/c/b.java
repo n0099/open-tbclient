@@ -5,32 +5,32 @@ import com.cmic.sso.sdk.e.r;
 /* loaded from: classes10.dex */
 public class b extends c {
     private boolean c;
-    private e oKK;
+    private e oZQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(String str, e eVar, String str2, String str3) {
         super(str, eVar, str2, str3);
         this.c = false;
-        this.oKK = eVar;
+        this.oZQ = eVar;
     }
 
     public void b(com.cmic.sso.sdk.a aVar) {
         if (!this.c) {
             String a2 = r.a(true);
-            String aF = r.aF(true, "1".equals(aVar.b("operatortype", "")));
+            String aG = r.aG(true, "1".equals(aVar.b("operatortype", "")));
             aVar.a("ipv4List", a2);
-            aVar.a("ipv6List", aF);
-            e.a eiL = this.oKK.eiL();
+            aVar.a("ipv6List", aG);
+            e.a eoB = this.oZQ.eoB();
             if (!aVar.b("isCloseIpv4", false)) {
-                eiL.a(a2);
+                eoB.a(a2);
             }
             if (!aVar.b("isCloseIpv6", false)) {
-                eiL.b(aF);
+                eoB.b(aG);
             }
-            eiL.v(eiL.Xx(aVar.b("appkey")));
-            this.oKK.a(eiL);
-            this.oKK.a(true);
-            this.f4015a = this.oKK.b().toString();
+            eoB.v(eoB.YS(aVar.b("appkey")));
+            this.oZQ.a(eoB);
+            this.oZQ.a(true);
+            this.f4018a = this.oZQ.b().toString();
             this.c = true;
         }
     }

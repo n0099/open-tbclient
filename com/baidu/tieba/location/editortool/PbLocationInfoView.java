@@ -10,9 +10,9 @@ import com.baidu.adp.base.i;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class PbLocationInfoView extends TextView {
-    private Rect kLG;
+    private Rect kYX;
     private int mState;
 
     public PbLocationInfoView(Context context) {
@@ -25,14 +25,14 @@ public class PbLocationInfoView extends TextView {
     }
 
     private void init() {
-        this.kLG = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
+        this.kYX = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
         setState(0, null);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
         setTextColor(ap.getColor(R.color.CAM_X0108));
-        daz();
+        dfL();
     }
 
     public void setState(int i, String str) {
@@ -48,26 +48,26 @@ public class PbLocationInfoView extends TextView {
             }
             setText(str);
         }
-        daz();
+        dfL();
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void daz() {
+    public void dfL() {
         if (this.mState == 1) {
             Drawable drawable = ap.getDrawable(R.drawable.icon_posts_pin_loading_anim);
             if (drawable != null) {
-                drawable.setBounds(this.kLG);
+                drawable.setBounds(this.kYX);
             }
             setCompoundDrawables(drawable, null, null, null);
-            com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) i.H(getContext()), (Animatable) drawable);
+            com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) i.I(getContext()), (Animatable) drawable);
             return;
         }
         Drawable drawable2 = ap.getDrawable(R.drawable.icon_tips_site);
         if (drawable2 != null) {
-            drawable2.setBounds(this.kLG);
+            drawable2.setBounds(this.kYX);
         }
         setCompoundDrawables(drawable2, null, null, null);
     }

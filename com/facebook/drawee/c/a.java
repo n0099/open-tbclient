@@ -3,77 +3,77 @@ package com.facebook.drawee.c;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public class a {
-    InterfaceC0974a oRX;
-    final float oRY;
-    boolean oRZ;
-    boolean oSa;
-    long oSb;
-    float oSc;
-    float oSd;
+    InterfaceC0991a phg;
+    final float phh;
+    boolean phi;
+    boolean phj;
+    long phk;
+    float phl;
+    float phm;
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
-    public interface InterfaceC0974a {
-        boolean elv();
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0991a {
+        boolean erk();
     }
 
     public a(Context context) {
-        this.oRY = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.phh = ViewConfiguration.get(context).getScaledTouchSlop();
         init();
     }
 
-    public static a gW(Context context) {
+    public static a hF(Context context) {
         return new a(context);
     }
 
     public void init() {
-        this.oRX = null;
+        this.phg = null;
         reset();
     }
 
     public void reset() {
-        this.oRZ = false;
-        this.oSa = false;
+        this.phi = false;
+        this.phj = false;
     }
 
-    public void a(InterfaceC0974a interfaceC0974a) {
-        this.oRX = interfaceC0974a;
+    public void a(InterfaceC0991a interfaceC0991a) {
+        this.phg = interfaceC0991a;
     }
 
-    public boolean emy() {
-        return this.oRZ;
+    public boolean esm() {
+        return this.phi;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.oRZ = true;
-                this.oSa = true;
-                this.oSb = motionEvent.getEventTime();
-                this.oSc = motionEvent.getX();
-                this.oSd = motionEvent.getY();
+                this.phi = true;
+                this.phj = true;
+                this.phk = motionEvent.getEventTime();
+                this.phl = motionEvent.getX();
+                this.phm = motionEvent.getY();
                 break;
             case 1:
-                this.oRZ = false;
-                if (Math.abs(motionEvent.getX() - this.oSc) > this.oRY || Math.abs(motionEvent.getY() - this.oSd) > this.oRY) {
-                    this.oSa = false;
+                this.phi = false;
+                if (Math.abs(motionEvent.getX() - this.phl) > this.phh || Math.abs(motionEvent.getY() - this.phm) > this.phh) {
+                    this.phj = false;
                 }
-                if (this.oSa && motionEvent.getEventTime() - this.oSb <= ViewConfiguration.getLongPressTimeout() && this.oRX != null) {
-                    this.oRX.elv();
+                if (this.phj && motionEvent.getEventTime() - this.phk <= ViewConfiguration.getLongPressTimeout() && this.phg != null) {
+                    this.phg.erk();
                 }
-                this.oSa = false;
+                this.phj = false;
                 break;
             case 2:
-                if (Math.abs(motionEvent.getX() - this.oSc) > this.oRY || Math.abs(motionEvent.getY() - this.oSd) > this.oRY) {
-                    this.oSa = false;
+                if (Math.abs(motionEvent.getX() - this.phl) > this.phh || Math.abs(motionEvent.getY() - this.phm) > this.phh) {
+                    this.phj = false;
                     break;
                 }
                 break;
             case 3:
-                this.oRZ = false;
-                this.oSa = false;
+                this.phi = false;
+                this.phj = false;
                 break;
         }
         return true;

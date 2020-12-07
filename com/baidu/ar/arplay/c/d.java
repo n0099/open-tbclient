@@ -7,65 +7,65 @@ import android.content.IntentFilter;
 import android.util.Log;
 import com.baidu.ar.arplay.c.e;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class d extends BroadcastReceiver {
-    private static e.a fE;
-    private static BroadcastReceiver fG;
+    private static e.a fR;
+    private static volatile BroadcastReceiver fT;
     private static final String TAG = d.class.getSimpleName();
-    private static boolean fD = false;
-    private static ArrayList<a> fF = new ArrayList<>();
+    private static boolean fQ = false;
+    private static ArrayList<a> fS = new ArrayList<>();
 
     public static void a(a aVar) {
-        if (fF == null) {
-            fF = new ArrayList<>();
+        if (fS == null) {
+            fS = new ArrayList<>();
         }
-        fF.add(aVar);
+        fS.add(aVar);
     }
 
     public static void b(a aVar) {
-        if (fF == null || !fF.contains(aVar)) {
+        if (fS == null || !fS.contains(aVar)) {
             return;
         }
-        fF.remove(aVar);
+        fS.remove(aVar);
     }
 
-    private static BroadcastReceiver bm() {
-        if (fG == null) {
+    private static BroadcastReceiver bj() {
+        if (fT == null) {
             synchronized (d.class) {
-                if (fG == null) {
-                    fG = new d();
+                if (fT == null) {
+                    fT = new d();
                 }
             }
         }
-        return fG;
+        return fT;
     }
 
-    public static boolean bn() {
-        return fD;
+    public static boolean bk() {
+        return fQ;
     }
 
-    private void bo() {
-        if (fF.isEmpty()) {
+    private void bl() {
+        if (fS.isEmpty()) {
             return;
         }
-        int size = fF.size();
+        int size = fS.size();
         for (int i = 0; i < size; i++) {
-            a aVar = fF.get(i);
+            a aVar = fS.get(i);
             if (aVar != null) {
-                if (bn()) {
-                    aVar.a(fE);
+                if (bk()) {
+                    aVar.a(fR);
                 } else {
-                    aVar.aL();
+                    aVar.aM();
                 }
             }
         }
     }
 
-    public static void d(Context context) {
+    public static void e(Context context) {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.ar.baiduarsdk.CONNECTIVITY_CHANGE");
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-        context.getApplicationContext().registerReceiver(bm(), intentFilter);
+        context.getApplicationContext().registerReceiver(bj(), intentFilter);
     }
 
     @Override // android.content.BroadcastReceiver
@@ -73,17 +73,17 @@ public class d extends BroadcastReceiver {
         if (intent == null) {
             return;
         }
-        fG = this;
+        fT = this;
         if ("android.net.conn.CONNECTIVITY_CHANGE".equalsIgnoreCase(intent.getAction()) || "com.baidu.ar.baiduarsdk.CONNECTIVITY_CHANGE".equalsIgnoreCase(intent.getAction())) {
-            if (e.e(context)) {
+            if (e.f(context)) {
                 Log.e(getClass().getName(), "<--- network connected --->");
-                fD = true;
-                fE = e.f(context);
+                fQ = true;
+                fR = e.g(context);
             } else {
                 Log.e(getClass().getName(), "<--- network disconnected --->");
-                fD = false;
+                fQ = false;
             }
-            bo();
+            bl();
         }
     }
 }

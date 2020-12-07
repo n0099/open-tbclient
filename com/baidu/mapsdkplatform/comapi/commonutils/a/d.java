@@ -12,17 +12,17 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class d {
     private c d;
     private int b = 1;
     private List<com.baidu.mapsdkplatform.comapi.commonutils.a.b> c = new LinkedList();
 
     /* renamed from: a  reason: collision with root package name */
-    private ExecutorService f2211a = Executors.newCachedThreadPool();
+    private ExecutorService f2213a = Executors.newCachedThreadPool();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public class a implements b {
         private File b;
 
@@ -57,14 +57,14 @@ public class d {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public interface b {
         void a(com.baidu.mapsdkplatform.comapi.commonutils.a.b bVar);
 
         void b(com.baidu.mapsdkplatform.comapi.commonutils.a.b bVar);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public interface c {
         void a();
 
@@ -104,8 +104,8 @@ public class d {
             if (this.c != null) {
                 this.c.add(bVar);
             }
-            if (this.f2211a != null && !this.f2211a.isShutdown()) {
-                this.f2211a.submit(bVar);
+            if (this.f2213a != null && !this.f2213a.isShutdown()) {
+                this.f2213a.submit(bVar);
             }
         }
     }

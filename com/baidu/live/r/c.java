@@ -1,13 +1,9 @@
 package com.baidu.live.r;
 
-import android.view.ViewGroup;
+import com.baidu.live.data.PersonUserData;
 /* loaded from: classes4.dex */
 public interface c {
-    void GK();
+    void a(PersonUserData personUserData);
 
-    void aF(long j);
-
-    void release();
-
-    void setParentView(ViewGroup viewGroup);
+    void s(int i, String str);
 }

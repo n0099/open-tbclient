@@ -12,65 +12,65 @@ import java.util.zip.Adler32;
 public class fn {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4907a;
+    private int f4677a;
 
     /* renamed from: a  reason: collision with other field name */
-    private fq f352a;
+    private fq f350a;
 
     /* renamed from: a  reason: collision with other field name */
-    private OutputStream f353a;
+    private OutputStream f351a;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f356a;
+    private byte[] f354a;
     private int b;
 
     /* renamed from: a  reason: collision with other field name */
-    ByteBuffer f354a = ByteBuffer.allocate(2048);
+    ByteBuffer f352a = ByteBuffer.allocate(2048);
 
     /* renamed from: b  reason: collision with other field name */
-    private ByteBuffer f357b = ByteBuffer.allocate(4);
+    private ByteBuffer f355b = ByteBuffer.allocate(4);
 
     /* renamed from: a  reason: collision with other field name */
-    private Adler32 f355a = new Adler32();
+    private Adler32 f353a = new Adler32();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fn(OutputStream outputStream, fq fqVar) {
-        this.f353a = new BufferedOutputStream(outputStream);
-        this.f352a = fqVar;
+        this.f351a = new BufferedOutputStream(outputStream);
+        this.f350a = fqVar;
         TimeZone timeZone = TimeZone.getDefault();
-        this.f4907a = timeZone.getRawOffset() / 3600000;
+        this.f4677a = timeZone.getRawOffset() / 3600000;
         this.b = timeZone.useDaylightTime() ? 1 : 0;
     }
 
     public int a(fl flVar) {
         int c = flVar.c();
         if (c > 32768) {
-            com.xiaomi.channel.commonutils.logger.b.m57a("Blob size=" + c + " should be less than 32768 Drop blob chid=" + flVar.a() + " id=" + flVar.e());
+            com.xiaomi.channel.commonutils.logger.b.m47a("Blob size=" + c + " should be less than 32768 Drop blob chid=" + flVar.a() + " id=" + flVar.e());
             return 0;
         }
-        this.f354a.clear();
-        if (c + 8 + 4 > this.f354a.capacity() || this.f354a.capacity() > 4096) {
-            this.f354a = ByteBuffer.allocate(c + 8 + 4);
+        this.f352a.clear();
+        if (c + 8 + 4 > this.f352a.capacity() || this.f352a.capacity() > 4096) {
+            this.f352a = ByteBuffer.allocate(c + 8 + 4);
         }
-        this.f354a.putShort((short) -15618);
-        this.f354a.putShort((short) 5);
-        this.f354a.putInt(c);
-        int position = this.f354a.position();
-        this.f354a = flVar.mo284a(this.f354a);
-        if (!"CONN".equals(flVar.m283a())) {
-            if (this.f356a == null) {
-                this.f356a = this.f352a.a();
+        this.f352a.putShort((short) -15618);
+        this.f352a.putShort((short) 5);
+        this.f352a.putInt(c);
+        int position = this.f352a.position();
+        this.f352a = flVar.mo274a(this.f352a);
+        if (!"CONN".equals(flVar.m273a())) {
+            if (this.f354a == null) {
+                this.f354a = this.f350a.a();
             }
-            com.xiaomi.push.service.ay.a(this.f356a, this.f354a.array(), true, position, c);
+            com.xiaomi.push.service.ay.a(this.f354a, this.f352a.array(), true, position, c);
         }
-        this.f355a.reset();
-        this.f355a.update(this.f354a.array(), 0, this.f354a.position());
-        this.f357b.putInt(0, (int) this.f355a.getValue());
-        this.f353a.write(this.f354a.array(), 0, this.f354a.position());
-        this.f353a.write(this.f357b.array(), 0, 4);
-        this.f353a.flush();
-        int position2 = this.f354a.position() + 4;
-        com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + flVar.m283a() + ";chid=" + flVar.a() + ";len=" + position2 + "}");
+        this.f353a.reset();
+        this.f353a.update(this.f352a.array(), 0, this.f352a.position());
+        this.f355b.putInt(0, (int) this.f353a.getValue());
+        this.f351a.write(this.f352a.array(), 0, this.f352a.position());
+        this.f351a.write(this.f355b.array(), 0, 4);
+        this.f351a.flush();
+        int position2 = this.f352a.position() + 4;
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + flVar.m273a() + ";chid=" + flVar.a() + ";len=" + position2 + "}");
         return position2;
     }
 
@@ -78,16 +78,16 @@ public class fn {
         ek.e eVar = new ek.e();
         eVar.a(106);
         eVar.a(Build.MODEL);
-        eVar.b(t.m587a());
-        eVar.c(com.xiaomi.push.service.be.m562a());
+        eVar.b(t.m577a());
+        eVar.c(com.xiaomi.push.service.be.m552a());
         eVar.b(39);
-        eVar.d(this.f352a.b());
-        eVar.e(this.f352a.a());
+        eVar.d(this.f350a.b());
+        eVar.e(this.f350a.a());
         eVar.f(Locale.getDefault().toString());
         eVar.c(Build.VERSION.SDK_INT);
-        byte[] m306a = this.f352a.a().m306a();
-        if (m306a != null) {
-            eVar.a(ek.b.a(m306a));
+        byte[] m296a = this.f350a.a().m296a();
+        if (m296a != null) {
+            eVar.a(ek.b.a(m296a));
         }
         fl flVar = new fl();
         flVar.a(0);
@@ -95,13 +95,13 @@ public class fn {
         flVar.a(0L, "xiaomi.com", null);
         flVar.a(eVar.a(), (String) null);
         a(flVar);
-        com.xiaomi.channel.commonutils.logger.b.m57a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=39 hash=" + com.xiaomi.push.service.be.m562a() + " tz=" + this.f4907a + ":" + this.b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
+        com.xiaomi.channel.commonutils.logger.b.m47a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=39 hash=" + com.xiaomi.push.service.be.m552a() + " tz=" + this.f4677a + ":" + this.b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
     }
 
     public void b() {
         fl flVar = new fl();
         flVar.a("CLOSE", (String) null);
         a(flVar);
-        this.f353a.close();
+        this.f351a.close();
     }
 }

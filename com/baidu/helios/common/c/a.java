@@ -8,29 +8,29 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class a {
-    private C0151a awx;
+    private C0149a axv;
     private Context mContext;
 
     public a(Context context) {
         this.mContext = context;
-        zT().mkdirs();
+        zN().mkdirs();
     }
 
-    public File zS() {
+    public File zM() {
         return new File(this.mContext.getApplicationInfo().dataDir);
     }
 
-    private File zT() {
-        return new File(zS(), ".helios");
+    private File zN() {
+        return new File(zM(), ".helios");
     }
 
-    public synchronized C0151a zU() {
-        if (this.awx == null) {
-            this.awx = new C0151a(".helios", null);
+    public synchronized C0149a zO() {
+        if (this.axv == null) {
+            this.axv = new C0149a(".helios", null);
         }
-        return this.awx;
+        return this.axv;
     }
 
     public static void l(File file) {
@@ -125,85 +125,85 @@ public class a {
     }
 
     /* renamed from: com.baidu.helios.common.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public final class C0151a {
-        private C0151a awA;
-        private boolean awB;
-        private File awy;
-        private String awz;
+    /* loaded from: classes5.dex */
+    public final class C0149a {
+        private File axw;
+        private String axx;
+        private C0149a axy;
+        private boolean axz;
 
-        C0151a(String str, C0151a c0151a) {
-            this.awB = false;
-            this.awz = str;
-            this.awA = c0151a;
-            this.awB = false;
+        C0149a(String str, C0149a c0149a) {
+            this.axz = false;
+            this.axx = str;
+            this.axy = c0149a;
+            this.axz = false;
         }
 
-        C0151a(File file) {
-            this.awB = false;
-            this.awB = true;
-            this.awy = file;
-            this.awz = file.getName();
+        C0149a(File file) {
+            this.axz = false;
+            this.axz = true;
+            this.axw = file;
+            this.axx = file.getName();
         }
 
-        public void zV() {
-            zW().mkdirs();
+        public void zP() {
+            zQ().mkdirs();
         }
 
-        public File zW() {
-            File file = this.awy;
+        public File zQ() {
+            File file = this.axw;
             if (file == null) {
-                if (this.awA == null) {
-                    file = new File(a.this.zS(), this.awz);
+                if (this.axy == null) {
+                    file = new File(a.this.zM(), this.axx);
                 } else {
-                    file = new File(this.awA.zW(), this.awz);
+                    file = new File(this.axy.zQ(), this.axx);
                 }
-                this.awy = file;
+                this.axw = file;
             }
             return file;
         }
 
-        public String zX() {
-            return this.awz;
+        public String zR() {
+            return this.axx;
         }
 
-        public C0151a fx(String str) {
-            return new C0151a(str, this);
+        public C0149a fB(String str) {
+            return new C0149a(str, this);
         }
 
         public File getFile(String str) {
-            return new File(this.awy, str);
+            return new File(this.axw, str);
         }
 
-        public C0151a zY() {
-            return this.awA;
+        public C0149a zS() {
+            return this.axy;
         }
 
         public boolean d(String str, String str2, boolean z) {
-            return a.b(zW(), str, str2, "UTF-8", z);
+            return a.b(zQ(), str, str2, "UTF-8", z);
         }
 
-        public String q(String str, boolean z) {
-            return a.b(zW(), str, "UTF-8", z);
+        public String p(String str, boolean z) {
+            return a.b(zQ(), str, "UTF-8", z);
         }
 
-        public C0151a m(File file) {
-            if (this.awB) {
+        public C0149a m(File file) {
+            if (this.axz) {
                 throw new IllegalStateException("isolate session is not support");
             }
             ArrayList arrayList = new ArrayList();
-            C0151a c0151a = this;
+            C0149a c0149a = this;
             do {
-                arrayList.add(c0151a.zX());
-                c0151a = c0151a.zY();
-            } while (c0151a != null);
+                arrayList.add(c0149a.zR());
+                c0149a = c0149a.zS();
+            } while (c0149a != null);
             int size = arrayList.size() - 1;
             while (size >= 0) {
                 File file2 = new File(file, (String) arrayList.get(size));
                 size--;
                 file = file2;
             }
-            return new C0151a(file);
+            return new C0149a(file);
         }
     }
 }

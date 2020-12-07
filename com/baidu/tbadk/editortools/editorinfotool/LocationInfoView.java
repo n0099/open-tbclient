@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.view.commonBtn.b;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class LocationInfoView extends LinearLayout implements View.OnClickListener {
-    private TBSpecificationBtn fnw;
-    private a fnx;
+    private TBSpecificationBtn fva;
+    private a fvb;
     private int mSkinType;
 
     /* loaded from: classes.dex */
     public interface a {
-        void bze();
+        void bCE();
     }
 
     public LocationInfoView(Context context) {
@@ -36,32 +36,32 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
     }
 
     public TBSpecificationBtn getLocationBtn() {
-        return this.fnw;
+        return this.fva;
     }
 
     private void initUI() {
         setOrientation(0);
         setGravity(16);
         b bVar = new b();
-        bVar.bb(R.color.CAM_X0209, R.color.CAM_X0105);
+        bVar.bd(R.color.CAM_X0209, R.color.CAM_X0105);
         bVar.a(R.drawable.ic_icon_pure_post_location12, 0, TBSpecificationButtonConfig.IconType.WEBP);
-        bVar.qC(R.color.CAM_X0110);
-        bVar.qF(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-        bVar.ba(l.getDimens(getContext(), R.dimen.M_W_X004), l.getDimens(getContext(), R.dimen.M_W_X004));
-        bVar.qE(l.getDimens(getContext(), R.dimen.M_H_X002));
-        bVar.qB(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
-        this.fnw = new TBSpecificationBtn(getContext());
-        this.fnw.setConfig(bVar);
-        this.fnw.setTextSize(R.dimen.T_X09);
-        this.fnw.setOnClickListener(this);
-        this.fnw.setText(getContext().getString(R.string.location_where_are_you));
-        addView(this.fnw, new LinearLayout.LayoutParams(-2, l.getDimens(getContext(), R.dimen.tbds62)));
+        bVar.rd(R.color.CAM_X0110);
+        bVar.rg(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+        bVar.bc(l.getDimens(getContext(), R.dimen.M_W_X004), l.getDimens(getContext(), R.dimen.M_W_X004));
+        bVar.rf(l.getDimens(getContext(), R.dimen.M_H_X002));
+        bVar.rc(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+        this.fva = new TBSpecificationBtn(getContext());
+        this.fva.setConfig(bVar);
+        this.fva.setTextSize(R.dimen.T_X09);
+        this.fva.setOnClickListener(this);
+        this.fva.setText(getContext().getString(R.string.location_where_are_you));
+        addView(this.fva, new LinearLayout.LayoutParams(-2, l.getDimens(getContext(), R.dimen.tbds62)));
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            this.fnw.brT();
+            this.fva.bvt();
             this.mSkinType = i;
         }
     }
@@ -72,23 +72,23 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
                 int indexOf = str.indexOf("·");
                 str = str.substring(0, indexOf) + str.substring(indexOf + 1, str.length());
             }
-            this.fnw.setText(au.cutChineseAndEnglishWithSuffix(str, 8, StringHelper.STRING_MORE));
+            this.fva.setText(au.cutChineseAndEnglishWithSuffix(str, 8, StringHelper.STRING_MORE));
         } else if (i == 1) {
-            this.fnw.setText(getContext().getString(R.string.location_loading));
+            this.fva.setText(getContext().getString(R.string.location_loading));
         } else {
-            this.fnw.setText(getContext().getString(R.string.location_where_are_you));
+            this.fva.setText(getContext().getString(R.string.location_where_are_you));
         }
-        this.fnw.eYb = Integer.valueOf(i);
+        this.fva.ffy = Integer.valueOf(i);
     }
 
     public void setLocationClickListener(a aVar) {
-        this.fnx = aVar;
+        this.fvb = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.fnx != null) {
-            this.fnx.bze();
+        if (this.fvb != null) {
+            this.fvb.bCE();
         }
     }
 }

@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import kotlin.Pair;
-import kotlin.h;
+import kotlin.e;
 import kotlin.jvm.internal.o;
-import kotlin.jvm.internal.q;
-@h
-/* loaded from: classes9.dex */
+import kotlin.jvm.internal.p;
+@e
+/* loaded from: classes16.dex */
 public class Config {
     public static final Companion Companion = new Companion(null);
     public static final String FLOATING_CLOSE_WARNING = "floating_close_warning";
@@ -36,8 +36,8 @@ public class Config {
     private ArrayList<FloatViewListener> floatViewListeners = new ArrayList<>();
     private final Set<String> filter = new LinkedHashSet();
 
-    @h
-    /* loaded from: classes9.dex */
+    @e
+    /* loaded from: classes16.dex */
     public static final class Companion {
         private Companion() {
         }
@@ -52,7 +52,7 @@ public class Config {
     }
 
     public final void setBlockOffset(Rect rect) {
-        q.n(rect, "<set-?>");
+        p.o(rect, "<set-?>");
         this.blockOffset = rect;
     }
 
@@ -61,7 +61,7 @@ public class Config {
     }
 
     public final void setLocation(Pair<Integer, Integer> pair) {
-        q.n(pair, "<set-?>");
+        p.o(pair, "<set-?>");
         this.location = pair;
     }
 
@@ -70,7 +70,7 @@ public class Config {
     }
 
     public final void setSize(Pair<Integer, Integer> pair) {
-        q.n(pair, "<set-?>");
+        p.o(pair, "<set-?>");
         this.size = pair;
     }
 
@@ -88,7 +88,7 @@ public class Config {
     }
 
     public final void setScaleMode(Pair<? extends ScaleMode, ? extends ScaleMode> pair) {
-        q.n(pair, "<set-?>");
+        p.o(pair, "<set-?>");
         this.scaleMode = pair;
     }
 
@@ -145,7 +145,7 @@ public class Config {
     }
 
     public final void setFloatViewListeners(ArrayList<FloatViewListener> arrayList) {
-        q.n(arrayList, "<set-?>");
+        p.o(arrayList, "<set-?>");
         this.floatViewListeners = arrayList;
     }
 

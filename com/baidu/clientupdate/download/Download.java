@@ -25,7 +25,7 @@ public class Download implements Serializable {
     public List mRequestHeaders = new ArrayList();
 
     /* renamed from: a  reason: collision with root package name */
-    long f1336a = 0;
+    long f1335a = 0;
     long b = 0;
     int c = 0;
     boolean d = true;

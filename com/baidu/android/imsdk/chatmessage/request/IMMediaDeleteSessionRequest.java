@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.chatmessage.IMediaDeleteChatSessionListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
@@ -13,7 +14,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
     private static final String TAG = "IMMediaDeleteSessionRequest";
     private long mContacter;
@@ -106,7 +107,7 @@ public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             int optInt = jSONObject.optInt("error_code", 0);
-            String optString = jSONObject.optString("error_msg");
+            String optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
             i2 = optInt;
             str = optString;
         } catch (JSONException e) {

@@ -1,7 +1,8 @@
 package com.baidu.android.imsdk;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface ResponseCode {
     public static final int ACCOUNT_NOT_LOGIN = 1000;
+    public static final int ACCOUNT_NOT_LOGIN_CAST = 1001;
     public static final int APPID_NOT_ONLINE = 50013;
     public static final int AUTH_USER_CHECK_FAIL = 7;
     public static final int CONNECT_SERVER_ERROR = 1004;

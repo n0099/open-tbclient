@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.cr;
+import com.baidu.live.data.ct;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
@@ -31,14 +31,14 @@ public class b extends HttpMessage {
             i6 = 0;
         }
         addParam("no_wechat", i6);
-        cr crVar = new cr();
-        crVar.props_id = JavaTypesHelper.toInt(str, 0);
-        crVar.new_props_id = str;
-        crVar.money = i3;
-        crVar.aQH = i4;
-        crVar.wars_name = "";
-        crVar.wars_item = "";
-        addParam("wares", crVar.toJson());
+        ct ctVar = new ct();
+        ctVar.props_id = JavaTypesHelper.toInt(str, 0);
+        ctVar.new_props_id = str;
+        ctVar.money = i3;
+        ctVar.aTJ = i4;
+        ctVar.wars_name = "";
+        ctVar.wars_item = "";
+        addParam("wares", ctVar.toJson());
         if (!StringUtils.isNull(str3)) {
             addParam("refer_page", str3);
         }

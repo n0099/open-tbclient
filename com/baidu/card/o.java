@@ -9,18 +9,18 @@ import com.baidu.card.view.NewGridImageLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class o extends i {
-    private com.baidu.tbadk.core.data.a afN;
-    private NewGridImageLayout agm;
-    private int agn;
+    private com.baidu.tbadk.core.data.a agJ;
+    private NewGridImageLayout ahk;
+    private int ahl;
     private String mFrom;
     private int mSkinType;
 
     public o(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.agm = new NewGridImageLayout(context);
+        this.ahk = new NewGridImageLayout(context);
     }
 
     public void setFrom(String str) {
@@ -28,81 +28,81 @@ public class o extends i {
     }
 
     public void setFromForPb(int i) {
-        this.agn = i;
+        this.ahl = i;
     }
 
     @Override // com.baidu.card.b
     public View getView() {
-        return this.agm;
+        return this.ahk;
     }
 
     @Override // com.baidu.card.b
     public void setOnCardSubClickListener(com.baidu.tieba.card.ab<com.baidu.tbadk.core.data.a> abVar) {
-        this.agm.setSubClickListener(abVar);
+        this.ahk.setSubClickListener(abVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(com.baidu.tbadk.core.data.a aVar) {
-        this.afN = aVar;
-        this.agm.setFrom(this.mFrom);
-        this.agm.setFromForPb(this.agn);
-        this.agm.setTransmit(tC().booleanValue());
-        this.agm.H(aVar);
-        this.agm.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.o.1
+        this.agJ = aVar;
+        this.ahk.setFrom(this.mFrom);
+        this.ahk.setFromForPb(this.ahl);
+        this.ahk.setTransmit(tF().booleanValue());
+        this.ahk.H(aVar);
+        this.ahk.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.o.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (o.this.afL != null) {
-                    o.this.afL.a(o.this.afN);
+                if (o.this.agH != null) {
+                    o.this.agH.a(o.this.agJ);
                 }
             }
         });
     }
 
     public void setObjectPool(com.baidu.adp.lib.d.b<ImageView> bVar, com.baidu.adp.lib.d.b<GifView> bVar2) {
-        if (this.agm != null) {
-            this.agm.setObjectPool(bVar, bVar2);
+        if (this.ahk != null) {
+            this.ahk.setObjectPool(bVar, bVar2);
         }
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.mSkinType != i && tC().booleanValue()) {
-            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.agm, R.color.CAM_X0206);
+        if (this.mSkinType != i && tF().booleanValue()) {
+            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.ahk, R.color.CAM_X0206);
         }
-        if (this.agm != null) {
-            this.agm.onChangeSkinType(i);
+        if (this.ahk != null) {
+            this.ahk.onChangeSkinType(i);
         }
         this.mSkinType = i;
     }
 
-    public void bt(int i) {
-        this.agm.setBackgroundColor(i);
+    public void bx(int i) {
+        this.ahk.setBackgroundColor(i);
     }
 
     public void e(int i, int i2, int i3, int i4) {
-        if (tC().booleanValue()) {
-            this.agm.setPadding(i, i2, i3, i4);
+        if (tF().booleanValue()) {
+            this.ahk.setPadding(i, i2, i3, i4);
         }
     }
 
     public void setCornerStyle(int i) {
-        if (this.agm != null) {
-            this.agm.setCornerStyle(i);
+        if (this.ahk != null) {
+            this.ahk.setCornerStyle(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
-    public void tA() {
+    public void tD() {
         a(1, new a.b() { // from class: com.baidu.card.o.2
             @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0096a c0096a) {
-                if (o.this.afN != null && o.this.afN.bjd() != null && !o.this.tC().booleanValue()) {
-                    com.baidu.tieba.card.n.IA(o.this.afN.bjd().getId());
-                    com.baidu.tieba.card.n.a(o.this.agm.mTitle, o.this.afN.bjd().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    com.baidu.tieba.card.n.a(o.this.agm.agr, o.this.afN.bjd().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            public boolean a(a.C0097a c0097a) {
+                if (o.this.agJ != null && o.this.agJ.bmn() != null && !o.this.tF().booleanValue()) {
+                    com.baidu.tieba.card.n.Jq(o.this.agJ.bmn().getId());
+                    com.baidu.tieba.card.n.a(o.this.ahk.mTitle, o.this.agJ.bmn().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    com.baidu.tieba.card.n.a(o.this.ahk.ahp, o.this.agJ.bmn().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -110,24 +110,24 @@ public class o extends i {
     }
 
     public void setFromCDN(boolean z) {
-        this.agm.setFromCDN(z);
+        this.ahk.setFromCDN(z);
     }
 
     public void a(b.a aVar) {
-        this.afL = aVar;
+        this.agH = aVar;
     }
 
     public void setNeedFrsTabName(boolean z) {
-        this.agm.setNeedFrsTabName(z);
+        this.ahk.setNeedFrsTabName(z);
+    }
+
+    public void aG(boolean z) {
+        this.ahk.amh = z;
     }
 
     public void aH(boolean z) {
-        this.agm.alg = z;
-    }
-
-    public void aI(boolean z) {
-        if (this.agm != null && this.agm.ale != null) {
-            this.agm.ale.setIsTransform(z);
+        if (this.ahk != null && this.ahk.amf != null) {
+            this.ahk.amf.setIsTransform(z);
         }
     }
 }

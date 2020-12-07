@@ -2,13 +2,11 @@ package com.baidu.pano.platform.a.a;
 
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.pano.platform.a.b;
-import com.baidu.webkit.internal.ETAG;
 import com.baidubce.http.Headers;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.Map;
 import org.apache.http.impl.cookie.DateParseException;
 import org.apache.http.impl.cookie.DateUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class h {
     public static b.a a(com.baidu.pano.platform.a.l lVar) {
         boolean z;
@@ -31,7 +29,7 @@ public class h {
             z = false;
             z2 = false;
         } else {
-            String[] split = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split = str2.split(",");
             z = false;
             long j8 = 0;
             long j9 = 0;
@@ -82,7 +80,7 @@ public class h {
             j4 = j3;
         }
         b.a aVar = new b.a();
-        aVar.f2648a = lVar.b;
+        aVar.f2650a = lVar.b;
         aVar.b = str6;
         aVar.f = j4;
         aVar.e = j3;
@@ -105,7 +103,7 @@ public class h {
         if (str2 != null) {
             String[] split = str2.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             for (int i = 1; i < split.length; i++) {
-                String[] split2 = split[i].trim().split(ETAG.EQUAL);
+                String[] split2 = split[i].trim().split("=");
                 if (split2.length == 2 && split2[0].equals("charset")) {
                     return split2[1];
                 }

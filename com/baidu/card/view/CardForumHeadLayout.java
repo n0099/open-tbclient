@@ -17,8 +17,8 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.bt;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.TagTextHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
@@ -27,188 +27,188 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class CardForumHeadLayout extends RelativeLayout implements View.OnClickListener {
-    private BarImageView ajm;
-    private SingleLineEllipsizeTextView ajn;
-    private TextView ajo;
-    private TextView ajp;
-    private TextView ajq;
-    private TextView ajr;
-    private TextView ajs;
-    private String ajt;
-    private View.OnClickListener aju;
-    private int ajv;
-    private bx ajw;
+    private BarImageView akl;
+    private SingleLineEllipsizeTextView akm;
+    private TextView akn;
+    private TextView ako;
+    private TextView akp;
+    private TextView akq;
+    private TextView akr;
+    private String aks;
+    private View.OnClickListener akt;
+    private int aku;
+    private by akv;
 
     public CardForumHeadLayout(Context context) {
         super(context);
-        this.ajv = 3;
+        this.aku = 3;
         init(context);
     }
 
     public CardForumHeadLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ajv = 3;
+        this.aku = 3;
         init(context);
     }
 
     public CardForumHeadLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ajv = 3;
+        this.aku = 3;
         init(context);
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_forum_head_layout, (ViewGroup) this, true);
-        this.ajm = (BarImageView) findViewById(R.id.forum_head_image);
-        this.ajn = (SingleLineEllipsizeTextView) findViewById(R.id.forum_head_barname);
-        this.ajo = (TextView) findViewById(R.id.forum_head_info_attention);
-        this.ajp = (TextView) findViewById(R.id.forum_head_info_thread);
-        this.ajq = (TextView) findViewById(R.id.hot_rank_index);
-        this.ajr = (TextView) findViewById(R.id.hot_rank_num);
-        this.ajs = (TextView) findViewById(R.id.thread_extend_info);
-        this.ajm.setShowOval(true);
-        this.ajm.setAutoChangeStyle(true);
-        this.ajm.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-        this.ajm.setStrokeColorResId(R.color.CAM_X0401);
-        this.ajm.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.ajm.setOnClickListener(this);
-        this.ajn.setOnClickListener(this);
-        this.ajo.setOnClickListener(this);
-        this.ajp.setOnClickListener(this);
-        this.ajn.setEllipsisSuffix(getResources().getString(R.string.ellipsis_suffix_bar));
+        this.akl = (BarImageView) findViewById(R.id.forum_head_image);
+        this.akm = (SingleLineEllipsizeTextView) findViewById(R.id.forum_head_barname);
+        this.akn = (TextView) findViewById(R.id.forum_head_info_attention);
+        this.ako = (TextView) findViewById(R.id.forum_head_info_thread);
+        this.akp = (TextView) findViewById(R.id.hot_rank_index);
+        this.akq = (TextView) findViewById(R.id.hot_rank_num);
+        this.akr = (TextView) findViewById(R.id.thread_extend_info);
+        this.akl.setShowOval(true);
+        this.akl.setAutoChangeStyle(true);
+        this.akl.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+        this.akl.setStrokeColorResId(R.color.CAM_X0401);
+        this.akl.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.akl.setOnClickListener(this);
+        this.akm.setOnClickListener(this);
+        this.akn.setOnClickListener(this);
+        this.ako.setOnClickListener(this);
+        this.akm.setEllipsisSuffix(getResources().getString(R.string.ellipsis_suffix_bar));
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
-        this.ajn.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X006) - dimenPixelSize, 0, 0);
+        this.akm.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X006) - dimenPixelSize, 0, 0);
         onChangeSkinType();
     }
 
-    private void uh() {
-        this.ajm.setVisibility(8);
-        this.ajn.setVisibility(8);
-        this.ajp.setVisibility(8);
-        this.ajo.setVisibility(8);
+    private void uk() {
+        this.akl.setVisibility(8);
+        this.akm.setVisibility(8);
+        this.ako.setVisibility(8);
+        this.akn.setVisibility(8);
     }
 
     public void setData(String str, String str2, int i, int i2) {
         if (StringUtils.isNull(str)) {
-            uh();
+            uk();
             return;
         }
-        this.ajm.setPlaceHolder(1);
-        this.ajm.setVisibility(0);
-        this.ajn.setVisibility(0);
-        this.ajt = str;
-        this.ajn.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.ajt));
-        this.ajm.startLoad(str2, 10, false);
-        this.ajp.setText(String.format(getContext().getString(R.string.forum_thread_number), au.numberUniformFormatExtra(i)));
-        this.ajo.setText(String.format(getContext().getString(R.string.concern), au.numberUniformFormatExtra(i2)));
-        com.baidu.tbadk.a.b.a.e(this.ajn);
+        this.akl.setPlaceHolder(1);
+        this.akl.setVisibility(0);
+        this.akm.setVisibility(0);
+        this.aks = str;
+        this.akm.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.aks));
+        this.akl.startLoad(str2, 10, false);
+        this.ako.setText(String.format(getContext().getString(R.string.forum_thread_number), au.numberUniformFormatExtra(i)));
+        this.akn.setText(String.format(getContext().getString(R.string.concern), au.numberUniformFormatExtra(i2)));
+        com.baidu.tbadk.a.b.a.e(this.akm);
     }
 
-    public void setData(bx bxVar) {
-        this.ajw = bxVar;
-        if (bxVar == null || bxVar.bns() == null) {
-            uh();
-        } else if (bxVar.eFl) {
-            this.ajp.setVisibility(8);
-            this.ajo.setVisibility(8);
-            this.ajq.setVisibility(0);
-            this.ajr.setVisibility(0);
-            this.ajs.setVisibility(0);
-            this.ajs.setText(bxVar.bla());
-            int i = bxVar.eFz >= 1000 ? bxVar.eFz : 1000;
-            this.ajr.setVisibility(0);
-            this.ajr.setText(this.ajr.getContext().getResources().getString(R.string.thread_rank_tag, au.dy(i)));
-            int i2 = bxVar.position + 1;
-            this.ajq.setText(i2 >= 10 ? String.valueOf(i2) : "0" + i2);
-            ui();
-            bt bns = bxVar.bns();
-            this.ajm.setPlaceHolder(1);
-            this.ajm.setVisibility(0);
-            this.ajm.startLoad(bns.getAvatar(), 10, false);
-            this.ajn.setVisibility(0);
-            this.ajt = bns.forumName;
-            this.ajn.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.ajt));
-            com.baidu.tbadk.a.b.a.e(this.ajn);
+    public void setData(by byVar) {
+        this.akv = byVar;
+        if (byVar == null || byVar.bqF() == null) {
+            uk();
+        } else if (byVar.eMn) {
+            this.ako.setVisibility(8);
+            this.akn.setVisibility(8);
+            this.akp.setVisibility(0);
+            this.akq.setVisibility(0);
+            this.akr.setVisibility(0);
+            this.akr.setText(byVar.bon());
+            int i = byVar.eMB >= 1000 ? byVar.eMB : 1000;
+            this.akq.setVisibility(0);
+            this.akq.setText(this.akq.getContext().getResources().getString(R.string.thread_rank_tag, au.dX(i)));
+            int i2 = byVar.position + 1;
+            this.akp.setText(i2 >= 10 ? String.valueOf(i2) : "0" + i2);
+            ul();
+            bu bqF = byVar.bqF();
+            this.akl.setPlaceHolder(1);
+            this.akl.setVisibility(0);
+            this.akl.startLoad(bqF.getAvatar(), 10, false);
+            this.akm.setVisibility(0);
+            this.aks = bqF.forumName;
+            this.akm.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.aks));
+            com.baidu.tbadk.a.b.a.e(this.akm);
         } else {
-            if (bxVar.bnw()) {
-                this.ajp.setVisibility(8);
-                this.ajo.setVisibility(8);
-                this.ajq.setVisibility(8);
-                this.ajr.setVisibility(8);
-                this.ajs.setVisibility(0);
-                this.ajs.setText(bxVar.bla());
+            if (byVar.bqJ()) {
+                this.ako.setVisibility(8);
+                this.akn.setVisibility(8);
+                this.akp.setVisibility(8);
+                this.akq.setVisibility(8);
+                this.akr.setVisibility(0);
+                this.akr.setText(byVar.bon());
             } else {
-                this.ajs.setVisibility(8);
-                this.ajq.setVisibility(8);
-                this.ajr.setVisibility(8);
-                this.ajp.setVisibility(0);
-                this.ajo.setVisibility(0);
+                this.akr.setVisibility(8);
+                this.akp.setVisibility(8);
+                this.akq.setVisibility(8);
+                this.ako.setVisibility(0);
+                this.akn.setVisibility(0);
             }
-            setData(bxVar.bns().forumName, bxVar.bns().getAvatar(), bxVar.bns().postNum, bxVar.bns().memberNum);
-            if (bxVar.bjl()) {
-                if (bxVar.blC() != null && !StringUtils.isNull(bxVar.blC().getName_show())) {
-                    this.ajo.setText(bxVar.blC().getName_show());
+            setData(byVar.bqF().forumName, byVar.bqF().getAvatar(), byVar.bqF().postNum, byVar.bqF().memberNum);
+            if (byVar.bmv()) {
+                if (byVar.boP() != null && !StringUtils.isNull(byVar.boP().getName_show())) {
+                    this.akn.setText(byVar.boP().getName_show());
                 } else {
-                    this.ajo.setText(R.string.user_name_default_txt);
+                    this.akn.setText(R.string.user_name_default_txt);
                 }
-                this.ajp.setText(bxVar.bla());
+                this.ako.setText(byVar.bon());
             }
         }
     }
 
-    private void ui() {
-        if (this.ajw != null) {
-            int pA = TagTextHelper.pA(this.ajw.position + 1);
-            this.ajq.setCompoundDrawablePadding(l.getDimens(getContext(), R.dimen.M_W_X002));
-            int color = ap.getColor(pA);
+    private void ul() {
+        if (this.akv != null) {
+            int qa = TagTextHelper.qa(this.akv.position + 1);
+            this.akp.setCompoundDrawablePadding(l.getDimens(getContext(), R.dimen.M_W_X002));
+            int color = ap.getColor(qa);
             Drawable mutate = ap.getDrawable(R.drawable.icon_pure_topic_hot).mutate();
             int dimens = l.getDimens(getContext(), R.dimen.tbds42);
             mutate.setBounds(0, 0, dimens, dimens);
             DrawableCompat.setTint(mutate, color);
-            this.ajq.setCompoundDrawables(mutate, null, null, null);
-            this.ajq.setBackgroundDrawable(null);
-            ap.setViewTextColor(this.ajq, pA);
-            ap.setViewTextColor(this.ajr, pA);
+            this.akp.setCompoundDrawables(mutate, null, null, null);
+            this.akp.setBackgroundDrawable(null);
+            ap.setViewTextColor(this.akp, qa);
+            ap.setViewTextColor(this.akq, qa);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!StringUtils.isNull(this.ajt)) {
-            FrsActivityConfig createNormalCfg = new FrsActivityConfig(getContext()).createNormalCfg(this.ajt, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
+        if (!StringUtils.isNull(this.aks)) {
+            FrsActivityConfig createNormalCfg = new FrsActivityConfig(getContext()).createNormalCfg(this.aks, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
             createNormalCfg.setCallFrom(14);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
-            if (this.aju != null) {
-                this.aju.onClick(view);
+            if (this.akt != null) {
+                this.akt.onClick(view);
             }
         }
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.ajv) {
-            this.ajv = skinType;
+        if (skinType != this.aku) {
+            this.aku = skinType;
             Drawable a2 = WebPManager.a(R.drawable.icon_pure_ba16, ap.getColor(R.color.CAM_X0105), (WebPManager.ResourceStateType) null);
             int dimens = l.getDimens(getContext(), R.dimen.tbds42);
             a2.setBounds(0, 0, dimens, dimens);
-            this.ajn.setCompoundDrawables(null, null, a2, null);
-            this.ajn.setCompoundDrawablePadding(l.getDimens(getContext(), R.dimen.M_W_X002));
-            ap.setViewTextColor(this.ajn, R.color.CAM_X0105);
-            ap.setViewTextColor(this.ajo, R.color.CAM_X0109);
-            ap.setViewTextColor(this.ajp, R.color.CAM_X0109);
-            ap.setViewTextColor(this.ajs, R.color.CAM_X0109);
-            uj();
-            ui();
+            this.akm.setCompoundDrawables(null, null, a2, null);
+            this.akm.setCompoundDrawablePadding(l.getDimens(getContext(), R.dimen.M_W_X002));
+            ap.setViewTextColor(this.akm, R.color.CAM_X0105);
+            ap.setViewTextColor(this.akn, R.color.CAM_X0109);
+            ap.setViewTextColor(this.ako, R.color.CAM_X0109);
+            ap.setViewTextColor(this.akr, R.color.CAM_X0109);
+            um();
+            ul();
         }
     }
 
-    private void uj() {
-        com.baidu.tbadk.a.b.a.f(this.ajn);
+    private void um() {
+        com.baidu.tbadk.a.b.a.f(this.akm);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.aju = onClickListener;
+        this.akt = onClickListener;
     }
 }

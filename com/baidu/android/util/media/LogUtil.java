@@ -1,5 +1,5 @@
 package com.baidu.android.util.media;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class LogUtil {
     private static final String TAG = "Media@MediaQuery";
     private static final boolean isDebug = false;

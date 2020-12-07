@@ -18,7 +18,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a {
     public static final void a(Context context, final String str, final c cVar) {
         f.b("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage");

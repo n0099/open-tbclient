@@ -5,50 +5,50 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.PrivatePopInfo;
 /* loaded from: classes.dex */
 public class PrivateForumPopInfoData extends OrmObject {
-    private String eAJ = null;
-    private String eAK = null;
-    private String eAL = null;
-    private Integer eAM = null;
+    private String eHI = null;
+    private String eHJ = null;
+    private String eHK = null;
+    private Integer eHL = null;
 
-    public void Am(String str) {
-        this.eAJ = str;
+    public void AT(String str) {
+        this.eHI = str;
     }
 
-    public String bkB() {
-        return this.eAJ;
+    public String bnO() {
+        return this.eHI;
     }
 
-    public void An(String str) {
-        this.eAK = str;
+    public void AU(String str) {
+        this.eHJ = str;
     }
 
-    public String bkC() {
-        return this.eAK;
+    public String bnP() {
+        return this.eHJ;
     }
 
-    public void Ao(String str) {
-        this.eAL = str;
+    public void AV(String str) {
+        this.eHK = str;
     }
 
-    public String bkD() {
-        return this.eAL;
+    public String bnQ() {
+        return this.eHK;
     }
 
     public void k(Integer num) {
-        this.eAM = num;
+        this.eHL = num;
     }
 
-    public Integer bkE() {
-        return this.eAM;
+    public Integer bnR() {
+        return this.eHL;
     }
 
     public void a(PrivatePopInfo privatePopInfo) {
         if (privatePopInfo != null) {
             try {
-                this.eAJ = privatePopInfo.pop_type;
-                this.eAK = privatePopInfo.pop_content;
-                this.eAL = privatePopInfo.pop_url;
-                this.eAM = privatePopInfo.pop_forum_id;
+                this.eHI = privatePopInfo.pop_type;
+                this.eHJ = privatePopInfo.pop_content;
+                this.eHK = privatePopInfo.pop_url;
+                this.eHL = privatePopInfo.pop_forum_id;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

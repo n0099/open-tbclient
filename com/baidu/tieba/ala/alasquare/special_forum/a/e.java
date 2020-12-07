@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.special_forum.data.c, h.a> {
     private TbPageContext mPageContext;
 
@@ -28,7 +28,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         if (aVar == null || cVar == null) {
             return null;
         }
-        aVar.gqX.a(cVar);
+        aVar.gzg.a(cVar);
         return aVar.getView();
     }
 }

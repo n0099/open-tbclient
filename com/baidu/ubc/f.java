@@ -4,16 +4,17 @@ import java.util.HashMap;
 import java.util.HashSet;
 /* loaded from: classes15.dex */
 public class f {
-    public HashSet<String> orS = new HashSet<>();
-    public HashSet<String> orT = new HashSet<>();
-    public HashSet<String> orU = new HashSet<>();
-    public HashSet<String> orV = new HashSet<>();
-    public HashSet<String> orW = new HashSet<>();
-    public HashMap<String, String> orX = new HashMap<>();
-    public HashMap<String, String> orY = new HashMap<>();
-    public HashMap<String, m> orZ = new HashMap<>();
-    public HashSet<String> osa = new HashSet<>();
-    public HashSet<String> osb = new HashSet<>();
-    public HashMap<String, String> osc = new HashMap<>();
-    public HashMap<String, String> osd = new HashMap<>();
+    public HashSet<String> oGS = new HashSet<>();
+    public HashSet<String> oGT = new HashSet<>();
+    public HashSet<String> oGU = new HashSet<>();
+    public HashSet<String> oGV = new HashSet<>();
+    public HashSet<String> oGW = new HashSet<>();
+    public HashMap<String, String> oGX = new HashMap<>();
+    public HashMap<String, String> oGY = new HashMap<>();
+    public HashMap<String, m> oGZ = new HashMap<>();
+    public HashSet<String> oHa = new HashSet<>();
+    public HashSet<String> oHb = new HashSet<>();
+    public HashMap<String, String> oHc = new HashMap<>();
+    public HashMap<String, String> oHd = new HashMap<>();
+    public HashMap<String, Integer> oHe = new HashMap<>();
 }

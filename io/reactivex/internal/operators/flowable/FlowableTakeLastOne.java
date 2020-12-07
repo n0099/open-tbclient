@@ -3,24 +3,25 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-/* loaded from: classes5.dex */
+import org.a.d;
+/* loaded from: classes9.dex */
 public final class FlowableTakeLastOne<T> extends a<T, T> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pOn.a((j) new TakeLastOneSubscriber(cVar));
+        this.pFg.a((j) new TakeLastOneSubscriber(cVar));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class TakeLastOneSubscriber<T> extends DeferredScalarSubscription<T> implements j<T> {
         private static final long serialVersionUID = -5467847744262967226L;
-        org.a.d s;
+        d s;
 
         TakeLastOneSubscriber(org.a.c<? super T> cVar) {
             super(cVar);
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);

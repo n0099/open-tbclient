@@ -14,21 +14,21 @@ import com.baidu.ar.ihttp.IProgressCallback;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class d implements com.baidu.ar.lua.c, IStepLoading {
     private Context mContext;
-    private ARCaseBundleInfo wM;
-    private a wN;
-    private ICallbackWith<IStepLoading> wO;
-    private String wP;
-    private boolean wQ;
+    private ARCaseBundleInfo xA;
+    private a xB;
+    private ICallbackWith<IStepLoading> xC;
+    private String xD;
+    private boolean xE;
 
     public d(Context context) {
         this.mContext = context.getApplicationContext();
     }
 
     private ICancellable a(String str, ICallback iCallback, IError iError, IProgressCallback iProgressCallback) {
-        return com.baidu.ar.e.d.b(new e(this.mContext, this.wM, this.wN), str).d(new c(this.wM, str, this.wN, iProgressCallback)).d(new b(iCallback, iError));
+        return com.baidu.ar.e.d.b(new e(this.mContext, this.xA, this.xB), str).d(new c(this.xA, str, this.xB, iProgressCallback)).d(new b(iCallback, iError));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -51,7 +51,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
         String str = (String) hashMap.get("res_path");
         final String str2 = (String) hashMap.get("request_id");
         final boolean z = ((Integer) hashMap.get("need_progress")).intValue() != 0;
-        this.wP = str;
+        this.xD = str;
         a(str, new ICallback() { // from class: com.baidu.ar.steploading.d.1
             @Override // com.baidu.ar.callback.ICallback
             public void run() {
@@ -80,13 +80,13 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
     public void a(int i, int i2, HashMap<String, Object> hashMap) {
         if (i == 5001) {
             if (hashMap != null) {
-                this.wQ = false;
+                this.xE = false;
                 r(hashMap);
             }
         } else if (i == 1901 && com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1) == 3010) {
-            this.wQ = true;
-            if (this.wO != null) {
-                this.wO.run(this);
+            this.xE = true;
+            if (this.xC != null) {
+                this.xC.run(this);
             } else {
                 cancel();
             }
@@ -99,14 +99,14 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
 
     @Override // com.baidu.ar.steploading.IStepLoading
     public void cancel() {
-        if (!this.wQ || TextUtils.isEmpty(this.wP)) {
+        if (!this.xE || TextUtils.isEmpty(this.xD)) {
             return;
         }
-        this.wQ = false;
+        this.xE = false;
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", 3021);
         hashMap.put("if_download", 0);
-        hashMap.put("download_batchid", this.wP);
+        hashMap.put("download_batchid", this.xD);
         ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
     }
 
@@ -119,36 +119,36 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
     }
 
     public void release() {
-        this.wQ = false;
-        this.wP = null;
-        this.wO = null;
+        this.xE = false;
+        this.xD = null;
+        this.xC = null;
         this.mContext = null;
-        this.wM = null;
-        this.wN = null;
+        this.xA = null;
+        this.xB = null;
     }
 
     @Override // com.baidu.ar.steploading.IStepLoading
     public void retry() {
-        if (!this.wQ || TextUtils.isEmpty(this.wP)) {
+        if (!this.xE || TextUtils.isEmpty(this.xD)) {
             return;
         }
-        this.wQ = false;
+        this.xE = false;
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", 3021);
         hashMap.put("if_download", 1);
-        hashMap.put("download_batchid", this.wP);
+        hashMap.put("download_batchid", this.xD);
         ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
     }
 
     @Override // com.baidu.ar.steploading.IStepLoading
     public void setLoadErrorListener(ICallbackWith<IStepLoading> iCallbackWith) {
-        this.wO = iCallbackWith;
+        this.xC = iCallbackWith;
     }
 
     public void switchCase(String str) {
-        this.wM = new ARCaseBundleInfo();
-        this.wM.caseDir = str;
-        this.wM.arKey = ARConfig.getARKey();
-        this.wN = new a(this.wM.caseDir);
+        this.xA = new ARCaseBundleInfo();
+        this.xA.caseDir = str;
+        this.xA.arKey = ARConfig.getARKey();
+        this.xB = new a(this.xA.caseDir);
     }
 }

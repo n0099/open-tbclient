@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMSendMsgRequest extends BaseHttpRequest {
     private static final String TAG = "IMSendMsgRequest";
     private String key;
@@ -59,7 +59,7 @@ public class IMSendMsgRequest extends BaseHttpRequest {
                 break;
             case 1:
             case 2:
-                str = "http://cp01-ocean-749.epc.baidu.com:8111/";
+                str = "http://rd-im-server.bcc-szth.baidu.com:8111/";
                 break;
             case 3:
                 str = Constants.URL_HTTP_BOX;

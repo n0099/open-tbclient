@@ -15,18 +15,18 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
 /* loaded from: classes.dex */
 public class EmotionView extends TbImageView {
-    private float cuT;
-    private float iuA;
-    private float iuB;
-    private int iuC;
-    private a iuD;
-    private EmotionImageData iut;
-    private EmotionPreview iuu;
-    private FrameLayout iuv;
-    private long iuw;
-    private boolean iux;
-    private boolean iuy;
-    private float iuz;
+    private float cBL;
+    private EmotionImageData iFl;
+    private EmotionPreview iFm;
+    private FrameLayout iFn;
+    private long iFo;
+    private boolean iFp;
+    private boolean iFq;
+    private float iFr;
+    private float iFs;
+    private float iFt;
+    private int iFu;
+    private a iFv;
     private View.OnClickListener mClickListener;
     private float mDownX;
     private int mPreviewHeight;
@@ -36,56 +36,56 @@ public class EmotionView extends TbImageView {
     public interface a {
         boolean canClick();
 
-        boolean ctF();
+        boolean cxU();
 
-        void ctI();
+        void cxX();
 
-        void ctJ();
+        void cxY();
     }
 
     public EmotionView(Context context) {
         super(context);
-        this.iuC = 10;
+        this.iFu = 10;
         init();
     }
 
     public EmotionView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.iuC = 10;
+        this.iFu = 10;
         init();
     }
 
     public EmotionView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iuC = 10;
+        this.iFu = 10;
         init();
     }
 
     private void init() {
         this.mPreviewWidth = l.getDimens(getContext(), R.dimen.ds240);
         this.mPreviewHeight = l.getDimens(getContext(), R.dimen.ds260);
-        this.iuB = ViewConfiguration.get(getContext()).getScaledTouchSlop() * 2;
+        this.iFt = ViewConfiguration.get(getContext()).getScaledTouchSlop() * 2;
     }
 
     public EmotionImageData getData() {
-        return this.iut;
+        return this.iFl;
     }
 
     public void a(EmotionImageData emotionImageData) {
         if (emotionImageData != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
-            this.iut = emotionImageData;
-            setTag(this.iut.getThumbUrl());
-            if (this.iuC == 20) {
-                b(this.iut);
+            this.iFl = emotionImageData;
+            setTag(this.iFl.getThumbUrl());
+            if (this.iFu == 20) {
+                b(this.iFl);
             } else {
-                startLoad(this.iut.getThumbUrl(), this.iuC, false);
+                startLoad(this.iFl.getThumbUrl(), this.iFu, false);
             }
         }
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
     public void reset() {
-        this.iut = null;
+        this.iFl = null;
         setImageResource(0);
         super.reset();
     }
@@ -119,27 +119,27 @@ public class EmotionView extends TbImageView {
         this.mClickListener = onClickListener;
     }
 
-    public void ctE() {
+    public void cxT() {
         setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.face.view.EmotionView.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
-                        EmotionView.this.iux = true;
+                        EmotionView.this.iFp = true;
                         EmotionView.this.mDownX = motionEvent.getRawX();
-                        EmotionView.this.cuT = motionEvent.getRawY();
-                        EmotionView.this.iuz = EmotionView.this.mDownX;
-                        EmotionView.this.iuA = EmotionView.this.cuT;
-                        EmotionView.this.iuw = System.currentTimeMillis();
-                        if (EmotionView.this.ctF()) {
-                            EmotionView.this.postDelayed(new b(EmotionView.this.iuw), 500L);
+                        EmotionView.this.cBL = motionEvent.getRawY();
+                        EmotionView.this.iFr = EmotionView.this.mDownX;
+                        EmotionView.this.iFs = EmotionView.this.cBL;
+                        EmotionView.this.iFo = System.currentTimeMillis();
+                        if (EmotionView.this.cxU()) {
+                            EmotionView.this.postDelayed(new b(EmotionView.this.iFo), 500L);
                             break;
                         }
                         break;
                     case 1:
-                        EmotionView.this.iux = false;
-                        if (EmotionView.this.iuy) {
-                            EmotionView.this.Ro();
+                        EmotionView.this.iFp = false;
+                        if (EmotionView.this.iFq) {
+                            EmotionView.this.TM();
                             break;
                         } else if (EmotionView.this.mClickListener != null && EmotionView.this.canClick()) {
                             EmotionView.this.mClickListener.onClick(EmotionView.this);
@@ -147,8 +147,8 @@ public class EmotionView extends TbImageView {
                         }
                         break;
                     case 3:
-                        EmotionView.this.iux = false;
-                        EmotionView.this.Ro();
+                        EmotionView.this.iFp = false;
+                        EmotionView.this.TM();
                         break;
                 }
                 return true;
@@ -157,38 +157,38 @@ public class EmotionView extends TbImageView {
     }
 
     public void setController(a aVar) {
-        this.iuD = aVar;
+        this.iFv = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ctF() {
-        return this.iuD == null || this.iuD.ctF();
+    public boolean cxU() {
+        return this.iFv == null || this.iFv.cxU();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean canClick() {
-        return this.iuD == null || this.iuD.canClick();
+        return this.iFv == null || this.iFv.canClick();
     }
 
     /* loaded from: classes.dex */
     class b implements Runnable {
-        private long iuF;
+        private long iFx;
 
         public b(long j) {
-            this.iuF = j;
+            this.iFx = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (EmotionView.this.iux && this.iuF == EmotionView.this.iuw && EmotionView.this.ctG()) {
-                EmotionView.this.ctH();
+            if (EmotionView.this.iFp && this.iFx == EmotionView.this.iFo && EmotionView.this.cxV()) {
+                EmotionView.this.cxW();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ctG() {
-        return Math.abs(this.iuz - this.mDownX) < this.iuB && Math.abs(this.iuA - this.cuT) < this.iuB;
+    public boolean cxV() {
+        return Math.abs(this.iFr - this.mDownX) < this.iFt && Math.abs(this.iFs - this.cBL) < this.iFt;
     }
 
     public boolean getIsGif() {
@@ -196,17 +196,17 @@ public class EmotionView extends TbImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ctH() {
-        if (!this.iuy && ctF() && this.iut != null && !TextUtils.isEmpty(this.iut.getPicUrl())) {
-            if (this.iuD != null) {
-                this.iuD.ctI();
+    public void cxW() {
+        if (!this.iFq && cxU() && this.iFl != null && !TextUtils.isEmpty(this.iFl.getPicUrl())) {
+            if (this.iFv != null) {
+                this.iFv.cxX();
             }
             int[] iArr = new int[2];
             getLocationOnScreen(iArr);
-            if (this.iuu == null) {
-                this.iuu = new EmotionPreview(getContext());
+            if (this.iFm == null) {
+                this.iFm = new EmotionPreview(getContext());
             }
-            this.iuu.a(this.iut.getPicUrl(), this.iut.getThumbUrl(), this.mIsGif, this.iuC);
+            this.iFm.a(this.iFl.getPicUrl(), this.iFl.getThumbUrl(), this.mIsGif, this.iFu);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mPreviewWidth, this.mPreviewHeight);
             layoutParams.leftMargin = iArr[0] - 60;
             layoutParams.topMargin = iArr[1] - this.mPreviewHeight;
@@ -216,35 +216,35 @@ public class EmotionView extends TbImageView {
             if (layoutParams.leftMargin + this.mPreviewWidth > l.getEquipmentWidth(getContext())) {
                 layoutParams.leftMargin = l.getEquipmentWidth(getContext()) - this.mPreviewWidth;
             }
-            if (this.iuv == null) {
-                this.iuv = (FrameLayout) ((Activity) getContext()).getWindow().getDecorView();
+            if (this.iFn == null) {
+                this.iFn = (FrameLayout) ((Activity) getContext()).getWindow().getDecorView();
             }
-            if (this.iuu.getParent() != null && this.iuu.getParent() == this.iuv) {
-                this.iuv.removeView(this.iuu);
+            if (this.iFm.getParent() != null && this.iFm.getParent() == this.iFn) {
+                this.iFn.removeView(this.iFm);
             }
-            this.iuv.addView(this.iuu, layoutParams);
-            this.iuy = true;
+            this.iFn.addView(this.iFm, layoutParams);
+            this.iFq = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ro() {
-        if (this.iuu != null && this.iuy) {
-            if (this.iuD != null) {
-                this.iuD.ctJ();
+    public void TM() {
+        if (this.iFm != null && this.iFq) {
+            if (this.iFv != null) {
+                this.iFv.cxY();
             }
-            if (this.iuu.getParent() != null && this.iuu.getParent() == this.iuv) {
-                this.iuv.removeView(this.iuu);
+            if (this.iFm.getParent() != null && this.iFm.getParent() == this.iFn) {
+                this.iFn.removeView(this.iFm);
             }
-            this.iuy = false;
+            this.iFq = false;
         }
     }
 
     public void setLoadProcType(int i) {
-        this.iuC = i;
+        this.iFu = i;
     }
 
     public int getLoadProcType() {
-        return this.iuC;
+        return this.iFu;
     }
 }

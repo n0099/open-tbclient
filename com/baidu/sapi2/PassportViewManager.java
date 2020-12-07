@@ -2,18 +2,18 @@ package com.baidu.sapi2;
 
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.ActivityChooserView;
-import com.baidu.k.a.a;
+import com.baidu.l.a.a;
 import com.baidu.sapi2.callback.TitleBtnCallback;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class PassportViewManager implements NoProguard {
     private static SapiConfiguration c;
     private static PassportViewManager d;
 
     /* renamed from: a  reason: collision with root package name */
-    private TitleBtnCallback f3212a;
+    private TitleBtnCallback f3215a;
     private TitleViewModule b = null;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class TitleViewModule implements NoProguard {
         public static final int DEFAULT_TEXT_COLOR = PassportViewManager.c.context.getResources().getColor(a.b.sapi_sdk_edit_text_color);
         public int bgColor = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
@@ -71,7 +71,7 @@ public class PassportViewManager implements NoProguard {
     }
 
     public TitleBtnCallback getTitleBtnCallback() {
-        return this.f3212a;
+        return this.f3215a;
     }
 
     public TitleViewModule getTitleViewModule() {
@@ -79,12 +79,12 @@ public class PassportViewManager implements NoProguard {
     }
 
     public void release() {
-        this.f3212a = null;
+        this.f3215a = null;
         this.b = null;
         SapiWebView.statLoadLogin = null;
     }
 
     public void setTitleBtnCallback(TitleBtnCallback titleBtnCallback) {
-        this.f3212a = titleBtnCallback;
+        this.f3215a = titleBtnCallback;
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.ufosdk.ui;
 
 import android.widget.TextView;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class dt {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f3840a;
+    public TextView f3843a;
     public TextView b;
     public TextView c;
     public TextView d;

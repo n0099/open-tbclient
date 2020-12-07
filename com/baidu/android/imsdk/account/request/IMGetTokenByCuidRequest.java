@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.account.request;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
@@ -13,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMGetTokenByCuidRequest extends BaseHttpRequest {
     private static final String TAG = "IMGenTokenByCuidRequest";
     private long mAppid;
@@ -40,8 +41,8 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject.has("error_code")) {
                 i2 = jSONObject.getInt("error_code");
-                if (jSONObject.has("error_msg")) {
-                    str2 = jSONObject.getString("error_msg");
+                if (jSONObject.has(AlaRecorderLog.KEY_ERROR_MSG)) {
+                    str2 = jSONObject.getString(AlaRecorderLog.KEY_ERROR_MSG);
                 }
                 if (i2 == 0) {
                     str3 = jSONObject.getString("token");
@@ -71,7 +72,7 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
             case 0:
                 return (Utility.isPeakTime() ? "https://pim.baidu.com/".replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "http://") : "https://pim.baidu.com/") + "rest/3.0/im/generate_token";
             case 1:
-                return "http://cp01-ocean-749.epc.baidu.com:8080/rest/3.0/im/generate_token";
+                return "http://rd-im-server.bcc-szth.baidu.com:8080/rest/3.0/im/generate_token";
             case 2:
                 return "http://10.64.132.67:8080/rest/3.0/im/generate_token";
             case 3:

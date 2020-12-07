@@ -4,11 +4,11 @@ import android.widget.LinearLayout;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ImBarrageTrackListView extends LinearLayout {
-    private List<LandscapeImBarrageTrackView> aDU;
+    private List<LandscapeImBarrageTrackView> aGA;
 
     public void setCanAddNext() {
-        if (this.aDU != null && !this.aDU.isEmpty()) {
-            for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aDU) {
+        if (this.aGA != null && !this.aGA.isEmpty()) {
+            for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aGA) {
                 landscapeImBarrageTrackView.setCanAddNext();
             }
         }

@@ -25,13 +25,13 @@ public class UniversityEvaluationConfig extends IntentConfig {
 
     public void setScoreItemInfo(SerializableItemInfo serializableItemInfo) {
         if (getIntent() != null) {
-            getIntent().putExtra(ITEM_INFO, serializableItemInfo);
+            getIntent().putExtra("item_info", serializableItemInfo);
         }
     }
 
     public void setItemIsSchool(boolean z) {
         if (getIntent() != null) {
-            getIntent().putExtra(ITEM_IS_SCHOOL, z);
+            getIntent().putExtra("item_is_school", z);
         }
     }
 }

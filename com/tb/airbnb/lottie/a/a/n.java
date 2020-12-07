@@ -7,31 +7,31 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.a;
 import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes17.dex */
-public class n implements j, l, a.InterfaceC1041a {
-    private boolean De;
+/* loaded from: classes20.dex */
+public class n implements j, l, a.InterfaceC1019a {
+    private boolean DY;
     private final com.tb.airbnb.lottie.g lottieDrawable;
     private final String name;
     @Nullable
-    private r pJP;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> pJR;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> pJS;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> pKg;
+    private r pAT;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> pAV;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> pAW;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> pBk;
     private final Path path = new Path();
     private final RectF rect = new RectF();
 
     public n(com.tb.airbnb.lottie.g gVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.f fVar) {
         this.name = fVar.getName();
         this.lottieDrawable = gVar;
-        this.pJS = fVar.eyP().eyM();
-        this.pJR = fVar.eyW().eyM();
-        this.pKg = fVar.ezo().eyM();
-        aVar.a(this.pJS);
-        aVar.a(this.pJR);
-        aVar.a(this.pKg);
-        this.pJS.b(this);
-        this.pJR.b(this);
-        this.pKg.b(this);
+        this.pAW = fVar.eBl().eBi();
+        this.pAV = fVar.eBs().eBi();
+        this.pBk = fVar.eBK().eBi();
+        aVar.a(this.pAW);
+        aVar.a(this.pAV);
+        aVar.a(this.pBk);
+        this.pAW.b(this);
+        this.pAV.b(this);
+        this.pBk.b(this);
     }
 
     @Override // com.tb.airbnb.lottie.a.a.b
@@ -39,13 +39,13 @@ public class n implements j, l, a.InterfaceC1041a {
         return this.name;
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC1041a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC1019a
     public void iT() {
         invalidate();
     }
 
     private void invalidate() {
-        this.De = false;
+        this.DY = false;
         this.lottieDrawable.invalidateSelf();
     }
 
@@ -56,9 +56,9 @@ public class n implements j, l, a.InterfaceC1041a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).eyC() == ShapeTrimPath.Type.Simultaneously) {
-                    this.pJP = (r) bVar;
-                    this.pJP.a(this);
+                if ((bVar instanceof r) && ((r) bVar).eAY() == ShapeTrimPath.Type.Simultaneously) {
+                    this.pAT = (r) bVar;
+                    this.pAT.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -69,19 +69,19 @@ public class n implements j, l, a.InterfaceC1041a {
 
     @Override // com.tb.airbnb.lottie.a.a.l
     public Path iW() {
-        if (this.De) {
+        if (this.DY) {
             return this.path;
         }
         this.path.reset();
-        PointF value = this.pJR.getValue();
+        PointF value = this.pAV.getValue();
         float f = value.x / 2.0f;
         float f2 = value.y / 2.0f;
-        float floatValue = this.pKg == null ? 0.0f : this.pKg.getValue().floatValue();
+        float floatValue = this.pBk == null ? 0.0f : this.pBk.getValue().floatValue();
         float min = Math.min(f, f2);
         if (floatValue <= min) {
             min = floatValue;
         }
-        PointF value2 = this.pJS.getValue();
+        PointF value2 = this.pAW.getValue();
         this.path.moveTo(value2.x + f, (value2.y - f2) + min);
         this.path.lineTo(value2.x + f, (value2.y + f2) - min);
         if (min > 0.0f) {
@@ -104,8 +104,8 @@ public class n implements j, l, a.InterfaceC1041a {
             this.path.arcTo(this.rect, 270.0f, 90.0f, false);
         }
         this.path.close();
-        com.tb.airbnb.lottie.d.f.a(this.path, this.pJP);
-        this.De = true;
+        com.tb.airbnb.lottie.d.f.a(this.path, this.pAT);
+        this.DY = true;
         return this.path;
     }
 

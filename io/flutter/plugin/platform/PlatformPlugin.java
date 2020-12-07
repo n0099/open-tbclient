@@ -9,13 +9,10 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.view.View;
 import android.view.Window;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import io.flutter.embedding.engine.systemchannels.PlatformChannel;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class PlatformPlugin {
     public static final int DEFAULT_SYSTEM_UI = 1280;
     private final Activity activity;
@@ -23,12 +20,12 @@ public class PlatformPlugin {
     private int mEnabledOverlays;
     private final PlatformChannel.PlatformMessageHandler mPlatformMessageHandler = new PlatformChannel.PlatformMessageHandler() { // from class: io.flutter.plugin.platform.PlatformPlugin.1
         @Override // io.flutter.embedding.engine.systemchannels.PlatformChannel.PlatformMessageHandler
-        public void playSystemSound(@NonNull PlatformChannel.SoundType soundType) {
+        public void playSystemSound(PlatformChannel.SoundType soundType) {
             PlatformPlugin.this.playSystemSound(soundType);
         }
 
         @Override // io.flutter.embedding.engine.systemchannels.PlatformChannel.PlatformMessageHandler
-        public void vibrateHapticFeedback(@NonNull PlatformChannel.HapticFeedbackType hapticFeedbackType) {
+        public void vibrateHapticFeedback(PlatformChannel.HapticFeedbackType hapticFeedbackType) {
             PlatformPlugin.this.vibrateHapticFeedback(hapticFeedbackType);
         }
 
@@ -38,12 +35,12 @@ public class PlatformPlugin {
         }
 
         @Override // io.flutter.embedding.engine.systemchannels.PlatformChannel.PlatformMessageHandler
-        public void setApplicationSwitcherDescription(@NonNull PlatformChannel.AppSwitcherDescription appSwitcherDescription) {
+        public void setApplicationSwitcherDescription(PlatformChannel.AppSwitcherDescription appSwitcherDescription) {
             PlatformPlugin.this.setSystemChromeApplicationSwitcherDescription(appSwitcherDescription);
         }
 
         @Override // io.flutter.embedding.engine.systemchannels.PlatformChannel.PlatformMessageHandler
-        public void showSystemOverlays(@NonNull List<PlatformChannel.SystemUiOverlay> list) {
+        public void showSystemOverlays(List<PlatformChannel.SystemUiOverlay> list) {
             PlatformPlugin.this.setSystemChromeEnabledSystemUIOverlays(list);
         }
 
@@ -53,7 +50,7 @@ public class PlatformPlugin {
         }
 
         @Override // io.flutter.embedding.engine.systemchannels.PlatformChannel.PlatformMessageHandler
-        public void setSystemUiOverlayStyle(@NonNull PlatformChannel.SystemChromeStyle systemChromeStyle) {
+        public void setSystemUiOverlayStyle(PlatformChannel.SystemChromeStyle systemChromeStyle) {
             PlatformPlugin.this.setSystemChromeSystemUIOverlayStyle(systemChromeStyle);
         }
 
@@ -63,12 +60,12 @@ public class PlatformPlugin {
         }
 
         @Override // io.flutter.embedding.engine.systemchannels.PlatformChannel.PlatformMessageHandler
-        public CharSequence getClipboardData(@Nullable PlatformChannel.ClipboardContentFormat clipboardContentFormat) {
+        public CharSequence getClipboardData(PlatformChannel.ClipboardContentFormat clipboardContentFormat) {
             return PlatformPlugin.this.getClipboardData(clipboardContentFormat);
         }
 
         @Override // io.flutter.embedding.engine.systemchannels.PlatformChannel.PlatformMessageHandler
-        public void setClipboardData(@NonNull String str) {
+        public void setClipboardData(String str) {
             PlatformPlugin.this.setClipboardData(str);
         }
 
@@ -78,7 +75,7 @@ public class PlatformPlugin {
         }
 
         @Override // io.flutter.embedding.engine.systemchannels.PlatformChannel.PlatformMessageHandler
-        public void setSystemGestureExclusionRects(@NonNull ArrayList<Rect> arrayList) {
+        public void setSystemGestureExclusionRects(ArrayList<Rect> arrayList) {
             PlatformPlugin.this.setSystemGestureExclusionRects(arrayList);
         }
     };
@@ -102,7 +99,6 @@ public class PlatformPlugin {
         }
     }
 
-    @VisibleForTesting
     void vibrateHapticFeedback(PlatformChannel.HapticFeedbackType hapticFeedbackType) {
         View decorView = this.activity.getWindow().getDecorView();
         switch (hapticFeedbackType) {

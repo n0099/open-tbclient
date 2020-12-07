@@ -9,7 +9,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.widget.ListPopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes19.dex */
+/* loaded from: classes17.dex */
 public final class InputAwareWebView extends WebView {
     private static final String TAG = "InputAwareWebView";
     private View containerView;
@@ -17,7 +17,7 @@ public final class InputAwareWebView extends WebView {
     private ThreadedInputConnectionProxyAdapterView proxyAdapterView;
     private View threadedInputConnectionProxyView;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes17.dex */
     public interface OnScrollChangedCallback {
         void onScroll(int i, int i2, int i3, int i4);
     }

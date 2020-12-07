@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class b implements Handler.Callback {
     public static final List<Message> e = new ArrayList();
     @SuppressLint({"StaticFieldLeak"})
     private static b g;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f3950a;
+    public boolean f3953a;
     public com.baidu.webkit.logsdk.c b;
     public Handler c;
     public Context d;
@@ -66,7 +66,7 @@ public class b implements Handler.Callback {
         synchronized (this) {
             if (!this.h) {
                 com.baidu.webkit.logsdk.c.c h = h();
-                boolean z2 = h.f3960a.isEmpty() && h.b.isEmpty();
+                boolean z2 = h.f3963a.isEmpty() && h.b.isEmpty();
                 com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "BdLogDataProcessor canRelease = " + z2);
                 if (z2) {
                     if (f().a()) {
@@ -83,7 +83,7 @@ public class b implements Handler.Callback {
                     } else {
                         this.j.quit();
                     }
-                    this.f3950a = false;
+                    this.f3953a = false;
                     this.d = null;
                     g = null;
                 }
@@ -144,9 +144,9 @@ public class b implements Handler.Callback {
                 com.baidu.webkit.logsdk.b.b e2 = e();
                 String b = bVar.b();
                 if (TextUtils.isEmpty(b)) {
-                    e2.f3956a = "https://browserkernel.baidu.com/log/config_browser.json";
+                    e2.f3959a = "https://browserkernel.baidu.com/log/config_browser.json";
                 } else {
-                    e2.f3956a = b;
+                    e2.f3959a = b;
                 }
                 try {
                     JSONObject jSONObject = new JSONObject("{    \"master\": \"1\",    \"net_level\": 3,    \"timeout\":\"30\",    \"filesize\":\"10\",    \"timeup\":\"1\",    \"threshold\":\"3\",    \"f1\":\"1_0\",    \"f2\":\"0_1\",    \"f3\":\"2_3\",    \"publickey\":\"test\",     \"array\": [        {\"log_type\": \"frame_event\", \"master\": \"0\", \"log_level\": 3},        {\"log_type\": \"frame_pv\", \"master\": \"0\", \"log_level\": 2},        {\"log_type\": \"frame_record\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"frame_crash\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"frame_anr\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"frame_app\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"frame_reportinfo\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"kernel_t5timing\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"kernel_safe\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"kernel_crash\", \"master\": \"0\", \"log_level\": 1},        {\"log_type\": \"kernel_sailor\", \"master\": \"1\", \"log_level\": 1, \"param_type\": \"kernel\"},        {\"log_type\": \"kernel_sailorStat\", \"master\": \"1\", \"log_level\": 1, \"param_type\": \"kernel\"},        {\"log_type\": \"kernel_whiteScreen\", \"master\": \"0\", \"log_level\": 1}    ],    \"params\": {        \"kernel\": {\"body\":[],                   \"url\": [] }    }}");
@@ -232,16 +232,16 @@ public class b implements Handler.Callback {
                 }
                 b a2 = a();
                 com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "BdLogManager setReady = true", null);
-                a2.f3950a = true;
-                if (a2.f3950a && a2.c != null) {
+                a2.f3953a = true;
+                if (a2.f3953a && a2.c != null) {
                     a2.c.sendMessage(a2.c.obtainMessage(2));
                 }
                 com.baidu.webkit.logsdk.upload.b f = f();
                 String a3 = bVar.a();
                 if (TextUtils.isEmpty(a3)) {
-                    f.f3966a = "https://browserkernel.baidu.com/logstat/stat/log";
+                    f.f3969a = "https://browserkernel.baidu.com/logstat/stat/log";
                 } else {
-                    f.f3966a = a3;
+                    f.f3969a = a3;
                 }
                 g();
                 h();
@@ -254,7 +254,7 @@ public class b implements Handler.Callback {
     }
 
     public final boolean b() {
-        return this.h && this.i != null && this.d != null && this.f3950a;
+        return this.h && this.i != null && this.d != null && this.f3953a;
     }
 
     public final com.baidu.webkit.logsdk.b c() {

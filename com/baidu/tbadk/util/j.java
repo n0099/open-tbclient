@@ -4,93 +4,93 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes.dex */
 public class j {
-    private long fxJ;
-    private long fxK;
-    private long fxL;
-    private long fxM;
-    private long fxN;
-    private a fxO;
+    private long fFA;
+    private long fFB;
+    private long fFC;
+    private a fFD;
+    private long fFy;
+    private long fFz;
     private long startTime;
     private Handler handler = new Handler(Looper.getMainLooper());
-    private boolean VG = false;
-    private Runnable fxP = new Runnable() { // from class: com.baidu.tbadk.util.j.1
+    private boolean WE = false;
+    private Runnable fFE = new Runnable() { // from class: com.baidu.tbadk.util.j.1
         @Override // java.lang.Runnable
         public void run() {
             long currentTimeMillis = System.currentTimeMillis();
-            if (j.this.fxN > j.this.fxM) {
-                j.this.fxM = currentTimeMillis - j.this.fxL;
-                j.this.fxN = j.this.fxM;
+            if (j.this.fFC > j.this.fFB) {
+                j.this.fFB = currentTimeMillis - j.this.fFA;
+                j.this.fFC = j.this.fFB;
             }
-            long j = currentTimeMillis - j.this.fxM;
-            j.this.fxK += j.this.fxL;
-            if (j.this.fxK < j.this.fxJ) {
-                j.this.handler.postDelayed(j.this.fxP, (2 * j.this.fxL) - j);
-                if (j.this.fxO != null) {
-                    j.this.fxO.b(j.this.fxJ, j.this.fxJ - j.this.fxK);
+            long j = currentTimeMillis - j.this.fFB;
+            j.this.fFz += j.this.fFA;
+            if (j.this.fFz < j.this.fFy) {
+                j.this.handler.postDelayed(j.this.fFE, (2 * j.this.fFA) - j);
+                if (j.this.fFD != null) {
+                    j.this.fFD.b(j.this.fFy, j.this.fFy - j.this.fFz);
                 }
             } else {
-                j.this.fxK = j.this.fxJ;
+                j.this.fFz = j.this.fFy;
                 j.this.finish();
             }
-            j.this.fxM = currentTimeMillis;
+            j.this.fFB = currentTimeMillis;
         }
     };
 
     /* loaded from: classes.dex */
     public interface a {
-        void P(long j);
+        void N(long j);
 
         void b(long j, long j2);
     }
 
     public j(long j, long j2) {
-        this.fxJ = j;
-        this.fxL = j2;
+        this.fFy = j;
+        this.fFA = j2;
     }
 
     public void start() {
         this.startTime = System.currentTimeMillis();
-        this.fxM = this.startTime;
-        if (this.fxO != null) {
-            this.fxO.b(this.fxJ, this.fxJ - this.fxK);
+        this.fFB = this.startTime;
+        if (this.fFD != null) {
+            this.fFD.b(this.fFy, this.fFy - this.fFz);
         }
-        this.handler.postDelayed(this.fxP, this.fxL);
+        this.handler.postDelayed(this.fFE, this.fFA);
     }
 
     public void pause() {
-        if (!this.VG) {
-            this.VG = true;
-            this.fxN = System.currentTimeMillis();
-            this.handler.removeCallbacks(this.fxP);
+        if (!this.WE) {
+            this.WE = true;
+            this.fFC = System.currentTimeMillis();
+            this.handler.removeCallbacks(this.fFE);
         }
     }
 
     public void resume() {
-        if (this.VG) {
-            this.VG = false;
-            this.handler.postDelayed(this.fxP, this.fxL - (this.fxN - this.fxM));
+        if (this.WE) {
+            this.WE = false;
+            this.handler.postDelayed(this.fFE, this.fFA - (this.fFC - this.fFB));
         }
     }
 
     public void stop() {
-        this.VG = false;
-        this.fxM = this.startTime;
-        this.fxN = this.fxM;
-        this.handler.removeCallbacks(this.fxP);
+        this.WE = false;
+        this.fFB = this.startTime;
+        this.fFC = this.fFB;
+        this.handler.removeCallbacks(this.fFE);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finish() {
-        if (this.fxO != null) {
-            this.fxO.P(this.fxJ);
+        if (this.fFD != null) {
+            this.fFD.N(this.fFy);
         }
     }
 
     public void a(a aVar) {
-        this.fxO = aVar;
+        this.fFD = aVar;
     }
 
-    public long bCT() {
-        return this.fxK;
+    public long bGu() {
+        return this.fFz;
     }
 }

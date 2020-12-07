@@ -17,7 +17,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMDelMsg extends Message {
     public static final String TAG = IMDelMsg.class.getSimpleName();
     private int mCategory;
@@ -149,22 +149,23 @@ public class IMDelMsg extends Message {
                 if (i == 0) {
                     DBManager.getInstance(context).deleteCmdMsg(getUUID());
                     setNeedReSend(false);
-                    return;
-                }
-                if (i == 1004 || i == 1001 || i == 4001) {
-                    setNeedReSend(false);
-                    LoginManager.getInstance(this.mContext).triggleLogoutListener(i, str);
-                } else if (this.mReSendCount >= 3) {
-                    setNeedReSend(false);
-                    DBManager.getInstance(context).deleteCmdMsg(getUUID());
                 } else {
-                    this.mReSendCount++;
-                    setNeedReSend(true);
+                    if (i == 1004 || i == 1001) {
+                        setNeedReSend(false);
+                        LoginManager.getInstance(this.mContext).triggleLogoutListener(i, str);
+                    } else if (this.mReSendCount >= 3) {
+                        setNeedReSend(false);
+                        DBManager.getInstance(context).deleteCmdMsg(getUUID());
+                    } else {
+                        this.mReSendCount++;
+                        setNeedReSend(true);
+                    }
+                    DBManager.getInstance(context).updateCmdMsgSendStatus(getUUID(), 1);
                 }
-                DBManager.getInstance(context).updateCmdMsgSendStatus(getUUID(), 1);
             } else if (i == 0) {
                 updateDB(context);
             }
+            super.handleMessageResult(context, jSONObject, i, str);
         } catch (Exception e) {
             LogUtils.e(TAG, "handle IMDelMsg exception :", e);
         }

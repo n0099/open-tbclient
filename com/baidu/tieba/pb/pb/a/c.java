@@ -1,73 +1,70 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.af;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.R;
-import com.baidu.tieba.pb.pb.main.o;
-import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes21.dex */
-public class c extends o<PostData, a> {
-    private View.OnClickListener bxU;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.v;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.data.k;
+import com.baidu.tieba.card.data.l;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes22.dex */
+public class c {
+    private List<com.baidu.adp.widget.ListView.a> jII = new ArrayList();
+    private BdTypeRecyclerView jIJ;
+    private d lCM;
+    private e lCN;
+    private f lCO;
+    private g lCP;
+    private h lCQ;
+    private i lCR;
+    private List<q> mDataList;
+    private TbPageContext<?> mPageContext;
 
-    public c(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
-        super(bVar, bdUniqueId);
+    public c(TbPageContext<?> tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+        this.jIJ = bdTypeRecyclerView;
+        this.mPageContext = tbPageContext;
+        Nt();
+        a(bdTypeRecyclerView);
+        bdTypeRecyclerView.addAdapters(this.jII);
     }
 
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.bxU = onClickListener;
+    private void Nt() {
+        this.lCO = new f(this.mPageContext, k.ino);
+        this.lCN = new e(this.mPageContext, k.inp);
+        this.lCM = new d(this.mPageContext, k.inq);
+        this.lCP = new g(this.mPageContext, k.eIX);
+        this.lCQ = new h(this.mPageContext, k.f4int);
+        this.lCR = new i(this.mPageContext, l.eJq);
+        this.jII.add(this.lCO);
+        this.jII.add(this.lCN);
+        this.jII.add(this.lCM);
+        this.jII.add(this.lCP);
+        this.jII.add(this.lCQ);
+        this.jII.add(this.lCR);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cb */
-    public a c(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_load_more_item, viewGroup, false);
-        inflate.findViewById(R.id.tv_pb_reply_more).setOnClickListener(this.bxU);
-        a aVar = new a(inflate);
-        aVar.bwU();
-        return aVar;
+    private void a(v vVar) {
+        this.lCO.a(vVar);
+        this.lCN.a(vVar);
+        this.lCM.a(vVar);
+        this.lCP.a(vVar);
+        this.lCQ.a(vVar);
+        this.lCR.a(vVar);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.o, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, PostData postData, a aVar) {
-        aVar.setData(postData);
-        return aVar.getView();
+    public void cv(List<q> list) {
+        this.mDataList = list;
+        this.jIJ.setData(list);
     }
 
-    /* loaded from: classes21.dex */
-    public static class a extends af.a {
-        private TextView lpp;
+    public void onChangeSkinType() {
+        notifyDataSetChanged();
+    }
 
-        public a(View view) {
-            super(view);
-            this.lpp = (TextView) view.findViewById(R.id.tv_pb_reply_more);
-        }
-
-        public void setData(PostData postData) {
-            if (postData != null) {
-                if (postData.mYj) {
-                    Drawable drawable = ap.getDrawable(R.drawable.icon_emotion_smallarrow_n);
-                    drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    this.lpp.setCompoundDrawables(null, null, drawable, null);
-                    return;
-                }
-                Drawable drawable2 = ap.getDrawable(R.drawable.icon_emotion_smallarrow_down);
-                drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                this.lpp.setCompoundDrawables(null, null, drawable2, null);
-            }
-        }
-
-        public void bwU() {
-            ap.setViewTextColor(this.lpp, R.color.CAM_X0109);
+    public void notifyDataSetChanged() {
+        if (this.jIJ != null) {
+            this.jIJ.getListAdapter().notifyDataSetChanged();
         }
     }
 }

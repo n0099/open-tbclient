@@ -10,26 +10,26 @@ import com.baidu.tieba.frs.smartsort.FrsSmartLoadMoreModel;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c {
-    private final q iId;
-    private final FrsModelController iIw;
-    private final FrsFragment jdH;
-    private final FrsLoadMoreModel jdI;
-    private final FrsSmartLoadMoreModel jdJ;
-    private final a jdK = new a() { // from class: com.baidu.tieba.frs.mc.c.1
+    private final q iSV;
+    private final FrsModelController iTn;
+    private final FrsFragment jrk;
+    private final FrsLoadMoreModel jrl;
+    private final FrsSmartLoadMoreModel jrm;
+    private final a jrn = new a() { // from class: com.baidu.tieba.frs.mc.c.1
         @Override // com.baidu.tieba.frs.mc.c.a
         public void removeItem(int i) {
-            if (c.this.iId != null && c.this.iId.getListView() != null) {
-                List<com.baidu.adp.widget.ListView.q> data = c.this.iId.getListView().getData();
-                if (!y.isEmpty(data) && c.this.iId.getListView().getAdapter() != null && ((com.baidu.adp.widget.ListView.q) y.remove(data, i)) != null) {
-                    c.this.iId.getListView().getAdapter().notifyItemRemoved(i);
+            if (c.this.iSV != null && c.this.iSV.getListView() != null) {
+                List<com.baidu.adp.widget.ListView.q> data = c.this.iSV.getListView().getData();
+                if (!y.isEmpty(data) && c.this.iSV.getListView().getAdapter() != null && ((com.baidu.adp.widget.ListView.q) y.remove(data, i)) != null) {
+                    c.this.iSV.getListView().getAdapter().notifyItemRemoved(i);
                 }
             }
         }
     };
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public interface a {
         void removeItem(int i);
     }
@@ -38,15 +38,15 @@ public class c {
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is NullPointerException");
         }
-        this.jdH = frsFragment;
-        this.jdI = new FrsLoadMoreModel(frsFragment, kVar);
-        this.jdJ = new FrsSmartLoadMoreModel(frsFragment, kVar);
-        this.jdJ.a(this.jdK);
-        this.jdI.a(this.jdK);
-        this.iId = frsFragment.cxO();
-        this.iIw = frsFragment.cxJ();
-        this.jdJ.setSortType(this.iIw.getSortType());
-        this.jdI.setSortType(this.iIw.getSortType());
+        this.jrk = frsFragment;
+        this.jrl = new FrsLoadMoreModel(frsFragment, kVar);
+        this.jrm = new FrsSmartLoadMoreModel(frsFragment, kVar);
+        this.jrm.a(this.jrn);
+        this.jrl.a(this.jrn);
+        this.iSV = frsFragment.cCe();
+        this.iTn = frsFragment.cBZ();
+        this.jrm.setSortType(this.iTn.getSortType());
+        this.jrl.setSortType(this.iTn.getSortType());
     }
 
     public ArrayList<com.baidu.adp.widget.ListView.q> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.q> arrayList, com.baidu.tieba.tbadkCore.data.f fVar, boolean z3) {
@@ -54,121 +54,120 @@ public class c {
     }
 
     public ArrayList<com.baidu.adp.widget.ListView.q> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.q> arrayList, com.baidu.tieba.tbadkCore.data.f fVar, boolean z3, boolean z4) {
-        if (this.iIw != null) {
-            boolean cDZ = this.jdH.cxJ().cDZ();
-            if (this.iIw.cEa()) {
-                return this.jdJ.a(z, cDZ, arrayList, z3, z4);
+        if (this.iTn != null) {
+            boolean cJm = this.jrk.cBZ().cJm();
+            if (this.iTn.cJn()) {
+                return this.jrm.a(z, cJm, arrayList, z3, z4);
             }
-            return this.jdI.a(z, cDZ, z2, arrayList, fVar);
+            return this.jrl.a(z, cJm, z2, arrayList, fVar);
         }
         return arrayList;
     }
 
     public void resetData() {
-        if (this.iIw != null) {
-            if (this.iIw.cEa()) {
-                this.jdJ.resetData();
+        if (this.iTn != null) {
+            if (this.iTn.cJn()) {
+                this.jrm.resetData();
             } else {
-                this.jdI.resetData();
+                this.jrl.resetData();
             }
         }
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public boolean m41do(List<Long> list) {
-        if (this.iIw == null || this.iIw.cEa()) {
+    public boolean dx(List<Long> list) {
+        if (this.iTn == null || this.iTn.cJn()) {
             return false;
         }
-        return this.jdI.m40do(list);
+        return this.jrl.dx(list);
     }
 
     public void a(String str, String str2, FrsViewData frsViewData) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921462, 0));
-        if (this.iIw != null && this.iId != null && frsViewData != null) {
-            this.jdH.iIj = System.currentTimeMillis();
-            if (this.iIw.cEa()) {
-                if (this.jdJ.cxP() == 1 && !this.iIw.isLoading()) {
-                    this.jdJ.setSortType(this.iIw.getSortType());
-                    this.jdJ.cDF();
-                    int pn = this.jdJ.getPn();
-                    this.jdJ.setPn(pn);
-                    this.iIw.At(pn + 1);
+        if (this.iTn != null && this.iSV != null && frsViewData != null) {
+            this.jrk.iTb = System.currentTimeMillis();
+            if (this.iTn.cJn()) {
+                if (this.jrm.cCf() == 1 && !this.iTn.isLoading()) {
+                    this.jrm.setSortType(this.iTn.getSortType());
+                    this.jrm.cIS();
+                    int pn = this.jrm.getPn();
+                    this.jrm.setPn(pn);
+                    this.iTn.Bh(pn + 1);
                 }
-            } else if (this.iIw.cDQ() == 1) {
-                if (!this.jdI.isLoading && !this.iIw.isLoading()) {
-                    int pn2 = this.jdI.getPn();
-                    if (this.jdI.m40do(frsViewData.getThreadListIds())) {
-                        this.jdI.cDF();
-                        this.jdI.setSortType(this.iIw.getSortType());
-                        this.jdI.a(com.baidu.adp.lib.f.b.toLong(str2, 0L), frsViewData.getThreadListIds(), str, pn2, frsViewData.isBrandForum);
-                    } else if (this.jdI.cxP() == 1) {
-                        this.jdI.cDF();
-                        this.jdI.setPn(pn2);
-                        this.iIw.At(pn2 + 1);
-                        this.jdI.loadingDone = false;
-                        this.jdI.loadIndex = 0;
+            } else if (this.iTn.cJd() == 1) {
+                if (!this.jrl.isLoading && !this.iTn.isLoading()) {
+                    int pn2 = this.jrl.getPn();
+                    if (this.jrl.dx(frsViewData.getThreadListIds())) {
+                        this.jrl.cIS();
+                        this.jrl.setSortType(this.iTn.getSortType());
+                        this.jrl.a(com.baidu.adp.lib.f.b.toLong(str2, 0L), frsViewData.getThreadListIds(), str, pn2, frsViewData.isBrandForum);
+                    } else if (this.jrl.cCf() == 1) {
+                        this.jrl.cIS();
+                        this.jrl.setPn(pn2);
+                        this.iTn.Bh(pn2 + 1);
+                        this.jrl.loadingDone = false;
+                        this.jrl.loadIndex = 0;
                     }
                 }
-            } else if (!this.iIw.cDS()) {
-                this.iIw.coD();
+            } else if (!this.iTn.cJf()) {
+                this.iTn.csQ();
             }
         }
     }
 
-    public int cxP() {
-        if (this.iIw == null) {
+    public int cCf() {
+        if (this.iTn == null) {
             return -1;
         }
-        if (this.iIw.cEa()) {
-            return this.jdJ.cxP();
+        if (this.iTn.cJn()) {
+            return this.jrm.cCf();
         }
-        return this.jdI.cxP();
+        return this.jrl.cCf();
     }
 
     public void setHasMore(int i) {
-        if (this.iIw != null) {
-            if (this.iIw.cEa()) {
-                this.jdJ.setHasMore(i);
+        if (this.iTn != null) {
+            if (this.iTn.cJn()) {
+                this.jrm.setHasMore(i);
             } else {
-                this.jdI.setHasMore(i);
+                this.jrl.setHasMore(i);
             }
         }
     }
 
     public int getPn() {
-        if (this.iIw == null) {
+        if (this.iTn == null) {
             return 1;
         }
-        if (this.iIw.cEa()) {
-            return this.jdJ.getPn();
+        if (this.iTn.cJn()) {
+            return this.jrm.getPn();
         }
-        return this.jdI.getPn();
+        return this.jrl.getPn();
     }
 
     public void setPn(int i) {
-        if (this.iIw != null) {
-            if (this.iIw.cEa()) {
-                this.jdJ.setPn(i);
+        if (this.iTn != null) {
+            if (this.iTn.cJn()) {
+                this.jrm.setPn(i);
             } else {
-                this.jdI.setPn(i);
+                this.jrl.setPn(i);
             }
         }
     }
 
     public ArrayList<com.baidu.adp.widget.ListView.q> getDataList() {
-        return this.iIw.cEa() ? this.jdJ.getDataList() : this.iIw.cDU();
+        return this.iTn.cJn() ? this.jrm.getDataList() : this.iTn.cJh();
     }
 
-    public FrsSmartLoadMoreModel cDI() {
-        return this.jdJ;
+    public FrsSmartLoadMoreModel cIV() {
+        return this.jrm;
     }
 
     public void d(com.baidu.adp.widget.ListView.q qVar) {
         if (qVar != null) {
-            if (this.iIw.cEa()) {
-                this.jdJ.d(qVar);
+            if (this.iTn.cJn()) {
+                this.jrm.d(qVar);
             } else {
-                this.jdI.d(qVar);
+                this.jrl.d(qVar);
             }
         }
     }

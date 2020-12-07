@@ -2,7 +2,7 @@ package com.baidu.searchbox.ui.animview.praise.ioc;
 
 import android.content.Context;
 import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public final class PraiseInteractGuideRuntime {
     public static IPraiseInteractGuideContext getContext() {
         return new IPraiseInteractGuideContext() { // from class: com.baidu.searchbox.ui.animview.praise.ioc.PraiseInteractGuideRuntime.1

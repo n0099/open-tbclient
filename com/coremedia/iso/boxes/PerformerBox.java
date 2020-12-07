@@ -9,14 +9,14 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public class PerformerBox extends AbstractFullBox {
     public static final String TYPE = "perf";
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_4 = null;
     private String language;
     private String performer;
 

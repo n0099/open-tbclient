@@ -2,14 +2,14 @@ package com.baidu.platform.comapi.walknavi.d.a;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f2985a;
+    private final Context f2987a;
 
     public f(Context context) {
-        this.f2985a = context;
+        this.f2987a = context;
     }
 
     public void a(String str, String str2) {
@@ -25,6 +25,6 @@ public class f {
     }
 
     private SharedPreferences a() {
-        return this.f2985a.getSharedPreferences("ar_resource_info", 0);
+        return this.f2987a.getSharedPreferences("ar_resource_info", 0);
     }
 }

@@ -1,10 +1,10 @@
 package com.baidu.searchbox.http;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class HttpConfig {
     public static final boolean DEBUG = false;
     public static final boolean HTTP_DNS_BACKUPIPENABLE_DEFAULT = true;
     public static final String HTTP_DNS_BACKUPIPENABLE_SWITCH = "httpdns_backupip_enable";
-    public static final boolean HTTP_DNS_IDC_DEFAULT = false;
+    public static final boolean HTTP_DNS_IDC_DEFAULT = true;
     public static final boolean HTTP_DNS_IDC_IPV6_TEST_DEFAULT = false;
     public static final String HTTP_DNS_IDC_IPV6_TEST_SWITCH = "httpdns_enable_idc_ipv6";
     public static final String HTTP_DNS_IDC_SWITCH = "HTTP_DNS_IDC_ENABLE";
@@ -12,11 +12,11 @@ public class HttpConfig {
     public static final boolean HTTP_DNS_LOG_SWITCH_DEFAULT = false;
     public static final String HTTP_DNS_SWITCH = "HTTP_DNS_NEW_ENABLE";
     public static final boolean HTTP_DNS_SWITCH_DEFAULT = true;
-    public static final boolean HTTP_DNS_USEEXPIRE_DEFAULT = false;
+    public static final boolean HTTP_DNS_USEEXPIRE_DEFAULT = true;
     public static final String HTTP_DNS_USEEXPIRE_SWITCH = "httpdns_use_expire";
     public static final String HTTP_EXCEPTION_MONITOR_LOG = "http_exception_monitor_log";
     public static final boolean HTTP_EXCEPTION_MONITOR_LOG_DEFAULT = false;
-    public static final int HTTP_IPV6_HAPPY_EYEBALL_TEST_DEFAULT = 0;
+    public static final int HTTP_IPV6_HAPPY_EYEBALL_TEST_DEFAULT = 300;
     public static final String HTTP_IPV6_HAPPY_EYEBALL_TEST_SWITCH = "okhttp_use_happyeyeball";
     public static final String TAG = "baidu_network";
     public static final int TIME_THRESHOLD_TO_STORE_LOG_DEFAULT = 1500;

@@ -21,7 +21,7 @@ public class BDStatCore {
     public static final int INVOKE_FRAG = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    private static BDStatCore f2462a;
+    private static BDStatCore f2464a;
     private Handler b;
     private SessionAnalysis d;
     private EventAnalysis e;
@@ -32,14 +32,14 @@ public class BDStatCore {
     private volatile boolean h = false;
 
     public static BDStatCore instance() {
-        if (f2462a == null) {
+        if (f2464a == null) {
             synchronized (BDStatCore.class) {
-                if (f2462a == null) {
-                    f2462a = new BDStatCore();
+                if (f2464a == null) {
+                    f2464a = new BDStatCore();
                 }
             }
         }
-        return f2462a;
+        return f2464a;
     }
 
     private BDStatCore() {

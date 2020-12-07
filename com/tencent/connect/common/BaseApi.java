@@ -27,11 +27,11 @@ import java.net.SocketTimeoutException;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class BaseApi {
 
     /* renamed from: a  reason: collision with root package name */
-    protected c f4550a;
+    protected c f4320a;
     protected QQToken b;
     public static String registerChannel = null;
     public static String installChannel = null;
@@ -39,7 +39,7 @@ public abstract class BaseApi {
     public static boolean isOEM = false;
 
     public BaseApi(c cVar, QQToken qQToken) {
-        this.f4550a = cVar;
+        this.f4320a = cVar;
         this.b = qQToken;
     }
 
@@ -185,7 +185,7 @@ public abstract class BaseApi {
     public void releaseResource() {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class TempRequestListener implements IRequestListener {
         private final IUiListener b;
         private final Handler c;

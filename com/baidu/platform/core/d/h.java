@@ -24,7 +24,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class h extends com.baidu.platform.base.d {
     private TransitResultNode a(int i, JSONObject jSONObject) {
         LatLng latLng = null;

@@ -14,88 +14,88 @@ import com.baidu.swan.apps.statistic.h;
 import com.baidu.swan.apps.u.c.b;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class d {
     public static void e(b.a aVar) {
-        Bundle aya;
-        if (aVar != null && aWv() && (aya = aVar.aya()) != null && aya.getLong("page_display_flag_for_statistic") > 0) {
+        Bundle aBj;
+        if (aVar != null && aZA() && (aBj = aVar.aBj()) != null && aBj.getLong("page_display_flag_for_statistic") > 0) {
             long j = aVar.getLong("launch_time", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             f fVar = new f();
-            fVar.mFrom = h.ku(aVar.getAppFrameType());
+            fVar.mFrom = h.kS(aVar.getAppFrameType());
             fVar.mAppId = aVar.getAppId();
-            fVar.mSource = aVar.axV();
+            fVar.mSource = aVar.aBe();
             fVar.mType = Config.LAUNCH;
             fVar.mValue = "realsuccess";
-            fVar.dyJ = String.valueOf(currentTimeMillis - j);
-            fVar.th(aya.getString("ubc"));
+            fVar.dFI = String.valueOf(currentTimeMillis - j);
+            fVar.tO(aBj.getString("ubc"));
             h.onEvent(fVar);
-            aya.remove("page_display_flag_for_statistic");
+            aBj.remove("page_display_flag_for_statistic");
         }
     }
 
     public static void b(String str, b.a aVar) {
-        Bundle aya;
-        if (aVar != null && !aWv() && (aya = aVar.aya()) != null && aya.getLong("page_display_flag_for_statistic") > 0) {
+        Bundle aBj;
+        if (aVar != null && !aZA() && (aBj = aVar.aBj()) != null && aBj.getLong("page_display_flag_for_statistic") > 0) {
             long j = aVar.getLong("launch_time", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             f fVar = new f();
-            fVar.mFrom = h.ku(aVar.getAppFrameType());
+            fVar.mFrom = h.kS(aVar.getAppFrameType());
             fVar.mAppId = aVar.getAppId();
-            fVar.mSource = aVar.axV();
+            fVar.mSource = aVar.aBe();
             fVar.mType = Config.LAUNCH;
             fVar.mValue = "realcancel";
-            fVar.dyI = String.valueOf(currentTimeMillis - j);
-            fVar.u(TiebaInitialize.LogFields.REASON, str);
-            fVar.u("errorList", b.aWt().aWu());
-            fVar.th(aya.getString("ubc"));
+            fVar.dFH = String.valueOf(currentTimeMillis - j);
+            fVar.t(TiebaInitialize.LogFields.REASON, str);
+            fVar.t("errorList", b.aZy().aZz());
+            fVar.tO(aBj.getString("ubc"));
             h.onEvent(fVar);
-            aya.remove("page_display_flag_for_statistic");
+            aBj.remove("page_display_flag_for_statistic");
         }
     }
 
-    public static void xx(String str) {
-        if (com.baidu.swan.apps.runtime.d.aGI().aeW() == 1 && !aWv()) {
-            i.qD("startup").f(new UbcFlowEvent(str));
+    public static void ye(String str) {
+        if (com.baidu.swan.apps.runtime.d.aJQ().aie() == 1 && !aZA()) {
+            i.rk("startup").f(new UbcFlowEvent(str));
         }
     }
 
-    public static void I(JSONArray jSONArray) {
+    public static void J(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() != 0) {
-            HybridUbcFlow qD = i.qD("startup");
+            HybridUbcFlow rk = i.rk("startup");
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     String optString = optJSONObject.optString("id");
                     long optLong = optJSONObject.optLong("timestamp");
                     if (!TextUtils.isEmpty(optString) && optJSONObject.has("timestamp")) {
-                        qD.f(new UbcFlowEvent(optString).a(UbcFlowEvent.RecordType.UPDATE_RECENT).bY(optLong));
+                        rk.f(new UbcFlowEvent(optString).a(UbcFlowEvent.RecordType.UPDATE_RECENT).cx(optLong));
                     }
                 }
             }
         }
     }
 
-    public static boolean aWv() {
-        SwanAppActivity aGG;
-        e aGM = e.aGM();
-        if (aGM != null && (aGG = aGM.aGG()) != null) {
-            com.baidu.swan.apps.framework.c aeX = aGG.aeX();
-            if (aeX instanceof com.baidu.swan.games.j.b) {
-                return ((com.baidu.swan.games.j.b) aeX).aUW();
+    public static boolean aZA() {
+        SwanAppActivity aJO;
+        e aJU = e.aJU();
+        if (aJU != null && (aJO = aJU.aJO()) != null) {
+            com.baidu.swan.apps.framework.c aif = aJO.aif();
+            if (aif instanceof com.baidu.swan.games.j.b) {
+                return ((com.baidu.swan.games.j.b) aif).aYb();
             }
             return false;
         }
         return false;
     }
 
-    public static long aWw() {
-        SwanAppActivity aGG;
-        e aGM = e.aGM();
-        if (aGM != null && (aGG = aGM.aGG()) != null) {
-            com.baidu.swan.apps.framework.c aeX = aGG.aeX();
-            if (aeX instanceof com.baidu.swan.games.j.b) {
-                return ((com.baidu.swan.games.j.b) aeX).aUX();
+    public static long aZB() {
+        SwanAppActivity aJO;
+        e aJU = e.aJU();
+        if (aJU != null && (aJO = aJU.aJO()) != null) {
+            com.baidu.swan.apps.framework.c aif = aJO.aif();
+            if (aif instanceof com.baidu.swan.games.j.b) {
+                return ((com.baidu.swan.games.j.b) aif).aYc();
             }
             return 0L;
         }

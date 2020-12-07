@@ -2,9 +2,9 @@ package com.baidu.tieba.barselect.a;
 
 import android.graphics.BitmapFactory;
 import android.util.Log;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class c {
-    public static int xx(int i) {
+    public static int yd(int i) {
         if (i == 6) {
             return 90;
         }
@@ -17,7 +17,7 @@ public class c {
         return 0;
     }
 
-    public static int ad(byte[] bArr) {
+    public static int af(byte[] bArr) {
         int i;
         int i2;
         if (bArr == null) {

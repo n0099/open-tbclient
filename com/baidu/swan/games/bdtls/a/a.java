@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a {
     public static byte[] a(j jVar, g gVar) {
         byte[] encrypt;
@@ -27,27 +27,27 @@ public class a {
         int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
         byte[] bArr = new byte[32];
         new Random().nextBytes(bArr);
-        Bdtls.Random build = Bdtls.Random.newBuilder().lU(currentTimeMillis).h(ByteString.copyFrom(bArr)).build();
-        int aOd = DH.aOd();
-        int aOc = DH.aOc();
-        int au = DH.au(aOd, aOc);
-        jVar.g(Integer.valueOf(aOd));
-        jVar.h(Integer.valueOf(aOc));
-        jVar.i(Integer.valueOf(au));
-        byte[] lR = d.lR(au);
-        if (lR == null || (encrypt = RSA.encrypt(lR)) == null) {
+        Bdtls.Random build = Bdtls.Random.newBuilder().ms(currentTimeMillis).i(ByteString.copyFrom(bArr)).build();
+        int aRi = DH.aRi();
+        int aRh = DH.aRh();
+        int aw = DH.aw(aRi, aRh);
+        jVar.g(Integer.valueOf(aRi));
+        jVar.h(Integer.valueOf(aRh));
+        jVar.i(Integer.valueOf(aw));
+        byte[] mp = d.mp(aw);
+        if (mp == null || (encrypt = RSA.encrypt(mp)) == null) {
             return null;
         }
-        byte[] bytes = e.toHexString(Certificate.dv(com.baidu.swan.apps.t.a.avS()), "", false).getBytes(StandardCharsets.UTF_8);
+        byte[] bytes = e.toHexString(Certificate.eb(com.baidu.swan.apps.t.a.aza()), "", false).getBytes(StandardCharsets.UTF_8);
         LinkedList linkedList = new LinkedList();
-        linkedList.offer(Bdtls.Extension.newBuilder().lT(0).g(ByteString.copyFrom(encrypt)).build());
-        linkedList.offer(Bdtls.Extension.newBuilder().lT(1).g(ByteString.copyFrom(new byte[]{0})).build());
-        linkedList.offer(Bdtls.Extension.newBuilder().lT(2).g(ByteString.copyFrom(d.lR(aOd))).build());
-        linkedList.offer(Bdtls.Extension.newBuilder().lT(3).g(ByteString.copyFrom(bytes)).build());
+        linkedList.offer(Bdtls.Extension.newBuilder().mr(0).h(ByteString.copyFrom(encrypt)).build());
+        linkedList.offer(Bdtls.Extension.newBuilder().mr(1).h(ByteString.copyFrom(new byte[]{0})).build());
+        linkedList.offer(Bdtls.Extension.newBuilder().mr(2).h(ByteString.copyFrom(d.mp(aRi))).build());
+        linkedList.offer(Bdtls.Extension.newBuilder().mr(3).h(ByteString.copyFrom(bytes)).build());
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
-            Log.d("BDTLS", "groupId encode=" + aOd);
-            Log.d("BDTLS", "secretC encode=" + aOc);
-            Log.d("BDTLS", "pubKey encode=" + au);
+            Log.d("BDTLS", "groupId encode=" + aRi);
+            Log.d("BDTLS", "secretC encode=" + aRh);
+            Log.d("BDTLS", "pubKey encode=" + aw);
             Log.d("BDTLS", "signature encode=" + new String(bytes));
         }
         Bdtls.ClientHello.a newBuilder = Bdtls.ClientHello.newBuilder();
@@ -55,7 +55,7 @@ public class a {
         while (it.hasNext()) {
             newBuilder.a((Bdtls.Extension) it.next());
         }
-        byte[] byteArray = newBuilder.a(build).e(ByteString.copyFrom(com.baidu.swan.games.bdtls.b.dPW)).build().toByteArray();
+        byte[] byteArray = newBuilder.a(build).f(ByteString.copyFrom(com.baidu.swan.games.bdtls.b.dWU)).build().toByteArray();
         ByteBuffer allocate = ByteBuffer.allocate(byteArray.length + 1);
         allocate.put((byte) 1);
         allocate.put(byteArray);
@@ -90,16 +90,16 @@ public class a {
                     byte[] byteArray = extension.getData().toByteArray();
                     switch (type) {
                         case 0:
-                            int P = d.P(RSA.decrypt(byteArray));
-                            jVar.U(DH.v(P, jVar.aTx().intValue(), jVar.aTy().intValue()));
-                            jVar.j(Integer.valueOf(P));
+                            int R = d.R(RSA.decrypt(byteArray));
+                            jVar.W(DH.v(R, jVar.aWC().intValue(), jVar.aWD().intValue()));
+                            jVar.j(Integer.valueOf(R));
                             if (com.baidu.swan.games.bdtls.a.DEBUG) {
-                                Log.d("BDTLS", "GroupId=" + jVar.aTx());
-                                Log.d("BDTLS", "client dh pubkey secret=" + jVar.aTy());
-                                Log.d("BDTLS", "client dh pubkey=" + jVar.aTz());
-                                Log.d("BDTLS", "server dh pubkey=" + P);
-                                Log.d("BDTLS", "server dh raw pubkey=" + d.Q(decrypt));
-                                Log.d("BDTLS", "aeskey=" + d.Q(v));
+                                Log.d("BDTLS", "GroupId=" + jVar.aWC());
+                                Log.d("BDTLS", "client dh pubkey secret=" + jVar.aWD());
+                                Log.d("BDTLS", "client dh pubkey=" + jVar.aWE());
+                                Log.d("BDTLS", "server dh pubkey=" + R);
+                                Log.d("BDTLS", "server dh raw pubkey=" + d.S(decrypt));
+                                Log.d("BDTLS", "aeskey=" + d.S(v));
                                 break;
                             } else {
                                 break;
@@ -109,8 +109,8 @@ public class a {
                 if (parseFrom.getSKR() == null) {
                     return null;
                 }
-                jVar.V(Bdtls.ApplicationData.newBuilder().d(parseFrom.getSKR()).build().toByteArray());
-                if (jVar.aTB() == null) {
+                jVar.X(Bdtls.ApplicationData.newBuilder().e(parseFrom.getSKR()).build().toByteArray());
+                if (jVar.aWG() == null) {
                     return null;
                 }
                 long currentTimeMillis = (System.currentTimeMillis() / 1000) + parseFrom.getLifeTime();
@@ -118,9 +118,9 @@ public class a {
                     Log.d("BDTLS", "liftTime=" + parseFrom.getLifeTime());
                     Log.d("BDTLS", "expireTime=" + currentTimeMillis);
                 }
-                jVar.E(currentTimeMillis);
+                jVar.C(currentTimeMillis);
                 if (parseFrom.getCipherSuite() != null) {
-                    jVar.W(parseFrom.getCipherSuite().toByteArray());
+                    jVar.Y(parseFrom.getCipherSuite().toByteArray());
                 }
                 return gVar2;
             } catch (Exception e) {

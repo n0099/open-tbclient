@@ -4,13 +4,15 @@ import android.view.ViewGroup;
 import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
 public interface a {
+    void a(ViewGroup viewGroup, w wVar);
+
     void a(w wVar);
 
-    void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
+    void bd(boolean z);
 
-    void onDestory();
+    void be(boolean z);
 
-    void refreshUI();
+    void bf(boolean z);
 
     void setCanVisible(boolean z);
 }

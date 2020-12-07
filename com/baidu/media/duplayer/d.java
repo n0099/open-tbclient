@@ -3,10 +3,10 @@ package com.baidu.media.duplayer;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2260a;
+    private int f2262a;
     private String b;
-    private a bXe;
     private String c;
+    private a ccv;
     private String d;
 
     /* loaded from: classes18.dex */
@@ -16,19 +16,15 @@ public class d {
     }
 
     public d(int i, String str, String str2) {
-        this.f2260a = i;
+        this.f2262a = i;
         this.b = str;
         this.c = str2;
-        this.bXe = a.LIB_TYPE_SO;
+        this.ccv = a.LIB_TYPE_SO;
     }
 
     public d(int i, String str, String str2, a aVar) {
         this(i, str, str2);
-        this.bXe = aVar;
-    }
-
-    public a Zk() {
-        return this.bXe;
+        this.ccv = aVar;
     }
 
     public String a() {
@@ -37,6 +33,10 @@ public class d {
 
     public void a(String str) {
         this.d = str;
+    }
+
+    public a abN() {
+        return this.ccv;
     }
 
     public String b() {

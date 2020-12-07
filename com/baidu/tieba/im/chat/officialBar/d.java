@@ -14,13 +14,13 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private ArrayList<com.baidu.tbadk.mvc.b.a> aiP = new ArrayList<>();
-    private c jYI;
+    private ArrayList<com.baidu.tbadk.mvc.b.a> ajO = new ArrayList<>();
+    private c kmn;
     private TbPageContext<?> mPageContext;
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes26.dex */
     public interface c {
         void a(View view, Object obj, int i, long j);
     }
@@ -28,13 +28,13 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(TbPageContext<?> tbPageContext, c cVar) {
         this.mPageContext = tbPageContext;
-        this.jYI = cVar;
+        this.kmn = cVar;
     }
 
     public void setData(ArrayList<? extends com.baidu.tbadk.mvc.b.a> arrayList) {
         if (arrayList != null) {
-            this.aiP.clear();
-            this.aiP.addAll(arrayList);
+            this.ajO.clear();
+            this.ajO.addAll(arrayList);
             notifyDataSetChanged();
         }
     }
@@ -47,8 +47,8 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        if (this.aiP != null && this.aiP.size() > 0) {
-            com.baidu.tbadk.mvc.b.a aVar = this.aiP.get(i);
+        if (this.ajO != null && this.ajO.size() > 0) {
+            com.baidu.tbadk.mvc.b.a aVar = this.ajO.get(i);
             if ((viewHolder instanceof b) && (aVar instanceof a)) {
                 ((b) viewHolder).b(aVar);
             }
@@ -62,76 +62,76 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.aiP == null) {
+        if (this.ajO == null) {
             return 0;
         }
-        return this.aiP.size();
+        return this.ajO.size();
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes26.dex */
     class b extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private BarImageView jYK;
-        private View jYL;
-        private a jYM;
-        private TextView jmU;
+        private TextView jAw;
+        private BarImageView kmp;
+        private View kmq;
+        private a kmr;
 
         b(View view) {
             super(view);
-            this.jYK = (BarImageView) view.findViewById(R.id.official_bar_image);
-            this.jmU = (TextView) view.findViewById(R.id.official_bar_name);
-            this.jYL = view.findViewById(R.id.official_bar_feed_red_dot);
-            this.jYK.setShowOval(true);
-            this.jYK.setPlaceHolder(2);
-            this.jYK.setShowOuterBorder(false);
-            this.jYK.setShowInnerBorder(true);
-            this.jYK.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.kmp = (BarImageView) view.findViewById(R.id.official_bar_image);
+            this.jAw = (TextView) view.findViewById(R.id.official_bar_name);
+            this.kmq = view.findViewById(R.id.official_bar_feed_red_dot);
+            this.kmp.setShowOval(true);
+            this.kmp.setPlaceHolder(2);
+            this.kmp.setShowOuterBorder(false);
+            this.kmp.setShowInnerBorder(true);
+            this.kmp.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         }
 
         void b(com.baidu.tbadk.mvc.b.a aVar) {
-            this.jYM = (a) aVar;
-            ap.setViewTextColor(this.jmU, R.color.CAM_X0105);
-            ap.setBackgroundResource(this.jYL, R.drawable.icon_official_bar_red_dot);
-            this.jYK.setStrokeColorResId(R.color.CAM_X0401);
-            this.jYK.startLoad(this.jYM.cOJ(), 10, false);
-            if (au.getChineseAndEnglishLength(this.jYM.cIF()) <= 10) {
-                this.jmU.setText(this.jYM.cIF());
+            this.kmr = (a) aVar;
+            ap.setViewTextColor(this.jAw, R.color.CAM_X0105);
+            ap.setBackgroundResource(this.kmq, R.drawable.icon_official_bar_red_dot);
+            this.kmp.setStrokeColorResId(R.color.CAM_X0401);
+            this.kmp.startLoad(this.kmr.cTX(), 10, false);
+            if (au.getChineseAndEnglishLength(this.kmr.cNU()) <= 10) {
+                this.jAw.setText(this.kmr.cNU());
             } else {
-                this.jmU.setText(au.cutChineseAndEnglishWithSuffix(this.jYM.cIF(), 8, StringHelper.STRING_MORE));
+                this.jAw.setText(au.cutChineseAndEnglishWithSuffix(this.kmr.cNU(), 8, StringHelper.STRING_MORE));
             }
-            this.jYK.setOnClickListener(this);
-            if (this.jYM.getUnReadCount() > 0 && (this.jYM.cOK() <= 0 || System.currentTimeMillis() - this.jYM.cOK() < 864000000)) {
-                this.jYL.setVisibility(0);
+            this.kmp.setOnClickListener(this);
+            if (this.kmr.getUnReadCount() > 0 && (this.kmr.cTY() <= 0 || System.currentTimeMillis() - this.kmr.cTY() < 864000000)) {
+                this.kmq.setVisibility(0);
             } else {
-                this.jYL.setVisibility(8);
+                this.kmq.setVisibility(8);
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.jYL.setVisibility(8);
-            if (d.this.jYI != null) {
-                d.this.jYI.a(view, this.jYM, getAdapterPosition(), getItemId());
+            this.kmq.setVisibility(8);
+            if (d.this.kmn != null) {
+                d.this.kmn.a(view, this.kmr, getAdapterPosition(), getItemId());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes26.dex */
     public static class a implements com.baidu.tbadk.mvc.b.a {
-        private long cPT;
+        private long cWM;
         private long groupId;
-        private String jYJ;
-        private String jxU;
+        private String jLw;
+        private String kmo;
         private int unReadCount;
         private int userType;
 
-        String cOJ() {
-            return this.jYJ;
+        String cTX() {
+            return this.kmo;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String cIF() {
-            return this.jxU;
+        public String cNU() {
+            return this.jLw;
         }
 
         int getUnReadCount() {
@@ -139,13 +139,13 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void LF(String str) {
-            this.jYJ = str;
+        public void MM(String str) {
+            this.kmo = str;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void LG(String str) {
-            this.jxU = str;
+        public void MN(String str) {
+            this.jLw = str;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -165,12 +165,12 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             return this.groupId;
         }
 
-        public long cOK() {
-            return this.cPT;
+        public long cTY() {
+            return this.cWM;
         }
 
-        public void gh(long j) {
-            this.cPT = j;
+        public void gM(long j) {
+            this.cWM = j;
         }
     }
 }

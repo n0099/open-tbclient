@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class GroundOverlayOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2010a;
+    int f2012a;
     Bundle c;
     private BitmapDescriptor d;
     private LatLng e;
@@ -25,7 +25,7 @@ public final class GroundOverlayOptions extends OverlayOptions {
     public Overlay a() {
         GroundOverlay groundOverlay = new GroundOverlay();
         groundOverlay.B = this.b;
-        groundOverlay.A = this.f2010a;
+        groundOverlay.A = this.f2012a;
         groundOverlay.C = this.c;
         if (this.d == null) {
             throw new IllegalStateException("BDMapSDKException: when you add ground overlay, you must set the image");
@@ -36,7 +36,7 @@ public final class GroundOverlayOptions extends OverlayOptions {
                 throw new IllegalStateException("BDMapSDKException: when you add ground overlay, you must set one of position or bounds");
             }
             groundOverlay.h = this.j;
-            groundOverlay.f2009a = 1;
+            groundOverlay.f2011a = 1;
         } else if (this.f <= 0 || this.g <= 0) {
             throw new IllegalArgumentException("BDMapSDKException: when you add ground overlay, the width and height must greater than 0");
         } else {
@@ -45,7 +45,7 @@ public final class GroundOverlayOptions extends OverlayOptions {
             groundOverlay.g = this.i;
             groundOverlay.d = this.f;
             groundOverlay.e = this.g;
-            groundOverlay.f2009a = 2;
+            groundOverlay.f2011a = 2;
         }
         groundOverlay.i = this.k;
         return groundOverlay;
@@ -93,7 +93,7 @@ public final class GroundOverlayOptions extends OverlayOptions {
     }
 
     public int getHeight() {
-        return this.g == Integer.MAX_VALUE ? (int) ((this.f * this.d.f1999a.getHeight()) / this.d.f1999a.getWidth()) : this.g;
+        return this.g == Integer.MAX_VALUE ? (int) ((this.f * this.d.f2001a.getHeight()) / this.d.f2001a.getWidth()) : this.g;
     }
 
     public BitmapDescriptor getImage() {
@@ -113,7 +113,7 @@ public final class GroundOverlayOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2010a;
+        return this.f2012a;
     }
 
     public GroundOverlayOptions image(BitmapDescriptor bitmapDescriptor) {
@@ -157,7 +157,7 @@ public final class GroundOverlayOptions extends OverlayOptions {
     }
 
     public GroundOverlayOptions zIndex(int i) {
-        this.f2010a = i;
+        this.f2012a = i;
         return this;
     }
 }

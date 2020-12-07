@@ -3,17 +3,17 @@ package com.baidu.live.im.message;
 import com.baidu.live.adp.framework.message.HttpMessage;
 /* loaded from: classes4.dex */
 public class c extends HttpMessage {
-    private long bkg;
+    private long bpk;
 
     public c(int i) {
         super(i);
     }
 
-    public void az(long j) {
-        this.bkg = j;
+    public void aX(long j) {
+        this.bpk = j;
     }
 
-    public boolean aA(long j) {
-        return j - this.bkg >= 2000;
+    public boolean aY(long j) {
+        return j - this.bpk >= 2000;
     }
 }

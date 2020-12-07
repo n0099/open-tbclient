@@ -5,35 +5,35 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class a {
-    public boolean cdv;
-    public List<C0314a> cdw;
+    public boolean cjZ;
+    public List<C0325a> cka;
 
     /* renamed from: com.baidu.poly.widget.coupon.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0314a {
+    /* loaded from: classes19.dex */
+    public static class C0325a {
         public String af;
-        public String cdA;
-        public String cdx;
-        public String cdy;
-        public Long cdz;
-        public int cf;
+        public String ckb;
+        public String ckc;
+        public Long ckd;
+        public int cke;
+        public String ckf;
         public String icon;
         public int type;
 
-        public C0314a() {
+        public C0325a() {
         }
 
-        C0314a(JSONObject jSONObject) {
+        C0325a(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.cdx = jSONObject.optString("display_name");
-                this.cdy = jSONObject.optString("pay_text");
+                this.ckb = jSONObject.optString("display_name");
+                this.ckc = jSONObject.optString("pay_text");
                 this.icon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
                 this.af = jSONObject.optString("valid_info");
-                this.cdA = jSONObject.optString("host_marketing_detail");
-                this.cdz = Long.valueOf(jSONObject.optLong("available_par_money"));
-                this.cf = jSONObject.optInt("is_selected");
+                this.ckf = jSONObject.optString("host_marketing_detail");
+                this.ckd = Long.valueOf(jSONObject.optLong("available_par_money"));
+                this.cke = jSONObject.optInt("is_selected");
                 this.type = jSONObject.optInt("type");
             }
         }
@@ -41,15 +41,15 @@ public class a {
 
     public a(JSONArray jSONArray) {
         if (jSONArray != null) {
-            this.cdw = new ArrayList();
+            this.cka = new ArrayList();
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject = (JSONObject) jSONArray.opt(i);
                 if (jSONObject != null) {
-                    this.cdw.add(new C0314a(jSONObject));
+                    this.cka.add(new C0325a(jSONObject));
                 }
             }
-            this.cdv = this.cdw.size() > 1;
+            this.cjZ = this.cka.size() > 1;
         }
     }
 }

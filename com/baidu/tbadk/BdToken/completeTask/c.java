@@ -9,12 +9,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    public static void aJ(int i, int i2) {
-        new ar("c13317").ak("obj_source", i).ak("obj_type", i2).bqy();
+    public static void aL(int i, int i2) {
+        new ar("c13317").al("obj_source", i).al("obj_type", i2).btT();
     }
 
-    public static void aK(int i, int i2) {
-        new ar("c13318").ak("obj_source", i).ak("obj_type", i2).bqy();
+    public static void aM(int i, int i2) {
+        new ar("c13318").al("obj_source", i).al("obj_type", i2).btT();
     }
 
     public static JSONObject a(@Nullable JSONObject jSONObject, int i, int i2, String str) {

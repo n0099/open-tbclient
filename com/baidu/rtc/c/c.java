@@ -1,13 +1,13 @@
 package com.baidu.rtc.c;
 
 import android.util.Log;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 class c {
-    double cpV = 0.0d;
-    long cpX = 0;
-    long cpW = 0;
+    double cwR = 0.0d;
+    long cwT = 0;
+    long cwS = 0;
 
-    public static int jY(String str) {
+    public static int kF(String str) {
         int i = -1;
         if (str == null) {
             throw new IllegalArgumentException();
@@ -32,20 +32,20 @@ class c {
         return d > 1000000.0d ? String.format("%.2fMbps", Double.valueOf(1.0E-6d * d)) : d > 1000.0d ? String.format("%.0fKbps", Double.valueOf(0.001d * d)) : String.format("%.0fbps", Double.valueOf(d));
     }
 
-    public String aep() {
-        return s(this.cpV);
+    public String ahx() {
+        return s(this.cwR);
     }
 
-    public void bq(long j) {
+    public void bP(long j) {
         long currentTimeMillis = System.currentTimeMillis();
-        long j2 = currentTimeMillis - this.cpX;
+        long j2 = currentTimeMillis - this.cwT;
         if (j2 <= 0) {
             return;
         }
-        if (this.cpX != 0 && j > this.cpW) {
-            this.cpV = (((j - this.cpW) * 8) * 1000) / j2;
+        if (this.cwT != 0 && j > this.cwS) {
+            this.cwR = (((j - this.cwS) * 8) * 1000) / j2;
         }
-        this.cpW = j;
-        this.cpX = currentTimeMillis;
+        this.cwS = j;
+        this.cwT = currentTimeMillis;
     }
 }

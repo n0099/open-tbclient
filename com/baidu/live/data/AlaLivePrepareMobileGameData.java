@@ -16,7 +16,7 @@ public class AlaLivePrepareMobileGameData extends com.baidu.live.tieba.b.a.a imp
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: dN */
+        /* renamed from: eg */
         public AlaLivePrepareMobileGameData[] newArray(int i) {
             return new AlaLivePrepareMobileGameData[i];
         }

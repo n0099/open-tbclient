@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static String getStringFromInput(InputStream inputStream) {
         byte[] byteFromInputStream;
@@ -49,7 +49,7 @@ public class g {
         }
     }
 
-    public static String dA(String str) {
+    public static String getEncodeValue(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }

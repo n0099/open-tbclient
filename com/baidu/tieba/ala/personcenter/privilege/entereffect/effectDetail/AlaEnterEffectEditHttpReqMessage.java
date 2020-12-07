@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlaEnterEffectEditHttpReqMessage extends HttpMessage {
     private boolean mIsSelected;
 

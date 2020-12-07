@@ -6,7 +6,7 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class g {
-    public static List<String> S(JSONArray jSONArray) {
+    public static List<String> T(JSONArray jSONArray) {
         if (jSONArray == null) {
             return null;
         }
@@ -21,23 +21,23 @@ public class g {
         return arrayList;
     }
 
-    public static List<String> btN() {
-        String string = com.baidu.tbadk.core.sharedPref.b.bpu().getString("scheme_white_list", null);
+    public static List<String> bxn() {
+        String string = com.baidu.tbadk.core.sharedPref.b.bsO().getString("scheme_white_list", null);
         if (StringUtils.isNull(string)) {
             return null;
         }
         try {
-            return S(new JSONArray(string));
+            return T(new JSONArray(string));
         } catch (Exception e) {
             return null;
         }
     }
 
-    public static void T(JSONArray jSONArray) {
+    public static void U(JSONArray jSONArray) {
         if (jSONArray == null) {
-            com.baidu.tbadk.core.sharedPref.b.bpu().putString("scheme_white_list", "");
+            com.baidu.tbadk.core.sharedPref.b.bsO().putString("scheme_white_list", "");
         } else {
-            com.baidu.tbadk.core.sharedPref.b.bpu().putString("scheme_white_list", jSONArray.toString());
+            com.baidu.tbadk.core.sharedPref.b.bsO().putString("scheme_white_list", jSONArray.toString());
         }
     }
 }

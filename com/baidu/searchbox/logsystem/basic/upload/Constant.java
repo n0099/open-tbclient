@@ -1,0 +1,48 @@
+package com.baidu.searchbox.logsystem.basic.upload;
+/* loaded from: classes15.dex */
+public final class Constant {
+    protected static final String APERF = "aperf";
+    protected static final String APP_EXT = "appext";
+    protected static final String APP_VERSION = "appversion";
+    protected static final String CONTENT = "content";
+    protected static final String CONTENT_TYPE = "type";
+    protected static final String CPU = "cpu";
+    protected static final String CRASH_ENVIR = "crash_envir";
+    public static final String CRASH_STAGE = "crashStage";
+    protected static final String CRASH_THREAD_DES = "crashThreadDes";
+    protected static final String CRASH_THREAD_DES_NAME = "name";
+    protected static final String CRASH_THREAD_DES_PRIORITY = "priority";
+    protected static final String CRASH_TIME = "crashtime";
+    protected static final String DATA = "data";
+    protected static final String DEVICE_SCORE = "devicescore";
+    protected static final String FILE_ID = "fileid";
+    protected static final String FOREGROUND = "foreground";
+    protected static final String ID = "id";
+    protected static final String ID_TYPE = "idtype";
+    protected static final String IS_REAL = "isreal";
+    protected static final String LAUNCH_ID = "launchid";
+    public static final String LAUNCH_STAGE = "launchStage";
+    protected static final String LAUNCH_TIME = "launchTime";
+    protected static final String LOG_ID = "logid";
+    protected static final String MEMORY = "memory";
+    protected static final String NETWORK = "network";
+    protected static final String OS_VERSION = "osversion";
+    protected static final String PACKAGENAME = "packagename";
+    protected static final String PAGE = "page";
+    protected static final String PAGE_TRACE = "pageTrace";
+    protected static final String PAGE_TRACE_EVENT = "event";
+    protected static final String PAGE_TRACE_PAGE = "page";
+    protected static final String PAGE_TRACE_TAG = "tag";
+    protected static final String PAGE_TRACE_TIME = "time";
+    protected static final String PROCESS_LIFE_TIME = "processLifeTime";
+    protected static final String PROCESS_NAME = "processName";
+    protected static final String SDK_VERSION = "sdkversion";
+    protected static final String STACKTRACE = "stacktrace";
+    protected static final String STACKTRACE_BDMP = "stacktrace_crashpad_bdmp";
+    protected static final String TIMESTAMP = "timestamp";
+    protected static final String TRACE_ID = "traceid";
+    protected static final String TRACE_INFO = "traceinfo";
+    protected static final String TYPE = "type";
+    protected static final String TYPE_JAVA = "JAVA";
+    protected static final String TYPE_NATIVE = "NATIVE";
+}

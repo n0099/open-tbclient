@@ -27,5 +27,7 @@ public interface c {
 
     void reset();
 
+    void setLooping(boolean z);
+
     void stop();
 }

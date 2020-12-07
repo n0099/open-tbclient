@@ -5,25 +5,25 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.f;
-import com.baidu.tieba.frs.av;
+import com.baidu.tieba.frs.au;
 import com.baidu.tieba.frs.ba;
 import com.baidu.tieba.frs.bd;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements f.c {
-    private ba iEc;
-    private com.baidu.tieba.forumMember.member.a.b iEe;
-    private e iEf;
+    private ba iOU;
+    private com.baidu.tieba.forumMember.member.a.b iOW;
+    private e iOX;
     private String mForumId;
     private String mForumName;
-    private List<com.baidu.adp.widget.ListView.q> iEd = null;
-    private av iEg = new av() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
-        @Override // com.baidu.tieba.frs.av
+    private List<com.baidu.adp.widget.ListView.q> iOV = null;
+    private au iOY = new au() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
+        @Override // com.baidu.tieba.frs.au
         public void a(int i, int i2, bd bdVar, ArrayList<com.baidu.adp.widget.ListView.q> arrayList) {
-            ForumMemberActivity.this.iEe.hideLoadingView();
-            ForumMemberActivity.this.iEe.completePullRefresh();
+            ForumMemberActivity.this.iOW.hideLoadingView();
+            ForumMemberActivity.this.iOW.completePullRefresh();
             if (arrayList != null) {
                 Iterator<com.baidu.adp.widget.ListView.q> it = arrayList.iterator();
                 while (it.hasNext()) {
@@ -33,23 +33,23 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 }
             }
             if (!y.isEmpty(arrayList)) {
-                ForumMemberActivity.this.iEe.VB();
-                ForumMemberActivity.this.iEd = arrayList;
-                ForumMemberActivity.this.iEe.cZ(ForumMemberActivity.this.iEd);
-            } else if (y.isEmpty(ForumMemberActivity.this.iEd) && bdVar != null) {
-                ForumMemberActivity.this.iEe.JM(bdVar.errMsg);
+                ForumMemberActivity.this.iOW.Yb();
+                ForumMemberActivity.this.iOV = arrayList;
+                ForumMemberActivity.this.iOW.dd(ForumMemberActivity.this.iOV);
+            } else if (y.isEmpty(ForumMemberActivity.this.iOV) && bdVar != null) {
+                ForumMemberActivity.this.iOW.KC(bdVar.errMsg);
             }
         }
     };
-    private NoNetworkView.a ghn = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
+    private NoNetworkView.a gpx = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
-            ForumMemberActivity.this.iEe.po(z);
+            ForumMemberActivity.this.iOW.pL(z);
             if (z) {
-                if (y.isEmpty(ForumMemberActivity.this.iEd)) {
-                    ForumMemberActivity.this.cwh();
+                if (y.isEmpty(ForumMemberActivity.this.iOV)) {
+                    ForumMemberActivity.this.cAw();
                 } else {
-                    ForumMemberActivity.this.iEe.startPullRefresh();
+                    ForumMemberActivity.this.iOW.startPullRefresh();
                 }
             }
         }
@@ -60,13 +60,13 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initBundle(bundle);
-        this.iEe = new com.baidu.tieba.forumMember.member.a.b(this);
-        this.iEe.f(this.ghn);
-        this.iEf = new e();
-        this.iEf.setTag(getUniqueId());
-        this.iEf.init();
-        this.iEf.a(this.iEg);
-        cwh();
+        this.iOW = new com.baidu.tieba.forumMember.member.a.b(this);
+        this.iOW.f(this.gpx);
+        this.iOX = new e();
+        this.iOX.setTag(getUniqueId());
+        this.iOX.init();
+        this.iOX.a(this.iOY);
+        cAw();
     }
 
     private void initBundle(Bundle bundle) {
@@ -81,9 +81,9 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             this.mForumId = bundle.getString("forum_id", "");
             this.mForumName = bundle.getString("forum_name", "");
         }
-        this.iEc = new ba();
-        this.iEc.forumId = this.mForumId;
-        this.iEc.forumName = this.mForumName;
+        this.iOU = new ba();
+        this.iOU.forumId = this.mForumId;
+        this.iOU.forumName = this.mForumName;
     }
 
     @Override // android.app.Activity
@@ -97,39 +97,39 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iEe.onChangeSkinType(i);
+        this.iOW.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.iEf.bVo();
-        if (this.iEe != null) {
-            this.iEe.onDestroy();
+        this.iOX.bYY();
+        if (this.iOW != null) {
+            this.iOW.onDestroy();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        e eVar = this.iEf;
-        e eVar2 = this.iEf;
-        eVar.a(3, 0, this.iEc);
+        e eVar = this.iOX;
+        e eVar2 = this.iOX;
+        eVar.a(3, 0, this.iOU);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-            cwh();
+            cAw();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cwh() {
-        this.iEe.showLoadingView();
-        e eVar = this.iEf;
-        e eVar2 = this.iEf;
-        eVar.a(3, 0, this.iEc);
+    public void cAw() {
+        this.iOW.showLoadingView();
+        e eVar = this.iOX;
+        e eVar2 = this.iOX;
+        eVar.a(3, 0, this.iOU);
     }
 }

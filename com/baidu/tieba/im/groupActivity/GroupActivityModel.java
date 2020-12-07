@@ -6,43 +6,43 @@ import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.im.message.RequestDelGroupActivityMessage;
 import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.RequestGetGroupActivityMessage;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
-    private int eoK;
-    private RequestGetGroupActivityMessage kip;
-    private RequestGetGroupActivityLocalMessage kiq;
-    private RequestDelGroupActivityMessage kir;
-    private GroupActivityActivity kis;
-    private GroupActivityData kit;
+    private int evJ;
+    private RequestGetGroupActivityMessage kvL;
+    private RequestGetGroupActivityLocalMessage kvM;
+    private RequestDelGroupActivityMessage kvN;
+    private GroupActivityActivity kvO;
+    private GroupActivityData kvP;
     private int mFrom;
     private long mGroupId;
 
     public GroupActivityModel(GroupActivityActivity groupActivityActivity) {
         super(groupActivityActivity.getPageContext());
-        this.kis = groupActivityActivity;
+        this.kvO = groupActivityActivity;
     }
 
-    public int cSq() {
+    public int cXC() {
         return this.mFrom;
     }
 
-    public void Dx(int i) {
+    public void Em(int i) {
         this.mFrom = i;
     }
 
-    public int cSr() {
-        return this.eoK;
+    public int cXD() {
+        return this.evJ;
     }
 
-    public void Dy(int i) {
-        this.eoK = i;
+    public void En(int i) {
+        this.evJ = i;
     }
 
-    public long cSs() {
+    public long cXE() {
         return this.mGroupId;
     }
 
-    public void gk(long j) {
+    public void gP(long j) {
         this.mGroupId = j;
     }
 
@@ -56,14 +56,14 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         return false;
     }
 
-    private RequestGetGroupActivityMessage Dz(int i) {
+    private RequestGetGroupActivityMessage Eo(int i) {
         RequestGetGroupActivityMessage requestGetGroupActivityMessage = new RequestGetGroupActivityMessage();
         requestGetGroupActivityMessage.setActivityId(i);
         requestGetGroupActivityMessage.setFrom(this.mFrom);
         return requestGetGroupActivityMessage;
     }
 
-    private RequestGetGroupActivityLocalMessage DA(int i) {
+    private RequestGetGroupActivityLocalMessage Ep(int i) {
         RequestGetGroupActivityLocalMessage requestGetGroupActivityLocalMessage = new RequestGetGroupActivityLocalMessage();
         requestGetGroupActivityLocalMessage.setActivityId(i);
         requestGetGroupActivityLocalMessage.setFrom(this.mFrom);
@@ -71,45 +71,45 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void sendMessage(int i) {
-        this.kip = Dz(i);
-        this.kis.sendMessage(this.kip);
+        this.kvL = Eo(i);
+        this.kvO.sendMessage(this.kvL);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
     }
 
-    public void DB(int i) {
-        this.kiq = DA(i);
-        this.kis.sendMessage(this.kiq);
+    public void Eq(int i) {
+        this.kvM = Ep(i);
+        this.kvO.sendMessage(this.kvM);
     }
 
     public Message<?> getLocalSendMsg() {
-        return this.kiq;
+        return this.kvM;
     }
 
     public Message<?> getSendMsg() {
-        return this.kip;
+        return this.kvL;
     }
 
-    public Message<?> cSt() {
-        return this.kir;
+    public Message<?> cXF() {
+        return this.kvN;
     }
 
-    public void D(long j, int i) {
-        this.kir = new RequestDelGroupActivityMessage();
-        this.kir.setActivityId(i);
-        this.kir.setGroupId(j);
-        this.kis.sendMessage(this.kir);
+    public void F(long j, int i) {
+        this.kvN = new RequestDelGroupActivityMessage();
+        this.kvN.setActivityId(i);
+        this.kvN.setGroupId(j);
+        this.kvO.sendMessage(this.kvN);
     }
 
-    public GroupActivityData cSu() {
-        return this.kit;
+    public GroupActivityData cXG() {
+        return this.kvP;
     }
 
     public void a(GroupActivityData groupActivityData) {
         if (groupActivityData != null) {
-            this.kit = groupActivityData;
+            this.kvP = groupActivityData;
         }
     }
 }

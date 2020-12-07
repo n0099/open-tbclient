@@ -6,7 +6,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.sina.weibo.sdk.utils.LogUtil;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -86,7 +85,7 @@ public class LogBuilder {
         StringBuilder sb = new StringBuilder();
         Iterator<PageLog> it = copyOnWriteArrayList.iterator();
         while (it.hasNext()) {
-            sb.append(getLogInfo(it.next()).toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append(getLogInfo(it.next()).toString()).append(",");
         }
         return sb.toString();
     }

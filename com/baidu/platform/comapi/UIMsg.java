@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class UIMsg {
     public static final int MSG_MAP_PANO_DATA = 600;
     public static final int MSG_MAP_PANO_ROUTE_DATA = 601;
@@ -81,7 +81,7 @@ public class UIMsg {
     public static final String UI_TIP_YOUR_SEARCH_START_IN_CITY = "您要找的起点在如下城市:";
     public static final String UI_TIP_YOUR_SEARCH_THROUGH = "您要找的途经点是:";
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class ErrorNo {
         public static final int CORE_MEMORY_ALLOCATE_ERROR = 101;
         public static final int CORE_TRANS_CODE_ERROR = 102;
@@ -96,7 +96,7 @@ public class UIMsg {
         public static final int USER_CANCEL = 1;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class KEvent {
         public static final int MV_MAP_ADDLOGOBJ = 4108;
         public static final int MV_MAP_CACHEMANAGE = 12289;
@@ -149,7 +149,7 @@ public class UIMsg {
         public static final int V_WM_TRACKBALLMOVE = 38;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class KFunc {
         public static final int FUN_ID_GBS = 13;
         public static final int FUN_ID_GBS_OPTION = 1301;
@@ -304,7 +304,7 @@ public class UIMsg {
         public static final int FUN_ID_VOICE_SCH_OPTION_IDENTITY = 20010201;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class MsgDefine {
         public static final int MSG_APP_DATA_OK = 2000;
         public static final int MSG_APP_PB_DATA_OK = 2008;
@@ -353,10 +353,10 @@ public class UIMsg {
         public static final int V_WM_VSTREETIDMATCH = 65295;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class NavMapMessage {
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes26.dex */
         public class EventGesture {
             public static final int EVENT_DOUBLE_FINGER_ROTATE = 521;
             public static final int EVENT_DOUBLE_FINGER_ZOOM = 520;
@@ -372,7 +372,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class ResultType {
         public static final int ADDR_LIST = 23;
         public static final int AREA_SEARCH_LIST = 21;
@@ -410,7 +410,7 @@ public class UIMsg {
         public static final int VOICE_REQ = 512;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class UIGPSStatus {
         public static final int GPS_DEVICE_DISABLED = 0;
         public static final int GPS_DEVICE_ENABLED = 1;
@@ -419,7 +419,7 @@ public class UIMsg {
         public static final int GPS_SIGNAL_SATELLITE_NUM = 4;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class UIHttpType {
         public static final int APP_SEARCH_REQ = 0;
         public static final int HIDE_TO_FRI_REQ = 19;
@@ -431,7 +431,7 @@ public class UIMsg {
         public static final int VERSION_UPDATE = 6;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public class UIOffType {
         public static final int MSG_DATARUN_EXCEPTION = -1;
         public static final int MSG_OFFLINE_ADD = 9;
@@ -453,7 +453,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class WalkNaviMsg {
         public static final int NL_UI_MESSAGE_TYPE_COMPASS_GUIDEINFO_UPDATE = 4106;
         public static final int NL_UI_MESSAGE_TYPE_GPS_STATE_CHANGE = 4103;

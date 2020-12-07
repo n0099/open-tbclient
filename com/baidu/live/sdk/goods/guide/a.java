@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.live.data.bn;
+import com.baidu.live.data.bo;
 import com.baidu.live.sdk.a;
 import com.baidu.live.sdk.goods.view.AudienceLiveGoodsEnterView;
 import com.baidu.live.tbadk.TbConfig;
@@ -25,11 +25,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private String aTN;
-    private View.OnClickListener bqE;
-    private View bqF;
-    private View bqG;
-    private boolean bqH;
+    private String aWR;
+    private View.OnClickListener bvP;
+    private View bvQ;
+    private View bvR;
+    private boolean bvS;
     private Handler handler = new Handler();
     private long liveId;
     private Context mContext;
@@ -37,7 +37,7 @@ public class a {
     private long roomId;
 
     public void setOutClickListener(View.OnClickListener onClickListener) {
-        this.bqE = onClickListener;
+        this.bvP = onClickListener;
     }
 
     public void a(final Context context, AudienceLiveGoodsEnterView audienceLiveGoodsEnterView, long j, long j2, String str, String str2, List<com.baidu.live.sdk.goods.a.a> list) {
@@ -46,29 +46,29 @@ public class a {
             com.baidu.live.sdk.goods.a.a aVar = list.get((int) (Math.random() * list.size()));
             this.liveId = j;
             this.roomId = j2;
-            this.aTN = str;
+            this.aWR = str;
             this.otherParams = str2;
-            bn bnVar = com.baidu.live.aa.a.Ph().bsh;
+            bo boVar = com.baidu.live.ae.a.RB().bxq;
             int i = 0;
-            if (bnVar != null && bnVar.aNQ != null) {
-                i = bnVar.aNQ.aQs;
+            if (boVar != null && boVar.aQQ != null) {
+                i = boVar.aQQ.aTu;
             }
             if (i <= 0) {
                 i = 7;
             }
             this.mContext = context;
-            this.bqG = audienceLiveGoodsEnterView.getRootLayout();
-            this.bqF = a(context, aVar);
+            this.bvR = audienceLiveGoodsEnterView.getRootLayout();
+            this.bvQ = a(context, aVar);
             this.handler.post(new Runnable() { // from class: com.baidu.live.sdk.goods.guide.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.a(context, targetView, a.this.bqG, a.this.bqF);
+                    a.this.a(context, targetView, a.this.bvR, a.this.bvQ);
                 }
             });
             this.handler.postDelayed(new Runnable() { // from class: com.baidu.live.sdk.goods.guide.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.OR();
+                    a.this.Rl();
                 }
             }, i * 1000);
         }
@@ -78,9 +78,9 @@ public class a {
         View inflate = View.inflate(context, a.g.toast_goods_guide, null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(a.f.conver_imageView);
         tbImageView.setDefaultBgResource(a.e.sdk_shape_transparent);
-        if (!TextUtils.isEmpty(aVar.bqn)) {
+        if (!TextUtils.isEmpty(aVar.bvy)) {
             try {
-                JSONArray jSONArray = new JSONArray(aVar.bqn);
+                JSONArray jSONArray = new JSONArray(aVar.bvy);
                 if (jSONArray.length() > 0) {
                     tbImageView.startLoad(jSONArray.optJSONObject(0).optString("src"), 10, false);
                 }
@@ -101,11 +101,11 @@ public class a {
         inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.guide.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.OR();
-                if (a.this.bqE != null) {
-                    a.this.bqE.onClick(view);
+                a.this.Rl();
+                if (a.this.bvP != null) {
+                    a.this.bvP.onClick(view);
                 }
-                LogManager.getLiveGoodsLogger().doClickGoodsGuideLog(a.this.liveId + "", a.this.roomId + "", a.this.aTN, a.this.otherParams);
+                LogManager.getLiveGoodsLogger().doClickGoodsGuideLog(a.this.liveId + "", a.this.roomId + "", a.this.aWR, a.this.otherParams);
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_LIVESDK, TbConfig.getVersion());
@@ -121,7 +121,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, ViewGroup viewGroup, View view, View view2) {
         if (viewGroup != null) {
-            this.bqH = true;
+            this.bvS = true;
             view2.measure(0, 0);
             int[] iArr = new int[2];
             view.getLocationInWindow(iArr);
@@ -139,7 +139,7 @@ public class a {
             viewGroup.addView(view2, layoutParams);
             if (!ILiveGoodsLogger.displayGoodsGuideMap.contains(Long.valueOf(this.liveId))) {
                 ILiveGoodsLogger.displayGoodsGuideMap.add(Long.valueOf(this.liveId));
-                LogManager.getLiveGoodsLogger().doDisplayGoodsGuideLog(this.liveId + "", this.roomId + "", this.aTN, this.otherParams);
+                LogManager.getLiveGoodsLogger().doDisplayGoodsGuideLog(this.liveId + "", this.roomId + "", this.aWR, this.otherParams);
             }
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "shopcart_show"));
             try {
@@ -152,13 +152,13 @@ public class a {
         }
     }
 
-    public void dT(int i) {
-        if (this.bqH && this.handler != null) {
+    public void en(int i) {
+        if (this.bvS && this.handler != null) {
             this.handler.postDelayed(new Runnable() { // from class: com.baidu.live.sdk.goods.guide.a.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.bqH) {
-                        a.this.OQ();
+                    if (a.this.bvS) {
+                        a.this.Rk();
                     }
                 }
             }, 100L);
@@ -166,38 +166,38 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void OQ() {
+    public void Rk() {
         RelativeLayout.LayoutParams layoutParams;
-        if (this.bqH && this.bqF != null && this.bqF.getVisibility() == 0 && this.bqF.getParent() != null && this.mContext != null && this.bqG != null && this.bqG.getVisibility() == 0 && (layoutParams = (RelativeLayout.LayoutParams) this.bqF.getLayoutParams()) != null) {
-            this.bqF.measure(0, 0);
+        if (this.bvS && this.bvQ != null && this.bvQ.getVisibility() == 0 && this.bvQ.getParent() != null && this.mContext != null && this.bvR != null && this.bvR.getVisibility() == 0 && (layoutParams = (RelativeLayout.LayoutParams) this.bvQ.getLayoutParams()) != null) {
+            this.bvQ.measure(0, 0);
             int[] iArr = new int[2];
-            this.bqG.getLocationInWindow(iArr);
-            int width = this.bqG.getWidth();
+            this.bvR.getLocationInWindow(iArr);
+            int width = this.bvR.getWidth();
             if (width <= 0) {
-                this.bqG.measure(0, 0);
-                width = this.bqG.getMeasuredWidth();
+                this.bvR.measure(0, 0);
+                width = this.bvR.getMeasuredWidth();
             }
-            layoutParams.leftMargin = (((width / 2) + iArr[0]) - (this.bqF.getMeasuredWidth() / 2)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds10);
-            this.bqF.setLayoutParams(layoutParams);
+            layoutParams.leftMargin = (((width / 2) + iArr[0]) - (this.bvQ.getMeasuredWidth() / 2)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds10);
+            this.bvQ.setLayoutParams(layoutParams);
         }
     }
 
-    public void OR() {
-        this.bqH = false;
+    public void Rl() {
+        this.bvS = false;
         if (this.handler != null) {
             this.handler.removeCallbacksAndMessages(null);
         }
-        if (this.bqF != null && this.bqF.getParent() != null) {
-            ((ViewGroup) this.bqF.getParent()).removeView(this.bqF);
+        if (this.bvQ != null && this.bvQ.getParent() != null) {
+            ((ViewGroup) this.bvQ.getParent()).removeView(this.bvQ);
         }
     }
 
     public void release() {
-        this.bqH = false;
-        OR();
+        this.bvS = false;
+        Rl();
     }
 
     public boolean isShow() {
-        return this.bqH;
+        return this.bvS;
     }
 }

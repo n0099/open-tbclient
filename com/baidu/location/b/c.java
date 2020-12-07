@@ -1,17 +1,17 @@
 package com.baidu.location.b;
 
 import android.os.Bundle;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f1876a = new Object();
+    private static Object f1878a = new Object();
     private static c b = null;
     private int c = -1;
 
     public static c a() {
         c cVar;
-        synchronized (f1876a) {
+        synchronized (f1878a) {
             if (b == null) {
                 b = new c();
             }

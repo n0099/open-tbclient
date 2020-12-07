@@ -22,16 +22,16 @@ import com.baidu.tieba.R;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes.dex */
 public abstract class LoadingLayout extends FrameLayout implements com.baidu.tbadk.widget.pulltorefresh.library.a {
-    static final Interpolator dpr = new LinearInterpolator();
-    private FrameLayout fGQ;
-    private boolean fGR;
-    private final TextView fGS;
-    private final TextView fGT;
-    protected final PullToRefreshBase.Orientation fGU;
-    private CharSequence fGV;
-    private CharSequence fGW;
-    private CharSequence fGX;
-    protected final PullToRefreshBase.Mode fGv;
+    static final Interpolator dws = new LinearInterpolator();
+    private FrameLayout fOC;
+    private boolean fOD;
+    private final TextView fOE;
+    private final TextView fOF;
+    protected final PullToRefreshBase.Orientation fOG;
+    private CharSequence fOH;
+    private CharSequence fOI;
+    private CharSequence fOJ;
+    protected final PullToRefreshBase.Mode fOh;
     protected final ImageView mHeaderImage;
     protected final ProgressBar mHeaderProgress;
 
@@ -54,8 +54,8 @@ public abstract class LoadingLayout extends FrameLayout implements com.baidu.tba
         ColorStateList colorStateList;
         ColorStateList colorStateList2;
         Drawable drawable;
-        this.fGv = mode;
-        this.fGU = orientation;
+        this.fOh = mode;
+        this.fOG = orientation;
         switch (orientation) {
             case HORIZONTAL:
                 LayoutInflater.from(context).inflate(R.layout.tbadkcore_pull_to_refresh_header_horizontal, this);
@@ -64,24 +64,24 @@ public abstract class LoadingLayout extends FrameLayout implements com.baidu.tba
                 LayoutInflater.from(context).inflate(R.layout.tbadkcore_pull_to_refresh_header_vertical, this);
                 break;
         }
-        this.fGQ = (FrameLayout) findViewById(R.id.fl_inner);
-        this.fGS = (TextView) this.fGQ.findViewById(R.id.pull_to_refresh_text);
-        this.mHeaderProgress = (ProgressBar) this.fGQ.findViewById(R.id.pull_to_refresh_progress);
-        this.fGT = (TextView) this.fGQ.findViewById(R.id.pull_to_refresh_sub_text);
-        this.mHeaderImage = (ImageView) this.fGQ.findViewById(R.id.pull_to_refresh_image);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fGQ.getLayoutParams();
+        this.fOC = (FrameLayout) findViewById(R.id.fl_inner);
+        this.fOE = (TextView) this.fOC.findViewById(R.id.pull_to_refresh_text);
+        this.mHeaderProgress = (ProgressBar) this.fOC.findViewById(R.id.pull_to_refresh_progress);
+        this.fOF = (TextView) this.fOC.findViewById(R.id.pull_to_refresh_sub_text);
+        this.mHeaderImage = (ImageView) this.fOC.findViewById(R.id.pull_to_refresh_image);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fOC.getLayoutParams();
         switch (mode) {
             case PULL_FROM_END:
                 layoutParams.gravity = orientation == PullToRefreshBase.Orientation.VERTICAL ? 48 : 3;
-                this.fGV = context.getString(R.string.pull_to_refresh_pull_label);
-                this.fGW = context.getString(R.string.pull_to_refresh_refreshing_label);
-                this.fGX = context.getString(R.string.pull_to_refresh_release_label);
+                this.fOH = context.getString(R.string.pull_to_refresh_pull_label);
+                this.fOI = context.getString(R.string.pull_to_refresh_refreshing_label);
+                this.fOJ = context.getString(R.string.pull_to_refresh_release_label);
                 break;
             default:
                 layoutParams.gravity = orientation == PullToRefreshBase.Orientation.VERTICAL ? 80 : 5;
-                this.fGV = context.getString(R.string.pull_to_refresh_pull_label);
-                this.fGW = context.getString(R.string.pull_to_refresh_refreshing_label);
-                this.fGX = context.getString(R.string.pull_to_refresh_release_label);
+                this.fOH = context.getString(R.string.pull_to_refresh_pull_label);
+                this.fOI = context.getString(R.string.pull_to_refresh_refreshing_label);
+                this.fOJ = context.getString(R.string.pull_to_refresh_release_label);
                 break;
         }
         if (typedArray.hasValue(R.styleable.PullToRefresh_tb_ptrHeaderBackground) && (drawable = typedArray.getDrawable(R.styleable.PullToRefresh_tb_ptrHeaderBackground)) != null) {
@@ -110,7 +110,7 @@ public abstract class LoadingLayout extends FrameLayout implements com.baidu.tba
                     drawable2 = typedArray.getDrawable(R.styleable.PullToRefresh_tb_ptrDrawableEnd);
                     break;
                 } else if (typedArray.hasValue(R.styleable.PullToRefresh_tb_ptrDrawableBottom)) {
-                    a.ea("ptrDrawableBottom", "ptrDrawableEnd");
+                    a.eh("ptrDrawableBottom", "ptrDrawableEnd");
                     drawable2 = typedArray.getDrawable(R.styleable.PullToRefresh_tb_ptrDrawableBottom);
                     break;
                 }
@@ -120,7 +120,7 @@ public abstract class LoadingLayout extends FrameLayout implements com.baidu.tba
                     drawable2 = typedArray.getDrawable(R.styleable.PullToRefresh_tb_ptrDrawableStart);
                     break;
                 } else if (typedArray.hasValue(R.styleable.PullToRefresh_tb_ptrDrawableTop)) {
-                    a.ea("ptrDrawableTop", "ptrDrawableStart");
+                    a.eh("ptrDrawableTop", "ptrDrawableStart");
                     drawable2 = typedArray.getDrawable(R.styleable.PullToRefresh_tb_ptrDrawableTop);
                     break;
                 }
@@ -141,63 +141,63 @@ public abstract class LoadingLayout extends FrameLayout implements com.baidu.tba
     }
 
     public final int getContentSize() {
-        switch (this.fGU) {
+        switch (this.fOG) {
             case HORIZONTAL:
-                return this.fGQ.getWidth();
+                return this.fOC.getWidth();
             default:
-                return this.fGQ.getHeight();
+                return this.fOC.getHeight();
         }
     }
 
     public final void onPull(float f) {
-        if (!this.fGR) {
+        if (!this.fOD) {
             onPullImpl(f);
         }
     }
 
     public final void pullToRefresh() {
-        if (this.fGS != null) {
-            this.fGS.setText(this.fGV);
+        if (this.fOE != null) {
+            this.fOE.setText(this.fOH);
         }
         pullToRefreshImpl();
     }
 
     public final void refreshing() {
-        if (this.fGS != null) {
-            this.fGS.setText(this.fGW);
+        if (this.fOE != null) {
+            this.fOE.setText(this.fOI);
         }
-        if (this.fGR) {
+        if (this.fOD) {
             ((AnimationDrawable) this.mHeaderImage.getDrawable()).start();
         } else {
             refreshingImpl();
         }
-        if (this.fGT != null) {
-            this.fGT.setVisibility(8);
+        if (this.fOF != null) {
+            this.fOF.setVisibility(8);
         }
     }
 
     public final void releaseToRefresh() {
-        if (this.fGS != null) {
-            this.fGS.setText(this.fGX);
+        if (this.fOE != null) {
+            this.fOE.setText(this.fOJ);
         }
         releaseToRefreshImpl();
     }
 
     public final void reset() {
-        if (this.fGS != null) {
-            this.fGS.setText(this.fGV);
+        if (this.fOE != null) {
+            this.fOE.setText(this.fOH);
         }
         this.mHeaderImage.setVisibility(0);
-        if (this.fGR) {
+        if (this.fOD) {
             ((AnimationDrawable) this.mHeaderImage.getDrawable()).stop();
         } else {
             resetImpl();
         }
-        if (this.fGT != null) {
-            if (TextUtils.isEmpty(this.fGT.getText())) {
-                this.fGT.setVisibility(8);
+        if (this.fOF != null) {
+            if (TextUtils.isEmpty(this.fOF.getText())) {
+                this.fOF.setVisibility(8);
             } else {
-                this.fGT.setVisibility(0);
+                this.fOF.setVisibility(0);
             }
         }
     }
@@ -210,81 +210,81 @@ public abstract class LoadingLayout extends FrameLayout implements com.baidu.tba
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
     public final void setLoadingDrawable(Drawable drawable) {
         this.mHeaderImage.setImageDrawable(drawable);
-        this.fGR = drawable instanceof AnimationDrawable;
+        this.fOD = drawable instanceof AnimationDrawable;
         onLoadingDrawableSet(drawable);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
     public void setPullLabel(CharSequence charSequence) {
-        this.fGV = charSequence;
+        this.fOH = charSequence;
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
     public void setRefreshingLabel(CharSequence charSequence) {
-        this.fGW = charSequence;
+        this.fOI = charSequence;
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
     public void setReleaseLabel(CharSequence charSequence) {
-        this.fGX = charSequence;
+        this.fOJ = charSequence;
     }
 
     public void setTextTypeface(Typeface typeface) {
-        this.fGS.setTypeface(typeface);
+        this.fOE.setTypeface(typeface);
     }
 
     private void setSubHeaderText(CharSequence charSequence) {
-        if (this.fGT != null) {
+        if (this.fOF != null) {
             if (TextUtils.isEmpty(charSequence)) {
-                this.fGT.setVisibility(8);
+                this.fOF.setVisibility(8);
                 return;
             }
-            this.fGT.setText(charSequence);
-            if (8 == this.fGT.getVisibility()) {
-                this.fGT.setVisibility(0);
+            this.fOF.setText(charSequence);
+            if (8 == this.fOF.getVisibility()) {
+                this.fOF.setVisibility(0);
             }
         }
     }
 
     private void setSubTextAppearance(int i) {
-        if (this.fGT != null) {
-            this.fGT.setTextAppearance(getContext(), i);
+        if (this.fOF != null) {
+            this.fOF.setTextAppearance(getContext(), i);
         }
     }
 
     private void setSubTextColor(ColorStateList colorStateList) {
-        if (this.fGT != null) {
-            this.fGT.setTextColor(colorStateList);
+        if (this.fOF != null) {
+            this.fOF.setTextColor(colorStateList);
         }
     }
 
     private void setTextAppearance(int i) {
-        if (this.fGS != null) {
-            this.fGS.setTextAppearance(getContext(), i);
+        if (this.fOE != null) {
+            this.fOE.setTextAppearance(getContext(), i);
         }
-        if (this.fGT != null) {
-            this.fGT.setTextAppearance(getContext(), i);
+        if (this.fOF != null) {
+            this.fOF.setTextAppearance(getContext(), i);
         }
     }
 
     private void setTextColor(ColorStateList colorStateList) {
-        if (this.fGS != null) {
-            this.fGS.setTextColor(colorStateList);
+        if (this.fOE != null) {
+            this.fOE.setTextColor(colorStateList);
         }
-        if (this.fGT != null) {
-            this.fGT.setTextColor(colorStateList);
+        if (this.fOF != null) {
+            this.fOF.setTextColor(colorStateList);
         }
     }
 
     public void setTextColor(int i) {
-        if (this.fGS != null) {
-            this.fGS.setTextColor(i);
+        if (this.fOE != null) {
+            this.fOE.setTextColor(i);
         }
     }
 
     public void setTextSize(int i) {
-        if (this.fGS != null) {
-            this.fGS.setTextSize(0, i);
+        if (this.fOE != null) {
+            this.fOE.setTextSize(0, i);
         }
     }
 }

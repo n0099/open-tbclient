@@ -7,12 +7,12 @@ import java.lang.Thread;
 public class ad implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final ad f2520a = new ad();
+    private static final ad f2522a = new ad();
     private Thread.UncaughtExceptionHandler b;
     private Context c;
 
     public static ad a() {
-        return f2520a;
+        return f2522a;
     }
 
     private ad() {

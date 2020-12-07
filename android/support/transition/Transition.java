@@ -25,14 +25,13 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ListView;
 import com.baidu.searchbox.ugc.model.UgcConstant;
-import com.xiaomi.mipush.sdk.Constants;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class Transition implements Cloneable {
     static final boolean DBG = false;
     private static final String LOG_TAG = "Transition";
@@ -91,18 +90,18 @@ public abstract class Transition implements Cloneable {
     private ArrayList<Animator> mAnimators = new ArrayList<>();
     private PathMotion mPathMotion = STRAIGHT_PATH_MOTION;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static abstract class EpicenterCallback {
         public abstract Rect onGetEpicenter(@NonNull Transition transition);
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public @interface MatchOrder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface TransitionListener {
         void onTransitionCancel(@NonNull Transition transition);
 
@@ -145,7 +144,7 @@ public abstract class Transition implements Cloneable {
     }
 
     private static int[] parseMatchOrder(String str) {
-        StringTokenizer stringTokenizer = new StringTokenizer(str, Constants.ACCEPT_TIME_SEPARATOR_SP);
+        StringTokenizer stringTokenizer = new StringTokenizer(str, ",");
         int[] iArr = new int[stringTokenizer.countTokens()];
         int i = 0;
         while (stringTokenizer.hasMoreTokens()) {
@@ -1204,7 +1203,7 @@ public abstract class Transition implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Transition m1clone() {
+    public Transition m0clone() {
         try {
             Transition transition = (Transition) super.clone();
             transition.mAnimators = new ArrayList<>();
@@ -1263,7 +1262,7 @@ public abstract class Transition implements Cloneable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class AnimationInfo {
         String mName;
         Transition mTransition;
@@ -1281,7 +1280,7 @@ public abstract class Transition implements Cloneable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class ArrayListManager {
         private ArrayListManager() {
         }

@@ -1,12 +1,12 @@
 package io.reactivex.internal.operators.maybe;
 
-import io.reactivex.c.c;
-import io.reactivex.c.h;
+import io.reactivex.b.c;
+import io.reactivex.b.h;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class MaybeFlatMapBiSelector<T, U, R> extends a<T, R> {
     final h<? super T, ? extends o<? extends U>> mapper;
     final c<? super T, ? super U, ? extends R> resultSelector;
@@ -16,58 +16,58 @@ public final class MaybeFlatMapBiSelector<T, U, R> extends a<T, R> {
         this.source.a(new FlatMapBiMainObserver(mVar, this.mapper, this.resultSelector));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class FlatMapBiMainObserver<T, U, R> implements io.reactivex.disposables.b, m<T> {
         final h<? super T, ? extends o<? extends U>> mapper;
-        final InnerObserver<T, U, R> pPC;
+        final InnerObserver<T, U, R> pGq;
 
         FlatMapBiMainObserver(m<? super R> mVar, h<? super T, ? extends o<? extends U>> hVar, c<? super T, ? super U, ? extends R> cVar) {
-            this.pPC = new InnerObserver<>(mVar, cVar);
+            this.pGq = new InnerObserver<>(mVar, cVar);
             this.mapper = hVar;
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
-            DisposableHelper.dispose(this.pPC);
+            DisposableHelper.dispose(this.pGq);
         }
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return DisposableHelper.isDisposed(this.pPC.get());
+            return DisposableHelper.isDisposed(this.pGq.get());
         }
 
         @Override // io.reactivex.m
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            if (DisposableHelper.setOnce(this.pPC, bVar)) {
-                this.pPC.actual.onSubscribe(this);
+            if (DisposableHelper.setOnce(this.pGq, bVar)) {
+                this.pGq.actual.onSubscribe(this);
             }
         }
 
         @Override // io.reactivex.m
         public void onSuccess(T t) {
             try {
-                o oVar = (o) io.reactivex.internal.functions.a.l(this.mapper.apply(t), "The mapper returned a null MaybeSource");
-                if (DisposableHelper.replace(this.pPC, null)) {
-                    this.pPC.value = t;
-                    oVar.a(this.pPC);
+                o oVar = (o) io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper returned a null MaybeSource");
+                if (DisposableHelper.replace(this.pGq, null)) {
+                    this.pGq.value = t;
+                    oVar.a(this.pGq);
                 }
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.J(th);
-                this.pPC.actual.onError(th);
+                this.pGq.actual.onError(th);
             }
         }
 
         @Override // io.reactivex.m
         public void onError(Throwable th) {
-            this.pPC.actual.onError(th);
+            this.pGq.actual.onError(th);
         }
 
         @Override // io.reactivex.m
         public void onComplete() {
-            this.pPC.actual.onComplete();
+            this.pGq.actual.onComplete();
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes9.dex */
         static final class InnerObserver<T, U, R> extends AtomicReference<io.reactivex.disposables.b> implements m<U> {
             private static final long serialVersionUID = -2897979525538174559L;
             final m<? super R> actual;
@@ -89,7 +89,7 @@ public final class MaybeFlatMapBiSelector<T, U, R> extends a<T, R> {
                 T t = this.value;
                 this.value = null;
                 try {
-                    this.actual.onSuccess(io.reactivex.internal.functions.a.l(this.resultSelector.apply(t, u), "The resultSelector returned a null value"));
+                    this.actual.onSuccess(io.reactivex.internal.functions.a.m(this.resultSelector.apply(t, u), "The resultSelector returned a null value"));
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.J(th);
                     this.actual.onError(th);

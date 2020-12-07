@@ -5,15 +5,15 @@ import android.os.RemoteException;
 import android.util.Log;
 import com.baidu.mapframework.open.aidl.IComOpenClient;
 import com.baidu.mapframework.open.aidl.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 class e extends b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f2160a;
+    final /* synthetic */ d f2162a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.f2160a = dVar;
+        this.f2162a = dVar;
     }
 
     @Override // com.baidu.mapframework.open.aidl.b
@@ -30,7 +30,7 @@ class e extends b.a {
         IComOpenClient unused2 = b.e = IComOpenClient.a.a(iBinder);
         z = b.t;
         if (!z) {
-            b.a(b.f2158a);
+            b.a(b.f2160a);
         }
         boolean unused3 = b.t = true;
     }

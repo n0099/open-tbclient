@@ -7,13 +7,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 class r {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1504a = "logsender";
+    private static final String f1506a = "logsender";
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     interface a {
         void a();
 
@@ -64,7 +64,7 @@ class r {
             httpURLConnection2 = httpURLConnection;
             e = e2;
             e.printStackTrace();
-            LogUtil.d(f1504a, e.toString());
+            LogUtil.d(f1506a, e.toString());
             aVar.b();
             if (httpURLConnection2 != null) {
                 httpURLConnection2.disconnect();
@@ -83,7 +83,7 @@ class r {
         StringBuilder sb = new StringBuilder();
         if (map != null && !map.isEmpty()) {
             for (Map.Entry<String, String> entry : map.entrySet()) {
-                sb.append(URLEncoder.encode(entry.getKey())).append(ETAG.EQUAL).append(URLEncoder.encode(entry.getValue())).append(ETAG.ITEM_SEPARATOR);
+                sb.append(URLEncoder.encode(entry.getKey())).append("=").append(URLEncoder.encode(entry.getValue())).append(ETAG.ITEM_SEPARATOR);
             }
         }
         return sb.length() > 0 ? sb.substring(0, sb.length() - 1) : "";

@@ -1,6 +1,8 @@
 package kotlin.jvm.a;
-@kotlin.h
-/* loaded from: classes9.dex */
-public interface a<R> extends kotlin.c<R> {
+
+import kotlin.e;
+@e
+/* loaded from: classes17.dex */
+public interface a<R> {
     R invoke();
 }

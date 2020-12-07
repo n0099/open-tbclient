@@ -22,7 +22,7 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0029a {
-        public boolean UO;
+        public boolean VG;
         public String mErrMsg;
     }
 
@@ -126,14 +126,14 @@ public class a {
                 declaredMethod.invoke(pathList, str2, null);
                 Object combineArray = combineArray(E(pathList), E(pathList2));
                 if (combineArray instanceof File[]) {
-                    Arrays.sort((File[]) combineArray, qD());
+                    Arrays.sort((File[]) combineArray, qF());
                     list = combineArray;
                 } else {
                     boolean z2 = combineArray instanceof List;
                     list = combineArray;
                     if (z2) {
                         List list4 = (List) combineArray;
-                        Collections.sort(list4, qD());
+                        Collections.sort(list4, qF());
                         list = list4;
                     }
                 }
@@ -147,14 +147,14 @@ public class a {
                 setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(D(pathList), D(pathList2)) : combineArray(D(pathList2), D(pathList)));
                 Object combineArray2 = combineArray(E(pathList), E(pathList2));
                 if (combineArray2 instanceof File[]) {
-                    Arrays.sort((File[]) combineArray2, qD());
+                    Arrays.sort((File[]) combineArray2, qF());
                     list3 = combineArray2;
                 } else {
                     boolean z3 = combineArray2 instanceof List;
                     list3 = combineArray2;
                     if (z3) {
                         List list5 = (List) combineArray2;
-                        Collections.sort(list5, qD());
+                        Collections.sort(list5, qF());
                         list3 = list5;
                     }
                 }
@@ -168,14 +168,14 @@ public class a {
                 setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(D(pathList), D(pathList2)) : combineArray(D(pathList2), D(pathList)));
                 Object combineArray3 = combineArray(E(pathList), E(pathList2));
                 if (combineArray3 instanceof File[]) {
-                    Arrays.sort((File[]) combineArray3, qD());
+                    Arrays.sort((File[]) combineArray3, qF());
                     list2 = combineArray3;
                 } else {
                     boolean z4 = combineArray3 instanceof List;
                     list2 = combineArray3;
                     if (z4) {
                         List list6 = (List) combineArray3;
-                        Collections.sort(list6, qD());
+                        Collections.sort(list6, qF());
                         list2 = list6;
                     }
                 }
@@ -293,7 +293,7 @@ public class a {
 
     private static C0029a a(boolean z, Throwable th) {
         C0029a c0029a = new C0029a();
-        c0029a.UO = z;
+        c0029a.VG = z;
         c0029a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0029a;
     }
@@ -330,7 +330,7 @@ public class a {
         }
     }
 
-    private static final Comparator<File> qD() {
+    private static final Comparator<File> qF() {
         return new Comparator<File>() { // from class: com.baidu.adp.plugin.util.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator

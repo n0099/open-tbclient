@@ -2,7 +2,7 @@ package com.baidu.ala.helper;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class AlaAudioBuffer {
     private static final boolean VERBOSE = false;
     private ByteArrayOutputStream baos = new ByteArrayOutputStream();

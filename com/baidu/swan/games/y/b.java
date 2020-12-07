@@ -3,30 +3,30 @@ package com.baidu.swan.games.y;
 import android.text.TextUtils;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.pms.c.d.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public interface a {
-        void aWH();
+        void aZM();
 
         void e(int i, long j, long j2);
 
-        void hs(int i);
+        void hQ(int i);
     }
 
     public static void a(String str, a aVar) {
-        e aGM;
-        if (aVar != null && !TextUtils.isEmpty(str) && (aGM = e.aGM()) != null) {
-            if (com.baidu.swan.games.y.a.aWG().xE(str)) {
-                aVar.aWH();
+        e aJU;
+        if (aVar != null && !TextUtils.isEmpty(str) && (aJU = e.aJU()) != null) {
+            if (com.baidu.swan.games.y.a.aZL().yl(str)) {
+                aVar.aZM();
                 return;
             }
-            String rS = com.baidu.swan.games.y.a.aWG().rS(str);
-            if (TextUtils.isEmpty(rS)) {
-                aVar.hs(2112);
+            String sA = com.baidu.swan.games.y.a.aZL().sA(str);
+            if (TextUtils.isEmpty(sA)) {
+                aVar.hQ(2112);
             } else {
-                com.baidu.swan.pms.c.a(new f(aGM.id, aGM.getVersion(), rS, 1), new com.baidu.swan.games.y.b.a(aGM.id, aGM.getVersion(), com.baidu.swan.games.y.a.aWG().ac(str, 2), aVar));
+                com.baidu.swan.pms.c.a(new f(aJU.id, aJU.getVersion(), sA, 1), new com.baidu.swan.games.y.b.a(aJU.id, aJU.getVersion(), com.baidu.swan.games.y.a.aZL().ad(str, 2), aVar));
             }
         }
     }

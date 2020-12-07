@@ -10,6 +10,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.BaseInputConnection;
 import android.view.inputmethod.InputMethodManager;
+import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import io.flutter.Log;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 /* loaded from: classes19.dex */
@@ -109,7 +110,7 @@ class XInputConnectionAdaptor extends BaseInputConnection {
     private static int clampIndexToEditable(int i, Editable editable) {
         int max = Math.max(0, Math.min(editable.length(), i));
         if (max != i) {
-            Log.d("flutter", "Text selection index was clamped (" + i + "->" + max + ") to remain in bounds. This may not be your fault, as some keyboards may select outside of bounds.");
+            Log.d("flutter", "Text selection index was clamped (" + i + PerfFrameTrackUIUtil.SEPERATOR_ARROR + max + ") to remain in bounds. This may not be your fault, as some keyboards may select outside of bounds.");
         }
         return max;
     }

@@ -10,10 +10,9 @@ import com.baidu.searchbox.afx.callback.PlaySuccessInfo;
 import com.baidu.searchbox.afx.gl.GLTextureView;
 import com.baidu.searchbox.afx.proxy.PlayerProxy;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class MediaPlayerProxy extends PlayerProxy {
     private static final String TAG = "MediaPlayerProxy";
     private GLTextureView mGLTextureView;
@@ -52,7 +51,7 @@ public class MediaPlayerProxy extends PlayerProxy {
                 String glVersion = MediaPlayerProxy.this.getGlVersion();
                 String sourcePath = MediaPlayerProxy.this.getSourcePath();
                 String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
-                RuntimeException runtimeException = new RuntimeException("MediaPlayer Error (" + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2 + ")");
+                RuntimeException runtimeException = new RuntimeException("MediaPlayer Error (" + i + "," + i2 + ")");
                 if (MediaPlayerProxy.this.mOnReportListener != null) {
                     MediaPlayerProxy.this.mOnReportListener.onError(new ErrorInfo(16, ErrorInfo.MEDIAPLAYER_DECODING_ERROR_ERRORMSG, runtimeException, str, glVersion, sourcePath, valueOf));
                 }

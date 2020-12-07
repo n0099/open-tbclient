@@ -4,65 +4,64 @@ import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
-import kotlin.h;
-import kotlin.jvm.internal.q;
-@h
-/* loaded from: classes17.dex */
+import kotlin.jvm.internal.p;
+@kotlin.e
+/* loaded from: classes18.dex */
 public final class b extends Drawable {
-    private boolean pEJ;
-    private int pEK;
-    private final com.opensource.svgaplayer.a.b pEL;
-    private final f pEM;
-    private final c pEN;
+    private boolean pyp;
+    private int pyq;
+    private final com.opensource.svgaplayer.a.b pyr;
+    private final f pys;
+    private final c pyt;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
-        q.n(fVar, "videoItem");
-        q.n(cVar, "dynamicItem");
-        this.pEM = fVar;
-        this.pEN = cVar;
-        this.pEJ = true;
+        p.o(fVar, "videoItem");
+        p.o(cVar, "dynamicItem");
+        this.pys = fVar;
+        this.pyt = cVar;
+        this.pyp = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.pEL = new com.opensource.svgaplayer.a.b(this.pEM, this.pEN);
+        this.pyr = new com.opensource.svgaplayer.a.b(this.pys, this.pyt);
     }
 
-    public final f ewD() {
-        return this.pEM;
+    public final f ezA() {
+        return this.pys;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b(f fVar) {
         this(fVar, new c());
-        q.n(fVar, "videoItem");
+        p.o(fVar, "videoItem");
     }
 
-    public final void AT(boolean z) {
-        if (this.pEJ != z) {
-            this.pEJ = z;
+    public final void Bh(boolean z) {
+        if (this.pyp != z) {
+            this.pyp = z;
             invalidateSelf();
         }
     }
 
-    public final int ewC() {
-        return this.pEK;
+    public final int ezz() {
+        return this.pyq;
     }
 
-    public final void Rz(int i) {
-        if (this.pEK != i) {
-            this.pEK = i;
+    public final void RB(int i) {
+        if (this.pyq != i) {
+            this.pyq = i;
             invalidateSelf();
         }
     }
 
     public final void setScaleType(ImageView.ScaleType scaleType) {
-        q.n(scaleType, "<set-?>");
+        p.o(scaleType, "<set-?>");
         this.scaleType = scaleType;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.pEJ && canvas != null) {
-            this.pEL.a(canvas, this.pEK, this.scaleType);
+        if (!this.pyp && canvas != null) {
+            this.pyr.a(canvas, this.pyq, this.scaleType);
         }
     }
 

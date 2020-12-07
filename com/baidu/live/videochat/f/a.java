@@ -11,31 +11,31 @@ import com.baidu.live.videochat.f.b;
 /* loaded from: classes4.dex */
 public class a {
     private Activity activity;
-    private b.a bFp;
-    private b.InterfaceC0226b bIB;
-    private b bIC;
+    private b.a bKy;
+    private b.InterfaceC0235b bNJ;
+    private b bNK;
 
     public void ag(View view) {
-        if (this.bIC != null) {
-            this.bIC.ag(view);
+        if (this.bNK != null) {
+            this.bNK.ag(view);
         }
     }
 
     public void a(w wVar, c cVar) {
-        if (this.bIC != null) {
-            this.bIC.a(wVar, cVar);
+        if (this.bNK != null) {
+            this.bNK.a(wVar, cVar);
         }
     }
 
-    public void VG() {
-        if (this.bIC != null) {
-            this.bIC.release();
+    public void Yg() {
+        if (this.bNK != null) {
+            this.bNK.release();
         }
     }
 
-    public a(b.a aVar, b.InterfaceC0226b interfaceC0226b) {
-        this.bFp = aVar;
-        this.bIB = interfaceC0226b;
+    public a(b.a aVar, b.InterfaceC0235b interfaceC0235b) {
+        this.bKy = aVar;
+        this.bNJ = interfaceC0235b;
     }
 
     public void a(TbPageContext tbPageContext, ViewGroup viewGroup) {
@@ -43,22 +43,22 @@ public class a {
             this.activity = tbPageContext.getPageActivity();
         }
         if (this.activity != null && viewGroup != null) {
-            if (this.bIC == null) {
-                this.bIC = new b(this.activity, this.bFp, this.bIB);
+            if (this.bNK == null) {
+                this.bNK = new b(this.activity, this.bKy, this.bNJ);
             }
-            if (this.bIC.getView() != null && this.bIC.getView().getParent() == null) {
-                this.bIC.getView().setVisibility(8);
+            if (this.bNK.getView() != null && this.bNK.getView().getParent() == null) {
+                this.bNK.getView().setVisibility(8);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.activity.getResources().getDimensionPixelSize(a.d.sdk_ds220), this.activity.getResources().getDimensionPixelSize(a.d.sdk_ds392));
                 layoutParams.topMargin = this.activity.getResources().getDimensionPixelSize(a.d.sdk_ds274);
                 layoutParams.leftMargin = this.activity.getResources().getDimensionPixelSize(a.d.sdk_ds20);
-                viewGroup.addView(this.bIC.getView(), layoutParams);
+                viewGroup.addView(this.bNK.getView(), layoutParams);
             }
         }
     }
 
     public void onDestroy() {
-        if (this.bIC != null) {
-            this.bIC.release();
+        if (this.bNK != null) {
+            this.bNK.release();
         }
     }
 }

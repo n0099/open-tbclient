@@ -2,17 +2,16 @@ package com.baidu.fsg.base.statistics;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.Thread;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 class d implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private Thread.UncaughtExceptionHandler f1489a;
+    private Thread.UncaughtExceptionHandler f1491a;
     private Context b;
     private JSONObject c;
     private ConcurrentHashMap<Thread, Throwable> d;
@@ -22,25 +21,25 @@ class d implements Thread.UncaughtExceptionHandler {
         this();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static d f1490a = new d(null);
+        private static d f1492a = new d(null);
 
         private a() {
         }
     }
 
     private d() {
-        this.f1489a = null;
+        this.f1491a = null;
         this.b = null;
         this.c = null;
         this.d = new ConcurrentHashMap<>();
     }
 
     public static d a() {
-        return a.f1490a;
+        return a.f1492a;
     }
 
     public void a(Context context) {
@@ -53,7 +52,7 @@ class d implements Thread.UncaughtExceptionHandler {
         }
         Thread.UncaughtExceptionHandler defaultUncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
         if (this != defaultUncaughtExceptionHandler) {
-            this.f1489a = defaultUncaughtExceptionHandler;
+            this.f1491a = defaultUncaughtExceptionHandler;
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
     }
@@ -89,8 +88,8 @@ class d implements Thread.UncaughtExceptionHandler {
             a(System.currentTimeMillis(), obj, th2);
             new Thread(new e(this)).start();
         }
-        if (this != this.f1489a && this.f1489a != null) {
-            this.f1489a.uncaughtException(thread, th);
+        if (this != this.f1491a && this.f1491a != null) {
+            this.f1491a.uncaughtException(thread, th);
         }
     }
 
@@ -98,7 +97,7 @@ class d implements Thread.UncaughtExceptionHandler {
         if (this.b != null && str != null && !str.trim().equals("")) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put(c.f1488a, j);
+                jSONObject.put(c.f1490a, j);
                 if (str.getBytes().length > 51200) {
                     byte[] bArr = new byte[b.c];
                     str.getBytes(0, b.c, bArr, 0);
@@ -133,7 +132,7 @@ class d implements Thread.UncaughtExceptionHandler {
             return false;
         }
         String b = b();
-        if (TextUtils.isEmpty(b) || (split = b.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) == null || split.length <= 0) {
+        if (TextUtils.isEmpty(b) || (split = b.split(",")) == null || split.length <= 0) {
             return false;
         }
         for (String str2 : split) {
@@ -147,8 +146,8 @@ class d implements Thread.UncaughtExceptionHandler {
     public String b() {
         if (this.e == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append("com.baidu.fsg.rimdemo").append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append(com.baidu.fsg.base.a.b).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append("com.baidu.fsg.rimdemo").append(",");
+            sb.append(com.baidu.fsg.base.a.b).append(",");
             this.e = sb.toString();
         }
         return this.e;

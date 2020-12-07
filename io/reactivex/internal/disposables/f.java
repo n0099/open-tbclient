@@ -2,7 +2,7 @@ package io.reactivex.internal.disposables;
 
 import io.reactivex.internal.util.NotificationLite;
 import io.reactivex.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class f<T> extends c implements io.reactivex.disposables.b {
     final u<? super T> actual;
     volatile boolean cancelled;
@@ -20,7 +20,7 @@ public final class f<T> extends c implements io.reactivex.disposables.b {
     public void dispose() {
         if (!this.cancelled) {
             this.cancelled = true;
-            eAF();
+            eCX();
         }
     }
 
@@ -30,7 +30,7 @@ public final class f<T> extends c implements io.reactivex.disposables.b {
         return bVar != null ? bVar.isDisposed() : this.cancelled;
     }
 
-    void eAF() {
+    void eCX() {
         io.reactivex.disposables.b bVar = this.resource;
         this.resource = null;
         if (bVar != null) {
@@ -58,7 +58,7 @@ public final class f<T> extends c implements io.reactivex.disposables.b {
 
     public void a(Throwable th, io.reactivex.disposables.b bVar) {
         if (this.cancelled) {
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
             return;
         }
         this.queue.offer(bVar, NotificationLite.error(th));
@@ -90,17 +90,17 @@ public final class f<T> extends c implements io.reactivex.disposables.b {
                             }
                         } else if (NotificationLite.isError(poll2)) {
                             aVar.clear();
-                            eAF();
+                            eCX();
                             Throwable error = NotificationLite.getError(poll2);
                             if (!this.cancelled) {
                                 this.cancelled = true;
                                 uVar.onError(error);
                             } else {
-                                io.reactivex.e.a.onError(error);
+                                io.reactivex.d.a.onError(error);
                             }
                         } else if (NotificationLite.isComplete(poll2)) {
                             aVar.clear();
-                            eAF();
+                            eCX();
                             if (!this.cancelled) {
                                 this.cancelled = true;
                                 uVar.onComplete();

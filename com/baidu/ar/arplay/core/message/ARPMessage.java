@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class ARPMessage {
     private static final int INVALID_MESSAGE_ID = -1;
     private static final int MSG_MESSAGE_FROM_ENGINE = 1;
@@ -23,7 +23,7 @@ public class ARPMessage {
     private HandlerThread mThread = new HandlerThread("msg_callback_thread");
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class ArCallback {
         public MessageHandler mHandler;
         public int mMessageId;
@@ -37,7 +37,7 @@ public class ARPMessage {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class ArMessage {
         public HashMap<String, Object> mData;
         public int mMessageID;
@@ -52,7 +52,7 @@ public class ARPMessage {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public interface MessageHandler {
         void handleMessage(int i, int i2, HashMap<String, Object> hashMap);
     }

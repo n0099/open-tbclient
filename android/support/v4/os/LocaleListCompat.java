@@ -7,9 +7,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.Size;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class LocaleListCompat {
     static final LocaleListInterface IMPL;
     private static final LocaleListCompat sEmptyLocaleList = new LocaleListCompat();
@@ -22,7 +21,7 @@ public final class LocaleListCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static class LocaleListCompatBaseImpl implements LocaleListInterface {
         private LocaleListHelper mLocaleList = new LocaleListHelper(new Locale[0]);
 
@@ -92,7 +91,7 @@ public final class LocaleListCompat {
     }
 
     @RequiresApi(24)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static class LocaleListCompatApi24Impl implements LocaleListInterface {
         private LocaleList mLocaleList = new LocaleList(new Locale[0]);
 
@@ -222,7 +221,7 @@ public final class LocaleListCompat {
         if (str == null || str.isEmpty()) {
             return getEmptyLocaleList();
         }
-        String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        String[] split = str.split(",");
         Locale[] localeArr = new Locale[split.length];
         for (int i = 0; i < localeArr.length; i++) {
             if (Build.VERSION.SDK_INT >= 21) {

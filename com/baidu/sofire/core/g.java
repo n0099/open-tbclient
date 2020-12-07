@@ -3,17 +3,17 @@ package com.baidu.sofire.core;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3616a;
+    public String f3619a;
     public String b;
     public String c;
     public IntentFilter d;
 
     public g(String str, IntentFilter intentFilter, String str2, String str3) {
-        this.f3616a = str;
+        this.f3619a = str;
         this.d = intentFilter;
         this.b = str2;
         this.c = str3;
@@ -22,8 +22,8 @@ public final class g {
     public final boolean a(g gVar) {
         if (gVar != null) {
             try {
-                if (!TextUtils.isEmpty(gVar.f3616a) && !TextUtils.isEmpty(gVar.b) && !TextUtils.isEmpty(gVar.c)) {
-                    if (gVar.f3616a.equals(this.f3616a) && gVar.b.equals(this.b) && gVar.c.equals(this.c)) {
+                if (!TextUtils.isEmpty(gVar.f3619a) && !TextUtils.isEmpty(gVar.b) && !TextUtils.isEmpty(gVar.c)) {
+                    if (gVar.f3619a.equals(this.f3619a) && gVar.b.equals(this.b) && gVar.c.equals(this.c)) {
                         if (gVar.d == null || this.d == null) {
                             return true;
                         }
@@ -41,7 +41,7 @@ public final class g {
 
     public final String toString() {
         try {
-            return "PluginloaderIntentFilter:" + this.f3616a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.b + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.c + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.d;
+            return "PluginloaderIntentFilter:" + this.f3619a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.b + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.c + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.d;
         } catch (Throwable th) {
             return "";
         }

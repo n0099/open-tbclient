@@ -7,22 +7,22 @@ import com.baidu.helios.common.b.a.e;
 import com.baidu.helios.common.c.a;
 import com.baidu.helios.ids.a;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public class a extends com.baidu.helios.ids.a {
-    a.C0151a auZ;
-    private C0159a axr;
+    a.C0149a avX;
+    private C0157a ayp;
 
     /* renamed from: com.baidu.helios.ids.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    class C0159a {
+    /* loaded from: classes14.dex */
+    class C0157a {
         private long c;
         private String f;
         private String g;
         private int h;
         private boolean d = true;
-        private e axa = new e();
+        private e axY = new e();
 
-        C0159a() {
+        C0157a() {
         }
 
         public String a() {
@@ -61,15 +61,15 @@ public class a extends com.baidu.helios.ids.a {
         }
 
         public boolean d() {
-            String q = a.this.auZ.q("cache.dat", true);
-            if (!TextUtils.isEmpty(q)) {
+            String p = a.this.avX.p("cache.dat", true);
+            if (!TextUtils.isEmpty(p)) {
                 try {
-                    JSONObject jSONObject = new JSONObject(q);
+                    JSONObject jSONObject = new JSONObject(p);
                     this.f = jSONObject.optString("form_id");
                     this.c = jSONObject.getLong("lst_fe_ts");
                     this.h = jSONObject.getInt("c_form_ver");
                     this.g = jSONObject.getString("ssaid");
-                    this.axa.R(jSONObject.getLong("flags"));
+                    this.axY.P(jSONObject.getLong("flags"));
                     return true;
                 } catch (Exception e) {
                 }
@@ -84,9 +84,9 @@ public class a extends com.baidu.helios.ids.a {
                     jSONObject.put("form_id", this.f);
                     jSONObject.put("lst_fe_ts", this.c);
                     jSONObject.put("c_form_ver", 1);
-                    jSONObject.put("flags", this.axa.zR());
+                    jSONObject.put("flags", this.axY.zL());
                     jSONObject.put("ssaid", this.g);
-                    a.this.auZ.d("cache.dat", jSONObject.toString(), true);
+                    a.this.avX.d("cache.dat", jSONObject.toString(), true);
                     this.d = false;
                     return true;
                 } catch (Exception e) {
@@ -99,30 +99,30 @@ public class a extends com.baidu.helios.ids.a {
 
     public a() {
         super("ssaid");
-        this.axr = new C0159a();
+        this.ayp = new C0157a();
     }
 
     @Override // com.baidu.helios.ids.a
     public void a(a.b bVar) {
-        this.auZ = this.awD.fx(getName());
-        String string = Settings.Secure.getString(this.awE.applicationContext.getContentResolver(), "android_id");
+        this.avX = this.axB.fB(getName());
+        String string = Settings.Secure.getString(this.axC.applicationContext.getContentResolver(), "android_id");
         if (string == null) {
             string = "0";
         }
-        this.axr.d();
-        if (TextUtils.isEmpty(this.axr.a()) || !TextUtils.equals(string, this.axr.b())) {
-            this.axr.b(string);
+        this.ayp.d();
+        if (TextUtils.isEmpty(this.ayp.a()) || !TextUtils.equals(string, this.ayp.b())) {
+            this.ayp.b(string);
             try {
-                this.axr.a(com.baidu.helios.ids.a.af("A30", new b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(string.getBytes("UTF-8"))));
+                this.ayp.a(com.baidu.helios.ids.a.af("A30", new b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(string.getBytes("UTF-8"))));
             } catch (Exception e) {
             }
-            this.axr.b(System.currentTimeMillis());
+            this.ayp.b(System.currentTimeMillis());
         }
-        this.axr.e();
+        this.ayp.e();
     }
 
     @Override // com.baidu.helios.ids.a
-    public String zZ() {
-        return this.axr.a();
+    public String zT() {
+        return this.ayp.a();
     }
 }

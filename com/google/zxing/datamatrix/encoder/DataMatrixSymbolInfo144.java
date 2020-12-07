@@ -1,5 +1,5 @@
 package com.google.zxing.datamatrix.encoder;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 final class DataMatrixSymbolInfo144 extends SymbolInfo {
     /* JADX INFO: Access modifiers changed from: package-private */
     public DataMatrixSymbolInfo144() {

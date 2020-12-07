@@ -18,32 +18,32 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.turbonet.net.proxy.b {
-    private ProxyConfig ooK;
-    private a opP;
-    private HttpURLConnection opQ;
-    private d opR;
-    private TurbonetEngine opz;
+    private ProxyConfig oDI;
+    private a oEL;
+    private HttpURLConnection oEM;
+    private d oEN;
+    private TurbonetEngine oEw;
 
     @Override // java.net.URLConnection
     public final void addRequestProperty(String str, String str2) {
-        if (!this.ooK.ebN()) {
-            this.opR.addRequestProperty(str, str2);
+        if (!this.oDI.ehs()) {
+            this.oEN.addRequestProperty(str, str2);
         } else {
-            this.opQ.addRequestProperty(str, str2);
+            this.oEM.addRequestProperty(str, str2);
         }
     }
 
     @Override // java.net.URLConnection
     public void connect() throws IOException {
-        com.baidu.turbonet.base.a.d("ProxyURLConn", "connect by libtype: " + this.ooK.toString());
-        if (!this.ooK.ebN()) {
-            this.opR.connect();
+        com.baidu.turbonet.base.a.d("ProxyURLConn", "connect by libtype: " + this.oDI.toString());
+        if (!this.oDI.ehs()) {
+            this.oEN.connect();
             return;
         }
         try {
-            this.opQ.connect();
+            this.oEM.connect();
         } catch (IOException e) {
             a(e, 0L);
             throw e;
@@ -52,19 +52,19 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public int getConnectTimeout() {
-        return !this.ooK.ebN() ? this.opR.getConnectTimeout() : this.opQ.getConnectTimeout();
+        return !this.oDI.ehs() ? this.oEN.getConnectTimeout() : this.oEM.getConnectTimeout();
     }
 
     @Override // java.net.URLConnection
     public Object getContent() throws IOException {
-        if (!this.ooK.ebN()) {
-            return this.opR.getContent();
+        if (!this.oDI.ehs()) {
+            return this.oEN.getContent();
         }
         try {
-            long contentLength = this.opQ.getContentLength();
-            this.opP.ooX = contentLength;
+            long contentLength = this.oEM.getContentLength();
+            this.oEL.oDV = contentLength;
             onComplete(contentLength);
-            return this.opQ.getContent();
+            return this.oEM.getContent();
         } catch (IOException e) {
             a(e, 0L);
             throw e;
@@ -73,14 +73,14 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public Object getContent(Class[] clsArr) throws IOException {
-        if (!this.ooK.ebN()) {
-            return this.opR.getContent(clsArr);
+        if (!this.oDI.ehs()) {
+            return this.oEN.getContent(clsArr);
         }
         try {
-            long contentLength = this.opQ.getContentLength();
-            this.opP.ooX = contentLength;
+            long contentLength = this.oEM.getContentLength();
+            this.oEL.oDV = contentLength;
             onComplete(contentLength);
-            return this.opQ.getContent(clsArr);
+            return this.oEM.getContent(clsArr);
         } catch (IOException e) {
             a(e, 0L);
             throw e;
@@ -89,98 +89,98 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public String getContentEncoding() {
-        return !this.ooK.ebN() ? this.opR.getContentEncoding() : this.opQ.getContentEncoding();
+        return !this.oDI.ehs() ? this.oEN.getContentEncoding() : this.oEM.getContentEncoding();
     }
 
     @Override // java.net.URLConnection
     public int getContentLength() {
-        return !this.ooK.ebN() ? this.opR.getContentLength() : this.opQ.getContentLength();
+        return !this.oDI.ehs() ? this.oEN.getContentLength() : this.oEM.getContentLength();
     }
 
     @Override // java.net.URLConnection
     public String getContentType() {
-        return !this.ooK.ebN() ? this.opR.getContentType() : this.opQ.getContentType();
+        return !this.oDI.ehs() ? this.oEN.getContentType() : this.oEM.getContentType();
     }
 
     @Override // java.net.URLConnection
     public long getDate() {
-        return !this.ooK.ebN() ? this.opR.getDate() : this.opQ.getDate();
+        return !this.oDI.ehs() ? this.oEN.getDate() : this.oEM.getDate();
     }
 
     @Override // java.net.URLConnection
     public boolean getDefaultUseCaches() {
-        return !this.ooK.ebN() ? this.opR.getDefaultUseCaches() : this.opQ.getDefaultUseCaches();
+        return !this.oDI.ehs() ? this.oEN.getDefaultUseCaches() : this.oEM.getDefaultUseCaches();
     }
 
     @Override // java.net.URLConnection
     public boolean getDoInput() {
-        return !this.ooK.ebN() ? this.opR.getDoInput() : this.opQ.getDoInput();
+        return !this.oDI.ehs() ? this.oEN.getDoInput() : this.oEM.getDoInput();
     }
 
     @Override // java.net.URLConnection
     public boolean getDoOutput() {
-        return !this.ooK.ebN() ? this.opR.getDoOutput() : this.opQ.getDoOutput();
+        return !this.oDI.ehs() ? this.oEN.getDoOutput() : this.oEM.getDoOutput();
     }
 
     @Override // java.net.URLConnection
     public long getExpiration() {
-        return !this.ooK.ebN() ? this.opR.getExpiration() : this.opQ.getExpiration();
+        return !this.oDI.ehs() ? this.oEN.getExpiration() : this.oEM.getExpiration();
     }
 
     @Override // java.net.URLConnection
     public final String getHeaderField(String str) {
-        if (!this.ooK.ebN()) {
-            return this.opR.getHeaderField(str);
+        if (!this.oDI.ehs()) {
+            return this.oEN.getHeaderField(str);
         }
-        String headerField = this.opQ.getHeaderField(str);
-        this.opP.ebO();
+        String headerField = this.oEM.getHeaderField(str);
+        this.oEL.eht();
         return headerField;
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public final String getHeaderField(int i) {
-        if (!this.ooK.ebN()) {
-            return this.opR.getHeaderField(i);
+        if (!this.oDI.ehs()) {
+            return this.oEN.getHeaderField(i);
         }
-        return this.opQ.getHeaderField(i);
+        return this.oEM.getHeaderField(i);
     }
 
     @Override // java.net.URLConnection
     public int getHeaderFieldInt(String str, int i) {
-        return !this.ooK.ebN() ? this.opR.getHeaderFieldInt(str, i) : this.opQ.getHeaderFieldInt(str, i);
+        return !this.oDI.ehs() ? this.oEN.getHeaderFieldInt(str, i) : this.oEM.getHeaderFieldInt(str, i);
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public long getHeaderFieldDate(String str, long j) {
-        return !this.ooK.ebN() ? this.opR.getHeaderFieldDate(str, j) : this.opQ.getHeaderFieldDate(str, j);
+        return !this.oDI.ehs() ? this.oEN.getHeaderFieldDate(str, j) : this.oEM.getHeaderFieldDate(str, j);
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public final String getHeaderFieldKey(int i) {
-        return !this.ooK.ebN() ? this.opR.getHeaderFieldKey(i) : this.opQ.getHeaderFieldKey(i);
+        return !this.oDI.ehs() ? this.oEN.getHeaderFieldKey(i) : this.oEM.getHeaderFieldKey(i);
     }
 
     @Override // java.net.URLConnection
     public Map<String, List<String>> getHeaderFields() {
-        if (!this.ooK.ebN()) {
-            return this.opR.getHeaderFields();
+        if (!this.oDI.ehs()) {
+            return this.oEN.getHeaderFields();
         }
-        return this.opQ.getHeaderFields();
+        return this.oEM.getHeaderFields();
     }
 
     @Override // java.net.URLConnection
     public long getIfModifiedSince() {
-        return !this.ooK.ebN() ? this.opR.getIfModifiedSince() : this.opQ.getIfModifiedSince();
+        return !this.oDI.ehs() ? this.oEN.getIfModifiedSince() : this.oEM.getIfModifiedSince();
     }
 
     @Override // java.net.URLConnection
     public InputStream getInputStream() throws IOException {
-        com.baidu.turbonet.base.a.d("ProxyURLConn", "getInputStream by libtype: " + this.ooK.toString());
-        if (!this.ooK.ebN()) {
-            return this.opR.getInputStream();
+        com.baidu.turbonet.base.a.d("ProxyURLConn", "getInputStream by libtype: " + this.oDI.toString());
+        if (!this.oDI.ehs()) {
+            return this.oEN.getInputStream();
         }
         try {
-            return new com.baidu.turbonet.net.proxy.a(this.opQ.getInputStream(), this);
+            return new com.baidu.turbonet.net.proxy.a(this.oEM.getInputStream(), this);
         } catch (IOException e) {
             a(e, 0L);
             throw e;
@@ -189,151 +189,151 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public OutputStream getOutputStream() throws IOException {
-        return !this.ooK.ebN() ? this.opR.getOutputStream() : this.opQ.getOutputStream();
+        return !this.oDI.ehs() ? this.oEN.getOutputStream() : this.oEM.getOutputStream();
     }
 
     @Override // java.net.URLConnection
     public long getLastModified() {
-        return !this.ooK.ebN() ? this.opR.getLastModified() : this.opQ.getLastModified();
+        return !this.oDI.ehs() ? this.oEN.getLastModified() : this.oEM.getLastModified();
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public Permission getPermission() throws IOException {
-        return !this.ooK.ebN() ? this.opR.getPermission() : this.opQ.getPermission();
+        return !this.oDI.ehs() ? this.oEN.getPermission() : this.oEM.getPermission();
     }
 
     @Override // java.net.URLConnection
     public int getReadTimeout() {
-        return !this.ooK.ebN() ? this.opR.getReadTimeout() : this.opQ.getReadTimeout();
+        return !this.oDI.ehs() ? this.oEN.getReadTimeout() : this.oEM.getReadTimeout();
     }
 
     @Override // java.net.URLConnection
     public Map<String, List<String>> getRequestProperties() {
-        return !this.ooK.ebN() ? this.opR.getRequestProperties() : this.opQ.getRequestProperties();
+        return !this.oDI.ehs() ? this.oEN.getRequestProperties() : this.oEM.getRequestProperties();
     }
 
     @Override // java.net.URLConnection
     public String getRequestProperty(String str) {
-        return !this.ooK.ebN() ? this.opR.getRequestProperty(str) : this.opQ.getRequestProperty(str);
+        return !this.oDI.ehs() ? this.oEN.getRequestProperty(str) : this.oEM.getRequestProperty(str);
     }
 
     @Override // java.net.URLConnection
     public URL getURL() {
-        return !this.ooK.ebN() ? this.opR.getURL() : this.opQ.getURL();
+        return !this.oDI.ehs() ? this.oEN.getURL() : this.oEM.getURL();
     }
 
     @Override // java.net.URLConnection
     public boolean getUseCaches() {
-        return !this.ooK.ebN() ? this.opR.getUseCaches() : this.opQ.getUseCaches();
+        return !this.oDI.ehs() ? this.oEN.getUseCaches() : this.oEM.getUseCaches();
     }
 
     @Override // java.net.URLConnection
     public void setConnectTimeout(int i) {
-        if (!this.ooK.ebN()) {
-            this.opR.setConnectTimeout(i);
+        if (!this.oDI.ehs()) {
+            this.oEN.setConnectTimeout(i);
         } else {
-            this.opQ.setConnectTimeout(i);
+            this.oEM.setConnectTimeout(i);
         }
     }
 
     @Override // java.net.URLConnection
     public void setDefaultUseCaches(boolean z) {
-        if (!this.ooK.ebN()) {
-            this.opR.setDefaultUseCaches(z);
+        if (!this.oDI.ehs()) {
+            this.oEN.setDefaultUseCaches(z);
         } else {
-            this.opQ.setDefaultUseCaches(z);
+            this.oEM.setDefaultUseCaches(z);
         }
     }
 
     @Override // java.net.URLConnection
     public void setDoInput(boolean z) {
-        if (!this.ooK.ebN()) {
-            this.opR.setDoInput(z);
+        if (!this.oDI.ehs()) {
+            this.oEN.setDoInput(z);
         } else {
-            this.opQ.setDoInput(z);
+            this.oEM.setDoInput(z);
         }
     }
 
     @Override // java.net.URLConnection
     public void setDoOutput(boolean z) {
-        if (!this.ooK.ebN()) {
-            this.opR.setDoOutput(z);
+        if (!this.oDI.ehs()) {
+            this.oEN.setDoOutput(z);
         } else {
-            this.opQ.setDoOutput(z);
+            this.oEM.setDoOutput(z);
         }
     }
 
     @Override // java.net.URLConnection
     public void setIfModifiedSince(long j) {
-        if (!this.ooK.ebN()) {
-            this.opR.setIfModifiedSince(j);
+        if (!this.oDI.ehs()) {
+            this.oEN.setIfModifiedSince(j);
         } else {
-            this.opQ.setIfModifiedSince(j);
+            this.oEM.setIfModifiedSince(j);
         }
     }
 
     @Override // java.net.URLConnection
     public void setReadTimeout(int i) {
-        if (!this.ooK.ebN()) {
-            this.opR.setReadTimeout(i);
+        if (!this.oDI.ehs()) {
+            this.oEN.setReadTimeout(i);
         } else {
-            this.opQ.setReadTimeout(i);
+            this.oEM.setReadTimeout(i);
         }
     }
 
     @Override // java.net.URLConnection
     public final void setRequestProperty(String str, String str2) {
-        if (!this.ooK.ebN()) {
-            this.opR.setRequestProperty(str, str2);
+        if (!this.oDI.ehs()) {
+            this.oEN.setRequestProperty(str, str2);
         } else {
-            this.opQ.setRequestProperty(str, str2);
+            this.oEM.setRequestProperty(str, str2);
         }
     }
 
     @Override // java.net.URLConnection
     public void setUseCaches(boolean z) {
-        if (!this.ooK.ebN()) {
-            this.opR.setUseCaches(z);
+        if (!this.oDI.ehs()) {
+            this.oEN.setUseCaches(z);
         } else {
-            this.opQ.setUseCaches(z);
+            this.oEM.setUseCaches(z);
         }
     }
 
     @Override // java.net.HttpURLConnection
     public void disconnect() {
-        com.baidu.turbonet.base.a.d("ProxyURLConn", "disconnect by libtype: " + this.ooK.toString());
-        if (!this.ooK.ebN()) {
-            this.opR.disconnect();
+        com.baidu.turbonet.base.a.d("ProxyURLConn", "disconnect by libtype: " + this.oDI.toString());
+        if (!this.oDI.ehs()) {
+            this.oEN.disconnect();
         } else {
-            this.opQ.disconnect();
+            this.oEM.disconnect();
         }
     }
 
     @Override // java.net.HttpURLConnection
     public InputStream getErrorStream() {
-        return !this.ooK.ebN() ? this.opR.getErrorStream() : this.opQ.getErrorStream();
+        return !this.oDI.ehs() ? this.oEN.getErrorStream() : this.oEM.getErrorStream();
     }
 
     @Override // java.net.HttpURLConnection
     public boolean getInstanceFollowRedirects() {
-        return !this.ooK.ebN() ? this.opR.getInstanceFollowRedirects() : this.opQ.getInstanceFollowRedirects();
+        return !this.oDI.ehs() ? this.oEN.getInstanceFollowRedirects() : this.oEM.getInstanceFollowRedirects();
     }
 
     @Override // java.net.HttpURLConnection
     public String getRequestMethod() {
-        return !this.ooK.ebN() ? this.opR.getRequestMethod() : this.opQ.getRequestMethod();
+        return !this.oDI.ehs() ? this.oEN.getRequestMethod() : this.oEM.getRequestMethod();
     }
 
     @Override // java.net.HttpURLConnection
     public int getResponseCode() throws IOException {
         int responseCode;
-        if (!this.ooK.ebN()) {
-            responseCode = this.opR.getResponseCode();
+        if (!this.oDI.ehs()) {
+            responseCode = this.oEN.getResponseCode();
         } else {
             try {
-                responseCode = this.opQ.getResponseCode();
-                this.opP.ooW = responseCode;
-                this.opP.ebO();
+                responseCode = this.oEM.getResponseCode();
+                this.oEL.oDU = responseCode;
+                this.oEL.eht();
                 if (responseCode != 200) {
                     onComplete(0L);
                 }
@@ -342,165 +342,165 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
                 throw e;
             }
         }
-        com.baidu.turbonet.base.a.d("ProxyURLConn", "getResponseCode: " + responseCode + " by libtype: " + this.ooK.toString());
+        com.baidu.turbonet.base.a.d("ProxyURLConn", "getResponseCode: " + responseCode + " by libtype: " + this.oDI.toString());
         return responseCode;
     }
 
     @Override // java.net.HttpURLConnection
     public String getResponseMessage() throws IOException {
         String responseMessage;
-        if (!this.ooK.ebN()) {
-            responseMessage = this.opR.getResponseMessage();
+        if (!this.oDI.ehs()) {
+            responseMessage = this.oEN.getResponseMessage();
         } else {
-            responseMessage = this.opQ.getResponseMessage();
+            responseMessage = this.oEM.getResponseMessage();
         }
-        com.baidu.turbonet.base.a.d("ProxyURLConn", "getResponseMessage by libtype: " + this.ooK.toString() + " Message: " + responseMessage);
+        com.baidu.turbonet.base.a.d("ProxyURLConn", "getResponseMessage by libtype: " + this.oDI.toString() + " Message: " + responseMessage);
         return responseMessage;
     }
 
     @Override // java.net.HttpURLConnection
     public void setChunkedStreamingMode(int i) {
-        if (!this.ooK.ebN()) {
-            this.opR.setChunkedStreamingMode(i);
+        if (!this.oDI.ehs()) {
+            this.oEN.setChunkedStreamingMode(i);
         } else {
-            this.opQ.setChunkedStreamingMode(i);
+            this.oEM.setChunkedStreamingMode(i);
         }
     }
 
     @Override // java.net.HttpURLConnection
     public void setFixedLengthStreamingMode(int i) {
-        if (!this.ooK.ebN()) {
-            this.opR.setFixedLengthStreamingMode(i);
+        if (!this.oDI.ehs()) {
+            this.oEN.setFixedLengthStreamingMode(i);
         } else {
-            this.opQ.setFixedLengthStreamingMode(i);
+            this.oEM.setFixedLengthStreamingMode(i);
         }
     }
 
     @Override // java.net.HttpURLConnection
     @TargetApi(19)
     public void setFixedLengthStreamingMode(long j) {
-        if (!this.ooK.ebN()) {
-            this.opR.setFixedLengthStreamingMode(j);
+        if (!this.oDI.ehs()) {
+            this.oEN.setFixedLengthStreamingMode(j);
         } else {
-            this.opQ.setFixedLengthStreamingMode(j);
+            this.oEM.setFixedLengthStreamingMode(j);
         }
     }
 
     @Override // java.net.HttpURLConnection
     public void setInstanceFollowRedirects(boolean z) {
-        if (!this.ooK.ebN()) {
-            this.opR.setInstanceFollowRedirects(z);
+        if (!this.oDI.ehs()) {
+            this.oEN.setInstanceFollowRedirects(z);
         } else {
-            this.opQ.setInstanceFollowRedirects(z);
+            this.oEM.setInstanceFollowRedirects(z);
         }
     }
 
     @Override // java.net.HttpURLConnection
     public void setRequestMethod(String str) throws ProtocolException {
-        if (!this.ooK.ebN()) {
-            this.opR.setRequestMethod(str);
+        if (!this.oDI.ehs()) {
+            this.oEN.setRequestMethod(str);
             return;
         }
-        this.opQ.setRequestMethod(str);
-        this.opP.dQM = str;
+        this.oEM.setRequestMethod(str);
+        this.oEL.dXK = str;
     }
 
     @Override // java.net.HttpURLConnection
     public boolean usingProxy() {
-        return !this.ooK.ebN() ? this.opR.usingProxy() : this.opQ.usingProxy();
+        return !this.oDI.ehs() ? this.oEN.usingProxy() : this.oEM.usingProxy();
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public String getCipherSuite() {
-        if (this.opQ instanceof HttpsURLConnection) {
-            return ((HttpsURLConnection) this.opQ).getCipherSuite();
+        if (this.oEM instanceof HttpsURLConnection) {
+            return ((HttpsURLConnection) this.oEM).getCipherSuite();
         }
         return null;
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public HostnameVerifier getHostnameVerifier() {
-        if (this.opQ instanceof HttpsURLConnection) {
-            return ((HttpsURLConnection) this.opQ).getHostnameVerifier();
+        if (this.oEM instanceof HttpsURLConnection) {
+            return ((HttpsURLConnection) this.oEM).getHostnameVerifier();
         }
         return null;
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public Certificate[] getLocalCertificates() {
-        if (this.opQ instanceof HttpsURLConnection) {
-            return ((HttpsURLConnection) this.opQ).getLocalCertificates();
+        if (this.oEM instanceof HttpsURLConnection) {
+            return ((HttpsURLConnection) this.oEM).getLocalCertificates();
         }
         return null;
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public Principal getLocalPrincipal() {
-        if (this.opQ instanceof HttpsURLConnection) {
-            return ((HttpsURLConnection) this.opQ).getLocalPrincipal();
+        if (this.oEM instanceof HttpsURLConnection) {
+            return ((HttpsURLConnection) this.oEM).getLocalPrincipal();
         }
         return null;
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public Principal getPeerPrincipal() throws SSLPeerUnverifiedException {
-        if (this.opQ instanceof HttpsURLConnection) {
-            return ((HttpsURLConnection) this.opQ).getPeerPrincipal();
+        if (this.oEM instanceof HttpsURLConnection) {
+            return ((HttpsURLConnection) this.oEM).getPeerPrincipal();
         }
         return null;
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public SSLSocketFactory getSSLSocketFactory() {
-        if (this.opQ instanceof HttpsURLConnection) {
-            return ((HttpsURLConnection) this.opQ).getSSLSocketFactory();
+        if (this.oEM instanceof HttpsURLConnection) {
+            return ((HttpsURLConnection) this.oEM).getSSLSocketFactory();
         }
         return null;
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public Certificate[] getServerCertificates() throws SSLPeerUnverifiedException {
-        if (this.opQ instanceof HttpsURLConnection) {
-            return ((HttpsURLConnection) this.opQ).getServerCertificates();
+        if (this.oEM instanceof HttpsURLConnection) {
+            return ((HttpsURLConnection) this.oEM).getServerCertificates();
         }
         return null;
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public void setHostnameVerifier(HostnameVerifier hostnameVerifier) {
-        if (this.opQ instanceof HttpsURLConnection) {
-            ((HttpsURLConnection) this.opQ).setHostnameVerifier(hostnameVerifier);
+        if (this.oEM instanceof HttpsURLConnection) {
+            ((HttpsURLConnection) this.oEM).setHostnameVerifier(hostnameVerifier);
         }
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public void setSSLSocketFactory(SSLSocketFactory sSLSocketFactory) {
-        if (this.opQ instanceof HttpsURLConnection) {
-            ((HttpsURLConnection) this.opQ).setSSLSocketFactory(sSLSocketFactory);
+        if (this.oEM instanceof HttpsURLConnection) {
+            ((HttpsURLConnection) this.oEM).setSSLSocketFactory(sSLSocketFactory);
         }
     }
 
     @Override // com.baidu.turbonet.net.proxy.b
     public void a(Exception exc, long j) {
-        this.opP.ooX = j;
-        this.opP.ebP();
-        this.opP.A(exc);
-        this.opP.a(this.opz);
+        this.oEL.oDV = j;
+        this.oEL.ehu();
+        this.oEL.A(exc);
+        this.oEL.a(this.oEw);
     }
 
     @Override // com.baidu.turbonet.net.proxy.b
     public void onComplete(long j) {
-        this.opP.ooX = j;
-        this.opP.ebP();
-        this.opP.ooV = 0;
-        this.opP.a(this.opz);
+        this.oEL.oDV = j;
+        this.oEL.ehu();
+        this.oEL.oDT = 0;
+        this.oEL.a(this.oEw);
     }
 
     @Override // com.baidu.turbonet.net.proxy.b
-    public void hq(long j) {
-        this.opP.ooX = j;
-        this.opP.ebP();
-        this.opP.ooV = -12;
-        this.opP.a(this.opz);
+    public void hV(long j) {
+        this.oEL.oDV = j;
+        this.oEL.ehu();
+        this.oEL.oDT = -12;
+        this.oEL.a(this.oEw);
     }
 }

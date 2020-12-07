@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.webkit.WebView;
-import com.baidu.k.a.a;
+import com.baidu.l.a.a;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.BaseActivity;
@@ -26,11 +26,11 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class AuthActivity extends BaseActivity {
     private String authToken;
     private String bduss;
-    private SapiResult ljE = new SapiResult();
+    private SapiResult lxd = new SapiResult();
     private String tpl;
     private int type;
 
@@ -40,13 +40,13 @@ public class AuthActivity extends BaseActivity {
         super.onCreate(bundle);
         try {
             setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
-            PassManagerStatic.dgH();
+            PassManagerStatic.dlT();
             init();
             setupViews();
         } catch (Throwable th) {
             reportWebviewError(th);
-            this.ljE.setResultCode(-202);
-            this.ljE.setResultMsg("网络连接失败，请检查网络设置");
+            this.lxd.setResultCode(-202);
+            this.lxd.setResultMsg("网络连接失败，请检查网络设置");
             x(false, null);
         }
     }
@@ -60,21 +60,21 @@ public class AuthActivity extends BaseActivity {
             this.authToken = getIntent().getStringExtra("EXTRA_AUTH_TOKEN");
             this.tpl = SapiAccountManager.getInstance().getSapiConfiguration().getTpl();
             if (TextUtils.isEmpty(this.authToken) || TextUtils.isEmpty(this.tpl)) {
-                this.ljE.setResultCode(-204);
-                this.ljE.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+                this.lxd.setResultCode(-204);
+                this.lxd.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
                 x(false, null);
             }
         } else if (this.type == 1 || this.type == 2) {
             this.bduss = getIntent().getStringExtra("EXTRA_BDUSS");
             this.tpl = SapiAccountManager.getInstance().getSapiConfiguration().getTpl();
             if (TextUtils.isEmpty(this.bduss)) {
-                this.ljE.setResultCode(-204);
-                this.ljE.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+                this.lxd.setResultCode(-204);
+                this.lxd.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
                 x(false, null);
             }
         } else {
-            this.ljE.setResultCode(-204);
-            this.ljE.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+            this.lxd.setResultCode(-204);
+            this.lxd.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
             x(false, null);
         }
     }
@@ -83,7 +83,7 @@ public class AuthActivity extends BaseActivity {
         return new String(Base64.decode(str.getBytes(), 0));
     }
 
-    private String dgs() {
+    private String dlE() {
         ArrayList arrayList = new ArrayList();
         try {
             arrayList.add(new PassNameValuePair("adapter", URLEncoder.encode("3", "UTF-8")));
@@ -91,17 +91,17 @@ public class AuthActivity extends BaseActivity {
             arrayList.add(new PassNameValuePair("isnew", "true"));
             arrayList.add(new PassNameValuePair("token", URLEncoder.encode(this.authToken, "UTF-8")));
             arrayList.add(new PassNameValuePair("tpl", URLEncoder.encode(this.tpl, "UTF-8")));
-            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(f.l) + "?__wp-action" + ETAG.EQUAL + "auth-widget", "UTF-8")));
+            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(f.l) + "?__wp-action=auth-widget", "UTF-8")));
         } catch (UnsupportedEncodingException e) {
             Log.e(e);
         }
         return (SapiAccountManager.getInstance().getConfignation().getEnvironment().getWap() + "/passport/authwidget") + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
-    private String dgt() {
+    private String dlF() {
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(f.l) + "?__wp-action" + ETAG.EQUAL + "modify-pwd", "UTF-8")));
+            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(f.l) + "?__wp-action=modify-pwd", "UTF-8")));
             arrayList.add(new PassNameValuePair("adapter", "3"));
             arrayList.add(new PassNameValuePair("banner", "1"));
             arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
@@ -118,7 +118,7 @@ public class AuthActivity extends BaseActivity {
         return str;
     }
 
-    private List<PassNameValuePair> dgu() {
+    private List<PassNameValuePair> dlG() {
         Domain environment = SapiAccountManager.getInstance().getConfignation().getEnvironment();
         String buildBDUSSCookie = SapiUtils.buildBDUSSCookie(environment.getWap().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", ""), "BIND_BDUSS", "");
         ArrayList arrayList = new ArrayList();
@@ -164,11 +164,11 @@ public class AuthActivity extends BaseActivity {
                 public void onPageFinished(WebView webView, String str) {
                 }
             });
-            this.sapiWebView.loadUrl(dgs());
+            this.sapiWebView.loadUrl(dlE());
         } else if (this.type == 1) {
             setTitleText(a.g.sapi_sdk_title_modify_pwd);
             SapiAccountManager.getInstance().getAccountService().webLogin(this, this.bduss);
-            this.sapiWebView.loadUrl(dgt(), dgu());
+            this.sapiWebView.loadUrl(dlF(), dlG());
             this.sapiWebView.setChangePwdCallback(new SapiWebView.ChangePwdCallback() { // from class: com.baidu.tieba.passaccount.app.AuthActivity.4
                 @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
                 public void onSuccess() {
@@ -196,8 +196,8 @@ public class AuthActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
-        this.ljE.setResultCode(-301);
-        this.ljE.setResultMsg("流程已结束");
+        this.lxd.setResultCode(-301);
+        this.lxd.setResultMsg("流程已结束");
         x(false, null);
     }
 
@@ -213,13 +213,13 @@ public class AuthActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void x(boolean z, String str) {
         if (this.type == 0) {
-            b.dgM().z(z, str);
+            b.dlY().z(z, str);
         } else if (this.type == 1) {
-            b.dgM().tK(z);
+            b.dlY().um(z);
         } else if (this.type == 2) {
-            b.dgM().tL(z);
+            b.dlY().un(z);
         } else {
-            b.dgM().a((j.c) null);
+            b.dlY().a((j.c) null);
         }
         finish();
     }

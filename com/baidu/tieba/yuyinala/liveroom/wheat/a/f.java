@@ -13,18 +13,18 @@ import com.baidu.android.imrtc.utils.IStatusListener;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes4.dex */
 public class f {
-    private final int aAQ = 3;
-    private Handler aAR;
-    private IStatusListener aAT;
-    private IStatusListener aAU;
-    private IStatusListener aAV;
-    private IStatusListener aAW;
-    private IStatusListener aAY;
-    private IStatusListener aBa;
-    private BIMRtcTokenListener oeD;
+    private IStatusListener aDA;
+    private IStatusListener aDB;
+    private IStatusListener aDD;
+    private IStatusListener aDF;
+    private final int aDv = 3;
+    private Handler aDw;
+    private IStatusListener aDy;
+    private IStatusListener aDz;
+    private BIMRtcTokenListener otD;
 
     public f(Handler handler) {
-        this.aAR = handler;
+        this.aDw = handler;
     }
 
     public void generateToken(@NonNull final Context context, final String str, final String str2, final long j, @NonNull final BIMRtcTokenListener bIMRtcTokenListener) {
@@ -33,7 +33,7 @@ public class f {
             return;
         }
         final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.oeD = new BIMRtcTokenListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.1
+        this.otD = new BIMRtcTokenListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.1
             @Override // com.baidu.android.imrtc.request.BIMRtcTokenListener
             public void onResult(int i, String str3, @NonNull BIMRtcTokenListener.BIMRTCGetTokeResult bIMRTCGetTokeResult) {
                 if (i == 0) {
@@ -44,7 +44,7 @@ public class f {
                     if (f.this.b(i, new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            BIMRtcClient.generateToken(context, str, str2, j, f.this.oeD);
+                            BIMRtcClient.generateToken(context, str, str2, j, f.this.otD);
                         }
                     })) {
                         atomicInteger.incrementAndGet();
@@ -56,7 +56,7 @@ public class f {
                 }
             }
         };
-        BIMRtcClient.generateToken(context, str, str2, j, this.oeD);
+        BIMRtcClient.generateToken(context, str, str2, j, this.otD);
     }
 
     public void join(@NonNull final Context context, @NonNull final String str, final IStatusListener iStatusListener) {
@@ -65,18 +65,18 @@ public class f {
             return;
         }
         final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.aAT = new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.2
+        this.aDy = new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.2
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str2) {
                 f.this.a(i, str2, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.2.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        BIMRtcClient.join(context, str, f.this.aAT);
+                        BIMRtcClient.join(context, str, f.this.aDy);
                     }
                 });
             }
         };
-        BIMRtcClient.join(context, str, this.aAT);
+        BIMRtcClient.join(context, str, this.aDy);
     }
 
     public void invite(@NonNull final Context context, @NonNull final BIMInviteRtcInfo bIMInviteRtcInfo, final IStatusListener iStatusListener) {
@@ -85,18 +85,18 @@ public class f {
             return;
         }
         final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.aAV = new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.3
+        this.aDA = new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.3
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str) {
                 f.this.a(i, str, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.3.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        BIMRtcClient.invite(context, bIMInviteRtcInfo, f.this.aAV);
+                        BIMRtcClient.invite(context, bIMInviteRtcInfo, f.this.aDA);
                     }
                 });
             }
         };
-        BIMRtcClient.invite(context, bIMInviteRtcInfo, this.aAV);
+        BIMRtcClient.invite(context, bIMInviteRtcInfo, this.aDA);
     }
 
     public void answer(@NonNull final Context context, @NonNull final BIMAnswerRtcInfo bIMAnswerRtcInfo, final IStatusListener iStatusListener) {
@@ -105,18 +105,18 @@ public class f {
             return;
         }
         final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.aAW = new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.4
+        this.aDB = new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.4
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str) {
                 f.this.a(i, str, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.4.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        BIMRtcClient.answer(context, bIMAnswerRtcInfo, f.this.aAW);
+                        BIMRtcClient.answer(context, bIMAnswerRtcInfo, f.this.aDB);
                     }
                 });
             }
         };
-        BIMRtcClient.answer(context, bIMAnswerRtcInfo, this.aAW);
+        BIMRtcClient.answer(context, bIMAnswerRtcInfo, this.aDB);
     }
 
     public void hangout(@NonNull final Context context, @NonNull final String str, final IStatusListener iStatusListener) {
@@ -125,18 +125,18 @@ public class f {
             return;
         }
         final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.aAY = new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.5
+        this.aDD = new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.5
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str2) {
                 f.this.a(i, str2, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.5.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        BIMRtcClient.hangout(context, str, f.this.aAY);
+                        BIMRtcClient.hangout(context, str, f.this.aDD);
                     }
                 });
             }
         };
-        BIMRtcClient.hangout(context, str, this.aAY);
+        BIMRtcClient.hangout(context, str, this.aDD);
     }
 
     public void closeRoom(@NonNull final Context context, @NonNull final BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo, final IStatusListener iStatusListener) {
@@ -145,18 +145,18 @@ public class f {
             return;
         }
         final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.aBa = new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.6
+        this.aDF = new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.6
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str) {
                 f.this.a(i, str, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.6.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        BIMRtcClient.closeRoom(context, bIMCloseRoomRtcInfo, f.this.aBa);
+                        BIMRtcClient.closeRoom(context, bIMCloseRoomRtcInfo, f.this.aDF);
                     }
                 });
             }
         };
-        BIMRtcClient.closeRoom(context, bIMCloseRoomRtcInfo, this.aBa);
+        BIMRtcClient.closeRoom(context, bIMCloseRoomRtcInfo, this.aDF);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -178,49 +178,49 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean b(int i, Runnable runnable) {
-        if (this.aAR == null) {
+        if (this.aDw == null) {
             return false;
         }
         boolean z = true;
         switch (i) {
             case -1:
-                this.aAR.post(runnable);
+                this.aDw.post(runnable);
                 break;
             case 1004:
-                this.aAR.post(runnable);
+                this.aDw.post(runnable);
                 break;
             case 1005:
-                this.aAR.post(runnable);
+                this.aDw.post(runnable);
                 break;
             case 5010:
-                this.aAR.post(runnable);
+                this.aDw.post(runnable);
                 break;
             case 5011:
-                this.aAR.postDelayed(runnable, 1000L);
+                this.aDw.postDelayed(runnable, 1000L);
                 break;
             case 5012:
-                this.aAR.postDelayed(runnable, 1000L);
+                this.aDw.postDelayed(runnable, 1000L);
                 break;
             case 5013:
-                this.aAR.postDelayed(runnable, 1000L);
+                this.aDw.postDelayed(runnable, 1000L);
                 break;
             case 5014:
-                this.aAR.post(runnable);
+                this.aDw.post(runnable);
                 break;
             case 5015:
-                this.aAR.post(runnable);
+                this.aDw.post(runnable);
                 break;
             case 5016:
-                this.aAR.post(runnable);
+                this.aDw.post(runnable);
                 break;
             case 5017:
-                this.aAR.post(runnable);
+                this.aDw.post(runnable);
                 break;
             case 5018:
-                this.aAR.post(runnable);
+                this.aDw.post(runnable);
                 break;
             case 5022:
-                this.aAR.post(runnable);
+                this.aDw.post(runnable);
                 break;
             default:
                 z = false;
@@ -230,23 +230,23 @@ public class f {
     }
 
     public void release() {
-        if (this.aAT != null) {
-            this.aAT = null;
+        if (this.aDy != null) {
+            this.aDy = null;
         }
-        if (this.aAV != null) {
-            this.aAV = null;
+        if (this.aDA != null) {
+            this.aDA = null;
         }
-        if (this.aAU != null) {
-            this.aAU = null;
+        if (this.aDz != null) {
+            this.aDz = null;
         }
-        if (this.aAY != null) {
-            this.aAY = null;
+        if (this.aDD != null) {
+            this.aDD = null;
         }
-        if (this.aBa != null) {
-            this.aBa = null;
+        if (this.aDF != null) {
+            this.aDF = null;
         }
-        if (this.aAW != null) {
-            this.aAW = null;
+        if (this.aDB != null) {
+            this.aDB = null;
         }
     }
 }

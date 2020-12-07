@@ -14,11 +14,10 @@ import com.baidu.android.imrtc.utils.RtcConstants;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.IConnectListener;
 import com.baidu.android.imsdk.mcast.ILiveMsgReceiveListener;
-import com.baidu.live.alablmsdk.a.b;
-import com.baidu.live.alablmsdk.a.f;
+import com.baidu.live.alablmsdk.a.b.d;
+import com.baidu.live.alablmsdk.a.e;
 import com.baidu.live.alablmsdk.b.b;
 import com.baidu.live.alablmsdk.module.UserPermission;
-import com.baidu.live.alablmsdk.module.d;
 import com.baidu.live.alablmsdk.module.rtc.BLMStreamState;
 import com.baidu.live.alablmsdk.module.state.BLMLegacyRoomStatus;
 import com.baidu.live.alablmsdk.module.state.BLMRtcState;
@@ -29,71 +28,73 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class c implements BIMRtcListener, IConnectListener, ILiveMsgReceiveListener, b.a, b.a, com.baidu.live.alablmsdk.c.b.a {
-    private com.baidu.live.alablmsdk.c.b ayF;
-    private com.baidu.live.alablmsdk.c.c azA;
-    private com.baidu.live.alablmsdk.e.b azk;
-    public com.baidu.live.alablmsdk.module.a azp;
-    private a azv;
-    private b azw;
-    private com.baidu.live.alablmsdk.d.c azx;
-    private com.baidu.live.alablmsdk.d.b azy;
-    private com.baidu.live.alablmsdk.d.a azz;
+public class c implements BIMRtcListener, IConnectListener, ILiveMsgReceiveListener, d, b.a, com.baidu.live.alablmsdk.c.b.a {
+    private com.baidu.live.alablmsdk.c.b aAX;
+    private com.baidu.live.alablmsdk.e.b aBO;
+    public com.baidu.live.alablmsdk.module.a aBT;
+    private a aBZ;
+    private b aCa;
+    private com.baidu.live.alablmsdk.d.c aCb;
+    private com.baidu.live.alablmsdk.d.b aCc;
+    private com.baidu.live.alablmsdk.d.a aCd;
+    private com.baidu.live.alablmsdk.c.c aCe;
+    private boolean aCf;
     private Context mContext;
 
     public c(Context context) {
         this.mContext = context;
-        com.baidu.live.alablmsdk.a.b.a(this);
-        this.azk = new com.baidu.live.alablmsdk.e.b(context, this);
-        this.azv = new a(this.azk);
-        this.azv.AO();
-        this.azw = new b(this);
-        this.azx = new com.baidu.live.alablmsdk.d.c(context);
-        this.azx.a(this);
-        this.azy = new com.baidu.live.alablmsdk.d.b(this.azx);
-        this.azz = new com.baidu.live.alablmsdk.d.a(context, this.azx);
+        com.baidu.live.alablmsdk.a.b.a.a(this);
+        com.baidu.live.alablmsdk.a.b.c.BY().b(this);
+        this.aBO = new com.baidu.live.alablmsdk.e.b(context, this);
+        this.aBZ = new a(this.aBO);
+        this.aBZ.Cw();
+        this.aCa = new b(this);
+        this.aCb = new com.baidu.live.alablmsdk.d.c(context);
+        this.aCb.a(this);
+        this.aCc = new com.baidu.live.alablmsdk.d.b(this.aCb);
+        this.aCd = new com.baidu.live.alablmsdk.d.a(context, this.aCb);
         BIMManager.registerConnectListenerToList(this);
         BIMManager.registerStudioUsePaReceiveMsg(this.mContext, this);
     }
 
     public void a(com.baidu.live.alablmsdk.c.b bVar) {
-        this.ayF = bVar;
+        this.aAX = bVar;
     }
 
     public void v(HashMap<String, Object> hashMap) {
-        this.azw.w(hashMap);
-        this.azx.v(hashMap);
-        this.azk.v(hashMap);
+        this.aCa.w(hashMap);
+        this.aCb.v(hashMap);
+        this.aBO.v(hashMap);
     }
 
     public void a(com.baidu.live.alablmsdk.config.a aVar) {
-        this.azx.a(aVar);
+        this.aCb.a(aVar);
     }
 
-    public com.baidu.live.alablmsdk.d.a Av() {
-        return this.azz;
+    public com.baidu.live.alablmsdk.d.a BR() {
+        return this.aCd;
     }
 
     public void a(final com.baidu.live.alablmsdk.c.a aVar) {
-        this.azk.a(new BIMRtcTokenListener() { // from class: com.baidu.live.alablmsdk.b.c.1
+        this.aBO.a(new BIMRtcTokenListener() { // from class: com.baidu.live.alablmsdk.b.c.1
             @Override // com.baidu.android.imrtc.request.BIMRtcTokenListener
             public void onResult(int i, String str, final BIMRtcTokenListener.BIMRTCGetTokeResult bIMRTCGetTokeResult) {
                 if (aVar != null) {
-                    com.baidu.live.alablmsdk.a.b.d("createRoom onResult responseCode = " + i + " , errorMessage = " + str);
-                    com.baidu.live.alablmsdk.a.b.fD("createRoom onResult code " + i + " message " + str);
-                    if (com.baidu.live.alablmsdk.a.b.isDebug()) {
-                        com.baidu.live.alablmsdk.a.b.d("createRoom onResult :   roomId=" + bIMRTCGetTokeResult.roomId + " , token=" + bIMRTCGetTokeResult.token + " , rtcAppId=" + bIMRTCGetTokeResult.rtcAppId + " , useId=" + bIMRTCGetTokeResult.useId);
+                    com.baidu.live.alablmsdk.a.b.a.d("createRoom onResult responseCode = " + i + " , errorMessage = " + str);
+                    com.baidu.live.alablmsdk.a.b.a.fY("createRoom onResult code " + i + " message " + str);
+                    if (com.baidu.live.alablmsdk.a.b.a.isDebug()) {
+                        com.baidu.live.alablmsdk.a.b.a.d("createRoom onResult :   roomId=" + bIMRTCGetTokeResult.roomId + " , token=" + bIMRTCGetTokeResult.token + " , rtcAppId=" + bIMRTCGetTokeResult.rtcAppId + " , useId=" + bIMRTCGetTokeResult.useId);
                     }
                     if (i == 0 && bIMRTCGetTokeResult != null && !TextUtils.isEmpty(bIMRTCGetTokeResult.roomId) && !TextUtils.isEmpty(bIMRTCGetTokeResult.token) && !TextUtils.isEmpty(bIMRTCGetTokeResult.rtcAppId) && bIMRTCGetTokeResult.useId != -1) {
-                        c.this.b(bIMRTCGetTokeResult.roomId, bIMRTCGetTokeResult.token, bIMRTCGetTokeResult.rtcAppId, bIMRTCGetTokeResult.useId);
-                        c.this.azk.join(bIMRTCGetTokeResult.roomId, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.c.1.1
+                        c.this.c(bIMRTCGetTokeResult.roomId, bIMRTCGetTokeResult.token, bIMRTCGetTokeResult.rtcAppId, bIMRTCGetTokeResult.useId);
+                        c.this.aBO.join(bIMRTCGetTokeResult.roomId, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.c.1.1
                             @Override // com.baidu.android.imrtc.utils.IStatusListener
                             public void onResult(int i2, String str2) {
-                                com.baidu.live.alablmsdk.a.b.d(" signal join onResult , responseCode=" + i2 + " , errorMessage=" + str2);
-                                com.baidu.live.alablmsdk.a.b.fD(" signal join onResult code " + i2 + " message " + str2);
+                                com.baidu.live.alablmsdk.a.b.a.d(" signal join onResult , responseCode=" + i2 + " , errorMessage=" + str2);
+                                com.baidu.live.alablmsdk.a.b.a.fY(" signal join onResult code " + i2 + " message " + str2);
                                 if (i2 == 0) {
-                                    if (c.this.azp != null) {
-                                        c.this.azp.a(BLMSignalState.JOINED);
+                                    if (c.this.aBT != null) {
+                                        c.this.aBT.a(BLMSignalState.JOINED);
                                     }
                                     aVar.c(bIMRTCGetTokeResult.roomId, 0, "create signal room suc");
                                     return;
@@ -110,93 +111,114 @@ public class c implements BIMRtcListener, IConnectListener, ILiveMsgReceiveListe
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(String str, String str2, String str3, long j) {
-        this.azp = new com.baidu.live.alablmsdk.module.a();
-        this.azp.roomId = str;
-        this.azp.token = str2;
-        this.azp.rtcAppId = str3;
-        this.azp.azK = j;
-        d dVar = new d();
+    public void c(String str, String str2, String str3, long j) {
+        this.aBT = new com.baidu.live.alablmsdk.module.a();
+        this.aBT.roomId = str;
+        this.aBT.token = str2;
+        this.aBT.rtcAppId = str3;
+        this.aBT.aCp = j;
+        com.baidu.live.alablmsdk.module.d dVar = new com.baidu.live.alablmsdk.module.d();
         com.baidu.live.alablmsdk.module.c cVar = new com.baidu.live.alablmsdk.module.c();
-        cVar.azK = j;
-        cVar.azP = UserPermission.OWNER;
-        dVar.azS = cVar;
-        this.azp.azL = dVar;
-        if (this.azv != null) {
-            a aVar = this.azv;
-            a.fE(this.azp.roomId);
-            this.azv.a(str, this.azp.AZ());
+        cVar.aCp = j;
+        cVar.aCu = UserPermission.OWNER;
+        dVar.aCy = cVar;
+        this.aBT.aCq = dVar;
+        com.baidu.live.alablmsdk.a.b.c.BY().setRtcRoomId(this.aBT.roomId);
+        if (this.aBZ != null) {
+            a aVar = this.aBZ;
+            a.ga(this.aBT.roomId);
+            this.aBZ.a(str, this.aBT.CH());
         }
-        com.baidu.live.alablmsdk.module.b.Bg().c(this.azp);
-        if (this.azw != null) {
-            this.azw.a(this.azp);
+        com.baidu.live.alablmsdk.module.b.CP().c(this.aBT);
+        if (this.aCa != null) {
+            this.aCa.a(this.aBT);
         }
     }
 
-    public void a(String str, List<com.baidu.live.alablmsdk.module.c> list, JSONObject jSONObject, final com.baidu.live.alablmsdk.c.c cVar) {
-        this.azk.c(str, list, jSONObject, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.alablmsdk.b.c.3
+    public void a(String str, final List<com.baidu.live.alablmsdk.module.c> list, JSONObject jSONObject, final com.baidu.live.alablmsdk.c.c cVar) {
+        this.aBO.c(str, list, jSONObject, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.alablmsdk.b.c.3
             @Override // com.baidu.live.alablmsdk.c.c
-            public void e(int i, int i2, String str2) {
+            public void f(int i, int i2, String str2) {
+                if (i2 == 0 && c.this.aBT != null && !com.baidu.live.alablmsdk.a.a.isEmpty(list)) {
+                    int i3 = 0;
+                    while (true) {
+                        int i4 = i3;
+                        if (i4 >= list.size()) {
+                            break;
+                        }
+                        com.baidu.live.alablmsdk.module.c cVar2 = (com.baidu.live.alablmsdk.module.c) list.get(i4);
+                        if (cVar2 != null) {
+                            com.baidu.live.alablmsdk.module.d dVar = new com.baidu.live.alablmsdk.module.d();
+                            dVar.aCy = cVar2.clone();
+                            if (c.this.aBT.CM() != null) {
+                                dVar.aCy.aCw = c.this.aBT.CM().aCp;
+                            }
+                            dVar.b(BLMRtcState.DEFAULT);
+                            c.this.aBT.a(dVar, BLMStateType.SIGNAL);
+                        }
+                        i3 = i4 + 1;
+                    }
+                }
                 if (cVar != null) {
-                    cVar.e(i, i2, str2);
+                    cVar.f(i, i2, str2);
                 }
             }
         });
     }
 
     public void b(String str, final List<com.baidu.live.alablmsdk.module.c> list, JSONObject jSONObject, final com.baidu.live.alablmsdk.c.c cVar) {
-        this.azk.d(str, list, jSONObject, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.alablmsdk.b.c.4
+        this.aBO.d(str, list, jSONObject, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.alablmsdk.b.c.4
             @Override // com.baidu.live.alablmsdk.c.c
-            public void e(int i, int i2, String str2) {
-                if ((i2 == 0 || i2 == -1) && c.this.azp != null) {
-                    c.this.azp.t(list);
-                    if (c.this.azp.Bc()) {
-                        c.this.AX();
+            public void f(int i, int i2, String str2) {
+                if ((i2 == 0 || i2 == -1) && c.this.aBT != null) {
+                    c.this.aBT.u(list);
+                    if (c.this.aBT.CL()) {
+                        c.this.CF();
                     }
                 }
                 if (cVar != null) {
-                    cVar.e(i, i2, str2);
+                    cVar.f(i, i2, str2);
                 }
             }
         });
     }
 
     public void a(final String str, JSONObject jSONObject, final com.baidu.live.alablmsdk.c.c cVar) {
-        com.baidu.live.alablmsdk.a.b.ag(" acceptRoom ", " , extJson=" + jSONObject);
-        this.azk.e(str, n(jSONObject), new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.alablmsdk.b.c.5
+        com.baidu.live.alablmsdk.a.b.a.ak(" acceptRoom ", " , extJson=" + jSONObject);
+        this.aBO.e(str, n(jSONObject), new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.alablmsdk.b.c.5
             @Override // com.baidu.live.alablmsdk.c.c
-            public void e(int i, int i2, String str2) {
+            public void f(int i, int i2, String str2) {
                 if (i2 == 0) {
-                    com.baidu.live.alablmsdk.module.b.Bg().a(str, BLMSignalState.JOINED);
-                    c.this.b(str, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.alablmsdk.b.c.5.1
+                    com.baidu.live.alablmsdk.module.b.CP().a(str, BLMSignalState.JOINED);
+                    c.this.a(str, false, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.alablmsdk.b.c.5.1
                         @Override // com.baidu.live.alablmsdk.c.c
-                        public void e(int i3, int i4, String str3) {
-                            com.baidu.live.alablmsdk.a.b.d(" visiter join room， status=" + i4 + " , msg" + str3);
-                            com.baidu.live.alablmsdk.a.b.fD(" visiter join room， status " + i4 + " msg " + str3);
+                        public void f(int i3, int i4, String str3) {
+                            com.baidu.live.alablmsdk.a.b.a.d(" visiter join room， status=" + i4 + " , msg" + str3);
+                            com.baidu.live.alablmsdk.a.b.a.fY(" visiter join room， status " + i4 + " msg " + str3);
                             if (i4 == 0) {
-                                com.baidu.live.alablmsdk.module.b.Bg().a(str, BLMRtcState.JOINED);
+                                com.baidu.live.alablmsdk.module.b.CP().a(str, BLMRtcState.JOINED);
                                 if (cVar != null) {
-                                    cVar.e(4, 0, "acceptRoom join rtc room success");
+                                    cVar.f(4, 0, "acceptRoom join rtc room success");
                                     return;
                                 }
                                 return;
                             }
-                            com.baidu.live.alablmsdk.module.b.Bg().a(str, BLMRtcState.FAIL);
-                            c.this.fF(str);
-                            com.baidu.live.alablmsdk.a.b.d("acceptRoom join rtc room error ; msg = " + str3);
-                            com.baidu.live.alablmsdk.a.b.fD("acceptRoom join rtc room error msg " + str3);
+                            com.baidu.live.alablmsdk.module.b.CP().a(str, BLMRtcState.FAIL);
+                            c.this.gb(str);
+                            com.baidu.live.alablmsdk.a.b.a.d("acceptRoom join rtc room error ; msg = " + str3);
+                            com.baidu.live.alablmsdk.a.b.a.fY("acceptRoom join rtc room error msg " + str3);
                             if (cVar != null) {
-                                cVar.e(4, -1, "acceptRoom join rtc room error ; msg = " + str3);
+                                cVar.f(4, -1, "acceptRoom join rtc room error ; msg = " + str3);
                             }
                         }
                     });
                     return;
                 }
-                com.baidu.live.alablmsdk.a.b.d("acceptRoom join signal room error ; msg = " + str2);
-                com.baidu.live.alablmsdk.a.b.fD("acceptRoom join signal room error msg " + str2);
-                c.this.AX();
+                com.baidu.live.alablmsdk.a.b.a.d("acceptRoom join signal room error ; msg = " + str2);
+                com.baidu.live.alablmsdk.a.b.a.fY("acceptRoom join signal room error msg " + str2);
+                c.this.CF();
                 if (cVar != null) {
-                    cVar.e(4, -1, "acceptRoom join signal room error ; msg = " + str2);
+                    cVar.f(4, -1, "acceptRoom join signal room error ; msg = " + str2);
                 }
             }
         });
@@ -204,11 +226,11 @@ public class c implements BIMRtcListener, IConnectListener, ILiveMsgReceiveListe
 
     private JSONObject n(JSONObject jSONObject) {
         com.baidu.live.alablmsdk.module.a.a aVar = new com.baidu.live.alablmsdk.module.a.a();
-        if (this.azp != null && this.azp.azL != null && this.azp.azL.azS != null) {
+        if (this.aBT != null && this.aBT.aCq != null && this.aBT.aCq.aCy != null) {
             com.baidu.live.alablmsdk.module.a.b bVar = new com.baidu.live.alablmsdk.module.a.b();
-            bVar.azK = this.azp.azL.azS.azK;
-            bVar.order = this.azp.azL.azS.order;
-            aVar.azY = com.baidu.live.alablmsdk.module.a.b.a(bVar);
+            bVar.aCp = this.aBT.aCq.aCy.aCp;
+            bVar.order = this.aBT.aCq.aCy.order;
+            aVar.aCE = com.baidu.live.alablmsdk.module.a.b.a(bVar);
         }
         JSONObject n = aVar.n(jSONObject);
         if (n == null) {
@@ -218,12 +240,12 @@ public class c implements BIMRtcListener, IConnectListener, ILiveMsgReceiveListe
     }
 
     public void b(String str, JSONObject jSONObject, final com.baidu.live.alablmsdk.c.c cVar) {
-        this.azk.f(str, n(jSONObject), new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.alablmsdk.b.c.6
+        this.aBO.f(str, n(jSONObject), new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.alablmsdk.b.c.6
             @Override // com.baidu.live.alablmsdk.c.c
-            public void e(int i, int i2, String str2) {
-                c.this.AX();
+            public void f(int i, int i2, String str2) {
+                c.this.CF();
                 if (cVar != null) {
-                    cVar.e(i, i2, str2);
+                    cVar.f(i, i2, str2);
                 }
             }
         });
@@ -231,240 +253,269 @@ public class c implements BIMRtcListener, IConnectListener, ILiveMsgReceiveListe
 
     public void a(final String str, com.baidu.live.alablmsdk.module.c cVar, final com.baidu.live.alablmsdk.c.c cVar2) {
         a(cVar);
-        b(str, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.alablmsdk.b.c.7
+        a(str, true, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.alablmsdk.b.c.7
             @Override // com.baidu.live.alablmsdk.c.c
-            public void e(int i, int i2, String str2) {
-                com.baidu.live.alablmsdk.a.b.d(" owner join room， status=" + i2 + " , msg" + str2);
-                com.baidu.live.alablmsdk.a.b.fD(" owner join room status " + i2 + " msg" + str2);
+            public void f(int i, int i2, String str2) {
+                com.baidu.live.alablmsdk.a.b.a.d(" owner join room， status=" + i2 + " , msg" + str2);
+                com.baidu.live.alablmsdk.a.b.a.fY(" owner join room status " + i2 + " msg" + str2);
                 if (i2 == 0) {
-                    com.baidu.live.alablmsdk.module.b.Bg().a(str, BLMRtcState.JOINED);
+                    com.baidu.live.alablmsdk.module.b.CP().a(str, BLMRtcState.JOINED);
                     if (cVar2 != null) {
-                        cVar2.e(4, 0, "acceptRoom join rtc room success");
+                        cVar2.f(4, 0, "acceptRoom join rtc room success");
                         return;
                     }
                     return;
                 }
-                com.baidu.live.alablmsdk.module.b.Bg().a(str, BLMRtcState.FAIL);
-                c.this.d(str, (JSONObject) null, (com.baidu.live.alablmsdk.c.c) null);
-                com.baidu.live.alablmsdk.a.b.d("acceptRoom join rtc room error ; msg = " + str2);
-                com.baidu.live.alablmsdk.a.b.fD("acceptRoom join rtc room error msg " + str2);
+                com.baidu.live.alablmsdk.module.b.CP().a(str, BLMRtcState.FAIL);
+                c.this.b(str, (JSONObject) null, false, (com.baidu.live.alablmsdk.c.c) null);
+                com.baidu.live.alablmsdk.a.b.a.d("acceptRoom join rtc room error ; msg = " + str2);
+                com.baidu.live.alablmsdk.a.b.a.fY("acceptRoom join rtc room error msg " + str2);
                 if (cVar2 != null) {
-                    cVar2.e(4, -1, "acceptRoom join rtc room error ; msg = " + str2);
+                    cVar2.f(4, -1, "acceptRoom join rtc room error ; msg = " + str2);
                 }
             }
         });
     }
 
     private void a(com.baidu.live.alablmsdk.module.c cVar) {
-        if (cVar != null && this.azp != null && this.azp.azL != null && this.azp.azL.azS != null) {
-            this.azp.azL.azS.order = cVar.order;
+        if (cVar != null && this.aBT != null && this.aBT.aCq != null && this.aBT.aCq.aCy != null) {
+            this.aBT.aCq.aCy.order = cVar.order;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(String str, com.baidu.live.alablmsdk.c.c cVar) {
-        com.baidu.live.alablmsdk.module.c Bd;
-        this.azA = cVar;
-        com.baidu.live.alablmsdk.module.a fH = com.baidu.live.alablmsdk.module.b.Bg().fH(str);
-        if (fH == null) {
-            com.baidu.live.alablmsdk.a.b.ag("joinRoom param error getChatInfo null ", "");
-            if (this.azA != null) {
-                this.azA.e(6, 1000, "join rtc room param error , getChatInfo null");
+    public void a(String str, boolean z, com.baidu.live.alablmsdk.c.c cVar) {
+        com.baidu.live.alablmsdk.module.c CM;
+        this.aCe = cVar;
+        if (TextUtils.isEmpty(str)) {
+            com.baidu.live.alablmsdk.a.b.a.ak("joinRoom param error, roomId isEmpty", "");
+            if (this.aCe != null) {
+                this.aCe.f(6, 1000, "joinRoom param error, roomId isEmpty");
+                return;
             }
-        } else if (!com.baidu.live.alablmsdk.module.a.b(fH)) {
-            com.baidu.live.alablmsdk.a.b.ag("joinRoom chatInfo check error", "");
-            if (this.azA != null) {
-                this.azA.e(6, 1000, "joinRoom chatInfo check error");
+            return;
+        }
+        if (z && this.aBT != null && this.aBT.CK() == BLMSignalState.DEFAULT) {
+            com.baidu.live.alablmsdk.a.b.c.BY().Cc();
+        }
+        com.baidu.live.alablmsdk.module.a gd = com.baidu.live.alablmsdk.module.b.CP().gd(str);
+        if (gd == null) {
+            com.baidu.live.alablmsdk.a.b.a.ak("joinRoom param error getChatInfo null ", "");
+            if (this.aCe != null) {
+                this.aCe.f(6, 1000, "join rtc room param error , getChatInfo null");
+            }
+        } else if (!com.baidu.live.alablmsdk.module.a.b(gd)) {
+            com.baidu.live.alablmsdk.a.b.a.ak("joinRoom chatInfo check error", "");
+            if (this.aCe != null) {
+                this.aCe.f(6, 1000, "joinRoom chatInfo check error");
             }
         } else {
-            if (this.azp != null && (Bd = this.azp.Bd()) != null && !TextUtils.isEmpty(Bd.order)) {
-                this.azx.fL(Bd.order);
+            if (this.aBT != null && (CM = this.aBT.CM()) != null && !TextUtils.isEmpty(CM.order)) {
+                this.aCb.gh(CM.order);
             }
-            this.azx.c(str, fH.token, fH.rtcAppId, fH.azK);
+            this.aCb.d(str, gd.token, gd.rtcAppId, gd.aCp);
         }
     }
 
     public void a(String str, JSONObject jSONObject, List<com.baidu.live.alablmsdk.module.c> list, com.baidu.live.alablmsdk.c.c cVar) {
-        if (this.azx != null && !TextUtils.isEmpty(this.azx.Br()) && this.azx.Br().equals(str) && !com.baidu.live.alablmsdk.a.a.isEmpty(list) && !com.baidu.live.alablmsdk.a.a.isEmpty(list)) {
+        if (this.aCb != null && !TextUtils.isEmpty(this.aCb.CZ()) && this.aCb.CZ().equals(str) && !com.baidu.live.alablmsdk.a.a.isEmpty(list) && !com.baidu.live.alablmsdk.a.a.isEmpty(list)) {
             com.baidu.live.alablmsdk.module.c cVar2 = list.get(0);
-            this.azx.ai(cVar2.azK);
-            this.azk.a(str, cVar2, n(jSONObject), new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.alablmsdk.b.c.8
+            this.aCb.aG(cVar2.aCp);
+            this.aBO.a(str, cVar2, n(jSONObject), new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.alablmsdk.b.c.8
                 @Override // com.baidu.live.alablmsdk.c.c
-                public void e(int i, int i2, String str2) {
+                public void f(int i, int i2, String str2) {
                 }
             });
             if (cVar != null) {
-                cVar.e(9, 0, "kick off user send");
+                cVar.f(9, 0, "kick off user send");
             }
         } else if (cVar != null) {
-            cVar.e(9, -1, "room or user check error");
+            cVar.f(9, -1, "room or user check error");
         }
     }
 
-    public void ba(boolean z) {
-        if (this.azy != null) {
-            com.baidu.live.alablmsdk.a.b.d("muteMicrophone " + z);
-            com.baidu.live.alablmsdk.a.b.fD("muteMicrophone " + z);
-            this.azy.ba(z);
+    public void bg(boolean z) {
+        if (this.aCc != null) {
+            com.baidu.live.alablmsdk.a.b.a.d("muteMicrophone " + z);
+            com.baidu.live.alablmsdk.a.b.a.fY("muteMicrophone " + z);
+            this.aCc.bg(z);
         }
     }
 
-    private void AV() {
-        com.baidu.live.alablmsdk.a.b.ag(" currentKickedOffLeave ", "");
-        if (this.azx != null) {
-            this.azx.Bw();
+    private void CD() {
+        com.baidu.live.alablmsdk.a.b.a.ak(" currentKickedOffLeave ", "");
+        if (this.aCb != null) {
+            this.aCb.Df();
         }
-        AY();
-        AX();
+        CG();
+        CF();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fF(String str) {
-        c(str, com.baidu.live.alablmsdk.module.a.a.Bn(), (com.baidu.live.alablmsdk.c.c) null);
+    public void gb(String str) {
+        a(str, com.baidu.live.alablmsdk.module.a.a.CV(), false, (com.baidu.live.alablmsdk.c.c) null);
     }
 
-    public void c(String str, JSONObject jSONObject, final com.baidu.live.alablmsdk.c.c cVar) {
-        com.baidu.live.alablmsdk.a.b.d(" leaveRoom");
-        com.baidu.live.alablmsdk.a.b.fD(" leaveRoom ");
-        this.azx.Bw();
-        this.azk.a(str, jSONObject, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.c.9
+    public void a(String str, JSONObject jSONObject, boolean z, final com.baidu.live.alablmsdk.c.c cVar) {
+        com.baidu.live.alablmsdk.a.b.a.d(" leaveRoom");
+        com.baidu.live.alablmsdk.a.b.a.fY(" leaveRoom ");
+        if (z) {
+            if (this.aBT != null && this.aBT.CI() && !this.aBT.CL()) {
+                com.baidu.live.alablmsdk.a.b.c.BY().bj(true);
+            } else {
+                com.baidu.live.alablmsdk.a.b.c.BY().bj(false);
+            }
+            com.baidu.live.alablmsdk.a.b.c.BY().Ci();
+        }
+        this.aCb.Df();
+        this.aBO.a(str, jSONObject, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.c.9
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str2) {
-                com.baidu.live.alablmsdk.a.b.d(" leaveRoom onResult ，responseCode=" + i + " , errorMessage=" + str2);
-                com.baidu.live.alablmsdk.a.b.fD(" leaveRoom onResult code " + i + " message " + str2);
+                com.baidu.live.alablmsdk.a.b.a.d(" leaveRoom onResult ，responseCode=" + i + " , errorMessage=" + str2);
+                com.baidu.live.alablmsdk.a.b.a.fY(" leaveRoom onResult code " + i + " message " + str2);
                 if (i == 0) {
-                    if (c.this.azv != null) {
-                        c.this.azv.a(BLMLegacyRoomStatus.LOGIC_END_SUCCESS);
+                    if (c.this.aBZ != null) {
+                        c.this.aBZ.a(BLMLegacyRoomStatus.LOGIC_END_SUCCESS);
                     }
                     if (cVar != null) {
-                        cVar.e(7, 0, "leaveRoom hangout signal success");
+                        cVar.f(7, 0, "leaveRoom hangout signal success");
                         return;
                     }
                     return;
                 }
-                if (c.this.azv != null) {
-                    c.this.azv.a(BLMLegacyRoomStatus.LOGIC_END_FAIL);
+                if (c.this.aBZ != null) {
+                    c.this.aBZ.a(BLMLegacyRoomStatus.LOGIC_END_FAIL);
                 }
                 if (cVar != null) {
-                    cVar.e(7, -1, "leaveRoom hangout signal fail");
+                    cVar.f(7, -1, "leaveRoom hangout signal fail");
                 }
             }
         });
-        AY();
-        AX();
+        CG();
+        CF();
     }
 
-    public void d(final String str, final JSONObject jSONObject, final com.baidu.live.alablmsdk.c.c cVar) {
-        com.baidu.live.alablmsdk.a.b.d(" closeRoom roomId=" + str);
-        com.baidu.live.alablmsdk.a.b.fD(" closeRoom roomId " + str);
-        com.baidu.live.alablmsdk.module.a fH = com.baidu.live.alablmsdk.module.b.Bg().fH(str);
+    public void b(final String str, final JSONObject jSONObject, boolean z, final com.baidu.live.alablmsdk.c.c cVar) {
+        com.baidu.live.alablmsdk.a.b.a.ak(" closeRoom roomId " + str, "");
+        if (z) {
+            if (this.aBT != null && this.aBT.CI() && !this.aBT.CL()) {
+                com.baidu.live.alablmsdk.a.b.c.BY().bj(true);
+            } else {
+                com.baidu.live.alablmsdk.a.b.c.BY().bj(false);
+            }
+            com.baidu.live.alablmsdk.a.b.c.BY().Cj();
+        }
+        com.baidu.live.alablmsdk.module.a gd = com.baidu.live.alablmsdk.module.b.CP().gd(str);
         final UserPermission userPermission = UserPermission.OWNER;
-        if (fH != null) {
-            userPermission = fH.AZ();
+        if (gd != null) {
+            userPermission = gd.CH();
         }
-        com.baidu.live.alablmsdk.a.b.d(" closeRoom permission=" + userPermission);
-        com.baidu.live.alablmsdk.a.b.fD(" closeRoom permission " + userPermission);
+        com.baidu.live.alablmsdk.a.b.a.d(" closeRoom permission=" + userPermission);
+        com.baidu.live.alablmsdk.a.b.a.fY(" closeRoom permission " + userPermission);
         if (userPermission == UserPermission.OWNER) {
-            this.azx.Bv();
+            this.aCb.De();
+            if (this.aCb.Db()) {
+                com.baidu.live.alablmsdk.a.b.c.BY().pushEnd();
+            }
         } else {
-            this.azx.Bw();
+            this.aCb.Df();
         }
-        this.azk.hangout(str, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.c.10
+        this.aBO.hangout(str, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.c.10
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str2) {
-                com.baidu.live.alablmsdk.a.b.d(" closeRoom-signal hangout  responseCode=" + i + " , errorMessage=" + str2);
-                com.baidu.live.alablmsdk.a.b.fD(" closeRoom-signal hangout code " + i + " errorMessage " + str2);
+                com.baidu.live.alablmsdk.a.b.a.d(" closeRoom-signal hangout  responseCode=" + i + " , errorMessage=" + str2);
+                com.baidu.live.alablmsdk.a.b.a.fY(" closeRoom-signal hangout code " + i + " errorMessage " + str2);
                 if (userPermission == UserPermission.OWNER) {
-                    com.baidu.live.alablmsdk.a.b.d(" signal close ");
-                    com.baidu.live.alablmsdk.a.b.fD(" signal close ");
-                    c.this.azk.b(str, jSONObject, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.c.10.1
+                    com.baidu.live.alablmsdk.a.b.a.d(" signal close ");
+                    com.baidu.live.alablmsdk.a.b.a.fY(" signal close ");
+                    c.this.aBO.b(str, jSONObject, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.c.10.1
                         @Override // com.baidu.android.imrtc.utils.IStatusListener
                         public void onResult(int i2, String str3) {
-                            com.baidu.live.alablmsdk.a.b.d(" signal closeRoom , responseCode=" + i2 + " , errorMessage=" + str3);
-                            com.baidu.live.alablmsdk.a.b.fD(" signal closeRoom code " + i2 + " errorMessage " + str3);
+                            com.baidu.live.alablmsdk.a.b.a.d(" signal closeRoom , responseCode=" + i2 + " , errorMessage=" + str3);
+                            com.baidu.live.alablmsdk.a.b.a.fY(" signal closeRoom code " + i2 + " errorMessage " + str3);
                             if (i2 == 0) {
-                                if (c.this.azv != null) {
-                                    c.this.azv.a(BLMLegacyRoomStatus.LOGIC_END_SUCCESS);
+                                if (c.this.aBZ != null) {
+                                    c.this.aBZ.a(BLMLegacyRoomStatus.LOGIC_END_SUCCESS);
                                 }
                                 if (cVar != null) {
-                                    cVar.e(8, 0, "closeRoom signal success");
+                                    cVar.f(8, 0, "closeRoom signal success");
                                     return;
                                 }
                                 return;
                             }
-                            if (c.this.azv != null) {
-                                c.this.azv.a(BLMLegacyRoomStatus.LOGIC_END_FAIL);
+                            if (c.this.aBZ != null) {
+                                c.this.aBZ.a(BLMLegacyRoomStatus.LOGIC_END_FAIL);
                             }
                             if (cVar != null) {
-                                cVar.e(8, -1, "closeRoom signal success");
+                                cVar.f(8, -1, "closeRoom signal success");
                             }
                         }
                     });
                 }
             }
         });
-        AX();
-        AY();
+        CF();
+        CG();
     }
 
     @Override // com.baidu.android.imsdk.mcast.ILiveMsgReceiveListener
     public void onReceiveMessage(int i, JSONArray jSONArray) {
-        com.baidu.live.alablmsdk.a.b.d(" b2c可靠消息通道的监听  ");
+        com.baidu.live.alablmsdk.a.b.a.d(" b2c可靠消息通道的监听  ");
     }
 
     @Override // com.baidu.android.imsdk.account.IConnectListener
     public void onResult(int i) {
-        com.baidu.live.alablmsdk.a.b.d(" im 连接状态 responseCode = " + i);
-        com.baidu.live.alablmsdk.a.b.fD(" im long connection code " + i);
-        dt(i);
+        com.baidu.live.alablmsdk.a.b.a.d(" im 连接状态 responseCode = " + i);
+        com.baidu.live.alablmsdk.a.b.a.fY(" im long connection code " + i);
+        dM(i);
     }
 
-    private void dt(int i) {
+    private void dM(int i) {
         if (i == 0) {
-            if (this.azp != null) {
-                AW();
-            } else if (this.azp == null) {
-                this.azv.AN();
+            if (this.aBT != null) {
+                CE();
+            } else if (this.aBT == null) {
+                this.aBZ.Cv();
             }
         }
     }
 
-    private void AW() {
-        com.baidu.live.alablmsdk.a.b.ag(" reJoinSignalAndRtcRoomInner ", "");
-        if (this.azp != null) {
-            this.azk.join(this.azp.roomId, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.c.2
+    private void CE() {
+        com.baidu.live.alablmsdk.a.b.a.ak(" reJoinSignalAndRtcRoomInner ", "");
+        if (this.aBT != null) {
+            this.aBO.join(this.aBT.roomId, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.c.2
                 @Override // com.baidu.android.imrtc.utils.IStatusListener
                 public void onResult(int i, String str) {
-                    com.baidu.live.alablmsdk.a.b.ag(" reJoinSignalAndRtcRoomInner signal join onResult code=" + i + " message=" + str, "");
+                    com.baidu.live.alablmsdk.a.b.a.ak(" reJoinSignalAndRtcRoomInner signal join onResult code=" + i + " message=" + str, "");
                     if (i == 0) {
-                        com.baidu.live.alablmsdk.a.b.ag(" reJoinSignalAndRtcRoomInner signal join success", "");
-                        c.this.azx.BB();
+                        com.baidu.live.alablmsdk.a.b.a.ak(" reJoinSignalAndRtcRoomInner signal join success", "");
+                        c.this.aCb.Dk();
                         return;
                     }
-                    com.baidu.live.alablmsdk.a.b.ag(" reJoinSignalAndRtcRoomInner signal join fail", "");
+                    com.baidu.live.alablmsdk.a.b.a.ak(" reJoinSignalAndRtcRoomInner signal join fail", "");
                 }
             });
         } else {
-            com.baidu.live.alablmsdk.a.b.ag(" reJoinSignalAndRtcRoomInner mCurrentChatInfo==null", "");
+            com.baidu.live.alablmsdk.a.b.a.ak(" reJoinSignalAndRtcRoomInner mCurrentChatInfo==null", "");
         }
     }
 
     @Override // com.baidu.android.imrtc.msg.BIMRtcListener
     public void onRtcResult(int i, BIMRtcInfo bIMRtcInfo) {
         if (i == 89) {
-            com.baidu.live.alablmsdk.a.b.d(" signal onRtcResult room closed ");
-            com.baidu.live.alablmsdk.a.b.fD(" signal onRtcResult room closed ");
+            com.baidu.live.alablmsdk.a.b.a.d(" signal onRtcResult room closed ");
+            com.baidu.live.alablmsdk.a.b.a.fY(" signal onRtcResult room closed ");
             String str = "";
             if (bIMRtcInfo != null) {
                 str = bIMRtcInfo.getRtcRoomId();
             }
-            if (this.azp != null && !TextUtils.isEmpty(this.azp.roomId) && this.azp.roomId.equals(str)) {
-                AX();
+            if (this.aBT != null && !TextUtils.isEmpty(this.aBT.roomId) && this.aBT.roomId.equals(str)) {
+                CF();
             }
-            if (this.ayF != null) {
-                com.baidu.live.alablmsdk.a.b.d(" room closed callback ,  roomId=" + str);
-                com.baidu.live.alablmsdk.a.b.fD(" room closed callback roomId " + str);
-                this.ayF.fB(str);
+            if (this.aAX != null) {
+                com.baidu.live.alablmsdk.a.b.a.d(" room closed callback ,  roomId=" + str);
+                com.baidu.live.alablmsdk.a.b.a.fY(" room closed callback roomId " + str);
+                this.aAX.fX(str);
             }
         }
     }
@@ -476,28 +527,30 @@ public class c implements BIMRtcListener, IConnectListener, ILiveMsgReceiveListe
         if (bIMRtcInfo != null) {
             str = bIMRtcInfo.getRtcRoomId();
             if (bIMRtcInfo instanceof BIMSyncRtcInfo) {
-                cVar.azK = ((BIMSyncRtcInfo) bIMRtcInfo).getInitiatorUk();
+                cVar.aCp = ((BIMSyncRtcInfo) bIMRtcInfo).getInitiatorUk();
             }
         }
-        com.baidu.live.alablmsdk.a.b.ag(" caller invite time out", " , other imUk=" + cVar.azK);
-        if (this.azp != null && this.azp.Ba()) {
-            if (this.azp.ad(cVar.azK)) {
-                com.baidu.live.alablmsdk.module.b.Bg().a(str, cVar.azK, BLMSignalState.TIMEOUT);
-                if (this.ayF != null) {
-                    com.baidu.live.alablmsdk.a.b.ag(" caller invite time out callback ", "");
-                    this.ayF.a(str, cVar);
+        com.baidu.live.alablmsdk.a.b.a.ak(" caller invite time out", " , other imUk=" + cVar.aCp);
+        if (this.aBT != null && this.aBT.CI()) {
+            if (this.aBT.aB(cVar.aCp)) {
+                com.baidu.live.alablmsdk.module.b.CP().a(str, cVar.aCp, BLMSignalState.TIMEOUT);
+                com.baidu.live.alablmsdk.a.b.c.BY().Cg();
+                if (this.aAX != null) {
+                    com.baidu.live.alablmsdk.a.b.a.ak(" caller invite time out callback ", "");
+                    this.aAX.a(str, cVar);
                     return;
                 }
                 return;
-            } else if (this.ayF != null) {
-                com.baidu.live.alablmsdk.a.b.ag(" caller invite time out, check imUk error, but callback ", "");
-                this.ayF.a(str, cVar);
-                return;
-            } else {
+            }
+            com.baidu.live.alablmsdk.a.b.c.BY().Cg();
+            if (this.aAX != null) {
+                com.baidu.live.alablmsdk.a.b.a.ak(" caller invite time out, check imUk error, but callback ", "");
+                this.aAX.a(str, cVar);
                 return;
             }
+            return;
         }
-        com.baidu.live.alablmsdk.a.b.ag(" caller invite time out not callback ", "");
+        com.baidu.live.alablmsdk.a.b.a.ak(" caller invite time out not callback ", "");
     }
 
     @Override // com.baidu.android.imrtc.msg.BIMRtcListener
@@ -505,117 +558,121 @@ public class c implements BIMRtcListener, IConnectListener, ILiveMsgReceiveListe
         String str;
         com.baidu.live.alablmsdk.module.a.a aVar;
         JSONObject jSONObject = null;
-        com.baidu.live.alablmsdk.a.b.ag(" roomCallerGetAnswerSyncByCallee ", "");
+        com.baidu.live.alablmsdk.a.b.a.ak(" roomCallerGetAnswerSyncByCallee ", "");
         long j = 0;
         com.baidu.live.alablmsdk.module.c cVar = new com.baidu.live.alablmsdk.module.c();
         if (bIMRtcInfo != null) {
             String rtcRoomId = bIMRtcInfo.getRtcRoomId();
             String rtcExt = bIMRtcInfo.getRtcExt();
-            com.baidu.live.alablmsdk.a.b.d(" roomCallerGetAnswerSyncByCallee ext=" + rtcExt);
+            com.baidu.live.alablmsdk.a.b.a.d(" roomCallerGetAnswerSyncByCallee ext=" + rtcExt);
             if (rtcExt != null) {
                 aVar = new com.baidu.live.alablmsdk.module.a.a();
-                jSONObject = aVar.fI(rtcExt);
+                jSONObject = aVar.ge(rtcExt);
             } else {
                 aVar = null;
             }
             if (bIMRtcInfo instanceof BIMSyncRtcInfo) {
                 BIMSyncRtcInfo bIMSyncRtcInfo = (BIMSyncRtcInfo) bIMRtcInfo;
                 j = bIMSyncRtcInfo.getInitiatorUk();
-                cVar.azK = bIMSyncRtcInfo.getInitiatorUk();
+                cVar.aCp = bIMSyncRtcInfo.getInitiatorUk();
                 com.baidu.live.alablmsdk.module.a.b.a(cVar, aVar);
-                if (!TextUtils.isEmpty(rtcRoomId) && this.azp != null && !TextUtils.isEmpty(this.azp.roomId) && this.azp.roomId.equals(rtcRoomId)) {
-                    d dVar = new d();
-                    dVar.azS = cVar.clone();
-                    this.azp.a(dVar, BLMStateType.SIGNAL);
+                if (!TextUtils.isEmpty(rtcRoomId) && this.aBT != null && !TextUtils.isEmpty(this.aBT.roomId) && this.aBT.roomId.equals(rtcRoomId)) {
+                    com.baidu.live.alablmsdk.module.d dVar = new com.baidu.live.alablmsdk.module.d();
+                    dVar.aCy = cVar.clone();
+                    this.aBT.a(dVar, BLMStateType.SIGNAL);
                 }
-                com.baidu.live.alablmsdk.a.b.ag(" caller receive callee response", " callee 的 uk=" + cVar.azK);
+                com.baidu.live.alablmsdk.a.b.a.ak(" caller receive callee response", " callee 的 uk=" + cVar.aCp);
             }
             str = rtcRoomId;
         } else {
             str = null;
         }
         if (i == 1) {
-            com.baidu.live.alablmsdk.a.b.ag(" caller，callee answer ok", "");
-            com.baidu.live.alablmsdk.module.b.Bg().a(str, j, BLMSignalState.JOINED);
-            if (this.ayF != null) {
-                com.baidu.live.alablmsdk.a.b.ag(" caller，callee answer ok callback", "");
-                this.ayF.d(str, cVar, jSONObject);
+            com.baidu.live.alablmsdk.a.b.a.ak(" caller，callee answer ok", "");
+            com.baidu.live.alablmsdk.module.b.CP().a(str, j, BLMSignalState.JOINED);
+            if (this.aAX != null) {
+                com.baidu.live.alablmsdk.a.b.a.ak(" caller，callee answer ok callback", "");
+                this.aAX.d(str, cVar, jSONObject);
             }
         } else if (i == 2) {
-            com.baidu.live.alablmsdk.a.b.ag(" caller，callee answer no", "");
-            com.baidu.live.alablmsdk.module.b.Bg().a(str, j, BLMSignalState.REJECT);
-            if (this.ayF != null) {
-                com.baidu.live.alablmsdk.a.b.ag(" caller，callee answer no callback", "");
-                this.ayF.e(str, cVar, jSONObject);
+            com.baidu.live.alablmsdk.a.b.a.ak(" caller，callee answer no", "");
+            com.baidu.live.alablmsdk.module.b.CP().a(str, j, BLMSignalState.REJECT);
+            com.baidu.live.alablmsdk.a.b.c.BY().Cf();
+            if (this.aAX != null) {
+                com.baidu.live.alablmsdk.a.b.a.ak(" caller，callee answer no callback", "");
+                this.aAX.e(str, cVar, jSONObject);
             }
         } else if (i == 3) {
-            com.baidu.live.alablmsdk.a.b.ag(" caller，callee answer timeout 30s", "");
-            com.baidu.live.alablmsdk.module.b.Bg().a(str, j, BLMSignalState.TIMEOUT);
-            if (this.ayF != null) {
-                com.baidu.live.alablmsdk.a.b.ag(" caller，callee answer timeout 30s callback", "");
-                this.ayF.a(str, cVar);
+            com.baidu.live.alablmsdk.a.b.a.ak(" caller，callee answer timeout 30s", "");
+            com.baidu.live.alablmsdk.module.b.CP().a(str, j, BLMSignalState.TIMEOUT);
+            com.baidu.live.alablmsdk.a.b.c.BY().Cg();
+            if (this.aAX != null) {
+                com.baidu.live.alablmsdk.a.b.a.ak(" caller，callee answer timeout 30s callback", "");
+                this.aAX.a(str, cVar);
             }
         }
     }
 
     @Override // com.baidu.android.imrtc.msg.BIMRtcListener
     public void roomCalleeInviteFromCaller(BIMRtcInfo bIMRtcInfo) {
-        com.baidu.live.alablmsdk.a.b.d(" 被叫方接收到邀请(解析 rtc room 的相关信息，");
-        com.baidu.live.alablmsdk.a.b.fD(" callee receive invite ");
+        com.baidu.live.alablmsdk.a.b.a.d(" 被叫方接收到邀请(解析 rtc room 的相关信息，");
+        com.baidu.live.alablmsdk.a.b.a.fY(" callee receive invite ");
         if (bIMRtcInfo != null && (bIMRtcInfo instanceof BIMInviteSyncRtcInfo)) {
             BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo = (BIMInviteSyncRtcInfo) bIMRtcInfo;
             String rtcRoomId = bIMInviteSyncRtcInfo.getRtcRoomId();
-            com.baidu.live.alablmsdk.a.b.ag(" callee receive invite roomId " + rtcRoomId, "");
+            com.baidu.live.alablmsdk.a.b.a.ak(" callee receive invite roomId " + rtcRoomId, "");
             if (!TextUtils.isEmpty(rtcRoomId)) {
-                if (this.azp != null && this.azp.roomId != null && !this.azp.roomId.equals(rtcRoomId)) {
-                    com.baidu.live.alablmsdk.a.b.d(" callee get invite. mCurrentChatInfo.roomId != roomId , return。  mCurrentChatInfo.roomId=" + this.azp.roomId);
-                    com.baidu.live.alablmsdk.a.b.fD(" callee get invite mCurrentChatInfo.roomId != roomId return mCurrentChatInfo.roomId " + this.azp.roomId);
+                if (this.aBT != null && this.aBT.roomId != null && !this.aBT.roomId.equals(rtcRoomId)) {
+                    com.baidu.live.alablmsdk.a.b.a.d(" callee get invite. mCurrentChatInfo.roomId != roomId , return。  mCurrentChatInfo.roomId=" + this.aBT.roomId);
+                    com.baidu.live.alablmsdk.a.b.a.fY(" callee get invite mCurrentChatInfo.roomId != roomId return mCurrentChatInfo.roomId " + this.aBT.roomId);
                     return;
                 }
+                com.baidu.live.alablmsdk.a.b.c.BY().setRtcRoomId(rtcRoomId);
                 String rtcExt = bIMInviteSyncRtcInfo.getRtcExt();
-                com.baidu.live.alablmsdk.a.b.d(" callee receive invite,  originalExt=" + rtcExt);
+                com.baidu.live.alablmsdk.a.b.a.d(" callee receive invite,  originalExt=" + rtcExt);
                 com.baidu.live.alablmsdk.module.a.a aVar = new com.baidu.live.alablmsdk.module.a.a();
-                JSONObject fI = aVar.fI(rtcExt);
-                com.baidu.live.alablmsdk.module.a fH = com.baidu.live.alablmsdk.module.b.Bg().fH(rtcRoomId);
-                if (fH == null) {
-                    fH = new com.baidu.live.alablmsdk.module.a();
+                JSONObject ge = aVar.ge(rtcExt);
+                com.baidu.live.alablmsdk.module.a gd = com.baidu.live.alablmsdk.module.b.CP().gd(rtcRoomId);
+                if (gd == null) {
+                    gd = new com.baidu.live.alablmsdk.module.a();
                 }
-                fH.roomId = rtcRoomId;
-                fH.token = bIMInviteSyncRtcInfo.getRtcRoomToken();
-                fH.rtcAppId = bIMInviteSyncRtcInfo.getRtcAppId();
-                fH.azK = bIMInviteSyncRtcInfo.getRtcUserId();
-                d dVar = new d();
+                gd.roomId = rtcRoomId;
+                gd.token = bIMInviteSyncRtcInfo.getRtcRoomToken();
+                gd.rtcAppId = bIMInviteSyncRtcInfo.getRtcAppId();
+                gd.aCp = bIMInviteSyncRtcInfo.getRtcUserId();
+                com.baidu.live.alablmsdk.module.d dVar = new com.baidu.live.alablmsdk.module.d();
                 com.baidu.live.alablmsdk.module.c cVar = new com.baidu.live.alablmsdk.module.c();
-                cVar.azK = fH.azK;
-                cVar.azP = UserPermission.VISITER;
+                cVar.aCp = gd.aCp;
+                cVar.aCu = UserPermission.VISITER;
+                cVar.aCw = bIMInviteSyncRtcInfo.getInitiatorUk();
                 com.baidu.live.alablmsdk.module.a.b.a(cVar, aVar);
-                dVar.azS = cVar;
+                dVar.aCy = cVar;
                 dVar.b(BLMSignalState.RING);
-                fH.azL = dVar;
-                d dVar2 = new d();
+                gd.aCq = dVar;
+                com.baidu.live.alablmsdk.module.d dVar2 = new com.baidu.live.alablmsdk.module.d();
                 com.baidu.live.alablmsdk.module.c cVar2 = new com.baidu.live.alablmsdk.module.c();
-                cVar2.azK = bIMInviteSyncRtcInfo.getInitiatorUk();
-                cVar2.azP = UserPermission.OWNER;
+                cVar2.aCp = bIMInviteSyncRtcInfo.getInitiatorUk();
+                cVar2.aCu = UserPermission.OWNER;
                 com.baidu.live.alablmsdk.module.a.b.a(cVar2, aVar);
-                dVar2.azS = cVar2;
+                dVar2.aCy = cVar2;
                 dVar2.b(BLMSignalState.JOINED);
-                fH.a(dVar2, BLMStateType.SIGNAL);
-                if (com.baidu.live.alablmsdk.a.b.isDebug()) {
-                    com.baidu.live.alablmsdk.a.b.d("callee 收到邀请 ， " + fH.Bb());
+                gd.a(dVar2, BLMStateType.SIGNAL);
+                if (com.baidu.live.alablmsdk.a.b.a.isDebug()) {
+                    com.baidu.live.alablmsdk.a.b.a.d("callee 收到邀请 ， " + gd.CJ());
                 }
-                this.azp = fH;
-                com.baidu.live.alablmsdk.module.b.Bg().c(fH);
-                if (this.azw != null) {
-                    this.azw.a(this.azp);
+                this.aBT = gd;
+                com.baidu.live.alablmsdk.module.b.CP().c(gd);
+                if (this.aCa != null) {
+                    this.aCa.a(this.aBT);
                 }
-                if (this.azv != null) {
-                    a aVar2 = this.azv;
-                    a.fE(fH.roomId);
-                    this.azv.a(fH.roomId, fH.AZ());
+                if (this.aBZ != null) {
+                    a aVar2 = this.aBZ;
+                    a.ga(gd.roomId);
+                    this.aBZ.a(gd.roomId, gd.CH());
                 }
                 com.baidu.live.alablmsdk.module.c clone = cVar2.clone();
-                if (this.ayF != null) {
-                    this.ayF.b(rtcRoomId, clone, fI);
+                if (this.aAX != null) {
+                    this.aAX.b(rtcRoomId, clone, ge);
                 }
             }
         }
@@ -626,36 +683,36 @@ public class c implements BIMRtcListener, IConnectListener, ILiveMsgReceiveListe
         JSONObject jSONObject;
         String str = null;
         com.baidu.live.alablmsdk.module.a.a aVar = null;
-        com.baidu.live.alablmsdk.a.b.ag(" callee,  caller cancel invite ", "");
+        com.baidu.live.alablmsdk.a.b.a.ak(" callee,  caller cancel invite ", "");
         com.baidu.live.alablmsdk.module.c cVar = new com.baidu.live.alablmsdk.module.c();
         if (bIMRtcInfo != null) {
             String rtcExt = bIMRtcInfo.getRtcExt();
             if (rtcExt != null) {
                 aVar = new com.baidu.live.alablmsdk.module.a.a();
-                jSONObject = aVar.fI(rtcExt);
+                jSONObject = aVar.ge(rtcExt);
             } else {
                 jSONObject = null;
             }
             String rtcRoomId = bIMRtcInfo.getRtcRoomId();
             if (bIMRtcInfo instanceof BIMSyncRtcInfo) {
-                cVar.azK = ((BIMSyncRtcInfo) bIMRtcInfo).getInitiatorUk();
+                cVar.aCp = ((BIMSyncRtcInfo) bIMRtcInfo).getInitiatorUk();
                 com.baidu.live.alablmsdk.module.a.b.a(cVar, aVar);
             }
             str = rtcRoomId;
         } else {
             jSONObject = null;
         }
-        if (this.azp != null && this.azp.Ba() && !TextUtils.isEmpty(this.azp.roomId) && this.azp.roomId.equals(str) && this.azp.ad(cVar.azK)) {
-            AX();
-            if (this.ayF != null) {
-                this.ayF.c(str, cVar, jSONObject);
+        if (this.aBT != null && this.aBT.CI() && !TextUtils.isEmpty(this.aBT.roomId) && this.aBT.roomId.equals(str) && this.aBT.aB(cVar.aCp)) {
+            CF();
+            if (this.aAX != null) {
+                this.aAX.c(str, cVar, jSONObject);
             }
         }
     }
 
     @Override // com.baidu.android.imrtc.msg.BIMRtcListener
     public void roomCalleeAnswerTimeOutFromMyself(BIMRtcInfo bIMRtcInfo) {
-        com.baidu.live.alablmsdk.module.b.Bg().a(bIMRtcInfo.getRtcRoomId(), BLMSignalState.DEFAULT);
+        com.baidu.live.alablmsdk.module.b.CP().a(bIMRtcInfo.getRtcRoomId(), BLMSignalState.DEFAULT);
     }
 
     @Override // com.baidu.android.imrtc.msg.BIMRtcListener
@@ -666,7 +723,7 @@ public class c implements BIMRtcListener, IConnectListener, ILiveMsgReceiveListe
     public void roomEventSyncByOthers(RtcConstants.RoomEventType roomEventType, BIMRtcInfo bIMRtcInfo) {
         String str;
         com.baidu.live.alablmsdk.module.a.a aVar;
-        com.baidu.live.alablmsdk.module.c ac;
+        com.baidu.live.alablmsdk.module.c aA;
         JSONObject jSONObject = null;
         com.baidu.live.alablmsdk.module.c cVar = new com.baidu.live.alablmsdk.module.c();
         if (bIMRtcInfo == null) {
@@ -674,71 +731,71 @@ public class c implements BIMRtcListener, IConnectListener, ILiveMsgReceiveListe
             aVar = null;
         } else {
             String rtcExt = bIMRtcInfo.getRtcExt();
-            com.baidu.live.alablmsdk.a.b.d(" 振铃|加入|离开 : roomEventType=" + roomEventType + " , extStr=" + rtcExt);
+            com.baidu.live.alablmsdk.a.b.a.d(" 振铃|加入|离开 : roomEventType=" + roomEventType + " , extStr=" + rtcExt);
             if (rtcExt != null) {
                 aVar = new com.baidu.live.alablmsdk.module.a.a();
-                jSONObject = aVar.fI(rtcExt);
+                jSONObject = aVar.ge(rtcExt);
             } else {
                 aVar = null;
             }
             str = bIMRtcInfo.getRtcRoomId();
             if (bIMRtcInfo instanceof BIMSyncRtcInfo) {
-                cVar.azK = ((BIMSyncRtcInfo) bIMRtcInfo).getInitiatorUk();
+                cVar.aCp = ((BIMSyncRtcInfo) bIMRtcInfo).getInitiatorUk();
                 com.baidu.live.alablmsdk.module.a.b.a(cVar, aVar);
-                if (this.azp != null && (ac = this.azp.ac(cVar.azK)) != null && !TextUtils.isEmpty(ac.order)) {
-                    cVar.order = ac.order;
+                if (this.aBT != null && (aA = this.aBT.aA(cVar.aCp)) != null && !TextUtils.isEmpty(aA.order)) {
+                    cVar.order = aA.order;
                 }
             }
         }
-        if (com.baidu.live.alablmsdk.a.b.isDebug()) {
-            com.baidu.live.alablmsdk.a.b.d(" 对方的事件 : roomEventType=" + roomEventType + "  roomId=" + str + " , imUk=" + cVar.azK);
+        if (com.baidu.live.alablmsdk.a.b.a.isDebug()) {
+            com.baidu.live.alablmsdk.a.b.a.d(" 对方的事件 : roomEventType=" + roomEventType + "  roomId=" + str + " , imUk=" + cVar.aCp);
         }
-        com.baidu.live.alablmsdk.a.b.fD("roomEventSyncByOthers roomEventType " + roomEventType + " roomId " + str);
-        if (fG(str)) {
+        com.baidu.live.alablmsdk.a.b.a.fY("roomEventSyncByOthers roomEventType " + roomEventType + " roomId " + str);
+        if (gc(str)) {
             if (roomEventType == RtcConstants.RoomEventType.CALLEE_RING) {
-                com.baidu.live.alablmsdk.a.b.ag(" signal： other ringing ", "");
-                com.baidu.live.alablmsdk.module.b.Bg().a(str, cVar.azK, BLMSignalState.RING);
-                if (this.ayF != null) {
-                    this.ayF.a(str, cVar, jSONObject);
+                com.baidu.live.alablmsdk.a.b.a.ak(" signal： other ringing ", "");
+                com.baidu.live.alablmsdk.module.b.CP().a(str, cVar.aCp, BLMSignalState.RING);
+                if (this.aAX != null) {
+                    this.aAX.a(str, cVar, jSONObject);
                     return;
                 }
                 return;
             } else if (roomEventType == RtcConstants.RoomEventType.JOIN_ROOM) {
-                com.baidu.live.alablmsdk.a.b.ag(" signal： other join signal room", "");
+                com.baidu.live.alablmsdk.a.b.a.ak(" signal： other join signal room", "");
                 e(str, cVar);
                 return;
             } else if (roomEventType == RtcConstants.RoomEventType.EXIT_ROOM) {
-                com.baidu.live.alablmsdk.a.b.ag(" signal： other exit signal room", "");
+                com.baidu.live.alablmsdk.a.b.a.ak(" signal： other exit signal room", "");
                 a(str, cVar, aVar);
                 return;
             } else {
                 return;
             }
         }
-        com.baidu.live.alablmsdk.a.b.ag(" not current room chart do nothing", "");
+        com.baidu.live.alablmsdk.a.b.a.ak(" not current room chart do nothing", "");
     }
 
     private void e(String str, com.baidu.live.alablmsdk.module.c cVar) {
-        com.baidu.live.alablmsdk.module.a fH;
-        if (cVar != null && (fH = com.baidu.live.alablmsdk.module.b.Bg().fH(str)) != null) {
-            d dVar = new d();
-            dVar.azS = cVar.clone();
+        com.baidu.live.alablmsdk.module.a gd;
+        if (cVar != null && (gd = com.baidu.live.alablmsdk.module.b.CP().gd(str)) != null) {
+            com.baidu.live.alablmsdk.module.d dVar = new com.baidu.live.alablmsdk.module.d();
+            dVar.aCy = cVar.clone();
             dVar.b(BLMSignalState.JOINED);
-            fH.a(dVar, BLMStateType.SIGNAL);
+            gd.a(dVar, BLMStateType.SIGNAL);
         }
     }
 
     private void a(String str, com.baidu.live.alablmsdk.module.c cVar, com.baidu.live.alablmsdk.module.a.a aVar) {
         if (cVar != null) {
-            com.baidu.live.alablmsdk.a.b.ag("handleSignalUserLeave roomId " + str, " , callbackUser = " + cVar.toString());
-            if (this.azp != null && !TextUtils.isEmpty(this.azp.roomId) && this.azp.roomId.equals(str) && this.azp.Ba()) {
-                com.baidu.live.alablmsdk.a.b.ag(" handleSignalUserLeave ，remove otherImUk ", "");
-                this.azp.aa(cVar.azK);
-                if (aVar != null && aVar.azZ) {
-                    com.baidu.live.alablmsdk.a.b.ag(" handleSignalUserLeave ，hasStatusCheckInfoKey reture ", "");
-                } else if (this.ayF != null) {
-                    com.baidu.live.alablmsdk.a.b.ag(" handleSignalUserLeave ，onRoomUserLeaved callback ", "");
-                    this.ayF.c(str, cVar);
+            com.baidu.live.alablmsdk.a.b.a.ak("handleSignalUserLeave roomId " + str, " , callbackUser = " + cVar.toString());
+            if (this.aBT != null && !TextUtils.isEmpty(this.aBT.roomId) && this.aBT.roomId.equals(str) && this.aBT.CI()) {
+                com.baidu.live.alablmsdk.a.b.a.ak(" handleSignalUserLeave ，remove otherImUk ", "");
+                this.aBT.ay(cVar.aCp);
+                if (aVar != null && aVar.aCF) {
+                    com.baidu.live.alablmsdk.a.b.a.ak(" handleSignalUserLeave ，hasStatusCheckInfoKey reture ", "");
+                } else if (this.aAX != null) {
+                    com.baidu.live.alablmsdk.a.b.a.ak(" handleSignalUserLeave ，onRoomUserLeaved callback ", "");
+                    this.aAX.c(str, cVar);
                 }
             }
         }
@@ -759,20 +816,20 @@ public class c implements BIMRtcListener, IConnectListener, ILiveMsgReceiveListe
     @Override // com.baidu.android.imrtc.msg.BIMRtcListener
     public int roomKickedUserFromKickerSync(BIMKickReqSyncRtcInfo bIMKickReqSyncRtcInfo) {
         long j;
-        com.baidu.live.alablmsdk.module.c Bd;
-        com.baidu.live.alablmsdk.a.b.ag(" roomKickedUserFromKickerSync ", "");
+        com.baidu.live.alablmsdk.module.c CM;
+        com.baidu.live.alablmsdk.a.b.a.ak(" roomKickedUserFromKickerSync ", "");
         if (bIMKickReqSyncRtcInfo != null) {
             try {
                 j = bIMKickReqSyncRtcInfo.getBIMKickedUsers().uk;
                 try {
-                    com.baidu.live.alablmsdk.a.b.ag(" roomKickedUserFromKickerSync kickedImUk=" + j, "");
+                    com.baidu.live.alablmsdk.a.b.a.ak(" roomKickedUserFromKickerSync kickedImUk=" + j, "");
                 } catch (Exception e) {
                 }
             } catch (Exception e2) {
                 j = 0;
             }
-            if (this.azp != null && (Bd = this.azp.Bd()) != null && Bd.azK != 0 && Bd.azK == j) {
-                X(j);
+            if (this.aBT != null && (CM = this.aBT.CM()) != null && CM.aCp != 0 && CM.aCp == j) {
+                av(j);
                 return 1;
             }
         }
@@ -781,107 +838,107 @@ public class c implements BIMRtcListener, IConnectListener, ILiveMsgReceiveListe
 
     @Override // com.baidu.android.imrtc.msg.BIMRtcListener
     public void roomEventKickedStatusByKickedUser(BIMKickResSyncRtcInfo bIMKickResSyncRtcInfo) {
-        com.baidu.live.alablmsdk.a.b.ag(" roomEventKickedStatusByKickedUser ", "");
+        com.baidu.live.alablmsdk.a.b.a.ak(" roomEventKickedStatusByKickedUser ", "");
         if (bIMKickResSyncRtcInfo != null) {
             long j = 0;
             try {
                 j = bIMKickResSyncRtcInfo.getBIMKickedUsers().uk;
-                com.baidu.live.alablmsdk.a.b.ag(" roomEventKickedStatusByKickedUser kickedThirdUserId=" + j, "");
+                com.baidu.live.alablmsdk.a.b.a.ak(" roomEventKickedStatusByKickedUser kickedThirdUserId=" + j, "");
             } catch (Exception e) {
             }
-            Y(j);
+            aw(j);
         }
     }
 
-    private void X(long j) {
+    private void av(long j) {
         String str;
         com.baidu.live.alablmsdk.module.c cVar = null;
-        com.baidu.live.alablmsdk.a.b.fD(" handleCurrentUserKicked ");
-        if (this.azp != null) {
-            str = this.azp.roomId;
-            com.baidu.live.alablmsdk.module.c Bd = this.azp.Bd();
-            if (Bd != null) {
-                cVar = Bd.clone();
+        com.baidu.live.alablmsdk.a.b.a.fY(" handleCurrentUserKicked ");
+        if (this.aBT != null) {
+            str = this.aBT.roomId;
+            com.baidu.live.alablmsdk.module.c CM = this.aBT.CM();
+            if (CM != null) {
+                cVar = CM.clone();
             } else {
                 cVar = new com.baidu.live.alablmsdk.module.c();
-                cVar.azK = j;
+                cVar.aCp = j;
             }
         } else {
             str = null;
         }
-        AV();
-        if (this.ayF != null) {
-            com.baidu.live.alablmsdk.a.b.ag(" current, onRoomUserKickoffed call back", "");
-            this.ayF.d(str, cVar);
+        CD();
+        if (this.aAX != null) {
+            com.baidu.live.alablmsdk.a.b.a.ak(" current, onRoomUserKickoffed call back", "");
+            this.aAX.d(str, cVar);
         }
     }
 
-    private void Y(long j) {
+    private void aw(long j) {
         String str;
         com.baidu.live.alablmsdk.module.c cVar = null;
-        com.baidu.live.alablmsdk.a.b.ag(" handleOtherUserKicked uk=" + j, "");
-        if (this.azp != null) {
-            str = this.azp.roomId;
-            com.baidu.live.alablmsdk.module.c ac = this.azp.ac(j);
-            if (ac != null) {
-                cVar = ac.clone();
+        com.baidu.live.alablmsdk.a.b.a.ak(" handleOtherUserKicked uk=" + j, "");
+        if (this.aBT != null) {
+            str = this.aBT.roomId;
+            com.baidu.live.alablmsdk.module.c aA = this.aBT.aA(j);
+            if (aA != null) {
+                cVar = aA.clone();
             } else {
                 cVar = new com.baidu.live.alablmsdk.module.c();
-                cVar.azK = j;
+                cVar.aCp = j;
             }
         } else {
             str = null;
         }
-        if (this.azp != null) {
-            this.azp.aa(j);
+        if (this.aBT != null) {
+            this.aBT.ay(j);
         }
-        if (this.ayF != null) {
-            com.baidu.live.alablmsdk.a.b.ag(" other, onRoomUserKickoffed call back", "");
-            this.ayF.d(str, cVar);
+        if (this.aAX != null) {
+            com.baidu.live.alablmsdk.a.b.a.ak(" other, onRoomUserKickoffed call back", "");
+            this.aAX.d(str, cVar);
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.a
-    public void du(int i) {
-        com.baidu.live.alablmsdk.a.b.ag(" onRtcCurrentUserStreamChange status " + i, "");
+    public void dN(int i) {
+        com.baidu.live.alablmsdk.a.b.a.ak(" onRtcCurrentUserStreamChange status " + i, "");
         if (i == 2) {
-            this.azw.AS();
+            this.aCa.CA();
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.a
     public void g(int i, String str) {
         if (i == 0) {
-            com.baidu.live.alablmsdk.a.b.ag(" onRtcCurrentUserJoinRoomStatus success msg " + str, "");
-            this.azw.AT();
-            if (this.azA != null) {
-                this.azA.e(6, 0, str);
+            com.baidu.live.alablmsdk.a.b.a.ak(" onRtcCurrentUserJoinRoomStatus success msg " + str, "");
+            this.aCa.CB();
+            if (this.aCe != null) {
+                this.aCe.f(6, 0, str);
                 return;
             }
             return;
         }
-        com.baidu.live.alablmsdk.a.b.ag(" onRtcCurrentUserJoinRoomStatus fail msg " + str, "");
-        if (this.azA != null) {
-            this.azA.e(6, -1, str);
+        com.baidu.live.alablmsdk.a.b.a.ak(" onRtcCurrentUserJoinRoomStatus fail msg " + str, "");
+        if (this.aCe != null) {
+            this.aCe.f(6, -1, str);
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.a
     public void onRoomEventUpdate(int i, long j, String str) {
-        com.baidu.live.alablmsdk.a.b.ag(" rtc onRoomEventUpdate roomEvents " + i, " , imUK=" + j + " , extra_info=" + str);
+        com.baidu.live.alablmsdk.a.b.a.ak(" rtc onRoomEventUpdate roomEvents " + i, " , imUK=" + j + " , extra_info=" + str);
         a(i, j, str);
     }
 
     private void a(int i, long j, String str) {
-        if (this.azp != null) {
-            if (!TextUtils.isEmpty(this.azp.roomId)) {
-                if (this.azp.Ba()) {
-                    if (this.azp.Z(j) || (j == 0 && i == 100)) {
+        if (this.aBT != null) {
+            if (!TextUtils.isEmpty(this.aBT.roomId)) {
+                if (this.aBT.CI()) {
+                    if (this.aBT.ax(j) || (j == 0 && i == 100)) {
                         b(i, j, str);
                         return;
                     }
                     c(i, j, str);
-                    if (this.azp.ad(j)) {
+                    if (this.aBT.aB(j)) {
                         d(i, j, str);
                         return;
                     } else {
@@ -889,181 +946,208 @@ public class c implements BIMRtcListener, IConnectListener, ILiveMsgReceiveListe
                         return;
                     }
                 }
-                com.baidu.live.alablmsdk.a.b.ag(" handleRtc hasStartedTransaction is false ", "imUk=" + j);
+                com.baidu.live.alablmsdk.a.b.a.ak(" handleRtc hasStartedTransaction is false ", "imUk=" + j);
                 return;
             }
-            com.baidu.live.alablmsdk.a.b.ag(" handleRtc mCurrentChatInfo.roomId is empty", "imUk=" + j);
+            com.baidu.live.alablmsdk.a.b.a.ak(" handleRtc mCurrentChatInfo.roomId is empty", "imUk=" + j);
             return;
         }
-        com.baidu.live.alablmsdk.a.b.ag(" handleRtc mCurrentChatInfo is null", "imUk=" + j);
+        com.baidu.live.alablmsdk.a.b.a.ak(" handleRtc mCurrentChatInfo is null", "imUk=" + j);
     }
 
     private void b(int i, long j, String str) {
-        com.baidu.live.alablmsdk.a.b.ag(" handleRtcCurrentUser ", "imUk=" + j + "  extraInfo=" + str);
-        if (this.azp == null) {
-            com.baidu.live.alablmsdk.a.b.ag(" handleRtcCurrentUser mCurrentChatInfo info error", "");
+        com.baidu.live.alablmsdk.a.b.a.ak(" handleRtcCurrentUser ", "imUk=" + j + "  extraInfo=" + str);
+        if (this.aBT == null) {
+            com.baidu.live.alablmsdk.a.b.a.ak(" handleRtcCurrentUser mCurrentChatInfo info error", "");
         } else if (i == 100) {
-            if (this.azp.azL != null && this.azp.azL.azS != null && !TextUtils.isEmpty(this.azp.azL.azS.order)) {
-                String b = com.baidu.live.alablmsdk.module.a.b.b(this.azp.azL.azS);
-                this.azx.setUserAttribute(b);
-                com.baidu.live.alablmsdk.a.b.d(" setUserAttribute " + b);
+            if (this.aBT.aCq != null && this.aBT.aCq.aCy != null && !TextUtils.isEmpty(this.aBT.aCq.aCy.order)) {
+                String b = com.baidu.live.alablmsdk.module.a.b.b(this.aBT.aCq.aCy);
+                this.aCb.setUserAttribute(b);
+                com.baidu.live.alablmsdk.a.b.a.d(" setUserAttribute " + b);
+            }
+            if (this.aCb.Db()) {
+                com.baidu.live.alablmsdk.a.b.c.BY().Ca();
             }
         } else if (i == 115) {
-            com.baidu.live.alablmsdk.a.b.ag("rtc current user kicked ，do rtc leave room ", "");
-            this.azx.Bw();
+            com.baidu.live.alablmsdk.a.b.a.ak("rtc current user kicked ，do rtc leave room ", "");
+            this.aCb.Df();
         }
     }
 
     private void c(int i, long j, String str) {
-        if (i == 300 && this.azp.AZ() == UserPermission.VISITER) {
-            if (this.azp.ab(j) == null) {
-                com.baidu.live.alablmsdk.a.b.fD(" not current user, permission is visiter, add other list");
-                d dVar = new d();
+        if (i == 300 && this.aBT.CH() == UserPermission.VISITER) {
+            if (this.aBT.az(j) == null) {
+                com.baidu.live.alablmsdk.a.b.a.fY(" not current user, permission is visiter, add other list");
+                com.baidu.live.alablmsdk.module.d dVar = new com.baidu.live.alablmsdk.module.d();
                 com.baidu.live.alablmsdk.module.c cVar = new com.baidu.live.alablmsdk.module.c();
-                cVar.azK = j;
-                dVar.azS = cVar;
-                dVar.b(BLMRtcState.JOINED);
-                this.azp.a(dVar, BLMStateType.RTC);
+                cVar.aCp = j;
+                dVar.aCy = cVar;
+                this.aBT.a(dVar, BLMStateType.NONE);
                 return;
             }
-            com.baidu.live.alablmsdk.a.b.fD(" not current user, permission is visiter, has include the other");
+            com.baidu.live.alablmsdk.a.b.a.fY(" not current user, permission is visiter, has include the other");
         }
     }
 
     private void d(int i, long j, String str) {
         com.baidu.live.alablmsdk.module.c cVar;
-        com.baidu.live.alablmsdk.a.b.ag(" handleRtcHasIncludedOtherUser ", ", roomEvents=" + i + " , imUk=" + j + ", extraInfo=" + str);
-        if (j != 0 && this.azp != null) {
-            com.baidu.live.alablmsdk.module.c ac = this.azp.ac(j);
+        com.baidu.live.alablmsdk.a.b.a.ak(" handleRtcHasIncludedOtherUser ", ", roomEvents=" + i + " , imUk=" + j + ", extraInfo=" + str);
+        if (j != 0 && this.aBT != null) {
+            com.baidu.live.alablmsdk.module.d az = this.aBT.az(j);
+            com.baidu.live.alablmsdk.module.c aA = this.aBT.aA(j);
             com.baidu.live.alablmsdk.module.rtc.a aVar = new com.baidu.live.alablmsdk.module.rtc.a();
-            aVar.azK = j;
-            if (ac != null) {
-                aVar.order = ac.order;
+            aVar.aCp = j;
+            if (aA != null) {
+                aVar.order = aA.order;
             }
-            com.baidu.live.alablmsdk.a.b.ag(" current transaction  yes ", "");
+            com.baidu.live.alablmsdk.a.b.a.ak(" current transaction  yes ", "");
             if (i == 300) {
-                com.baidu.live.alablmsdk.a.b.ag("remote join  invite join or reJoin rtc", "");
-                if (this.ayF != null) {
-                    if (ac != null) {
-                        cVar = ac.clone();
+                com.baidu.live.alablmsdk.a.b.a.ak("remote join  invite join or reJoin rtc", "");
+                if (az != null) {
+                    if (az.CR() == BLMRtcState.DEFAULT) {
+                        if (aA != null && aA.aCw != 0 && this.aBT.CM() != null && aA.aCw == this.aBT.CM().aCp) {
+                            com.baidu.live.alablmsdk.a.b.c.BY().dL(1);
+                            com.baidu.live.alablmsdk.a.b.c.BY().Ch();
+                        } else if (this.aBT.CM() != null && this.aBT.CM().aCw == 0 && !this.aCf) {
+                            this.aCf = true;
+                            com.baidu.live.alablmsdk.a.b.c.BY().dL(0);
+                            com.baidu.live.alablmsdk.a.b.c.BY().Ch();
+                        }
+                    }
+                    az.b(BLMRtcState.JOINED);
+                }
+                if (this.aAX != null) {
+                    if (aA != null) {
+                        cVar = aA.clone();
                     } else {
                         cVar = new com.baidu.live.alablmsdk.module.c();
-                        cVar.azK = j;
+                        cVar.aCp = j;
                     }
-                    this.ayF.b(this.azp.roomId, cVar);
+                    this.aAX.b(this.aBT.roomId, cVar);
                 }
             } else if (i == 303) {
-                com.baidu.live.alablmsdk.a.b.ag("rtc remote attribute arrive", "");
-                if (this.azp != null) {
-                    this.azp.c(j, str);
+                com.baidu.live.alablmsdk.a.b.a.ak("rtc remote attribute arrive", "");
+                if (this.aBT != null) {
+                    this.aBT.e(j, str);
                 }
             } else if (i == 301) {
-                com.baidu.live.alablmsdk.a.b.ag("rtc remote user leave", "");
+                com.baidu.live.alablmsdk.a.b.a.ak("rtc remote user leave", "");
+                if (az != null) {
+                    az.b(BLMRtcState.LEAVE);
+                }
             } else if (i == 106) {
+                if (az != null) {
+                    az.b(BLMRtcState.STREAM);
+                }
                 String str2 = "";
                 if (aVar != null) {
                     str2 = aVar.toString();
                 }
-                com.baidu.live.alablmsdk.a.b.ag("rtc remote stream arrival , streamInfo=" + str2, "");
-                if (this.azz != null) {
-                    this.azz.b(true, j);
+                com.baidu.live.alablmsdk.a.b.a.ak("rtc remote stream arrival , streamInfo=" + str2, "");
+                if (this.aCd != null) {
+                    this.aCd.b(true, j);
                 }
-                if (this.ayF != null) {
-                    this.ayF.a(aVar, BLMStreamState.BLMSTREAMSTATE_ARRIVAL);
+                if (this.aAX != null) {
+                    this.aAX.a(aVar, BLMStreamState.BLMSTREAMSTATE_ARRIVAL);
                 }
-                this.azw.W(j);
+                this.aCa.au(j);
             } else if (i == 107) {
-                com.baidu.live.alablmsdk.a.b.ag("rtc remote stream leave", "");
-                if (this.ayF != null) {
-                    this.ayF.a(aVar, BLMStreamState.BLMSTREAMSTATE_REMOVE);
+                if (az != null) {
+                    az.b(BLMRtcState.STREAM_NO);
                 }
-                this.azw.V(j);
+                com.baidu.live.alablmsdk.a.b.a.ak("rtc remote stream leave", "");
+                if (this.aAX != null) {
+                    this.aAX.a(aVar, BLMStreamState.BLMSTREAMSTATE_REMOVE);
+                }
+                this.aCa.at(j);
             } else if (i == 115) {
-                com.baidu.live.alablmsdk.a.b.ag("rtc other user kicked, include  don nothing", "imUk = " + j);
+                com.baidu.live.alablmsdk.a.b.a.ak("rtc other user kicked, include  don nothing", "imUk = " + j);
             }
         }
     }
 
     public void e(int i, long j, String str) {
         if (j != 0) {
-            com.baidu.live.alablmsdk.a.b.ag(" handleRtcHasNotIncludedOtherUser ", ", roomEvents=" + i + " , imUk=" + j + ", extraInfo=" + str);
+            com.baidu.live.alablmsdk.a.b.a.ak(" handleRtcHasNotIncludedOtherUser ", ", roomEvents=" + i + " , imUk=" + j + ", extraInfo=" + str);
             if (i == 300) {
-                com.baidu.live.alablmsdk.a.b.ag("remote join :  invite join or reJoin rtc", "");
-                if (this.azp.AZ() == UserPermission.OWNER && this.azx != null) {
-                    this.azx.ai(j);
+                com.baidu.live.alablmsdk.a.b.a.ak("remote join :  invite join or reJoin rtc", "");
+                if (this.aBT.CH() == UserPermission.OWNER && this.aCb != null) {
+                    this.aCb.aG(j);
                 }
             } else if (i == 301) {
-                com.baidu.live.alablmsdk.a.b.ag("remote user leave", "");
+                com.baidu.live.alablmsdk.a.b.a.ak("remote user leave", "");
             } else if (i == 106) {
-                com.baidu.live.alablmsdk.a.b.ag("remote stream arrival", "");
-                if (this.azp.AZ() == UserPermission.OWNER && this.azx != null) {
-                    this.azx.ai(j);
+                com.baidu.live.alablmsdk.a.b.a.ak("remote stream arrival", "");
+                if (this.aBT.CH() == UserPermission.OWNER && this.aCb != null) {
+                    this.aCb.aG(j);
                 }
             } else if (i == 107) {
-                com.baidu.live.alablmsdk.a.b.ag("remote stream leave", "");
+                com.baidu.live.alablmsdk.a.b.a.ak("remote stream leave", "");
             } else if (i == 115) {
-                com.baidu.live.alablmsdk.a.b.ag(" un include, other user kicked ", "imUk = " + j);
+                com.baidu.live.alablmsdk.a.b.a.ak(" un include, other user kicked ", "imUk = " + j);
             }
         }
     }
 
     @Override // com.baidu.live.alablmsdk.b.b.a
     public void a(com.baidu.live.alablmsdk.module.rtc.a aVar, int i) {
-        if (this.ayF != null) {
-            this.ayF.a(aVar, i);
+        if (this.aAX != null) {
+            this.aAX.a(aVar, i);
         }
     }
 
-    public void AX() {
-        com.baidu.live.alablmsdk.a.b.ag(" resetCurrentChat ", "");
-        this.azp = null;
-        com.baidu.live.alablmsdk.module.b.Bg().clearAll();
+    public void CF() {
+        com.baidu.live.alablmsdk.a.b.a.ak(" resetCurrentChat ", "");
+        this.aBT = null;
+        this.aCf = false;
+        com.baidu.live.alablmsdk.module.b.CP().clearAll();
     }
 
-    public boolean fG(String str) {
-        return (this.azp == null || TextUtils.isEmpty(this.azp.roomId) || !this.azp.roomId.equals(str)) ? false : true;
+    public boolean gc(String str) {
+        return (this.aBT == null || TextUtils.isEmpty(this.aBT.roomId) || !this.aBT.roomId.equals(str)) ? false : true;
     }
 
-    public void AY() {
-        com.baidu.live.alablmsdk.a.b.ag("stop all stream leave count down", "");
-        this.azw.AU();
-        this.azw.AT();
+    public void CG() {
+        com.baidu.live.alablmsdk.a.b.a.ak("stop all stream leave count down", "");
+        this.aCa.CC();
+        this.aCa.CB();
     }
 
     public void release() {
-        com.baidu.live.alablmsdk.a.b.d(" BMLSignalRtcSyncManager  release ");
-        com.baidu.live.alablmsdk.a.b.fD(" BMLSignalRtcSyncManager  release ");
-        this.azA = null;
-        this.ayF = null;
+        com.baidu.live.alablmsdk.a.b.a.d(" BMLSignalRtcSyncManager  release ");
+        com.baidu.live.alablmsdk.a.b.a.fY(" BMLSignalRtcSyncManager  release ");
+        this.aCe = null;
+        this.aAX = null;
         BIMManager.unregisterConnectListenerFromList(this);
         BIMManager.unregisterStudioUsePaReceiveMsg(this.mContext, this);
-        if (this.azk != null) {
-            this.azk.release();
-            this.azk = null;
+        if (this.aBO != null) {
+            this.aBO.release();
+            this.aBO = null;
         }
-        if (this.azw != null) {
-            this.azw.release();
+        if (this.aCa != null) {
+            this.aCa.release();
         }
-        if (this.azx != null) {
-            this.azx.release();
-            this.azx = null;
+        if (this.aCb != null) {
+            this.aCb.release();
+            this.aCb = null;
         }
-        if (this.azz != null) {
-            this.azz.release();
+        if (this.aCd != null) {
+            this.aCd.release();
         }
-        if (this.azv != null) {
-            this.azv.release();
+        if (this.aBZ != null) {
+            this.aBZ.release();
         }
-        com.baidu.live.alablmsdk.a.b.Aw();
-        AX();
-        AY();
-        f.AA().release();
+        CF();
+        CG();
+        e.BU().release();
+        com.baidu.live.alablmsdk.a.b.a.release();
+        com.baidu.live.alablmsdk.a.b.c.BY().release();
     }
 
-    @Override // com.baidu.live.alablmsdk.a.b.a
-    public void fC(String str) {
-        if (this.ayF != null) {
-            this.ayF.fC(str);
+    @Override // com.baidu.live.alablmsdk.a.b.d
+    public void onLogReport(String str, JSONObject jSONObject, JSONObject jSONObject2) {
+        if (this.aAX != null) {
+            this.aAX.onLogReport(str, jSONObject, jSONObject2);
         }
     }
 }

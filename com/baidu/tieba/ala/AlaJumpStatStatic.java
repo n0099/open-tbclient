@@ -10,7 +10,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.n.n;
+import com.baidu.tbadk.n.m;
 /* loaded from: classes.dex */
 public class AlaJumpStatStatic {
     public static String Tag = "tag";
@@ -48,7 +48,7 @@ public class AlaJumpStatStatic {
         com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
         statsItem.append("workflow", "ala_jump_fail");
         statsItem.append("config", str);
-        statsItem.append("startTime", Long.valueOf(System.currentTimeMillis() - n.bBO().bBN()));
+        statsItem.append("startTime", Long.valueOf(System.currentTimeMillis() - m.bFp().bFo()));
         if (obj instanceof AlaLiveRoomActivityConfig) {
             AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = (AlaLiveRoomActivityConfig) obj;
             statsItem.append("fromType", alaLiveRoomActivityConfig.getIntent().getStringExtra("live_from_type"));

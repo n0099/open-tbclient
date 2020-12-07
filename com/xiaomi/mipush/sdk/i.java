@@ -7,28 +7,28 @@ import android.text.TextUtils;
 public final class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f4769a;
+    final /* synthetic */ Context f4539a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ d f79a;
+    final /* synthetic */ d f77a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f80a;
+    final /* synthetic */ String f78a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(String str, Context context, d dVar) {
-        this.f80a = str;
-        this.f4769a = context;
-        this.f79a = dVar;
+        this.f78a = str;
+        this.f4539a = context;
+        this.f77a = dVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (TextUtils.isEmpty(this.f80a)) {
+        if (TextUtils.isEmpty(this.f78a)) {
             return;
         }
         String str = "";
-        String[] split = this.f80a.split(Constants.WAVE_SEPARATOR);
+        String[] split = this.f78a.split(Constants.WAVE_SEPARATOR);
         int length = split.length;
         int i = 0;
         while (true) {
@@ -43,11 +43,11 @@ public final class i implements Runnable {
             i++;
         }
         if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m57a("ASSEMBLE_PUSH : receive incorrect token");
+            com.xiaomi.channel.commonutils.logger.b.m47a("ASSEMBLE_PUSH : receive incorrect token");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m57a("ASSEMBLE_PUSH : receive correct token");
-        h.d(this.f4769a, this.f79a, str);
-        h.m115a(this.f4769a);
+        com.xiaomi.channel.commonutils.logger.b.m47a("ASSEMBLE_PUSH : receive correct token");
+        h.d(this.f4539a, this.f77a, str);
+        h.m105a(this.f4539a);
     }
 }

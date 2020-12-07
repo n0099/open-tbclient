@@ -8,14 +8,14 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class CompletableConcatIterable extends a {
-    final Iterable<? extends e> pOj;
+    final Iterable<? extends e> pFc;
 
     @Override // io.reactivex.a
     public void b(c cVar) {
         try {
-            ConcatInnerObserver concatInnerObserver = new ConcatInnerObserver(cVar, (Iterator) io.reactivex.internal.functions.a.l(this.pOj.iterator(), "The iterator returned is null"));
+            ConcatInnerObserver concatInnerObserver = new ConcatInnerObserver(cVar, (Iterator) io.reactivex.internal.functions.a.m(this.pFc.iterator(), "The iterator returned is null"));
             cVar.onSubscribe(concatInnerObserver.sd);
             concatInnerObserver.next();
         } catch (Throwable th) {
@@ -24,7 +24,7 @@ public final class CompletableConcatIterable extends a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class ConcatInnerObserver extends AtomicInteger implements c {
         private static final long serialVersionUID = -7965400327305809232L;
         final c actual;
@@ -61,7 +61,7 @@ public final class CompletableConcatIterable extends a {
                             return;
                         }
                         try {
-                            ((e) io.reactivex.internal.functions.a.l(it.next(), "The CompletableSource returned is null")).a(this);
+                            ((e) io.reactivex.internal.functions.a.m(it.next(), "The CompletableSource returned is null")).a(this);
                             if (decrementAndGet() == 0) {
                                 return;
                             }

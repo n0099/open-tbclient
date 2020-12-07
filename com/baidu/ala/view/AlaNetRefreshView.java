@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.k.a;
+import com.baidu.tbadk.l.a;
 import com.baidu.tieba.R;
 /* loaded from: classes7.dex */
 public class AlaNetRefreshView extends a {

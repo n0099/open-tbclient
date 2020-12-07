@@ -4,11 +4,11 @@ import android.support.annotation.RestrictTo;
 import com.airbnb.lottie.model.content.j;
 import java.util.List;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes16.dex */
+/* loaded from: classes7.dex */
 public class d {
-    private final char EH;
-    private final String EI;
-    private final double Ey;
+    private final double Fp;
+    private final char Fy;
+    private final String Fz;
     private final List<j> shapes;
     private final String style;
     private final double width;
@@ -19,11 +19,11 @@ public class d {
 
     public d(List<j> list, char c, double d, double d2, String str, String str2) {
         this.shapes = list;
-        this.EH = c;
-        this.Ey = d;
+        this.Fy = c;
+        this.Fp = d;
         this.width = d2;
         this.style = str;
-        this.EI = str2;
+        this.Fz = str2;
     }
 
     public List<j> jz() {
@@ -35,6 +35,6 @@ public class d {
     }
 
     public int hashCode() {
-        return a(this.EH, this.EI, this.style);
+        return a(this.Fy, this.Fz, this.style);
     }
 }

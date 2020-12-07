@@ -2,13 +2,13 @@ package a.a.a.b;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class a {
     public int e;
     public String h;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f955a = "";
+    public String f953a = "";
     public String b = "";
     public String c = "";
     public String d = "";
@@ -18,7 +18,7 @@ public class a {
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("name", this.f955a);
+            jSONObject.put("name", this.f953a);
             jSONObject.put("id", this.b);
             jSONObject.put("image", this.c);
             jSONObject.put("url", this.d);

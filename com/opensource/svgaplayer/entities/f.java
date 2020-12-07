@@ -6,13 +6,12 @@ import com.opensource.svgaplayer.proto.FrameEntity;
 import com.opensource.svgaplayer.proto.SpriteEntity;
 import java.util.ArrayList;
 import java.util.List;
-import kotlin.collections.o;
-import kotlin.h;
-import kotlin.jvm.internal.q;
+import kotlin.collections.n;
+import kotlin.jvm.internal.p;
 import org.json.JSONArray;
 import org.json.JSONObject;
-@h
-/* loaded from: classes17.dex */
+@kotlin.e
+/* loaded from: classes18.dex */
 public final class f {
     private final List<g> frames;
     private final String imageKey;
@@ -21,12 +20,12 @@ public final class f {
         return this.imageKey;
     }
 
-    public final List<g> exx() {
+    public final List<g> eAu() {
         return this.frames;
     }
 
     public f(JSONObject jSONObject) {
-        q.n(jSONObject, MapBundleKey.MapObjKey.OBJ_SL_OBJ);
+        p.o(jSONObject, MapBundleKey.MapObjKey.OBJ_SL_OBJ);
         this.imageKey = jSONObject.optString("imageKey");
         ArrayList arrayList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("frames");
@@ -36,39 +35,39 @@ public final class f {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     g gVar = new g(optJSONObject);
-                    if ((!gVar.jz().isEmpty()) && ((SVGAVideoShapeEntity) o.gQ(gVar.jz())).exn() && arrayList.size() > 0) {
-                        gVar.gG(((g) o.gR(arrayList)).jz());
+                    if ((!gVar.jz().isEmpty()) && ((SVGAVideoShapeEntity) n.hc(gVar.jz())).eAk() && arrayList.size() > 0) {
+                        gVar.gU(((g) n.hd(arrayList)).jz());
                     }
                     arrayList.add(gVar);
                 }
             }
         }
-        this.frames = o.g(arrayList);
+        this.frames = n.g(arrayList);
     }
 
     public f(SpriteEntity spriteEntity) {
-        ArrayList eBy;
-        q.n(spriteEntity, MapBundleKey.MapObjKey.OBJ_SL_OBJ);
+        ArrayList eDJ;
+        p.o(spriteEntity, MapBundleKey.MapObjKey.OBJ_SL_OBJ);
         this.imageKey = spriteEntity.imageKey;
         g gVar = null;
         List<FrameEntity> list = spriteEntity.frames;
         if (list != null) {
             List<FrameEntity> list2 = list;
-            ArrayList arrayList = new ArrayList(o.a(list2, 10));
+            ArrayList arrayList = new ArrayList(n.a(list2, 10));
             g gVar2 = gVar;
             for (FrameEntity frameEntity : list2) {
-                q.m(frameEntity, AdvanceSetting.NETWORK_TYPE);
+                p.n(frameEntity, AdvanceSetting.NETWORK_TYPE);
                 g gVar3 = new g(frameEntity);
-                if ((!gVar3.jz().isEmpty()) && ((SVGAVideoShapeEntity) o.gQ(gVar3.jz())).exn() && gVar2 != null) {
-                    gVar3.gG(gVar2.jz());
+                if ((!gVar3.jz().isEmpty()) && ((SVGAVideoShapeEntity) n.hc(gVar3.jz())).eAk() && gVar2 != null) {
+                    gVar3.gU(gVar2.jz());
                 }
                 arrayList.add(gVar3);
                 gVar2 = gVar3;
             }
-            eBy = arrayList;
+            eDJ = arrayList;
         } else {
-            eBy = o.eBy();
+            eDJ = n.eDJ();
         }
-        this.frames = eBy;
+        this.frames = eDJ;
     }
 }

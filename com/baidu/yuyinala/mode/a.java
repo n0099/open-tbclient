@@ -8,37 +8,37 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private static a ovp;
+    private static a oKv;
     private TbPageContext mPageContext;
-    private b ovq;
+    private b oKw;
 
-    public static a eeG() {
-        if (ovp == null) {
+    public static a ekt() {
+        if (oKv == null) {
             synchronized (a.class) {
-                if (ovp == null) {
-                    ovp = new a();
+                if (oKv == null) {
+                    oKv = new a();
                 }
             }
         }
-        return ovp;
+        return oKv;
     }
 
     public void b(TbPageContext tbPageContext, w wVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.ovq = null;
+            this.oKw = null;
         }
         AlaAudioModeDialogData alaAudioModeDialogData = new AlaAudioModeDialogData();
-        alaAudioModeDialogData.setModeList(WY(wVar == null ? "" : wVar.aHY));
-        if (this.ovq == null) {
-            this.ovq = new b(tbPageContext, wVar, alaAudioModeDialogData);
+        alaAudioModeDialogData.setModeList(Yt(wVar == null ? "" : wVar.aKK));
+        if (this.oKw == null) {
+            this.oKw = new b(tbPageContext, wVar, alaAudioModeDialogData);
         } else {
-            this.ovq.a(wVar, alaAudioModeDialogData);
+            this.oKw.a(wVar, alaAudioModeDialogData);
         }
-        this.ovq.show();
+        this.oKw.show();
     }
 
-    private List<com.baidu.yuyinala.mode.b.a> WY(String str) {
+    private List<com.baidu.yuyinala.mode.b.a> Yt(String str) {
         try {
             JSONArray optJSONArray = new JSONObject(str).optJSONArray("mode_list");
             int length = optJSONArray.length();
@@ -56,9 +56,9 @@ public class a {
         }
     }
 
-    public void GM() {
-        if (this.ovq != null && this.ovq.isShowing()) {
-            this.ovq.dismiss();
+    public void ID() {
+        if (this.oKw != null && this.oKw.isShowing()) {
+            this.oKw.dismiss();
         }
     }
 }

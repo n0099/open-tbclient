@@ -16,7 +16,7 @@ import com.baidu.swan.apps.scheme.j;
 import java.util.Arrays;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/startDeviceMotion");
@@ -54,9 +54,9 @@ public class a extends aa {
             }
             c.i("StartDeviceMotionAction", "startSensor===");
             final k kVar = new k("deviceMotionChange", optParamsAsJo, optString);
-            if (!com.baidu.swan.apps.al.g.a.aKP().a(i, new a.InterfaceC0377a() { // from class: com.baidu.swan.apps.al.g.a.a.1
-                @Override // com.baidu.swan.apps.al.g.a.InterfaceC0377a
-                public void x(float[] fArr) {
+            if (!com.baidu.swan.apps.al.g.a.aNW().a(i, new a.InterfaceC0389a() { // from class: com.baidu.swan.apps.al.g.a.a.1
+                @Override // com.baidu.swan.apps.al.g.a.InterfaceC0389a
+                public void w(float[] fArr) {
                     if (fArr != null && fArr.length == 3) {
                         a.this.a(unitedSchemeEntity, callbackHandler, kVar, fArr);
                     }

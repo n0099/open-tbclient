@@ -1,5 +1,5 @@
 package com.google.zxing.common.detector;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class MathUtils {
     private MathUtils() {
     }

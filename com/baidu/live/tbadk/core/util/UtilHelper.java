@@ -63,7 +63,6 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.compatible.StatusBarUtil;
 import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -393,7 +392,7 @@ public class UtilHelper {
                 sb.insert(0, str.charAt(length));
                 i++;
                 if (i % 3 == 0 && length != 0) {
-                    sb.insert(0, Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    sb.insert(0, ",");
                     i = 0;
                 }
             }
@@ -495,6 +494,7 @@ public class UtilHelper {
         }
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [844=4] */
     public static boolean isARM() {
         RandomAccessFile randomAccessFile;
         byte[] bArr;
@@ -524,18 +524,18 @@ public class UtilHelper {
                 CloseUtil.close(randomAccessFile);
                 throw th;
             }
-            if (randomAccessFile.read(bArr) >= 1) {
-                String str = new String(bArr);
-                int indexOf = str.indexOf(0);
-                if (indexOf != -1) {
-                    str = str.substring(0, indexOf);
-                }
-                if (str.toLowerCase().contains("arm")) {
-                    CloseUtil.close(randomAccessFile);
-                    return true;
-                }
+            if (randomAccessFile.read(bArr) < 1) {
                 CloseUtil.close(randomAccessFile);
                 return false;
+            }
+            String str = new String(bArr);
+            int indexOf = str.indexOf(0);
+            if (indexOf != -1) {
+                str = str.substring(0, indexOf);
+            }
+            if (str.toLowerCase().contains("arm")) {
+                CloseUtil.close(randomAccessFile);
+                return true;
             }
             CloseUtil.close(randomAccessFile);
             return false;

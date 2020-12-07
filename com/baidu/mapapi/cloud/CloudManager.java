@@ -4,11 +4,11 @@ import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.common.BaiduMapSDKException;
 import com.baidu.platform.comjni.map.cloud.ICloudCenter;
 import com.baidu.platform.comjni.map.cloud.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class CloudManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1985a = CloudManager.class.getSimpleName();
+    private static final String f1987a = CloudManager.class.getSimpleName();
     private static CloudManager b;
     private ICloudCenter c;
 

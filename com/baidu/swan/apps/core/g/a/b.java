@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private List<d> cKJ;
+    private List<d> cRC;
     private final Object mLock;
     private final int mMaxSize;
 
@@ -20,21 +20,21 @@ public class b {
         }
         this.mMaxSize = i;
         this.mLock = new Object();
-        this.cKJ = new LinkedList();
+        this.cRC = new LinkedList();
     }
 
     public void a(d dVar) {
         if (dVar != null) {
             synchronized (this.mLock) {
-                if (!this.cKJ.contains(dVar)) {
-                    this.cKJ.add(dVar);
+                if (!this.cRC.contains(dVar)) {
+                    this.cRC.add(dVar);
                 }
                 resize();
             }
         }
     }
 
-    public d nd(String str) {
+    public d nK(String str) {
         d dVar;
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
@@ -47,25 +47,25 @@ public class b {
                 if (DEBUG) {
                     Log.i("MasterPool", "get default master manger for id - " + str);
                 }
-                return apo();
+                return asw();
             }
-            int size = this.cKJ.size();
+            int size = this.cRC.size();
             int i = size - 1;
             while (true) {
                 if (i < 0) {
                     dVar = null;
                     break;
                 }
-                dVar = this.cKJ.get(i);
-                if (!TextUtils.equals(dVar.app(), str)) {
+                dVar = this.cRC.get(i);
+                if (!TextUtils.equals(dVar.asx(), str)) {
                     i--;
                 } else if (DEBUG) {
                     Log.i("MasterPool", "get master in pool for id - " + str);
                 }
             }
             if (dVar != null && i != size - 1) {
-                this.cKJ.remove(i);
-                this.cKJ.add(dVar);
+                this.cRC.remove(i);
+                this.cRC.add(dVar);
             }
             if (DEBUG) {
                 if (dVar == null) {
@@ -84,15 +84,15 @@ public class b {
             Log.i("MasterPool", "master pool clear, excludes size - " + (collection != null ? collection.size() : 0));
             if (collection != null) {
                 for (d dVar : collection) {
-                    if (dVar.apq() != null) {
-                        Log.i("MasterPool", "excludes  - " + dVar.apq().aib());
+                    if (dVar.asy() != null) {
+                        Log.i("MasterPool", "excludes  - " + dVar.asy().alj());
                     }
                 }
             }
         }
         synchronized (this.mLock) {
             ArrayList arrayList = new ArrayList();
-            for (d dVar2 : this.cKJ) {
+            for (d dVar2 : this.cRC) {
                 if (z || !collection.contains(dVar2)) {
                     arrayList.add(dVar2);
                 }
@@ -101,8 +101,8 @@ public class b {
         }
     }
 
-    private d apo() {
-        for (d dVar : this.cKJ) {
+    private d asw() {
+        for (d dVar : this.cRC) {
             if (dVar.isDefault()) {
                 return dVar;
             }
@@ -115,7 +115,7 @@ public class b {
 
     private void resize() {
         boolean z;
-        int size = this.cKJ.size();
+        int size = this.cRC.size();
         if (size > this.mMaxSize) {
             if (DEBUG) {
                 Log.i("MasterPool", "resize, current - " + size + ", target - " + this.mMaxSize);
@@ -124,7 +124,7 @@ public class b {
             int i = 0;
             boolean z2 = false;
             while (i < size) {
-                d dVar = this.cKJ.get(i);
+                d dVar = this.cRC.get(i);
                 if (dVar.isDefault() && !z2) {
                     z = true;
                 } else {
@@ -144,15 +144,15 @@ public class b {
     private void f(Collection<d> collection) {
         if (collection.size() > 0) {
             long currentTimeMillis = DEBUG ? System.currentTimeMillis() : 0L;
-            this.cKJ.removeAll(collection);
+            this.cRC.removeAll(collection);
             if (DEBUG) {
                 Log.i("MasterPool", "remove no use master in pool, size - " + collection.size());
             }
             for (d dVar : collection) {
-                if (dVar.apq() != null) {
-                    dVar.apq().destroy();
+                if (dVar.asy() != null) {
+                    dVar.asy().destroy();
                     if (DEBUG) {
-                        Log.i("MasterPool", "master destroy, id - " + dVar.apq().aib() + ", isReady - " + dVar.isReady() + ", is Default - " + dVar.isDefault());
+                        Log.i("MasterPool", "master destroy, id - " + dVar.asy().alj() + ", isReady - " + dVar.isReady() + ", is Default - " + dVar.isDefault());
                     }
                 }
             }

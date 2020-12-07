@@ -31,6 +31,8 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private static final long serialVersionUID = -2658065756886586092L;
     private AlaInfoData alaInfo;
     public AlaUserInfoData alaUserData;
+    private String appealThreadPopover;
+    private d businessAccountData;
     private boolean canModifyAvatar;
     private String cantModifyAvatarDesc;
     private String fansNickName;
@@ -45,7 +47,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private int is_myfans;
     private int is_myfriend;
     private LiveRoomInfo liveRoomInfo;
-    private m pendantData;
+    private n pendantData;
     public int rankInfluence;
     public String rankNum;
     private String virtualUserUrl;
@@ -466,7 +468,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             this.giftNum = user.gift_num.intValue();
             this.themeCard.parser(user.theme_card);
             if (user.pendant != null) {
-                this.pendantData = new m();
+                this.pendantData = new n();
                 this.pendantData.a(user.pendant);
             }
             this.isLikeStatusFromNet = true;
@@ -504,6 +506,13 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             this.uk = user.uk;
             if (user.priv_sets != null) {
                 this.privSetsData.parserProtobuf(user.priv_sets);
+            }
+            if (user.business_account_info != null) {
+                this.businessAccountData = new d();
+                this.businessAccountData.a(user.business_account_info);
+            }
+            if (!StringUtils.isNull(user.appeal_thread_popover)) {
+                this.appealThreadPopover = user.appeal_thread_popover;
             }
         }
     }
@@ -624,6 +633,11 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 }
                 this.canModifyAvatar = jSONObject.optInt("can_modify_avatar") == 0;
                 this.cantModifyAvatarDesc = jSONObject.getString("modify_avatar_desc");
+                JSONObject optJSONObject8 = jSONObject.optJSONObject("business_account_info");
+                if (optJSONObject8 != null) {
+                    this.businessAccountData.parseJson(optJSONObject8);
+                }
+                this.appealThreadPopover = jSONObject.optString("appeal_thread_popover");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -634,12 +648,12 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.themeCard;
     }
 
-    public m getPendantData() {
+    public n getPendantData() {
         return this.pendantData;
     }
 
-    public void setPendantData(m mVar) {
-        this.pendantData = mVar;
+    public void setPendantData(n nVar) {
+        this.pendantData = nVar;
     }
 
     public String getVirtualUserUrl() {
@@ -698,6 +712,18 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.mNewGodData != null && this.mNewGodData.isNewGod();
     }
 
+    public boolean isVideoGod() {
+        return this.mNewGodData != null && this.mNewGodData.isVideoGod();
+    }
+
+    public boolean isOfficial() {
+        return this.businessAccountData != null && this.businessAccountData.fsE;
+    }
+
+    public boolean isForumBusinessAccount() {
+        return this.businessAccountData != null && this.businessAccountData.isForumBusinessAccount;
+    }
+
     public BazhuGradeData getBazhuGradeData() {
         return this.mBazhuGrade;
     }
@@ -722,5 +748,13 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             return this.privSetsData.getBazhuShowInside() != 3;
         }
         return this.privSetsData.getBazhuShowOutside() != 3;
+    }
+
+    public String getAppealThreadPopover() {
+        return this.appealThreadPopover;
+    }
+
+    public void setIsManager(int i) {
+        this.is_manager = i;
     }
 }

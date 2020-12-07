@@ -8,21 +8,21 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.more.a.b;
 import java.io.File;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class a {
     private Context context;
-    private b mJX;
-    private String mJY = null;
-    private boolean mJZ = false;
-    private b.a mKa = new b.a() { // from class: com.baidu.tieba.setting.more.a.a.1
+    private b mXZ;
+    private String mYa = null;
+    private boolean mYb = false;
+    private b.a mYc = new b.a() { // from class: com.baidu.tieba.setting.more.a.a.1
         @Override // com.baidu.tieba.setting.more.a.b.a
-        public void dFn() {
-            if (a.this.mJZ) {
-                a.this.mJZ = false;
+        public void dKy() {
+            if (a.this.mYb) {
+                a.this.mYb = false;
                 e.mY().post(new Runnable() { // from class: com.baidu.tieba.setting.more.a.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        BdToast.a(a.this.context, a.this.context.getString(R.string.logcat_collect_end), 0).bom();
+                        BdToast.a(a.this.context, a.this.context.getString(R.string.logcat_collect_end), 0).brB();
                     }
                 });
             }
@@ -33,23 +33,23 @@ public class a {
         this.context = context;
     }
 
-    public void dFj() {
-        String dFm = dFm();
-        if (!TextUtils.isEmpty(dFm)) {
+    public void dKu() {
+        String dKx = dKx();
+        if (!TextUtils.isEmpty(dKx)) {
             stop();
-            if (c.Rz(dFm) && D(dFm, "instant", true)) {
-                this.mJZ = true;
-                BdToast.a(this.context, this.context.getString(R.string.logcat_collect_start), 0).bom();
+            if (c.SN(dKx) && E(dKx, "instant", true)) {
+                this.mYb = true;
+                BdToast.a(this.context, this.context.getString(R.string.logcat_collect_start), 0).brB();
             }
         }
     }
 
-    public void dFk() {
+    public void dKv() {
         stop();
     }
 
-    public boolean dFl() {
-        return this.mJZ;
+    public boolean dKw() {
+        return this.mYb;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tieba.setting.more.a.b */
@@ -61,27 +61,27 @@ public class a {
         } catch (Exception e) {
             BdLog.e(e);
         } finally {
-            this.mJX.a(null);
-            this.mJX = null;
+            this.mXZ.a(null);
+            this.mXZ = null;
         }
-        if (this.mJX != null) {
-            this.mJX.dFo();
+        if (this.mXZ != null) {
+            this.mXZ.dKz();
         }
-        this.mJZ = false;
+        this.mYb = false;
     }
 
-    private boolean D(String str, String str2, boolean z) {
-        if (this.mJX == null) {
-            Ry(str);
-            this.mJX = new b(str, str2, z);
-            this.mJX.a(this.mKa);
+    private boolean E(String str, String str2, boolean z) {
+        if (this.mXZ == null) {
+            SM(str);
+            this.mXZ = new b(str, str2, z);
+            this.mXZ.a(this.mYc);
             try {
-                this.mJX.start();
+                this.mXZ.start();
                 return true;
             } catch (IllegalThreadStateException e) {
                 return true;
             } catch (Exception e2) {
-                this.mJX = null;
+                this.mXZ = null;
                 BdLog.e(e2);
                 return false;
             }
@@ -89,7 +89,7 @@ public class a {
         return true;
     }
 
-    private void Ry(String str) {
+    private void SM(String str) {
         File file = new File(str);
         if (!file.exists()) {
             if (file.mkdirs()) {
@@ -103,16 +103,16 @@ public class a {
         }
     }
 
-    private String dFm() {
-        if (!TextUtils.isEmpty(this.mJY)) {
-            return this.mJY;
+    private String dKx() {
+        if (!TextUtils.isEmpty(this.mYa)) {
+            return this.mYa;
         }
-        this.mJY = c.dFp();
-        if (TextUtils.isEmpty(this.mJY)) {
-            this.mJY = c.dFq();
-        } else if (!this.mJY.endsWith(File.separator)) {
-            this.mJY += File.separator;
+        this.mYa = c.dKB();
+        if (TextUtils.isEmpty(this.mYa)) {
+            this.mYa = c.dKC();
+        } else if (!this.mYa.endsWith(File.separator)) {
+            this.mYa += File.separator;
         }
-        return this.mJY;
+        return this.mYa;
     }
 }

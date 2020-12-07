@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class PaBaseHttpRequest extends BaseHttpRequest {
     protected int mOsType = 1;
 
@@ -33,7 +33,7 @@ public abstract class PaBaseHttpRequest extends BaseHttpRequest {
             case 0:
                 return "https://pim.baidu.com/";
             case 1:
-                return "http://cp01-ocean-749.epc.baidu.com:8080/";
+                return Constants.URL_HTTP_RD;
             case 2:
                 return Constants.URL_HTTP_QA;
             case 3:

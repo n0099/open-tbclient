@@ -3,22 +3,22 @@ package android.arch.lifecycle;
 import android.arch.lifecycle.Lifecycle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class u {
+    private final k AF;
+    private a AO;
     private final Handler mHandler = new Handler();
-    private final k zN;
-    private a zV;
 
     public u(@NonNull j jVar) {
-        this.zN = new k(jVar);
+        this.AF = new k(jVar);
     }
 
     private void d(Lifecycle.Event event) {
-        if (this.zV != null) {
-            this.zV.run();
+        if (this.AO != null) {
+            this.AO.run();
         }
-        this.zV = new a(this.zN, event);
-        this.mHandler.postAtFrontOfQueue(this.zV);
+        this.AO = new a(this.AF, event);
+        this.mHandler.postAtFrontOfQueue(this.AO);
     }
 
     public void hJ() {
@@ -39,26 +39,26 @@ public class u {
     }
 
     public Lifecycle getLifecycle() {
-        return this.zN;
+        return this.AF;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public static class a implements Runnable {
-        private final k zN;
-        final Lifecycle.Event zW;
-        private boolean zX = false;
+        private final k AF;
+        final Lifecycle.Event AP;
+        private boolean AQ = false;
 
         a(@NonNull k kVar, Lifecycle.Event event) {
-            this.zN = kVar;
-            this.zW = event;
+            this.AF = kVar;
+            this.AP = event;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!this.zX) {
-                this.zN.b(this.zW);
-                this.zX = true;
+            if (!this.AQ) {
+                this.AF.b(this.AP);
+                this.AQ = true;
             }
         }
     }

@@ -1,13 +1,19 @@
 package com.baidu.tbadk.core.elementsMaven.a;
 
-import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.RectF;
+import java.util.Arrays;
 /* loaded from: classes.dex */
 public class a {
-    public static void a(Paint.FontMetricsInt fontMetricsInt, int i) {
-        int i2 = fontMetricsInt.descent - fontMetricsInt.ascent;
-        if (i2 > 0) {
-            fontMetricsInt.descent = Math.round(((i * 1.0f) / i2) * fontMetricsInt.descent);
-            fontMetricsInt.ascent = fontMetricsInt.descent - i;
-        }
+    public static float[] m(float f) {
+        float[] fArr = new float[8];
+        Arrays.fill(fArr, f);
+        return fArr;
+    }
+
+    public static Path a(RectF rectF, float[] fArr) {
+        Path path = new Path();
+        path.addRoundRect(rectF, fArr, Path.Direction.CW);
+        return path;
     }
 }

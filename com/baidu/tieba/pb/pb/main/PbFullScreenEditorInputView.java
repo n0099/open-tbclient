@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.b;
 import java.util.ArrayList;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class PbFullScreenEditorInputView extends SpanGroupEditText {
     public PbFullScreenEditorInputView(Context context) {
         super(context);
@@ -34,20 +34,20 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
     }
 
     public void b(com.baidu.tbadk.coreExtra.data.u uVar) {
-        if (com.baidu.tieba.face.a.Jf(getText().toString()) >= 10) {
-            com.baidu.tbadk.core.util.e.bpC().showToast(R.string.too_many_face);
+        if (com.baidu.tieba.face.a.JV(getText().toString()) >= 10) {
+            com.baidu.tbadk.core.util.e.bsW().showToast(R.string.too_many_face);
         } else {
             com.baidu.tieba.face.b.b(getContext(), uVar, this);
         }
     }
 
-    public void Di(String str) {
+    public void DQ(String str) {
         if (!StringUtils.isNull(str)) {
             getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }
     }
 
-    public void bb(ArrayList<String> arrayList) {
+    public void bd(ArrayList<String> arrayList) {
         if (arrayList != null && arrayList.size() != 0) {
             StringBuilder sb = new StringBuilder();
             int i = 0;
@@ -67,11 +67,11 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         }
     }
 
-    public void hq(String str) {
+    public void hO(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.tieba.face.b.a(getContext(), str, new b.a() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorInputView.1
                 @Override // com.baidu.tieba.face.b.a
-                public void b(SpannableStringBuilder spannableStringBuilder) {
+                public void d(SpannableStringBuilder spannableStringBuilder) {
                     PbFullScreenEditorInputView.this.setText(spannableStringBuilder);
                     PbFullScreenEditorInputView.this.setSelection(PbFullScreenEditorInputView.this.getText().length());
                 }
@@ -79,11 +79,11 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         }
     }
 
-    public void fS(String str, String str2) {
+    public void fX(String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.tieba.face.b.a(getContext(), str, new b.a() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorInputView.2
                 @Override // com.baidu.tieba.face.b.a
-                public void b(SpannableStringBuilder spannableStringBuilder) {
+                public void d(SpannableStringBuilder spannableStringBuilder) {
                     PbFullScreenEditorInputView.this.setHint(spannableStringBuilder);
                 }
             });
@@ -91,7 +91,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         if (!TextUtils.isEmpty(str2)) {
             com.baidu.tieba.face.b.a(getContext(), str2, new b.a() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorInputView.3
                 @Override // com.baidu.tieba.face.b.a
-                public void b(SpannableStringBuilder spannableStringBuilder) {
+                public void d(SpannableStringBuilder spannableStringBuilder) {
                     PbFullScreenEditorInputView.this.setText(spannableStringBuilder);
                     PbFullScreenEditorInputView.this.setSelection(PbFullScreenEditorInputView.this.getText().length());
                 }

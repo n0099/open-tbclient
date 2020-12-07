@@ -11,7 +11,7 @@ import com.tb.airbnb.lottie.model.layer.Layer;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes17.dex */
+/* loaded from: classes20.dex */
 public class s {
     public static Layer d(com.tb.airbnb.lottie.e eVar) {
         Rect iu = eVar.iu();
@@ -357,7 +357,7 @@ public class s {
                         jsonReader.endObject();
                     }
                     jsonReader.endArray();
-                    eVar.bc("Lottie doesn't support layer effects. If you are using them for  fills, strokes, trim paths etc. then try adding them directly as contents  in your shape. Found: " + arrayList3);
+                    eVar.bf("Lottie doesn't support layer effects. If you are using them for  fills, strokes, trim paths etc. then try adding them directly as contents  in your shape. Found: " + arrayList3);
                     nextString = str4;
                     j = j2;
                     layerType = layerType2;
@@ -444,7 +444,7 @@ public class s {
         arrayList4.add(new com.tb.airbnb.lottie.e.a(eVar, Float.valueOf(1.0f), Float.valueOf(1.0f), null, f5, Float.valueOf(f6)));
         arrayList4.add(new com.tb.airbnb.lottie.e.a(eVar, Float.valueOf(0.0f), Float.valueOf(0.0f), null, f6, Float.valueOf(Float.MAX_VALUE)));
         if (str2.endsWith(".ai") || "ai".equals(str4)) {
-            eVar.bc("Convert your Illustrator layers to shape layers.");
+            eVar.bf("Convert your Illustrator layers to shape layers.");
         }
         return new Layer(arrayList2, eVar, str2, j2, layerType2, j3, str3, arrayList, lVar, i, i2, i3, f, f2, i4, i5, jVar, kVar, arrayList4, matteType, bVar);
     }

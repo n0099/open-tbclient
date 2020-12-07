@@ -2,7 +2,7 @@ package com.baidu.ala.dumixar.utils;
 
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public class FrameIntervalReport {
     private static final String FRAME_INTERVAL_ACTION = "com.baidu.report.frame.interval";
     private static final int PROFILE_LOG_SIZE = 1;

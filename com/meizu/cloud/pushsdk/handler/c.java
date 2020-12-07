@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.handler;
 
 import android.content.Intent;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public interface c {
     int a();
 

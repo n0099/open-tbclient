@@ -14,32 +14,32 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.ala.atomdata.AlaPersonCenterExpActivityConfig;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tbadk.n.i;
-import com.baidu.tbadk.n.m;
+import com.baidu.tbadk.n.h;
+import com.baidu.tbadk.n.l;
 import com.baidu.tieba.R;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.personPolymeric.tab.a.b;
 import java.util.List;
 import tbclient.User;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment implements BdListView.e, a {
     private long mUserId;
-    private PersonPostModel mda;
-    private User mfA;
-    private b mfD;
-    private com.baidu.tieba.personPolymeric.tab.view.a mfy;
-    private static boolean mfE = true;
-    private static CustomMessageListener eJO = new CustomMessageListener(2921440) { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterThreadTabFragment.1
+    private PersonPostModel mrg;
+    private com.baidu.tieba.personPolymeric.tab.view.a mtE;
+    private User mtG;
+    private b mtJ;
+    private static boolean mtK = true;
+    private static CustomMessageListener eRa = new CustomMessageListener(2921440) { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterThreadTabFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                boolean unused = PersonCenterThreadTabFragment.mfE = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                boolean unused = PersonCenterThreadTabFragment.mtK = ((Boolean) customResponsedMessage.getData()).booleanValue();
             }
         }
     };
     private boolean isHost = false;
-    private boolean mfB = false;
+    private boolean mtH = false;
     private boolean mHasInit = false;
     private boolean mHasMore = false;
     private PersonPostModel.b mOnResult = new PersonPostModel.b() { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterThreadTabFragment.2
@@ -48,7 +48,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
             PersonCenterThreadTabFragment.this.c(personPostModel, z);
         }
     };
-    private PersonPostModel.a mfK = new PersonPostModel.a() { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterThreadTabFragment.3
+    private PersonPostModel.a mtQ = new PersonPostModel.a() { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterThreadTabFragment.3
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.a
         public void b(PersonPostModel personPostModel, boolean z) {
             PersonCenterThreadTabFragment.this.c(personPostModel, z);
@@ -61,7 +61,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         bundle.putLong("uid", j);
         bundle.putBoolean(AlaPersonCenterExpActivityConfig.IS_HOST, z);
         personCenterThreadTabFragment.setArguments(bundle);
-        personCenterThreadTabFragment.registerListener(eJO);
+        personCenterThreadTabFragment.registerListener(eRa);
         return personCenterThreadTabFragment;
     }
 
@@ -69,35 +69,35 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initData(bundle);
-        this.mda = new PersonPostModel(getPageContext(), getUniqueId(), this.mOnResult, isHost(), PersonPostModel.FROM_PERSON_POST);
-        this.mfD = new b(getPageContext(), getUniqueId(), this, getTabType());
+        this.mrg = new PersonPostModel(getPageContext(), getUniqueId(), this.mOnResult, isHost(), PersonPostModel.FROM_PERSON_POST);
+        this.mtJ = new b(getPageContext(), getUniqueId(), this, getTabType());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(PersonPostModel personPostModel, boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
-        this.mfB = false;
-        hideLoadingView(this.mfy.getRootView());
-        hideNetRefreshView(this.mfy.getRootView());
-        if (personPostModel != null && this.mda != null) {
+        this.mtH = false;
+        hideLoadingView(this.mtE.getRootView());
+        hideNetRefreshView(this.mtE.getRootView());
+        if (personPostModel != null && this.mrg != null) {
             if (z) {
-                this.mda.threadList.clear();
+                this.mrg.threadList.clear();
             }
-            this.mda.threadList.addAll(com.baidu.tieba.personPolymeric.tab.b.a.fq(personPostModel.threadList));
+            this.mrg.threadList.addAll(com.baidu.tieba.personPolymeric.tab.b.a.fC(personPostModel.threadList));
         }
         this.mHasMore = d(personPostModel, z);
-        if (y.isEmpty(this.mda.threadList) && !j.isNetWorkAvailable()) {
-            showNetRefreshView(this.mfy.getRootView(), null, false);
+        if (y.isEmpty(this.mrg.threadList) && !j.isNetWorkAvailable()) {
+            showNetRefreshView(this.mtE.getRootView(), null, false);
         } else {
             if (this.mHasMore) {
-                this.mfy.Vz();
+                this.mtE.XZ();
             } else {
-                this.mfy.VA();
+                this.mtE.Ya();
             }
-            setData(this.mda.threadList);
+            setData(this.mrg.threadList);
         }
-        com.baidu.tieba.personPolymeric.b.duD().gO(System.currentTimeMillis() - currentTimeMillis);
-        com.baidu.tieba.personPolymeric.b.duD().setRefreshTime(System.currentTimeMillis() - com.baidu.tieba.personPolymeric.b.duD().dsV());
+        com.baidu.tieba.personPolymeric.b.dzV().ht(System.currentTimeMillis() - currentTimeMillis);
+        com.baidu.tieba.personPolymeric.b.dzV().setRefreshTime(System.currentTimeMillis() - com.baidu.tieba.personPolymeric.b.dzV().dyn());
         if (personPostModel != null && personPostModel.getResponsedMessage() != null) {
             k(personPostModel.getResponsedMessage());
         }
@@ -112,31 +112,31 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void d(User user) {
-        this.mfA = user;
-        cIf();
+        this.mtG = user;
+        cNu();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.person_center_common_tab_layout, viewGroup, false);
-        this.mfy = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
-        this.mfy.setSubType(1012);
-        this.mfy.b(this);
+        this.mtE = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
+        this.mtE.setSubType(1012);
+        this.mtE.b(this);
         return inflate;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        cIf();
+        cNu();
     }
 
-    private void cIf() {
-        if (isAdded() && isPrimary() && this.mfA != null && !this.mHasInit) {
+    private void cNu() {
+        if (isAdded() && isPrimary() && this.mtG != null && !this.mHasInit) {
             this.mHasInit = true;
-            com.baidu.tieba.personPolymeric.b.duD().gP(System.currentTimeMillis());
-            wf(true);
+            com.baidu.tieba.personPolymeric.b.dzV().hu(System.currentTimeMillis());
+            wJ(true);
         }
     }
 
@@ -154,8 +154,8 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     }
 
     public void setData(List<q> list) {
-        if (this.mfy != null) {
-            this.mfy.ft(list);
+        if (this.mtE != null) {
+            this.mtE.fF(list);
         }
     }
 
@@ -170,25 +170,25 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
-    public void wf(boolean z) {
-        if (this.mda != null && this.mfy != null && this.mHasInit) {
-            hideNetRefreshView(this.mfy.getRootView());
+    public void wJ(boolean z) {
+        if (this.mrg != null && this.mtE != null && this.mHasInit) {
+            hideNetRefreshView(this.mtE.getRootView());
             if (j.isNetWorkAvailable()) {
-                if (z && mfE) {
-                    showLoadingView(this.mfy.getRootView(), false, getResources().getDimensionPixelSize(R.dimen.ds250));
+                if (z && mtK) {
+                    showLoadingView(this.mtE.getRootView(), false, getResources().getDimensionPixelSize(R.dimen.ds250));
                 }
-                wh(true);
-                cxv();
+                wL(true);
+                cBL();
                 return;
             }
-            showNetRefreshView(this.mfy.getRootView(), null, false);
+            showNetRefreshView(this.mtE.getRootView(), null, false);
         }
     }
 
-    private void wh(boolean z) {
-        if (!this.mfB) {
-            this.mfB = true;
-            this.mda.fetchPost(getPageContext(), this.mfK, z, String.valueOf(this.mUserId), true, 0, false, true, this.mfA);
+    private void wL(boolean z) {
+        if (!this.mtH) {
+            this.mtH = true;
+            this.mrg.fetchPost(getPageContext(), this.mtQ, z, String.valueOf(this.mUserId), true, 0, false, true, this.mtG);
         }
     }
 
@@ -196,27 +196,27 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         super.onNetRefreshButtonClicked();
-        wf(true);
+        wJ(true);
     }
 
-    public void cxv() {
-        if (this.mfy != null && this.mHasInit) {
-            this.mfy.cxv();
+    public void cBL() {
+        if (this.mtE != null && this.mHasInit) {
+            this.mtE.cBL();
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.mda != null && this.mHasInit && j.isNetWorkAvailable() && this.mHasMore) {
-            wh(false);
+        if (this.mrg != null && this.mHasInit && j.isNetWorkAvailable() && this.mHasMore) {
+            wL(false);
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment, com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.mfy != null) {
-            this.mfy.onChangeSkinType(i);
+        if (this.mtE != null) {
+            this.mtE.onChangeSkinType(i);
         }
     }
 
@@ -232,49 +232,49 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         super.onDestroy();
         this.mHasMore = false;
         this.mHasInit = false;
-        this.mfB = false;
-        if (this.mfy != null) {
-            this.mfy.onDestroy();
+        this.mtH = false;
+        if (this.mtE != null) {
+            this.mtE.onDestroy();
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public com.baidu.tieba.personPolymeric.tab.view.a dvL() {
-        return this.mfy;
+    public com.baidu.tieba.personPolymeric.tab.view.a dBd() {
+        return this.mtE;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public List<q> cLy() {
-        if (this.mda != null) {
-            return this.mda.threadList;
+    public List<q> cQM() {
+        if (this.mrg != null) {
+            return this.mrg.threadList;
         }
         return null;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public boolean dvM() {
-        return this.isHost && isPrimary() && !this.mfB;
+    public boolean dBe() {
+        return this.isHost && isPrimary() && !this.mtH;
     }
 
     public void k(ResponsedMessage<?> responsedMessage) {
-        long refreshTime = com.baidu.tieba.personPolymeric.b.duD().getRefreshTime();
-        long createTime = com.baidu.tieba.personPolymeric.b.duD().getCreateTime();
-        long bde = com.baidu.tieba.personPolymeric.b.duD().bde();
-        long dsU = com.baidu.tieba.personPolymeric.b.duD().dsU();
-        long duF = com.baidu.tieba.personPolymeric.b.duD().duF();
-        if (m.bBK().isSmallFlow() && createTime > 0) {
+        long refreshTime = com.baidu.tieba.personPolymeric.b.dzV().getRefreshTime();
+        long createTime = com.baidu.tieba.personPolymeric.b.dzV().getCreateTime();
+        long bgj = com.baidu.tieba.personPolymeric.b.dzV().bgj();
+        long dym = com.baidu.tieba.personPolymeric.b.dzV().dym();
+        long dzX = com.baidu.tieba.personPolymeric.b.dzV().dzX();
+        if (l.bFl().isSmallFlow() && createTime > 0) {
             long j = refreshTime + createTime;
-            if (bde > 0) {
-                j = System.currentTimeMillis() - bde;
+            if (bgj > 0) {
+                j = System.currentTimeMillis() - bgj;
             }
-            i iVar = new i(1010, true, responsedMessage, 0L, createTime, dsU, false, 0L, 0L, j);
-            if (duF < BdKVCache.MILLS_1Hour) {
-                iVar.dZ("profileTime", String.valueOf(duF));
+            h hVar = new h(1010, true, responsedMessage, 0L, createTime, dym, false, 0L, 0L, j);
+            if (dzX < BdKVCache.MILLS_1Hour) {
+                hVar.eg("profileTime", String.valueOf(dzX));
             }
-            if (iVar != null) {
-                iVar.bBH();
+            if (hVar != null) {
+                hVar.bFi();
             }
-            com.baidu.tieba.personPolymeric.b.duD().setCreateTime(0L);
+            com.baidu.tieba.personPolymeric.b.dzV().setCreateTime(0L);
         }
     }
 }

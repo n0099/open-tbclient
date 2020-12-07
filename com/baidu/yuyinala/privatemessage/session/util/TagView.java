@@ -15,30 +15,30 @@ import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.implugin.util.f;
 /* loaded from: classes4.dex */
 public class TagView extends View {
-    private Paint blw;
+    private Paint bhF;
     private int mBgColor;
     private Context mContext;
     private int mTextColor;
     private Paint mTextPaint;
     private float mTextSize;
-    private int oIE;
-    private int oIF;
-    private int oIG;
-    private int oIH;
-    private int oII;
-    private float oIJ;
-    private float oIK;
-    private float oIL;
-    private float oIM;
-    private float oIN;
-    private float oIO;
-    private float oIP;
-    private float oIQ;
-    private String oIR;
-    private int oIS;
-    private boolean oIT;
-    private Paint oIU;
-    private LinearGradient oIV;
+    private int oXK;
+    private int oXL;
+    private int oXM;
+    private int oXN;
+    private int oXO;
+    private float oXP;
+    private float oXQ;
+    private float oXR;
+    private float oXS;
+    private float oXT;
+    private float oXU;
+    private float oXV;
+    private float oXW;
+    private String oXX;
+    private int oXY;
+    private boolean oXZ;
+    private Paint oYa;
+    private LinearGradient oYb;
 
     public TagView(Context context) {
         this(context, null);
@@ -50,36 +50,36 @@ public class TagView extends View {
 
     public TagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oIE = -1;
-        this.oIJ = -1.0f;
-        this.oIK = -1.0f;
+        this.oXK = -1;
+        this.oXP = -1.0f;
+        this.oXQ = -1.0f;
         this.mContext = context;
         init(attributeSet);
     }
 
     public void setText(String str) {
-        this.oIR = str;
-        if (!TextUtils.isEmpty(this.oIR)) {
-            this.oIS = this.oIR.length();
+        this.oXX = str;
+        if (!TextUtils.isEmpty(this.oXX)) {
+            this.oXY = this.oXX.length();
         }
         requestLayout();
         invalidate();
     }
 
     public String getText() {
-        return this.oIR;
+        return this.oXX;
     }
 
     public void setBgColor(int i) {
         this.mBgColor = i;
-        this.oIF = -1;
-        this.oIG = -1;
+        this.oXL = -1;
+        this.oXM = -1;
         invalidate();
     }
 
     public void setGradientColor(int i, int i2) {
-        this.oIF = i;
-        this.oIG = i2;
+        this.oXL = i;
+        this.oXM = i2;
         this.mBgColor = -1;
         invalidate();
     }
@@ -92,26 +92,26 @@ public class TagView extends View {
         int mode2 = View.MeasureSpec.getMode(i2);
         int size2 = View.MeasureSpec.getSize(i2);
         if (mode != 1073741824) {
-            if (this.oIE == 1) {
-                size = (int) this.oIK;
-            } else if (this.oIE == 2) {
-                size = (int) ((this.oIQ * 2.0f) + (this.oIL * 2.0f));
-                if (!TextUtils.isEmpty(this.oIR)) {
-                    if (this.oIS == 1) {
-                        size = (int) this.oIJ;
+            if (this.oXK == 1) {
+                size = (int) this.oXQ;
+            } else if (this.oXK == 2) {
+                size = (int) ((this.oXW * 2.0f) + (this.oXR * 2.0f));
+                if (!TextUtils.isEmpty(this.oXX)) {
+                    if (this.oXY == 1) {
+                        size = (int) this.oXP;
                     } else {
-                        size = (int) (size + this.mTextPaint.measureText(this.oIR));
+                        size = (int) (size + this.mTextPaint.measureText(this.oXX));
                     }
                 }
             } else {
-                size = (int) ((this.oIQ * 2.0f) + (this.oIL * 2.0f));
-                if (!TextUtils.isEmpty(this.oIR)) {
-                    size = (int) (size + this.mTextPaint.measureText(this.oIR));
+                size = (int) ((this.oXW * 2.0f) + (this.oXR * 2.0f));
+                if (!TextUtils.isEmpty(this.oXX)) {
+                    size = (int) (size + this.mTextPaint.measureText(this.oXX));
                 }
             }
         }
         if (mode2 != 1073741824) {
-            size2 = (int) this.oIJ;
+            size2 = (int) this.oXP;
         }
         setMeasuredDimension(size, size2);
     }
@@ -119,8 +119,8 @@ public class TagView extends View {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.oIK = i;
-        this.oIJ = i2;
+        this.oXQ = i;
+        this.oXP = i2;
     }
 
     @Override // android.view.View
@@ -134,177 +134,177 @@ public class TagView extends View {
     private void init(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, a.j.TagView);
         this.mBgColor = obtainStyledAttributes.getColor(a.j.TagView_bgColor, 0);
-        this.oIF = obtainStyledAttributes.getColor(a.j.TagView_bgGradientStartColor, 0);
-        this.oIG = obtainStyledAttributes.getColor(a.j.TagView_bgGradientEndColor, 0);
+        this.oXL = obtainStyledAttributes.getColor(a.j.TagView_bgGradientStartColor, 0);
+        this.oXM = obtainStyledAttributes.getColor(a.j.TagView_bgGradientEndColor, 0);
         this.mTextColor = obtainStyledAttributes.getColor(a.j.TagView_textColor, 0);
-        this.oII = obtainStyledAttributes.getColor(a.j.TagView_bgTraceColor, 0);
-        this.oIH = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_bgGradientAngle, -1);
+        this.oXO = obtainStyledAttributes.getColor(a.j.TagView_bgTraceColor, 0);
+        this.oXN = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_bgGradientAngle, -1);
         this.mTextSize = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_textSize, -1);
-        this.oIT = obtainStyledAttributes.getBoolean(a.j.TagView_textIsBold, false);
-        this.oIQ = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_horizontalMargin, -1);
-        this.oIL = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_traceWidth, 0);
-        this.oIM = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_leftBottomConnerRadius, -1);
-        this.oIN = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_leftTopConnerRadius, -1);
-        this.oIO = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_rightTopConnerRadius, -1);
-        this.oIP = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_rightBottomConnerRadius, -1);
-        this.oIE = obtainStyledAttributes.getInt(a.j.TagView_viewStyle, -1);
-        this.oIR = obtainStyledAttributes.getString(a.j.TagView_text);
+        this.oXZ = obtainStyledAttributes.getBoolean(a.j.TagView_textIsBold, false);
+        this.oXW = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_horizontalMargin, -1);
+        this.oXR = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_traceWidth, 0);
+        this.oXS = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_leftBottomConnerRadius, -1);
+        this.oXT = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_leftTopConnerRadius, -1);
+        this.oXU = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_rightTopConnerRadius, -1);
+        this.oXV = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_rightBottomConnerRadius, -1);
+        this.oXK = obtainStyledAttributes.getInt(a.j.TagView_viewStyle, -1);
+        this.oXX = obtainStyledAttributes.getString(a.j.TagView_text);
         obtainStyledAttributes.recycle();
-        this.blw = new Paint(1);
-        this.blw.setStyle(Paint.Style.FILL);
-        this.blw.setDither(true);
+        this.bhF = new Paint(1);
+        this.bhF.setStyle(Paint.Style.FILL);
+        this.bhF.setDither(true);
         this.mTextPaint = new Paint(1);
         this.mTextPaint.setTextAlign(Paint.Align.CENTER);
-        this.mTextPaint.setFakeBoldText(this.oIT);
-        eiy();
+        this.mTextPaint.setFakeBoldText(this.oXZ);
+        eoo();
         this.mTextPaint.setTextSize(this.mTextSize);
-        if (this.oIL != 0.0f) {
-            this.oIU = new Paint(1);
-            this.oIU.setStyle(Paint.Style.FILL);
-            this.oIU.setDither(true);
+        if (this.oXR != 0.0f) {
+            this.oYa = new Paint(1);
+            this.oYa.setStyle(Paint.Style.FILL);
+            this.oYa.setDither(true);
         }
     }
 
-    private void eiy() {
-        if (this.oIE != -1) {
-            if (this.oIE == 0) {
-                this.oIJ = this.oIJ != -1.0f ? this.oIJ : f.dip2px(this.mContext, 15.0f);
+    private void eoo() {
+        if (this.oXK != -1) {
+            if (this.oXK == 0) {
+                this.oXP = this.oXP != -1.0f ? this.oXP : f.dip2px(this.mContext, 15.0f);
                 this.mBgColor = this.mBgColor != 0 ? this.mBgColor : -45690;
-                this.oIM = this.oIM != -1.0f ? this.oIM : f.dip2px(this.mContext, 2.0f);
-                this.oIN = this.oIN != -1.0f ? this.oIN : f.dip2px(this.mContext, 2.0f);
-                this.oIP = this.oIP != -1.0f ? this.oIP : f.dip2px(this.mContext, 2.0f);
-                this.oIO = this.oIO != -1.0f ? this.oIO : f.dip2px(this.mContext, 2.0f);
+                this.oXS = this.oXS != -1.0f ? this.oXS : f.dip2px(this.mContext, 2.0f);
+                this.oXT = this.oXT != -1.0f ? this.oXT : f.dip2px(this.mContext, 2.0f);
+                this.oXV = this.oXV != -1.0f ? this.oXV : f.dip2px(this.mContext, 2.0f);
+                this.oXU = this.oXU != -1.0f ? this.oXU : f.dip2px(this.mContext, 2.0f);
                 this.mTextSize = this.mTextSize != -1.0f ? this.mTextSize : f.dip2px(this.mContext, 9.0f);
                 this.mTextColor = this.mTextColor != 0 ? this.mTextColor : -1;
-                this.oIQ = f.dip2px(this.mContext, 4.0f);
-            } else if (this.oIE == 1) {
+                this.oXW = f.dip2px(this.mContext, 4.0f);
+            } else if (this.oXK == 1) {
                 this.mBgColor = this.mBgColor != 0 ? this.mBgColor : -45690;
-                this.oIJ = f.dip2px(this.mContext, 8.0f);
-                this.oIK = f.dip2px(this.mContext, 8.0f);
-                this.oIM = f.dip2px(this.mContext, 4.0f);
-                this.oIN = this.oIM;
-                this.oIP = this.oIM;
-                this.oIO = this.oIM;
-            } else if (this.oIE == 2) {
+                this.oXP = f.dip2px(this.mContext, 8.0f);
+                this.oXQ = f.dip2px(this.mContext, 8.0f);
+                this.oXS = f.dip2px(this.mContext, 4.0f);
+                this.oXT = this.oXS;
+                this.oXV = this.oXS;
+                this.oXU = this.oXS;
+            } else if (this.oXK == 2) {
                 this.mBgColor = this.mBgColor != 0 ? this.mBgColor : -45690;
-                this.oIJ = this.oIJ != -1.0f ? this.oIJ : f.dip2px(this.mContext, 16.0f);
-                this.oIM = f.dip2px(this.mContext, 8.0f);
-                this.oIN = this.oIM;
-                this.oIP = this.oIM;
-                this.oIO = this.oIM;
+                this.oXP = this.oXP != -1.0f ? this.oXP : f.dip2px(this.mContext, 16.0f);
+                this.oXS = f.dip2px(this.mContext, 8.0f);
+                this.oXT = this.oXS;
+                this.oXV = this.oXS;
+                this.oXU = this.oXS;
                 this.mTextSize = this.mTextSize != -1.0f ? this.mTextSize : f.dip2px(this.mContext, 12.0f);
                 this.mTextColor = this.mTextColor != 0 ? this.mTextColor : -1;
-                this.oIQ = this.oIQ != -1.0f ? this.oIQ : f.dip2px(this.mContext, 4.0f);
+                this.oXW = this.oXW != -1.0f ? this.oXW : f.dip2px(this.mContext, 4.0f);
             }
         }
     }
 
     private void ar(Canvas canvas) {
-        if (this.oIL != 0.0f) {
-            this.oIU.setColor(this.oII);
-            if (this.oIE == 1) {
-                canvas.drawCircle(this.oIK / 2.0f, this.oIJ / 2.0f, this.oIJ / 2.0f, this.oIU);
+        if (this.oXR != 0.0f) {
+            this.oYa.setColor(this.oXO);
+            if (this.oXK == 1) {
+                canvas.drawCircle(this.oXQ / 2.0f, this.oXP / 2.0f, this.oXP / 2.0f, this.oYa);
                 return;
             }
-            if (this.oIE == 2 && this.oIS == 1) {
-                canvas.drawCircle(this.oIJ / 2.0f, this.oIJ / 2.0f, this.oIJ / 2.0f, this.oIU);
+            if (this.oXK == 2 && this.oXY == 1) {
+                canvas.drawCircle(this.oXP / 2.0f, this.oXP / 2.0f, this.oXP / 2.0f, this.oYa);
             }
             Path path = new Path();
-            if (this.oIN != -1.0f) {
-                path.moveTo(0.0f, this.oIN + this.oIL);
-                path.quadTo(0.0f, 0.0f, this.oIN + this.oIL, 0.0f);
+            if (this.oXT != -1.0f) {
+                path.moveTo(0.0f, this.oXT + this.oXR);
+                path.quadTo(0.0f, 0.0f, this.oXT + this.oXR, 0.0f);
             }
-            if (this.oIO != -1.0f) {
-                path.lineTo(this.oIK - (this.oIO + this.oIL), 0.0f);
+            if (this.oXU != -1.0f) {
+                path.lineTo(this.oXQ - (this.oXU + this.oXR), 0.0f);
             } else {
-                path.lineTo(this.oIK, 0.0f);
+                path.lineTo(this.oXQ, 0.0f);
             }
-            if (this.oIO != -1.0f) {
-                path.quadTo(this.oIK, 0.0f, this.oIK, this.oIO + this.oIL);
+            if (this.oXU != -1.0f) {
+                path.quadTo(this.oXQ, 0.0f, this.oXQ, this.oXU + this.oXR);
             }
-            if (this.oIP != -1.0f) {
-                path.lineTo(this.oIK, this.oIJ - (this.oIP + this.oIL));
+            if (this.oXV != -1.0f) {
+                path.lineTo(this.oXQ, this.oXP - (this.oXV + this.oXR));
             } else {
-                path.lineTo(this.oIK, this.oIJ);
+                path.lineTo(this.oXQ, this.oXP);
             }
-            if (this.oIP != -1.0f) {
-                path.quadTo(this.oIK, this.oIJ, this.oIK - (this.oIP + this.oIL), this.oIJ);
+            if (this.oXV != -1.0f) {
+                path.quadTo(this.oXQ, this.oXP, this.oXQ - (this.oXV + this.oXR), this.oXP);
             }
-            if (this.oIM != -1.0f) {
-                path.lineTo(this.oIM + this.oIL, this.oIJ);
+            if (this.oXS != -1.0f) {
+                path.lineTo(this.oXS + this.oXR, this.oXP);
             } else {
-                path.lineTo(0.0f, this.oIJ);
+                path.lineTo(0.0f, this.oXP);
             }
-            if (this.oIM != -1.0f) {
-                path.quadTo(0.0f, this.oIJ, 0.0f, this.oIJ - (this.oIM + this.oIL));
+            if (this.oXS != -1.0f) {
+                path.quadTo(0.0f, this.oXP, 0.0f, this.oXP - (this.oXS + this.oXR));
             }
             path.close();
-            canvas.drawPath(path, this.oIU);
+            canvas.drawPath(path, this.oYa);
         }
     }
 
     private void as(Canvas canvas) {
         if (this.mBgColor != 0) {
-            this.blw.setColor(this.mBgColor);
-            this.blw.setShader(null);
+            this.bhF.setColor(this.mBgColor);
+            this.bhF.setShader(null);
         }
-        if (this.oIF != 0 || this.oIG != 0) {
-            this.oIV = new LinearGradient(0.0f, 0.0f, this.oIK, this.oIJ, this.oIF, this.oIG, Shader.TileMode.CLAMP);
-            this.blw.setShader(this.oIV);
+        if (this.oXL != 0 || this.oXM != 0) {
+            this.oYb = new LinearGradient(0.0f, 0.0f, this.oXQ, this.oXP, this.oXL, this.oXM, Shader.TileMode.CLAMP);
+            this.bhF.setShader(this.oYb);
         }
-        if (this.oIE == 1) {
-            canvas.drawCircle(this.oIK / 2.0f, this.oIJ / 2.0f, this.oIM, this.blw);
-        } else if (this.oIE == 2 && this.oIS == 1) {
-            canvas.drawCircle(this.oIJ / 2.0f, this.oIJ / 2.0f, this.oIJ / 2.0f, this.blw);
+        if (this.oXK == 1) {
+            canvas.drawCircle(this.oXQ / 2.0f, this.oXP / 2.0f, this.oXS, this.bhF);
+        } else if (this.oXK == 2 && this.oXY == 1) {
+            canvas.drawCircle(this.oXP / 2.0f, this.oXP / 2.0f, this.oXP / 2.0f, this.bhF);
         } else {
             Path path = new Path();
-            if (this.oIN != -1.0f) {
-                path.moveTo(this.oIL, this.oIL + this.oIN);
-                path.quadTo(this.oIL, this.oIL, this.oIL + this.oIN, this.oIL);
+            if (this.oXT != -1.0f) {
+                path.moveTo(this.oXR, this.oXR + this.oXT);
+                path.quadTo(this.oXR, this.oXR, this.oXR + this.oXT, this.oXR);
             }
-            if (this.oIO != -1.0f) {
-                path.lineTo((this.oIK - this.oIL) - this.oIO, this.oIL);
+            if (this.oXU != -1.0f) {
+                path.lineTo((this.oXQ - this.oXR) - this.oXU, this.oXR);
             } else {
-                path.lineTo(this.oIK - this.oIL, this.oIL);
+                path.lineTo(this.oXQ - this.oXR, this.oXR);
             }
-            if (this.oIO != -1.0f) {
-                path.quadTo(this.oIK - this.oIL, this.oIL, this.oIK - this.oIL, this.oIO + this.oIL);
+            if (this.oXU != -1.0f) {
+                path.quadTo(this.oXQ - this.oXR, this.oXR, this.oXQ - this.oXR, this.oXU + this.oXR);
             }
-            if (this.oIP != -1.0f) {
-                path.lineTo(this.oIK - this.oIL, (this.oIJ - this.oIL) - this.oIP);
+            if (this.oXV != -1.0f) {
+                path.lineTo(this.oXQ - this.oXR, (this.oXP - this.oXR) - this.oXV);
             } else {
-                path.lineTo(this.oIK - this.oIL, this.oIJ - this.oIL);
+                path.lineTo(this.oXQ - this.oXR, this.oXP - this.oXR);
             }
-            if (this.oIP != -1.0f) {
-                path.quadTo(this.oIK - this.oIL, this.oIJ - this.oIL, (this.oIK - this.oIL) - this.oIP, this.oIJ - this.oIL);
+            if (this.oXV != -1.0f) {
+                path.quadTo(this.oXQ - this.oXR, this.oXP - this.oXR, (this.oXQ - this.oXR) - this.oXV, this.oXP - this.oXR);
             }
-            if (this.oIM != -1.0f) {
-                path.lineTo(this.oIM + this.oIL, this.oIJ - this.oIL);
+            if (this.oXS != -1.0f) {
+                path.lineTo(this.oXS + this.oXR, this.oXP - this.oXR);
             } else {
-                path.lineTo(this.oIL, this.oIJ - this.oIL);
+                path.lineTo(this.oXR, this.oXP - this.oXR);
             }
-            if (this.oIM != -1.0f) {
-                path.quadTo(this.oIL, this.oIJ - this.oIL, this.oIL, (this.oIJ - this.oIL) - this.oIM);
+            if (this.oXS != -1.0f) {
+                path.quadTo(this.oXR, this.oXP - this.oXR, this.oXR, (this.oXP - this.oXR) - this.oXS);
             }
             path.close();
-            canvas.drawPath(path, this.blw);
+            canvas.drawPath(path, this.bhF);
         }
     }
 
     private void C(Canvas canvas) {
-        if (!TextUtils.isEmpty(this.oIR)) {
+        if (!TextUtils.isEmpty(this.oXX)) {
             this.mTextPaint.setColor(this.mTextColor);
             Paint.FontMetricsInt fontMetricsInt = this.mTextPaint.getFontMetricsInt();
-            canvas.drawText(this.oIR, this.oIK / 2.0f, (((((int) this.oIJ) + 0) - fontMetricsInt.bottom) - fontMetricsInt.top) / 2, this.mTextPaint);
+            canvas.drawText(this.oXX, this.oXQ / 2.0f, (((((int) this.oXP) + 0) - fontMetricsInt.bottom) - fontMetricsInt.top) / 2, this.mTextPaint);
         }
     }
 
     public void setStroke(int i) {
-        this.oII = i;
+        this.oXO = i;
         invalidate();
     }
 
     public int getStyle() {
-        return this.oIE;
+        return this.oXK;
     }
 }

@@ -6,11 +6,11 @@ import android.annotation.TargetApi;
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.map.Marker;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class h extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Animator f2196a = null;
+    private Animator f2198a = null;
     private long b = 0;
     private Interpolator c = null;
     private Animation.AnimationListener d = null;
@@ -40,10 +40,10 @@ public class h extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a() {
-        if (this.f2196a == null) {
+        if (this.f2198a == null) {
             return;
         }
-        this.f2196a.start();
+        this.f2198a.start();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -81,16 +81,16 @@ public class h extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a(Marker marker, Animation animation) {
-        this.f2196a = a(marker);
-        a(this.f2196a);
+        this.f2198a = a(marker);
+        a(this.f2198a);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void b() {
-        if (this.f2196a != null) {
-            this.f2196a.cancel();
-            this.f2196a = null;
+        if (this.f2198a != null) {
+            this.f2198a.cancel();
+            this.f2198a = null;
         }
     }
 

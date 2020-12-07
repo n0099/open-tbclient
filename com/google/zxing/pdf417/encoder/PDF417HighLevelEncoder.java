@@ -7,7 +7,7 @@ import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.util.Arrays;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 final class PDF417HighLevelEncoder {
     private static final int BYTE_COMPACTION = 1;
     private static final int ECI_CHARSET = 927;

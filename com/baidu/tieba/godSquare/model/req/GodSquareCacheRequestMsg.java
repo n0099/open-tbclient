@@ -2,7 +2,7 @@ package com.baidu.tieba.godSquare.model.req;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class GodSquareCacheRequestMsg extends CustomMessage<Object> {
     public String cacheKey;
 

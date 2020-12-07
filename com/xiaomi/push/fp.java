@@ -12,8 +12,8 @@ public final class fp extends fl {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.xiaomi.push.fl
     /* renamed from: a */
-    public ByteBuffer mo284a(ByteBuffer byteBuffer) {
-        return a().length == 0 ? byteBuffer : super.mo284a(byteBuffer);
+    public ByteBuffer mo274a(ByteBuffer byteBuffer) {
+        return a().length == 0 ? byteBuffer : super.mo274a(byteBuffer);
     }
 
     @Override // com.xiaomi.push.fl

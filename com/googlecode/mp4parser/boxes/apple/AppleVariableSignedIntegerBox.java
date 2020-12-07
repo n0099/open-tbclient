@@ -6,12 +6,12 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1092a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_3 = null;
     int intLength;
     long value;
 
@@ -39,7 +39,7 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
     }
 
     public void setIntLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Sg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.RZ(i)));
         this.intLength = i;
     }
 
@@ -49,7 +49,7 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
     }
 
     public void setValue(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.iv(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.iI(j)));
         if (j <= 127 && j > -128) {
             this.intLength = 1;
         } else if (j <= 32767 && j > -32768 && this.intLength < 2) {

@@ -10,10 +10,10 @@ final class hc {
     static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        fh f4944a;
+        fh f4714a;
 
         /* renamed from: a  reason: collision with other field name */
-        String f425a;
+        String f423a;
 
         a() {
         }
@@ -21,7 +21,7 @@ final class hc {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a a(Exception exc) {
-        m335a(exc);
+        m325a(exc);
         boolean z = exc instanceof gd;
         Exception exc2 = exc;
         if (z) {
@@ -39,19 +39,19 @@ final class hc {
         String str = exc2.getClass().getSimpleName() + ":" + message;
         int a3 = fu.a(exc2);
         if (a3 != 0) {
-            aVar.f4944a = fh.a(a3 + fh.GSLB_REQUEST_SUCCESS.a());
+            aVar.f4714a = fh.a(a3 + fh.GSLB_REQUEST_SUCCESS.a());
         }
-        if (aVar.f4944a == null) {
-            aVar.f4944a = fh.GSLB_TCP_ERR_OTHER;
+        if (aVar.f4714a == null) {
+            aVar.f4714a = fh.GSLB_TCP_ERR_OTHER;
         }
-        if (aVar.f4944a == fh.GSLB_TCP_ERR_OTHER) {
-            aVar.f425a = str;
+        if (aVar.f4714a == fh.GSLB_TCP_ERR_OTHER) {
+            aVar.f423a = str;
         }
         return aVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static void m335a(Exception exc) {
+    private static void m325a(Exception exc) {
         if (exc == null) {
             throw new NullPointerException();
         }
@@ -60,7 +60,7 @@ final class hc {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a b(Exception exc) {
         Throwable cause;
-        m335a(exc);
+        m325a(exc);
         boolean z = exc instanceof gd;
         Exception exc2 = exc;
         if (z) {
@@ -78,22 +78,22 @@ final class hc {
         int a3 = fu.a(exc2);
         String str = exc2.getClass().getSimpleName() + ":" + message;
         if (a3 != 0) {
-            aVar.f4944a = fh.a(a3 + fh.CONN_SUCCESS.a());
-            if (aVar.f4944a == fh.CONN_BOSH_ERR && (cause = exc2.getCause()) != null && (cause instanceof UnknownHostException)) {
-                aVar.f4944a = fh.CONN_BOSH_UNKNOWNHOST;
+            aVar.f4714a = fh.a(a3 + fh.CONN_SUCCESS.a());
+            if (aVar.f4714a == fh.CONN_BOSH_ERR && (cause = exc2.getCause()) != null && (cause instanceof UnknownHostException)) {
+                aVar.f4714a = fh.CONN_BOSH_UNKNOWNHOST;
             }
         } else {
-            aVar.f4944a = fh.CONN_XMPP_ERR;
+            aVar.f4714a = fh.CONN_XMPP_ERR;
         }
-        if (aVar.f4944a == fh.CONN_TCP_ERR_OTHER || aVar.f4944a == fh.CONN_XMPP_ERR || aVar.f4944a == fh.CONN_BOSH_ERR) {
-            aVar.f425a = str;
+        if (aVar.f4714a == fh.CONN_TCP_ERR_OTHER || aVar.f4714a == fh.CONN_XMPP_ERR || aVar.f4714a == fh.CONN_BOSH_ERR) {
+            aVar.f423a = str;
         }
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a c(Exception exc) {
-        m335a(exc);
+        m325a(exc);
         boolean z = exc instanceof gd;
         Exception exc2 = exc;
         if (z) {
@@ -111,37 +111,37 @@ final class hc {
         String str = exc2.getClass().getSimpleName() + ":" + message;
         switch (fu.a(exc2)) {
             case 105:
-                aVar.f4944a = fh.BIND_TCP_READ_TIMEOUT;
+                aVar.f4714a = fh.BIND_TCP_READ_TIMEOUT;
                 break;
             case 109:
-                aVar.f4944a = fh.BIND_TCP_CONNRESET;
+                aVar.f4714a = fh.BIND_TCP_CONNRESET;
                 break;
             case 110:
-                aVar.f4944a = fh.BIND_TCP_BROKEN_PIPE;
+                aVar.f4714a = fh.BIND_TCP_BROKEN_PIPE;
                 break;
             case Opcodes.IFNONNULL /* 199 */:
-                aVar.f4944a = fh.BIND_TCP_ERR;
+                aVar.f4714a = fh.BIND_TCP_ERR;
                 break;
             case DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR /* 499 */:
-                aVar.f4944a = fh.BIND_BOSH_ERR;
+                aVar.f4714a = fh.BIND_BOSH_ERR;
                 if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
-                    aVar.f4944a = fh.BIND_BOSH_ITEM_NOT_FOUND;
+                    aVar.f4714a = fh.BIND_BOSH_ITEM_NOT_FOUND;
                     break;
                 }
                 break;
             default:
-                aVar.f4944a = fh.BIND_XMPP_ERR;
+                aVar.f4714a = fh.BIND_XMPP_ERR;
                 break;
         }
-        if (aVar.f4944a == fh.BIND_TCP_ERR || aVar.f4944a == fh.BIND_XMPP_ERR || aVar.f4944a == fh.BIND_BOSH_ERR) {
-            aVar.f425a = str;
+        if (aVar.f4714a == fh.BIND_TCP_ERR || aVar.f4714a == fh.BIND_XMPP_ERR || aVar.f4714a == fh.BIND_BOSH_ERR) {
+            aVar.f423a = str;
         }
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a d(Exception exc) {
-        m335a(exc);
+        m325a(exc);
         boolean z = exc instanceof gd;
         Exception exc2 = exc;
         if (z) {
@@ -156,30 +156,30 @@ final class hc {
         String str = exc2.getClass().getSimpleName() + ":" + message;
         switch (fu.a(exc2)) {
             case 105:
-                aVar.f4944a = fh.CHANNEL_TCP_READTIMEOUT;
+                aVar.f4714a = fh.CHANNEL_TCP_READTIMEOUT;
                 break;
             case 109:
-                aVar.f4944a = fh.CHANNEL_TCP_CONNRESET;
+                aVar.f4714a = fh.CHANNEL_TCP_CONNRESET;
                 break;
             case 110:
-                aVar.f4944a = fh.CHANNEL_TCP_BROKEN_PIPE;
+                aVar.f4714a = fh.CHANNEL_TCP_BROKEN_PIPE;
                 break;
             case Opcodes.IFNONNULL /* 199 */:
-                aVar.f4944a = fh.CHANNEL_TCP_ERR;
+                aVar.f4714a = fh.CHANNEL_TCP_ERR;
                 break;
             case DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR /* 499 */:
-                aVar.f4944a = fh.CHANNEL_BOSH_EXCEPTION;
+                aVar.f4714a = fh.CHANNEL_BOSH_EXCEPTION;
                 if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
-                    aVar.f4944a = fh.CHANNEL_BOSH_ITEMNOTFIND;
+                    aVar.f4714a = fh.CHANNEL_BOSH_ITEMNOTFIND;
                     break;
                 }
                 break;
             default:
-                aVar.f4944a = fh.CHANNEL_XMPPEXCEPTION;
+                aVar.f4714a = fh.CHANNEL_XMPPEXCEPTION;
                 break;
         }
-        if (aVar.f4944a == fh.CHANNEL_TCP_ERR || aVar.f4944a == fh.CHANNEL_XMPPEXCEPTION || aVar.f4944a == fh.CHANNEL_BOSH_EXCEPTION) {
-            aVar.f425a = str;
+        if (aVar.f4714a == fh.CHANNEL_TCP_ERR || aVar.f4714a == fh.CHANNEL_XMPPEXCEPTION || aVar.f4714a == fh.CHANNEL_BOSH_EXCEPTION) {
+            aVar.f423a = str;
         }
         return aVar;
     }

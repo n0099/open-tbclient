@@ -5,9 +5,9 @@ import java.util.List;
 import tbclient.GetAddressList.friendList;
 import tbclient.GetAddressList.listData;
 import tbclient.GetAddressList.robotsList;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class e {
-    private List<com.baidu.tbadk.coreExtra.relationship.a> fTn;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> gbx;
     private String mKey;
 
     public String getKey() {
@@ -15,22 +15,22 @@ public class e {
     }
 
     public List<com.baidu.tbadk.coreExtra.relationship.a> getContacts() {
-        if (this.fTn == null) {
-            this.fTn = new ArrayList();
+        if (this.gbx == null) {
+            this.gbx = new ArrayList();
         }
-        return this.fTn;
+        return this.gbx;
     }
 
     public void a(listData listdata) {
         if (listdata != null) {
             this.mKey = listdata.key;
             if (listdata.friend_list != null) {
-                this.fTn = new ArrayList();
+                this.gbx = new ArrayList();
                 for (friendList friendlist : listdata.friend_list) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.a(friendlist);
-                    aVar.Cx(this.mKey);
-                    this.fTn.add(aVar);
+                    aVar.Df(this.mKey);
+                    this.gbx.add(aVar);
                 }
             }
         }
@@ -40,12 +40,12 @@ public class e {
         if (robotslist != null) {
             this.mKey = robotslist.key;
             if (robotslist.friend_list != null) {
-                this.fTn = new ArrayList();
+                this.gbx = new ArrayList();
                 for (friendList friendlist : robotslist.friend_list) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.a(friendlist);
-                    aVar.Cx(this.mKey);
-                    this.fTn.add(aVar);
+                    aVar.Df(this.mKey);
+                    this.gbx.add(aVar);
                 }
             }
         }

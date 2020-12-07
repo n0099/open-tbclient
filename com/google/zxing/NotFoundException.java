@@ -1,5 +1,5 @@
 package com.google.zxing;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class NotFoundException extends ReaderException {
     private static final NotFoundException INSTANCE;
 

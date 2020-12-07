@@ -13,22 +13,22 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaApplyWheatHttpResponse
 /* loaded from: classes4.dex */
 public class c extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oiE;
+    private a oxF;
     private HttpMessageListener messageListener = new HttpMessageListener(1031007) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaApplyWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.bmJ && c.this.oiE != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaApplyWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.brR && c.this.oxF != null) {
                 AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage = (AlaApplyWheatHttpResponseMessage) httpResponsedMessage;
                 if (alaApplyWheatHttpResponseMessage.getError() != 0 || !alaApplyWheatHttpResponseMessage.isSuccess()) {
-                    c.this.oiE.c(alaApplyWheatHttpResponseMessage);
+                    c.this.oxF.c(alaApplyWheatHttpResponseMessage);
                 } else {
-                    c.this.oiE.b(alaApplyWheatHttpResponseMessage);
+                    c.this.oxF.b(alaApplyWheatHttpResponseMessage);
                 }
             }
         }
     };
-    private BdUniqueId bmJ = BdUniqueId.gen();
+    private BdUniqueId brR = BdUniqueId.gen();
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -38,14 +38,14 @@ public class c extends BdBaseModel {
     }
 
     public c(TbPageContext tbPageContext, a aVar) {
-        setUniqueId(this.bmJ);
+        setUniqueId(this.brR);
         this.mPageContext = tbPageContext;
-        this.oiE = aVar;
-        bgL();
+        this.oxF = aVar;
+        bjQ();
         registerListener(this.messageListener);
     }
 
-    private void bgL() {
+    private void bjQ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031007, TbConfig.SERVER_ADDRESS + "ala/audio/link/apply");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);

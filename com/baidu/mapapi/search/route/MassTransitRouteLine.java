@@ -14,10 +14,9 @@ import com.baidu.mapapi.search.core.RouteLine;
 import com.baidu.mapapi.search.core.RouteStep;
 import com.baidu.mapapi.search.core.TrainInfo;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class MassTransitRouteLine extends RouteLine<TransitStep> implements Parcelable {
     public static final Parcelable.Creator<MassTransitRouteLine> CREATOR = new i();
     private String b;
@@ -25,7 +24,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
     private List<PriceInfo> d;
     private List<List<TransitStep>> e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public static class TransitStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<TransitStep> CREATOR = new j();
         private List<TrafficCondition> d;
@@ -39,7 +38,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         private String l;
         private String m;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes26.dex */
         public enum StepVehicleInfoType {
             ESTEP_TRAIN(1),
             ESTEP_PLANE(2),
@@ -50,24 +49,24 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             
 
             /* renamed from: a  reason: collision with root package name */
-            private int f2139a;
+            private int f2141a;
 
             StepVehicleInfoType(int i) {
-                this.f2139a = 0;
-                this.f2139a = i;
+                this.f2141a = 0;
+                this.f2141a = i;
             }
 
             public int getInt() {
-                return this.f2139a;
+                return this.f2141a;
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes26.dex */
         public static class TrafficCondition implements Parcelable {
             public static final Parcelable.Creator<TrafficCondition> CREATOR = new k();
 
             /* renamed from: a  reason: collision with root package name */
-            private int f2140a;
+            private int f2142a;
             private int b;
 
             public TrafficCondition() {
@@ -75,7 +74,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
 
             /* JADX INFO: Access modifiers changed from: protected */
             public TrafficCondition(Parcel parcel) {
-                this.f2140a = parcel.readInt();
+                this.f2142a = parcel.readInt();
                 this.b = parcel.readInt();
             }
 
@@ -89,7 +88,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             }
 
             public int getTrafficStatus() {
-                return this.f2140a;
+                return this.f2142a;
             }
 
             public void setTrafficGeoCnt(int i) {
@@ -97,12 +96,12 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             }
 
             public void setTrafficStatus(int i) {
-                this.f2140a = i;
+                this.f2142a = i;
             }
 
             @Override // android.os.Parcelable
             public void writeToParcel(Parcel parcel, int i) {
-                parcel.writeInt(this.f2140a);
+                parcel.writeInt(this.f2142a);
                 parcel.writeInt(this.b);
             }
         }
@@ -150,7 +149,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             String[] split2 = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             if (split2 != null) {
                 for (int i = 0; i < split2.length; i++) {
-                    if (split2[i] != null && split2[i] != "" && (split = split2[i].split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split[1] != "" && split[0] != "") {
+                    if (split2[i] != null && split2[i] != "" && (split = split2[i].split(",")) != null && split[1] != "" && split[0] != "") {
                         LatLng latLng = new LatLng(Double.parseDouble(split[1]), Double.parseDouble(split[0]));
                         if (latLng != null && SDKInitializer.getCoordType() == CoordType.GCJ02) {
                             latLng = CoordTrans.baiduToGcj(latLng);

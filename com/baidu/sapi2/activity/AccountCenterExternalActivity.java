@@ -11,7 +11,7 @@ import com.baidu.sapi2.dto.AccountCenterDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.AccountCenterResult;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class AccountCenterExternalActivity extends AccountCenterActivity {
     public static final String EXTRA_EXTERNAL_URL = "extra_external_url";
     private static final String G = AccountCenterExternalActivity.class.getSimpleName();

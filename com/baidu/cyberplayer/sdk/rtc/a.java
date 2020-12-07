@@ -1,13 +1,14 @@
 package com.baidu.cyberplayer.sdk.rtc;
 
 import android.content.Context;
+import android.util.AttributeSet;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.d;
 /* loaded from: classes17.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1425a = null;
+    private static a f1427a = null;
 
     private a() {
     }
@@ -16,10 +17,10 @@ public class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f1425a == null) {
-                f1425a = new a();
+            if (f1427a == null) {
+                f1427a = new a();
             }
-            aVar = f1425a;
+            aVar = f1427a;
         }
         return aVar;
     }
@@ -42,6 +43,18 @@ public class a {
             }
             if (0 == 0) {
                 return d.e();
+            }
+            return null;
+        }
+        return null;
+    }
+
+    public RTCVideoViewProvider a(Context context, AttributeSet attributeSet, boolean z) {
+        if (CyberCfgManager.getInstance().getCfgBoolValue("enable_rtc", true)) {
+            if (z) {
+            }
+            if (0 == 0) {
+                return d.a(context, attributeSet);
             }
             return null;
         }

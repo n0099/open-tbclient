@@ -2,9 +2,9 @@ package kotlin.text;
 
 import kotlin.Pair;
 import kotlin.jvm.internal.Lambda;
-@kotlin.h
-/* loaded from: classes9.dex */
-final class StringsKt__StringsKt$rangesDelimitedBy$2 extends Lambda implements kotlin.jvm.a.m<CharSequence, Integer, Pair<? extends Integer, ? extends Integer>> {
+@kotlin.e
+/* loaded from: classes17.dex */
+final class StringsKt__StringsKt$rangesDelimitedBy$2 extends Lambda implements kotlin.jvm.a.c<CharSequence, Integer, Pair<? extends Integer, ? extends Integer>> {
     final /* synthetic */ char[] $delimiters;
     final /* synthetic */ boolean $ignoreCase;
 
@@ -17,17 +17,18 @@ final class StringsKt__StringsKt$rangesDelimitedBy$2 extends Lambda implements k
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // kotlin.jvm.a.m
+    @Override // kotlin.jvm.a.c
     public /* synthetic */ Pair<? extends Integer, ? extends Integer> invoke(CharSequence charSequence, Integer num) {
         return invoke(charSequence, num.intValue());
     }
 
     public final Pair<Integer, Integer> invoke(CharSequence charSequence, int i) {
-        kotlin.jvm.internal.q.n(charSequence, "receiver$0");
-        int a2 = l.a(charSequence, this.$delimiters, i, this.$ignoreCase);
-        if (a2 < 0) {
-            return null;
+        Pair a2;
+        kotlin.jvm.internal.p.o(charSequence, "$receiver");
+        a2 = s.a(charSequence, this.$delimiters, i, this.$ignoreCase, false);
+        if (a2 != null) {
+            return kotlin.f.k(a2.getFirst(), 1);
         }
-        return kotlin.j.k(Integer.valueOf(a2), 1);
+        return null;
     }
 }

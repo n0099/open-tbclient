@@ -1,6 +1,7 @@
 package com.baidu.searchbox.ugc.draft;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.ugc.model.PublishType;
 import com.baidu.searchbox.ugc.model.UGCTarget;
 import com.baidu.searchbox.ugc.utils.FileUtils;
 import com.baidu.searchbox.ugc.utils.UgcLoginUtils;
@@ -159,7 +160,7 @@ public class DraftUtils {
                 }
                 break;
             case 57:
-                if (str.equals("9")) {
+                if (str.equals(PublishType.TYPE_VIDEO_SHARE)) {
                     c = 6;
                     break;
                 }

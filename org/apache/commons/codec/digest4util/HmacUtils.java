@@ -12,7 +12,7 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.base.binary4util.CodecStringUtils;
 import org.apache.commons.base.binary4util.Hex;
-/* loaded from: classes17.dex */
+/* loaded from: classes14.dex */
 public final class HmacUtils {
     private static final int STREAM_BUFFER_LENGTH = 1024;
     private final Mac mac;

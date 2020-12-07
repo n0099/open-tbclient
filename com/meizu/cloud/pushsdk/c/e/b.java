@@ -6,23 +6,23 @@ import android.os.Build;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4403a = b.class.getSimpleName();
+    private static String f4173a = b.class.getSimpleName();
     private HashMap<String, String> b;
     private HashMap<String, Object> c;
     private HashMap<String, String> d;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f4404a = null;
+        private Context f4174a = null;
 
         public a a(Context context) {
-            this.f4404a = context;
+            this.f4174a = context;
             return this;
         }
 
@@ -39,10 +39,10 @@ public class b {
         e();
         f();
         g();
-        if (aVar.f4404a != null) {
-            a(aVar.f4404a);
+        if (aVar.f4174a != null) {
+            a(aVar.f4174a);
         }
-        com.meizu.cloud.pushsdk.c.f.c.c(f4403a, "Subject created successfully.", new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.c(f4173a, "Subject created successfully.", new Object[0]);
     }
 
     private void a(String str, Object obj) {
@@ -91,7 +91,7 @@ public class b {
     public void b(Context context) {
         Location c = e.c(context);
         if (c == null) {
-            com.meizu.cloud.pushsdk.c.f.c.a(f4403a, "Location information not available.", new Object[0]);
+            com.meizu.cloud.pushsdk.c.f.c.a(f4173a, "Location information not available.", new Object[0]);
             return;
         }
         a("la", Double.valueOf(c.getLatitude()));

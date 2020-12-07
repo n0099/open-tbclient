@@ -1,187 +1,145 @@
 package com.baidu.tbadk.l;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.ContextWrapper;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.graphics.Rect;
+import android.support.v4.widget.NestedScrollView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.y;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
-public class c {
-    private static boolean bBr() {
-        return TbadkCoreApplication.getInst().isDebugMode();
+public class c extends a {
+    Rect bHi;
+    protected TextView bhK;
+    private LinearLayout fqI;
+    protected TbImageView fzA;
+    protected TBSpecificationBtn fzB;
+    private LinearLayout fzC;
+    private int fzD;
+    private NestedScrollView fzz;
+    protected TextView subTextView;
+
+    public c(Context context, View.OnClickListener onClickListener) {
+        super(LayoutInflater.from(context).inflate(R.layout.frs_net_refresh_view_layout, (ViewGroup) null));
+        this.fzD = 0;
+        this.bHi = new Rect();
+        this.fzz = (NestedScrollView) this.attachedView.findViewById(R.id.scrollview);
+        this.fqI = (LinearLayout) this.attachedView.findViewById(R.id.container);
+        this.fzA = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
+        this.subTextView = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
+        this.bhK = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
+        this.fzC = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
+        this.fzB = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
+        com.baidu.tbadk.core.view.commonBtn.a aVar = new com.baidu.tbadk.core.view.commonBtn.a();
+        this.fzB.setText(context.getResources().getString(R.string.refresh_view_button_text));
+        this.fzB.setTextSize(R.dimen.tbds42);
+        this.fzB.setConfig(aVar);
+        this.fzB.setOnClickListener(onClickListener);
+        this.attachedView.setOnClickListener(null);
     }
 
-    private static final void h(Object obj, String str) {
-        if (bBr()) {
-            if (obj != null) {
-                str = obj.getClass().getSimpleName() + " : " + str;
+    public void setSubText(String str) {
+        if (str == null) {
+            this.subTextView.setVisibility(8);
+            return;
+        }
+        this.subTextView.setVisibility(0);
+        this.subTextView.setText(str);
+    }
+
+    public void setTitle(String str) {
+        if (str != null) {
+            this.bhK.setText(str);
+        }
+    }
+
+    public void setButtonText(String str) {
+        if (str != null) {
+            this.fzB.setText(str);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.l.a
+    public void onViewAttached() {
+        super.onViewAttached();
+        onChangeSkinType();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.l.a
+    public void onViewDettached() {
+        super.onViewDettached();
+        this.fzA.setImageResource(0);
+    }
+
+    public void showRefreshButton() {
+        this.fzB.setVisibility(0);
+        this.bhK.setVisibility(0);
+        ap.setViewTextColor(this.subTextView, R.color.CAM_X0109, 1);
+    }
+
+    public void onChangeSkinType() {
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        ap.setImageResource(this.fzA, R.drawable.new_pic_emotion_08);
+        ap.setViewTextColor(this.subTextView, R.color.CAM_X0109, 1, skinType);
+        ap.setViewTextColor(this.bhK, R.color.CAM_X0107, 1, skinType);
+        ap.setBackgroundColor(this.attachedView, R.color.CAM_X0201);
+        if (this.fzB != null) {
+            this.fzB.bvt();
+        }
+    }
+
+    public View getAttachedView() {
+        return this.attachedView;
+    }
+
+    public void sB(int i) {
+        if (this.fzD <= 0) {
+            this.fzD = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
+        }
+        if (this.fzz != null) {
+            if (i == 0) {
+                this.fzz.post(new Runnable() { // from class: com.baidu.tbadk.l.c.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        c.this.sB(-1);
+                    }
+                });
             }
-            Log.d("TbPageKeyHelper", str);
-        }
-    }
-
-    public static final void printLog(String str) {
-        if (bBr()) {
-            Log.d("TbPageKeyHelper", str);
-        }
-    }
-
-    private static final void c(FragmentManager fragmentManager) {
-        if (bBr()) {
-            List<Fragment> fragments = fragmentManager.getFragments();
-            if (!y.isEmpty(fragments)) {
-                printLog("FragmentManager---->" + fragmentManager);
-                printLog("---------------------------Start---------------------------");
-                printLog("Print All ChildFragments=" + y.getCount(fragments));
-                for (Fragment fragment : fragments) {
-                    boolean isPrimary = fragment instanceof BaseFragment ? ((BaseFragment) fragment).isPrimary() : false;
-                    h(fragment, "isUserVisible=" + fragment.getUserVisibleHint() + ",isVisible=" + fragment.isVisible() + ",isPrimary=" + isPrimary);
-                }
-                printLog("---------------------------End---------------------------");
-            }
-        }
-    }
-
-    private static final void a(b bVar) {
-        if (bBr() && bVar != null) {
-            String currentPageKey = bVar.getCurrentPageKey();
-            String bBq = bVar.bBq();
-            ArrayList<String> bBo = bVar.bBo();
-            ArrayList<String> bBp = bVar.bBp();
-            StringBuilder sb = new StringBuilder("Current TbPageExtra:");
-            sb.append("currentPageKey=").append(currentPageKey).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("prePageKey=").append(bBq).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("preList=").append(bBo.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("nextList=").append(bBp.toString());
-            h(bVar, sb.toString());
-        }
-    }
-
-    public static Activity eq(Context context) {
-        h(context, "currentContext");
-        Context context2 = context;
-        while (context2 instanceof ContextWrapper) {
-            if (context2 instanceof Activity) {
-                Activity activity = (Activity) context2;
-                h(activity, "currentActivity");
-                return activity;
-            }
-            context2 = ((ContextWrapper) context2).getBaseContext();
-            h(context2, "currentContextWrapper");
-        }
-        return null;
-    }
-
-    public static b er(Context context) {
-        printLog("======================Start==============================");
-        printLog("context : " + context);
-        Activity eq = eq(context);
-        if (!(context instanceof Activity)) {
-            h(context, "context is not Activity, so getCurrentActivity()");
-            eq = TbadkCoreApplication.getInst().getCurrentActivity();
-        }
-        b ag = ag(eq);
-        if (ag == null) {
-            h(context, "------Not Activity，No TbPageExtra!------");
-        }
-        printLog("**************************End**************************");
-        return ag;
-    }
-
-    private static b ag(Activity activity) {
-        if (activity instanceof BaseFragmentActivity) {
-            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) activity;
-            h(baseFragmentActivity, "context is BaseFragmentActivity");
-            b d = d(baseFragmentActivity);
-            a(d);
-            return d;
-        } else if (activity instanceof BaseActivity) {
-            BaseActivity baseActivity = (BaseActivity) activity;
-            h(baseActivity, "context is BaseActivity");
-            b tbPageExtra = baseActivity.getTbPageExtra();
-            a(tbPageExtra);
-            return tbPageExtra;
-        } else {
-            return null;
-        }
-    }
-
-    private static b d(BaseFragmentActivity baseFragmentActivity) {
-        b bVar;
-        FragmentManager supportFragmentManager = baseFragmentActivity.getSupportFragmentManager();
-        c(supportFragmentManager);
-        List<Fragment> fragments = supportFragmentManager.getFragments();
-        Stack stack = new Stack();
-        for (Fragment fragment : fragments) {
-            if (fragment instanceof BaseFragment) {
-                a(stack, (BaseFragment) fragment);
-            }
-        }
-        while (true) {
-            if (stack.empty()) {
-                bVar = null;
-                break;
-            }
-            BaseFragment baseFragment = (BaseFragment) stack.pop();
-            if (baseFragment != null && baseFragment.isPrimary() && baseFragment.getTbPageExtra() != null) {
-                b tbPageExtra = baseFragment.getTbPageExtra();
-                h(baseFragment, "CurrentFragmentExtra-->" + tbPageExtra);
-                bVar = tbPageExtra;
-                break;
-            }
-        }
-        stack.clear();
-        if (bVar == null || bVar.isDirtyData()) {
-            b tbPageExtra2 = baseFragmentActivity.getTbPageExtra();
-            h(baseFragmentActivity, "CurrentActivityExtra-->" + tbPageExtra2);
-            return tbPageExtra2;
-        }
-        return bVar;
-    }
-
-    private static void a(Stack<BaseFragment> stack, BaseFragment baseFragment) {
-        if (a(baseFragment)) {
-            stack.push(baseFragment);
-            h(baseFragment, "VisibleParentFragment-->" + baseFragment);
-            FragmentManager childFragmentManager = baseFragment.getChildFragmentManager();
-            c(childFragmentManager);
-            List<Fragment> fragments = childFragmentManager.getFragments();
-            if (!y.isEmpty(fragments)) {
-                for (Fragment fragment : fragments) {
-                    if (fragment instanceof BaseFragment) {
-                        BaseFragment baseFragment2 = (BaseFragment) fragment;
-                        if (a(baseFragment2)) {
-                            a(stack, baseFragment2);
+            if (this.fzz.getLocalVisibleRect(this.bHi)) {
+                int i2 = this.bHi.bottom;
+                int abs = Math.abs(this.fqI.getTop());
+                int abs2 = i2 - Math.abs(this.fqI.getBottom());
+                ViewGroup.LayoutParams layoutParams = this.fqI.getLayoutParams();
+                if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                    if (abs < this.fzD) {
+                        marginLayoutParams.topMargin = this.fzD;
+                        this.fqI.setLayoutParams(marginLayoutParams);
+                    } else if (abs == this.fzD) {
+                        if (abs2 > this.fzD) {
+                            marginLayoutParams.topMargin = ((abs2 - this.fzD) / 2) + this.fzD;
+                            this.fqI.setLayoutParams(marginLayoutParams);
                         }
+                    } else if (abs > this.fzD) {
+                        if (abs2 < this.fzD) {
+                            marginLayoutParams.topMargin = this.fzD;
+                        } else if (abs2 == this.fzD) {
+                            marginLayoutParams.topMargin = this.fzD;
+                        } else if (abs2 > this.fzD) {
+                            marginLayoutParams.topMargin = (abs + abs2) / 2;
+                        }
+                        this.fqI.setLayoutParams(marginLayoutParams);
                     }
                 }
             }
         }
-    }
-
-    private static boolean a(BaseFragment baseFragment) {
-        return baseFragment != null && baseFragment.isVisible() && baseFragment.isPrimary();
-    }
-
-    public static ArrayList<String> d(ArrayList<String> arrayList, String str) {
-        ArrayList<String> arrayList2 = new ArrayList<>();
-        if (!y.isEmpty(arrayList)) {
-            arrayList2.addAll(arrayList);
-        }
-        if (!TextUtils.isEmpty(str)) {
-            arrayList2.add(str);
-        }
-        return arrayList2;
     }
 }

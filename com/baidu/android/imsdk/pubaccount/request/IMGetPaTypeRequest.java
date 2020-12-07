@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.pubaccount.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
@@ -10,7 +11,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMGetPaTypeRequest extends PaBaseHttpRequest {
     private String mKey;
     private long mPaId;
@@ -54,7 +55,7 @@ public class IMGetPaTypeRequest extends PaBaseHttpRequest {
                 i4 = jSONObject2.optInt("type");
             } else {
                 i2 = jSONObject.getInt("error_code");
-                str3 = jSONObject.optString("error_msg", "");
+                str3 = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
             }
             i3 = i4;
             str = str3;

@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.u;
 import tbclient.GetHotGod.DataReq;
 import tbclient.GetHotGod.GetHotGodReqIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class GodSquareRequestMsg extends NetMessage {
     private static final int rn = 30;
     public int pn;

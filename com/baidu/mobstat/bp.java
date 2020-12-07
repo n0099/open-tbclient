@@ -6,7 +6,7 @@ import java.io.UnsupportedEncodingException;
 public final class bp {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f2592a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+    private static final byte[] f2594a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
 
     public static byte[] a(byte[] bArr) {
         return a(bArr, bArr.length);
@@ -112,13 +112,13 @@ public final class bp {
         int i4 = 0;
         while (i3 < length2) {
             int i5 = i4 + 1;
-            bArr2[i4] = f2592a[(bArr[i3] & 255) >> 2];
+            bArr2[i4] = f2594a[(bArr[i3] & 255) >> 2];
             int i6 = i5 + 1;
-            bArr2[i5] = f2592a[((bArr[i3] & 3) << 4) | ((bArr[i3 + 1] & 255) >> 4)];
+            bArr2[i5] = f2594a[((bArr[i3] & 3) << 4) | ((bArr[i3 + 1] & 255) >> 4)];
             int i7 = i6 + 1;
-            bArr2[i6] = f2592a[((bArr[i3 + 1] & 15) << 2) | ((bArr[i3 + 2] & 255) >> 6)];
+            bArr2[i6] = f2594a[((bArr[i3 + 1] & 15) << 2) | ((bArr[i3 + 2] & 255) >> 6)];
             int i8 = i7 + 1;
-            bArr2[i7] = f2592a[bArr[i3 + 2] & 63];
+            bArr2[i7] = f2594a[bArr[i3 + 2] & 63];
             if ((i8 - i2) % 76 == 0 && i8 != 0) {
                 i2++;
             }
@@ -128,9 +128,9 @@ public final class bp {
         switch (bArr.length % 3) {
             case 1:
                 int i9 = i4 + 1;
-                bArr2[i4] = f2592a[(bArr[length2] & 255) >> 2];
+                bArr2[i4] = f2594a[(bArr[length2] & 255) >> 2];
                 int i10 = i9 + 1;
-                bArr2[i9] = f2592a[(bArr[length2] & 3) << 4];
+                bArr2[i9] = f2594a[(bArr[length2] & 3) << 4];
                 int i11 = i10 + 1;
                 bArr2[i10] = 61;
                 i = i11 + 1;
@@ -138,11 +138,11 @@ public final class bp {
                 break;
             case 2:
                 int i12 = i4 + 1;
-                bArr2[i4] = f2592a[(bArr[length2] & 255) >> 2];
+                bArr2[i4] = f2594a[(bArr[length2] & 255) >> 2];
                 int i13 = i12 + 1;
-                bArr2[i12] = f2592a[((bArr[length2] & 3) << 4) | ((bArr[length2 + 1] & 255) >> 4)];
+                bArr2[i12] = f2594a[((bArr[length2] & 3) << 4) | ((bArr[length2 + 1] & 255) >> 4)];
                 int i14 = i13 + 1;
-                bArr2[i13] = f2592a[(bArr[length2 + 1] & 15) << 2];
+                bArr2[i13] = f2594a[(bArr[length2 + 1] & 15) << 2];
                 i = i14 + 1;
                 bArr2[i14] = 61;
                 break;

@@ -6,12 +6,12 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes17.dex */
+/* loaded from: classes20.dex */
 public class o {
     private boolean enabled = false;
-    private final Set<a> CC = new ArraySet();
-    private final Map<String, com.tb.airbnb.lottie.d.d> CD = new HashMap();
-    private final Comparator<Pair<String, Float>> CE = new Comparator<Pair<String, Float>>() { // from class: com.tb.airbnb.lottie.o.1
+    private final Set<a> Dx = new ArraySet();
+    private final Map<String, com.tb.airbnb.lottie.d.d> Dy = new HashMap();
+    private final Comparator<Pair<String, Float>> Dz = new Comparator<Pair<String, Float>>() { // from class: com.tb.airbnb.lottie.o.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -28,9 +28,9 @@ public class o {
         }
     };
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes20.dex */
     public interface a {
-        void h(float f);
+        void g(float f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -40,15 +40,15 @@ public class o {
 
     public void b(String str, float f) {
         if (this.enabled) {
-            com.tb.airbnb.lottie.d.d dVar = this.CD.get(str);
+            com.tb.airbnb.lottie.d.d dVar = this.Dy.get(str);
             if (dVar == null) {
                 dVar = new com.tb.airbnb.lottie.d.d();
-                this.CD.put(str, dVar);
+                this.Dy.put(str, dVar);
             }
             dVar.add(f);
             if (str.equals("__container")) {
-                for (a aVar : this.CC) {
-                    aVar.h(f);
+                for (a aVar : this.Dx) {
+                    aVar.g(f);
                 }
             }
         }

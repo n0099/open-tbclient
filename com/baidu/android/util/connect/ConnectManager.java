@@ -1,11 +1,12 @@
 package com.baidu.android.util.connect;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes18.dex */
+@Deprecated
+/* loaded from: classes19.dex */
 public class ConnectManager {
     private static final boolean DEBUG = false;
     private static final String TAG = "ConnectManager";
@@ -21,42 +22,34 @@ public class ConnectManager {
         checkNetworkType(context);
     }
 
+    @Deprecated
     public static boolean isNetworkConnected(Context context) {
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
-        if (activeNetworkInfo != null) {
-            return activeNetworkInfo.isConnectedOrConnecting();
-        }
-        return false;
+        return NetWorkUtils.isConnected(context);
     }
 
+    @Deprecated
     public static boolean isWifi(Context context) {
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
-        if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-            return false;
-        }
-        return activeNetworkInfo.getType() == 1;
+        return NetWorkUtils.isWifiConnected(context);
     }
 
-    private void checkApn(Context context, NetworkInfo networkInfo) {
+    private void checkApn(NetworkInfo networkInfo) {
         String lowerCase;
         if (networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
-            if (!lowerCase.startsWith("cmwap") && !lowerCase.startsWith("uniwap") && !lowerCase.startsWith("3gwap")) {
-                if (lowerCase.startsWith("ctwap")) {
-                    this.mUseWap = true;
-                    this.mApn = lowerCase;
-                    this.mProxy = "10.0.0.200";
-                    this.mPort = 80;
-                    return;
-                } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
-                    this.mUseWap = false;
-                    this.mApn = lowerCase;
-                    return;
-                }
-            } else {
+            if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
                 this.mUseWap = true;
                 this.mApn = lowerCase;
                 this.mProxy = "10.0.0.172";
                 this.mPort = 80;
+                return;
+            } else if (lowerCase.startsWith("ctwap")) {
+                this.mUseWap = true;
+                this.mApn = lowerCase;
+                this.mProxy = "10.0.0.200";
+                this.mPort = 80;
+                return;
+            } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
+                this.mUseWap = false;
+                this.mApn = lowerCase;
                 return;
             }
         }
@@ -82,22 +75,17 @@ public class ConnectManager {
     }
 
     private void checkNetworkType(Context context) {
-        NetworkInfo networkInfo;
-        try {
-            networkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
-        } catch (NullPointerException e) {
-            networkInfo = null;
-        }
-        if (networkInfo != null) {
-            if ("wifi".equals(networkInfo.getTypeName().toLowerCase())) {
+        NetworkInfo activeNetworkInfo = NetWorkUtils.getActiveNetworkInfo(context);
+        if (activeNetworkInfo != null) {
+            if ("wifi".equals(activeNetworkInfo.getTypeName().toLowerCase())) {
                 this.mNetType = "wifi";
                 this.mUseWap = false;
             } else {
-                checkApn(context, networkInfo);
+                checkApn(activeNetworkInfo);
                 this.mNetType = this.mApn;
             }
-            this.mSubType = networkInfo.getSubtype();
-            this.mSubTypeName = networkInfo.getSubtypeName();
+            this.mSubType = activeNetworkInfo.getSubtype();
+            this.mSubTypeName = activeNetworkInfo.getSubtypeName();
         }
     }
 
@@ -129,47 +117,61 @@ public class ConnectManager {
         return this.mNetType;
     }
 
+    @Deprecated
     public static String getNetworkInfo(Context context) {
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-        if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-            if (activeNetworkInfo.getType() == 1) {
-                return "wifi";
-            }
-            if (activeNetworkInfo.getType() == 0) {
-                int subtype = activeNetworkInfo.getSubtype();
-                String lowerCase = activeNetworkInfo.getExtraInfo() == null ? "none" : activeNetworkInfo.getExtraInfo().toLowerCase();
-                StringBuilder sb = new StringBuilder();
-                String subtypeName = activeNetworkInfo.getSubtypeName();
-                switch (subtype) {
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 7:
-                    case 11:
-                        sb.append("2g");
-                        break;
-                    case 3:
-                    case 5:
-                    case 6:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 12:
-                    case 14:
-                    case 15:
-                        sb.append("3g");
-                        break;
-                    case 13:
-                        sb.append("4g");
-                        break;
-                    default:
-                        sb.append(activeNetworkInfo.getTypeName());
-                        break;
-                }
-                return sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(lowerCase).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(subtypeName).toString();
-            }
-            return activeNetworkInfo.getTypeName() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + activeNetworkInfo.getSubtypeName();
+        NetworkInfo activeNetworkInfo;
+        if (context == null || (activeNetworkInfo = NetWorkUtils.getActiveNetworkInfo(context)) == null || !activeNetworkInfo.isConnected()) {
+            return "no";
         }
-        return "no";
+        if (activeNetworkInfo.getType() == 1) {
+            return "wifi";
+        }
+        if (activeNetworkInfo.getType() == 0) {
+            int subtype = activeNetworkInfo.getSubtype();
+            String lowerCase = activeNetworkInfo.getExtraInfo() == null ? "none" : activeNetworkInfo.getExtraInfo().toLowerCase();
+            StringBuilder sb = new StringBuilder();
+            String subtypeName = activeNetworkInfo.getSubtypeName();
+            switch (subtype) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                    sb.append("2g");
+                    break;
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                    sb.append("3g");
+                    break;
+                case 13:
+                    sb.append("4g");
+                    break;
+                case 16:
+                case 17:
+                case 18:
+                case 19:
+                default:
+                    sb.append(activeNetworkInfo.getTypeName());
+                    break;
+                case 20:
+                    sb.append("5g");
+                    break;
+            }
+            return sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(lowerCase).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(subtypeName).toString();
+        }
+        return activeNetworkInfo.getTypeName() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + activeNetworkInfo.getSubtypeName();
+    }
+
+    @SuppressLint({"MissingPermission"})
+    @Deprecated
+    public static NetworkInfo getInfo(Context context) {
+        return NetWorkUtils.getActiveNetworkInfo(context);
     }
 }

@@ -9,11 +9,11 @@ import java.util.LinkedList;
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f1180a;
+    protected Context f1178a;
     private LinkedList<e> b = new LinkedList<>();
 
     public d(Context context) {
-        this.f1180a = context;
+        this.f1178a = context;
     }
 
     public abstract e a(byte[] bArr) throws IOException;
@@ -28,7 +28,7 @@ public abstract class d {
                 this.b.add(eVar);
                 this.b.notifyAll();
             } catch (Exception e) {
-                new b.c(this.f1180a).a(Log.getStackTraceString(e)).a();
+                new b.c(this.f1178a).a(Log.getStackTraceString(e)).a();
             }
         }
     }

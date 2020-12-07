@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.res.ui.wheelview3d.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b implements c {
     private int maxValue;
     private int minValue;

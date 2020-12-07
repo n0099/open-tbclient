@@ -13,6 +13,7 @@ public class AgreeData implements Serializable {
     public String keyFromHomePage;
     public String mImageViewerFromPage;
     public String nid;
+    public String objSource;
     public String recomAbTag;
     public String recomExtra;
     public String recomSource;

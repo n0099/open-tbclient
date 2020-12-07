@@ -17,15 +17,15 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BdTopToast extends LinearLayout {
-    private Animation bIh;
-    private Animation bIi;
-    private TextView cKm;
+    private Animation bNp;
+    private Animation bNq;
+    private TextView cRf;
     private int mDuration;
     private Runnable mHideRunnable;
     private ImageView mIconView;
     private View mStatusBarView;
-    private BottomShadowLinearLayout nzG;
-    private boolean nzH;
+    private BottomShadowLinearLayout nNI;
+    private boolean nNJ;
 
     public BdTopToast(Context context, int i) {
         this(context);
@@ -53,16 +53,16 @@ public class BdTopToast extends LinearLayout {
             addView(this.mStatusBarView, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
         }
         LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
-        this.nzG = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
+        this.nNI = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
         this.mIconView = (ImageView) findViewById(R.id.bd_top_toast_icon);
-        this.cKm = (TextView) findViewById(R.id.bd_top_toast_content);
+        this.cRf = (TextView) findViewById(R.id.bd_top_toast_content);
         initAnimation();
     }
 
     private void initAnimation() {
-        this.bIh = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-        this.bIi = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
-        this.bIi.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.BdTopToast.1
+        this.bNp = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+        this.bNq = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
+        this.bNq.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.BdTopToast.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -87,13 +87,13 @@ public class BdTopToast extends LinearLayout {
         };
     }
 
-    public BdTopToast yr(boolean z) {
-        this.nzH = z;
+    public BdTopToast yW(boolean z) {
+        this.nNJ = z;
         return this;
     }
 
-    public BdTopToast Ue(String str) {
-        this.cKm.setText(str);
+    public BdTopToast Vt(String str) {
+        this.cRf.setText(str);
         return this;
     }
 
@@ -105,7 +105,7 @@ public class BdTopToast extends LinearLayout {
             release();
             viewGroup.addView(this, -1, -2);
             onChangeSkinType();
-            startAnimation(this.bIh);
+            startAnimation(this.bNp);
             if (this.mDuration >= 0) {
                 com.baidu.adp.lib.f.e.mY().postDelayed(this.mHideRunnable, this.mDuration);
             } else {
@@ -117,7 +117,7 @@ public class BdTopToast extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
         release();
-        startAnimation(this.bIi);
+        startAnimation(this.bNq);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -128,13 +128,13 @@ public class BdTopToast extends LinearLayout {
 
     public void onChangeSkinType() {
         ap.setBackgroundColor(this.mStatusBarView, R.color.CAM_X0207);
-        if (this.nzH) {
-            SvgManager.bqB().a(this.mIconView, R.drawable.ic_icon_pure_succeed_use_n, (SvgManager.SvgResourceStateType) null);
-            ap.setViewTextColor(this.cKm, R.color.CAM_X0302);
+        if (this.nNJ) {
+            SvgManager.btW().a(this.mIconView, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, (SvgManager.SvgResourceStateType) null);
+            ap.setViewTextColor(this.cRf, R.color.CAM_X0302);
         } else {
-            SvgManager.bqB().a(this.mIconView, R.drawable.ic_icon_pure_defeated_use_n, (SvgManager.SvgResourceStateType) null);
-            ap.setViewTextColor(this.cKm, R.color.CAM_X0301);
+            SvgManager.btW().a(this.mIconView, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, (SvgManager.SvgResourceStateType) null);
+            ap.setViewTextColor(this.cRf, R.color.CAM_X0301);
         }
-        this.nzG.onChangeSkinType();
+        this.nNI.onChangeSkinType();
     }
 }

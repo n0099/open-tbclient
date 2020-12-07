@@ -6,10 +6,10 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.searchbox.http.callback.StringResponseCallback;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class e {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public interface a {
         void onFail(String str);
 
@@ -18,19 +18,19 @@ public class e {
 
     public static void a(long j, final a aVar) {
         if (aVar != null) {
-            com.baidu.swan.apps.runtime.e aGN = com.baidu.swan.apps.runtime.e.aGN();
-            if (aGN == null) {
+            com.baidu.swan.apps.runtime.e aJV = com.baidu.swan.apps.runtime.e.aJV();
+            if (aJV == null) {
                 aVar.onFail("swan app is null");
                 return;
             }
-            com.baidu.swan.games.network.b.aVJ().getRequest().cookieManager(com.baidu.swan.apps.t.a.awr().ahB()).url(com.baidu.swan.apps.t.a.awe().agH()).addUrlParam("appkey", aGN.getAppKey()).addUrlParam("duration", String.valueOf(j)).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.b.e.1
+            com.baidu.swan.games.network.b.aYO().getRequest().cookieManager(com.baidu.swan.apps.t.a.azz().akJ()).url(com.baidu.swan.apps.t.a.azm().ajP()).addUrlParam("appkey", aJV.getAppKey()).addUrlParam("duration", String.valueOf(j)).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.b.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onSuccess(String str, int i) {
                     if (!TextUtils.isEmpty(str)) {
                         JSONObject b = e.b(str, a.this);
                         if (b != null) {
-                            a.this.onSuccess(g.cm(b));
+                            a.this.onSuccess(g.co(b));
                             return;
                         }
                         return;
@@ -48,19 +48,19 @@ public class e {
 
     public static void a(String str, final a aVar) {
         if (aVar != null) {
-            com.baidu.swan.apps.runtime.e aGN = com.baidu.swan.apps.runtime.e.aGN();
-            if (aGN == null) {
+            com.baidu.swan.apps.runtime.e aJV = com.baidu.swan.apps.runtime.e.aJV();
+            if (aJV == null) {
                 aVar.onFail("swan app is null");
                 return;
             }
-            com.baidu.swan.games.network.b.aVJ().getRequest().cookieManager(com.baidu.swan.apps.t.a.awr().ahB()).url(com.baidu.swan.apps.t.a.awe().agI()).addUrlParam("appkey", aGN.getAppKey()).addUrlParam(IMConstants.SERVICE_TYPE_ORDER, str).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.b.e.2
+            com.baidu.swan.games.network.b.aYO().getRequest().cookieManager(com.baidu.swan.apps.t.a.azz().akJ()).url(com.baidu.swan.apps.t.a.azm().ajQ()).addUrlParam("appkey", aJV.getAppKey()).addUrlParam(IMConstants.SERVICE_TYPE_ORDER, str).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.b.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onSuccess(String str2, int i) {
                     if (!TextUtils.isEmpty(str2)) {
                         JSONObject b = e.b(str2, a.this);
                         if (b != null) {
-                            a.this.onSuccess(f.cl(b));
+                            a.this.onSuccess(f.cn(b));
                             return;
                         }
                         return;

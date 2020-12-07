@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1328a = null;
+    private static a f1327a = null;
     private Context b;
     private BroadcastReceiver e;
     private com.baidu.clientupdate.c.a h;
@@ -40,10 +40,10 @@ public final class a {
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f1328a == null) {
-                f1328a = new a(context);
+            if (f1327a == null) {
+                f1327a = new a(context);
             }
-            aVar = f1328a;
+            aVar = f1327a;
         }
         return aVar;
     }
@@ -123,8 +123,8 @@ public final class a {
 
     public static void e() {
         synchronized (a.class) {
-            if (f1328a != null && f1328a.e != null) {
-                f1328a.b.unregisterReceiver(f1328a.e);
+            if (f1327a != null && f1327a.e != null) {
+                f1327a.b.unregisterReceiver(f1327a.e);
             }
         }
     }

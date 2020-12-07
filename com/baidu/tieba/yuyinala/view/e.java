@@ -16,13 +16,13 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public final class e {
-    private final TextView gNd;
-    private final ImageView hWk;
+    private final TextView gWq;
+    private final ImageView ihh;
     private final LinearLayout mContentView;
     private final PopupWindow mPopupWindow;
-    private final View olD;
-    private final int olE;
-    private final int olF;
+    private final View oAD;
+    private final int oAE;
+    private final int oAF;
 
     /* loaded from: classes4.dex */
     public static final class a {
@@ -30,130 +30,130 @@ public final class e {
         private final Context context;
         private int width = -2;
         private int height = -2;
-        private float olH = 0.0f;
-        private float olI = 9.0f;
-        private float olJ = 4.0f;
+        private float oAH = 0.0f;
+        private float oAI = 9.0f;
+        private float oAJ = 4.0f;
         @Nullable
         private CharSequence text = null;
         private int gravity = 16;
-        private float olK = 5.0f;
-        private float olL = 5.0f;
-        private float olM = 5.0f;
-        private float olN = 5.0f;
-        private float olO = 11.0f;
-        private float olP = 2.0f;
-        private boolean olQ = true;
-        private boolean olR = true;
+        private float oAK = 5.0f;
+        private float oAL = 5.0f;
+        private float oAM = 5.0f;
+        private float oAN = 5.0f;
+        private float oAO = 11.0f;
+        private float oAP = 2.0f;
+        private boolean oAQ = true;
+        private boolean oAR = true;
 
         public a(@NonNull View view) {
             this.attachedView = view;
             this.context = this.attachedView.getContext();
         }
 
-        public a ba(float f) {
+        public a bb(float f) {
             this.width = e.c(f, this.context);
             return this;
         }
 
-        public a bb(float f) {
-            this.olH = f;
-            return this;
-        }
-
         public a bc(float f) {
-            this.olI = f;
+            this.oAH = f;
             return this;
         }
 
         public a bd(float f) {
-            this.olJ = f;
+            this.oAI = f;
             return this;
         }
 
-        public a w(@Nullable CharSequence charSequence) {
+        public a be(float f) {
+            this.oAJ = f;
+            return this;
+        }
+
+        public a x(@Nullable CharSequence charSequence) {
             this.text = charSequence;
             return this;
         }
 
-        public a Nf(int i) {
+        public a NX(int i) {
             this.gravity = i;
             return this;
         }
 
         public a h(float f, float f2, float f3, float f4) {
-            this.olK = f;
-            this.olL = f2;
-            this.olM = f3;
-            this.olN = f4;
+            this.oAK = f;
+            this.oAL = f2;
+            this.oAM = f3;
+            this.oAN = f4;
             return this;
-        }
-
-        public a be(float f) {
-            return h(f, f, f, f);
         }
 
         public a bf(float f) {
-            this.olO = f;
-            return this;
+            return h(f, f, f, f);
         }
 
         public a bg(float f) {
-            this.olP = f;
+            this.oAO = f;
             return this;
         }
 
-        public a zv(boolean z) {
-            this.olQ = z;
+        public a bh(float f) {
+            this.oAP = f;
             return this;
         }
 
-        public a zw(boolean z) {
-            this.olR = z;
+        public a zZ(boolean z) {
+            this.oAQ = z;
             return this;
         }
 
-        public e eaY() {
+        public a Aa(boolean z) {
+            this.oAR = z;
+            return this;
+        }
+
+        public e egD() {
             return new e(this);
         }
     }
 
     private e(@NonNull a aVar) {
-        this.olD = aVar.attachedView;
+        this.oAD = aVar.attachedView;
         Context context = aVar.context;
         int[] iArr = new int[2];
-        this.olD.getLocationInWindow(iArr);
-        int width = this.olD.getWidth();
-        int height = this.olD.getHeight();
+        this.oAD.getLocationInWindow(iArr);
+        int width = this.oAD.getWidth();
+        int height = this.oAD.getHeight();
         int i = iArr[0];
         int i2 = iArr[1];
-        this.olE = ((width / 2) + i) - c(aVar.olH, context);
-        this.olF = i2 + height;
+        this.oAE = ((width / 2) + i) - c(aVar.oAH, context);
+        this.oAF = i2 + height;
         this.mContentView = (LinearLayout) LayoutInflater.from(context).inflate(a.g.yuyin_component_popup_layout, (ViewGroup) null);
-        this.hWk = (ImageView) this.mContentView.findViewById(a.f.iv_arrow);
-        this.gNd = (TextView) this.mContentView.findViewById(a.f.tv_content);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hWk.getLayoutParams();
-        layoutParams.width = c(aVar.olI, context);
-        layoutParams.height = c(aVar.olJ, context);
-        layoutParams.leftMargin = c(aVar.olH, context) - (c(aVar.olI, context) / 2);
-        this.hWk.setLayoutParams(layoutParams);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gNd.getLayoutParams();
+        this.ihh = (ImageView) this.mContentView.findViewById(a.f.iv_arrow);
+        this.gWq = (TextView) this.mContentView.findViewById(a.f.tv_content);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ihh.getLayoutParams();
+        layoutParams.width = c(aVar.oAI, context);
+        layoutParams.height = c(aVar.oAJ, context);
+        layoutParams.leftMargin = c(aVar.oAH, context) - (c(aVar.oAI, context) / 2);
+        this.ihh.setLayoutParams(layoutParams);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gWq.getLayoutParams();
         layoutParams2.width = aVar.width;
         layoutParams2.height = aVar.height;
-        this.gNd.setLayoutParams(layoutParams2);
-        this.gNd.setText(aVar.text);
-        this.gNd.setGravity(aVar.gravity);
-        this.gNd.setPadding(c(aVar.olK, context), c(aVar.olL, context), c(aVar.olM, context), c(aVar.olN, context));
-        this.gNd.setTextSize(aVar.olO);
-        GradientDrawable gradientDrawable = (GradientDrawable) this.gNd.getBackground();
-        gradientDrawable.setCornerRadius(c(aVar.olP, context));
-        this.gNd.setBackground(gradientDrawable);
+        this.gWq.setLayoutParams(layoutParams2);
+        this.gWq.setText(aVar.text);
+        this.gWq.setGravity(aVar.gravity);
+        this.gWq.setPadding(c(aVar.oAK, context), c(aVar.oAL, context), c(aVar.oAM, context), c(aVar.oAN, context));
+        this.gWq.setTextSize(aVar.oAO);
+        GradientDrawable gradientDrawable = (GradientDrawable) this.gWq.getBackground();
+        gradientDrawable.setCornerRadius(c(aVar.oAP, context));
+        this.gWq.setBackground(gradientDrawable);
         this.mPopupWindow = new PopupWindow(context);
         this.mPopupWindow.setContentView(this.mContentView);
         this.mPopupWindow.setWidth(-2);
         this.mPopupWindow.setHeight(-2);
         this.mPopupWindow.setBackgroundDrawable(new BitmapDrawable());
-        this.mPopupWindow.setOutsideTouchable(aVar.olQ);
-        if (aVar.olR) {
+        this.mPopupWindow.setOutsideTouchable(aVar.oAQ);
+        if (aVar.oAR) {
             this.mContentView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.view.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -164,7 +164,7 @@ public final class e {
     }
 
     public void show() {
-        this.mPopupWindow.showAtLocation(this.olD, 0, this.olE, this.olF);
+        this.mPopupWindow.showAtLocation(this.oAD, 0, this.oAE, this.oAF);
     }
 
     public void dismiss() {

@@ -12,32 +12,32 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a implements View.OnClickListener {
-    private PopupWindow ilz;
-    private boolean jiD;
+    private PopupWindow iwt;
+    private boolean jwf;
     private View mAnchor;
     private TbPageContext mPageContext;
-    private int jiC = R.string.attention_post_update_tip;
+    private int jwe = R.string.attention_post_update_tip;
     private Handler mHandler = new Handler();
-    private Runnable jiE = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
+    private Runnable jwg = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.mPageContext != null && a.this.mAnchor != null) {
                 Activity pageActivity = a.this.mPageContext.getPageActivity();
                 int dimens = com.baidu.adp.lib.util.l.getDimens(pageActivity, R.dimen.ds64);
-                View h = a.this.h(pageActivity, a.this.jiC);
+                View h = a.this.h(pageActivity, a.this.jwe);
                 int[] iArr = new int[2];
                 a.this.mAnchor.getLocationInWindow(iArr);
                 int dimens2 = com.baidu.adp.lib.util.l.getDimens(pageActivity, R.dimen.ds32);
                 int dimens3 = com.baidu.adp.lib.util.l.getDimens(pageActivity, R.dimen.ds16) + (iArr[1] - dimens);
-                a.this.ilz = new PopupWindow(h, -2, dimens);
-                a.this.ilz.showAtLocation(a.this.mAnchor, 53, dimens2, dimens3);
+                a.this.iwt = new PopupWindow(h, -2, dimens);
+                a.this.iwt.showAtLocation(a.this.mAnchor, 53, dimens2, dimens3);
                 a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.ilz != null) {
-                            a.this.cET();
+                        if (a.this.iwt != null) {
+                            a.this.cKi();
                         }
                     }
                 }, IMConnection.RETRY_DELAY_TIMES);
@@ -47,24 +47,24 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
-        this.jiD = z;
+        this.jwf = z;
     }
 
-    public void cM(View view) {
+    public void cT(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (this.mPageContext != null && view != null && !StringUtils.isNull(currentAccount)) {
             this.mAnchor = view;
-            if (this.jiD) {
-                this.jiC = R.string.attention_post_update_tip;
+            if (this.jwf) {
+                this.jwe = R.string.attention_post_update_tip;
                 String str = currentAccount + SharedPrefConfig.FRS_GOD_NEW_POST_TIP_COUNT;
-                int i = com.baidu.tbadk.core.sharedPref.b.bpu().getInt(str, 0);
+                int i = com.baidu.tbadk.core.sharedPref.b.bsO().getInt(str, 0);
                 if (i >= 3) {
-                    this.jiD = false;
+                    this.jwf = false;
                     return;
                 }
-                com.baidu.tbadk.core.sharedPref.b.bpu().putInt(str, i + 1);
-                this.jiD = false;
-                this.mHandler.postDelayed(this.jiE, 500L);
+                com.baidu.tbadk.core.sharedPref.b.bsO().putInt(str, i + 1);
+                this.jwf = false;
+                this.mHandler.postDelayed(this.jwg, 500L);
             }
         }
     }
@@ -87,18 +87,18 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        cET();
+        cKi();
     }
 
-    public void cET() {
-        if (this.ilz != null) {
-            this.ilz.dismiss();
-            this.ilz = null;
+    public void cKi() {
+        if (this.iwt != null) {
+            this.iwt.dismiss();
+            this.iwt = null;
         }
     }
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        cET();
+        cKi();
     }
 }

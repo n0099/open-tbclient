@@ -1,25 +1,53 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.PbPage.NewsInfo;
+import java.util.ArrayList;
+import tbclient.PbPresent;
+import tbclient.PbPresentList;
 /* loaded from: classes.dex */
 public class az {
-    public String buttonText;
-    public String eAp;
-    public String eAq;
-    public int eeS;
-    public int position = 0;
-    public String subtitle;
-    public String summary;
+    private ArrayList<a> eHn;
+    private int total;
 
-    public void a(NewsInfo newsInfo) {
-        if (newsInfo != null) {
-            this.eAp = newsInfo.news_link;
-            this.summary = newsInfo.summary;
-            this.position = newsInfo.position.intValue();
-            this.eeS = newsInfo.news_type.intValue();
-            this.eAq = newsInfo.news_icon;
-            this.subtitle = newsInfo.subtitle;
-            this.buttonText = newsInfo.button_text;
+    /* loaded from: classes.dex */
+    public static class a {
+        public int giftId;
+        public String giftName;
+        public int num;
+        public String thumbnailUrl;
+    }
+
+    public void a(PbPresent pbPresent) {
+        if (pbPresent != null) {
+            this.total = pbPresent.total.intValue();
+            if (pbPresent.list != null && pbPresent.list.size() > 0) {
+                this.eHn = new ArrayList<>();
+                for (PbPresentList pbPresentList : pbPresent.list) {
+                    if (pbPresentList != null) {
+                        a aVar = new a();
+                        aVar.giftId = pbPresentList.gift_id.intValue();
+                        aVar.giftName = pbPresentList.gift_name;
+                        aVar.thumbnailUrl = pbPresentList.thumbnail_url;
+                        aVar.num = pbPresentList.num.intValue();
+                        this.eHn.add(aVar);
+                    }
+                }
+            }
         }
+    }
+
+    public int getTotal() {
+        return this.total;
+    }
+
+    public void setTotal(int i) {
+        this.total = i;
+    }
+
+    public ArrayList<a> bnH() {
+        return this.eHn;
+    }
+
+    public void D(ArrayList<a> arrayList) {
+        this.eHn = arrayList;
     }
 }

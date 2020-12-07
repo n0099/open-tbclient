@@ -1,51 +1,44 @@
 package com.baidu.live.alablmsdk.a;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.HandlerThread;
 /* loaded from: classes4.dex */
 public class e {
-    private static e ayJ;
-    private static boolean isInited = false;
-    private static Context mContext;
+    private static e aBa;
+    private Handler aBb;
+    private HandlerThread aBc = new HandlerThread("blm_work_threads");
 
     private e() {
+        this.aBc.start();
+        this.aBb = new Handler(this.aBc.getLooper());
     }
 
-    public static e Az() {
-        if (ayJ == null) {
+    public static e BU() {
+        if (aBa == null) {
             synchronized (e.class) {
-                if (ayJ == null) {
-                    ayJ = new e();
+                if (aBa == null) {
+                    aBa = new e();
                 }
             }
         }
-        return ayJ;
+        return aBa;
     }
 
-    public void init(Context context) {
-        if (!isInited && context != null) {
-            mContext = context.getApplicationContext();
-            isInited = true;
+    public void post(Runnable runnable) {
+        if (this.aBb != null) {
+            this.aBb.post(runnable);
         }
     }
 
-    private SharedPreferences getSp() {
-        if (isInited) {
-            return mContext.getSharedPreferences("bd_lm_sdk_sp", 0);
+    public void release() {
+        if (this.aBb != null) {
+            this.aBb.removeCallbacksAndMessages(null);
+            this.aBb = null;
         }
-        return null;
-    }
-
-    public void putString(String str, String str2) {
-        SharedPreferences.Editor edit;
-        SharedPreferences sp = getSp();
-        if (sp != null && (edit = sp.edit()) != null) {
-            edit.putString(str, str2);
-            edit.commit();
+        if (this.aBc != null) {
+            this.aBc.quit();
+            this.aBc = null;
         }
-    }
-
-    public String getString(String str) {
-        return getSp() == null ? "" : getSp().getString(str, "");
+        aBa = null;
     }
 }

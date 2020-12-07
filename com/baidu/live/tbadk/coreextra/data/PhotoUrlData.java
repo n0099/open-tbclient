@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -100,7 +99,7 @@ public class PhotoUrlData implements Serializable {
 
     private void parsePicInfo(String str) {
         String[] split;
-        if (!StringUtils.isNull(str) && (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split.length == 4) {
+        if (!StringUtils.isNull(str) && (split = str.split(",")) != null && split.length == 4) {
             this.pic = split[0];
             this.picId = split[1];
             this.width = split[2];

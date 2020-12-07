@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes6.dex */
 public class d {
-    public static boolean bd(View view) {
+    public static boolean bf(View view) {
         if (view != null && view.getParent() != null && (view.getParent() instanceof ViewGroup)) {
             ViewGroup viewGroup = (ViewGroup) view.getParent();
             if (viewGroup.indexOfChild(view) != -1) {
@@ -24,7 +24,7 @@ public class d {
         if (activity == null || view == null || (viewGroup = (ViewGroup) activity.getWindow().getDecorView()) == null) {
             return false;
         }
-        bd(view);
+        bf(view);
         viewGroup.removeView(view);
         viewGroup.addView(view);
         return true;

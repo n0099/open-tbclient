@@ -19,13 +19,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.card.data.k;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class e extends com.baidu.adp.widget.ListView.a<k, am<k>> {
-    private ab<k> afK;
-    private v alH;
-    private int ePX;
-    private NEGFeedBackView.a fOM;
-    private BdUniqueId fsa;
+    private ab<k> agG;
+    private v amH;
+    private int eXm;
+    private NEGFeedBackView.a fWA;
+    private BdUniqueId fzO;
     private TbPageContext mPageContext;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.af$a] */
@@ -38,13 +38,13 @@ public class e extends com.baidu.adp.widget.ListView.a<k, am<k>> {
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.afK = new ab<k>() { // from class: com.baidu.tieba.homepage.gamevideo.a.e.1
+        this.agG = new ab<k>() { // from class: com.baidu.tieba.homepage.gamevideo.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, k kVar) {
                 int id = view.getId();
                 if (id == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
-                    com.baidu.tieba.homepage.gamevideo.e.a.c(kVar, e.this.ePX);
+                    com.baidu.tieba.homepage.gamevideo.e.a.c(kVar, e.this.eXm);
                 }
             }
         };
@@ -52,7 +52,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, am<k>> {
     }
 
     public void a(v vVar) {
-        this.alH = vVar;
+        this.amH = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,19 +63,19 @@ public class e extends com.baidu.adp.widget.ListView.a<k, am<k>> {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         an anVar = new an(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-        dVar.exI = 15;
-        dVar.exO = 11;
+        dVar.eEJ = 15;
+        dVar.eEP = 11;
         anVar.setAgreeStatisticData(dVar);
         anVar.setFrom(12);
         anVar.setShareReportFrom(9);
-        anVar.setGameId(this.ePX);
+        anVar.setGameId(this.eXm);
         anVar.setFromForPb(18);
-        anVar.bo(32);
+        anVar.bs(32);
         aVar.b(anVar);
-        ak a2 = aVar.a(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.alH);
+        ak a2 = aVar.a(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.amH);
         a2.setSourceForPb(18);
         am<k> amVar = new am<>(a2);
-        amVar.setPageId(this.fsa);
+        amVar.setPageId(this.fzO);
         a(new com.baidu.adp.widget.ListView.ab() { // from class: com.baidu.tieba.homepage.gamevideo.a.e.2
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -83,11 +83,11 @@ public class e extends com.baidu.adp.widget.ListView.a<k, am<k>> {
                     am amVar2 = (am) view.getTag();
                     k kVar = (k) qVar;
                     kVar.objType = 1;
-                    if (e.this.afK != null) {
-                        e.this.afK.a(amVar2.getView(), kVar);
+                    if (e.this.agG != null) {
+                        e.this.agG.a(amVar2.getView(), kVar);
                     }
                     com.baidu.tieba.homepage.gamevideo.e.a.a(kVar, view.getContext(), 18, false, com.baidu.card.f.a((v) viewGroup2, view, i));
-                    amVar2.tW().b(new a.C0096a(1));
+                    amVar2.tZ().b(new a.C0097a(1));
                 }
             }
         });
@@ -96,13 +96,13 @@ public class e extends com.baidu.adp.widget.ListView.a<k, am<k>> {
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(final int i, final View view, final ViewGroup viewGroup, k kVar, am amVar) {
-        if (kVar == null || amVar == null || amVar.getView() == null || kVar.evQ == null) {
+        if (kVar == null || amVar == null || amVar.getView() == null || kVar.eCR == null) {
             return null;
         }
-        kVar.xH(kVar.position + 1);
-        amVar.tW().setPosition(i);
-        if (amVar.tW().tQ() instanceof an) {
-            ((an) amVar.tW().tQ()).setOnCommentClickCallback(new ThreadCommentAndPraiseInfoLayout.a() { // from class: com.baidu.tieba.homepage.gamevideo.a.e.3
+        kVar.ym(kVar.position + 1);
+        amVar.tZ().setPosition(i);
+        if (amVar.tZ().tT() instanceof an) {
+            ((an) amVar.tZ().tT()).setOnCommentClickCallback(new ThreadCommentAndPraiseInfoLayout.a() { // from class: com.baidu.tieba.homepage.gamevideo.a.e.3
                 @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.a
                 public void a(IntentConfig intentConfig) {
                     if (intentConfig instanceof PbActivityConfig) {
@@ -111,22 +111,22 @@ public class e extends com.baidu.adp.widget.ListView.a<k, am<k>> {
                 }
             });
         }
-        amVar.aN(false).a(this.fOM);
+        amVar.aN(false).a(this.fWA);
         amVar.b((am) kVar);
-        amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        amVar.tW().a(this.afK);
+        amVar.tZ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        amVar.tZ().a(this.agG);
         return amVar.getView();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.fsa = bdUniqueId;
+        this.fzO = bdUniqueId;
     }
 
-    public void Cb(int i) {
-        this.ePX = i;
+    public void CQ(int i) {
+        this.eXm = i;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.fOM = aVar;
+        this.fWA = aVar;
     }
 }

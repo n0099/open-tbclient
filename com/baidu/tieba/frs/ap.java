@@ -1,18 +1,15 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.af;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bw;
-import com.baidu.tbadk.core.data.bx;
-import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes21.dex */
 public interface ap {
-    com.baidu.adp.widget.ListView.a<? extends bx, ? extends af.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z);
+    void VC();
 
-    com.baidu.adp.widget.ListView.a<? extends bw, ? extends af.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z);
+    void bSg();
 
-    k<ICardInfo, ? extends af.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
+    void bSh();
 
-    com.baidu.adp.widget.ListView.a<? extends bx, ? extends af.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
+    void bvt();
+
+    void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.z zVar);
+
+    void showFloatingView();
 }

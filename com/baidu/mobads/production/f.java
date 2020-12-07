@@ -4,15 +4,15 @@ package com.baidu.mobads.production;
 public class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f2406a;
+    final /* synthetic */ b f2408a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(b bVar) {
-        this.f2406a = bVar;
+        this.f2408a = bVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f2406a.h.resume();
+        this.f2408a.h.resume();
     }
 }

@@ -12,19 +12,19 @@ public interface af<FETCH_STATE extends t> {
     public interface a {
         void E(Throwable th);
 
-        void ejX();
+        void epM();
 
         void f(InputStream inputStream, int i) throws IOException;
     }
 
-    @Nullable
-    Map<String, String> a(FETCH_STATE fetch_state, int i);
+    void a(FETCH_STATE fetch_state, int i);
 
     void a(FETCH_STATE fetch_state, a aVar);
 
     boolean a(FETCH_STATE fetch_state);
 
-    FETCH_STATE b(k<com.facebook.imagepipeline.g.e> kVar, ak akVar);
+    @Nullable
+    Map<String, String> b(FETCH_STATE fetch_state, int i);
 
-    void b(FETCH_STATE fetch_state, int i);
+    FETCH_STATE d(k<com.facebook.imagepipeline.f.e> kVar, ak akVar);
 }

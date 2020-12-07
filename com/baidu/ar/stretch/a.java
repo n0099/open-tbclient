@@ -1,15 +1,15 @@
 package com.baidu.ar.stretch;
 
 import com.baidu.ar.d.b;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a extends b {
-    private float[] tf;
+    private float[] tS;
 
-    public float[] fs() {
-        return this.tf;
+    public float[] fr() {
+        return this.tS;
     }
 
-    public void p(float[] fArr) {
-        this.tf = fArr;
+    public void o(float[] fArr) {
+        this.tS = fArr;
     }
 }

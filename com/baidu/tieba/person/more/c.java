@@ -11,26 +11,26 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 import com.baidu.tieba.personCenter.c.h;
 import java.util.List;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class c {
-    private BdTypeListView ghN;
-    private ab<h> iYe;
-    private a lVl;
+    private BdTypeListView gpX;
+    private ab<h> jlD;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
+    private a mjs;
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
     }
 
-    public void al(View view) {
+    public void an(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
-        this.ghN = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-        this.lVl = new a(this.mPageContext, this.ghN, this.iYe);
-        bCo();
+        this.gpX = (BdTypeListView) view.findViewById(R.id.person_more_listview);
+        this.mjs = new a(this.mPageContext, this.gpX, this.jlD);
+        bFP();
     }
 
-    private void bCo() {
+    private void bFP() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(R.string.person_center_more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.person.more.c.1
@@ -43,16 +43,16 @@ public class c {
     }
 
     public void setData(List<q> list) {
-        this.ghN.setData(list);
+        this.gpX.setData(list);
     }
 
     public void onChangeSkinType() {
-        this.lVl.notifyDataSetChanged();
-        ap.setBackgroundColor(this.ghN, R.color.CAM_X0201);
+        this.mjs.notifyDataSetChanged();
+        ap.setBackgroundColor(this.gpX, R.color.CAM_X0201);
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(ab<h> abVar) {
-        this.iYe = abVar;
+        this.jlD = abVar;
     }
 }

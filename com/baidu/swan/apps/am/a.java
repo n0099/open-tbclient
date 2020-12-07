@@ -2,25 +2,25 @@ package com.baidu.swan.apps.am;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class a {
-    private a dAW = null;
-    private long dAX = 0;
-    private long dAY = 0;
-    private long dAZ = 2;
+    private a dHU = null;
+    private long dHV = 0;
+    private long dHW = 0;
+    private long dHX = 2;
     private String mDesc = "";
-    private String dBa = "";
+    private String dHY = "";
     private final StringBuilder mDetails = new StringBuilder();
-    private boolean dBb = false;
+    private boolean dHZ = false;
 
     public String toString(int i) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(aLh()), Long.valueOf(aLb()), Long.valueOf(aLc()), Long.valueOf(aLd()), aLe()));
+        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(aOo()), Long.valueOf(aOi()), Long.valueOf(aOj()), Long.valueOf(aOk()), aOl()));
         if (i >= -200) {
-            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(aLb()), Long.valueOf(aLc()), Long.valueOf(aLd())));
+            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(aOi()), Long.valueOf(aOj()), Long.valueOf(aOk())));
         }
         if (i >= -100) {
-            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", aLg()));
+            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", aOn()));
         }
         return sb.toString();
     }
@@ -29,34 +29,34 @@ public final class a {
         return toString(-100);
     }
 
-    public a cu(long j) {
-        this.dAZ = a(j, 9L, "platform");
+    public a cT(long j) {
+        this.dHX = a(j, 9L, "platform");
         return this;
     }
 
-    public long aLb() {
-        return this.dAZ;
+    public long aOi() {
+        return this.dHX;
     }
 
-    public a cv(long j) {
-        this.dAX = a(j, 999L, "feature");
+    public a cU(long j) {
+        this.dHV = a(j, 999L, "feature");
         return this;
     }
 
-    public long aLc() {
-        return this.dAX;
+    public long aOj() {
+        return this.dHV;
     }
 
-    public a cw(long j) {
-        this.dAY = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
+    public a cV(long j) {
+        this.dHW = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
         return this;
     }
 
-    public long aLd() {
-        return this.dAY;
+    public long aOk() {
+        return this.dHW;
     }
 
-    public a tT(String str) {
+    public a uA(String str) {
         if (str == null) {
             str = "";
         }
@@ -64,55 +64,55 @@ public final class a {
         return this;
     }
 
-    public String aLe() {
+    public String aOl() {
         return this.mDesc;
     }
 
-    public a tU(String str) {
+    public a uB(String str) {
         if (str == null) {
             str = "";
         }
-        this.dBa = str;
+        this.dHY = str;
         return this;
     }
 
-    public String aLf() {
-        return this.dBa;
+    public String aOm() {
+        return this.dHY;
     }
 
-    public a tV(String str) {
+    public a uC(String str) {
         this.mDetails.append(str).append("\n");
         return this;
     }
 
-    public StringBuilder aLg() {
+    public StringBuilder aOn() {
         return this.mDetails;
     }
 
-    public long aLh() {
-        return (aLb() * 10000000) + (aLc() * 10000) + (aLd() * 1);
+    public long aOo() {
+        return (aOi() * 10000000) + (aOj() * 10000) + (aOk() * 1);
     }
 
-    public a cx(long j) {
-        cu(j / 10000000);
+    public a cW(long j) {
+        cT(j / 10000000);
         long j2 = j % 10000000;
-        cv(j2 / 10000);
-        cw((j2 % 10000) / 1);
+        cU(j2 / 10000);
+        cV((j2 % 10000) / 1);
         return this;
     }
 
-    public boolean aLi() {
-        return this.dBb;
+    public boolean aOp() {
+        return this.dHZ;
     }
 
-    public void aLj() {
-        this.dBb = true;
+    public void aOq() {
+        this.dHZ = true;
     }
 
     private long a(long j, long j2, String str) {
         boolean z = j < 0 || j > j2;
         if (z) {
-            tV("illegalFallback " + str + "::" + j);
+            uC("illegalFallback " + str + "::" + j);
         }
         return z ? j2 : j;
     }

@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
+import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.http.request.PostFormRequest;
 import com.baidu.swan.apps.adaptation.a.aj;
@@ -21,15 +22,15 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class s implements aj {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int ctL = 0;
-    private static int ctM = 1;
-    private static int ctN = 2;
+    private static int cAF = 0;
+    private static int cAG = 1;
+    private static int cAH = 2;
 
     @Override // com.baidu.swan.apps.adaptation.a.aj
-    public void a(@NonNull String str, @NonNull Set<String> set, @NonNull final a.InterfaceC0453a interfaceC0453a) {
+    public void a(@NonNull String str, @NonNull Set<String> set, @NonNull final a.InterfaceC0465a interfaceC0465a) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("app_key", str);
@@ -45,34 +46,34 @@ public class s implements aj {
                 e.printStackTrace();
             }
         }
-        SwanAppNetworkUtils.a(agZ(), jSONObject.toString(), new a(new com.baidu.swan.apps.ae.a() { // from class: com.baidu.swan.apps.adaptation.implementation.s.1
+        SwanAppNetworkUtils.a(akh(), jSONObject.toString(), new a(new com.baidu.swan.apps.ae.a() { // from class: com.baidu.swan.apps.adaptation.implementation.s.1
             @Override // com.baidu.swan.apps.ae.a
-            public void ay(JSONObject jSONObject2) {
+            public void aA(JSONObject jSONObject2) {
                 String str3;
                 if (jSONObject2 == null) {
                     str3 = null;
                 } else if (jSONObject2.optInt(BaseJsonData.TAG_ERRNO) == 0) {
                     JSONObject optJSONObject = jSONObject2.optJSONObject("data");
                     if (optJSONObject != null) {
-                        interfaceC0453a.a(optJSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_TIP), s.this.q(optJSONObject.optJSONArray("list")), false);
+                        interfaceC0465a.a(optJSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_TIP), s.this.r(optJSONObject.optJSONArray("list")), false);
                         return;
                     }
                     str3 = null;
                 } else {
                     str3 = jSONObject2.optString("tipmsg");
                 }
-                interfaceC0453a.a(str3, null, false);
+                interfaceC0465a.a(str3, null, false);
             }
 
             @Override // com.baidu.swan.apps.ae.a
             public void onFail(String str3) {
-                interfaceC0453a.a(str3, null, false);
+                interfaceC0465a.a(str3, null, false);
             }
         }));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.swan.apps.n.d> q(JSONArray jSONArray) {
+    public List<com.baidu.swan.apps.n.d> r(JSONArray jSONArray) {
         int length;
         if (jSONArray == null || (length = jSONArray.length()) == 0) {
             return null;
@@ -93,8 +94,8 @@ public class s implements aj {
 
     @Override // com.baidu.swan.apps.adaptation.a.aj
     public void a(@NonNull String str, com.baidu.swan.apps.n.b bVar) {
-        String hp = hp(ctL);
-        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) com.baidu.swan.a.c.a.bad().postFormRequest().url(hp)).cookieManager(com.baidu.swan.apps.t.a.awr().ahB())).addParam("appkey", str).build().executeAsyncOnUIBack(new a(bVar));
+        String hN = hN(cAF);
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) com.baidu.swan.a.c.a.bdi().postFormRequest().url(hN)).cookieManager(com.baidu.swan.apps.t.a.azz().akJ())).addParam("appkey", str).build().executeAsyncOnUIBack(new a(bVar));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aj
@@ -121,39 +122,39 @@ public class s implements aj {
                 e.printStackTrace();
             }
         }
-        SwanAppNetworkUtils.a(hp(ctN), jSONObject.toString(), new a(bVar));
+        SwanAppNetworkUtils.a(hN(cAH), jSONObject.toString(), new a(bVar));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aj
-    public String agV() {
+    public String akd() {
         long seconds = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
-        Uri.Builder buildUpon = Uri.parse(aha()).buildUpon();
-        buildUpon.appendQueryParameter("timestamp", String.valueOf(seconds)).appendQueryParameter("rasign", com.baidu.swan.apps.i.b.akB().bu(seconds)).appendQueryParameter("delta", "smartapp_formid");
+        Uri.Builder buildUpon = Uri.parse(aki()).buildUpon();
+        buildUpon.appendQueryParameter("timestamp", String.valueOf(seconds)).appendQueryParameter("rasign", com.baidu.swan.apps.i.b.anJ().bT(seconds)).appendQueryParameter("delta", "smartapp_formid");
         return buildUpon.toString();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aj
     public void a(String str, com.baidu.swan.apps.aa.a.a aVar) {
-        a(hp(ctM), str, aVar);
+        a(hN(cAG), str, aVar);
     }
 
-    private String hp(int i) {
+    private String hN(int i) {
         long seconds;
         StringBuilder sb;
         String str;
         String str2;
         String str3 = "timestamp=" + TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
-        if (i == ctL) {
-            sb = new StringBuilder(agW());
-            str = "rasign=" + com.baidu.swan.apps.i.b.akB().bu(seconds);
+        if (i == cAF) {
+            sb = new StringBuilder(ake());
+            str = "rasign=" + com.baidu.swan.apps.i.b.anJ().bT(seconds);
             str2 = "delta=smartapp_formid";
-        } else if (i == ctN) {
-            sb = new StringBuilder(agX());
-            str = "rasign=" + com.baidu.swan.apps.i.b.akB().bu(seconds);
+        } else if (i == cAH) {
+            sb = new StringBuilder(akf());
+            str = "rasign=" + com.baidu.swan.apps.i.b.anJ().bT(seconds);
             str2 = "delta=smartapp_formid";
         } else {
-            sb = new StringBuilder(agY());
-            str = "rasign=" + com.baidu.swan.apps.i.b.akB().bv(seconds);
+            sb = new StringBuilder(akg());
+            str = "rasign=" + com.baidu.swan.apps.i.b.anJ().bU(seconds);
             str2 = "delta=payid";
         }
         sb.append(ETAG.ITEM_SEPARATOR);
@@ -164,17 +165,17 @@ public class s implements aj {
     }
 
     private void a(String str, String str2, com.baidu.swan.apps.ae.a aVar) {
-        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) com.baidu.swan.a.c.a.bad().postFormRequest().url(str)).cookieManager(com.baidu.swan.apps.t.a.awr().ahB())).addParam("appkey", str2).build().executeAsyncOnUIBack(new a(aVar));
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) com.baidu.swan.a.c.a.bdi().postFormRequest().url(str)).cookieManager(com.baidu.swan.apps.t.a.azz().akJ())).addParam("appkey", str2).build().executeAsyncOnUIBack(new a(aVar));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static class a extends ResponseCallback<JSONObject> {
         @Nullable
-        private final com.baidu.swan.apps.ae.a ctQ;
+        private final com.baidu.swan.apps.ae.a cAK;
 
         a(@Nullable com.baidu.swan.apps.ae.a aVar) {
-            this.ctQ = aVar;
+            this.cAK = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -197,11 +198,11 @@ public class s implements aj {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: b */
         public void onSuccess(JSONObject jSONObject, int i) {
-            if (this.ctQ != null) {
+            if (this.cAK != null) {
                 if (jSONObject == null) {
-                    this.ctQ.onFail("request fail");
+                    this.cAK.onFail("request fail");
                 } else {
-                    this.ctQ.ay(jSONObject);
+                    this.cAK.aA(jSONObject);
                 }
             }
         }
@@ -211,29 +212,29 @@ public class s implements aj {
             if (s.DEBUG) {
                 Log.e("SwanAppPushIdImpl", "SimpleResponseCallback", exc);
             }
-            if (this.ctQ != null) {
-                this.ctQ.onFail(exc.toString());
+            if (this.cAK != null) {
+                this.cAK.onFail(exc.toString());
             }
         }
     }
 
-    public static String agW() {
-        return com.baidu.swan.apps.i.c.processCommonParams(String.format("%s/ma/formid/new", "https://mbd.baidu.com"));
+    public static String ake() {
+        return com.baidu.swan.apps.i.c.processCommonParams(String.format("%s/ma/formid/new", BaseUrlManager.ONLINE_URL));
     }
 
-    public static String agX() {
-        return com.baidu.swan.apps.i.c.processCommonParams(String.format("%s/ma/component/sub/create", "https://mbd.baidu.com"));
+    public static String akf() {
+        return com.baidu.swan.apps.i.c.processCommonParams(String.format("%s/ma/component/sub/create", BaseUrlManager.ONLINE_URL));
     }
 
-    public static String agY() {
-        return com.baidu.swan.apps.i.c.processCommonParams(String.format("%s/ma/payid/new", "https://mbd.baidu.com"));
+    public static String akg() {
+        return com.baidu.swan.apps.i.c.processCommonParams(String.format("%s/ma/payid/new", BaseUrlManager.ONLINE_URL));
     }
 
-    public static String agZ() {
-        return com.baidu.swan.apps.i.c.processCommonParams(String.format("%s/ma/component/msgtpl", "https://mbd.baidu.com"));
+    public static String akh() {
+        return com.baidu.swan.apps.i.c.processCommonParams(String.format("%s/ma/component/msgtpl", BaseUrlManager.ONLINE_URL));
     }
 
-    public static String aha() {
-        return com.baidu.swan.apps.i.c.processCommonParams(String.format("%s/ma/formid/multi_action", "https://mbd.baidu.com"));
+    public static String aki() {
+        return com.baidu.swan.apps.i.c.processCommonParams(String.format("%s/ma/formid/multi_action", BaseUrlManager.ONLINE_URL));
     }
 }

@@ -1,20 +1,20 @@
 package io.reactivex.internal.observers;
 
-import io.reactivex.c.g;
-import io.reactivex.c.j;
+import io.reactivex.b.g;
+import io.reactivex.b.j;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class ForEachWhileObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<T> {
     private static final long serialVersionUID = -4403180040475402120L;
     boolean done;
-    final io.reactivex.c.a onComplete;
+    final io.reactivex.b.a onComplete;
     final g<? super Throwable> onError;
     final j<? super T> onNext;
 
-    public ForEachWhileObserver(j<? super T> jVar, g<? super Throwable> gVar, io.reactivex.c.a aVar) {
+    public ForEachWhileObserver(j<? super T> jVar, g<? super Throwable> gVar, io.reactivex.b.a aVar) {
         this.onNext = jVar;
         this.onError = gVar;
         this.onComplete = aVar;
@@ -44,7 +44,7 @@ public final class ForEachWhileObserver<T> extends AtomicReference<io.reactivex.
     @Override // io.reactivex.u
     public void onError(Throwable th) {
         if (this.done) {
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
             return;
         }
         this.done = true;
@@ -52,7 +52,7 @@ public final class ForEachWhileObserver<T> extends AtomicReference<io.reactivex.
             this.onError.accept(th);
         } catch (Throwable th2) {
             io.reactivex.exceptions.a.J(th2);
-            io.reactivex.e.a.onError(new CompositeException(th, th2));
+            io.reactivex.d.a.onError(new CompositeException(th, th2));
         }
     }
 
@@ -64,7 +64,7 @@ public final class ForEachWhileObserver<T> extends AtomicReference<io.reactivex.
                 this.onComplete.run();
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.J(th);
-                io.reactivex.e.a.onError(th);
+                io.reactivex.d.a.onError(th);
             }
         }
     }

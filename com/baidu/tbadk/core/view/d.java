@@ -25,7 +25,7 @@ public class d {
     private ViewTreeObserver.OnGlobalLayoutListener mGlobalLayoutListener = null;
     private int mExcludeHeight = 0;
 
-    public static d ad(Activity activity) {
+    public static d ae(Activity activity) {
         return new d(activity);
     }
 

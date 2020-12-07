@@ -1,68 +1,55 @@
 package com.facebook.imagepipeline.producers;
 
 import android.net.Uri;
-import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes15.dex */
 public class t {
-    private final k<com.facebook.imagepipeline.g.e> pae;
-    private final ak pal;
-    private long pam = 0;
-    private int pan;
+    private final k<com.facebook.imagepipeline.f.e> poV;
+    private final ak ppc;
+    private long ppd = 0;
+    private int ppe;
     @Nullable
-    private com.facebook.imagepipeline.common.a pao;
+    private com.facebook.imagepipeline.common.a ppf;
 
-    public t(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.pae = kVar;
-        this.pal = akVar;
+    public t(k<com.facebook.imagepipeline.f.e> kVar, ak akVar) {
+        this.poV = kVar;
+        this.ppc = akVar;
     }
 
-    public k<com.facebook.imagepipeline.g.e> erf() {
-        return this.pae;
+    public k<com.facebook.imagepipeline.f.e> ewI() {
+        return this.poV;
     }
 
-    public ak erg() {
-        return this.pal;
+    public ak ewJ() {
+        return this.ppc;
     }
 
     public String getId() {
-        return this.pal.getId();
+        return this.ppc.getId();
     }
 
-    public am eqU() {
-        return this.pal.eqU();
+    public am eww() {
+        return this.ppc.eww();
     }
 
     public Uri getUri() {
-        return this.pal.eqT().erL();
+        return this.ppc.ewv().exl();
     }
 
-    public long erh() {
-        return this.pam;
+    public long ewK() {
+        return this.ppd;
     }
 
-    public void hS(long j) {
-        this.pam = j;
+    public void ix(long j) {
+        this.ppd = j;
     }
 
-    public int eri() {
-        return this.pan;
-    }
-
-    public void Qn(int i) {
-        this.pan = i;
+    public int ewL() {
+        return this.ppe;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a erj() {
-        return this.pao;
-    }
-
-    public void c(com.facebook.imagepipeline.common.a aVar) {
-        this.pao = aVar;
-    }
-
-    public Map<String, String> erk() {
-        return this.pal.eqT().erk();
+    public com.facebook.imagepipeline.common.a ewM() {
+        return this.ppf;
     }
 }

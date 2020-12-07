@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.alasquare.subtablist.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
-    public boolean gro = false;
+    public boolean gzx = false;
     public String lat;
     public String lng;
     public String type;

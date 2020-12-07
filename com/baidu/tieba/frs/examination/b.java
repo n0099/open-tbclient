@@ -25,26 +25,26 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.SerializableItemInfo;
 import com.baidu.tieba.frs.examination.c;
-import com.baidu.tieba.tbadkCore.x;
+import com.baidu.tieba.tbadkCore.y;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b extends a {
-    private static final int eSb = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
-    private static final int eSc = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
-    private static final int eSd = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds234);
-    private static final int eSe = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
-    private static final int eSf = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
-    private static final int eSg = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds208);
-    private static final int eSh = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-    private RankStarView eRW;
-    private TbImageView iVc;
-    private TextView iVd;
-    private EditText iVe;
-    private TextView iVf;
-    private Editable iVg;
-    private TextView iaF;
+    private RankStarView eZo;
+    private TextView ilB;
+    private TbImageView jfY;
+    private TextView jfZ;
+    private EditText jga;
+    private TextView jgb;
+    private Editable jgc;
     private View mDivider;
+    private static final int eZw = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
+    private static final int eZx = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
+    private static final int eZy = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds234);
+    private static final int eZz = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
+    private static final int eZA = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
+    private static final int eZB = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds208);
+    private static final int eZC = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
 
     public b(BaseFragmentActivity baseFragmentActivity, ForumWriteData forumWriteData, SerializableItemInfo serializableItemInfo) {
         super(baseFragmentActivity, forumWriteData, serializableItemInfo);
@@ -52,66 +52,66 @@ public class b extends a {
 
     @Override // com.baidu.tieba.frs.examination.a
     protected void initUI() {
-        this.mRoot = LayoutInflater.from(this.imj).inflate(R.layout.activity_other_evaluation, (ViewGroup) null);
+        this.mRoot = LayoutInflater.from(this.ixc).inflate(R.layout.activity_other_evaluation, (ViewGroup) null);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.navigation_bar);
-        this.iVc = (TbImageView) this.mRoot.findViewById(R.id.item_icon);
-        this.iaF = (TextView) this.mRoot.findViewById(R.id.item_title);
-        this.iVd = (TextView) this.mRoot.findViewById(R.id.item_tag);
+        this.jfY = (TbImageView) this.mRoot.findViewById(R.id.item_icon);
+        this.ilB = (TextView) this.mRoot.findViewById(R.id.item_title);
+        this.jfZ = (TextView) this.mRoot.findViewById(R.id.item_tag);
         this.mDivider = this.mRoot.findViewById(R.id.divider);
-        this.eRW = (RankStarView) this.mRoot.findViewById(R.id.item_star);
-        this.iVe = (EditText) this.mRoot.findViewById(R.id.other_comment);
-        this.iVf = (TextView) this.mRoot.findViewById(R.id.word_counter);
-        this.iVc.setPlaceHolder(2);
-        this.iVc.setConrers(15);
-        this.iVc.setRadius(l.getDimens(this.imj, R.dimen.tbds10));
-        this.eRW.setStarSpacing(l.getDimens(this.imj, R.dimen.tbds24));
-        this.eRW.setClickable(true);
-        this.iVe.setLineSpacing(l.getDimens(this.imj, R.dimen.tbds16), 1.0f);
-        if (this.iUX != null) {
-            setTag(this.iUX.getTags());
-            this.iaF.setText(this.iUX.getName());
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.iVc.getLayoutParams();
-            if (this.iUX.getIconSize() == 1.0d) {
-                layoutParams.width = eSb;
-                layoutParams.height = eSc;
-            } else if (this.iUX.getIconSize() == 0.67d) {
-                layoutParams.width = eSd;
-                layoutParams.height = eSe;
+        this.eZo = (RankStarView) this.mRoot.findViewById(R.id.item_star);
+        this.jga = (EditText) this.mRoot.findViewById(R.id.other_comment);
+        this.jgb = (TextView) this.mRoot.findViewById(R.id.word_counter);
+        this.jfY.setPlaceHolder(2);
+        this.jfY.setConrers(15);
+        this.jfY.setRadius(l.getDimens(this.ixc, R.dimen.tbds10));
+        this.eZo.setStarSpacing(l.getDimens(this.ixc, R.dimen.tbds24));
+        this.eZo.setClickable(true);
+        this.jga.setLineSpacing(l.getDimens(this.ixc, R.dimen.tbds16), 1.0f);
+        if (this.jfT != null) {
+            setTag(this.jfT.getTags());
+            this.ilB.setText(this.jfT.getName());
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.jfY.getLayoutParams();
+            if (this.jfT.getIconSize() == 1.0d) {
+                layoutParams.width = eZw;
+                layoutParams.height = eZx;
+            } else if (this.jfT.getIconSize() == 0.67d) {
+                layoutParams.width = eZy;
+                layoutParams.height = eZz;
             } else {
-                layoutParams.width = eSf;
-                layoutParams.height = eSg;
+                layoutParams.width = eZA;
+                layoutParams.height = eZB;
             }
-            this.iVc.setLayoutParams(layoutParams);
-            this.iVc.startLoad(this.iUX.icon_url, 10, false);
-            if (this.iUX.getScore() != null && this.iUX.getScore().isCommented == 1) {
-                this.eRW.setStarCount(this.iUX.getScore().getCommentStar());
+            this.jfY.setLayoutParams(layoutParams);
+            this.jfY.startLoad(this.jfT.icon_url, 10, false);
+            if (this.jfT.getScore() != null && this.jfT.getScore().isCommented == 1) {
+                this.eZo.setStarCount(this.jfT.getScore().getCommentStar());
             }
         }
         this.mRoot.findViewById(R.id.scroll_view).setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.frs.examination.b.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent != null && motionEvent.getAction() == 2) {
-                    l.hideSoftKeyPad(b.this.imj, view);
+                    l.hideSoftKeyPad(b.this.ixc, view);
                     return false;
                 }
                 return false;
             }
         });
-        this.iUY.a(new c.a() { // from class: com.baidu.tieba.frs.examination.b.2
+        this.jfU.a(new c.a() { // from class: com.baidu.tieba.frs.examination.b.2
             @Override // com.baidu.tieba.frs.examination.c.a
             public void a(InputMethodManager inputMethodManager) {
                 if (inputMethodManager != null) {
-                    b.this.imj.HidenSoftKeyPad(inputMethodManager, b.this.iVe);
+                    b.this.ixc.HidenSoftKeyPad(inputMethodManager, b.this.jga);
                 }
             }
         });
     }
 
     @Override // com.baidu.tieba.frs.examination.a
-    protected void cBW() {
-        this.iKB.setOnClickListener(this);
-        this.iUW.setOnClickListener(this);
-        this.iVe.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.examination.b.3
+    protected void cGp() {
+        this.iVu.setOnClickListener(this);
+        this.jfS.setOnClickListener(this);
+        this.jga.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.examination.b.3
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -122,37 +122,37 @@ public class b extends a {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                b.this.iVg = editable;
-                if (b.this.iVg.length() > 500) {
-                    b.this.iVf.setText(String.format(b.this.imj.getResources().getString(R.string.frs_item_word_conter), Integer.valueOf(500 - b.this.iVg.length())));
-                    b.this.iVf.setVisibility(0);
+                b.this.jgc = editable;
+                if (b.this.jgc.length() > 500) {
+                    b.this.jgb.setText(String.format(b.this.ixc.getResources().getString(R.string.frs_item_word_conter), Integer.valueOf(500 - b.this.jgc.length())));
+                    b.this.jgb.setVisibility(0);
                 } else {
-                    b.this.iVf.setVisibility(8);
+                    b.this.jgb.setVisibility(8);
                 }
-                b.this.cCa();
+                b.this.cGt();
             }
         });
     }
 
     @Override // com.baidu.tieba.frs.examination.a
-    public void bzS() {
-        if (this.iUV != null) {
+    public void bDs() {
+        if (this.jfR != null) {
             WriteData writeData = new WriteData();
-            writeData.setOtherGrade(this.eRW.getStarCount());
-            writeData.setOtherComment(this.iVe.getText().toString());
-            x.c(String.valueOf(this.iUV.forumId), writeData);
+            writeData.setOtherGrade(this.eZo.getStarCount());
+            writeData.setOtherComment(this.jga.getText().toString());
+            y.c(String.valueOf(this.jfR.forumId), writeData);
         }
     }
 
     @Override // com.baidu.tieba.frs.examination.a
-    public void cBY() {
-        if (this.iUV != null) {
-            x.f(String.valueOf(this.iUV.forumId), new x.a() { // from class: com.baidu.tieba.frs.examination.b.4
-                @Override // com.baidu.tieba.tbadkCore.x.a
+    public void cGr() {
+        if (this.jfR != null) {
+            y.f(String.valueOf(this.jfR.forumId), new y.a() { // from class: com.baidu.tieba.frs.examination.b.4
+                @Override // com.baidu.tieba.tbadkCore.y.a
                 public void a(WriteData writeData) {
                     if (writeData != null) {
-                        b.this.eRW.setStarCount(writeData.getOtherGrade());
-                        b.this.iVe.setText(writeData.getOtherComment());
+                        b.this.eZo.setStarCount(writeData.getOtherGrade());
+                        b.this.jga.setText(writeData.getOtherComment());
                     }
                 }
             });
@@ -161,49 +161,49 @@ public class b extends a {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.iKB) {
-            cBX();
-        } else if (view == this.iUW) {
-            if (TextUtils.isEmpty(this.iVg) || this.iVg.length() < 20) {
-                l.showToast(this.imj, R.string.other_comment_size_short_tip);
-            } else if (this.iVg.length() > 500) {
-                l.showToast(this.imj, R.string.other_comment_size_long_tip);
+        if (view == this.iVu) {
+            cGq();
+        } else if (view == this.jfS) {
+            if (TextUtils.isEmpty(this.jgc) || this.jgc.length() < 20) {
+                l.showToast(this.ixc, R.string.other_comment_size_short_tip);
+            } else if (this.jgc.length() > 500) {
+                l.showToast(this.ixc, R.string.other_comment_size_long_tip);
             } else {
-                this.iUY.a(this.iVg.toString(), cCb(), this.iUV);
+                this.jfU.a(this.jgc.toString(), cGu(), this.jfR);
             }
         }
     }
 
     private void setTag(List<String> list) {
         if (list == null || list.isEmpty()) {
-            this.iVd.setVisibility(8);
+            this.jfZ.setVisibility(8);
             return;
         }
-        this.iVd.setVisibility(0);
+        this.jfZ.setVisibility(0);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         for (int i = 0; i < list.size(); i++) {
             spannableStringBuilder.append((CharSequence) list.get(i));
             if (i != list.size() - 1) {
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(" ");
-                spannableStringBuilder2.setSpan(new com.baidu.tbadk.core.view.a.b(eSh), 0, spannableStringBuilder2.length(), 33);
+                spannableStringBuilder2.setSpan(new com.baidu.tbadk.core.view.a.b(eZC), 0, spannableStringBuilder2.length(), 33);
                 spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
             }
         }
-        this.iVd.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
+        this.jfZ.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cCa() {
-        if (!TextUtils.isEmpty(this.iVg) && this.iVg.length() >= 20 && this.iVg.length() <= 500) {
-            this.iUW.setAlpha(1.0f);
+    public void cGt() {
+        if (!TextUtils.isEmpty(this.jgc) && this.jgc.length() >= 20 && this.jgc.length() <= 500) {
+            this.jfS.setAlpha(1.0f);
         } else {
-            this.iUW.setAlpha(0.5f);
+            this.jfS.setAlpha(0.5f);
         }
     }
 
-    private String cCb() {
+    private String cGu() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new v("", String.valueOf(this.eRW.getStarCount()), 2));
+        arrayList.add(new v("", String.valueOf(this.eZo.getStarCount()), 2));
         return this.gson.toJson(arrayList);
     }
 
@@ -211,15 +211,15 @@ public class b extends a {
     public void onChangeSkinType() {
         super.onChangeSkinType();
         ap.setBackgroundColor(this.mDivider, R.color.CAM_X0204);
-        ap.setViewTextColor(this.iaF, R.color.CAM_X0105);
-        ap.setViewTextColor(this.iVd, R.color.CAM_X0109);
-        this.eRW.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        ap.setViewTextColor(this.iVe, R.color.CAM_X0105);
-        this.iVe.setHintTextColor(ap.getColor(R.color.CAM_X0109));
-        ap.setViewTextColor(this.iVf, R.color.CAM_X0301);
-        if (this.iVc != null) {
-            this.iVc.setPlaceHolder(2);
-            this.iVc.invalidate();
+        ap.setViewTextColor(this.ilB, R.color.CAM_X0105);
+        ap.setViewTextColor(this.jfZ, R.color.CAM_X0109);
+        this.eZo.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        ap.setViewTextColor(this.jga, R.color.CAM_X0105);
+        this.jga.setHintTextColor(ap.getColor(R.color.CAM_X0109));
+        ap.setViewTextColor(this.jgb, R.color.CAM_X0301);
+        if (this.jfY != null) {
+            this.jfY.setPlaceHolder(2);
+            this.jfY.invalidate();
         }
     }
 }

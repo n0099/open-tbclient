@@ -1,13 +1,13 @@
 package com.baidu.ar.seg;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.ar.d.b {
-    private a vd;
+    private a vR;
 
     public void b(a aVar) {
-        this.vd = aVar;
+        this.vR = aVar;
     }
 
     public a gd() {
-        return this.vd;
+        return this.vR;
     }
 }

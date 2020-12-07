@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.ap.v;
 import com.baidu.swan.apps.b;
@@ -14,7 +15,7 @@ import com.baidu.swan.apps.t.b.i;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class SwanAppUtilsJavaScriptInterface {
     private static final boolean DEBUG = b.DEBUG;
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_utils";
@@ -99,14 +100,14 @@ public class SwanAppUtilsJavaScriptInterface {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        com.baidu.swan.apps.t.a.avT().a(context, parseString, new i.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
+        com.baidu.swan.apps.t.a.azb().a(context, parseString, new i.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
             @Override // com.baidu.swan.apps.t.b.i.a
-            public void axw() {
+            public void aAF() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str3, String.valueOf(true));
             }
 
             @Override // com.baidu.swan.apps.t.b.i.a
-            public void axx() {
+            public void aAG() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str4, String.valueOf(false));
             }
         });
@@ -115,7 +116,7 @@ public class SwanAppUtilsJavaScriptInterface {
     @JavascriptInterface
     public void consoleLog(String str) {
         if (!TextUtils.isEmpty(str) && DEBUG) {
-            Log.e(TAG, "consoleLog : " + str + "->" + System.currentTimeMillis());
+            Log.e(TAG, "consoleLog : " + str + PerfFrameTrackUIUtil.SEPERATOR_ARROR + System.currentTimeMillis());
         }
     }
 

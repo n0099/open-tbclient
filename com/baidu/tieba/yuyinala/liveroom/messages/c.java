@@ -1,7 +1,6 @@
 package com.baidu.tieba.yuyinala.liveroom.messages;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -31,7 +30,7 @@ public class c extends HttpMessage {
             for (int i = 0; i < this.mIds.size(); i++) {
                 sb.append(this.mIds.get(i));
                 if (i != this.mIds.size() - 1) {
-                    sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    sb.append(",");
                 }
             }
             addParam("live_ids", sb.toString());

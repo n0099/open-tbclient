@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    static f f2619a = new f();
+    static f f2621a = new f();
     private String b = "";
 
     f() {
@@ -168,12 +168,12 @@ public class f {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2620a;
+        private String f2622a;
         private String b;
         private String c;
 
         public a(String str, String str2, String str3) {
-            this.f2620a = str == null ? "" : str;
+            this.f2622a = str == null ? "" : str;
             this.b = str2 == null ? "" : str2;
             this.c = str3 == null ? "" : str3;
         }
@@ -181,7 +181,7 @@ public class f {
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("n", this.f2620a);
+                jSONObject.put("n", this.f2622a);
                 jSONObject.put("v", this.b);
                 jSONObject.put("w", this.c);
                 return jSONObject;
@@ -192,7 +192,7 @@ public class f {
         }
 
         public String b() {
-            return this.f2620a;
+            return this.f2622a;
         }
     }
 }

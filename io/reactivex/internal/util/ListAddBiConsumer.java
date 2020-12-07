@@ -1,16 +1,16 @@
 package io.reactivex.internal.util;
 
 import java.util.List;
-/* loaded from: classes5.dex */
-public enum ListAddBiConsumer implements io.reactivex.c.c<List, Object, List> {
+/* loaded from: classes9.dex */
+public enum ListAddBiConsumer implements io.reactivex.b.c<List, Object, List> {
     INSTANCE;
 
-    public static <T> io.reactivex.c.c<List<T>, T, List<T>> instance() {
+    public static <T> io.reactivex.b.c<List<T>, T, List<T>> instance() {
         return INSTANCE;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // io.reactivex.c.c
+    @Override // io.reactivex.b.c
     public List apply(List list, Object obj) throws Exception {
         list.add(obj);
         return list;

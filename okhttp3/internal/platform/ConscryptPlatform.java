@@ -1,5 +1,6 @@
 package okhttp3.internal.platform;
 
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
 import java.util.List;
@@ -10,17 +11,17 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
 import okhttp3.Protocol;
 import org.conscrypt.Conscrypt;
-import org.conscrypt.OpenSSLProvider;
 /* loaded from: classes15.dex */
 public class ConscryptPlatform extends Platform {
     private ConscryptPlatform() {
     }
 
     private Provider getProvider() {
-        return new OpenSSLProvider();
+        return Conscrypt.newProviderBuilder().provideTrustManager().build();
     }
 
     @Override // okhttp3.internal.platform.Platform
+    @Nullable
     public X509TrustManager trustManager(SSLSocketFactory sSLSocketFactory) {
         if (!Conscrypt.isConscrypt(sSLSocketFactory)) {
             return super.trustManager(sSLSocketFactory);
@@ -37,7 +38,7 @@ public class ConscryptPlatform extends Platform {
     }
 
     @Override // okhttp3.internal.platform.Platform
-    public void configureTlsExtensions(SSLSocket sSLSocket, String str, List<Protocol> list) {
+    public void configureTlsExtensions(SSLSocket sSLSocket, String str, List<Protocol> list) throws IOException {
         if (Conscrypt.isConscrypt(sSLSocket)) {
             if (str != null) {
                 Conscrypt.setUseSessionTickets(sSLSocket, true);
@@ -58,15 +59,19 @@ public class ConscryptPlatform extends Platform {
     @Override // okhttp3.internal.platform.Platform
     public SSLContext getSSLContext() {
         try {
-            return SSLContext.getInstance("TLS", getProvider());
+            return SSLContext.getInstance("TLSv1.3", getProvider());
         } catch (NoSuchAlgorithmException e) {
-            throw new IllegalStateException("No TLS provider", e);
+            try {
+                return SSLContext.getInstance("TLS", getProvider());
+            } catch (NoSuchAlgorithmException e2) {
+                throw new IllegalStateException("No TLS provider", e);
+            }
         }
     }
 
-    public static Platform buildIfSupported() {
+    public static ConscryptPlatform buildIfSupported() {
         try {
-            Class.forName("org.conscrypt.ConscryptEngineSocket");
+            Class.forName("org.conscrypt.Conscrypt");
             if (Conscrypt.isAvailable()) {
                 return new ConscryptPlatform();
             }

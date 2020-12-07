@@ -12,8 +12,8 @@ import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
 /* loaded from: classes4.dex */
 public class b extends BdBaseModel {
-    private a gBO;
-    private HttpMessageListener hyg;
+    private a gKL;
+    private HttpMessageListener hHL;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -22,18 +22,18 @@ public class b extends BdBaseModel {
 
     public b(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.hyg = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.g.b.1
+        this.hHL = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.g.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetChallengeHistoryListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == b.this.unique_id) {
-                    b.this.gBO.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                    b.this.gKL.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
                 }
             }
         };
-        this.gBO = aVar;
+        this.gKL = aVar;
         registerTask();
-        registerListener(this.hyg);
+        registerListener(this.hHL);
     }
 
     private void registerTask() {
@@ -45,7 +45,7 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void Ia(String str) {
+    public void IP(String str) {
         HttpMessage httpMessage = new HttpMessage(1021118);
         httpMessage.addParam("portrait", str);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);

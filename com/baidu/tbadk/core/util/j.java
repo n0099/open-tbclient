@@ -9,12 +9,11 @@ import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
-    public static void Bd(String str) {
+    public static void BK(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -32,7 +31,7 @@ public class j {
         }
         Matcher matcher2 = Pattern.compile("#\\(meme,[a-zA-Z0-9_,]+\\)").matcher(str);
         while (matcher2.find()) {
-            String[] split = matcher2.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split = matcher2.group().split(",");
             if (split != null && split.length == 5) {
                 String str2 = split[1];
                 if (!TextUtils.isEmpty(str2) && str2.contains(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) && !str2.contains("collect_")) {
@@ -42,12 +41,12 @@ public class j {
         }
         if (i > 0) {
             ar arVar = new ar(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
-            arVar.ak("obj_param1", i);
+            arVar.al("obj_param1", i);
             TiebaStatic.log(arVar);
         }
     }
 
-    public static void bpI() {
+    public static void btc() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.j.1
             @Override // java.lang.Runnable
             public void run() {
@@ -67,8 +66,8 @@ public class j {
                                 mainDBDatabaseManager.notifySQLException(th, "EmotionsDBManager.listMyEmotions");
                                 com.baidu.adp.lib.util.n.close(cursor);
                                 ar arVar = new ar(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
-                                arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-                                arVar.ak("obj_param1", i);
+                                arVar.dY("uid", TbadkCoreApplication.getCurrentAccount());
+                                arVar.al("obj_param1", i);
                                 TiebaStatic.log(arVar);
                             } catch (Throwable th3) {
                                 com.baidu.adp.lib.util.n.close(cursor);
@@ -83,8 +82,8 @@ public class j {
                     i = 0;
                 }
                 ar arVar2 = new ar(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
-                arVar2.dR("uid", TbadkCoreApplication.getCurrentAccount());
-                arVar2.ak("obj_param1", i);
+                arVar2.dY("uid", TbadkCoreApplication.getCurrentAccount());
+                arVar2.al("obj_param1", i);
                 TiebaStatic.log(arVar2);
             }
         }).start();

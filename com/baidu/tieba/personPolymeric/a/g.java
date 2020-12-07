@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.h, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.f>> {
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
@@ -26,14 +26,14 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.h hVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.f> aVar) {
-        if (aVar == null || aVar.coz() == null || hVar == null) {
+        if (aVar == null || aVar.csM() == null || hVar == null) {
             return null;
         }
-        aVar.coz().a(hVar);
-        if (aVar.coz().getView() != null) {
-            aVar.coz().getView().setOnClickListener(this.mOnClickListener);
+        aVar.csM().a(hVar);
+        if (aVar.csM().getView() != null) {
+            aVar.csM().getView().setOnClickListener(this.mOnClickListener);
         }
-        return aVar.coz().getView();
+        return aVar.csM().getView();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {

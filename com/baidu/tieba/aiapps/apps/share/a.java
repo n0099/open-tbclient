@@ -6,10 +6,10 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class a extends ShareItem {
-    public void dr(JSONObject jSONObject) throws JSONException {
-        this.fgu = true;
+    public void ds(JSONObject jSONObject) throws JSONException {
+        this.fnU = true;
         this.title = jSONObject.getString("title");
         this.linkUrl = jSONObject.getString("linkUrl");
         this.content = jSONObject.optString("content");
@@ -19,34 +19,34 @@ public class a extends ShareItem {
         this.imageUri = Uri.parse(this.imageUrl);
         JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
         if (optJSONObject != null) {
-            this.fgv = optJSONObject.optString("source2");
-            this.fgx = optJSONObject.optString("source3");
+            this.fnV = optJSONObject.optString("source2");
+            this.fnX = optJSONObject.optString("source3");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("command");
         if (optJSONObject2 != null) {
-            this.fgw = 2;
-            this.fgB = optJSONObject2.optJSONArray("cmd_pannel");
-            this.fgC = optJSONObject2.optJSONObject("info");
-            if (this.fgC != null) {
-                this.fgz = this.fgC.optString("key");
-                this.fgA = this.fgC.optString("content");
+            this.fnW = 2;
+            this.fob = optJSONObject2.optJSONArray("cmd_pannel");
+            this.foc = optJSONObject2.optJSONObject("info");
+            if (this.foc != null) {
+                this.fnZ = this.foc.optString("key");
+                this.foa = this.foc.optString("content");
                 return;
             }
             return;
         }
-        this.fgw = "url".equals(jSONObject.optString("type")) ? 1 : 3;
+        this.fnW = "url".equals(jSONObject.optString("type")) ? 1 : 3;
     }
 
-    public JSONArray bKO() {
-        return this.fgB;
+    public JSONArray bOw() {
+        return this.fob;
     }
 
-    public String bKP() {
-        return this.fgz;
+    public String bOx() {
+        return this.fnZ;
     }
 
-    public String bKQ() {
-        return this.fgA;
+    public String bOy() {
+        return this.foa;
     }
 
     public String getMediaType() {

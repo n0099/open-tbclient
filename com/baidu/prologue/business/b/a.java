@@ -9,75 +9,75 @@ import com.baidu.prologue.business.data.f;
 import com.baidu.prologue.service.network.Als;
 /* loaded from: classes14.dex */
 public class a<T extends com.baidu.prologue.business.c.b> {
-    private T cgs = null;
-    e cgt;
-    private d cgu;
-    private com.baidu.prologue.business.data.b cgv;
+    private T cmZ = null;
+    e cna;
+    private d cnb;
+    private com.baidu.prologue.business.data.b cnc;
     Context mContext;
 
     public a(Context context, e eVar) {
-        this.cgt = null;
-        this.cgt = eVar;
+        this.cna = null;
+        this.cna = eVar;
         this.mContext = context;
-        this.cgv = new com.baidu.prologue.business.data.b(this.cgt);
+        this.cnc = new com.baidu.prologue.business.data.b(this.cna);
         com.baidu.prologue.business.data.c.b(eVar);
     }
 
     public void a(T t) {
-        this.cgs = t;
-        t.jC(this.cgt.cfV).dK(this.cgt.isFullScreen()).gV(this.cgt.cfX).jB(String.valueOf(this.cgt.cfW)).dL(this.cgt.cgd).jD(this.cgt.cfU);
+        this.cmZ = t;
+        t.kj(this.cna.cmC).ea(this.cna.isFullScreen()).ht(this.cna.cmE).ki(String.valueOf(this.cna.cmD)).eb(this.cna.cmK).kk(this.cna.cmB);
     }
 
-    public T abV() {
-        return this.cgs;
+    public T afd() {
+        return this.cmZ;
     }
 
     public void a(d dVar) {
-        this.cgu = dVar;
+        this.cnb = dVar;
     }
 
-    public void rD() {
-        this.cgu.rD();
-        jA(Als.CloseType.COUNTDOWN_TIME_FINISH.value);
+    public void rF() {
+        this.cnb.rF();
+        kh(Als.CloseType.COUNTDOWN_TIME_FINISH.value);
     }
 
     public void onAdShow() {
-        if (this.cgv != null && this.cgu != null && this.cgu.abC() != null) {
-            this.cgv.abF();
-            this.cgu.onAdShow();
-            this.cgu.abC().addView(abV().getRootView());
-            com.baidu.prologue.business.data.d.e(this.cgt);
-            f.h(this.cgt);
-            Log.d("SplashAdBasePresenter", "onadshow currate: " + this.cgt.cgc);
+        if (this.cnc != null && this.cnb != null && this.cnb.aeK() != null) {
+            this.cnc.aeN();
+            this.cnb.onAdShow();
+            this.cnb.aeK().addView(afd().getRootView());
+            com.baidu.prologue.business.data.d.e(this.cna);
+            f.h(this.cna);
+            Log.d("SplashAdBasePresenter", "onadshow currate: " + this.cna.cmJ);
         }
     }
 
-    public void jz(String str) {
-        if (this.cgt.abQ()) {
-            this.cgv.a(Als.Area.IMAGE, str);
+    public void kg(String str) {
+        if (this.cna.aeY()) {
+            this.cnc.a(Als.Area.IMAGE, str);
         } else {
-            this.cgv.a(Als.Area.VIDEO, str);
+            this.cnc.a(Als.Area.VIDEO, str);
         }
-        this.cgu.onAdClick();
-        com.baidu.prologue.c.d.invoke(this.mContext, this.cgt.action);
-        jA(Als.CloseType.CLICK_AD_AREA.value);
+        this.cnb.onAdClick();
+        com.baidu.prologue.c.d.invoke(this.mContext, this.cna.action);
+        kh(Als.CloseType.CLICK_AD_AREA.value);
     }
 
-    public void abD() {
-        this.cgu.abD();
-        jA(Als.CloseType.CLICK_SKIP_BUTTON.value);
+    public void aeL() {
+        this.cnb.aeL();
+        kh(Als.CloseType.CLICK_SKIP_BUTTON.value);
     }
 
-    protected void jA(String str) {
+    protected void kh(String str) {
         if (Als.CloseType.COUNTDOWN_TIME_FINISH.value.equals(str)) {
-            this.cgv.i(str, this.cgs.abY());
+            this.cnc.i(str, this.cmZ.afg());
         } else {
-            this.cgv.i(str, this.cgs.abX());
+            this.cnc.i(str, this.cmZ.aff());
         }
-        com.baidu.prologue.business.a.a(com.baidu.prologue.a.b.a.cft.get());
+        com.baidu.prologue.business.a.a(com.baidu.prologue.a.b.a.clZ.get());
     }
 
-    public void abW() {
-        this.cgu.abE();
+    public void afe() {
+        this.cnb.aeM();
     }
 }

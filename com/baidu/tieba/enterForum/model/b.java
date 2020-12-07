@@ -8,16 +8,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.switchs.HttpsConnSwitch;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b {
-    public static boolean cse() {
+    public static boolean cwt() {
         if (j.isNetWorkAvailable()) {
             return SwitchManager.getInstance().findType(HttpsConnSwitch.KEY) == 1;
         }
         return false;
     }
 
-    public static void csf() {
+    public static void cwu() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.enterForum.model.b.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -34,8 +34,8 @@ public class b {
                     aaVar3.addPostData("is_success_http", String.valueOf(i));
                     aaVar3.addPostData("is_success_https", String.valueOf(i2));
                     aaVar3.postNetData();
-                    TiebaStatic.log(new ar("c13734").ak("obj_locate", 1).ak("obj_type", i));
-                    TiebaStatic.log(new ar("c13734").ak("obj_locate", 2).ak("obj_type", i2));
+                    TiebaStatic.log(new ar("c13734").al("obj_locate", 1).al("obj_type", i));
+                    TiebaStatic.log(new ar("c13734").al("obj_locate", 2).al("obj_type", i2));
                 }
                 return null;
             }

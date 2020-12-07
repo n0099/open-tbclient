@@ -11,12 +11,12 @@ public abstract class c<FETCH_STATE extends t> implements af<FETCH_STATE> {
     }
 
     @Override // com.facebook.imagepipeline.producers.af
-    public void b(FETCH_STATE fetch_state, int i) {
+    public void a(FETCH_STATE fetch_state, int i) {
     }
 
     @Override // com.facebook.imagepipeline.producers.af
     @Nullable
-    public Map<String, String> a(FETCH_STATE fetch_state, int i) {
+    public Map<String, String> b(FETCH_STATE fetch_state, int i) {
         return null;
     }
 }

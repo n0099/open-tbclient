@@ -11,7 +11,7 @@ import com.baidu.platform.comapi.map.b.a;
 import com.baidu.platform.comapi.util.SysOSUtil;
 import java.util.LinkedList;
 import java.util.Queue;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class d extends a {
     private GeoPoint b;
     private int c;
@@ -43,7 +43,7 @@ public class d extends a {
             if (linkedList.size() < 2) {
                 return 0;
             }
-            int i = (int) (((a.c) linkedList.get(linkedList.size() - 2)).f2904a * 8.0d);
+            int i = (int) (((a.c) linkedList.get(linkedList.size() - 2)).f2906a * 8.0d);
             if (i >= 180) {
                 return 179;
             }
@@ -63,31 +63,31 @@ public class d extends a {
     private void a(MapStatus mapStatus, int i) {
         if (i != 0) {
             mapStatus.rotation = (mapStatus.rotation + i) % EncoderTextureDrawer.X264_WIDTH;
-            this.f2907a.setMapStatusWithAnimation(mapStatus, 600);
+            this.f2909a.setMapStatusWithAnimation(mapStatus, 600);
         }
     }
 
     private void b(MapStatus mapStatus) {
         if (this.b != null) {
-            if (Math.abs(this.g.c.f2905a) > 0.0d || Math.abs(this.g.c.b) > 0.0d) {
-                a.b a2 = this.i.f2902a.a();
+            if (Math.abs(this.g.c.f2907a) > 0.0d || Math.abs(this.g.c.b) > 0.0d) {
+                a.b a2 = this.i.f2904a.a();
                 a.b a3 = this.i.c.a();
-                double sqrt = Math.sqrt(((a3.b - a2.b) * (a3.b - a2.b)) + ((a3.f2903a - a2.f2903a) * (a3.f2903a - a2.f2903a)));
+                double sqrt = Math.sqrt(((a3.b - a2.b) * (a3.b - a2.b)) + ((a3.f2905a - a2.f2905a) * (a3.f2905a - a2.f2905a)));
                 if (!MapController.isCompass || sqrt >= 100.0d) {
                     if (!MapController.isCompass && !this.l) {
                         mapStatus.centerPtX = this.b.getLongitude();
                         mapStatus.centerPtY = this.b.getLatitude();
                         a.b a4 = this.i.c.a();
-                        mapStatus.xOffset = (float) (a4.f2903a - (this.f2907a.getScreenWidth() / 2));
-                        mapStatus.yOffset = ((float) (a4.b - (this.f2907a.getScreenHeight() / 2))) * (-1.0f);
+                        mapStatus.xOffset = (float) (a4.f2905a - (this.f2909a.getScreenWidth() / 2));
+                        mapStatus.yOffset = ((float) (a4.b - (this.f2909a.getScreenHeight() / 2))) * (-1.0f);
                         return;
                     }
                     this.l = false;
                     com.baidu.platform.comapi.util.a.a().a(new com.baidu.platform.comapi.map.a.a());
-                    MapViewInterface mapView = this.f2907a.getMapView();
+                    MapViewInterface mapView = this.f2909a.getMapView();
                     if (mapView != null) {
                         a.b a5 = this.i.c.a();
-                        this.b = mapView.getProjection().fromPixels((int) a5.f2903a, (int) a5.b);
+                        this.b = mapView.getProjection().fromPixels((int) a5.f2905a, (int) a5.b);
                     }
                 }
             }
@@ -95,21 +95,21 @@ public class d extends a {
     }
 
     private void c(MapStatus mapStatus) {
-        double abs = Math.abs(new a.c(new a.C0279a(this.i.b.f2901a, this.i.c.f2901a), this.i.b).f2904a);
-        double abs2 = Math.abs(new a.c(new a.C0279a(this.i.b.b, this.i.c.b), this.i.b).f2904a);
+        double abs = Math.abs(new a.c(new a.C0290a(this.i.b.f2903a, this.i.c.f2903a), this.i.b).f2906a);
+        double abs2 = Math.abs(new a.c(new a.C0290a(this.i.b.b, this.i.c.b), this.i.b).f2906a);
         if (this.k != 0.0d && this.k * this.g.b < 0.0d) {
             return;
         }
         if (this.j) {
-            mapStatus.rotation = (int) ((this.c + this.f.f2904a) % 360.0d);
+            mapStatus.rotation = (int) ((this.c + this.f.f2906a) % 360.0d);
         } else {
             boolean z = (this.g.b < 1.0d && abs > 60.0d) || (this.g.b > 1.0d && Math.abs(abs - 180.0d) > 60.0d);
             boolean z2 = (this.g.b > 1.0d && abs2 > 60.0d) || (this.g.b < 1.0d && Math.abs(abs2 - 180.0d) > 60.0d);
             if (z || z2) {
-                if (Math.abs(this.f.f2904a) > (MapController.isCompass ? 30 : 10)) {
+                if (Math.abs(this.f.f2906a) > (MapController.isCompass ? 30 : 10)) {
                     this.j = true;
-                    this.f2907a.getGestureMonitor().c();
-                    this.c = (int) (this.c - this.f.f2904a);
+                    this.f2909a.getGestureMonitor().c();
+                    this.c = (int) (this.c - this.f.f2906a);
                     if (MapController.isCompass) {
                         this.l = true;
                         com.baidu.platform.comapi.util.a.a().a(new com.baidu.platform.comapi.map.a.a());
@@ -127,23 +127,23 @@ public class d extends a {
         a.c cVar2;
         if (pair != null) {
             int a2 = a();
-            if (((a.d) pair.second).f2905a * ((a.d) pair.first).f2905a > 0.0d) {
+            if (((a.d) pair.second).f2907a * ((a.d) pair.first).f2907a > 0.0d) {
                 if (((a.d) pair.second).b * ((a.d) pair.first).b > 0.0d) {
                     a(mapStatus, a2);
                     return;
                 }
             }
-            if (Math.abs(((a.d) pair.first).f2905a - ((a.d) pair.second).f2905a) < 1.0d || Math.abs(((a.d) pair.first).b - ((a.d) pair.second).b) < 1.0d) {
+            if (Math.abs(((a.d) pair.first).f2907a - ((a.d) pair.second).f2907a) < 1.0d || Math.abs(((a.d) pair.first).b - ((a.d) pair.second).b) < 1.0d) {
                 a(mapStatus, a2);
                 return;
             }
-            double abs = Math.abs(new a.c(new a.C0279a(bVar.b.f2901a, bVar.c.f2901a), bVar.b).f2904a);
-            double abs2 = Math.abs(new a.c(new a.C0279a(bVar.b.b, bVar.c.b), bVar.b).f2904a);
+            double abs = Math.abs(new a.c(new a.C0290a(bVar.b.f2903a, bVar.c.f2903a), bVar.b).f2906a);
+            double abs2 = Math.abs(new a.c(new a.C0290a(bVar.b.b, bVar.c.b), bVar.b).f2906a);
             if (this.k != 0.0d && this.k * this.g.b < 0.0d) {
                 a(mapStatus, a2);
                 return;
             }
-            float sqrt = ((float) Math.sqrt((((a.d) pair.second).b * ((a.d) pair.second).b) + (((a.d) pair.first).f2905a * ((a.d) pair.first).f2905a) + (((a.d) pair.second).f2905a * ((a.d) pair.second).f2905a) + (((a.d) pair.first).b * ((a.d) pair.first).b))) * 2.0f;
+            float sqrt = ((float) Math.sqrt((((a.d) pair.second).b * ((a.d) pair.second).b) + (((a.d) pair.first).f2907a * ((a.d) pair.first).f2907a) + (((a.d) pair.second).f2907a * ((a.d) pair.second).f2907a) + (((a.d) pair.first).b * ((a.d) pair.first).b))) * 2.0f;
             Log.d("zoom_speed:", String.valueOf(sqrt));
             if (sqrt > (SysOSUtil.getInstance().getDensityDPI() * 100) / 320) {
                 mapStatus.hasAnimation = 1;
@@ -200,9 +200,9 @@ public class d extends a {
                 if (z2) {
                     Log.d("zoom_ratote", "bMoved");
                 }
-                Log.d("zoom_ratote", String.valueOf(this.f.f2904a));
+                Log.d("zoom_ratote", String.valueOf(this.f.f2906a));
                 if (z || z2) {
-                    if (Math.abs(this.f.f2904a) > (MapController.isCompass ? 30 : 15)) {
+                    if (Math.abs(this.f.f2906a) > (MapController.isCompass ? 30 : 15)) {
                         a(mapStatus, a2);
                         return;
                     }
@@ -223,28 +223,28 @@ public class d extends a {
                     mapStatus.rotation = (mapStatus.rotation + a2) % EncoderTextureDrawer.X264_WIDTH;
                 }
                 Log.d("zoom_level:", String.valueOf(mapStatus.level));
-                this.f2907a.setMapStatus(mapStatus);
+                this.f2909a.setMapStatus(mapStatus);
             }
         }
     }
 
     @Override // com.baidu.platform.comapi.map.b.b.a
     public void a(com.baidu.platform.comapi.map.b.a.b bVar) {
-        MapViewInterface mapView = this.f2907a.getMapView();
+        MapViewInterface mapView = this.f2909a.getMapView();
         if (mapView == null) {
             return;
         }
-        MapStatus mapStatus = this.f2907a.getMapStatus();
-        a.b a2 = bVar.f2902a.a();
-        this.b = mapView.getProjection().fromPixels((int) a2.f2903a, (int) a2.b);
-        this.d = this.f2907a.getZoomLevel();
+        MapStatus mapStatus = this.f2909a.getMapStatus();
+        a.b a2 = bVar.f2904a.a();
+        this.b = mapView.getProjection().fromPixels((int) a2.f2905a, (int) a2.b);
+        this.d = this.f2909a.getZoomLevel();
         this.c = mapStatus.rotation;
         this.k = 0.0d;
     }
 
     @Override // com.baidu.platform.comapi.map.b.b.a
     public void a(com.baidu.platform.comapi.map.b.a.b bVar, Pair<a.d, a.d> pair) {
-        MapViewInterface mapView = this.f2907a.getMapView();
+        MapViewInterface mapView = this.f2909a.getMapView();
         if (mapView == null) {
             return;
         }
@@ -254,39 +254,39 @@ public class d extends a {
         int y = (int) bVar.d.getY();
         int i = x < 0 ? 0 : x;
         int i2 = y < 0 ? 0 : y;
-        GeoPoint fromPixels = mapView.getProjection().fromPixels(this.f2907a.getScreenWidth() / 2, this.f2907a.getScreenHeight() / 2);
+        GeoPoint fromPixels = mapView.getProjection().fromPixels(this.f2909a.getScreenWidth() / 2, this.f2909a.getScreenHeight() / 2);
         if (fromPixels != null) {
             d = fromPixels.getLongitude();
             d2 = fromPixels.getLatitude();
         }
-        this.f2907a.MapMsgProc(5, 1, (i2 << 16) | i, 0, 0, d, d2, 0.0d, 0.0d);
-        this.f2907a.getGestureMonitor().a(this.f2907a.getZoomLevel());
-        if (System.currentTimeMillis() - this.m > 100 || !this.f2907a.isEnableZoom()) {
+        this.f2909a.MapMsgProc(5, 1, (i2 << 16) | i, 0, 0, d, d2, 0.0d, 0.0d);
+        this.f2909a.getGestureMonitor().a(this.f2909a.getZoomLevel());
+        if (System.currentTimeMillis() - this.m > 100 || !this.f2909a.isEnableZoom()) {
             return;
         }
-        a(this.f2907a.getMapStatus(), bVar, pair);
+        a(this.f2909a.getMapStatus(), bVar, pair);
     }
 
     @Override // com.baidu.platform.comapi.map.b.b.a
     public void b(com.baidu.platform.comapi.map.b.a.b bVar) {
         this.i = bVar;
-        this.f = new a.c(bVar.f2902a, bVar.c);
+        this.f = new a.c(bVar.f2904a, bVar.c);
         this.g = new a.c(bVar.b, bVar.c);
-        MapStatus mapStatus = this.f2907a.getMapStatus();
-        if (this.f2907a.isEnableZoom()) {
+        MapStatus mapStatus = this.f2909a.getMapStatus();
+        if (this.f2909a.isEnableZoom()) {
             a(mapStatus);
         }
-        if (this.f2907a.is3DGestureEnable() && this.f2907a.getMapControlMode() != MapController.MapControlMode.STREET) {
-            if (mapStatus.overlooking == 0 && this.f2907a.isCanTouchMove()) {
+        if (this.f2909a.is3DGestureEnable() && this.f2909a.getMapControlMode() != MapController.MapControlMode.STREET) {
+            if (mapStatus.overlooking == 0 && this.f2909a.isCanTouchMove()) {
                 b(mapStatus);
             }
             c(mapStatus);
         }
-        this.f2907a.setMapStatus(mapStatus);
-        if (this.f2907a.isNaviMode() && this.f2907a.getNaviMapViewListener() != null) {
-            this.f2907a.getNaviMapViewListener().onAction(520, null);
+        this.f2909a.setMapStatus(mapStatus);
+        if (this.f2909a.isNaviMode() && this.f2909a.getNaviMapViewListener() != null) {
+            this.f2909a.getNaviMapViewListener().onAction(520, null);
         }
-        this.f2907a.mapStatusChangeStart();
+        this.f2909a.mapStatusChangeStart();
         if (this.e.size() >= 10) {
             this.e.poll();
         }

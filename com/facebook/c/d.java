@@ -7,47 +7,47 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes17.dex */
+/* loaded from: classes7.dex */
 public class d {
-    private static d oUf;
-    private int oUg;
+    private static d pje;
+    private int pjf;
     @Nullable
-    private List<c.a> oUh;
-    private final c.a oUi = new a();
+    private List<c.a> pjg;
+    private final c.a pjh = new a();
 
     private d() {
-        emX();
+        esI();
     }
 
-    public void gz(@Nullable List<c.a> list) {
-        this.oUh = list;
-        emX();
+    public void gO(@Nullable List<c.a> list) {
+        this.pjg = list;
+        esI();
     }
 
-    public c s(InputStream inputStream) throws IOException {
+    public c t(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.oUg];
-        int a2 = a(this.oUg, inputStream, bArr);
-        c p = this.oUi.p(bArr, a2);
-        if (p == null || p == c.oUd) {
-            if (this.oUh != null) {
-                for (c.a aVar : this.oUh) {
-                    c p2 = aVar.p(bArr, a2);
-                    if (p2 != null && p2 != c.oUd) {
-                        return p2;
+        byte[] bArr = new byte[this.pjf];
+        int a2 = a(this.pjf, inputStream, bArr);
+        c q = this.pjh.q(bArr, a2);
+        if (q == null || q == c.pjc) {
+            if (this.pjg != null) {
+                for (c.a aVar : this.pjg) {
+                    c q2 = aVar.q(bArr, a2);
+                    if (q2 != null && q2 != c.pjc) {
+                        return q2;
                     }
                 }
             }
-            return c.oUd;
+            return c.pjc;
         }
-        return p;
+        return q;
     }
 
-    private void emX() {
-        this.oUg = this.oUi.getHeaderSize();
-        if (this.oUh != null) {
-            for (c.a aVar : this.oUh) {
-                this.oUg = Math.max(this.oUg, aVar.getHeaderSize());
+    private void esI() {
+        this.pjf = this.pjh.getHeaderSize();
+        if (this.pjg != null) {
+            for (c.a aVar : this.pjg) {
+                this.pjf = Math.max(this.pjf, aVar.getHeaderSize());
             }
         }
     }
@@ -67,24 +67,24 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d emY() {
+    public static synchronized d esJ() {
         d dVar;
         synchronized (d.class) {
-            if (oUf == null) {
-                oUf = new d();
+            if (pje == null) {
+                pje = new d();
             }
-            dVar = oUf;
+            dVar = pje;
         }
         return dVar;
     }
 
-    public static c t(InputStream inputStream) throws IOException {
-        return emY().s(inputStream);
+    public static c u(InputStream inputStream) throws IOException {
+        return esJ().t(inputStream);
     }
 
-    public static c u(InputStream inputStream) {
+    public static c v(InputStream inputStream) {
         try {
-            return t(inputStream);
+            return u(inputStream);
         } catch (IOException e) {
             throw l.v(e);
         }

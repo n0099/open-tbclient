@@ -12,7 +12,7 @@ import com.baidu.cyberplayer.sdk.i;
 public class g extends SurfaceView implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    private i.a f1390a;
+    private i.a f1389a;
     private a b;
     private Surface c;
 
@@ -27,15 +27,15 @@ public class g extends SurfaceView implements i {
 
         @Override // android.view.SurfaceHolder.Callback
         public void surfaceCreated(SurfaceHolder surfaceHolder) {
-            CyberLog.d("SurfaceCallback", "BVideoView surfaceCreated mCyberSurfaceListener:" + g.this.f1390a);
-            if (g.this.f1390a != null) {
-                g.this.f1390a.a(2);
+            CyberLog.d("SurfaceCallback", "BVideoView surfaceCreated mCyberSurfaceListener:" + g.this.f1389a);
+            if (g.this.f1389a != null) {
+                g.this.f1389a.a(2);
             }
         }
 
         @Override // android.view.SurfaceHolder.Callback
         public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-            CyberLog.d("SurfaceCallback", "surfaceDestroyed mCyberSurfaceListener:" + g.this.f1390a);
+            CyberLog.d("SurfaceCallback", "surfaceDestroyed mCyberSurfaceListener:" + g.this.f1389a);
         }
     }
 
@@ -110,7 +110,7 @@ public class g extends SurfaceView implements i {
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void setCyberSurfaceListener(i.a aVar) {
-        this.f1390a = aVar;
+        this.f1389a = aVar;
     }
 
     @Override // com.baidu.cyberplayer.sdk.i

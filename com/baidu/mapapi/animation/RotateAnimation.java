@@ -3,7 +3,7 @@ package com.baidu.mapapi.animation;
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapsdkplatform.comapi.a.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class RotateAnimation extends Animation {
     public RotateAnimation(float f, float f2) {
         if (f < 0.0f || f2 < 0.0f) {

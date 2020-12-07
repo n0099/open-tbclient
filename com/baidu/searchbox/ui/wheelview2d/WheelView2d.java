@@ -5,14 +5,15 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.android.common.ui.R;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.skin.NightModeHelper;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class WheelView2d extends BdGallery {
-    private static final int[] SHADOWS_COLORS = {-1, -1140850689, 16777215};
+    private static final int[] SHADOWS_COLORS = {-1, -1140850689, ViewCompat.MEASURED_SIZE_MASK};
     private static final int[] SHADOWS_COLORS_NIGHT = {-15132391, -1155983079, 1644825};
     private Drawable mBottomShadow;
     private int mDefSelectorSize;

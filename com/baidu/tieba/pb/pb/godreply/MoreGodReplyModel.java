@@ -12,28 +12,28 @@ import com.baidu.tieba.pb.pb.main.ai;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class MoreGodReplyModel extends BdBaseModel<e> {
     private boolean isLoading;
-    private PbModel lpG;
-    private int lpH;
-    private int lpI;
-    private ai.a lpJ;
-    private final ai.a lpK;
+    private PbModel lDp;
+    private int lDq;
+    private int lDr;
+    private ai.a lDs;
+    private final ai.a lDt;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public MoreGodReplyModel(e eVar, PbModel pbModel) {
         super(eVar);
         this.isLoading = false;
-        this.lpH = -1;
-        this.lpI = -1;
-        this.lpK = new ai.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
+        this.lDq = -1;
+        this.lDr = -1;
+        this.lDt = new ai.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
             @Override // com.baidu.tieba.pb.pb.main.ai.a
-            public void af(List<PostData> list) {
-                r dhV;
+            public void ah(List<PostData> list) {
+                r dnh;
                 MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.lpG != null && MoreGodReplyModel.this.lpG.getPbData() != null && (dhV = MoreGodReplyModel.this.lpG.getPbData().dhV()) != null) {
-                    List<PostData> list2 = dhV.loU;
+                if (MoreGodReplyModel.this.lDp != null && MoreGodReplyModel.this.lDp.getPbData() != null && (dnh = MoreGodReplyModel.this.lDp.getPbData().dnh()) != null) {
+                    List<PostData> list2 = dnh.lCq;
                     int size = list2.size();
                     if (!y.isEmpty(list)) {
                         for (PostData postData : list) {
@@ -42,29 +42,29 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
                             }
                         }
                     }
-                    MoreGodReplyModel.this.lpG.a(MoreGodReplyModel.this.lpG.getPbData(), size);
+                    MoreGodReplyModel.this.lDp.a(MoreGodReplyModel.this.lDp.getPbData(), size);
                 }
-                if (MoreGodReplyModel.this.lpH > 0) {
-                    MoreGodReplyModel.this.lpI = MoreGodReplyModel.this.lpH;
+                if (MoreGodReplyModel.this.lDq > 0) {
+                    MoreGodReplyModel.this.lDr = MoreGodReplyModel.this.lDq;
                 }
-                if (MoreGodReplyModel.this.lpJ != null) {
-                    MoreGodReplyModel.this.lpJ.af(list);
+                if (MoreGodReplyModel.this.lDs != null) {
+                    MoreGodReplyModel.this.lDs.ah(list);
                 }
             }
 
             @Override // com.baidu.tieba.pb.pb.main.ai.a
-            public void n(int i, String str, String str2) {
+            public void p(int i, String str, String str2) {
                 MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.lpJ != null) {
-                    MoreGodReplyModel.this.lpJ.n(i, str, str2);
+                if (MoreGodReplyModel.this.lDs != null) {
+                    MoreGodReplyModel.this.lDs.p(i, str, str2);
                 }
             }
         };
         if (pbModel != null) {
-            this.lpG = pbModel;
-            ai dly = pbModel.dly();
-            if (dly != null) {
-                dly.b(this.lpK);
+            this.lDp = pbModel;
+            ai dqO = pbModel.dqO();
+            if (dqO != null) {
+                dqO.b(this.lDt);
             }
         }
     }
@@ -86,25 +86,25 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return false;
     }
 
-    public boolean diU() {
-        r dhV;
-        f pbData = this.lpG.getPbData();
-        if (pbData == null || (dhV = pbData.dhV()) == null) {
+    public boolean doj() {
+        r dnh;
+        f pbData = this.lDp.getPbData();
+        if (pbData == null || (dnh = pbData.dnh()) == null) {
             return false;
         }
-        if (this.lpI < 0) {
-            this.lpI = dhV.getCount();
+        if (this.lDr < 0) {
+            this.lDr = dnh.getCount();
         }
-        List<Long> list = dhV.loV;
+        List<Long> list = dnh.lCr;
         int size = list.size();
-        int i = this.lpI;
-        if (size <= i || dhV.loU.size() >= 100) {
+        int i = this.lDr;
+        if (size <= i || dnh.lCq.size() >= 100) {
             return false;
         }
         int min = Math.min(100, Math.min(i + 20, size));
-        this.lpH = min;
+        this.lDq = min;
         this.isLoading = true;
-        this.lpG.dly().fd(list.subList(i, min));
+        this.lDp.dqO().fo(list.subList(i, min));
         Log.d("more_god_reply", "load from " + i + " to " + min);
         return true;
     }
@@ -113,25 +113,25 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return this.isLoading;
     }
 
-    public PbModel diV() {
-        return this.lpG;
+    public PbModel dok() {
+        return this.lDp;
     }
 
-    public List<q> diW() {
+    public List<q> dol() {
         f pbData;
-        if (this.lpG == null || (pbData = this.lpG.getPbData()) == null || pbData.dhV() == null || y.isEmpty(pbData.dhV().loU)) {
+        if (this.lDp == null || (pbData = this.lDp.getPbData()) == null || pbData.dnh() == null || y.isEmpty(pbData.dnh().lCq)) {
             return null;
         }
-        r dhV = pbData.dhV();
+        r dnh = pbData.dnh();
         ArrayList arrayList = new ArrayList();
-        List<PostData> list = dhV.loU;
+        List<PostData> list = dnh.lCq;
         int size = list.size();
         int i = 0;
         while (i < size) {
             PostData postData = list.get(i);
             if (postData != null) {
                 arrayList.add(postData);
-                postData.mYs = i < size + (-1);
+                postData.nmq = i < size + (-1);
             }
             i++;
         }
@@ -150,19 +150,19 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
     }
 
     public void a(ai.a aVar) {
-        this.lpJ = aVar;
+        this.lDs = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean aGb() {
+    public boolean aJj() {
         f pbData;
-        r dhV;
-        if (this.lpG == null || (pbData = this.lpG.getPbData()) == null || (dhV = pbData.dhV()) == null) {
+        r dnh;
+        if (this.lDp == null || (pbData = this.lDp.getPbData()) == null || (dnh = pbData.dnh()) == null) {
             return false;
         }
-        if (this.lpI < 0) {
-            this.lpI = dhV.getCount();
+        if (this.lDr < 0) {
+            this.lDr = dnh.getCount();
         }
-        return dhV.loV.size() > this.lpI && dhV.loU.size() < 100;
+        return dnh.lCr.size() > this.lDr && dnh.lCq.size() < 100;
     }
 }

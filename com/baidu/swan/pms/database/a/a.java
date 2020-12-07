@@ -74,13 +74,13 @@ public class a extends b<PMSAppInfo> {
             if (0 < lastLaunchTime) {
                 contentValues.put("last_launch_time", Long.valueOf(lastLaunchTime));
             }
-            int aMi = pMSAppInfo.aMi();
-            if (aMi > 0) {
-                contentValues.put("launch_count", Integer.valueOf(aMi));
+            int aPp = pMSAppInfo.aPp();
+            if (aPp > 0) {
+                contentValues.put("launch_count", Integer.valueOf(aPp));
             }
-            int apV = pMSAppInfo.apV();
-            if (apV > 0) {
-                contentValues.put("install_src", Integer.valueOf(apV));
+            int atd = pMSAppInfo.atd();
+            if (atd > 0) {
+                contentValues.put("install_src", Integer.valueOf(atd));
             }
             contentValues.put("web_url", pMSAppInfo.webUrl);
             contentValues.put("cs_protocol_version", Integer.valueOf(pMSAppInfo.csProtocolVersion));
@@ -162,9 +162,9 @@ public class a extends b<PMSAppInfo> {
             pMSAppInfo.paNumber = cursor.getString(columnIndex31);
             pMSAppInfo.brandsInfo = cursor.getString(columnIndex32);
             pMSAppInfo.quickAppKey = cursor.getString(columnIndex36);
-            pMSAppInfo.cN(cursor.getLong(columnIndex33));
-            pMSAppInfo.mM(cursor.getInt(columnIndex34));
-            pMSAppInfo.mN(cursor.getInt(columnIndex35));
+            pMSAppInfo.dm(cursor.getLong(columnIndex33));
+            pMSAppInfo.nk(cursor.getInt(columnIndex34));
+            pMSAppInfo.nl(cursor.getInt(columnIndex35));
             pMSAppInfo.webUrl = cursor.getString(columnIndex37);
             pMSAppInfo.csProtocolVersion = cursor.getInt(columnIndex38);
             return pMSAppInfo;

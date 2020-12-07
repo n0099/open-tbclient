@@ -25,36 +25,36 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.widget.imageview.BdImage;
 import com.baidu.live.data.AlaLiveInfoData;
-import com.baidu.live.s.e;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ViewCommonUtil;
 import com.baidu.live.tbadk.widget.TbImageView;
+import com.baidu.live.u.e;
 /* loaded from: classes4.dex */
 public class AlaLiveRoomBlurPageLayout extends FrameLayout implements e {
-    private FrameLayout hvA;
-    private TextView hvB;
-    Runnable hvC;
-    private FrameLayout hvx;
-    private View hvz;
+    private FrameLayout hFa;
+    private View hFc;
+    private FrameLayout hFd;
+    private TextView hFe;
+    Runnable hFf;
     private Handler mHandler;
     private TbPageContext mPageContext;
     private ViewGroup mRootView;
-    private TbImageView oca;
-    private View ocb;
-    private AlaLiveView occ;
-    private Bitmap ocd;
+    private TbImageView ora;
+    private View orb;
+    private AlaLiveView orc;
+    private Bitmap ord;
 
     public AlaLiveRoomBlurPageLayout(Context context) {
         super(context);
-        this.oca = null;
-        this.ocb = null;
-        this.occ = null;
-        this.hvz = null;
-        this.hvA = null;
-        this.hvB = null;
-        this.hvC = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.views.AlaLiveRoomBlurPageLayout.1
+        this.ora = null;
+        this.orb = null;
+        this.orc = null;
+        this.hFc = null;
+        this.hFd = null;
+        this.hFe = null;
+        this.hFf = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.views.AlaLiveRoomBlurPageLayout.1
             @Override // java.lang.Runnable
             public void run() {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
@@ -68,16 +68,16 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements e {
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        AlaLiveRoomBlurPageLayout.this.oca.setAlpha(0.0f);
-                        AlaLiveRoomBlurPageLayout.this.oca.setVisibility(8);
+                        AlaLiveRoomBlurPageLayout.this.ora.setAlpha(0.0f);
+                        AlaLiveRoomBlurPageLayout.this.ora.setVisibility(8);
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationRepeat(Animation animation) {
                     }
                 });
-                AlaLiveRoomBlurPageLayout.this.oca.clearAnimation();
-                AlaLiveRoomBlurPageLayout.this.oca.startAnimation(alphaAnimation);
+                AlaLiveRoomBlurPageLayout.this.ora.clearAnimation();
+                AlaLiveRoomBlurPageLayout.this.ora.startAnimation(alphaAnimation);
             }
         };
         init();
@@ -85,13 +85,13 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements e {
 
     public AlaLiveRoomBlurPageLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.oca = null;
-        this.ocb = null;
-        this.occ = null;
-        this.hvz = null;
-        this.hvA = null;
-        this.hvB = null;
-        this.hvC = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.views.AlaLiveRoomBlurPageLayout.1
+        this.ora = null;
+        this.orb = null;
+        this.orc = null;
+        this.hFc = null;
+        this.hFd = null;
+        this.hFe = null;
+        this.hFf = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.views.AlaLiveRoomBlurPageLayout.1
             @Override // java.lang.Runnable
             public void run() {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
@@ -105,16 +105,16 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements e {
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        AlaLiveRoomBlurPageLayout.this.oca.setAlpha(0.0f);
-                        AlaLiveRoomBlurPageLayout.this.oca.setVisibility(8);
+                        AlaLiveRoomBlurPageLayout.this.ora.setAlpha(0.0f);
+                        AlaLiveRoomBlurPageLayout.this.ora.setVisibility(8);
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationRepeat(Animation animation) {
                     }
                 });
-                AlaLiveRoomBlurPageLayout.this.oca.clearAnimation();
-                AlaLiveRoomBlurPageLayout.this.oca.startAnimation(alphaAnimation);
+                AlaLiveRoomBlurPageLayout.this.ora.clearAnimation();
+                AlaLiveRoomBlurPageLayout.this.ora.startAnimation(alphaAnimation);
             }
         };
         init();
@@ -122,13 +122,13 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements e {
 
     public AlaLiveRoomBlurPageLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oca = null;
-        this.ocb = null;
-        this.occ = null;
-        this.hvz = null;
-        this.hvA = null;
-        this.hvB = null;
-        this.hvC = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.views.AlaLiveRoomBlurPageLayout.1
+        this.ora = null;
+        this.orb = null;
+        this.orc = null;
+        this.hFc = null;
+        this.hFd = null;
+        this.hFe = null;
+        this.hFf = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.views.AlaLiveRoomBlurPageLayout.1
             @Override // java.lang.Runnable
             public void run() {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
@@ -142,16 +142,16 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements e {
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        AlaLiveRoomBlurPageLayout.this.oca.setAlpha(0.0f);
-                        AlaLiveRoomBlurPageLayout.this.oca.setVisibility(8);
+                        AlaLiveRoomBlurPageLayout.this.ora.setAlpha(0.0f);
+                        AlaLiveRoomBlurPageLayout.this.ora.setVisibility(8);
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationRepeat(Animation animation) {
                     }
                 });
-                AlaLiveRoomBlurPageLayout.this.oca.clearAnimation();
-                AlaLiveRoomBlurPageLayout.this.oca.startAnimation(alphaAnimation);
+                AlaLiveRoomBlurPageLayout.this.ora.clearAnimation();
+                AlaLiveRoomBlurPageLayout.this.ora.startAnimation(alphaAnimation);
             }
         };
         init();
@@ -161,17 +161,17 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements e {
         Log.i("LiveRoomBlurPageLayout", "@@ context = " + getContext());
         this.mRootView = (ViewGroup) View.inflate(getContext(), a.g.yuyin_ala_liveroom_audience_blur_layout, this);
         setClipChildren(false);
-        this.oca = (TbImageView) findViewById(a.f.ala_liveroom_background_img);
-        this.ocd = drawableToBitmap(new ColorDrawable(getResources().getColor(a.c.sdk_color_333333)));
-        this.hvx = new FrameLayout(getContext());
-        this.hvx.setId(a.f.ala_liveroom_player_container_view);
+        this.ora = (TbImageView) findViewById(a.f.ala_liveroom_background_img);
+        this.ord = drawableToBitmap(new ColorDrawable(getResources().getColor(a.c.sdk_color_333333)));
+        this.hFa = new FrameLayout(getContext());
+        this.hFa.setId(a.f.ala_liveroom_player_container_view);
         this.mHandler = new Handler();
     }
 
     public void c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
         int[] screenFullSize = ViewCommonUtil.getScreenFullSize(tbPageContext.getPageActivity());
-        dJ(screenFullSize[0], screenFullSize[1]);
+        dO(screenFullSize[0], screenFullSize[1]);
     }
 
     private Bitmap drawableToBitmap(Drawable drawable) {
@@ -182,17 +182,17 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements e {
         return createBitmap;
     }
 
-    private void dJ(int i, int i2) {
-        if (this.oca != null) {
-            ViewGroup.LayoutParams layoutParams = this.oca.getLayoutParams();
+    private void dO(int i, int i2) {
+        if (this.ora != null) {
+            ViewGroup.LayoutParams layoutParams = this.ora.getLayoutParams();
             layoutParams.width = i;
             layoutParams.height = i2;
-            this.oca.setLayoutParams(layoutParams);
+            this.ora.setLayoutParams(layoutParams);
         }
     }
 
-    public void D(int i, int i2) {
-        dJ(i, i2);
+    public void C(int i, int i2) {
+        dO(i, i2);
     }
 
     @Override // android.view.View
@@ -200,11 +200,11 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements e {
         super.onConfigurationChanged(configuration);
         if (configuration != null) {
             int[] screenFullSize = ViewCommonUtil.getScreenFullSize(this.mPageContext.getPageActivity());
-            if (this.hvA != null && this.hvA.getParent() != null) {
-                ViewGroup.LayoutParams layoutParams = this.hvA.getLayoutParams();
+            if (this.hFd != null && this.hFd.getParent() != null) {
+                ViewGroup.LayoutParams layoutParams = this.hFd.getLayoutParams();
                 layoutParams.width = screenFullSize[0];
                 layoutParams.height = screenFullSize[1] - 0;
-                this.hvA.setLayoutParams(layoutParams);
+                this.hFd.setLayoutParams(layoutParams);
             }
         }
     }
@@ -212,7 +212,7 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements e {
     public void a(AlaLiveView alaLiveView, ViewGroup.LayoutParams layoutParams) {
         if (alaLiveView != null) {
             if (this.mRootView.indexOfChild(alaLiveView) < 0 && this.mRootView.getChildCount() > 1) {
-                this.occ = alaLiveView;
+                this.orc = alaLiveView;
                 int childCount = this.mRootView.getChildCount() - 1;
                 int childCount2 = this.mRootView.getChildCount();
                 int i = childCount;
@@ -232,63 +232,63 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements e {
                     this.mRootView.addView(alaLiveView, i, alaLiveView.getLayoutParams());
                 }
             }
-            chm();
+            clg();
         }
     }
 
-    public void chj() {
-        if (this.occ != null) {
-            this.mRootView.removeView(this.occ);
+    public void cld() {
+        if (this.orc != null) {
+            this.mRootView.removeView(this.orc);
         }
-        this.occ = null;
+        this.orc = null;
     }
 
-    @Override // com.baidu.live.s.e
+    @Override // com.baidu.live.u.e
     public ViewGroup getLiveContainerView() {
         return this;
     }
 
-    @Override // com.baidu.live.s.e
+    @Override // com.baidu.live.u.e
     public FrameLayout getMastView() {
         return null;
     }
 
     public void d(View view, ViewGroup.LayoutParams layoutParams) {
-        if (this.hvx.getParent() != null) {
-            this.mRootView.removeView(this.hvx);
+        if (this.hFa.getParent() != null) {
+            this.mRootView.removeView(this.hFa);
         }
-        this.mRootView.addView(this.hvx, 1);
-        if (this.ocb != null && this.ocb.getParent() != null) {
-            ((ViewGroup) this.ocb.getParent()).removeView(this.ocb);
+        this.mRootView.addView(this.hFa, 1);
+        if (this.orb != null && this.orb.getParent() != null) {
+            ((ViewGroup) this.orb.getParent()).removeView(this.orb);
         }
-        this.ocb = view;
-        if (this.ocb != null && this.ocb.getParent() != null) {
-            ((ViewGroup) this.ocb.getParent()).removeView(this.ocb);
+        this.orb = view;
+        if (this.orb != null && this.orb.getParent() != null) {
+            ((ViewGroup) this.orb.getParent()).removeView(this.orb);
         }
-        if (this.ocb != null) {
+        if (this.orb != null) {
             if (layoutParams != null) {
-                this.hvx.addView(this.ocb, layoutParams);
+                this.hFa.addView(this.orb, layoutParams);
             } else {
-                this.hvx.addView(this.ocb, this.ocb.getLayoutParams());
+                this.hFa.addView(this.orb, this.orb.getLayoutParams());
             }
         }
     }
 
-    public void VJ() {
-        if (this.hvx.getParent() != null) {
-            ((ViewGroup) this.hvx.getParent()).removeView(this.hvx);
+    public void Yj() {
+        if (this.hFa.getParent() != null) {
+            ((ViewGroup) this.hFa.getParent()).removeView(this.hFa);
         }
     }
 
-    public boolean cn(View view) {
-        return (this.hvx == null || this.hvx.getParent() == null || this.hvx.indexOfChild(view) < 0) ? false : true;
+    public boolean cu(View view) {
+        return (this.hFa == null || this.hFa.getParent() == null || this.hFa.indexOfChild(view) < 0) ? false : true;
     }
 
     public void c(View view, ViewGroup.LayoutParams layoutParams) {
-        if (this.hvz != null && this.mRootView.indexOfChild(this.hvz) >= 0) {
-            this.mRootView.removeView(this.hvz);
+        if (this.hFc != null && this.mRootView.indexOfChild(this.hFc) >= 0) {
+            this.mRootView.removeView(this.hFc);
         }
-        this.hvz = view;
+        this.hFc = view;
         int childCount = this.mRootView.getChildCount() - 1;
         int childCount2 = this.mRootView.getChildCount();
         int i = childCount;
@@ -297,30 +297,30 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements e {
                 i = Math.max(i, i2);
             }
         }
-        if (this.hvz != null) {
-            this.mRootView.addView(this.hvz, i, layoutParams);
+        if (this.hFc != null) {
+            this.mRootView.addView(this.hFc, i, layoutParams);
         }
-        chm();
+        clg();
     }
 
-    public void chk() {
-        if (this.hvz != null) {
-            this.mRootView.removeView(this.hvz);
+    public void cle() {
+        if (this.hFc != null) {
+            this.mRootView.removeView(this.hFc);
         }
-        this.hvz = null;
+        this.hFc = null;
     }
 
-    public void chl() {
-        this.mHandler.removeCallbacks(this.hvC);
-        this.oca.clearAnimation();
-        this.oca.setAlpha(1.0f);
-        this.oca.setVisibility(0);
+    public void clf() {
+        this.mHandler.removeCallbacks(this.hFf);
+        this.ora.clearAnimation();
+        this.ora.setAlpha(1.0f);
+        this.ora.setVisibility(0);
     }
 
     public void setBackImageBlack(AlaLiveInfoData alaLiveInfoData) {
-        if ((alaLiveInfoData == null || alaLiveInfoData.screen_direction != 2) && this.oca != null) {
-            this.oca.setImageDrawable(null);
-            this.oca.setBackgroundColor(this.mPageContext.getResources().getColor(a.c.sdk_transparent));
+        if ((alaLiveInfoData == null || alaLiveInfoData.screen_direction != 2) && this.ora != null) {
+            this.ora.setImageDrawable(null);
+            this.ora.setBackgroundColor(this.mPageContext.getResources().getColor(a.c.sdk_transparent));
         }
     }
 
@@ -335,11 +335,11 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements e {
     public void setBgImageUrl(final String str, int i, AlaLiveInfoData alaLiveInfoData) {
         if (this.mPageContext != null && !TextUtils.isEmpty(str)) {
             int[] screenFullSize = ViewCommonUtil.getScreenFullSize(this.mPageContext.getPageActivity());
-            dJ(screenFullSize[0], screenFullSize[1]);
+            dO(screenFullSize[0], screenFullSize[1]);
             if (alaLiveInfoData != null && alaLiveInfoData.screen_direction == 2) {
-                this.oca.setImageBitmap(this.ocd);
+                this.ora.setImageBitmap(this.ord);
             } else if (TextUtils.isEmpty(str)) {
-                this.oca.setBackgroundResource(a.e.yuyin_sdk_wheat_bg);
+                this.ora.setBackgroundResource(a.e.yuyin_sdk_wheat_bg);
             } else {
                 BdResourceLoader.getInstance().loadResource(str, 10, new BdResourceCallback<BdImage>() { // from class: com.baidu.tieba.yuyinala.liveroom.views.AlaLiveRoomBlurPageLayout.2
                     /* JADX DEBUG: Method merged with bridge method */
@@ -381,26 +381,26 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements e {
         if (this.mPageContext != null && X != null && !X.isRecycled()) {
             try {
                 int[] screenFullSize = ViewCommonUtil.getScreenFullSize(this.mPageContext.getPageActivity());
-                dJ(screenFullSize[0], screenFullSize[1]);
+                dO(screenFullSize[0], screenFullSize[1]);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
-            this.oca.setImageBitmap(X);
+            this.ora.setImageBitmap(X);
         }
     }
 
     public void release() {
-        if (this.oca != null) {
-            this.oca.setImageDrawable(null);
-            this.oca.stopLoad();
+        if (this.ora != null) {
+            this.ora.setImageDrawable(null);
+            this.ora.stopLoad();
         }
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean z = false;
-        if (this.occ != null && !this.occ.hvP) {
-            z = this.occ.W(motionEvent);
+        if (this.orc != null && !this.orc.hFt) {
+            z = this.orc.W(motionEvent);
         }
         if (z || motionEvent.getAction() == 0) {
             return true;
@@ -408,12 +408,12 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements e {
         return super.onTouchEvent(motionEvent);
     }
 
-    public void chm() {
-        if (this.hvA != null && this.hvA.getParent() != null) {
-            ((ViewGroup) this.hvA.getParent()).removeView(this.hvA);
+    public void clg() {
+        if (this.hFd != null && this.hFd.getParent() != null) {
+            ((ViewGroup) this.hFd.getParent()).removeView(this.hFd);
         }
-        if (this.oca != null) {
-            this.oca.setVisibility(0);
+        if (this.ora != null) {
+            this.ora.setVisibility(0);
         }
     }
 }

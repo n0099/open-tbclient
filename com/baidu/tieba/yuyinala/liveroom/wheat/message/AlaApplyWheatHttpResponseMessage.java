@@ -3,9 +3,9 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.message;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaApplyWheatHttpResponseMessage extends BaseJsonHttpResponsedMessage {
-    private String ohU;
-    private String ohV;
-    private int ohW;
+    private String owU;
+    private String owV;
+    private int owW;
 
     public AlaApplyWheatHttpResponseMessage() {
         super(1031007);
@@ -16,21 +16,21 @@ public class AlaApplyWheatHttpResponseMessage extends BaseJsonHttpResponsedMessa
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031007 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.ohW = optJSONObject.optInt("online");
-            this.ohU = optJSONObject.optString("push_url");
-            this.ohV = optJSONObject.optString("push_single_url");
+            this.owW = optJSONObject.optInt("online");
+            this.owU = optJSONObject.optString("push_url");
+            this.owV = optJSONObject.optString("push_single_url");
         }
     }
 
-    public int eag() {
-        return this.ohW;
+    public int efL() {
+        return this.owW;
     }
 
     public String getPushUrl() {
-        return this.ohU;
+        return this.owU;
     }
 
-    public String eaf() {
-        return this.ohV;
+    public String efK() {
+        return this.owV;
     }
 }

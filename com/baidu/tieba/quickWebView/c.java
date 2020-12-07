@@ -4,56 +4,56 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c msk;
-    private HashMap<String, com.baidu.tieba.quickWebView.data.a> msh = new HashMap<>();
-    private com.baidu.tieba.quickWebView.data.b msi = null;
-    private boolean msj = false;
+    private static c mGr;
+    private HashMap<String, com.baidu.tieba.quickWebView.data.a> mGo = new HashMap<>();
+    private com.baidu.tieba.quickWebView.data.b mGp = null;
+    private boolean mGq = false;
 
-    public static c dzq() {
-        if (msk == null) {
+    public static c dEH() {
+        if (mGr == null) {
             synchronized (c.class) {
-                if (msk == null) {
-                    msk = new c();
+                if (mGr == null) {
+                    mGr = new c();
                 }
             }
         }
-        return msk;
+        return mGr;
     }
 
     private c() {
     }
 
-    public com.baidu.tieba.quickWebView.data.a QF(String str) {
-        if (this.msh == null || !this.msj) {
+    public com.baidu.tieba.quickWebView.data.a RO(String str) {
+        if (this.mGo == null || !this.mGq) {
             return null;
         }
-        return this.msh.get(str);
+        return this.mGo.get(str);
     }
 
-    public List<String> QG(String str) {
-        if (this.msi == null || this.msi.mso == null || !this.msj) {
+    public List<String> RP(String str) {
+        if (this.mGp == null || this.mGp.mGv == null || !this.mGq) {
             return null;
         }
-        return this.msi.mso.get(str);
+        return this.mGp.mGv.get(str);
     }
 
     public void G(HashMap<String, com.baidu.tieba.quickWebView.data.a> hashMap) {
-        this.msh = hashMap;
+        this.mGo = hashMap;
     }
 
-    public HashMap<String, com.baidu.tieba.quickWebView.data.a> dzr() {
-        return this.msh;
+    public HashMap<String, com.baidu.tieba.quickWebView.data.a> dEI() {
+        return this.mGo;
     }
 
     public void a(com.baidu.tieba.quickWebView.data.b bVar) {
-        this.msi = bVar;
+        this.mGp = bVar;
     }
 
-    public boolean dzs() {
-        return this.msj;
+    public boolean dEJ() {
+        return this.mGq;
     }
 
-    public void wF(boolean z) {
-        this.msj = z;
+    public void xj(boolean z) {
+        this.mGq = z;
     }
 }

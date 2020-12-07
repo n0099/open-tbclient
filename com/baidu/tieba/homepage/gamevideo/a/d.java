@@ -16,18 +16,18 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.card.data.k;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class d extends com.baidu.adp.widget.ListView.a<k, am<k>> {
-    private ab<k> afK;
-    private v alH;
-    private int ePX;
-    private BdUniqueId fsa;
+    private ab<k> agG;
+    private v amH;
+    private int eXm;
+    private BdUniqueId fzO;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.afK = new ab<k>() { // from class: com.baidu.tieba.homepage.gamevideo.a.d.1
+        this.agG = new ab<k>() { // from class: com.baidu.tieba.homepage.gamevideo.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, k kVar) {
@@ -37,7 +37,7 @@ public class d extends com.baidu.adp.widget.ListView.a<k, am<k>> {
     }
 
     public void a(v vVar) {
-        this.alH = vVar;
+        this.amH = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,10 +50,10 @@ public class d extends com.baidu.adp.widget.ListView.a<k, am<k>> {
         nVar.setFromCDN(true);
         nVar.setForm(ImageViewerConfig.FROM_GAME_VIDEO);
         aVar.a((i) nVar);
-        ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.alH);
+        ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.amH);
         a2.setSourceForPb(18);
         am<k> amVar = new am<>(a2);
-        amVar.setPageId(this.fsa);
+        amVar.setPageId(this.fzO);
         a(new com.baidu.adp.widget.ListView.ab() { // from class: com.baidu.tieba.homepage.gamevideo.a.d.2
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -61,11 +61,11 @@ public class d extends com.baidu.adp.widget.ListView.a<k, am<k>> {
                     am amVar2 = (am) view.getTag();
                     k kVar = (k) qVar;
                     kVar.objType = 1;
-                    if (d.this.afK != null) {
-                        d.this.afK.a(amVar2.getView(), kVar);
+                    if (d.this.agG != null) {
+                        d.this.agG.a(amVar2.getView(), kVar);
                     }
                     com.baidu.tieba.homepage.gamevideo.e.a.a(kVar, view.getContext(), 18, false, com.baidu.card.f.a((v) viewGroup2, view, i));
-                    amVar2.tW().b(new a.C0096a(1));
+                    amVar2.tZ().b(new a.C0097a(1));
                 }
             }
         });
@@ -76,22 +76,22 @@ public class d extends com.baidu.adp.widget.ListView.a<k, am<k>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, k kVar, am<k> amVar) {
-        if (kVar == null || amVar == null || amVar.getView() == null || kVar.evQ == null) {
+        if (kVar == null || amVar == null || amVar.getView() == null || kVar.eCR == null) {
             return null;
         }
-        kVar.xH(kVar.position + 1);
-        amVar.tW().setPosition(i);
+        kVar.ym(kVar.position + 1);
+        amVar.tZ().setPosition(i);
         amVar.b((am<k>) kVar);
-        amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        amVar.tW().a(this.afK);
+        amVar.tZ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        amVar.tZ().a(this.agG);
         return amVar.getView();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.fsa = bdUniqueId;
+        this.fzO = bdUniqueId;
     }
 
-    public void Cb(int i) {
-        this.ePX = i;
+    public void CQ(int i) {
+        this.eXm = i;
     }
 }

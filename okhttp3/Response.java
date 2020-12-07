@@ -8,6 +8,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import okhttp3.Headers;
 import okhttp3.internal.http.HttpHeaders;
+import okhttp3.internal.http.StatusLine;
 import okio.Buffer;
 import okio.BufferedSource;
 import org.apache.http.auth.AUTH;
@@ -15,6 +16,7 @@ import org.apache.http.auth.AUTH;
 public final class Response implements Closeable {
     @Nullable
     final ResponseBody body;
+    @Nullable
     private volatile CacheControl cacheControl;
     @Nullable
     final Response cacheResponse;
@@ -67,6 +69,7 @@ public final class Response implements Closeable {
         return this.message;
     }
 
+    @Nullable
     public Handshake handshake() {
         return this.handshake;
     }
@@ -121,7 +124,7 @@ public final class Response implements Closeable {
             case 302:
             case 303:
             case 307:
-            case 308:
+            case StatusLine.HTTP_PERM_REDIRECT /* 308 */:
                 return true;
             case 304:
             case 305:
@@ -190,17 +193,23 @@ public final class Response implements Closeable {
 
     /* loaded from: classes15.dex */
     public static class Builder {
+        @Nullable
         ResponseBody body;
+        @Nullable
         Response cacheResponse;
         int code;
         @Nullable
         Handshake handshake;
         Headers.Builder headers;
         String message;
+        @Nullable
         Response networkResponse;
+        @Nullable
         Response priorResponse;
+        @Nullable
         Protocol protocol;
         long receivedResponseAtMillis;
+        @Nullable
         Request request;
         long sentRequestAtMillis;
 

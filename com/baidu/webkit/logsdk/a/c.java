@@ -3,11 +3,11 @@ package com.baidu.webkit.logsdk.a;
 import android.os.Message;
 import android.text.TextUtils;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f3951a;
+    final /* synthetic */ String f3954a;
     final /* synthetic */ String b;
     final /* synthetic */ long c;
     final /* synthetic */ String d;
@@ -15,7 +15,7 @@ public final class c implements Runnable {
 
     public c(b bVar, String str, String str2, long j, String str3) {
         this.e = bVar;
-        this.f3951a = str;
+        this.f3954a = str;
         this.b = str2;
         this.c = j;
         this.d = str3;
@@ -25,7 +25,7 @@ public final class c implements Runnable {
     public final void run() {
         ConcurrentHashMap concurrentHashMap;
         com.baidu.webkit.logsdk.c.c h = this.e.h();
-        String str = this.f3951a;
+        String str = this.f3954a;
         String str2 = this.b;
         long j = this.c;
         com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "BdLogDataProcessor addLog = " + str);
@@ -37,9 +37,9 @@ public final class c implements Runnable {
                 }
                 String a3 = com.baidu.webkit.logsdk.c.c.a(str2, j);
                 if (!TextUtils.isEmpty(a3)) {
-                    h.f3960a.add(new com.baidu.webkit.logsdk.upload.a(a2, a3));
+                    h.f3963a.add(new com.baidu.webkit.logsdk.upload.a(a2, a3));
                     com.baidu.webkit.logsdk.c.c.a(a2);
-                    if ("frame_app".equals(a2.f3955a) && "app_pause".equals(str2)) {
+                    if ("frame_app".equals(a2.f3958a) && "app_pause".equals(str2)) {
                         com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "checkAppPause");
                         h.a();
                         break;
@@ -47,18 +47,18 @@ public final class c implements Runnable {
                 }
                 break;
             case 2:
-                if (com.baidu.webkit.logsdk.a.f3948a) {
+                if (com.baidu.webkit.logsdk.a.f3951a) {
                     com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "BdLogDataProcessor handleNewShortTimeLog", str2);
                 }
                 String a4 = com.baidu.webkit.logsdk.c.c.a(str2, j);
                 if (!TextUtils.isEmpty(a4)) {
-                    com.baidu.webkit.logsdk.c.a a5 = h.a(a2.f3955a);
+                    com.baidu.webkit.logsdk.c.a a5 = h.a(a2.f3958a);
                     int a6 = a5.a(a4);
                     com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "BdLogDataProcessor handleNewShortTimeLog current = " + a6);
                     long j2 = a6;
                     b.a().e();
                     if (j2 >= com.baidu.webkit.logsdk.b.b.a().getLong("threshold", 10L)) {
-                        h.f3960a.add(new com.baidu.webkit.logsdk.upload.a(a2, a5.a()));
+                        h.f3963a.add(new com.baidu.webkit.logsdk.upload.a(a2, a5.a()));
                         a5.b.clear();
                         h.a(2);
                         com.baidu.webkit.logsdk.c.c.a(a2);
@@ -67,13 +67,13 @@ public final class c implements Runnable {
                 }
                 break;
             case 3:
-                if (com.baidu.webkit.logsdk.a.f3948a) {
+                if (com.baidu.webkit.logsdk.a.f3951a) {
                     com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "BdLogDataProcessor handleNewLongTimeLog", str2);
                 }
                 String a7 = com.baidu.webkit.logsdk.c.c.a(str2, j);
                 if (!TextUtils.isEmpty(a7)) {
-                    com.baidu.webkit.logsdk.c.a a8 = h.a(a2.f3955a);
-                    if (a8.a(a7) >= com.baidu.webkit.logsdk.d.a.f3962a) {
+                    com.baidu.webkit.logsdk.c.a a8 = h.a(a2.f3958a);
+                    if (a8.a(a7) >= com.baidu.webkit.logsdk.d.a.f3965a) {
                         b a9 = b.a();
                         e eVar = new e(a9, a8);
                         if (a9.c != null) {

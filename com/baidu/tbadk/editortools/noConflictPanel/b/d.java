@@ -11,18 +11,18 @@ public class d {
         if (view.isInEditMode() || view.getHeight() == i || Math.abs(view.getHeight() - i) == c.getStatusBarHeight(view.getContext())) {
             return false;
         }
-        int el = b.el(view.getContext());
+        int eQ = b.eQ(view.getContext());
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams == null) {
-            view.setLayoutParams(new ViewGroup.LayoutParams(-1, el));
+            view.setLayoutParams(new ViewGroup.LayoutParams(-1, eQ));
         } else {
-            layoutParams.height = el;
+            layoutParams.height = eQ;
             view.requestLayout();
         }
         return true;
     }
 
-    public static boolean ae(Activity activity) {
+    public static boolean af(Activity activity) {
         return (activity.getWindow().getAttributes().flags & 1024) != 0;
     }
 
@@ -33,7 +33,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @TargetApi(16)
-    public static boolean af(Activity activity) {
+    public static boolean ag(Activity activity) {
         if (Build.VERSION.SDK_INT >= 16) {
             return ((ViewGroup) activity.findViewById(16908290)).getChildAt(0).getFitsSystemWindows();
         }

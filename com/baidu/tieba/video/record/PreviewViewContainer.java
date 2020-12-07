@@ -8,50 +8,50 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class PreviewViewContainer extends FrameLayout {
-    private b nua;
-    private View nuh;
+    private b nIc;
+    private View nIj;
 
     public PreviewViewContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nuh = null;
+        this.nIj = null;
     }
 
     public PreviewViewContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nuh = null;
+        this.nIj = null;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.nua != null) {
-            this.nua.handleTouchEvent(motionEvent);
+        if (this.nIc != null) {
+            this.nIc.handleTouchEvent(motionEvent);
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setZoomHelper(b bVar) {
         if (bVar != null) {
-            this.nua = bVar;
+            this.nIc = bVar;
         }
     }
 
-    public void dQL() {
+    public void dWf() {
         setFaceFailIdentifyLayoutVisiable(true);
     }
 
-    public void dQM() {
+    public void dWg() {
         setFaceFailIdentifyLayoutVisiable(false);
     }
 
     private void setFaceFailIdentifyLayoutVisiable(boolean z) {
-        if (this.nuh == null) {
-            this.nuh = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
+        if (this.nIj == null) {
+            this.nIj = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            addView(this.nuh, layoutParams);
+            addView(this.nIj, layoutParams);
         }
-        this.nuh.setVisibility(z ? 0 : 8);
+        this.nIj.setVisibility(z ? 0 : 8);
     }
 }

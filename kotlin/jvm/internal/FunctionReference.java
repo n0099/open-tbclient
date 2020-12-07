@@ -1,6 +1,6 @@
 package kotlin.jvm.internal;
-/* loaded from: classes9.dex */
-public class FunctionReference extends CallableReference implements p, kotlin.reflect.e {
+/* loaded from: classes17.dex */
+public class FunctionReference extends CallableReference implements FunctionBase, kotlin.reflect.e {
     private final int arity;
 
     public FunctionReference(int i) {
@@ -12,7 +12,7 @@ public class FunctionReference extends CallableReference implements p, kotlin.re
         this.arity = i;
     }
 
-    @Override // kotlin.jvm.internal.p
+    @Override // kotlin.jvm.internal.FunctionBase
     public int getArity() {
         return this.arity;
     }
@@ -26,7 +26,7 @@ public class FunctionReference extends CallableReference implements p, kotlin.re
 
     @Override // kotlin.jvm.internal.CallableReference
     protected kotlin.reflect.b computeReflected() {
-        return t.a(this);
+        return s.a(this);
     }
 
     @Override // kotlin.reflect.e
@@ -49,7 +49,7 @@ public class FunctionReference extends CallableReference implements p, kotlin.re
         return getReflected().isInfix();
     }
 
-    @Override // kotlin.jvm.internal.CallableReference, kotlin.reflect.b
+    @Override // kotlin.reflect.e
     public boolean isSuspend() {
         return getReflected().isSuspend();
     }
@@ -61,7 +61,7 @@ public class FunctionReference extends CallableReference implements p, kotlin.re
         if (obj instanceof FunctionReference) {
             FunctionReference functionReference = (FunctionReference) obj;
             if (getOwner() != null ? getOwner().equals(functionReference.getOwner()) : functionReference.getOwner() == null) {
-                if (getName().equals(functionReference.getName()) && getSignature().equals(functionReference.getSignature()) && q.l(getBoundReceiver(), functionReference.getBoundReceiver())) {
+                if (getName().equals(functionReference.getName()) && getSignature().equals(functionReference.getSignature()) && p.l(getBoundReceiver(), functionReference.getBoundReceiver())) {
                     return true;
                 }
             }

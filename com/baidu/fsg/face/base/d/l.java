@@ -5,28 +5,28 @@ import android.os.Looper;
 import android.os.Message;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class l implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1593a = "ThreadPoolService";
+    private static final String f1595a = "ThreadPoolService";
     private static final int d = 0;
     private ExecutorService b;
     private ExecutorService c;
     private Handler e;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static l f1595a = new l();
+        public static l f1597a = new l();
 
         private a() {
         }
     }
 
     public static l a() {
-        return a.f1595a;
+        return a.f1597a;
     }
 
     private l() {
@@ -57,30 +57,30 @@ public class l implements c {
 
     @Override // com.baidu.fsg.face.base.d.c
     public void a(k kVar, long j) {
-        d.a(f1593a, "runDelay()", kVar.f1592a, Long.valueOf(j));
+        d.a(f1595a, "runDelay()", kVar.f1594a, Long.valueOf(j));
         this.c.submit(kVar, Long.valueOf(j));
     }
 
     @Override // com.baidu.fsg.face.base.d.c
     public void b(k kVar) {
-        d.a(f1593a, "runInUiThread()", kVar.f1592a);
+        d.a(f1595a, "runInUiThread()", kVar.f1594a);
         this.e.sendMessage(this.e.obtainMessage(0, kVar));
     }
 
     @Override // com.baidu.fsg.face.base.d.c
     public void b(k kVar, long j) {
-        d.a(f1593a, "runInUiThreadDelay()", kVar.f1592a, Long.valueOf(j));
+        d.a(f1595a, "runInUiThreadDelay()", kVar.f1594a, Long.valueOf(j));
         this.e.sendMessageDelayed(this.e.obtainMessage(0, kVar), j);
     }
 
     @Override // com.baidu.fsg.face.base.d.c
     public void c(k kVar) {
-        d.a(f1593a, "runImport()", kVar.f1592a);
+        d.a(f1595a, "runImport()", kVar.f1594a);
         this.b.submit(kVar);
     }
 
     public void c(k kVar, long j) {
-        d.a(f1593a, "runDelayImport()", kVar.f1592a, Long.valueOf(j));
+        d.a(f1595a, "runDelayImport()", kVar.f1594a, Long.valueOf(j));
         this.b.submit(kVar, Long.valueOf(j));
     }
 }

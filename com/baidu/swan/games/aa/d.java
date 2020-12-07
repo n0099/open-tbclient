@@ -6,28 +6,28 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.v.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class d {
-    private b dYi;
+    private b efh;
 
     public d(JsObject jsObject) {
-        this.dYi = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
-        a.aWI().a(this);
+        this.efh = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
+        a.aZN().a(this);
     }
 
     @JavascriptInterface
     public boolean applyUpdate() {
-        final SwanAppActivity ayQ = f.azg().ayQ();
-        if (ayQ == null) {
+        final SwanAppActivity aBZ = f.aCp().aBZ();
+        if (aBZ == null) {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate activity is null");
             return false;
-        } else if (ayQ.isDestroyed() || ayQ.getIntent() == null) {
+        } else if (aBZ.isDestroyed() || aBZ.getIntent() == null) {
             return false;
         } else {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.aa.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.games.utils.a.n(ayQ);
+                    com.baidu.swan.games.utils.a.n(aBZ);
                 }
             });
             return true;
@@ -43,7 +43,7 @@ public class d {
     */
     public void c(c cVar) {
         boolean z = false;
-        if (this.dYi != null && JSEvent.isValid(cVar)) {
+        if (this.efh != null && JSEvent.isValid(cVar)) {
             com.baidu.swan.apps.console.c.i("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
             switch (str.hashCode()) {
@@ -69,13 +69,13 @@ public class d {
             }
             switch (z) {
                 case false:
-                    this.dYi.b(cVar);
+                    this.efh.b(cVar);
                     return;
                 case true:
-                    this.dYi.aWK();
+                    this.efh.aZP();
                     return;
                 case true:
-                    this.dYi.aWL();
+                    this.efh.aZQ();
                     return;
                 default:
                     return;

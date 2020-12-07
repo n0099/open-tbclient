@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class IMSettingBaseHttpRequest extends BaseHttpRequest {
     public abstract String getHostUrlParam();
 
@@ -32,7 +32,7 @@ public abstract class IMSettingBaseHttpRequest extends BaseHttpRequest {
                 return "https://pim.baidu.com/";
             case 1:
             case 2:
-                return "http://cp01-ocean-749.epc.baidu.com:8080/";
+                return Constants.URL_HTTP_RD;
             case 3:
                 return Constants.URL_HTTP_BOX;
             default:

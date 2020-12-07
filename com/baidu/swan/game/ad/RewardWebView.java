@@ -10,7 +10,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.baidu.live.tbadk.img.ImageUploadStrategy;
 import java.lang.reflect.Method;
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 public class RewardWebView extends WebView {
     private Handler mHandler;
     private boolean mIsDestroy;
@@ -19,7 +19,7 @@ public class RewardWebView extends WebView {
         super(context);
         this.mIsDestroy = false;
         this.mHandler = new Handler(Looper.getMainLooper());
-        aPq();
+        aSv();
         setClickable(true);
         setBackgroundColor(0);
         setFocusable(true);
@@ -39,7 +39,7 @@ public class RewardWebView extends WebView {
         settings.setAppCacheEnabled(true);
         settings.setAppCachePath(path);
         settings.setAppCacheMaxSize(ImageUploadStrategy.FILE_SIZE_5M);
-        aPp();
+        aSu();
         try {
             settings.setGeolocationEnabled(true);
             settings.setGeolocationDatabasePath(path);
@@ -50,9 +50,9 @@ public class RewardWebView extends WebView {
         }
     }
 
-    private void aPp() {
+    private void aSu() {
         WebSettings settings = getSettings();
-        settings.setUserAgentString(com.baidu.swan.apps.an.a.tW(settings.getUserAgentString()));
+        settings.setUserAgentString(com.baidu.swan.apps.an.a.uD(settings.getUserAgentString()));
     }
 
     @Override // android.webkit.WebView
@@ -116,7 +116,7 @@ public class RewardWebView extends WebView {
         }
     }
 
-    private void aPq() {
+    private void aSv() {
         try {
             if (Build.VERSION.SDK_INT >= 11 && Build.VERSION.SDK_INT <= 17) {
                 Method declaredMethod = Class.forName("android.webkit.WebView").getDeclaredMethod("removeJavascriptInterface", String.class);

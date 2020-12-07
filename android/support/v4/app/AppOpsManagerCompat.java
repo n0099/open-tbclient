@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class AppOpsManagerCompat {
     public static final int MODE_ALLOWED = 0;
     public static final int MODE_DEFAULT = 3;

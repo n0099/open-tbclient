@@ -15,7 +15,7 @@ import com.google.zxing.aztec.detector.Detector;
 import com.google.zxing.common.DecoderResult;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class AztecReader implements Reader {
     @Override // com.google.zxing.Reader
     public Result decode(BinaryBitmap binaryBitmap) throws NotFoundException, FormatException {

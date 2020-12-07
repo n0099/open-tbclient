@@ -4,8 +4,8 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class LiveBBVideoCheckStatusResponseMessage extends JsonHttpResponsedMessage {
-    private boolean bIt;
-    private int bIu;
+    private boolean bNB;
+    private int bNC;
 
     public LiveBBVideoCheckStatusResponseMessage() {
         super(1021217);
@@ -16,16 +16,16 @@ public class LiveBBVideoCheckStatusResponseMessage extends JsonHttpResponsedMess
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.bIt = optJSONObject.optInt("live_status") == 1;
-            this.bIu = optJSONObject.optInt("liveconnect_status");
+            this.bNB = optJSONObject.optInt("live_status") == 1;
+            this.bNC = optJSONObject.optInt("liveconnect_status");
         }
     }
 
-    public boolean DA() {
-        return this.bIt;
+    public boolean Fl() {
+        return this.bNB;
     }
 
-    public boolean VD() {
-        return this.bIu == 0;
+    public boolean Yd() {
+        return this.bNC == 0;
     }
 }

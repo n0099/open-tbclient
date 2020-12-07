@@ -1,9 +1,9 @@
 package com.baidu.ufosdk.screencapedt;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private float f3724a;
+    private float f3727a;
     private float b;
     private float c;
     private float d;
@@ -22,7 +22,7 @@ public final class a {
         this.f = 0;
         this.g = 2;
         this.h = null;
-        this.f3724a = f;
+        this.f3727a = f;
         this.b = f2;
         this.c = f3;
         this.d = f4;
@@ -36,29 +36,29 @@ public final class a {
             return -1;
         }
         this.e = true;
-        float f3 = this.f3724a - (this.g * i);
+        float f3 = this.f3727a - (this.g * i);
         float f4 = this.b - (this.g * i2);
-        float f5 = this.f3724a + (this.g * i);
+        float f5 = this.f3727a + (this.g * i);
         float f6 = this.b + (this.g * i2);
         if ((f3 - f) * (f5 - f) >= 0.0f || (f4 - f2) * (f6 - f2) >= 0.0f) {
-            float f7 = this.f3724a - (this.g * i);
+            float f7 = this.f3727a - (this.g * i);
             float f8 = ((this.b + this.d) / 2.0f) - (this.g * i2);
-            float f9 = this.f3724a + (this.g * i);
+            float f9 = this.f3727a + (this.g * i);
             float f10 = ((this.b + this.d) / 2.0f) + (this.g * i2);
             if ((f7 - f) * (f9 - f) >= 0.0f || (f8 - f2) * (f10 - f2) >= 0.0f) {
-                float f11 = this.f3724a - (this.g * i);
+                float f11 = this.f3727a - (this.g * i);
                 float f12 = this.d - (this.g * i2);
-                float f13 = this.f3724a + (this.g * i);
+                float f13 = this.f3727a + (this.g * i);
                 float f14 = this.d + (this.g * i2);
                 if ((f11 - f) * (f13 - f) >= 0.0f || (f12 - f2) * (f14 - f2) >= 0.0f) {
-                    float f15 = ((this.f3724a + this.c) / 2.0f) - (this.g * i);
+                    float f15 = ((this.f3727a + this.c) / 2.0f) - (this.g * i);
                     float f16 = this.b - (this.g * i2);
-                    float f17 = ((this.f3724a + this.c) / 2.0f) + (this.g * i);
+                    float f17 = ((this.f3727a + this.c) / 2.0f) + (this.g * i);
                     float f18 = this.b + (this.g * i2);
                     if ((f15 - f) * (f17 - f) >= 0.0f || (f16 - f2) * (f18 - f2) >= 0.0f) {
-                        float f19 = ((this.f3724a + this.c) / 2.0f) - (this.g * i);
+                        float f19 = ((this.f3727a + this.c) / 2.0f) - (this.g * i);
                         float f20 = this.d - (this.g * i2);
-                        float f21 = ((this.f3724a + this.c) / 2.0f) + (this.g * i);
+                        float f21 = ((this.f3727a + this.c) / 2.0f) + (this.g * i);
                         float f22 = this.d + (this.g * i2);
                         if ((f19 - f) * (f21 - f) >= 0.0f || (f20 - f2) * (f22 - f2) >= 0.0f) {
                             float f23 = this.c - (this.g * i);
@@ -93,7 +93,7 @@ public final class a {
     }
 
     public final void a(float f) {
-        this.f3724a = f;
+        this.f3727a = f;
     }
 
     public final void a(int i) {
@@ -105,11 +105,11 @@ public final class a {
     }
 
     public final boolean a(float f, int i, float f2, int i2) {
-        return ((this.f3724a - ((float) i)) - f) * ((this.c + ((float) i)) - f) < 0.0f && ((this.b - ((float) i2)) - f2) * ((this.d + ((float) i2)) - f2) < 0.0f;
+        return ((this.f3727a - ((float) i)) - f) * ((this.c + ((float) i)) - f) < 0.0f && ((this.b - ((float) i2)) - f2) * ((this.d + ((float) i2)) - f2) < 0.0f;
     }
 
     public final float b() {
-        return this.f3724a;
+        return this.f3727a;
     }
 
     public final void b(float f) {

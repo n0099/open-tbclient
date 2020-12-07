@@ -28,117 +28,117 @@ import com.baidu.live.view.AlaDoubleStateImageView;
 import org.apache.http.HttpHost;
 /* loaded from: classes4.dex */
 public class d {
-    private IShareCallback hng;
-    private View hsq;
-    private AlaDoubleStateImageView hsr;
-    private AlaDoubleStateImageView hss;
-    private AlaDoubleStateImageView hst;
-    private AlaDoubleStateImageView hsu;
-    private View hsv;
-    private TextView hsw;
-    private int hsx = -1;
-    private Runnable hsy = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.share.d.1
+    private View hBU;
+    private AlaDoubleStateImageView hBV;
+    private AlaDoubleStateImageView hBW;
+    private AlaDoubleStateImageView hBX;
+    private AlaDoubleStateImageView hBY;
+    private View hBZ;
+    private TextView hCa;
+    private IShareCallback hwL;
+    private TbPageContext mPageContext;
+    private ViewGroup mRootView;
+    private IShareChannel mShareChannel;
+    private int hCb = -1;
+    private Runnable hCc = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.share.d.1
         @Override // java.lang.Runnable
         public void run() {
-            d.this.cgC();
+            d.this.ckw();
         }
     };
-    private View.OnClickListener hsz = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.share.d.2
+    private View.OnClickListener hCd = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.share.d.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             boolean z;
             int[] iArr = new int[2];
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.LIVE_ACTION, "share_clk"));
             if (view.getId() == a.f.ala_prepare_share_img_sina_weibo) {
-                boolean z2 = !d.this.hsr.isSelected();
-                d.this.hsr.setSelect(z2);
-                d.this.hss.setSelect(false);
-                d.this.hst.setSelect(false);
-                d.this.hsu.setSelect(false);
-                d.this.nL(false);
+                boolean z2 = !d.this.hBV.isSelected();
+                d.this.hBV.setSelect(z2);
+                d.this.hBW.setSelect(false);
+                d.this.hBX.setSelect(false);
+                d.this.hBY.setSelect(false);
+                d.this.og(false);
                 if (z2) {
-                    d.this.hsx = 1;
-                    d.this.hsr.getLocationOnScreen(iArr);
-                    d.this.a("weibo_show", iArr, d.this.hsr);
+                    d.this.hCb = 1;
+                    d.this.hBV.getLocationOnScreen(iArr);
+                    d.this.a("weibo_show", iArr, d.this.hBV);
                     LogManager.getLiveRecordLogger().doClickLiveShareToWeiboButtonLog("");
                     return;
                 }
-                d.this.hsx = -1;
-                d.this.cgC();
+                d.this.hCb = -1;
+                d.this.ckw();
             } else if (view.getId() == a.f.ala_prepare_share_img_weixin) {
-                z = d.this.hss.isSelected() ? false : true;
-                d.this.hss.setSelect(z);
-                d.this.hsr.setSelect(false);
-                d.this.hst.setSelect(false);
-                d.this.hsu.setSelect(false);
-                d.this.nL(false);
+                z = d.this.hBW.isSelected() ? false : true;
+                d.this.hBW.setSelect(z);
+                d.this.hBV.setSelect(false);
+                d.this.hBX.setSelect(false);
+                d.this.hBY.setSelect(false);
+                d.this.og(false);
                 if (z) {
-                    d.this.hsx = 2;
-                    d.this.hss.getLocationOnScreen(iArr);
-                    d.this.a("weixin_show", iArr, d.this.hss);
+                    d.this.hCb = 2;
+                    d.this.hBW.getLocationOnScreen(iArr);
+                    d.this.a("weixin_show", iArr, d.this.hBW);
                     LogManager.getLiveRecordLogger().doClickLiveShareWeixinButtonLog("");
                     return;
                 }
-                d.this.hsx = -1;
-                d.this.cgC();
+                d.this.hCb = -1;
+                d.this.ckw();
             } else if (view.getId() == a.f.ala_prepare_share_img_weixin_circle) {
-                boolean z3 = !d.this.hst.isSelected();
-                d.this.hst.setSelect(z3);
-                d.this.hsr.setSelect(false);
-                d.this.hss.setSelect(false);
-                d.this.hsu.setSelect(false);
-                d.this.nL(true);
+                boolean z3 = !d.this.hBX.isSelected();
+                d.this.hBX.setSelect(z3);
+                d.this.hBV.setSelect(false);
+                d.this.hBW.setSelect(false);
+                d.this.hBY.setSelect(false);
+                d.this.og(true);
                 if (z3) {
-                    d.this.hsx = 3;
-                    d.this.hst.getLocationOnScreen(iArr);
-                    d.this.a("circle_show", iArr, d.this.hst);
+                    d.this.hCb = 3;
+                    d.this.hBX.getLocationOnScreen(iArr);
+                    d.this.a("circle_show", iArr, d.this.hBX);
                     LogManager.getLiveRecordLogger().doClickLiveShareToTimeLineButtonLog("");
                     return;
                 }
-                d.this.hsx = -1;
-                d.this.cgC();
+                d.this.hCb = -1;
+                d.this.ckw();
             } else if (view.getId() == a.f.ala_prepare_share_img_qq) {
-                z = d.this.hsu.isSelected() ? false : true;
-                d.this.hsu.setSelect(z);
-                d.this.hsr.setSelect(false);
-                d.this.hst.setSelect(false);
-                d.this.hss.setSelect(false);
-                d.this.nL(false);
+                z = d.this.hBY.isSelected() ? false : true;
+                d.this.hBY.setSelect(z);
+                d.this.hBV.setSelect(false);
+                d.this.hBX.setSelect(false);
+                d.this.hBW.setSelect(false);
+                d.this.og(false);
                 if (z) {
-                    d.this.hsx = 4;
-                    d.this.hsu.getLocationOnScreen(iArr);
-                    d.this.a("qq_show", iArr, d.this.hsu);
+                    d.this.hCb = 4;
+                    d.this.hBY.getLocationOnScreen(iArr);
+                    d.this.a("qq_show", iArr, d.this.hBY);
                     LogManager.getLiveRecordLogger().doClickLiveShareToQQButtonLog("");
                     return;
                 }
-                d.this.hsx = -1;
-                d.this.cgC();
+                d.this.hCb = -1;
+                d.this.ckw();
             }
         }
     };
     private Handler mHandler = new Handler();
-    private TbPageContext mPageContext;
-    private ViewGroup mRootView;
-    private IShareChannel mShareChannel;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, int[] iArr, View view) {
-        if (com.baidu.live.d.Aq().getBoolean(str, true)) {
+        if (com.baidu.live.d.BM().getBoolean(str, true)) {
             b(iArr, view.getWidth(), view.getHeight());
-            com.baidu.live.d.Aq().putBoolean(str, false);
+            com.baidu.live.d.BM().putBoolean(str, false);
             return;
         }
-        cgC();
+        ckw();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nL(boolean z) {
-        this.hsv.setBackgroundResource(z ? a.e.pic_live_beginshow_bubble_3 : a.e.pic_live_beginshow_bubble_2);
+    public void og(boolean z) {
+        this.hBZ.setBackgroundResource(z ? a.e.pic_live_beginshow_bubble_3 : a.e.pic_live_beginshow_bubble_2);
     }
 
     public d(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        cgA();
+        cku();
         this.mShareChannel = ShareSingleManager.getInstance().buildShareChannel();
     }
 
@@ -146,44 +146,49 @@ public class d {
         this.mRootView = viewGroup;
     }
 
-    public void cl(View view) {
-        this.hsq = view;
-        this.hsr = (AlaDoubleStateImageView) this.hsq.findViewById(a.f.ala_prepare_share_img_sina_weibo);
-        this.hsr.setImageSrc(a.e.icon_live_share_sina_n, a.e.icon_live_share_sina_s);
-        this.hsr.setOnClickListener(this.hsz);
-        this.hss = (AlaDoubleStateImageView) this.hsq.findViewById(a.f.ala_prepare_share_img_weixin);
-        this.hss.setImageSrc(a.e.icon_live_share_weixin_n, a.e.icon_live_share_weixin_s);
-        this.hss.setOnClickListener(this.hsz);
-        this.hst = (AlaDoubleStateImageView) this.hsq.findViewById(a.f.ala_prepare_share_img_weixin_circle);
-        this.hst.setImageSrc(a.e.icon_live_share_quan_n, a.e.icon_live_share_quan_s);
-        this.hst.setOnClickListener(this.hsz);
-        this.hsu = (AlaDoubleStateImageView) this.hsq.findViewById(a.f.ala_prepare_share_img_qq);
-        this.hsu.setImageSrc(a.e.icon_live_share_qq_n, a.e.icon_live_share_qq_s);
-        this.hsu.setOnClickListener(this.hsz);
-        switch (this.hsx) {
+    public void cs(View view) {
+        this.hBU = view;
+        this.hBV = (AlaDoubleStateImageView) this.hBU.findViewById(a.f.ala_prepare_share_img_sina_weibo);
+        this.hBV.setImageSrc(a.e.icon_live_share_sina_n, a.e.icon_live_share_sina_s);
+        this.hBV.setOnClickListener(this.hCd);
+        this.hBW = (AlaDoubleStateImageView) this.hBU.findViewById(a.f.ala_prepare_share_img_weixin);
+        this.hBW.setImageSrc(a.e.icon_live_share_weixin_n, a.e.icon_live_share_weixin_s);
+        this.hBW.setOnClickListener(this.hCd);
+        this.hBX = (AlaDoubleStateImageView) this.hBU.findViewById(a.f.ala_prepare_share_img_weixin_circle);
+        this.hBX.setImageSrc(a.e.icon_live_share_quan_n, a.e.icon_live_share_quan_s);
+        this.hBX.setOnClickListener(this.hCd);
+        this.hBY = (AlaDoubleStateImageView) this.hBU.findViewById(a.f.ala_prepare_share_img_qq);
+        this.hBY.setImageSrc(a.e.icon_live_share_qq_n, a.e.icon_live_share_qq_s);
+        this.hBY.setOnClickListener(this.hCd);
+        switch (this.hCb) {
             case 1:
-                this.hsr.setSelect(true);
+                this.hBV.setSelect(true);
                 break;
             case 2:
-                this.hss.setSelect(true);
+                this.hBW.setSelect(true);
                 break;
             case 3:
-                this.hst.setSelect(true);
+                this.hBX.setSelect(true);
                 break;
             case 4:
-                this.hsu.setSelect(true);
+                this.hBY.setSelect(true);
                 break;
         }
-        this.hsv = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_prepare_share_tip_view, this.mRootView, false);
-        this.hsw = (TextView) this.hsv.findViewById(a.f.tip_tv);
+        this.hBZ = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_prepare_share_tip_view, this.mRootView, false);
+        this.hCa = (TextView) this.hBZ.findViewById(a.f.tip_tv);
+        if (TbadkCoreApplication.getInst().isYinbo()) {
+            this.hBY.setVisibility(8);
+        } else {
+            this.hBY.setVisibility(0);
+        }
     }
 
     public void a(IShareCallback iShareCallback) {
-        this.hng = iShareCallback;
+        this.hwL = iShareCallback;
     }
 
-    public boolean caG() {
-        return this.mShareChannel != null && this.hsx >= 1 && this.hsx <= 4;
+    public boolean ceB() {
+        return this.mShareChannel != null && this.hCb >= 1 && this.hCb <= 4;
     }
 
     public void y(String str, String str2, String str3, String str4) {
@@ -198,36 +203,36 @@ public class d {
             this.mPageContext.showToast(a.h.share_no_channel);
             return;
         }
-        ShareEntity HX = HX(str);
-        if (HX != null) {
-            switch (this.hsx) {
+        ShareEntity IM = IM(str);
+        if (IM != null) {
+            switch (this.hCb) {
                 case 1:
                     if (!TextUtils.isEmpty(str3) && str3.contains("直播标题")) {
                         if (!TextUtils.isEmpty(str2)) {
-                            HX.content = str3.replace("直播标题", str2);
+                            IM.content = str3.replace("直播标题", str2);
                         } else {
-                            HX.content = str3;
+                            IM.content = str3;
                         }
                     }
                     if (TbadkCoreApplication.getInst().isTieba()) {
-                        HX.title = "腻害了";
+                        IM.title = "腻害了";
                     }
-                    a(HX);
+                    a(IM);
                     return;
                 case 2:
-                    HX.content = str2;
-                    HX.title = str4;
-                    b(HX);
+                    IM.content = str2;
+                    IM.title = str4;
+                    b(IM);
                     return;
                 case 3:
-                    HX.content = str2;
-                    HX.title = str4;
-                    c(HX);
+                    IM.content = str2;
+                    IM.title = str4;
+                    c(IM);
                     return;
                 case 4:
-                    HX.content = str2;
-                    HX.title = str4;
-                    d(HX);
+                    IM.content = str2;
+                    IM.title = str4;
+                    d(IM);
                     return;
                 default:
                     return;
@@ -235,7 +240,7 @@ public class d {
         }
     }
 
-    private ShareEntity HX(String str) {
+    private ShareEntity IM(String str) {
         String str2;
         ShareEntity shareEntity = new ShareEntity();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -255,7 +260,7 @@ public class d {
         Log.i("AlaShareController", "@@  " + str2);
         shareEntity.imageUrl = str;
         shareEntity.linkUrl = str2;
-        shareEntity.shareType = this.hsx;
+        shareEntity.shareType = this.hCb;
         return shareEntity;
     }
 
@@ -270,33 +275,33 @@ public class d {
     }
 
     private void a(ShareEntity shareEntity) {
-        this.mShareChannel.shareToSinaWeibo(shareEntity, this.hng);
+        this.mShareChannel.shareToSinaWeibo(shareEntity, this.hwL);
     }
 
     private void b(ShareEntity shareEntity) {
-        this.mShareChannel.shareToWeixin(shareEntity, this.hng);
+        this.mShareChannel.shareToWeixin(shareEntity, this.hwL);
     }
 
     private void c(ShareEntity shareEntity) {
-        this.mShareChannel.shareToWeixinCircle(shareEntity, this.hng);
+        this.mShareChannel.shareToWeixinCircle(shareEntity, this.hwL);
     }
 
     private void d(ShareEntity shareEntity) {
-        this.mShareChannel.shareToQQ(shareEntity, this.hng);
+        this.mShareChannel.shareToQQ(shareEntity, this.hwL);
     }
 
-    private void cgA() {
-        this.hsx = SharedPrefHelper.getInstance().getInt("prepare_share_type", -1);
+    private void cku() {
+        this.hCb = SharedPrefHelper.getInstance().getInt("prepare_share_type", -1);
     }
 
     private void b(final int[] iArr, final int i, final int i2) {
-        cgB();
-        if (this.hsv.getParent() != null) {
-            ((ViewGroup) this.hsv.getParent()).removeView(this.hsv);
+        ckv();
+        if (this.hBZ.getParent() != null) {
+            ((ViewGroup) this.hBZ.getParent()).removeView(this.hBZ);
         }
-        this.mRootView.addView(this.hsv);
-        this.hsv.setVisibility(4);
-        this.hsv.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.share.d.3
+        this.mRootView.addView(this.hBZ);
+        this.hBZ.setVisibility(4);
+        this.hBZ.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.share.d.3
             @Override // java.lang.Runnable
             public void run() {
                 int[] iArr2 = new int[2];
@@ -304,24 +309,24 @@ public class d {
                 if (iArr[0] > 0 && iArr[1] > 0) {
                     iArr[0] = iArr[0] - iArr2[0];
                     iArr[1] = iArr[1] - iArr2[1];
-                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) d.this.hsv.getLayoutParams();
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) d.this.hBZ.getLayoutParams();
                     if (layoutParams == null) {
                         layoutParams = new FrameLayout.LayoutParams(-2, -2);
                     }
-                    layoutParams.leftMargin = (iArr[0] + (i / 2)) - (d.this.hsv.getWidth() / 2);
+                    layoutParams.leftMargin = (iArr[0] + (i / 2)) - (d.this.hBZ.getWidth() / 2);
                     layoutParams.topMargin = iArr[1] + i2;
-                    d.this.hsv.setLayoutParams(layoutParams);
-                    d.this.hsv.setVisibility(0);
+                    d.this.hBZ.setLayoutParams(layoutParams);
+                    d.this.hBZ.setVisibility(0);
                 }
             }
         });
-        this.mHandler.removeCallbacks(this.hsy);
-        this.mHandler.postDelayed(this.hsy, 5000L);
+        this.mHandler.removeCallbacks(this.hCc);
+        this.mHandler.postDelayed(this.hCc, 5000L);
     }
 
-    private void cgB() {
+    private void ckv() {
         String str = null;
-        switch (this.hsx) {
+        switch (this.hCb) {
             case 1:
                 str = this.mPageContext.getPageActivity().getString(a.h.ala_share_tip_sina_weibo);
                 break;
@@ -335,21 +340,21 @@ public class d {
                 str = this.mPageContext.getPageActivity().getString(a.h.ala_share_tip_qq);
                 break;
         }
-        this.hsw.setText(str);
+        this.hCa.setText(str);
     }
 
-    public void cgC() {
-        if (this.hsv.getParent() != null) {
-            ((ViewGroup) this.hsv.getParent()).removeView(this.hsv);
+    public void ckw() {
+        if (this.hBZ.getParent() != null) {
+            ((ViewGroup) this.hBZ.getParent()).removeView(this.hBZ);
         }
     }
 
-    public void cgD() {
-        SharedPrefHelper.getInstance().putInt("prepare_share_type", this.hsx);
+    public void ckx() {
+        SharedPrefHelper.getInstance().putInt("prepare_share_type", this.hCb);
     }
 
     public void release() {
-        this.hsx = -1;
+        this.hCb = -1;
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }

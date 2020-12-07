@@ -48,16 +48,16 @@ public interface IOAdDownloader {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2390a;
+        private int f2392a;
         private String b;
 
         DownloadStatus(int i, String str) {
-            this.f2390a = i;
+            this.f2392a = i;
             this.b = str;
         }
 
         public int getCode() {
-            return this.f2390a;
+            return this.f2392a;
         }
 
         public String getMessage() {

@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.imagemanager.TbImageMemoryCache;
-import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes4.dex */
 public class ResizeImageAction extends ImageAction {
     public static final String ACTION_NAME = "resize";
@@ -19,14 +18,14 @@ public class ResizeImageAction extends ImageAction {
     public static ImageOperation newOperation(int i, int i2) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = ACTION_NAME;
-        imageOperation.actionParam = i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2;
+        imageOperation.actionParam = i + "," + i2;
         return imageOperation;
     }
 
     @Override // com.baidu.live.tbadk.img.effect.ImageAction
     public void setParams(String str) {
         if (str != null) {
-            String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split = str.split(",");
             if (split.length == 2) {
                 this.maxWidth = JavaTypesHelper.toInt(split[0], 0);
                 this.maxHeight = JavaTypesHelper.toInt(split[1], 0);

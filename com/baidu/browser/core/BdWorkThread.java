@@ -6,10 +6,10 @@ import android.os.Message;
 /* loaded from: classes11.dex */
 public class BdWorkThread extends HandlerThread {
     private static final String LOG_TAG = BdWorkThread.class.getSimpleName();
-    private a aeT;
-    private Message aeU;
-    private volatile Status aeV;
-    private long aeW;
+    private a afO;
+    private Message afP;
+    private volatile Status afQ;
+    private long afR;
     private long mInterval;
     private final Object mLock;
     private Handler mPrivateHandler;
@@ -29,12 +29,12 @@ public class BdWorkThread extends HandlerThread {
     public interface a {
         void k(Message message);
 
-        void tq();
+        void tt();
     }
 
     public void i(Message message) {
-        if (System.currentTimeMillis() - this.aeW > this.mInterval) {
-            this.aeV = Status.WORKING;
+        if (System.currentTimeMillis() - this.afR > this.mInterval) {
+            this.afQ = Status.WORKING;
             this.mPrivateHandler.removeMessages(1);
             this.mPrivateHandler.removeMessages(2);
             this.mPrivateHandler.obtainMessage(1, message).sendToTarget();
@@ -53,7 +53,7 @@ public class BdWorkThread extends HandlerThread {
                                 BdWorkThread.this.j((Message) message.obj);
                                 return;
                             case 2:
-                                BdWorkThread.this.tp();
+                                BdWorkThread.this.ts();
                                 return;
                             default:
                                 return;
@@ -61,24 +61,24 @@ public class BdWorkThread extends HandlerThread {
                     }
                 };
             }
-            i(this.aeU);
-            this.aeU = null;
+            i(this.afP);
+            this.afP = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j(Message message) {
-        this.aeV = Status.PROCESS;
-        this.aeW = System.currentTimeMillis();
+        this.afQ = Status.PROCESS;
+        this.afR = System.currentTimeMillis();
         try {
-            if (this.aeT != null) {
-                this.aeT.k(message);
+            if (this.afO != null) {
+                this.afO.k(message);
             }
         } catch (Error e) {
         } catch (Exception e2) {
         }
-        if (this.aeV == Status.PROCESS) {
-            this.aeV = Status.RUNNING;
+        if (this.afQ == Status.PROCESS) {
+            this.afQ = Status.RUNNING;
             return;
         }
         synchronized (this.mLock) {
@@ -89,10 +89,10 @@ public class BdWorkThread extends HandlerThread {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tp() {
+    public void ts() {
         try {
-            if (this.aeT != null) {
-                this.aeT.tq();
+            if (this.afO != null) {
+                this.afO.tt();
             }
         } catch (Error e) {
         } catch (Exception e2) {

@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class RecordVideoTipDialog extends Dialog implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f1772a;
+    private a f1774a;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public interface a {
         void a();
 
@@ -23,7 +23,7 @@ public class RecordVideoTipDialog extends Dialog implements View.OnClickListener
     }
 
     public void setMenuItemClickListener(a aVar) {
-        this.f1772a = aVar;
+        this.f1774a = aVar;
     }
 
     public RecordVideoTipDialog(Context context) {
@@ -63,13 +63,13 @@ public class RecordVideoTipDialog extends Dialog implements View.OnClickListener
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f1772a != null) {
+        if (this.f1774a != null) {
             if (view.getId() == R.id.liveness_again_btn) {
-                this.f1772a.a();
+                this.f1774a.a();
             } else if (view.getId() == R.id.start_record_btn) {
-                this.f1772a.b();
+                this.f1774a.b();
             } else if (view.getId() == R.id.record_video_close_iv) {
-                this.f1772a.c();
+                this.f1774a.c();
             }
         }
     }

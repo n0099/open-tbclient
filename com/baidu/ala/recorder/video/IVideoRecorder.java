@@ -2,13 +2,13 @@ package com.baidu.ala.recorder.video;
 
 import android.view.View;
 import com.baidu.ala.recorder.RecorderCallback;
-/* loaded from: classes15.dex */
+/* loaded from: classes9.dex */
 public interface IVideoRecorder {
     public static final int SENSE_CLOSE = 0;
     public static final int SENSE_RTC = 2;
     public static final int SENSE_RTMP = 1;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes9.dex */
     public interface IVideoDataCallBack {
         void onEncodeVideoFrameRecived(byte[] bArr, int i, int i2, int i3, long j, long j2);
 

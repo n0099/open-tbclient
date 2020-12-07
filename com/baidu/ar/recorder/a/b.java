@@ -9,17 +9,17 @@ import com.baidu.ar.record.EncoderParams;
 import com.baidu.ar.recorder.b.c;
 import com.baidu.ar.recorder.b.d;
 import com.baidu.ar.recorder.b.f;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private d tA;
-    private HandlerThread tV;
-    private Handler tW;
-    private f tX;
-    private volatile boolean tn = false;
+    private HandlerThread uI;
+    private Handler uJ;
+    private f uK;
+    private volatile boolean ua = false;
+    private d un;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -32,19 +32,19 @@ public class b {
                     b.this.a((EncoderParams) message.obj);
                     return;
                 case 1002:
-                    b.this.fJ();
+                    b.this.fK();
                     return;
                 case 1003:
-                    b.this.y((message.arg1 << 32) | (message.arg2 & 4294967295L));
+                    b.this.w((message.arg1 << 32) | (message.arg2 & 4294967295L));
                     return;
                 case 1004:
-                    b.this.fN();
-                    return;
-                case 1005:
                     b.this.fO();
                     return;
+                case 1005:
+                    b.this.fP();
+                    return;
                 case 1006:
-                    b.this.co();
+                    b.this.cn();
                     return;
                 default:
                     return;
@@ -55,107 +55,107 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(EncoderParams encoderParams) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.tX.a(encoderParams, this.tA);
+            this.uK.a(encoderParams, this.un);
         }
     }
 
     private void a(d dVar, c cVar) {
-        this.tV = new HandlerThread("VideoRecorderThread");
-        this.tV.start();
-        this.tW = new a(this.tV.getLooper());
+        this.uI = new HandlerThread("VideoRecorderThread");
+        this.uI.start();
+        this.uJ = new a(this.uI.getLooper());
         if (Build.VERSION.SDK_INT >= 18) {
-            this.tX = new f();
-            this.tX.a(cVar);
-            this.tA = dVar;
+            this.uK = new f();
+            this.uK.a(cVar);
+            this.un = dVar;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void co() {
-        if (this.tW != null) {
-            this.tW.removeCallbacksAndMessages(null);
-            this.tW = null;
+    public void cn() {
+        if (this.uJ != null) {
+            this.uJ.removeCallbacksAndMessages(null);
+            this.uJ = null;
         }
-        if (this.tV != null) {
-            this.tV.quit();
-            this.tV = null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void fJ() {
-        if (Build.VERSION.SDK_INT >= 18) {
-            this.tX.fS();
+        if (this.uI != null) {
+            this.uI.quit();
+            this.uI = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fN() {
+    public void fK() {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.tX.S(true);
+            this.uK.fT();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fO() {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.tX.fR();
-            this.tX.fQ();
-            this.tX = null;
-            this.tA = null;
+            this.uK.Q(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void y(long j) {
+    public void fP() {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.tX.S(false);
+            this.uK.fS();
+            this.uK.fR();
+            this.uK = null;
+            this.un = null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void w(long j) {
+        if (Build.VERSION.SDK_INT >= 18) {
+            this.uK.Q(false);
         }
     }
 
     public boolean a(EncoderParams encoderParams, d dVar, c cVar) {
         if (isRunning()) {
-            com.baidu.ar.g.b.b(TAG, "setupRecorder error! As last video recorder thread is alive!");
+            com.baidu.ar.h.b.b(TAG, "setupRecorder error! As last video recorder thread is alive!");
             return false;
         }
         a(dVar, cVar);
-        this.tW.sendMessage(this.tW.obtainMessage(1001, encoderParams));
-        this.tn = true;
+        this.uJ.sendMessage(this.uJ.obtainMessage(1001, encoderParams));
+        this.ua = true;
         return true;
     }
 
-    public void fI() {
-        if (this.tW != null) {
-            this.tW.removeCallbacksAndMessages(null);
-            this.tW.sendMessage(this.tW.obtainMessage(1005));
-            this.tW.sendMessage(this.tW.obtainMessage(1006));
+    public void fJ() {
+        if (this.uJ != null) {
+            this.uJ.removeCallbacksAndMessages(null);
+            this.uJ.sendMessage(this.uJ.obtainMessage(1005));
+            this.uJ.sendMessage(this.uJ.obtainMessage(1006));
         }
     }
 
     public boolean isRunning() {
-        return this.tV != null && this.tV.isAlive();
+        return this.uI != null && this.uI.isAlive();
     }
 
     public void startRecording() {
-        if (this.tW != null) {
-            this.tW.sendMessage(this.tW.obtainMessage(1002));
+        if (this.uJ != null) {
+            this.uJ.sendMessage(this.uJ.obtainMessage(1002));
         }
     }
 
     public void stopRecording() {
-        if (this.tW == null || !this.tn) {
+        if (this.uJ == null || !this.ua) {
             return;
         }
-        this.tn = false;
-        this.tW.sendMessage(this.tW.obtainMessage(1004));
+        this.ua = false;
+        this.uJ.sendMessage(this.uJ.obtainMessage(1004));
     }
 
-    public void x(long j) {
+    public void v(long j) {
         int i = (int) (j >> 32);
         int i2 = (int) j;
-        if (this.tW == null || !this.tn) {
+        if (this.uJ == null || !this.ua) {
             return;
         }
-        this.tW.sendMessage(this.tW.obtainMessage(1003, i, i2));
+        this.uJ.sendMessage(this.uJ.obtainMessage(1003, i, i2));
     }
 }

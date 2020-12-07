@@ -4,27 +4,27 @@ import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes7.dex */
 public class r implements b, a.InterfaceC0011a {
-    private final ShapeTrimPath.Type DI;
-    private final com.airbnb.lottie.a.b.a<?, Float> DJ;
-    private final com.airbnb.lottie.a.b.a<?, Float> DK;
-    private final com.airbnb.lottie.a.b.a<?, Float> DM;
+    private final ShapeTrimPath.Type EA;
+    private final com.airbnb.lottie.a.b.a<?, Float> EB;
+    private final com.airbnb.lottie.a.b.a<?, Float> EC;
+    private final com.airbnb.lottie.a.b.a<?, Float> ED;
     private final List<a.InterfaceC0011a> listeners = new ArrayList();
     private final String name;
 
     public r(com.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.DI = shapeTrimPath.jd();
-        this.DJ = shapeTrimPath.ks().jD();
-        this.DK = shapeTrimPath.kr().jD();
-        this.DM = shapeTrimPath.kl().jD();
-        aVar.a(this.DJ);
-        aVar.a(this.DK);
-        aVar.a(this.DM);
-        this.DJ.b(this);
-        this.DK.b(this);
-        this.DM.b(this);
+        this.EA = shapeTrimPath.jd();
+        this.EB = shapeTrimPath.ks().jD();
+        this.EC = shapeTrimPath.kr().jD();
+        this.ED = shapeTrimPath.kl().jD();
+        aVar.a(this.EB);
+        aVar.a(this.EC);
+        aVar.a(this.ED);
+        this.EB.b(this);
+        this.EC.b(this);
+        this.ED.b(this);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0011a
@@ -57,18 +57,18 @@ public class r implements b, a.InterfaceC0011a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ShapeTrimPath.Type jd() {
-        return this.DI;
+        return this.EA;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> je() {
-        return this.DJ;
+        return this.EB;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> jf() {
-        return this.DK;
+        return this.EC;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> jg() {
-        return this.DM;
+        return this.ED;
     }
 }

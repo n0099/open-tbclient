@@ -1,5 +1,9 @@
 package kotlin;
-@h
-/* loaded from: classes9.dex */
-class g extends f {
+@e
+/* loaded from: classes17.dex */
+final class g {
+    public static final g pJX = new g();
+
+    private g() {
+    }
 }

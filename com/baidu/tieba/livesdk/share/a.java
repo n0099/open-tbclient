@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.livesdk.c;
 import com.baidu.tieba.sdk.b.e;
-import com.baidu.tieba.tbadkCore.y;
+import com.baidu.tieba.tbadkCore.z;
 /* loaded from: classes4.dex */
 public class a implements IShareChannel, e {
     @Override // com.baidu.tieba.sdk.b.e
-    public boolean das() {
+    public boolean dfE() {
         return true;
     }
 
@@ -58,7 +58,7 @@ public class a implements IShareChannel, e {
 
     private void a(int i, ShareEntity shareEntity, IShareCallback iShareCallback) {
         if (shareEntity != null) {
-            if (!EO(i)) {
+            if (!FD(i)) {
                 if (iShareCallback != null) {
                     iShareCallback.onShare(0, 0, "");
                     return;
@@ -72,26 +72,26 @@ public class a implements IShareChannel, e {
         }
     }
 
-    private boolean EO(int i) {
+    private boolean FD(int i) {
         boolean z = false;
         switch (i) {
             case 2:
             case 3:
-                z = y.isInstalledPackage(TbadkCoreApplication.getInst(), "com.tencent.mm");
+                z = z.isInstalledPackage(TbadkCoreApplication.getInst(), "com.tencent.mm");
                 if (!z) {
                     l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(c.b.share_weixin_not_installed_yet));
                     break;
                 }
                 break;
             case 6:
-                z = y.isInstalledPackage(TbadkCoreApplication.getInst(), "com.sina.weibo");
+                z = z.isInstalledPackage(TbadkCoreApplication.getInst(), "com.sina.weibo");
                 if (!z) {
                     l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(c.b.share_weibo_not_installed_yet));
                     break;
                 }
                 break;
             case 8:
-                z = y.isInstalledPackage(TbadkCoreApplication.getInst(), "com.tencent.mobileqq");
+                z = z.isInstalledPackage(TbadkCoreApplication.getInst(), "com.tencent.mobileqq");
                 if (!z) {
                     l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(c.b.share_qq_not_installed_yet));
                     break;

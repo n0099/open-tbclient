@@ -5,11 +5,11 @@ import android.view.MotionEvent;
 import com.baidu.platform.comapi.map.MapController;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class ah extends GestureDetector.SimpleOnGestureListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private MapController f2895a;
+    private MapController f2897a;
     private OnLongPressListener b;
     private volatile Set<GestureDetector.SimpleOnGestureListener> c = new CopyOnWriteArraySet();
     private Object d = new Object();
@@ -26,7 +26,7 @@ public class ah extends GestureDetector.SimpleOnGestureListener {
     }
 
     public void a(MapController mapController) {
-        this.f2895a = mapController;
+        this.f2897a = mapController;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -50,8 +50,8 @@ public class ah extends GestureDetector.SimpleOnGestureListener {
                 }
             }
         }
-        if (this.f2895a != null) {
-            this.f2895a.handleDoubleDownClick(motionEvent);
+        if (this.f2897a != null) {
+            this.f2897a.handleDoubleDownClick(motionEvent);
             return true;
         }
         return true;
@@ -67,8 +67,8 @@ public class ah extends GestureDetector.SimpleOnGestureListener {
                 }
             }
         }
-        if (motionEvent.getAction() == 1 && this.f2895a != null) {
-            this.f2895a.handleDoubleTouch(motionEvent);
+        if (motionEvent.getAction() == 1 && this.f2897a != null) {
+            this.f2897a.handleDoubleTouch(motionEvent);
         }
         return super.onDoubleTapEvent(motionEvent);
     }
@@ -96,13 +96,13 @@ public class ah extends GestureDetector.SimpleOnGestureListener {
                 }
             }
         }
-        if (this.f2895a == null) {
+        if (this.f2897a == null) {
             return false;
         }
-        if (this.f2895a.getMapControlMode() == MapController.MapControlMode.STREET) {
-            this.f2895a.handleTouchUp(motionEvent2);
+        if (this.f2897a.getMapControlMode() == MapController.MapControlMode.STREET) {
+            this.f2897a.handleTouchUp(motionEvent2);
         }
-        return this.f2895a.handleFling(motionEvent, motionEvent2, f, f2);
+        return this.f2897a.handleFling(motionEvent, motionEvent2, f, f2);
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -117,7 +117,7 @@ public class ah extends GestureDetector.SimpleOnGestureListener {
                 }
             }
         }
-        if (this.f2895a == null || this.f2895a.isEnableDMoveZoom() || this.f2895a.isNaviMode() || this.b == null) {
+        if (this.f2897a == null || this.f2897a.isEnableDMoveZoom() || this.f2897a.isNaviMode() || this.b == null) {
             return;
         }
         this.b.onLongPress(motionEvent);
@@ -163,7 +163,7 @@ public class ah extends GestureDetector.SimpleOnGestureListener {
                 }
             }
         }
-        return this.f2895a != null && this.f2895a.handleTouchSingleClick(motionEvent);
+        return this.f2897a != null && this.f2897a.handleTouchSingleClick(motionEvent);
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener

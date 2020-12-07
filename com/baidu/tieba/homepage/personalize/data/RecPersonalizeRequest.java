@@ -5,13 +5,13 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bc;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tbadk.util.u;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class RecPersonalizeRequest extends NetMessage {
     public static final int LOAD_TYPE_LOAD_MORE = 2;
     public static final int LOAD_TYPE_UPDATE = 1;
@@ -92,23 +92,23 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
         builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
         builder.scr_dip = Double.valueOf(l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-        builder.q_type = Integer.valueOf(av.bqC().bqD() ? 2 : 1);
+        builder.q_type = Integer.valueOf(av.btX().btY() ? 2 : 1);
         builder.need_forumlist = Integer.valueOf(this.needForumlist);
         builder.new_net_type = Integer.valueOf(com.baidu.adp.lib.util.j.netType());
         builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
         builder.request_times = Integer.valueOf(this.requestTime);
         builder.invoke_source = this.sourceFrom;
-        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dAN().dAO();
-        builder.app_pos = com.baidu.tieba.recapp.d.a.dAG().dAL();
+        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dGe().Sm("tag_home_recommend_tab");
+        builder.app_pos = com.baidu.tieba.recapp.d.a.dFX().dGc();
         if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
-            bb pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
+            bc pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
             builder.from_tid = Long.valueOf(com.baidu.adp.lib.f.b.toLong(pbToHomeUpdateData.tid, 0L));
-            builder.query_eqid = pbToHomeUpdateData.eAy;
+            builder.query_eqid = pbToHomeUpdateData.eHx;
             builder.first_dir = pbToHomeUpdateData.firstDir;
             builder.second_dir = pbToHomeUpdateData.secondDir;
             TbSingleton.getInstance().setPbToHomeUpdateData(null);
         }
-        builder.ad_ext_params = AdExtParam.a.bCw().bCx();
+        builder.ad_ext_params = AdExtParam.a.bFX().bFY();
         PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

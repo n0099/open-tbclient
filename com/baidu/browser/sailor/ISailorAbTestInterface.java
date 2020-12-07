@@ -2,6 +2,6 @@ package com.baidu.browser.sailor;
 
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.IABTestInterface;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public interface ISailorAbTestInterface extends INoProGuard, IABTestInterface {
 }

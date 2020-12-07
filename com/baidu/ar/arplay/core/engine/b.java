@@ -2,90 +2,90 @@ package com.baidu.ar.arplay.core.engine;
 
 import com.baidu.ar.arplay.core.message.ARPMessage;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private ARPMessage.MessageHandler fn;
-    private boolean fo = false;
-    private boolean fp = false;
-    private boolean fq = false;
-    private boolean fr = false;
-    private boolean fs = false;
-    private boolean ft = false;
-    private boolean fu = false;
-    private boolean fv = false;
+    private ARPMessage.MessageHandler fv;
     private boolean fw = false;
+    private boolean fx = false;
+    private boolean fy = false;
+    private boolean fz = false;
+    private boolean fA = false;
+    private boolean fB = false;
+    private boolean fC = false;
+    private boolean fD = false;
+    private boolean fE = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b() {
-        bb();
+        aV();
     }
 
-    private void bb() {
-        this.fn = new ARPMessage.MessageHandler() { // from class: com.baidu.ar.arplay.core.engine.b.1
+    private void aV() {
+        this.fv = new ARPMessage.MessageHandler() { // from class: com.baidu.ar.arplay.core.engine.b.1
             @Override // com.baidu.ar.arplay.core.message.ARPMessage.MessageHandler
             public void handleMessage(int i, int i2, HashMap<String, Object> hashMap) {
                 if (hashMap != null) {
                     if (hashMap.get("disable_all") != null) {
                         if (1 == ((Integer) hashMap.get("disable_all")).intValue()) {
-                            b.this.fo = true;
+                            b.this.fw = true;
                         } else {
-                            b.this.fo = false;
+                            b.this.fw = false;
                         }
                     }
                     if (hashMap.get("disable_click") != null) {
                         if (1 == ((Integer) hashMap.get("disable_click")).intValue()) {
-                            b.this.fp = true;
+                            b.this.fx = true;
                         } else {
-                            b.this.fp = false;
+                            b.this.fx = false;
                         }
                     }
                     if (hashMap.get("disable_double_click") != null) {
                         if (1 == ((Integer) hashMap.get("disable_double_click")).intValue()) {
-                            b.this.fq = true;
+                            b.this.fy = true;
                         } else {
-                            b.this.fq = false;
+                            b.this.fy = false;
                         }
                     }
                     if (hashMap.get("disable_long_press") != null) {
                         if (1 == ((Integer) hashMap.get("disable_long_press")).intValue()) {
-                            b.this.fr = true;
+                            b.this.fz = true;
                         } else {
-                            b.this.fr = false;
+                            b.this.fz = false;
                         }
                     }
                     if (hashMap.get("disable_swipe") != null) {
                         if (1 == ((Integer) hashMap.get("disable_swipe")).intValue()) {
-                            b.this.fs = true;
+                            b.this.fA = true;
                         } else {
-                            b.this.fs = false;
+                            b.this.fA = false;
                         }
                     }
                     if (hashMap.get("disable_scroll") != null) {
                         if (1 == ((Integer) hashMap.get("disable_scroll")).intValue()) {
-                            b.this.ft = true;
+                            b.this.fB = true;
                         } else {
-                            b.this.ft = false;
+                            b.this.fB = false;
                         }
                     }
                     if (hashMap.get("disable_two_finger_scroll") != null) {
                         if (1 == ((Integer) hashMap.get("disable_two_finger_scroll")).intValue()) {
-                            b.this.fu = true;
+                            b.this.fC = true;
                         } else {
-                            b.this.fu = false;
+                            b.this.fC = false;
                         }
                     }
                     if (hashMap.get("disable_pinch") != null) {
                         if (1 == ((Integer) hashMap.get("disable_pinch")).intValue()) {
-                            b.this.fv = true;
+                            b.this.fD = true;
                         } else {
-                            b.this.fv = false;
+                            b.this.fD = false;
                         }
                     }
                     if (hashMap.get("disable_two_finger_rotate") != null) {
                         if (1 == ((Integer) hashMap.get("disable_two_finger_rotate")).intValue()) {
-                            b.this.fw = true;
+                            b.this.fE = true;
                         } else {
-                            b.this.fw = false;
+                            b.this.fE = false;
                         }
                     }
                 }
@@ -93,51 +93,56 @@ public class b {
         };
     }
 
+    public boolean aW() {
+        return (this.fw || this.fx) ? false : true;
+    }
+
+    public boolean aX() {
+        return (this.fw || this.fy) ? false : true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean aY() {
+        return (this.fw || this.fz) ? false : true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean aZ() {
+        return (this.fw || this.fB) ? false : true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean ba() {
+        return (this.fw || this.fC) ? false : true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean bb() {
+        return (this.fw || this.fA) ? false : true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean bc() {
-        return (this.fo || this.fp) ? false : true;
+        return (this.fw || this.fD) ? false : true;
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean bd() {
-        return (this.fo || this.fq) ? false : true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean be() {
-        return (this.fo || this.fr) ? false : true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean bf() {
-        return (this.fo || this.ft) ? false : true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean bg() {
-        return (this.fo || this.fu) ? false : true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean bh() {
-        return (this.fo || this.fs) ? false : true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean bi() {
-        return (this.fo || this.fv) ? false : true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean bj() {
-        return (this.fo || this.fw) ? false : true;
+        return (this.fw || this.fE) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onPause() {
-        ARPMessage.getInstance().removeMessageHandeler(this.fn);
+        ARPMessage.getInstance().removeMessageHandeler(this.fv);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onResume() {
-        ARPMessage.getInstance().registerMessageHandler(11, this.fn);
+        ARPMessage.getInstance().registerMessageHandler(11, this.fv);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void release() {
+        this.fv = null;
     }
 }

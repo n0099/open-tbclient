@@ -6,19 +6,19 @@ import com.xiaomi.push.bh;
 public class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f4728a;
+    final /* synthetic */ a f4498a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ bh f24a;
+    final /* synthetic */ bh f22a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(a aVar, bh bhVar) {
-        this.f4728a = aVar;
-        this.f24a = bhVar;
+        this.f4498a = aVar;
+        this.f22a = bhVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f24a.run();
+        this.f22a.run();
     }
 }

@@ -2,10 +2,9 @@ package com.baidu.down.utils;
 
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class UriHelper {
     private static final boolean DEBUG = false;
     private static final String TAG = UriHelper.class.getSimpleName();
@@ -58,7 +57,7 @@ public class UriHelper {
 
     public void addWholeParameterReplaceIfExist(String str) {
         if (!TextUtils.isEmpty(str)) {
-            String[] split = str.split(ETAG.EQUAL);
+            String[] split = str.split("=");
             if (split.length == 2) {
                 this.mUriQueryObj.addParam(split[0], split[1]);
             }

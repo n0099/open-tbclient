@@ -28,11 +28,11 @@ public class MtjConfig {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2509a;
+        private String f2511a;
         private int b;
 
         PushPlatform(String str, int i) {
-            this.f2509a = str;
+            this.f2511a = str;
             this.b = i;
         }
 
@@ -41,7 +41,7 @@ public class MtjConfig {
         }
 
         public String showName() {
-            return this.f2509a;
+            return this.f2511a;
         }
     }
 }

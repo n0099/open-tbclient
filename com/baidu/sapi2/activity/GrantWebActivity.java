@@ -5,7 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.fsg.base.statistics.h;
-import com.baidu.k.a.a;
+import com.baidu.l.a.a;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
@@ -24,7 +24,7 @@ import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.k;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class GrantWebActivity extends BaseActivity {
     private static final String u = GrantWebActivity.class.getSimpleName();
     private static final String v = "openapp";

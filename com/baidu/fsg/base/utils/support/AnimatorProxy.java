@@ -9,12 +9,12 @@ import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import java.lang.ref.WeakReference;
 import java.util.WeakHashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class AnimatorProxy extends Animation {
     public static final boolean NEEDS_PROXY;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final WeakHashMap<View, AnimatorProxy> f1533a;
+    private static final WeakHashMap<View, AnimatorProxy> f1535a;
     private final WeakReference<View> b;
     private boolean g;
     private float i;
@@ -34,7 +34,7 @@ public final class AnimatorProxy extends Animation {
 
     static {
         NEEDS_PROXY = Integer.valueOf(Build.VERSION.SDK).intValue() < 11;
-        f1533a = new WeakHashMap<>();
+        f1535a = new WeakHashMap<>();
     }
 
     private AnimatorProxy(View view) {
@@ -45,10 +45,10 @@ public final class AnimatorProxy extends Animation {
     }
 
     public static AnimatorProxy wrap(View view) {
-        AnimatorProxy animatorProxy = f1533a.get(view);
+        AnimatorProxy animatorProxy = f1535a.get(view);
         if (animatorProxy == null || animatorProxy != view.getAnimation()) {
             AnimatorProxy animatorProxy2 = new AnimatorProxy(view);
-            f1533a.put(view, animatorProxy2);
+            f1535a.put(view, animatorProxy2);
             return animatorProxy2;
         }
         return animatorProxy;

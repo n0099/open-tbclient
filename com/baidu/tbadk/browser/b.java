@@ -8,7 +8,6 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.hybrid.l;
 import com.baidu.tbadk.core.hybrid.n;
 import com.baidu.tbadk.core.hybrid.o;
-import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -19,18 +18,18 @@ public class b extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String bim() {
+    public String blw() {
         return "TBHY_COMMON_Utils";
     }
 
-    @o(bpf = false, value = PopItemMethodConstant.showToast)
+    @o(bsz = false, value = PopItemMethodConstant.showToast)
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.b(getContext(), jSONObject.optString("message")).bom();
+            BdToast.b(getContext(), jSONObject.optString("message")).brB();
         }
     }
 
-    @o(bpf = false, value = "showNetStatus")
+    @o(bsz = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
@@ -56,13 +55,13 @@ public class b extends n {
         return jSONObject;
     }
 
-    @o(bpf = false, value = "showDeviceInfo")
+    @o(bsz = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.getInst().getCuid();
         String str = Build.VERSION.RELEASE;
         String str2 = Build.MODEL;
-        String str3 = String.valueOf(com.baidu.adp.lib.util.l.getEquipmentWidth(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(com.baidu.adp.lib.util.l.getEquipmentHeight(getContext()));
+        String str3 = String.valueOf(com.baidu.adp.lib.util.l.getEquipmentWidth(getContext())) + "," + String.valueOf(com.baidu.adp.lib.util.l.getEquipmentHeight(getContext()));
         String versionName = TbadkCoreApplication.getInst().getVersionName();
         try {
             jSONObject.put("systemName", "android");

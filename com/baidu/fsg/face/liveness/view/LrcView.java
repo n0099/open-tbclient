@@ -11,13 +11,13 @@ import android.widget.FrameLayout;
 import com.baidu.sapi2.biometrics.liveness.R;
 import com.baidu.sapi2.result.OneKeyLoginResult;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class LrcView extends FrameLayout {
     private static int A = 12;
     private static int B;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f1770a;
+    boolean f1772a;
     boolean b;
     boolean c;
     int d;
@@ -44,7 +44,7 @@ public class LrcView extends FrameLayout {
     private int y;
     private int z;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public interface a {
         void a();
     }
@@ -57,7 +57,7 @@ public class LrcView extends FrameLayout {
 
     public LrcView(@NonNull Context context) {
         super(context);
-        this.f1770a = false;
+        this.f1772a = false;
         this.b = false;
         this.c = false;
         this.d = 255;
@@ -77,7 +77,7 @@ public class LrcView extends FrameLayout {
                 LrcView.this.b = false;
                 LrcView.d(LrcView.this);
                 LrcView.this.toInvalidate();
-                LrcView.this.f1770a = false;
+                LrcView.this.f1772a = false;
             }
         };
         a();
@@ -85,7 +85,7 @@ public class LrcView extends FrameLayout {
 
     public LrcView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1770a = false;
+        this.f1772a = false;
         this.b = false;
         this.c = false;
         this.d = 255;
@@ -105,7 +105,7 @@ public class LrcView extends FrameLayout {
                 LrcView.this.b = false;
                 LrcView.d(LrcView.this);
                 LrcView.this.toInvalidate();
-                LrcView.this.f1770a = false;
+                LrcView.this.f1772a = false;
             }
         };
         a();
@@ -151,8 +151,8 @@ public class LrcView extends FrameLayout {
         if (this.p != null && this.p.size() != 0) {
             a(canvas, this.p);
             if (!this.c) {
-                if (this.b && !this.f1770a) {
-                    this.f1770a = true;
+                if (this.b && !this.f1772a) {
+                    this.f1772a = true;
                     if (this.q == 0) {
                         getHandler().postDelayed(this.m, 200L);
                         return;

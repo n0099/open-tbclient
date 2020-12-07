@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.u;
 import tbclient.GetShoubaiThreadList.DataReq;
 import tbclient.GetShoubaiThreadList.GetShoubaiThreadListReqIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class PersonCenterDynamicTabRequestMessage extends NetMessage {
     private long cursor;
     private int pageSize;

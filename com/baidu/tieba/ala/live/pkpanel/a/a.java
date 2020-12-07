@@ -21,10 +21,10 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private TextView gRE;
-    private RecyclerView gRF;
-    private JSONObject gRG;
-    private com.baidu.tieba.ala.live.pkpanel.b.a gRH;
+    private TextView haR;
+    private RecyclerView haS;
+    private JSONObject haT;
+    private com.baidu.tieba.ala.live.pkpanel.b.a haU;
     private Context mContext;
     private Dialog mDialog;
     private int mOrientation;
@@ -33,51 +33,51 @@ public class a {
 
     public a(Context context, int i, JSONObject jSONObject) {
         this.mContext = context;
-        this.gRG = jSONObject;
+        this.haT = jSONObject;
         this.mOrientation = i;
-        parseData(this.gRG);
+        parseData(this.haT);
         initView();
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.ala_pk_panel_rule, (ViewGroup) null);
         this.title = (TextView) this.mRootView.findViewById(a.f.ala_title);
-        this.gRE = (TextView) this.mRootView.findViewById(a.f.ala_close);
-        this.gRE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.pkpanel.a.a.1
+        this.haR = (TextView) this.mRootView.findViewById(a.f.ala_close);
+        this.haR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.pkpanel.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.hide();
             }
         });
-        this.gRF = (RecyclerView) this.mRootView.findViewById(a.f.giftRecycle);
-        this.gRF.setLayoutManager(new LinearLayoutManager(this.mContext));
+        this.haS = (RecyclerView) this.mRootView.findViewById(a.f.giftRecycle);
+        this.haS.setLayoutManager(new LinearLayoutManager(this.mContext));
         b bVar = new b(this.mContext);
-        if (this.gRH != null) {
-            this.title.setText(this.gRH.mTitle);
-            bVar.setData(this.gRH.gxz);
+        if (this.haU != null) {
+            this.title.setText(this.haU.mTitle);
+            bVar.setData(this.haU.gGo);
         }
-        this.gRF.setAdapter(bVar);
+        this.haS.setAdapter(bVar);
     }
 
-    public void PA() {
+    public void RU() {
         if (this.mDialog == null) {
             this.mDialog = new Dialog(this.mContext, a.i.RuleDialog);
             this.mDialog.setContentView(this.mRootView);
         }
-        vy(this.mOrientation);
+        wf(this.mOrientation);
         if (!isShowing()) {
             this.mDialog.show();
         }
     }
 
     public void parseData(JSONObject jSONObject) {
-        if (this.gRH == null) {
-            this.gRH = new com.baidu.tieba.ala.live.pkpanel.b.a();
+        if (this.haU == null) {
+            this.haU = new com.baidu.tieba.ala.live.pkpanel.b.a();
         }
-        this.gRH.parseData(jSONObject);
+        this.haU.parseData(jSONObject);
     }
 
-    private void vy(int i) {
+    private void wf(int i) {
         this.mDialog.setCancelable(true);
         this.mDialog.setCanceledOnTouchOutside(true);
         Window window = this.mDialog.getWindow();
@@ -109,18 +109,18 @@ public class a {
         }
     }
 
-    public void vz(int i) {
+    public void wg(int i) {
         this.mOrientation = i;
         if (isShowing()) {
             hide();
-            PA();
+            RU();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-        private List<com.baidu.tieba.ala.live.pkpanel.b.b> gxz;
+        private List<com.baidu.tieba.ala.live.pkpanel.b.b> gGo;
         private Context mContext;
 
         public b(Context context) {
@@ -128,7 +128,7 @@ public class a {
         }
 
         public void setData(List<com.baidu.tieba.ala.live.pkpanel.b.b> list) {
-            this.gxz = list;
+            this.gGo = list;
         }
 
         @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -137,7 +137,7 @@ public class a {
                 case 1:
                     return new c(LayoutInflater.from(this.mContext).inflate(a.g.ala_rule_content_item, viewGroup, false));
                 case 2:
-                    return new C0664a(LayoutInflater.from(this.mContext).inflate(a.g.ala_pk_foot_rule, viewGroup, false));
+                    return new C0677a(LayoutInflater.from(this.mContext).inflate(a.g.ala_pk_foot_rule, viewGroup, false));
                 default:
                     return null;
             }
@@ -145,90 +145,90 @@ public class a {
 
         @Override // android.support.v7.widget.RecyclerView.Adapter
         public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
-            if (this.gxz != null) {
-                if ((viewHolder instanceof c) && this.gxz.size() > 0) {
-                    com.baidu.tieba.ala.live.pkpanel.b.b bVar = this.gxz.get(i);
+            if (this.gGo != null) {
+                if ((viewHolder instanceof c) && this.gGo.size() > 0) {
+                    com.baidu.tieba.ala.live.pkpanel.b.b bVar = this.gGo.get(i);
                     if (bVar != null) {
                         ((c) viewHolder).a(bVar, i);
                     }
-                } else if (viewHolder instanceof C0664a) {
-                    ((C0664a) viewHolder).a(a.this.gRH);
+                } else if (viewHolder instanceof C0677a) {
+                    ((C0677a) viewHolder).a(a.this.haU);
                 }
             }
         }
 
         @Override // android.support.v7.widget.RecyclerView.Adapter
         public int getItemCount() {
-            if (a.this.gRH == null || a.this.gRH.gxz == null) {
+            if (a.this.haU == null || a.this.haU.gGo == null) {
                 return 0;
             }
-            return a.this.gRH.gxz.size() + 1;
+            return a.this.haU.gGo.size() + 1;
         }
 
         @Override // android.support.v7.widget.RecyclerView.Adapter
         public int getItemViewType(int i) {
-            return vA(i) ? 2 : 1;
+            return wh(i) ? 2 : 1;
         }
 
-        private boolean vA(int i) {
-            return (a.this.gRH == null || a.this.gRH.gxz == null || a.this.gRH.gxz.size() != i) ? false : true;
+        private boolean wh(int i) {
+            return (a.this.haU == null || a.this.haU.gGo == null || a.this.haU.gGo.size() != i) ? false : true;
         }
     }
 
     /* loaded from: classes4.dex */
     class c extends RecyclerView.ViewHolder {
-        private TextView dZV;
-        private TextView gRJ;
-        private HeadImageView gRK;
-        private TextView gRL;
-        private com.baidu.tieba.ala.live.pkpanel.b.b gRM;
+        private TextView egV;
+        private TextView haW;
+        private HeadImageView haX;
+        private TextView haY;
+        private com.baidu.tieba.ala.live.pkpanel.b.b haZ;
 
         public c(@NonNull View view) {
             super(view);
-            this.gRK = (HeadImageView) view.findViewById(a.f.gift_icon);
-            this.dZV = (TextView) view.findViewById(a.f.gift_name);
-            this.gRL = (TextView) view.findViewById(a.f.gift_type);
-            this.gRJ = (TextView) view.findViewById(a.f.gift_describe);
-            if (this.gRK != null) {
-                this.gRK.setIsRound(true);
-                this.gRK.setAutoChangeStyle(false);
-                this.gRK.setDefaultResource(a.e.sdk_default_avatar);
+            this.haX = (HeadImageView) view.findViewById(a.f.gift_icon);
+            this.egV = (TextView) view.findViewById(a.f.gift_name);
+            this.haY = (TextView) view.findViewById(a.f.gift_type);
+            this.haW = (TextView) view.findViewById(a.f.gift_describe);
+            if (this.haX != null) {
+                this.haX.setIsRound(true);
+                this.haX.setAutoChangeStyle(false);
+                this.haX.setDefaultResource(a.e.sdk_default_avatar);
             }
         }
 
         public void a(com.baidu.tieba.ala.live.pkpanel.b.b bVar, int i) {
-            this.gRM = bVar;
-            if (this.gRM != null && i < a.this.gRH.gxz.size()) {
-                if (TextUtils.isEmpty(this.gRM.icon)) {
-                    this.gRK.setDefaultResource(a.e.sdk_default_avatar);
+            this.haZ = bVar;
+            if (this.haZ != null && i < a.this.haU.gGo.size()) {
+                if (TextUtils.isEmpty(this.haZ.icon)) {
+                    this.haX.setDefaultResource(a.e.sdk_default_avatar);
                 } else {
-                    this.gRK.setUrl(this.gRM.icon);
-                    l.a(this.gRK, this.gRM.icon, false, false);
+                    this.haX.setUrl(this.haZ.icon);
+                    l.a(this.haX, this.haZ.icon, false, false);
                 }
-                this.dZV.setText(this.gRM.name);
-                this.gRL.setText(this.gRM.type);
-                this.gRL.setTextColor(Color.parseColor(this.gRM.gRO));
-                this.gRJ.setText(this.gRM.content);
+                this.egV.setText(this.haZ.name);
+                this.haY.setText(this.haZ.type);
+                this.haY.setTextColor(Color.parseColor(this.haZ.hbb));
+                this.haW.setText(this.haZ.content);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.ala.live.pkpanel.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    class C0664a extends RecyclerView.ViewHolder {
-        TextView gRJ;
+    class C0677a extends RecyclerView.ViewHolder {
+        TextView haW;
         TextView title;
 
-        public C0664a(@NonNull View view) {
+        public C0677a(@NonNull View view) {
             super(view);
             this.title = (TextView) view.findViewById(a.f.ala_title);
-            this.gRJ = (TextView) view.findViewById(a.f.ala_content);
+            this.haW = (TextView) view.findViewById(a.f.ala_content);
         }
 
         public void a(com.baidu.tieba.ala.live.pkpanel.b.a aVar) {
             if (aVar != null) {
                 this.title.setText(aVar.activityName);
-                this.gRJ.setText(aVar.gRN);
+                this.haW.setText(aVar.hba);
             }
         }
     }

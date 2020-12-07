@@ -6,129 +6,142 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 /* loaded from: classes.dex */
 public class c {
-    private View eHF;
-    private Drawable eHG;
+    private View eOP;
+    private Drawable eOQ;
 
     private c(View view) {
-        this.eHF = view;
-        this.eHG = a.bi(this.eHF);
+        this.eOP = view;
+        this.eOQ = a.bk(this.eOP);
     }
 
-    public static c bj(View view) {
+    public static c bm(View view) {
         return new c(view);
     }
 
-    public c oT(int i) {
-        if (this.eHF instanceof TextView) {
-            ((TextView) this.eHF).setTextColor(a.getColor(i));
+    public c ps(int i) {
+        if (this.eOP instanceof TextView) {
+            ((TextView) this.eOP).setTextColor(a.getColor(i));
         }
         return this;
     }
 
-    public c oU(int i) {
-        if (this.eHF instanceof TextView) {
-            ((TextView) this.eHF).setTextSize(0, a.oG(i));
+    public c pt(int i) {
+        if (this.eOP instanceof TextView) {
+            ((TextView) this.eOP).setTextSize(0, a.pe(i));
         }
         return this;
     }
 
-    public c oV(int i) {
-        if (this.eHF instanceof TextView) {
-            ((TextView) this.eHF).setTypeface(a.AO(a.getString(i)));
+    public c pu(int i) {
+        if (this.eOP instanceof TextView) {
+            ((TextView) this.eOP).setTypeface(a.Bv(a.getString(i)));
         }
         return this;
     }
 
-    public c oW(int i) {
-        if (!(this.eHF instanceof EMTextView)) {
+    public c pv(int i) {
+        if (!(this.eOP instanceof EMTextView)) {
             throw new ClassCastException("When setting line spacing, use EMTextView to ensure UI effect.");
         }
-        ((EMTextView) this.eHF).setLineSpacing(a.oG(i), ((EMTextView) this.eHF).getLineSpacingMultiplier());
+        ((EMTextView) this.eOP).setLineSpacing(a.pe(i), ((EMTextView) this.eOP).getLineSpacingMultiplier());
         return this;
     }
 
-    public c oX(int i) {
-        if (this.eHF instanceof TextView) {
-            ((TextView) this.eHF).setLinkTextColor(a.getColor(i));
+    public c pw(int i) {
+        if (this.eOP instanceof TextView) {
+            ((TextView) this.eOP).setLinkTextColor(a.getColor(i));
         }
         return this;
     }
 
-    public c oY(int i) {
-        if (this.eHF instanceof TextView) {
-            ((TextView) this.eHF).setTextColor(a.oI(i));
+    public c px(int i) {
+        if (this.eOP instanceof TextView) {
+            ((TextView) this.eOP).setTextColor(a.pg(i));
         }
         return this;
     }
 
-    public void aN(int i, int i2) {
-        if (this.eHF != null) {
-            this.eHG = a.a(this.eHG, i, i2);
-            this.eHF.setBackgroundDrawable(this.eHG);
+    public void aP(int i, int i2) {
+        if (this.eOP != null) {
+            this.eOQ = a.a(this.eOQ, i, i2);
+            this.eOP.setBackgroundDrawable(this.eOQ);
         }
     }
 
     public void setBackGroundColor(int i) {
-        if (this.eHF != null) {
-            this.eHG = a.a(this.eHG, i);
-            if (this.eHG != null) {
-                this.eHF.setBackgroundDrawable(this.eHG);
-            }
+        Drawable a2;
+        if (this.eOP != null && (a2 = a.a(this.eOQ, i)) != null) {
+            this.eOQ = a2;
+            this.eOP.setBackgroundDrawable(this.eOQ);
         }
     }
 
-    public void oZ(int i) {
-        if (this.eHF != null) {
-            this.eHG = a.a(this.eHG, a.getStringArray(i));
-            if (this.eHG != null) {
-                this.eHF.setBackgroundDrawable(this.eHG);
-            }
+    public void py(int i) {
+        Drawable a2;
+        if (this.eOP != null && (a2 = a.a(this.eOQ, a.getStringArray(i))) != null) {
+            this.eOQ = a2;
+            this.eOP.setBackgroundDrawable(this.eOQ);
         }
     }
 
     public void k(int[] iArr) {
-        if (this.eHF != null) {
-            this.eHG = a.a(this.eHG, iArr);
-            if (this.eHG != null) {
-                this.eHF.setBackgroundDrawable(this.eHG);
-            }
+        Drawable a2;
+        if (this.eOP != null && (a2 = a.a(this.eOQ, iArr)) != null) {
+            this.eOQ = a2;
+            this.eOP.setBackgroundDrawable(this.eOQ);
         }
     }
 
-    public c pa(int i) {
-        if (this.eHF != null) {
-            this.eHG = a.b(this.eHG, i);
-        }
-        return this;
-    }
-
-    public c pb(int i) {
-        if (this.eHF != null) {
-            this.eHG = a.c(this.eHG, i);
+    public c pz(int i) {
+        if (this.eOP != null) {
+            this.eOQ = a.b(this.eOQ, i);
         }
         return this;
     }
 
-    public c pc(int i) {
-        if (this.eHF != null) {
-            this.eHG = a.d(this.eHG, i);
-            if (this.eHG != null) {
-                this.eHF.setBackgroundDrawable(this.eHG);
-            }
+    public c pA(int i) {
+        if (this.eOP != null) {
+            this.eOQ = a.c(this.eOQ, i);
         }
         return this;
     }
 
-    public c pd(int i) {
-        if (this.eHF != null) {
-            this.eHG = a.e(this.eHG, i);
+    public c pB(int i) {
+        Drawable a2;
+        if (this.eOP != null && (a2 = a.a(this.eOP, this.eOQ, a.getStringArray(i))) != null) {
+            this.eOQ = a2;
+            this.eOP.setBackgroundDrawable(this.eOQ);
+            pF(1);
         }
         return this;
     }
 
-    public c pe(int i) {
-        if (this.eHF != null) {
-            this.eHG = a.f(this.eHG, i);
+    public c pC(int i) {
+        Drawable d;
+        if (this.eOP != null && (d = a.d(this.eOQ, i)) != null) {
+            this.eOQ = d;
+            this.eOP.setBackgroundDrawable(this.eOQ);
+        }
+        return this;
+    }
+
+    public c pD(int i) {
+        if (this.eOP != null) {
+            this.eOQ = a.e(this.eOQ, i);
+        }
+        return this;
+    }
+
+    public c pE(int i) {
+        if (this.eOP != null) {
+            this.eOQ = a.f(this.eOQ, i);
+        }
+        return this;
+    }
+
+    public c pF(int i) {
+        if (this.eOP != null) {
+            this.eOP.setLayerType(i, null);
         }
         return this;
     }

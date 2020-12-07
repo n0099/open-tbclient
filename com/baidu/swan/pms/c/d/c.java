@@ -1,74 +1,74 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes6.dex */
 public class c extends g {
-    private String eha;
-    private long ehb;
-    private long ehc;
-    private String ehd;
-    private String ehe;
-    private int ehf;
+    private String eob;
+    private long eoc;
+    private long eod;
+    private String eoe;
+    private String eog;
+    private int eoh;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.ehb = -1L;
-        this.ehc = -1L;
-        this.ehf = -1;
-        this.eha = str;
+        this.eoc = -1L;
+        this.eod = -1L;
+        this.eoh = -1;
+        this.eob = str;
     }
 
-    public c mS(int i) {
-        this.ehf = i;
+    public c nq(int i) {
+        this.eoh = i;
         return this;
     }
 
-    public int bbt() {
-        return this.ehf;
+    public int bey() {
+        return this.eoh;
     }
 
-    public c yp(String str) {
-        this.ehd = str;
+    public c yW(String str) {
+        this.eoe = str;
         return this;
     }
 
-    public c cS(long j) {
-        this.ehb = j;
+    public c dr(long j) {
+        this.eoc = j;
         return this;
     }
 
-    public c cT(long j) {
-        this.ehc = j;
+    public c ds(long j) {
+        this.eod = j;
         return this;
     }
 
-    public c yq(String str) {
-        this.ehe = str;
+    public c yX(String str) {
+        this.eog = str;
         return this;
     }
 
-    public c yr(String str) {
+    public c yY(String str) {
         this.mPath = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.eha;
+        return this.eob;
     }
 
-    public long bbr() {
-        return this.ehb;
+    public long bew() {
+        return this.eoc;
     }
 
-    public long bbs() {
-        return this.ehc;
+    public long bex() {
+        return this.eod;
     }
 
-    public String bbu() {
-        return this.ehd;
+    public String bez() {
+        return this.eoe;
     }
 
-    public String bbv() {
-        return this.ehe;
+    public String beA() {
+        return this.eog;
     }
 
     public String getPath() {

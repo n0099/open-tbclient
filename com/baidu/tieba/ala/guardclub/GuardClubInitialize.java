@@ -15,6 +15,7 @@ import com.baidu.live.guardclub.GuardClubInfoHttpResponseMessage;
 import com.baidu.live.guardclub.GuardClubJoinHttpResponseMessage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbConfig;
+import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atom.GuardClubRankActivityConfig;
 import com.baidu.live.tbadk.core.atomdata.GuardClubInfoActivityConfig;
@@ -29,18 +30,18 @@ public class GuardClubInitialize {
         TbadkCoreApplication.getInst().RegisterIntent(GuardClubMemberListActivityConfig.class, GuardClubMemberListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(GuardClubJoinListActivityConfig.class, GuardClubJoinListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(GuardClubRankActivityConfig.class, GuardClubRankActivity.class);
-        bPz();
-        bSu();
-        bSv();
-        bSw();
-        bSx();
+        bTk();
+        bWe();
+        bWf();
+        bWg();
+        bWh();
     }
 
-    private static void bPz() {
+    private static void bTk() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913159, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.guardclub.GuardClubInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.guardclub.h> run(CustomMessage<Context> customMessage) {
-                return new CustomResponsedMessage<>(2913159, new a(customMessage.getData()));
+                return new CustomResponsedMessage<>(2913159, new b(customMessage.getData()));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -48,7 +49,7 @@ public class GuardClubInitialize {
         CustomMessageTask customMessageTask2 = new CustomMessageTask(2913160, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.guardclub.GuardClubInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.guardclub.j> run(CustomMessage<Context> customMessage) {
-                return new CustomResponsedMessage<>(2913160, new c(customMessage.getData()));
+                return new CustomResponsedMessage<>(2913160, new d(customMessage.getData()));
             }
         });
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -56,7 +57,7 @@ public class GuardClubInitialize {
         CustomMessageTask customMessageTask3 = new CustomMessageTask(2913161, new CustomMessageTask.CustomRunnable<Activity>() { // from class: com.baidu.tieba.ala.guardclub.GuardClubInitialize.3
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.guardclub.k> run(CustomMessage<Activity> customMessage) {
-                return new CustomResponsedMessage<>(2913161, new h(customMessage.getData()));
+                return new CustomResponsedMessage<>(2913161, new i(customMessage.getData()));
             }
         });
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -69,13 +70,21 @@ public class GuardClubInitialize {
         });
         customMessageTask4.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask4);
+        CustomMessageTask customMessageTask5 = new CustomMessageTask(2913273, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.guardclub.GuardClubInitialize.5
+            @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
+            public CustomResponsedMessage<?> run(CustomMessage<TbPageContext> customMessage) {
+                return new CustomResponsedMessage<>(2913273, new a(customMessage.getData()));
+            }
+        });
+        customMessageTask5.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask5);
     }
 
-    private static void bSu() {
-        com.baidu.live.guardclub.e.a(b.bSq());
+    private static void bWe() {
+        com.baidu.live.guardclub.e.a(c.bWa());
     }
 
-    private static void bSv() {
+    private static void bWf() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021137, TbConfig.SERVER_HOST + "liveserver/guardClub/info");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -85,7 +94,7 @@ public class GuardClubInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bSw() {
+    private static void bWg() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS, TbConfig.SERVER_HOST + "liveserver/guardClub/join");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -95,7 +104,7 @@ public class GuardClubInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bSx() {
+    private static void bWh() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021142, TbConfig.SERVER_HOST + "liveserver/guardClub/updateClubName");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

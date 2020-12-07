@@ -7,12 +7,12 @@ import android.arch.lifecycle.Lifecycle;
 import android.os.Bundle;
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes12.dex */
 public class ReportFragment extends Fragment {
-    private a zU;
+    private a AN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes12.dex */
     public interface a {
         void onCreate();
 
@@ -55,21 +55,21 @@ public class ReportFragment extends Fragment {
     @Override // android.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        a(this.zU);
+        a(this.AN);
         a(Lifecycle.Event.ON_CREATE);
     }
 
     @Override // android.app.Fragment
     public void onStart() {
         super.onStart();
-        b(this.zU);
+        b(this.AN);
         a(Lifecycle.Event.ON_START);
     }
 
     @Override // android.app.Fragment
     public void onResume() {
         super.onResume();
-        c(this.zU);
+        c(this.AN);
         a(Lifecycle.Event.ON_RESUME);
     }
 
@@ -89,7 +89,7 @@ public class ReportFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         a(Lifecycle.Event.ON_DESTROY);
-        this.zU = null;
+        this.AN = null;
     }
 
     private void a(Lifecycle.Event event) {
@@ -106,6 +106,6 @@ public class ReportFragment extends Fragment {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(a aVar) {
-        this.zU = aVar;
+        this.AN = aVar;
     }
 }

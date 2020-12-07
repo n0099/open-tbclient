@@ -6,7 +6,7 @@ import android.util.JsonToken;
 import com.baidu.android.imsdk.internal.Constants;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes16.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static com.airbnb.lottie.model.a.e a(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
         ArrayList arrayList = new ArrayList();
@@ -82,7 +82,7 @@ public class a {
         }
         jsonReader.endObject();
         if (z) {
-            eVar.bc("Lottie doesn't support expressions.");
+            eVar.bf("Lottie doesn't support expressions.");
         }
         return eVar2 != null ? eVar2 : new com.airbnb.lottie.model.a.i(bVar2, bVar);
     }

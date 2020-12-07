@@ -4,22 +4,22 @@ import com.baidu.platform.comapi.b.c;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class a {
     private c c = null;
     private static JSONObject b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f2861a = null;
+    public static a f2863a = null;
 
     public static a a() {
-        if (f2861a == null) {
-            f2861a = new a();
+        if (f2863a == null) {
+            f2863a = new a();
         }
         if (b == null) {
             b = new JSONObject();
         }
-        return f2861a;
+        return f2863a;
     }
 
     private void b() {

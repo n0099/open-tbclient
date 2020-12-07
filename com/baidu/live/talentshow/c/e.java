@@ -3,9 +3,9 @@ package com.baidu.live.talentshow.c;
 import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
 public interface e {
-    void Rr();
+    void TP();
 
-    void Rs();
+    void TQ();
 
     void a(c cVar);
 

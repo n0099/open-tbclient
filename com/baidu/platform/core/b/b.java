@@ -11,7 +11,7 @@ import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class b extends com.baidu.platform.base.d {
     private static final String b = b.class.getSimpleName();
     private String c;

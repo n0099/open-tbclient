@@ -1,21 +1,22 @@
 package com.baidu.afd;
 
+import com.baidu.tbadk.util.AdExtParam;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c implements h {
-    private final int YM;
-    private final int YN;
-    private final int YO;
-    private HashMap YP;
+    private final int ZJ;
+    private final int ZK;
+    private final int ZL;
+    private HashMap ZM;
     private int floor;
     private final String tabId;
     private final String tabName;
 
     private c(int i, int i2, int i3, String str, String str2, int i4) {
-        this.YM = i;
-        this.YN = i2;
-        this.YO = i3;
+        this.ZJ = i;
+        this.ZK = i2;
+        this.ZL = i3;
         this.tabId = str;
         this.tabName = str2;
         this.floor = i4;
@@ -26,30 +27,30 @@ public class c implements h {
     }
 
     @Override // com.baidu.afd.h
-    public int rl() {
-        return this.YM;
-    }
-
-    @Override // com.baidu.afd.h
-    public int rm() {
-        return this.YN;
-    }
-
-    @Override // com.baidu.afd.h
     public int rn() {
+        return this.ZJ;
+    }
+
+    @Override // com.baidu.afd.h
+    public int ro() {
+        return this.ZK;
+    }
+
+    @Override // com.baidu.afd.h
+    public int rp() {
         return this.floor;
     }
 
     @Override // com.baidu.afd.h
-    public Map<String, String> ro() {
-        return this.YP;
+    public Map<String, String> rq() {
+        return this.ZM;
     }
 
     @Override // com.baidu.afd.h
     public void u(HashMap hashMap) {
-        this.YP = hashMap;
-        if (!this.YP.containsKey("iadex")) {
-            hashMap.put("iadex", com.baidu.tbadk.util.c.bCD());
+        this.ZM = hashMap;
+        if (!this.ZM.containsKey(AdExtParam.KEY_IADEX)) {
+            hashMap.put(AdExtParam.KEY_IADEX, com.baidu.tbadk.util.c.bGe());
         }
     }
 }

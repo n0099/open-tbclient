@@ -1,5 +1,5 @@
 package com.google.zxing.client.result;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class ProductParsedResult extends ParsedResult {
     private final String normalizedProductID;
     private final String productID;

@@ -6,11 +6,11 @@ import com.baidu.b.f;
 import com.baidu.b.g;
 import com.baidu.b.h;
 import com.baidu.live.adp.lib.cache.BdKVCache;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f991a = true;
+    public static boolean f989a = true;
     private static volatile a e;
     private final Context b;
     private h c;
@@ -76,9 +76,9 @@ public final class a {
     }
 
     private h.a b(String str) {
-        f dc = this.d.dc(str);
-        if (dc != null) {
-            return this.c.a(dc);
+        f df = this.d.df(str);
+        if (df != null) {
+            return this.c.a(df);
         }
         return null;
     }

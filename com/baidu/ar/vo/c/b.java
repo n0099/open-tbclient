@@ -1,9 +1,9 @@
 package com.baidu.ar.vo.c;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public int type;
     public float x;
     public float y;
-    public float yk;
-    public boolean yl;
+    public float yZ;
+    public boolean za;
 }

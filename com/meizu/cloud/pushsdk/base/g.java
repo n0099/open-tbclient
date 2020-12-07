@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.base;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public interface g {
     void a(String str);
 

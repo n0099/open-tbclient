@@ -1,74 +1,100 @@
 package com.baidu.tieba.tbadkCore.e.a;
 
-import android.net.Uri;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import android.os.Build;
+import android.webkit.WebView;
+import com.baidu.android.util.io.ActionJsonData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.au;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.tbadk.core.util.y;
+import com.baidu.tieba.R;
+import com.baidu.tieba.h5power.DescriptionTableInfo;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    public static String Sy(String str) {
-        String[] split;
-        String[] split2;
-        String[] split3;
-        if (au.isEmpty(str) || (split = str.split("\\?")) == null || split.length == 0 || (split2 = split[0].split("\\/\\/")) == null || split2.length < 2 || (split3 = split2[1].split("\\/")) == null || split2.length < 2) {
-            return null;
-        }
-        return split3[split3.length - 1];
+    private ArrayList<a> nom = new ArrayList<>();
+
+    public void a(a aVar) {
+        this.nom.add(aVar);
     }
 
-    public static String Sz(String str) {
-        String[] split;
-        String[] split2;
-        String str2;
-        String[] split3;
-        String str3;
-        try {
-            if (au.isEmpty(str) || (split = str.split("\\?")) == null || split.length == 0 || (split2 = split[0].split("\\/\\/")) == null || split2.length < 2 || (split3 = (str2 = split2[1]).split("\\/")) == null || split2.length < 2 || (str3 = split3[split3.length - 1]) == null || str3.length() == 0) {
-                return null;
+    public c a(e eVar, c cVar) {
+        if (cVar == null) {
+            cVar = new c();
+        }
+        if (ActionJsonData.TAG_NOTIFICATION.equals(eVar.getModule()) && "addObserver".equals(eVar.getAction())) {
+            Iterator<a> it = this.nom.iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    cVar = it.next().addObserver(eVar.dPR(), cVar, true);
+                    if (cVar.dPM()) {
+                        break;
+                    }
+                } else if (!cVar.dPM()) {
+                    cVar.Ld(202);
+                    cVar.TK(TbadkCoreApplication.getInst().getString(R.string.can_find_notification_name));
+                }
             }
-            return str2.substring(0, (str2.length() - str3.length()) - 1);
-        } catch (Exception e) {
-            BdLog.e(e);
-            return null;
+        } else {
+            String module = eVar.getModule();
+            if (!au.isEmpty(module) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(module)) {
+                cVar.Ld(201);
+            } else {
+                Iterator<a> it2 = this.nom.iterator();
+                while (true) {
+                    if (it2.hasNext()) {
+                        cVar = it2.next().dispatch(eVar, cVar);
+                        if (cVar.dPL()) {
+                            break;
+                        }
+                    } else if (!cVar.dPL()) {
+                        cVar.Ld(202);
+                    }
+                }
+            }
+        }
+        return cVar;
+    }
+
+    public void a(WebView webView, c cVar) {
+        if (webView != null && cVar != null && cVar.dPO()) {
+            callJsMethod(webView, cVar.getMethodName(), cVar.dPP());
         }
     }
 
-    public static String SA(String str) {
-        Uri parse;
-        if (au.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-            return null;
+    public void a(WebView webView, List<c> list) {
+        if (webView != null && !y.isEmpty(list)) {
+            for (c cVar : list) {
+                if (cVar != null && cVar.dPO()) {
+                    callJsMethod(webView, cVar.getMethodName(), cVar.dPP());
+                }
+            }
         }
-        return parse.getQueryParameter(BuyTBeanActivityConfig.CALLBACK);
     }
 
-    public static String SB(String str) {
-        Uri parse;
-        if (au.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-            return null;
+    private void callJsMethod(WebView webView, String str, String str2) {
+        if (webView != null && !au.isEmpty(str) && !au.isEmpty(str2)) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
+            } else {
+                webView.loadUrl("javascript:" + str + "&&" + str + "('" + str2 + "')");
+            }
         }
-        return parse.getQueryParameter("notificationName");
     }
 
-    public static String SC(String str) {
-        Uri parse;
-        if (au.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-            return null;
+    public List<c> f(String str, HashMap hashMap) {
+        List<c> list = null;
+        if (!au.isEmpty(str)) {
+            Iterator<a> it = this.nom.iterator();
+            while (it.hasNext()) {
+                list = it.next().processNotification(str, hashMap);
+                if (!y.isEmpty(list)) {
+                    break;
+                }
+            }
         }
-        return parse.getQueryParameter(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
-    }
-
-    public static JSONObject SD(String str) throws JSONException {
-        Uri parse;
-        if (au.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-            return null;
-        }
-        String queryParameter = parse.getQueryParameter("params");
-        if (au.isEmpty(queryParameter)) {
-            return null;
-        }
-        return new JSONObject(queryParameter);
+        return list;
     }
 }

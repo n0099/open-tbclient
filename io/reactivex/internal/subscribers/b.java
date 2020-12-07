@@ -3,7 +3,7 @@ package io.reactivex.internal.subscribers;
 import io.reactivex.internal.a.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class b<T, R> implements d<R>, j<T> {
     protected final org.a.c<? super R> actual;
     protected boolean done;
@@ -22,23 +22,24 @@ public abstract class b<T, R> implements d<R>, j<T> {
             if (dVar instanceof d) {
                 this.qs = (d) dVar;
             }
-            if (eAH()) {
+            if (eCY()) {
                 this.actual.onSubscribe(this);
-                eAI();
+                eCZ();
             }
         }
     }
 
-    protected boolean eAH() {
+    protected boolean eCY() {
         return true;
     }
 
-    protected void eAI() {
+    protected void eCZ() {
     }
 
+    @Override // org.a.c
     public void onError(Throwable th) {
         if (this.done) {
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
             return;
         }
         this.done = true;
@@ -52,6 +53,7 @@ public abstract class b<T, R> implements d<R>, j<T> {
         onError(th);
     }
 
+    @Override // org.a.c
     public void onComplete() {
         if (!this.done) {
             this.done = true;
@@ -83,17 +85,17 @@ public abstract class b<T, R> implements d<R>, j<T> {
         this.s.cancel();
     }
 
-    @Override // io.reactivex.internal.a.g
+    @Override // io.reactivex.internal.a.f
     public boolean isEmpty() {
         return this.qs.isEmpty();
     }
 
-    @Override // io.reactivex.internal.a.g
+    @Override // io.reactivex.internal.a.f
     public void clear() {
         this.qs.clear();
     }
 
-    @Override // io.reactivex.internal.a.g
+    @Override // io.reactivex.internal.a.f
     public final boolean offer(R r) {
         throw new UnsupportedOperationException("Should not be called!");
     }

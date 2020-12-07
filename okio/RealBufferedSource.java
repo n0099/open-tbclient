@@ -8,7 +8,7 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import javax.annotation.Nullable;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class RealBufferedSource implements BufferedSource {
     public final Buffer buffer = new Buffer();
     boolean closed;
@@ -99,13 +99,12 @@ public final class RealBufferedSource implements BufferedSource {
             throw new IllegalStateException("closed");
         }
         do {
-            int selectPrefix = this.buffer.selectPrefix(options);
+            int selectPrefix = this.buffer.selectPrefix(options, true);
             if (selectPrefix == -1) {
                 return -1;
             }
-            int size = options.byteStrings[selectPrefix].size();
-            if (size <= this.buffer.size) {
-                this.buffer.skip(size);
+            if (selectPrefix != -2) {
+                this.buffer.skip(options.byteStrings[selectPrefix].size());
                 return selectPrefix;
             }
         } while (this.source.read(this.buffer, PlaybackStateCompat.ACTION_PLAY_FROM_URI) != -1);

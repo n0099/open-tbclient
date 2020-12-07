@@ -1,13 +1,13 @@
 package com.baidu.swan.apps.statistic.search;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class SearchFlowEvent {
+    public EventType dFO;
     public String data;
-    public EventType dyP;
     public String extData;
     public String id;
     public long timestamp;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public enum EventType {
         START,
         NORMAL,
@@ -17,7 +17,7 @@ public class SearchFlowEvent {
     public SearchFlowEvent(String str) {
         this.id = str;
         this.timestamp = System.currentTimeMillis();
-        this.dyP = EventType.NORMAL;
+        this.dFO = EventType.NORMAL;
         this.data = "";
         this.extData = "";
     }
@@ -27,10 +27,10 @@ public class SearchFlowEvent {
         this.timestamp = j;
         this.data = str2;
         this.extData = str3;
-        this.dyP = eventType;
+        this.dFO = eventType;
     }
 
     public String toString() {
-        return "Event: id=" + this.id + ", timestamp=" + this.timestamp + ", data=" + this.data + ", extData=" + this.extData + ", eventType=" + this.dyP.toString();
+        return "Event: id=" + this.id + ", timestamp=" + this.timestamp + ", data=" + this.data + ", extData=" + this.extData + ", eventType=" + this.dFO.toString();
     }
 }

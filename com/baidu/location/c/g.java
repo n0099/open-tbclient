@@ -2,21 +2,21 @@ package com.baidu.location.c;
 
 import android.location.OnNmeaMessageListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class g implements OnNmeaMessageListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1936a;
+    final /* synthetic */ f f1938a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.f1936a = fVar;
+        this.f1938a = fVar;
     }
 
     @Override // android.location.OnNmeaMessageListener
     public void onNmeaMessage(String str, long j) {
-        if (this.f1936a.J != null) {
-            this.f1936a.J.sendMessage(this.f1936a.J.obtainMessage(5, str));
+        if (this.f1938a.J != null) {
+            this.f1938a.J.sendMessage(this.f1938a.J.obtainMessage(5, str));
         }
     }
 }

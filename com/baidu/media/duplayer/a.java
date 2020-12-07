@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f2258a;
+    private static Object f2260a;
     private static Method b;
     private static Method c;
     private static Method d;
@@ -16,7 +16,7 @@ public class a {
     static {
         f = false;
         try {
-            f2258a = Class.forName("com.baidu.crashpad.ZwCrashpad").getConstructor(new Class[0]).newInstance(new Object[0]);
+            f2260a = Class.forName("com.baidu.crashpad.ZwCrashpad").getConstructor(new Class[0]).newInstance(new Object[0]);
             Class<?> cls = Class.forName("com.baidu.crashpad.ZwCrashpad");
             b = com.baidu.media.duplayer.a.a.a(cls, "doInit", Context.class, String[].class);
             d = com.baidu.media.duplayer.a.a.a(cls, "setStatisticParam", String.class);
@@ -33,7 +33,7 @@ public class a {
     public static void a(Context context, String[] strArr) {
         try {
             if (f) {
-                b.invoke(f2258a, context, strArr);
+                b.invoke(f2260a, context, strArr);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -43,7 +43,7 @@ public class a {
     public static void a(String str) {
         try {
             if (f) {
-                d.invoke(f2258a, str);
+                d.invoke(f2260a, str);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -53,7 +53,7 @@ public class a {
     public static void a(String str, String str2) {
         try {
             if (f) {
-                e.invoke(f2258a, str, str2);
+                e.invoke(f2260a, str, str2);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -63,7 +63,7 @@ public class a {
     public static void a(boolean z) {
         try {
             if (f) {
-                c.invoke(f2258a, Boolean.valueOf(z));
+                c.invoke(f2260a, Boolean.valueOf(z));
             }
         } catch (Exception e2) {
             e2.printStackTrace();

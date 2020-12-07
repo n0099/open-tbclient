@@ -1,9 +1,9 @@
 package com.baidu.fsg.face.base;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f1565a = 4;
+    public static final int f1567a = 4;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(int i) {

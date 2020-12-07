@@ -6,44 +6,44 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.data.a;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.view.FollowUserButton;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class am<T extends com.baidu.tbadk.core.data.a> extends af.a {
-    private com.baidu.tieba.card.ab<T> ahV;
-    private ak<T> ahW;
-    private ar ahX;
-    private u ahY;
-    private aj ahZ;
-    private ad aia;
-    private j aib;
-    private g aic;
+    private com.baidu.tieba.card.ab<T> aiV;
+    private ak<T> aiW;
+    private ar aiX;
+    private u aiY;
+    private aj aiZ;
+    private ad aja;
+    private j ajb;
+    private g ajc;
     private BdUniqueId mId;
     private ab mNegFeedBackItem;
 
     public am(ak<T> akVar) {
         super(akVar.getView());
-        this.ahW = akVar;
+        this.aiW = akVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.af.a
     public View getView() {
-        return this.ahW.getView();
+        return this.aiW.getView();
     }
 
-    public ak<T> tW() {
-        return this.ahW;
+    public ak<T> tZ() {
+        return this.aiW;
     }
 
     private TbPageContext getTbPageContext() {
-        return ((TbPageContextSupport) this.ahW.getView().getContext()).getPageContext();
+        return ((TbPageContextSupport) this.aiW.getView().getContext()).getPageContext();
     }
 
     private void c(d dVar) {
-        if (dVar != null && dVar.tG() != null) {
-            this.ahW.a(dVar);
+        if (dVar != null && dVar.tJ() != null) {
+            this.aiW.a(dVar);
         }
     }
 
@@ -54,147 +54,147 @@ public class am<T extends com.baidu.tbadk.core.data.a> extends af.a {
         }
         if (this.mNegFeedBackItem == null) {
             this.mNegFeedBackItem = new ab(getTbPageContext(), align);
-            this.mNegFeedBackItem.agQ.setUniqueId(this.mId);
+            this.mNegFeedBackItem.ahP.setUniqueId(this.mId);
             this.mNegFeedBackItem.a(aVar);
         }
         this.mNegFeedBackItem.a(align);
-        this.ahW.b(this.mNegFeedBackItem);
+        this.aiW.b(this.mNegFeedBackItem);
     }
 
     public ab aN(boolean z) {
         if (this.mNegFeedBackItem == null) {
             this.mNegFeedBackItem = new ab(getTbPageContext(), z);
-            this.mNegFeedBackItem.agQ.setUniqueId(this.mId);
+            this.mNegFeedBackItem.ahP.setUniqueId(this.mId);
         }
-        this.ahW.b(this.mNegFeedBackItem);
+        this.aiW.b(this.mNegFeedBackItem);
         return this.mNegFeedBackItem;
     }
 
     public void a(boolean z, Align align) {
         if (!z) {
-            c(this.ahX);
+            c(this.aiX);
             return;
         }
-        if (this.ahX == null) {
-            this.ahX = new ar(getTbPageContext(), align);
+        if (this.aiX == null) {
+            this.aiX = new ar(getTbPageContext(), align);
         }
-        this.ahX.a(align);
-        this.ahW.b(this.ahX);
+        this.aiX.a(align);
+        this.aiW.b(this.aiX);
     }
 
     public void a(boolean z, FollowUserButton.a aVar) {
         if (!z) {
-            c(this.aib);
+            c(this.ajb);
             return;
         }
-        if (this.aib == null) {
-            this.aib = new j(getTbPageContext(), com.baidu.tbadk.a.d.bhm());
-            this.aib.setOnClickEvent(aVar);
+        if (this.ajb == null) {
+            this.ajb = new j(getTbPageContext(), com.baidu.tbadk.a.d.bkq());
+            this.ajb.setOnClickEvent(aVar);
         }
-        this.aib.setPageUniqueId(this.mId);
-        this.ahW.b(this.aib);
+        this.ajb.setPageUniqueId(this.mId);
+        this.aiW.b(this.ajb);
     }
 
-    public u tX() {
+    public u ua() {
         return aO(true);
     }
 
     public u aO(boolean z) {
-        if (this.ahY == null) {
-            this.ahY = new u(this.ahW.getContext());
+        if (this.aiY == null) {
+            this.aiY = new u(this.aiW.getContext());
         }
-        this.ahY.h(this.mId);
-        this.ahY.aJ(z);
-        this.ahW.b(this.ahY);
-        return this.ahY;
+        this.aiY.h(this.mId);
+        this.aiY.aI(z);
+        this.aiW.b(this.aiY);
+        return this.aiY;
     }
 
     public void b(int i, al alVar) {
-        if (this.ahY != null) {
-            this.ahY.a(i, alVar);
+        if (this.aiY != null) {
+            this.aiY.a(i, alVar);
         }
     }
 
-    public aj tY() {
-        if (this.ahZ == null) {
-            this.ahZ = new aj(getTbPageContext());
-            this.ahZ.setPageId(this.mId);
+    public aj ub() {
+        if (this.aiZ == null) {
+            this.aiZ = new aj(getTbPageContext());
+            this.aiZ.setPageId(this.mId);
         }
-        this.ahW.b(this.ahZ);
-        return this.ahZ;
+        this.aiW.b(this.aiZ);
+        return this.aiZ;
     }
 
-    public ad bA(int i) {
-        if (this.aia == null) {
-            this.aia = new ad(this.ahW.getView().getContext(), i);
-            this.aia.setPageId(this.mId);
+    public ad bE(int i) {
+        if (this.aja == null) {
+            this.aja = new ad(this.aiW.getView().getContext(), i);
+            this.aja.setPageId(this.mId);
         }
-        this.ahW.b(this.aia);
-        return this.aia;
+        this.aiW.b(this.aja);
+        return this.aja;
     }
 
-    public g tZ() {
-        if (this.aic == null) {
-            this.aic = new g(getTbPageContext());
+    public g uc() {
+        if (this.ajc == null) {
+            this.ajc = new g(getTbPageContext());
         }
-        this.ahW.b(this.aic);
-        return this.aic;
+        this.aiW.b(this.ajc);
+        return this.ajc;
     }
 
     public void b(T t) {
         boolean z = false;
         if (t == null) {
-            this.ahW.getView().setVisibility(8);
+            this.aiW.getView().setVisibility(8);
             return;
         }
-        if (t.bjd() != null) {
-            t.bjd().getTid();
+        if (t.bmn() != null) {
+            t.bmn().getTid();
         }
-        if (t.bjd() != null && t.bjd().blC() != null) {
-            t.bjd().blC().getName_show();
+        if (t.bmn() != null && t.bmn().boP() != null) {
+            t.bmn().boP().getName_show();
         }
-        this.ahW.getView().setVisibility(0);
-        if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.agQ != null) {
-            if (!t.isSelf() && t.bjf() != null) {
+        this.aiW.getView().setVisibility(0);
+        if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.ahP != null) {
+            if (!t.isSelf() && t.bmp() != null) {
                 this.mNegFeedBackItem.g(t);
-                this.mNegFeedBackItem.H(t.bjf());
-                this.mNegFeedBackItem.agQ.setVisibility(0);
+                this.mNegFeedBackItem.H(t.bmp());
+                this.mNegFeedBackItem.ahP.setVisibility(0);
                 z = true;
-            } else if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.agQ != null) {
-                this.mNegFeedBackItem.agQ.setVisibility(8);
+            } else if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.ahP != null) {
+                this.mNegFeedBackItem.ahP.setVisibility(8);
             }
         }
-        if (this.ahX != null) {
-            if (c(t.bjd())) {
-                c(this.ahX);
+        if (this.aiX != null) {
+            if (c(t.bmn())) {
+                c(this.aiX);
             } else {
-                this.ahX.g(t);
-                this.ahX.H(t.bjd());
+                this.aiX.g(t);
+                this.aiX.H(t.bmn());
             }
         }
-        if (this.ahZ != null) {
-            this.ahZ.aL(z);
-            this.ahZ.H(t.bjd());
+        if (this.aiZ != null) {
+            this.aiZ.aK(z);
+            this.aiZ.H(t.bmn());
         }
-        if (this.ahY != null) {
-            this.ahY.H(t.bjd());
+        if (this.aiY != null) {
+            this.aiY.H(t.bmn());
         }
-        if (this.aia != null) {
-            this.aia.g(t);
-            this.aia.H(t.bjd());
+        if (this.aja != null) {
+            this.aja.g(t);
+            this.aja.H(t.bmn());
         }
-        if (this.aib != null) {
-            this.aib.a(t, z);
-            this.aib.H(t.bjd());
+        if (this.ajb != null) {
+            this.ajb.a(t, z);
+            this.ajb.H(t.bmn());
         }
-        if (this.aic != null) {
-            if (c(t.bjd())) {
-                this.aic.H(t.bjd());
+        if (this.ajc != null) {
+            if (c(t.bmn())) {
+                this.ajc.H(t.bmn());
             } else {
-                c(this.aic);
+                c(this.ajc);
             }
         }
-        this.ahW.h((ak<T>) t);
+        this.aiW.h((ak<T>) t);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
@@ -202,11 +202,11 @@ public class am<T extends com.baidu.tbadk.core.data.a> extends af.a {
     }
 
     public void b(com.baidu.tieba.card.ab<T> abVar) {
-        this.ahV = abVar;
-        this.ahW.a(abVar);
+        this.aiV = abVar;
+        this.aiW.a(abVar);
     }
 
-    private boolean c(bx bxVar) {
-        return (bxVar == null || bxVar.blC() == null || !bxVar.eFh || !com.baidu.tbadk.a.d.bhv() || bxVar.blC().hadConcerned() || az.x(bxVar)) ? false : true;
+    private boolean c(by byVar) {
+        return (byVar == null || byVar.boP() == null || !byVar.eMj || !com.baidu.tbadk.a.d.bkz() || byVar.boP().hadConcerned() || az.x(byVar)) ? false : true;
     }
 }

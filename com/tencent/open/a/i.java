@@ -1,37 +1,37 @@
 package com.tencent.open.a;
 
 import com.tencent.open.a.d;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile int f4583a;
+    private volatile int f4353a;
     private volatile boolean b;
     private h c;
 
     protected abstract void a(int i, Thread thread, long j, String str, String str2, Throwable th);
 
     public i() {
-        this(c.f4577a, true, h.f4582a);
+        this(c.f4347a, true, h.f4352a);
     }
 
     public i(int i, boolean z, h hVar) {
-        this.f4583a = c.f4577a;
+        this.f4353a = c.f4347a;
         this.b = true;
-        this.c = h.f4582a;
+        this.c = h.f4352a;
         a(i);
         a(z);
         a(hVar);
     }
 
     public void b(int i, Thread thread, long j, String str, String str2, Throwable th) {
-        if (d() && d.a.a(this.f4583a, i)) {
+        if (d() && d.a.a(this.f4353a, i)) {
             a(i, thread, j, str, str2, th);
         }
     }
 
     public void a(int i) {
-        this.f4583a = i;
+        this.f4353a = i;
     }
 
     public boolean d() {

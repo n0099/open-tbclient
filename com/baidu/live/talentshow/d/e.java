@@ -13,8 +13,8 @@ public class e {
             jSONObject.putOpt("line", Integer.valueOf(i));
             jSONObject.putOpt(UbcStatConstant.KEY_LIVE_TYPE, "show_pub_v2");
             if (wVar != null) {
-                if (wVar.aHk != null) {
-                    jSONObject.putOpt("anchor_id", Long.valueOf(wVar.aHk.userId));
+                if (wVar.aJV != null) {
+                    jSONObject.putOpt("anchor_id", Long.valueOf(wVar.aJV.userId));
                 }
                 if (wVar.mLiveInfo != null) {
                     jSONObject.putOpt("room_id", Long.valueOf(wVar.mLiveInfo.room_id));
@@ -34,8 +34,8 @@ public class e {
             jSONObject.putOpt("line", Integer.valueOf(i));
             jSONObject.putOpt(UbcStatConstant.KEY_LIVE_TYPE, "show_pub_v2");
             if (wVar != null) {
-                if (wVar.aHk != null) {
-                    jSONObject.putOpt("anchor_id", Long.valueOf(wVar.aHk.userId));
+                if (wVar.aJV != null) {
+                    jSONObject.putOpt("anchor_id", Long.valueOf(wVar.aJV.userId));
                 }
                 if (wVar.mLiveInfo != null) {
                     jSONObject.putOpt("room_id", Long.valueOf(wVar.mLiveInfo.room_id));
@@ -54,8 +54,8 @@ public class e {
         try {
             jSONObject.putOpt(UbcStatConstant.KEY_LIVE_TYPE, "show_pub_v2");
             if (wVar != null) {
-                if (wVar.aHk != null) {
-                    jSONObject.putOpt("anchor_id", Long.valueOf(wVar.aHk.userId));
+                if (wVar.aJV != null) {
+                    jSONObject.putOpt("anchor_id", Long.valueOf(wVar.aJV.userId));
                 }
                 if (wVar.mLiveInfo != null) {
                     jSONObject.putOpt("room_id", Long.valueOf(wVar.mLiveInfo.room_id));
@@ -77,8 +77,8 @@ public class e {
             jSONObject.putOpt(UbcStatConstant.KEY_LIVE_TYPE, "show_pub_v2");
             jSONObject.putOpt("user_id", str);
             if (wVar != null) {
-                if (wVar.aHk != null) {
-                    jSONObject.putOpt("anchor_id", Long.valueOf(wVar.aHk.userId));
+                if (wVar.aJV != null) {
+                    jSONObject.putOpt("anchor_id", Long.valueOf(wVar.aJV.userId));
                 }
                 if (wVar.mLiveInfo != null) {
                     jSONObject.putOpt("room_id", Long.valueOf(wVar.mLiveInfo.room_id));
@@ -116,8 +116,8 @@ public class e {
                 jSONObject.put("room_id", wVar.mLiveInfo.room_id);
                 jSONObject.put("anchor_id", wVar.mLiveInfo.user_id);
             }
-            if (wVar != null && wVar.aHG != null) {
-                jSONObject.put("user_id", wVar.aHG.userId);
+            if (wVar != null && wVar.aKr != null) {
+                jSONObject.put("user_id", wVar.aKr.userId);
             }
         } catch (JSONException e) {
         }
@@ -134,8 +134,8 @@ public class e {
                 jSONObject.put("room_id", wVar.mLiveInfo.room_id);
                 jSONObject.put("anchor_id", wVar.mLiveInfo.user_id);
             }
-            if (wVar != null && wVar.aHG != null) {
-                jSONObject.put("user_id", wVar.aHG.userId);
+            if (wVar != null && wVar.aKr != null) {
+                jSONObject.put("user_id", wVar.aKr.userId);
             }
         } catch (JSONException e) {
         }

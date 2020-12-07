@@ -32,14 +32,14 @@ public interface IXAdPackageUtils {
     public static class ApkInfo {
 
         /* renamed from: a  reason: collision with root package name */
-        private PackageInfo f2362a;
+        private PackageInfo f2364a;
         public final String appName;
         public final String packageName;
         public final int versionCode;
         public final String versionName;
 
         public ApkInfo(Context context, PackageInfo packageInfo) {
-            this.f2362a = packageInfo;
+            this.f2364a = packageInfo;
             this.packageName = packageInfo.packageName;
             this.versionName = packageInfo.versionName;
             this.versionCode = packageInfo.versionCode;
@@ -52,7 +52,7 @@ public interface IXAdPackageUtils {
                 jSONObject.put("p", this.packageName);
                 jSONObject.put("v", this.versionName);
                 jSONObject.put("c", this.versionCode);
-                jSONObject.put("s", new File(this.f2362a.applicationInfo.sourceDir).lastModified());
+                jSONObject.put("s", new File(this.f2364a.applicationInfo.sourceDir).lastModified());
             } catch (JSONException e) {
             }
             return jSONObject;

@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
-    protected NavigationBar fUw;
-    protected NoDataView ftx;
-    protected NoNetworkView mFc;
-    private RelativeLayout mFe;
+    protected NoDataView fBi;
+    protected NavigationBar gcG;
+    protected NoNetworkView mTd;
+    private RelativeLayout mTe;
     private RelativeLayout rootView;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -24,56 +24,56 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         super.setContentView(R.layout.nevigationbar_layout);
-        this.fUw = (NavigationBar) findViewById(R.id.navigation_bar);
+        this.gcG = (NavigationBar) findViewById(R.id.navigation_bar);
         this.rootView = (RelativeLayout) findViewById(R.id.navigation_bar_root);
-        this.fUw.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.selectpoi.NavigationBarActivity.1
+        this.gcG.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.selectpoi.NavigationBarActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 NavigationBarActivity.this.finish();
             }
         });
-        if (dCz()) {
-            this.mFc = (NoNetworkView) ((ViewStub) findViewById(R.id.no_network_viewstub)).inflate();
+        if (dHK()) {
+            this.mTd = (NoNetworkView) ((ViewStub) findViewById(R.id.no_network_viewstub)).inflate();
         }
     }
 
     @Override // android.app.Activity
     public void setContentView(View view) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        if (dCz()) {
+        if (dHK()) {
         }
-        this.mFe = new RelativeLayout(getPageContext().getContext());
-        this.mFe.addView(view, new ViewGroup.LayoutParams(-1, -1));
-        this.rootView.addView(this.mFe, 0, layoutParams);
+        this.mTe = new RelativeLayout(getPageContext().getContext());
+        this.mTe.addView(view, new ViewGroup.LayoutParams(-1, -1));
+        this.rootView.addView(this.mTe, 0, layoutParams);
     }
 
-    protected boolean dCz() {
+    protected boolean dHK() {
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void setContentView(int i) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        if (dCz()) {
+        if (dHK()) {
             layoutParams.addRule(3, R.id.no_network_view);
         } else {
             layoutParams.addRule(3, R.id.no_network_viewstub);
         }
-        this.mFe = new RelativeLayout(getPageContext().getContext());
-        this.mFe.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
-        this.rootView.addView(this.mFe, layoutParams);
+        this.mTe = new RelativeLayout(getPageContext().getContext());
+        this.mTe.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
+        this.rootView.addView(this.mTe, layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.fUw.onChangeSkinType(getPageContext(), i);
-        if (this.mFc != null) {
-            this.mFc.onChangeSkinType(getPageContext(), i);
+        this.gcG.onChangeSkinType(getPageContext(), i);
+        if (this.mTd != null) {
+            this.mTd.onChangeSkinType(getPageContext(), i);
         }
-        if (this.ftx != null) {
-            this.ftx.onChangeSkinType(getPageContext(), i);
+        if (this.fBi != null) {
+            this.fBi.onChangeSkinType(getPageContext(), i);
         }
         getLayoutMode().setNightMode(i == 1);
         getLayoutMode().onModeChanged(this.rootView);

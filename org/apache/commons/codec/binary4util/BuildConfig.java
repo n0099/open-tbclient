@@ -1,10 +1,9 @@
 package org.apache.commons.codec.binary4util;
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public final class BuildConfig {
-    public static final String APPLICATION_ID = "org.apache.commons.codec.binary4util";
     public static final String BUILD_TYPE = "release";
     public static final boolean DEBUG = false;
-    public static final String FLAVOR = "";
+    public static final String LIBRARY_PACKAGE_NAME = "org.apache.commons.codec.binary4util";
     public static final int VERSION_CODE = 1;
     public static final String VERSION_NAME = "1.0";
 }

@@ -6,25 +6,25 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class q {
-    private TbPageContext eGu;
+    private TbPageContext eNx;
 
     public q(TbPageContext tbPageContext) {
-        this.eGu = tbPageContext;
+        this.eNx = tbPageContext;
         SocketMessageTask socketMessageTask = new SocketMessageTask(309644);
         socketMessageTask.setResponsedClass(ThreadPublishSocketResMessage.class);
         MessageManager.getInstance().registerTask(socketMessageTask);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, com.baidu.tieba.tbadkCore.a.a.bK(TbConfig.URL_THREAD_PUBLISH, 309644));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, com.baidu.tieba.tbadkCore.a.a.bN(TbConfig.URL_THREAD_PUBLISH, 309644));
         tbHttpMessageTask.setResponsedClass(ThreadPublishHttpResMeesage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void G(long j, long j2) {
+    public void F(long j, long j2) {
         ThreadPublishReqMessage threadPublishReqMessage = new ThreadPublishReqMessage();
         threadPublishReqMessage.tid = j;
         threadPublishReqMessage.fid = j2;
-        threadPublishReqMessage.setTag(this.eGu.getUniqueId());
+        threadPublishReqMessage.setTag(this.eNx.getUniqueId());
         MessageManager.getInstance().sendMessage(threadPublishReqMessage);
     }
 }

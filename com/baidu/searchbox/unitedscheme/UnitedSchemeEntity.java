@@ -48,7 +48,7 @@ public class UnitedSchemeEntity implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public UnitedSchemeEntity m32clone() {
+    public UnitedSchemeEntity m30clone() {
         UnitedSchemeEntity unitedSchemeEntity = new UnitedSchemeEntity(this.mUri, this.mSource, UnitedSchemeUtility.getPaths(this.mUri), (HashMap) this.mParams.clone());
         unitedSchemeEntity.originEntity = this;
         unitedSchemeEntity.callbackInvoked = this.callbackInvoked;

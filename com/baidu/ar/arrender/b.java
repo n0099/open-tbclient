@@ -5,17 +5,17 @@ import android.graphics.PointF;
 import android.opengl.Matrix;
 import com.baidu.ar.DuMixInput;
 import com.baidu.ar.DuMixOutput;
-import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
-import com.baidu.ar.arplay.core.engine.pixel.PixelRotation;
 import com.baidu.ar.arplay.core.engine.rotate.Orientation;
-import com.baidu.ar.arplay.core.filter.OutputFillMode;
+import com.baidu.ar.arplay.core.pixel.PixelReadParams;
+import com.baidu.ar.arplay.core.pixel.PixelRotation;
+import com.baidu.ar.arplay.core.renderer.OutputFillMode;
 import com.baidu.ar.bean.MirriorType;
 import com.baidu.ar.bean.RotationType;
 import com.baidu.ar.bean.ScaleType;
 import com.baidu.ar.bean.Size;
-import com.baidu.ar.g.q;
+import com.baidu.ar.h.q;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static PixelRotation a(RotationType rotationType, MirriorType mirriorType) {
@@ -105,7 +105,7 @@ class b {
                 pixelReadParams.setPixelRotate(PixelRotation.NoRotation);
             }
         } else if (!q.gM()) {
-            if (q.D(context) && pixelReadParams.getIsPortrait() && z) {
+            if (q.E(context) && pixelReadParams.getIsPortrait() && z) {
                 pixelReadParams.setPixelRotate(PixelRotation.RotateRightFlipVertical);
             }
         } else if (pixelReadParams.getIsPortrait()) {
@@ -124,7 +124,7 @@ class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, float[] fArr, boolean z) {
         Matrix.setIdentityM(fArr, 0);
-        if (q.gL() || q.D(context)) {
+        if (q.gL() || q.E(context)) {
             Matrix.rotateM(fArr, 0, 90.0f, 0.0f, 0.0f, 1.0f);
             Matrix.translateM(fArr, 0, 0.0f, -1.0f, 0.0f);
             if (z) {

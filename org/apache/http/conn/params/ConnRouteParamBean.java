@@ -6,7 +6,7 @@ import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.params.HttpAbstractParamBean;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class ConnRouteParamBean extends HttpAbstractParamBean {
     public ConnRouteParamBean(HttpParams httpParams) {
         super(null);

@@ -2,7 +2,7 @@ package com.baidu.location;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public final class Poi implements Parcelable {
     public static final Parcelable.Creator<Poi> CREATOR = new d();
     private final String mAddr;

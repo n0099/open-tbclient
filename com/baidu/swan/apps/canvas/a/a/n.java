@@ -5,19 +5,19 @@ import android.graphics.Paint;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class n extends a {
+    private int cHC;
+    private int cHD;
     private String mText;
-    private int mX;
-    private int mY;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         try {
             if (jSONArray.length() > 2) {
                 this.mText = jSONArray.optString(0);
-                this.mX = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(1));
-                this.mY = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(2));
+                this.cHC = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(1));
+                this.cHD = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(2));
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
@@ -30,29 +30,29 @@ public class n extends a {
     public void a(b bVar, Canvas canvas) {
         float f;
         if (!TextUtils.isEmpty(this.mText)) {
-            TextPaint textPaint = bVar.cAl;
-            int i = bVar.cAq;
+            TextPaint textPaint = bVar.cHd;
+            int i = bVar.cHi;
             Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-            float f2 = fontMetrics.top + this.mY;
-            float f3 = fontMetrics.ascent + this.mY;
-            float f4 = fontMetrics.bottom + this.mY;
+            float f2 = fontMetrics.top + this.cHD;
+            float f3 = fontMetrics.ascent + this.cHD;
+            float f4 = fontMetrics.bottom + this.cHD;
             switch (i) {
                 case 1:
-                    f = this.mY + ((f4 - f2) / 2.0f) + (f3 - f2);
+                    f = this.cHD + ((f4 - f2) / 2.0f) + (f3 - f2);
                     break;
                 case 2:
-                    f = (this.mY + ((fontMetrics.bottom - fontMetrics.top) / 2.0f)) - fontMetrics.bottom;
+                    f = (this.cHD + ((fontMetrics.bottom - fontMetrics.top) / 2.0f)) - fontMetrics.bottom;
                     break;
                 case 3:
-                    f = this.mY - (f3 - f2);
+                    f = this.cHD - (f3 - f2);
                     break;
                 default:
-                    f = this.mY;
+                    f = this.cHD;
                     break;
             }
             int alpha = textPaint.getAlpha();
             bVar.a(textPaint);
-            canvas.drawText(this.mText, this.mX, f, textPaint);
+            canvas.drawText(this.mText, this.cHC, f, textPaint);
             textPaint.setAlpha(alpha);
         }
     }

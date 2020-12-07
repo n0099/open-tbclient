@@ -1,5 +1,5 @@
 package com.baidu.swan.games.view.recommend;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public interface a {
     void destroy();
 

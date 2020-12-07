@@ -30,13 +30,13 @@ import java.io.InputStream;
 import java.lang.reflect.Field;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3139a = VersionInfo.getApiVersion();
-    private static final String b = "BaiduBikeNavi_Resource_v" + f3139a + ".jar";
-    private static final String c = "BaiduBikeNavi_Resource_v" + f3139a + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX;
+    private static final String f3141a = VersionInfo.getApiVersion();
+    private static final String b = "BaiduBikeNavi_Resource_v" + f3141a + ".jar";
+    private static final String c = "BaiduBikeNavi_Resource_v" + f3141a + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX;
     private static String d = Environment.getExternalStorageDirectory() + "/";
     private static String e = d + b;
     private static AssetManager f = null;
@@ -57,7 +57,7 @@ public class a {
             return false;
         }
         o = context;
-        if (com.baidu.platform.comapi.bikenavi.a.a.f2826a) {
+        if (com.baidu.platform.comapi.bikenavi.a.a.f2828a) {
             try {
                 z = b(context);
                 Log.d("tryret", "tryret" + z);
@@ -145,19 +145,19 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.p.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0295a implements FilenameFilter {
-        C0295a() {
+    /* loaded from: classes26.dex */
+    public static class C0306a implements FilenameFilter {
+        C0306a() {
         }
 
         @Override // java.io.FilenameFilter
         public boolean accept(File file, String str) {
-            return str.startsWith("BaiduBikeNavi_Resource_v") && !str.endsWith(new StringBuilder().append(a.f3139a).append(".jar").toString());
+            return str.startsWith("BaiduBikeNavi_Resource_v") && !str.endsWith(new StringBuilder().append(a.f3141a).append(".jar").toString());
         }
     }
 
     private static void d() {
-        File[] listFiles = new File(d).listFiles(new C0295a());
+        File[] listFiles = new File(d).listFiles(new C0306a());
         if (listFiles != null && listFiles.length > 0) {
             for (File file : listFiles) {
                 file.delete();

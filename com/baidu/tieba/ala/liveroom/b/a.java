@@ -11,8 +11,7 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class a {
-    private c gUZ;
-    private CustomMessageListener guV = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.a.1
+    private CustomMessageListener gDE = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -25,6 +24,7 @@ public class a {
             }
         }
     };
+    private c hel;
     private final boolean mIsHost;
     private TbPageContext mTbPageContext;
     private String otherParams;
@@ -32,45 +32,45 @@ public class a {
     public a(TbPageContext tbPageContext, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mIsHost = z;
-        this.guV.setTag(tbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.guV);
+        this.gDE.setTag(tbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.gDE);
     }
 
-    public void c(ViewGroup viewGroup, w wVar) {
+    public void d(ViewGroup viewGroup, w wVar) {
         if (viewGroup != null && this.mTbPageContext != null && wVar != null) {
-            this.gUZ = new c(this.mTbPageContext);
-            bWs();
+            this.hel = new c(this.mTbPageContext);
+            cac();
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(11);
-            layoutParams.addRule(3, a.f.ala_main_anthor_task_entry_id);
+            layoutParams.addRule(3, a.f.anthor_task_viewpager_id);
             layoutParams.rightMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds24);
             layoutParams.topMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(a.d.sdk_ds16);
             if (!TbadkCoreApplication.getInst().isOther()) {
-                viewGroup.addView(this.gUZ.getView(), layoutParams);
-                B(wVar);
+                viewGroup.addView(this.hel.getView(), layoutParams);
+                C(wVar);
             }
         }
     }
 
-    public void B(w wVar) {
-        if (wVar.aHk != null) {
-            this.gUZ.eS(wVar.aHk.alaId);
+    public void C(w wVar) {
+        if (wVar.aJV != null) {
+            this.hel.fw(wVar.aJV.alaId);
         }
     }
 
     public boolean au(ViewGroup viewGroup) {
-        return (this.gUZ == null || this.gUZ.getView() == null || viewGroup.indexOfChild(this.gUZ.getView()) <= -1) ? false : true;
+        return (this.hel == null || this.hel.getView() == null || viewGroup.indexOfChild(this.hel.getView()) <= -1) ? false : true;
     }
 
-    public void bWs() {
-        if (this.gUZ != null && this.gUZ.getView() != null && this.gUZ.getView().getParent() != null) {
-            ((ViewGroup) this.gUZ.getView().getParent()).removeView(this.gUZ.getView());
+    public void cac() {
+        if (this.hel != null && this.hel.getView() != null && this.hel.getView().getParent() != null) {
+            ((ViewGroup) this.hel.getView().getParent()).removeView(this.hel.getView());
         }
     }
 
     public void setVisibility(int i) {
-        if (this.gUZ != null && this.gUZ.getView() != null) {
-            this.gUZ.getView().setVisibility(i);
+        if (this.hel != null && this.hel.getView() != null) {
+            this.hel.getView().setVisibility(i);
         }
     }
 }

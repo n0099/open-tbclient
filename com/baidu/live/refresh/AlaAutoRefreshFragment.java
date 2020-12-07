@@ -10,7 +10,7 @@ import com.baidu.live.tbadk.core.BaseFragment;
 import java.util.List;
 /* loaded from: classes4.dex */
 public abstract class AlaAutoRefreshFragment extends BaseFragment {
-    private NetMessageListener bpC = new NetMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2) { // from class: com.baidu.live.refresh.AlaAutoRefreshFragment.1
+    private NetMessageListener buN = new NetMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2) { // from class: com.baidu.live.refresh.AlaAutoRefreshFragment.1
         @Override // com.baidu.live.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null && responsedMessage.getOrginalMessage().getTag() == AlaAutoRefreshFragment.this.getUniqueId()) {
@@ -30,6 +30,6 @@ public abstract class AlaAutoRefreshFragment extends BaseFragment {
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.bpC);
+        registerListener(this.buN);
     }
 }

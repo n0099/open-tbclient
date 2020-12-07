@@ -1,7 +1,7 @@
 package com.baidu.searchbox.config;
 
 import com.baidu.android.util.sp.SharedPrefsWrapper;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class QuickPersistConfig extends SharedPrefsWrapper {
     public static final String SP_FILE_STARTUP = "app_quick_config";
 
@@ -9,8 +9,9 @@ public class QuickPersistConfig extends SharedPrefsWrapper {
         super(SP_FILE_STARTUP);
     }
 
-    /* loaded from: classes9.dex */
-    private static final class Holder {
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes15.dex */
+    public static final class Holder {
         private static final QuickPersistConfig INSTANCE = new QuickPersistConfig();
 
         private Holder() {

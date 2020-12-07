@@ -10,7 +10,7 @@ import com.baidu.adp.lib.f.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ColumnLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.k;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ap;
@@ -24,42 +24,42 @@ import com.baidu.tieba.pb.data.f;
 import com.baidu.tieba.pb.pb.main.n;
 import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b extends a<PostData, n> {
-    private int aIJ;
-    private View.OnClickListener aYm;
-    protected bx agB;
-    private TbRichTextView.i fFy;
-    private com.baidu.tieba.pb.a.c fgS;
-    private com.baidu.adp.lib.d.b<ConstrainImageLayout> iOy;
-    private com.baidu.adp.lib.d.b<TbImageView> iOz;
-    private String lKs;
-    private boolean lqL;
-    public com.baidu.tieba.pb.pb.main.b.c lqk;
-    private TbRichTextView.c lrB;
-    private boolean lrD;
-    private boolean lrE;
-    private boolean lrF;
+    private int aLC;
+    protected by ahA;
+    private View.OnClickListener bbH;
+    private TbRichTextView.i fNk;
+    private com.baidu.tieba.pb.a.c fos;
+    private com.baidu.adp.lib.d.b<ConstrainImageLayout> iZp;
+    private com.baidu.adp.lib.d.b<TbImageView> iZq;
+    public com.baidu.tieba.pb.pb.main.b.c lDT;
+    private boolean lEu;
+    private TbRichTextView.c lFj;
+    private boolean lFl;
+    private boolean lHP;
+    private String lYp;
+    private boolean lYq;
     private View.OnLongClickListener mOnLongClickListener;
 
     public b(NewSubPbActivity newSubPbActivity, BdUniqueId bdUniqueId) {
         super(newSubPbActivity, bdUniqueId);
-        this.agB = null;
-        this.lrB = null;
-        this.lqL = k.biL().isShowImages();
-        this.aYm = null;
-        this.fFy = null;
-        this.fgS = null;
+        this.ahA = null;
+        this.lFj = null;
+        this.lEu = k.blV().isShowImages();
+        this.bbH = null;
+        this.fNk = null;
+        this.fos = null;
         this.mOnLongClickListener = null;
-        this.lrD = com.baidu.tbadk.a.d.bhn();
-        this.lrE = com.baidu.tbadk.a.d.bho();
-        this.lrF = com.baidu.tbadk.a.d.bhi();
-        this.iOy = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.pb.pb.sub.a.b.1
+        this.lHP = com.baidu.tbadk.a.d.bkr();
+        this.lFl = com.baidu.tbadk.a.d.bks();
+        this.lYq = com.baidu.tbadk.a.d.bkm();
+        this.iZp = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.pb.pb.sub.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cAy */
+            /* renamed from: cEO */
             public ConstrainImageLayout makeObject() {
-                return new ConstrainImageLayout(b.this.lKr.getPageContext().getPageActivity());
+                return new ConstrainImageLayout(b.this.lYo.getPageContext().getPageActivity());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -83,12 +83,12 @@ public class b extends a<PostData, n> {
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.iOz = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.pb.pb.sub.a.b.2
+        this.iZq = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.pb.pb.sub.a.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bsp */
+            /* renamed from: bvP */
             public TbImageView makeObject() {
-                TbImageView tbImageView = new TbImageView(b.this.lKr.getPageContext().getPageActivity());
+                TbImageView tbImageView = new TbImageView(b.this.lYo.getPageContext().getPageActivity());
                 tbImageView.setDrawBorder(true);
                 tbImageView.setBorderColor(ap.getColor(R.color.common_color_10043));
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
@@ -119,22 +119,24 @@ public class b extends a<PostData, n> {
                 return tbImageView;
             }
         }, 12, 0);
-        if (newSubPbActivity != null && newSubPbActivity.doW() != null) {
-            this.aIJ = newSubPbActivity.doW().dpN();
+        if (newSubPbActivity != null && newSubPbActivity.dun() != null) {
+            this.aLC = newSubPbActivity.dun().dve();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ce */
+    /* renamed from: ch */
     public n c(ViewGroup viewGroup) {
-        n nVar = new n(this.lKr.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_floor_item_layout, viewGroup, false), this.aIJ, this.lrD, this.lrE);
-        nVar.ui(true);
-        nVar.lrW.setConstrainLayoutPool(this.iOy);
-        nVar.lrW.setImageViewPool(this.iOz);
+        View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_floor_item_layout, viewGroup, false);
+        ((ViewGroup) inflate.findViewById(R.id.pb_post_reply_container)).addView(LayoutInflater.from(inflate.getContext()).inflate(R.layout.pb_op_stragtery_default, (ViewGroup) null));
+        n nVar = new n(this.lYo.getPageContext(), inflate, this.aLC, this.lFl);
+        nVar.uK(true);
+        nVar.lFB.setConstrainLayoutPool(this.iZp);
+        nVar.lFB.setImageViewPool(this.iZq);
         e(nVar);
-        com.baidu.tieba.pb.pb.b.a(nVar, (f) null, this.lrD);
+        com.baidu.tieba.pb.pb.b.a(nVar, (f) null, this.lHP);
         return nVar;
     }
 
@@ -148,7 +150,7 @@ public class b extends a<PostData, n> {
         }
         layoutParams.height = com.baidu.tieba.pb.pb.b.getDimensionPixelSize(R.dimen.tbds2);
         layoutParams.leftMargin = com.baidu.tieba.pb.pb.b.getDimensionPixelSize(R.dimen.tbds148);
-        if (this.lrD) {
+        if (this.lHP) {
             layoutParams.topMargin = com.baidu.tieba.pb.pb.b.getDimensionPixelSize(R.dimen.tbds0);
         }
         nVar.mBottomLine.setLayoutParams(layoutParams);
@@ -161,13 +163,13 @@ public class b extends a<PostData, n> {
         layoutParams2.leftMargin = com.baidu.tieba.pb.pb.b.getDimensionPixelSize(R.dimen.tbds21);
         layoutParams2.rightMargin = com.baidu.tieba.pb.pb.b.getDimensionPixelSize(R.dimen.tbds1);
         columnLayout.setLayoutParams(layoutParams2);
-        nVar.lrV.setCommonTextViewOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.b.3
+        nVar.lFA.setCommonTextViewOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null && (view.getTag(R.id.tag_subpb_ban_display_keyboard) instanceof Boolean) && view.getTag(R.id.tag_subpb_ban_display_keyboard) == Boolean.TRUE && nVar.getView() != null) {
                     nVar.getView().setTag(R.id.tag_subpb_ban_display_keyboard, true);
                 }
-                b.this.aYm.onClick(nVar.getView());
+                b.this.bbH.onClick(nVar.getView());
                 if (view != null) {
                     view.setTag(R.id.tag_subpb_ban_display_keyboard, null);
                 }
@@ -187,21 +189,21 @@ public class b extends a<PostData, n> {
         c(nVar);
         PostData postData2 = (PostData) getItem(i);
         if (postData2 != null) {
-            postData2.bmQ();
+            postData2.bqd();
             a(nVar, postData2, view, i);
             b(nVar, postData);
         }
-        com.baidu.tieba.pb.pb.b.a(nVar, (f) null, this.lrD);
+        com.baidu.tieba.pb.pb.b.a(nVar, (f) null, this.lHP);
         nVar.mBottomLine.setVisibility(i == 0 ? 8 : 0);
         return view;
     }
 
     private void b(n nVar, PostData postData) {
-        if (nVar != null && nVar.lrN != null) {
-            if (au.equals(this.lKs, postData.getId())) {
-                ap.setBackgroundColor(nVar.lrN, R.color.CAM_X0313);
+        if (nVar != null && nVar.lFs != null) {
+            if (au.equals(this.lYp, postData.getId())) {
+                ap.setBackgroundColor(nVar.lFs, R.color.CAM_X0313);
             } else {
-                ap.setBackgroundColor(nVar.lrN, R.color.CAM_X0205);
+                ap.setBackgroundColor(nVar.lFs, R.color.CAM_X0205);
             }
         }
     }
@@ -209,199 +211,199 @@ public class b extends a<PostData, n> {
     private void a(n nVar, PostData postData, View view, int i) {
         if (nVar != null && postData != null) {
             nVar.mPosition = i;
-            com.baidu.tieba.pb.pb.b.a(nVar, postData, view, i, this.lKr, this.agB, this.lrD);
-            com.baidu.tieba.pb.pb.b.a(nVar, postData, this.agB, i, this.lrD);
-            if (this.lrD && postData.mYG) {
-                nVar.lrX.setVisibility(8);
-                nVar.lsc.setVisibility(0);
-                if (this.agB.bkm()) {
-                    nVar.lsq.setVisibility(8);
+            com.baidu.tieba.pb.pb.b.a(nVar, postData, view, i, this.lYo, this.ahA, this.lHP);
+            com.baidu.tieba.pb.pb.b.a(nVar, postData, this.ahA, i, this.lHP);
+            if (this.lHP && postData.nmE) {
+                nVar.lFC.setVisibility(8);
+                nVar.lFH.setVisibility(0);
+                if (this.ahA.bnz()) {
+                    nVar.lFV.setVisibility(8);
                 } else {
-                    nVar.lsq.setVisibility(0);
+                    nVar.lFV.setVisibility(0);
                 }
             } else {
-                nVar.lsc.setVisibility(8);
-                nVar.lrX.setVisibility(0);
-                nVar.lsb.setVisibility(0);
-                nVar.jKJ.setVisibility(0);
-                nVar.lrT.setVisibility(0);
-                nVar.lsq.setVisibility(8);
+                nVar.lFH.setVisibility(8);
+                nVar.lFC.setVisibility(0);
+                nVar.lFG.setVisibility(0);
+                nVar.jYm.setVisibility(0);
+                nVar.lFy.setVisibility(0);
+                nVar.lFV.setVisibility(8);
             }
-            com.baidu.tieba.pb.pb.b.a(nVar, postData, postData.mYG, this.lrD);
-            com.baidu.tieba.pb.pb.b.a(this.lKr, nVar, postData, view, this.lqL, this.lrF, this.mIsFromCDN, i != 0, this.lrB);
-            com.baidu.tieba.pb.pb.b.a(this.lKr, nVar, postData, this.agB);
+            com.baidu.tieba.pb.pb.b.a(nVar, postData, postData.nmE, this.lHP);
+            com.baidu.tieba.pb.pb.b.a(this.lYo, nVar, postData, view, this.lEu, this.lYq, this.mIsFromCDN, i != 0, this.lFj);
+            com.baidu.tieba.pb.pb.b.a(this.lYo, nVar, postData, this.ahA);
             com.baidu.tieba.pb.pb.b.a(nVar, postData);
-            com.baidu.tieba.pb.pb.b.a(nVar, postData, this.lqL);
-            i(nVar, postData);
+            com.baidu.tieba.pb.pb.b.a(nVar, postData, this.lEu);
+            j(nVar, postData);
         }
     }
 
-    private void i(n nVar, PostData postData) {
+    private void j(n nVar, PostData postData) {
         if (nVar != null && postData != null) {
-            nVar.lsA.setVisibility(postData.mYC ? 0 : 8);
+            nVar.lGf.setVisibility(postData.nmA ? 0 : 8);
         }
     }
 
     private void c(n nVar) {
-        nVar.lrV.setTextViewOnTouchListener(this.fgS);
-        nVar.lrV.setTextViewCheckSelection(false);
+        nVar.lFA.setTextViewOnTouchListener(this.fos);
+        nVar.lFA.setTextViewCheckSelection(false);
     }
 
     private void a(n nVar, PostData postData, int i) {
-        if (this.lrD) {
-            if (nVar.lse != null) {
-                SparseArray sparseArray = (SparseArray) nVar.lse.getTag();
+        if (this.lHP) {
+            if (nVar.lFJ != null) {
+                SparseArray sparseArray = (SparseArray) nVar.lFJ.getTag();
                 if (sparseArray == null) {
                     sparseArray = new SparseArray();
-                    nVar.lse.setTag(sparseArray);
+                    nVar.lFJ.setTag(sparseArray);
                 }
                 sparseArray.put(R.id.tag_load_sub_data, postData);
             }
-            if (nVar.lsd != null) {
-                SparseArray sparseArray2 = (SparseArray) nVar.lsd.getTag();
+            if (nVar.lFI != null) {
+                SparseArray sparseArray2 = (SparseArray) nVar.lFI.getTag();
                 if (sparseArray2 == null) {
                     sparseArray2 = new SparseArray();
-                    nVar.lsd.setTag(sparseArray2);
+                    nVar.lFI.setTag(sparseArray2);
                 }
                 sparseArray2.put(R.id.tag_load_sub_data, postData);
             }
         }
-        if (nVar.lsb != null) {
-            SparseArray sparseArray3 = (SparseArray) nVar.lsb.getTag();
+        if (nVar.lFG != null) {
+            SparseArray sparseArray3 = (SparseArray) nVar.lFG.getTag();
             if (sparseArray3 == null) {
                 sparseArray3 = new SparseArray();
-                nVar.lsb.setTag(sparseArray3);
+                nVar.lFG.setTag(sparseArray3);
             }
             sparseArray3.put(R.id.tag_load_sub_data, postData);
         }
-        if (nVar.jKJ != null) {
-            SparseArray sparseArray4 = (SparseArray) nVar.jKJ.getTag();
+        if (nVar.jYm != null) {
+            SparseArray sparseArray4 = (SparseArray) nVar.jYm.getTag();
             if (sparseArray4 == null) {
                 sparseArray4 = new SparseArray();
-                nVar.jKJ.setTag(sparseArray4);
+                nVar.jYm.setTag(sparseArray4);
             }
             sparseArray4.put(R.id.tag_load_sub_data, postData);
-            sparseArray4.put(R.id.tag_is_subpb, Boolean.valueOf(!postData.mYG));
+            sparseArray4.put(R.id.tag_is_subpb, Boolean.valueOf(!postData.nmE));
         }
     }
 
     private void b(final n nVar) {
-        nVar.lrN.setOnLongClickListener(this.mOnLongClickListener);
-        if (this.lKr != null && this.lKr.getPageContext().getOrignalPage() != 0) {
-            com.baidu.tieba.pb.pb.main.b.a diM = this.lKr.diM();
-            if (diM != null) {
-                nVar.hGe.setOnClickListener(diM.iry);
-                nVar.lrU.setOnClickListener(diM.iry);
-                nVar.lsn.setOnClickListener(diM.iry);
-                nVar.lsn.getHeadView().setOnClickListener(diM.iry);
-                nVar.lrV.setOnEmotionClickListener(diM.lGt);
+        nVar.lFs.setOnLongClickListener(this.mOnLongClickListener);
+        if (this.lYo != null && this.lYo.getPageContext().getOrignalPage() != 0) {
+            com.baidu.tieba.pb.pb.main.b.a dob = this.lYo.dob();
+            if (dob != null) {
+                nVar.hPL.setOnClickListener(dob.iCq);
+                nVar.lFz.setOnClickListener(dob.iCq);
+                nVar.lFS.setOnClickListener(dob.iCq);
+                nVar.lFS.getHeadView().setOnClickListener(dob.iCq);
+                nVar.lFA.setOnEmotionClickListener(dob.lUm);
             }
-            nVar.lrV.setOnLongClickListener(this.mOnLongClickListener);
-            nVar.lrV.setOnImageClickListener(this.fFy);
-            nVar.lrV.setOnClickListener(this.aYm);
-            nVar.getView().setOnClickListener(this.aYm);
-            nVar.lsr.setOnClickListener(this.aYm);
-            nVar.lss.setOnClickListener(this.aYm);
-            if (this.lqk == null) {
-                this.lqk = new com.baidu.tieba.pb.pb.main.b.c(this.lKr.getPageContext());
+            nVar.lFA.setOnLongClickListener(this.mOnLongClickListener);
+            nVar.lFA.setOnImageClickListener(this.fNk);
+            nVar.lFA.setOnClickListener(this.bbH);
+            nVar.getView().setOnClickListener(this.bbH);
+            nVar.lFW.setOnClickListener(this.bbH);
+            nVar.lFX.setOnClickListener(this.bbH);
+            if (this.lDT == null) {
+                this.lDT = new com.baidu.tieba.pb.pb.main.b.c(this.lYo.getPageContext());
             }
-            if (this.lrD) {
-                nVar.lse.setOnClickListener(this.aYm);
-                nVar.lsd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.b.4
+            if (this.lHP) {
+                nVar.lFJ.setOnClickListener(this.bbH);
+                nVar.lFI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.b.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         final PostData postData;
                         if (view.getTag() instanceof SparseArray) {
                             SparseArray sparseArray = (SparseArray) view.getTag();
-                            if ((sparseArray.get(R.id.tag_load_sub_data) instanceof PostData) && (postData = (PostData) sparseArray.get(R.id.tag_load_sub_data)) != null && nVar.lrN != null && b.this.lqk != null) {
+                            if ((sparseArray.get(R.id.tag_load_sub_data) instanceof PostData) && (postData = (PostData) sparseArray.get(R.id.tag_load_sub_data)) != null && nVar.lFs != null && b.this.lDT != null) {
                                 e.mY().postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.sub.a.b.4.1
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        b.this.lqk.lGI.a(null, b.this.agB, postData, nVar.lrV.getLayoutStrategy());
+                                        b.this.lDT.lUB.a(null, b.this.ahA, postData, nVar.lFA.getLayoutStrategy());
                                     }
                                 }, 100L);
-                                String id = b.this.agB.getId();
+                                String id = b.this.ahA.getId();
                                 if (StringUtils.isNull(id) || "0".equals(id)) {
-                                    id = b.this.agB.getNid();
+                                    id = b.this.ahA.getNid();
                                 }
-                                TiebaStatic.log(new ar("c13700").dR("tid", id).w("fid", b.this.agB.getFid()).w("uid", TbadkCoreApplication.getCurrentAccountId()).dR("post_id", postData.getId()).ak("obj_type", 4));
+                                TiebaStatic.log(new ar("c13700").dY("tid", id).w("fid", b.this.ahA.getFid()).w("uid", TbadkCoreApplication.getCurrentAccountId()).dY("post_id", postData.getId()).al("obj_source", 1).al("obj_type", 4));
                             }
                         }
                     }
                 });
-                nVar.lsk.eQc = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.b.5
+                nVar.lFP.eXr = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.b.5
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (view != null && b.this.agB != null && nVar != null && nVar.lsk != null && nVar.lsk.getData() != null) {
-                            int i = view == nVar.lsk.getImgAgree() ? 1 : 2;
-                            String id = b.this.agB.getId();
+                        if (view != null && b.this.ahA != null && nVar != null && nVar.lFP != null && nVar.lFP.getData() != null) {
+                            int i = view == nVar.lFP.getImgAgree() ? 1 : 2;
+                            String id = b.this.ahA.getId();
                             if (StringUtils.isNull(id) || "0".equals(id)) {
-                                id = b.this.agB.getNid();
+                                id = b.this.ahA.getNid();
                             }
-                            TiebaStatic.log(new ar("c13700").dR("tid", id).w("fid", b.this.agB.getFid()).w("uid", TbadkCoreApplication.getCurrentAccountId()).dR("post_id", nVar.lsk.getData().postId).ak("obj_type", i));
+                            TiebaStatic.log(new ar("c13700").dY("tid", id).w("fid", b.this.ahA.getFid()).w("uid", TbadkCoreApplication.getCurrentAccountId()).dY("post_id", nVar.lFP.getData().postId).al("obj_source", 1).al("obj_type", i));
                         }
                     }
                 };
             }
-            nVar.lsb.setOnClickListener(this.aYm);
-            nVar.jKJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.b.6
+            nVar.lFG.setOnClickListener(this.bbH);
+            nVar.jYm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.b.6
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     final PostData postData;
                     if (view.getTag() instanceof SparseArray) {
                         SparseArray sparseArray = (SparseArray) view.getTag();
-                        if ((sparseArray.get(R.id.tag_load_sub_data) instanceof PostData) && (postData = (PostData) sparseArray.get(R.id.tag_load_sub_data)) != null && nVar.lrN != null && b.this.lqk != null) {
+                        if ((sparseArray.get(R.id.tag_load_sub_data) instanceof PostData) && (postData = (PostData) sparseArray.get(R.id.tag_load_sub_data)) != null && nVar.lFs != null && b.this.lDT != null) {
                             e.mY().postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.sub.a.b.6.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    b.this.lqk.lGI.a(null, b.this.agB, postData, nVar.lrV.getLayoutStrategy());
+                                    b.this.lDT.lUB.a(null, b.this.ahA, postData, nVar.lFA.getLayoutStrategy());
                                 }
                             }, 100L);
-                            String id = b.this.agB.getId();
+                            String id = b.this.ahA.getId();
                             if (StringUtils.isNull(id) || "0".equals(id)) {
-                                id = b.this.agB.getNid();
+                                id = b.this.ahA.getNid();
                             }
-                            TiebaStatic.log(new ar("c13700").dR("tid", id).w("fid", b.this.agB.getFid()).w("uid", TbadkCoreApplication.getCurrentAccountId()).dR("post_id", postData.getId()).ak("obj_type", 4));
+                            TiebaStatic.log(new ar("c13700").dY("tid", id).w("fid", b.this.ahA.getFid()).w("uid", TbadkCoreApplication.getCurrentAccountId()).dY("post_id", postData.getId()).al("obj_source", 1).al("obj_type", 4));
                         }
                     }
                 }
             });
-            nVar.lrT.eQc = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.b.7
+            nVar.lFy.eXr = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.b.7
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (view != null && b.this.agB != null && nVar != null && nVar.lrT != null && nVar.lrT.getData() != null) {
-                        int i = view == nVar.lrT.getImgAgree() ? 1 : 2;
-                        String id = b.this.agB.getId();
+                    if (view != null && b.this.ahA != null && nVar != null && nVar.lFy != null && nVar.lFy.getData() != null) {
+                        int i = view == nVar.lFy.getImgAgree() ? 1 : 2;
+                        String id = b.this.ahA.getId();
                         if (StringUtils.isNull(id) || "0".equals(id)) {
-                            id = b.this.agB.getNid();
+                            id = b.this.ahA.getNid();
                         }
-                        TiebaStatic.log(new ar("c13700").dR("tid", id).w("fid", b.this.agB.getFid()).w("uid", TbadkCoreApplication.getCurrentAccountId()).dR("post_id", nVar.lrT.getData().postId).ak("obj_type", i));
+                        TiebaStatic.log(new ar("c13700").dY("tid", id).w("fid", b.this.ahA.getFid()).w("uid", TbadkCoreApplication.getCurrentAccountId()).dY("post_id", nVar.lFy.getData().postId).al("obj_source", 1).al("obj_type", i));
                     }
                 }
             };
-            if (this.lrD) {
-                nVar.lsq.setOnClickListener(this.aYm);
+            if (this.lHP) {
+                nVar.lFV.setOnClickListener(this.bbH);
             }
         }
     }
 
     public void B(View.OnClickListener onClickListener) {
-        this.aYm = onClickListener;
+        this.bbH = onClickListener;
     }
 
     public void setOnImageClickListener(TbRichTextView.i iVar) {
-        this.fFy = iVar;
+        this.fNk = iVar;
     }
 
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
         this.mOnLongClickListener = onLongClickListener;
     }
 
-    public void setThreadData(bx bxVar) {
-        this.agB = bxVar;
+    public void setThreadData(by byVar) {
+        this.ahA = byVar;
     }
 
-    public void PD(String str) {
-        this.lKs = str;
+    public void QL(String str) {
+        this.lYp = str;
     }
 }

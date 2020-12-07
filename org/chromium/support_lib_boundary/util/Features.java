@@ -1,5 +1,5 @@
 package org.chromium.support_lib_boundary.util;
-/* loaded from: classes7.dex */
+/* loaded from: classes19.dex */
 public class Features {
     public static final String CREATE_WEB_MESSAGE_CHANNEL = "CREATE_WEB_MESSAGE_CHANNEL";
     public static final String DISABLED_ACTION_MODE_MENU_ITEMS = "DISABLED_ACTION_MODE_MENU_ITEMS";

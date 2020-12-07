@@ -3,25 +3,25 @@ package com.baidu.platform.comapi.map;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.platform.comjni.map.basemap.AppBaseMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public abstract class InnerOverlay extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f2872a;
+    protected String f2874a;
     protected Bundle b;
     private boolean c;
     public AppBaseMap mBaseMap;
 
     public InnerOverlay() {
         this.mBaseMap = null;
-        this.f2872a = null;
+        this.f2874a = null;
         this.b = null;
         this.c = true;
     }
 
     public InnerOverlay(int i) {
         this.mBaseMap = null;
-        this.f2872a = null;
+        this.f2874a = null;
         this.b = null;
         this.c = true;
         setType(i);
@@ -29,7 +29,7 @@ public abstract class InnerOverlay extends Overlay {
 
     public InnerOverlay(int i, AppBaseMap appBaseMap) {
         this.mBaseMap = null;
-        this.f2872a = null;
+        this.f2874a = null;
         this.b = null;
         this.c = true;
         setType(i);
@@ -49,9 +49,9 @@ public abstract class InnerOverlay extends Overlay {
         if (this.mLayerID == 0 || this.mBaseMap == null || this.mBaseMap.GetId() == 0) {
             return;
         }
-        long currentTimeMillis = w.f2934a ? System.currentTimeMillis() : 0L;
+        long currentTimeMillis = w.f2936a ? System.currentTimeMillis() : 0L;
         this.mBaseMap.ShowLayers(this.mLayerID, z);
-        if (w.f2934a) {
+        if (w.f2936a) {
             w.a("InnerOverlay", "ShowLayer:" + this.mLayerID + ":" + z + " tag:" + getLayerTag() + " [" + (System.currentTimeMillis() - currentTimeMillis) + "ms]");
         }
     }
@@ -60,9 +60,9 @@ public abstract class InnerOverlay extends Overlay {
         if (this.mLayerID == 0 || this.mBaseMap == null || this.mBaseMap.GetId() == 0) {
             return;
         }
-        long currentTimeMillis = w.f2934a ? System.currentTimeMillis() : 0L;
+        long currentTimeMillis = w.f2936a ? System.currentTimeMillis() : 0L;
         this.mBaseMap.UpdateLayers(this.mLayerID);
-        if (w.f2934a) {
+        if (w.f2936a) {
             w.a("InnerOverlay", "UpdateLayer:" + this.mLayerID + " tag:" + getLayerTag() + " [" + (System.currentTimeMillis() - currentTimeMillis) + "ms]");
         }
     }
@@ -71,9 +71,9 @@ public abstract class InnerOverlay extends Overlay {
         if (this.mBaseMap == null || this.mBaseMap.GetId() == 0) {
             return false;
         }
-        long currentTimeMillis = w.f2934a ? System.currentTimeMillis() : 0L;
+        long currentTimeMillis = w.f2936a ? System.currentTimeMillis() : 0L;
         this.mLayerID = this.mBaseMap.AddLayer(getUpdateType(), getUpdateTimeInterval(), getLayerTag());
-        if (w.f2934a) {
+        if (w.f2936a) {
             w.a("InnerOverlay", "AddLayer:" + this.mLayerID + " type:" + this.mType + " tag:" + getLayerTag() + " [" + (System.currentTimeMillis() - currentTimeMillis) + "ms]");
         }
         if (this.mLayerID != 0) {
@@ -85,20 +85,20 @@ public abstract class InnerOverlay extends Overlay {
     }
 
     public void clear() {
-        long currentTimeMillis = w.f2934a ? System.currentTimeMillis() : 0L;
-        if (!TextUtils.isEmpty(this.f2872a)) {
-            this.f2872a = null;
+        long currentTimeMillis = w.f2936a ? System.currentTimeMillis() : 0L;
+        if (!TextUtils.isEmpty(this.f2874a)) {
+            this.f2874a = null;
             if (this.mBaseMap != null) {
                 this.mBaseMap.ClearLayer(this.mLayerID);
             }
         }
-        if (w.f2934a) {
+        if (w.f2936a) {
             w.a("InnerOverlay", "ClearLayer:" + this.mLayerID + " tag:" + getLayerTag() + " [" + (System.currentTimeMillis() - currentTimeMillis) + "ms]");
         }
     }
 
     public String getData() {
-        return this.f2872a;
+        return this.f2874a;
     }
 
     public boolean getDefaultShowStatus() {
@@ -135,7 +135,7 @@ public abstract class InnerOverlay extends Overlay {
 
     public void setData(String str) {
         if (str != null) {
-            this.f2872a = str;
+            this.f2874a = str;
         }
     }
 

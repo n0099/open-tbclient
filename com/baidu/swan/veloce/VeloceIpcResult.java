@@ -2,19 +2,19 @@ package com.baidu.swan.veloce;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-/* loaded from: classes17.dex */
+/* loaded from: classes11.dex */
 public class VeloceIpcResult {
     public Bundle mResult = new Bundle();
     public int mResultCode;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes11.dex */
     public enum VeloceIpcResultCode {
         OK,
         ERR_UNKNOWN,
         ERR_CALLER
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(@NonNull VeloceIpcResult veloceIpcResult);
     }

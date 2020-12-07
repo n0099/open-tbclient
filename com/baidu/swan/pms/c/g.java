@@ -6,10 +6,10 @@ import com.baidu.swan.pms.c.f;
 import okhttp3.Response;
 /* loaded from: classes6.dex */
 public class g implements StatResponseCallback<String> {
-    private final f.a egk;
+    private final f.a enm;
 
     public g(f.a aVar) {
-        this.egk = aVar;
+        this.enm = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,8 +22,8 @@ public class g implements StatResponseCallback<String> {
             str = response.request().url().toString();
             str2 = response.body().string();
         }
-        if (Sk()) {
-            this.egk.b(str, str2, networkStatRecord.toUBCJson());
+        if (UJ()) {
+            this.enm.b(str, str2, networkStatRecord.toUBCJson());
         }
         return str2;
     }
@@ -31,19 +31,19 @@ public class g implements StatResponseCallback<String> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.callback.StatResponseCallback
     public void onSuccess(String str, int i) {
-        if (Sk()) {
-            this.egk.onSuccess(str, i);
+        if (UJ()) {
+            this.enm.onSuccess(str, i);
         }
     }
 
     @Override // com.baidu.searchbox.http.callback.StatResponseCallback
     public void onFail(Exception exc) {
-        if (Sk()) {
-            this.egk.onFail(exc);
+        if (UJ()) {
+            this.enm.onFail(exc);
         }
     }
 
-    private boolean Sk() {
-        return this.egk != null;
+    private boolean UJ() {
+        return this.enm != null;
     }
 }

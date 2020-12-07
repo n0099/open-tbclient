@@ -1,13 +1,13 @@
 package com.facebook.drawee.drawable;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public interface j {
-    void An(boolean z);
+    void A(float[] fArr);
 
-    void Ao(boolean z);
+    void AQ(boolean z);
 
-    void B(float[] fArr);
+    void AR(boolean z);
 
-    void bs(float f);
+    void bt(float f);
 
     void o(int i, float f);
 

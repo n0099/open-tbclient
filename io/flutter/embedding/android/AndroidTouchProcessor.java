@@ -3,20 +3,18 @@ package io.flutter.embedding.android;
 import android.os.Build;
 import android.view.InputDevice;
 import android.view.MotionEvent;
-import androidx.annotation.NonNull;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class AndroidTouchProcessor {
     private static final int BYTES_PER_FIELD = 8;
     private static final int POINTER_DATA_FIELD_COUNT = 28;
     private static final int POINTER_DATA_FLAG_BATCHED = 1;
     private static final int _POINTER_BUTTON_PRIMARY = 1;
-    @NonNull
     private final FlutterRenderer renderer;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     private @interface PointerChange {
         public static final int ADD = 1;
         public static final int CANCEL = 0;
@@ -27,7 +25,7 @@ public class AndroidTouchProcessor {
         public static final int UP = 6;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     private @interface PointerDeviceKind {
         public static final int INVERTED_STYLUS = 3;
         public static final int MOUSE = 1;
@@ -36,18 +34,18 @@ public class AndroidTouchProcessor {
         public static final int UNKNOWN = 4;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     private @interface PointerSignalKind {
         public static final int NONE = 0;
         public static final int SCROLL = 1;
         public static final int UNKNOWN = 2;
     }
 
-    public AndroidTouchProcessor(@NonNull FlutterRenderer flutterRenderer) {
+    public AndroidTouchProcessor(FlutterRenderer flutterRenderer) {
         this.renderer = flutterRenderer;
     }
 
-    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
+    public boolean onTouchEvent(MotionEvent motionEvent) {
         int pointerCount = motionEvent.getPointerCount();
         ByteBuffer allocateDirect = ByteBuffer.allocateDirect(pointerCount * 28 * 8);
         allocateDirect.order(ByteOrder.LITTLE_ENDIAN);
@@ -76,7 +74,7 @@ public class AndroidTouchProcessor {
         return true;
     }
 
-    public boolean onGenericMotionEvent(@NonNull MotionEvent motionEvent) {
+    public boolean onGenericMotionEvent(MotionEvent motionEvent) {
         boolean z = Build.VERSION.SDK_INT >= 18 && motionEvent.isFromSource(2);
         boolean z2 = motionEvent.getActionMasked() == 7 || motionEvent.getActionMasked() == 8;
         if (z && z2) {

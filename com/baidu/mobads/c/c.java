@@ -3,11 +3,11 @@ package com.baidu.mobads.c;
 class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f2323a;
+    final /* synthetic */ b f2325a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f2323a = bVar;
+        this.f2325a = bVar;
     }
 
     @Override // java.lang.Runnable

@@ -1,14 +1,13 @@
 package com.baidu.fsg.base.utils;
 
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public abstract class StringUtils {
     public static boolean hasLength(CharSequence charSequence) {
         return charSequence != null && charSequence.length() > 0;
@@ -67,7 +66,7 @@ public abstract class StringUtils {
     }
 
     public static String collectionToCommaDelimitedString(Collection<?> collection) {
-        return collectionToDelimitedString(collection, Constants.ACCEPT_TIME_SEPARATOR_SP);
+        return collectionToDelimitedString(collection, ",");
     }
 
     public static long parseLong(String str) {

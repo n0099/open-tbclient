@@ -2,12 +2,11 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes18.dex */
 public class ec extends ed {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4871a = "";
+    public static String f4641a = "";
     public static String b = "";
 
     public ec(Context context, int i) {
@@ -18,7 +17,7 @@ public class ec extends ed {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return "";
         }
-        String[] split = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        String[] split = str2.split(",");
         if (split.length <= 10) {
             return str2;
         }
@@ -34,23 +33,23 @@ public class ec extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo169a() {
+    public int mo159a() {
         return 12;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo169a() {
+    public ho mo159a() {
         return ho.BroadcastAction;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo169a() {
+    public String mo159a() {
         String str = "";
-        if (!TextUtils.isEmpty(f4871a)) {
-            str = "" + a(dv.f232a, f4871a);
-            f4871a = "";
+        if (!TextUtils.isEmpty(f4641a)) {
+            str = "" + a(dv.f230a, f4641a);
+            f4641a = "";
         }
         if (TextUtils.isEmpty(b)) {
             return str;

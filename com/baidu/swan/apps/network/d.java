@@ -5,10 +5,10 @@ import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import okio.BufferedSink;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class d extends RequestBody {
     private MediaType contentType;
-    private final FormBody dft;
+    private final FormBody dms;
 
     public static d a(FormBody formBody, MediaType mediaType) {
         d dVar = new d(formBody);
@@ -17,7 +17,7 @@ public final class d extends RequestBody {
     }
 
     private d(FormBody formBody) {
-        this.dft = formBody;
+        this.dms = formBody;
     }
 
     public void a(MediaType mediaType) {
@@ -26,16 +26,16 @@ public final class d extends RequestBody {
 
     @Override // okhttp3.RequestBody
     public MediaType contentType() {
-        return this.contentType == null ? this.dft.contentType() : this.contentType;
+        return this.contentType == null ? this.dms.contentType() : this.contentType;
     }
 
     @Override // okhttp3.RequestBody
     public long contentLength() {
-        return this.dft.contentLength();
+        return this.dms.contentLength();
     }
 
     @Override // okhttp3.RequestBody
     public void writeTo(BufferedSink bufferedSink) throws IOException {
-        this.dft.writeTo(bufferedSink);
+        this.dms.writeTo(bufferedSink);
     }
 }

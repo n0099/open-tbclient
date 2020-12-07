@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.forumMember.bawu.e;
 import com.baidu.tieba.forumMember.member.p;
 import java.util.ArrayList;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     private long forumId;
-    private g iDv;
-    private e iDw;
-    private e.a iDx;
-    private NoNetworkView.a iDy = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity.2
+    private g iOn;
+    private e iOo;
+    private e.a iOp;
+    private NoNetworkView.a iOq = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity.2
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
             if (z) {
@@ -37,38 +37,38 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     }
 
     public void initData() {
-        this.iDw = new e();
-        this.iDx = new e.a() { // from class: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity.1
+        this.iOo = new e();
+        this.iOp = new e.a() { // from class: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity.1
             @Override // com.baidu.tieba.forumMember.bawu.e.a
             public void a(ArrayList<i> arrayList, p pVar, boolean z, int i, String str) {
                 if (z) {
-                    BawuTeamInfoActivity.this.hideLoadingView(BawuTeamInfoActivity.this.iDv.getRootView());
+                    BawuTeamInfoActivity.this.hideLoadingView(BawuTeamInfoActivity.this.iOn.getRootView());
                     if (i == 0) {
-                        BawuTeamInfoActivity.this.iDv.a(arrayList, pVar, true);
+                        BawuTeamInfoActivity.this.iOn.a(arrayList, pVar, true);
                         return;
                     }
                     BawuTeamInfoActivity.this.showToast(str);
-                    if (BawuTeamInfoActivity.this.iDv.cwd()) {
-                        BawuTeamInfoActivity.this.iDv.cwe();
+                    if (BawuTeamInfoActivity.this.iOn.cAs()) {
+                        BawuTeamInfoActivity.this.iOn.cAt();
                         return;
                     }
                     return;
                 }
                 if (arrayList != null && arrayList.size() > 0) {
-                    BawuTeamInfoActivity.this.hideLoadingView(BawuTeamInfoActivity.this.iDv.getRootView());
-                    BawuTeamInfoActivity.this.iDv.a(arrayList, pVar, false);
+                    BawuTeamInfoActivity.this.hideLoadingView(BawuTeamInfoActivity.this.iOn.getRootView());
+                    BawuTeamInfoActivity.this.iOn.a(arrayList, pVar, false);
                 }
-                BawuTeamInfoActivity.this.iDw.fG(BawuTeamInfoActivity.this.forumId);
+                BawuTeamInfoActivity.this.iOo.gk(BawuTeamInfoActivity.this.forumId);
             }
         };
-        this.iDw.a(this.iDx);
-        this.iDw.fF(this.forumId);
-        showLoadingView(this.iDv.getRootView(), true);
+        this.iOo.a(this.iOp);
+        this.iOo.gj(this.forumId);
+        showLoadingView(this.iOn.getRootView(), true);
     }
 
     public void initUI() {
-        this.iDv = new g(this);
-        this.iDv.e(this.iDy);
+        this.iOn = new g(this);
+        this.iOn.e(this.iOq);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -85,26 +85,26 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshData() {
-        showLoadingView(this.iDv.getRootView(), true);
-        this.iDw.fG(this.forumId);
+        showLoadingView(this.iOn.getRootView(), true);
+        this.iOo.gk(this.forumId);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iDv.onChangeSkinType(i);
+        this.iOn.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.iDw != null) {
-            this.iDw.destroy();
+        if (this.iOo != null) {
+            this.iOo.destroy();
         }
-        if (this.iDv != null) {
-            this.iDv.onDestroy();
+        if (this.iOn != null) {
+            this.iOn.onDestroy();
         }
     }
 }

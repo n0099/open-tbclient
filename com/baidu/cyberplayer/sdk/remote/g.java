@@ -17,7 +17,7 @@ import java.util.Map;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile g f1413a;
+    private static volatile g f1412a;
     private c b;
     private String c;
     private int d;
@@ -70,16 +70,16 @@ public class g {
     public static class a extends c.a {
 
         /* renamed from: a  reason: collision with root package name */
-        RemotePlayerService f1416a;
+        RemotePlayerService f1415a;
 
         public a(RemotePlayerService remotePlayerService) {
-            this.f1416a = remotePlayerService;
+            this.f1415a = remotePlayerService;
         }
 
         @Override // com.baidu.cyberplayer.sdk.remote.c
         public IBinder a() {
             if (CyberPlayerManager.isCoreLoaded(1)) {
-                return new com.baidu.cyberplayer.sdk.extractor.c(this.f1416a);
+                return new com.baidu.cyberplayer.sdk.extractor.c(this.f1415a);
             }
             CyberLog.w("RemotePlayer", "RemoteExtractor has not load kernel, create failed!");
             return null;
@@ -88,7 +88,7 @@ public class g {
         @Override // com.baidu.cyberplayer.sdk.remote.c
         public IBinder a(int i) {
             if (CyberPlayerManager.isCoreLoaded(1)) {
-                return new f(i, this.f1416a);
+                return new f(i, this.f1415a);
             }
             CyberLog.w("RemotePlayer", "RemotePlayer has not load kernel, create failed!");
             return null;
@@ -120,10 +120,10 @@ public class g {
     }
 
     public static g a() {
-        if (f1413a == null) {
-            f1413a = new g();
+        if (f1412a == null) {
+            f1412a = new g();
         }
-        return f1413a;
+        return f1412a;
     }
 
     public int a(String str) {

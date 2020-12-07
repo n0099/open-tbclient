@@ -1,6 +1,7 @@
 package com.baidu.android.imrtc.request;
 
 import android.content.Context;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imrtc.request.BIMRtcTokenListener;
 import com.baidu.android.imrtc.utils.IMJni;
 import com.baidu.android.imrtc.utils.LogUtils;
@@ -16,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes12.dex */
 public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
     private static final String TAG = "BIMRtcCreateRoomRequest";
     private static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
@@ -32,7 +33,7 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
 
     @Override // com.baidu.android.imrtc.request.BaseHttpRequest, com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
     public String getHost() {
-        return Utility.readIntData(this.mContext, Constants.KEY_ENV, 0) != 0 ? "http://cp01-ocean-749.epc.baidu.com:8080/rtc/rest/1.0/room/create" : "https://pim.baidu.com/rtc/rest/1.0/room/create";
+        return Utility.readIntData(this.mContext, Constants.KEY_ENV, 0) != 0 ? HttpConstants.TEST_URL + "rtc/rest/1.0/room/create" : "https://pim.baidu.com/rtc/rest/1.0/room/create";
     }
 
     @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
@@ -115,11 +116,11 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str4);
             i = jSONObject.optInt("error_code", -1);
-            str3 = jSONObject.optString("error_msg", "");
+            str3 = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
             j = jSONObject.optLong("rtc_userid", -1L);
             try {
                 RtcUtility.setRtcUserId(this.mContext, j);
-                this.mRtcRoomId = jSONObject.optString(RtcConstants.EXTRA_RTC_ROOM_ID, "");
+                this.mRtcRoomId = jSONObject.optString("rtc_room_id", "");
                 RtcUtility.setRtcRoomId(this.mContext, this.mRtcRoomId);
                 str2 = jSONObject.optString("rtc_room_token", "");
                 try {

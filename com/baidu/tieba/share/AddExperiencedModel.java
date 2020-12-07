@@ -17,10 +17,10 @@ public class AddExperiencedModel extends BdBaseModel {
     public static int MAX_ADD_ADVANCED = 6;
     public static int MAX_ADD_NORMAL = 3;
     public static String USELESS_FORUM_ID = "24981790";
-    private HttpMessageListener eMj;
-    private a mLq;
-    private ContriInfo mLr;
-    private Runnable mLs;
+    private HttpMessageListener eTv;
+    private a mZs;
+    private ContriInfo mZt;
+    private Runnable mZu;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -29,26 +29,26 @@ public class AddExperiencedModel extends BdBaseModel {
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.mLs = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
+        this.mZu = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
             @Override // java.lang.Runnable
             public void run() {
-                if (AddExperiencedModel.this.mLq != null) {
-                    AddExperiencedModel.this.mLq.a(AddExperiencedModel.this.mLr);
+                if (AddExperiencedModel.this.mZs != null) {
+                    AddExperiencedModel.this.mZs.a(AddExperiencedModel.this.mZt);
                 }
             }
         };
-        this.eMj = new HttpMessageListener(1003332, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
+        this.eTv = new HttpMessageListener(1003332, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
-                    AddExperiencedModel.this.mLr = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                    e.mY().postDelayed(AddExperiencedModel.this.mLs, 2000L);
+                    AddExperiencedModel.this.mZt = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
+                    e.mY().postDelayed(AddExperiencedModel.this.mZu, 2000L);
                 }
             }
         };
         registerTask();
-        registerListener(this.eMj);
+        registerListener(this.eTv);
     }
 
     private void registerTask() {
@@ -57,14 +57,14 @@ public class AddExperiencedModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void gi(String str, String str2) {
+    public void gn(String str, String str2) {
         HttpMessage httpMessage = new HttpMessage(1003332);
         httpMessage.addParam("forum_id", str);
         httpMessage.addParam("thread_id", str2);
         sendMessage(httpMessage);
     }
 
-    public static boolean RC(String str) {
+    public static boolean SQ(String str) {
         return b.toLong(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 
@@ -79,6 +79,6 @@ public class AddExperiencedModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        e.mY().removeCallbacks(this.mLs);
+        e.mY().removeCallbacks(this.mZu);
     }
 }

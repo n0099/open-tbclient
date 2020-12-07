@@ -6,7 +6,6 @@ import android.util.Base64;
 import android.util.Log;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.config.AppConfig;
-import com.tencent.connect.common.Constants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -23,15 +22,28 @@ public class b {
         this.mContext = context;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [125=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0112 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    public void a(n nVar, boolean z) {
+        a(nVar, bl(nVar.getFileName(), z));
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [135=4] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x0113 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x0115 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:58:0x00af */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x010a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r1v1 */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v4, types: [java.io.FileOutputStream] */
+    /* JADX WARN: Type inference failed for: r1v6 */
+    /* JADX WARN: Type inference failed for: r1v7, types: [java.io.FileOutputStream] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [java.io.FileOutputStream] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(n nVar, boolean z) {
-        FileOutputStream fileOutputStream;
-        File bk = bk(nVar.getFileName(), z);
+    void a(n nVar, File file) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("id", nVar.getId());
@@ -39,19 +51,19 @@ public class b {
             jSONObject.put("type", "0");
             if (!TextUtils.isEmpty(nVar.getContent())) {
                 jSONObject.put("content", nVar.getContent());
-            } else if (nVar.bcZ() != null) {
-                jSONObject.put("content", nVar.bcZ().toString());
+            } else if (nVar.bge() != null) {
+                jSONObject.put("content", nVar.bge().toString());
             }
-            if (!TextUtils.isEmpty(nVar.bcY())) {
-                jSONObject.put("abtest", nVar.bcY());
+            if (!TextUtils.isEmpty(nVar.bgd())) {
+                jSONObject.put("abtest", nVar.bgd());
             }
             if (!TextUtils.isEmpty(nVar.getCategory())) {
                 jSONObject.put("c", nVar.getCategory());
             }
-            if (nVar.bcU()) {
+            if (nVar.bfZ()) {
                 jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
             }
-            jSONObject.put("idtype", g.ede().yO(nVar.getId()));
+            jSONObject.put("idtype", g.eiL().zv(nVar.getId()));
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("UBCFileData", e.getMessage());
@@ -60,17 +72,18 @@ public class b {
         if (DEBUG) {
             Log.d("UBCFileData", "saveEvent:" + jSONObject.toString());
         }
+        ?? r1 = 2;
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
         try {
-            fileOutputStream = new FileOutputStream(bk, true);
             try {
+                r1 = new FileOutputStream(file, true);
                 try {
-                    fileOutputStream.write(encode);
-                    fileOutputStream.write("\n".getBytes());
-                    fileOutputStream.flush();
-                    if (fileOutputStream != null) {
+                    r1.write(encode);
+                    r1.write("\n".getBytes());
+                    r1.flush();
+                    if (r1 != 0) {
                         try {
-                            fileOutputStream.close();
+                            r1.close();
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
@@ -78,9 +91,9 @@ public class b {
                 } catch (Exception e3) {
                     e = e3;
                     e.printStackTrace();
-                    if (fileOutputStream != null) {
+                    if (r1 != 0) {
                         try {
-                            fileOutputStream.close();
+                            r1.close();
                         } catch (Exception e4) {
                             e4.printStackTrace();
                         }
@@ -88,9 +101,9 @@ public class b {
                 }
             } catch (Throwable th) {
                 th = th;
-                if (fileOutputStream != null) {
+                if (r1 != 0) {
                     try {
-                        fileOutputStream.close();
+                        r1.close();
                     } catch (Exception e5) {
                         e5.printStackTrace();
                     }
@@ -99,17 +112,34 @@ public class b {
             }
         } catch (Exception e6) {
             e = e6;
-            fileOutputStream = null;
+            r1 = 0;
         } catch (Throwable th2) {
             th = th2;
-            fileOutputStream = null;
-            if (fileOutputStream != null) {
+            r1 = 0;
+            if (r1 != 0) {
             }
             throw th;
         }
     }
 
-    private File bk(String str, boolean z) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void a(n nVar) {
+        File file = new File(this.mContext.getFilesDir(), "ubcdir");
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        File file2 = new File(file, "filequality");
+        if (file2.length() > g.eiL().eiM()) {
+            if (file2.delete()) {
+                file2 = new File(file, "filequality");
+            } else {
+                return;
+            }
+        }
+        a(nVar, file2);
+    }
+
+    private File bl(String str, boolean z) {
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (!file.exists()) {
             file.mkdirs();
@@ -126,24 +156,10 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void B(Exception exc) {
-        File bk = bk("", false);
-        if (bk != null) {
-            if (bk.length() >= 1048576) {
-                bk.delete();
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("exception", Log.getStackTraceString(exc));
-                a(new n(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, jSONObject, 0), false);
-            } catch (JSONException e) {
-                if (DEBUG) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        ac.ejd().XU(Log.getStackTraceString(exc));
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [233=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [254=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:53:0x00c0 */
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Multi-variable type inference failed */
@@ -154,15 +170,15 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean a(ah ahVar, boolean z) {
+    public boolean a(aj ajVar, boolean z) {
         BufferedReader bufferedReader;
-        boolean a2 = z ? false : a(ahVar);
-        File bk = bk("", z);
-        ?? exists = bk.exists();
+        boolean a2 = z ? false : a(ajVar);
+        File bl = bl("", z);
+        ?? exists = bl.exists();
         if (exists != 0) {
             try {
                 try {
-                    bufferedReader = new BufferedReader(new FileReader(bk));
+                    bufferedReader = new BufferedReader(new FileReader(bl));
                     long j = Long.MAX_VALUE;
                     long j2 = 0;
                     while (true) {
@@ -173,7 +189,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                ahVar.yZ("1");
+                                ajVar.zG("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -184,7 +200,7 @@ public class b {
                                     j2 = j3;
                                 }
                             }
-                            ahVar.dd(jSONObject);
+                            ajVar.df(jSONObject);
                             a2 = true;
                         } catch (Exception e) {
                             e = e;
@@ -203,7 +219,7 @@ public class b {
                             return a2;
                         }
                     }
-                    ahVar.r(j, j2);
+                    ajVar.r(j, j2);
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
@@ -240,8 +256,8 @@ public class b {
         return a2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [301=4] */
-    private boolean a(ah ahVar) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [394=4] */
+    private boolean a(aj ajVar) {
         File[] listFiles;
         BufferedReader bufferedReader;
         File file = new File(this.mContext.getFilesDir() + File.separator + "ubcdir", "proc");
@@ -263,7 +279,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                ahVar.yZ("1");
+                                ajVar.zG("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -277,7 +293,7 @@ public class b {
                             if (DEBUG) {
                                 Log.d("UBCFileData", jSONObject.toString());
                             }
-                            ahVar.dd(jSONObject);
+                            ajVar.df(jSONObject);
                             i++;
                         } catch (Throwable th) {
                             th = th;
@@ -302,7 +318,7 @@ public class b {
                         }
                     }
                 } while (i < 10);
-                ahVar.r(j, j2);
+                ajVar.r(j, j2);
                 if (DEBUG) {
                     Log.d("UBCFileData", "line num " + i + " delete file ");
                 }
@@ -325,7 +341,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void hZ(boolean z) {
+    public void io(boolean z) {
         File[] listFiles;
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (file.exists()) {

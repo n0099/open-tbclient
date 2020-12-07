@@ -1,12 +1,12 @@
 package kotlin.sequences;
 
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
-import kotlin.collections.ac;
+import kotlin.collections.x;
 import kotlin.jvm.internal.Lambda;
-import kotlin.jvm.internal.q;
-@kotlin.h
-/* loaded from: classes9.dex */
-final class SequencesKt___SequencesKt$filterIndexed$2 extends Lambda implements kotlin.jvm.a.b<ac<? extends T>, T> {
+import kotlin.jvm.internal.p;
+@kotlin.e
+/* loaded from: classes17.dex */
+final class SequencesKt___SequencesKt$filterIndexed$2 extends Lambda implements kotlin.jvm.a.b<x<? extends T>, T> {
     public static final SequencesKt___SequencesKt$filterIndexed$2 INSTANCE = new SequencesKt___SequencesKt$filterIndexed$2();
 
     SequencesKt___SequencesKt$filterIndexed$2() {
@@ -15,12 +15,12 @@ final class SequencesKt___SequencesKt$filterIndexed$2 extends Lambda implements 
 
     @Override // kotlin.jvm.a.b
     public /* bridge */ /* synthetic */ Object invoke(Object obj) {
-        return invoke((ac<? extends Object>) obj);
+        return invoke((x<? extends Object>) obj);
     }
 
     /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
-    public final T invoke(ac<? extends T> acVar) {
-        q.n(acVar, AdvanceSetting.NETWORK_TYPE);
-        return acVar.getValue();
+    public final T invoke(x<? extends T> xVar) {
+        p.o(xVar, AdvanceSetting.NETWORK_TYPE);
+        return xVar.getValue();
     }
 }

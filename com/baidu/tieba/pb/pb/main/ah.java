@@ -9,90 +9,90 @@ import com.baidu.tbadk.core.dialog.k;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class ah extends com.baidu.tbadk.core.dialog.i {
-    private TbPageContext<?> eGu;
-    private View.OnClickListener iFm;
-    private TextView lyQ;
-    private TextView lyR;
-    private TextView lyS;
-    private TextView lyT;
-    private TextView lyU;
-    private TextView lyV;
-    private TextView lyW;
-    private TextView lyX;
-    private TextView lyY;
-    private boolean lyZ;
+    private TbPageContext<?> eNx;
+    private View.OnClickListener iQe;
+    private TextView lMD;
+    private TextView lME;
+    private TextView lMF;
+    private TextView lMG;
+    private TextView lMH;
+    private TextView lMI;
+    private TextView lMJ;
+    private TextView lMK;
+    private TextView lML;
+    private boolean lMM;
 
     public ah(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext);
-        this.lyZ = false;
-        this.eGu = tbPageContext;
-        this.iFm = onClickListener;
-        apc();
+        this.lMM = false;
+        this.eNx = tbPageContext;
+        this.iQe = onClickListener;
+        ask();
     }
 
-    public TextView dlT() {
-        return this.lyQ;
+    public TextView drk() {
+        return this.lMD;
     }
 
-    public TextView dlU() {
-        return this.lyR;
+    public TextView drl() {
+        return this.lME;
     }
 
-    public TextView dlV() {
-        return this.lyS;
+    public TextView drm() {
+        return this.lMF;
     }
 
-    public TextView dlW() {
-        return this.lyT;
+    public TextView drn() {
+        return this.lMG;
     }
 
-    public TextView dlX() {
-        return this.lyU;
+    public TextView dro() {
+        return this.lMH;
     }
 
-    public TextView dlY() {
-        return this.lyX;
+    public TextView drp() {
+        return this.lMK;
     }
 
-    public TextView dlZ() {
-        return this.lyV;
+    public TextView drq() {
+        return this.lMI;
     }
 
-    public TextView dma() {
-        return this.lyW;
+    public TextView drr() {
+        return this.lMJ;
     }
 
-    public TextView dmb() {
-        return this.lyY;
+    public TextView drs() {
+        return this.lML;
     }
 
-    private void apc() {
-        a((String) null, new String[]{this.eGu.getString(R.string.action_dislike), this.eGu.getString(R.string.no_interesting), this.eGu.getString(R.string.save_to_emotion), this.eGu.getString(R.string.save_to_local), this.eGu.getString(R.string.copy), this.eGu.getString(R.string.mark), this.eGu.getString(R.string.report_text), this.eGu.getString(R.string.delete), this.eGu.getString(R.string.mute)}, new k.c() { // from class: com.baidu.tieba.pb.pb.main.ah.1
+    private void ask() {
+        a((String) null, new String[]{this.eNx.getString(R.string.action_dislike), this.eNx.getString(R.string.no_interesting), this.eNx.getString(R.string.save_to_emotion), this.eNx.getString(R.string.save_to_local), this.eNx.getString(R.string.copy), this.eNx.getString(R.string.mark), this.eNx.getString(R.string.report_text), this.eNx.getString(R.string.delete), this.eNx.getString(R.string.mute)}, new k.c() { // from class: com.baidu.tieba.pb.pb.main.ah.1
             @Override // com.baidu.tbadk.core.dialog.k.c
             public void a(com.baidu.tbadk.core.dialog.k kVar, int i, View view) {
                 ah.this.dismiss();
-                ah.this.iFm.onClick(view);
+                ah.this.iQe.onClick(view);
             }
         });
-        this.lyX = ds(getItemView(1));
-        this.lyQ = ds(getItemView(5));
-        this.lyR = ds(getItemView(8));
-        this.lyS = ds(getItemView(6));
-        this.lyT = ds(getItemView(7));
-        this.lyU = ds(getItemView(4));
-        this.lyV = ds(getItemView(2));
-        this.lyW = ds(getItemView(3));
-        this.lyY = ds(getItemView(0));
+        this.lMK = dC(getItemView(1));
+        this.lMD = dC(getItemView(5));
+        this.lME = dC(getItemView(8));
+        this.lMF = dC(getItemView(6));
+        this.lMG = dC(getItemView(7));
+        this.lMH = dC(getItemView(4));
+        this.lMI = dC(getItemView(2));
+        this.lMJ = dC(getItemView(3));
+        this.lML = dC(getItemView(0));
     }
 
-    private TextView ds(View view) {
+    private TextView dC(View view) {
         return (TextView) view.findViewById(R.id.item_view);
     }
 
-    public void uB(boolean z) {
-        this.lyS.setVisibility(z ? 0 : 8);
+    public void vd(boolean z) {
+        this.lMF.setVisibility(z ? 0 : 8);
     }
 
     public View getView() {
@@ -121,10 +121,10 @@ public class ah extends com.baidu.tbadk.core.dialog.i {
             SparseArray sparseArray2 = new SparseArray();
             sparseArray2.put(R.id.tag_clip_board, (PostData) sparseArray.get(R.id.tag_clip_board));
             sparseArray2.put(R.id.tag_is_subpb, false);
-            dlT().setTag(sparseArray2);
+            drk().setTag(sparseArray2);
             SparseArray sparseArray3 = new SparseArray();
             sparseArray3.put(R.id.tag_clip_board, (PostData) sparseArray.get(R.id.tag_clip_board));
-            dlX().setTag(sparseArray3);
+            dro().setTag(sparseArray3);
             boolean booleanValue = sparseArray.get(R.id.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_should_manage_visible)).booleanValue() : false;
             boolean booleanValue2 = sparseArray.get(R.id.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_user_mute_visible)).booleanValue() : false;
             boolean booleanValue3 = sparseArray.get(R.id.tag_should_delete_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_should_delete_visible)).booleanValue() : false;
@@ -154,15 +154,15 @@ public class ah extends com.baidu.tbadk.core.dialog.i {
                     sparseArray4.put(R.id.tag_del_post_is_self, Boolean.valueOf(booleanValue4));
                     sparseArray4.put(R.id.tag_del_post_id, sparseArray.get(R.id.tag_del_post_id));
                     sparseArray4.put(R.id.tag_del_post_type, sparseArray.get(R.id.tag_del_post_type));
-                    dlW().setVisibility(0);
+                    drn().setVisibility(0);
                 } else {
                     sparseArray4.put(R.id.tag_should_delete_visible, false);
-                    dlW().setVisibility(8);
+                    drn().setVisibility(8);
                 }
-                dlU().setTag(sparseArray4);
-                dlW().setTag(sparseArray4);
-                dlU().setText(R.string.bar_manager);
-                dlU().setVisibility(0);
+                drl().setTag(sparseArray4);
+                drn().setTag(sparseArray4);
+                drl().setText(R.string.bar_manager);
+                drl().setVisibility(0);
             } else if (booleanValue3) {
                 SparseArray sparseArray5 = new SparseArray();
                 sparseArray5.put(R.id.tag_should_manage_visible, false);
@@ -172,19 +172,19 @@ public class ah extends com.baidu.tbadk.core.dialog.i {
                 sparseArray5.put(R.id.tag_del_post_is_self, Boolean.valueOf(booleanValue4));
                 sparseArray5.put(R.id.tag_del_post_id, sparseArray.get(R.id.tag_del_post_id));
                 sparseArray5.put(R.id.tag_del_post_type, sparseArray.get(R.id.tag_del_post_type));
-                dlU().setTag(sparseArray5);
-                dlW().setTag(sparseArray5);
-                dlU().setText(R.string.delete);
-                dlW().setVisibility(0);
+                drl().setTag(sparseArray5);
+                drn().setTag(sparseArray5);
+                drl().setText(R.string.delete);
+                drn().setVisibility(0);
                 if (i == 1002 && !booleanValue4) {
-                    dlW().setText(R.string.report_text);
+                    drn().setText(R.string.report_text);
                 } else {
-                    dlW().setText(R.string.delete);
+                    drn().setText(R.string.delete);
                 }
-                dlU().setVisibility(8);
+                drl().setVisibility(8);
             } else {
-                dlU().setVisibility(8);
-                dlW().setVisibility(8);
+                drl().setVisibility(8);
+                drn().setVisibility(8);
             }
             boolean booleanValue5 = sparseArray.get(R.id.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_user_mute_visible)).booleanValue() : false;
             if (!(sparseArray.get(R.id.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_should_manage_visible)).booleanValue() : false) && booleanValue5) {
@@ -200,20 +200,20 @@ public class ah extends com.baidu.tbadk.core.dialog.i {
                 sparseArray6.put(R.id.tag_del_post_type, sparseArray.get(R.id.tag_del_post_type));
                 sparseArray6.put(R.id.tag_del_post_id, sparseArray.get(R.id.tag_del_post_id));
                 sparseArray6.put(R.id.tag_manage_user_identity, sparseArray.get(R.id.tag_manage_user_identity));
-                dlV().setTag(sparseArray6);
-                dlV().setVisibility(0);
-                dlU().setVisibility(8);
-                dlV().setText(R.string.mute_option);
+                drm().setTag(sparseArray6);
+                drm().setVisibility(0);
+                drl().setVisibility(8);
+                drm().setText(R.string.mute_option);
             } else {
                 if (sparseArray.get(R.id.tag_del_post_is_self) instanceof Boolean) {
                     ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue();
                 }
                 String str2 = sparseArray.get(R.id.tag_forbid_user_post_id) instanceof String ? (String) sparseArray.get(R.id.tag_forbid_user_post_id) : null;
                 if (z) {
-                    dlV().setVisibility(0);
-                    dlV().setTag(str2);
+                    drm().setVisibility(0);
+                    drm().setTag(str2);
                 } else {
-                    dlV().setVisibility(8);
+                    drm().setVisibility(8);
                 }
             }
             long j = 0;
@@ -227,43 +227,43 @@ public class ah extends com.baidu.tbadk.core.dialog.i {
             }
             int intValue = sparseArray.get(R.id.tag_chudian_hide_day) instanceof Integer ? ((Integer) sparseArray.get(R.id.tag_chudian_hide_day)).intValue() : 0;
             if (booleanValue6) {
-                dlY().setVisibility(0);
-                dlY().setTag(R.id.tag_chudian_template_id, Long.valueOf(j));
-                dlY().setTag(R.id.tag_chudian_monitor_id, str3);
-                dlY().setTag(R.id.tag_chudian_hide_day, Integer.valueOf(intValue));
+                drp().setVisibility(0);
+                drp().setTag(R.id.tag_chudian_template_id, Long.valueOf(j));
+                drp().setTag(R.id.tag_chudian_monitor_id, str3);
+                drp().setTag(R.id.tag_chudian_hide_day, Integer.valueOf(intValue));
             } else {
-                dlY().setVisibility(8);
+                drp().setVisibility(8);
             }
             if (sparseArray.get(R.id.tag_richtext_emotion) instanceof Boolean) {
                 z3 = ((Boolean) sparseArray.get(R.id.tag_richtext_emotion)).booleanValue();
-                if (this.eGu.getPageActivity() instanceof NewSubPbActivity) {
-                    NewSubPbActivity newSubPbActivity = (NewSubPbActivity) this.eGu.getPageActivity();
-                    z3 = (!z3 || newSubPbActivity.doW() == null || newSubPbActivity.doW().dpv() == null || newSubPbActivity.doW().dpv().bjd() == null || newSubPbActivity.doW().dpv().bjd().isBjh()) ? false : true;
+                if (this.eNx.getPageActivity() instanceof NewSubPbActivity) {
+                    NewSubPbActivity newSubPbActivity = (NewSubPbActivity) this.eNx.getPageActivity();
+                    z3 = (!z3 || newSubPbActivity.dun() == null || newSubPbActivity.dun().duM() == null || newSubPbActivity.dun().duM().bmn() == null || newSubPbActivity.dun().duM().bmn().isBjh()) ? false : true;
                 }
             } else {
                 z3 = false;
             }
             boolean booleanValue7 = sparseArray.get(R.id.tag_richtext_image) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_richtext_image)).booleanValue() : false;
             if (z3) {
-                dlZ().setVisibility(0);
+                drq().setVisibility(0);
             } else {
-                dlZ().setVisibility(8);
+                drq().setVisibility(8);
             }
             if (booleanValue7) {
-                dma().setVisibility(0);
+                drr().setVisibility(0);
             } else {
-                dma().setVisibility(8);
+                drr().setVisibility(8);
             }
             if (z3 || booleanValue7) {
-                dlX().setVisibility(8);
+                dro().setVisibility(8);
             } else {
-                dlX().setVisibility(0);
+                dro().setVisibility(0);
             }
-            dmb().setVisibility(8);
+            drs().setVisibility(8);
             if (z2) {
-                dlW().setVisibility(8);
-                dlU().setVisibility(8);
-                dlV().setVisibility(8);
+                drn().setVisibility(8);
+                drl().setVisibility(8);
+                drm().setVisibility(8);
             }
         }
     }
@@ -271,13 +271,13 @@ public class ah extends com.baidu.tbadk.core.dialog.i {
     public void a(SparseArray<Object> sparseArray, int i, boolean z) {
         if (sparseArray != null) {
             PostData postData = (PostData) sparseArray.get(R.id.tag_clip_board);
-            if (postData.bnv() != null) {
-                String string = (postData.bnv().hasAgree && postData.bnf() == 5) ? this.eGu.getString(R.string.action_cancel_dislike) : this.eGu.getString(R.string.action_dislike);
+            if (postData.bqI() != null) {
+                String string = (postData.bqI().hasAgree && postData.bqs() == 5) ? this.eNx.getString(R.string.action_cancel_dislike) : this.eNx.getString(R.string.action_dislike);
                 SparseArray sparseArray2 = new SparseArray();
                 sparseArray2.put(R.id.tag_clip_board, postData);
-                dmb().setTag(sparseArray2);
-                dmb().setVisibility(0);
-                dmb().setText(string);
+                drs().setTag(sparseArray2);
+                drs().setVisibility(0);
+                drs().setText(string);
             }
             boolean booleanValue = sparseArray.get(R.id.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_should_manage_visible)).booleanValue() : false;
             boolean booleanValue2 = sparseArray.get(R.id.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_user_mute_visible)).booleanValue() : false;
@@ -308,15 +308,15 @@ public class ah extends com.baidu.tbadk.core.dialog.i {
                     sparseArray3.put(R.id.tag_del_post_is_self, Boolean.valueOf(booleanValue4));
                     sparseArray3.put(R.id.tag_del_post_id, sparseArray.get(R.id.tag_del_post_id));
                     sparseArray3.put(R.id.tag_del_post_type, sparseArray.get(R.id.tag_del_post_type));
-                    dlW().setVisibility(0);
+                    drn().setVisibility(0);
                 } else {
                     sparseArray3.put(R.id.tag_should_delete_visible, false);
-                    dlW().setVisibility(8);
+                    drn().setVisibility(8);
                 }
-                dlU().setTag(sparseArray3);
-                dlW().setTag(sparseArray3);
-                dlU().setText(R.string.bar_manager);
-                dlU().setVisibility(0);
+                drl().setTag(sparseArray3);
+                drn().setTag(sparseArray3);
+                drl().setText(R.string.bar_manager);
+                drl().setVisibility(0);
             } else if (booleanValue3) {
                 SparseArray sparseArray4 = new SparseArray();
                 sparseArray4.put(R.id.tag_should_manage_visible, false);
@@ -326,19 +326,19 @@ public class ah extends com.baidu.tbadk.core.dialog.i {
                 sparseArray4.put(R.id.tag_del_post_is_self, Boolean.valueOf(booleanValue4));
                 sparseArray4.put(R.id.tag_del_post_id, sparseArray.get(R.id.tag_del_post_id));
                 sparseArray4.put(R.id.tag_del_post_type, sparseArray.get(R.id.tag_del_post_type));
-                dlU().setTag(sparseArray4);
-                dlW().setTag(sparseArray4);
-                dlU().setText(R.string.delete);
-                dlW().setVisibility(0);
+                drl().setTag(sparseArray4);
+                drn().setTag(sparseArray4);
+                drl().setText(R.string.delete);
+                drn().setVisibility(0);
                 if (i == 1002 && !booleanValue4) {
-                    dlW().setText(R.string.report_text);
+                    drn().setText(R.string.report_text);
                 } else {
-                    dlW().setText(R.string.delete);
+                    drn().setText(R.string.delete);
                 }
-                dlU().setVisibility(8);
+                drl().setVisibility(8);
             } else {
-                dlU().setVisibility(8);
-                dlW().setVisibility(8);
+                drl().setVisibility(8);
+                drn().setVisibility(8);
             }
             boolean booleanValue5 = sparseArray.get(R.id.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_user_mute_visible)).booleanValue() : false;
             if (!(sparseArray.get(R.id.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_should_manage_visible)).booleanValue() : false) && booleanValue5) {
@@ -354,27 +354,27 @@ public class ah extends com.baidu.tbadk.core.dialog.i {
                 sparseArray5.put(R.id.tag_del_post_type, sparseArray.get(R.id.tag_del_post_type));
                 sparseArray5.put(R.id.tag_del_post_id, sparseArray.get(R.id.tag_del_post_id));
                 sparseArray5.put(R.id.tag_manage_user_identity, sparseArray.get(R.id.tag_manage_user_identity));
-                dlV().setTag(sparseArray5);
-                dlV().setVisibility(0);
-                dlU().setVisibility(8);
-                dlV().setText(R.string.mute_option);
+                drm().setTag(sparseArray5);
+                drm().setVisibility(0);
+                drl().setVisibility(8);
+                drm().setText(R.string.mute_option);
             } else {
                 if (sparseArray.get(R.id.tag_del_post_is_self) instanceof Boolean) {
                     ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue();
                 }
                 String str2 = sparseArray.get(R.id.tag_forbid_user_post_id) instanceof String ? (String) sparseArray.get(R.id.tag_forbid_user_post_id) : null;
                 if (z) {
-                    dlV().setVisibility(0);
-                    dlV().setTag(str2);
+                    drm().setVisibility(0);
+                    drm().setTag(str2);
                 } else {
-                    dlV().setVisibility(8);
+                    drm().setVisibility(8);
                 }
             }
-            dlY().setVisibility(8);
-            dlX().setVisibility(8);
-            dlZ().setVisibility(8);
-            dlT().setVisibility(8);
-            dma().setVisibility(8);
+            drp().setVisibility(8);
+            dro().setVisibility(8);
+            drq().setVisibility(8);
+            drk().setVisibility(8);
+            drr().setVisibility(8);
         }
     }
 }

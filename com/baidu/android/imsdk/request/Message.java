@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.request;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.account.AccountManager;
+import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.db.DBManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -15,7 +16,7 @@ import java.io.IOException;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class Message {
     private Context context;
     protected long mAppid;
@@ -61,7 +62,7 @@ public abstract class Message {
         return this.mPriority;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [116=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [118=4] */
     public byte[] getMessageBytes() {
         ByteArrayOutputStream byteArrayOutputStream;
         Throwable th;
@@ -231,5 +232,8 @@ public abstract class Message {
     }
 
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+        if (i == 4001 || i == 4003 || i == 4004 || i == 4005) {
+            LoginManager.getInstance(context).triggleLogoutListener(i, str);
+        }
     }
 }

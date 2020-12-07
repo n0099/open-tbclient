@@ -1,7 +1,7 @@
 package io.flutter.plugin.common;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public final class BinaryCodec implements MessageCodec<ByteBuffer> {
     public static final BinaryCodec INSTANCE = new BinaryCodec();
 

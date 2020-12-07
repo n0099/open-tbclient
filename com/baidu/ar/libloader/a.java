@@ -2,34 +2,80 @@ package com.baidu.ar.libloader;
 
 import android.content.Context;
 import com.baidu.ar.ARType;
-/* loaded from: classes12.dex */
-public interface a {
+import com.baidu.ar.libloader.ILibLoader;
+/* loaded from: classes10.dex */
+public final class a {
+    private static volatile ILibLoader sJ;
+    private static Object sLock = new Object();
+    private static boolean sK = false;
+    private static volatile boolean sL = false;
 
-    /* renamed from: com.baidu.ar.libloader.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    public interface InterfaceC0085a {
-        void a(ARType aRType, String str, String str2);
+    public static void a(ILibLoader iLibLoader) {
+        synchronized (sLock) {
+            sJ = iLibLoader;
+            sK = true;
+        }
+        sL = false;
     }
 
-    /* loaded from: classes12.dex */
-    public interface b {
-        void onSuccess();
+    private static ILibLoader ff() {
+        if (sJ == null) {
+            synchronized (sLock) {
+                if (sJ == null) {
+                    sJ = new b();
+                }
+            }
+        }
+        return sJ;
     }
 
-    /* loaded from: classes12.dex */
-    public interface c {
-        void onReady();
+    public static void fg() {
+        sL = false;
     }
 
-    void a(Context context, b bVar);
+    public static boolean isRegistered() {
+        boolean z;
+        synchronized (sLock) {
+            z = sK;
+        }
+        return z;
+    }
 
-    void a(ARType aRType, String str, String str2, InterfaceC0085a interfaceC0085a);
+    public static void load(Context context, ILibLoader.b bVar) {
+        if (sL) {
+            return;
+        }
+        ff().load(context, bVar);
+    }
 
-    void a(String str, c cVar);
+    public static void prepareCaseRes(ARType aRType, String str, String str2, ILibLoader.a aVar) {
+        if (sL) {
+            return;
+        }
+        ff().prepareCaseRes(aRType, str, str2, aVar);
+    }
 
-    void as(String str);
+    public static void release() {
+        sL = true;
+        sK = false;
+        if (sJ != null) {
+            sJ.release();
+            sJ = null;
+        }
+    }
 
-    void release();
+    public static void require(String str) {
+        if (sL) {
+            return;
+        }
+        ff().require(str);
+    }
 
-    void setLibLoadPlugin(ILibLoaderPlugin iLibLoaderPlugin);
+    public static void setLibLoadPlugin(ILibLoaderPlugin iLibLoaderPlugin) {
+        ff().setLibLoadPlugin(iLibLoaderPlugin);
+    }
+
+    public static void setLibReadyListener(String str, ILibLoader.c cVar) {
+        ff().setLibReadyListener(str, cVar);
+    }
 }

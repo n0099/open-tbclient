@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class StatService {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1484a = "logsender";
+    private static final String f1486a = "logsender";
     private ConcurrentHashMap<String, Long> b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public enum ETag {
         in,
         out,
@@ -22,11 +22,11 @@ public class StatService {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static StatService f1485a = new StatService();
+        private static StatService f1487a = new StatService();
 
         private a() {
         }
@@ -37,7 +37,7 @@ public class StatService {
     }
 
     static StatService a() {
-        return a.f1485a;
+        return a.f1487a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

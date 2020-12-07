@@ -7,12 +7,12 @@ import android.content.Context;
 import android.content.pm.ComponentInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ComponentUtils {
     private static final boolean DEBUG = false;
     private static final String TAG = "ComponentUtils";
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public enum ComponentType {
         ALL,
         ACTIVITY,

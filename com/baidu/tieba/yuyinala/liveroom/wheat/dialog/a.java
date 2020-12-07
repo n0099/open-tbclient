@@ -16,19 +16,19 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes4.dex */
 public abstract class a {
-    private DialogInterface.OnDismissListener bAA;
-    protected Activity bMo;
+    private DialogInterface.OnDismissListener bFI;
+    protected Activity beD;
     private DialogInterface.OnCancelListener mCancelListenr;
     private AlertDialog mDialog;
     private View mView;
-    protected TbPageContext oey;
-    private boolean bAC = false;
-    private boolean bAD = false;
+    protected TbPageContext oty;
+    private boolean bFK = false;
+    private boolean bFL = false;
     private int mDialogGravity = -1;
 
-    protected abstract boolean Ra();
+    protected abstract boolean Ty();
 
-    protected abstract boolean Rb();
+    protected abstract boolean Tz();
 
     protected abstract int getDialogMargin();
 
@@ -37,37 +37,37 @@ public abstract class a {
     protected abstract void initData();
 
     public a(TbPageContext tbPageContext) {
-        this.oey = tbPageContext;
-        this.bMo = tbPageContext.getPageActivity();
+        this.oty = tbPageContext;
+        this.beD = tbPageContext.getPageActivity();
     }
 
     public a(Activity activity) {
-        this.bMo = activity;
+        this.beD = activity;
     }
 
     public void show() {
         if (this.mDialog != null) {
-            ShowUtil.showDialog(this.mDialog, this.bMo);
+            ShowUtil.showDialog(this.mDialog, this.beD);
             return;
         }
-        if (this.bAC) {
-            if (this.bAD) {
-                this.mDialog = new AlertDialog.Builder(this.bMo, a.i.sdk_search_dialog_from_bottom_in).create();
+        if (this.bFK) {
+            if (this.bFL) {
+                this.mDialog = new AlertDialog.Builder(this.beD, a.i.sdk_search_dialog_from_bottom_in).create();
             } else {
-                this.mDialog = new AlertDialog.Builder(this.bMo, a.i.sdk_search_dialog).create();
+                this.mDialog = new AlertDialog.Builder(this.beD, a.i.sdk_search_dialog).create();
             }
         } else {
-            this.mDialog = new AlertDialog.Builder(this.bMo).create();
+            this.mDialog = new AlertDialog.Builder(this.beD).create();
         }
-        this.mDialog.setCanceledOnTouchOutside(Ra());
-        this.mDialog.setCancelable(Rb());
+        this.mDialog.setCanceledOnTouchOutside(Ty());
+        this.mDialog.setCancelable(Tz());
         if (this.mCancelListenr != null) {
             this.mDialog.setOnCancelListener(this.mCancelListenr);
         }
-        if (this.bAA != null) {
-            this.mDialog.setOnDismissListener(this.bAA);
+        if (this.bFI != null) {
+            this.mDialog.setOnDismissListener(this.bFI);
         }
-        ShowUtil.showDialog(this.mDialog, this.bMo);
+        ShowUtil.showDialog(this.mDialog, this.beD);
         if (this.mDialog.getWindow().getDecorView().getParent() != null) {
             Window window = this.mDialog.getWindow();
             if (this.mDialogGravity == -1) {
@@ -78,10 +78,10 @@ public abstract class a {
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.7f;
             attributes.width = -1;
-            DisplayMetrics screenSize = BdUtilHelper.getScreenSize(this.bMo);
+            DisplayMetrics screenSize = BdUtilHelper.getScreenSize(this.beD);
             if (screenSize != null) {
                 int dialogMargin = getDialogMargin();
-                if (UtilHelper.getRealScreenOrientation(this.bMo) == 2) {
+                if (UtilHelper.getRealScreenOrientation(this.beD) == 2) {
                     attributes.width = screenSize.heightPixels - (dialogMargin * 2);
                 } else {
                     attributes.width = screenSize.widthPixels - (dialogMargin * 2);
@@ -112,27 +112,27 @@ public abstract class a {
 
     public void dismiss() {
         if (this.mDialog != null) {
-            ShowUtil.dismissDialog(this.mDialog, this.bMo);
+            ShowUtil.dismissDialog(this.mDialog, this.beD);
         }
     }
 
     public a g(DialogInterface.OnDismissListener onDismissListener) {
-        this.bAA = onDismissListener;
+        this.bFI = onDismissListener;
         return this;
     }
 
-    public a MZ(int i) {
+    public a NR(int i) {
         this.mDialogGravity = i;
         return this;
     }
 
-    public a zo(boolean z) {
-        this.bAC = z;
+    public a zS(boolean z) {
+        this.bFK = z;
         return this;
     }
 
-    public a zp(boolean z) {
-        this.bAD = z;
+    public a zT(boolean z) {
+        this.bFL = z;
         return this;
     }
 }

@@ -2,7 +2,6 @@ package com.baidu.live.tbadk.coreextra.data;
 
 import android.content.Intent;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.Serializable;
 import java.util.List;
@@ -170,15 +169,15 @@ public class VideoInfo implements Serializable {
 
     public String buildContent() {
         StringBuilder sb = new StringBuilder();
-        sb.append(VIDEO_CONTENT_PREFFIX).append(this.thumbId).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        sb.append(this.videoWidth).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        sb.append(this.videoHeight).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        sb.append(this.videoMd5).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        sb.append(this.videoUrl).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        sb.append(this.videoDuration).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        sb.append(this.videoWidth).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        sb.append(this.videoHeight).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        sb.append(this.videoLength).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        sb.append(VIDEO_CONTENT_PREFFIX).append(this.thumbId).append(",");
+        sb.append(this.videoWidth).append(",");
+        sb.append(this.videoHeight).append(",");
+        sb.append(this.videoMd5).append(",");
+        sb.append(this.videoUrl).append(",");
+        sb.append(this.videoDuration).append(",");
+        sb.append(this.videoWidth).append(",");
+        sb.append(this.videoHeight).append(",");
+        sb.append(this.videoLength).append(",");
         sb.append(this.videoType).append(")");
         return sb.toString();
     }

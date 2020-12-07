@@ -20,9 +20,9 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes16.dex */
+/* loaded from: classes7.dex */
 public class f {
-    private static final Map<String, m<e>> Bs = new HashMap();
+    private static final Map<String, m<e>> Ci = new HashMap();
 
     public static m<e> s(Context context, String str) {
         return com.airbnb.lottie.network.b.v(context, str);
@@ -58,7 +58,7 @@ public class f {
 
     public static m<e> d(Context context, @RawRes final int i) {
         final Context applicationContext = context.getApplicationContext();
-        return a(U(i), new Callable<l<e>>() { // from class: com.airbnb.lottie.f.3
+        return a(X(i), new Callable<l<e>>() { // from class: com.airbnb.lottie.f.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: iF */
@@ -71,13 +71,13 @@ public class f {
     @WorkerThread
     public static l<e> e(Context context, @RawRes int i) {
         try {
-            return c(context.getResources().openRawResource(i), U(i));
+            return c(context.getResources().openRawResource(i), X(i));
         } catch (Resources.NotFoundException e) {
             return new l<>(e);
         }
     }
 
-    private static String U(@RawRes int i) {
+    private static String X(@RawRes int i) {
         return "rawRes_" + i;
     }
 
@@ -211,8 +211,8 @@ public class f {
     }
 
     private static m<e> a(@Nullable final String str, Callable<l<e>> callable) {
-        final e bm = com.airbnb.lottie.model.g.jC().bm(str);
-        if (bm != null) {
+        final e bp = com.airbnb.lottie.model.g.jC().bp(str);
+        if (bp != null) {
             return new m<>(new Callable<l<e>>() { // from class: com.airbnb.lottie.f.7
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
@@ -223,8 +223,8 @@ public class f {
                 }
             });
         }
-        if (Bs.containsKey(str)) {
-            return Bs.get(str);
+        if (Ci.containsKey(str)) {
+            return Ci.get(str);
         }
         m<e> mVar = new m<>(callable);
         mVar.a(new i<e>() { // from class: com.airbnb.lottie.f.8
@@ -234,17 +234,17 @@ public class f {
                 if (str != null) {
                     com.airbnb.lottie.model.g.jC().a(str, eVar);
                 }
-                f.Bs.remove(str);
+                f.Ci.remove(str);
             }
         });
         mVar.c(new i<Throwable>() { // from class: com.airbnb.lottie.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.airbnb.lottie.i
             public void onResult(Throwable th) {
-                f.Bs.remove(str);
+                f.Ci.remove(str);
             }
         });
-        Bs.put(str, mVar);
+        Ci.put(str, mVar);
         return mVar;
     }
 }

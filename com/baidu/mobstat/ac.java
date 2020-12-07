@@ -6,22 +6,22 @@ import org.json.JSONObject;
 public class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f2519a;
+    public boolean f2521a;
     public String b;
     public boolean c;
 
     public ac() {
-        this.f2519a = false;
+        this.f2521a = false;
         this.b = "";
         this.c = false;
     }
 
     public ac(JSONObject jSONObject) {
-        this.f2519a = false;
+        this.f2521a = false;
         this.b = "";
         this.c = false;
         try {
-            this.f2519a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
+            this.f2521a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
         } catch (Exception e) {
             bb.c().b(e);
         }
@@ -40,7 +40,7 @@ public class ac {
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("SDK_BPLUS_SERVICE", this.f2519a);
+            jSONObject.put("SDK_BPLUS_SERVICE", this.f2521a);
         } catch (JSONException e) {
             bb.c().b(e);
         }

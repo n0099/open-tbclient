@@ -8,7 +8,7 @@ import java.security.MessageDigest;
 /* loaded from: classes14.dex */
 public class h {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [54=4] */
-    public static String t(File file) {
+    public static String r(File file) {
         Exception exc;
         int read;
         if (!file.exists()) {
@@ -31,7 +31,7 @@ public class h {
                     } catch (Exception e) {
                         fileInputStream = fileInputStream2;
                         exc = e;
-                        if (com.baidu.prologue.a.b.a.cft.get().abk()) {
+                        if (com.baidu.prologue.a.b.a.clZ.get().aes()) {
                             throw new RuntimeException(exc);
                         }
                         if (fileInputStream != null) {
@@ -57,17 +57,17 @@ public class h {
                         throw th;
                     }
                 } while (read > 0);
-                String E = E(messageDigest.digest());
+                String G = G(messageDigest.digest());
                 if (fileInputStream2 != null) {
                     try {
                         fileInputStream2.close();
-                        return E;
+                        return G;
                     } catch (IOException e4) {
                         e4.printStackTrace();
-                        return E;
+                        return G;
                     }
                 }
-                return E;
+                return G;
             } catch (Throwable th2) {
                 th = th2;
             }
@@ -76,7 +76,7 @@ public class h {
         }
     }
 
-    public static String E(byte[] bArr) {
+    public static String G(byte[] bArr) {
         char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         StringBuilder sb = new StringBuilder(bArr.length * 2);
         for (byte b : bArr) {

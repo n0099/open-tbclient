@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ui.wheelview3d.adapter;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public interface WheelAdapter<T> {
     T getItem(int i);
 

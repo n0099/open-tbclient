@@ -3,7 +3,7 @@ package com.baidu.swan.apps.adaptation.a;
 import android.content.Context;
 import android.view.View;
 import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public interface g<VIEW extends View> {
     void P(Object obj);
 
@@ -11,11 +11,11 @@ public interface g<VIEW extends View> {
 
     void a(SwanAdDownloadState swanAdDownloadState);
 
-    void ahn();
+    void akv();
 
     VIEW getRealView();
 
-    void ko(String str);
+    void kV(String str);
 
     void updateProgress(int i);
 }

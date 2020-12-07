@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.u;
 import tbclient.SearchSug.DataReq;
 import tbclient.SearchSug.SearchSugReqIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class SearchListNetMessage extends NetMessage {
     public Integer isForum;
     public String mKey;

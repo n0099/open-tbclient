@@ -5,13 +5,13 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class LiveBCVideoApplyChatResponse extends JsonHttpResponsedMessage {
-    private String bvS;
+    private String bBc;
     private String status;
 
     public LiveBCVideoApplyChatResponse() {
         super(1021222);
         this.status = "";
-        this.bvS = "";
+        this.bBc = "";
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -22,7 +22,7 @@ public class LiveBCVideoApplyChatResponse extends JsonHttpResponsedMessage {
         }
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.status = optJSONObject.optString("status");
-            this.bvS = optJSONObject.optString("count_down");
+            this.bBc = optJSONObject.optString("count_down");
         }
     }
 
@@ -30,7 +30,7 @@ public class LiveBCVideoApplyChatResponse extends JsonHttpResponsedMessage {
         return this.status;
     }
 
-    public String Rp() {
-        return this.bvS;
+    public String TN() {
+        return this.bBc;
     }
 }

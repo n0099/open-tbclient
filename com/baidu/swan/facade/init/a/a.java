@@ -6,21 +6,21 @@ import com.baidu.swan.facade.init.SwanAppInitHelper;
 /* loaded from: classes8.dex */
 public class a implements ab {
     @Override // com.baidu.swan.apps.adaptation.a.ab
-    public void ahC() {
-        aOp();
+    public void akK() {
+        aRu();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ab
-    public void ahD() {
-        aOp();
+    public void akL() {
+        aRu();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ab
-    public void ahE() {
-        aOp();
+    public void akM() {
+        aRu();
     }
 
-    private void aOp() {
+    private void aRu() {
         synchronized (SwanAppInitHelper.class) {
             if (SwanAppInitHelper.isDelayInit()) {
                 SwanAppInitHelper.initModules(AppRuntime.getApplication(), false);

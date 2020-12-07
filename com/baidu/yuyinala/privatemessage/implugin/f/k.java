@@ -8,36 +8,36 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class k {
-    private static k ozq;
+    private static k oOw;
     private Context mContext;
     private static final String TAG = k.class.getSimpleName();
-    private static Map<Long, h> ozr = new HashMap();
+    private static Map<Long, h> oOx = new HashMap();
 
     private k(Context context) {
         this.mContext = context.getApplicationContext();
     }
 
-    public static k gD(Context context) {
-        if (ozq == null) {
+    public static k hm(Context context) {
+        if (oOw == null) {
             synchronized (k.class) {
-                if (ozq == null) {
-                    ozq = new k(context);
+                if (oOw == null) {
+                    oOw = new k(context);
                 }
             }
         }
-        return ozq;
+        return oOw;
     }
 
-    public Map<Long, h> efy() {
-        return ozr;
+    public Map<Long, h> elm() {
+        return oOx;
     }
 
-    public h hu(long j) {
-        return ozr.get(Long.valueOf(j));
+    public h hZ(long j) {
+        return oOx.get(Long.valueOf(j));
     }
 
     public void a(long j, h hVar) {
-        ozr.put(Long.valueOf(j), hVar);
+        oOx.put(Long.valueOf(j), hVar);
     }
 
     public void a(String str, long j, IIsSubscribedListener iIsSubscribedListener) {

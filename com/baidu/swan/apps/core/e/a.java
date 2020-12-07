@@ -9,24 +9,24 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.dialog.g;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a {
-    private final String cJZ;
-    private g cKa;
-    private TextView cKb;
-    private TextView cKc;
-    private b cKd;
-    private InterfaceC0421a cKe;
+    private final String cQS;
+    private g cQT;
+    private TextView cQU;
+    private TextView cQV;
+    private b cQW;
+    private InterfaceC0433a cQX;
     private final Context mContext;
     private final String mHost;
 
     /* renamed from: com.baidu.swan.apps.core.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0421a {
+    /* loaded from: classes25.dex */
+    public interface InterfaceC0433a {
         void onCancel();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public interface b {
         void r(String str, String str2, String str3, String str4);
     }
@@ -34,75 +34,75 @@ public class a {
     public a(Context context, String str, String str2) {
         this.mContext = context;
         this.mHost = str;
-        this.cJZ = str2;
-        apc();
+        this.cQS = str2;
+        ask();
     }
 
     private String getUsername() {
-        return this.cKb.getText().toString();
+        return this.cQU.getText().toString();
     }
 
     private String getPassword() {
-        return this.cKc.getText().toString();
+        return this.cQV.getText().toString();
     }
 
     public void a(b bVar) {
-        this.cKd = bVar;
+        this.cQW = bVar;
     }
 
-    public void a(InterfaceC0421a interfaceC0421a) {
-        this.cKe = interfaceC0421a;
+    public void a(InterfaceC0433a interfaceC0433a) {
+        this.cQX = interfaceC0433a;
     }
 
     public void show() {
-        this.cKa.show();
-        this.cKb.requestFocus();
+        this.cQT.show();
+        this.cQU.requestFocus();
     }
 
-    private void apc() {
+    private void ask() {
         View inflate = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_browser_http_authentication, (ViewGroup) null);
-        this.cKb = (TextView) inflate.findViewById(a.f.username_edit);
-        this.cKc = (TextView) inflate.findViewById(a.f.password_edit);
-        this.cKc.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.swan.apps.core.e.a.1
+        this.cQU = (TextView) inflate.findViewById(a.f.username_edit);
+        this.cQV = (TextView) inflate.findViewById(a.f.password_edit);
+        this.cQV.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.swan.apps.core.e.a.1
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 6 || i == 0) {
                     if (i == 0 && keyEvent != null && keyEvent.getAction() == 1) {
                         return true;
                     }
-                    a.this.apd();
+                    a.this.asl();
                     return true;
                 }
                 return false;
             }
         });
-        this.cKa = new g.a(this.mContext).f(this.mContext.getText(a.h.aiapps_sign_in_to).toString().replace("%s1", this.mHost).replace("%s2", this.cJZ)).jW(17301543).aA(inflate).c(a.h.aiapps_http_authentication_login, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.a.4
+        this.cQT = new g.a(this.mContext).f(this.mContext.getText(a.h.aiapps_sign_in_to).toString().replace("%s1", this.mHost).replace("%s2", this.cQS)).ku(17301543).aC(inflate).c(a.h.aiapps_http_authentication_login, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.a.4
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                a.this.apd();
+                a.this.asl();
             }
         }).d(a.h.aiapps_http_authentication_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.a.3
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (a.this.cKe != null) {
-                    a.this.cKe.onCancel();
+                if (a.this.cQX != null) {
+                    a.this.cQX.onCancel();
                 }
             }
         }).a(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.core.e.a.2
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (a.this.cKe != null) {
-                    a.this.cKe.onCancel();
+                if (a.this.cQX != null) {
+                    a.this.cQX.onCancel();
                 }
             }
-        }).apg();
-        this.cKa.getWindow().setSoftInputMode(4);
+        }).asp();
+        this.cQT.getWindow().setSoftInputMode(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void apd() {
-        if (this.cKd != null) {
-            this.cKd.r(this.mHost, this.cJZ, getUsername(), getPassword());
+    public void asl() {
+        if (this.cQW != null) {
+            this.cQW.r(this.mHost, this.cQS, getUsername(), getPassword());
         }
     }
 }

@@ -10,9 +10,15 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a extends ImageSpan {
     private WeakReference<Drawable> mDrawableRef;
+    private int mMarginRight;
 
     public a(@NonNull Drawable drawable, int i) {
         super(drawable, i);
+    }
+
+    public a(@NonNull Drawable drawable, int i, int i2) {
+        super(drawable, i);
+        this.mMarginRight = i2;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
@@ -28,7 +34,7 @@ public class a extends ImageSpan {
             fontMetricsInt.bottom = i5 + (i4 / 2);
             fontMetricsInt.descent = fontMetricsInt.bottom;
         }
-        return bounds.right;
+        return bounds.right + this.mMarginRight;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan

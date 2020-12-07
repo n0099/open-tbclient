@@ -1,5 +1,6 @@
 package okhttp3.internal.connection;
 
+import com.baidu.searchbox.http.response.ResponseException;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.net.Inet4Address;
@@ -26,6 +27,7 @@ import okhttp3.internal.http2.StreamResetException;
 /* loaded from: classes15.dex */
 public final class StreamAllocation {
     static final /* synthetic */ boolean $assertionsDisabled;
+    private static final String TAG = "StreamAllocation";
     public final Address address;
     public final Call call;
     private final Object callStackTrace;
@@ -80,13 +82,12 @@ public final class StreamAllocation {
         while (true) {
             findConnection = findConnection(i, i2, i3, i4, z, request);
             synchronized (this.connectionPool) {
-                if (findConnection.successCount != 0) {
-                    if (findConnection.isHealthy(z2)) {
-                        break;
-                    }
-                    noNewStreams();
-                } else {
+                if (findConnection.successCount == 0 && !findConnection.isMultiplexed()) {
                     break;
+                } else if (findConnection.isHealthy(z2)) {
+                    break;
+                } else {
+                    noNewStreams();
                 }
             }
         }
@@ -108,7 +109,7 @@ public final class StreamAllocation {
                 throw new IllegalStateException("codec != null");
             }
             if (this.canceled) {
-                throw new IOException("Canceled");
+                throw new IOException(ResponseException.CANCELED);
             }
             realConnection = this.connection;
             releaseIfNoNewStreams = releaseIfNoNewStreams();
@@ -136,7 +137,9 @@ public final class StreamAllocation {
         if (z2) {
             this.eventListener.connectionAcquired(this.call, realConnection3);
         }
-        if (realConnection3 == null) {
+        if (realConnection3 != null) {
+            this.route = this.connection.route();
+        } else {
             boolean z3 = false;
             if (route == null && (this.routeSelection == null || !this.routeSelection.hasNext())) {
                 z3 = true;
@@ -144,7 +147,7 @@ public final class StreamAllocation {
             }
             synchronized (this.connectionPool) {
                 if (this.canceled) {
-                    throw new IOException("Canceled");
+                    throw new IOException(ResponseException.CANCELED);
                 }
                 if (z3) {
                     List<Route> all = this.routeSelection.getAll();
@@ -177,6 +180,9 @@ public final class StreamAllocation {
             if (z2) {
                 this.eventListener.connectionAcquired(this.call, realConnection3);
             } else {
+                if (this.routeSelection == null) {
+                    this.routeSelection = this.routeSelector.next();
+                }
                 boolean z4 = this.ipv6FallbackTimerInMs > 0 && this.route != null && (this.route.socketAddress().getAddress() instanceof Inet6Address) && !AddressListOnlyContainsIPv6(this.routeSelection.getAll());
                 FallbackConnectTask fallbackConnectTask = null;
                 if (!z4) {
@@ -269,8 +275,9 @@ public final class StreamAllocation {
             this.eventListener.connectionReleased(this.call, realConnection);
         }
         if (iOException != null) {
-            this.eventListener.callFailed(this.call, iOException);
+            this.eventListener.callFailed(this.call, Internal.instance.timeoutExit(this.call, iOException));
         } else if (z2) {
+            Internal.instance.timeoutExit(this.call, null);
             this.eventListener.callEnd(this.call);
         }
     }
@@ -307,6 +314,7 @@ public final class StreamAllocation {
         }
         Util.closeQuietly(deallocate);
         if (realConnection != null) {
+            Internal.instance.timeoutExit(this.call, null);
             this.eventListener.connectionReleased(this.call, realConnection);
             this.eventListener.callEnd(this.call);
         }

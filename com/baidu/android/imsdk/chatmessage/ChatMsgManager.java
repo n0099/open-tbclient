@@ -31,7 +31,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ChatMsgManager extends BaseManager {
     public static void init(Context context) {
         if (!isNullContext(context)) {
@@ -578,6 +578,10 @@ public class ChatMsgManager extends BaseManager {
         if (!isNullContext(context)) {
             ChatSessionManagerImpl.getInstance(context).mediaSetSessionRead(j, i, j2, str, j3, iMediaSetSessionReadListener);
         }
+    }
+
+    public static void setMediaAllSessionRead(Context context, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
+        mediaSetSessionRead(context, -1L, -1, -1L, "", System.currentTimeMillis(), iMediaSetSessionReadListener);
     }
 
     public static void mediaDeleteChatSession(Context context, long j, long j2, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {

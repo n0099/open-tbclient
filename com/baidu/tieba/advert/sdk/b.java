@@ -23,31 +23,31 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.advert.sdk.widget.CountDownTextView;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class b {
-    private Float fUX;
-    private RsplashType fUZ;
-    private WeakReference<ViewGroup> fVa;
+    private Float gdh;
+    private RsplashType gdj;
+    private WeakReference<ViewGroup> gdk;
     private int mPattern;
-    private int fUW = 5;
-    private int fUY = -1;
-    private com.baidu.tbadk.g.b fVb = new com.baidu.tbadk.g.b() { // from class: com.baidu.tieba.advert.sdk.b.1
+    private int gdg = 5;
+    private int gdi = -1;
+    private com.baidu.tbadk.g.b gdl = new com.baidu.tbadk.g.b() { // from class: com.baidu.tieba.advert.sdk.b.1
         @Override // com.baidu.tbadk.g.b
-        public void big() {
-            if (b.this.fVa != null && ((ViewGroup) b.this.fVa.get()).getParent() != null) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) ((ViewGroup) b.this.fVa.get()).getLayoutParams();
+        public void blq() {
+            if (b.this.gdk != null && ((ViewGroup) b.this.gdk.get()).getParent() != null) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) ((ViewGroup) b.this.gdk.get()).getLayoutParams();
                 if (1 != b.this.mPattern) {
-                    layoutParams.width = l.getEquipmentWidth(((ViewGroup) b.this.fVa.get()).getContext());
-                    layoutParams.height = (int) (l.getEquipmentHeight(((ViewGroup) b.this.fVa.get()).getContext()) * 0.8125d);
+                    layoutParams.width = l.getEquipmentWidth(((ViewGroup) b.this.gdk.get()).getContext());
+                    layoutParams.height = (int) (l.getEquipmentHeight(((ViewGroup) b.this.gdk.get()).getContext()) * 0.8125d);
                 } else {
                     layoutParams.width = -1;
                     layoutParams.height = -1;
                 }
-                ((ViewGroup) b.this.fVa.get()).setLayoutParams(layoutParams);
+                ((ViewGroup) b.this.gdk.get()).setLayoutParams(layoutParams);
             }
         }
     };
-    private CustomMessageTask fVc = new CustomMessageTask(CmdConfigCustom.CMD_START_REQUEST_BES_AD, new CustomMessageTask.CustomRunnable<e>() { // from class: com.baidu.tieba.advert.sdk.b.2
+    private CustomMessageTask gdm = new CustomMessageTask(CmdConfigCustom.CMD_START_REQUEST_BES_AD, new CustomMessageTask.CustomRunnable<e>() { // from class: com.baidu.tieba.advert.sdk.b.2
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<e> customMessage) {
             if (customMessage != null) {
@@ -58,31 +58,31 @@ public class b {
     });
 
     public b() {
-        bJK();
+        bNs();
     }
 
-    private void bJK() {
+    private void bNs() {
         XAdManager.getInstance(TbadkCoreApplication.getInst()).newAdContext().setAdServerRequestingTimeout(1000);
     }
 
     public void registerTask() {
-        this.fVc.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(this.fVc);
+        this.gdm.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(this.gdm);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(e eVar) {
-        if (eVar != null && eVar.bii() != null && eVar.bii().getContext() != null) {
-            eVar.eth = this.fVb;
-            final com.baidu.tbadk.g.a bik = eVar.bik();
-            this.fVa = new WeakReference<>(eVar.bii());
+        if (eVar != null && eVar.bls() != null && eVar.bls().getContext() != null) {
+            eVar.eAj = this.gdl;
+            final com.baidu.tbadk.g.a blu = eVar.blu();
+            this.gdk = new WeakReference<>(eVar.bls());
             try {
-                new SplashAd(eVar.bii().getContext(), eVar.bii(), new SplashAdListener() { // from class: com.baidu.tieba.advert.sdk.b.3
+                new SplashAd(eVar.bls().getContext(), eVar.bls(), new SplashAdListener() { // from class: com.baidu.tieba.advert.sdk.b.3
                     @Override // com.baidu.mobads.SplashAdListener
                     public void onAdPresent() {
                         int i;
-                        if (b.this.fVa.get() != null) {
-                            Context context = ((ViewGroup) b.this.fVa.get()).getContext();
+                        if (b.this.gdk.get() != null) {
+                            Context context = ((ViewGroup) b.this.gdk.get()).getContext();
                             int dimensionPixelOffset = context.getResources().getDimensionPixelOffset(R.dimen.ds60);
                             int equipmentWidth = l.getEquipmentWidth(context);
                             int equipmentHeight = l.getEquipmentHeight(context);
@@ -90,9 +90,9 @@ public class b {
                             int i3 = (i2 * 48) / DownloadConstants.STATUS_WAITING_FOR_NETWORK;
                             int dimensionPixelOffset2 = context.getResources().getDimensionPixelOffset(R.dimen.ds144);
                             int dimensionPixelOffset3 = context.getResources().getDimensionPixelOffset(R.dimen.ds60);
-                            if (b.this.fUX.floatValue() > 0.0f) {
-                                dimensionPixelOffset = (int) (((equipmentHeight * b.this.fUX.floatValue()) / 100.0f) - (dimensionPixelOffset3 / 2));
-                                i = (int) (((equipmentHeight * b.this.fUX.floatValue()) / 100.0f) - (i3 / 2));
+                            if (b.this.gdh.floatValue() > 0.0f) {
+                                dimensionPixelOffset = (int) (((equipmentHeight * b.this.gdh.floatValue()) / 100.0f) - (dimensionPixelOffset3 / 2));
+                                i = (int) (((equipmentHeight * b.this.gdh.floatValue()) / 100.0f) - (i3 / 2));
                             } else {
                                 i = dimensionPixelOffset;
                             }
@@ -106,14 +106,14 @@ public class b {
                             gradientDrawable.setColor(color);
                             gradientDrawable.setCornerRadius(context.getResources().getDimension(R.dimen.ds45));
                             countDownTextView.setBackgroundDrawable(gradientDrawable);
-                            countDownTextView.az(string, b.this.fUW);
+                            countDownTextView.aA(string, b.this.gdg);
                             countDownTextView.setTextColor(-1);
                             countDownTextView.setGravity(17);
                             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimensionPixelOffset2, dimensionPixelOffset3);
                             layoutParams.addRule(10);
                             layoutParams.addRule(11);
                             layoutParams.setMargins(0, dimensionPixelOffset, 45, 0);
-                            ((ViewGroup) b.this.fVa.get()).addView(countDownTextView, layoutParams);
+                            ((ViewGroup) b.this.gdk.get()).addView(countDownTextView, layoutParams);
                             countDownTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.advert.sdk.b.3.1
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view) {
@@ -122,77 +122,77 @@ public class b {
                             });
                             countDownTextView.setTimeoutListener(new CountDownTextView.b() { // from class: com.baidu.tieba.advert.sdk.b.3.2
                                 @Override // com.baidu.tieba.advert.sdk.widget.CountDownTextView.b
-                                public void bT(View view) {
+                                public void ca(View view) {
                                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ADVERT_SDK_SPLASH_CLICK, "advertevent://ignore"));
                                 }
                             });
-                            if (b.this.fUY != -1) {
+                            if (b.this.gdi != -1) {
                                 ImageView imageView = new ImageView(context);
                                 imageView.setBackgroundResource(R.drawable.bg_bes_splash_logo_white);
                                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(i2, i3);
                                 layoutParams2.addRule(10);
                                 layoutParams2.addRule(9);
                                 layoutParams2.setMargins(45, i, 0, 0);
-                                ((ViewGroup) b.this.fVa.get()).addView(imageView, layoutParams2);
+                                ((ViewGroup) b.this.gdk.get()).addView(imageView, layoutParams2);
                             }
                         }
-                        if (bik != null) {
-                            bik.v(b.this.fUZ == RsplashType.VIDEO, 1 == b.this.mPattern);
+                        if (blu != null) {
+                            blu.v(b.this.gdj == RsplashType.VIDEO, 1 == b.this.mPattern);
                         }
                     }
 
                     @Override // com.baidu.mobads.SplashAdListener
                     public void onAdDismissed() {
-                        if (bik != null) {
-                            bik.bif();
+                        if (blu != null) {
+                            blu.blp();
                         }
                     }
 
                     @Override // com.baidu.mobads.SplashAdListener
                     public void onAdFailed(String str) {
-                        if (bik != null) {
-                            bik.zJ(str);
+                        if (blu != null) {
+                            blu.Aq(str);
                         }
                     }
 
                     @Override // com.baidu.mobads.SplashAdListener
                     public void onAdClick() {
-                        if (bik != null) {
-                            bik.w(b.this.fUZ == RsplashType.VIDEO, 1 == b.this.mPattern);
+                        if (blu != null) {
+                            blu.w(b.this.gdj == RsplashType.VIDEO, 1 == b.this.mPattern);
                         }
                     }
 
                     @Override // com.baidu.mobads.SplashAdListener
                     public void onAdTypeReady(RsplashType rsplashType, int i) {
-                        b.this.fUZ = rsplashType;
+                        b.this.gdj = rsplashType;
                         int i2 = i / 1000;
                         if (rsplashType != RsplashType.VIDEO) {
-                            b.this.fUW = 3;
+                            b.this.gdg = 3;
                             return;
                         }
                         if (i2 < 3 || i2 > 5) {
                             i2 = 5;
                         }
-                        b.this.fUW = i2;
+                        b.this.gdg = i2;
                     }
 
                     @Override // com.baidu.mobads.SplashAdListener
                     public void onAdLoaded(HashMap hashMap) {
                         b.this.mPattern = ((Integer) hashMap.get(SplashAd.RSPLASH_PATTERN)).intValue();
-                        b.this.fUX = (Float) hashMap.get(SplashAd.RSPLASH_BTN_POS);
-                        if (b.this.fVa != null) {
+                        b.this.gdh = (Float) hashMap.get(SplashAd.RSPLASH_BTN_POS);
+                        if (b.this.gdk != null) {
                             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
                             if (1 != b.this.mPattern) {
-                                layoutParams.width = l.getEquipmentWidth(((ViewGroup) b.this.fVa.get()).getContext());
-                                layoutParams.height = (int) (l.getEquipmentHeight(((ViewGroup) b.this.fVa.get()).getContext()) * 0.8125d);
+                                layoutParams.width = l.getEquipmentWidth(((ViewGroup) b.this.gdk.get()).getContext());
+                                layoutParams.height = (int) (l.getEquipmentHeight(((ViewGroup) b.this.gdk.get()).getContext()) * 0.8125d);
                             }
-                            ((ViewGroup) b.this.fVa.get()).setLayoutParams(layoutParams);
+                            ((ViewGroup) b.this.gdk.get()).setLayoutParams(layoutParams);
                         }
                     }
                 }, "4776976", true);
             } catch (OutOfMemoryError e) {
                 TbadkCoreApplication.getInst().onLowMemory();
-                bik.zJ("oom");
+                blu.Aq("oom");
             }
         }
     }

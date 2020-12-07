@@ -1,12 +1,11 @@
 package com.meizu.cloud.pushsdk.platform;
 
-import com.baidu.webkit.internal.ETAG;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class b {
     public static String a(String str) {
         try {
@@ -30,7 +29,7 @@ public class b {
         Set<Map.Entry> entrySet = new TreeMap(map).entrySet();
         StringBuilder sb = new StringBuilder();
         for (Map.Entry entry : entrySet) {
-            sb.append((String) entry.getKey()).append(ETAG.EQUAL).append((String) entry.getValue());
+            sb.append((String) entry.getKey()).append("=").append((String) entry.getValue());
         }
         sb.append(str);
         return a(sb.toString());

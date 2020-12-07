@@ -30,7 +30,6 @@ import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -47,7 +46,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class WebSettingsGlobalBlink implements INoProGuard {
     private static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
     private static final String DEFAULT_MULTIPROCESS_MODELS = "TRT-AL00A,TRT-AL00,TRT-TL10A,TRT-TL10,SLA-AL00,SLA-TL10,DLI-AL10,DLI-TL20,SM-C5000";
@@ -1698,7 +1697,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             } else if ("model".equals(next)) {
                 if (sBlackListModels == null) {
                     sBlackListModels = new HashSet<>();
-                    String[] split = jSONObject.getString(next).split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = jSONObject.getString(next).split(",");
                     for (String str : split) {
                         sBlackListModels.add(str);
                     }
@@ -1880,7 +1879,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
         if (sDeviceSet == null) {
             sDeviceSet = new HashSet<>();
-            for (String str : DEFAULT_MULTIPROCESS_MODELS.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
+            for (String str : DEFAULT_MULTIPROCESS_MODELS.split(",")) {
                 sDeviceSet.add(str);
             }
         }
@@ -2008,12 +2007,12 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             String string = sharedPreferences.getString(PREF_KEY_RENDER_CRASHES, null);
             Log.d(LOGTAG, "  existing crashes: " + string);
             if (string != null) {
-                String[] split = string.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split = string.split(",");
                 int i = 1;
                 for (String str : split) {
                     if (currentTimeMillis - Long.parseLong(str, 10) < RENDER_CRASH_LOG_TIMEOUT) {
                         i++;
-                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                        sb.append(",");
                         sb.append(str);
                     }
                 }

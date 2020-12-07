@@ -75,7 +75,7 @@ public final class j {
             return hashMap;
         }
         for (String str2 : split) {
-            int indexOf3 = str2.indexOf(ETAG.EQUAL);
+            int indexOf3 = str2.indexOf("=");
             if (indexOf3 > 0) {
                 try {
                     hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));

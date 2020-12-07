@@ -1,6 +1,4 @@
 package com.baidu.ubs.analytics.d;
-
-import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes17.dex */
 public final class f {
     public static String encode(String str) {
@@ -28,7 +26,7 @@ public final class f {
             if (str.length() % 3 == 1) {
                 sb2.append("==");
             } else if (str.length() % 3 == 2) {
-                sb2.append(ETAG.EQUAL);
+                sb2.append("=");
             }
             for (int i2 = 76; i2 < sb2.length(); i2 += 76) {
                 sb2.insert(i2, "\r\n");

@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static char[] f1333a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    protected static char[] f1332a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String a(File file) {
         return a(file, 131072);
@@ -55,8 +55,8 @@ public class g {
     }
 
     private static void a(byte b, StringBuffer stringBuffer) {
-        char c = f1333a[(b & 240) >> 4];
-        char c2 = f1333a[b & 15];
+        char c = f1332a[(b & 240) >> 4];
+        char c2 = f1332a[b & 15];
         stringBuffer.append(c);
         stringBuffer.append(c2);
     }

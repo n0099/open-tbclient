@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class GroupAddressLocateActivityConfig extends IntentConfig {
     public static final String INTENT_DATA_IS_HIDDEN_ADDRESS = "IntentDataIsHiddenAddress";
     public static final String INTENT_DATA_OLD_ADDRESS = "IntentDataOldAddress";

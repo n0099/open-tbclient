@@ -8,14 +8,14 @@ import dalvik.system.DexClassLoader;
 public class m implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2420a;
+    final /* synthetic */ String f2422a;
     final /* synthetic */ Uri b;
     final /* synthetic */ b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(b bVar, String str, Uri uri) {
         this.c = bVar;
-        this.f2420a = str;
+        this.f2422a = str;
         this.b = uri;
     }
 
@@ -23,7 +23,7 @@ public class m implements Runnable {
     public void run() {
         try {
             DexClassLoader a2 = a.a(this.c.f);
-            com.baidu.mobads.utils.e.a(Class.forName("com.baidu.mobads_vr.vrplayer.VrImageView", false, a2), "boost", new Class[]{Context.class, String.class, Uri.class, Class.forName("com.baidu.mobads_vr.vrplayer.VrImageView$OnBoostListener", false, a2)}, new Object[]{this.c.getApplicationContext(), this.f2420a, this.b, null});
+            com.baidu.mobads.utils.e.a(Class.forName("com.baidu.mobads_vr.vrplayer.VrImageView", false, a2), "boost", new Class[]{Context.class, String.class, Uri.class, Class.forName("com.baidu.mobads_vr.vrplayer.VrImageView$OnBoostListener", false, a2)}, new Object[]{this.c.getApplicationContext(), this.f2422a, this.b, null});
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().d(e);
         }

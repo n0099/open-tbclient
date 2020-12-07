@@ -1,74 +1,67 @@
 package com.baidu.tieba.frs;
 
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.data.FeatureCardGod;
+import com.baidu.adp.widget.ListView.af;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.bn;
+import com.baidu.tbadk.core.data.bp;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPageUserExtend;
-import tbclient.User;
-/* loaded from: classes.dex */
-public class y implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId iMa = BdUniqueId.gen();
-    private List<MetaData> iLX;
-    private int iLW = 0;
-    private String iLY = "本吧都在关注";
-    private boolean iLZ = false;
+/* loaded from: classes22.dex */
+public class y extends k<bn, a> {
+    private com.baidu.tieba.frs.view.e iWS;
 
-    @Override // com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        return iMa;
+    public y(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
     }
 
-    public void a(FrsPageUserExtend frsPageUserExtend) {
-        if (frsPageUserExtend != null && !com.baidu.tbadk.core.util.y.isEmpty(frsPageUserExtend.data)) {
-            List<User> list = frsPageUserExtend.data;
-            this.iLW = frsPageUserExtend.user_extend_storey.intValue();
-            this.iLX = new ArrayList(list.size());
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < list.size()) {
-                    User user = list.get(i2);
-                    if (user != null && user.id.longValue() != 0) {
-                        MetaData metaData = new MetaData();
-                        metaData.parserProtobuf(list.get(i2));
-                        this.iLX.add(metaData);
-                    }
-                    i = i2 + 1;
-                } else {
-                    this.iLY = frsPageUserExtend.tips;
-                    return;
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bg */
+    public a c(ViewGroup viewGroup) {
+        this.iWS = new com.baidu.tieba.frs.view.e(this.mPageContext, this.mPageId);
+        return new a(this.iWS);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, bn bnVar, a aVar) {
+        super.a(i, view, viewGroup, (ViewGroup) bnVar, (bn) aVar);
+        this.iWS = aVar.iWT;
+        ArrayList<bp> bnW = bnVar.bnW();
+        if (bnW.size() <= 0) {
+            return null;
+        }
+        z zVar = new z();
+        zVar.showTopDivider = true;
+        zVar.mGroupTitle = bnVar.getTitle();
+        for (int i2 = 0; i2 != bnW.size(); i2++) {
+            bp bpVar = bnW.get(i2);
+            if (bpVar != null) {
+                bb bbVar = new bb();
+                bbVar.metaData.setUserId(bpVar.getUid());
+                bbVar.metaData.setUserName(bpVar.boa());
+                bbVar.metaData.setPortrait(bpVar.getPortrait());
+                bbVar.metaData.getGodUserData().setIsLike(bpVar.getIsLike() == 1);
+                bbVar.metaData.getGodUserData().setIntro(bpVar.bob());
+                zVar.a(bbVar);
             }
         }
+        this.iWS.onChangeSkinType(this.mPageContext, this.mSkinType);
+        aVar.iWT.a(zVar);
+        return aVar.getView();
     }
 
-    public void a(FeatureCardGod featureCardGod) {
-        if (featureCardGod != null && !com.baidu.tbadk.core.util.y.isEmpty(featureCardGod.sub_nodes)) {
-            this.iLW = featureCardGod.floor.intValue();
-            this.iLX = featureCardGod.sub_nodes;
-            this.iLY = featureCardGod.title;
+    /* loaded from: classes22.dex */
+    public class a extends af.a {
+        public com.baidu.tieba.frs.view.e iWT;
+
+        public a(com.baidu.tieba.frs.view.e eVar) {
+            super(eVar.getView());
+            this.iWT = eVar;
         }
-    }
-
-    public int bmS() {
-        return this.iLW;
-    }
-
-    public List<MetaData> getUserInfo() {
-        return this.iLX;
-    }
-
-    public String czF() {
-        return this.iLY;
-    }
-
-    public boolean czG() {
-        return this.iLZ;
-    }
-
-    public void pK(boolean z) {
-        this.iLZ = z;
     }
 }

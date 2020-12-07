@@ -32,7 +32,6 @@ import com.davemorrissey.labs.subscaleview.decoder.ImageDecoder;
 import com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageRegionDecoder;
-import com.xiaomi.mipush.sdk.Constants;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -749,7 +748,7 @@ public class SubsamplingScaleImageView extends View {
                                     canvas.drawText("LOADING", tile2.vRect.left + 5, tile2.vRect.top + 35, this.debugPaint);
                                 }
                                 if (tile2.visible && this.debug) {
-                                    canvas.drawText("ISS " + tile2.sampleSize + " RECT " + tile2.sRect.top + Constants.ACCEPT_TIME_SEPARATOR_SP + tile2.sRect.left + Constants.ACCEPT_TIME_SEPARATOR_SP + tile2.sRect.bottom + Constants.ACCEPT_TIME_SEPARATOR_SP + tile2.sRect.right, tile2.vRect.left + 5, tile2.vRect.top + 15, this.debugPaint);
+                                    canvas.drawText("ISS " + tile2.sampleSize + " RECT " + tile2.sRect.top + "," + tile2.sRect.left + "," + tile2.sRect.bottom + "," + tile2.sRect.right, tile2.vRect.left + 5, tile2.vRect.top + 15, this.debugPaint);
                                 }
                             }
                         }

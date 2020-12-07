@@ -7,69 +7,69 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.AdInfo;
 import tbclient.Media;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c extends BaseCardInfo {
-    public static final BdUniqueId iOs = BdUniqueId.gen();
-    private String exd;
-    private String exe;
-    public boolean iDk = false;
-    private String iOt;
-    private String iOu;
-    private List<MediaData> iOv;
-    private int iOw;
+    public static final BdUniqueId iZj = BdUniqueId.gen();
+    private String eEe;
+    private String eEf;
+    public boolean iOc = false;
+    private String iZk;
+    private String iZl;
+    private List<MediaData> iZm;
+    private int iZn;
 
     public void a(AdInfo adInfo) {
         if (adInfo != null) {
-            this.iOt = adInfo.portrait;
-            this.exd = adInfo.ad_name;
-            this.iOu = adInfo.ad_desc;
-            this.exe = adInfo.ad_url;
-            this.iOw = adInfo.show_rule.intValue();
+            this.iZk = adInfo.portrait;
+            this.eEe = adInfo.ad_name;
+            this.iZl = adInfo.ad_desc;
+            this.eEf = adInfo.ad_url;
+            this.iZn = adInfo.show_rule.intValue();
             if (adInfo.media != null) {
-                this.iOv = new ArrayList();
+                this.iZm = new ArrayList();
                 for (Media media : adInfo.media) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(media);
-                    this.iOv.add(mediaData);
+                    this.iZm.add(mediaData);
                 }
             }
         }
     }
 
-    public int cAs() {
-        return this.iOw;
+    public int cEI() {
+        return this.iZn;
     }
 
-    public String cAt() {
-        return this.iOt;
+    public String cEJ() {
+        return this.iZk;
     }
 
-    public String cAu() {
-        return this.exd;
+    public String cEK() {
+        return this.eEe;
     }
 
-    public String cAv() {
-        return this.iOu;
+    public String cEL() {
+        return this.iZl;
     }
 
-    public String bCA() {
-        return this.exe;
+    public String bGb() {
+        return this.eEf;
     }
 
-    public List<MediaData> cAw() {
-        return this.iOv;
+    public List<MediaData> cEM() {
+        return this.iZm;
     }
 
-    public void pS(boolean z) {
-        this.iDk = z;
+    public void qp(boolean z) {
+        this.iOc = z;
     }
 
-    public boolean cAx() {
-        return this.iDk;
+    public boolean cEN() {
+        return this.iOc;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iOs;
+        return iZj;
     }
 }

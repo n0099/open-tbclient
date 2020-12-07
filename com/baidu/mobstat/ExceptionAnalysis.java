@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class ExceptionAnalysis {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ExceptionAnalysis f2494a = new ExceptionAnalysis();
+    private static ExceptionAnalysis f2496a = new ExceptionAnalysis();
     private Context c;
     private String e;
     public Callback mCallback;
@@ -27,7 +27,7 @@ public class ExceptionAnalysis {
     }
 
     public static ExceptionAnalysis getInstance() {
-        return f2494a;
+        return f2496a;
     }
 
     private ExceptionAnalysis() {

@@ -2,7 +2,7 @@ package com.android.internal.http.multipart;
 
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class StringPart extends PartBase {
     public static final String DEFAULT_CHARSET = "US-ASCII";
     public static final String DEFAULT_CONTENT_TYPE = "text/plain";

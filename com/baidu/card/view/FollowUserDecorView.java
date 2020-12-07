@@ -7,15 +7,15 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.view.commonBtn.b;
 import com.baidu.tbadk.core.view.userLike.c;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.FollowUserButton;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class FollowUserDecorView extends FollowUserButton {
-    private c ajZ;
-    private boolean aka;
+    private c akZ;
+    private boolean ala;
     private BdUniqueId mBdUniqueId;
 
     public FollowUserDecorView(Context context) {
@@ -30,27 +30,27 @@ public class FollowUserDecorView extends FollowUserButton {
         super(context, attributeSet, i);
     }
 
-    public void setData(bx bxVar) {
-        if (bxVar == null || bxVar.blC() == null) {
+    public void setData(by byVar) {
+        if (byVar == null || byVar.boP() == null) {
             setVisibility(8);
             return;
         }
-        if (this.ajZ == null) {
-            this.ajZ = new c(W(getContext()), this);
-            this.ajZ.l(this.mBdUniqueId);
+        if (this.akZ == null) {
+            this.akZ = new c(X(getContext()), this);
+            this.akZ.l(this.mBdUniqueId);
         }
         setVisibility(0);
-        this.ajZ.a(bxVar.blC());
+        this.akZ.a(byVar.boP());
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        if (this.ajZ != null) {
-            this.ajZ.l(this.mBdUniqueId);
+        if (this.akZ != null) {
+            this.akZ.l(this.mBdUniqueId);
         }
     }
 
-    private TbPageContext W(Context context) {
+    private TbPageContext X(Context context) {
         if (context instanceof BaseActivity) {
             return ((BaseActivity) context).getPageContext();
         }
@@ -63,14 +63,14 @@ public class FollowUserDecorView extends FollowUserButton {
     @Override // com.baidu.tieba.view.FollowUserButton
     public void aP(boolean z) {
         super.aP(z);
-        if (this.aka && !z) {
+        if (this.ala && !z) {
             b bVar = new b();
-            bVar.qG(R.color.CAM_X0304);
+            bVar.rh(R.color.CAM_X0304);
             setConfig(bVar);
         }
     }
 
     public void setUseNewStyle(boolean z) {
-        this.aka = z;
+        this.ala = z;
     }
 }

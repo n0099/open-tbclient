@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import org.json.JSONArray;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class d {
     public static boolean i(File file, String str) {
         return a(file, str, true);
@@ -49,7 +49,7 @@ public class d {
         }
     }
 
-    public static void Oa(String str) {
+    public static void Ph(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -58,7 +58,7 @@ public class d {
         }
     }
 
-    public static String ab(File file) {
+    public static String aa(File file) {
         FileInputStream fileInputStream;
         StringBuilder sb = new StringBuilder();
         try {
@@ -97,21 +97,21 @@ public class d {
         return sb.toString();
     }
 
-    public static JSONArray Ob(String str) {
+    public static JSONArray Pi(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
         }
         File file = new File(str);
         if (file.exists()) {
-            String ab = ab(file);
-            String[] split = ab.split("\n");
+            String aa = aa(file);
+            String[] split = aa.split("\n");
             if (split.length > 0) {
                 for (String str2 : split) {
                     c(str2, jSONArray);
                 }
             } else {
-                c(ab, jSONArray);
+                c(aa, jSONArray);
             }
             n.deleteFile(file);
             return jSONArray;
@@ -132,9 +132,9 @@ public class d {
         }
     }
 
-    public static void Oc(String str) {
+    public static void Pj(String str) {
         if (!StringUtils.isNull(str)) {
-            n.deleteFileOrDir(new File(g.a.kXS + g.a.kXI + str));
+            n.deleteFileOrDir(new File(g.a.lll + g.a.llb + str));
         }
     }
 }

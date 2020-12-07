@@ -10,7 +10,7 @@ import com.baidu.cyberplayer.sdk.ICyberVideoView;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public abstract class AbsVideoCyber extends AbsVideoKernel {
     protected CyberPlayer mPlayer;
 

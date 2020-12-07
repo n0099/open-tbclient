@@ -16,113 +16,113 @@ import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.f;
 import com.baidu.tbadk.util.z;
-import com.baidu.tieba.frs.aq;
+import com.baidu.tieba.frs.ap;
 import com.baidu.tieba.homepage.topic.topictab.model.TopicModel;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicListView;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ValidFragment"})
-/* loaded from: classes21.dex */
-public class TopicFragment extends BaseFragment implements f.c, aq, a {
-    private TopicModel jLv;
-    private TopicListView jLw;
-    private boolean jwd = false;
+/* loaded from: classes22.dex */
+public class TopicFragment extends BaseFragment implements f.c, ap, a {
+    private boolean jJE = false;
+    private TopicModel jYY;
+    private TopicListView jYZ;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jLv.setPresenter(this);
-        this.jLv.setUniqueId(getUniqueId());
-        this.jLw.setPresenter(this);
-        this.jLw.setListPullRefreshListener(this);
-        this.jLw.setPageUniqueId(getUniqueId());
+        this.jYY.setPresenter(this);
+        this.jYY.setUniqueId(getUniqueId());
+        this.jYZ.setPresenter(this);
+        this.jYZ.setListPullRefreshListener(this);
+        this.jYZ.setPageUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.jLw.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.jLw.getParent()).removeView(this.jLw);
+        if (this.jYZ.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.jYZ.getParent()).removeView(this.jYZ);
         }
-        if (this.jwd) {
-            this.jLw.bVF();
-            this.jwd = false;
+        if (this.jJE) {
+            this.jYZ.bZp();
+            this.jJE = false;
         }
-        return this.jLw;
+        return this.jYZ;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.jLw.setViewForeground();
+            this.jYZ.setViewForeground();
             TiebaStatic.log(new ar("c13349"));
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
-        this.jLw.hM(false);
-        this.jLv.cLO();
+        this.jYZ.ib(false);
+        this.jYY.cRc();
     }
 
-    @Override // com.baidu.tieba.frs.aq
-    public void Tc() {
-        this.jLw.reload();
+    @Override // com.baidu.tieba.frs.ap
+    public void VC() {
+        this.jYZ.reload();
     }
 
-    @Override // com.baidu.tieba.frs.aq
-    public void bOv() {
+    @Override // com.baidu.tieba.frs.ap
+    public void bSg() {
     }
 
-    @Override // com.baidu.tieba.frs.aq
-    public void bOw() {
+    @Override // com.baidu.tieba.frs.ap
+    public void bSh() {
     }
 
-    @Override // com.baidu.tieba.frs.aq
+    @Override // com.baidu.tieba.frs.ap
     public void setRecommendFrsNavigationAnimDispatcher(z zVar) {
     }
 
-    @Override // com.baidu.tieba.frs.aq
+    @Override // com.baidu.tieba.frs.ap
     public void showFloatingView() {
     }
 
-    @Override // com.baidu.tieba.frs.aq
-    public void brT() {
+    @Override // com.baidu.tieba.frs.ap
+    public void bvt() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        this.jLw.onChangeSkinType();
+        this.jYZ.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        this.jLv.cLO();
+        this.jYY.cRc();
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void loadData() {
         if (j.isNetWorkAvailable()) {
-            this.jLw.VB();
-            this.jLw.hM(false);
-            this.jLv.cLO();
+            this.jYZ.Yb();
+            this.jYZ.ib(false);
+            this.jYY.cRc();
         }
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void o(int i, List<q> list) {
-        this.jLw.hideLoadingView();
-        this.jLw.bOA();
+        this.jYZ.hideLoadingView();
+        this.jYZ.bSl();
         if (i != 0 || y.isEmpty(list)) {
-            this.jLw.pb(false);
+            this.jYZ.px(false);
             return;
         }
-        this.jLw.VB();
-        this.jLw.bUJ();
-        this.jLw.setData(list);
-        this.jLw.VA();
+        this.jYZ.Yb();
+        this.jYZ.bYs();
+        this.jYZ.setData(list);
+        this.jYZ.Ya();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
@@ -147,8 +147,8 @@ public class TopicFragment extends BaseFragment implements f.c, aq, a {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.jLw.destroy();
-        this.jLv.onDestroy();
-        this.jwd = true;
+        this.jYZ.destroy();
+        this.jYY.onDestroy();
+        this.jJE = true;
     }
 }

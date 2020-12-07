@@ -2,7 +2,7 @@ package org.apache.http.impl.client;
 
 import java.net.URI;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class RedirectLocations {
     public RedirectLocations() {
         throw new RuntimeException("Stub!");

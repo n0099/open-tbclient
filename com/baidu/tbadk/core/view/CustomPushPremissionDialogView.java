@@ -15,12 +15,12 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CustomPushPremissionDialogView extends LinearLayout {
-    private TextView eRc;
-    private TBLottieAnimationView eRd;
-    private View eRe;
-    private View eRf;
-    private TBSpecificationBtn eRg;
-    private TBSpecificationBtn eRh;
+    private TBSpecificationBtn eYA;
+    private TextView eYv;
+    private TBLottieAnimationView eYw;
+    private View eYx;
+    private View eYy;
+    private TBSpecificationBtn eYz;
 
     public CustomPushPremissionDialogView(Context context) {
         this(context, null);
@@ -32,10 +32,10 @@ public class CustomPushPremissionDialogView extends LinearLayout {
 
     public CustomPushPremissionDialogView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        dQ(context);
+        ev(context);
     }
 
-    private void dQ(Context context) {
+    private void ev(Context context) {
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         setOrientation(1);
         setGravity(1);
@@ -45,44 +45,44 @@ public class CustomPushPremissionDialogView extends LinearLayout {
         gradientDrawable.setColor(ap.getColor(R.color.CAM_X0211));
         setBackgroundDrawable(gradientDrawable);
         inflate(context, R.layout.custom_push_premission_dialog_view, this);
-        this.eRd = (TBLottieAnimationView) findViewById(R.id.custom_push_permission_dialog_animation_view);
-        this.eRd.loop(true);
-        this.eRd.setFrame(0);
-        ap.a(this.eRd, R.raw.lottie_push_permission_dialog_animation);
-        this.eRd.playAnimation();
-        this.eRc = (TextView) findViewById(R.id.custom_push_permission_dialog_description_view);
-        this.eRc.setTextColor(ap.getColor(R.color.CAM_X0105));
-        this.eRe = findViewById(R.id.custom_push_permission_dialog_animation_floor_view);
+        this.eYw = (TBLottieAnimationView) findViewById(R.id.custom_push_permission_dialog_animation_view);
+        this.eYw.loop(true);
+        this.eYw.setFrame(0);
+        ap.a(this.eYw, R.raw.lottie_push_permission_dialog_animation);
+        this.eYw.playAnimation();
+        this.eYv = (TextView) findViewById(R.id.custom_push_permission_dialog_description_view);
+        this.eYv.setTextColor(ap.getColor(R.color.CAM_X0105));
+        this.eYx = findViewById(R.id.custom_push_permission_dialog_animation_floor_view);
         if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-            this.eRf = findViewById(R.id.animation_layout);
-            com.baidu.tbadk.core.util.e.a.brb().pQ(1).pS(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26)).pR(273).s(R.color.CAM_X0804, 0, 0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds22)).bn(this.eRf);
-            ViewGroup.LayoutParams layoutParams2 = this.eRe.getLayoutParams();
+            this.eYy = findViewById(R.id.animation_layout);
+            com.baidu.tbadk.core.util.e.a.buy().qq(1).qs(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26)).qr(273).w(R.color.CAM_X0804, 0, 0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds22)).bq(this.eYy);
+            ViewGroup.LayoutParams layoutParams2 = this.eYx.getLayoutParams();
             layoutParams2.width = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds774);
-            this.eRe.setLayoutParams(layoutParams2);
-            com.baidu.tbadk.core.util.e.a.brc().pF(0).b("TOP_BOTTOM", ap.ps(R.color.common_color_10262), ap.ps(R.color.CAM_X0205)).bn(this.eRe);
+            this.eYx.setLayoutParams(layoutParams2);
+            com.baidu.tbadk.core.util.e.a.buz().qf(0).b("TOP_BOTTOM", ap.pS(R.color.common_color_10262), ap.pS(R.color.CAM_X0205)).bq(this.eYx);
         } else {
-            com.baidu.tbadk.core.util.e.a.brc().pF(0).ac(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26)).b("TOP_BOTTOM", ap.ps(R.color.CAM_X0205), ap.ps(R.color.CAM_X0205), ap.ps(R.color.CAM_X0205), ap.ps(R.color.CAM_X0205), ap.ps(R.color.CAM_X0211)).bn(this.eRe);
+            com.baidu.tbadk.core.util.e.a.buz().qf(0).ac(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26)).b("TOP_BOTTOM", ap.pS(R.color.CAM_X0205), ap.pS(R.color.CAM_X0205), ap.pS(R.color.CAM_X0205), ap.pS(R.color.CAM_X0205), ap.pS(R.color.CAM_X0211)).bq(this.eYx);
         }
-        this.eRg = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_cancel_button);
-        this.eRg.setTextSize(R.dimen.tbds34);
-        this.eRg.setText(context.getString(R.string.push_permission_dialog_cancel_button_text));
+        this.eYz = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_cancel_button);
+        this.eYz.setTextSize(R.dimen.tbds34);
+        this.eYz.setText(context.getString(R.string.push_permission_dialog_cancel_button_text));
         com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-        cVar.qI(R.color.CAM_X0105);
-        this.eRg.setConfig(cVar);
-        this.eRg.brT();
-        this.eRh = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_confirm_button);
-        this.eRh.setTextSize(R.dimen.tbds34);
-        this.eRh.setText(context.getString(R.string.push_permission_dialog_confirm_button_text));
+        cVar.rj(R.color.CAM_X0105);
+        this.eYz.setConfig(cVar);
+        this.eYz.bvt();
+        this.eYA = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_confirm_button);
+        this.eYA.setTextSize(R.dimen.tbds34);
+        this.eYA.setText(context.getString(R.string.push_permission_dialog_confirm_button_text));
         com.baidu.tbadk.core.view.commonBtn.c cVar2 = new com.baidu.tbadk.core.view.commonBtn.c();
-        cVar2.qG(R.color.CAM_X0302);
-        this.eRh.setConfig(cVar2);
+        cVar2.rh(R.color.CAM_X0302);
+        this.eYA.setConfig(cVar2);
     }
 
     public TBSpecificationBtn getPushPermissionDialogCancelButton() {
-        return this.eRg;
+        return this.eYz;
     }
 
     public TBSpecificationBtn getPushPermissionDialogConfirmButton() {
-        return this.eRh;
+        return this.eYA;
     }
 }

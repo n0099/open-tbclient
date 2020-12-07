@@ -6,11 +6,11 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.u;
 import tbclient.CommonReq;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class HotTopicSelectNetMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f3690common;
+    private CommonReq f3693common;
     private long fid;
     private String firstDir;
     private String prefix;
@@ -52,11 +52,11 @@ public class HotTopicSelectNetMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f3690common;
+        return this.f3693common;
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f3690common = commonReq;
+        this.f3693common = commonReq;
     }
 
     public void setPrefix(String str) {
@@ -66,7 +66,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f951common = getCommon();
+        builder.f949common = getCommon();
         builder.fid = Long.valueOf(this.fid);
         if (this.prefix != null) {
             builder.prefix = this.prefix;

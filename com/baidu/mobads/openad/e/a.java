@@ -9,7 +9,7 @@ public class a implements IOAdTimer {
     private static String c = "OAdTimer";
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f2388a;
+    protected int f2390a;
     private IOAdTimer.EventHandler b;
     private int d;
     private int e;
@@ -29,9 +29,9 @@ public class a implements IOAdTimer {
     }
 
     public a(int i, int i2) {
-        this.f2388a = 300;
-        this.f2388a = i2;
-        int i3 = i / this.f2388a;
+        this.f2390a = 300;
+        this.f2390a = i2;
+        int i3 = i / this.f2390a;
         XAdSDKFoundationFacade.getInstance().getAdLogger().i(c, "RendererTimer(duration=" + i3 + ")");
         this.d = i3;
         this.e = i3;
@@ -48,7 +48,7 @@ public class a implements IOAdTimer {
     public void start() {
         XAdSDKFoundationFacade.getInstance().getAdLogger().i(c, "start");
         this.h.set(0);
-        this.g.scheduleAtFixedRate(new b(this), 0L, this.f2388a);
+        this.g.scheduleAtFixedRate(new b(this), 0L, this.f2390a);
     }
 
     @Override // com.baidu.mobads.openad.interfaces.utils.IOAdTimer

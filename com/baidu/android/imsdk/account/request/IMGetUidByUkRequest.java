@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.account.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMTrack;
@@ -15,7 +16,7 @@ import java.util.TreeMap;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     private Context mContext;
     private String mKey;
@@ -65,7 +66,7 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
                 i2 = i3;
             } else {
                 i2 = jSONObject.getInt("error_code");
-                string = jSONObject.getString("error_msg");
+                string = jSONObject.getString(AlaRecorderLog.KEY_ERROR_MSG);
                 treeMap2 = null;
             }
             treeMap = treeMap2;
@@ -105,7 +106,7 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
             case 0:
                 return "https://pim.baidu.com/rest/2.0/im/zhidahao";
             case 1:
-                return "http://cp01-ocean-749.epc.baidu.com:8080/rest/2.0/im/zhidahao";
+                return "http://rd-im-server.bcc-szth.baidu.com:8080/rest/2.0/im/zhidahao";
             case 2:
                 return "http://10.64.132.67:8080/rest/2.0/im/zhidahao";
             case 3:
@@ -136,7 +137,7 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
     private String contactWithComma(long[] jArr) {
         StringBuilder sb = new StringBuilder("" + jArr[0]);
         for (int i = 1; i < jArr.length; i++) {
-            sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append(",");
             sb.append(jArr[i]);
         }
         return sb.toString();

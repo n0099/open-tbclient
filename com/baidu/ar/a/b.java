@@ -3,24 +3,24 @@ package com.baidu.ar.a;
 import android.content.Context;
 import com.baidu.ar.callback.ICallbackWith;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private JSONObject bG;
-    private JSONObject bH;
-    private e bI;
-    private String bJ;
-    private ICallbackWith<String> bK;
+    private JSONObject bJ;
+    private JSONObject bK;
+    private e bL;
+    private String bM;
+    private ICallbackWith<String> bN;
     private Context mContext;
 
     public b(Context context) {
-        this.bJ = "default";
+        this.bM = "default";
         if (context != null) {
             this.mContext = context.getApplicationContext();
             a a2 = d.a(context);
             if (a2 != null) {
-                this.bG = a2.bF;
-                this.bJ = a2.bE;
+                this.bJ = a2.bI;
+                this.bM = a2.bH;
             }
         }
     }
@@ -30,64 +30,64 @@ public class b {
         if (aVar == null || this.mContext == null) {
             return;
         }
-        this.bJ = aVar.bE;
-        this.bG = aVar.bF;
+        this.bM = aVar.bH;
+        this.bJ = aVar.bI;
         d.a(this.mContext, aVar);
     }
 
     public void a(ICallbackWith<String> iCallbackWith) {
-        this.bK = iCallbackWith;
+        this.bN = iCallbackWith;
     }
 
-    public JSONObject ad() {
-        if (this.bH == null) {
-            com.baidu.ar.g.b.c(TAG, "use inner config: " + this.bG);
-            return this.bG;
+    public JSONObject af() {
+        if (this.bK == null) {
+            com.baidu.ar.h.b.c(TAG, "use inner config: " + this.bJ);
+            return this.bJ;
         }
-        com.baidu.ar.g.b.c(TAG, "use outter config: " + this.bH);
-        return this.bH;
+        com.baidu.ar.h.b.c(TAG, "use outter config: " + this.bK);
+        return this.bK;
     }
 
-    public int ae() {
-        return c.ae();
+    public int ag() {
+        return c.ag();
     }
 
     public void b(final ICallbackWith<JSONObject> iCallbackWith) {
-        this.bI = new e();
-        this.bI.c(new ICallbackWith<String>() { // from class: com.baidu.ar.a.b.1
+        this.bL = new e();
+        this.bL.c(new ICallbackWith<String>() { // from class: com.baidu.ar.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.ar.callback.ICallbackWith
-            /* renamed from: l */
+            /* renamed from: n */
             public void run(String str) {
-                if (b.this.bK != null) {
-                    b.this.bK.run(str);
+                if (b.this.bN != null) {
+                    b.this.bN.run(str);
                 }
             }
         });
-        this.bI.a(this.mContext, this.bJ, new ICallbackWith<a>() { // from class: com.baidu.ar.a.b.2
+        this.bL.a(this.mContext, this.bM, new ICallbackWith<a>() { // from class: com.baidu.ar.a.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.ar.callback.ICallbackWith
             /* renamed from: b */
             public void run(a aVar) {
-                b.this.bI = null;
+                b.this.bL = null;
                 b.this.a(aVar);
                 if (iCallbackWith == null || aVar == null) {
                     return;
                 }
-                iCallbackWith.run(aVar.bF);
+                iCallbackWith.run(aVar.bI);
             }
         });
     }
 
     public void c(JSONObject jSONObject) {
-        this.bH = jSONObject;
+        this.bK = jSONObject;
     }
 
     public void release() {
-        this.bK = null;
-        if (this.bI != null) {
-            this.bI.cancel();
-            this.bI = null;
+        this.bN = null;
+        if (this.bL != null) {
+            this.bL.cancel();
+            this.bL = null;
         }
         this.mContext = null;
     }

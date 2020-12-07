@@ -9,11 +9,11 @@ import com.baidu.sofire.ac.U;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.i.w;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MyReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    Callback f3587a = new Callback() { // from class: com.baidu.sofire.MyReceiver.1
+    Callback f3590a = new Callback() { // from class: com.baidu.sofire.MyReceiver.1
         @Override // com.baidu.sofire.ac.Callback
         public final Object onEnd(Object... objArr) {
             return super.onEnd(objArr);
@@ -63,7 +63,7 @@ public class MyReceiver extends BroadcastReceiver {
                                 } else {
                                     z2 = false;
                                 }
-                                if (z && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.i.e.f3631a && !z2 && com.baidu.sofire.i.e.e(applicationContext)) {
+                                if (z && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.i.e.f3634a && !z2 && com.baidu.sofire.i.e.e(applicationContext)) {
                                     new U(applicationContext.getApplicationContext(), 3, false).start();
                                 }
                                 if (!z) {

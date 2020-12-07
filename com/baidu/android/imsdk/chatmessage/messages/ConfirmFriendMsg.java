@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ConfirmFriendMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<ConfirmFriendMsg> CREATOR = new Parcelable.Creator<ConfirmFriendMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.ConfirmFriendMsg.1
         /* JADX DEBUG: Method merged with bridge method */

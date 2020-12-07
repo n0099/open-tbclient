@@ -1,5 +1,6 @@
 package kotlin;
-@h
-/* loaded from: classes9.dex */
-public interface c<R> {
+@e
+/* loaded from: classes17.dex */
+public interface c<T> {
+    T getValue();
 }

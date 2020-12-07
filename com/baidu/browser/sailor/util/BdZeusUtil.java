@@ -18,7 +18,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Stack;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class BdZeusUtil implements INoProGuard {
     private static final String ARCH_ARM = "armv";
     private static final int ARCH_ARM_INT = 7;
@@ -46,7 +46,7 @@ public final class BdZeusUtil implements INoProGuard {
             return;
         }
         sb.append(str);
-        sb.append(ETAG.EQUAL);
+        sb.append("=");
         sb.append(str2);
         sb.append(ETAG.ITEM_SEPARATOR);
     }
@@ -300,7 +300,7 @@ public final class BdZeusUtil implements INoProGuard {
         String tnNumbersFromApk = getTnNumbersFromApk(context);
         if (!TextUtils.isEmpty(tnNumbersFromApk)) {
             sb.append("from");
-            sb.append(ETAG.EQUAL);
+            sb.append("=");
             sb.append(tnNumbersFromApk);
         }
         return sb.toString();

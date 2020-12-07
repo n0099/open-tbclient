@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.c.h;
+import io.reactivex.b.h;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -8,25 +8,26 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+import org.a.d;
+/* loaded from: classes9.dex */
 public final class FlowableDebounce<T, U> extends a<T, T> {
     final h<? super T, ? extends org.a.b<U>> debounceSelector;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pOn.a((j) new DebounceSubscriber(new io.reactivex.subscribers.b(cVar), this.debounceSelector));
+        this.pFg.a((j) new DebounceSubscriber(new io.reactivex.subscribers.b(cVar), this.debounceSelector));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
-    public static final class DebounceSubscriber<T, U> extends AtomicLong implements j<T>, org.a.d {
+    /* loaded from: classes9.dex */
+    public static final class DebounceSubscriber<T, U> extends AtomicLong implements j<T>, d {
         private static final long serialVersionUID = 6725975399620862591L;
         final org.a.c<? super T> actual;
         final h<? super T, ? extends org.a.b<U>> debounceSelector;
         final AtomicReference<io.reactivex.disposables.b> debouncer = new AtomicReference<>();
         boolean done;
         volatile long index;
-        org.a.d s;
+        d s;
 
         DebounceSubscriber(org.a.c<? super T> cVar, h<? super T, ? extends org.a.b<U>> hVar) {
             this.actual = cVar;
@@ -34,7 +35,7 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -52,7 +53,7 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
                     bVar.dispose();
                 }
                 try {
-                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.l(this.debounceSelector.apply(t), "The publisher supplied is null");
+                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.m(this.debounceSelector.apply(t), "The publisher supplied is null");
                     a aVar = new a(this, j, t);
                     if (this.debouncer.compareAndSet(bVar, aVar)) {
                         bVar2.subscribe(aVar);
@@ -109,16 +110,16 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes9.dex */
         static final class a<T, U> extends io.reactivex.subscribers.a<U> {
             boolean done;
             final long index;
             final AtomicBoolean once = new AtomicBoolean();
-            final DebounceSubscriber<T, U> pOD;
+            final DebounceSubscriber<T, U> pFw;
             final T value;
 
             a(DebounceSubscriber<T, U> debounceSubscriber, long j, T t) {
-                this.pOD = debounceSubscriber;
+                this.pFw = debounceSubscriber;
                 this.index = j;
                 this.value = t;
             }
@@ -134,18 +135,18 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
 
             void emit() {
                 if (this.once.compareAndSet(false, true)) {
-                    this.pOD.emit(this.index, this.value);
+                    this.pFw.emit(this.index, this.value);
                 }
             }
 
             @Override // org.a.c
             public void onError(Throwable th) {
                 if (this.done) {
-                    io.reactivex.e.a.onError(th);
+                    io.reactivex.d.a.onError(th);
                     return;
                 }
                 this.done = true;
-                this.pOD.onError(th);
+                this.pFw.onError(th);
             }
 
             @Override // org.a.c

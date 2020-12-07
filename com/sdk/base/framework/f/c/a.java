@@ -9,11 +9,11 @@ import com.sdk.base.framework.c.f;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f4494a = f.b;
+    private static final boolean f4264a = f.b;
     private static final String b = a.class.getSimpleName();
 
     public static ArrayList<KInfo> a(Context context) {
@@ -91,7 +91,7 @@ public class a extends com.sdk.base.framework.f.a {
                 }
             }
         } catch (Throwable th) {
-            c.b(b, th.getMessage(), Boolean.valueOf(f4494a));
+            c.b(b, th.getMessage(), Boolean.valueOf(f4264a));
         }
         return arrayList;
     }
@@ -168,10 +168,10 @@ public class a extends com.sdk.base.framework.f.a {
             kInfo.setSid(0);
             arrayList.add(kInfo);
         } catch (Exception e2) {
-            c.b(b, e2.getMessage(), Boolean.valueOf(f4494a));
+            c.b(b, e2.getMessage(), Boolean.valueOf(f4264a));
         }
-        if (f4494a) {
-            c.a(b, "应用层获取sim卡信息耗时：" + (System.currentTimeMillis() - currentTimeMillis), Boolean.valueOf(f4494a));
+        if (f4264a) {
+            c.a(b, "应用层获取sim卡信息耗时：" + (System.currentTimeMillis() - currentTimeMillis), Boolean.valueOf(f4264a));
         }
         return arrayList;
     }

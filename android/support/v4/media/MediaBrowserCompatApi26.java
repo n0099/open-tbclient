@@ -7,10 +7,10 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.media.MediaBrowserCompatApi21;
 import java.util.List;
 @RequiresApi(26)
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 class MediaBrowserCompatApi26 {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     interface SubscriptionCallback extends MediaBrowserCompatApi21.SubscriptionCallback {
         void onChildrenLoaded(@NonNull String str, List<?> list, @NonNull Bundle bundle);
 
@@ -33,7 +33,7 @@ class MediaBrowserCompatApi26 {
         ((MediaBrowser) obj).unsubscribe(str, (MediaBrowser.SubscriptionCallback) obj2);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     static class SubscriptionCallbackProxy<T extends SubscriptionCallback> extends MediaBrowserCompatApi21.SubscriptionCallbackProxy<T> {
         SubscriptionCallbackProxy(T t) {
             super(t);

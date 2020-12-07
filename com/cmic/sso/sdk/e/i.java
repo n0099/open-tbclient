@@ -10,24 +10,24 @@ import javax.crypto.Cipher;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4023a = i.class.getSimpleName();
-    private static i oKV = null;
-    private PublicKey oKT = null;
-    private PublicKey oKU = null;
+    private static final String f4026a = i.class.getSimpleName();
+    private static i pab = null;
+    private PublicKey oZZ = null;
+    private PublicKey paa = null;
 
-    public static i eiQ() {
-        if (oKV == null) {
-            oKV = new i();
+    public static i eoG() {
+        if (pab == null) {
+            pab = new i();
         }
-        return oKV;
+        return pab;
     }
 
     private i() {
         try {
-            if (this.oKT == null) {
+            if (this.oZZ == null) {
                 b();
             }
-            if (this.oKU == null) {
+            if (this.paa == null) {
                 c();
             }
         } catch (Exception e) {
@@ -36,13 +36,13 @@ public class i {
     }
 
     public String a(byte[] bArr) {
-        if (this.oKT == null) {
-            c.a(f4023a, "mServerPublicKey == null");
+        if (this.oZZ == null) {
+            c.a(f4026a, "mServerPublicKey == null");
             return "";
         }
         try {
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(1, this.oKT);
+            cipher.init(1, this.oZZ);
             return s.a(cipher.doFinal(bArr));
         } catch (Exception e) {
             e.printStackTrace();
@@ -51,13 +51,13 @@ public class i {
     }
 
     public String b(byte[] bArr) {
-        if (this.oKT == null) {
-            c.a(f4023a, "mServerPublicKey == null");
+        if (this.oZZ == null) {
+            c.a(f4026a, "mServerPublicKey == null");
             return null;
         }
         try {
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(1, this.oKU);
+            cipher.init(1, this.paa);
             return Base64.encodeToString(cipher.doFinal(bArr), 0);
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,7 +67,7 @@ public class i {
 
     private void b() throws Exception {
         try {
-            this.oKT = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/YHP9utFGOhGk7Xf5L7jOgQz5\nv2JKxdrIE3yzYsHoZJwzKC7Ttx380UZmBFzr5I1k6FFMn/YGXd4ts6UHT/nzsCIc\ngZlTTem7Pjdm1V9bJgQ6iQvFHsvT+vNgJ3wAIRd+iCMXm8y96yZhD2+SH5odBYS2\nZzwTYXBQDvB/rTfdjwIDAQAB", 0)));
+            this.oZZ = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/YHP9utFGOhGk7Xf5L7jOgQz5\nv2JKxdrIE3yzYsHoZJwzKC7Ttx380UZmBFzr5I1k6FFMn/YGXd4ts6UHT/nzsCIc\ngZlTTem7Pjdm1V9bJgQ6iQvFHsvT+vNgJ3wAIRd+iCMXm8y96yZhD2+SH5odBYS2\nZzwTYXBQDvB/rTfdjwIDAQAB", 0)));
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
@@ -75,7 +75,7 @@ public class i {
 
     private void c() throws Exception {
         try {
-            this.oKU = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6YCzxZS0FaWDOdtwgcHJ\n4aw0AoExz4atTkUlZJIf9eNLj7ogTlQGANNzE2R/uskFse2GsCqJKFTk4UraBkzf\naQu/yuFwKjURi0gEqyna1wQ3Anh3e6J/Pvhrp7vJyyRF3gZQCHElna1CWEN1zyT9\n+APJWeeIsUEJHi0FSf3EmwAtNgcJwLYed8Lrem+2+qvFY8RRjH3w4jT/wl2HKGEY\nYal33Q/OxoAE80SAD+DuXjpeynY1slzFV/Pi2qYmsnuBsnlDPQgJzxQKfCHl8xLf\nsjV57o+phSlqM0B5aPiMScxWJmCzFRX4NKcjt6KGP+3GpzmTyrpavnYQtHasperH\nmQIDAQAB\n", 0)));
+            this.paa = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6YCzxZS0FaWDOdtwgcHJ\n4aw0AoExz4atTkUlZJIf9eNLj7ogTlQGANNzE2R/uskFse2GsCqJKFTk4UraBkzf\naQu/yuFwKjURi0gEqyna1wQ3Anh3e6J/Pvhrp7vJyyRF3gZQCHElna1CWEN1zyT9\n+APJWeeIsUEJHi0FSf3EmwAtNgcJwLYed8Lrem+2+qvFY8RRjH3w4jT/wl2HKGEY\nYal33Q/OxoAE80SAD+DuXjpeynY1slzFV/Pi2qYmsnuBsnlDPQgJzxQKfCHl8xLf\nsjV57o+phSlqM0B5aPiMScxWJmCzFRX4NKcjt6KGP+3GpzmTyrpavnYQtHasperH\nmQIDAQAB\n", 0)));
         } catch (NullPointerException e) {
             throw new Exception("公钥输入流为空");
         }

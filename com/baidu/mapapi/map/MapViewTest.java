@@ -10,11 +10,11 @@ import com.baidu.platform.comapi.map.MapSurfaceView;
 import com.baidu.platform.comapi.util.SysOSUtil;
 import com.baidubce.services.bos.BosClientConfiguration;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class MapViewTest extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    MapSurfaceView f2028a;
+    MapSurfaceView f2030a;
     MapController b;
 
     public MapViewTest(Context context) {
@@ -27,15 +27,15 @@ public class MapViewTest extends ViewGroup {
     }
 
     private void a(Context context) {
-        this.f2028a = new MapSurfaceView(context);
+        this.f2030a = new MapSurfaceView(context);
         if (this.b == null) {
             this.b = new MapController();
             this.b.initBaseMap();
             a(this.b);
         }
         this.b.onResume();
-        this.f2028a.setMapController(this.b);
-        addView(this.f2028a);
+        this.f2030a.setMapController(this.b);
+        addView(this.f2030a);
     }
 
     private void a(MapController mapController) {
@@ -80,6 +80,6 @@ public class MapViewTest extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.f2028a.layout(0, 0, getWidth(), getHeight());
+        this.f2030a.layout(0, 0, getWidth(), getHeight());
     }
 }

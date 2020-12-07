@@ -9,23 +9,23 @@ import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.util.ah;
+import com.baidu.tbadk.util.ai;
 import com.baidu.tieba.ala.alasquare.live.b.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private TbPageContext<?> eGu;
-    private b giE;
-    private c giF;
-    private final int giD = 1000;
+    private TbPageContext<?> eNx;
+    private b gqN;
+    private c gqO;
+    private final int gqM = 1000;
     private boolean mIsBackground = false;
-    private CustomMessageListener TQ = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.1
+    private CustomMessageListener UJ = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            a.this.bOh();
+            a.this.bRS();
         }
     };
-    private Runnable giG = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.2
+    private Runnable gqP = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.2
         @Override // java.lang.Runnable
         public void run() {
             a.this.startPlay();
@@ -33,75 +33,75 @@ public class a {
     };
 
     public a(TbPageContext<?> tbPageContext) {
-        this.eGu = null;
-        this.eGu = tbPageContext;
-        this.giE = new b(this.eGu);
-        MessageManager.getInstance().registerListener(this.TQ);
+        this.eNx = null;
+        this.eNx = tbPageContext;
+        this.gqN = new b(this.eNx);
+        MessageManager.getInstance().registerListener(this.UJ);
     }
 
     public View getView() {
-        return this.giE.getView();
+        return this.gqN.getView();
     }
 
     public void onChangeSkinType() {
-        this.giE.onChangeSkinType();
+        this.gqN.onChangeSkinType();
     }
 
     public void a(c cVar) {
-        if (cVar != null && cVar.akt != null) {
-            this.giF = cVar;
-            if (this.giE != null) {
-                this.giE.a(this.giF);
+        if (cVar != null && cVar.alu != null) {
+            this.gqO = cVar;
+            if (this.gqN != null) {
+                this.gqN.a(this.gqO);
                 ar arVar = new ar("c12644");
-                if (cVar.ghV == 0) {
-                    arVar.ak("obj_type", 1);
-                } else if (cVar.ghV == 1) {
-                    arVar.ak("obj_type", 2);
+                if (cVar.gqf == 0) {
+                    arVar.al("obj_type", 1);
+                } else if (cVar.gqf == 1) {
+                    arVar.al("obj_type", 2);
                 }
-                arVar.dR("tid", cVar.akt.getTid());
+                arVar.dY("tid", cVar.alu.getTid());
                 TiebaStatic.log(arVar);
             }
         }
     }
 
-    public void bOh() {
+    public void bRS() {
         if (!this.mIsBackground) {
-            if (ah.st(1)) {
-                e.mY().removeCallbacks(this.giG);
-                e.mY().postDelayed(this.giG, 1000L);
-            } else if (this.giE != null) {
-                this.giE.bOk();
+            if (ai.sW(1)) {
+                e.mY().removeCallbacks(this.gqP);
+                e.mY().postDelayed(this.gqP, 1000L);
+            } else if (this.gqN != null) {
+                this.gqN.bRV();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startPlay() {
-        if (this.giF != null && this.giF.akt != null && this.giF.akt.blW() != null && this.giE != null) {
-            this.giE.FY(this.giF.akt.blW().hls_url);
+        if (this.gqO != null && this.gqO.alu != null && this.gqO.alu.bpj() != null && this.gqN != null) {
+            this.gqN.GM(this.gqO.alu.bpj().hls_url);
         }
     }
 
     public void stopPlay() {
-        if (this.giE != null) {
-            this.giE.bOk();
+        if (this.gqN != null) {
+            this.gqN.bRV();
         }
-        e.mY().removeCallbacks(this.giG);
+        e.mY().removeCallbacks(this.gqP);
     }
 
-    public void lC(boolean z) {
+    public void lX(boolean z) {
         this.mIsBackground = z;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.TQ);
-        e.mY().removeCallbacks(this.giG);
-        if (this.giE != null) {
-            this.giE.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.UJ);
+        e.mY().removeCallbacks(this.gqP);
+        if (this.gqN != null) {
+            this.gqN.onDestroy();
         }
     }
 
-    public c bOi() {
-        return this.giF;
+    public c bRT() {
+        return this.gqO;
     }
 }

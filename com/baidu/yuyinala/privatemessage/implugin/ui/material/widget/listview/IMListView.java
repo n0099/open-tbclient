@@ -16,24 +16,24 @@ import android.widget.Scroller;
 import com.baidu.yuyinala.privatemessage.implugin.util.c;
 /* loaded from: classes4.dex */
 public class IMListView extends ListView implements AbsListView.OnScrollListener {
-    private static int oDW = 60;
+    private static int oTc = 60;
     @SuppressLint({"HandlerLeak"})
     private Handler mHandler;
     private Scroller mScroller;
-    private int oDX;
-    private int oDY;
-    private IMChatHeader oDZ;
-    private IMChatFooter oEa;
-    private a oEb;
-    private boolean oEc;
-    private boolean oEd;
-    private boolean oEe;
-    private boolean oEf;
-    private boolean oEg;
-    private float oEh;
-    private float oEi;
-    private float oEj;
-    private int oEk;
+    private int oTd;
+    private int oTe;
+    private IMChatHeader oTf;
+    private IMChatFooter oTg;
+    private a oTh;
+    private boolean oTi;
+    private boolean oTj;
+    private boolean oTk;
+    private boolean oTl;
+    private boolean oTm;
+    private float oTn;
+    private float oTo;
+    private float oTp;
+    private int oTq;
     private int totalCount;
 
     /* loaded from: classes4.dex */
@@ -43,168 +43,168 @@ public class IMListView extends ListView implements AbsListView.OnScrollListener
 
     public IMListView(Context context) {
         super(context);
-        this.oEc = true;
-        this.oEe = false;
-        this.oEf = false;
-        this.oEg = false;
-        this.oEk = 2;
+        this.oTi = true;
+        this.oTk = false;
+        this.oTl = false;
+        this.oTm = false;
+        this.oTq = 2;
         this.mHandler = new Handler() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.listview.IMListView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 c.d("", "LOADHAED handleMessage  " + message.what);
                 switch (message.what) {
                     case 1:
-                        if (IMListView.this.oEh >= IMListView.oDW) {
+                        if (IMListView.this.oTn >= IMListView.oTc) {
                             IMListView.this.mHandler.removeMessages(1);
-                            IMListView.this.oEi = IMListView.this.oEh;
-                            IMListView.this.oEh = 0.0f;
+                            IMListView.this.oTo = IMListView.this.oTn;
+                            IMListView.this.oTn = 0.0f;
                             IMListView.this.mHandler.sendEmptyMessage(3);
                             break;
                         } else {
-                            IMListView.this.oEh = (IMListView.oDW / 10) + IMListView.this.oEh;
-                            if (IMListView.this.oEh > IMListView.oDW) {
-                                IMListView.this.oEh = IMListView.oDW;
+                            IMListView.this.oTn = (IMListView.oTc / 10) + IMListView.this.oTn;
+                            if (IMListView.this.oTn > IMListView.oTc) {
+                                IMListView.this.oTn = IMListView.oTc;
                             }
-                            IMListView.this.bl(IMListView.this.oEh);
+                            IMListView.this.bm(IMListView.this.oTn);
                             IMListView.this.mHandler.sendEmptyMessageDelayed(1, 20L);
                             break;
                         }
                     case 2:
-                        IMListView.this.oEb.onRefresh();
-                        IMListView.this.oEk = 2;
+                        IMListView.this.oTh.onRefresh();
+                        IMListView.this.oTq = 2;
                         break;
                     case 3:
                         IMListView.this.mHandler.sendEmptyMessageDelayed(2, 1500L);
-                        IMListView.this.oEk = 3;
-                        IMListView.this.oEe = true;
+                        IMListView.this.oTq = 3;
+                        IMListView.this.oTk = true;
                         break;
                     case 4:
-                        IMListView.this.oEi = 0.0f;
-                        IMListView.this.oEh = 0.0f;
-                        IMListView.this.ehh();
-                        IMListView.this.oEk = 2;
+                        IMListView.this.oTo = 0.0f;
+                        IMListView.this.oTn = 0.0f;
+                        IMListView.this.emV();
+                        IMListView.this.oTq = 2;
                         break;
                 }
-                IMListView.this.On(message.what);
+                IMListView.this.Pl(message.what);
             }
         };
-        gG(context);
+        hp(context);
     }
 
     public IMListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.oEc = true;
-        this.oEe = false;
-        this.oEf = false;
-        this.oEg = false;
-        this.oEk = 2;
+        this.oTi = true;
+        this.oTk = false;
+        this.oTl = false;
+        this.oTm = false;
+        this.oTq = 2;
         this.mHandler = new Handler() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.listview.IMListView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 c.d("", "LOADHAED handleMessage  " + message.what);
                 switch (message.what) {
                     case 1:
-                        if (IMListView.this.oEh >= IMListView.oDW) {
+                        if (IMListView.this.oTn >= IMListView.oTc) {
                             IMListView.this.mHandler.removeMessages(1);
-                            IMListView.this.oEi = IMListView.this.oEh;
-                            IMListView.this.oEh = 0.0f;
+                            IMListView.this.oTo = IMListView.this.oTn;
+                            IMListView.this.oTn = 0.0f;
                             IMListView.this.mHandler.sendEmptyMessage(3);
                             break;
                         } else {
-                            IMListView.this.oEh = (IMListView.oDW / 10) + IMListView.this.oEh;
-                            if (IMListView.this.oEh > IMListView.oDW) {
-                                IMListView.this.oEh = IMListView.oDW;
+                            IMListView.this.oTn = (IMListView.oTc / 10) + IMListView.this.oTn;
+                            if (IMListView.this.oTn > IMListView.oTc) {
+                                IMListView.this.oTn = IMListView.oTc;
                             }
-                            IMListView.this.bl(IMListView.this.oEh);
+                            IMListView.this.bm(IMListView.this.oTn);
                             IMListView.this.mHandler.sendEmptyMessageDelayed(1, 20L);
                             break;
                         }
                     case 2:
-                        IMListView.this.oEb.onRefresh();
-                        IMListView.this.oEk = 2;
+                        IMListView.this.oTh.onRefresh();
+                        IMListView.this.oTq = 2;
                         break;
                     case 3:
                         IMListView.this.mHandler.sendEmptyMessageDelayed(2, 1500L);
-                        IMListView.this.oEk = 3;
-                        IMListView.this.oEe = true;
+                        IMListView.this.oTq = 3;
+                        IMListView.this.oTk = true;
                         break;
                     case 4:
-                        IMListView.this.oEi = 0.0f;
-                        IMListView.this.oEh = 0.0f;
-                        IMListView.this.ehh();
-                        IMListView.this.oEk = 2;
+                        IMListView.this.oTo = 0.0f;
+                        IMListView.this.oTn = 0.0f;
+                        IMListView.this.emV();
+                        IMListView.this.oTq = 2;
                         break;
                 }
-                IMListView.this.On(message.what);
+                IMListView.this.Pl(message.what);
             }
         };
-        gG(context);
+        hp(context);
     }
 
     public IMListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oEc = true;
-        this.oEe = false;
-        this.oEf = false;
-        this.oEg = false;
-        this.oEk = 2;
+        this.oTi = true;
+        this.oTk = false;
+        this.oTl = false;
+        this.oTm = false;
+        this.oTq = 2;
         this.mHandler = new Handler() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.listview.IMListView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 c.d("", "LOADHAED handleMessage  " + message.what);
                 switch (message.what) {
                     case 1:
-                        if (IMListView.this.oEh >= IMListView.oDW) {
+                        if (IMListView.this.oTn >= IMListView.oTc) {
                             IMListView.this.mHandler.removeMessages(1);
-                            IMListView.this.oEi = IMListView.this.oEh;
-                            IMListView.this.oEh = 0.0f;
+                            IMListView.this.oTo = IMListView.this.oTn;
+                            IMListView.this.oTn = 0.0f;
                             IMListView.this.mHandler.sendEmptyMessage(3);
                             break;
                         } else {
-                            IMListView.this.oEh = (IMListView.oDW / 10) + IMListView.this.oEh;
-                            if (IMListView.this.oEh > IMListView.oDW) {
-                                IMListView.this.oEh = IMListView.oDW;
+                            IMListView.this.oTn = (IMListView.oTc / 10) + IMListView.this.oTn;
+                            if (IMListView.this.oTn > IMListView.oTc) {
+                                IMListView.this.oTn = IMListView.oTc;
                             }
-                            IMListView.this.bl(IMListView.this.oEh);
+                            IMListView.this.bm(IMListView.this.oTn);
                             IMListView.this.mHandler.sendEmptyMessageDelayed(1, 20L);
                             break;
                         }
                     case 2:
-                        IMListView.this.oEb.onRefresh();
-                        IMListView.this.oEk = 2;
+                        IMListView.this.oTh.onRefresh();
+                        IMListView.this.oTq = 2;
                         break;
                     case 3:
                         IMListView.this.mHandler.sendEmptyMessageDelayed(2, 1500L);
-                        IMListView.this.oEk = 3;
-                        IMListView.this.oEe = true;
+                        IMListView.this.oTq = 3;
+                        IMListView.this.oTk = true;
                         break;
                     case 4:
-                        IMListView.this.oEi = 0.0f;
-                        IMListView.this.oEh = 0.0f;
-                        IMListView.this.ehh();
-                        IMListView.this.oEk = 2;
+                        IMListView.this.oTo = 0.0f;
+                        IMListView.this.oTn = 0.0f;
+                        IMListView.this.emV();
+                        IMListView.this.oTq = 2;
                         break;
                 }
-                IMListView.this.On(message.what);
+                IMListView.this.Pl(message.what);
             }
         };
-        gG(context);
+        hp(context);
     }
 
-    private void gG(Context context) {
+    private void hp(Context context) {
         this.mScroller = new Scroller(context, new DecelerateInterpolator());
         setOnScrollListener(this);
-        this.oDZ = new IMChatHeader(context);
-        this.oEa = new IMChatFooter(context);
+        this.oTf = new IMChatHeader(context);
+        this.oTg = new IMChatFooter(context);
     }
 
-    public boolean ehe() {
+    public boolean emS() {
         View childAt;
         if (this.totalCount == 0) {
             c.d("", "RECEIVETEST -> return true");
             return true;
-        } else if (this.oDX + this.oDY != this.totalCount || (childAt = getChildAt(getChildCount() - 1)) == null || childAt.getBottom() > getHeight()) {
-            c.d("", "RECEIVETEST -> return false  " + this.oDX + " " + this.oDY + " " + this.totalCount);
+        } else if (this.oTd + this.oTe != this.totalCount || (childAt = getChildAt(getChildCount() - 1)) == null || childAt.getBottom() > getHeight()) {
+            c.d("", "RECEIVETEST -> return false  " + this.oTd + " " + this.oTe + " " + this.totalCount);
             return false;
         } else {
             return true;
@@ -214,35 +214,35 @@ public class IMListView extends ListView implements AbsListView.OnScrollListener
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.AdapterView
     public void setAdapter(ListAdapter listAdapter) {
-        addHeaderView(this.oDZ);
-        addFooterView(this.oEa);
+        addHeaderView(this.oTf);
+        addFooterView(this.oTg);
         super.setAdapter(listAdapter);
     }
 
     public void setPullRefreshEnable(boolean z) {
-        this.oEc = z;
-        if (!this.oEc) {
-            this.oDZ.setVisiableContent(4);
+        this.oTi = z;
+        if (!this.oTi) {
+            this.oTf.setVisiableContent(4);
         } else {
-            this.oDZ.setVisiableContent(0);
+            this.oTf.setVisiableContent(0);
         }
     }
 
     public void setIMListViewListener(a aVar) {
-        this.oEb = aVar;
+        this.oTh = aVar;
     }
 
-    public void ehf() {
-        if (this.oEe) {
+    public void emT() {
+        if (this.oTk) {
             c.d("", "LOADHAED stopRefresh");
-            this.oEe = false;
-            ehh();
+            this.oTk = false;
+            emV();
         }
     }
 
-    public void ehg() {
-        if (this.oEd) {
-            this.oEd = false;
+    public void emU() {
+        if (this.oTj) {
+            this.oTj = false;
         }
     }
 
@@ -252,32 +252,32 @@ public class IMListView extends ListView implements AbsListView.OnScrollListener
         try {
             switch (motionEvent.getAction()) {
                 case 1:
-                    if (this.oEk == 1 && this.oEh < oDW) {
+                    if (this.oTq == 1 && this.oTn < oTc) {
                         this.mHandler.sendEmptyMessageDelayed(4, 20L);
                         break;
                     }
                     break;
                 case 2:
                     int y = (int) motionEvent.getY();
-                    if (this.oEk == 1) {
-                        if (this.oEj != 0.0f) {
-                            this.oEh += y - this.oEj;
+                    if (this.oTq == 1) {
+                        if (this.oTp != 0.0f) {
+                            this.oTn += y - this.oTp;
                         }
-                        if (this.oEh > oDW) {
-                            this.oEh = oDW;
+                        if (this.oTn > oTc) {
+                            this.oTn = oTc;
                         }
-                        if (this.oEh <= 0.0f) {
-                            this.oEh = 0.0f;
+                        if (this.oTn <= 0.0f) {
+                            this.oTn = 0.0f;
                         }
-                        bl(this.oEh);
-                        this.oEj = y;
-                        if (this.oEh >= oDW) {
+                        bm(this.oTn);
+                        this.oTp = y;
+                        if (this.oTn >= oTc) {
                             this.mHandler.removeMessages(1);
-                            this.oEi = this.oEh;
-                            this.oEh = 0.0f;
+                            this.oTo = this.oTn;
+                            this.oTn = 0.0f;
                             c.d("", "LOADHAED onTouchEvent HEAD_REFRESH");
                             this.mHandler.sendEmptyMessage(3);
-                            this.oEg = false;
+                            this.oTm = false;
                             break;
                         }
                     }
@@ -306,57 +306,57 @@ public class IMListView extends ListView implements AbsListView.OnScrollListener
         super.dispatchDraw(canvas);
     }
 
-    private void bk(float f) {
-        this.oDZ.setVisiableHeight(((int) f) + this.oDZ.getVisiableHeight());
+    private void bl(float f) {
+        this.oTf.setVisiableHeight(((int) f) + this.oTf.getVisiableHeight());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bl(float f) {
-        float f2 = f - this.oEi;
-        this.oEi = f;
+    public void bm(float f) {
+        float f2 = f - this.oTo;
+        this.oTo = f;
         if (getFirstVisiblePosition() == 0) {
-            if (this.oDZ.getVisiableHeight() > 0 || f2 > 0.0f) {
-                bk(f2);
+            if (this.oTf.getVisiableHeight() > 0 || f2 > 0.0f) {
+                bl(f2);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ehh() {
-        int visiableHeight = this.oDZ.getVisiableHeight();
+    public void emV() {
+        int visiableHeight = this.oTf.getVisiableHeight();
         if (visiableHeight != 0) {
             this.mScroller.startScroll(0, visiableHeight, 0, 0, 200);
-            this.oDZ.setVisiableHeight(0);
+            this.oTf.setVisiableHeight(0);
             invalidate();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void On(int i) {
-        if (this.oEc) {
+    public void Pl(int i) {
+        if (this.oTi) {
             switch (i) {
                 case 1:
-                    this.oDZ.setState(1);
+                    this.oTf.setState(1);
                     return;
                 case 2:
-                    this.oDZ.setState(0);
+                    this.oTf.setState(0);
                     return;
                 case 3:
-                    this.oDZ.setState(2);
+                    this.oTf.setState(2);
                     return;
                 default:
-                    this.oDZ.setState(0);
+                    this.oTf.setState(0);
                     return;
             }
         }
     }
 
     public void setRefreshTime() {
-        this.oDZ.setRefreshTime();
+        this.oTf.setRefreshTime();
     }
 
     public void setFooterHeight(int i) {
-        this.oEa.setFooterHeight(i);
+        this.oTg.setFooterHeight(i);
     }
 
     @Override // android.widget.ListView, android.widget.AdapterView
@@ -365,40 +365,40 @@ public class IMListView extends ListView implements AbsListView.OnScrollListener
     }
 
     public void setSelectionMove(int i) {
-        setSelectionFromTop(i + 2, this.oDZ.getVisiableHeight());
+        setSelectionFromTop(i + 2, this.oTf.getVisiableHeight());
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 2) {
-            this.oEf = true;
-            this.oEg = false;
+            this.oTl = true;
+            this.oTm = false;
         } else if (i == 1) {
-            this.oEf = false;
-            this.oEg = true;
+            this.oTl = false;
+            this.oTm = true;
         } else {
-            this.oEf = false;
-            this.oEg = false;
+            this.oTl = false;
+            this.oTm = false;
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        this.oDX = i;
-        this.oDY = i2;
+        this.oTd = i;
+        this.oTe = i2;
         this.totalCount = i3;
-        if (i == 0 && this.oEc) {
-            if (this.oEf) {
+        if (i == 0 && this.oTi) {
+            if (this.oTl) {
                 this.mHandler.removeMessages(1);
-                this.oDZ.setVisiableHeight(0);
-                this.oEi = 0.0f;
-                this.oEh = 0.0f;
+                this.oTf.setVisiableHeight(0);
+                this.oTo = 0.0f;
+                this.oTn = 0.0f;
                 this.mHandler.sendEmptyMessageDelayed(1, 20L);
-                this.oEf = false;
-                this.oEg = false;
+                this.oTl = false;
+                this.oTm = false;
             }
-            if (this.oEg && this.oEk == 2) {
-                this.oEk = 1;
+            if (this.oTm && this.oTq == 2) {
+                this.oTq = 1;
             }
         }
     }

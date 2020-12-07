@@ -11,20 +11,20 @@ import com.baidu.tieba.ala.liveroom.operation.b;
 import com.baidu.tieba.ala.liveroom.praise.DetailPraiseView;
 /* loaded from: classes4.dex */
 public class a {
-    private DetailPraiseView hrO;
-    private b hrP;
-    private boolean hrQ;
+    private DetailPraiseView hBs;
+    private b hBt;
+    private boolean hBu;
     private TbPageContext mTbPageContext;
     private String otherParams;
-    private DetailPraiseView.a hrR = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
+    private DetailPraiseView.a hBv = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
         @Override // com.baidu.tieba.ala.liveroom.praise.DetailPraiseView.a
-        public void cgs() {
-            if (a.this.hrP != null) {
-                a.this.hrP.s(a.this.hrO, 12);
+        public void ckm() {
+            if (a.this.hBt != null) {
+                a.this.hBt.s(a.this.hBs, 12);
             }
         }
     };
-    private CustomMessageListener guV = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.praise.a.2
+    private CustomMessageListener gDE = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.praise.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,60 +40,60 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.guV.setTag(this.mTbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.guV);
+        this.gDE.setTag(this.mTbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.gDE);
     }
 
     public void b(b bVar) {
-        this.hrP = bVar;
+        this.hBt = bVar;
     }
 
-    public void nJ(boolean z) {
-        if (this.hrQ && z) {
+    public void oe(boolean z) {
+        if (this.hBu && z) {
             z = false;
         }
-        if (this.hrO != null) {
-            this.hrO.setShowPraise(z);
+        if (this.hBs != null) {
+            this.hBs.setShowPraise(z);
         }
     }
 
-    public void nK(boolean z) {
-        this.hrQ = z;
+    public void of(boolean z) {
+        this.hBu = z;
     }
 
     public void setPraiseEnable(boolean z) {
-        if (this.hrQ && z) {
+        if (this.hBu && z) {
             z = false;
         }
-        if (this.hrO != null) {
-            this.hrO.setPraiseEnable(z);
+        if (this.hBs != null) {
+            this.hBs.setPraiseEnable(z);
         }
     }
 
     public void aA(ViewGroup viewGroup) {
         if (viewGroup != null && this.mTbPageContext != null) {
-            if (this.hrO == null) {
-                this.hrO = new DetailPraiseView(this.mTbPageContext.getPageActivity());
+            if (this.hBs == null) {
+                this.hBs = new DetailPraiseView(this.mTbPageContext.getPageActivity());
             }
-            this.hrO.setOnDoubleClickListener(this.hrR);
-            if (this.hrO.getParent() != null) {
-                ((ViewGroup) this.hrO.getParent()).removeView(this.hrO);
+            this.hBs.setOnDoubleClickListener(this.hBv);
+            if (this.hBs.getParent() != null) {
+                ((ViewGroup) this.hBs.getParent()).removeView(this.hBs);
             }
-            viewGroup.addView(this.hrO, 0, new RelativeLayout.LayoutParams(-1, -1));
+            viewGroup.addView(this.hBs, 0, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
-    public void bTf() {
-        if (this.hrO != null) {
-            this.hrO.bTf();
+    public void bWP() {
+        if (this.hBs != null) {
+            this.hBs.bWP();
         }
     }
 
-    public void GK() {
-        MessageManager.getInstance().unRegisterListener(this.guV);
+    public void IB() {
+        MessageManager.getInstance().unRegisterListener(this.gDE);
     }
 
     public View getView() {
-        return this.hrO;
+        return this.hBs;
     }
 }

@@ -13,7 +13,7 @@ import java.util.Map;
 public class LoadSo {
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f2693a = "3.0.0";
+    static final String f2695a = "3.0.0";
     static final String[] b = {"bd_idl_pass_token", "idl_license", "FaceSDK"};
     private Context c;
     private StatService d;
@@ -24,7 +24,7 @@ public class LoadSo {
     public class StatService {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f2694a = "sapi_bio_dynamic_load_so";
+        private static final String f2696a = "sapi_bio_dynamic_load_so";
         private static final String b = "host_version";
         private static final String c = "zip_version";
         private static final String d = "modle_name";
@@ -80,7 +80,7 @@ public class LoadSo {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b() {
-            com.baidu.pass.biometrics.base.utils.StatService.onEvent(LoadSo.this.c, f2694a, a());
+            com.baidu.pass.biometrics.base.utils.StatService.onEvent(LoadSo.this.c, f2696a, a());
         }
     }
 

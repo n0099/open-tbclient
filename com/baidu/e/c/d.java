@@ -1,21 +1,21 @@
 package com.baidu.e.c;
-/* loaded from: classes14.dex */
+/* loaded from: classes17.dex */
 public interface d {
+    String getBDVCInfo();
+
+    String getC3Aid();
+
+    String getCfrom();
+
     String getDeviceId();
 
     String getFrom();
 
+    String getSchemeHeader();
+
+    String getSid();
+
     String getZid();
 
     String k(String str, boolean z);
-
-    String uW();
-
-    String uX();
-
-    String uY();
-
-    String uZ();
-
-    String va();
 }

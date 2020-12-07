@@ -12,46 +12,46 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.homepage.hotTopic.tab.net.HotTopicTabRequest;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class HotTopicTabModel extends BdBaseModel {
-    private com.baidu.adp.framework.listener.a epK;
-    private String fbQ;
-    private b jCn;
-    private final HashMap<String, List<q>> jCo;
+    private com.baidu.adp.framework.listener.a ewJ;
+    private String fjq;
+    private b jPP;
+    private final HashMap<String, List<q>> jPQ;
     private boolean mIsLoading;
 
-    public List<q> Lp(String str) {
-        return this.jCo.get(str);
+    public List<q> Mw(String str) {
+        return this.jPQ.get(str);
     }
 
-    public List<q> cKd() {
-        return Lp(this.fbQ);
+    public List<q> cPs() {
+        return Mw(this.fjq);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public HotTopicTabModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.fbQ = "all";
-        this.jCo = new HashMap<>();
-        cKe();
+        this.fjq = "all";
+        this.jPQ = new HashMap<>();
+        cPt();
     }
 
-    private void cKe() {
-        this.epK = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HOT_TOPIC_TAB, 309661) { // from class: com.baidu.tieba.homepage.hotTopic.tab.HotTopicTabModel.1
+    private void cPt() {
+        this.ewJ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HOT_TOPIC_TAB, 309661) { // from class: com.baidu.tieba.homepage.hotTopic.tab.HotTopicTabModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 HotTopicTabModel.this.mIsLoading = false;
-                if (HotTopicTabModel.this.jCn != null && (responsedMessage instanceof com.baidu.tieba.homepage.hotTopic.tab.net.a) && HotTopicTabModel.this.unique_id == responsedMessage.getOrginalMessage().getTag()) {
+                if (HotTopicTabModel.this.jPP != null && (responsedMessage instanceof com.baidu.tieba.homepage.hotTopic.tab.net.a) && HotTopicTabModel.this.unique_id == responsedMessage.getOrginalMessage().getTag()) {
                     if (responsedMessage.getOrginalMessage() == null) {
-                        HotTopicTabModel.this.jCn.a(-1, null);
+                        HotTopicTabModel.this.jPP.a(-1, null);
                         return;
                     }
                     HotTopicTabRequest hotTopicTabRequest = (HotTopicTabRequest) responsedMessage.getOrginalMessage().getExtra();
                     com.baidu.tieba.homepage.hotTopic.tab.net.a aVar = (com.baidu.tieba.homepage.hotTopic.tab.net.a) responsedMessage;
-                    if (!TextUtils.isEmpty(HotTopicTabModel.this.fbQ)) {
-                        HotTopicTabModel.this.jCo.put(HotTopicTabModel.this.fbQ, aVar.getDataList());
+                    if (!TextUtils.isEmpty(HotTopicTabModel.this.fjq)) {
+                        HotTopicTabModel.this.jPQ.put(HotTopicTabModel.this.fjq, aVar.getDataList());
                     }
-                    HotTopicTabModel.this.jCn.a(responsedMessage.getError(), aVar);
+                    HotTopicTabModel.this.jPP.a(responsedMessage.getError(), aVar);
                 }
             }
         };
@@ -59,15 +59,15 @@ public class HotTopicTabModel extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setPresenter(b bVar) {
-        this.jCn = bVar;
+        this.jPP = bVar;
     }
 
     public void setTabCode(String str) {
-        this.fbQ = str;
+        this.fjq = str;
     }
 
-    public String btU() {
-        return this.fbQ;
+    public String bxu() {
+        return this.fjq;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -76,7 +76,7 @@ public class HotTopicTabModel extends BdBaseModel {
             return false;
         }
         HotTopicTabRequest hotTopicTabRequest = new HotTopicTabRequest();
-        hotTopicTabRequest.setTabCode(this.fbQ);
+        hotTopicTabRequest.setTabCode(this.fjq);
         hotTopicTabRequest.setTag(this.unique_id);
         this.mIsLoading = MessageManager.getInstance().sendMessage(hotTopicTabRequest);
         return this.mIsLoading;
@@ -85,8 +85,8 @@ public class HotTopicTabModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public void setUniqueId(BdUniqueId bdUniqueId) {
         super.setUniqueId(bdUniqueId);
-        this.epK.setTag(bdUniqueId);
-        registerListener(this.epK);
+        this.ewJ.setTag(bdUniqueId);
+        registerListener(this.ewJ);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -95,7 +95,7 @@ public class HotTopicTabModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.epK);
+        MessageManager.getInstance().unRegisterListener(this.ewJ);
         this.mIsLoading = false;
     }
 }

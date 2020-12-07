@@ -1,5 +1,6 @@
 package com.baidu.tieba.tbadkCore;
 
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -35,7 +36,7 @@ public class PraiseResponseMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error >= 0 && jSONObject != null) {
             this.errCode = jSONObject.optInt("error_code");
-            this.errMsg = jSONObject.optString("error_msg");
+            this.errMsg = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
         }
     }
 }

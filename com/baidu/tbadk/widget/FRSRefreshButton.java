@@ -15,11 +15,11 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class FRSRefreshButton extends ImageView {
     private int color;
-    private PorterDuffXfermode fyX;
-    private PorterDuffXfermode fyY;
-    private boolean fyZ;
-    private AlphaAnimation fza;
-    private AlphaAnimation fzb;
+    private PorterDuffXfermode fGM;
+    private PorterDuffXfermode fGN;
+    private boolean fGO;
+    private AlphaAnimation fGP;
+    private AlphaAnimation fGQ;
     private int mHeight;
     private Drawable mIcon;
     private Paint mPaint;
@@ -37,12 +37,12 @@ public class FRSRefreshButton extends ImageView {
     public FRSRefreshButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.color = R.color.CAM_X0211;
-        this.fyX = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
-        this.fyY = new PorterDuffXfermode(PorterDuff.Mode.SRC);
+        this.fGM = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+        this.fGN = new PorterDuffXfermode(PorterDuff.Mode.SRC);
         this.mSkinType = 3;
-        this.fyZ = false;
-        this.fza = null;
-        this.fzb = null;
+        this.fGO = false;
+        this.fGP = null;
+        this.fGQ = null;
         init();
     }
 
@@ -51,7 +51,7 @@ public class FRSRefreshButton extends ImageView {
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setAntiAlias(true);
-        this.mIcon = SvgManager.bqB().a(R.drawable.icon_pure_refresh24_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+        this.mIcon = SvgManager.btW().a(R.drawable.icon_pure_refresh24_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
         setLayerType(1, null);
     }
 
@@ -91,45 +91,45 @@ public class FRSRefreshButton extends ImageView {
     }
 
     private void H(Canvas canvas) {
-        this.mPaint.setXfermode(this.fyX);
+        this.mPaint.setXfermode(this.fGM);
         canvas.drawPaint(this.mPaint);
-        this.mPaint.setXfermode(this.fyY);
+        this.mPaint.setXfermode(this.fGN);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            this.mIcon = SvgManager.bqB().a(R.drawable.icon_pure_refresh24_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+            this.mIcon = SvgManager.btW().a(R.drawable.icon_pure_refresh24_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
             invalidate();
         }
     }
 
     public void hide() {
-        if (this.fyZ) {
-            if (this.fza != null) {
-                this.fza.cancel();
+        if (this.fGO) {
+            if (this.fGP != null) {
+                this.fGP.cancel();
             }
-            this.fza = new AlphaAnimation(1.0f, 0.0f);
-            this.fza.setDuration(300L);
-            this.fza.setFillAfter(true);
-            startAnimation(this.fza);
+            this.fGP = new AlphaAnimation(1.0f, 0.0f);
+            this.fGP.setDuration(300L);
+            this.fGP.setFillAfter(true);
+            startAnimation(this.fGP);
             setClickable(false);
-            this.fyZ = false;
+            this.fGO = false;
         }
     }
 
     public void show() {
-        if (!this.fyZ) {
+        if (!this.fGO) {
             setVisibility(0);
-            if (this.fzb != null) {
-                this.fzb.cancel();
+            if (this.fGQ != null) {
+                this.fGQ.cancel();
             }
-            this.fzb = new AlphaAnimation(0.0f, 1.0f);
-            this.fzb.setDuration(300L);
-            this.fzb.setFillAfter(true);
-            startAnimation(this.fzb);
+            this.fGQ = new AlphaAnimation(0.0f, 1.0f);
+            this.fGQ.setDuration(300L);
+            this.fGQ.setFillAfter(true);
+            startAnimation(this.fGQ);
             setClickable(true);
-            this.fyZ = true;
+            this.fGO = true;
         }
     }
 }

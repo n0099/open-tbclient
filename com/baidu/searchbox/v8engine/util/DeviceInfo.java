@@ -1,15 +1,14 @@
 package com.baidu.searchbox.v8engine.util;
 
-import com.baidu.fsg.face.base.b.c;
 import java.io.File;
 import java.io.FileFilter;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class DeviceInfo {
     private static final FileFilter CPU_FILTER = new FileFilter() { // from class: com.baidu.searchbox.v8engine.util.DeviceInfo.1
         @Override // java.io.FileFilter
         public boolean accept(File file) {
             String name = file.getName();
-            if (name.startsWith(c.i)) {
+            if (name.startsWith("cpu")) {
                 for (int i = 3; i < name.length(); i++) {
                     if (name.charAt(i) < '0' || name.charAt(i) > '9') {
                         return false;

@@ -1,9 +1,9 @@
 package com.baidu.b.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private final byte[] f1248a;
+    private final byte[] f1247a;
     private final int[] b;
     private final byte[] c;
     private final int d;
@@ -16,7 +16,7 @@ class k {
     }
 
     protected k(int i) {
-        this.f1248a = new byte[1];
+        this.f1247a = new byte[1];
         this.b = new int[4];
         this.c = new byte[16];
         this.d = i;

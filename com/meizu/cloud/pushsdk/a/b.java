@@ -3,11 +3,11 @@ package com.meizu.cloud.pushsdk.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4305a = "ui";
+    public static String f4075a = "ui";
     public static String b = "ie";
     public static String c = "is1";
     public static String d = "is2";

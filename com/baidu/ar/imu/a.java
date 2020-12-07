@@ -4,34 +4,34 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
 import android.opengl.Matrix;
 import com.baidu.ar.arplay.representation.Quaternion;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class a extends j {
     private static final String TAG = a.class.getSimpleName();
-    private final Quaternion rj;
-    private int rk;
-    private double rl;
+    private final Quaternion rA;
+    private int rB;
+    private double rC;
     private long timestamp;
 
     public a(SensorManager sensorManager) {
         super(sensorManager);
-        this.rj = new Quaternion();
-        this.rk = 0;
-        this.rl = 0.0d;
-        com.baidu.ar.g.b.c(TAG, "sensorList size " + String.valueOf(this.si.size()));
-        if (this.si.size() > 120) {
-            this.si.clear();
+        this.rA = new Quaternion();
+        this.rB = 0;
+        this.rC = 0.0d;
+        com.baidu.ar.h.b.c(TAG, "sensorList size " + String.valueOf(this.sz.size()));
+        if (this.sz.size() > 120) {
+            this.sz.clear();
         }
-        this.si.add(sensorManager.getDefaultSensor(4));
+        this.sz.add(sensorManager.getDefaultSensor(4));
     }
 
-    private void eR() {
-        if (this.sm) {
-            a(this.sp.matrix, this.sj.matrix, this.sn.matrix);
+    private void eQ() {
+        if (this.sD) {
+            a(this.sG.matrix, this.sA.matrix, this.sE.matrix);
             return;
         }
-        System.arraycopy(this.sj.matrix, 0, this.sn.matrix, 0, this.sn.matrix.length);
-        Matrix.setIdentityM(this.sp.matrix, 0);
-        this.sm = true;
+        System.arraycopy(this.sA.matrix, 0, this.sE.matrix, 0, this.sE.matrix.length);
+        Matrix.setIdentityM(this.sG.matrix, 0);
+        this.sD = true;
     }
 
     @Override // android.hardware.SensorEventListener
@@ -42,32 +42,32 @@ public class a extends j {
                 float f2 = sensorEvent.values[0];
                 float f3 = sensorEvent.values[1];
                 float f4 = sensorEvent.values[2];
-                this.rl = Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4));
-                if (this.rl > 0.10000000149011612d) {
-                    f2 = (float) (f2 / this.rl);
-                    f3 = (float) (f3 / this.rl);
-                    f4 = (float) (f4 / this.rl);
+                this.rC = Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4));
+                if (this.rC > 0.10000000149011612d) {
+                    f2 = (float) (f2 / this.rC);
+                    f3 = (float) (f3 / this.rC);
+                    f4 = (float) (f4 / this.rC);
                 }
-                double d = (this.rl * f) / 2.0d;
+                double d = (this.rC * f) / 2.0d;
                 double sin = Math.sin(d);
                 double cos = Math.cos(d);
-                this.rj.setX((float) (f2 * sin));
-                this.rj.setY((float) (f3 * sin));
-                this.rj.setZ((float) (f4 * sin));
-                this.rj.setW(-((float) cos));
-                synchronized (this.sh) {
-                    this.rj.multiplyByQuat(this.sk, this.sk);
+                this.rA.setX((float) (f2 * sin));
+                this.rA.setY((float) (f3 * sin));
+                this.rA.setZ((float) (f4 * sin));
+                this.rA.setW(-((float) cos));
+                synchronized (this.sy) {
+                    this.rA.multiplyByQuat(this.sB, this.sB);
                 }
-                Quaternion m17clone = this.sk.m17clone();
-                m17clone.w(-m17clone.w());
-                synchronized (this.sh) {
-                    SensorManager.getRotationMatrixFromVector(this.sj.matrix, m17clone.toArray());
+                Quaternion m16clone = this.sB.m16clone();
+                m16clone.w(-m16clone.w());
+                synchronized (this.sy) {
+                    SensorManager.getRotationMatrixFromVector(this.sA.matrix, m16clone.toArray());
                 }
             }
             this.timestamp = sensorEvent.timestamp;
-            this.rk++;
-            if (this.rk > 20) {
-                eR();
+            this.rB++;
+            if (this.rB > 20) {
+                eQ();
                 setChanged();
                 notifyObservers();
             }

@@ -5,30 +5,30 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class c extends com.baidu.swan.apps.component.b.b {
-    public String cYA;
-    public com.baidu.swan.apps.w.a.a.c cYl;
-    public double cYm;
-    public List<com.baidu.swan.apps.w.a.a.d> cYn;
-    public List<com.baidu.swan.apps.w.a.a.f> cYo;
-    public List<com.baidu.swan.apps.w.a.a.a> cYp;
-    public List<com.baidu.swan.apps.w.a.a.b> cYq;
-    public List<com.baidu.swan.apps.w.a.a.c> cYr;
-    public List<com.baidu.swan.apps.w.a.a.e> cYs;
-    public boolean cYt;
-    public boolean cYu;
-    public boolean cYv;
-    public boolean cYw;
-    public boolean cYx;
-    public boolean cYy;
-    public String cYz;
     public String callback;
+    public com.baidu.swan.apps.w.a.a.c dfk;
+    public double dfl;
+    public List<com.baidu.swan.apps.w.a.a.d> dfm;
+    public List<com.baidu.swan.apps.w.a.a.f> dfn;
+    public List<com.baidu.swan.apps.w.a.a.a> dfo;
+    public List<com.baidu.swan.apps.w.a.a.b> dfp;
+    public List<com.baidu.swan.apps.w.a.a.c> dfq;
+    public List<com.baidu.swan.apps.w.a.a.e> dfr;
+    public boolean dfs;
+    public boolean dft;
+    public boolean dfu;
+    public boolean dfv;
+    public boolean dfw;
+    public boolean dfx;
+    public String dfy;
+    public String dfz;
     public boolean isShowLocation;
 
     public c() {
         super("map", "mapId");
-        this.cYm = 16.0d;
+        this.dfl = 16.0d;
         this.isShowLocation = true;
         this.callback = "";
     }
@@ -38,29 +38,29 @@ public class c extends com.baidu.swan.apps.component.b.b {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
             if (jSONObject.has("longitude") && jSONObject.has("latitude")) {
-                this.cYl = new com.baidu.swan.apps.w.a.a.c();
-                this.cYl.parseFromJson(jSONObject);
+                this.dfk = new com.baidu.swan.apps.w.a.a.c();
+                this.dfk.parseFromJson(jSONObject);
             }
             if (jSONObject.has("scale")) {
-                this.cYm = jSONObject.optDouble("scale", 16.0d);
+                this.dfl = jSONObject.optDouble("scale", 16.0d);
             }
-            this.cYz = jSONObject.optString("subkey", "");
-            this.cYA = jSONObject.optString("layerStyle", "");
+            this.dfy = jSONObject.optString("subkey", "");
+            this.dfz = jSONObject.optString("layerStyle", "");
             this.callback = jSONObject.optString("cb");
             this.isShowLocation = jSONObject.optBoolean("showLocation", true);
-            this.cYt = jSONObject.optBoolean("enableZoom", true);
-            this.cYu = jSONObject.optBoolean("enableScroll", true);
-            this.cYv = jSONObject.optBoolean("enableRotate", false);
-            this.cYw = jSONObject.optBoolean("showCompass", false);
-            this.cYx = jSONObject.optBoolean("enableOverlooking", false);
-            this.cYy = jSONObject.optBoolean("enable3D", false);
+            this.dfs = jSONObject.optBoolean("enableZoom", true);
+            this.dft = jSONObject.optBoolean("enableScroll", true);
+            this.dfu = jSONObject.optBoolean("enableRotate", false);
+            this.dfv = jSONObject.optBoolean("showCompass", false);
+            this.dfw = jSONObject.optBoolean("enableOverlooking", false);
+            this.dfx = jSONObject.optBoolean("enable3D", false);
             try {
-                this.cYn = a(jSONObject, jSONObject.has("markers") ? "markers" : "covers", com.baidu.swan.apps.w.a.a.d.class);
-                this.cYp = a(jSONObject, "circles", com.baidu.swan.apps.w.a.a.a.class);
-                this.cYo = a(jSONObject, "polyline", com.baidu.swan.apps.w.a.a.f.class);
-                this.cYq = a(jSONObject, "controls", com.baidu.swan.apps.w.a.a.b.class);
-                this.cYr = a(jSONObject, "includePoints", com.baidu.swan.apps.w.a.a.c.class);
-                this.cYs = a(jSONObject, "polygons", com.baidu.swan.apps.w.a.a.e.class);
+                this.dfm = a(jSONObject, jSONObject.has("markers") ? "markers" : "covers", com.baidu.swan.apps.w.a.a.d.class);
+                this.dfo = a(jSONObject, "circles", com.baidu.swan.apps.w.a.a.a.class);
+                this.dfn = a(jSONObject, "polyline", com.baidu.swan.apps.w.a.a.f.class);
+                this.dfp = a(jSONObject, "controls", com.baidu.swan.apps.w.a.a.b.class);
+                this.dfq = a(jSONObject, "includePoints", com.baidu.swan.apps.w.a.a.c.class);
+                this.dfr = a(jSONObject, "polygons", com.baidu.swan.apps.w.a.a.e.class);
             } catch (Exception e) {
                 e.printStackTrace();
             }

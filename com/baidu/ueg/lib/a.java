@@ -3,7 +3,7 @@ package com.baidu.ueg.lib;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ueg.lib.b;
-/* loaded from: classes18.dex */
+/* loaded from: classes19.dex */
 public class a extends b {
     private final int decodeSize;
     private final byte[] decodeTable;

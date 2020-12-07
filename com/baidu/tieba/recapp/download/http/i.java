@@ -3,12 +3,12 @@ package com.baidu.tieba.recapp.download.http;
 import java.net.HttpURLConnection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class i {
-    public Map<String, List<String>> Mp;
+    public Map<String, List<String>> Nk;
     public int downSize;
     public byte[] retBytes;
-    public volatile boolean Mo = false;
+    public volatile boolean Nj = false;
     public int responseCode = -1;
     public int mNetErrorCode = -1;
     public String contentEncoding = "";
@@ -22,7 +22,7 @@ public class i {
             this.contentEncoding = httpURLConnection.getContentEncoding();
             this.contentType = httpURLConnection.getContentType();
             this.contentLength = httpURLConnection.getContentLength() + "";
-            this.Mp = httpURLConnection.getHeaderFields();
+            this.Nk = httpURLConnection.getHeaderFields();
         }
     }
 }

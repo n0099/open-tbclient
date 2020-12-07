@@ -7,32 +7,32 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d Uc;
-    private PluginNetConfigInfos Ud = new PluginNetConfigInfos();
-    private b Ue;
+    private static volatile d UX;
+    private PluginNetConfigInfos UY = new PluginNetConfigInfos();
+    private b UZ;
 
-    public static d qp() {
-        if (Uc == null) {
+    public static d qr() {
+        if (UX == null) {
             synchronized (d.class) {
-                if (Uc == null) {
-                    Uc = new d();
+                if (UX == null) {
+                    UX = new d();
                 }
             }
         }
-        return Uc;
+        return UX;
     }
 
     public void a(PluginSettings pluginSettings, boolean z, final a aVar) {
         c b = b(pluginSettings);
-        if (this.Ue != null) {
-            this.Ue.a(z, b, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
+        if (this.UZ != null) {
+            this.UZ.a(z, b, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
                 @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.a
                 public void a(boolean z2, c cVar, PluginNetConfigInfos pluginNetConfigInfos, String str) {
                     if (z2) {
-                        d.this.Ud = pluginNetConfigInfos;
+                        d.this.UY = pluginNetConfigInfos;
                     }
                     if (aVar != null) {
-                        aVar.a(z2, cVar, d.this.Ud, str);
+                        aVar.a(z2, cVar, d.this.UY, str);
                     }
                 }
             });
@@ -54,11 +54,11 @@ public class d {
         return cVar;
     }
 
-    public PluginNetConfigInfos qq() {
-        return this.Ud;
+    public PluginNetConfigInfos qs() {
+        return this.UY;
     }
 
     public void a(b bVar) {
-        this.Ue = bVar;
+        this.UZ = bVar;
     }
 }

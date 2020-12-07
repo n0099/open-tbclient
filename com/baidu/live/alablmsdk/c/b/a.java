@@ -1,7 +1,7 @@
 package com.baidu.live.alablmsdk.c.b;
 /* loaded from: classes4.dex */
 public interface a {
-    void du(int i);
+    void dN(int i);
 
     void g(int i, String str);
 

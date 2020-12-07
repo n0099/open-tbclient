@@ -4,11 +4,11 @@ import android.support.annotation.NonNull;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class i extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String auS() {
+    public String aya() {
         return "enterRoom";
     }
 

@@ -57,7 +57,7 @@ import java.lang.ref.WeakReference;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AuthAgent extends BaseApi {
     public static final String SECURE_LIB_ARM64_FILE_NAME = "libwbsafeedit_64";
     public static final String SECURE_LIB_ARM_FILE_NAME = "libwbsafeedit";
@@ -106,7 +106,7 @@ public class AuthAgent extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class c implements IUiListener {
         private final IUiListener b;
         private final boolean c;
@@ -318,14 +318,14 @@ public class AuthAgent extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements IUiListener {
 
         /* renamed from: a  reason: collision with root package name */
-        IUiListener f4527a;
+        IUiListener f4297a;
 
         public a(IUiListener iUiListener) {
-            this.f4527a = iUiListener;
+            this.f4297a = iUiListener;
         }
 
         @Override // com.tencent.tauth.IUiListener
@@ -338,8 +338,8 @@ public class AuthAgent extends BaseApi {
             try {
                 int i = jSONObject.getInt("ret");
                 String string = i == 0 ? "success" : jSONObject.getString("msg");
-                if (this.f4527a != null) {
-                    this.f4527a.onComplete(new JSONObject().put("ret", i).put("msg", string));
+                if (this.f4297a != null) {
+                    this.f4297a.onComplete(new JSONObject().put("ret", i).put("msg", string));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -349,31 +349,31 @@ public class AuthAgent extends BaseApi {
 
         @Override // com.tencent.tauth.IUiListener
         public void onError(UiError uiError) {
-            if (this.f4527a != null) {
-                this.f4527a.onError(uiError);
+            if (this.f4297a != null) {
+                this.f4297a.onError(uiError);
             }
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onCancel() {
-            if (this.f4527a != null) {
-                this.f4527a.onCancel();
+            if (this.f4297a != null) {
+                this.f4297a.onCancel();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class b implements IUiListener {
 
         /* renamed from: a  reason: collision with root package name */
-        IUiListener f4528a;
+        IUiListener f4298a;
         private final String c = "sendinstall";
         private final String d = "installwording";
         private final String e = "http://appsupport.qq.com/cgi-bin/qzapps/mapp_addapp.cgi";
 
         public b(IUiListener iUiListener) {
-            this.f4528a = iUiListener;
+            this.f4298a = iUiListener;
         }
 
         @Override // com.tencent.tauth.IUiListener
@@ -390,17 +390,17 @@ public class AuthAgent extends BaseApi {
                 String decode = URLDecoder.decode(str);
                 f.a("openSDK_LOG.AuthAgent", " WORDING = " + decode + "xx");
                 if (r2 && !TextUtils.isEmpty(decode)) {
-                    a(decode, this.f4528a, obj);
-                } else if (this.f4528a != null) {
+                    a(decode, this.f4298a, obj);
+                } else if (this.f4298a != null) {
                     if (AuthAgent.this.b != null) {
                         AuthAgent.this.b.saveSession(jSONObject);
                     }
-                    this.f4528a.onComplete(obj);
+                    this.f4298a.onComplete(obj);
                 }
             }
         }
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes12.dex */
         private abstract class a implements View.OnClickListener {
             Dialog d;
 
@@ -588,15 +588,15 @@ public class AuthAgent extends BaseApi {
 
         @Override // com.tencent.tauth.IUiListener
         public void onError(UiError uiError) {
-            if (this.f4528a != null) {
-                this.f4528a.onError(uiError);
+            if (this.f4298a != null) {
+                this.f4298a.onError(uiError);
             }
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onCancel() {
-            if (this.f4528a != null) {
-                this.f4528a.onCancel();
+            if (this.f4298a != null) {
+                this.f4298a.onCancel();
             }
         }
     }

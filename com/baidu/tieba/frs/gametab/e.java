@@ -7,8 +7,8 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.am;
-/* loaded from: classes21.dex */
+import com.baidu.tieba.frs.al;
+/* loaded from: classes22.dex */
 public class e extends com.baidu.tbadk.mainTab.b {
     public e(FrsFragment frsFragment) {
         getFragmentTabStructure().frag = frsFragment;
@@ -28,9 +28,9 @@ public class e extends com.baidu.tbadk.mainTab.b {
         return cVar;
     }
 
-    public void a(am amVar) {
-        if (amVar != null && amVar.zG(1)) {
-            amVar.b(this);
+    public void a(al alVar) {
+        if (alVar != null && alVar.Al(1)) {
+            alVar.b(this);
         }
     }
 

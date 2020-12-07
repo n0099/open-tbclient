@@ -1,13 +1,13 @@
 package com.baidu.swan.games.binding.model;
 
 import com.baidu.searchbox.v8engine.JsObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class d {
-    public JsObject dRs;
+    public JsObject dYq;
     public int index;
 
     public d(int i, JsObject jsObject) {
         this.index = i;
-        this.dRs = jsObject;
+        this.dYq = jsObject;
     }
 }

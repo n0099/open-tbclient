@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.a.d;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
@@ -19,25 +19,25 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 import tbclient.HotThreadList.HotThreadListResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c {
     public static List<q> a(HotThreadListResIdl hotThreadListResIdl) {
         if (hotThreadListResIdl == null || hotThreadListResIdl.data == null || y.isEmpty(hotThreadListResIdl.data.thread_info)) {
             return null;
         }
-        boolean bhg = d.bhg();
-        boolean z = !bhg && d.bhh();
+        boolean bkk = d.bkk();
+        boolean z = !bkk && d.bkl();
         List<ThreadInfo> list = hotThreadListResIdl.data.thread_info;
-        if (bhg) {
-            return dF(list);
+        if (bkk) {
+            return dQ(list);
         }
         if (z) {
-            return dH(list);
+            return dS(list);
         }
-        return dG(list);
+        return dR(list);
     }
 
-    private static List<q> dF(List<ThreadInfo> list) {
+    private static List<q> dQ(List<ThreadInfo> list) {
         int i;
         if (list == null) {
             return null;
@@ -60,7 +60,7 @@ public class c {
         return arrayList;
     }
 
-    private static List<q> dG(List<ThreadInfo> list) {
+    private static List<q> dR(List<ThreadInfo> list) {
         int i;
         if (list == null) {
             return null;
@@ -83,97 +83,97 @@ public class c {
         return arrayList;
     }
 
-    private static List<q> dH(List<ThreadInfo> list) {
+    private static List<q> dS(List<ThreadInfo> list) {
         if (list == null) {
             return null;
         }
         ArrayList arrayList = new ArrayList(list.size());
         for (ThreadInfo threadInfo : list) {
-            bx bxVar = new bx();
-            bxVar.eFl = true;
-            bxVar.a(threadInfo);
-            aB(bxVar);
-            arrayList.add(bxVar);
+            by byVar = new by();
+            byVar.eMn = true;
+            byVar.a(threadInfo);
+            aB(byVar);
+            arrayList.add(byVar);
         }
-        return dI(arrayList);
+        return dT(arrayList);
     }
 
-    private static void aB(bx bxVar) {
-        String bkZ = bxVar.bkZ();
-        String du = au.du(bxVar.blv() * 1000);
-        if (!TextUtils.isEmpty(bkZ) && !TextUtils.isEmpty(du)) {
-            bkZ = bkZ + "   " + du;
+    private static void aB(by byVar) {
+        String bom = byVar.bom();
+        String dT = au.dT(byVar.boI() * 1000);
+        if (!TextUtils.isEmpty(bom) && !TextUtils.isEmpty(dT)) {
+            bom = bom + "   " + dT;
         }
-        bxVar.Au(bkZ);
+        byVar.Bb(bom);
     }
 
-    public static List<q> dI(List<bx> list) {
+    public static List<q> dT(List<by> list) {
         if (list == null) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         int i = 0;
-        for (bx bxVar : list) {
-            int[] imageWidthAndHeight = bxVar.getImageWidthAndHeight();
-            if (bxVar.getType() == bx.eBR) {
+        for (by byVar : list) {
+            int[] imageWidthAndHeight = byVar.getImageWidthAndHeight();
+            if (byVar.getType() == by.eIS) {
+                byVar.position = i;
+                bx bxVar = new bx();
+                bxVar.eCR = byVar;
                 bxVar.position = i;
-                bw bwVar = new bw();
-                bwVar.evQ = bxVar;
-                bwVar.position = i;
-                bwVar.eBN = true;
-                bwVar.setSupportType(BaseCardInfo.SupportType.TOP);
-                arrayList.add(bwVar);
-                bw bwVar2 = new bw();
-                bwVar2.evQ = bxVar;
-                bwVar2.position = i;
-                if (bxVar.bnz()) {
-                    bwVar2.eBC = true;
-                } else if (bxVar.bmK() == 1) {
-                    bwVar2.eBA = true;
-                    bwVar2.eBO = imageWidthAndHeight[0];
-                    bwVar2.eBP = imageWidthAndHeight[1];
-                } else if (bxVar.bmK() >= 2) {
-                    bwVar2.eBB = true;
+                bxVar.eIO = true;
+                bxVar.setSupportType(BaseCardInfo.SupportType.TOP);
+                arrayList.add(bxVar);
+                bx bxVar2 = new bx();
+                bxVar2.eCR = byVar;
+                bxVar2.position = i;
+                if (byVar.bqM()) {
+                    bxVar2.eID = true;
+                } else if (byVar.bpX() == 1) {
+                    bxVar2.eIB = true;
+                    bxVar2.eIP = imageWidthAndHeight[0];
+                    bxVar2.eIQ = imageWidthAndHeight[1];
+                } else if (byVar.bpX() >= 2) {
+                    bxVar2.eIC = true;
                 } else {
-                    bwVar2.eBy = true;
+                    bxVar2.eIz = true;
                 }
-                bwVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                arrayList.add(bwVar2);
-                bw bwVar3 = new bw();
-                bwVar3.eBD = true;
-                bwVar3.evQ = bxVar;
-                bwVar3.position = i;
-                bwVar3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                arrayList.add(bwVar3);
+                bxVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                arrayList.add(bxVar2);
+                bx bxVar3 = new bx();
+                bxVar3.eIE = true;
+                bxVar3.eCR = byVar;
+                bxVar3.position = i;
+                bxVar3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                arrayList.add(bxVar3);
                 i++;
-            } else if (bxVar.getType() == bx.eCo) {
-                bxVar.position = i;
-                bw bwVar4 = new bw();
-                bwVar4.evQ = bxVar;
-                bwVar4.position = i;
-                bwVar4.eBN = true;
-                bwVar4.setSupportType(BaseCardInfo.SupportType.TOP);
-                arrayList.add(bwVar4);
-                bw bwVar5 = new bw();
-                bwVar5.evQ = bxVar;
-                bwVar5.position = i;
-                bwVar5.eBF = true;
-                bwVar5.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                arrayList.add(bwVar5);
-                bw bwVar6 = new bw();
-                bwVar6.eBD = true;
-                bwVar6.evQ = bxVar;
-                bwVar6.position = i;
-                bwVar6.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                arrayList.add(bwVar6);
+            } else if (byVar.getType() == by.eJq) {
+                byVar.position = i;
+                bx bxVar4 = new bx();
+                bxVar4.eCR = byVar;
+                bxVar4.position = i;
+                bxVar4.eIO = true;
+                bxVar4.setSupportType(BaseCardInfo.SupportType.TOP);
+                arrayList.add(bxVar4);
+                bx bxVar5 = new bx();
+                bxVar5.eCR = byVar;
+                bxVar5.position = i;
+                bxVar5.eIG = true;
+                bxVar5.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                arrayList.add(bxVar5);
+                bx bxVar6 = new bx();
+                bxVar6.eIE = true;
+                bxVar6.eCR = byVar;
+                bxVar6.position = i;
+                bxVar6.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                arrayList.add(bxVar6);
                 i++;
             }
-            bxVar.setSupportType(BaseCardInfo.SupportType.TOP);
+            byVar.setSupportType(BaseCardInfo.SupportType.TOP);
         }
         return arrayList;
     }
 
-    public static com.baidu.tieba.homepage.hotTopic.tab.b.b dJ(List<FrsTabInfo> list) {
+    public static com.baidu.tieba.homepage.hotTopic.tab.b.b dU(List<FrsTabInfo> list) {
         FrsTabInfoData frsTabInfoData = new FrsTabInfoData();
         ArrayList arrayList = new ArrayList();
         frsTabInfoData.tabList = arrayList;

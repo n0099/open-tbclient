@@ -3,8 +3,7 @@ package com.baidu.swan.apps.y.b;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.util.Log;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 class c extends a {
     @Override // com.baidu.swan.apps.y.b.a
     public boolean a(Bitmap bitmap, Rect rect) {
@@ -21,8 +20,8 @@ class c extends a {
         try {
             int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
             boolean z2 = pixel == -1 || pixel == -657931;
-            if (!z2 && this.dfp != null) {
-                for (Integer num : this.dfp) {
+            if (!z2 && this.dmo != null) {
+                for (Integer num : this.dmo) {
                     if (num.intValue() == pixel) {
                         z = true;
                         break;
@@ -43,7 +42,7 @@ class c extends a {
                         if (i2 < rect.bottom - 1) {
                             if (pixel != bitmap.getPixel(i, i2)) {
                                 if (com.baidu.swan.apps.b.DEBUG) {
-                                    Log.d("SimpleErrorPageParser", "非白屏, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2 + ")");
+                                    Log.d("SimpleErrorPageParser", "非白屏, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i + "," + i2 + ")");
                                 }
                                 return false;
                             }

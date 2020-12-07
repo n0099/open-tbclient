@@ -6,60 +6,60 @@ import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class d extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int dhw = 35;
-    private boolean dhy = false;
-    private JSONObject dyz;
+    private static int doy = 35;
+    private JSONObject dFy;
+    private boolean doA = false;
 
     public d() {
         this.mSource = "NA";
     }
 
-    public d kv(int i) {
+    public d kT(int i) {
         this.mType = String.valueOf(i);
         return this;
     }
 
     public d i(@NonNull com.baidu.swan.apps.am.a aVar) {
-        this.mType = String.valueOf(aVar.aLh());
-        cx("detail", aVar.aLg().toString());
+        this.mType = String.valueOf(aVar.aOo());
+        cE("detail", aVar.aOn().toString());
         return this;
     }
 
-    public d gN(boolean z) {
-        this.dhy = z;
+    public d hc(boolean z) {
+        this.doA = z;
         return this;
     }
 
-    public d td(String str) {
+    public d tK(String str) {
         this.mFrom = str;
         return this;
     }
 
-    public d te(String str) {
+    public d tL(String str) {
         this.mAppId = str;
         return this;
     }
 
-    public d tf(String str) {
+    public d tM(String str) {
         this.mSource = str;
         return this;
     }
 
-    public d tg(String str) {
+    public d tN(String str) {
         this.mPage = str;
         return this;
     }
 
-    public d cx(String str, String str2) {
+    public d cE(String str, String str2) {
         if (str != null && str2 != null) {
-            if (this.dyz == null) {
-                this.dyz = new JSONObject();
+            if (this.dFy == null) {
+                this.dFy = new JSONObject();
             }
             try {
-                this.dyz.put(str, str2);
+                this.dFy.put(str, str2);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -71,17 +71,17 @@ public class d extends f {
 
     public d a(com.baidu.swan.apps.u.c.e eVar) {
         if (eVar != null) {
-            if (!TextUtils.isEmpty(eVar.axV())) {
-                this.mSource = eVar.axV();
+            if (!TextUtils.isEmpty(eVar.aBe())) {
+                this.mSource = eVar.aBe();
             }
             if (!TextUtils.isEmpty(eVar.getAppId())) {
                 this.mAppId = eVar.getAppId();
             }
-            if (!TextUtils.isEmpty(eVar.axX())) {
-                this.mScheme = eVar.axX();
+            if (!TextUtils.isEmpty(eVar.aBg())) {
+                this.mScheme = eVar.aBg();
             }
             if (!TextUtils.isEmpty(eVar.getPage())) {
-                this.dyK = eVar.getPage();
+                this.dFJ = eVar.getPage();
             }
         }
         return this;
@@ -89,22 +89,22 @@ public class d extends f {
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.dyA == null) {
-            this.dyA = new JSONObject();
+        if (this.dFz == null) {
+            this.dFz = new JSONObject();
         }
         try {
-            if (this.dyz != null) {
-                if (this.dhy) {
-                    String lm = ak.lm(dhw);
-                    if (!TextUtils.isEmpty(lm)) {
-                        this.dyz.put("stacktrace", lm);
+            if (this.dFy != null) {
+                if (this.doA) {
+                    String lK = ak.lK(doy);
+                    if (!TextUtils.isEmpty(lK)) {
+                        this.dFy.put("stacktrace", lK);
                     }
                 }
-                this.dyA.put("info", this.dyz);
+                this.dFz.put("info", this.dFy);
             }
-            ExtensionCore arw = com.baidu.swan.apps.core.turbo.d.ara().arw();
-            if (arw != null) {
-                this.dyA.put("extension_ver", arw.extensionCoreVersionName);
+            ExtensionCore auE = com.baidu.swan.apps.core.turbo.d.aui().auE();
+            if (auE != null) {
+                this.dFz.put("extension_ver", auE.extensionCoreVersionName);
             }
         } catch (JSONException e) {
             if (DEBUG) {

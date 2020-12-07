@@ -5,16 +5,16 @@ import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.ab;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForum.recommend.b.d, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.c>> {
-    private ab inF;
+    private ab iyx;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, ab abVar) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.d.inW);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.d.iyO);
         this.mPageContext = tbPageContext;
-        this.inF = abVar;
+        this.iyx = abVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,15 +31,15 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.enterForum.recommend.b.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.c> aVar) {
-        if (dVar == null || aVar == null || aVar.coz() == null) {
+        if (dVar == null || aVar == null || aVar.csM() == null) {
             return null;
         }
         if (viewGroup instanceof BdTypeRecyclerView) {
-            aVar.coz().pa(dVar.needTopMargin);
+            aVar.csM().pw(dVar.needTopMargin);
         }
-        aVar.coz().a(dVar);
-        if (this.inF != null) {
-            aVar.coz().c(this.inF);
+        aVar.csM().a(dVar);
+        if (this.iyx != null) {
+            aVar.csM().c(this.iyx);
         }
         return aVar.getView();
     }

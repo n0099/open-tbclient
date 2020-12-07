@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class HistoryItemView extends LinearLayout {
-    TbRichTextView jXQ;
-    TextView jXR;
-    ChatImageWithTailView jXS;
+    TbRichTextView klv;
+    TextView klw;
+    ChatImageWithTailView klx;
     LinearLayout mContainer;
     Context mContext;
 
@@ -37,28 +37,28 @@ public class HistoryItemView extends LinearLayout {
         setClickable(false);
         setFocusable(false);
         this.mContainer = (LinearLayout) findViewById(R.id.history_container);
-        this.jXR = (TextView) findViewById(R.id.history_send_time);
-        this.jXQ = (TbRichTextView) findViewById(R.id.history_txt);
-        this.jXS = (ChatImageWithTailView) findViewById(R.id.history_pic);
+        this.klw = (TextView) findViewById(R.id.history_send_time);
+        this.klv = (TbRichTextView) findViewById(R.id.history_txt);
+        this.klx = (ChatImageWithTailView) findViewById(R.id.history_pic);
         ap.setBackgroundResource(this.mContainer, R.drawable.selector_history_multi_single_bg);
-        ap.setViewTextColor(this.jXR, R.color.common_color_10067, 1);
-        this.jXQ.setTextColor(ap.getColor(R.color.CAM_X0108));
-        this.jXS.setIsSupportNight(true);
+        ap.setViewTextColor(this.klw, R.color.common_color_10067, 1);
+        this.klv.setTextColor(ap.getColor(R.color.CAM_X0108));
+        this.klx.setIsSupportNight(true);
     }
 
     public void setTime(String str) {
-        this.jXR.setText(str);
+        this.klw.setText(str);
     }
 
     public TbRichTextView getRichTextView() {
-        return this.jXQ;
+        return this.klv;
     }
 
     public ChatImageWithTailView getImageView() {
-        return this.jXS;
+        return this.klx;
     }
 
-    public void cW(View view) {
+    public void dd(View view) {
         this.mContainer.setBackgroundDrawable(null);
         this.mContainer.removeAllViews();
         this.mContainer.addView(view);

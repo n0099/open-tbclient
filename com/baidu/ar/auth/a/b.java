@@ -1,22 +1,23 @@
 package com.baidu.ar.auth.a;
 
 import android.content.Context;
+import com.baidu.ar.auth.ARAuth;
 import com.baidu.ar.auth.IAuthenticateCallback;
 import com.baidu.ar.auth.IAuthenticator;
 import com.baidu.ar.auth.IDuMixAuthCallback;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class b implements IAuthenticator {
-    private static volatile b jX;
+    private static volatile b km;
 
     private b() {
     }
 
-    public static b cF() {
-        if (jX == null) {
-            jX = new b();
+    public static b cE() {
+        if (km == null) {
+            km = new b();
         }
-        return jX;
+        return km;
     }
 
     @Override // com.baidu.ar.auth.IAuthenticator
@@ -26,7 +27,8 @@ public class b implements IAuthenticator {
 
     @Override // com.baidu.ar.auth.IAuthenticator
     public void init(final Context context, byte[] bArr, final IAuthenticateCallback iAuthenticateCallback) {
-        final List[] listArr = {com.baidu.ar.auth.a.checkAuth(context, bArr, new IDuMixAuthCallback() { // from class: com.baidu.ar.auth.a.b.1
+        com.baidu.ar.libloader.a.load(context, null);
+        final List[] listArr = {ARAuth.checkAuth(context, bArr, new IDuMixAuthCallback() { // from class: com.baidu.ar.auth.a.b.1
             @Override // com.baidu.ar.auth.IDuMixAuthCallback
             public void onAvailFeaturesUpdate(List<Integer> list) {
                 listArr[0] = list;
@@ -45,7 +47,7 @@ public class b implements IAuthenticator {
             @Override // com.baidu.ar.auth.IDuMixAuthCallback
             public void onResult(boolean z) {
                 if (z) {
-                    com.baidu.ar.auth.a.doAuth(context, null);
+                    ARAuth.doAuth(context, null);
                 } else {
                     listArr[0].clear();
                 }
@@ -58,6 +60,6 @@ public class b implements IAuthenticator {
 
     @Override // com.baidu.ar.auth.IAuthenticator
     public void release() {
-        com.baidu.ar.auth.a.release();
+        ARAuth.release();
     }
 }

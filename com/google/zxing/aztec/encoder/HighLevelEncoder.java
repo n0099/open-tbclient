@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class HighLevelEncoder {
     private static final int[][] CHAR_MAP;
     static final int MODE_DIGIT = 2;

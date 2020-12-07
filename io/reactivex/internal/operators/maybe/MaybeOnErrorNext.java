@@ -1,12 +1,12 @@
 package io.reactivex.internal.operators.maybe;
 
-import io.reactivex.c.h;
+import io.reactivex.b.h;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class MaybeOnErrorNext<T> extends a<T, T> {
     final boolean allowFatal;
     final h<? super Throwable, ? extends o<? extends T>> resumeFunction;
@@ -16,7 +16,7 @@ public final class MaybeOnErrorNext<T> extends a<T, T> {
         this.source.a(new OnErrorNextMaybeObserver(mVar, this.resumeFunction, this.allowFatal));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class OnErrorNextMaybeObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = 2026620218879969836L;
         final m<? super T> actual;
@@ -58,7 +58,7 @@ public final class MaybeOnErrorNext<T> extends a<T, T> {
                 return;
             }
             try {
-                o oVar = (o) io.reactivex.internal.functions.a.l(this.resumeFunction.apply(th), "The resumeFunction returned a null MaybeSource");
+                o oVar = (o) io.reactivex.internal.functions.a.m(this.resumeFunction.apply(th), "The resumeFunction returned a null MaybeSource");
                 DisposableHelper.replace(this, null);
                 oVar.a(new a(this.actual, this));
             } catch (Throwable th2) {
@@ -72,7 +72,7 @@ public final class MaybeOnErrorNext<T> extends a<T, T> {
             this.actual.onComplete();
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes9.dex */
         static final class a<T> implements m<T> {
             final m<? super T> actual;
             final AtomicReference<io.reactivex.disposables.b> d;

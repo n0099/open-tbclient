@@ -14,7 +14,7 @@ import tbclient.ForumRecommend.LikeForum;
 import tbclient.FrsTabInfo;
 import tbclient.PrivatePopInfo;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class forumRecommendSocketResponseMessage extends SocketResponsedMessage {
     private ForumCreateInfo forum_create_info;
     private ForumPopupInfo forum_popup_info;
@@ -84,7 +84,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (bArr != null && bArr.length > 0 && getError() == 0) {
-            com.baidu.tbadk.core.c.a.bob().dF("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).asyncSetForever(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
+            com.baidu.tbadk.core.c.a.brq().dM("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).asyncSetForever(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
         }
     }
 

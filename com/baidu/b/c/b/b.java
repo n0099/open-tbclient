@@ -7,11 +7,11 @@ import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 import java.security.GeneralSecurityException;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int[] f1262a = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+    private static final int[] f1261a = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
     private final int b;
 
     public b(int i) {
@@ -60,8 +60,8 @@ public class b {
     }
 
     static void d(int[] iArr, int[] iArr2) {
-        System.arraycopy(f1262a, 0, iArr, 0, f1262a.length);
-        System.arraycopy(iArr2, 0, iArr, f1262a.length, 8);
+        System.arraycopy(f1261a, 0, iArr, 0, f1261a.length);
+        System.arraycopy(iArr2, 0, iArr, f1261a.length, 8);
     }
 
     static int[] s(byte[] bArr) {

@@ -12,17 +12,17 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.games.b.a;
 import com.baidu.swan.games.b.e;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class d {
-    private static volatile d dOI;
-    private HandlerThread dOJ;
-    private a dOK;
-    private b dOL;
-    private c dON;
+    private static volatile d dVG;
+    private HandlerThread dVH;
+    private a dVI;
+    private b dVJ;
+    private c dVL;
     private long mStartTime;
-    private int aUu = 0;
-    private long dOM = 300000;
-    private e.a dOO = new e.a() { // from class: com.baidu.swan.games.b.d.4
+    private int aXB = 0;
+    private long dVK = 300000;
+    private e.a dVM = new e.a() { // from class: com.baidu.swan.games.b.d.4
         @Override // com.baidu.swan.games.b.e.a
         public void onSuccess(Object obj) {
             g gVar = (g) obj;
@@ -30,9 +30,9 @@ public class d {
                 Log.d("AntiAddictionManager", gVar.toString());
             }
             d.this.mStartTime = System.currentTimeMillis();
-            if (d.this.lQ(gVar.dOT)) {
-                d.this.cE(gVar.interval * 1000);
-                d.this.as(gVar.state, gVar.dOS);
+            if (d.this.mo(gVar.dVR)) {
+                d.this.dd(gVar.interval * 1000);
+                d.this.as(gVar.state, gVar.dVQ);
             }
         }
 
@@ -48,74 +48,74 @@ public class d {
         create();
     }
 
-    public static d aRN() {
-        if (dOI == null) {
+    public static d aUS() {
+        if (dVG == null) {
             synchronized (d.class) {
-                if (dOI == null) {
-                    dOI = new d();
+                if (dVG == null) {
+                    dVG = new d();
                 }
             }
         }
-        return dOI;
+        return dVG;
     }
 
     public void a(b bVar) {
-        this.dOL = bVar;
+        this.dVJ = bVar;
     }
 
     private void create() {
-        aRO();
-        hs(true);
+        aUT();
+        hH(true);
         startMonitor();
-        this.dON = new c();
+        this.dVL = new c();
     }
 
-    private void aRO() {
-        if (this.dOJ == null) {
-            this.dOJ = new HandlerThread("anti_addiction_monitor");
-            this.dOJ.start();
-            this.dOK = new a(this.dOJ.getLooper());
+    private void aUT() {
+        if (this.dVH == null) {
+            this.dVH = new HandlerThread("anti_addiction_monitor");
+            this.dVH.start();
+            this.dVI = new a(this.dVH.getLooper());
         }
     }
 
     private boolean isOpen() {
-        return this.aUu == 0;
+        return this.aXB == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Activity getActivity() {
-        com.baidu.swan.apps.runtime.e aGN = com.baidu.swan.apps.runtime.e.aGN();
-        if (aGN == null || aGN.aGG() == null) {
+        com.baidu.swan.apps.runtime.e aJV = com.baidu.swan.apps.runtime.e.aJV();
+        if (aJV == null || aJV.aJO() == null) {
             return null;
         }
-        return aGN.aGG();
+        return aJV.aJO();
     }
 
     public synchronized void startMonitor() {
-        if (isOpen() && !this.dOK.aRS()) {
+        if (isOpen() && !this.dVI.aUX()) {
             this.mStartTime = System.currentTimeMillis();
-            this.dOK.aRR();
+            this.dVI.aUW();
         }
     }
 
-    public synchronized void aRP() {
+    public synchronized void aUU() {
         if (isOpen()) {
-            hs(false);
+            hH(false);
         }
-        this.dOK.aRP();
+        this.dVI.aUU();
     }
 
-    public void aRQ() {
-        com.baidu.swan.games.b.a.b(new a.InterfaceC0526a() { // from class: com.baidu.swan.games.b.d.1
-            @Override // com.baidu.swan.games.b.a.InterfaceC0526a
+    public void aUV() {
+        com.baidu.swan.games.b.a.b(new a.InterfaceC0538a() { // from class: com.baidu.swan.games.b.d.1
+            @Override // com.baidu.swan.games.b.a.InterfaceC0538a
             public void onSuccess() {
                 Activity activity = d.this.getActivity();
                 if (activity != null) {
-                    com.baidu.swan.apps.res.widget.b.d.k(activity, a.h.swan_game_anti_addiction_success).showToast();
+                    com.baidu.swan.apps.res.widget.b.d.t(activity, a.h.swan_game_anti_addiction_success).showToast();
                 }
             }
 
-            @Override // com.baidu.swan.games.b.a.InterfaceC0526a
+            @Override // com.baidu.swan.games.b.a.InterfaceC0538a
             public void onFail(String str) {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     Log.e("AntiAddictionManager", "handleLoginAndRealName: " + str);
@@ -124,14 +124,14 @@ public class d {
         });
     }
 
-    public void a(final String str, final a.InterfaceC0526a interfaceC0526a) {
+    public void a(final String str, final a.InterfaceC0538a interfaceC0538a) {
         if (TextUtils.isEmpty(str)) {
-            interfaceC0526a.onFail("orderInfo is null");
+            interfaceC0538a.onFail("orderInfo is null");
         } else if (!isOpen()) {
-            interfaceC0526a.onSuccess();
+            interfaceC0538a.onSuccess();
         } else {
-            com.baidu.swan.games.b.a.a(new a.InterfaceC0526a() { // from class: com.baidu.swan.games.b.d.2
-                @Override // com.baidu.swan.games.b.a.InterfaceC0526a
+            com.baidu.swan.games.b.a.a(new a.InterfaceC0538a() { // from class: com.baidu.swan.games.b.d.2
+                @Override // com.baidu.swan.games.b.a.InterfaceC0538a
                 public void onSuccess() {
                     e.a(str, new e.a() { // from class: com.baidu.swan.games.b.d.2.1
                         @Override // com.baidu.swan.games.b.e.a
@@ -142,34 +142,34 @@ public class d {
                                 Log.d("AntiAddictionManager", fVar.toString());
                             }
                             if (fVar.state == 0) {
-                                interfaceC0526a.onSuccess();
+                                interfaceC0538a.onSuccess();
                             } else if (1 == fVar.state) {
-                                interfaceC0526a.onFail(fVar.msg);
+                                interfaceC0538a.onFail(fVar.msg);
                             } else {
-                                interfaceC0526a.onFail(fVar.msg);
+                                interfaceC0538a.onFail(fVar.msg);
                                 if (!TextUtils.isEmpty(fVar.msg) && (activity = d.this.getActivity()) != null) {
-                                    d.this.dON.a(activity, fVar.msg, activity.getString(a.h.swan_game_anti_addiction_dialog_ok), true, null);
+                                    d.this.dVL.a(activity, fVar.msg, activity.getString(a.h.swan_game_anti_addiction_dialog_ok), true, null);
                                 }
                             }
                         }
 
                         @Override // com.baidu.swan.games.b.e.a
                         public void onFail(String str2) {
-                            interfaceC0526a.onFail(str2);
+                            interfaceC0538a.onFail(str2);
                         }
                     });
                 }
 
-                @Override // com.baidu.swan.games.b.a.InterfaceC0526a
+                @Override // com.baidu.swan.games.b.a.InterfaceC0538a
                 public void onFail(String str2) {
-                    interfaceC0526a.onFail(str2);
+                    interfaceC0538a.onFail(str2);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hs(boolean z) {
+    public void hH(boolean z) {
         long j = 0;
         if (!z) {
             j = System.currentTimeMillis() - this.mStartTime;
@@ -180,25 +180,25 @@ public class d {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("AntiAddictionManager", "Request upUseTime");
         }
-        e.a(j, this.dOO);
+        e.a(j, this.dVM);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean lQ(int i) {
-        this.aUu = i;
+    public boolean mo(int i) {
+        this.aXB = i;
         if (1 == i) {
-            aRP();
+            aUU();
             return false;
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cE(long j) {
+    public void dd(long j) {
         if (300000 < j) {
-            this.dOM = j;
+            this.dVK = j;
         } else {
-            this.dOM = 300000L;
+            this.dVK = 300000L;
         }
     }
 
@@ -217,10 +217,10 @@ public class d {
             case 1:
                 Activity activity = getActivity();
                 if (activity != null) {
-                    this.dON.a(activity, activity.getString(a.h.swan_game_anti_addiction_dialog_message), activity.getString(a.h.swan_game_anti_addiction_dialog_auth), true, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.games.b.d.3
+                    this.dVL.a(activity, activity.getString(a.h.swan_game_anti_addiction_dialog_message), activity.getString(a.h.swan_game_anti_addiction_dialog_auth), true, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.games.b.d.3
                         @Override // android.content.DialogInterface.OnClickListener
                         public void onClick(DialogInterface dialogInterface, int i2) {
-                            d.this.aRQ();
+                            d.this.aUV();
                         }
                     });
                     return;
@@ -233,9 +233,9 @@ public class d {
     }
 
     private void at(int i, String str) {
-        if (this.dOL != null) {
+        if (this.dVJ != null) {
             try {
-                this.dOL.ar(i, str);
+                this.dVJ.ar(i, str);
             } catch (JSONException e) {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     e.printStackTrace();
@@ -245,28 +245,28 @@ public class d {
     }
 
     private synchronized void destroy() {
-        this.dOK.aRP();
-        if (this.dOJ != null) {
-            this.dOJ.quitSafely();
-            this.dOJ = null;
+        this.dVI.aUU();
+        if (this.dVH != null) {
+            this.dVH.quitSafely();
+            this.dVH = null;
         }
-        if (this.dON != null) {
-            this.dON.destroy();
-            this.dON = null;
+        if (this.dVL != null) {
+            this.dVL.destroy();
+            this.dVL = null;
         }
     }
 
     public static synchronized void release() {
         synchronized (d.class) {
-            if (dOI != null) {
-                dOI.destroy();
-                dOI = null;
+            if (dVG != null) {
+                dVG.destroy();
+                dVG = null;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -276,25 +276,25 @@ public class d {
         public void dispatchMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    d.this.hs(false);
-                    aRR();
+                    d.this.hH(false);
+                    aUW();
                     return;
                 default:
                     return;
             }
         }
 
-        void aRR() {
-            if (1 != d.this.aUu) {
-                sendEmptyMessageDelayed(1, d.this.dOM);
+        void aUW() {
+            if (1 != d.this.aXB) {
+                sendEmptyMessageDelayed(1, d.this.dVK);
             }
         }
 
-        void aRP() {
+        void aUU() {
             removeCallbacksAndMessages(null);
         }
 
-        boolean aRS() {
+        boolean aUX() {
             return hasMessages(1);
         }
     }

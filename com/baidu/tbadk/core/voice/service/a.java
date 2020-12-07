@@ -8,50 +8,50 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class a implements d {
-    public static int fav = CoolPraiseGuideLottieView.ANIM_DURATION;
-    public static int faw = 2;
-    public static int fax = 2;
-    public static int fay = 1;
+    public static int fhS = CoolPraiseGuideLottieView.ANIM_DURATION;
+    public static int fhT = 2;
+    public static int fhU = 2;
+    public static int fhV = 1;
     private int channelConfiguration;
     private int dataSize;
-    private int faA;
-    private int faB;
-    private short faC;
-    private short faD;
-    private RandomAccessFile faz;
+    private RandomAccessFile fhW;
+    private int fhX;
+    private int fhY;
+    private short fhZ;
+    private short fia;
     private String filePath;
     private int bufferSize = 0;
-    private boolean abr = false;
+    private boolean acp = false;
     private AudioRecord mAudioRecord = null;
     private File file = null;
 
     public boolean a(int i, int i2, int i3, int i4, String str) {
         this.bufferSize = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
-        this.faA = i2;
+        this.fhX = i2;
         this.channelConfiguration = i3;
-        this.faB = i4;
+        this.fhY = i4;
         if (this.mAudioRecord != null) {
             this.mAudioRecord.release();
         }
-        this.mAudioRecord = new AudioRecord(i, this.faA, this.channelConfiguration, this.faB, this.bufferSize);
-        this.faC = (short) (this.channelConfiguration == 12 ? 2 : 1);
-        this.faD = (short) (this.faB == 2 ? 16 : 8);
+        this.mAudioRecord = new AudioRecord(i, this.fhX, this.channelConfiguration, this.fhY, this.bufferSize);
+        this.fhZ = (short) (this.channelConfiguration == 12 ? 2 : 1);
+        this.fia = (short) (this.fhY == 2 ? 16 : 8);
         this.file = new File(str);
         if (this.file.exists()) {
             this.file.delete();
         }
         try {
             this.file.createNewFile();
-            if (this.faz != null) {
+            if (this.fhW != null) {
                 try {
-                    this.faz.close();
+                    this.fhW.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                     return false;
                 }
             }
             try {
-                this.faz = new RandomAccessFile(this.file, "rw");
+                this.fhW = new RandomAccessFile(this.file, "rw");
                 writeHeader();
                 setFilePath(this.file.getParent());
                 return true;
@@ -66,30 +66,30 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean Cd(String str) {
-        return a(fay, fav, faw, fax, str);
+    public boolean CL(String str) {
+        return a(fhV, fhS, fhT, fhU, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btm() {
+    public void bwM() {
         if (this.mAudioRecord != null && this.file != null) {
             try {
-                this.abr = true;
+                this.acp = true;
                 byte[] bArr = new byte[this.bufferSize];
                 this.mAudioRecord.startRecording();
-                while (this.abr) {
+                while (this.acp) {
                     this.mAudioRecord.read(bArr, 0, bArr.length);
-                    this.faz.write(bArr);
+                    this.fhW.write(bArr);
                     this.dataSize += bArr.length;
                 }
-                this.faz.seek(4L);
-                this.faz.writeInt(Integer.reverseBytes(this.dataSize + 36));
-                this.faz.seek(40L);
-                this.faz.writeInt(Integer.reverseBytes(this.dataSize));
-                this.faz.close();
+                this.fhW.seek(4L);
+                this.fhW.writeInt(Integer.reverseBytes(this.dataSize + 36));
+                this.fhW.seek(40L);
+                this.fhW.writeInt(Integer.reverseBytes(this.dataSize));
+                this.fhW.close();
                 this.mAudioRecord.stop();
                 this.mAudioRecord.release();
-                this.abr = false;
+                this.acp = false;
             } catch (Throwable th) {
                 if (this.file.exists()) {
                     this.file.delete();
@@ -99,11 +99,11 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean btn() {
+    public boolean bwN() {
         Thread thread = new Thread(new Runnable() { // from class: com.baidu.tbadk.core.voice.service.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.btm();
+                a.this.bwM();
             }
         });
         thread.setPriority(10);
@@ -113,31 +113,31 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public void bto() {
-        this.abr = false;
+    public void bwO() {
+        this.acp = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean btp() {
-        return this.abr;
+    public boolean bwP() {
+        return this.acp;
     }
 
     private void writeHeader() {
         try {
-            this.faz.setLength(0L);
-            this.faz.writeBytes("RIFF");
-            this.faz.writeInt(0);
-            this.faz.writeBytes("WAVE");
-            this.faz.writeBytes("fmt ");
-            this.faz.writeInt(Integer.reverseBytes(16));
-            this.faz.writeShort(Short.reverseBytes((short) 1));
-            this.faz.writeShort(Short.reverseBytes(this.faC));
-            this.faz.writeInt(Integer.reverseBytes(this.faA));
-            this.faz.writeInt(Integer.reverseBytes(((this.faA * this.faC) * this.faD) / 8));
-            this.faz.writeShort(Short.reverseBytes((short) ((this.faC * this.faD) / 8)));
-            this.faz.writeShort(Short.reverseBytes(this.faD));
-            this.faz.writeBytes("data");
-            this.faz.writeInt(0);
+            this.fhW.setLength(0L);
+            this.fhW.writeBytes("RIFF");
+            this.fhW.writeInt(0);
+            this.fhW.writeBytes("WAVE");
+            this.fhW.writeBytes("fmt ");
+            this.fhW.writeInt(Integer.reverseBytes(16));
+            this.fhW.writeShort(Short.reverseBytes((short) 1));
+            this.fhW.writeShort(Short.reverseBytes(this.fhZ));
+            this.fhW.writeInt(Integer.reverseBytes(this.fhX));
+            this.fhW.writeInt(Integer.reverseBytes(((this.fhX * this.fhZ) * this.fia) / 8));
+            this.fhW.writeShort(Short.reverseBytes((short) ((this.fhZ * this.fia) / 8)));
+            this.fhW.writeShort(Short.reverseBytes(this.fia));
+            this.fhW.writeBytes("data");
+            this.fhW.writeInt(0);
         } catch (IOException e) {
             if (this.file.exists()) {
                 this.file.delete();

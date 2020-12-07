@@ -5,31 +5,31 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.a;
 import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes17.dex */
-public class p implements l, a.InterfaceC1041a {
-    private boolean De;
+/* loaded from: classes20.dex */
+public class p implements l, a.InterfaceC1019a {
+    private boolean DY;
     private final com.tb.airbnb.lottie.g lottieDrawable;
     private final String name;
     @Nullable
-    private r pJP;
-    private final com.tb.airbnb.lottie.a.b.a<?, Path> pKl;
+    private r pAT;
+    private final com.tb.airbnb.lottie.a.b.a<?, Path> pBp;
     private final Path path = new Path();
 
     public p(com.tb.airbnb.lottie.g gVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.k kVar) {
         this.name = kVar.getName();
         this.lottieDrawable = gVar;
-        this.pKl = kVar.ezt().eyM();
-        aVar.a(this.pKl);
-        this.pKl.b(this);
+        this.pBp = kVar.eBP().eBi();
+        aVar.a(this.pBp);
+        this.pBp.b(this);
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC1041a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC1019a
     public void iT() {
         invalidate();
     }
 
     private void invalidate() {
-        this.De = false;
+        this.DY = false;
         this.lottieDrawable.invalidateSelf();
     }
 
@@ -40,9 +40,9 @@ public class p implements l, a.InterfaceC1041a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).eyC() == ShapeTrimPath.Type.Simultaneously) {
-                    this.pJP = (r) bVar;
-                    this.pJP.a(this);
+                if ((bVar instanceof r) && ((r) bVar).eAY() == ShapeTrimPath.Type.Simultaneously) {
+                    this.pAT = (r) bVar;
+                    this.pAT.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -53,14 +53,14 @@ public class p implements l, a.InterfaceC1041a {
 
     @Override // com.tb.airbnb.lottie.a.a.l
     public Path iW() {
-        if (this.De) {
+        if (this.DY) {
             return this.path;
         }
         this.path.reset();
-        this.path.set(this.pKl.getValue());
+        this.path.set(this.pBp.getValue());
         this.path.setFillType(Path.FillType.EVEN_ODD);
-        com.tb.airbnb.lottie.d.f.a(this.path, this.pJP);
-        this.De = true;
+        com.tb.airbnb.lottie.d.f.a(this.path, this.pAT);
+        this.DY = true;
         return this.path;
     }
 

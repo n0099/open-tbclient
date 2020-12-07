@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.n;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
-    private aa bZh;
-    private a fFO;
+    private aa cfI;
+    private a fNA;
     private String mPath;
     private String mUrl;
 
@@ -37,7 +37,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.fFO = aVar;
+        this.fNA = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,10 +52,10 @@ public class b extends BdAsyncTask<Void, Void, String> {
         if (isExists(str)) {
             return md5;
         }
-        this.bZh = new aa();
-        this.bZh.setUrl(this.mUrl);
+        this.cfI = new aa();
+        this.cfI.setUrl(this.mUrl);
         String str2 = this.mPath + md5 + ".zip";
-        if (this.bZh.downloadFile(str2, null, 0, 3, 0, true) && unZip(str2, str)) {
+        if (this.cfI.downloadFile(str2, null, 0, 3, 0, true) && unZip(str2, str)) {
             clearTemp(str2);
             return md5;
         }
@@ -67,11 +67,11 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.fFO != null) {
+        if (this.fNA != null) {
             if (!au.isEmpty(str)) {
-                this.fFO.onLoaded(true, str);
+                this.fNA.onLoaded(true, str);
             } else {
-                this.fFO.onLoaded(false, null);
+                this.fNA.onLoaded(false, null);
             }
         }
     }

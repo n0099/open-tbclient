@@ -6,15 +6,15 @@ import android.widget.Toast;
 final class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f1332a;
+    final /* synthetic */ Context f1331a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(Context context) {
-        this.f1332a = context;
+        this.f1331a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Toast.makeText(this.f1332a, "手机存储空间不足,建议您释放空间后再下载", 1).show();
+        Toast.makeText(this.f1331a, "手机存储空间不足,建议您释放空间后再下载", 1).show();
     }
 }

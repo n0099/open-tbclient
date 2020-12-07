@@ -19,7 +19,7 @@ import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class FontResourcesParserCompat {
     private static final int DEFAULT_TIMEOUT_MILLIS = 500;
     public static final int FETCH_STRATEGY_ASYNC = 1;
@@ -28,16 +28,16 @@ public class FontResourcesParserCompat {
     private static final int ITALIC = 1;
     private static final int NORMAL_WEIGHT = 400;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface FamilyResourceEntry {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public @interface FetchStrategy {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class ProviderResourceEntry implements FamilyResourceEntry {
         @NonNull
         private final FontRequest mRequest;
@@ -64,7 +64,7 @@ public class FontResourcesParserCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class FontFileResourceEntry {
         @NonNull
         private final String mFileName;
@@ -97,7 +97,7 @@ public class FontResourcesParserCompat {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class FontFamilyFilesResourceEntry implements FamilyResourceEntry {
         @NonNull
         private final FontFileResourceEntry[] mEntries;

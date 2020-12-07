@@ -1,11 +1,11 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
 import java.util.HashMap;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class e {
-    private HashMap<String, a> kse = new HashMap<>();
+    private HashMap<String, a> kFA = new HashMap<>();
 
     public void a(String str, a aVar) {
-        this.kse.put(str, aVar);
+        this.kFA.put(str, aVar);
     }
 }

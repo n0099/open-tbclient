@@ -2,7 +2,7 @@ package com.baidu.swan.games.i;
 
 import android.support.annotation.NonNull;
 import com.baidu.mobstat.Config;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class m extends com.baidu.swan.apps.storage.b.a {
     @Override // com.baidu.swan.apps.storage.b.d
     public long getMaxSize() {
@@ -11,7 +11,7 @@ public class m extends com.baidu.swan.apps.storage.b.a {
 
     @Override // com.baidu.swan.apps.storage.b.a
     @NonNull
-    public String aKd() {
+    public String aNk() {
         return n.getBasePath();
     }
 }

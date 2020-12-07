@@ -99,7 +99,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class BosClient extends AbstractBceClient {
     public static final String STORAGE_CLASS_COLD = "COLD";
     public static final String STORAGE_CLASS_STANDARD = "STANDARD";
@@ -1102,7 +1102,7 @@ public class BosClient extends AbstractBceClient {
                 str4 = str + ETAG.ITEM_SEPARATOR;
                 z = z2;
             }
-            str5 = str4 + next + ETAG.EQUAL + HttpUtils.normalize(internalRequest.getParameters().get(next));
+            str5 = str4 + next + "=" + HttpUtils.normalize(internalRequest.getParameters().get(next));
             z2 = z;
         }
         if (internalRequest.getHeaders().get("Authorization") != null) {

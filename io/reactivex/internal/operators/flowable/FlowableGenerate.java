@@ -1,37 +1,40 @@
 package io.reactivex.internal.operators.flowable;
 
+import io.reactivex.f;
+import io.reactivex.g;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
-public final class FlowableGenerate<T, S> extends io.reactivex.g<T> {
-    final io.reactivex.c.g<? super S> disposeState;
-    final io.reactivex.c.c<S, io.reactivex.f<T>, S> generator;
-    final Callable<S> pOK;
+import org.a.d;
+/* loaded from: classes9.dex */
+public final class FlowableGenerate<T, S> extends g<T> {
+    final io.reactivex.b.g<? super S> disposeState;
+    final io.reactivex.b.c<S, f<T>, S> generator;
+    final Callable<S> pFy;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         try {
-            cVar.onSubscribe(new GeneratorSubscription(cVar, this.generator, this.disposeState, this.pOK.call()));
+            cVar.onSubscribe(new GeneratorSubscription(cVar, this.generator, this.disposeState, this.pFy.call()));
         } catch (Throwable th) {
             io.reactivex.exceptions.a.J(th);
             EmptySubscription.error(th, cVar);
         }
     }
 
-    /* loaded from: classes5.dex */
-    static final class GeneratorSubscription<T, S> extends AtomicLong implements io.reactivex.f<T>, org.a.d {
+    /* loaded from: classes9.dex */
+    static final class GeneratorSubscription<T, S> extends AtomicLong implements f<T>, d {
         private static final long serialVersionUID = 7565982551505011832L;
         final org.a.c<? super T> actual;
         volatile boolean cancelled;
-        final io.reactivex.c.g<? super S> disposeState;
-        final io.reactivex.c.c<S, ? super io.reactivex.f<T>, S> generator;
+        final io.reactivex.b.g<? super S> disposeState;
+        final io.reactivex.b.c<S, ? super f<T>, S> generator;
         boolean hasNext;
         S state;
         boolean terminate;
 
-        GeneratorSubscription(org.a.c<? super T> cVar, io.reactivex.c.c<S, ? super io.reactivex.f<T>, S> cVar2, io.reactivex.c.g<? super S> gVar, S s) {
+        GeneratorSubscription(org.a.c<? super T> cVar, io.reactivex.b.c<S, ? super f<T>, S> cVar2, io.reactivex.b.g<? super S> gVar, S s) {
             this.actual = cVar;
             this.generator = cVar2;
             this.disposeState = gVar;
@@ -42,13 +45,13 @@ public final class FlowableGenerate<T, S> extends io.reactivex.g<T> {
         public void request(long j) {
             if (SubscriptionHelper.validate(j) && io.reactivex.internal.util.b.a(this, j) == 0) {
                 S s = this.state;
-                io.reactivex.c.c<S, ? super io.reactivex.f<T>, S> cVar = this.generator;
+                io.reactivex.b.c<S, ? super f<T>, S> cVar = this.generator;
                 long j2 = 0;
                 while (true) {
                     if (j2 != j) {
                         if (this.cancelled) {
                             this.state = null;
-                            bO(s);
+                            bJ(s);
                             return;
                         }
                         this.hasNext = false;
@@ -57,7 +60,7 @@ public final class FlowableGenerate<T, S> extends io.reactivex.g<T> {
                             if (this.terminate) {
                                 this.cancelled = true;
                                 this.state = null;
-                                bO(s);
+                                bJ(s);
                                 return;
                             }
                             j2++;
@@ -66,7 +69,7 @@ public final class FlowableGenerate<T, S> extends io.reactivex.g<T> {
                             this.cancelled = true;
                             this.state = null;
                             onError(th);
-                            bO(s);
+                            bJ(s);
                             return;
                         }
                     } else {
@@ -86,12 +89,12 @@ public final class FlowableGenerate<T, S> extends io.reactivex.g<T> {
             }
         }
 
-        private void bO(S s) {
+        private void bJ(S s) {
             try {
                 this.disposeState.accept(s);
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.J(th);
-                io.reactivex.e.a.onError(th);
+                io.reactivex.d.a.onError(th);
             }
         }
 
@@ -102,7 +105,7 @@ public final class FlowableGenerate<T, S> extends io.reactivex.g<T> {
                 if (io.reactivex.internal.util.b.a(this, 1L) == 0) {
                     S s = this.state;
                     this.state = null;
-                    bO(s);
+                    bJ(s);
                 }
             }
         }
@@ -124,7 +127,7 @@ public final class FlowableGenerate<T, S> extends io.reactivex.g<T> {
         @Override // io.reactivex.f
         public void onError(Throwable th) {
             if (this.terminate) {
-                io.reactivex.e.a.onError(th);
+                io.reactivex.d.a.onError(th);
                 return;
             }
             if (th == null) {

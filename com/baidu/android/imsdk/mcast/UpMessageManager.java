@@ -10,7 +10,7 @@ import java.lang.ref.WeakReference;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class UpMessageManager {
     private static final String TAG = UpMessageManager.class.getSimpleName();
     private static UpMessageManager mInstance;
@@ -21,7 +21,7 @@ public class UpMessageManager {
     private boolean onTaskRunning = false;
     private HandlerThread mHandlerThread = new HandlerThread("task listeners handler thread", 0);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Task {
         protected String mAction;
         private boolean mIsRunning;
@@ -100,7 +100,7 @@ public class UpMessageManager {
         });
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     class EventHandler extends Handler {
         private final WeakReference<UpMessageManager> mActivity;
 

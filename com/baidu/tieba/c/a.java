@@ -11,18 +11,18 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a {
-    public static final ThreadLocal<a> hPK = new ThreadLocal<>();
-    private c hPN;
-    private final SimpleArrayMap<b, Long> hPL = new SimpleArrayMap<>();
+    public static final ThreadLocal<a> iaA = new ThreadLocal<>();
+    private c iaD;
+    private final SimpleArrayMap<b, Long> iaB = new SimpleArrayMap<>();
     private final ArrayList<b> mAnimationCallbacks = new ArrayList<>();
-    private final C0709a hPM = new C0709a();
-    private long hPO = 0;
-    private boolean hPP = false;
+    private final C0723a iaC = new C0723a();
+    private long iaE = 0;
+    private boolean iaF = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface b {
-        boolean fp(long j);
+        boolean fT(long j);
     }
 
     a() {
@@ -31,61 +31,61 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0709a {
-        C0709a() {
+    public class C0723a {
+        C0723a() {
         }
 
-        void cmf() {
-            a.this.hPO = SystemClock.uptimeMillis();
-            a.this.fo(a.this.hPO);
+        void cqs() {
+            a.this.iaE = SystemClock.uptimeMillis();
+            a.this.fS(a.this.iaE);
             if (a.this.mAnimationCallbacks.size() > 0) {
-                a.this.cmd().kY();
+                a.this.cqq().kY();
             }
         }
     }
 
-    public static a cmc() {
-        if (hPK.get() == null) {
-            hPK.set(new a());
+    public static a cqp() {
+        if (iaA.get() == null) {
+            iaA.set(new a());
         }
-        return hPK.get();
+        return iaA.get();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public c cmd() {
-        if (this.hPN == null) {
+    public c cqq() {
+        if (this.iaD == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                this.hPN = new e(this.hPM);
+                this.iaD = new e(this.iaC);
             } else {
-                this.hPN = new d(this.hPM);
+                this.iaD = new d(this.iaC);
             }
         }
-        return this.hPN;
+        return this.iaD;
     }
 
     public void a(b bVar, long j) {
         if (this.mAnimationCallbacks.size() == 0) {
-            cmd().kY();
+            cqq().kY();
         }
         if (!this.mAnimationCallbacks.contains(bVar)) {
             this.mAnimationCallbacks.add(bVar);
         }
         if (j > 0) {
-            this.hPL.put(bVar, Long.valueOf(SystemClock.uptimeMillis() + j));
+            this.iaB.put(bVar, Long.valueOf(SystemClock.uptimeMillis() + j));
         }
     }
 
     public void a(b bVar) {
-        this.hPL.remove(bVar);
+        this.iaB.remove(bVar);
         int indexOf = this.mAnimationCallbacks.indexOf(bVar);
         if (indexOf >= 0) {
             this.mAnimationCallbacks.set(indexOf, null);
-            this.hPP = true;
+            this.iaF = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fo(long j) {
+    public void fS(long j) {
         long uptimeMillis = SystemClock.uptimeMillis();
         int i = 0;
         while (true) {
@@ -93,36 +93,36 @@ public class a {
             if (i2 < this.mAnimationCallbacks.size()) {
                 b bVar = this.mAnimationCallbacks.get(i2);
                 if (bVar != null && b(bVar, uptimeMillis)) {
-                    bVar.fp(j);
+                    bVar.fT(j);
                 }
                 i = i2 + 1;
             } else {
-                cme();
+                cqr();
                 return;
             }
         }
     }
 
     private boolean b(b bVar, long j) {
-        Long l = this.hPL.get(bVar);
+        Long l = this.iaB.get(bVar);
         if (l == null) {
             return true;
         }
         if (l.longValue() < j) {
-            this.hPL.remove(bVar);
+            this.iaB.remove(bVar);
             return true;
         }
         return false;
     }
 
-    private void cme() {
-        if (this.hPP) {
+    private void cqr() {
+        if (this.iaF) {
             for (int size = this.mAnimationCallbacks.size() - 1; size >= 0; size--) {
                 if (this.mAnimationCallbacks.get(size) == null) {
                     this.mAnimationCallbacks.remove(size);
                 }
             }
-            this.hPP = false;
+            this.iaF = false;
         }
     }
 
@@ -130,41 +130,41 @@ public class a {
     @RequiresApi(16)
     /* loaded from: classes.dex */
     public static class e extends c {
-        private final Choreographer.FrameCallback hPU;
-        private final Choreographer mChoreographer;
+        private final Choreographer iaK;
+        private final Choreographer.FrameCallback iaL;
 
-        e(C0709a c0709a) {
-            super(c0709a);
-            this.mChoreographer = Choreographer.getInstance();
-            this.hPU = new Choreographer.FrameCallback() { // from class: com.baidu.tieba.c.a.e.1
+        e(C0723a c0723a) {
+            super(c0723a);
+            this.iaK = Choreographer.getInstance();
+            this.iaL = new Choreographer.FrameCallback() { // from class: com.baidu.tieba.c.a.e.1
                 @Override // android.view.Choreographer.FrameCallback
                 public void doFrame(long j) {
-                    e.this.hPR.cmf();
+                    e.this.iaH.cqs();
                 }
             };
         }
 
         @Override // com.baidu.tieba.c.a.c
         void kY() {
-            this.mChoreographer.postFrameCallback(this.hPU);
+            this.iaK.postFrameCallback(this.iaL);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class d extends c {
-        private long hPS;
+        private long iaI;
         private final Handler mHandler;
         private final Runnable mRunnable;
 
-        d(C0709a c0709a) {
-            super(c0709a);
-            this.hPS = -1L;
+        d(C0723a c0723a) {
+            super(c0723a);
+            this.iaI = -1L;
             this.mRunnable = new Runnable() { // from class: com.baidu.tieba.c.a.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.hPS = SystemClock.uptimeMillis();
-                    d.this.hPR.cmf();
+                    d.this.iaI = SystemClock.uptimeMillis();
+                    d.this.iaH.cqs();
                 }
             };
             this.mHandler = new Handler(Looper.myLooper());
@@ -172,19 +172,19 @@ public class a {
 
         @Override // com.baidu.tieba.c.a.c
         void kY() {
-            this.mHandler.postDelayed(this.mRunnable, Math.max(10 - (SystemClock.uptimeMillis() - this.hPS), 0L));
+            this.mHandler.postDelayed(this.mRunnable, Math.max(10 - (SystemClock.uptimeMillis() - this.iaI), 0L));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static abstract class c {
-        final C0709a hPR;
+        final C0723a iaH;
 
         abstract void kY();
 
-        c(C0709a c0709a) {
-            this.hPR = c0709a;
+        c(C0723a c0723a) {
+            this.iaH = c0723a;
         }
     }
 }

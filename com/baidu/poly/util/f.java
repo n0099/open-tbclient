@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class f {
     public static boolean J() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
@@ -42,8 +42,8 @@ public class f {
 
     private static NetworkInfo getActiveNetworkInfo() {
         ConnectivityManager connectivityManager;
-        Context aaI = g.aaI();
-        if (aaI != null && (connectivityManager = (ConnectivityManager) aaI.getSystemService("connectivity")) != null) {
+        Context adQ = g.adQ();
+        if (adQ != null && (connectivityManager = (ConnectivityManager) adQ.getSystemService("connectivity")) != null) {
             return connectivityManager.getActiveNetworkInfo();
         }
         return null;

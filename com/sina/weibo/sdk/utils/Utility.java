@@ -36,7 +36,7 @@ public class Utility {
         Bundle bundle = new Bundle();
         if (str != null) {
             for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
-                String[] split = str2.split(ETAG.EQUAL);
+                String[] split = str2.split("=");
                 try {
                     if (split.length == 2) {
                         bundle.putString(URLDecoder.decode(split[0], "UTF-8"), URLDecoder.decode(split[1], "UTF-8"));

@@ -7,18 +7,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private JSONObject f2860a;
+    private JSONObject f2862a;
 
     public c(Context context, String str) {
         InputStream inputStream = null;
         try {
             try {
                 inputStream = context.getAssets().open(str);
-                this.f2860a = new JSONObject(a(inputStream));
+                this.f2862a = new JSONObject(a(inputStream));
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -85,7 +85,7 @@ final class c {
     }
 
     public byte[] a() {
-        JSONArray optJSONArray = this.f2860a.optJSONArray("ver");
+        JSONArray optJSONArray = this.f2862a.optJSONArray("ver");
         if (optJSONArray != null) {
             byte[] bArr = new byte[optJSONArray.length()];
             int length = optJSONArray.length();
@@ -98,7 +98,7 @@ final class c {
     }
 
     public String[] b() {
-        JSONArray optJSONArray = this.f2860a.optJSONArray("res");
+        JSONArray optJSONArray = this.f2862a.optJSONArray("res");
         if (optJSONArray != null) {
             String[] strArr = new String[optJSONArray.length()];
             int length = optJSONArray.length();

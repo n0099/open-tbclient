@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.chatuser.request;
 
 import android.content.Context;
 import android.util.Log;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatuser.ChatUser;
 import com.baidu.android.imsdk.chatuser.ChatUserManagerImpl;
@@ -17,7 +18,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMUserQueryRequest extends IMUserBaseHttpRequest {
     private long mAppid;
     private String mKey;
@@ -91,7 +92,7 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
                 i3 = i4;
             } else {
                 i3 = jSONObject.getInt("error_code");
-                str3 = jSONObject.optString("error_msg", "");
+                str3 = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
             }
             i2 = i3;
             str = str3;

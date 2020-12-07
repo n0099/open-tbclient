@@ -16,23 +16,23 @@ import java.util.HashMap;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class a {
     private a() {
     }
 
     public static a a() {
-        return C0119a.f1599a;
+        return C0120a.f1601a;
     }
 
     /* renamed from: com.baidu.fsg.face.liveness.a$a  reason: collision with other inner class name */
-    /* loaded from: classes16.dex */
-    private static class C0119a {
+    /* loaded from: classes17.dex */
+    private static class C0120a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static a f1599a = new a();
+        private static a f1601a = new a();
 
-        private C0119a() {
+        private C0120a() {
         }
     }
 
@@ -48,7 +48,7 @@ public class a {
                 RimStatisticsUtil.onEventWithValues(d.I, arrayList);
             } else {
                 sapiLivenessOperation.operationType = SapiLivenessOperation.OperationType.RECOGNIZE;
-                RimStatisticsUtil.onEventWithValue(d.f1726a, a2 != null ? a2.getSpno() : "");
+                RimStatisticsUtil.onEventWithValue(d.f1728a, a2 != null ? a2.getSpno() : "");
             }
             SapiLivenessRecogManager.getInstance().execute(sapiLivenessOperation, new LivenessRecogCallback() { // from class: com.baidu.fsg.face.liveness.a.1
                 /* JADX DEBUG: Method merged with bridge method */

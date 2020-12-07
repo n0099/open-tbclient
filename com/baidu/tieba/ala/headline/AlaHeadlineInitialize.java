@@ -4,25 +4,25 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
-import com.baidu.live.b.j;
+import com.baidu.live.d.j;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity;
 /* loaded from: classes4.dex */
 public class AlaHeadlineInitialize {
     static {
-        bTz();
-        bTy();
+        bXj();
+        bXi();
     }
 
-    private static void bTy() {
+    private static void bXi() {
         TbadkCoreApplication.getInst().RegisterIntent(j.class, AlaHeadlineActivity.class);
     }
 
-    private static void bTz() {
+    private static void bXj() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913240, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.headline.AlaHeadlineInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.live.i.a> run(CustomMessage<TbPageContext> customMessage) {
+            public CustomResponsedMessage<com.baidu.live.k.a> run(CustomMessage<TbPageContext> customMessage) {
                 return new CustomResponsedMessage<>(2913240, new com.baidu.tieba.ala.headline.a.a(customMessage.getData()));
             }
         });

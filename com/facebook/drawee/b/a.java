@@ -10,24 +10,24 @@ import android.graphics.drawable.Drawable;
 import com.facebook.drawee.b.a.b;
 import com.facebook.drawee.drawable.p;
 import javax.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public class a extends Drawable implements b {
     private int mFrameCount;
-    private int mLoopCount;
-    private String oOC;
-    private String oPT;
-    private int oPU;
-    private int oPV;
-    private int oPW;
-    private String oPX;
-    private p.b oPY;
-    private int oPZ;
-    private int oQa;
-    private int oQb;
-    private int oQc;
-    private int oQd;
-    private long oQe;
-    private int eGK = 80;
+    private String pdJ;
+    private String pfa;
+    private int pfb;
+    private int pfc;
+    private int pfd;
+    private String pfe;
+    private p.b pff;
+    private int pfg;
+    private int pfh;
+    private int pfi;
+    private int pfj;
+    private int pfk;
+    private int pfl;
+    private long pfm;
+    private int eNN = 80;
     private final Paint mPaint = new Paint(1);
     private final Matrix mMatrix = new Matrix();
     private final Rect mRect = new Rect();
@@ -38,37 +38,37 @@ public class a extends Drawable implements b {
     }
 
     public void reset() {
-        this.oPU = -1;
-        this.oPV = -1;
-        this.oPW = -1;
+        this.pfb = -1;
+        this.pfc = -1;
+        this.pfd = -1;
         this.mFrameCount = -1;
-        this.mLoopCount = -1;
-        this.oPX = null;
-        XR(null);
-        this.oQe = -1L;
+        this.pfg = -1;
+        this.pfe = null;
+        Zm(null);
+        this.pfm = -1L;
         invalidateSelf();
     }
 
-    public void XR(@Nullable String str) {
+    public void Zm(@Nullable String str) {
         if (str == null) {
             str = "none";
         }
-        this.oOC = str;
+        this.pdJ = str;
         invalidateSelf();
     }
 
     public void setDimensions(int i, int i2) {
-        this.oPU = i;
-        this.oPV = i2;
+        this.pfb = i;
+        this.pfc = i2;
         invalidateSelf();
     }
 
-    public void Pd(int i) {
-        this.oPW = i;
+    public void Qb(int i) {
+        this.pfd = i;
     }
 
     public void a(p.b bVar) {
-        this.oPY = bVar;
+        this.pff = bVar;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -85,32 +85,32 @@ public class a extends Drawable implements b {
         this.mPaint.setColor(-26624);
         canvas.drawRect(bounds.left, bounds.top, bounds.right, bounds.bottom, this.mPaint);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(a(this.oPU, this.oPV, this.oPY));
+        this.mPaint.setColor(a(this.pfb, this.pfc, this.pff));
         canvas.drawRect(bounds.left, bounds.top, bounds.right, bounds.bottom, this.mPaint);
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setStrokeWidth(0.0f);
         this.mPaint.setColor(-1);
-        this.oQc = this.oPZ;
-        this.oQd = this.oQa;
-        if (this.oPT != null) {
-            a(canvas, "IDs: %s, %s", this.oOC, this.oPT);
+        this.pfk = this.pfh;
+        this.pfl = this.pfi;
+        if (this.pfa != null) {
+            a(canvas, "IDs: %s, %s", this.pdJ, this.pfa);
         } else {
-            a(canvas, "ID: %s", this.oOC);
+            a(canvas, "ID: %s", this.pdJ);
         }
         a(canvas, "D: %dx%d", Integer.valueOf(bounds.width()), Integer.valueOf(bounds.height()));
-        a(canvas, "I: %dx%d", Integer.valueOf(this.oPU), Integer.valueOf(this.oPV));
-        a(canvas, "I: %d KiB", Integer.valueOf(this.oPW / 1024));
-        if (this.oPX != null) {
-            a(canvas, "i format: %s", this.oPX);
+        a(canvas, "I: %dx%d", Integer.valueOf(this.pfb), Integer.valueOf(this.pfc));
+        a(canvas, "I: %d KiB", Integer.valueOf(this.pfd / 1024));
+        if (this.pfe != null) {
+            a(canvas, "i format: %s", this.pfe);
         }
         if (this.mFrameCount > 0) {
-            a(canvas, "anim: f %d, l %d", Integer.valueOf(this.mFrameCount), Integer.valueOf(this.mLoopCount));
+            a(canvas, "anim: f %d, l %d", Integer.valueOf(this.mFrameCount), Integer.valueOf(this.pfg));
         }
-        if (this.oPY != null) {
-            a(canvas, "scale: %s", this.oPY);
+        if (this.pff != null) {
+            a(canvas, "scale: %s", this.pff);
         }
-        if (this.oQe >= 0) {
-            a(canvas, "t: %d ms", Long.valueOf(this.oQe));
+        if (this.pfm >= 0) {
+            a(canvas, "t: %d ms", Long.valueOf(this.pfm));
         }
     }
 
@@ -130,21 +130,21 @@ public class a extends Drawable implements b {
     private void a(Rect rect, int i, int i2) {
         int min = Math.min(40, Math.max(12, Math.min(rect.width() / i2, rect.height() / i)));
         this.mPaint.setTextSize(min);
-        this.oQb = min + 8;
-        if (this.eGK == 80) {
-            this.oQb *= -1;
+        this.pfj = min + 8;
+        if (this.eNN == 80) {
+            this.pfj *= -1;
         }
-        this.oPZ = rect.left + 10;
-        this.oQa = this.eGK == 80 ? rect.bottom - 10 : rect.top + 10 + 12;
+        this.pfh = rect.left + 10;
+        this.pfi = this.eNN == 80 ? rect.bottom - 10 : rect.top + 10 + 12;
     }
 
     private void a(Canvas canvas, String str, @Nullable Object... objArr) {
         if (objArr == null) {
-            canvas.drawText(str, this.oQc, this.oQd, this.mPaint);
+            canvas.drawText(str, this.pfk, this.pfl, this.mPaint);
         } else {
-            canvas.drawText(String.format(str, objArr), this.oQc, this.oQd, this.mPaint);
+            canvas.drawText(String.format(str, objArr), this.pfk, this.pfl, this.mPaint);
         }
-        this.oQd += this.oQb;
+        this.pfl += this.pfj;
     }
 
     int a(int i, int i2, @Nullable p.b bVar) {
@@ -188,8 +188,8 @@ public class a extends Drawable implements b {
     }
 
     @Override // com.facebook.drawee.b.a.b
-    public void hO(long j) {
-        this.oQe = j;
+    public void it(long j) {
+        this.pfm = j;
         invalidateSelf();
     }
 }

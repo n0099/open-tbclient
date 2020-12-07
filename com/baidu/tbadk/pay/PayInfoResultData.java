@@ -2,7 +2,7 @@ package com.baidu.tbadk.pay;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class PayInfoResultData extends OrmObject implements Serializable {
     private static final long serialVersionUID = -3890790632004634138L;
     private String errmsg;

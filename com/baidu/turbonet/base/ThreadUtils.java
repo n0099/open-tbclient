@@ -4,48 +4,48 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
 import com.baidu.turbonet.base.annotations.CalledByNative;
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 public class ThreadUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static boolean omA;
-    private static Handler omB;
+    private static Handler oBA;
+    private static boolean oBz;
     private static final Object sLock;
 
     static {
         $assertionsDisabled = !ThreadUtils.class.desiredAssertionStatus();
         sLock = new Object();
-        omA = false;
-        omB = null;
+        oBz = false;
+        oBA = null;
     }
 
-    private static Handler ebp() {
+    private static Handler egU() {
         Handler handler;
         synchronized (sLock) {
-            if (omB == null) {
-                if (omA) {
+            if (oBA == null) {
+                if (oBz) {
                     throw new RuntimeException("Did not yet override the UI thread");
                 }
-                omB = new Handler(Looper.getMainLooper());
+                oBA = new Handler(Looper.getMainLooper());
             }
-            handler = omB;
+            handler = oBA;
         }
         return handler;
     }
 
     public static void runOnUiThread(Runnable runnable) {
-        if (ebq()) {
+        if (egV()) {
             runnable.run();
         } else {
-            ebp().post(runnable);
+            egU().post(runnable);
         }
     }
 
     public static void y(Runnable runnable) {
-        ebp().post(runnable);
+        egU().post(runnable);
     }
 
-    public static boolean ebq() {
-        return ebp().getLooper() == Looper.myLooper();
+    public static boolean egV() {
+        return egU().getLooper() == Looper.myLooper();
     }
 
     @CalledByNative

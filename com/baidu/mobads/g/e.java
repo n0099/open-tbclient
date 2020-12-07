@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class e implements Parcelable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Parcelable.Creator<e> f2336a = new f();
+    public static final Parcelable.Creator<e> f2338a = new f();
     private JSONObject b;
     private double c;
     private String d;

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.Map;
 @RequiresApi(14)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class TextScale extends Transition {
     private static final String PROPNAME_SCALE = "android:textscale:scale";
 

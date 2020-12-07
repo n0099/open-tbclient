@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class PraiseResourceAPSManager implements NightModeChangeListener {
     private static final boolean DEBUG = DebugUtil.isApkInDebug();
     private static final String PRAISE_DOWNLOAD_DIR_NAME = "download";
@@ -37,13 +37,13 @@ public class PraiseResourceAPSManager implements NightModeChangeListener {
     private final Object mNightModeSubObj;
     private Map<String, PraiseResourceInfo> mResourceMap;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public interface PraiseInstallResultCb {
         void onResult(int i, String str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static final class Holder {
         private static final PraiseResourceAPSManager sINSTANCE = new PraiseResourceAPSManager();
 

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.core.util.bh;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class d {
     public static boolean a(TbPageContext<?> tbPageContext, FrsViewData frsViewData) {
         String fixedText;
@@ -33,7 +33,7 @@ public class d {
                     }
                     BdToast a2 = BdToast.a((Context) tbPageContext.getPageActivity(), (CharSequence) forbid_info, R.drawable.icon_pure_toast_mistake40_svg, true);
                     a2.setExtraTextLineSpacing(1.25f);
-                    a2.bom();
+                    a2.brB();
                     return false;
                 }
             }
@@ -50,11 +50,11 @@ public class d {
         if (i != 1 && i != 2) {
             BdToast a2 = BdToast.a((Context) tbPageContext.getPageActivity(), (CharSequence) string, R.drawable.icon_pure_toast_mistake40_svg, true);
             a2.setExtraTextLineSpacing(1.25f);
-            a2.bom();
+            a2.brB();
             return false;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.AJ(au.getFixedText(string, 50, true));
+        aVar.Bq(au.getFixedText(string, 50, true));
         aVar.b(au.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? tbPageContext.getResources().getString(R.string.group_create_private_isee) : blockPopInfoData.ok_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.gametab.d.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -67,14 +67,14 @@ public class d {
             aVar.a(au.getFixedText(blockPopInfoData.ahead_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.gametab.d.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    bf.bqF().b(TbPageContext.this, new String[]{blockPopInfoData.ahead_url});
+                    bf.bua().b(TbPageContext.this, new String[]{blockPopInfoData.ahead_url});
                     if (aVar2 != null) {
                         aVar2.dismiss();
                     }
                 }
             });
         }
-        aVar.b(tbPageContext).bog();
+        aVar.b(tbPageContext).brv();
         return true;
     }
 }

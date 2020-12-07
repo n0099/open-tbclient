@@ -6,7 +6,6 @@ import com.baidu.live.tbadk.core.util.StatisticItem;
 import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
@@ -38,14 +37,14 @@ public class UserCollectConfig {
             Matcher matcher = Pattern.compile("#\\(meme,collect_[a-zA-Z0-9_,]+\\)").matcher(str);
             int i2 = 0;
             while (matcher.find()) {
-                String[] split = matcher.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split = matcher.group().split(",");
                 if (split != null && split.length == 5 && split[1] != null && split[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)")) {
                     i2++;
                 }
             }
             Matcher matcher2 = Pattern.compile("#\\(meme,[a-zA-Z0-9_,]+\\)").matcher(str);
             while (matcher2.find()) {
-                String[] split2 = matcher2.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split2 = matcher2.group().split(",");
                 if (split2 != null && split2.length == 5 && split2[1] != null && !split2[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)") && split2[1].contains(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) {
                     i++;
                 }

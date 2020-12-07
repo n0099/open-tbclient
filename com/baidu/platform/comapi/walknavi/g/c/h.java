@@ -8,15 +8,15 @@ import android.widget.TextView;
 import com.baidu.platform.comapi.walknavi.g.d.a;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class h implements a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f3034a;
+    final /* synthetic */ c f3036a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(c cVar) {
-        this.f3034a = cVar;
+        this.f3036a = cVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.d.a.c
@@ -33,32 +33,32 @@ public class h implements a.c {
         TextView textView2;
         TextView textView3;
         if (i != -1) {
-            context = this.f3034a.l;
+            context = this.f3036a.l;
             if (context != null) {
                 com.baidu.platform.comapi.wnplatform.l.a.a().a("FootNaviPG.calorieAnimation");
                 int a2 = com.baidu.platform.comapi.walknavi.g.d.a.a().a(i);
                 if (a2 != -1) {
-                    imageView = this.f3034a.am;
-                    context2 = this.f3034a.l;
+                    imageView = this.f3036a.am;
+                    context2 = this.f3036a.l;
                     imageView.setImageDrawable(com.baidu.platform.comapi.wnplatform.p.a.a.a(context2, a2));
                     if (i2 >= 1) {
-                        textView2 = this.f3034a.an;
+                        textView2 = this.f3036a.an;
                         textView2.setVisibility(0);
-                        textView3 = this.f3034a.an;
+                        textView3 = this.f3036a.an;
                         textView3.setText("×" + i2);
                     } else {
-                        textView = this.f3034a.an;
+                        textView = this.f3036a.an;
                         textView.setVisibility(8);
                     }
-                    view = this.f3034a.ah;
+                    view = this.f3036a.ah;
                     if (view.getVisibility() == 8) {
-                        context3 = this.f3034a.l;
+                        context3 = this.f3036a.l;
                         Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(context3, R.layout.abc_activity_chooser_view_list_item);
-                        view2 = this.f3034a.ah;
+                        view2 = this.f3036a.ah;
                         view2.setAnimation(c);
-                        view3 = this.f3034a.ah;
+                        view3 = this.f3036a.ah;
                         view3.setVisibility(0);
-                        view4 = this.f3034a.ah;
+                        view4 = this.f3036a.ah;
                         view4.postDelayed(new i(this), 4000L);
                     }
                 }

@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.HandlerThread;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public abstract class IntentReceiver extends BroadcastReceiver {
     private static AtomicInteger sAtomicInteger = new AtomicInteger(0);
     private static Handler sHandler;

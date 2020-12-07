@@ -30,106 +30,106 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public abstract class a {
-    public boolean aVJ;
-    protected w bph;
+    public boolean aYU;
+    protected w bur;
     public Activity mActivity;
     private Rect mRect;
-    public TbPageContext oey;
-    private AlaLiveRoomBlurPageLayout ogf;
-    private com.baidu.tieba.yuyinala.player.b ogh;
-    public List<AlaWheatInfoData> oif = new ArrayList();
-    public List<AlaWheatInfoData> oig = new ArrayList();
-    public List<AlaWheatInfoData> oih = new ArrayList();
-    public List<AlaWheatInfoData> oii = new ArrayList();
-    public List<AlaWheatInfoData> oij = new ArrayList();
-    public List<AlaWheatInfoData> oik = new ArrayList();
-    public Set<String> oil = new HashSet();
-    private com.baidu.live.al.a oim;
-    private boolean oin;
-    public int oio;
-    private boolean oip;
-    public boolean oiq;
-    private j oir;
-    private boolean ois;
-    private long oit;
+    public TbPageContext oty;
+    private AlaLiveRoomBlurPageLayout ovf;
+    private com.baidu.tieba.yuyinala.player.b ovh;
+    public List<AlaWheatInfoData> oxf = new ArrayList();
+    public List<AlaWheatInfoData> oxg = new ArrayList();
+    public List<AlaWheatInfoData> oxh = new ArrayList();
+    public List<AlaWheatInfoData> oxi = new ArrayList();
+    public List<AlaWheatInfoData> oxj = new ArrayList();
+    public List<AlaWheatInfoData> oxk = new ArrayList();
+    public Set<String> oxl = new HashSet();
+    private com.baidu.live.ap.a oxm;
+    private boolean oxn;
+    public int oxo;
+    private boolean oxp;
+    public boolean oxq;
+    private j oxr;
+    private boolean oxs;
+    private long oxt;
 
-    public abstract AlaWheatInfoData VI(String str);
+    public abstract AlaWheatInfoData WX(String str);
 
-    public abstract ViewGroup dZB();
+    abstract View efT();
 
-    abstract View eao();
+    public abstract ViewGroup eff();
 
     abstract ViewGroup.LayoutParams k(Rect rect);
 
     public void a(TbPageContext tbPageContext, AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout, Rect rect) {
         this.mActivity = tbPageContext.getPageActivity();
-        this.oey = tbPageContext;
-        this.ogf = alaLiveRoomBlurPageLayout;
+        this.oty = tbPageContext;
+        this.ovf = alaLiveRoomBlurPageLayout;
         this.mRect = rect;
         initData();
         initView();
-        eap();
+        efU();
     }
 
     private void initData() {
-        this.oif.clear();
-        this.oig.clear();
-        this.oih.clear();
-        this.oii.clear();
-        this.oij.clear();
-        this.oik.clear();
-        this.oil.clear();
-        this.oin = false;
-        this.oio = 0;
-        this.oip = false;
-        this.oiq = false;
-        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().aB(this.mActivity).f(this.oey);
+        this.oxf.clear();
+        this.oxg.clear();
+        this.oxh.clear();
+        this.oxi.clear();
+        this.oxj.clear();
+        this.oxk.clear();
+        this.oxl.clear();
+        this.oxn = false;
+        this.oxo = 0;
+        this.oxp = false;
+        this.oxq = false;
+        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().aC(this.mActivity).f(this.oty);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void initView() {
-        this.ogf.d(eao(), k(this.mRect));
+        this.ovf.d(efT(), k(this.mRect));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void eap() {
-        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().aB(this.mActivity).f(this.oey);
+    public void efU() {
+        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().aC(this.mActivity).f(this.oty);
     }
 
     public void loadData() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501032));
     }
 
-    public List<AlaWheatInfoData> WB() {
-        return this.oif;
+    public List<AlaWheatInfoData> Za() {
+        return this.oxf;
     }
 
-    public List<AlaWheatInfoData> WA() {
-        return this.oig;
+    public List<AlaWheatInfoData> YZ() {
+        return this.oxg;
     }
 
-    public boolean dZC() {
+    public boolean efg() {
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo == null) {
             return false;
         }
         String encryptionUserId = ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID());
-        return (TextUtils.isEmpty(encryptionUserId) || dYR() || !iR(encryptionUserId)) ? false : true;
+        return (TextUtils.isEmpty(encryptionUserId) || eev() || !jv(encryptionUserId)) ? false : true;
     }
 
-    public boolean dYR() {
+    public boolean eev() {
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo != null) {
-            return iQ(ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID()));
+            return ju(ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID()));
         }
         return false;
     }
 
-    public boolean iQ(String str) {
-        return (this.bph == null || this.bph.mLiveInfo == null || str == null || !TextUtils.equals(str, this.bph.mLiveInfo.user_uk)) ? false : true;
+    public boolean ju(String str) {
+        return (this.bur == null || this.bur.mLiveInfo == null || str == null || !TextUtils.equals(str, this.bur.mLiveInfo.user_uk)) ? false : true;
     }
 
-    public boolean Vf(String str) {
+    public boolean Wu(String str) {
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo != null) {
             return TextUtils.equals(str, ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID()));
@@ -137,20 +137,20 @@ public abstract class a {
         return false;
     }
 
-    public boolean iP(String str) {
+    public boolean jt(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (iR(str)) {
+        if (jv(str)) {
             return true;
         }
-        return VB(str);
+        return WQ(str);
     }
 
-    public boolean iR(String str) {
-        List<AlaWheatInfoData> WB = WB();
-        for (int i = 0; i < ListUtils.getCount(WB); i++) {
-            AlaWheatInfoData alaWheatInfoData = WB.get(i);
+    public boolean jv(String str) {
+        List<AlaWheatInfoData> Za = Za();
+        for (int i = 0; i < ListUtils.getCount(Za); i++) {
+            AlaWheatInfoData alaWheatInfoData = Za.get(i);
             if (alaWheatInfoData != null && str.equals(alaWheatInfoData.uk)) {
                 return true;
             }
@@ -158,10 +158,10 @@ public abstract class a {
         return false;
     }
 
-    public boolean VB(String str) {
-        List<AlaWheatInfoData> WA = WA();
-        for (int i = 0; i < ListUtils.getCount(WA); i++) {
-            AlaWheatInfoData alaWheatInfoData = WA.get(i);
+    public boolean WQ(String str) {
+        List<AlaWheatInfoData> YZ = YZ();
+        for (int i = 0; i < ListUtils.getCount(YZ); i++) {
+            AlaWheatInfoData alaWheatInfoData = YZ.get(i);
             if (alaWheatInfoData != null && str.equals(alaWheatInfoData.uk)) {
                 return true;
             }
@@ -169,20 +169,20 @@ public abstract class a {
         return false;
     }
 
-    public AlaWheatInfoData iS(String str) {
-        return bi(str, true);
+    public AlaWheatInfoData jw(String str) {
+        return bj(str, true);
     }
 
-    public AlaWheatInfoData bi(String str, boolean z) {
+    public AlaWheatInfoData bj(String str, boolean z) {
         AlaWheatInfoData alaWheatInfoData;
         AlaWheatInfoData alaWheatInfoData2;
         int i = 0;
         while (true) {
-            if (i >= ListUtils.getCount(this.oif)) {
+            if (i >= ListUtils.getCount(this.oxf)) {
                 alaWheatInfoData = null;
                 break;
             }
-            AlaWheatInfoData alaWheatInfoData3 = this.oif.get(i);
+            AlaWheatInfoData alaWheatInfoData3 = this.oxf.get(i);
             if (str != null && alaWheatInfoData3 != null && str.equals(alaWheatInfoData3.uk)) {
                 alaWheatInfoData = alaWheatInfoData3;
                 break;
@@ -190,8 +190,8 @@ public abstract class a {
             i++;
         }
         if (alaWheatInfoData == null) {
-            for (int i2 = 0; i2 < ListUtils.getCount(this.oig); i2++) {
-                alaWheatInfoData2 = this.oig.get(i2);
+            for (int i2 = 0; i2 < ListUtils.getCount(this.oxg); i2++) {
+                alaWheatInfoData2 = this.oxg.get(i2);
                 if (str != null && alaWheatInfoData2 != null && str.equals(alaWheatInfoData2.uk)) {
                     break;
                 }
@@ -207,86 +207,87 @@ public abstract class a {
         return null;
     }
 
-    public AlaWheatInfoData Wz() {
-        w WE = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().WE();
-        if (WE == null || WE.mLiveInfo == null) {
+    public AlaWheatInfoData YY() {
+        w Zd = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().Zd();
+        if (Zd == null || Zd.mLiveInfo == null) {
             return null;
         }
         AlaWheatInfoData alaWheatInfoData = new AlaWheatInfoData();
-        alaWheatInfoData.uk = WE.mLiveInfo.user_uk;
-        alaWheatInfoData.userName = WE.mLiveInfo.user_name;
-        alaWheatInfoData.portrait = WE.mLiveInfo.user_avatar;
+        alaWheatInfoData.uk = Zd.mLiveInfo.user_uk;
+        alaWheatInfoData.userName = Zd.mLiveInfo.user_name;
+        alaWheatInfoData.portrait = Zd.mLiveInfo.user_avatar;
         return alaWheatInfoData;
     }
 
     public boolean isApplying() {
-        return this.oin;
+        return this.oxn;
     }
 
-    public void zk(boolean z) {
-        this.oin = z;
+    public void zO(boolean z) {
+        this.oxn = z;
     }
 
-    public void a(com.baidu.live.al.a aVar) {
-        this.oim = aVar;
+    public void a(com.baidu.live.ap.a aVar) {
+        this.oxm = aVar;
     }
 
-    public void aM(String str, String str2, String str3) {
+    public void aP(String str, String str2, String str3) {
     }
 
-    public void VJ(String str) {
+    public void WY(String str) {
     }
 
-    public void VK(String str) {
+    public void WZ(String str) {
     }
 
-    public synchronized void eaq() {
+    public synchronized void efV() {
     }
 
-    public void ai(w wVar) {
-        if (wVar != null && wVar.aIe != null) {
-            this.bph = wVar;
-            if (this.bph != null && this.bph.aIe != null) {
-                o.dZz().zk(this.bph.aIe.isApplying());
+    public void an(w wVar) {
+        if (wVar != null && wVar.aKQ != null) {
+            this.bur = wVar;
+            if (this.bur != null && this.bur.aKQ != null) {
+                o.efd().zO(this.bur.aKQ.isApplying());
             }
-            if (this.oim != null) {
-                this.oim.Wx();
+            if (this.oxm != null) {
+                this.oxm.YW();
             }
-            if (this.ois) {
+            if (this.oxs) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.oit > 100 && currentTimeMillis - this.oit < 5000) {
-                    if (iP(g.WD())) {
-                        if (dYR()) {
-                            d.bj("connection_wheat_succ_host_5", true);
+                if (currentTimeMillis - this.oxt > 100 && currentTimeMillis - this.oxt < 5000) {
+                    if (jt(g.Zc())) {
+                        if (eev()) {
+                            d.bk("connection_wheat_succ_host_5", true);
                         } else {
-                            d.bj("connection_wheat_succ_anchor_8", false);
+                            d.bk("connection_wheat_succ_anchor_8", false);
                         }
-                        this.ois = false;
+                        this.oxs = false;
                     }
                 } else {
-                    this.ois = false;
+                    this.oxs = false;
                 }
             }
-            if (!com.baidu.tieba.yuyinala.liveroom.wheat.a.a.ocS || com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM() != null) {
+            if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.orS) {
+                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq();
             }
         }
     }
 
-    public void F(String str, boolean z) {
-        if (this.oil != null) {
+    public void G(String str, boolean z) {
+        if (this.oxl != null) {
             if (z) {
-                if (!this.oil.contains(str)) {
-                    this.oil.add(str);
+                if (!this.oxl.contains(str)) {
+                    this.oxl.add(str);
                     return;
                 }
                 return;
             }
-            this.oil.remove(str);
+            this.oxl.remove(str);
         }
     }
 
-    public boolean iT(String str) {
-        return this.oil != null && this.oil.contains(str);
+    public boolean jx(String str) {
+        return this.oxl != null && this.oxl.contains(str);
     }
 
     public void setMaskBg(boolean z) {
@@ -296,27 +297,27 @@ public abstract class a {
     public void setVisible(boolean z) {
     }
 
-    public TbPageContext dZE() {
-        return this.oey;
+    public TbPageContext efi() {
+        return this.oty;
     }
 
-    public boolean ear() {
-        return this.oip;
+    public boolean efW() {
+        return this.oxp;
     }
 
-    public void zl(boolean z) {
-        this.oip = z;
+    public void zP(boolean z) {
+        this.oxp = z;
     }
 
-    public int dZD() {
-        return this.oio;
+    public int efh() {
+        return this.oxo;
     }
 
-    private void eas() {
-        if (dYR() && this.bph != null && this.bph.mLiveInfo != null && this.bph.mLiveInfo.apply_count > 0) {
+    private void efX() {
+        if (eev() && this.bur != null && this.bur.mLiveInfo != null && this.bur.mLiveInfo.apply_count > 0) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("count", this.bph.mLiveInfo.apply_count);
+                jSONObject.put("count", this.bur.mLiveInfo.apply_count);
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("data", jSONObject);
                 jSONObject2.toString();
@@ -328,24 +329,24 @@ public abstract class a {
     }
 
     public void l(w wVar) {
-        this.bph = wVar;
-        this.aVJ = true;
-        ai(wVar);
-        eas();
+        this.bur = wVar;
+        this.aYU = true;
+        an(wVar);
+        efX();
     }
 
-    public void CD() {
-        this.oif.clear();
-        this.oig.clear();
-        this.oih.clear();
-        this.oii.clear();
-        this.oij.clear();
-        this.oik.clear();
-        this.oil.clear();
-        this.oin = false;
-        this.oio = 0;
-        this.oip = false;
-        this.oiq = false;
+    public void En() {
+        this.oxf.clear();
+        this.oxg.clear();
+        this.oxh.clear();
+        this.oxi.clear();
+        this.oxj.clear();
+        this.oxk.clear();
+        this.oxl.clear();
+        this.oxn = false;
+        this.oxo = 0;
+        this.oxp = false;
+        this.oxq = false;
     }
 
     public void E(List<AlaWheatInfoData> list, List<AlaWheatInfoData> list2) {
@@ -353,29 +354,29 @@ public abstract class a {
     }
 
     public void b(List<AlaWheatInfoData> list, List<AlaWheatInfoData> list2, List<AlaWheatInfoData> list3) {
-        this.oiq = false;
-        this.oif.clear();
-        this.oig.clear();
-        this.oih.clear();
-        this.oii.clear();
-        this.oij.clear();
-        this.oik.clear();
+        this.oxq = false;
+        this.oxf.clear();
+        this.oxg.clear();
+        this.oxh.clear();
+        this.oxi.clear();
+        this.oxj.clear();
+        this.oxk.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.oii.addAll(list);
+            this.oxi.addAll(list);
         }
         if (!ListUtils.isEmpty(list2)) {
-            this.oij.addAll(list2);
+            this.oxj.addAll(list2);
         }
         if (!ListUtils.isEmpty(list3)) {
-            this.oik.addAll(list3);
+            this.oxk.addAll(list3);
         }
         if (!ListUtils.isEmpty(list)) {
             for (int i = 0; i < list.size(); i++) {
                 AlaWheatInfoData alaWheatInfoData = list.get(i);
                 if (alaWheatInfoData != null) {
-                    this.oiq = true;
+                    this.oxq = true;
                     alaWheatInfoData.realWheatPosition = i;
-                    this.oif.add(alaWheatInfoData);
+                    this.oxf.add(alaWheatInfoData);
                 }
             }
         }
@@ -383,9 +384,9 @@ public abstract class a {
             for (int i2 = 0; i2 < list2.size(); i2++) {
                 AlaWheatInfoData alaWheatInfoData2 = list2.get(i2);
                 if (alaWheatInfoData2 != null) {
-                    this.oiq = true;
+                    this.oxq = true;
                     alaWheatInfoData2.realWheatPosition = i2 + 1;
-                    this.oig.add(alaWheatInfoData2);
+                    this.oxg.add(alaWheatInfoData2);
                 }
             }
         }
@@ -393,45 +394,45 @@ public abstract class a {
             for (int i3 = 0; i3 < list3.size(); i3++) {
                 AlaWheatInfoData alaWheatInfoData3 = list3.get(i3);
                 if (alaWheatInfoData3 != null) {
-                    this.oiq = true;
+                    this.oxq = true;
                     alaWheatInfoData3.realWheatPosition = i3 + 1;
-                    this.oih.add(alaWheatInfoData3);
+                    this.oxh.add(alaWheatInfoData3);
                 }
             }
         }
-        eaq();
-        if (ear()) {
+        efV();
+        if (efW()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501068));
         }
         startPlayer();
-        this.aVJ = false;
+        this.aYU = false;
     }
 
     private void startPlayer() {
         boolean z = true;
-        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.ocS) {
-            Log.i("AudioRoom", "isFirstEnterLiveRoom" + this.aVJ + "  havePersonOnWheat:" + this.oiq + "  isOnWheat(getCurrentUserUK())" + iP(g.WD()));
+        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.orS) {
+            Log.i("AudioRoom", "isFirstEnterLiveRoom" + this.aYU + "  havePersonOnWheat:" + this.oxq + "  isOnWheat(getCurrentUserUK())" + jt(g.Zc()));
         }
-        if (!this.aVJ && this.oiq && !iP(g.WD())) {
-            final com.baidu.tieba.yuyinala.liveroom.wheat.a.b dYM = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().dYM();
-            if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.ocS) {
-                StringBuilder append = new StringBuilder().append("am != null").append(dYM != null).append("  am.isPlayerPlaying():");
-                if (dYM == null || dYM.dYx()) {
+        if (!this.aYU && this.oxq && !jt(g.Zc())) {
+            final com.baidu.tieba.yuyinala.liveroom.wheat.a.b eeq = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq();
+            if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.orS) {
+                StringBuilder append = new StringBuilder().append("am != null").append(eeq != null).append("  am.isPlayerPlaying():");
+                if (eeq == null || eeq.eeb()) {
                     z = false;
                 }
                 Log.i("AudioRoom", append.append(z).toString());
             }
-            if (dYM != null && !dYM.dYx()) {
+            if (eeq != null && !eeq.eeb()) {
                 if (TbadkCoreApplication.isLogin()) {
-                    if (this.oir == null) {
-                        this.oir = new j(null, new j.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.d.a.1
+                    if (this.oxr == null) {
+                        this.oxr = new j(null, new j.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.d.a.1
                             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.j.a
                             public void a(AlaOnLineHttpResponseMessage alaOnLineHttpResponseMessage) {
-                                if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.ocS) {
+                                if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.orS) {
                                     Log.i("AudioRoom", "resp.isSuccess()" + alaOnLineHttpResponseMessage.isSuccess() + "  resp.isOnline():" + alaOnLineHttpResponseMessage.isOnline());
                                 }
-                                if (alaOnLineHttpResponseMessage.isSuccess() && !alaOnLineHttpResponseMessage.isOnline() && dYM != null) {
-                                    dYM.dYG();
+                                if (alaOnLineHttpResponseMessage.isSuccess() && !alaOnLineHttpResponseMessage.isOnline() && eeq != null) {
+                                    eeq.eek();
                                 }
                             }
 
@@ -440,38 +441,38 @@ public abstract class a {
                             }
                         });
                     }
-                    this.oir.request();
-                } else if (dYM != null) {
-                    dYM.dYG();
+                    this.oxr.request();
+                } else if (eeq != null) {
+                    eeq.eek();
                 }
             }
         }
     }
 
     public void a(AlaWheatInfoData alaWheatInfoData, int i, int i2) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501010, new e(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().WE(), alaWheatInfoData, i2, i)));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501010, new e(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().Zd(), alaWheatInfoData, i2, i)));
     }
 
     public void a(com.baidu.tieba.yuyinala.player.b bVar) {
-        this.ogh = bVar;
+        this.ovh = bVar;
     }
 
-    public void zm(boolean z) {
-        this.ois = z;
-        this.oit = System.currentTimeMillis();
+    public void zQ(boolean z) {
+        this.oxs = z;
+        this.oxt = System.currentTimeMillis();
     }
 
-    public boolean dZG() {
-        if (this.ogh != null) {
-            return this.ogh.dZG();
+    public boolean efk() {
+        if (this.ovh != null) {
+            return this.ovh.efk();
         }
         return false;
     }
 
     public void onDestroy() {
-        if (this.oir != null) {
-            this.oir.onDestroy();
-            this.oir = null;
+        if (this.oxr != null) {
+            this.oxr.onDestroy();
+            this.oxr = null;
         }
     }
 

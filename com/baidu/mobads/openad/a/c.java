@@ -7,7 +7,7 @@ import android.content.IntentFilter;
 public class c extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2372a;
+    private int f2374a;
     private b d;
     private IntentFilter e;
 
@@ -20,14 +20,14 @@ public class c extends d {
     }
 
     public void a() {
-        if (this.f2372a == 0) {
+        if (this.f2374a == 0) {
             if (this.d == null) {
                 a(new b(this));
             }
             this.e = new IntentFilter();
             this.e.addAction("android.net.conn.CONNECTIVITY_CHANGE");
         }
-        this.f2372a++;
+        this.f2374a++;
         this.b.registerReceiver(this.d, this.e);
     }
 

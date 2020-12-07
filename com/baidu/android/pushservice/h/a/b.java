@@ -12,27 +12,27 @@ public class b {
     static /* synthetic */ class AnonymousClass2 {
 
         /* renamed from: a  reason: collision with root package name */
-        static final /* synthetic */ int[] f1130a = new int[a.e.values().length];
+        static final /* synthetic */ int[] f1128a = new int[a.e.values().length];
 
         static {
             try {
-                f1130a[a.e.CRASH.ordinal()] = 1;
+                f1128a[a.e.CRASH.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                f1130a[a.e.DB.ordinal()] = 2;
+                f1128a[a.e.DB.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                f1130a[a.e.CONNECTION.ordinal()] = 3;
+                f1128a[a.e.CONNECTION.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                f1130a[a.e.REQUEST.ordinal()] = 4;
+                f1128a[a.e.REQUEST.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                f1130a[a.e.ACK.ordinal()] = 5;
+                f1128a[a.e.ACK.ordinal()] = 5;
             } catch (NoSuchFieldError e5) {
             }
         }
@@ -42,12 +42,12 @@ public class b {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f1131a;
+        private Context f1129a;
         private com.baidu.android.pushservice.c.a.a b = new com.baidu.android.pushservice.c.a.a();
 
         public a(Context context) {
-            this.f1131a = context;
-            this.b.f1029a = "";
+            this.f1129a = context;
+            this.b.f1027a = "";
             this.b.b = "";
             this.b.c = -1L;
             this.b.d = "";
@@ -60,12 +60,12 @@ public class b {
         }
 
         public a a(String str) {
-            this.b.f1029a = str;
+            this.b.f1027a = str;
             return this;
         }
 
         public void a() {
-            b.b(this.f1131a, a.e.ACK, this.b);
+            b.b(this.f1129a, a.e.ACK, this.b);
         }
 
         public a b(long j) {
@@ -86,16 +86,16 @@ public class b {
 
     /* renamed from: com.baidu.android.pushservice.h.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C0064b {
+    public static final class C0066b {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f1132a;
+        private Context f1130a;
         private com.baidu.android.pushservice.c.a.b b = new com.baidu.android.pushservice.c.a.b();
         private boolean c;
 
-        public C0064b(Context context) {
-            this.f1132a = context;
-            this.b.f1031a = -1L;
+        public C0066b(Context context) {
+            this.f1130a = context;
+            this.b.f1029a = -1L;
             this.b.b = -1L;
             this.b.c = "";
             this.b.d = -1L;
@@ -104,45 +104,45 @@ public class b {
             this.b.g = -1L;
         }
 
-        public C0064b a(long j) {
-            this.b.f1031a = j;
+        public C0066b a(long j) {
+            this.b.f1029a = j;
             return this;
         }
 
-        public C0064b a(String str) {
+        public C0066b a(String str) {
             this.b.c = str;
             return this;
         }
 
-        public C0064b a(boolean z) {
+        public C0066b a(boolean z) {
             this.c = z;
             return this;
         }
 
         public void a() {
             if (this.c) {
-                e.a(this.f1132a).a(this.b);
+                e.a(this.f1130a).a(this.b);
             } else {
-                b.b(this.f1132a, a.e.CONNECTION, this.b);
+                b.b(this.f1130a, a.e.CONNECTION, this.b);
             }
         }
 
-        public C0064b b(long j) {
+        public C0066b b(long j) {
             this.b.b = j;
             return this;
         }
 
-        public C0064b b(String str) {
+        public C0066b b(String str) {
             this.b.f = str;
             return this;
         }
 
-        public C0064b c(long j) {
+        public C0066b c(long j) {
             this.b.e = j;
             return this;
         }
 
-        public C0064b d(long j) {
+        public C0066b d(long j) {
             this.b.g = j;
             return this;
         }
@@ -152,12 +152,12 @@ public class b {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f1133a;
+        private Context f1131a;
         private com.baidu.android.pushservice.c.a.c b = new com.baidu.android.pushservice.c.a.c();
 
         public c(Context context) {
-            this.f1133a = context;
-            this.b.f1033a = "";
+            this.f1131a = context;
+            this.b.f1031a = "";
             this.b.b = System.currentTimeMillis();
             this.b.c = "";
             this.b.d = 201001L;
@@ -169,15 +169,15 @@ public class b {
         }
 
         public c a(String str) {
-            this.b.f1033a = str;
+            this.b.f1031a = str;
             return this;
         }
 
         public void a() {
-            if (TextUtils.isEmpty(this.b.f1033a)) {
+            if (TextUtils.isEmpty(this.b.f1031a)) {
                 return;
             }
-            b.b(this.f1133a, a.e.CRASH, this.b);
+            b.b(this.f1131a, a.e.CRASH, this.b);
         }
     }
 
@@ -185,12 +185,12 @@ public class b {
     public static final class d {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f1134a;
+        private Context f1132a;
         private com.baidu.android.pushservice.c.a.e b = new com.baidu.android.pushservice.c.a.e();
 
         public d(Context context) {
-            this.f1134a = context;
-            this.b.f1036a = "";
+            this.f1132a = context;
+            this.b.f1034a = "";
             this.b.b = "";
             this.b.c = -1L;
             this.b.d = -1L;
@@ -205,12 +205,12 @@ public class b {
         }
 
         public d a(String str) {
-            this.b.f1036a = str;
+            this.b.f1034a = str;
             return this;
         }
 
         public void a() {
-            b.b(this.f1134a, a.e.REQUEST, this.b);
+            b.b(this.f1132a, a.e.REQUEST, this.b);
         }
 
         public d b(long j) {
@@ -246,8 +246,8 @@ public class b {
             com.baidu.android.pushservice.g.d.a().a(new com.baidu.android.pushservice.g.c("reportTracker - " + eVar.name(), (short) 90) { // from class: com.baidu.android.pushservice.h.a.b.1
                 @Override // com.baidu.android.pushservice.g.c
                 public void a() {
-                    synchronized (e.f1049a) {
-                        switch (AnonymousClass2.f1130a[eVar.ordinal()]) {
+                    synchronized (e.f1047a) {
+                        switch (AnonymousClass2.f1128a[eVar.ordinal()]) {
                             case 1:
                                 e.a(applicationContext).a((com.baidu.android.pushservice.c.a.c) obj);
                                 break;

@@ -3,25 +3,26 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-/* loaded from: classes5.dex */
+import org.a.d;
+/* loaded from: classes9.dex */
 public final class FlowableCount<T> extends a<T, Long> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super Long> cVar) {
-        this.pOn.a((j) new CountSubscriber(cVar));
+        this.pFg.a((j) new CountSubscriber(cVar));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class CountSubscriber extends DeferredScalarSubscription<Long> implements j<Object> {
         private static final long serialVersionUID = 4973004223787171406L;
         long count;
-        org.a.d s;
+        d s;
 
         CountSubscriber(org.a.c<? super Long> cVar) {
             super(cVar);
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);

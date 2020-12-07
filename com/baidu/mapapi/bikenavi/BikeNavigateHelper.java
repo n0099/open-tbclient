@@ -19,12 +19,12 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.wnplatform.model.c;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class BikeNavigateHelper {
     private static BikeNavigateHelper d;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f1973a;
+    boolean f1975a;
     Activity b;
     private a c = new a();
 
@@ -51,7 +51,7 @@ public class BikeNavigateHelper {
             this.c.d();
             this.c = null;
         }
-        this.f1973a = false;
+        this.f1975a = false;
         this.b = null;
         if (d != null) {
             d = null;
@@ -135,11 +135,11 @@ public class BikeNavigateHelper {
 
     public boolean startBikeNavi(Activity activity) {
         if (b.a().a(activity, (Bundle) null)) {
-            if (!this.f1973a) {
+            if (!this.f1975a) {
                 if (!b.a().s()) {
                     return false;
                 }
-                this.f1973a = true;
+                this.f1975a = true;
             }
             return true;
         }
@@ -203,7 +203,7 @@ public class BikeNavigateHelper {
             this.c.d();
             this.c = null;
         }
-        this.f1973a = false;
+        this.f1975a = false;
         this.b = null;
         if (d != null) {
             d = null;

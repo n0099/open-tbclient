@@ -9,15 +9,15 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public abstract class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected String ddG;
+    protected String dkF;
 
     public abstract boolean a(com.baidu.swan.apps.media.c.a aVar, com.baidu.swan.apps.media.c.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar);
 
     public c(@NonNull String str) {
-        this.ddG = str;
+        this.dkF = str;
     }
 
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
@@ -36,7 +36,7 @@ public abstract class c {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.media.c.c a2 = com.baidu.swan.apps.media.c.c.a(optParamsAsJo, b.aAS());
+        com.baidu.swan.apps.media.c.c a2 = com.baidu.swan.apps.media.c.c.a(optParamsAsJo, b.aEb());
         if (!a2.isValid()) {
             com.baidu.swan.apps.console.c.e("vrvideo", "param is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -47,10 +47,10 @@ public abstract class c {
 
     @Nullable
     protected com.baidu.swan.apps.media.c.a b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        com.baidu.swan.apps.media.a O;
-        if (TextUtils.isEmpty(str3) || (O = com.baidu.swan.apps.media.b.O(str, str2, str3)) == null || !(O.azA() instanceof com.baidu.swan.apps.media.c.a)) {
+        com.baidu.swan.apps.media.a R;
+        if (TextUtils.isEmpty(str3) || (R = com.baidu.swan.apps.media.b.R(str, str2, str3)) == null || !(R.aCJ() instanceof com.baidu.swan.apps.media.c.a)) {
             return null;
         }
-        return (com.baidu.swan.apps.media.c.a) O.azA();
+        return (com.baidu.swan.apps.media.c.a) R.aCJ();
     }
 }

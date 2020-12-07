@@ -1,53 +1,41 @@
 package com.baidu.live.data;
 
-import com.baidu.live.tbadk.core.util.ListUtils;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class an {
-    public int aMc;
-    public ArrayList<am> aMd;
+    public int aOS;
+    public String aOT;
+    public int aOU;
+    public int aOV;
+    public ap aOW;
+    public int aOX;
+    public String aOY;
+    public int status;
 
-    public void parserJson(JSONObject jSONObject) {
-        this.aMc = jSONObject.optInt("received");
-        this.aMd = new ArrayList<>();
-        JSONArray optJSONArray = jSONObject.optJSONArray("task_list");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    am amVar = new am();
-                    amVar.parseJson(optJSONObject);
-                    this.aMd.add(amVar);
-                }
-            }
+    public void parseJson(JSONObject jSONObject) {
+        this.aOS = jSONObject.optInt("taskid");
+        this.aOT = jSONObject.optString("taskname");
+        this.status = jSONObject.optInt("status");
+        this.aOU = jSONObject.optInt("cur_step");
+        this.aOV = jSONObject.optInt("total_step");
+        JSONObject optJSONObject = jSONObject.optJSONObject("param");
+        if (optJSONObject != null) {
+            this.aOW = new ap();
+            this.aOW.parseJson(optJSONObject);
         }
+        this.aOX = jSONObject.optInt("award_num");
+        this.aOY = jSONObject.optString("taskdetail");
     }
 
-    public boolean DY() {
-        if (!ListUtils.isEmpty(this.aMd)) {
-            Iterator<am> it = this.aMd.iterator();
-            while (it.hasNext()) {
-                if (it.next().DX()) {
-                    return true;
-                }
-            }
-        }
-        return false;
+    public boolean FG() {
+        return this.aOS == 1;
     }
 
-    public am DZ() {
-        if (!ListUtils.isEmpty(this.aMd)) {
-            Iterator<am> it = this.aMd.iterator();
-            while (it.hasNext()) {
-                am next = it.next();
-                if (next.DV()) {
-                    return next;
-                }
-            }
-        }
-        return null;
+    public boolean FH() {
+        return this.aOS == 6;
+    }
+
+    public boolean FI() {
+        return this.status == 2;
     }
 }

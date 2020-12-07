@@ -14,14 +14,14 @@ import com.baidu.swan.apps.statistic.c;
 import com.baidu.swan.apps.u.c.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class j extends com.baidu.swan.apps.process.a.a.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.apps.process.a.a.a
     public void y(@NonNull Bundle bundle) {
         JSONObject jSONObject;
-        com.baidu.swan.apps.database.a nD;
+        com.baidu.swan.apps.database.a ol;
         String string = bundle.getString("key_swan_appid", "");
         String string2 = bundle.getString("key_report_info", "");
         if (TextUtils.isEmpty(string2)) {
@@ -39,9 +39,9 @@ public class j extends com.baidu.swan.apps.process.a.a.a {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        if (!TextUtils.isEmpty(string) && (nD = SwanAppDbControl.cd(AppRuntime.getAppContext()).nD(string)) != null) {
+        if (!TextUtils.isEmpty(string) && (ol = SwanAppDbControl.cJ(AppRuntime.getAppContext()).ol(string)) != null) {
             try {
-                jSONObject.put("appDbInfo", nD.arV());
+                jSONObject.put("appDbInfo", ol.ave());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -49,17 +49,17 @@ public class j extends com.baidu.swan.apps.process.a.a.a {
         if (DEBUG) {
             Log.d("VersionBusinessUbc", "report info: " + jSONObject.toString());
         }
-        new c.a(10002).sS(jSONObject.toString()).atj();
+        new c.a(10002).tz(jSONObject.toString()).awr();
         finish();
     }
 
-    public static boolean ta(@Nullable String str) {
+    public static boolean tH(@Nullable String str) {
         return TextUtils.isEmpty(str) || TextUtils.equals("0", str);
     }
 
     public static void h(String str, String str2, @Nullable JSONObject jSONObject) {
         Intent intent;
-        if (ta(str2)) {
+        if (tH(str2)) {
             JSONObject jSONObject2 = new JSONObject();
             if (str2 == null) {
                 str2 = "null";
@@ -67,20 +67,20 @@ public class j extends com.baidu.swan.apps.process.a.a.a {
             try {
                 jSONObject2.put("version", str2);
                 jSONObject2.put("appId", str == null ? "null" : str);
-                com.baidu.swan.apps.runtime.e aGM = com.baidu.swan.apps.runtime.e.aGM();
-                if (aGM != null) {
-                    b.a afg = aGM.afg();
-                    jSONObject2.put("launchInfo", afg == null ? "null" : afg.arV());
-                    SwanAppActivity aGG = aGM.aGG();
+                com.baidu.swan.apps.runtime.e aJU = com.baidu.swan.apps.runtime.e.aJU();
+                if (aJU != null) {
+                    b.a aio = aJU.aio();
+                    jSONObject2.put("launchInfo", aio == null ? "null" : aio.ave());
+                    SwanAppActivity aJO = aJU.aJO();
                     com.baidu.swan.apps.u.c.b bVar = null;
-                    if (aGG != null && (intent = aGG.getIntent()) != null) {
+                    if (aJO != null && (intent = aJO.getIntent()) != null) {
                         bVar = com.baidu.swan.apps.u.c.b.t(intent);
                     }
-                    jSONObject2.put("launchInfoIntent", bVar == null ? "null" : bVar.arV());
+                    jSONObject2.put("launchInfoIntent", bVar == null ? "null" : bVar.ave());
                 } else {
                     jSONObject2.put("swanApp", "null");
                 }
-                jSONObject2.put("stackTrace", ak.aMn());
+                jSONObject2.put("stackTrace", ak.getStackTrace());
                 if (jSONObject != null) {
                     jSONObject2.put("reportExtInfo", jSONObject);
                 }
@@ -89,12 +89,12 @@ public class j extends com.baidu.swan.apps.process.a.a.a {
                     e.printStackTrace();
                 }
             }
-            com.baidu.swan.apps.process.messaging.client.a aGD = com.baidu.swan.apps.runtime.d.aGI().aGD();
-            if (aGD != null) {
+            com.baidu.swan.apps.process.messaging.client.a aJL = com.baidu.swan.apps.runtime.d.aJQ().aJL();
+            if (aJL != null) {
                 Bundle bundle = new Bundle();
                 bundle.putString("key_swan_appid", str);
                 bundle.putString("key_report_info", jSONObject2.toString());
-                aGD.b(bundle, j.class);
+                aJL.b(bundle, j.class);
             }
         }
     }

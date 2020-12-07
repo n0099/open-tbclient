@@ -1,9 +1,7 @@
 package com.baidu.live.g;
 
-import android.view.View;
+import com.baidu.live.adp.widget.IGuideTab;
 /* loaded from: classes4.dex */
 public interface b {
-    View getOverlayView();
-
-    void setViewTouchable(boolean z);
+    IGuideTab EP();
 }

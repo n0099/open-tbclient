@@ -1,9 +1,9 @@
 package kotlin;
 
 import java.io.Serializable;
-import kotlin.jvm.internal.q;
-@h
-/* loaded from: classes9.dex */
+import kotlin.jvm.internal.p;
+@e
+/* loaded from: classes17.dex */
 public final class Pair<A, B> implements Serializable {
     private final A first;
     private final B second;
@@ -36,7 +36,7 @@ public final class Pair<A, B> implements Serializable {
         if (this != obj) {
             if (obj instanceof Pair) {
                 Pair pair = (Pair) obj;
-                if (!q.l(this.first, pair.first) || !q.l(this.second, pair.second)) {
+                if (!p.l(this.first, pair.first) || !p.l(this.second, pair.second)) {
                 }
             }
             return false;

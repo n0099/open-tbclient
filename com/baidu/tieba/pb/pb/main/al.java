@@ -5,16 +5,16 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.NavigationBarCoverTip;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class al {
-    private NavigationBarCoverTip jle;
-    private int jlf;
+    private NavigationBarCoverTip jyH;
+    private int jyI;
     private com.baidu.adp.base.e mContext;
     private TextView mTipView;
 
     public al(com.baidu.adp.base.e eVar, NavigationBarCoverTip navigationBarCoverTip) {
         this.mContext = eVar;
-        this.jle = navigationBarCoverTip;
+        this.jyH = navigationBarCoverTip;
         init();
     }
 
@@ -28,26 +28,26 @@ public class al {
         this.mTipView.setLineSpacing(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
     }
 
-    public void Ph(String str) {
-        if (this.jle != null) {
-            if (com.baidu.tbadk.core.util.au.isEmpty(str) || this.jlf > 0) {
+    public void Qp(String str) {
+        if (this.jyH != null) {
+            if (com.baidu.tbadk.core.util.au.isEmpty(str) || this.jyI > 0) {
                 onDestory();
-                this.jle.setVisibility(8);
+                this.jyH.setVisibility(8);
                 return;
             }
-            this.jle.setVisibility(0);
-            this.jlf++;
+            this.jyH.setVisibility(0);
+            this.jyI++;
             this.mTipView.setText(str);
             com.baidu.tbadk.core.util.ap.setViewTextColor(this.mTipView, R.color.CAM_X0101);
-            this.jle.removeAllViews();
-            this.jle.addView(this.mTipView);
-            this.jle.i(this.mContext.getPageActivity(), 5000);
+            this.jyH.removeAllViews();
+            this.jyH.addView(this.mTipView);
+            this.jyH.i(this.mContext.getPageActivity(), 5000);
         }
     }
 
     public void onDestory() {
-        if (this.jle != null) {
-            this.jle.onDestroy();
+        if (this.jyH != null) {
+            this.jyH.onDestroy();
         }
     }
 }

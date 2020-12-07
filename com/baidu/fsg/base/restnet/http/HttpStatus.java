@@ -1,7 +1,9 @@
 package com.baidu.fsg.base.restnet.http;
 
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes15.dex */
+import com.baidu.ar.face.algo.FAUEnum;
+import okhttp3.internal.http.StatusLine;
+/* loaded from: classes16.dex */
 public enum HttpStatus {
     CONTINUE(100, "Continue"),
     SWITCHING_PROTOCOLS(101, "Switching Protocols"),
@@ -14,8 +16,8 @@ public enum HttpStatus {
     NO_CONTENT(204, "No Content"),
     RESET_CONTENT(205, "Reset Content"),
     PARTIAL_CONTENT(206, "Partial Content"),
-    MULTI_STATUS(org.apache.http.HttpStatus.SC_MULTI_STATUS, "Multi-Status"),
-    ALREADY_REPORTED(208, "Already Reported"),
+    MULTI_STATUS(207, "Multi-Status"),
+    ALREADY_REPORTED(FAUEnum.PR_ANIMATE_FAILED, "Already Reported"),
     IM_USED(Constants.METHOD_MEDIA_NOTIFY, "IM Used"),
     MULTIPLE_CHOICES(300, "Multiple Choices"),
     MOVED_PERMANENTLY(301, "Moved Permanently"),
@@ -25,7 +27,7 @@ public enum HttpStatus {
     NOT_MODIFIED(304, "Not Modified"),
     USE_PROXY(305, "Use Proxy"),
     TEMPORARY_REDIRECT(307, "Temporary Redirect"),
-    RESUME_INCOMPLETE(308, "Resume Incomplete"),
+    RESUME_INCOMPLETE(StatusLine.HTTP_PERM_REDIRECT, "Resume Incomplete"),
     BAD_REQUEST(400, "Bad Request"),
     UNAUTHORIZED(401, "Unauthorized"),
     PAYMENT_REQUIRED(402, "Payment Required"),
@@ -103,7 +105,7 @@ public enum HttpStatus {
         return Integer.toString(this.value);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public enum Series {
         INFORMATIONAL(1),
         SUCCESSFUL(2),

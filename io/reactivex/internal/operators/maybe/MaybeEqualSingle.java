@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.maybe;
 
-import io.reactivex.c.d;
+import io.reactivex.b.d;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.m;
 import io.reactivex.o;
@@ -8,20 +8,20 @@ import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class MaybeEqualSingle<T> extends w<Boolean> {
     final d<? super T, ? super T> isEqual;
-    final o<? extends T> pPA;
-    final o<? extends T> pPB;
+    final o<? extends T> pGo;
+    final o<? extends T> pGp;
 
     @Override // io.reactivex.w
     protected void b(y<? super Boolean> yVar) {
         EqualCoordinator equalCoordinator = new EqualCoordinator(yVar, this.isEqual);
         yVar.onSubscribe(equalCoordinator);
-        equalCoordinator.subscribe(this.pPA, this.pPB);
+        equalCoordinator.subscribe(this.pGo, this.pGp);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class EqualCoordinator<T> extends AtomicInteger implements io.reactivex.disposables.b {
         final y<? super Boolean> actual;
         final d<? super T, ? super T> isEqual;
@@ -80,12 +80,12 @@ public final class MaybeEqualSingle<T> extends w<Boolean> {
                 this.actual.onError(th);
                 return;
             }
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class EqualObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements m<T> {
         private static final long serialVersionUID = -3031974433025990931L;
         final EqualCoordinator<T> parent;

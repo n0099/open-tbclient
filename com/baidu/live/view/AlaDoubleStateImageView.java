@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes4.dex */
 public class AlaDoubleStateImageView extends ImageView {
-    private int bJB;
-    private int bJC;
+    private int bOJ;
+    private int bOK;
     private boolean isSelected;
 
     public AlaDoubleStateImageView(Context context) {
@@ -27,20 +27,20 @@ public class AlaDoubleStateImageView extends ImageView {
 
     public void setImageSrc(int i, int i2) {
         if (i > 0 && i2 > 0) {
-            this.bJB = i;
-            this.bJC = i2;
-            setImageResource(this.bJB);
+            this.bOJ = i;
+            this.bOK = i2;
+            setImageResource(this.bOJ);
         }
     }
 
     public void setSelect(boolean z) {
         this.isSelected = z;
         if (z) {
-            if (this.bJC > 0) {
-                setImageResource(this.bJC);
+            if (this.bOK > 0) {
+                setImageResource(this.bOK);
             }
-        } else if (this.bJB > 0) {
-            setImageResource(this.bJB);
+        } else if (this.bOJ > 0) {
+            setImageResource(this.bOJ);
         }
     }
 

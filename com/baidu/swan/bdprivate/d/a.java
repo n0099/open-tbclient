@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.sapi2.ecommerce.result.InvoiceBuildResult;
+import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
@@ -13,15 +14,15 @@ import com.baidu.swan.apps.res.widget.b.d;
 import com.baidu.swan.bdprivate.b;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class a extends ActivityDelegation {
 
     /* renamed from: com.baidu.swan.bdprivate.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0502a {
-        void aNy();
+    /* loaded from: classes25.dex */
+    public interface InterfaceC0514a {
+        void aQE();
 
-        void cL(String str, String str2);
+        void cS(String str, String str2);
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
@@ -31,7 +32,7 @@ public class a extends ActivityDelegation {
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
                     if (i == 0) {
-                        a.this.aNZ();
+                        a.this.aRe();
                         return;
                     }
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "login failed");
@@ -40,24 +41,24 @@ public class a extends ActivityDelegation {
             });
             return false;
         }
-        aNZ();
+        aRe();
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aNZ() {
-        com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0502a() { // from class: com.baidu.swan.bdprivate.d.a.2
-            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0502a
-            public void cL(String str, String str2) {
+    public void aRe() {
+        com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0514a() { // from class: com.baidu.swan.bdprivate.d.a.2
+            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0514a
+            public void cS(String str, String str2) {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "invoiceId == null or invoiceType == null");
                     a.this.finish();
                 }
-                a.this.cK(str, str2);
+                a.this.cR(str, str2);
             }
 
-            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0502a
-            public void aNy() {
+            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0514a
+            public void aQE() {
                 a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "choose invoiceId failed");
                 a.this.finish();
             }
@@ -65,11 +66,11 @@ public class a extends ActivityDelegation {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cK(String str, String str2) {
+    public void cR(String str, String str2) {
         if (!SwanAppNetworkUtils.isNetworkConnected(getAgent())) {
-            d.k(getAgent(), b.g.invoice_network_none);
+            d.t(getAgent(), b.g.invoice_network_none);
         } else {
-            com.baidu.swan.a.c.a.dL(AppRuntime.getAppContext()).getRequest().url(com.baidu.swan.apps.i.c.processCommonParams(aOa())).addUrlParam(InvoiceBuildResult.KEY_INVOICE_ID, str).addUrlParam("invoice_type", str2).cookieManager(com.baidu.swan.apps.t.a.awr().ahB()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.d.a.3
+            com.baidu.swan.a.c.a.er(AppRuntime.getAppContext()).getRequest().url(com.baidu.swan.apps.i.c.processCommonParams(aRf())).addUrlParam(InvoiceBuildResult.KEY_INVOICE_ID, str).addUrlParam("invoice_type", str2).cookieManager(com.baidu.swan.apps.t.a.azz().akJ()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.d.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 /* renamed from: a */
@@ -108,7 +109,7 @@ public class a extends ActivityDelegation {
         }
     }
 
-    private static String aOa() {
-        return String.format("%s/ma/invoice/detail", "https://mbd.baidu.com");
+    private static String aRf() {
+        return String.format("%s/ma/invoice/detail", BaseUrlManager.ONLINE_URL);
     }
 }

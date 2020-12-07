@@ -9,10 +9,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 final class a {
-    private final Executor Ap = new ExecutorC0007a();
-    private static final a Ao = new a();
+    private final Executor Bj = new ExecutorC0007a();
+    private static final a Bi = new a();
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     static final int CORE_POOL_SIZE = CPU_COUNT + 1;
     static final int MAX_POOL_SIZE = (CPU_COUNT * 2) + 1;
@@ -34,11 +34,11 @@ final class a {
     }
 
     public static Executor hZ() {
-        return Ao.Ap;
+        return Bi.Bj;
     }
 
     /* renamed from: bolts.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     private static class ExecutorC0007a implements Executor {
         private ExecutorC0007a() {
         }

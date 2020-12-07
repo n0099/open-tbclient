@@ -21,7 +21,7 @@ public class ag {
             int i3 = 0;
             int i4 = 0;
             int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);
-            boolean bqE = av.bqE();
+            boolean btZ = av.btZ();
             int firstVisiblePosition = tVar.getFirstVisiblePosition();
             int lastVisiblePosition = tVar.getLastVisiblePosition();
             com.baidu.adp.lib.e.c.mS().a(bdUniqueId, (com.baidu.adp.lib.e.b) null);
@@ -36,7 +36,7 @@ public class ag {
                         int i8 = i2;
                         while (it.hasNext()) {
                             PreLoadImageInfo next = it.next();
-                            if (com.baidu.adp.lib.e.c.mS().at(next.procType)) {
+                            if (com.baidu.adp.lib.e.c.mS().aw(next.procType)) {
                                 if (12 == next.procType || 28 == next.procType) {
                                     i6++;
                                     if (i6 <= 30 && i5 > lastVisiblePosition && !TextUtils.isEmpty(next.imgUrl)) {
@@ -64,9 +64,9 @@ public class ag {
                                     if (i8 <= i && i7 < bigImageMaxUsedMemory && i5 > lastVisiblePosition) {
                                         if (next.bigEmotion != null) {
                                             TbRichTextEmotionInfo tbRichTextEmotionInfo = next.bigEmotion;
-                                            String str = bqE ? tbRichTextEmotionInfo.mGifInfo.mDynamicUrl : tbRichTextEmotionInfo.mGifInfo.mStaticUrl;
+                                            String str = btZ ? tbRichTextEmotionInfo.mGifInfo.mDynamicUrl : tbRichTextEmotionInfo.mGifInfo.mStaticUrl;
                                             if (!TextUtils.isEmpty(str)) {
-                                                com.baidu.adp.lib.e.c.mS().a(tbRichTextEmotionInfo.mGifInfo.mSharpText, next.procType, null, next.width, next.height, bdUniqueId, tbRichTextEmotionInfo.mGifInfo.mGid, tbRichTextEmotionInfo.mGifInfo.mSharpText, Boolean.valueOf(bqE), str);
+                                                com.baidu.adp.lib.e.c.mS().a(tbRichTextEmotionInfo.mGifInfo.mSharpText, next.procType, null, next.width, next.height, bdUniqueId, tbRichTextEmotionInfo.mGifInfo.mGid, tbRichTextEmotionInfo.mGifInfo.mSharpText, Boolean.valueOf(btZ), str);
                                             }
                                         } else {
                                             String str2 = next.imgUrl;

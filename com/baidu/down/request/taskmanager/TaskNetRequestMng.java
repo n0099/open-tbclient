@@ -21,7 +21,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class TaskNetRequestMng {
     public static final boolean DEBUG = false;
     public static final String TAG = "TaskNetRequestMng";

@@ -8,7 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 @Deprecated
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class FastJsonHttpMessageConverter4 extends FastJsonHttpMessageConverter {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter

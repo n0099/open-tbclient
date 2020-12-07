@@ -1,25 +1,25 @@
 package io.reactivex.internal.util;
 
-import io.reactivex.c.j;
+import io.reactivex.b.j;
 import io.reactivex.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a<T> {
     final int capacity;
     int offset;
-    final Object[] pRX;
-    Object[] pRY;
+    final Object[] pIL;
+    Object[] pIM;
 
     /* renamed from: io.reactivex.internal.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC1078a<T> extends j<T> {
-        @Override // io.reactivex.c.j
+    /* loaded from: classes9.dex */
+    public interface InterfaceC1052a<T> extends j<T> {
+        @Override // io.reactivex.b.j
         boolean test(T t);
     }
 
     public a(int i) {
         this.capacity = i;
-        this.pRX = new Object[i + 1];
-        this.pRY = this.pRX;
+        this.pIL = new Object[i + 1];
+        this.pIM = this.pIL;
     }
 
     public void add(T t) {
@@ -27,26 +27,26 @@ public class a<T> {
         int i2 = this.offset;
         if (i2 == i) {
             Object[] objArr = new Object[i + 1];
-            this.pRY[i] = objArr;
-            this.pRY = objArr;
+            this.pIM[i] = objArr;
+            this.pIM = objArr;
             i2 = 0;
         }
-        this.pRY[i2] = t;
+        this.pIM[i2] = t;
         this.offset = i2 + 1;
     }
 
-    public void bP(T t) {
-        this.pRX[0] = t;
+    public void bK(T t) {
+        this.pIL[0] = t;
     }
 
-    public void a(InterfaceC1078a<? super T> interfaceC1078a) {
+    public void a(InterfaceC1052a<? super T> interfaceC1052a) {
         int i;
-        Object[] objArr = this.pRX;
+        Object[] objArr = this.pIL;
         int i2 = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i2]) {
             while (i < i2) {
                 Object obj = objArr2[i];
-                i = (obj == null || interfaceC1078a.test(obj)) ? 0 : i + 1;
+                i = (obj == null || interfaceC1052a.test(obj)) ? 0 : i + 1;
             }
         }
     }
@@ -58,7 +58,7 @@ public class a<T> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public <U> boolean b(org.a.c<? super U> cVar) {
-        Object[] objArr = this.pRX;
+        Object[] objArr = this.pIL;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {
@@ -80,7 +80,7 @@ public class a<T> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public <U> boolean b(u<? super U> uVar) {
-        Object[] objArr = this.pRX;
+        Object[] objArr = this.pIL;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {

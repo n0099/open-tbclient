@@ -58,17 +58,17 @@ public class AlaMoreFunctionDialogData implements IBaseDialogData {
             Iterator<com.baidu.yuyinala.more.b.b> it = this.mGroupList.iterator();
             while (it.hasNext()) {
                 com.baidu.yuyinala.more.b.b next = it.next();
-                if (next == null || ListUtils.isEmpty(next.efa())) {
+                if (next == null || ListUtils.isEmpty(next.ekN())) {
                     it.remove();
                 } else {
-                    Iterator<com.baidu.yuyinala.more.b.a> it2 = next.efa().iterator();
+                    Iterator<com.baidu.yuyinala.more.b.a> it2 = next.ekN().iterator();
                     while (it2.hasNext()) {
                         com.baidu.yuyinala.more.b.a next2 = it2.next();
                         if (next2 == null) {
                             it2.remove();
                         } else if (TextUtils.equals(next2.getAction(), str)) {
                             it2.remove();
-                            if (ListUtils.isEmpty(next.efa())) {
+                            if (ListUtils.isEmpty(next.ekN())) {
                                 it.remove();
                                 return;
                             }
@@ -129,7 +129,7 @@ public class AlaMoreFunctionDialogData implements IBaseDialogData {
             this.mShowSuperCharge = false;
             return;
         }
-        if (z && com.baidu.live.aa.a.Ph().Pm()) {
+        if (z && com.baidu.live.ae.a.RB().RG()) {
             z3 = true;
         }
         this.mShowFirstCharge = z3;
@@ -160,10 +160,10 @@ public class AlaMoreFunctionDialogData implements IBaseDialogData {
     }
 
     public static void saveClickedId(com.baidu.yuyinala.more.b.a aVar) {
-        if (aVar != null && aVar.eeY()) {
-            Set<String> stringSet = d.Aq().getStringSet("audio_more_red_node_clicked_function", new HashSet());
+        if (aVar != null && aVar.ekL()) {
+            Set<String> stringSet = d.BM().getStringSet("audio_more_red_node_clicked_function", new HashSet());
             if (stringSet.add(aVar.getId())) {
-                d.Aq().putStringSet("audio_more_red_node_clicked_function", stringSet);
+                d.BM().putStringSet("audio_more_red_node_clicked_function", stringSet);
             }
         }
     }
@@ -172,7 +172,7 @@ public class AlaMoreFunctionDialogData implements IBaseDialogData {
         if (ListUtils.isEmpty(list)) {
             return false;
         }
-        Set<String> stringSet = d.Aq().getStringSet("audio_more_red_node_clicked_function", new HashSet());
+        Set<String> stringSet = d.BM().getStringSet("audio_more_red_node_clicked_function", new HashSet());
         Set<String> redNodeFuncIdsFromData = getRedNodeFuncIdsFromData(list);
         initNeedShowRedNode(list, stringSet);
         HashSet hashSet = new HashSet();
@@ -180,20 +180,20 @@ public class AlaMoreFunctionDialogData implements IBaseDialogData {
         hashSet.addAll(stringSet);
         hashSet.removeAll(redNodeFuncIdsFromData);
         if (stringSet.removeAll(hashSet)) {
-            d.Aq().putStringSet("audio_more_red_node_clicked_function", stringSet);
+            d.BM().putStringSet("audio_more_red_node_clicked_function", stringSet);
         }
         return !stringSet.containsAll(redNodeFuncIdsFromData);
     }
 
     private static void initNeedShowRedNode(List<com.baidu.yuyinala.more.b.b> list, Set<String> set) {
         for (com.baidu.yuyinala.more.b.b bVar : list) {
-            if (bVar != null && bVar.efa() != null) {
-                for (com.baidu.yuyinala.more.b.a aVar : bVar.efa()) {
-                    if (aVar.eeY()) {
+            if (bVar != null && bVar.ekN() != null) {
+                for (com.baidu.yuyinala.more.b.a aVar : bVar.ekN()) {
+                    if (aVar.ekL()) {
                         if (set.contains(aVar.getId())) {
-                            aVar.zP(false);
+                            aVar.At(false);
                         } else {
-                            aVar.zP(true);
+                            aVar.At(true);
                         }
                     }
                 }
@@ -204,9 +204,9 @@ public class AlaMoreFunctionDialogData implements IBaseDialogData {
     private static Set<String> getRedNodeFuncIdsFromData(List<com.baidu.yuyinala.more.b.b> list) {
         HashSet hashSet = new HashSet();
         for (com.baidu.yuyinala.more.b.b bVar : list) {
-            if (bVar != null && bVar.efa() != null) {
-                for (com.baidu.yuyinala.more.b.a aVar : bVar.efa()) {
-                    if (aVar.eeY()) {
+            if (bVar != null && bVar.ekN() != null) {
+                for (com.baidu.yuyinala.more.b.a aVar : bVar.ekN()) {
+                    if (aVar.ekL()) {
                         hashSet.add(aVar.getId());
                     }
                 }

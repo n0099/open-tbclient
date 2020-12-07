@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class d extends RecyclerView.ViewHolder {
-    private TextView ecI;
+    private TextView ejJ;
     private ProgressBar mProgressBar;
 
     public d(View view) {
@@ -16,7 +16,7 @@ public class d extends RecyclerView.ViewHolder {
     }
 
     private void init(View view) {
-        this.ecI = (TextView) view.findViewById(R.id.loading_text);
+        this.ejJ = (TextView) view.findViewById(R.id.loading_text);
         this.mProgressBar = (ProgressBar) view.findViewById(R.id.loading_progress);
     }
 

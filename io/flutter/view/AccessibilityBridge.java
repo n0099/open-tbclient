@@ -20,9 +20,6 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeProvider;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import io.flutter.embedding.engine.systemchannels.AccessibilityChannel;
 import io.flutter.plugin.platform.PlatformViewsAccessibilityDelegate;
@@ -38,7 +35,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class AccessibilityBridge extends AccessibilityNodeProvider {
     private static final int ACTION_SHOW_ON_SCREEN = 16908342;
     private static int FIRST_RESOURCE_ID = 267386881;
@@ -47,46 +44,30 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     private static final float SCROLL_EXTENT_FOR_INFINITY = 100000.0f;
     private static final float SCROLL_POSITION_CAP_FOR_INFINITY = 70000.0f;
     private static final String TAG = "AccessibilityBridge";
-    @NonNull
     private final AccessibilityChannel accessibilityChannel;
-    @Nullable
     private SemanticsNode accessibilityFocusedSemanticsNode;
-    @NonNull
     private final AccessibilityManager accessibilityManager;
-    @NonNull
     private final AccessibilityViewEmbedder accessibilityViewEmbedder;
-    @NonNull
     private final ContentResolver contentResolver;
     private Integer embeddedAccessibilityFocusedNodeId;
     private Integer embeddedInputFocusedNodeId;
-    @Nullable
     private SemanticsNode hoveredObject;
-    @Nullable
     private SemanticsNode inputFocusedSemanticsNode;
-    @Nullable
     private SemanticsNode lastInputFocusedSemanticsNode;
-    @Nullable
     private OnAccessibilityChangeListener onAccessibilityChangeListener;
-    @NonNull
     private final PlatformViewsAccessibilityDelegate platformViewsAccessibilityDelegate;
-    @NonNull
     private final View rootAccessibilityView;
-    @RequiresApi(19)
     @TargetApi(19)
     private final AccessibilityManager.TouchExplorationStateChangeListener touchExplorationStateChangeListener;
-    @NonNull
     private final Map<Integer, SemanticsNode> flutterSemanticsTree = new HashMap();
-    @NonNull
     private final Map<Integer, CustomAccessibilityAction> customAccessibilityActions = new HashMap();
     private int accessibilityFeatureFlags = 0;
-    @NonNull
     private final List<Integer> flutterNavigationStack = new ArrayList();
     private int previousRouteId = 0;
-    @NonNull
     private Integer lastLeftFrameInset = 0;
     private final AccessibilityChannel.AccessibilityMessageHandler accessibilityMessageHandler = new AccessibilityChannel.AccessibilityMessageHandler() { // from class: io.flutter.view.AccessibilityBridge.1
         @Override // io.flutter.embedding.engine.systemchannels.AccessibilityChannel.AccessibilityMessageHandler
-        public void announce(@NonNull String str) {
+        public void announce(String str) {
             AccessibilityBridge.this.rootAccessibilityView.announceForAccessibility(str);
         }
 
@@ -101,7 +82,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
 
         @Override // io.flutter.embedding.engine.systemchannels.AccessibilityChannel.AccessibilityMessageHandler
-        public void onTooltip(@NonNull String str) {
+        public void onTooltip(String str) {
             AccessibilityEvent obtainAccessibilityEvent = AccessibilityBridge.this.obtainAccessibilityEvent(0, 32);
             obtainAccessibilityEvent.getText().add(str);
             AccessibilityBridge.this.sendAccessibilityEvent(obtainAccessibilityEvent);
@@ -152,12 +133,12 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface OnAccessibilityChangeListener {
         void onAccessibilityChanged(boolean z, boolean z2);
     }
 
-    public AccessibilityBridge(@NonNull View view, @NonNull AccessibilityChannel accessibilityChannel, @NonNull final AccessibilityManager accessibilityManager, @NonNull ContentResolver contentResolver, PlatformViewsAccessibilityDelegate platformViewsAccessibilityDelegate) {
+    public AccessibilityBridge(View view, AccessibilityChannel accessibilityChannel, final AccessibilityManager accessibilityManager, ContentResolver contentResolver, PlatformViewsAccessibilityDelegate platformViewsAccessibilityDelegate) {
         this.rootAccessibilityView = view;
         this.accessibilityChannel = accessibilityChannel;
         this.accessibilityManager = accessibilityManager;
@@ -216,7 +197,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         return this.accessibilityManager.isTouchExplorationEnabled();
     }
 
-    public void setOnAccessibilityChangeListener(@Nullable OnAccessibilityChangeListener onAccessibilityChangeListener) {
+    public void setOnAccessibilityChangeListener(OnAccessibilityChangeListener onAccessibilityChangeListener) {
         this.onAccessibilityChangeListener = onAccessibilityChangeListener;
     }
 
@@ -459,7 +440,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     @Override // android.view.accessibility.AccessibilityNodeProvider
-    public boolean performAction(int i, int i2, @Nullable Bundle bundle) {
+    public boolean performAction(int i, int i2, Bundle bundle) {
         boolean z = false;
         if (i >= 65536) {
             boolean performAction = this.accessibilityViewEmbedder.performAction(i, i2, bundle);
@@ -575,9 +556,8 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    @RequiresApi(18)
     @TargetApi(18)
-    private boolean performCursorMoveAction(@NonNull SemanticsNode semanticsNode, int i, @NonNull Bundle bundle, boolean z) {
+    private boolean performCursorMoveAction(SemanticsNode semanticsNode, int i, Bundle bundle, boolean z) {
         int i2 = bundle.getInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_MOVEMENT_GRANULARITY_INT);
         boolean z2 = bundle.getBoolean(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_EXTEND_SELECTION_BOOLEAN);
         switch (i2) {
@@ -704,7 +684,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    void updateCustomAccessibilityActions(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr) {
+    void updateCustomAccessibilityActions(ByteBuffer byteBuffer, String[] strArr) {
         while (byteBuffer.hasRemaining()) {
             CustomAccessibilityAction orCreateAccessibilityAction = getOrCreateAccessibilityAction(byteBuffer.getInt());
             orCreateAccessibilityAction.overrideId = byteBuffer.getInt();
@@ -715,7 +695,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    void updateSemantics(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr) {
+    void updateSemantics(ByteBuffer byteBuffer, String[] strArr) {
         String str;
         String str2;
         float f;
@@ -893,13 +873,13 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendAccessibilityEvent(@NonNull AccessibilityEvent accessibilityEvent) {
+    public void sendAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
         if (this.accessibilityManager.isEnabled()) {
             this.rootAccessibilityView.getParent().requestSendAccessibilityEvent(this.rootAccessibilityView, accessibilityEvent);
         }
     }
 
-    private void sendWindowChangeEvent(@NonNull SemanticsNode semanticsNode) {
+    private void sendWindowChangeEvent(SemanticsNode semanticsNode) {
         AccessibilityEvent obtainAccessibilityEvent = obtainAccessibilityEvent(semanticsNode.id, 32);
         obtainAccessibilityEvent.getText().add(semanticsNode.getRouteName());
         sendAccessibilityEvent(obtainAccessibilityEvent);
@@ -945,7 +925,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         sendWindowContentChangeEvent(0);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public enum Action {
         TAP(1),
         LONG_PRESS(2),
@@ -977,7 +957,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public enum Flag {
         HAS_CHECKED_STATE(1),
         IS_CHECKED(2),
@@ -1010,7 +990,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public enum AccessibilityFeature {
         ACCESSIBLE_NAVIGATION(1),
         INVERT_COLORS(2),
@@ -1024,7 +1004,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public enum TextDirection {
         UNKNOWN,
         LTR,
@@ -1043,7 +1023,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class CustomAccessibilityAction {
         private String hint;
         private String label;
@@ -1056,7 +1036,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class SemanticsNode {
         final AccessibilityBridge accessibilityBridge;
         private int actions;
@@ -1110,7 +1090,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
             return (semanticsNode == null || semanticsNode.getAncestor(predicate) == null) ? false : true;
         }
 
-        SemanticsNode(@NonNull AccessibilityBridge accessibilityBridge) {
+        SemanticsNode(AccessibilityBridge accessibilityBridge) {
             this.accessibilityBridge = accessibilityBridge;
         }
 
@@ -1124,22 +1104,22 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public boolean hasAction(@NonNull Action action) {
+        public boolean hasAction(Action action) {
             return (this.actions & action.value) != 0;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public boolean hadAction(@NonNull Action action) {
+        public boolean hadAction(Action action) {
             return (this.previousActions & action.value) != 0;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public boolean hasFlag(@NonNull Flag flag) {
+        public boolean hasFlag(Flag flag) {
             return (this.flags & flag.value) != 0;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public boolean hadFlag(@NonNull Flag flag) {
+        public boolean hadFlag(Flag flag) {
             return (this.previousFlags & flag.value) != 0;
         }
 
@@ -1156,11 +1136,11 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
             return this.label == null || this.previousLabel == null || !this.label.equals(this.previousLabel);
         }
 
-        private void log(@NonNull String str, boolean z) {
+        private void log(String str, boolean z) {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void updateWith(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr) {
+        public void updateWith(ByteBuffer byteBuffer, String[] strArr) {
             this.hadPreviousConfig = true;
             this.previousValue = this.value;
             this.previousLabel = this.label;

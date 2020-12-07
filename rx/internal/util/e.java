@@ -1,10 +1,10 @@
 package rx.internal.util;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public final class e<T> {
     final float loadFactor;
     int mask;
     int maxSize;
-    T[] pSa;
+    T[] pIO;
     int size;
 
     public e() {
@@ -16,12 +16,12 @@ public final class e<T> {
         int RR = rx.internal.util.a.h.RR(i);
         this.mask = RR - 1;
         this.maxSize = (int) (RR * f);
-        this.pSa = (T[]) new Object[RR];
+        this.pIO = (T[]) new Object[RR];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.pSa;
+        T[] tArr = this.pIO;
         int i = this.mask;
         int RQ = RQ(t.hashCode()) & i;
         T t3 = tArr[RQ];
@@ -48,7 +48,7 @@ public final class e<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.pSa;
+        T[] tArr = this.pIO;
         int i = this.mask;
         int RQ = RQ(t.hashCode()) & i;
         T t3 = tArr[RQ];
@@ -98,11 +98,11 @@ public final class e<T> {
 
     public void terminate() {
         this.size = 0;
-        this.pSa = (T[]) new Object[0];
+        this.pIO = (T[]) new Object[0];
     }
 
     void rehash() {
-        T[] tArr = this.pSa;
+        T[] tArr = this.pIO;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -126,7 +126,7 @@ public final class e<T> {
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.pSa = tArr2;
+                this.pIO = tArr2;
                 return;
             }
         }
@@ -141,7 +141,7 @@ public final class e<T> {
         return this.size == 0;
     }
 
-    public T[] eGa() {
-        return this.pSa;
+    public T[] eFZ() {
+        return this.pIO;
     }
 }

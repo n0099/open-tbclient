@@ -25,12 +25,15 @@ import com.baidu.android.imsdk.internal.IMSDK;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.imsdk.a;
+import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
+import com.baidu.h.a;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import java.io.File;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -41,7 +44,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class Utility {
     private static final String ALGORITHM_NAME = "AES";
     private static final String API_KEY = "BD_IM_API_KEY";
@@ -52,7 +55,7 @@ public final class Utility {
     private static int mDisableRestapi = 0;
     private static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface DeleteItem {
         void deleteItem(Context context, Long l);
     }
@@ -351,7 +354,7 @@ public final class Utility {
     public static void startIMService(Context context) {
         LogUtils.i(TAG, "--- Start IM Service ---");
         try {
-            a.ao(context).e(context, new Intent(context, a.class));
+            a.aq(context).e(context, new Intent(context, a.class));
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
         }
@@ -384,7 +387,7 @@ public final class Utility {
         creatMethodIntent.putExtra("contacter", j2);
         creatMethodIntent.putExtra("category", j);
         try {
-            a.ao(context).e(context, creatMethodIntent);
+            a.aq(context).e(context, creatMethodIntent);
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
             new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
@@ -466,7 +469,7 @@ public final class Utility {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
         }
         try {
-            a.ao(context).e(context, creatMethodIntent);
+            a.aq(context).e(context, creatMethodIntent);
         } catch (Exception e) {
             ListenerManager.getInstance().removeListener(str);
             LogUtils.e(TAG, "Exception ", e);
@@ -595,6 +598,12 @@ public final class Utility {
             sb.append(c2);
         }
         return !TextUtils.isEmpty(sb.toString()) ? sb.toString() : Constants.ERROR_MSG_MD5_EMPTY;
+    }
+
+    public static String getMd5(String str) throws NoSuchAlgorithmException {
+        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+        messageDigest.update(str.getBytes());
+        return byte2Hex(messageDigest.digest());
     }
 
     public static void sendConnectionStateBroadCast(Context context, int i) {
@@ -984,5 +993,14 @@ public final class Utility {
         }
         i = -1;
         return i;
+    }
+
+    public static long getImTrackDbSize(Context context) {
+        File databasePath = context.getDatabasePath(IMTrackDatabase.DB_NAME);
+        if (databasePath == null || !databasePath.exists() || !databasePath.isFile()) {
+            return 0L;
+        }
+        LogUtils.d(TAG, "IMTrack db path = " + databasePath.getAbsolutePath());
+        return databasePath.length();
     }
 }

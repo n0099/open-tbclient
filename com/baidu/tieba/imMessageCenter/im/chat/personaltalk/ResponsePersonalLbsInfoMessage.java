@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.SetLocation.SetLocationResIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
     private com.baidu.tbadk.coreExtra.relationship.b lbsInfo;
 

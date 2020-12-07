@@ -6,11 +6,11 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class f extends a {
     private Rect mRect;
     private Paint mPaint = new Paint();
-    private PorterDuffXfermode cAA = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+    private PorterDuffXfermode cHs = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
@@ -30,7 +30,7 @@ public class f extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         if (this.mRect != null) {
-            this.mPaint.setXfermode(this.cAA);
+            this.mPaint.setXfermode(this.cHs);
             canvas.drawRect(this.mRect, this.mPaint);
         }
     }

@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMUnBindPushMsg extends Message {
     public static final String TAG = IMUnBindPushMsg.class.getSimpleName();
     private Context mContext;
@@ -50,6 +50,7 @@ public class IMUnBindPushMsg extends Message {
             Utility.updateBindPushCUIDStatus(this.mContext, 1);
             BindStateManager.clearUnBindInfo(context);
         }
+        super.handleMessageResult(context, jSONObject, i, str);
         ChatMsgManagerImpl.getInstance(context).onUnRegisterNotifyResult(getListenerKey(), i, str);
     }
 }

@@ -12,10 +12,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class StreamUtils {
     private static final boolean DEBUG = false;
     public static final int FILE_STREAM_BUFFER_SIZE = 8192;
+    private static final String TAG = StreamUtils.class.getSimpleName();
 
     public static boolean bytesToFile(byte[] bArr, File file) {
         FileOutputStream fileOutputStream;
@@ -98,12 +99,13 @@ public class StreamUtils {
         return sb.toString();
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [178=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [185=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0055 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v0, types: [boolean] */
     /* JADX WARN: Type inference failed for: r2v1 */
     /* JADX WARN: Type inference failed for: r2v3, types: [java.io.Closeable] */
+    @Deprecated
     public static boolean streamToFile(InputStream inputStream, File file) {
         FileOutputStream fileOutputStream;
         if (inputStream == null) {
@@ -180,5 +182,13 @@ public class StreamUtils {
         } catch (IOException e) {
             return false;
         }
+    }
+
+    public static String getStringFromInput(InputStream inputStream) {
+        String readInputStream = FileUtils.readInputStream(inputStream);
+        if (readInputStream.startsWith("\ufeff")) {
+            return readInputStream.substring(1);
+        }
+        return readInputStream;
     }
 }

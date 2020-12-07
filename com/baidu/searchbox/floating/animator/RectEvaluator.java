@@ -1,21 +1,21 @@
 package com.baidu.searchbox.floating.animator;
 
 import android.animation.TypeEvaluator;
-import kotlin.h;
-import kotlin.jvm.internal.q;
-@h
-/* loaded from: classes9.dex */
+import kotlin.e;
+import kotlin.jvm.internal.p;
+@e
+/* loaded from: classes16.dex */
 public final class RectEvaluator implements TypeEvaluator<ViewRect> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.TypeEvaluator
     public ViewRect evaluate(float f, ViewRect viewRect, ViewRect viewRect2) {
-        q.n(viewRect, "start");
-        q.n(viewRect2, "end");
+        p.o(viewRect, "start");
+        p.o(viewRect2, "end");
         return new ViewRect((int) (viewRect.getX() + ((viewRect2.getX() - viewRect.getX()) * f)), (int) (viewRect.getY() + ((viewRect2.getY() - viewRect.getY()) * f)), (int) (viewRect.getW() + ((viewRect2.getW() - viewRect.getW()) * f)), (int) (viewRect.getH() + ((viewRect2.getH() - viewRect.getH()) * f)));
     }
 
-    @h
-    /* loaded from: classes9.dex */
+    @e
+    /* loaded from: classes16.dex */
     public static final class ViewRect {
         private final int h;
         private final int w;

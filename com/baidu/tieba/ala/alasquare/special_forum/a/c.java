@@ -5,12 +5,12 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.special_forum.data.g;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends com.baidu.adp.widget.ListView.a<g, e.a> {
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), g.glc);
+        super(tbPageContext.getPageActivity(), g.gtl);
         this.mPageContext = tbPageContext;
     }
 

@@ -9,7 +9,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class CodaBarReader extends OneDReader {
     private static final float MAX_ACCEPTABLE = 2.0f;
     private static final int MIN_CHARACTER_LENGTH = 3;

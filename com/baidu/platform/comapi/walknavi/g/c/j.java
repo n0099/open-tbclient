@@ -2,15 +2,15 @@ package com.baidu.platform.comapi.walknavi.g.c;
 
 import android.view.View;
 import android.view.animation.Animation;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 class j implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f3036a;
+    final /* synthetic */ i f3038a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.f3036a = iVar;
+        this.f3038a = iVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -20,7 +20,7 @@ class j implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         View view;
-        view = this.f3036a.f3035a.f3034a.ah;
+        view = this.f3038a.f3037a.f3036a.ah;
         view.setVisibility(8);
     }
 

@@ -12,15 +12,15 @@ import java.util.Properties;
 final class u implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4709a = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ".vivo/pushsdk/config";
-    private static final String b = f4709a + File.separator + "config.txt";
+    private static final String f4479a = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ".vivo/pushsdk/config";
+    private static final String b = f4479a + File.separator + "config.txt";
     private static String c = "SdcardCache";
     private File d;
 
     @Override // com.vivo.push.util.c
     public final boolean a(Context context) {
         if ("mounted".equals(Environment.getExternalStorageState())) {
-            File file = new File(f4709a);
+            File file = new File(f4479a);
             boolean mkdirs = !file.exists() ? file.mkdirs() : true;
             if (mkdirs) {
                 this.d = new File(b);

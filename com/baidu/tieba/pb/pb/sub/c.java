@@ -4,77 +4,77 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.adp.widget.ListView.ab;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.data.bx;
+import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c {
-    private BdTypeListView ghN;
-    private NewSubPbActivity lIS;
-    private com.baidu.tieba.pb.pb.sub.a.b lJI;
-    private com.baidu.tieba.pb.pb.sub.a.d lJJ;
-    private ab lJK;
-    private List<com.baidu.adp.widget.ListView.a> biN = new ArrayList();
-    private View.OnClickListener aYm = null;
-    private boolean ieI = false;
-    private boolean lJL = true;
+    private BdTypeListView gpX;
+    private NewSubPbActivity lWM;
+    private com.baidu.tieba.pb.pb.sub.a.b lXC;
+    private com.baidu.tieba.pb.pb.sub.a.d lXD;
+    private ab lXE;
+    private List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
+    private View.OnClickListener bbH = null;
+    private boolean ipC = false;
+    private boolean lXF = true;
 
     public c(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
-        this.lIS = newSubPbActivity;
-        this.ghN = bdTypeListView;
+        this.lWM = newSubPbActivity;
+        this.gpX = bdTypeListView;
     }
 
-    public void Lp() {
-        this.lJI = new com.baidu.tieba.pb.pb.sub.a.b(this.lIS, PostData.mXJ);
-        this.lJI.B(this.aYm);
-        this.lJI.a(this.lJK);
-        this.lJI.setFromCDN(this.lJL);
-        this.biN.add(this.lJI);
-        this.lJJ = new com.baidu.tieba.pb.pb.sub.a.d(this.lIS, com.baidu.tieba.pb.pb.sub.b.b.lKA);
-        this.biN.add(this.lJJ);
-        this.biN.add(new com.baidu.tieba.pb.pb.sub.a.c(this.lIS, com.baidu.tieba.pb.pb.sub.b.a.lKz));
-        this.ghN.addAdapters(this.biN);
+    public void Nt() {
+        this.lXC = new com.baidu.tieba.pb.pb.sub.a.b(this.lWM, PostData.nlH);
+        this.lXC.B(this.bbH);
+        this.lXC.a(this.lXE);
+        this.lXC.setFromCDN(this.lXF);
+        this.bnf.add(this.lXC);
+        this.lXD = new com.baidu.tieba.pb.pb.sub.a.d(this.lWM, com.baidu.tieba.pb.pb.sub.b.b.lYy);
+        this.bnf.add(this.lXD);
+        this.bnf.add(new com.baidu.tieba.pb.pb.sub.a.c(this.lWM, com.baidu.tieba.pb.pb.sub.b.a.lYx));
+        this.gpX.addAdapters(this.bnf);
     }
 
-    public void a(bx bxVar, List<q> list) {
-        this.lJI.setThreadData(bxVar);
-        if (!au.isEmpty(this.lIS.doW().dkT())) {
-            this.lJI.PD(this.lIS.doW().dkT());
+    public void a(by byVar, List<q> list) {
+        this.lXC.setThreadData(byVar);
+        if (!au.isEmpty(this.lWM.dun().dqi())) {
+            this.lXC.QL(this.lWM.dun().dqi());
         }
-        this.ghN.setData(list);
-        this.ghN.getAdapter().notifyDataSetChanged();
+        this.gpX.setData(list);
+        this.gpX.getAdapter().notifyDataSetChanged();
     }
 
-    public boolean aGb() {
-        return this.ieI;
+    public boolean aJj() {
+        return this.ipC;
     }
 
     public void setHasMoreData(boolean z) {
-        this.ieI = z;
+        this.ipC = z;
     }
 
     public void B(View.OnClickListener onClickListener) {
-        this.aYm = onClickListener;
+        this.bbH = onClickListener;
     }
 
     public void c(View.OnLongClickListener onLongClickListener) {
-        this.lJI.setOnLongClickListener(onLongClickListener);
+        this.lXC.setOnLongClickListener(onLongClickListener);
     }
 
     public void setOnImageClickListener(TbRichTextView.i iVar) {
-        this.lJI.setOnImageClickListener(iVar);
+        this.lXC.setOnImageClickListener(iVar);
     }
 
     public void setFromCDN(boolean z) {
-        this.lJL = z;
+        this.lXF = z;
     }
 
     public void notifyDataSetChanged() {
-        if (this.ghN.getAdapter() != null) {
-            this.ghN.getAdapter().notifyDataSetChanged();
+        if (this.gpX.getAdapter() != null) {
+            this.gpX.getAdapter().notifyDataSetChanged();
         }
     }
 }

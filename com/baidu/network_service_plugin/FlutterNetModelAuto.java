@@ -29,56 +29,56 @@ import com.baidu.tieba.R;
 import java.util.HashMap;
 import java.util.Map;
 import protobuf.Error;
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
-    private String bYX;
-    private Runnable bZa;
-    private Class<T> bZi;
-    private a<T, D> bZk;
-    private b<T, D> bZl;
-    protected T bZm;
-    private TbSocketMessage bZn;
-    private int bZo;
-    private int bZp;
-    private final NetModelType bZq;
+    private Runnable cfB;
+    private Class<T> cfJ;
+    private a<T, D> cfL;
+    private b<T, D> cfM;
+    protected T cfN;
+    private TbSocketMessage cfO;
+    private int cfP;
+    private int cfQ;
+    private final NetModelType cfR;
+    private String cfx;
     private String identifier;
     private Class<D> responseDataClass;
     private boolean mNeedCompress = false;
-    private boolean bZj = false;
+    private boolean cfK = false;
     protected BdUniqueId unique_id = null;
     private boolean isNeedCache = false;
-    private boolean bZr = false;
-    private boolean bZs = false;
-    private boolean bZt = false;
+    private boolean cfS = false;
+    private boolean cfT = false;
+    private boolean cfU = false;
     private boolean isLoading = false;
-    private int timeout = -1;
-    private boolean bYZ = true;
+    private int cfA = -1;
+    private boolean cfz = true;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     public enum NetModelType {
         TYPE_HTTP,
         TYPE_SOCKET,
         TYPE_AUTO
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     public interface a<T extends h, D extends j> {
         void a(String str, HashMap<String, String> hashMap, MvcHttpResponsedMessage<D> mvcHttpResponsedMessage, MvcHttpMessage<T, D> mvcHttpMessage, MvcNetMessage<T, D> mvcNetMessage);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     public interface b<T extends h, D extends j> {
         void a(String str, HashMap<String, String> hashMap, SocketResponsedMessage socketResponsedMessage, SocketMessage socketMessage, NetMessage netMessage);
     }
 
     public FlutterNetModelAuto(String str, NetModelType netModelType) {
         this.identifier = str;
-        this.bZq = netModelType;
+        this.cfR = netModelType;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbSocketMessage tbSocketMessage) {
-        this.bZn = tbSocketMessage;
+        this.cfO = tbSocketMessage;
     }
 
     protected Class<D> getResponseDataClass() {
@@ -87,7 +87,7 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void p(Class<T> cls) {
-        this.bZi = cls;
+        this.cfJ = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -95,28 +95,28 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
         this.responseDataClass = cls;
     }
 
-    public int ZO() {
-        return this.bZo;
+    public int acW() {
+        return this.cfP;
     }
 
-    public int ZP() {
-        return this.bZp;
+    public int acX() {
+        return this.cfQ;
     }
 
-    public void gF(int i) {
-        this.bZp = i;
+    public void hd(int i) {
+        this.cfQ = i;
     }
 
-    public void gG(int i) {
-        this.bZo = i;
+    public void he(int i) {
+        this.cfP = i;
     }
 
-    public String ZI() {
-        return this.bYX;
+    public String acQ() {
+        return this.cfx;
     }
 
-    public void jl(String str) {
-        this.bYX = str;
+    public void jS(String str) {
+        this.cfx = str;
     }
 
     protected boolean isNeedCache() {
@@ -139,20 +139,20 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
         return this.mNeedCompress;
     }
 
-    public void dI(boolean z) {
-        this.bZj = z;
+    public void dY(boolean z) {
+        this.cfK = z;
     }
 
-    public boolean ZQ() {
-        return this.bZj;
+    public boolean acY() {
+        return this.cfK;
     }
 
-    public Runnable ZN() {
-        if (this.bZa == null) {
-            this.bZa = new Runnable() { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.1
+    public Runnable acV() {
+        if (this.cfB == null) {
+            this.cfB = new Runnable() { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    switch (AnonymousClass2.bZu[FlutterNetModelAuto.this.bZq.ordinal()]) {
+                    switch (AnonymousClass2.cfV[FlutterNetModelAuto.this.cfR.ordinal()]) {
                         case 1:
                             FlutterNetModelAuto.this.aa(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                             return;
@@ -168,20 +168,20 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
                 }
             };
         }
-        return this.bZa;
+        return this.cfB;
     }
 
     public boolean loadData() {
-        if (this.bZl == null && this.bZk == null && TbadkCoreApplication.getInst().isDebugMode()) {
+        if (this.cfM == null && this.cfL == null && TbadkCoreApplication.getInst().isDebugMode()) {
             throw new RuntimeException("NetModel must have callback");
         }
-        this.bYZ = l.isNetOk();
-        if (this.timeout >= 10) {
-            e.mY().postDelayed(ZN(), this.timeout * 1000);
+        this.cfz = l.isNetOk();
+        if (this.cfA >= 10) {
+            e.mY().postDelayed(acV(), this.cfA * 1000);
         }
-        switch (this.bZq) {
+        switch (this.cfR) {
             case TYPE_AUTO:
-                if (!this.bYZ) {
+                if (!this.cfz) {
                     e.mY().post(new Runnable() { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.3
                         @Override // java.lang.Runnable
                         public void run() {
@@ -191,23 +191,23 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
                     return false;
                 }
                 this.isLoading = true;
-                ZV();
-                ZX();
-                ZR();
-                MvcNetMessage mvcNetMessage = new MvcNetMessage(this.bZm, ZP(), ZO());
+                add();
+                adf();
+                acZ();
+                MvcNetMessage mvcNetMessage = new MvcNetMessage(this.cfN, acX(), acW());
                 mvcNetMessage.setNeedCache(isNeedCache());
                 mvcNetMessage.setResponseDataClass(getResponseDataClass());
                 mvcNetMessage.setTag(this.unique_id);
-                HashMap<String, String> bAP = this.bZm.bAP();
-                if (bAP != null) {
-                    for (Map.Entry<String, String> entry : bAP.entrySet()) {
+                HashMap<String, String> bEr = this.cfN.bEr();
+                if (bEr != null) {
+                    for (Map.Entry<String, String> entry : bEr.entrySet()) {
                         mvcNetMessage.getHttpMessage().addHeader(entry.getKey(), entry.getValue());
                     }
                 }
                 MessageManager.getInstance().sendMessage(mvcNetMessage);
                 return true;
             case TYPE_SOCKET:
-                if (!this.bYZ) {
+                if (!this.cfz) {
                     e.mY().post(new Runnable() { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.5
                         @Override // java.lang.Runnable
                         public void run() {
@@ -217,21 +217,21 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
                     return false;
                 }
                 this.isLoading = true;
-                ZX();
-                ZR();
-                if (this.bZm != null) {
-                    MvcSocketMessage mvcSocketMessage = new MvcSocketMessage(this.bZm, ZO());
+                adf();
+                acZ();
+                if (this.cfN != null) {
+                    MvcSocketMessage mvcSocketMessage = new MvcSocketMessage(this.cfN, acW());
                     mvcSocketMessage.setResponseDataClass(getResponseDataClass());
                     mvcSocketMessage.setNeedCache(isNeedCache());
                     mvcSocketMessage.setTag(this.unique_id);
                     MessageManager.getInstance().sendMessage(mvcSocketMessage);
                 }
-                if (this.bZn != null) {
-                    MessageManager.getInstance().sendMessage(this.bZn);
+                if (this.cfO != null) {
+                    MessageManager.getInstance().sendMessage(this.cfO);
                 }
                 return true;
             case TYPE_HTTP:
-                if (!this.bYZ) {
+                if (!this.cfz) {
                     e.mY().post(new Runnable() { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.4
                         @Override // java.lang.Runnable
                         public void run() {
@@ -241,19 +241,19 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
                     return false;
                 }
                 this.isLoading = true;
-                ZW();
-                ZR();
-                MvcHttpMessage mvcHttpMessage = new MvcHttpMessage(this.bZm, ZP());
+                ade();
+                acZ();
+                MvcHttpMessage mvcHttpMessage = new MvcHttpMessage(this.cfN, acX());
                 mvcHttpMessage.setResponseDataClass(getResponseDataClass());
-                HashMap<String, Object> bAO = this.bZm.bAO();
-                if (bAO != null) {
-                    for (Map.Entry<String, Object> entry2 : bAO.entrySet()) {
+                HashMap<String, Object> bEq = this.cfN.bEq();
+                if (bEq != null) {
+                    for (Map.Entry<String, Object> entry2 : bEq.entrySet()) {
                         mvcHttpMessage.addParam(entry2.getKey(), entry2.getValue());
                     }
                 }
-                HashMap<String, String> bAP2 = this.bZm.bAP();
-                if (bAP2 != null) {
-                    for (Map.Entry<String, String> entry3 : bAP2.entrySet()) {
+                HashMap<String, String> bEr2 = this.cfN.bEr();
+                if (bEr2 != null) {
+                    for (Map.Entry<String, String> entry3 : bEr2.entrySet()) {
                         mvcHttpMessage.addHeader(entry3.getKey(), entry3.getValue());
                     }
                 }
@@ -266,33 +266,33 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
         }
     }
 
-    private void ZR() {
-        if (!this.bZt) {
-            switch (this.bZq) {
+    private void acZ() {
+        if (!this.cfU) {
+            switch (this.cfR) {
                 case TYPE_AUTO:
-                    com.baidu.adp.framework.listener.a aVar = new com.baidu.adp.framework.listener.a(ZP(), ZO()) { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.6
+                    com.baidu.adp.framework.listener.a aVar = new com.baidu.adp.framework.listener.a(acX(), acW()) { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.6
                         @Override // com.baidu.adp.framework.listener.a
                         public void onMessage(ResponsedMessage<?> responsedMessage) {
                             FlutterNetModelAuto.this.isLoading = false;
-                            if (FlutterNetModelAuto.this.bZa != null) {
-                                e.mY().removeCallbacks(FlutterNetModelAuto.this.bZa);
+                            if (FlutterNetModelAuto.this.cfB != null) {
+                                e.mY().removeCallbacks(FlutterNetModelAuto.this.cfB);
                             }
                             if (responsedMessage instanceof MvcProtobufHttpResponsedMessage) {
                                 MvcNetMessage<T, D> mvcNetMessage = responsedMessage.getOrginalMessage().getExtra() instanceof MvcNetMessage ? (MvcNetMessage) responsedMessage.getOrginalMessage().getExtra() : null;
-                                if (FlutterNetModelAuto.this.bZk != null) {
+                                if (FlutterNetModelAuto.this.cfL != null) {
                                     HashMap<String, String> hashMap = new HashMap<>();
-                                    hashMap.put("server", FlutterNetModelAuto.this.ZI());
-                                    hashMap.put("api", FlutterNetModelAuto.this.ZP() + "");
+                                    hashMap.put("server", FlutterNetModelAuto.this.acQ());
+                                    hashMap.put("api", FlutterNetModelAuto.this.acX() + "");
                                     hashMap.put("state", responsedMessage.getError() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + responsedMessage.getErrorString());
-                                    FlutterNetModelAuto.this.bZk.a(FlutterNetModelAuto.this.identifier, hashMap, (MvcProtobufHttpResponsedMessage) responsedMessage, null, mvcNetMessage);
+                                    FlutterNetModelAuto.this.cfL.a(FlutterNetModelAuto.this.identifier, hashMap, (MvcProtobufHttpResponsedMessage) responsedMessage, null, mvcNetMessage);
                                 }
                             } else if (responsedMessage instanceof SocketResponsedMessage) {
                                 MvcNetMessage mvcNetMessage2 = responsedMessage.getOrginalMessage().getExtra() instanceof MvcNetMessage ? (MvcNetMessage) responsedMessage.getOrginalMessage().getExtra() : null;
-                                if (FlutterNetModelAuto.this.bZl != null) {
+                                if (FlutterNetModelAuto.this.cfM != null) {
                                     HashMap<String, String> hashMap2 = new HashMap<>();
-                                    hashMap2.put("api", FlutterNetModelAuto.this.ZO() + "");
+                                    hashMap2.put("api", FlutterNetModelAuto.this.acW() + "");
                                     hashMap2.put("state", responsedMessage.getError() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + responsedMessage.getErrorString());
-                                    FlutterNetModelAuto.this.bZl.a(FlutterNetModelAuto.this.identifier, hashMap2, (SocketResponsedMessage) responsedMessage, null, mvcNetMessage2);
+                                    FlutterNetModelAuto.this.cfM.a(FlutterNetModelAuto.this.identifier, hashMap2, (SocketResponsedMessage) responsedMessage, null, mvcNetMessage2);
                                 }
                             } else if (TbadkCoreApplication.getInst().isDebugMode()) {
                                 throw new RuntimeException("mvc netmodel NetListener responsedMessage error");
@@ -305,30 +305,30 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
                     MessageManager.getInstance().registerListener(aVar);
                     break;
                 case TYPE_SOCKET:
-                    com.baidu.adp.framework.listener.c cVar = new com.baidu.adp.framework.listener.c(ZO()) { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.11
+                    com.baidu.adp.framework.listener.c cVar = new com.baidu.adp.framework.listener.c(acW()) { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.11
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.adp.framework.listener.MessageListener
                         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
                             FlutterNetModelAuto.this.isLoading = false;
-                            if (FlutterNetModelAuto.this.bZa != null) {
-                                e.mY().removeCallbacks(FlutterNetModelAuto.this.bZa);
+                            if (FlutterNetModelAuto.this.cfB != null) {
+                                e.mY().removeCallbacks(FlutterNetModelAuto.this.cfB);
                             }
                             if (socketResponsedMessage instanceof MvcSocketResponsedMessage) {
                                 if (socketResponsedMessage.getOrginalMessage() instanceof MvcSocketMessage) {
-                                    if (FlutterNetModelAuto.this.bZl != null) {
+                                    if (FlutterNetModelAuto.this.cfM != null) {
                                         HashMap<String, String> hashMap = new HashMap<>();
-                                        hashMap.put("api", FlutterNetModelAuto.this.ZO() + "");
+                                        hashMap.put("api", FlutterNetModelAuto.this.acW() + "");
                                         hashMap.put("state", socketResponsedMessage.getError() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + socketResponsedMessage.getErrorString());
-                                        FlutterNetModelAuto.this.bZl.a(FlutterNetModelAuto.this.identifier, hashMap, socketResponsedMessage, (SocketMessage) socketResponsedMessage.getOrginalMessage(), null);
+                                        FlutterNetModelAuto.this.cfM.a(FlutterNetModelAuto.this.identifier, hashMap, socketResponsedMessage, (SocketMessage) socketResponsedMessage.getOrginalMessage(), null);
                                     }
                                 } else if (TbadkCoreApplication.getInst().isDebugMode()) {
                                     throw new RuntimeException("mvc netmodel SocketListener socketResponsedMessage originaMessage error");
                                 }
-                            } else if ((socketResponsedMessage instanceof SocketResponsedMessage) && FlutterNetModelAuto.this.bZl != null) {
+                            } else if ((socketResponsedMessage instanceof SocketResponsedMessage) && FlutterNetModelAuto.this.cfM != null) {
                                 HashMap<String, String> hashMap2 = new HashMap<>();
-                                hashMap2.put("api", FlutterNetModelAuto.this.ZO() + "");
+                                hashMap2.put("api", FlutterNetModelAuto.this.acW() + "");
                                 hashMap2.put("state", socketResponsedMessage.getError() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + socketResponsedMessage.getErrorString());
-                                FlutterNetModelAuto.this.bZl.a(FlutterNetModelAuto.this.identifier, hashMap2, socketResponsedMessage, (SocketMessage) socketResponsedMessage.getOrginalMessage(), null);
+                                FlutterNetModelAuto.this.cfM.a(FlutterNetModelAuto.this.identifier, hashMap2, socketResponsedMessage, (SocketMessage) socketResponsedMessage.getOrginalMessage(), null);
                             }
                         }
                     };
@@ -336,22 +336,22 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
                     MessageManager.getInstance().registerListener(cVar);
                     break;
                 case TYPE_HTTP:
-                    HttpMessageListener httpMessageListener = new HttpMessageListener(ZP(), true) { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.7
+                    HttpMessageListener httpMessageListener = new HttpMessageListener(acX(), true) { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.7
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.adp.framework.listener.MessageListener
                         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                             FlutterNetModelAuto.this.isLoading = false;
-                            if (FlutterNetModelAuto.this.bZa != null) {
-                                e.mY().removeCallbacks(FlutterNetModelAuto.this.bZa);
+                            if (FlutterNetModelAuto.this.cfB != null) {
+                                e.mY().removeCallbacks(FlutterNetModelAuto.this.cfB);
                             }
                             if (httpResponsedMessage instanceof MvcJsonHttpResponsedMessage) {
                                 if (httpResponsedMessage.getOrginalMessage() instanceof MvcHttpMessage) {
-                                    if (FlutterNetModelAuto.this.bZk != null) {
+                                    if (FlutterNetModelAuto.this.cfL != null) {
                                         HashMap<String, String> hashMap = new HashMap<>();
-                                        hashMap.put("server", FlutterNetModelAuto.this.ZI());
-                                        hashMap.put("api", FlutterNetModelAuto.this.ZP() + "");
+                                        hashMap.put("server", FlutterNetModelAuto.this.acQ());
+                                        hashMap.put("api", FlutterNetModelAuto.this.acX() + "");
                                         hashMap.put("state", httpResponsedMessage.getError() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + httpResponsedMessage.getErrorString());
-                                        FlutterNetModelAuto.this.bZk.a(FlutterNetModelAuto.this.identifier, hashMap, (MvcJsonHttpResponsedMessage) httpResponsedMessage, (MvcHttpMessage) httpResponsedMessage.getOrginalMessage(), null);
+                                        FlutterNetModelAuto.this.cfL.a(FlutterNetModelAuto.this.identifier, hashMap, (MvcJsonHttpResponsedMessage) httpResponsedMessage, (MvcHttpMessage) httpResponsedMessage.getOrginalMessage(), null);
                                     }
                                 } else if (TbadkCoreApplication.getInst().isDebugMode()) {
                                     throw new RuntimeException("mvc netmodel HttpListener jsonHttpResponsedMessage originaMessage error");
@@ -365,62 +365,62 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
                     MessageManager.getInstance().registerListener(httpMessageListener);
                     break;
             }
-            this.bZt = true;
+            this.cfU = true;
         }
     }
 
-    protected Class<? extends MvcProtobufHttpResponsedMessage> ZS() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> ada() {
         return MvcProtobufHttpResponsedMessage.class;
     }
 
-    protected Class<? extends MvcJsonHttpResponsedMessage> ZT() {
+    protected Class<? extends MvcJsonHttpResponsedMessage> adb() {
         return MvcJsonHttpResponsedMessage.class;
     }
 
-    protected Class<? extends MvcSocketResponsedMessage> ZU() {
+    protected Class<? extends MvcSocketResponsedMessage> adc() {
         return MvcSocketResponsedMessage.class;
     }
 
-    private void ZV() {
-        if (!this.bZr && MessageManager.getInstance().findTask(ZP()) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(ZP(), ZI() + "?cmd=" + ZO());
-            tbHttpMessageTask.setResponsedClass(ZS());
+    private void add() {
+        if (!this.cfS && MessageManager.getInstance().findTask(acX()) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(acX(), acQ() + "?cmd=" + acW());
+            tbHttpMessageTask.setResponsedClass(ada());
             a(tbHttpMessageTask);
-            MessageManager.getInstance().unRegisterTask(ZP());
+            MessageManager.getInstance().unRegisterTask(acX());
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            this.bZr = true;
+            this.cfS = true;
         }
     }
 
     protected void a(TbHttpMessageTask tbHttpMessageTask) {
     }
 
-    private void ZW() {
-        if (!this.bZr && MessageManager.getInstance().findTask(ZP()) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(ZP(), ZI());
-            tbHttpMessageTask.setResponsedClass(ZT());
+    private void ade() {
+        if (!this.cfS && MessageManager.getInstance().findTask(acX()) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(acX(), acQ());
+            tbHttpMessageTask.setResponsedClass(adb());
             b(tbHttpMessageTask);
-            MessageManager.getInstance().unRegisterTask(ZP());
+            MessageManager.getInstance().unRegisterTask(acX());
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            this.bZr = true;
+            this.cfS = true;
         }
     }
 
     protected void b(TbHttpMessageTask tbHttpMessageTask) {
     }
 
-    private void ZX() {
-        if (!this.bZs && MessageManager.getInstance().findTask(ZO()) == null) {
-            com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(ZO());
-            bVar.setResponsedClass(ZU());
+    private void adf() {
+        if (!this.cfT && MessageManager.getInstance().findTask(acW()) == null) {
+            com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(acW());
+            bVar.setResponsedClass(adc());
             bVar.setNeedCompress(getNeedCompress());
-            if (ZQ()) {
+            if (acY()) {
                 bVar.setParallel(TiebaIMConfig.getParallel());
             }
             a(bVar);
-            MessageManager.getInstance().unRegisterTask(ZO());
+            MessageManager.getInstance().unRegisterTask(acW());
             MessageManager.getInstance().registerTask(bVar);
-            this.bZs = true;
+            this.cfT = true;
         }
     }
 
@@ -430,16 +430,16 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
     @Override // com.baidu.network_service_plugin.b.a
     public boolean cancelLoadData() {
         this.isLoading = false;
-        MessageManager.getInstance().removeMessage(ZO(), this.unique_id);
-        MessageManager.getInstance().removeMessage(ZP(), this.unique_id);
+        MessageManager.getInstance().removeMessage(acW(), this.unique_id);
+        MessageManager.getInstance().removeMessage(acX(), this.unique_id);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aa(int i, String str) {
-        MvcNetMessage<T, D> mvcNetMessage = new MvcNetMessage<>(this.bZm, ZP(), ZO());
-        if (this.bZl != null) {
-            MvcSocketResponsedMessage mvcSocketResponsedMessage = new MvcSocketResponsedMessage(ZO()) { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.8
+        MvcNetMessage<T, D> mvcNetMessage = new MvcNetMessage<>(this.cfN, acX(), acW());
+        if (this.cfM != null) {
+            MvcSocketResponsedMessage mvcSocketResponsedMessage = new MvcSocketResponsedMessage(acW()) { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.8
                 @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
                 protected Class getProtobufResponseIdlClass() {
                     return null;
@@ -449,10 +449,10 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
             mvcSocketResponsedMessage.setError(i);
             mvcSocketResponsedMessage.setErrorString(str);
             HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("api", ZO() + "");
-            this.bZl.a(this.identifier, hashMap, mvcSocketResponsedMessage, null, mvcNetMessage);
-        } else if (this.bZk != null) {
-            MvcHttpResponsedMessage<D> mvcHttpResponsedMessage = new MvcProtobufHttpResponsedMessage<D, Error>(ZP()) { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.9
+            hashMap.put("api", acW() + "");
+            this.cfM.a(this.identifier, hashMap, mvcSocketResponsedMessage, null, mvcNetMessage);
+        } else if (this.cfL != null) {
+            MvcHttpResponsedMessage<D> mvcHttpResponsedMessage = new MvcProtobufHttpResponsedMessage<D, Error>(acX()) { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.9
                 @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
                 protected Class<Error> getProtobufResponseIdlClass() {
                     return Error.class;
@@ -462,29 +462,29 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
             mvcHttpResponsedMessage.setError(i);
             mvcHttpResponsedMessage.setErrorString(str);
             HashMap<String, String> hashMap2 = new HashMap<>();
-            hashMap2.put("api", ZP() + "");
-            this.bZk.a(this.identifier, hashMap2, mvcHttpResponsedMessage, null, mvcNetMessage);
+            hashMap2.put("api", acX() + "");
+            this.cfL.a(this.identifier, hashMap2, mvcHttpResponsedMessage, null, mvcNetMessage);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Z(int i, String str) {
-        if (this.bZk != null) {
-            MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(this.bZm, ZP());
-            MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(ZP());
+        if (this.cfL != null) {
+            MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(this.cfN, acX());
+            MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(acX());
             mvcJsonHttpResponsedMessage.setOrginalMessage(mvcHttpMessage);
             mvcJsonHttpResponsedMessage.setError(i);
             mvcJsonHttpResponsedMessage.setErrorString(str);
             HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("api", ZP() + "");
-            this.bZk.a(this.identifier, hashMap, mvcJsonHttpResponsedMessage, mvcHttpMessage, null);
+            hashMap.put("api", acX() + "");
+            this.cfL.a(this.identifier, hashMap, mvcJsonHttpResponsedMessage, mvcHttpMessage, null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ab(int i, String str) {
-        MvcSocketMessage mvcSocketMessage = new MvcSocketMessage(this.bZm, ZO());
-        MvcSocketResponsedMessage mvcSocketResponsedMessage = new MvcSocketResponsedMessage(ZO()) { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.10
+        MvcSocketMessage mvcSocketMessage = new MvcSocketMessage(this.cfN, acW());
+        MvcSocketResponsedMessage mvcSocketResponsedMessage = new MvcSocketResponsedMessage(acW()) { // from class: com.baidu.network_service_plugin.FlutterNetModelAuto.10
             @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
             protected Class getProtobufResponseIdlClass() {
                 return null;
@@ -494,15 +494,15 @@ public class FlutterNetModelAuto<T extends h, D extends j> implements b.a {
         mvcSocketResponsedMessage.setError(i);
         mvcSocketResponsedMessage.setErrorString(str);
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("api", ZO() + "");
-        this.bZl.a(this.identifier, hashMap, mvcSocketResponsedMessage, mvcSocketMessage, null);
+        hashMap.put("api", acW() + "");
+        this.cfM.a(this.identifier, hashMap, mvcSocketResponsedMessage, mvcSocketMessage, null);
     }
 
     public void a(a<T, D> aVar) {
-        this.bZk = aVar;
+        this.cfL = aVar;
     }
 
     public void a(b<T, D> bVar) {
-        this.bZl = bVar;
+        this.cfM = bVar;
     }
 }

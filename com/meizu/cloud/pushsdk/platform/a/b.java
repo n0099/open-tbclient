@@ -8,11 +8,11 @@ import com.meizu.cloud.pushsdk.platform.b.f;
 import com.meizu.cloud.pushsdk.platform.b.g;
 import java.io.File;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f4438a;
+    private static b f4208a;
     private ScheduledExecutorService b;
     private Context c;
     private a d;
@@ -45,14 +45,14 @@ public class b {
     }
 
     public static b a(Context context) {
-        if (f4438a == null) {
+        if (f4208a == null) {
             synchronized (b.class) {
-                if (f4438a == null) {
-                    f4438a = new b(context, true);
+                if (f4208a == null) {
+                    f4208a = new b(context, true);
                 }
             }
         }
-        return f4438a;
+        return f4208a;
     }
 
     public c<String> a(String str, String str2, String str3, File file) {

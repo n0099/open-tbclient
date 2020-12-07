@@ -19,7 +19,7 @@ import java.io.IOException;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile g f1087a;
+    private static volatile g f1085a;
     private static LocalServerSocket e;
     private static boolean m;
     private e c;
@@ -55,19 +55,19 @@ public class g {
     }
 
     public static g a(Context context) {
-        if (f1087a == null) {
+        if (f1085a == null) {
             synchronized (g.class) {
-                if (f1087a == null) {
-                    f1087a = new g(context);
+                if (f1085a == null) {
+                    f1085a = new g(context);
                 }
             }
         }
-        return f1087a;
+        return f1085a;
     }
 
     public static void b() {
-        if (f1087a != null) {
-            f1087a.k();
+        if (f1085a != null) {
+            f1085a.k();
         }
         com.baidu.android.pushservice.g.d.a().b();
     }
@@ -113,7 +113,7 @@ public class g {
             if (this.j) {
                 j();
             }
-            f1087a = null;
+            f1085a = null;
         }
     }
 
@@ -150,7 +150,7 @@ public class g {
         com.baidu.android.pushservice.g.d.a().a(new com.baidu.android.pushservice.g.c("tryConnect", (short) 98) { // from class: com.baidu.android.pushservice.g.1
             @Override // com.baidu.android.pushservice.g.c
             public void a() {
-                if (g.f1087a == null) {
+                if (g.f1085a == null) {
                     return;
                 }
                 boolean a2 = com.baidu.android.pushservice.i.g.a(g.this.h);
@@ -246,7 +246,7 @@ public class g {
             return false;
         }
         synchronized (g) {
-            if (PushSocket.f1161a) {
+            if (PushSocket.f1159a) {
                 if (o()) {
                     this.j = m.p(this.h);
                     if (this.j) {

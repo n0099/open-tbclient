@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class ARPScriptEnvironment {
     public static final String KEY_AR_KEY = "ar_key";
     public static final String KEY_AR_TYPE = "ar_type";

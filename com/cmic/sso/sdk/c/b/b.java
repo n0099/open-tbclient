@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class b extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4009a;
+    private String f4012a;
     private String b;
     private String c;
     private String d;
@@ -24,7 +24,7 @@ public class b extends g {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("version", this.f4009a);
+            jSONObject.put("version", this.f4012a);
             jSONObject.put("apptype", this.b);
             jSONObject.put("phone_ID", this.c);
             jSONObject.put("certflag", this.d);
@@ -39,7 +39,7 @@ public class b extends g {
     }
 
     public void a(String str) {
-        this.f4009a = str;
+        this.f4012a = str;
     }
 
     public void b(String str) {
@@ -67,6 +67,6 @@ public class b extends g {
     }
 
     public String c() {
-        return dP(this.f4009a + this.e + this.f + "iYm0HAnkxQtpvN44").toLowerCase();
+        return dR(this.f4012a + this.e + this.f + "iYm0HAnkxQtpvN44").toLowerCase();
     }
 }

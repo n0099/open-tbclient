@@ -11,11 +11,11 @@ import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.imsdk.a;
+import com.baidu.h.a;
 import com.baidu.sapi2.SapiContext;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMJoinCastMsg extends Message {
     private static final String TAG = "IMJoinCastMsg";
     private Context mContext;
@@ -64,7 +64,7 @@ public class IMJoinCastMsg extends Message {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x010a  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0143  */
     @Override // com.baidu.android.imsdk.request.Message
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -98,6 +98,7 @@ public class IMJoinCastMsg extends Message {
                         i2 = i;
                         LogUtils.e(TAG, "handle IMQuitCastMsg exception :", e);
                         j = j2;
+                        super.handleMessageResult(context, jSONObject, i2, str2);
                         LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str2);
                         ConversationStudioManImpl conversationStudioManImpl = ConversationStudioManImpl.getInstance(this.mContext);
                         String listenerKey = getListenerKey();
@@ -109,48 +110,52 @@ public class IMJoinCastMsg extends Message {
                     str2 = Constants.ERROR_MSG_SERVER_INTERNAL_ERROR;
                     i2 = 1015;
                 }
-            } catch (Exception e3) {
-                e = e3;
+                try {
+                    if (jSONObject.has("ping_interval")) {
+                        int optInt = jSONObject.optInt("ping_interval", 60000);
+                        if (optInt > 0) {
+                            Heartbeat.ALARM_TIMEOUT = optInt * 1000;
+                            if (a.ayO) {
+                                ConversationStudioManImpl.mCastHeartBeatTime = optInt * 1000;
+                            }
+                        } else {
+                            Heartbeat.ALARM_TIMEOUT = 30000;
+                        }
+                    } else {
+                        Heartbeat.ALARM_TIMEOUT = 60000;
+                    }
+                    ConversationStudioManImpl.getInstance(this.mContext);
+                    ConversationStudioManImpl.resetHeartBeat(Heartbeat.ALARM_TIMEOUT);
+                    if (jSONObject.has("ack_enable")) {
+                        if (jSONObject.optInt("ack_enable", 0) == 1) {
+                            ConversationStudioManImpl.getInstance(this.mContext).addAckCastId(j2);
+                            LogUtils.d(TAG, "join 后添加ack cast信息：" + j2);
+                        } else {
+                            ConversationStudioManImpl.getInstance(this.mContext).removeAckCastId(j2);
+                            LogUtils.d(TAG, "join后 删除ack cast信息" + j2);
+                        }
+                    }
+                    LogUtils.d(TAG, " obj=" + jSONObject.toString());
+                    j = j2;
+                } catch (Exception e3) {
+                    e = e3;
+                    LogUtils.e(TAG, "handle IMQuitCastMsg exception :", e);
+                    j = j2;
+                    super.handleMessageResult(context, jSONObject, i2, str2);
+                    LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str2);
+                    ConversationStudioManImpl conversationStudioManImpl2 = ConversationStudioManImpl.getInstance(this.mContext);
+                    String listenerKey2 = getListenerKey();
+                    if (j <= 0) {
+                    }
+                    conversationStudioManImpl2.onJoinCastResult(listenerKey2, i2, str2, j);
+                }
+            } catch (Exception e4) {
+                e = e4;
                 str2 = str;
                 i2 = i;
             }
-            try {
-                if (jSONObject.has("ping_interval")) {
-                    int optInt = jSONObject.optInt("ping_interval", 60000);
-                    if (optInt > 0) {
-                        Heartbeat.ALARM_TIMEOUT = optInt * 1000;
-                        if (a.axQ) {
-                            ConversationStudioManImpl.mCastHeartBeatTime = optInt;
-                        }
-                    } else {
-                        Heartbeat.ALARM_TIMEOUT = 30000;
-                    }
-                } else {
-                    Heartbeat.ALARM_TIMEOUT = 60000;
-                }
-                ConversationStudioManImpl.getInstance(this.mContext);
-                ConversationStudioManImpl.resetHeartBeat(Heartbeat.ALARM_TIMEOUT);
-                if (jSONObject.has("ack_enable")) {
-                    if (jSONObject.optInt("ack_enable", 0) == 1) {
-                        ConversationStudioManImpl.getInstance(this.mContext).addAckCastId(j2);
-                    } else {
-                        ConversationStudioManImpl.getInstance(this.mContext).removeAckCastId(j2);
-                    }
-                }
-                LogUtils.d(TAG, " obj=" + jSONObject.toString());
-                j = j2;
-            } catch (Exception e4) {
-                e = e4;
-                LogUtils.e(TAG, "handle IMQuitCastMsg exception :", e);
-                j = j2;
-                LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str2);
-                ConversationStudioManImpl conversationStudioManImpl2 = ConversationStudioManImpl.getInstance(this.mContext);
-                String listenerKey2 = getListenerKey();
-                if (j <= 0) {
-                }
-                conversationStudioManImpl2.onJoinCastResult(listenerKey2, i2, str2, j);
-            }
         }
+        super.handleMessageResult(context, jSONObject, i2, str2);
         LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str2);
         ConversationStudioManImpl conversationStudioManImpl22 = ConversationStudioManImpl.getInstance(this.mContext);
         String listenerKey22 = getListenerKey();

@@ -8,23 +8,23 @@ import com.xiaomi.push.service.XMPushService;
 public class bx extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XMPushService f5097a;
+    final /* synthetic */ XMPushService f4867a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f903a;
+    final /* synthetic */ String f901a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ byte[] f904a;
+    final /* synthetic */ byte[] f902a;
     final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bx(XMPushService xMPushService, int i, int i2, byte[] bArr, String str) {
         super(i);
-        this.f5097a = xMPushService;
+        this.f4867a = xMPushService;
         this.b = i2;
-        this.f904a = bArr;
-        this.f903a = str;
+        this.f902a = bArr;
+        this.f901a = str;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -35,11 +35,11 @@ public class bx extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         ft ftVar;
-        l.m581a((Context) this.f5097a);
-        ap.a().m551a("5");
+        l.m571a((Context) this.f4867a);
+        ap.a().m541a("5");
         com.xiaomi.push.ab.a(this.b);
-        ftVar = this.f5097a.f805a;
+        ftVar = this.f4867a.f803a;
         ftVar.c(ft.a());
-        this.f5097a.a(this.f904a, this.f903a);
+        this.f4867a.a(this.f902a, this.f901a);
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.person.b;
 import com.squareup.wire.Wire;
 import tbclient.Personal.PersonalResIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class PersonPolymericSocketResMsg extends SocketResponsedMessage {
     public PersonPolymericSocketResMsg() {
         super(CmdConfigSocket.CMD_PERSON_POLYMERIC);

@@ -7,41 +7,41 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class f {
-    private static final Map<Class<?>, List<e>> kx = new ConcurrentHashMap();
-    private static final a[] ky = new a[4];
+    private static final Map<Class<?>, List<e>> kM = new ConcurrentHashMap();
+    private static final a[] kN = new a[4];
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        Class<?> kD;
-        Class<?> kE;
-        boolean kF;
-        final List<e> kz = new ArrayList();
-        final Map<Class, Object> kA = new HashMap();
-        final Map<String, Class> kB = new HashMap();
-        final StringBuilder kC = new StringBuilder(128);
+        final List<e> kO = new ArrayList();
+        final Map<Class, Object> kP = new HashMap();
+        final Map<String, Class> kQ = new HashMap();
+        final StringBuilder kR = new StringBuilder(128);
+        Class<?> kS;
+        Class<?> kT;
+        boolean kU;
 
         a() {
         }
 
         private boolean b(Method method, Class<?> cls) {
-            this.kC.setLength(0);
-            this.kC.append(method.getName());
-            this.kC.append('>').append(cls.getName());
-            String sb = this.kC.toString();
+            this.kR.setLength(0);
+            this.kR.append(method.getName());
+            this.kR.append('>').append(cls.getName());
+            String sb = this.kR.toString();
             Class<?> declaringClass = method.getDeclaringClass();
-            Class put = this.kB.put(sb, declaringClass);
+            Class put = this.kQ.put(sb, declaringClass);
             if (put == null || put.isAssignableFrom(declaringClass)) {
                 return true;
             }
-            this.kB.put(sb, put);
+            this.kQ.put(sb, put);
             return false;
         }
 
         boolean a(Method method, Class<?> cls) {
-            Object put = this.kA.put(cls, method);
+            Object put = this.kP.put(cls, method);
             if (put == null) {
                 return true;
             }
@@ -49,50 +49,50 @@ public class f {
                 if (!b((Method) put, cls)) {
                     throw new IllegalStateException();
                 }
-                this.kA.put(cls, this);
+                this.kP.put(cls, this);
             }
             return b(method, cls);
         }
 
         void c(Class<?> cls) {
-            this.kE = cls;
-            this.kD = cls;
-            this.kF = false;
+            this.kT = cls;
+            this.kS = cls;
+            this.kU = false;
         }
 
-        void cL() {
-            if (this.kF) {
-                this.kE = null;
+        void cK() {
+            if (this.kU) {
+                this.kT = null;
                 return;
             }
-            this.kE = this.kE.getSuperclass();
-            String name = this.kE.getName();
+            this.kT = this.kT.getSuperclass();
+            String name = this.kT.getName();
             if (name.startsWith("java.") || name.startsWith("javax.") || name.startsWith("android.") || name.startsWith("androidx.")) {
-                this.kE = null;
+                this.kT = null;
             }
         }
 
         void recycle() {
-            this.kz.clear();
-            this.kA.clear();
-            this.kB.clear();
-            this.kC.setLength(0);
-            this.kD = null;
-            this.kE = null;
-            this.kF = false;
+            this.kO.clear();
+            this.kP.clear();
+            this.kQ.clear();
+            this.kR.setLength(0);
+            this.kS = null;
+            this.kT = null;
+            this.kU = false;
         }
     }
 
     private List<e> a(a aVar) {
-        ArrayList arrayList = new ArrayList(aVar.kz);
+        ArrayList arrayList = new ArrayList(aVar.kO);
         aVar.recycle();
-        synchronized (ky) {
+        synchronized (kN) {
             int i = 0;
             while (true) {
                 if (i >= 4) {
                     break;
-                } else if (ky[i] == null) {
-                    ky[i] = aVar;
+                } else if (kN[i] == null) {
+                    kN[i] = aVar;
                     break;
                 } else {
                     i++;
@@ -103,27 +103,27 @@ public class f {
     }
 
     private List<e> b(Class<?> cls) {
-        a cK = cK();
-        cK.c(cls);
-        while (cK.kE != null) {
-            b(cK);
-            cK.cL();
+        a cJ = cJ();
+        cJ.c(cls);
+        while (cJ.kT != null) {
+            b(cJ);
+            cJ.cK();
         }
-        return a(cK);
+        return a(cJ);
     }
 
     private void b(a aVar) {
         Method[] methodArr;
         CallBack callBack;
         try {
-            methodArr = aVar.kE.getDeclaredMethods();
+            methodArr = aVar.kT.getDeclaredMethods();
         } catch (Throwable th) {
             try {
-                Method[] methods = aVar.kE.getMethods();
-                aVar.kF = true;
+                Method[] methods = aVar.kT.getMethods();
+                aVar.kU = true;
                 methodArr = methods;
             } catch (LinkageError e) {
-                com.baidu.ar.g.b.aP(("Could not inspect methods of " + aVar.kE.getName()) + ". Please make this class visible to EventBus annotation processor to avoid reflection.");
+                com.baidu.ar.h.b.aS(("Could not inspect methods of " + aVar.kT.getName()) + ". Please make this class visible to EventBus annotation processor to avoid reflection.");
                 return;
             }
         }
@@ -134,19 +134,19 @@ public class f {
                 if (parameterTypes.length == 1 && (callBack = (CallBack) method.getAnnotation(CallBack.class)) != null) {
                     Class<?> cls = parameterTypes[0];
                     if (aVar.a(method, cls)) {
-                        aVar.kz.add(new e(method, cls, callBack.threadMode()));
+                        aVar.kO.add(new e(method, cls, callBack.threadMode()));
                     }
                 }
             }
         }
     }
 
-    private a cK() {
-        synchronized (ky) {
+    private a cJ() {
+        synchronized (kN) {
             for (int i = 0; i < 4; i++) {
-                a aVar = ky[i];
+                a aVar = kN[i];
                 if (aVar != null) {
-                    ky[i] = null;
+                    kN[i] = null;
                     return aVar;
                 }
             }
@@ -156,16 +156,16 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<e> a(Class<?> cls) {
-        List<e> list = kx.get(cls);
+        List<e> list = kM.get(cls);
         if (list != null) {
             return list;
         }
         List<e> b = b(cls);
         if (b.isEmpty()) {
-            com.baidu.ar.g.b.aP("Subscriber " + cls + " and its super classes have no public methods with the @CallBack annotation");
+            com.baidu.ar.h.b.aS("Subscriber " + cls + " and its super classes have no public methods with the @CallBack annotation");
             return null;
         }
-        kx.put(cls, b);
+        kM.put(cls, b);
         return b;
     }
 }

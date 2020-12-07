@@ -46,103 +46,103 @@ import com.tb.airbnb.lottie.LottieAnimationView;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class AlaRankListHeaderView extends LinearLayout {
-    private AnimatorSet aVN;
-    private boolean bix;
-    private long fYO;
-    private String fYQ;
-    private boolean fYR;
-    private final Runnable gKv;
-    private AlaLastLiveroomInfo gaF;
-    private com.baidu.tieba.ala.data.h hLA;
-    private TbPageContext hLe;
-    private TextView hLf;
-    private TextView hLg;
-    private FrameLayout hLh;
-    private RelativeLayout hLi;
-    private HeadImageView hLj;
-    private HeadImageView hLk;
-    private TextView hLl;
-    private TextView hLm;
-    private RelativeLayout hLn;
-    private HeadImageView hLo;
-    private HeadImageView hLp;
-    private TextView hLq;
-    private TextView hLr;
-    private LottieAnimationView hLs;
-    private boolean hLt;
-    private TextView hLu;
-    private ImageView hLv;
-    private long hLw;
-    private boolean hLx;
-    private a hLy;
-    private b hLz;
+    private AnimatorSet aYZ;
+    private boolean bmL;
+    private final Runnable gTH;
+    private long ggZ;
+    private String ghb;
+    private boolean ghc;
+    private AlaLastLiveroomInfo giQ;
+    private TbPageContext hVY;
+    private TextView hVZ;
+    private TextView hWa;
+    private FrameLayout hWb;
+    private RelativeLayout hWc;
+    private HeadImageView hWd;
+    private HeadImageView hWe;
+    private TextView hWf;
+    private TextView hWg;
+    private RelativeLayout hWh;
+    private HeadImageView hWi;
+    private HeadImageView hWj;
+    private TextView hWk;
+    private TextView hWl;
+    private LottieAnimationView hWm;
+    private boolean hWn;
+    private TextView hWo;
+    private ImageView hWp;
+    private long hWq;
+    private boolean hWr;
+    private a hWs;
+    private b hWt;
+    private com.baidu.tieba.ala.data.h hWu;
     private ArrayList<Animator> mAnimators;
     private final Handler mHandler;
     private View mRootView;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void bRY();
+        void bVI();
     }
 
     /* loaded from: classes4.dex */
     public interface b {
-        void mk(boolean z);
+        void mF(boolean z);
     }
 
     static /* synthetic */ long c(AlaRankListHeaderView alaRankListHeaderView) {
-        long j = alaRankListHeaderView.hLw;
-        alaRankListHeaderView.hLw = j - 1;
+        long j = alaRankListHeaderView.hWq;
+        alaRankListHeaderView.hWq = j - 1;
         return j;
     }
 
     public AlaRankListHeaderView(Context context, long j, boolean z, AlaLastLiveroomInfo alaLastLiveroomInfo) {
         super(context);
-        this.hLt = true;
+        this.hWn = true;
         this.mHandler = new Handler();
-        this.gKv = new Runnable() { // from class: com.baidu.tieba.ala.view.AlaRankListHeaderView.1
+        this.gTH = new Runnable() { // from class: com.baidu.tieba.ala.view.AlaRankListHeaderView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (AlaRankListHeaderView.this.hLw <= 0) {
-                    AlaRankListHeaderView.this.hLw = 0L;
+                if (AlaRankListHeaderView.this.hWq <= 0) {
+                    AlaRankListHeaderView.this.hWq = 0L;
                     AlaRankListHeaderView.this.release();
-                    if (AlaRankListHeaderView.this.hLy != null) {
-                        AlaRankListHeaderView.this.hLy.bRY();
+                    if (AlaRankListHeaderView.this.hWs != null) {
+                        AlaRankListHeaderView.this.hWs.bVI();
                     }
                 } else {
                     AlaRankListHeaderView.c(AlaRankListHeaderView.this);
                     AlaRankListHeaderView.this.startCountDown();
                 }
-                if (AlaRankListHeaderView.this.hLf != null && "hour".equals(AlaRankListHeaderView.this.fYQ) && AlaRankListHeaderView.this.hLt && AlaRankListHeaderView.this.hLw >= 0) {
-                    AlaRankListHeaderView.this.hLf.setText(String.format(AlaRankListHeaderView.this.hLe.getString(a.h.hour_rank_list_count_down_tip), com.baidu.live.utils.j.c(Long.valueOf(AlaRankListHeaderView.this.hLw))));
+                if (AlaRankListHeaderView.this.hVZ != null && "hour".equals(AlaRankListHeaderView.this.ghb) && AlaRankListHeaderView.this.hWn && AlaRankListHeaderView.this.hWq >= 0) {
+                    AlaRankListHeaderView.this.hVZ.setText(String.format(AlaRankListHeaderView.this.hVY.getString(a.h.hour_rank_list_count_down_tip), com.baidu.live.utils.j.c(Long.valueOf(AlaRankListHeaderView.this.hWq))));
                 }
             }
         };
-        this.fYO = j;
-        this.fYR = z;
-        this.gaF = alaLastLiveroomInfo;
+        this.ggZ = j;
+        this.ghc = z;
+        this.giQ = alaLastLiveroomInfo;
         init();
     }
 
     public AlaRankListHeaderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hLt = true;
+        this.hWn = true;
         this.mHandler = new Handler();
-        this.gKv = new Runnable() { // from class: com.baidu.tieba.ala.view.AlaRankListHeaderView.1
+        this.gTH = new Runnable() { // from class: com.baidu.tieba.ala.view.AlaRankListHeaderView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (AlaRankListHeaderView.this.hLw <= 0) {
-                    AlaRankListHeaderView.this.hLw = 0L;
+                if (AlaRankListHeaderView.this.hWq <= 0) {
+                    AlaRankListHeaderView.this.hWq = 0L;
                     AlaRankListHeaderView.this.release();
-                    if (AlaRankListHeaderView.this.hLy != null) {
-                        AlaRankListHeaderView.this.hLy.bRY();
+                    if (AlaRankListHeaderView.this.hWs != null) {
+                        AlaRankListHeaderView.this.hWs.bVI();
                     }
                 } else {
                     AlaRankListHeaderView.c(AlaRankListHeaderView.this);
                     AlaRankListHeaderView.this.startCountDown();
                 }
-                if (AlaRankListHeaderView.this.hLf != null && "hour".equals(AlaRankListHeaderView.this.fYQ) && AlaRankListHeaderView.this.hLt && AlaRankListHeaderView.this.hLw >= 0) {
-                    AlaRankListHeaderView.this.hLf.setText(String.format(AlaRankListHeaderView.this.hLe.getString(a.h.hour_rank_list_count_down_tip), com.baidu.live.utils.j.c(Long.valueOf(AlaRankListHeaderView.this.hLw))));
+                if (AlaRankListHeaderView.this.hVZ != null && "hour".equals(AlaRankListHeaderView.this.ghb) && AlaRankListHeaderView.this.hWn && AlaRankListHeaderView.this.hWq >= 0) {
+                    AlaRankListHeaderView.this.hVZ.setText(String.format(AlaRankListHeaderView.this.hVY.getString(a.h.hour_rank_list_count_down_tip), com.baidu.live.utils.j.c(Long.valueOf(AlaRankListHeaderView.this.hWq))));
                 }
             }
         };
@@ -151,23 +151,23 @@ public class AlaRankListHeaderView extends LinearLayout {
 
     public AlaRankListHeaderView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hLt = true;
+        this.hWn = true;
         this.mHandler = new Handler();
-        this.gKv = new Runnable() { // from class: com.baidu.tieba.ala.view.AlaRankListHeaderView.1
+        this.gTH = new Runnable() { // from class: com.baidu.tieba.ala.view.AlaRankListHeaderView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (AlaRankListHeaderView.this.hLw <= 0) {
-                    AlaRankListHeaderView.this.hLw = 0L;
+                if (AlaRankListHeaderView.this.hWq <= 0) {
+                    AlaRankListHeaderView.this.hWq = 0L;
                     AlaRankListHeaderView.this.release();
-                    if (AlaRankListHeaderView.this.hLy != null) {
-                        AlaRankListHeaderView.this.hLy.bRY();
+                    if (AlaRankListHeaderView.this.hWs != null) {
+                        AlaRankListHeaderView.this.hWs.bVI();
                     }
                 } else {
                     AlaRankListHeaderView.c(AlaRankListHeaderView.this);
                     AlaRankListHeaderView.this.startCountDown();
                 }
-                if (AlaRankListHeaderView.this.hLf != null && "hour".equals(AlaRankListHeaderView.this.fYQ) && AlaRankListHeaderView.this.hLt && AlaRankListHeaderView.this.hLw >= 0) {
-                    AlaRankListHeaderView.this.hLf.setText(String.format(AlaRankListHeaderView.this.hLe.getString(a.h.hour_rank_list_count_down_tip), com.baidu.live.utils.j.c(Long.valueOf(AlaRankListHeaderView.this.hLw))));
+                if (AlaRankListHeaderView.this.hVZ != null && "hour".equals(AlaRankListHeaderView.this.ghb) && AlaRankListHeaderView.this.hWn && AlaRankListHeaderView.this.hWq >= 0) {
+                    AlaRankListHeaderView.this.hVZ.setText(String.format(AlaRankListHeaderView.this.hVY.getString(a.h.hour_rank_list_count_down_tip), com.baidu.live.utils.j.c(Long.valueOf(AlaRankListHeaderView.this.hWq))));
                 }
             }
         };
@@ -176,86 +176,85 @@ public class AlaRankListHeaderView extends LinearLayout {
 
     private void init() {
         this.mRootView = LayoutInflater.from(getContext()).inflate(a.g.ala_rank_list_header_layout, this);
-        this.hLf = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_refresh_tip);
-        this.hLu = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_game_rule);
-        this.hLv = (ImageView) this.mRootView.findViewById(a.f.ala_rank_list_flower_description);
-        this.hLv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.AlaRankListHeaderView.2
+        this.hVZ = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_refresh_tip);
+        this.hWo = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_game_rule);
+        this.hWp = (ImageView) this.mRootView.findViewById(a.f.ala_rank_list_flower_description);
+        this.hWp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.AlaRankListHeaderView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!StringUtils.isNull(com.baidu.live.aa.a.Ph().bms.aKi)) {
-                    UrlManager.getInstance().dealOneLink(AlaRankListHeaderView.this.hLe, new String[]{com.baidu.live.aa.a.Ph().bms.aKi}, true);
-                    if (SdkStaticKeys.RANK_TYPE_FLOWER.equals(AlaRankListHeaderView.this.fYQ)) {
+                if (!StringUtils.isNull(com.baidu.live.ae.a.RB().brA.aNd)) {
+                    UrlManager.getInstance().dealOneLink(AlaRankListHeaderView.this.hVY, new String[]{com.baidu.live.ae.a.RB().brA.aNd}, true);
+                    if (SdkStaticKeys.RANK_TYPE_FLOWER.equals(AlaRankListHeaderView.this.ghb)) {
                         TiebaInitialize.log(new StatisticItem("c12963"));
                     }
                 }
             }
         });
-        this.hLg = (TextView) this.mRootView.findViewById(a.f.rank_list_switch);
-        this.hLg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.AlaRankListHeaderView.3
+        this.hWa = (TextView) this.mRootView.findViewById(a.f.rank_list_switch);
+        this.hWa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.AlaRankListHeaderView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaRankListHeaderView.this.hLt = !AlaRankListHeaderView.this.hLt;
-                AlaRankListHeaderView.this.hLg.setText(AlaRankListHeaderView.this.hLt ? a.h.hour_rank_list_head_switch_cur : a.h.hour_rank_list_head_switch_pre);
-                if (AlaRankListHeaderView.this.hLz != null) {
-                    AlaRankListHeaderView.this.hLz.mk(AlaRankListHeaderView.this.hLt);
+                AlaRankListHeaderView.this.hWn = !AlaRankListHeaderView.this.hWn;
+                AlaRankListHeaderView.this.hWa.setText(AlaRankListHeaderView.this.hWn ? a.h.hour_rank_list_head_switch_cur : a.h.hour_rank_list_head_switch_pre);
+                if (AlaRankListHeaderView.this.hWt != null) {
+                    AlaRankListHeaderView.this.hWt.mF(AlaRankListHeaderView.this.hWn);
                 }
             }
         });
-        this.hLh = (FrameLayout) this.mRootView.findViewById(a.f.hour_head_info);
-        this.hLi = (RelativeLayout) this.mRootView.findViewById(a.f.rl_rank_first);
-        this.hLj = (HeadImageView) this.mRootView.findViewById(a.f.rank_first);
-        this.hLj.setIsRound(true);
-        this.hLj.setAutoChangeStyle(false);
-        this.hLi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.AlaRankListHeaderView.4
+        this.hWb = (FrameLayout) this.mRootView.findViewById(a.f.hour_head_info);
+        this.hWc = (RelativeLayout) this.mRootView.findViewById(a.f.rl_rank_first);
+        this.hWd = (HeadImageView) this.mRootView.findViewById(a.f.rank_first);
+        this.hWd.setIsRound(true);
+        this.hWd.setAutoChangeStyle(false);
+        this.hWc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.AlaRankListHeaderView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaRankListHeaderView.this.hLA != null) {
+                if (AlaRankListHeaderView.this.hWu != null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913104, new HourRankItemData("author", null, 1)));
-                    if (AlaRankListHeaderView.this.hLA.eDa != 1 || AlaRankListHeaderView.this.hLA.live_id <= 0 || AlaRankListHeaderView.this.hLA.live_id == AlaRankListHeaderView.this.fYO || AlaRankListHeaderView.this.fYR) {
-                        AlaRankListHeaderView.this.a(AlaRankListHeaderView.this.hLe.getPageActivity(), AlaRankListHeaderView.this.hLA.user_id, AlaRankListHeaderView.this.hLA.user_name, AlaRankListHeaderView.this.hLA.bdPortrait, AlaRankListHeaderView.this.hLA.getName_show());
-                    } else if (!TbadkCoreApplication.getInst().isMobileBaidu() || com.baidu.live.aa.a.Ph().bms.aLa) {
-                        AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(AlaRankListHeaderView.this.hLe.getPageActivity());
-                        alaLiveRoomActivityConfig.addLastLiveInfoParams(AlaRankListHeaderView.this.gaF);
-                        alaLiveRoomActivityConfig.addExtraByLiveId(AlaRankListHeaderView.this.hLA.live_id, "", "live_sdk");
+                    if (AlaRankListHeaderView.this.hWu.eKc != 1 || AlaRankListHeaderView.this.hWu.live_id <= 0 || AlaRankListHeaderView.this.hWu.live_id == AlaRankListHeaderView.this.ggZ || AlaRankListHeaderView.this.ghc) {
+                        AlaRankListHeaderView.this.a(AlaRankListHeaderView.this.hVY.getPageActivity(), AlaRankListHeaderView.this.hWu.user_id, AlaRankListHeaderView.this.hWu.user_name, AlaRankListHeaderView.this.hWu.bdPortrait, AlaRankListHeaderView.this.hWu.getName_show());
+                    } else if (!TbadkCoreApplication.getInst().isMobileBaidu() || com.baidu.live.ae.a.RB().brA.aNV) {
+                        AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(AlaRankListHeaderView.this.hVY.getPageActivity());
+                        alaLiveRoomActivityConfig.addLastLiveInfoParams(AlaRankListHeaderView.this.giQ);
+                        alaLiveRoomActivityConfig.addExtraByLiveId(AlaRankListHeaderView.this.hWu.live_id, "", "live_sdk");
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, alaLiveRoomActivityConfig));
                     }
                 }
             }
         });
-        this.hLk = (HeadImageView) this.mRootView.findViewById(a.f.rank_first2);
-        this.hLk.setIsRound(true);
-        this.hLk.setAutoChangeStyle(false);
-        this.hLl = (TextView) this.mRootView.findViewById(a.f.name_rank_1);
-        this.hLm = (TextView) this.mRootView.findViewById(a.f.point_rank_1);
-        this.hLo = (HeadImageView) this.mRootView.findViewById(a.f.charm_first);
-        this.hLn = (RelativeLayout) this.mRootView.findViewById(a.f.rl_chram_first);
-        this.hLo.setIsRound(true);
-        this.hLo.setAutoChangeStyle(false);
-        this.hLn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.AlaRankListHeaderView.5
+        this.hWe = (HeadImageView) this.mRootView.findViewById(a.f.rank_first2);
+        this.hWe.setIsRound(true);
+        this.hWe.setAutoChangeStyle(false);
+        this.hWf = (TextView) this.mRootView.findViewById(a.f.name_rank_1);
+        this.hWg = (TextView) this.mRootView.findViewById(a.f.point_rank_1);
+        this.hWi = (HeadImageView) this.mRootView.findViewById(a.f.charm_first);
+        this.hWh = (RelativeLayout) this.mRootView.findViewById(a.f.rl_chram_first);
+        this.hWi.setIsRound(true);
+        this.hWi.setAutoChangeStyle(false);
+        this.hWh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.AlaRankListHeaderView.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaRankListHeaderView.this.hLA != null && AlaRankListHeaderView.this.hLA.gzS != null && AlaRankListHeaderView.this.hLA.gzS.size() > 0) {
+                if (AlaRankListHeaderView.this.hWu != null && AlaRankListHeaderView.this.hWu.gIP != null && AlaRankListHeaderView.this.hWu.gIP.size() > 0) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913104, new HourRankItemData("financier", null, 1)));
-                    h.a aVar = AlaRankListHeaderView.this.hLA.gzS.get(0);
+                    h.a aVar = AlaRankListHeaderView.this.hWu.gIP.get(0);
                     if (aVar != null) {
-                        AlaRankListHeaderView.this.a(AlaRankListHeaderView.this.hLe.getPageActivity(), JavaTypesHelper.toLong(aVar.userId, 0L), aVar.userName, aVar.portrait, aVar.getName_show());
+                        AlaRankListHeaderView.this.a(AlaRankListHeaderView.this.hVY.getPageActivity(), JavaTypesHelper.toLong(aVar.userId, 0L), aVar.userName, aVar.portrait, aVar.getName_show());
                     }
                 }
             }
         });
-        this.hLp = (HeadImageView) this.mRootView.findViewById(a.f.charm_first2);
-        this.hLp.setIsRound(true);
-        this.hLp.setAutoChangeStyle(false);
-        this.hLq = (TextView) this.mRootView.findViewById(a.f.name_charm_1);
-        this.hLr = (TextView) this.mRootView.findViewById(a.f.point_charm_1);
-        this.hLs = (LottieAnimationView) this.mRootView.findViewById(a.f.anchor_live_anim);
+        this.hWj = (HeadImageView) this.mRootView.findViewById(a.f.charm_first2);
+        this.hWj.setIsRound(true);
+        this.hWj.setAutoChangeStyle(false);
+        this.hWk = (TextView) this.mRootView.findViewById(a.f.name_charm_1);
+        this.hWl = (TextView) this.mRootView.findViewById(a.f.point_charm_1);
+        this.hWm = (LottieAnimationView) this.mRootView.findViewById(a.f.anchor_live_anim);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, long j, String str, String str2, String str3) {
         if (context instanceof Activity) {
-            Activity activity = (Activity) context;
-            Intent intent = activity.getIntent();
+            Intent intent = ((Activity) context).getIntent();
             long longExtra = intent.getLongExtra(TbEnum.SystemMessage.KEY_USER_ID, 0L);
             String stringExtra = intent.getStringExtra("group_id");
             String stringExtra2 = intent.getStringExtra("live_id");
@@ -265,38 +264,37 @@ public class AlaRankListHeaderView extends LinearLayout {
                 stringExtra3 = j + "";
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(context, j + "", str, str2, 0, 0, null, null, 0L, 0L, 0L, 0, stringExtra, stringExtra2, booleanExtra, stringExtra3, null, str3, "")));
-            activity.finish();
         }
     }
 
     public void a(TbPageContext tbPageContext, String str, long j) {
-        this.hLe = tbPageContext;
-        this.fYQ = str;
+        this.hVY = tbPageContext;
+        this.ghb = str;
         initView();
-        if (j > 0 && "hour".equals(this.fYQ) && !this.hLx) {
-            this.hLx = true;
-            this.hLw = j;
-            this.hLf.setText(String.format(this.hLe.getString(a.h.hour_rank_list_count_down_tip), com.baidu.live.utils.j.c(Long.valueOf(this.hLw))));
+        if (j > 0 && "hour".equals(this.ghb) && !this.hWr) {
+            this.hWr = true;
+            this.hWq = j;
+            this.hVZ.setText(String.format(this.hVY.getString(a.h.hour_rank_list_count_down_tip), com.baidu.live.utils.j.c(Long.valueOf(this.hWq))));
             startCountDown();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clb() {
-        if (this.aVN == null) {
-            this.aVN = new AnimatorSet();
+    public void cpq() {
+        if (this.aYZ == null) {
+            this.aYZ = new AnimatorSet();
         }
-        this.aVN.cancel();
-        HeadImageView headImageView = this.hLt ? this.hLk : this.hLj;
-        HeadImageView headImageView2 = this.hLt ? this.hLj : this.hLk;
+        this.aYZ.cancel();
+        HeadImageView headImageView = this.hWn ? this.hWe : this.hWd;
+        HeadImageView headImageView2 = this.hWn ? this.hWd : this.hWe;
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(headImageView, "scaleX", 1.0f, 0.7f);
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(headImageView, "scaleY", 1.0f, 0.7f);
         ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(headImageView, "alpha", 1.0f, 0.0f);
         ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(headImageView2, "scaleX", 0.7f, 1.0f);
         ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(headImageView2, "scaleY", 0.7f, 1.0f);
         ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(headImageView2, "alpha", 0.0f, 1.0f);
-        HeadImageView headImageView3 = this.hLt ? this.hLp : this.hLo;
-        HeadImageView headImageView4 = this.hLt ? this.hLo : this.hLp;
+        HeadImageView headImageView3 = this.hWn ? this.hWj : this.hWi;
+        HeadImageView headImageView4 = this.hWn ? this.hWi : this.hWj;
         ObjectAnimator ofFloat7 = ObjectAnimator.ofFloat(headImageView3, "scaleX", 1.0f, 0.7f);
         ObjectAnimator ofFloat8 = ObjectAnimator.ofFloat(headImageView3, "scaleY", 1.0f, 0.7f);
         ObjectAnimator ofFloat9 = ObjectAnimator.ofFloat(headImageView3, "alpha", 1.0f, 0.0f);
@@ -319,106 +317,106 @@ public class AlaRankListHeaderView extends LinearLayout {
         this.mAnimators.add(ofFloat10);
         this.mAnimators.add(ofFloat11);
         this.mAnimators.add(ofFloat12);
-        this.aVN.setDuration(1000L);
-        this.aVN.playTogether(this.mAnimators);
-        this.aVN.setInterpolator(new AccelerateInterpolator());
-        this.aVN.start();
+        this.aYZ.setDuration(1000L);
+        this.aYZ.playTogether(this.mAnimators);
+        this.aYZ.setInterpolator(new AccelerateInterpolator());
+        this.aYZ.start();
     }
 
     public void b(p pVar) {
         h.a aVar;
         com.baidu.tieba.ala.data.h hVar = pVar.getList().get(0);
         if (hVar != null) {
-            if (!this.bix) {
-                this.hLk.setAlpha(0);
-                this.hLk.setVisibility(0);
-                this.hLp.setAlpha(0);
-                this.hLp.setVisibility(0);
+            if (!this.bmL) {
+                this.hWe.setAlpha(0);
+                this.hWe.setVisibility(0);
+                this.hWj.setAlpha(0);
+                this.hWj.setVisibility(0);
             }
-            this.hLA = hVar;
-            if (this.hLt) {
-                this.hLj.startLoad(hVar.avatar, 12, false);
+            this.hWu = hVar;
+            if (this.hWn) {
+                this.hWd.startLoad(hVar.avatar, 12, false);
             } else {
-                this.hLk.startLoad(hVar.avatar, 12, false);
+                this.hWe.startLoad(hVar.avatar, 12, false);
             }
-            this.hLl.setText(hVar.getName_show());
-            this.hLm.setText(String.format(this.hLe.getString(a.h.head_hour_rank_anchor), StringHelper.formatForHourRankValue(JavaTypesHelper.toLong(hVar.point, 0L))));
-            if (hVar.eDa == 1) {
-                this.hLs.setVisibility(0);
-                this.hLs.loop(true);
-                this.hLs.setAnimation("anchor_living.json");
-                this.hLs.playAnimation();
+            this.hWf.setText(hVar.getName_show());
+            this.hWg.setText(String.format(this.hVY.getString(a.h.head_hour_rank_anchor), StringHelper.formatForHourRankValue(JavaTypesHelper.toLong(hVar.gIM, 0L))));
+            if (hVar.eKc == 1) {
+                this.hWm.setVisibility(0);
+                this.hWm.loop(true);
+                this.hWm.setAnimation("anchor_living.json");
+                this.hWm.playAnimation();
             } else {
-                this.hLs.setVisibility(8);
+                this.hWm.setVisibility(8);
             }
-            if (hVar.gzS != null && (aVar = hVar.gzS.get(0)) != null) {
-                if (this.hLt) {
-                    this.hLo.startLoad(aVar.portrait, 12, false);
+            if (hVar.gIP != null && (aVar = hVar.gIP.get(0)) != null) {
+                if (this.hWn) {
+                    this.hWi.startLoad(aVar.portrait, 12, false);
                 } else {
-                    this.hLp.startLoad(aVar.portrait, 12, false);
+                    this.hWj.startLoad(aVar.portrait, 12, false);
                 }
-                this.hLq.setText(aVar.userNickName);
-                this.hLr.setText(String.format(this.hLe.getString(a.h.head_hour_rank_gold), StringHelper.formatForHourRankValue(aVar.bih)));
+                this.hWk.setText(aVar.userNickName);
+                this.hWl.setText(String.format(this.hVY.getString(a.h.head_hour_rank_gold), StringHelper.formatForHourRankValue(aVar.bmv)));
             }
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.view.AlaRankListHeaderView.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (AlaRankListHeaderView.this.bix) {
-                        AlaRankListHeaderView.this.clb();
+                    if (AlaRankListHeaderView.this.bmL) {
+                        AlaRankListHeaderView.this.cpq();
                     }
-                    AlaRankListHeaderView.this.bix = true;
+                    AlaRankListHeaderView.this.bmL = true;
                 }
             }, 300L);
         }
     }
 
     private void initView() {
-        if (ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME.equals(this.fYQ)) {
-            this.hLu.setVisibility(0);
-            this.hLv.setVisibility(8);
-            this.hLf.setText(this.hLe.getPageActivity().getString(a.h.ala_rank_list_game_refresh_rule));
-        } else if (SdkStaticKeys.RANK_TYPE_FLOWER.equals(this.fYQ)) {
-            this.hLu.setVisibility(8);
-            this.hLv.setVisibility(8);
+        if (ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME.equals(this.ghb)) {
+            this.hWo.setVisibility(0);
+            this.hWp.setVisibility(8);
+            this.hVZ.setText(this.hVY.getPageActivity().getString(a.h.ala_rank_list_game_refresh_rule));
+        } else if (SdkStaticKeys.RANK_TYPE_FLOWER.equals(this.ghb)) {
+            this.hWo.setVisibility(8);
+            this.hWp.setVisibility(8);
             boolean z = TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu();
-            if (this.hLw > 0 && !z) {
-                this.hLf.setText(String.format(this.hLe.getString(a.h.ala_rank_list_flower_count_down_tip), com.baidu.live.utils.j.getCountDownTime(Long.valueOf(this.hLw))));
+            if (this.hWq > 0 && !z) {
+                this.hVZ.setText(String.format(this.hVY.getString(a.h.ala_rank_list_flower_count_down_tip), com.baidu.live.utils.j.getCountDownTime(Long.valueOf(this.hWq))));
                 startCountDown();
             } else {
-                this.hLf.setText(this.hLe.getPageActivity().getString(a.h.hkqm_rank_list_refresh_flower_rule));
+                this.hVZ.setText(this.hVY.getPageActivity().getString(a.h.hkqm_rank_list_refresh_flower_rule));
             }
-        } else if ("hour".equals(this.fYQ)) {
+        } else if ("hour".equals(this.ghb)) {
             this.mRootView.setVisibility(0);
-            this.hLv.setVisibility(8);
-            this.hLu.setVisibility(8);
-            this.hLh.setVisibility(0);
-            if (this.hLw >= 0 && this.hLt) {
-                this.hLf.setText(String.format(this.hLe.getString(a.h.hour_rank_list_count_down_tip), com.baidu.live.utils.j.c(Long.valueOf(this.hLw))));
-            } else if (!this.hLt) {
+            this.hWp.setVisibility(8);
+            this.hWo.setVisibility(8);
+            this.hWb.setVisibility(0);
+            if (this.hWq >= 0 && this.hWn) {
+                this.hVZ.setText(String.format(this.hVY.getString(a.h.hour_rank_list_count_down_tip), com.baidu.live.utils.j.c(Long.valueOf(this.hWq))));
+            } else if (!this.hWn) {
                 StringBuilder sb = new StringBuilder();
-                sb.append(com.baidu.live.utils.j.TV()).append(":00-").append("00".equals(com.baidu.live.utils.j.TU()) ? SoUtils.SO_EVENT_ID_DEFAULT : com.baidu.live.utils.j.TU()).append(":00");
-                this.hLf.setText(sb);
+                sb.append(com.baidu.live.utils.j.Wv()).append(":00-").append("00".equals(com.baidu.live.utils.j.Wu()) ? SoUtils.SO_EVENT_ID_DEFAULT : com.baidu.live.utils.j.Wu()).append(":00");
+                this.hVZ.setText(sb);
             }
-        } else if ("charm_day".equals(this.fYQ)) {
+        } else if ("charm_day".equals(this.ghb)) {
             this.mRootView.setVisibility(8);
-            this.hLv.setVisibility(8);
-            this.hLu.setVisibility(8);
-            this.hLh.setVisibility(8);
-            this.hLf.setVisibility(8);
-            this.hLg.setVisibility(8);
+            this.hWp.setVisibility(8);
+            this.hWo.setVisibility(8);
+            this.hWb.setVisibility(8);
+            this.hVZ.setVisibility(8);
+            this.hWa.setVisibility(8);
         } else {
-            this.hLh.setVisibility(8);
-            this.hLv.setVisibility(8);
-            this.hLu.setVisibility(8);
-            this.hLf.setText(this.hLe.getPageActivity().getString(a.h.hkqm_rank_list_refresh_charm_rule));
+            this.hWb.setVisibility(8);
+            this.hWp.setVisibility(8);
+            this.hWo.setVisibility(8);
+            this.hVZ.setText(this.hVY.getPageActivity().getString(a.h.hkqm_rank_list_refresh_charm_rule));
         }
-        this.hLu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.AlaRankListHeaderView.7
+        this.hWo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.AlaRankListHeaderView.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (TextUtils.isEmpty("https://tieba.baidu.com/n/video/liverank/rule?key=24295ff34773fe1c877d3eeabd3f86b123")) {
-                    BdUtilHelper.showToast(AlaRankListHeaderView.this.hLe.getPageActivity(), a.h.sdk_url_is_null);
+                    BdUtilHelper.showToast(AlaRankListHeaderView.this.hVY.getPageActivity(), a.h.sdk_url_is_null);
                 } else {
-                    UrlManager.getInstance().dealOneLinkWithDialog(AlaRankListHeaderView.this.hLe, "", new String[]{"https://tieba.baidu.com/n/video/liverank/rule?key=24295ff34773fe1c877d3eeabd3f86b123"}, false, null, true);
+                    UrlManager.getInstance().dealOneLinkWithDialog(AlaRankListHeaderView.this.hVY, "", new String[]{"https://tieba.baidu.com/n/video/liverank/rule?key=24295ff34773fe1c877d3eeabd3f86b123"}, false, null, true);
                 }
             }
         });
@@ -428,25 +426,25 @@ public class AlaRankListHeaderView extends LinearLayout {
     }
 
     public void setHourHeaderInfoVisible(int i) {
-        if (this.hLh != null) {
-            this.hLh.setVisibility(i);
+        if (this.hWb != null) {
+            this.hWb.setVisibility(i);
         }
     }
 
     public void startCountDown() {
-        this.mHandler.removeCallbacks(this.gKv);
-        this.mHandler.postDelayed(this.gKv, 1000L);
+        this.mHandler.removeCallbacks(this.gTH);
+        this.mHandler.postDelayed(this.gTH, 1000L);
     }
 
     public void release() {
-        this.mHandler.removeCallbacks(this.gKv);
+        this.mHandler.removeCallbacks(this.gTH);
     }
 
     public void setCountDownCallback(a aVar) {
-        this.hLy = aVar;
+        this.hWs = aVar;
     }
 
     public void setRankListCallback(b bVar) {
-        this.hLz = bVar;
+        this.hWt = bVar;
     }
 }

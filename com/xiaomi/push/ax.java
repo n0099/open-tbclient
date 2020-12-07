@@ -6,19 +6,19 @@ import java.util.Map;
 public class ax {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4802a;
+    public int f4572a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f118a;
+    public String f116a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, String> f119a = new HashMap();
+    public Map<String, String> f117a = new HashMap();
 
     public String a() {
-        return this.f118a;
+        return this.f116a;
     }
 
     public String toString() {
-        return String.format("resCode = %1$d, headers = %2$s, response = %3$s", Integer.valueOf(this.f4802a), this.f119a.toString(), this.f118a);
+        return String.format("resCode = %1$d, headers = %2$s, response = %3$s", Integer.valueOf(this.f4572a), this.f117a.toString(), this.f116a);
     }
 }

@@ -3,7 +3,6 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes18.dex */
 final class ds implements dw {
     private void a(Context context, String str, String str2) {
@@ -41,10 +40,10 @@ final class ds implements dw {
                 if (du.a(context, String.valueOf(12), 1L) || !a2) {
                     return;
                 }
-                if (TextUtils.isEmpty(ec.f4871a)) {
-                    ec.f4871a += dv.f232a + ":";
+                if (TextUtils.isEmpty(ec.f4641a)) {
+                    ec.f4641a += dv.f230a + ":";
                 }
-                ec.f4871a += str + "(" + currentTimeMillis + ")" + Constants.ACCEPT_TIME_SEPARATOR_SP;
+                ec.f4641a += str + "(" + currentTimeMillis + "),";
             } else if (TextUtils.equals("android.intent.action.PACKAGE_CHANGED", intent.getAction())) {
                 if (du.a(context, String.valueOf(12), 1L) || !a2) {
                     return;
@@ -52,7 +51,7 @@ final class ds implements dw {
                 if (TextUtils.isEmpty(ec.b)) {
                     ec.b += dv.b + ":";
                 }
-                ec.b += str + "(" + currentTimeMillis + ")" + Constants.ACCEPT_TIME_SEPARATOR_SP;
+                ec.b += str + "(" + currentTimeMillis + "),";
             } else if (TextUtils.equals("android.intent.action.PACKAGE_ADDED", intent.getAction())) {
                 if (intent.getExtras().getBoolean("android.intent.extra.REPLACING") || !a2) {
                     return;

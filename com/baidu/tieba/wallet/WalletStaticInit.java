@@ -14,7 +14,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class WalletStaticInit {
     public static void init() {
-        bf.bqF().a(new bf.a() { // from class: com.baidu.tieba.wallet.WalletStaticInit.1
+        bf.bua().a(new bf.a() { // from class: com.baidu.tieba.wallet.WalletStaticInit.1
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
@@ -50,7 +50,7 @@ public class WalletStaticInit {
         String[] split = query.split(ETAG.ITEM_SEPARATOR);
         if (split != null) {
             for (String str2 : split) {
-                String[] split2 = str2.split(ETAG.EQUAL);
+                String[] split2 = str2.split("=");
                 if (split2 != null && split2.length == 2) {
                     hashMap.put(split2[0], split2[1]);
                 }

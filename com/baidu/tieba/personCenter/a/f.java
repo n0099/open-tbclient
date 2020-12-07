@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.personCenter.c.k;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class f extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.d>> {
     private TbPageContext mPageContext;
 
@@ -26,7 +26,7 @@ public class f extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, k kVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.d> aVar) {
-        aVar.coz().a(kVar);
+        aVar.csM().a(kVar);
         return aVar.getView();
     }
 }

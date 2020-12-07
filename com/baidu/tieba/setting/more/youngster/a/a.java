@@ -1,7 +1,7 @@
 package com.baidu.tieba.setting.more.youngster.a;
 
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class a {
     public boolean isSuccess = false;
 

@@ -3,15 +3,15 @@ package com.baidu.tbadk.coreExtra.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private int fbm;
+    private int fiM;
 
-    public boolean btC() {
-        return this.fbm == 1;
+    public boolean bxc() {
+        return this.fiM == 1;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.fbm = jSONObject.optInt("agree_icon", 0);
+            this.fiM = jSONObject.optInt("agree_icon", 0);
         }
     }
 }

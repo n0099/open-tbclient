@@ -7,8 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.webrtc.ContextUtils;
 import org.webrtc.Logging;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public final class WebRtcAudioUtils {
     private static final int DEFAULT_SAMPLE_RATE_HZ = 16000;
     private static final String TAG = "WebRtcAudioUtils";
@@ -173,7 +172,7 @@ public final class WebRtcAudioUtils {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void logAudioState(String str) {
         logDeviceInfo(str);
-        AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService("audio");
         logAudioStateBasic(str, audioManager);
         logAudioStateVolume(str, audioManager);
         logAudioDeviceInfo(str, audioManager);

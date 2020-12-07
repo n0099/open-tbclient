@@ -16,6 +16,7 @@ import okhttp3.RealCall;
 import okhttp3.internal.Util;
 /* loaded from: classes15.dex */
 public final class Dispatcher {
+    static final /* synthetic */ boolean $assertionsDisabled;
     @Nullable
     private ExecutorService executorService;
     @Nullable
@@ -25,6 +26,10 @@ public final class Dispatcher {
     private final Deque<RealCall.AsyncCall> readyAsyncCalls = new ArrayDeque();
     private final Deque<RealCall.AsyncCall> runningAsyncCalls = new ArrayDeque();
     private final Deque<RealCall> runningSyncCalls = new ArrayDeque();
+
+    static {
+        $assertionsDisabled = !Dispatcher.class.desiredAssertionStatus();
+    }
 
     public Dispatcher(ExecutorService executorService) {
         this.executorService = executorService;
@@ -40,24 +45,28 @@ public final class Dispatcher {
         return this.executorService;
     }
 
-    public synchronized void setMaxRequests(int i) {
+    public void setMaxRequests(int i) {
         if (i < 1) {
             throw new IllegalArgumentException("max < 1: " + i);
         }
-        this.maxRequests = i;
-        promoteCalls();
+        synchronized (this) {
+            this.maxRequests = i;
+        }
+        promoteAndExecute();
     }
 
     public synchronized int getMaxRequests() {
         return this.maxRequests;
     }
 
-    public synchronized void setMaxRequestsPerHost(int i) {
+    public void setMaxRequestsPerHost(int i) {
         if (i < 1) {
             throw new IllegalArgumentException("max < 1: " + i);
         }
-        this.maxRequestsPerHost = i;
-        promoteCalls();
+        synchronized (this) {
+            this.maxRequestsPerHost = i;
+        }
+        promoteAndExecute();
     }
 
     public synchronized int getMaxRequestsPerHost() {
@@ -69,13 +78,11 @@ public final class Dispatcher {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void enqueue(RealCall.AsyncCall asyncCall) {
-        if (this.runningAsyncCalls.size() < this.maxRequests && runningCallsForHost(asyncCall) < this.maxRequestsPerHost) {
-            this.runningAsyncCalls.add(asyncCall);
-            executorService().execute(asyncCall);
-        } else {
+    public void enqueue(RealCall.AsyncCall asyncCall) {
+        synchronized (this) {
             this.readyAsyncCalls.add(asyncCall);
         }
+        promoteAndExecute();
     }
 
     public synchronized void cancelAll() {
@@ -90,21 +97,31 @@ public final class Dispatcher {
         }
     }
 
-    private void promoteCalls() {
-        if (this.runningAsyncCalls.size() < this.maxRequests && !this.readyAsyncCalls.isEmpty()) {
-            Iterator<RealCall.AsyncCall> it = this.readyAsyncCalls.iterator();
-            while (it.hasNext()) {
-                RealCall.AsyncCall next = it.next();
-                if (runningCallsForHost(next) < this.maxRequestsPerHost) {
-                    it.remove();
-                    this.runningAsyncCalls.add(next);
-                    executorService().execute(next);
+    private boolean promoteAndExecute() {
+        boolean z;
+        if ($assertionsDisabled || !Thread.holdsLock(this)) {
+            ArrayList arrayList = new ArrayList();
+            synchronized (this) {
+                Iterator<RealCall.AsyncCall> it = this.readyAsyncCalls.iterator();
+                while (it.hasNext()) {
+                    RealCall.AsyncCall next = it.next();
+                    if (this.runningAsyncCalls.size() >= this.maxRequests) {
+                        break;
+                    } else if (runningCallsForHost(next) < this.maxRequestsPerHost) {
+                        it.remove();
+                        arrayList.add(next);
+                        this.runningAsyncCalls.add(next);
+                    }
                 }
-                if (this.runningAsyncCalls.size() >= this.maxRequests) {
-                    return;
-                }
+                z = runningCallsCount() > 0;
             }
+            int size = arrayList.size();
+            for (int i = 0; i < size; i++) {
+                ((RealCall.AsyncCall) arrayList.get(i)).executeOn(executorService());
+            }
+            return z;
         }
+        throw new AssertionError();
     }
 
     private int runningCallsForHost(RealCall.AsyncCall asyncCall) {
@@ -124,28 +141,23 @@ public final class Dispatcher {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void finished(RealCall.AsyncCall asyncCall) {
-        finished(this.runningAsyncCalls, asyncCall, true);
+        finished(this.runningAsyncCalls, asyncCall);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void finished(RealCall realCall) {
-        finished(this.runningSyncCalls, realCall, false);
+        finished(this.runningSyncCalls, realCall);
     }
 
-    private <T> void finished(Deque<T> deque, T t, boolean z) {
-        int runningCallsCount;
+    private <T> void finished(Deque<T> deque, T t) {
         Runnable runnable;
         synchronized (this) {
             if (!deque.remove(t)) {
                 throw new AssertionError("Call wasn't in-flight!");
             }
-            if (z) {
-                promoteCalls();
-            }
-            runningCallsCount = runningCallsCount();
             runnable = this.idleCallback;
         }
-        if (runningCallsCount == 0 && runnable != null) {
+        if (!promoteAndExecute() && runnable != null) {
             runnable.run();
         }
     }

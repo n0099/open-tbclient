@@ -5,31 +5,33 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.baidu.android.util.connect.ConnectManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-/* loaded from: classes12.dex */
+@Deprecated
+/* loaded from: classes6.dex */
 public class NetWorkUtils {
     private static final boolean DEBUG = false;
     public static final String NETWORK_TYPE_CELL_2G = "2g";
     public static final String NETWORK_TYPE_CELL_3G = "3g";
     public static final String NETWORK_TYPE_CELL_4G = "4g";
+    public static final String NETWORK_TYPE_CELL_5G = "5g";
     public static final String NETWORK_TYPE_CELL_UNKNOWN = "unknown";
     public static final String NETWORK_TYPE_CELL_UN_CONNECTED = "no";
     public static final int NETWORK_TYPE_LTE_CA = 19;
     public static final String NETWORK_TYPE_WIFI = "wifi";
     private static final String TAG = "NetWorkUtils";
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes6.dex */
     public enum NetType {
         NONE("no"),
         WIFI("wifi"),
         _2G("2g"),
         _3G("3g"),
         _4G("4g"),
+        _5G("5g"),
         UNKOWN("unknow");
         
         public final String type;
@@ -133,6 +135,8 @@ public class NetWorkUtils {
             case 18:
             case 19:
                 return "4g";
+            case 20:
+                return "5g";
             default:
                 if (!TextUtils.isEmpty(str) && str.equalsIgnoreCase("LTE_CA")) {
                     return "4g";
@@ -152,7 +156,7 @@ public class NetWorkUtils {
         switch (networkClass.hashCode()) {
             case -840472412:
                 if (networkClass.equals("unknow")) {
-                    c = 5;
+                    c = 6;
                     break;
                 }
                 break;
@@ -174,15 +178,21 @@ public class NetWorkUtils {
                     break;
                 }
                 break;
+            case 1746:
+                if (networkClass.equals("5g")) {
+                    c = 3;
+                    break;
+                }
+                break;
             case 3521:
                 if (networkClass.equals("no")) {
-                    c = 4;
+                    c = 5;
                     break;
                 }
                 break;
             case 3649301:
                 if (networkClass.equals("wifi")) {
-                    c = 3;
+                    c = 4;
                     break;
                 }
                 break;
@@ -195,8 +205,10 @@ public class NetWorkUtils {
             case 2:
                 return NetType._4G;
             case 3:
-                return NetType.WIFI;
+                return NetType._5G;
             case 4:
+                return NetType.WIFI;
+            case 5:
                 return NetType.NONE;
             default:
                 return NetType.UNKOWN;
@@ -210,11 +222,11 @@ public class NetWorkUtils {
 
     public static boolean isHighNetworkConnected() {
         String networkClass = getNetworkClass();
-        return "wifi".equals(networkClass) || "4g".equals(networkClass) || "3g".equals(networkClass);
+        return "wifi".equals(networkClass) || "5g".equals(networkClass) || "4g".equals(networkClass) || "3g".equals(networkClass);
     }
 
     @Deprecated
-    public static boolean isWapNetWorkConnected(@NonNull Context context) {
+    public static boolean isWapNetWorkConnected(Context context) {
         return isWapNetWorkConnected();
     }
 
@@ -231,7 +243,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static String getNetworkInfo(@NonNull Context context) {
+    public static String getNetworkInfo(Context context) {
         return getNetworkInfo();
     }
 
@@ -263,8 +275,14 @@ public class NetWorkUtils {
                         return "3G";
                     case 13:
                         return "4G";
+                    case 16:
+                    case 17:
+                    case 18:
+                    case 19:
                     default:
                         return "unknown";
+                    case 20:
+                        return "5G";
                 }
             }
             return "unknown";
@@ -283,7 +301,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static String getBSSID(@NonNull Context context) {
+    public static String getBSSID(Context context) {
         return getBSSID();
     }
 
@@ -293,7 +311,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static String getWifiName(@NonNull Context context) {
+    public static String getWifiName(Context context) {
         return getWifiName();
     }
 
@@ -303,7 +321,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static int getIPAddress(@NonNull Context context) {
+    public static int getIPAddress(Context context) {
         return getIPAddress();
     }
 
@@ -316,7 +334,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static int getNetworkId(@NonNull Context context) {
+    public static int getNetworkId(Context context) {
         return getNetworkId();
     }
 
@@ -329,7 +347,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static String getWifiInfo(@NonNull Context context) {
+    public static String getWifiInfo(Context context) {
         return getWifiInfo();
     }
 

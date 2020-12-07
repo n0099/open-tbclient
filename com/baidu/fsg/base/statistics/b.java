@@ -1,9 +1,9 @@
 package com.baidu.fsg.base.statistics;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1487a = "wallet_stastics";
+    public static final String f1489a = "wallet_stastics";
     public static final int b = 204800;
     public static final int c = 51200;
     public static final int d = 200;

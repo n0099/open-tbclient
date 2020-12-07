@@ -12,22 +12,22 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaGetApplyWheatListHttpR
 /* loaded from: classes4.dex */
 public class b extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oiC;
+    private a oxD;
     private HttpMessageListener messageListener = new HttpMessageListener(1031006) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetApplyWheatListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.bmJ && b.this.oiC != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetApplyWheatListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.brR && b.this.oxD != null) {
                 AlaGetApplyWheatListHttpResponseMessage alaGetApplyWheatListHttpResponseMessage = (AlaGetApplyWheatListHttpResponseMessage) httpResponsedMessage;
                 if (alaGetApplyWheatListHttpResponseMessage.getError() != 0 || !alaGetApplyWheatListHttpResponseMessage.isSuccess()) {
-                    b.this.oiC.onFail(alaGetApplyWheatListHttpResponseMessage.getError(), alaGetApplyWheatListHttpResponseMessage.getErrorString());
+                    b.this.oxD.onFail(alaGetApplyWheatListHttpResponseMessage.getError(), alaGetApplyWheatListHttpResponseMessage.getErrorString());
                 } else {
-                    b.this.oiC.a(alaGetApplyWheatListHttpResponseMessage);
+                    b.this.oxD.a(alaGetApplyWheatListHttpResponseMessage);
                 }
             }
         }
     };
-    private BdUniqueId bmJ = BdUniqueId.gen();
+    private BdUniqueId brR = BdUniqueId.gen();
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -37,14 +37,14 @@ public class b extends BdBaseModel {
     }
 
     public b(TbPageContext tbPageContext, a aVar) {
-        setUniqueId(this.bmJ);
+        setUniqueId(this.brR);
         this.mPageContext = tbPageContext;
-        this.oiC = aVar;
-        bgL();
+        this.oxD = aVar;
+        bjQ();
         registerListener(this.messageListener);
     }
 
-    private void bgL() {
+    private void bjQ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031006, TbConfig.SERVER_ADDRESS + "ala/audio/link/getApply");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
@@ -53,7 +53,7 @@ public class b extends BdBaseModel {
     }
 
     public void request() {
-        sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.e(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.dYK().Br()));
+        sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.e(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().CZ()));
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel

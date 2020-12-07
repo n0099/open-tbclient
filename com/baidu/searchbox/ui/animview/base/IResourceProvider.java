@@ -12,7 +12,7 @@ import java.util.TreeSet;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public interface IResourceProvider extends IResourcePackage {
     boolean containPackage(String str);
 
@@ -26,7 +26,7 @@ public interface IResourceProvider extends IResourcePackage {
 
     void setCurrentPackage(String str);
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class PraiseConfigInfo {
         public Set<PraiseLevelConfig> mLevelConfigSet;
 
@@ -47,7 +47,7 @@ public interface IResourceProvider extends IResourcePackage {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class PraiseLevelConfig {
         private static final String JSON_KEY_BOUND = "bound";
         private static final String JSON_KEY_LEVEL_IMG_INDEX = "android_img_index";
@@ -114,7 +114,7 @@ public interface IResourceProvider extends IResourcePackage {
             return treeSet;
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes6.dex */
         public static class DefaultComparator implements Comparator<PraiseLevelConfig> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
@@ -133,7 +133,7 @@ public interface IResourceProvider extends IResourcePackage {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class PackageInfo {
         public String mPkgPath;
         public String mPkgTag;

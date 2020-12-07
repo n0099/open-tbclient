@@ -1,11 +1,11 @@
 package com.baidu.searchbox.floating.widget;
 
-import kotlin.h;
+import kotlin.e;
 import kotlin.jvm.a.a;
 import kotlin.jvm.internal.Lambda;
 /* JADX INFO: Access modifiers changed from: package-private */
-@h
-/* loaded from: classes9.dex */
+@e
+/* loaded from: classes16.dex */
 public final class ViewManager$mContainer$2 extends Lambda implements a<FloatContainer> {
     final /* synthetic */ ViewManager this$0;
 

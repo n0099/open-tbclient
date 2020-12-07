@@ -2,22 +2,30 @@ package com.baidu.live.z;
 
 import android.view.ViewGroup;
 import com.baidu.live.data.w;
-import org.json.JSONObject;
+import com.baidu.live.liveroom.g.d;
 /* loaded from: classes4.dex */
 public interface a {
-    void Ka();
+    void C(int i, int i2);
 
-    boolean L(JSONObject jSONObject);
+    void En();
 
-    void a(ViewGroup viewGroup, String str);
+    d QV();
 
-    void a(w wVar);
+    com.baidu.live.liveroom.g.b QW();
 
-    void cx(boolean z);
+    void a(ViewGroup viewGroup, ViewGroup viewGroup2);
+
+    void a(b bVar);
+
+    void a(c cVar);
+
+    void close();
+
+    boolean isOpen();
+
+    void n(w wVar);
+
+    void onClose();
 
     void onDestroy();
-
-    void setCanVisible(boolean z);
-
-    void setIsHost(boolean z);
 }

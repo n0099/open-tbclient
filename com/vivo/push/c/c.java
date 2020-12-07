@@ -10,6 +10,6 @@ final class c extends com.vivo.push.v {
 
     @Override // com.vivo.push.v
     protected final void a(com.vivo.push.y yVar) {
-        com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.f4714a).isDebug());
+        com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.f4484a).isDebug());
     }
 }

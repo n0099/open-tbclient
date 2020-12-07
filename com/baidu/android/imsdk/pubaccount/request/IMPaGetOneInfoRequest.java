@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.db.TableDefine;
@@ -25,7 +26,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     private static final String TAG = "IMPaGetOneInfoRequest";
     private long mAppid;
@@ -102,7 +103,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         return false;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x01c8  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x01d3  */
     /* JADX WARN: Removed duplicated region for block: B:58:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
@@ -120,7 +121,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         try {
             jSONObject = new JSONObject(new String(bArr));
             i2 = jSONObject.getInt("error_code");
-            str = jSONObject.optString("error_msg", "");
+            str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
         } catch (JSONException e) {
             jSONException = e;
             arrayList = null;
@@ -165,6 +166,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                             paInfo.setHasIdentity(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_HAS_IDENTITY, 0));
                             paInfo.setIdentity(jSONObject2.optString("identity", ""));
                             paInfo.setThirdExt(jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, ""));
+                            paInfo.setRejectMenu(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_REJECT_MENU, 1));
                             PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo.getPaId());
                             if (queryPaInfo != null) {
                                 paInfo.setMarkTop(queryPaInfo.getMarkTop());

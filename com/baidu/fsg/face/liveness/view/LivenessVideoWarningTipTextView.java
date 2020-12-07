@@ -9,13 +9,13 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class LivenessVideoWarningTipTextView extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1757a;
+    private boolean f1759a;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public interface a {
         void a();
 
@@ -61,7 +61,7 @@ public class LivenessVideoWarningTipTextView extends TextView {
     }
 
     public void startVisibleAnim() {
-        if (!this.f1757a && getVisibility() != 0) {
+        if (!this.f1759a && getVisibility() != 0) {
             setVisibility(0);
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setFillAfter(true);
@@ -70,13 +70,13 @@ public class LivenessVideoWarningTipTextView extends TextView {
             alphaAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.fsg.face.liveness.view.LivenessVideoWarningTipTextView.2
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
-                    LivenessVideoWarningTipTextView.this.f1757a = true;
+                    LivenessVideoWarningTipTextView.this.f1759a = true;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     LivenessVideoWarningTipTextView.this.clearAnimation();
-                    LivenessVideoWarningTipTextView.this.f1757a = false;
+                    LivenessVideoWarningTipTextView.this.f1759a = false;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -88,7 +88,7 @@ public class LivenessVideoWarningTipTextView extends TextView {
     }
 
     public void startInvisibleAnim() {
-        if (!this.f1757a && getVisibility() == 0) {
+        if (!this.f1759a && getVisibility() == 0) {
             AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
             alphaAnimation.setFillAfter(true);
             alphaAnimation.setInterpolator(new LinearInterpolator());
@@ -96,13 +96,13 @@ public class LivenessVideoWarningTipTextView extends TextView {
             alphaAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.fsg.face.liveness.view.LivenessVideoWarningTipTextView.3
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
-                    LivenessVideoWarningTipTextView.this.f1757a = true;
+                    LivenessVideoWarningTipTextView.this.f1759a = true;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     LivenessVideoWarningTipTextView.this.setVisibility(4);
-                    LivenessVideoWarningTipTextView.this.f1757a = false;
+                    LivenessVideoWarningTipTextView.this.f1759a = false;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener

@@ -3,8 +3,8 @@ package kotlin.text;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import kotlin.jvm.internal.FunctionReference;
-@kotlin.h
-/* loaded from: classes9.dex */
+@kotlin.e
+/* loaded from: classes17.dex */
 final class Regex$findAll$2 extends FunctionReference implements kotlin.jvm.a.b<i, i> {
     public static final Regex$findAll$2 INSTANCE = new Regex$findAll$2();
 
@@ -19,7 +19,7 @@ final class Regex$findAll$2 extends FunctionReference implements kotlin.jvm.a.b<
 
     @Override // kotlin.jvm.internal.CallableReference
     public final kotlin.reflect.d getOwner() {
-        return kotlin.jvm.internal.t.M(i.class);
+        return kotlin.jvm.internal.s.M(i.class);
     }
 
     @Override // kotlin.jvm.internal.CallableReference
@@ -30,7 +30,7 @@ final class Regex$findAll$2 extends FunctionReference implements kotlin.jvm.a.b<
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.b
     public final i invoke(i iVar) {
-        kotlin.jvm.internal.q.n(iVar, ZeusPerformanceTiming.KEY_BROWSER_STARTUP);
-        return iVar.eCm();
+        kotlin.jvm.internal.p.o(iVar, ZeusPerformanceTiming.KEY_BROWSER_STARTUP);
+        return iVar.eEs();
     }
 }

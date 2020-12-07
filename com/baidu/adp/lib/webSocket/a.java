@@ -6,8 +6,8 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a extends OutputStream {
-    private final int PV;
-    private final int PW;
+    private final int QP;
+    private final int QR;
     private ByteBuffer mBuffer;
 
     public a() {
@@ -15,9 +15,9 @@ public class a extends OutputStream {
     }
 
     public a(int i, int i2) {
-        this.PV = i;
-        this.PW = i2;
-        this.mBuffer = ByteBuffer.allocateDirect(this.PV);
+        this.QP = i;
+        this.QR = i2;
+        this.mBuffer = ByteBuffer.allocateDirect(this.QP);
         this.mBuffer.clear();
     }
 
@@ -25,23 +25,23 @@ public class a extends OutputStream {
         return this.mBuffer;
     }
 
-    public Buffer ov() {
+    public Buffer ou() {
         return this.mBuffer.flip();
     }
 
-    public Buffer ow() {
+    public Buffer ov() {
         return this.mBuffer.clear();
     }
 
-    public int ox() {
+    public int ow() {
         return this.mBuffer.remaining();
     }
 
-    public synchronized void expand(int i) {
+    public synchronized void aG(int i) {
         if (i > this.mBuffer.capacity()) {
             ByteBuffer byteBuffer = this.mBuffer;
             int position = this.mBuffer.position();
-            this.mBuffer = ByteBuffer.allocateDirect(((i / this.PW) + 1) * this.PW);
+            this.mBuffer = ByteBuffer.allocateDirect(((i / this.QR) + 1) * this.QR);
             byteBuffer.clear();
             this.mBuffer.clear();
             this.mBuffer.put(byteBuffer);
@@ -52,7 +52,7 @@ public class a extends OutputStream {
     @Override // java.io.OutputStream
     public synchronized void write(int i) throws IOException {
         if (this.mBuffer.position() + 1 > this.mBuffer.capacity()) {
-            expand(this.mBuffer.capacity() + 1);
+            aG(this.mBuffer.capacity() + 1);
         }
         this.mBuffer.put((byte) i);
     }
@@ -60,7 +60,7 @@ public class a extends OutputStream {
     @Override // java.io.OutputStream
     public synchronized void write(byte[] bArr, int i, int i2) throws IOException {
         if (this.mBuffer.position() + i2 > this.mBuffer.capacity()) {
-            expand(this.mBuffer.capacity() + i2);
+            aG(this.mBuffer.capacity() + i2);
         }
         this.mBuffer.put(bArr, i, i2);
     }
@@ -74,7 +74,7 @@ public class a extends OutputStream {
         write(str.getBytes("UTF-8"));
     }
 
-    public synchronized void oy() throws IOException {
+    public synchronized void ox() throws IOException {
         write(13);
         write(10);
     }

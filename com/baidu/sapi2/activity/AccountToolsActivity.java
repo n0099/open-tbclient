@@ -13,12 +13,12 @@ import com.baidu.sapi2.result.AccountToolsResult;
 import com.baidu.sapi2.utils.ParamsUtil;
 import com.baidu.sapi2.utils.f;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class AccountToolsActivity extends Activity {
     public static final String EXTRA_ACCOUNT_TOOLS_TYPE = "ACCOUNT_TOOLS_TYPE";
 
     /* renamed from: a  reason: collision with root package name */
-    private AccountToolsResult f3314a = new AccountToolsResult();
+    private AccountToolsResult f3317a = new AccountToolsResult();
     private AccountToolsCallback b;
 
     @Override // android.app.Activity
@@ -31,8 +31,8 @@ public class AccountToolsActivity extends Activity {
         CoreViewRouter.getInstance().loadAccountCenter(new AccountCenterCallback() { // from class: com.baidu.sapi2.activity.AccountToolsActivity.1
             @Override // com.baidu.sapi2.callback.AccountCenterCallback
             public void onFinish(AccountCenterResult accountCenterResult) {
-                AccountToolsActivity.this.f3314a.setResultCode(accountCenterResult.getResultCode());
-                AccountToolsActivity.this.f3314a.setResultMsg(accountCenterResult.getResultMsg());
+                AccountToolsActivity.this.f3317a.setResultCode(accountCenterResult.getResultCode());
+                AccountToolsActivity.this.f3317a.setResultMsg(accountCenterResult.getResultMsg());
                 AccountToolsActivity.this.a();
             }
 
@@ -44,7 +44,7 @@ public class AccountToolsActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        this.b.onFinish(this.f3314a);
+        this.b.onFinish(this.f3317a);
         finish();
     }
 

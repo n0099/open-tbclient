@@ -15,7 +15,6 @@ import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobstat.Config;
-import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,7 +22,7 @@ import java.util.Set;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Set<String> f2396a;
+    private Set<String> f2398a;
     private Set<String> b;
     private Set<String> c;
     private CookieManager d;
@@ -76,10 +75,10 @@ public class c {
     }
 
     private void c() {
-        this.f2396a = new HashSet();
-        this.f2396a.add("46000");
-        this.f2396a.add("46002");
-        this.f2396a.add("46007");
+        this.f2398a = new HashSet();
+        this.f2398a.add("46000");
+        this.f2398a.add("46002");
+        this.f2398a.add("46007");
         this.b = new HashSet();
         this.b.add("46001");
         this.b.add("46006");
@@ -117,7 +116,7 @@ public class c {
     private void a(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(str);
-        stringBuffer.append(ETAG.EQUAL);
+        stringBuffer.append("=");
         stringBuffer.append(obj);
         stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         try {
@@ -202,7 +201,7 @@ public class c {
         if (networkOperator == null) {
             return 0;
         }
-        if (this.f2396a.contains(networkOperator)) {
+        if (this.f2398a.contains(networkOperator)) {
             return 1;
         }
         if (this.c.contains(networkOperator)) {

@@ -4,55 +4,55 @@ import android.text.TextUtils;
 import android.util.Log;
 /* loaded from: classes17.dex */
 public final class j {
-    private static int otF = 1000;
-    private static boolean otG = true;
+    private static int oIM = 1000;
+    private static boolean oIN = true;
 
     public static void c(boolean z) {
-        otG = z;
+        oIN = z;
     }
 
     public static void I(String str) {
-        if (otG) {
+        if (oIN) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (otG) {
+        if (oIN) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void G(String str) {
-        if (otG) {
+        if (oIN) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (otG) {
+        if (oIN) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
 
     private static void a(int i, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
-            if (str2.length() >= otF) {
+            if (str2.length() >= oIM) {
                 switch (i) {
                     case 1:
-                        Log.v(str, str2.substring(0, otF));
+                        Log.v(str, str2.substring(0, oIM));
                         break;
                     case 2:
-                        Log.d(str, str2.substring(0, otF));
+                        Log.d(str, str2.substring(0, oIM));
                         break;
                     case 3:
-                        Log.i(str, str2.substring(0, otF));
+                        Log.i(str, str2.substring(0, oIM));
                         break;
                     case 4:
-                        Log.w(str, str2.substring(0, otF));
+                        Log.w(str, str2.substring(0, oIM));
                         break;
                     case 5:
-                        Log.e(str, str2.substring(0, otF));
+                        Log.e(str, str2.substring(0, oIM));
                         break;
                 }
             } else {

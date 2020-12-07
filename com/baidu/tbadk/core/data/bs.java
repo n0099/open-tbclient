@@ -1,44 +1,25 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SeniorLottery;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import tbclient.GeneralResource;
 /* loaded from: classes.dex */
-public class bs {
-    private aq eBl;
-    private List<h> eBm;
-    private String eBn;
-    private List<i> eBo;
-    private String eBp;
-    private List<ap> eBq;
+public class bs extends BaseCardInfo {
+    public static final BdUniqueId eIj = BdUniqueId.gen();
+    public int eIk;
+    public String res_image;
+    public String res_link;
 
-    public void a(SeniorLottery seniorLottery) {
-        if (seniorLottery != null) {
-            this.eBl = new aq();
-            this.eBl.a(seniorLottery.theme);
-            this.eBm = new ArrayList();
-            int size = seniorLottery.award_info.size();
-            for (int i = 0; i < size; i++) {
-                h hVar = new h();
-                hVar.a(seniorLottery.award_info.get(i));
-                this.eBm.add(hVar);
-            }
-            this.eBn = seniorLottery.myaward;
-            this.eBo = new ArrayList();
-            int size2 = seniorLottery.luck_users.size();
-            for (int i2 = 0; i2 < size2; i2++) {
-                i iVar = new i();
-                iVar.a(seniorLottery.luck_users.get(i2));
-                this.eBo.add(iVar);
-            }
-            this.eBp = seniorLottery.act_desc;
-            this.eBq = new ArrayList();
-            int size3 = seniorLottery.act_regular.size();
-            for (int i3 = 0; i3 < size3; i3++) {
-                ap apVar = new ap();
-                apVar.a(seniorLottery.act_regular.get(i3));
-                this.eBq.add(apVar);
-            }
+    public void a(GeneralResource generalResource) {
+        if (generalResource != null) {
+            this.res_image = generalResource.res_image;
+            this.res_link = generalResource.res_link;
+            this.eIk = generalResource.res_floor.intValue();
         }
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return eIj;
     }
 }

@@ -8,7 +8,7 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes4.dex */
 public class b {
-    public static String VL(String str) {
+    public static String Xa(String str) {
         try {
             byte[] decode = Base64.decode(str, 9);
             if (decode != null) {

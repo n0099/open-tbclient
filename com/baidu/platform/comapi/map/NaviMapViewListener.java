@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.map;
 
 import com.baidu.platform.comapi.basestruct.Point;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public interface NaviMapViewListener {
     void onAction(int i, Object obj);
 

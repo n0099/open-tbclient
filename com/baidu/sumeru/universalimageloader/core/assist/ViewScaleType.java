@@ -1,13 +1,13 @@
 package com.baidu.sumeru.universalimageloader.core.assist;
 
 import android.widget.ImageView;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public enum ViewScaleType {
     FIT_INSIDE,
     CROP;
 
     /* renamed from: com.baidu.sumeru.universalimageloader.core.assist.ViewScaleType$1  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType = new int[ImageView.ScaleType.values().length];
 

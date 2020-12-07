@@ -1,6 +1,7 @@
 package io.reactivex.internal.operators.flowable;
 
 import io.reactivex.exceptions.MissingBackpressureException;
+import io.reactivex.g;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.schedulers.k;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -8,19 +9,13 @@ import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
-public final class FlowableInterval extends io.reactivex.g<Long> {
+import org.a.d;
+/* loaded from: classes9.dex */
+public final class FlowableInterval extends g<Long> {
     final long initialDelay;
     final long period;
     final v scheduler;
     final TimeUnit unit;
-
-    public FlowableInterval(long j, long j2, TimeUnit timeUnit, v vVar) {
-        this.initialDelay = j;
-        this.period = j2;
-        this.unit = timeUnit;
-        this.scheduler = vVar;
-    }
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super Long> cVar) {
@@ -28,16 +23,16 @@ public final class FlowableInterval extends io.reactivex.g<Long> {
         cVar.onSubscribe(intervalSubscriber);
         v vVar = this.scheduler;
         if (vVar instanceof k) {
-            v.c eAB = vVar.eAB();
-            intervalSubscriber.setResource(eAB);
-            eAB.b(intervalSubscriber, this.initialDelay, this.period, this.unit);
+            v.c eCV = vVar.eCV();
+            intervalSubscriber.setResource(eCV);
+            eCV.b(intervalSubscriber, this.initialDelay, this.period, this.unit);
             return;
         }
         intervalSubscriber.setResource(vVar.a(intervalSubscriber, this.initialDelay, this.period, this.unit));
     }
 
-    /* loaded from: classes5.dex */
-    static final class IntervalSubscriber extends AtomicLong implements Runnable, org.a.d {
+    /* loaded from: classes9.dex */
+    static final class IntervalSubscriber extends AtomicLong implements Runnable, d {
         private static final long serialVersionUID = -2809475196591179431L;
         final org.a.c<? super Long> actual;
         long count;

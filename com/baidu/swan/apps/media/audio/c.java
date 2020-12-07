@@ -15,28 +15,28 @@ import com.baidu.swan.apps.IAudioListener;
 import com.baidu.swan.apps.IAudioService;
 import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.media.audio.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String cZl = AppRuntime.getAppContext().getPackageName();
-    private IAudioService cZm;
-    private boolean cZn;
-    private a cZo;
-    private b cZp;
-    private String cZq;
+    private static final String dgl = AppRuntime.getAppContext().getPackageName();
+    private IAudioService dgm;
+    private boolean dgn;
+    private a dgo;
+    private b dgp;
+    private String dgq;
     private Context mContext;
     private boolean mIsConnected;
     private String mParams = "";
     private boolean mIsForeground = true;
-    private boolean cZr = false;
-    private ServiceConnection cZs = new ServiceConnection() { // from class: com.baidu.swan.apps.media.audio.c.1
+    private boolean dgr = false;
+    private ServiceConnection dgs = new ServiceConnection() { // from class: com.baidu.swan.apps.media.audio.c.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
                 c.this.mIsConnected = true;
-                c.this.cZm = IAudioService.Stub.asInterface(iBinder);
-                c.this.cZm.registerListener(c.this.cZt);
-                iBinder.linkToDeath(c.this.cZu, 0);
+                c.this.dgm = IAudioService.Stub.asInterface(iBinder);
+                c.this.dgm.registerListener(c.this.dgt);
+                iBinder.linkToDeath(c.this.dgu, 0);
                 c.this.doPlay();
             } catch (RemoteException e) {
                 com.baidu.swan.apps.console.c.e("backgroundAudio", e.toString());
@@ -44,8 +44,8 @@ public class c {
                     e.printStackTrace();
                 }
             }
-            if (c.this.cZp != null) {
-                c.this.cZp.onServiceConnected(componentName, iBinder);
+            if (c.this.dgp != null) {
+                c.this.dgp.onServiceConnected(componentName, iBinder);
             }
         }
 
@@ -53,8 +53,8 @@ public class c {
         public void onServiceDisconnected(ComponentName componentName) {
             try {
                 c.this.mIsConnected = false;
-                if (c.this.cZm != null) {
-                    c.this.cZm.unregisterListener(c.this.cZt);
+                if (c.this.dgm != null) {
+                    c.this.dgm.unregisterListener(c.this.dgt);
                 }
             } catch (RemoteException e) {
                 com.baidu.swan.apps.console.c.e("backgroundAudio", e.toString());
@@ -62,14 +62,14 @@ public class c {
                     e.printStackTrace();
                 }
             } finally {
-                c.this.cZm = null;
+                c.this.dgm = null;
             }
-            if (c.this.cZp != null) {
-                c.this.cZp.onServiceDisconnected(componentName);
+            if (c.this.dgp != null) {
+                c.this.dgp.onServiceDisconnected(componentName);
             }
         }
     };
-    private final IAudioListener cZt = new IAudioListener.Stub() { // from class: com.baidu.swan.apps.media.audio.SwanAppAudioClient$2
+    private final IAudioListener dgt = new IAudioListener.Stub() { // from class: com.baidu.swan.apps.media.audio.SwanAppAudioClient$2
         @Override // com.baidu.swan.apps.IAudioListener
         public void onCanPlay() throws RemoteException {
             if (c.DEBUG) {
@@ -103,8 +103,8 @@ public class c {
             dispatchAudioEvent(1004);
             z = c.this.mIsForeground;
             if (!z) {
-                c.this.cm(c.this.mContext);
-                c.this.cZm.unregisterListener(c.this.cZt);
+                c.this.cS(c.this.mContext);
+                c.this.dgm.unregisterListener(c.this.dgt);
             }
         }
 
@@ -127,7 +127,7 @@ public class c {
                 StringBuilder append = new StringBuilder().append("onChangeSrc() ");
                 z2 = c.this.mIsForeground;
                 if (!z2) {
-                    str3 = c.this.cZq;
+                    str3 = c.this.dgq;
                     if (!TextUtils.equals(str, str3)) {
                         z3 = true;
                         Log.d("SwanAppAudioClient", append.append(z3).toString());
@@ -138,11 +138,11 @@ public class c {
             }
             z = c.this.mIsForeground;
             if (!z) {
-                str2 = c.this.cZq;
+                str2 = c.this.dgq;
                 if (!TextUtils.equals(str, str2)) {
                     dispatchAudioEvent(1004);
-                    c.this.cm(c.this.mContext);
-                    c.this.cZm.unregisterListener(c.this.cZt);
+                    c.this.cS(c.this.mContext);
+                    c.this.dgm.unregisterListener(c.this.dgt);
                 }
             }
         }
@@ -223,37 +223,37 @@ public class c {
                 public void run() {
                     c.a aVar;
                     c.a aVar2;
-                    aVar = c.this.cZo;
+                    aVar = c.this.dgo;
                     if (aVar != null) {
-                        aVar2 = c.this.cZo;
+                        aVar2 = c.this.dgo;
                         aVar2.l(obtain);
                     }
                 }
             });
         }
     };
-    private final IBinder.DeathRecipient cZu = new IBinder.DeathRecipient() { // from class: com.baidu.swan.apps.media.audio.c.2
+    private final IBinder.DeathRecipient dgu = new IBinder.DeathRecipient() { // from class: com.baidu.swan.apps.media.audio.c.2
         @Override // android.os.IBinder.DeathRecipient
         public void binderDied() {
             if (c.DEBUG) {
                 Log.d("SwanAppAudioClient", "binderDied()");
             }
-            if (c.this.cZm != null) {
-                c.this.cZm.asBinder().unlinkToDeath(c.this.cZu, 0);
-                c.this.cZm = null;
-                c.this.cZn = false;
+            if (c.this.dgm != null) {
+                c.this.dgm.asBinder().unlinkToDeath(c.this.dgu, 0);
+                c.this.dgm = null;
+                c.this.dgn = false;
                 c.this.mIsConnected = false;
-                c.this.cl(c.this.mContext);
+                c.this.cR(c.this.mContext);
             }
         }
     };
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public interface a {
         boolean l(Message message);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public interface b {
         void onServiceConnected(ComponentName componentName, IBinder iBinder);
 
@@ -264,37 +264,37 @@ public class c {
         this.mContext = context;
     }
 
-    public void fB(boolean z) {
+    public void fQ(boolean z) {
         this.mIsForeground = z;
     }
 
     public void startService() {
         Intent intent = new Intent("com.baidu.swan.apps.action.AUDIO_SERVICE");
-        intent.setPackage(cZl);
+        intent.setPackage(dgl);
         this.mContext.startService(intent);
     }
 
     public void a(a aVar) {
-        this.cZo = aVar;
+        this.dgo = aVar;
     }
 
-    public void bW(String str, String str2) {
+    public void cd(String str, String str2) {
         this.mParams = str;
-        this.cZq = str2;
+        this.dgq = str2;
         startService();
-        if (!this.cZn) {
-            cl(this.mContext);
+        if (!this.dgn) {
+            cR(this.mContext);
         } else {
             doPlay();
         }
-        this.cZr = false;
+        this.dgr = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void doPlay() {
         try {
-            if (this.cZn && this.mIsConnected) {
-                this.cZm.setParams(this.mParams);
+            if (this.dgn && this.mIsConnected) {
+                this.dgm.setParams(this.mParams);
             }
         } catch (RemoteException e) {
             com.baidu.swan.apps.console.c.e("backgroundAudio", e.toString());
@@ -306,10 +306,10 @@ public class c {
 
     public void resume() {
         try {
-            if (this.cZn && this.mIsConnected) {
-                this.cZm.play();
-            } else if (!this.cZr) {
-                bW(this.mParams, this.cZq);
+            if (this.dgn && this.mIsConnected) {
+                this.dgm.play();
+            } else if (!this.dgr) {
+                cd(this.mParams, this.dgq);
             }
         } catch (RemoteException e) {
             com.baidu.swan.apps.console.c.e("backgroundAudio", e.toString());
@@ -321,8 +321,8 @@ public class c {
 
     public void pause() {
         try {
-            if (this.cZn && this.mIsConnected) {
-                this.cZm.pause();
+            if (this.dgn && this.mIsConnected) {
+                this.dgm.pause();
             }
         } catch (RemoteException e) {
             com.baidu.swan.apps.console.c.e("backgroundAudio", e.toString());
@@ -334,8 +334,8 @@ public class c {
 
     public void seek(int i) {
         try {
-            if (this.cZn && this.mIsConnected) {
-                this.cZm.seek(i);
+            if (this.dgn && this.mIsConnected) {
+                this.dgm.seek(i);
             }
         } catch (RemoteException e) {
             com.baidu.swan.apps.console.c.e("backgroundAudio", e.toString());
@@ -347,10 +347,10 @@ public class c {
 
     public void stop() {
         try {
-            if (this.cZn && this.mIsConnected) {
-                this.cZm.stop();
-                cm(this.mContext);
-                this.cZr = true;
+            if (this.dgn && this.mIsConnected) {
+                this.dgm.stop();
+                cS(this.mContext);
+                this.dgr = true;
             }
         } catch (RemoteException e) {
             com.baidu.swan.apps.console.c.e("backgroundAudio", e.toString());
@@ -362,8 +362,8 @@ public class c {
 
     public boolean isPlaying() {
         try {
-            if (this.cZn && this.mIsConnected) {
-                return this.cZm.isPlaying();
+            if (this.dgn && this.mIsConnected) {
+                return this.dgm.isPlaying();
             }
         } catch (RemoteException e) {
             com.baidu.swan.apps.console.c.e("backgroundAudio", e.toString());
@@ -376,8 +376,8 @@ public class c {
 
     public int getDuration() {
         try {
-            if (this.cZn && this.mIsConnected) {
-                return this.cZm.getDuration();
+            if (this.dgn && this.mIsConnected) {
+                return this.dgm.getDuration();
             }
         } catch (RemoteException e) {
             com.baidu.swan.apps.console.c.e("backgroundAudio", e.toString());
@@ -388,10 +388,10 @@ public class c {
         return -1;
     }
 
-    private void azD() {
+    private void aCM() {
         try {
-            if (this.cZn && this.mIsConnected) {
-                this.cZm.release();
+            if (this.dgn && this.mIsConnected) {
+                this.dgm.release();
             }
         } catch (RemoteException e) {
             com.baidu.swan.apps.console.c.e("backgroundAudio", e.toString());
@@ -402,18 +402,18 @@ public class c {
     }
 
     public void release() {
-        azD();
-        cm(this.mContext);
-        this.cZr = false;
+        aCM();
+        cS(this.mContext);
+        this.dgr = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cl(Context context) {
-        if (!this.cZn) {
-            this.cZn = true;
+    public void cR(Context context) {
+        if (!this.dgn) {
+            this.dgn = true;
             Intent intent = new Intent("com.baidu.swan.apps.action.AUDIO_SERVICE");
-            intent.setPackage(cZl);
-            context.bindService(intent, this.cZs, 1);
+            intent.setPackage(dgl);
+            context.bindService(intent, this.dgs, 1);
             if (DEBUG) {
                 Log.d("SwanAppAudioClient", "bindService()");
             }
@@ -421,10 +421,10 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cm(Context context) {
-        if (this.cZn) {
-            this.cZn = false;
-            context.unbindService(this.cZs);
+    public void cS(Context context) {
+        if (this.dgn) {
+            this.dgn = false;
+            context.unbindService(this.dgs);
             if (DEBUG) {
                 Log.d("SwanAppAudioClient", "unbindService()");
             }

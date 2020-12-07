@@ -1,7 +1,7 @@
 package com.baidu.b.a;
 
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 class c {
     public static void a(byte[] bArr, byte[] bArr2, int i) {
         if (i < 0) {

@@ -4,8 +4,8 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.ala.dumixar.utils.LuaMessageHelper;
-import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
-import com.baidu.ar.arrender.k;
+import com.baidu.ar.arplay.core.pixel.PixelReadParams;
+import com.baidu.ar.arrender.n;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.d.l;
 import com.baidu.ar.databasic.AlgoHandleAdapter;
@@ -17,33 +17,33 @@ import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
-    private AlgoHandleController bY;
-    private LuaMsgListener bZ;
-    private ICaptureAbilityListener kM;
-    private d kY;
-    private d kZ;
-    private com.baidu.ar.d.e la;
-    private com.baidu.ar.d.e lb;
-    private com.baidu.ar.d.e lc;
-    private ICallbackWith<ICaptureResult> ld;
-    private e lf;
-    private a li;
-    private int kW = 720;
-    private int kX = PlatformPlugin.DEFAULT_SYSTEM_UI;
-    private volatile boolean le = false;
-    private boolean lg = false;
-    private boolean lh = false;
+    private AlgoHandleController cb;
+    private LuaMsgListener cc;
+    private ICaptureAbilityListener lb;
+    private d ln;
+    private d lo;
+    private com.baidu.ar.d.e lp;
+    private com.baidu.ar.d.e lq;
+    private com.baidu.ar.d.e lr;
+    private ICallbackWith<ICaptureResult> ls;
+    private e lu;
+    private a lx;
+    private int ll = 720;
+    private int lm = PlatformPlugin.DEFAULT_SYSTEM_UI;
+    private volatile boolean lt = false;
+    private boolean lv = false;
+    private boolean lw = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void S(String str) {
-        if (this.kY == null) {
-            this.kY = new d(PixelReadParams.DEFAULT_FILTER_ID, this.kW, this.kX);
-            this.la = new com.baidu.ar.d.e() { // from class: com.baidu.ar.capture.FamilyWithChildAR.2
+    public void V(String str) {
+        if (this.ln == null) {
+            this.ln = new d(PixelReadParams.DEFAULT_FILTER_ID, this.ll, this.lm);
+            this.lp = new com.baidu.ar.d.e() { // from class: com.baidu.ar.capture.FamilyWithChildAR.2
                 @Override // com.baidu.ar.d.e
                 public void a(com.baidu.ar.d.b bVar) {
-                    if (FamilyWithChildAR.this.le && (bVar instanceof c)) {
+                    if (FamilyWithChildAR.this.lt && (bVar instanceof c)) {
                         FamilyWithChildAR.this.a((c) bVar);
                     }
                 }
@@ -56,21 +56,21 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
                 public void b(l lVar) {
                 }
             };
-            a(this.kY, this.la);
+            a(this.ln, this.lp);
         }
-        if (this.kZ != null && !this.kZ.cM().equals(str)) {
-            a(this.kZ);
-            this.kZ = null;
+        if (this.lo != null && !this.lo.cL().equals(str)) {
+            a(this.lo);
+            this.lo = null;
         }
-        if (this.kZ == null) {
+        if (this.lo == null) {
             if (TextUtils.isEmpty(str)) {
                 str = "target";
             }
-            this.kZ = new d(str, this.kW, this.kX);
-            this.lb = new com.baidu.ar.d.e() { // from class: com.baidu.ar.capture.FamilyWithChildAR.3
+            this.lo = new d(str, this.ll, this.lm);
+            this.lq = new com.baidu.ar.d.e() { // from class: com.baidu.ar.capture.FamilyWithChildAR.3
                 @Override // com.baidu.ar.d.e
                 public void a(com.baidu.ar.d.b bVar) {
-                    if (FamilyWithChildAR.this.le && (bVar instanceof c)) {
+                    if (FamilyWithChildAR.this.lt && (bVar instanceof c)) {
                         FamilyWithChildAR.this.b((c) bVar);
                     }
                 }
@@ -83,22 +83,22 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
                 public void b(l lVar) {
                 }
             };
-            a(this.kZ, this.lb);
+            a(this.lo, this.lq);
         }
-        if (this.lh) {
+        if (this.lw) {
             return;
         }
-        this.lh = true;
-        this.lc = new com.baidu.ar.d.e() { // from class: com.baidu.ar.capture.FamilyWithChildAR.4
+        this.lw = true;
+        this.lr = new com.baidu.ar.d.e() { // from class: com.baidu.ar.capture.FamilyWithChildAR.4
             @Override // com.baidu.ar.d.e
             public void a(com.baidu.ar.d.b bVar) {
-                if (FamilyWithChildAR.this.le && (bVar instanceof com.baidu.ar.face.detector.l)) {
+                if (FamilyWithChildAR.this.lt && (bVar instanceof com.baidu.ar.face.detector.l)) {
                     FamilyWithChildAR.this.a((com.baidu.ar.face.detector.l) bVar);
                 }
-                if (FamilyWithChildAR.this.bY != null) {
-                    FamilyWithChildAR.this.bY.destroyHandle(bVar.df());
+                if (FamilyWithChildAR.this.cb != null) {
+                    FamilyWithChildAR.this.cb.destroyHandle(bVar.de());
                 } else {
-                    AlgoHandleAdapter.destroyHandle(bVar.df());
+                    AlgoHandleAdapter.destroyHandle(bVar.de());
                 }
             }
 
@@ -110,187 +110,187 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
             public void b(l lVar) {
             }
         };
-        a("FaceDetector", this.lc, (HashMap<String, Object>) null);
+        a("FaceDetector", this.lr, (HashMap<String, Object>) null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar) {
         Log.d("ChildLook", "camera time: " + cVar.getTimestamp());
-        if ((this.lf == null || this.lf.kP == null) && b((com.baidu.ar.d.b) cVar) && this.lf != null) {
-            if (this.kY != null) {
-                this.kY.u(false);
+        if ((this.lu == null || this.lu.le == null) && b((com.baidu.ar.d.b) cVar) && this.lu != null) {
+            if (this.ln != null) {
+                this.ln.s(false);
             }
-            this.lf.kP = cVar.getData();
-            cO();
+            this.lu.le = cVar.getData();
+            cN();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.ar.face.detector.l lVar) {
-        m eB;
-        if (this.lg) {
+        m eA;
+        if (this.lv) {
             return;
         }
         Log.d("ChildLook", "face time: " + lVar.getTimestamp());
-        if (!b(lVar) || (eB = lVar.eB()) == null) {
+        if (!b(lVar) || (eA = lVar.eA()) == null) {
             return;
         }
-        this.lg = true;
-        FaceResultData c = com.baidu.ar.face.c.c(eB);
-        com.baidu.ar.arrender.m mVar = (com.baidu.ar.arrender.m) lVar.de();
-        if (c != null && mVar != null) {
-            c.setAlgoImageWidth(mVar.bY());
-            c.setAlgoImageHeight(mVar.bZ());
+        this.lv = true;
+        FaceResultData c = com.baidu.ar.face.c.c(eA);
+        n nVar = (n) lVar.dd();
+        if (c != null && nVar != null) {
+            c.setAlgoImageWidth(nVar.bX());
+            c.setAlgoImageHeight(nVar.bY());
         }
-        if (this.lf != null) {
-            this.lf.kV = c;
+        if (this.lu != null) {
+            this.lu.lk = c;
         }
-        cO();
+        cN();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(c cVar) {
         Log.d("ChildLook", "output time: " + cVar.getTimestamp());
-        if ((this.lf == null || this.lf.kQ == null) && b((com.baidu.ar.d.b) cVar) && this.lf != null) {
-            if (this.kZ != null) {
-                this.kZ.u(false);
+        if ((this.lu == null || this.lu.lf == null) && b((com.baidu.ar.d.b) cVar) && this.lu != null) {
+            if (this.lo != null) {
+                this.lo.s(false);
             }
-            this.lf.kQ = cVar.getData();
-            cO();
+            this.lu.lf = cVar.getData();
+            cN();
         }
     }
 
     private void b(Runnable runnable) {
-        if (this.li == null) {
-            this.li = new a("FamilyWithChildAR");
-            this.li.start();
+        if (this.lx == null) {
+            this.lx = new a("FamilyWithChildAR");
+            this.lx.start();
         }
-        this.li.execute(runnable);
+        this.lx.execute(runnable);
     }
 
     private boolean b(com.baidu.ar.d.b bVar) {
-        if (this.lf != null) {
-            if (this.lf.getTimestamp() == bVar.getTimestamp()) {
+        if (this.lu != null) {
+            if (this.lu.getTimestamp() == bVar.getTimestamp()) {
                 return true;
             }
-            if (bVar.getTimestamp() <= this.lf.getTimestamp()) {
+            if (bVar.getTimestamp() <= this.lu.getTimestamp()) {
                 return false;
             }
-            this.lf = null;
-            if (this.kY != null) {
-                this.kY.u(true);
+            this.lu = null;
+            if (this.ln != null) {
+                this.ln.s(true);
             }
-            if (this.kZ != null) {
-                this.kZ.u(true);
+            if (this.lo != null) {
+                this.lo.s(true);
             }
-            this.lg = false;
+            this.lv = false;
         }
-        if (this.lf == null) {
-            this.lf = new e();
-            this.lf.timestamp = bVar.getTimestamp();
+        if (this.lu == null) {
+            this.lu = new e();
+            this.lu.timestamp = bVar.getTimestamp();
             return true;
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cN() {
-        this.lh = false;
-        if (this.lc != null) {
-            a("FaceDetector", this.lc);
-            this.lc = null;
+    public void cM() {
+        this.lw = false;
+        if (this.lr != null) {
+            a("FaceDetector", this.lr);
+            this.lr = null;
         }
-        if (this.kY != null) {
-            a(this.kY);
+        if (this.ln != null) {
+            a(this.ln);
         }
-        if (this.kZ != null) {
-            a(this.kZ);
+        if (this.lo != null) {
+            a(this.lo);
         }
-        this.kZ = null;
-        this.kY = null;
-        this.la = null;
-        this.lb = null;
+        this.lo = null;
+        this.ln = null;
+        this.lp = null;
+        this.lq = null;
     }
 
-    private void cO() {
-        if (!this.le || this.lf == null || this.ld == null || this.lf.kP == null || this.lf.kQ == null || !this.lg) {
+    private void cN() {
+        if (!this.lt || this.lu == null || this.ls == null || this.lu.le == null || this.lu.lf == null || !this.lv) {
             return;
         }
-        v(false);
-        this.lf.kT = this.kW;
-        this.lf.kU = this.kX;
+        t(false);
+        this.lu.li = this.ll;
+        this.lu.lj = this.lm;
         b(new Runnable() { // from class: com.baidu.ar.capture.FamilyWithChildAR.5
             @Override // java.lang.Runnable
             public void run() {
-                FamilyWithChildAR.this.cN();
-                FamilyWithChildAR.this.ld.run(FamilyWithChildAR.this.lf);
-                FamilyWithChildAR.this.lf = null;
+                FamilyWithChildAR.this.cM();
+                FamilyWithChildAR.this.ls.run(FamilyWithChildAR.this.lu);
+                FamilyWithChildAR.this.lu = null;
             }
         });
-        this.lg = false;
+        this.lv = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(ICallbackWith<ICaptureResult> iCallbackWith) {
         if (iCallbackWith != null) {
-            this.ld = iCallbackWith;
+            this.ls = iCallbackWith;
         }
-        if (this.le) {
+        if (this.lt) {
             return;
         }
-        this.lg = false;
-        this.lf = null;
-        v(true);
+        this.lv = false;
+        this.lu = null;
+        t(true);
     }
 
-    private void v(boolean z) {
-        if (this.kY == null || this.kZ == null) {
+    private void t(boolean z) {
+        if (this.ln == null || this.lo == null) {
             return;
         }
-        this.le = z;
-        this.kY.u(z);
-        this.kZ.u(z);
+        this.lt = z;
+        this.ln.s(z);
+        this.lo.s(z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.ar.c
     public void a(long j) {
         super.a(j);
-        if (j <= 0 || this.bY == null || this.bY.getHandleType(j) != 23) {
+        if (j <= 0 || this.cb == null || this.cb.getHandleType(j) != 23) {
             return;
         }
-        this.bY.destroyHandle(j);
+        this.cb.destroyHandle(j);
     }
 
     @Override // com.baidu.ar.capture.ICapture
     public void capture(ICallbackWith<ICaptureResult> iCallbackWith) {
-        S(null);
+        V(null);
         d(iCallbackWith);
     }
 
     @Override // com.baidu.ar.c
     public void release() {
-        if (this.kM != null) {
-            this.kM.onClose();
+        if (this.lb != null) {
+            this.lb.onClose();
         }
-        this.kM = null;
-        if (this.bZ != null) {
-            b(this.bZ);
-            this.bZ = null;
+        this.lb = null;
+        if (this.cc != null) {
+            b(this.cc);
+            this.cc = null;
         }
-        cN();
-        if (this.li != null) {
-            this.li.stop();
-            this.li = null;
+        cM();
+        if (this.lx != null) {
+            this.lx.stop();
+            this.lx = null;
         }
-        this.ld = null;
-        if (this.bY != null) {
-            this.bY.release();
-            this.bY = null;
+        this.ls = null;
+        if (this.cb != null) {
+            this.cb.release();
+            this.cb = null;
         }
-        k r = r();
+        com.baidu.ar.arrender.l r = r();
         if (r != null) {
-            r.o(23);
+            r.q(23);
         }
         super.release();
     }
@@ -300,10 +300,10 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
         if (strArr == null || strArr.length <= 0 || r() == null) {
             return;
         }
-        if (this.bY == null) {
-            this.bY = new AlgoHandleController();
+        if (this.cb == null) {
+            this.cb = new AlgoHandleController();
         }
-        long a2 = f.a(this.bY, strArr, 23);
+        long a2 = f.a(this.cb, strArr, 23);
         r().a(a2, "ability_capture");
         a(a2);
     }
@@ -313,17 +313,17 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
         if (bitmapArr == null || bitmapArr.length <= 0 || r() == null) {
             return;
         }
-        if (this.bY == null) {
-            this.bY = new AlgoHandleController();
+        if (this.cb == null) {
+            this.cb = new AlgoHandleController();
         }
-        long a2 = f.a(this.bY, bitmapArr, 23);
+        long a2 = f.a(this.cb, bitmapArr, 23);
         r().a(a2, "ability_capture");
         a(a2);
     }
 
     @Override // com.baidu.ar.capture.ICapture
     public void setAbilityListener(ICaptureAbilityListener iCaptureAbilityListener) {
-        this.kM = iCaptureAbilityListener;
+        this.lb = iCaptureAbilityListener;
         if (iCaptureAbilityListener != null) {
             iCaptureAbilityListener.onOpen();
         }
@@ -331,21 +331,21 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
 
     @Override // com.baidu.ar.capture.ICapture
     public void setCaptureCallback(ICallbackWith<ICaptureResult> iCallbackWith) {
-        this.ld = iCallbackWith;
+        this.ls = iCallbackWith;
     }
 
     @Override // com.baidu.ar.c
     public void setup(HashMap<String, Object> hashMap) {
         super.setup(hashMap);
-        if (this.R > this.S) {
-            this.kW = this.S;
-            this.kX = this.R;
+        if (this.mInputWidth > this.mInputHeight) {
+            this.ll = this.mInputHeight;
+            this.lm = this.mInputWidth;
         } else {
-            this.kW = this.R;
-            this.kX = this.S;
+            this.ll = this.mInputWidth;
+            this.lm = this.mInputHeight;
         }
-        this.bY = new AlgoHandleController();
-        this.bZ = new LuaMsgListener() { // from class: com.baidu.ar.capture.FamilyWithChildAR.1
+        this.cb = new AlgoHandleController();
+        this.cc = new LuaMsgListener() { // from class: com.baidu.ar.capture.FamilyWithChildAR.1
             @Override // com.baidu.ar.lua.LuaMsgListener
             public List<String> getMsgKeyListened() {
                 return Arrays.asList(LuaMessageHelper.KEY_EVENT_NAME);
@@ -355,16 +355,16 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
             public void onLuaMessage(HashMap<String, Object> hashMap2) {
                 String str = (String) hashMap2.get(LuaMessageHelper.KEY_EVENT_NAME);
                 if ("get_pixel_frame".equals(str)) {
-                    FamilyWithChildAR.this.S((String) hashMap2.get("filter_id"));
+                    FamilyWithChildAR.this.V((String) hashMap2.get("filter_id"));
                     FamilyWithChildAR.this.d((ICallbackWith<ICaptureResult>) null);
-                } else if (!LuaMessageHelper.KEY_RECEIVE_LUA_MESSAGE.NEED_FACE.equals(str) || FamilyWithChildAR.this.kM == null) {
+                } else if (!LuaMessageHelper.KEY_RECEIVE_LUA_MESSAGE.NEED_FACE.equals(str) || FamilyWithChildAR.this.lb == null) {
                 } else {
-                    FamilyWithChildAR.this.kM.onOpen();
+                    FamilyWithChildAR.this.lb.onOpen();
                 }
             }
         };
-        a(this.bZ);
-        k r = r();
+        a(this.cc);
+        com.baidu.ar.arrender.l r = r();
         if (r != null) {
             r.b(23, false);
         }

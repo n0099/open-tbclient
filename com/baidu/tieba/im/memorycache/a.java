@@ -6,36 +6,36 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class a {
-    private ConcurrentHashMap<String, ImMessageCenterPojo> klr = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, ImMessageCenterPojo> kyN = new ConcurrentHashMap<>();
 
     /* renamed from: com.baidu.tieba.im.memorycache.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0765a {
+    public interface InterfaceC0781a {
         void a(Iterator<ImMessageCenterPojo> it);
     }
 
-    public void a(InterfaceC0765a interfaceC0765a) {
-        interfaceC0765a.a(this.klr.values().iterator());
+    public void a(InterfaceC0781a interfaceC0781a) {
+        interfaceC0781a.a(this.kyN.values().iterator());
     }
 
-    public void cTp() {
-        this.klr.clear();
+    public void cYB() {
+        this.kyN.clear();
     }
 
     public void e(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            this.klr.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+            this.kyN.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
         }
     }
 
-    public ImMessageCenterPojo MB(String str) {
+    public ImMessageCenterPojo NJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.klr.get(str);
+        return this.kyN.get(str);
     }
 
-    public boolean MC(String str) {
-        return (TextUtils.isEmpty(str) || this.klr.remove(str) == null) ? false : true;
+    public boolean NK(String str) {
+        return (TextUtils.isEmpty(str) || this.kyN.remove(str) == null) ? false : true;
     }
 }

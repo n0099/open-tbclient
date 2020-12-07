@@ -7,11 +7,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class SupportMapFragment extends Fragment {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2043a = SupportMapFragment.class.getSimpleName();
+    private static final String f2045a = SupportMapFragment.class.getSimpleName();
     private TextureMapView b;
     private BaiduMapOptions c;
 

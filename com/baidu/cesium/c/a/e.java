@@ -5,13 +5,13 @@ import java.security.SecureRandom;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.ShortBufferException;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private byte[] f1308a;
-    private i amE;
-    private f amF;
+    private byte[] f1307a;
+    private i anD;
+    private f anE;
     private int b;
     private int c;
     private int f;
@@ -21,18 +21,18 @@ public final class e {
     private boolean j = false;
 
     public e(b bVar, int i) {
-        this.f1308a = null;
+        this.f1307a = null;
         this.b = 0;
         this.c = 0;
         this.f = 0;
-        this.amE = null;
-        this.amF = null;
+        this.anD = null;
+        this.anE = null;
         this.b = i;
         this.c = i;
         this.f = i;
-        this.f1308a = new byte[this.b * 2];
-        this.amF = new d(bVar);
-        this.amE = new h(this.b);
+        this.f1307a = new byte[this.b * 2];
+        this.anE = new d(bVar);
+        this.anD = new h(this.b);
     }
 
     private int a(byte[] bArr, int i, byte[] bArr2, int i2, int i3) {
@@ -40,22 +40,22 @@ public final class e {
             return 0;
         }
         if (this.i != 2 && this.i != 3 && i3 % this.c != 0 && this.i != 6) {
-            if (this.amE != null) {
+            if (this.anD != null) {
                 throw new IllegalBlockSizeException("Input length (with padding) not multiple of " + this.c + " bytes");
             }
             throw new IllegalBlockSizeException("Input length not multiple of " + this.c + " bytes");
         } else if (this.j) {
-            this.amF.e(bArr, i, i3, bArr2, i2);
+            this.anE.e(bArr, i, i3, bArr2, i2);
             return i3;
         } else {
-            this.amF.d(bArr, i, i3, bArr2, i2);
+            this.anE.d(bArr, i, i3, bArr2, i2);
             return i3;
         }
     }
 
     int a(int i) {
         int i2 = this.d + i;
-        return (this.amE == null || this.j) ? i2 : this.c != this.b ? i2 < this.f ? this.f : (this.b + i2) - ((i2 - this.f) % this.b) : i2 + this.amE.a(i2);
+        return (this.anD == null || this.j) ? i2 : this.c != this.b ? i2 < this.f ? this.f : (this.b + i2) - ((i2 - this.f) % this.b) : i2 + this.anD.a(i2);
     }
 
     public void a(int i, byte[] bArr, byte[] bArr2, SecureRandom secureRandom) {
@@ -69,14 +69,14 @@ public final class e {
                 throw new InvalidAlgorithmParameterException("Parameters missing");
             }
             if (secureRandom == null) {
-                secureRandom = c.adB;
+                secureRandom = c.aex;
             }
             bArr2 = new byte[this.b];
             secureRandom.nextBytes(bArr2);
         }
         this.d = 0;
         this.f = this.b;
-        this.amF.a(this.j, "", bArr, bArr2);
+        this.anE.a(this.j, "", bArr, bArr2);
     }
 
     int f(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
@@ -84,43 +84,43 @@ public final class e {
         byte[] bArr3;
         int a2;
         int i5 = this.d + i2;
-        int a3 = this.c != this.b ? i5 < this.f ? this.f - i5 : this.b - ((i5 - this.f) % this.b) : this.amE != null ? this.amE.a(i5) : 0;
-        if (a3 <= 0 || a3 == this.b || this.amE == null || !this.j) {
-            int i6 = (this.j || this.amE == null) ? i5 : i5 + a3;
+        int a3 = this.c != this.b ? i5 < this.f ? this.f - i5 : this.b - ((i5 - this.f) % this.b) : this.anD != null ? this.anD.a(i5) : 0;
+        if (a3 <= 0 || a3 == this.b || this.anD == null || !this.j) {
+            int i6 = (this.j || this.anD == null) ? i5 : i5 + a3;
             if (bArr2 == null) {
                 throw new ShortBufferException("Output buffer is null");
             }
             int length = bArr2.length - i3;
-            if (((!this.j || this.amE == null) && length < i6) || (this.j && length < i6 - this.b)) {
+            if (((!this.j || this.anD == null) && length < i6) || (this.j && length < i6 - this.b)) {
                 throw new ShortBufferException("Output buffer too short: " + length + " bytes given, " + i6 + " bytes needed");
             }
-            if (this.d == 0 && (this.j || this.amE == null)) {
+            if (this.d == 0 && (this.j || this.anD == null)) {
                 i4 = i;
                 bArr3 = bArr;
             } else {
                 i4 = 0;
                 bArr3 = new byte[i6];
                 if (this.d != 0) {
-                    System.arraycopy(this.f1308a, 0, bArr3, 0, this.d);
+                    System.arraycopy(this.f1307a, 0, bArr3, 0, this.d);
                 }
                 if (i2 != 0) {
                     System.arraycopy(bArr, i, bArr3, this.d, i2);
                 }
-                if (!this.j && this.amE != null) {
-                    this.amE.a(bArr3, i5, a3);
+                if (!this.j && this.anD != null) {
+                    this.anD.a(bArr3, i5, a3);
                 }
             }
             if (this.j) {
                 if (length < i6) {
-                    this.amF.c();
+                    this.anE.c();
                 }
                 byte[] bArr4 = new byte[i5];
                 a2 = a(bArr3, i4, bArr4, 0, i5);
-                if (this.amE != null && (a2 = this.amE.b(bArr4, 0, a2)) < 0) {
+                if (this.anD != null && (a2 = this.anD.b(bArr4, 0, a2)) < 0) {
                     throw new BadPaddingException("Given final block not properly padded");
                 }
                 if (bArr2.length - i3 < a2) {
-                    this.amF.d();
+                    this.anE.d();
                     throw new ShortBufferException("Output buffer too short: " + (bArr2.length - i3) + " bytes given, " + a2 + " bytes needed");
                 }
                 for (int i7 = 0; i7 < a2; i7++) {
@@ -132,7 +132,7 @@ public final class e {
             this.d = 0;
             this.f = this.b;
             if (this.i != 0) {
-                this.amF.b();
+                this.anE.b();
             }
             return a2;
         }

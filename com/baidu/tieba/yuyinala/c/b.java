@@ -11,29 +11,29 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tieba.yuyinala.message.AlaGetRoomRankListResponseMessage;
 /* loaded from: classes4.dex */
 public class b extends BdBaseModel {
-    private HttpMessageListener hyr = new HttpMessageListener(1031033) { // from class: com.baidu.tieba.yuyinala.c.b.1
+    private HttpMessageListener hHW = new HttpMessageListener(1031033) { // from class: com.baidu.tieba.yuyinala.c.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomRankListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && b.this.okg != null) {
-                b.this.okg.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomRankListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && b.this.ozg != null) {
+                b.this.ozg.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
-    private d okg;
+    private d ozg;
 
     public void a(d dVar) {
-        this.okg = dVar;
+        this.ozg = dVar;
     }
 
     public b(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
         registerTask();
-        registerListener(this.hyr);
+        registerListener(this.hHW);
     }
 
     private void registerTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031033, com.baidu.live.a.axY);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031033, com.baidu.live.a.aAt);
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
@@ -42,7 +42,7 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void VQ(String str) {
+    public void Xf(String str) {
         HttpMessage httpMessage = new HttpMessage(1031033);
         httpMessage.addParam(UbcStatConstant.KEY_CUSTOM_ROOM_ID, str);
         MessageManager.getInstance().sendMessage(httpMessage);

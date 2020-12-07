@@ -9,6 +9,7 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.live.adp.widget.HorizontalTranslateLayout;
@@ -29,7 +30,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class MapController {
     public static final String ANDROID_SDK_LAYER_TAG = "android_sdk";
     public static final String CITY_AREA_TAG = "cityarea";
@@ -73,7 +74,7 @@ public class MapController {
     private boolean l = true;
 
     /* renamed from: a  reason: collision with root package name */
-    int f2874a = 0;
+    int f2876a = 0;
     private int m = 1;
     private int n = 1;
     private boolean o = false;
@@ -114,7 +115,7 @@ public class MapController {
     private int u = SysOSUtil.getInstance().getScreenWidth();
     private int v = SysOSUtil.getInstance().getScreenHeight();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public enum HeatMapType {
         CITY(0),
         SCENERY(1),
@@ -122,18 +123,18 @@ public class MapController {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2875a;
+        private final int f2877a;
 
         HeatMapType(int i) {
-            this.f2875a = i;
+            this.f2877a = i;
         }
 
         public int getId() {
-            return this.f2875a;
+            return this.f2877a;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public enum MapControlMode {
         DEFAULT(1),
         INDOOR(2),
@@ -142,19 +143,19 @@ public class MapController {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2876a;
+        private final int f2878a;
 
         MapControlMode(int i) {
-            this.f2876a = i;
+            this.f2878a = i;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public interface MapFirstFrameCallback {
         void onFirstFrameDrawing(MapController mapController);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public enum MapLayerType {
         DEFAULT(1),
         SATELLITE(2),
@@ -163,14 +164,14 @@ public class MapController {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2877a;
+        private final int f2879a;
 
         MapLayerType(int i) {
-            this.f2877a = i;
+            this.f2879a = i;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public enum MapSceneMode {
         DEFAULT(0),
         POI(1),
@@ -180,18 +181,18 @@ public class MapController {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2878a;
+        private final int f2880a;
 
         MapSceneMode(int i) {
-            this.f2878a = i;
+            this.f2880a = i;
         }
 
         public int getMode() {
-            return this.f2878a;
+            return this.f2880a;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public enum MapStyleMode {
         DEFAULT(1),
         SEARCH_POI(2),
@@ -205,18 +206,18 @@ public class MapController {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2879a;
+        private final int f2881a;
 
         MapStyleMode(int i) {
-            this.f2879a = i;
+            this.f2881a = i;
         }
 
         public int getMode() {
-            return this.f2879a;
+            return this.f2881a;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public enum RecommendPoiScene {
         BASE(0),
         INTERNATIONAL(1);
@@ -228,25 +229,25 @@ public class MapController {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public enum RecycleMemoryLevel {
         NORMAL(0),
         FULL(1);
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2881a;
+        private final int f2883a;
 
         RecycleMemoryLevel(int i) {
-            this.f2881a = i;
+            this.f2883a = i;
         }
 
         public int getLevel() {
-            return this.f2881a;
+            return this.f2883a;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     class a extends com.baidu.platform.comapi.util.i {
         a() {
             super(Looper.getMainLooper());
@@ -1189,7 +1190,7 @@ public class MapController {
             case 5:
                 return 500000;
             case 6:
-                return 200000;
+                return AlaRecorderLog.ErrCodeSeg.ERROR_BASE_RTMP;
             case 7:
                 return 100000;
             case 8:
@@ -1281,7 +1282,7 @@ public class MapController {
 
     public boolean cleanCache(MapLayerType mapLayerType) {
         AppBaseMap appBaseMap = this.r;
-        return appBaseMap != null && appBaseMap.CleanCache(mapLayerType.f2877a);
+        return appBaseMap != null && appBaseMap.CleanCache(mapLayerType.f2879a);
     }
 
     public void clearUniversalLayer() {
@@ -1339,7 +1340,7 @@ public class MapController {
         if (appBaseMap == null) {
             return 0;
         }
-        return appBaseMap.GetCacheSize(mapLayerType.f2877a);
+        return appBaseMap.GetCacheSize(mapLayerType.f2879a);
     }
 
     public CaptureMapListener getCaptureMapListener() {
@@ -2232,7 +2233,7 @@ public class MapController {
     public int setMapControlMode(MapControlMode mapControlMode) {
         if (a()) {
             this.W = mapControlMode;
-            return this.r.SetMapControlMode(mapControlMode.f2876a);
+            return this.r.SetMapControlMode(mapControlMode.f2878a);
         }
         return -1;
     }
@@ -2478,10 +2479,10 @@ public class MapController {
         }
         if (i == 1) {
             this.g.onLongLinkConnect();
-        } else if (i == 2 && this.f2874a != i) {
+        } else if (i == 2 && this.f2876a != i) {
             this.g.onLongLinkDisConnect();
         }
-        this.f2874a = i;
+        this.f2876a = i;
     }
 
     public void setOverlayMapCallBack(ac acVar) {

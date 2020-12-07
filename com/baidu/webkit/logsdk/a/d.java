@@ -3,11 +3,11 @@ package com.baidu.webkit.logsdk.a;
 import android.text.TextUtils;
 import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.webkit.logsdk.upload.a f3952a;
+    final /* synthetic */ com.baidu.webkit.logsdk.upload.a f3955a;
     final /* synthetic */ long b;
     final /* synthetic */ boolean c;
     final /* synthetic */ b d;
@@ -15,7 +15,7 @@ public final class d implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar, com.baidu.webkit.logsdk.upload.a aVar, long j, boolean z) {
         this.d = bVar;
-        this.f3952a = aVar;
+        this.f3955a = aVar;
         this.b = j;
         this.c = z;
     }
@@ -23,7 +23,7 @@ public final class d implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         com.baidu.webkit.logsdk.c.c h = this.d.h();
-        com.baidu.webkit.logsdk.upload.a aVar = this.f3952a;
+        com.baidu.webkit.logsdk.upload.a aVar = this.f3955a;
         long j = this.b;
         boolean z = this.c;
         String str = null;
@@ -36,7 +36,7 @@ public final class d implements Runnable {
             str = "upload";
         }
         if (!TextUtils.isEmpty(str)) {
-            String c = com.baidu.webkit.logsdk.d.c.c(aVar.e.f3955a, str);
+            String c = com.baidu.webkit.logsdk.d.c.c(aVar.e.f3958a, str);
             String b = com.baidu.webkit.logsdk.d.c.b(c);
             com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "handleWriteDataToFile path = " + b);
             StringBuilder sb = new StringBuilder();
@@ -53,7 +53,7 @@ public final class d implements Runnable {
             sb.append("\r\n");
             sb.append(aVar.i);
             sb.append("\r\n");
-            sb.append(aVar.f3965a);
+            sb.append(aVar.f3968a);
             com.baidu.webkit.logsdk.d.c.b(b, sb.toString());
             if (!TextUtils.isEmpty(str2)) {
                 b.a().h().b(str2);

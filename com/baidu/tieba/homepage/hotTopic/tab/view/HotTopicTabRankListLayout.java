@@ -25,68 +25,68 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.hotTopic.tab.b.c;
 import com.baidu.tieba.homepage.hotTopic.tab.b.d;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class HotTopicTabRankListLayout extends RecyclerView {
-    private int jCS;
-    private a jCT;
+    private int jQu;
+    private a jQv;
 
     public void setOnItemCoverListener(f<c> fVar) {
-        this.jCT.setOnItemCoverListener(fVar);
+        this.jQv.setOnItemCoverListener(fVar);
     }
 
     public HotTopicTabRankListLayout(Context context) {
         super(context);
-        this.jCS = 3;
+        this.jQu = 3;
         initView();
     }
 
     public HotTopicTabRankListLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jCS = 3;
+        this.jQu = 3;
         initView();
     }
 
     public HotTopicTabRankListLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jCS = 3;
+        this.jQu = 3;
         initView();
     }
 
     private void initView() {
         setLayoutManager(new GridLayoutManager(getContext(), 2));
         setOverScrollMode(2);
-        this.jCT = new a();
-        setAdapter(this.jCT);
+        this.jQv = new a();
+        setAdapter(this.jQv);
     }
 
     public void a(d dVar) {
-        if (dVar != null && dVar.cKh() != null) {
-            this.jCT.dK(dVar.cKh());
+        if (dVar != null && dVar.cPw() != null) {
+            this.jQv.dV(dVar.cPw());
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jCS != i) {
-            this.jCT.notifyDataSetChanged();
-            this.jCS = i;
+        if (this.jQu != i) {
+            this.jQv.notifyDataSetChanged();
+            this.jQu = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public static class a extends RecyclerView.Adapter<b> {
-        private f<c> aiR;
-        private List<c> jCQ;
+        private f<c> ajQ;
+        private List<c> jQs;
 
         a() {
         }
 
         public void setOnItemCoverListener(f<c> fVar) {
-            this.aiR = fVar;
+            this.ajQ = fVar;
         }
 
-        void dK(@NonNull List<c> list) {
-            this.jCQ = list;
+        void dV(@NonNull List<c> list) {
+            this.jQs = list;
             notifyDataSetChanged();
         }
 
@@ -96,7 +96,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         /* renamed from: C */
         public b onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             b bVar = new b(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.hot_topic_tab_rank_list_item, viewGroup, false));
-            bVar.setOnItemCoverListener(this.aiR);
+            bVar.setOnItemCoverListener(this.ajQ);
             bVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             return bVar;
         }
@@ -105,123 +105,123 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         @Override // android.support.v7.widget.RecyclerView.Adapter
         /* renamed from: a */
         public void onBindViewHolder(@NonNull b bVar, int i) {
-            List<c> list = this.jCQ;
+            List<c> list = this.jQs;
             if (list != null && list.size() > i) {
                 c cVar = list.get(i);
                 bVar.a(cVar);
                 bVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-                if (this.aiR != null) {
-                    this.aiR.b(bVar.itemView, cVar, i, i);
+                if (this.ajQ != null) {
+                    this.ajQ.b(bVar.itemView, cVar, i, i);
                 }
             }
         }
 
         @Override // android.support.v7.widget.RecyclerView.Adapter
         public int getItemCount() {
-            if (this.jCQ == null) {
+            if (this.jQs == null) {
                 return 0;
             }
-            return this.jCQ.size();
+            return this.jQs.size();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public static class b extends RecyclerView.ViewHolder {
-        private f<c> aiR;
-        private TextView ajq;
-        private TextView ajr;
-        private TextView etx;
-        private int jCS;
-        private View jCU;
-        private View jCV;
-        private TextView jCW;
-        private ImageView jCX;
+        private f<c> ajQ;
+        private TextView akp;
+        private TextView akq;
+        private TextView eAz;
+        private int jQu;
+        private View jQw;
+        private View jQx;
+        private TextView jQy;
+        private ImageView jQz;
 
         b(View view) {
             super(view);
-            this.jCS = 3;
-            this.jCU = view.findViewById(R.id.itemLayout);
-            this.ajq = (TextView) view.findViewById(R.id.indexView);
-            this.etx = (TextView) view.findViewById(R.id.titleView);
-            this.ajr = (TextView) view.findViewById(R.id.tagView);
-            this.jCV = view.findViewById(R.id.moreLayout);
-            this.jCW = (TextView) view.findViewById(R.id.moreText);
-            this.jCX = (ImageView) view.findViewById(R.id.moreIcon);
+            this.jQu = 3;
+            this.jQw = view.findViewById(R.id.itemLayout);
+            this.akp = (TextView) view.findViewById(R.id.indexView);
+            this.eAz = (TextView) view.findViewById(R.id.titleView);
+            this.akq = (TextView) view.findViewById(R.id.tagView);
+            this.jQx = view.findViewById(R.id.moreLayout);
+            this.jQy = (TextView) view.findViewById(R.id.moreText);
+            this.jQz = (ImageView) view.findViewById(R.id.moreIcon);
         }
 
         void a(final c cVar) {
             if (cVar != null) {
-                if (cVar.jCP) {
-                    this.jCU.setVisibility(8);
-                    this.jCV.setVisibility(0);
-                    this.jCV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.1
+                if (cVar.jQr) {
+                    this.jQw.setVisibility(8);
+                    this.jQx.setVisibility(0);
+                    this.jQx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             new HotRanklistActivityConfig(view.getContext()).createNormalConfig("hotforum", "all").start();
-                            if (b.this.aiR != null) {
+                            if (b.this.ajQ != null) {
                                 int adapterPosition = b.this.getAdapterPosition();
-                                b.this.aiR.a(view, cVar, adapterPosition, adapterPosition);
+                                b.this.ajQ.a(view, cVar, adapterPosition, adapterPosition);
                             }
                         }
                     });
                     return;
                 }
-                this.jCU.setVisibility(0);
-                this.jCU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.2
+                this.jQw.setVisibility(0);
+                this.jQw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         new HotTopicActivityConfig(view.getContext()).createNormalConfig("" + cVar.topicId, null, "3").start();
-                        if (b.this.aiR != null) {
+                        if (b.this.ajQ != null) {
                             int adapterPosition = b.this.getAdapterPosition();
-                            b.this.aiR.a(view, cVar, adapterPosition, adapterPosition);
+                            b.this.ajQ.a(view, cVar, adapterPosition, adapterPosition);
                         }
                     }
                 });
-                this.jCV.setVisibility(8);
+                this.jQx.setVisibility(8);
                 if (cVar.index > 0) {
-                    this.ajq.setText(String.valueOf(cVar.index));
-                    this.ajq.setVisibility(0);
+                    this.akp.setText(String.valueOf(cVar.index));
+                    this.akp.setVisibility(0);
                 } else {
-                    this.ajq.setVisibility(8);
+                    this.akp.setVisibility(8);
                 }
-                this.etx.setText(cVar.eBa);
-                String t = TagTextHelper.t(this.ajr.getContext(), cVar.tag);
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.etx.getLayoutParams();
-                if (TextUtils.isEmpty(t)) {
-                    this.ajr.setVisibility(8);
-                    marginLayoutParams.rightMargin = l.getDimens(this.ajr.getContext(), R.dimen.tbds22);
-                    this.etx.setLayoutParams(marginLayoutParams);
+                this.eAz.setText(cVar.eIa);
+                String C = TagTextHelper.C(this.akq.getContext(), cVar.tag);
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.eAz.getLayoutParams();
+                if (TextUtils.isEmpty(C)) {
+                    this.akq.setVisibility(8);
+                    marginLayoutParams.rightMargin = l.getDimens(this.akq.getContext(), R.dimen.tbds22);
+                    this.eAz.setLayoutParams(marginLayoutParams);
                 } else {
-                    marginLayoutParams.rightMargin = l.getDimens(this.ajr.getContext(), R.dimen.tbds74);
-                    this.etx.setLayoutParams(marginLayoutParams);
-                    this.ajr.setVisibility(0);
-                    this.ajr.setText(t);
+                    marginLayoutParams.rightMargin = l.getDimens(this.akq.getContext(), R.dimen.tbds74);
+                    this.eAz.setLayoutParams(marginLayoutParams);
+                    this.akq.setVisibility(0);
+                    this.akq.setText(C);
                 }
-                ap.setViewTextColor(this.ajq, TagTextHelper.pA(cVar.index));
-                com.baidu.tbadk.core.elementsMaven.c.bj(this.ajr).pb(R.string.J_X04).setBackGroundColor(TagTextHelper.pz(cVar.tag));
+                ap.setViewTextColor(this.akp, TagTextHelper.qa(cVar.index));
+                com.baidu.tbadk.core.elementsMaven.c.bm(this.akq).pA(R.string.J_X04).setBackGroundColor(TagTextHelper.pZ(cVar.tag));
             }
         }
 
         void setOnItemCoverListener(f<c> fVar) {
-            this.aiR = fVar;
+            this.ajQ = fVar;
         }
 
         void onChangeSkinType(int i) {
-            if (this.jCS != i) {
-                int i2 = com.baidu.tbadk.a.d.bhw() ? R.color.CAM_X0206 : R.color.CAM_X0204;
-                com.baidu.tbadk.core.util.e.a.h(this.jCU, R.color.CAM_X0205, i2);
-                com.baidu.tbadk.core.util.e.a.h(this.jCV, R.color.CAM_X0205, i2);
-                ap.setViewTextColor(this.etx, R.color.CAM_X0105);
-                ap.setViewTextColor(this.ajr, R.color.CAM_X0101);
-                if (this.jCV.getVisibility() == 0) {
-                    ap.setViewTextColor(this.jCW, R.color.CAM_X0304);
+            if (this.jQu != i) {
+                int i2 = com.baidu.tbadk.a.d.bkA() ? R.color.CAM_X0206 : R.color.CAM_X0204;
+                com.baidu.tbadk.core.util.e.a.g(this.jQw, R.color.CAM_X0205, i2);
+                com.baidu.tbadk.core.util.e.a.g(this.jQx, R.color.CAM_X0205, i2);
+                ap.setViewTextColor(this.eAz, R.color.CAM_X0105);
+                ap.setViewTextColor(this.akq, R.color.CAM_X0101);
+                if (this.jQx.getVisibility() == 0) {
+                    ap.setViewTextColor(this.jQy, R.color.CAM_X0304);
                     int color = ap.getColor(R.color.CAM_X0304);
-                    Drawable drawable = this.jCX.getDrawable();
+                    Drawable drawable = this.jQz.getDrawable();
                     DrawableCompat.setTint(drawable, color);
-                    this.jCX.setImageDrawable(drawable);
+                    this.jQz.setImageDrawable(drawable);
                 }
-                this.jCS = i;
+                this.jQu = i;
             }
         }
     }

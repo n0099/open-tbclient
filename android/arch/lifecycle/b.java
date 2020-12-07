@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 class b {
-    static b za = new b();
-    private final Map<Class, a> zb = new HashMap();
-    private final Map<Class, Boolean> zc = new HashMap();
+    static b zQ = new b();
+    private final Map<Class, a> zR = new HashMap();
+    private final Map<Class, Boolean> zS = new HashMap();
 
     b() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean e(Class cls) {
-        if (this.zc.containsKey(cls)) {
-            return this.zc.get(cls).booleanValue();
+        if (this.zS.containsKey(cls)) {
+            return this.zS.get(cls).booleanValue();
         }
         Method[] f = f(cls);
         for (Method method : f) {
@@ -29,7 +29,7 @@ class b {
                 return true;
             }
         }
-        this.zc.put(cls, false);
+        this.zS.put(cls, false);
         return false;
     }
 
@@ -43,7 +43,7 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a g(Class cls) {
-        a aVar = this.zb.get(cls);
+        a aVar = this.zR.get(cls);
         if (aVar == null) {
             return a(cls, null);
         }
@@ -66,10 +66,10 @@ class b {
         Class superclass = cls.getSuperclass();
         HashMap hashMap = new HashMap();
         if (superclass != null && (g = g(superclass)) != null) {
-            hashMap.putAll(g.ze);
+            hashMap.putAll(g.zU);
         }
         for (Class<?> cls2 : cls.getInterfaces()) {
-            for (Map.Entry<C0002b, Lifecycle.Event> entry : g(cls2).ze.entrySet()) {
+            for (Map.Entry<C0002b, Lifecycle.Event> entry : g(cls2).zU.entrySet()) {
                 a(hashMap, entry.getKey(), entry.getValue(), cls);
             }
         }
@@ -113,25 +113,25 @@ class b {
             z2 = z;
         }
         a aVar = new a(hashMap);
-        this.zb.put(cls, aVar);
-        this.zc.put(cls, Boolean.valueOf(z2));
+        this.zR.put(cls, aVar);
+        this.zS.put(cls, Boolean.valueOf(z2));
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class a {
-        final Map<Lifecycle.Event, List<C0002b>> zd = new HashMap();
-        final Map<C0002b, Lifecycle.Event> ze;
+        final Map<Lifecycle.Event, List<C0002b>> zT = new HashMap();
+        final Map<C0002b, Lifecycle.Event> zU;
 
         a(Map<C0002b, Lifecycle.Event> map) {
-            this.ze = map;
+            this.zU = map;
             for (Map.Entry<C0002b, Lifecycle.Event> entry : map.entrySet()) {
                 Lifecycle.Event value = entry.getValue();
-                List<C0002b> list = this.zd.get(value);
+                List<C0002b> list = this.zT.get(value);
                 if (list == null) {
                     list = new ArrayList<>();
-                    this.zd.put(value, list);
+                    this.zT.put(value, list);
                 }
                 list.add(entry.getKey());
             }
@@ -139,8 +139,8 @@ class b {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void a(j jVar, Lifecycle.Event event, Object obj) {
-            a(this.zd.get(event), jVar, event, obj);
-            a(this.zd.get(Lifecycle.Event.ON_ANY), jVar, event, obj);
+            a(this.zT.get(event), jVar, event, obj);
+            a(this.zT.get(Lifecycle.Event.ON_ANY), jVar, event, obj);
         }
 
         private static void a(List<C0002b> list, j jVar, Lifecycle.Event event, Object obj) {
@@ -154,20 +154,20 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: android.arch.lifecycle.b$b  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class C0002b {
         final Method mMethod;
-        final int zf;
+        final int zV;
 
         C0002b(int i, Method method) {
-            this.zf = i;
+            this.zV = i;
             this.mMethod = method;
             this.mMethod.setAccessible(true);
         }
 
         void b(j jVar, Lifecycle.Event event, Object obj) {
             try {
-                switch (this.zf) {
+                switch (this.zV) {
                     case 0:
                         this.mMethod.invoke(obj, new Object[0]);
                         return;
@@ -195,11 +195,11 @@ class b {
                 return false;
             }
             C0002b c0002b = (C0002b) obj;
-            return this.zf == c0002b.zf && this.mMethod.getName().equals(c0002b.mMethod.getName());
+            return this.zV == c0002b.zV && this.mMethod.getName().equals(c0002b.mMethod.getName());
         }
 
         public int hashCode() {
-            return (this.zf * 31) + this.mMethod.getName().hashCode();
+            return (this.zV * 31) + this.mMethod.getName().hashCode();
         }
     }
 }

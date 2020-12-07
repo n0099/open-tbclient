@@ -3,64 +3,64 @@ package com.baidu.live.liveroom.e;
 import android.content.Context;
 /* loaded from: classes4.dex */
 public class i {
-    private static volatile i blQ = null;
-    private e blR;
-    private e blS;
-    private c blT;
-    private com.baidu.live.s.d blU;
+    private static volatile i bqX = null;
+    private e bqY;
+    private e bqZ;
+    private c bra;
+    private com.baidu.live.u.d brb;
 
     private i() {
     }
 
-    public static i Nj() {
-        if (blQ == null) {
+    public static i PB() {
+        if (bqX == null) {
             synchronized (i.class) {
-                if (blQ == null) {
-                    blQ = new i();
+                if (bqX == null) {
+                    bqX = new i();
                 }
             }
         }
-        return blQ;
+        return bqX;
     }
 
     public void a(e eVar) {
-        this.blR = eVar;
+        this.bqY = eVar;
     }
 
     public void b(e eVar) {
-        this.blS = eVar;
+        this.bqZ = eVar;
     }
 
-    public boolean Nk() {
-        return this.blR != null;
+    public boolean PC() {
+        return this.bqY != null;
     }
 
-    public d ay(Context context) {
-        if (this.blR != null) {
-            return this.blR.ax(context);
+    public d bc(Context context) {
+        if (this.bqY != null) {
+            return this.bqY.bb(context);
         }
         return null;
     }
 
-    public d az(Context context) {
-        if (this.blS != null) {
-            return this.blS.ax(context);
+    public d bd(Context context) {
+        if (this.bqZ != null) {
+            return this.bqZ.bb(context);
         }
         return null;
     }
 
     public void a(c cVar) {
-        this.blT = cVar;
+        this.bra = cVar;
     }
 
-    public b Nl() {
-        if (this.blT != null) {
-            return this.blT.Ni();
+    public b PD() {
+        if (this.bra != null) {
+            return this.bra.PA();
         }
         return null;
     }
 
-    public com.baidu.live.s.d Nm() {
-        return this.blU;
+    public com.baidu.live.u.d PE() {
+        return this.brb;
     }
 }

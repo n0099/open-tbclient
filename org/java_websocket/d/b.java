@@ -1,21 +1,19 @@
 package org.java_websocket.d;
-
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes18.dex */
+/* loaded from: classes5.dex */
 public class b implements a {
-    private final String qeB;
+    private final String pOD;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.qeB = str;
+        this.pOD = str;
     }
 
     @Override // org.java_websocket.d.a
-    public boolean ZS(String str) {
-        for (String str2 : str.replaceAll(" ", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (this.qeB.equals(str2)) {
+    public boolean aaF(String str) {
+        for (String str2 : str.replaceAll(" ", "").split(",")) {
+            if (this.pOD.equals(str2)) {
                 return true;
             }
         }
@@ -23,18 +21,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String eFe() {
-        return this.qeB;
+    public String eFd() {
+        return this.pOD;
     }
 
     @Override // org.java_websocket.d.a
-    public a eFf() {
-        return new b(eFe());
+    public a eFe() {
+        return new b(eFd());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return eFe();
+        return eFd();
     }
 
     public boolean equals(Object obj) {
@@ -44,10 +42,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.qeB.equals(((b) obj).qeB);
+        return this.pOD.equals(((b) obj).pOD);
     }
 
     public int hashCode() {
-        return this.qeB.hashCode();
+        return this.pOD.hashCode();
     }
 }

@@ -6,29 +6,29 @@ public final class a {
     private static final String aP = Environment.getExternalStorageDirectory().getPath();
     static final String aQ = aP + "/baidu/ab/crash/";
     static final String aR = aP + "/baidu/ab/sdklog/";
-    public static final String aS = aP + "/baidu/ab/sdkupdata/" + at() + "/";
-    private static int aox = EnumC0935a.aV;
+    public static final String aS = aP + "/baidu/ab/sdkupdata/" + ejI() + "/";
+    private static int apn = EnumC0952a.aV;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
-    public static final class EnumC0935a {
+    public static final class EnumC0952a {
         public static final int aV = 1;
         public static final int aW = 2;
         private static final /* synthetic */ int[] aX = {aV, aW};
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean edV() {
-        return aox == EnumC0935a.aV;
+    public static boolean ejH() {
+        return apn == EnumC0952a.aV;
     }
 
     public static String u() {
         return "0.4.0";
     }
 
-    private static int at() {
+    private static int ejI() {
         try {
             String[] split = "0.4.0".split("\\.");
             if (split.length > 2) {

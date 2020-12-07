@@ -1,13 +1,38 @@
 package kotlin.collections;
+@kotlin.e
+/* loaded from: classes17.dex */
+public final class x<T> {
+    private final int index;
+    private final T value;
 
-import java.util.Collections;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
-@kotlin.h
-/* loaded from: classes9.dex */
-public class x extends w {
-    public static final <T> void gP(List<T> list) {
-        kotlin.jvm.internal.q.n(list, "receiver$0");
-        Collections.reverse(list);
+    public boolean equals(Object obj) {
+        if (this != obj) {
+            if (!(obj instanceof x)) {
+                return false;
+            }
+            x xVar = (x) obj;
+            if (!(this.index == xVar.index) || !kotlin.jvm.internal.p.l(this.value, xVar.value)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public int hashCode() {
+        int i = this.index * 31;
+        T t = this.value;
+        return (t != null ? t.hashCode() : 0) + i;
+    }
+
+    public String toString() {
+        return "IndexedValue(index=" + this.index + ", value=" + this.value + ")";
+    }
+
+    public final int getIndex() {
+        return this.index;
+    }
+
+    public final T getValue() {
+        return this.value;
     }
 }

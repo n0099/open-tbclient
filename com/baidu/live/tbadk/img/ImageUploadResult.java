@@ -1,5 +1,6 @@
 package com.baidu.live.tbadk.img;
 
+import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONException;
@@ -42,7 +43,7 @@ public class ImageUploadResult implements Serializable {
         }
         if (jSONObject != null) {
             imageUploadResult.error_code = jSONObject.optInt("error_code");
-            imageUploadResult.error_msg = jSONObject.optString("error_msg");
+            imageUploadResult.error_msg = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
             imageUploadResult.resourceId = jSONObject.optString("resourceId");
             imageUploadResult.chunkNo = jSONObject.optInt("chunkNo");
             imageUploadResult.picId = jSONObject.optInt("picId");

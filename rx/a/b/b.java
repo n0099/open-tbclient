@@ -10,7 +10,7 @@ import rx.g;
 import rx.k;
 import rx.subscriptions.e;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public class b extends g {
     private final Handler handler;
 
@@ -24,11 +24,11 @@ public class b extends g {
         return new a(this.handler);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes12.dex */
     static class a extends g.a {
         private final Handler handler;
-        private final rx.a.a.b qfq = rx.a.a.a.eFv().eFw();
-        private volatile boolean qfr;
+        private final rx.a.a.b pPs = rx.a.a.a.eFu().eFv();
+        private volatile boolean pPt;
 
         a(Handler handler) {
             this.handler = handler;
@@ -36,29 +36,29 @@ public class b extends g {
 
         @Override // rx.k
         public void unsubscribe() {
-            this.qfr = true;
+            this.pPt = true;
             this.handler.removeCallbacksAndMessages(this);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.qfr;
+            return this.pPt;
         }
 
         @Override // rx.g.a
         public k a(rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            if (this.qfr) {
-                return e.eGZ();
+            if (this.pPt) {
+                return e.eHa();
             }
-            RunnableC1096b runnableC1096b = new RunnableC1096b(this.qfq.d(aVar), this.handler);
-            Message obtain = Message.obtain(this.handler, runnableC1096b);
+            RunnableC1060b runnableC1060b = new RunnableC1060b(this.pPs.d(aVar), this.handler);
+            Message obtain = Message.obtain(this.handler, runnableC1060b);
             obtain.obj = this;
             this.handler.sendMessageDelayed(obtain, timeUnit.toMillis(j));
-            if (this.qfr) {
-                this.handler.removeCallbacks(runnableC1096b);
-                return e.eGZ();
+            if (this.pPt) {
+                this.handler.removeCallbacks(runnableC1060b);
+                return e.eHa();
             }
-            return runnableC1096b;
+            return runnableC1060b;
         }
 
         @Override // rx.g.a
@@ -69,13 +69,13 @@ public class b extends g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.a.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
-    public static final class RunnableC1096b implements Runnable, k {
+    /* loaded from: classes12.dex */
+    public static final class RunnableC1060b implements Runnable, k {
         private final rx.functions.a action;
         private final Handler handler;
-        private volatile boolean qfr;
+        private volatile boolean pPt;
 
-        RunnableC1096b(rx.functions.a aVar, Handler handler) {
+        RunnableC1060b(rx.functions.a aVar, Handler handler) {
             this.action = aVar;
             this.handler = handler;
         }
@@ -91,7 +91,7 @@ public class b extends g {
                 } else {
                     illegalStateException = new IllegalStateException("Fatal Exception thrown on Scheduler.Worker thread.", th);
                 }
-                f.eGv().eGw().F(illegalStateException);
+                f.eGw().eGx().F(illegalStateException);
                 Thread currentThread = Thread.currentThread();
                 currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, illegalStateException);
             }
@@ -99,13 +99,13 @@ public class b extends g {
 
         @Override // rx.k
         public void unsubscribe() {
-            this.qfr = true;
+            this.pPt = true;
             this.handler.removeCallbacks(this);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.qfr;
+            return this.pPt;
         }
     }
 }

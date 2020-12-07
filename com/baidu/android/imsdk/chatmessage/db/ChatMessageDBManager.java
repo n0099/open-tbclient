@@ -30,9 +30,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
+import com.baidu.android.imsdk.retrieve.util.RetrieveUtil;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
 import com.baidu.live.tbadk.log.LogConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,14 +45,14 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ChatMessageDBManager extends DBBase {
     private static final long CAST_RELIABLE_MSG_EXPIRED_TIME = 172800;
     private static final String TAG = ChatMessageDBManager.class.getSimpleName();
     private static ChatMessageDBManager mInstance = null;
     private List<ChatMessageDbOberser> mObservers = null;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface ChatMessageDbOberser {
         void notifyDbChange(int i, ChatSession chatSession);
     }
@@ -359,6 +361,10 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
+    public void updateChatSession(String str, String[] strArr, ContentValues contentValues) {
+        update(TableDefine.DB_TABLE_CHAT_SESSION, str, strArr, contentValues);
+    }
+
     public long updateChatSession(int i, ChatSession chatSession) {
         long update;
         synchronized (mSyncLock) {
@@ -445,7 +451,7 @@ public class ChatMessageDBManager extends DBBase {
         contentValues.put("shield_time", Long.valueOf(chatSession.getShieldTime()));
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [526=5, 527=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [533=5, 534=4] */
     public boolean isRecordExist(SQLiteDatabase sQLiteDatabase, ChatObject chatObject) {
         Cursor cursor;
         Cursor cursor2 = null;
@@ -496,7 +502,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [582=5, 583=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [589=5, 590=4] */
     /* JADX WARN: Removed duplicated region for block: B:35:0x00f8 A[Catch: all -> 0x00fc, TryCatch #4 {, blocks: (B:4:0x0004, B:6:0x000f, B:25:0x00e4, B:26:0x00e7, B:29:0x00ed, B:30:0x00f0, B:21:0x00db, B:22:0x00de, B:35:0x00f8, B:36:0x00fb), top: B:48:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -575,7 +581,7 @@ public class ChatMessageDBManager extends DBBase {
         return getChatRecords(j, j2, j3, null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [649=5, 650=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [656=5, 657=4] */
     /* JADX WARN: Removed duplicated region for block: B:53:0x014b A[Catch: all -> 0x0145, TRY_ENTER, TryCatch #1 {, blocks: (B:4:0x0003, B:7:0x0010, B:40:0x0135, B:41:0x0138, B:45:0x013f, B:46:0x0142, B:35:0x0129, B:36:0x012c, B:53:0x014b, B:54:0x014e), top: B:61:0x0003 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -651,7 +657,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [710=5, 711=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [717=5, 718=4] */
     /* JADX WARN: Removed duplicated region for block: B:53:0x015f A[Catch: all -> 0x0159, TRY_ENTER, TryCatch #2 {, blocks: (B:4:0x0003, B:7:0x0010, B:40:0x0149, B:41:0x014c, B:45:0x0153, B:46:0x0156, B:35:0x013d, B:36:0x0140, B:53:0x015f, B:54:0x0162), top: B:62:0x0003 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -844,7 +850,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [893=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [900=4] */
     /* JADX WARN: Removed duplicated region for block: B:42:0x00e5 A[Catch: all -> 0x00de, TRY_ENTER, TryCatch #5 {, blocks: (B:4:0x0007, B:6:0x0015, B:7:0x001d, B:10:0x0020, B:21:0x0087, B:22:0x008a, B:42:0x00e5, B:43:0x00e8, B:33:0x00d8, B:34:0x00db), top: B:53:0x0007 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -918,7 +924,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [922=5, 923=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [929=5, 930=4] */
     /* JADX WARN: Removed duplicated region for block: B:24:0x0066  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -974,7 +980,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [952=5, 953=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [960=4, 959=5] */
     /* JADX WARN: Removed duplicated region for block: B:34:0x0073 A[Catch: all -> 0x0053, TryCatch #2 {, blocks: (B:4:0x0004, B:6:0x000a, B:15:0x004e, B:16:0x0051, B:22:0x0058, B:23:0x005b, B:34:0x0073, B:35:0x0076, B:29:0x006a, B:30:0x006d), top: B:40:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1032,7 +1038,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [983=5, 984=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [990=5, 991=4] */
     /* JADX WARN: Removed duplicated region for block: B:36:0x0069 A[Catch: all -> 0x0049, TryCatch #2 {, blocks: (B:4:0x0003, B:7:0x000b, B:15:0x0044, B:16:0x0047, B:23:0x004f, B:24:0x0052, B:36:0x0069, B:37:0x006c, B:30:0x0060, B:32:0x0064), top: B:44:0x0003 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1093,7 +1099,7 @@ public class ChatMessageDBManager extends DBBase {
         return chatSession;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1013=5, 1014=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1020=5, 1021=4] */
     /* JADX WARN: Removed duplicated region for block: B:34:0x0068 A[Catch: all -> 0x0048, TryCatch #2 {, blocks: (B:4:0x0004, B:6:0x000a, B:15:0x0043, B:16:0x0046, B:22:0x004d, B:23:0x0050, B:34:0x0068, B:35:0x006b, B:29:0x005f, B:30:0x0062), top: B:42:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1174,7 +1180,7 @@ public class ChatMessageDBManager extends DBBase {
         return i;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1070=5, 1071=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1077=5, 1078=4] */
     private int getNewMsgNum(SQLiteDatabase sQLiteDatabase, ChatObject chatObject) {
         Cursor cursor;
         Cursor cursor2 = null;
@@ -1302,7 +1308,7 @@ public class ChatMessageDBManager extends DBBase {
         return -1L;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1198=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1205=4] */
     private long isMsgExist(SQLiteDatabase sQLiteDatabase, ChatMsg chatMsg) {
         Cursor cursor;
         String[] strArr;
@@ -1391,7 +1397,7 @@ public class ChatMessageDBManager extends DBBase {
         return update;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1293=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1300=4] */
     private long existStudioMsg(SQLiteDatabase sQLiteDatabase, ChatMsg chatMsg) {
         Cursor cursor;
         String[] strArr;
@@ -1439,7 +1445,7 @@ public class ChatMessageDBManager extends DBBase {
         return j;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1328=5, 1329=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1335=5, 1336=4] */
     public ArrayList<ChatMsg> getStudioUsePaUnReadMsg() {
         ArrayList<ChatMsg> arrayList;
         Cursor cursor = null;
@@ -1568,7 +1574,7 @@ public class ChatMessageDBManager extends DBBase {
         return j;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1468=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1474=4] */
     private long isDuplicateMsg(SQLiteDatabase sQLiteDatabase, ChatMsg chatMsg) {
         Cursor cursor;
         String[] strArr;
@@ -1660,7 +1666,7 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    private List<Long> getPaidsByChatTypes(SQLiteDatabase sQLiteDatabase, List<Integer> list) {
+    private List<Long> getContacterByChatTypes(SQLiteDatabase sQLiteDatabase, List<Integer> list) {
         Cursor cursor = null;
         ArrayList arrayList = new ArrayList();
         if (list == null || list.size() <= 0) {
@@ -1678,12 +1684,56 @@ public class ChatMessageDBManager extends DBBase {
         }
         try {
             try {
-                cursor = sQLiteDatabase.rawQuery("select paid from chatrecord where " + str, null);
-                while (cursor != null) {
-                    if (!cursor.moveToNext()) {
-                        break;
+                cursor = sQLiteDatabase.rawQuery("select contacter from chatrecord where " + str, null);
+                if (cursor != null) {
+                    while (cursor.moveToNext()) {
+                        arrayList.add(Long.valueOf(cursor.getLong(cursor.getColumnIndex("contacter"))));
                     }
-                    arrayList.add(Long.valueOf(cursor.getLong(cursor.getColumnIndex("paid"))));
+                }
+                if (cursor != null) {
+                    cursor.close();
+                }
+                return arrayList;
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "getContacterByChatTypes:", e);
+                if (cursor != null) {
+                    cursor.close();
+                }
+                return arrayList;
+            }
+        } catch (Throwable th) {
+            if (cursor != null) {
+                cursor.close();
+            }
+            throw th;
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    private List<Long> getUnreadContacterByChatTypes(SQLiteDatabase sQLiteDatabase, List<Integer> list) {
+        Cursor cursor = null;
+        ArrayList arrayList = new ArrayList();
+        if (list == null || list.size() <= 0) {
+            return arrayList;
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(list.get(0));
+        for (int i = 1; i < list.size(); i++) {
+            sb.append(", ");
+            sb.append(list.get(i));
+        }
+        String str = "chat_type in (" + sb.toString() + ")  AND " + TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM + ">0";
+        try {
+            if (sQLiteDatabase == null) {
+                return arrayList;
+            }
+            try {
+                cursor = sQLiteDatabase.rawQuery("select contacter from chatrecord where " + str, null);
+                if (cursor != null) {
+                    while (cursor.moveToNext()) {
+                        arrayList.add(Long.valueOf(cursor.getLong(cursor.getColumnIndex("contacter"))));
+                    }
                 }
                 if (cursor != null) {
                     cursor.close();
@@ -1705,129 +1755,8 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1651=4] */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0277  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private List<ChatSession> getUnreadSessionByChatTypes(SQLiteDatabase sQLiteDatabase, List<Integer> list) {
-        Cursor cursor;
-        ArrayList arrayList = new ArrayList();
-        if (list == null || list.size() <= 0) {
-            return arrayList;
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append(list.get(0));
-        for (int i = 1; i < list.size(); i++) {
-            sb.append(", ");
-            sb.append(list.get(i));
-        }
-        String str = "chat_type in (" + sb.toString() + ")  AND " + TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM + ">0";
-        Cursor cursor2 = null;
-        if (sQLiteDatabase == null) {
-            return arrayList;
-        }
-        try {
-            cursor = sQLiteDatabase.rawQuery("select * from chatrecord where " + str, null);
-            while (cursor != null) {
-                try {
-                    if (!cursor.moveToNext()) {
-                        break;
-                    }
-                    int i2 = cursor.getInt(cursor.getColumnIndex("category"));
-                    long j = cursor.getLong(cursor.getColumnIndex("contacter"));
-                    String string = cursor.getString(cursor.getColumnIndex("name"));
-                    String string2 = cursor.getString(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_MSG));
-                    long j2 = cursor.getLong(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_MSG_TIME));
-                    long j3 = cursor.getLong(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_OPEN_TIME));
-                    long j4 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM));
-                    int i3 = cursor.getInt(cursor.getColumnIndex("weight"));
-                    int i4 = cursor.getInt(cursor.getColumnIndex("show"));
-                    int i5 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_COLLECTION_TYPE));
-                    int i6 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_CHAT_TYPE));
-                    String string3 = cursor.getString(cursor.getColumnIndex("icon_url"));
-                    int i7 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_STATE));
-                    int i8 = cursor.getInt(cursor.getColumnIndex("isclicked"));
-                    long j5 = cursor.getLong(cursor.getColumnIndex("paid"));
-                    int i9 = cursor.getInt(cursor.getColumnIndex("classtype"));
-                    int i10 = cursor.getInt(cursor.getColumnIndex("classshow"));
-                    String string4 = cursor.getString(cursor.getColumnIndex("classtitle"));
-                    String string5 = cursor.getString(cursor.getColumnIndex("classavatar"));
-                    int i11 = cursor.getInt(cursor.getColumnIndex("marktop"));
-                    long j6 = cursor.getLong(cursor.getColumnIndex("marktoptime"));
-                    String string6 = cursor.getString(cursor.getColumnIndex("nickname"));
-                    String string7 = cursor.getString(cursor.getColumnIndex("extra"));
-                    String string8 = cursor.getString(cursor.getColumnIndex("v_portrait"));
-                    String string9 = cursor.getString(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_CERTIFICATION));
-                    String string10 = cursor.getString(cursor.getColumnIndex("vip_id"));
-                    int i12 = cursor.getInt(cursor.getColumnIndex("shield"));
-                    long j7 = cursor.getLong(cursor.getColumnIndex("shield_time"));
-                    ChatSession chatSession = new ChatSession(i2, j, j, string);
-                    chatSession.setLastMsg(string2);
-                    chatSession.setLastMsgTime(j2);
-                    chatSession.setLastOpenTime(j3);
-                    chatSession.setNewMsgSum(j4);
-                    chatSession.setWeight(i3);
-                    chatSession.setShow(i4);
-                    chatSession.setCollectionType(i5);
-                    chatSession.setChatType(i6);
-                    chatSession.setIconUrl(string3);
-                    chatSession.setState(i7);
-                    chatSession.setIsClicked(i8);
-                    chatSession.setPaid(j5);
-                    chatSession.setClassType(i9);
-                    chatSession.setClassTitle(string4);
-                    chatSession.setClassAvatar(string5);
-                    chatSession.setClassShow(i10);
-                    chatSession.setMarkTop(i11);
-                    chatSession.setMarkTopTime(j6);
-                    chatSession.setNickName(string6);
-                    chatSession.setExt(string7);
-                    chatSession.setVPortrait(string8);
-                    chatSession.setCertification(string9);
-                    chatSession.setVipId(string10);
-                    chatSession.setShield(i12);
-                    chatSession.setShieldTime(j7);
-                    arrayList.add(chatSession);
-                } catch (Exception e) {
-                    e = e;
-                    cursor2 = cursor;
-                    try {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                        LogUtils.e(TAG, "getUnreadSessionByChatTypes:", e);
-                        if (cursor2 != null) {
-                            cursor2.close();
-                        }
-                        return arrayList;
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor = cursor2;
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (cursor != null) {
-                    }
-                    throw th;
-                }
-            }
-            if (cursor != null) {
-                cursor.close();
-            }
-            return arrayList;
-        } catch (Exception e2) {
-            e = e2;
-        } catch (Throwable th3) {
-            th = th3;
-            cursor = null;
-        }
-    }
-
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    private int setPaMsgReadByPaids(SQLiteDatabase sQLiteDatabase, List<Long> list, long j) {
+    private int setMsgReadByContacterIds(SQLiteDatabase sQLiteDatabase, List<Long> list, long j) {
         if (list == null || list.size() <= 0) {
             return DBResponseCode.ERROR_PARAMETER;
         }
@@ -1843,7 +1772,7 @@ public class ChatMessageDBManager extends DBBase {
                     }
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("is_read", (Integer) 1);
-                    String str = "is_read=? AND category = ? AND from_user in (" + sb.toString() + ") ";
+                    String str = "is_read=? AND category = ? AND contacter in (" + sb.toString() + ") ";
                     if (j > 0) {
                         str = str + " AND msgid<=" + j;
                     }
@@ -1855,12 +1784,12 @@ public class ChatMessageDBManager extends DBBase {
                     return update;
                 } catch (Exception e) {
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, "setPaMsgReadByPaids:", e);
+                    LogUtils.e(TAG, "setMsgReadByContacterIds:", e);
                     if (0 != 0) {
                         cursor.close();
-                        return -1009;
+                        return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
                     }
-                    return -1009;
+                    return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
                 }
             } catch (Throwable th) {
                 if (0 != 0) {
@@ -1869,12 +1798,11 @@ public class ChatMessageDBManager extends DBBase {
                 throw th;
             }
         }
-        return -1009;
+        return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1755=4] */
-    public List<Long> setPaMsgReadByChatTypes(List<Integer> list, long j) {
-        ArrayList arrayList = new ArrayList();
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1712=4] */
+    public List<Long> setMsgReadByChatTypes(List<Integer> list, long j) {
         if (list == null || list.size() <= 0) {
             return null;
         }
@@ -1885,31 +1813,24 @@ public class ChatMessageDBManager extends DBBase {
             }
             try {
                 openDatabase.beginTransaction();
-                List<ChatSession> unreadSessionByChatTypes = getUnreadSessionByChatTypes(openDatabase, list);
-                if (unreadSessionByChatTypes == null || unreadSessionByChatTypes.size() <= 0) {
+                List<Long> unreadContacterByChatTypes = getUnreadContacterByChatTypes(openDatabase, list);
+                if (unreadContacterByChatTypes == null || unreadContacterByChatTypes.size() <= 0) {
                     openDatabase.endTransaction();
-                    return null;
+                    return unreadContacterByChatTypes;
                 }
-                LogUtils.d(TAG, "getUnreadChatSessionByChatTypes sessions size  = " + unreadSessionByChatTypes.size());
-                for (ChatSession chatSession : unreadSessionByChatTypes) {
-                    arrayList.add(Long.valueOf(chatSession.getPaid()));
-                }
-                int paMsgReadByPaids = setPaMsgReadByPaids(openDatabase, arrayList, j);
-                LogUtils.d(TAG, "setPaMsgReadByPaids result = " + paMsgReadByPaids);
-                if (paMsgReadByPaids >= 0) {
-                    for (ChatSession chatSession2 : unreadSessionByChatTypes) {
-                        int unReadMsgCount = getUnReadMsgCount(new ChatObject(this.mContext, chatSession2.getCategory(), chatSession2.getContacter()));
-                        if (unReadMsgCount >= 0) {
-                            chatSession2.setNewMsgSum(unReadMsgCount);
-                        } else {
-                            chatSession2.setNewMsgSum(0L);
-                        }
-                        getInstance(this.mContext).updateChatSession(1, chatSession2);
+                LogUtils.d(TAG, "getUnreadContacterByChatTypes contacterIds size  = " + unreadContacterByChatTypes.size());
+                if (setMsgReadByContacterIds(openDatabase, unreadContacterByChatTypes, j) > 0) {
+                    for (Long l : unreadContacterByChatTypes) {
+                        long longValue = l.longValue();
+                        int unReadMsgCount = getUnReadMsgCount(new ChatObject(this.mContext, 0, longValue));
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put(TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM, Integer.valueOf(unReadMsgCount));
+                        getInstance(this.mContext).updateChatSession("category=? AND contacter=?", new String[]{String.valueOf(0), String.valueOf(longValue)}, contentValues);
                     }
                 }
                 openDatabase.setTransactionSuccessful();
                 openDatabase.endTransaction();
-                return arrayList;
+                return unreadContacterByChatTypes;
             } catch (Exception e) {
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 LogUtils.e(TAG, "setPaMsgReadByChatTypes:", e);
@@ -1919,9 +1840,8 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1808=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1759=4] */
     public List<Long> setPaMsgReadByChatTypeAndSubType(SparseArray<List<Integer>> sparseArray, long j) {
-        ArrayList arrayList = new ArrayList();
         if (sparseArray == null || sparseArray.size() <= 0) {
             return null;
         }
@@ -1937,28 +1857,20 @@ public class ChatMessageDBManager extends DBBase {
                     openDatabase.endTransaction();
                     return null;
                 }
-                int paMsgReadByPaids = setPaMsgReadByPaids(openDatabase, paidListByPainfos, j);
-                LogUtils.d(TAG, "setPaMsgReadByChatTypeAndSubType result = " + paMsgReadByPaids);
-                if (paMsgReadByPaids > 0) {
+                int msgReadByContacterIds = setMsgReadByContacterIds(openDatabase, paidListByPainfos, j);
+                LogUtils.d(TAG, "setPaMsgReadByChatTypeAndSubType result = " + msgReadByContacterIds);
+                if (msgReadByContacterIds > 0) {
                     for (Long l : paidListByPainfos) {
                         long longValue = l.longValue();
-                        ChatObject chatObject = new ChatObject(this.mContext, 0, longValue);
-                        ChatSession chatSession = getChatSession(chatObject);
-                        if (chatSession != null && chatSession.getNewMsgSum() != 0) {
-                            arrayList.add(Long.valueOf(longValue));
-                            int unReadMsgCount = getUnReadMsgCount(chatObject);
-                            if (unReadMsgCount >= 0) {
-                                chatSession.setNewMsgSum(unReadMsgCount);
-                            } else {
-                                chatSession.setNewMsgSum(0L);
-                            }
-                            getInstance(this.mContext).updateChatSession(1, chatSession);
-                        }
+                        int unReadMsgCount = getUnReadMsgCount(new ChatObject(this.mContext, 0, longValue));
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put(TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM, Integer.valueOf(unReadMsgCount));
+                        getInstance(this.mContext).updateChatSession("category=? AND contacter=?", new String[]{String.valueOf(0), String.valueOf(longValue)}, contentValues);
                     }
                 }
                 openDatabase.setTransactionSuccessful();
                 openDatabase.endTransaction();
-                return arrayList;
+                return paidListByPainfos;
             } catch (Exception e) {
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 LogUtils.e(TAG, "setPaMsgReadByChatTypes:", e);
@@ -1982,7 +1894,7 @@ public class ChatMessageDBManager extends DBBase {
                 msgRead = getInstance(this.mContext).setMsgRead(j);
             }
             if (msgRead < 0) {
-                return -1009;
+                return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
             }
             if (msgRead != 0 && (chatSession = getChatSession(chatObject)) != null) {
                 if (1 == chatObject.getCategory()) {
@@ -2040,6 +1952,7 @@ public class ChatMessageDBManager extends DBBase {
                 arrayList2 = new ArrayList<>();
                 ArrayList<ChatMsg> arrayList3 = new ArrayList<>();
                 ArrayList<ChatMsg> arrayList4 = new ArrayList<>();
+                ArrayList<ChatMsg> arrayList5 = new ArrayList<>();
                 HashMap<ChatObject, Integer> hashMap = new HashMap<>();
                 for (int i = 0; i < arrayList.size(); i++) {
                     ChatMsg chatMsg = arrayList.get(i);
@@ -2057,7 +1970,11 @@ public class ChatMessageDBManager extends DBBase {
                     } else if (chatMsg.getChatType() == 24 && chatMsg.getMsgType() == 20) {
                         LogUtils.d(TAG, "msg will handle by dupMsgAddHandler");
                         if (dupMsgAddHandler(chatMsg) > 0) {
-                            arrayList3.add(chatMsg);
+                            if (RetrieveUtil.isRetrievePaUid(context, chatMsg.getFromUser())) {
+                                arrayList5.add(chatMsg);
+                            } else {
+                                arrayList3.add(chatMsg);
+                            }
                         }
                     } else if (chatMsg.getChatType() == 20 && chatMsg.getMsgType() == 80) {
                         LogUtils.d(TAG, "msg will handle by stduioMsgAddHandler");
@@ -2098,6 +2015,10 @@ public class ChatMessageDBManager extends DBBase {
                 if (!arrayList3.isEmpty()) {
                     ChatMsgManagerImpl.getInstance(this.mContext).deliverFetchedConfigMessage(arrayList3);
                 }
+                if (!arrayList5.isEmpty()) {
+                    LogUtils.d(TAG, "retrieve-->delverFetchedRetrieveMessage retrieveMsgs:" + arrayList5.toString());
+                    ChatMsgManagerImpl.getInstance(this.mContext).delverFetchedRetrieveMessage(arrayList5);
+                }
                 if (!arrayList4.isEmpty()) {
                     LogUtils.d(TAG, "deliverStudioUsePaMessage studioMsgs ：" + arrayList4.size());
                     ChatMsgManagerImpl.getInstance(this.mContext).deliverStudioUsePaMessage(arrayList4);
@@ -2116,7 +2037,7 @@ public class ChatMessageDBManager extends DBBase {
         return delete;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2028=5, 2029=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1997=5, 1998=4] */
     /* JADX WARN: Removed duplicated region for block: B:36:0x0079 A[Catch: all -> 0x0045, TryCatch #2 {, blocks: (B:4:0x0006, B:6:0x000c, B:15:0x0040, B:16:0x0043, B:23:0x004c, B:24:0x004f, B:36:0x0079, B:37:0x007c, B:30:0x006f, B:31:0x0072), top: B:46:0x0006 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -2223,7 +2144,7 @@ public class ChatMessageDBManager extends DBBase {
         synchronized (this.mContext) {
             int delMsgsOfCertainContacter = getInstance(this.mContext).delMsgsOfCertainContacter(chatObject, j);
             if (delMsgsOfCertainContacter < 0) {
-                return -1009;
+                return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
             }
             ArrayList<ChatMsg> fetchMsg = fetchMsg(chatObject, Long.MAX_VALUE, 2L, -1L);
             if (fetchMsg == null || fetchMsg.size() <= 0) {
@@ -2271,7 +2192,7 @@ public class ChatMessageDBManager extends DBBase {
         return delMsgsOfCertainContacterForSingle(chatObject, j);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2224=4, 2225=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2193=4, 2194=4] */
     private int delMsgsOfCertainContacterForSingle(ChatObject chatObject, long j) {
         int delete;
         synchronized (mSyncLock) {
@@ -2331,7 +2252,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2307=4, 2308=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2276=4, 2277=4] */
     private int delMsgsOfPaByPaId(long j) {
         int i;
         int i2;
@@ -2451,7 +2372,7 @@ public class ChatMessageDBManager extends DBBase {
                 delMsgs = getInstance(this.mContext).delMsgs(jArr);
             }
             if (delMsgs < 0) {
-                updateSession = -1009;
+                updateSession = DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
             } else {
                 updateSession = updateSession(delMsgs, chatObject);
             }
@@ -2502,7 +2423,7 @@ public class ChatMessageDBManager extends DBBase {
         return j;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2451=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2420=4] */
     public int getUnReadMsgCount(ChatObject chatObject) {
         Cursor cursor;
         int i;
@@ -2746,7 +2667,7 @@ public class ChatMessageDBManager extends DBBase {
         return 1 == i ? GroupMessageDAOImpl.getDraftMsg(this.mContext, String.valueOf(j)) : getDraftMsgForSingle(i, j);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2734=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2703=4] */
     /* JADX WARN: Removed duplicated region for block: B:30:0x007b A[Catch: all -> 0x0051, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x000a, B:7:0x0012, B:16:0x004b, B:17:0x004f, B:30:0x007b, B:31:0x007e, B:26:0x0072), top: B:38:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -2809,7 +2730,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2763=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2732=4] */
     /* JADX WARN: Removed duplicated region for block: B:30:0x0074 A[Catch: all -> 0x004a, TryCatch #4 {, blocks: (B:4:0x0004, B:6:0x000a, B:7:0x0012, B:16:0x0044, B:17:0x0048, B:30:0x0074, B:31:0x0077, B:26:0x006b), top: B:41:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -3110,7 +3031,7 @@ public class ChatMessageDBManager extends DBBase {
         return IMConfigInternal.getInstance().getIMConfig(this.mContext).getPaidCondition(str, str2, j);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3073=5, 3074=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3042=5, 3043=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x007c */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00d8 */
     /* JADX WARN: Multi-variable type inference failed */
@@ -3189,7 +3110,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3219=7, 3220=6] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3188=7, 3189=6] */
     /* JADX WARN: Code restructure failed: missing block: B:100:0x02ab, code lost:
         com.baidu.android.imsdk.utils.LogUtils.d(com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager.TAG, "cursor is moveToPrevious failed!");
      */
@@ -3375,7 +3296,7 @@ public class ChatMessageDBManager extends DBBase {
                 j4 = 1;
             }
             String str7 = (j4 <= 0 || j <= 0) ? " desc " : " asc ";
-            String str8 = "select * from message where " + addPaidCondition + " ORDER BY msgid" + str7 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + IMConstants.MSG_ROW_ID + str7 + " limit " + Math.abs(j4);
+            String str8 = "select * from message where " + addPaidCondition + " ORDER BY msgid" + str7 + "," + IMConstants.MSG_ROW_ID + str7 + " limit " + Math.abs(j4);
             synchronized (mSyncLock) {
                 try {
                     Cursor rawQuery = openDatabase.rawQuery(str8, strArr);
@@ -3400,13 +3321,13 @@ public class ChatMessageDBManager extends DBBase {
             if (openDatabase == null) {
                 return null;
             }
-            List<Long> paidsByChatTypes = getPaidsByChatTypes(openDatabase, list);
+            List<Long> contacterByChatTypes = getContacterByChatTypes(openDatabase, list);
             HashSet hashSet = new HashSet();
             if (list2 != null) {
                 hashSet.addAll(list2);
             }
-            if (paidsByChatTypes != null) {
-                hashSet.addAll(paidsByChatTypes);
+            if (contacterByChatTypes != null) {
+                hashSet.addAll(contacterByChatTypes);
             }
             return fetchPaMsgByPaids(new ArrayList(hashSet), j, i);
         }
@@ -3422,11 +3343,11 @@ public class ChatMessageDBManager extends DBBase {
             if (openDatabase == null) {
                 return null;
             }
-            return fetchPaMsgByPaidsOrderByMsgid(getPaidsByChatTypes(openDatabase, list), j, i);
+            return fetchMsgByContacterIdOrderByMsgid(getContacterByChatTypes(openDatabase, list), j, i);
         }
     }
 
-    public ArrayList<ChatMsg> fetchPaMsgByPaidsOrderByMsgid(List<Long> list, long j, int i) {
+    public ArrayList<ChatMsg> fetchMsgByContacterIdOrderByMsgid(List<Long> list, long j, int i) {
         Cursor cursor = null;
         ArrayList<ChatMsg> arrayList = new ArrayList<>();
         if (list == null || list.size() <= 0) {
@@ -3438,7 +3359,7 @@ public class ChatMessageDBManager extends DBBase {
             sb.append(", ");
             sb.append(list.get(i2));
         }
-        String str = "paid in (" + sb.toString() + ")";
+        String str = "contacter in (" + sb.toString() + ")";
         if (j > 0) {
             str = str + " AND msgid < " + j;
         }
@@ -3573,7 +3494,7 @@ public class ChatMessageDBManager extends DBBase {
                 if (list.size() > 0) {
                     StringBuilder sb = new StringBuilder();
                     for (Integer num : list) {
-                        sb.append(num.intValue()).append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
+                        sb.append(num.intValue()).append(",");
                     }
                     str = "type IN (" + sb.substring(0, sb.length() - 1) + ") ";
                 }
@@ -3657,7 +3578,7 @@ public class ChatMessageDBManager extends DBBase {
         return delete;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3585=5, 3586=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3566=5, 3567=4] */
     public List<ChatSession> getGroupSession() {
         Cursor cursor = null;
         synchronized (mSyncLock) {
@@ -3724,7 +3645,7 @@ public class ChatMessageDBManager extends DBBase {
         LogUtils.d(TAG, "---delPaLocalInfosByPaType---paids is null ---- ");
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3644=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3625=4] */
     /* JADX WARN: Removed duplicated region for block: B:30:0x0079 A[Catch: all -> 0x004f, TryCatch #4 {, blocks: (B:4:0x0004, B:6:0x000a, B:7:0x0012, B:16:0x0049, B:17:0x004d, B:30:0x0079, B:31:0x007c, B:26:0x0070), top: B:41:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -3787,7 +3708,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3697=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3678=4] */
     /* JADX WARN: Removed duplicated region for block: B:42:0x00e4 A[Catch: all -> 0x00dd, TRY_ENTER, TryCatch #4 {, blocks: (B:4:0x0007, B:6:0x0026, B:7:0x002e, B:10:0x0031, B:21:0x007d, B:22:0x0080, B:42:0x00e4, B:43:0x00e7, B:33:0x00d7, B:34:0x00da), top: B:53:0x0007 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -3902,7 +3823,7 @@ public class ChatMessageDBManager extends DBBase {
         return j;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3769=5, 3770=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3750=5, 3751=4] */
     public long getMaxReliableMsgId(long j) {
         long j2;
         Cursor cursor = null;
@@ -3957,7 +3878,7 @@ public class ChatMessageDBManager extends DBBase {
         return j2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3799=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3780=4] */
     /* JADX WARN: Removed duplicated region for block: B:13:0x006b A[Catch: all -> 0x00a7, TRY_ENTER, TryCatch #3 {, blocks: (B:13:0x006b, B:14:0x006e, B:29:0x00a3, B:30:0x00a6, B:23:0x0098, B:24:0x009b), top: B:40:0x0006 }] */
     /* JADX WARN: Removed duplicated region for block: B:29:0x00a3 A[Catch: all -> 0x00a7, TryCatch #3 {, blocks: (B:13:0x006b, B:14:0x006e, B:29:0x00a3, B:30:0x00a6, B:23:0x0098, B:24:0x009b), top: B:40:0x0006 }] */
     /*
@@ -4078,7 +3999,7 @@ public class ChatMessageDBManager extends DBBase {
         return i;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3908=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3889=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x0055 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x005f */
     /* JADX WARN: Multi-variable type inference failed */

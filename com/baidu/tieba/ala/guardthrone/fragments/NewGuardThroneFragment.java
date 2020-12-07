@@ -13,10 +13,10 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.tieba.ala.guardthrone.view.a;
 /* loaded from: classes4.dex */
 public class NewGuardThroneFragment extends BaseFragment {
-    private String aLy;
-    private String bme;
-    private a gJA;
-    private a gJz;
+    private String aOt;
+    private String brl;
+    private a gSK;
+    private a gSL;
     private boolean mIsHost;
     private String mLiveId;
     private RelativeLayout mRootView;
@@ -28,15 +28,15 @@ public class NewGuardThroneFragment extends BaseFragment {
         Bundle arguments = getArguments();
         if (bundle != null) {
             this.mLiveId = bundle.getString("live_id");
-            this.bme = bundle.getString("anchor_id");
-            this.aLy = bundle.getString(LogConfig.LOG_GIFT_ID);
+            this.brl = bundle.getString("anchor_id");
+            this.aOt = bundle.getString(LogConfig.LOG_GIFT_ID);
             this.mTabId = bundle.getInt("tab_id");
             this.mIsHost = bundle.getBoolean("is_host");
             return;
         }
         this.mLiveId = arguments.getString("live_id");
-        this.bme = arguments.getString("anchor_id");
-        this.aLy = arguments.getString(LogConfig.LOG_GIFT_ID);
+        this.brl = arguments.getString("anchor_id");
+        this.aOt = arguments.getString(LogConfig.LOG_GIFT_ID);
         this.mTabId = arguments.getInt("tab_id");
         this.mIsHost = arguments.getBoolean("is_host");
     }
@@ -45,37 +45,37 @@ public class NewGuardThroneFragment extends BaseFragment {
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         this.mRootView = new RelativeLayout(getPageContext().getPageActivity());
-        this.gJz = new a(getPageContext(), false, this.mIsHost);
-        this.gJz.d(this.mLiveId, this.bme, this.aLy, this.mTabId);
-        this.gJA = new a(getPageContext(), true, this.mIsHost);
-        this.gJA.d(this.mLiveId, this.bme, this.aLy, this.mTabId);
+        this.gSK = new a(getPageContext(), false, this.mIsHost);
+        this.gSK.d(this.mLiveId, this.brl, this.aOt, this.mTabId);
+        this.gSL = new a(getPageContext(), true, this.mIsHost);
+        this.gSL.d(this.mLiveId, this.brl, this.aOt, this.mTabId);
         if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
-            this.gJA.getRootView().setVisibility(0);
-            this.gJz.getRootView().setVisibility(8);
+            this.gSL.getRootView().setVisibility(0);
+            this.gSK.getRootView().setVisibility(8);
         } else {
-            this.gJA.getRootView().setVisibility(8);
-            this.gJz.getRootView().setVisibility(0);
+            this.gSL.getRootView().setVisibility(8);
+            this.gSK.getRootView().setVisibility(0);
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        this.mRootView.addView(this.gJz.getRootView(), layoutParams);
-        this.mRootView.addView(this.gJA.getRootView(), layoutParams);
+        this.mRootView.addView(this.gSK.getRootView(), layoutParams);
+        this.mRootView.addView(this.gSL.getRootView(), layoutParams);
         return this.mRootView;
     }
 
     @Override // android.support.v4.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.gJz != null && this.gJA != null) {
+        if (this.gSK != null && this.gSL != null) {
             if (configuration.orientation == 2) {
-                this.gJA.getRootView().setVisibility(0);
-                this.gJz.getRootView().setVisibility(8);
+                this.gSL.getRootView().setVisibility(0);
+                this.gSK.getRootView().setVisibility(8);
             } else {
-                this.gJA.getRootView().setVisibility(8);
-                this.gJz.getRootView().setVisibility(0);
+                this.gSL.getRootView().setVisibility(8);
+                this.gSK.getRootView().setVisibility(0);
             }
-            this.gJz.big();
-            this.gJA.big();
+            this.gSK.blq();
+            this.gSL.blq();
         }
     }
 
@@ -83,8 +83,8 @@ public class NewGuardThroneFragment extends BaseFragment {
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putString("live_id", this.mLiveId);
-        bundle.putString("anchor_id", this.bme);
-        bundle.putString(LogConfig.LOG_GIFT_ID, this.aLy);
+        bundle.putString("anchor_id", this.brl);
+        bundle.putString(LogConfig.LOG_GIFT_ID, this.aOt);
         bundle.putInt("tab_id", this.mTabId);
         bundle.putBoolean("is_host", this.mIsHost);
     }
@@ -92,13 +92,13 @@ public class NewGuardThroneFragment extends BaseFragment {
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.gJz != null) {
-            this.gJz.bTx();
-            this.gJz.onDestroy();
+        if (this.gSK != null) {
+            this.gSK.bXh();
+            this.gSK.onDestroy();
         }
-        if (this.gJA != null) {
-            this.gJA.bTx();
-            this.gJA.onDestroy();
+        if (this.gSL != null) {
+            this.gSL.bXh();
+            this.gSL.onDestroy();
         }
     }
 }

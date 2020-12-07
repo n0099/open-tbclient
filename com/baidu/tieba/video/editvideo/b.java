@@ -2,7 +2,7 @@ package com.baidu.tieba.video.editvideo;
 
 import com.baidu.tieba.video.editvideo.data.MusicData;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public interface b {
     void setMusicData(List<MusicData> list);
 

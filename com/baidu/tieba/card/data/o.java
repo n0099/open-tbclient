@@ -1,39 +1,39 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class o extends BaseCardInfo implements p {
-    public static final BdUniqueId idf = BdUniqueId.gen();
-    public long idg;
-    public String idh;
-    public String idi;
-    public String idj;
-    public String idk;
-    public String idm;
-    public long idn;
-    public String ido;
+    public static final BdUniqueId iod = BdUniqueId.gen();
+    public long ioe;
+    public String iof;
+    public String iog;
+    public String ioh;
+    public String ioi;
+    public String ioj;
+    public long iok;
+    public String iol;
     public String userName;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return idf;
+        return iod;
     }
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        return (int) this.idn;
+        return (int) this.iok;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean cop() {
+    public boolean csC() {
         return false;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void oE(boolean z) {
+    public void pa(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void oF(boolean z) {
+    public void pb(boolean z) {
     }
 }

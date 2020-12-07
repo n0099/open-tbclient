@@ -6,7 +6,6 @@ import android.util.Base64;
 import com.vivo.push.util.g;
 import com.vivo.push.util.p;
 import com.vivo.push.util.z;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -25,7 +24,7 @@ public final class a extends d<com.vivo.push.model.a> {
         if (!TextUtils.isEmpty(str)) {
             for (String str2 : str.trim().split("@#")) {
                 String trim = str2.trim();
-                String[] split = trim.trim().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split = trim.trim().split(",");
                 if (split.length >= 2) {
                     try {
                         arrayList.add(new com.vivo.push.model.a(split[0], trim.substring(split[0].length() + 1)));
@@ -41,7 +40,7 @@ public final class a extends d<com.vivo.push.model.a> {
 
     @Override // com.vivo.push.cache.d
     final String b(String str) throws Exception {
-        return new String(g.a(g.a(f4673a), g.a(b), Base64.decode(str, 2)), "utf-8");
+        return new String(g.a(g.a(f4443a), g.a(b), Base64.decode(str, 2)), "utf-8");
     }
 
     public final com.vivo.push.model.a c(String str) {

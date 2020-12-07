@@ -10,19 +10,19 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class m extends a {
     public static String HEAD = "tb_private_msg_";
-    private static a kde;
+    private static a kqI;
 
     private m() {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized m cQU() {
+    public static synchronized m cWi() {
         m mVar;
         synchronized (m.class) {
-            if (kde == null) {
-                kde = new m();
+            if (kqI == null) {
+                kqI = new m();
             }
-            mVar = (m) kde;
+            mVar = (m) kqI;
         }
         return mVar;
     }
@@ -42,7 +42,7 @@ public class m extends a {
     /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v5 */
     /* JADX WARN: Type inference failed for: r2v8 */
-    public CommonMsgPojo bi(String str, int i) {
+    public CommonMsgPojo bj(String str, int i) {
         Throwable th;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
@@ -51,7 +51,7 @@ public class m extends a {
             ?? r2 = HEAD;
             try {
                 try {
-                    cursor = h.cQH().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = h.cVV().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {
@@ -81,7 +81,7 @@ public class m extends a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        LZ(str);
+                        Nh(str);
                         com.baidu.adp.lib.util.n.close(cursor);
                         r2 = cursor;
                         return commonMsgPojo;

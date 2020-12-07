@@ -5,23 +5,23 @@ import java.net.ConnectException;
 import java.net.NoRouteToHostException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class HttpException extends Exception {
     public static final int HTTP_ERROR = 4;
     public static final int INVOKE_ERROR = 3;
     public static final int LIB_ERROR = 2;
     public static final int NET_ERROR = 1;
     public static final int UNKNOWN_ERROR = -1;
-    private int qT;
+    private int rj;
 
     public HttpException(int i, Exception exc) {
         super(exc);
-        this.qT = i;
+        this.rj = i;
     }
 
     public HttpException(int i, String str) {
         super(str);
-        this.qT = i;
+        this.rj = i;
     }
 
     public HttpException(IOException iOException) {
@@ -31,15 +31,15 @@ public class HttpException extends Exception {
 
     private void a(IOException iOException) {
         if ((iOException instanceof ConnectException) || (iOException instanceof SocketTimeoutException) || (iOException instanceof NoRouteToHostException) || (iOException instanceof UnknownHostException)) {
-            this.qT = 1;
+            this.rj = 1;
         } else if (iOException instanceof IOException) {
-            this.qT = -1;
+            this.rj = -1;
         } else {
-            this.qT = 2;
+            this.rj = 2;
         }
     }
 
     public int getCode() {
-        return this.qT;
+        return this.rj;
     }
 }

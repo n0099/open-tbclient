@@ -1,26 +1,24 @@
 package com.facebook.imagepipeline.d;
 
-import com.facebook.cache.disk.d;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
+import android.graphics.Bitmap;
+import javax.annotation.Nullable;
 /* loaded from: classes15.dex */
-public class b implements f {
-    private c oWx;
+public abstract class b extends com.facebook.datasource.a<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> {
+    protected abstract void e(@Nullable Bitmap bitmap);
 
-    public b(c cVar) {
-        this.oWx = cVar;
-    }
-
-    public static com.facebook.cache.disk.d a(com.facebook.cache.disk.b bVar, com.facebook.cache.disk.c cVar) {
-        return a(bVar, cVar, Executors.newSingleThreadExecutor());
-    }
-
-    public static com.facebook.cache.disk.d a(com.facebook.cache.disk.b bVar, com.facebook.cache.disk.c cVar, Executor executor) {
-        return new com.facebook.cache.disk.d(cVar, bVar.ejC(), new d.b(bVar.ejB(), bVar.ejA(), bVar.ejz()), bVar.ejE(), bVar.ejD(), bVar.ejF(), bVar.getContext(), executor, bVar.ejG());
-    }
-
-    @Override // com.facebook.imagepipeline.d.f
-    public com.facebook.cache.disk.h a(com.facebook.cache.disk.b bVar) {
-        return a(bVar, this.oWx.b(bVar));
+    @Override // com.facebook.datasource.a
+    public void g(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> bVar) {
+        if (bVar.isFinished()) {
+            com.facebook.common.references.a<com.facebook.imagepipeline.f.c> result = bVar.getResult();
+            Bitmap bitmap = null;
+            if (result != null && (result.get() instanceof com.facebook.imagepipeline.f.b)) {
+                bitmap = ((com.facebook.imagepipeline.f.b) result.get()).evt();
+            }
+            try {
+                e(bitmap);
+            } finally {
+                com.facebook.common.references.a.c(result);
+            }
+        }
     }
 }

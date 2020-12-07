@@ -7,8 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGetBroadcastGiftResponseMessage extends JsonHttpResponsedMessage {
-    public ArrayList<AlaBroadcastGiftToastData> aVX;
-    public long aVY;
+    public ArrayList<AlaBroadcastGiftToastData> aZn;
+    public long aZo;
 
     public AlaGetBroadcastGiftResponseMessage(int i) {
         super(1031066);
@@ -19,14 +19,14 @@ public class AlaGetBroadcastGiftResponseMessage extends JsonHttpResponsedMessage
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONObject("data") != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.aVY = optJSONObject.optLong("msg_id", 0L);
-            this.aVX = new ArrayList<>();
+            this.aZo = optJSONObject.optLong("msg_id", 0L);
+            this.aZn = new ArrayList<>();
             JSONArray optJSONArray = optJSONObject.optJSONArray("queue");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     AlaBroadcastGiftToastData alaBroadcastGiftToastData = new AlaBroadcastGiftToastData();
                     alaBroadcastGiftToastData.parserJson(optJSONArray.optJSONObject(i2));
-                    this.aVX.add(alaBroadcastGiftToastData);
+                    this.aZn.add(alaBroadcastGiftToastData);
                 }
             }
         }

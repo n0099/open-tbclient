@@ -14,45 +14,45 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.interestlabel.view.LabelSettingView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class b extends BaseAdapter {
-    private LabelSettingView kBm;
-    private List<com.baidu.tieba.interestlabel.b.a> kBo;
-    private List<Integer> kBp = new ArrayList();
+    private LabelSettingView kOE;
+    private List<com.baidu.tieba.interestlabel.b.a> kOG;
+    private List<Integer> kOH = new ArrayList();
     private com.baidu.tieba.interestlabel.b.b mLabelDataSet;
 
     public b(LabelSettingView labelSettingView) {
-        this.kBm = labelSettingView;
+        this.kOE = labelSettingView;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !y.isEmpty(bVar.cXD())) {
+        if (bVar != null && !y.isEmpty(bVar.dcO())) {
             this.mLabelDataSet = bVar;
-            this.kBo = bVar.cXD();
-            if (!y.isEmpty(bVar.cXE())) {
-                this.kBp = new ArrayList(bVar.cXE());
+            this.kOG = bVar.dcO();
+            if (!y.isEmpty(bVar.dcP())) {
+                this.kOH = new ArrayList(bVar.dcP());
             }
         }
     }
 
-    public List<Integer> cXA() {
-        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.cXE();
+    public List<Integer> dcL() {
+        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.dcP();
     }
 
-    public List<Integer> cXB() {
-        return this.kBp;
+    public List<Integer> dcM() {
+        return this.kOH;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return y.getCount(this.kBo);
+        return y.getCount(this.kOG);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Er */
+    /* renamed from: Fg */
     public com.baidu.tieba.interestlabel.b.a getItem(int i) {
-        return (com.baidu.tieba.interestlabel.b.a) y.getItem(this.kBo, i);
+        return (com.baidu.tieba.interestlabel.b.a) y.getItem(this.kOG, i);
     }
 
     @Override // android.widget.Adapter
@@ -66,20 +66,20 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0777b c0777b;
+        C0793b c0793b;
         View view2;
         if (view == null) {
-            view2 = LayoutInflater.from(this.kBm.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
-            C0777b c0777b2 = new C0777b();
-            c0777b2.kBr = (TextView) view2;
-            view2.setTag(c0777b2);
-            c0777b = c0777b2;
+            view2 = LayoutInflater.from(this.kOE.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
+            C0793b c0793b2 = new C0793b();
+            c0793b2.kOJ = (TextView) view2;
+            view2.setTag(c0793b2);
+            c0793b = c0793b2;
         } else {
-            c0777b = (C0777b) view.getTag();
+            c0793b = (C0793b) view.getTag();
             view2 = view;
         }
-        c0777b.kBr.setOnClickListener(new a(i));
-        a(c0777b.kBr, getItem(i));
+        c0793b.kOJ.setOnClickListener(new a(i));
+        a(c0793b.kOJ, getItem(i));
         return view2;
     }
 
@@ -104,15 +104,15 @@ public class b extends BaseAdapter {
     }
 
     /* renamed from: com.baidu.tieba.interestlabel.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    class C0777b {
-        TextView kBr;
+    /* loaded from: classes23.dex */
+    class C0793b {
+        TextView kOJ;
 
-        C0777b() {
+        C0793b() {
         }
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     class a implements View.OnClickListener {
         private int index;
 
@@ -129,12 +129,12 @@ public class b extends BaseAdapter {
                     b.this.a((TextView) view, item);
                 }
                 if (item.isFollow) {
-                    b.this.kBp.add(Integer.valueOf(item.labelId));
+                    b.this.kOH.add(Integer.valueOf(item.labelId));
                 } else {
-                    b.this.kBp.remove(Integer.valueOf(item.labelId));
+                    b.this.kOH.remove(Integer.valueOf(item.labelId));
                 }
-                if (b.this.kBm != null) {
-                    b.this.kBm.sO(y.getCount(b.this.kBp) > 0);
+                if (b.this.kOE != null) {
+                    b.this.kOE.tq(y.getCount(b.this.kOH) > 0);
                 }
             }
         }

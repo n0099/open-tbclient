@@ -12,11 +12,11 @@ import com.baidu.searchbox.floating.config.Config;
 import com.baidu.searchbox.floating.utils.UtilsKt;
 import com.baidu.searchbox.floating.widget.ViewManager;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-import kotlin.h;
+import kotlin.e;
 import kotlin.jvm.internal.o;
-import kotlin.jvm.internal.q;
-@h
-/* loaded from: classes9.dex */
+import kotlin.jvm.internal.p;
+@e
+/* loaded from: classes16.dex */
 public final class FloatViewService extends Service {
     public static final Companion Companion = new Companion(null);
     private static final String FLOAT_ACTION = "com.baidu.searchbox.floating.action.FLOATING";
@@ -36,9 +36,9 @@ public final class FloatViewService extends Service {
             ViewManager viewManager4;
             ViewManager viewManager5;
             ViewManager viewManager6;
-            q.n(context, "context");
-            q.n(intent, "intent");
-            if (!(!q.l(intent.getAction(), "com.baidu.searchbox.floating.action.FLOATING"))) {
+            p.o(context, "context");
+            p.o(intent, "intent");
+            if (!(!p.l(intent.getAction(), "com.baidu.searchbox.floating.action.FLOATING"))) {
                 viewManager = FloatViewService.this.viewManager;
                 if (viewManager != null) {
                     if (intent.getBooleanExtra("float_dismiss", false)) {
@@ -76,8 +76,8 @@ public final class FloatViewService extends Service {
     };
     private ViewManager viewManager;
 
-    @h
-    /* loaded from: classes9.dex */
+    @e
+    /* loaded from: classes16.dex */
     public static final class Companion {
         private Companion() {
         }
@@ -95,26 +95,26 @@ public final class FloatViewService extends Service {
         }
 
         public final void startService(Context context, Config config) {
-            q.n(context, "context");
-            q.n(config, "cfg");
+            p.o(context, "context");
+            p.o(config, "cfg");
             setConfig(config);
             context.startService(new Intent(context, FloatViewService.class));
         }
 
         public final void stopService$lib_player_floating_release(Context context) {
-            q.n(context, "context");
+            p.o(context, "context");
             context.stopService(new Intent(context, FloatViewService.class));
         }
 
         public final void setVisible(Context context, boolean z) {
-            q.n(context, "context");
+            p.o(context, "context");
             Intent intent = new Intent(FloatViewService.FLOAT_ACTION);
             intent.putExtra(FloatViewService.FLOAT_VISIBLE, z);
             UtilsKt.sendLocalBroadcast(context, intent);
         }
 
         public final void invalidate(Context context) {
-            q.n(context, "context");
+            p.o(context, "context");
             Intent intent = new Intent(FloatViewService.FLOAT_ACTION);
             intent.putExtra(FloatViewService.FLOAT_INVALIDATE, true);
             UtilsKt.sendLocalBroadcast(context, intent);
@@ -128,7 +128,7 @@ public final class FloatViewService extends Service {
         }
 
         public final void dismiss(Context context, boolean z) {
-            q.n(context, "context");
+            p.o(context, "context");
             Intent intent = new Intent(FloatViewService.FLOAT_ACTION);
             intent.putExtra(FloatViewService.FLOAT_DISMISS, true);
             intent.putExtra(FloatViewService.FLOAT_DISMISS_IMMEDIATELY, z);
@@ -163,22 +163,22 @@ public final class FloatViewService extends Service {
                 floatingContext.onCreate();
             }
             Context applicationContext = getApplicationContext();
-            q.m(applicationContext, "applicationContext");
+            p.n(applicationContext, "applicationContext");
             Config config3 = Companion.getConfig();
             if (config3 == null) {
-                q.eBQ();
+                p.eDZ();
             }
             ViewManager viewManager2 = new ViewManager(applicationContext, config3);
             viewManager2.createView();
             this.viewManager = viewManager2;
             Config config4 = Companion.getConfig();
             if (config4 == null) {
-                q.eBQ();
+                p.eDZ();
             }
             if (config4.isForeground()) {
                 Config config5 = Companion.getConfig();
                 if (config5 == null) {
-                    q.eBQ();
+                    p.eDZ();
                 }
                 startForeground(1, config5.getNotification());
             }

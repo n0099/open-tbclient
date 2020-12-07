@@ -14,22 +14,22 @@ public class b {
             return false;
         }
         try {
-            return com.baidu.m.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            return com.baidu.n.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
         } catch (Throwable th) {
             BdLog.e(TAG, th);
-            return !com.baidu.m.a.aah();
+            return !com.baidu.n.a.adp();
         }
     }
 
-    public static boolean Q(Context context) {
+    public static boolean R(Context context) {
         if (context == null) {
             return false;
         }
         try {
-            boolean checkPermissionGranted = com.baidu.m.a.a.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+            boolean checkPermissionGranted = com.baidu.n.a.a.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
             if (Build.VERSION.SDK_INT >= 16) {
                 if (!checkPermissionGranted) {
-                    if (!com.baidu.m.a.a.checkPermissionGranted(context, "android.permission.READ_EXTERNAL_STORAGE")) {
+                    if (!com.baidu.n.a.a.checkPermissionGranted(context, "android.permission.READ_EXTERNAL_STORAGE")) {
                         return false;
                     }
                 }
@@ -38,7 +38,7 @@ public class b {
             return checkPermissionGranted;
         } catch (Throwable th) {
             BdLog.e(TAG, th);
-            return !com.baidu.m.a.aah();
+            return !com.baidu.n.a.adp();
         }
     }
 

@@ -8,7 +8,7 @@ import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.listener.c {
-    private static c fku = new c();
+    private static c frU = new c();
     private final SparseArray<a> availableAPIs;
     private boolean closeLongConnectionAPI;
     private int longConnectionFailedErrno;
@@ -16,8 +16,8 @@ public class c extends com.baidu.adp.framework.listener.c {
     private long retryTimeInMills;
     private final HashSet<Integer> unavailableAPIS;
 
-    public static c bxM() {
-        return fku;
+    public static c bBm() {
+        return frU;
     }
 
     private c() {
@@ -41,7 +41,7 @@ public class c extends com.baidu.adp.framework.listener.c {
         } else if (!MessageManager.getInstance().getSocketClient().isValid()) {
             this.longConnectionFailedErrno = 1;
             return false;
-        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().getLastReceDataTime() > e.bxO().getForegroundInterval() + 20000) {
+        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().getLastReceDataTime() > e.bBo().getForegroundInterval() + 20000) {
             com.baidu.adp.framework.client.socket.i.debug("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
             this.longConnectionFailedErrno = 2;
             return false;

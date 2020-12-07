@@ -16,8 +16,8 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.ItemStarData;
-import com.baidu.tbadk.core.data.bx;
-import com.baidu.tbadk.core.elementsMaven.view.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aq;
@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tbadk.data.l;
+import com.baidu.tbadk.data.m;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.imageManager.a;
 import com.baidu.tieba.R;
@@ -35,7 +35,7 @@ import tbclient.HeadItem;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class e {
-    public static int sY(int i) {
+    public static int tB(int i) {
         switch (i) {
             case 0:
                 return 1;
@@ -78,7 +78,7 @@ public class e {
         }
     }
 
-    public static SpannableStringBuilder a(bx bxVar, List<PbContent> list, String str) {
+    public static SpannableStringBuilder a(by byVar, List<PbContent> list, String str) {
         int size;
         CharSequence a2;
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
@@ -86,7 +86,7 @@ public class e {
             if (list != null && (size = list.size()) > 0) {
                 for (int i = 0; i < size; i++) {
                     PbContent pbContent = list.get(i);
-                    if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && (a2 = a(bxVar, pbContent)) != null) {
+                    if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && (a2 = a(byVar, pbContent)) != null) {
                         spannableStringBuilder.append(a2);
                     }
                 }
@@ -101,42 +101,42 @@ public class e {
     }
 
     public static SpannableStringBuilder g(List<PbContent> list, String str) {
-        return a((bx) null, list, str);
+        return a((by) null, list, str);
     }
 
-    public static SpannableStringBuilder bE(List<PbContent> list) {
+    public static SpannableStringBuilder bI(List<PbContent> list) {
         return g(list, "");
     }
 
-    public static SpannableStringBuilder p(List<PbContent> list, List<HeadItem> list2) {
+    public static SpannableStringBuilder a(List<PbContent> list, List<HeadItem> list2, boolean z) {
         int size;
         SpannableStringBuilder spannableStringBuilder;
-        boolean z;
+        boolean z2;
         SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
         if (!y.isEmpty(list)) {
             if (list != null && (size = list.size()) > 0) {
                 for (int i = 0; i < size; i++) {
                     PbContent pbContent = list.get(i);
                     if (pbContent != null && !TextUtils.isEmpty(pbContent.text)) {
-                        CharSequence a2 = a((bx) null, pbContent);
+                        CharSequence a2 = a((by) null, pbContent);
                         if (i != 0 || list2 == null) {
                             spannableStringBuilder = null;
-                            z = true;
+                            z2 = true;
                         } else {
-                            SpannableStringBuilder bF = bF(list2);
-                            if (sY(pbContent.type.intValue()) == 16) {
-                                z = true;
-                                spannableStringBuilder = bF;
+                            SpannableStringBuilder bJ = bJ(list2);
+                            if (tB(pbContent.type.intValue()) == 16) {
+                                z2 = true;
+                                spannableStringBuilder = bJ;
                             } else {
-                                spannableStringBuilder = bF;
-                                z = false;
+                                spannableStringBuilder = bJ;
+                                z2 = false;
                             }
                         }
-                        if (z) {
+                        if (z2) {
                             if (a2 != null) {
                                 spannableStringBuilder2.append(a2);
                             }
-                        } else if (!z) {
+                        } else if (!z2) {
                             if (spannableStringBuilder != null) {
                                 spannableStringBuilder2.append((CharSequence) spannableStringBuilder);
                             }
@@ -148,6 +148,9 @@ public class e {
                                 spannableStringBuilder2.append(a2);
                             }
                             if (spannableStringBuilder != null) {
+                                if (z) {
+                                    spannableStringBuilder2.append((CharSequence) "\n");
+                                }
                                 spannableStringBuilder2.append((CharSequence) spannableStringBuilder);
                             }
                         }
@@ -160,28 +163,28 @@ public class e {
         return spannableStringBuilder2;
     }
 
-    public static CharSequence a(bx bxVar, PbContent pbContent) {
-        switch (sY(pbContent.type.intValue())) {
+    public static CharSequence a(by byVar, PbContent pbContent) {
+        switch (tB(pbContent.type.intValue())) {
             case 2:
-                return a(bxVar, 2, pbContent.text, pbContent.link);
+                return a(byVar, 2, pbContent.text, pbContent.link);
             case 4:
-                return Eg(pbContent.text);
+                return EU(pbContent.text);
             case 16:
-                return b(bxVar, pbContent.text, String.valueOf(pbContent.uid));
+                return b(byVar, pbContent.text, String.valueOf(pbContent.uid));
             case 18:
-                return a(bxVar, pbContent.text, pbContent.link);
+                return a(byVar, pbContent.text, pbContent.link);
             default:
                 return new SpannableString(pbContent.text != null ? pbContent.text : "");
         }
     }
 
-    private static SpannableString a(final bx bxVar, int i, String str, final String str2, int i2) {
+    private static SpannableString a(final by byVar, int i, String str, final String str2, int i2) {
         SpannableString spannableString;
         f fVar;
         if (str == null) {
             return null;
         }
-        boolean z = i == 2 && eb(str, str2);
+        boolean z = i == 2 && ei(str, str2);
         if (!str.endsWith(" ")) {
             str = str + " ";
         }
@@ -194,25 +197,25 @@ public class e {
             fVar = new f(i, str2) { // from class: com.baidu.tbadk.widget.richText.e.1
                 @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                 public void onClick(View view) {
-                    e.a(str2, (bx) null);
+                    e.a(str2, (by) null);
                 }
             };
         } else if (i == 16) {
             fVar = new f(i, str2) { // from class: com.baidu.tbadk.widget.richText.e.2
                 @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                 public void onClick(View view) {
-                    e.i(bxVar, str2);
+                    e.i(byVar, str2);
                 }
             };
         } else {
             fVar = new f(i, str2) { // from class: com.baidu.tbadk.widget.richText.e.3
                 @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                 public void onClick(View view) {
-                    e.Eh(str2);
+                    e.EV(str2);
                 }
             };
         }
-        fVar.ta(i2);
+        fVar.tD(i2);
         if (i2 == 1) {
             fVar.setTextColor(R.color.CAM_X0109);
         } else {
@@ -229,43 +232,43 @@ public class e {
         return spannableString;
     }
 
-    private static SpannableString a(bx bxVar, String str, String str2) {
-        SpannableString a2 = a(bxVar, 18, str, str2);
-        aq.a(bxVar, a2, a2.toString(), 0);
+    private static SpannableString a(by byVar, String str, String str2) {
+        SpannableString a2 = a(byVar, 18, str, str2);
+        aq.a(byVar, a2, a2.toString(), 0);
         return a2;
     }
 
-    private static SpannableString b(bx bxVar, String str, String str2) {
-        return a(bxVar, 16, str, str2);
+    private static SpannableString b(by byVar, String str, String str2) {
+        return a(byVar, 16, str, str2);
     }
 
-    private static SpannableString a(bx bxVar, int i, String str, String str2) {
-        return a(bxVar, i, str, str2, 0);
+    private static SpannableString a(by byVar, int i, String str, String str2) {
+        return a(byVar, i, str, str2, 0);
     }
 
-    private static SpannableString Eg(String str) {
-        int Dc;
+    private static SpannableString EU(String str) {
+        int DK;
         String str2;
-        a.C0592a Dx;
+        a.C0605a Ef;
         int width;
-        if (str == null || (Dc = TbFaceManager.bAs().Dc(str)) == 0) {
+        if (str == null || (DK = TbFaceManager.bDU().DK(str)) == 0) {
             return null;
         }
-        String De = TbFaceManager.bAs().De(str);
+        String DM = TbFaceManager.bDU().DM(str);
         if (!TextUtils.isEmpty(str) && str.startsWith("shoubai_emoji_")) {
-            str2 = "[" + De + "]";
-            Dx = TbFaceManager.bAs().Dx("image_emoticon");
+            str2 = "[" + DM + "]";
+            Ef = TbFaceManager.bDU().Ef("image_emoticon");
         } else {
-            str2 = "#(" + De + ")";
-            Dx = TbFaceManager.bAs().Dx(str);
+            str2 = "#(" + DM + ")";
+            Ef = TbFaceManager.bDU().Ef(str);
         }
         SpannableString spannableString = new SpannableString(str2 + " ");
-        d dVar = new d(TbadkCoreApplication.getInst().getContext(), Dc);
-        if (Dx != null) {
+        d dVar = new d(TbadkCoreApplication.getInst().getContext(), DK);
+        if (Ef != null) {
             if (str != null && str.startsWith("bearchildren_")) {
-                width = (int) (0.25d * Dx.getWidth());
+                width = (int) (0.25d * Ef.getWidth());
             } else {
-                width = (int) (0.4d * Dx.getWidth());
+                width = (int) (0.4d * Ef.getWidth());
             }
             dVar.setBounds(new Rect(0, 0, width, width));
         } else {
@@ -276,90 +279,91 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void a(String str, bx bxVar) {
+    public static void a(String str, by byVar) {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (!TextUtils.isEmpty(str) && (currentActivity instanceof TbPageContextSupport)) {
             TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) currentActivity;
-            l lVar = new l();
-            lVar.mLink = str;
-            if (bxVar != null) {
-                lVar.type = bxVar.blq();
-                lVar.flv = bxVar.blp();
+            m mVar = new m();
+            mVar.mLink = str;
+            if (byVar != null) {
+                mVar.type = byVar.boD();
+                mVar.fsY = byVar.boC();
             }
-            com.baidu.tbadk.plugins.b.a(lVar);
-            bf.bqF().b(tbPageContextSupport.getPageContext(), new String[]{lVar.mLink, lVar.flv});
+            com.baidu.tbadk.plugins.b.a(mVar);
+            bf.bua().b(tbPageContextSupport.getPageContext(), new String[]{mVar.mLink, mVar.fsY});
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void i(bx bxVar, String str) {
+    public static void i(by byVar, String str) {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (!TextUtils.isEmpty(str) && currentActivity != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(currentActivity, str, null)));
-            if (bxVar != null) {
+            if (byVar != null) {
                 ar arVar = new ar("c13564");
-                if (bxVar.bnw()) {
+                if (byVar.bqJ()) {
                     arVar = new ar("c12352");
-                    arVar.ak("obj_source", 1);
-                    a(arVar, bxVar);
-                } else if (bxVar.eFg) {
-                    arVar.ak("obj_source", 2);
-                    if (bxVar.getBaijiahaoData() != null) {
-                        arVar.ak("obj_type", bxVar.getBaijiahaoData().oriUgcType);
+                    arVar.al("obj_source", 1);
+                    a(arVar, byVar);
+                } else if (byVar.eMi) {
+                    arVar.al("obj_source", 2);
+                    if (byVar.getBaijiahaoData() != null) {
+                        arVar.al("obj_type", byVar.getBaijiahaoData().oriUgcType);
                     }
                 } else {
-                    arVar.ak("obj_source", 3);
-                    if (bxVar.getBaijiahaoData() != null) {
-                        arVar.ak("obj_type", bxVar.getBaijiahaoData().oriUgcType);
+                    arVar.al("obj_source", 3);
+                    if (byVar.getBaijiahaoData() != null) {
+                        arVar.al("obj_type", byVar.getBaijiahaoData().oriUgcType);
                     }
                 }
-                arVar.ak("obj_locate", 5);
+                arVar.al("obj_locate", 5);
                 TiebaStatic.log(arVar);
             }
         }
     }
 
-    private static void a(ar arVar, bx bxVar) {
-        if (bxVar.bki()) {
-            arVar.ak("obj_type", 2);
-        } else if (bxVar.isLinkThread()) {
-            arVar.ak("obj_type", 4);
-        } else if (bxVar.isShareThread) {
-            arVar.ak("obj_type", 5);
-        } else if (bxVar.bkk()) {
-            arVar.ak("obj_type", 6);
-        } else if (bxVar.bnz()) {
-            arVar.ak("obj_type", 7);
-        } else if (bxVar.bkl()) {
-            arVar.ak("obj_type", 8);
-        } else if (bxVar.bnA()) {
-            arVar.ak("obj_type", 9);
-        } else if (bxVar.getType() == bx.eBR) {
-            arVar.ak("obj_type", 1);
+    private static void a(ar arVar, by byVar) {
+        if (byVar.bnv()) {
+            arVar.al("obj_type", 2);
+        } else if (byVar.isLinkThread()) {
+            arVar.al("obj_type", 4);
+        } else if (byVar.isShareThread) {
+            arVar.al("obj_type", 5);
+        } else if (byVar.bnx()) {
+            arVar.al("obj_type", 6);
+        } else if (byVar.bqM()) {
+            arVar.al("obj_type", 7);
+        } else if (byVar.bny()) {
+            arVar.al("obj_type", 8);
+        } else if (byVar.bqN()) {
+            arVar.al("obj_type", 9);
+        } else if (byVar.getType() == by.eIS) {
+            arVar.al("obj_type", 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void Eh(String str) {
+    public static void EV(String str) {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (!TextUtils.isEmpty(str) && (currentActivity instanceof TbPageContextSupport)) {
-            bf.bqF().b(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{str});
+            bf.bua().b(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{str});
         }
     }
 
     public static SpannableString I(int i, boolean z) {
-        if (i < 0 || i > 5) {
+        if (i < 0) {
             return null;
         }
+        int i2 = i <= 5 ? i : 5;
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds10);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds36);
         int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.tbds13);
         SpannableString spannableString = new SpannableString(TbadkCoreApplication.getInst().getString(R.string.item_stars));
-        spannableString.setSpan(new com.baidu.tbadk.core.view.a.c(i, dimenPixelSize, dimenPixelSize2, dimenPixelSize3, 0, z), 0, spannableString.length(), 33);
+        spannableString.setSpan(new com.baidu.tbadk.core.view.a.c(i2, dimenPixelSize, dimenPixelSize2, dimenPixelSize3, 0, z), 0, spannableString.length(), 33);
         return spannableString;
     }
 
-    public static SpannableStringBuilder bF(List<HeadItem> list) {
+    public static SpannableStringBuilder bJ(List<HeadItem> list) {
         ItemStarData itemStarData = new ItemStarData();
         itemStarData.parseProto(list);
         return a(itemStarData);
@@ -402,12 +406,12 @@ public class e {
         return spannableStringBuilder;
     }
 
-    public static boolean eb(@NonNull String str, @NonNull String str2) {
+    public static boolean ei(@NonNull String str, @NonNull String str2) {
         if (au.isEmpty(str) || au.isEmpty(str2)) {
             return false;
         }
-        if (bf.bqF().l(str2)) {
-            if (bf.bqF().l(str)) {
+        if (bf.bua().l(str2)) {
+            if (bf.bua().l(str)) {
                 if (str.equals(str2)) {
                     return false;
                 }

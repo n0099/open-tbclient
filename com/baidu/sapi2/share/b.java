@@ -8,11 +8,11 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.TPRunnable;
 import com.baidu.sapi2.utils.ThreadPoolService;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3514a = "extra_trace_id";
+    public static final String f3517a = "extra_trace_id";
     public static final String b = "extra_session_id";
     public static final String c = "login_type_share";
     public static final String d = "V2_FACE_LOGIN_UIDS_TIMES";
@@ -26,34 +26,34 @@ public class b {
     public static c l;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ int f3515a;
+        final /* synthetic */ int f3518a;
 
         a(int i) {
-            this.f3515a = i;
+            this.f3518a = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            new ShareStorage().a(this.f3515a);
+            new ShareStorage().a(this.f3518a);
             e.c();
             SapiAccountManager.getInstance().getAccountService().refreshOpenidToUid();
         }
     }
 
     /* renamed from: com.baidu.sapi2.share.b$b  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public static abstract class AbstractC0341b {
+    /* loaded from: classes6.dex */
+    public static abstract class AbstractC0352b {
         public void onFailed(int i, String str) {
         }
 
         public abstract void onSuccess();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class c {
         public static final String e = "index";
         public static final String f = "account_tpl";
@@ -61,7 +61,7 @@ public class b {
         public static final String h = "share_version";
 
         /* renamed from: a  reason: collision with root package name */
-        public int f3516a;
+        public int f3519a;
         public String b;
         public String c;
         public String d;
@@ -83,7 +83,7 @@ public class b {
         e.a(activity, str, str2, str3, str4, list, str5);
     }
 
-    public void a(AbstractC0341b abstractC0341b, int i2, int i3, Intent intent, List<PassNameValuePair> list) {
-        e.a(abstractC0341b, i2, i3, intent, this, list);
+    public void a(AbstractC0352b abstractC0352b, int i2, int i3, Intent intent, List<PassNameValuePair> list) {
+        e.a(abstractC0352b, i2, i3, intent, this, list);
     }
 }

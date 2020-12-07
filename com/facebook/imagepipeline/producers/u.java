@@ -11,10 +11,11 @@ import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import okhttp3.internal.http.StatusLine;
 /* loaded from: classes15.dex */
 public class u extends c<t> {
     private final ExecutorService mExecutorService;
-    private int oXh;
+    private int plW;
 
     public u() {
         this(Executors.newFixedThreadPool(3));
@@ -22,7 +23,7 @@ public class u extends c<t> {
 
     public u(int i) {
         this(Executors.newFixedThreadPool(3));
-        this.oXh = i;
+        this.plW = i;
     }
 
     u(ExecutorService executorService) {
@@ -30,7 +31,7 @@ public class u extends c<t> {
     }
 
     @Override // com.facebook.imagepipeline.producers.af
-    public t b(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
+    public t d(k<com.facebook.imagepipeline.f.e> kVar, ak akVar) {
         return new t(kVar, akVar);
     }
 
@@ -42,11 +43,11 @@ public class u extends c<t> {
                 u.this.b(tVar, aVar);
             }
         });
-        tVar.erg().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
+        tVar.ewJ().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void enk() {
+            public void ewC() {
                 if (submit.cancel(false)) {
-                    aVar.ejX();
+                    aVar.epM();
                 }
             }
         });
@@ -132,13 +133,13 @@ public class u extends c<t> {
     }
 
     private HttpURLConnection c(Uri uri, int i) throws IOException {
-        HttpURLConnection Z = Z(uri);
-        Z.setConnectTimeout(this.oXh);
-        int responseCode = Z.getResponseCode();
-        if (!Qo(responseCode)) {
-            if (Qp(responseCode)) {
-                String headerField = Z.getHeaderField(Headers.LOCATION);
-                Z.disconnect();
+        HttpURLConnection aa = aa(uri);
+        aa.setConnectTimeout(this.plW);
+        int responseCode = aa.getResponseCode();
+        if (!Rj(responseCode)) {
+            if (Rk(responseCode)) {
+                String headerField = aa.getHeaderField(Headers.LOCATION);
+                aa.disconnect();
                 Uri parse = headerField == null ? null : Uri.parse(headerField);
                 String scheme = uri.getScheme();
                 if (i > 0 && parse != null && !parse.getScheme().equals(scheme)) {
@@ -146,28 +147,28 @@ public class u extends c<t> {
                 }
                 throw new IOException(i == 0 ? k("URL %s follows too many redirects", uri.toString()) : k("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
             }
-            Z.disconnect();
+            aa.disconnect();
             throw new IOException(String.format("Image URL %s returned HTTP code %d", uri.toString(), Integer.valueOf(responseCode)));
         }
-        return Z;
+        return aa;
     }
 
-    static HttpURLConnection Z(Uri uri) throws IOException {
-        return (HttpURLConnection) com.facebook.common.util.d.K(uri).openConnection();
+    static HttpURLConnection aa(Uri uri) throws IOException {
+        return (HttpURLConnection) com.facebook.common.util.d.L(uri).openConnection();
     }
 
-    private static boolean Qo(int i) {
+    private static boolean Rj(int i) {
         return i >= 200 && i < 300;
     }
 
-    private static boolean Qp(int i) {
+    private static boolean Rk(int i) {
         switch (i) {
             case 300:
             case 301:
             case 302:
             case 303:
             case 307:
-            case 308:
+            case StatusLine.HTTP_PERM_REDIRECT /* 308 */:
                 return true;
             case 304:
             case 305:

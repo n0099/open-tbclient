@@ -12,43 +12,43 @@ import java.util.Map;
 /* loaded from: classes6.dex */
 public class a {
     private static final boolean DEBUG = d.DEBUG;
-    private static Map<String, a> ehN = new HashMap();
-    private static Map<String, Map<String, a>> ehO = new HashMap();
-    public final String cQI;
-    public final String efY;
-    public final AbiType ege;
+    private static Map<String, a> eoP = new HashMap();
+    private static Map<String, Map<String, a>> eoQ = new HashMap();
+    public final String cXB;
+    public final String emZ;
+    public final AbiType eng;
 
     private a(@NonNull String str, @NonNull AbiType abiType) {
-        this.cQI = TextUtils.isEmpty(str) ? "" : str;
-        this.ege = abiType;
-        this.efY = c(str, abiType);
+        this.cXB = TextUtils.isEmpty(str) ? "" : str;
+        this.eng = abiType;
+        this.emZ = c(str, abiType);
         if (DEBUG) {
-            Log.i("SoBundleId", "SoBundleId: " + this.efY + " libName=" + str + " abi=" + abiType);
+            Log.i("SoBundleId", "SoBundleId: " + this.emZ + " libName=" + str + " abi=" + abiType);
         }
     }
 
     @NonNull
     public String toString() {
-        return this.efY;
+        return this.emZ;
     }
 
     @Nullable
     public static synchronized a b(String str, AbiType abiType) {
-        a dr;
+        a dy;
         synchronized (a.class) {
-            dr = dr(str, c(str, abiType));
+            dy = dy(str, c(str, abiType));
         }
-        return dr;
+        return dy;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0078, code lost:
-        if (android.text.TextUtils.equals(r6, r0.cQI) == false) goto L21;
+        if (android.text.TextUtils.equals(r6, r0.cXB) == false) goto L21;
      */
     @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized a dr(String str, String str2) {
+    public static synchronized a dy(String str, String str2) {
         a aVar;
         synchronized (a.class) {
             if (DEBUG) {
@@ -57,8 +57,8 @@ public class a {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 aVar = null;
             } else {
-                yy(str);
-                aVar = ehN.get(str2);
+                zf(str);
+                aVar = eoP.get(str2);
                 if (DEBUG) {
                     Log.i("SoBundleId", "of: end libName=" + str + " soBundleId=" + aVar);
                 }
@@ -70,27 +70,27 @@ public class a {
         return aVar;
     }
 
-    public static synchronized Map<String, a> yx(@NonNull String str) {
+    public static synchronized Map<String, a> ze(@NonNull String str) {
         HashMap hashMap;
         synchronized (a.class) {
-            hashMap = new HashMap(yy(str));
+            hashMap = new HashMap(zf(str));
         }
         return hashMap;
     }
 
-    private static synchronized Map<String, a> yy(@NonNull String str) {
+    private static synchronized Map<String, a> zf(@NonNull String str) {
         Map<String, a> map;
         synchronized (a.class) {
-            map = ehO.get(str);
+            map = eoQ.get(str);
             if (map == null) {
                 map = new HashMap<>();
                 if (!TextUtils.isEmpty(str)) {
                     for (AbiType abiType : AbiType.values()) {
                         a aVar = new a(str, abiType);
-                        map.put(aVar.efY, aVar);
+                        map.put(aVar.emZ, aVar);
                     }
-                    ehN.putAll(map);
-                    ehO.put(str, map);
+                    eoP.putAll(map);
+                    eoQ.put(str, map);
                 }
             }
         }

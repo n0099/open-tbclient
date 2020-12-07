@@ -1,26 +1,26 @@
 package kotlin.jvm.internal;
 
 import java.util.NoSuchElementException;
-@kotlin.h
-/* loaded from: classes9.dex */
-final class a extends kotlin.collections.l {
+@kotlin.e
+/* loaded from: classes17.dex */
+final class a extends kotlin.collections.k {
     private int index;
-    private final boolean[] pTZ;
+    private final boolean[] pKt;
 
     public a(boolean[] zArr) {
-        q.n(zArr, com.baidu.fsg.base.statistics.b.j);
-        this.pTZ = zArr;
+        p.o(zArr, com.baidu.fsg.base.statistics.b.j);
+        this.pKt = zArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.pTZ.length;
+        return this.index < this.pKt.length;
     }
 
-    @Override // kotlin.collections.l
-    public boolean nextBoolean() {
+    @Override // kotlin.collections.k
+    public boolean eyD() {
         try {
-            boolean[] zArr = this.pTZ;
+            boolean[] zArr = this.pKt;
             int i = this.index;
             this.index = i + 1;
             return zArr[i];

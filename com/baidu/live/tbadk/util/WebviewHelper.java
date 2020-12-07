@@ -59,7 +59,7 @@ public class WebviewHelper {
                     int i2 = 0;
                     while (true) {
                         if (i2 < length) {
-                            String[] split3 = split2[i2].split(ETAG.EQUAL);
+                            String[] split3 = split2[i2].split("=");
                             if (split3.length == 2) {
                                 String str4 = split3[0];
                                 String str5 = split3[1];
@@ -100,7 +100,7 @@ public class WebviewHelper {
         }
         bundle.putString("path", url.getPath());
         for (String str2 : split) {
-            String[] split2 = str2.split(ETAG.EQUAL);
+            String[] split2 = str2.split("=");
             if (split2 != null && split2.length == 2 && !StringUtils.isNull(split2[0])) {
                 bundle.putString(split2[0], split2[1]);
             }
@@ -152,7 +152,7 @@ public class WebviewHelper {
                 sb.append("?");
             }
             sb.append("page_type");
-            sb.append(ETAG.EQUAL);
+            sb.append("=");
             sb.append("open_full_screen_opacity_web_page");
             return sb.toString();
         }
@@ -170,7 +170,7 @@ public class WebviewHelper {
             for (Map.Entry<String, Object> entry : map.entrySet()) {
                 if (!TextUtils.isEmpty(entry.getKey())) {
                     sb.append(entry.getKey());
-                    sb.append(ETAG.EQUAL);
+                    sb.append("=");
                     sb.append(entry.getValue() != null ? entry.getValue() : "");
                     sb.append(ETAG.ITEM_SEPARATOR);
                 }

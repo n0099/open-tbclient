@@ -4,11 +4,11 @@ import com.baidu.android.imsdk.db.TableDefine;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
-    public long aFA;
-    public long aFB;
-    public int aFx;
-    public int aFy;
-    public boolean aFz;
+    public int aIf;
+    public int aIg;
+    public boolean aIh;
+    public long aIi;
+    public long aIj;
     public long alaId;
     public String avatar;
     public long charmCount;
@@ -26,11 +26,11 @@ public class d {
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
             this.charmCount = jSONObject.optLong("charm_count");
             this.liveStatus = jSONObject.optInt("live_status");
-            this.aFx = jSONObject.optInt("pk_status");
-            this.aFz = jSONObject.optInt("can_challenge") == 1;
-            this.aFA = jSONObject.optLong("challenge_end_time");
-            this.aFB = jSONObject.optLong("challenge_time");
-            this.aFy = jSONObject.optInt("is_pking");
+            this.aIf = jSONObject.optInt("pk_status");
+            this.aIh = jSONObject.optInt("can_challenge") == 1;
+            this.aIi = jSONObject.optLong("challenge_end_time");
+            this.aIj = jSONObject.optLong("challenge_time");
+            this.aIg = jSONObject.optInt("is_pking");
         }
     }
 

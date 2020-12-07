@@ -6,17 +6,16 @@ import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-import com.baidu.webkit.internal.ETAG;
 import java.net.MalformedURLException;
 import java.net.URL;
 /* loaded from: classes4.dex */
 public class i {
-    public static boolean G(Context context, String str) {
-        return c(context, str, "BAIDUZID", aT(ExtraParamsManager.getBaiduzid(), iO(str)));
+    public static boolean K(Context context, String str) {
+        return c(context, str, "BAIDUZID", aX(ExtraParamsManager.getBaiduzid(), js(str)));
     }
 
-    public static boolean H(Context context, String str) {
-        return c(context, str, "BAIDUCUID", aU(ExtraParamsManager.getBase64(ExtraParamsManager.getInstance().buildParamsExtra().getCuid()), iO(str)));
+    public static boolean L(Context context, String str) {
+        return c(context, str, "BAIDUCUID", aY(ExtraParamsManager.getBase64(ExtraParamsManager.getInstance().buildParamsExtra().getCuid()), js(str)));
     }
 
     private static boolean c(Context context, String str, String str2, String str3) {
@@ -25,19 +24,19 @@ public class i {
             return false;
         }
         try {
-            String iO = iO(str);
-            if (TextUtils.isEmpty(iO)) {
+            String js = js(str);
+            if (TextUtils.isEmpty(js)) {
                 return false;
             }
             CookieSyncManager.createInstance(context);
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
-            String[] split = cookieManager.getCookie(iO).split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            String[] split = cookieManager.getCookie(js).split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             if (split.length > 0) {
                 z = true;
                 for (String str4 : split) {
                     if (!TextUtils.isEmpty(str4)) {
-                        Object[] split2 = str4.split(ETAG.EQUAL);
+                        Object[] split2 = str4.split("=");
                         if (!TextUtils.isEmpty(split2[0])) {
                             split2[0] = split2[0].trim();
                         }
@@ -50,7 +49,7 @@ public class i {
                 z = true;
             }
             if (z) {
-                cookieManager.setCookie(iO, str2 + ETAG.EQUAL + str3);
+                cookieManager.setCookie(js, str2 + "=" + str3);
                 CookieSyncManager.getInstance().sync();
                 return true;
             }
@@ -60,7 +59,7 @@ public class i {
         }
     }
 
-    public static String iO(String str) {
+    public static String js(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -71,11 +70,11 @@ public class i {
         }
     }
 
-    private static String aT(String str, String str2) {
+    private static String aX(String str, String str2) {
         return (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) ? "" : str + ";domain=" + str2 + ";path=/";
     }
 
-    private static String aU(String str, String str2) {
+    private static String aY(String str, String str2) {
         return (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) ? "" : str + ";domain=" + str2 + ";path=/";
     }
 }

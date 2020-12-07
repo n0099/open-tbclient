@@ -36,7 +36,7 @@ import org.json.JSONObject;
 public class HttpClientWrap {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2706a = "encode";
+    private static final String f2708a = "encode";
     private static final String b = "ua";
     private static final String c = "cuid_2";
     private static final String d = "reqid";
@@ -62,7 +62,7 @@ public class HttpClientWrap {
 
     public static Map<String, String> appendCertification(Context context) {
         HashMap hashMap = new HashMap();
-        hashMap.put(f2706a, "utf-8");
+        hashMap.put(f2708a, "utf-8");
         hashMap.put("ua", PassBiometricUtil.getUA(context, BeanConstants.tpl));
         hashMap.put("time", String.valueOf(System.currentTimeMillis() / 1000));
         hashMap.put("appid", BeanConstants.appid);
@@ -91,7 +91,7 @@ public class HttpClientWrap {
             try {
                 String str4 = map.get(str3);
                 if (!TextUtils.isEmpty(str4)) {
-                    sb.append(str3).append(ETAG.EQUAL).append(URLEncoder.encode(str4, "UTF-8")).append(ETAG.ITEM_SEPARATOR);
+                    sb.append(str3).append("=").append(URLEncoder.encode(str4, "UTF-8")).append(ETAG.ITEM_SEPARATOR);
                 }
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);

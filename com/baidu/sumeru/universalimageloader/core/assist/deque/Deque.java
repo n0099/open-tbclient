@@ -2,7 +2,7 @@ package com.baidu.sumeru.universalimageloader.core.assist.deque;
 
 import java.util.Iterator;
 import java.util.Queue;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public interface Deque<E> extends Queue<E> {
     @Override // java.util.Queue, java.util.Collection, java.util.concurrent.BlockingQueue
     boolean add(E e);

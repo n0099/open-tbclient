@@ -1,13 +1,13 @@
 package com.baidu.swan.apps.framework;
 
 import com.baidu.swan.apps.SwanAppActivity;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class e {
     public static c a(SwanAppActivity swanAppActivity, com.baidu.swan.apps.runtime.e eVar) {
         if (eVar == null || !eVar.available()) {
             return null;
         }
-        switch (eVar.aeW()) {
+        switch (eVar.aie()) {
             case 0:
                 return new com.baidu.swan.apps.framework.a.a(swanAppActivity, eVar.id);
             case 1:

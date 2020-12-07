@@ -25,26 +25,28 @@ import com.baidu.live.utils.h;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 /* loaded from: classes4.dex */
 public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.baidu.live.gift.biggift.c {
-    private int aVy;
-    private com.baidu.live.alphavideo.c baF;
-    private com.baidu.live.gift.c baG;
-    private com.baidu.live.gift.a.c baH;
-    private int baI;
-    private MediaMetadataRetriever baJ;
-    private com.baidu.live.gift.biggift.b bas;
-    private AlaBigGiftExtraInfoRevisionView bat;
+    private int aYJ;
+    private com.baidu.live.gift.biggift.b bdS;
+    private AlaBigGiftExtraInfoRevisionView bdT;
+    private com.baidu.live.alphavideo.c bef;
+    private com.baidu.live.gift.c beh;
+    private com.baidu.live.gift.a.c bei;
+    private int bej;
+    private MediaMetadataRetriever bek;
+    private boolean bel;
     private boolean isHost;
     private Handler mHandler;
     private boolean mStopped;
 
     static /* synthetic */ int f(AlaDynamicVideoGiftLayout alaDynamicVideoGiftLayout) {
-        int i = alaDynamicVideoGiftLayout.baI + 1;
-        alaDynamicVideoGiftLayout.baI = i;
+        int i = alaDynamicVideoGiftLayout.bej + 1;
+        alaDynamicVideoGiftLayout.bej = i;
         return i;
     }
 
     public AlaDynamicVideoGiftLayout(Context context) {
         super(context);
+        this.bel = false;
     }
 
     public void setHost(boolean z) {
@@ -52,15 +54,27 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
     }
 
     public void setEnterEffectRelativeBottomMargin(int i) {
-        this.aVy = i;
+        this.aYJ = i;
     }
 
     public void setData(com.baidu.live.gift.c cVar, com.baidu.live.gift.a.c cVar2) {
-        if (cVar != null && cVar.aSt != null && cVar.aSt.aSs != null) {
-            this.baG = cVar;
-            this.baH = cVar2;
-            int[] hn = hn(this.baG.ET());
-            z(hn[0], hn[1]);
+        int[] screenDimensions = BdUtilHelper.getScreenDimensions(getContext());
+        setData(cVar, cVar2, screenDimensions[0], screenDimensions[1]);
+    }
+
+    public void setData(com.baidu.live.gift.c cVar, com.baidu.live.gift.a.c cVar2, int i, int i2) {
+        if (cVar != null && cVar.aVv != null && cVar.aVv.aVu != null) {
+            this.beh = cVar;
+            this.bei = cVar2;
+            int[] hI = hI(this.beh.GE());
+            g(hI[0], hI[1], i, i2);
+        }
+    }
+
+    public void setLooping(boolean z) {
+        this.bel = z;
+        if (this.bef != null) {
+            this.bef.setLooping(z);
         }
     }
 
@@ -70,18 +84,18 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private int[] hn(String str) {
+    private int[] hI(String str) {
         int i;
         int i2;
         int i3;
-        if (this.baJ == null) {
-            this.baJ = new MediaMetadataRetriever();
+        if (this.bek == null) {
+            this.bek = new MediaMetadataRetriever();
         }
         try {
-            this.baJ.setDataSource(str);
-            i = Integer.valueOf(this.baJ.extractMetadata(18)).intValue();
+            this.bek.setDataSource(str);
+            i = Integer.valueOf(this.bek.extractMetadata(18)).intValue();
             try {
-                i2 = Integer.valueOf(this.baJ.extractMetadata(19)).intValue();
+                i2 = Integer.valueOf(this.bek.extractMetadata(19)).intValue();
             } catch (Throwable th) {
                 th = th;
                 th.printStackTrace();
@@ -107,10 +121,10 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
         return new int[]{i3, i2};
     }
 
-    public void Ha() {
+    public void IR() {
         stopAnim();
-        if (this.bas != null) {
-            this.bas.m(this.baH);
+        if (this.bdS != null) {
+            this.bdS.m(this.bei);
         }
     }
 
@@ -120,22 +134,24 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
         stopAnim();
     }
 
+    @Override // com.baidu.live.gift.biggift.c
     public void setBigGiftCallBack(com.baidu.live.gift.biggift.b bVar) {
-        this.bas = bVar;
+        this.bdS = bVar;
     }
 
+    @Override // com.baidu.live.gift.biggift.c
     public void startAnim() {
         this.mStopped = false;
-        this.baI = 0;
-        if (this.baF != null && !this.baF.isDestroyed() && !TextUtils.isEmpty(this.baG.ET())) {
-            this.baF.play(this.baG.ET());
-            if (this.bas != null) {
-                this.bas.l(this.baH);
+        this.bej = 0;
+        if (this.bef != null && !this.bef.isDestroyed() && !TextUtils.isEmpty(this.beh.GE())) {
+            this.bef.play(this.beh.GE());
+            if (this.bdS != null) {
+                this.bdS.l(this.bei);
                 return;
             }
             return;
         }
-        Io();
+        Kf();
     }
 
     public void stopAnim() {
@@ -143,147 +159,149 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.baF != null) {
-            this.baF.stop();
-            this.baF.reset();
+        if (this.bef != null) {
+            this.bef.stop();
+            this.bef.reset();
         }
-        if (this.bat != null) {
-            this.bat.end();
+        if (this.bdT != null) {
+            this.bdT.end();
         }
     }
 
+    @Override // com.baidu.live.gift.biggift.c
     public void onDestroy() {
         this.mStopped = true;
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.baJ != null) {
-            this.baJ.release();
+        if (this.bek != null) {
+            this.bek.release();
         }
-        if (this.baF != null) {
-            this.baF.stop();
-            this.baF.release();
+        if (this.bef != null) {
+            this.bef.stop();
+            this.bef.release();
         }
-        if (this.bat != null) {
-            this.bat.onDestroy();
+        if (this.bdT != null) {
+            this.bdT.onDestroy();
         }
         removeAllViews();
     }
 
-    private void z(int i, int i2) {
-        A(i, i2);
-        if (this.baH.HV()) {
-            Ig();
+    private void g(int i, int i2, int i3, int i4) {
+        h(i, i2, i3, i4);
+        if (this.bei.JM()) {
+            JX();
         }
     }
 
-    private void A(int i, int i2) {
-        if (this.baF == null || this.baF.isDestroyed()) {
+    private void h(int i, int i2, int i3, int i4) {
+        if (this.bef == null || this.bef.isDestroyed()) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913181, com.baidu.live.alphavideo.c.class, getContext());
             if (runTask != null && runTask.getData() != null) {
-                this.baF = (com.baidu.live.alphavideo.c) runTask.getData();
+                this.bef = (com.baidu.live.alphavideo.c) runTask.getData();
             } else {
                 return;
             }
         }
-        Ik();
-        if (indexOfChild(this.baF.getView()) < 0) {
-            addView(this.baF.getView());
+        this.bef.setLooping(this.bel);
+        Kb();
+        if (indexOfChild(this.bef.getView()) < 0) {
+            addView(this.bef.getView());
         }
-        B(i, i2);
+        i(i, i2, i3, i4);
     }
 
-    private void Ig() {
+    private void JX() {
         int dimensionPixelOffset;
-        int aE;
-        this.bat = new AlaBigGiftExtraInfoRevisionView(getContext());
-        this.bat.setData(this.baH);
-        this.bat.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.1
+        int bi;
+        this.bdT = new AlaBigGiftExtraInfoRevisionView(getContext());
+        this.bdT.setData(this.bei);
+        this.bdT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaDynamicVideoGiftLayout.this.Ip();
+                AlaDynamicVideoGiftLayout.this.Kg();
             }
         });
-        this.bat.setVisibility(8);
-        if (indexOfChild(this.bat) < 0) {
+        this.bdT.setVisibility(8);
+        if (indexOfChild(this.bdT) < 0) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(14);
-            addView(this.bat, layoutParams);
+            addView(this.bdT, layoutParams);
         }
-        ViewGroup.LayoutParams layoutParams2 = this.bat.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = this.bdT.getLayoutParams();
         if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
             if (UtilHelper.getRealScreenOrientation(getContext()) == 1) {
                 if (this.isHost) {
-                    aE = h.aD(getContext());
+                    bi = h.bh(getContext());
                 } else {
-                    aE = h.aE(getContext());
+                    bi = h.bi(getContext());
                 }
-                dimensionPixelOffset = aE + getResources().getDimensionPixelOffset(a.d.sdk_ds72);
+                dimensionPixelOffset = bi + getResources().getDimensionPixelOffset(a.d.sdk_ds72);
             } else {
                 dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.sdk_ds180);
             }
             ((ViewGroup.MarginLayoutParams) layoutParams2).topMargin = dimensionPixelOffset;
-            this.bat.setLayoutParams(layoutParams2);
+            this.bdT.setLayoutParams(layoutParams2);
         }
     }
 
-    private void Ik() {
-        this.baF.a(new c.a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.2
+    private void Kb() {
+        this.bef.a(new c.a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.2
             @Override // com.baidu.live.alphavideo.c.a
             public void onStart() {
-                if (AlaDynamicVideoGiftLayout.this.baH != null && AlaDynamicVideoGiftLayout.this.baH.HV() && AlaDynamicVideoGiftLayout.this.bat != null) {
-                    AlaDynamicVideoGiftLayout.this.Il();
+                if (AlaDynamicVideoGiftLayout.this.bei != null && AlaDynamicVideoGiftLayout.this.bei.JM() && AlaDynamicVideoGiftLayout.this.bdT != null) {
+                    AlaDynamicVideoGiftLayout.this.Kc();
                 }
             }
 
             @Override // com.baidu.live.alphavideo.c.a
             public void onEnd() {
                 if (!AlaDynamicVideoGiftLayout.this.mStopped) {
-                    if (AlaDynamicVideoGiftLayout.f(AlaDynamicVideoGiftLayout.this) >= AlaDynamicVideoGiftLayout.this.baG.aSt.aSs.repeatCount || AlaDynamicVideoGiftLayout.this.baF == null || AlaDynamicVideoGiftLayout.this.baF.isDestroyed()) {
-                        AlaDynamicVideoGiftLayout.this.Io();
+                    if (AlaDynamicVideoGiftLayout.f(AlaDynamicVideoGiftLayout.this) >= AlaDynamicVideoGiftLayout.this.beh.aVv.aVu.repeatCount || AlaDynamicVideoGiftLayout.this.bef == null || AlaDynamicVideoGiftLayout.this.bef.isDestroyed()) {
+                        AlaDynamicVideoGiftLayout.this.Kf();
                     } else {
-                        AlaDynamicVideoGiftLayout.this.baF.play(AlaDynamicVideoGiftLayout.this.baG.ET());
+                        AlaDynamicVideoGiftLayout.this.bef.play(AlaDynamicVideoGiftLayout.this.beh.GE());
                     }
                 }
             }
 
             @Override // com.baidu.live.alphavideo.c.a
             public void onError(int i, String str) {
-                AlaDynamicVideoGiftLayout.this.Io();
+                AlaDynamicVideoGiftLayout.this.Kf();
                 AlaStatsItem alaStatsItem = new AlaStatsItem();
                 alaStatsItem.addValue("err", Integer.valueOf(i));
                 alaStatsItem.addValue(BaseJsonData.TAG_ERRMSG, str);
-                if (AlaDynamicVideoGiftLayout.this.baG != null && AlaDynamicVideoGiftLayout.this.baG.aSt != null) {
-                    if (AlaDynamicVideoGiftLayout.this.baG.aSt.aSr != null) {
-                        alaStatsItem.addValue("videourl", AlaDynamicVideoGiftLayout.this.baG.aSt.aSr.videoUrl);
+                if (AlaDynamicVideoGiftLayout.this.beh != null && AlaDynamicVideoGiftLayout.this.beh.aVv != null) {
+                    if (AlaDynamicVideoGiftLayout.this.beh.aVv.aVt != null) {
+                        alaStatsItem.addValue("videourl", AlaDynamicVideoGiftLayout.this.beh.aVv.aVt.videoUrl);
                     }
-                    alaStatsItem.addValue("giftid", AlaDynamicVideoGiftLayout.this.baG.aSt.giftId);
+                    alaStatsItem.addValue("giftid", AlaDynamicVideoGiftLayout.this.beh.aVv.giftId);
                 }
                 AlaStatManager.getInstance().debug("mp4player_playfail", alaStatsItem);
             }
         });
     }
 
-    private void B(int i, int i2) {
-        ViewGroup.LayoutParams layoutParams = this.baF.getView().getLayoutParams();
+    private void i(int i, int i2, int i3, int i4) {
+        ViewGroup.LayoutParams layoutParams = this.bef.getView().getLayoutParams();
         if (!(layoutParams instanceof RelativeLayout.LayoutParams)) {
             layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         }
         int[] screenDimensions = BdUtilHelper.getScreenDimensions(getContext());
         if (screenDimensions[1] > screenDimensions[0]) {
             layoutParams.width = -1;
-            layoutParams.height = (screenDimensions[0] * i2) / i;
+            layoutParams.height = (i3 * i2) / i;
         } else {
-            layoutParams.width = (screenDimensions[1] * i) / i2;
+            layoutParams.width = (i4 * i) / i2;
             layoutParams.height = -1;
             ((RelativeLayout.LayoutParams) layoutParams).addRule(14);
         }
-        if (this.baH != null && this.baH.aZB && this.baG != null && this.baG.aSt != null && this.baG.aSt.aSs != null && this.baG.aSt.aSs.aSw) {
+        if (this.bei != null && this.bei.bda && this.beh != null && this.beh.aVv != null && this.beh.aVv.aVu != null && this.beh.aVv.aVu.aVy) {
             ((RelativeLayout.LayoutParams) layoutParams).addRule(12);
-            ((RelativeLayout.LayoutParams) layoutParams).bottomMargin = this.aVy;
+            ((RelativeLayout.LayoutParams) layoutParams).bottomMargin = this.aYJ;
             return;
         }
-        if (this.baG != null && this.baG.aSt != null && this.baG.aSt.aSs != null && this.baG.aSt.aSs.isBottomMargin()) {
+        if (this.beh != null && this.beh.aVv != null && this.beh.aVv.aVu != null && this.beh.aVv.aVu.isBottomMargin()) {
             ((RelativeLayout.LayoutParams) layoutParams).addRule(12);
         } else if (Build.VERSION.SDK_INT >= 17) {
             ((RelativeLayout.LayoutParams) layoutParams).removeRule(12);
@@ -291,61 +309,61 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
             ((RelativeLayout.LayoutParams) layoutParams).addRule(12, 0);
         }
         ((RelativeLayout.LayoutParams) layoutParams).bottomMargin = 0;
-        this.baF.getView().setLayoutParams(layoutParams);
+        this.bef.getView().setLayoutParams(layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Il() {
-        if (this.baF != null) {
-            long duration = this.baF.getDuration();
+    public void Kc() {
+        if (this.bef != null) {
+            long duration = this.bef.getDuration();
             if (duration > 0) {
                 this.mHandler = new Handler();
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        AlaDynamicVideoGiftLayout.this.Im();
+                        AlaDynamicVideoGiftLayout.this.Kd();
                     }
                 }, ((float) duration) * 0.07f);
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        AlaDynamicVideoGiftLayout.this.In();
+                        AlaDynamicVideoGiftLayout.this.Ke();
                     }
                 }, ((float) duration) * 0.87f);
                 return;
             }
-            Im();
+            Kd();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Im() {
-        if (this.bat != null) {
-            this.bat.GP();
+    public void Kd() {
+        if (this.bdT != null) {
+            this.bdT.IG();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void In() {
-        if (this.bat != null) {
-            this.bat.GQ();
+    public void Ke() {
+        if (this.bdT != null) {
+            this.bdT.IH();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Io() {
-        if (this.bat != null) {
-            this.bat.end();
+    public void Kf() {
+        if (this.bdT != null) {
+            this.bdT.end();
         }
-        if (this.bas != null) {
-            this.bas.m(this.baH);
+        if (this.bdS != null) {
+            this.bdS.m(this.bei);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ip() {
-        if (this.baH != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(getContext(), String.valueOf(this.baH.userId), this.baH.userName, this.baH.portrait, this.baH.sex, this.baH.aZs, this.baH.location, this.baH.description, 0L, this.baH.fansCount, this.baH.aZt, this.baH.userStatus, this.baH.liveId, this.baH.groupId, this.baH.aZy, this.baH.aZz, this.baH.appId, this.baH.userName, "")));
+    public void Kg() {
+        if (this.bei != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(getContext(), String.valueOf(this.bei.userId), this.bei.userName, this.bei.portrait, this.bei.sex, this.bei.bcP, this.bei.location, this.bei.description, 0L, this.bei.bcR, this.bei.bcQ, this.bei.userStatus, this.bei.liveId, this.bei.groupId, this.bei.bcX, this.bei.bcY, this.bei.appId, this.bei.userName, "")));
         }
     }
 }

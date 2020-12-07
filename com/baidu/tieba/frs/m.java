@@ -26,13 +26,13 @@ public class m {
             TextView textView5 = (TextView) inflate.findViewById(R.id.general_btn);
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.top_general_image);
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-            aVar.bg(inflate);
-            aVar.ov(2);
-            aVar.iX(true);
+            aVar.bi(inflate);
+            aVar.oT(2);
+            aVar.jm(true);
             aVar.setAutoNight(true);
-            aVar.iW(true);
+            aVar.jl(true);
             int dimens = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds31);
-            com.baidu.tbadk.core.util.ap.c(inflate, dimens, R.color.CAM_X0201, R.color.CAM_X0101);
+            com.baidu.tbadk.core.util.ap.d(inflate, dimens, R.color.CAM_X0201, R.color.CAM_X0101);
             tbImageView.setRadius(dimens);
             tbImageView.setConrers(3);
             tbImageView.setIsBitmapPic(true);
@@ -58,7 +58,7 @@ public class m {
                     com.baidu.tbadk.core.dialog.a.this.dismiss();
                 }
             });
-            aVar.b(tbPageContext).bog();
+            aVar.b(tbPageContext).brv();
         }
     }
 
@@ -80,13 +80,13 @@ public class m {
                 return;
             }
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            aVar.bg(inflate);
-            aVar.ov(2);
-            aVar.iX(false);
+            aVar.bi(inflate);
+            aVar.oT(2);
+            aVar.jm(false);
             aVar.setAutoNight(true);
-            aVar.iW(true);
+            aVar.jl(true);
             int dimens = com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds31);
-            com.baidu.tbadk.core.util.ap.c(inflate, dimens, R.color.CAM_X0201, R.color.CAM_X0201);
+            com.baidu.tbadk.core.util.ap.d(inflate, dimens, R.color.CAM_X0201, R.color.CAM_X0201);
             tbImageView.setRadius(dimens);
             tbImageView.setConrers(3);
             tbImageView.setIsBitmapPic(true);
@@ -103,13 +103,13 @@ public class m {
             com.baidu.tbadk.core.util.ap.setImageResource(tbImageView, R.drawable.backguard_mask_apity);
             com.baidu.tbadk.core.util.ap.setViewTextColor(textView, R.color.CAM_X0107);
             com.baidu.tbadk.core.util.ap.setViewTextColor(textView2, R.color.CAM_X0304);
-            SvgManager.bqB().a(imageView, R.drawable.ic_icon_popup_close_n, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.btW().a(imageView, R.drawable.ic_icon_popup_close_n, SvgManager.SvgResourceStateType.NORMAL);
             textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.m.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     com.baidu.tbadk.core.dialog.a.this.dismiss();
                     if (intValue == 1) {
-                        com.baidu.tbadk.core.util.bf.bqF().b(tbPageContext, new String[]{String.format("https://tieba.baidu.com/mo/q/bawu/taskinfoview?fn=%1$s&fid=%2$s&noshare=1", str2, str)});
+                        com.baidu.tbadk.core.util.bf.bua().b(tbPageContext, new String[]{String.format("https://tieba.baidu.com/mo/q/bawu/taskinfoview?fn=%1$s&fid=%2$s&noshare=1", str2, str)});
                     }
                 }
             });
@@ -119,7 +119,7 @@ public class m {
                     com.baidu.tbadk.core.dialog.a.this.dismiss();
                 }
             });
-            aVar.b(tbPageContext).bog();
+            aVar.b(tbPageContext).brv();
         }
     }
 }

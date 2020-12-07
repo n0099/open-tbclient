@@ -7,19 +7,19 @@ import com.baidu.tieba.R;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.TimeZone;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class b extends BdAsyncTask<Void, Void, List<d>> {
-    private static long nrY = BdKVCache.MILLS_1Hour;
+    private static long nFZ = BdKVCache.MILLS_1Hour;
     private Context context;
     private int maxHeight;
     private int maxWidth;
-    private a nsf;
-    private SimpleDateFormat nsa = new SimpleDateFormat("mm:ss");
-    private SimpleDateFormat nrZ = new SimpleDateFormat("HH:mm:ss");
+    private a nGg;
+    private SimpleDateFormat nGb = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat nGa = new SimpleDateFormat("HH:mm:ss");
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public interface a {
-        void fS(List<d> list);
+        void gg(List<d> list);
     }
 
     public b(Context context) {
@@ -27,12 +27,12 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
         this.maxHeight = context.getResources().getDimensionPixelSize(R.dimen.ds220);
         this.maxWidth = this.maxHeight;
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.nsa.setTimeZone(timeZone);
-        this.nrZ.setTimeZone(timeZone);
+        this.nGb.setTimeZone(timeZone);
+        this.nGa.setTimeZone(timeZone);
     }
 
     public void b(a aVar) {
-        this.nsf = aVar;
+        this.nGg = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,21 +40,21 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: c */
     public List<d> doInBackground(Void... voidArr) {
-        List<d> fX = e.fX(this.context);
-        e.d("/sdcard", fX, false);
-        e.d("/sdcard/DCIM", fX, true);
-        e.fU(fX);
-        return fX;
+        List<d> gI = e.gI(this.context);
+        e.d("/sdcard", gI, false);
+        e.d("/sdcard/DCIM", gI, true);
+        e.gi(gI);
+        return gI;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: A */
+    /* renamed from: B */
     public void onPostExecute(List<d> list) {
         super.onPostExecute(list);
-        if (this.nsf != null) {
-            this.nsf.fS(list);
+        if (this.nGg != null) {
+            this.nGg.gg(list);
         }
     }
 }

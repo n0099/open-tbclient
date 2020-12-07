@@ -4,16 +4,16 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.utils.p;
 /* loaded from: classes4.dex */
 public class a extends HttpMessage {
-    private int beK;
+    private int biZ;
 
     public a() {
         super(1021158);
-        this.beK = 2;
+        this.biZ = 2;
     }
 
     public void setParams() {
-        addParam("scene_from", p.GI());
-        addParam("client_id", this.beK);
+        addParam("scene_from", p.Iz());
+        addParam("client_id", this.biZ);
         addParam("ar_sdk_version", com.baidu.minivideo.arface.a.getVersion());
     }
 }

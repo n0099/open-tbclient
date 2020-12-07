@@ -6,22 +6,22 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1492a = f.class.getSimpleName();
+    private static final String f1494a = f.class.getSimpleName();
     private JSONArray b;
     private byte[] c;
     private byte[] d;
     private byte[] e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static f f1494a = new f();
+        private static f f1496a = new f();
 
         private b() {
         }
@@ -35,7 +35,7 @@ public class f {
     }
 
     public static f a() {
-        return b.f1494a;
+        return b.f1496a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -71,7 +71,7 @@ public class f {
                         long currentTimeMillis = System.currentTimeMillis();
                         for (int i = 0; i < jSONArray.length(); i++) {
                             JSONObject jSONObject = (JSONObject) jSONArray.get(i);
-                            if (currentTimeMillis - jSONObject.getLong(c.f1488a) <= 604800000) {
+                            if (currentTimeMillis - jSONObject.getLong(c.f1490a) <= 604800000) {
                                 a().a(jSONObject);
                             }
                         }
@@ -83,11 +83,11 @@ public class f {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1493a;
+        public int f1495a;
         public String b;
         public h[] c;
 

@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import com.baidu.pyramid.runtime.multiprocess.b;
 import com.baidu.pyramid.runtime.multiprocess.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class a extends com.baidu.pyramid.runtime.multiprocess.components.a {
     public a() {
         super(0, 100);
@@ -26,7 +26,7 @@ public class a extends com.baidu.pyramid.runtime.multiprocess.components.a {
     @Override // com.baidu.pyramid.runtime.multiprocess.components.a
     public Cursor a(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         if (i == 1) {
-            return new c(b.a.acB());
+            return new c(b.a.afL());
         }
         return null;
     }
@@ -67,7 +67,7 @@ public class a extends com.baidu.pyramid.runtime.multiprocess.components.a {
     @Override // com.baidu.pyramid.runtime.multiprocess.components.a
     public Bundle call(String str, String str2, Bundle bundle) {
         if ("_get_service_handler".equals(str)) {
-            return b.a.acB();
+            return b.a.afL();
         }
         return null;
     }

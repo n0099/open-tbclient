@@ -8,35 +8,35 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.swan.apps.ap.ag;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.swan.apps.v.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b {
-    public static void js(int i) {
+    public static void jQ(int i) {
         Bundle bundle = new Bundle();
         bundle.putInt(QuickPersistConfigConst.KEY_TEXT_SIZE, i);
-        com.baidu.swan.apps.process.messaging.a.aEw().a(new com.baidu.swan.apps.process.messaging.c(22, bundle));
+        com.baidu.swan.apps.process.messaging.a.aHE().a(new com.baidu.swan.apps.process.messaging.c(22, bundle));
     }
 
-    public static int aBi() {
-        return aBk() + 1;
+    public static int aEr() {
+        return aEt() + 1;
     }
 
-    public static boolean aBj() {
-        SwanAppConfigData ayL = f.azg().ayL();
-        if (ayL == null) {
+    public static boolean aEs() {
+        SwanAppConfigData aBU = f.aCp().aBU();
+        if (aBU == null) {
             return false;
         }
-        return TextUtils.equals("none", ayL.drU.dsQ);
+        return TextUtils.equals("none", aBU.dyV.dzQ);
     }
 
-    public static int aBk() {
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.avS(), d.class, null);
+    public static int aEt() {
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.aza(), d.class, null);
         if (callOnMainWithContentProvider.isOk()) {
             return callOnMainWithContentProvider.mResult.getInt("font_size_level", 1);
         }
         return 1;
     }
 
-    public static int jt(int i) {
+    public static int jR(int i) {
         switch (i) {
             case 0:
                 return 82;
@@ -50,7 +50,7 @@ public class b {
         }
     }
 
-    public static boolean aBl() {
-        return ag.un("3.200.101");
+    public static boolean aEu() {
+        return ag.uU("3.200.101");
     }
 }

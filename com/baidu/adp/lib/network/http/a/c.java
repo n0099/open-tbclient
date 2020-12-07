@@ -1,69 +1,69 @@
 package com.baidu.adp.lib.network.http.a;
 /* loaded from: classes.dex */
 public class c {
-    private int LV;
-    private String MC;
-    private int MD;
-    private long ME;
-    private String My;
+    private int MQ;
+    private String Nt;
+    private String Nw;
+    private int Nx;
+    private long Ny;
     private String exception;
-    private boolean Mz = false;
-    private boolean MA = false;
-    private int LD = 0;
+    private boolean Nu = false;
+    private boolean Nv = false;
+    private int MC = 0;
 
-    public void am(boolean z) {
-        this.Mz = z;
+    public void ak(boolean z) {
+        this.Nu = z;
     }
 
     public boolean mJ() {
-        return this.MA;
+        return this.Nv;
     }
 
-    public void an(boolean z) {
-        this.MA = z;
+    public void al(boolean z) {
+        this.Nv = z;
     }
 
     public void setException(String str) {
         this.exception = str;
     }
 
-    public void ar(int i) {
-        this.LD = i;
+    public void au(int i) {
+        this.MC = i;
     }
 
     public void mK() {
         this.exception = "";
     }
 
-    public void bM(String str) {
-        this.MC = str;
+    public void bP(String str) {
+        this.Nw = str;
     }
 
     public String mL() {
-        return this.MC;
+        return this.Nw;
     }
 
-    public void as(int i) {
-        this.MD = i;
+    public void av(int i) {
+        this.Nx = i;
     }
 
-    public void G(long j) {
-        this.ME = j;
+    public void E(long j) {
+        this.Ny = j;
     }
 
     public String toString() {
-        return "isFromNet_" + this.Mz + "-statType_" + this.MD + "-dnsErr_" + this.exception + "-hasRetry_" + this.LD + "-cost_" + this.ME + "-ipIndex_" + this.LV + "-ipResult_" + this.My;
+        return "isFromNet_" + this.Nu + "-statType_" + this.Nx + "-dnsErr_" + this.exception + "-hasRetry_" + this.MC + "-cost_" + this.Ny + "-ipIndex_" + this.MQ + "-ipResult_" + this.Nt;
     }
 
     public String mM() {
-        return this.My;
+        return this.Nt;
     }
 
-    public void bN(String str) {
-        this.My = str;
+    public void bQ(String str) {
+        this.Nt = str;
     }
 
-    public void ao(int i) {
-        this.LV = i;
+    public void ar(int i) {
+        this.MQ = i;
     }
 }

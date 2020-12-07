@@ -4,8 +4,8 @@ import com.baidu.adp.BdUniqueId;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class BdAsyncTaskParallel {
-    private BdUniqueId KC;
-    private BdAsyncTaskParallelType KD;
+    private BdUniqueId Lu;
+    private BdAsyncTaskParallelType Lv;
     private int mExecuteNum;
 
     /* loaded from: classes.dex */
@@ -19,26 +19,26 @@ public class BdAsyncTaskParallel {
     }
 
     public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, BdUniqueId bdUniqueId) {
-        this.KC = null;
-        this.KD = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.Lu = null;
+        this.Lv = BdAsyncTaskParallelType.MAX_PARALLEL;
         this.mExecuteNum = 1;
         if (bdAsyncTaskParallelType == null || bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.KD = bdAsyncTaskParallelType;
-        this.KC = bdUniqueId;
+        this.Lv = bdAsyncTaskParallelType;
+        this.Lu = bdUniqueId;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
-        this.KC = null;
-        this.KD = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.Lu = null;
+        this.Lv = BdAsyncTaskParallelType.MAX_PARALLEL;
         this.mExecuteNum = 1;
         if (bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.KD = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+        this.Lv = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
         this.mExecuteNum = i;
-        this.KC = bdUniqueId;
+        this.Lu = bdUniqueId;
     }
 
     public int getExecuteNum() {
@@ -46,13 +46,13 @@ public class BdAsyncTaskParallel {
     }
 
     public int getTag() {
-        if (this.KC == null) {
+        if (this.Lu == null) {
             return 0;
         }
-        return this.KC.getId();
+        return this.Lu.getId();
     }
 
     public BdAsyncTaskParallelType lU() {
-        return this.KD;
+        return this.Lv;
     }
 }

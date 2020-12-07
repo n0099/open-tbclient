@@ -1,15 +1,15 @@
 package com.baidu.tieba.qrcode.activity;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public interface a {
-    void Qs(String str);
+    void RB(String str);
 
-    void dyJ();
+    void dEa();
 
-    void dyK();
+    void dEb();
 
-    void dyL();
+    void dEc();
 
-    void dyM();
+    void dEd();
 
-    void fZ(String str, String str2);
+    void ge(String str, String str2);
 }

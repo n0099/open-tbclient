@@ -2,7 +2,7 @@ package com.baidu.android.common.security;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class SHA1Util {
     private SHA1Util() {
     }

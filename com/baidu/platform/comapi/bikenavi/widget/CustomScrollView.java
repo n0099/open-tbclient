@@ -16,12 +16,12 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.Scroller;
 import java.lang.reflect.Field;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class CustomScrollView extends ScrollView {
     public static final Object TAG = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    private VelocityTracker f2841a;
+    private VelocityTracker f2843a;
     private int b;
     public int bottom;
     private int c;
@@ -39,7 +39,7 @@ public class CustomScrollView extends ScrollView {
     protected Field scrollerField;
     public int top;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public interface b {
         void a(int i);
 
@@ -117,7 +117,7 @@ public class CustomScrollView extends ScrollView {
         a(motionEvent);
         switch (motionEvent.getAction()) {
             case 1:
-                VelocityTracker velocityTracker = this.f2841a;
+                VelocityTracker velocityTracker = this.f2843a;
                 velocityTracker.computeCurrentVelocity(1000, this.b);
                 com.baidu.platform.comapi.wnplatform.o.b a2 = a((int) velocityTracker.getYVelocity(), getScrollY());
                 if (a2 != com.baidu.platform.comapi.wnplatform.o.b.NULL) {
@@ -162,10 +162,10 @@ public class CustomScrollView extends ScrollView {
     }
 
     private void a(MotionEvent motionEvent) {
-        if (this.f2841a == null) {
-            this.f2841a = VelocityTracker.obtain();
+        if (this.f2843a == null) {
+            this.f2843a = VelocityTracker.obtain();
         }
-        this.f2841a.addMovement(motionEvent);
+        this.f2843a.addMovement(motionEvent);
     }
 
     private boolean a(MotionEvent motionEvent, View view) {
@@ -232,7 +232,7 @@ public class CustomScrollView extends ScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public class c extends GestureDetector.SimpleOnGestureListener {
         c() {
         }
@@ -244,7 +244,7 @@ public class CustomScrollView extends ScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes26.dex */
     public class a extends GestureDetector.SimpleOnGestureListener {
         a() {
         }

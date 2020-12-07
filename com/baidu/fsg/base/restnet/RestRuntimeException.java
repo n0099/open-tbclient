@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.restnet;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class RestRuntimeException extends RuntimeException {
     private static final long serialVersionUID = -6136655840566008535L;
 

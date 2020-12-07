@@ -13,6 +13,7 @@ import com.baidu.ar.constants.HttpConstants;
 import com.baidu.fsg.base.statistics.j;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import com.xiaomi.mipush.sdk.Constants;
@@ -22,12 +23,12 @@ import java.net.URLEncoder;
 import java.util.HashSet;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class a {
     private static String n;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3949a;
+    private String f3952a;
     private int b;
     private int c;
     private int d;
@@ -97,13 +98,13 @@ public final class a {
     }
 
     private String a(com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.f3949a)) {
-            this.f3949a = bVar.e();
+        if (TextUtils.isEmpty(this.f3952a)) {
+            this.f3952a = bVar.e();
         }
-        if (TextUtils.isEmpty(this.f3949a)) {
+        if (TextUtils.isEmpty(this.f3952a)) {
             throw new RuntimeException("BdLogBase: get cuid null!");
         }
-        return this.f3949a;
+        return this.f3952a;
     }
 
     private String b() {
@@ -223,7 +224,7 @@ public final class a {
             return "";
         }
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/version"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(SnapshotConstant.DeviceFilePathConstants.DEVICE_VERSION));
             String readLine = bufferedReader.readLine();
             bufferedReader.close();
             return readLine;
@@ -755,7 +756,7 @@ public final class a {
 
     public final String b(Context context, String str) {
         com.baidu.webkit.logsdk.b.c c = b.a().e().c(str);
-        if ("full".equals(c.f3957a)) {
+        if ("full".equals(c.f3960a)) {
             return a(context);
         }
         HashSet<String> hashSet = c.c;

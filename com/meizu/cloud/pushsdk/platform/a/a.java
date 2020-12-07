@@ -9,11 +9,11 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.io.File;
 import java.util.LinkedHashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4437a;
+    public String f4207a;
     private String b;
     private String c;
     private String d;
@@ -31,39 +31,39 @@ public class a {
     private String p;
 
     public a(Context context) {
-        this.f4437a = "https://api-push.meizu.com/garcia/api/client/";
-        this.b = this.f4437a + "message/registerPush";
-        this.c = this.f4437a + "message/unRegisterPush";
-        this.d = this.f4437a + "advance/unRegisterPush";
-        this.e = this.f4437a + "message/getRegisterSwitch";
-        this.f = this.f4437a + "message/changeRegisterSwitch";
-        this.g = this.f4437a + "message/changeAllSwitch";
-        this.h = this.f4437a + "message/subscribeTags";
-        this.i = this.f4437a + "message/unSubscribeTags";
-        this.j = this.f4437a + "message/unSubAllTags";
-        this.k = this.f4437a + "message/getSubTags";
-        this.l = this.f4437a + "message/subscribeAlias";
-        this.m = this.f4437a + "message/unSubscribeAlias";
-        this.n = this.f4437a + "message/getSubAlias";
-        this.o = this.f4437a + "log/upload";
-        this.p = this.f4437a + "advance/changeRegisterSwitch";
+        this.f4207a = "https://api-push.meizu.com/garcia/api/client/";
+        this.b = this.f4207a + "message/registerPush";
+        this.c = this.f4207a + "message/unRegisterPush";
+        this.d = this.f4207a + "advance/unRegisterPush";
+        this.e = this.f4207a + "message/getRegisterSwitch";
+        this.f = this.f4207a + "message/changeRegisterSwitch";
+        this.g = this.f4207a + "message/changeAllSwitch";
+        this.h = this.f4207a + "message/subscribeTags";
+        this.i = this.f4207a + "message/unSubscribeTags";
+        this.j = this.f4207a + "message/unSubAllTags";
+        this.k = this.f4207a + "message/getSubTags";
+        this.l = this.f4207a + "message/subscribeAlias";
+        this.m = this.f4207a + "message/unSubscribeAlias";
+        this.n = this.f4207a + "message/getSubAlias";
+        this.o = this.f4207a + "log/upload";
+        this.p = this.f4207a + "advance/changeRegisterSwitch";
         com.meizu.cloud.pushsdk.b.a.a();
         if (MzSystemUtils.isInternational() || MzSystemUtils.isIndiaLocal()) {
-            this.f4437a = "https://api-push.in.meizu.com/garcia/api/client/";
-            this.b = this.f4437a + "message/registerPush";
-            this.c = this.f4437a + "message/unRegisterPush";
-            this.d = this.f4437a + "advance/unRegisterPush";
-            this.e = this.f4437a + "message/getRegisterSwitch";
-            this.f = this.f4437a + "message/changeRegisterSwitch";
-            this.g = this.f4437a + "message/changeAllSwitch";
-            this.h = this.f4437a + "message/subscribeTags";
-            this.i = this.f4437a + "message/unSubscribeTags";
-            this.j = this.f4437a + "message/unSubAllTags";
-            this.k = this.f4437a + "message/getSubTags";
-            this.l = this.f4437a + "message/subscribeAlias";
-            this.m = this.f4437a + "message/unSubscribeAlias";
-            this.n = this.f4437a + "message/getSubAlias";
-            this.p = this.f4437a + "advance/changeRegisterSwitch";
+            this.f4207a = "https://api-push.in.meizu.com/garcia/api/client/";
+            this.b = this.f4207a + "message/registerPush";
+            this.c = this.f4207a + "message/unRegisterPush";
+            this.d = this.f4207a + "advance/unRegisterPush";
+            this.e = this.f4207a + "message/getRegisterSwitch";
+            this.f = this.f4207a + "message/changeRegisterSwitch";
+            this.g = this.f4207a + "message/changeAllSwitch";
+            this.h = this.f4207a + "message/subscribeTags";
+            this.i = this.f4207a + "message/unSubscribeTags";
+            this.j = this.f4207a + "message/unSubAllTags";
+            this.k = this.f4207a + "message/getSubTags";
+            this.l = this.f4207a + "message/subscribeAlias";
+            this.m = this.f4207a + "message/unSubscribeAlias";
+            this.n = this.f4207a + "message/getSubAlias";
+            this.p = this.f4207a + "advance/changeRegisterSwitch";
         }
     }
 

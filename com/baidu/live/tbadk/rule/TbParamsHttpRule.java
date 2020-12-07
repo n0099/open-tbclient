@@ -16,7 +16,6 @@ import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-import com.baidu.webkit.internal.ETAG;
 import com.baidubce.http.Headers;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
@@ -174,7 +173,7 @@ public class TbParamsHttpRule extends HttpRule {
     private void addBdussData(HttpMessage httpMessage) {
         String currentBduss = TbadkCoreApplication.getCurrentBduss();
         if (currentBduss != null) {
-            httpMessage.addParam("BDUSS", currentBduss);
+            httpMessage.addCookie("BDUSS", currentBduss);
             String verificatedStoken = StokenPolicy.getVerificatedStoken(TbadkCoreApplication.getCurrentAccountInfo());
             if (!StringUtils.isNull(verificatedStoken)) {
                 httpMessage.addParam("stoken", verificatedStoken);
@@ -191,7 +190,7 @@ public class TbParamsHttpRule extends HttpRule {
                 String key = entry.getKey();
                 Object value = entry.getValue();
                 if ((value instanceof String) && !"sign".equals(key)) {
-                    stringBuffer.append(key + ETAG.EQUAL);
+                    stringBuffer.append(key + "=");
                     stringBuffer.append(value);
                 }
             }

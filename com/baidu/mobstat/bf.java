@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class bf {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile int f2578a = 0;
+    private static volatile int f2580a = 0;
     private static final bf k = new bf();
     private WeakReference<Activity> b;
     private int c;
@@ -30,8 +30,8 @@ public class bf {
     private be j = new be();
 
     static /* synthetic */ int c() {
-        int i = f2578a + 1;
-        f2578a = i;
+        int i = f2580a + 1;
+        f2580a = i;
         return i;
     }
 
@@ -46,7 +46,7 @@ public class bf {
     }
 
     public static void b() {
-        f2578a = 0;
+        f2580a = 0;
     }
 
     public void a(Activity activity, boolean z, JSONObject jSONObject, boolean z2) {
@@ -99,7 +99,7 @@ public class bf {
         private boolean b = true;
 
         /* renamed from: a  reason: collision with root package name */
-        private volatile boolean f2579a = false;
+        private volatile boolean f2581a = false;
 
         public a(Activity activity, View view, bk bkVar, Handler handler, Handler handler2, JSONObject jSONObject, boolean z, boolean z2, boolean z3) {
             this.h = new WeakReference<>(activity);
@@ -126,7 +126,7 @@ public class bf {
         @Override // java.lang.Runnable
         public void run() {
             if (this.b) {
-                if (this.c.get() == null || this.f2579a) {
+                if (this.c.get() == null || this.f2581a) {
                     b();
                     return;
                 }
@@ -157,8 +157,8 @@ public class bf {
         }
 
         public void a() {
-            if (!this.f2579a) {
-                this.f2579a = true;
+            if (!this.f2581a) {
+                this.f2581a = true;
                 this.e.post(this);
             }
         }

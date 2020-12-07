@@ -3,19 +3,19 @@ package com.baidu.sofire.k;
 import android.content.Context;
 import android.content.ServiceConnection;
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    Context f3653a;
+    Context f3656a;
     c b;
     ServiceConnection c;
     private com.baidu.sofire.j.c d;
     private String e;
 
     public a(Context context, com.baidu.sofire.j.c cVar) {
-        this.f3653a = null;
-        this.f3653a = context;
+        this.f3656a = null;
+        this.f3656a = context;
         this.d = cVar;
     }
 

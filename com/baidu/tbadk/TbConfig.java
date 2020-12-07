@@ -7,6 +7,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -135,6 +136,7 @@ public class TbConfig {
     public static final String FORBID_USER_ADDRESS = "c/c/bawu/commitprison";
     public static final String FORTUNE_ADDRESS = "mo/q/fudaiindex";
     public static final String FORUM_CLASS_LIST = "c/f/forumsquare/getForumClassList";
+    public static final String FORUM_RULES_SHOW = "c/f/forum/forumRuleDetail";
     public static final String FORUM_SQUARE = "c/f/forum/forumsquare";
     public static final String FOUND_NEW_ADDRESS = "c/s/foundnew";
     public static final String FRIEND_AND_STRANGER_MSG_SWITCH = "c/c/friend/setMsgMask";
@@ -369,7 +371,7 @@ public class TbConfig {
     public static final int POST_IMAGE_HIGHT_LIMIT = 18000;
     public static final int POST_IMAGE_MIDDLE = 1800;
     public static final int POST_IMAGE_QUALITY = 85;
-    public static final int POST_IMAGE_SMALL = 1500;
+    public static final int POST_IMAGE_SMALL = 1300;
     public static final String POST_SEARCH_URL = "c/s/searchpost";
     public static final String POST_THREAD_ADDRESS = "c/c/thread/add";
     public static final String POST_THREAD_FOR_SHARE_ADDRESS = "c/c/thread/sdkshare";
@@ -386,6 +388,7 @@ public class TbConfig {
     public static final String RECOMMEND_FRS_GOD = "c/r/god/feed";
     public static final String RECOMMEND_HOME_PAGE_ADDRESS = "c/f/excellent/personalized";
     public static final String REGISTER_ADDRESS = "c/m/register";
+    public static final String RELEVANCE_ITEM_SEARCH_URL = "c/f/forum/itemSearchList";
     public static final String REMOVE_MULTI_FANS = "c/c/user/multiRemoveFans";
     public static final String REPLY_THREAD_ADDRESS = "c/c/post/add";
     public static final String REPORT_PLOG = "https://als.baidu.com/elog/plog";
@@ -485,6 +488,8 @@ public class TbConfig {
     public static final String URL_FORUM_BROADCAST_HISTORY = "c/f/forum/getForumBroadcastList";
     public static final String URL_FORUM_BROADCAST_RESIDUE = "c/f/forum/getForumMangerRights";
     public static final String URL_FORUM_MANAGER_APPLY = "https://tieba.baidu.com/mo/q/managerapply/newapplyelection?nomenu=1&fid=";
+    public static final String URL_FORUM_RULES_COMMIT = "c/c/bawu/editForumRule";
+    public static final String URL_FORUM_RULES_DRAFT = "c/f/forum/forumRuleDraft";
     public static final String URL_FORUM_SQUARE = "c/f/forum/getForumSquare";
     public static final String URL_FRS_BUSINESS_PROMOT_CLICK = "c/e/businessPromot/counter";
     public static final String URL_FRS_LIVE_HORSERACE_LIST = "c/f/forum/getHorseRaceLampList";
@@ -603,7 +608,7 @@ public class TbConfig {
     public static final String FRS_LIVE_TIP_ADDRESS = SERVER_ADDRESS + "ala/live/getLiveRemindInFrs";
     private static String VERSION = "";
     private static String SUB_VERSION = "";
-    private static String LEGO_LIB_VERSION = "1.0.0";
+    private static String LEGO_LIB_VERSION = BuildConfig.VERSION_NAME;
     private static String SUBAPP_TYPE = "";
     private static String FROM = null;
     private static int THREAD_IMAGE_MAX_WIDTH = 640;
@@ -644,7 +649,7 @@ public class TbConfig {
     public static final int VALUE_POST_FONT_LINE_SPACE_SMALL = getDimens(R.dimen.tbds21);
     public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = getDimens(R.dimen.T_X05);
     public static final int VALUE_SUBPB_FONT_SIZE_BIG = getDimens(R.dimen.T_X07);
-    public static final int VALUE_SUBPB_FONT_SIZE_MID = getDimens(R.dimen.T_X08);
+    public static final int VALUE_SUBPB_FONT_SIZE_MID = getDimens(R.dimen.T_X07);
     public static final int VALUE_SUBPB_FONT_SIZE_SMALL = getDimens(R.dimen.T_X08);
     public static final int VALUE_SUBPB_FONT_LINE_SPACE_XLAGRE = getDimens(R.dimen.tbds29);
     public static final int VALUE_SUBPB_FONT_LINE_SPACE_BIG = getDimens(R.dimen.tbds29);
@@ -789,7 +794,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.bAt().setPhotoMaxNum(i);
+            c.bDV().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

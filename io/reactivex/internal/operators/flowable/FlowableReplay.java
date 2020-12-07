@@ -1,5 +1,6 @@
 package io.reactivex.internal.operators.flowable;
 
+import io.reactivex.g;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.internal.util.NotificationLite;
@@ -13,15 +14,16 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
-public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.reactivex.disposables.b {
-    static final Callable pPb = new a();
+import org.a.d;
+/* loaded from: classes9.dex */
+public final class FlowableReplay<T> extends io.reactivex.a.a<T> implements io.reactivex.disposables.b {
+    static final Callable pFP = new a();
     final AtomicReference<ReplaySubscriber<T>> current;
-    final org.a.b<T> pOO;
-    final io.reactivex.g<T> pOn;
-    final Callable<? extends b<T>> pPa;
+    final org.a.b<T> pFC;
+    final Callable<? extends b<T>> pFO;
+    final g<T> pFg;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     interface b<T> {
         void complete();
 
@@ -34,7 +36,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pOO.subscribe(cVar);
+        this.pFC.subscribe(cVar);
     }
 
     @Override // io.reactivex.disposables.b
@@ -48,8 +50,8 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
         return replaySubscriber == null || replaySubscriber.isDisposed();
     }
 
-    @Override // io.reactivex.b.a
-    public void c(io.reactivex.c.g<? super io.reactivex.disposables.b> gVar) {
+    @Override // io.reactivex.a.a
+    public void a(io.reactivex.b.g<? super io.reactivex.disposables.b> gVar) {
         ReplaySubscriber<T> replaySubscriber;
         while (true) {
             replaySubscriber = this.current.get();
@@ -57,7 +59,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                 break;
             }
             try {
-                ReplaySubscriber<T> replaySubscriber2 = new ReplaySubscriber<>(this.pPa.call());
+                ReplaySubscriber<T> replaySubscriber2 = new ReplaySubscriber<>(this.pFO.call());
                 if (this.current.compareAndSet(replaySubscriber, replaySubscriber2)) {
                     replaySubscriber = replaySubscriber2;
                     break;
@@ -71,7 +73,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
         try {
             gVar.accept(replaySubscriber);
             if (z) {
-                this.pOn.a((j) replaySubscriber);
+                this.pFg.a((j) replaySubscriber);
             }
         } catch (Throwable th) {
             if (z) {
@@ -82,8 +84,8 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
-    public static final class ReplaySubscriber<T> extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<T> {
+    /* loaded from: classes9.dex */
+    public static final class ReplaySubscriber<T> extends AtomicReference<d> implements io.reactivex.disposables.b, j<T> {
         static final InnerSubscription[] EMPTY = new InnerSubscription[0];
         static final InnerSubscription[] TERMINATED = new InnerSubscription[0];
         private static final long serialVersionUID = 7224554242710036740L;
@@ -166,7 +168,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        public void onSubscribe(d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 manageRequests();
                 for (InnerSubscription<T> innerSubscription : this.subscribers.get()) {
@@ -195,7 +197,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                 }
                 return;
             }
-            io.reactivex.e.a.onError(th);
+            io.reactivex.d.a.onError(th);
         }
 
         @Override // org.a.c
@@ -222,7 +224,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                             j2 = Math.max(j2, innerSubscription.totalRequested.get());
                         }
                         long j3 = this.maxUpstreamRequested;
-                        org.a.d dVar = get();
+                        d dVar = get();
                         long j4 = j2 - j;
                         if (j4 != 0) {
                             this.maxChildRequested = j2;
@@ -257,8 +259,8 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
-    public static final class InnerSubscription<T> extends AtomicLong implements io.reactivex.disposables.b, org.a.d {
+    /* loaded from: classes9.dex */
+    public static final class InnerSubscription<T> extends AtomicLong implements io.reactivex.disposables.b, d {
         static final long CANCELLED = Long.MIN_VALUE;
         private static final long serialVersionUID = -4453897557930727610L;
         final org.a.c<? super T> child;
@@ -286,7 +288,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                     } else {
                         return;
                     }
-                } while (!compareAndSet(j2, io.reactivex.internal.util.b.O(j2, j)));
+                } while (!compareAndSet(j2, io.reactivex.internal.util.b.N(j2, j)));
                 io.reactivex.internal.util.b.a(this.totalRequested, j);
                 this.parent.manageRequests();
                 this.parent.buffer.replay(this);
@@ -320,7 +322,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class UnboundedReplayBuffer<T> extends ArrayList<Object> implements b<T> {
         private static final long serialVersionUID = 7063189396499112664L;
         volatile int size;
@@ -403,7 +405,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class Node extends AtomicReference<Node> {
         private static final long serialVersionUID = 245354315435971818L;
         final long index;
@@ -415,7 +417,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static class BoundedReplayBuffer<T> extends AtomicReference<Node> implements b<T> {
         private static final long serialVersionUID = 2346567790059478686L;
         long index;
@@ -615,7 +617,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class SizeBoundReplayBuffer<T> extends BoundedReplayBuffer<T> {
         private static final long serialVersionUID = -5898283885385201806L;
         final int limit;
@@ -632,7 +634,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class SizeAndTimeBoundReplayBuffer<T> extends BoundedReplayBuffer<T> {
         private static final long serialVersionUID = 3457957419649567404L;
         final int limit;
@@ -649,12 +651,12 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.BoundedReplayBuffer
         Object enterTransform(Object obj) {
-            return new io.reactivex.f.b(obj, this.scheduler.a(this.unit), this.unit);
+            return new io.reactivex.e.b(obj, this.scheduler.a(this.unit), this.unit);
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.BoundedReplayBuffer
         Object leaveTransform(Object obj) {
-            return ((io.reactivex.f.b) obj).eBl();
+            return ((io.reactivex.e.b) obj).eDz();
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.BoundedReplayBuffer
@@ -670,7 +672,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                     this.size--;
                     node2 = node3;
                     node3 = node3.get();
-                } else if (((io.reactivex.f.b) node3.value).aDc() > a2) {
+                } else if (((io.reactivex.e.b) node3.value).aGk() > a2) {
                     break;
                 } else {
                     i++;
@@ -699,7 +701,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
             Node node = (Node) get();
             Node node2 = node;
             int i = 0;
-            for (Node node3 = node.get(); node3 != null && this.size > 1 && ((io.reactivex.f.b) node3.value).aDc() <= a2; node3 = node3.get()) {
+            for (Node node3 = node.get(); node3 != null && this.size > 1 && ((io.reactivex.e.b) node3.value).aGk() <= a2; node3 = node3.get()) {
                 i++;
                 this.size--;
                 node2 = node3;
@@ -712,8 +714,8 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
             Node node = (Node) get();
             Node node2 = node;
             for (Node node3 = node.get(); node3 != null; node3 = node3.get()) {
-                io.reactivex.f.b bVar = (io.reactivex.f.b) node3.value;
-                if (NotificationLite.isComplete(bVar.eBl()) || NotificationLite.isError(bVar.eBl()) || bVar.aDc() > a2) {
+                io.reactivex.e.b bVar = (io.reactivex.e.b) node3.value;
+                if (NotificationLite.isComplete(bVar.eDz()) || NotificationLite.isError(bVar.eDz()) || bVar.aGk() > a2) {
                     break;
                 }
                 node2 = node3;
@@ -722,7 +724,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     static final class a implements Callable<Object> {
         a() {
         }

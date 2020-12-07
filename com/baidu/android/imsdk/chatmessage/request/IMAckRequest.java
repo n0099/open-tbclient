@@ -12,7 +12,6 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.webkit.internal.ETAG;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,7 +24,7 @@ import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMAckRequest extends BaseHttpRequest {
     private static final String TAG = "IMAckRequest";
     private JSONArray mAckList = new JSONArray();
@@ -75,6 +74,7 @@ public class IMAckRequest extends BaseHttpRequest {
             jSONObject.put(Constants.KEY_TRIGGER_ID, this.mTriggerId);
             jSONObject.put("device_id", Utility.getDeviceId(this.mContext));
             jSONObject.put("timestamp", System.currentTimeMillis() / 1000);
+            LogUtils.d(TAG, "mMsgList.size:" + this.mMsgList.size());
             getShortAckMsgs(this.mMsgList);
             jSONObject.put("msgs", this.mAckList == null ? "" : this.mAckList.toString());
             jSONObject.put("sign", generateSign(jSONObject));
@@ -97,7 +97,7 @@ public class IMAckRequest extends BaseHttpRequest {
         }
         for (String str : treeSet) {
             sb.append(str);
-            sb.append(ETAG.EQUAL);
+            sb.append("=");
             sb.append(jSONObject.opt(str));
         }
         LogUtils.d(TAG, "sign string:" + ((Object) sb));

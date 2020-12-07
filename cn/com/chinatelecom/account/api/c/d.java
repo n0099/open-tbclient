@@ -10,7 +10,7 @@ import com.xiaomi.mipush.sdk.Constants;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f986a = d.class.getCanonicalName();
+    private static final String f984a = d.class.getCanonicalName();
     private static String b = "";
     private static int c = 0;
     private static int d = 5;
@@ -36,7 +36,7 @@ public class d {
                 return Config.EXCEPTION_CRASH_TYPE;
             }
             if (str.startsWith("46001") || str.startsWith("46006") || str.startsWith("46009")) {
-                return com.baidu.fsg.base.statistics.j.f1497a;
+                return com.baidu.fsg.base.statistics.j.f1499a;
             }
         }
         return "";
@@ -282,6 +282,6 @@ public class d {
             str = a(context);
         }
         String a2 = a(str);
-        return a2 + Constants.ACCEPT_TIME_SEPARATOR_SP + a(str2);
+        return a2 + "," + a(str2);
     }
 }

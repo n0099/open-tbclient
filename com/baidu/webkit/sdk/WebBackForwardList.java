@@ -1,11 +1,11 @@
 package com.baidu.webkit.sdk;
 
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public abstract class WebBackForwardList implements Serializable, Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public abstract WebBackForwardList m46clone();
+    public abstract WebBackForwardList m41clone();
 
     public abstract int getCurrentIndex();
 

@@ -12,7 +12,7 @@ public class y extends a<z, aa> {
     private int mSkinType;
 
     public y(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), z.Xw);
+        super(tbPageContext.getPageActivity(), z.Yt);
         this.mSkinType = 3;
     }
 

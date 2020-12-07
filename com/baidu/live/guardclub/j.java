@@ -4,9 +4,9 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes4.dex */
 public interface j {
-    void Ka();
+    void Do();
 
-    void c(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
+    void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
 
     View getView();
 

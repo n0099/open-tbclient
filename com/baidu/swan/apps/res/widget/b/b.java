@@ -13,7 +13,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.b.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public class b {
     private static final boolean mIsDebug = com.baidu.swan.apps.b.DEBUG;
     private Context mContext;

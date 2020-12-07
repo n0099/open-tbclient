@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class IMGetUserIpLocation extends Message {
     private static final String TAG = "IMGetUserIpLocation";
     private Context mContext;
@@ -127,6 +127,7 @@ public class IMGetUserIpLocation extends Message {
                         e = e;
                         LogUtils.e(TAG, "IMGetUserIpLocation handleMessageResult :", e);
                         arrayList = arrayList2;
+                        super.handleMessageResult(context, jSONObject, i, str);
                         ChatUserManagerImpl.getInstance(context).onGetUserIpResult(context, getMsgType(), this.mListenerKey, i, str, this.mUids, arrayList);
                     }
                 }
@@ -135,6 +136,7 @@ public class IMGetUserIpLocation extends Message {
                 e = e2;
             }
         }
+        super.handleMessageResult(context, jSONObject, i, str);
         ChatUserManagerImpl.getInstance(context).onGetUserIpResult(context, getMsgType(), this.mListenerKey, i, str, this.mUids, arrayList);
     }
 

@@ -3,7 +3,7 @@ package com.baidu.tieba.im.data;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class MemberData extends AbstractImageProvider implements Serializable {
     private static final long serialVersionUID = 6241193622633380508L;
     private String portrait;

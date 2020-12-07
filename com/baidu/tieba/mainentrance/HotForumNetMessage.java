@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.u;
 import tbclient.HotForum.DataReq;
 import tbclient.HotForum.HotForumReqIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class HotForumNetMessage extends NetMessage {
     private int lyo;
 

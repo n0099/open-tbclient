@@ -1,13 +1,13 @@
 package com.baidu.swan.a;
 
 import com.baidu.swan.apps.t.a.f;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class b {
-    public static a aZZ() {
-        return f.axq();
+    public static a bde() {
+        return f.aAz();
     }
 
     public static boolean isDebug() {
-        return aZZ().isDebug();
+        return bde().isDebug();
     }
 }

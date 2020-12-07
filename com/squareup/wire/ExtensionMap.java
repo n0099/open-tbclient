@@ -1,6 +1,5 @@
 package com.squareup.wire;
 
-import com.baidu.webkit.internal.ETAG;
 import com.squareup.wire.ExtendableMessage;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 public final class ExtensionMap<T extends ExtendableMessage<?>> {
     private final Map<Extension<T, ?>, Object> map = new TreeMap();
 
@@ -51,7 +50,7 @@ public final class ExtensionMap<T extends ExtendableMessage<?>> {
                 Map.Entry<Extension<T, ?>, Object> next = it.next();
                 sb.append(str2);
                 sb.append(next.getKey().getTag());
-                sb.append(ETAG.EQUAL);
+                sb.append("=");
                 sb.append(next.getValue());
                 str = ", ";
             } else {

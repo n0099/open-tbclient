@@ -1,11 +1,11 @@
 package com.baidu.platform.comjni.base.versionupdate;
 
 import com.baidu.platform.comjni.JNIBaseApi;
-/* loaded from: classes7.dex */
+/* loaded from: classes26.dex */
 public class NAVersionUpdate extends JNIBaseApi {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f3162a = 0;
+    private long f3164a = 0;
 
     private native long nativeCreate();
 

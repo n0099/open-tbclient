@@ -1,13 +1,13 @@
 package com.baidu.tieba.video.localvideo;
 
 import android.graphics.Bitmap;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class d {
     private long duration;
     private boolean hasLoaded = false;
     private long lastModified;
     private String mimeType;
-    private String nsz;
+    private String nGA;
     private Bitmap thumbnailBitmap;
     private int videoHeight;
     private String videoId;
@@ -58,15 +58,15 @@ public class d {
         this.videoHeight = i;
     }
 
-    public void TI(String str) {
-        this.nsz = str;
+    public void UX(String str) {
+        this.nGA = str;
     }
 
     public long getLastModified() {
         return this.lastModified;
     }
 
-    public void bP(long j) {
+    public void co(long j) {
         this.lastModified = j;
     }
 
@@ -78,11 +78,11 @@ public class d {
         this.thumbnailBitmap = bitmap;
     }
 
-    public void yg(boolean z) {
+    public void yL(boolean z) {
         this.hasLoaded = z;
     }
 
-    public boolean dPZ() {
+    public boolean dVt() {
         return this.hasLoaded;
     }
 }

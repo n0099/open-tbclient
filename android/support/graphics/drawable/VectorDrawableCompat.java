@@ -33,13 +33,12 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class VectorDrawableCompat extends VectorDrawableCommon {
     private static final boolean DBG_VECTOR_DRAWABLE = false;
     static final PorterDuff.Mode DEFAULT_TINT_MODE = PorterDuff.Mode.SRC_IN;
@@ -635,7 +634,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     /* JADX INFO: Access modifiers changed from: private */
     @RequiresApi(24)
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class VectorDrawableDelegateState extends Drawable.ConstantState {
         private final Drawable.ConstantState mDelegateState;
 
@@ -676,7 +675,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class VectorDrawableCompatState extends Drawable.ConstantState {
         boolean mAutoMirrored;
         boolean mCacheDirty;
@@ -782,7 +781,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class VPathRenderer {
         private static final Matrix IDENTITY_MATRIX = new Matrix();
         float mBaseHeight;
@@ -973,7 +972,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class VGroup {
         int mChangingConfigurations;
         final ArrayList<Object> mChildren;
@@ -1178,7 +1177,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class VPath {
         int mChangingConfigurations;
         protected PathParser.PathDataNode[] mNodes;
@@ -1202,7 +1201,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             for (int i = 0; i < pathDataNodeArr.length; i++) {
                 str = str + pathDataNodeArr[i].mType + ":";
                 for (int i2 = 0; i2 < pathDataNodeArr[i].mParams.length; i2++) {
-                    str = str + fArr[i2] + Constants.ACCEPT_TIME_SEPARATOR_SP;
+                    str = str + fArr[i2] + ",";
                 }
             }
             return str;
@@ -1251,7 +1250,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class VClipPath extends VPath {
         public VClipPath() {
         }
@@ -1286,7 +1285,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class VFullPath extends VPath {
         private static final int FILL_TYPE_WINDING = 0;
         float mFillAlpha;

@@ -24,16 +24,16 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ALAImMsgListView extends BdTypeListView implements j {
-    private boolean biV;
-    private Paint bkA;
-    private a bkB;
-    private boolean bkC;
-    private boolean bkD;
-    private float bkv;
-    private float bkw;
-    private com.baidu.live.im.a.a bkx;
-    private boolean bky;
-    private boolean bkz;
+    private boolean bnn;
+    private float bpE;
+    private float bpF;
+    private com.baidu.live.im.a.a bpG;
+    private boolean bpH;
+    private boolean bpI;
+    private Paint bpJ;
+    private a bpK;
+    private boolean bpL;
+    private boolean bpM;
     private int direction;
     private boolean isScrolling;
     private int mShadowHeight;
@@ -41,49 +41,49 @@ public class ALAImMsgListView extends BdTypeListView implements j {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void Mo();
+        void OJ();
     }
 
     public ALAImMsgListView(Context context) {
         super(context);
         this.isScrolling = false;
-        this.bky = true;
-        this.bkz = false;
+        this.bpH = true;
+        this.bpI = false;
         this.showShadow = false;
-        this.bkC = false;
-        this.bkD = false;
+        this.bpL = false;
+        this.bpM = false;
         init();
     }
 
     public ALAImMsgListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.isScrolling = false;
-        this.bky = true;
-        this.bkz = false;
+        this.bpH = true;
+        this.bpI = false;
         this.showShadow = false;
-        this.bkC = false;
-        this.bkD = false;
+        this.bpL = false;
+        this.bpM = false;
         init();
     }
 
     public ALAImMsgListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.isScrolling = false;
-        this.bky = true;
-        this.bkz = false;
+        this.bpH = true;
+        this.bpI = false;
         this.showShadow = false;
-        this.bkC = false;
-        this.bkD = false;
+        this.bpL = false;
+        this.bpM = false;
         init();
     }
 
     public void setMode(boolean z) {
-        this.bkx.setMode(z);
+        this.bpG.setMode(z);
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
-        if (this.bkx == null) {
-            this.bkx = new com.baidu.live.im.a.a(tbPageContext, this);
+        if (this.bpG == null) {
+            this.bpG = new com.baidu.live.im.a.a(tbPageContext, this);
         }
     }
 
@@ -104,10 +104,10 @@ public class ALAImMsgListView extends BdTypeListView implements j {
                     ALAImMsgListView.this.invalidate();
                 }
                 if (i == 1) {
-                    ALAImMsgListView.this.bkC = true;
-                } else if (i == 0 && ALAImMsgListView.this.bkC) {
-                    ALAImMsgListView.this.bkC = false;
-                    ALAImMsgListView.this.Ml();
+                    ALAImMsgListView.this.bpL = true;
+                } else if (i == 0 && ALAImMsgListView.this.bpL) {
+                    ALAImMsgListView.this.bpL = false;
+                    ALAImMsgListView.this.OG();
                 }
             }
 
@@ -117,45 +117,45 @@ public class ALAImMsgListView extends BdTypeListView implements j {
         });
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(CmdConfigCustom.CMD_GET_LIVE_IS_MIX), Boolean.class);
         if (runTask != null && runTask.getData() != null) {
-            this.bkD = ((Boolean) runTask.getData()).booleanValue();
+            this.bpM = ((Boolean) runTask.getData()).booleanValue();
         }
     }
 
     @Override // com.baidu.live.im.j
-    public void setMsgData(List<com.baidu.live.im.data.a> list) {
-        if (this.bkx != null) {
-            this.bkx.setDatas(list);
-            this.bkx.notifyDataSetChanged();
+    public void setMsgData(List<com.baidu.live.im.data.b> list) {
+        if (this.bpG != null) {
+            this.bpG.setDatas(list);
+            this.bpG.notifyDataSetChanged();
         }
     }
 
-    public boolean Mk() {
-        return this.bkz;
+    public boolean OF() {
+        return this.bpI;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ml() {
+    public void OG() {
         if (getLastVisiblePosition() + 1 == getCount()) {
-            this.bkz = false;
-            if (this.bkB != null) {
-                this.bkB.Mo();
+            this.bpI = false;
+            if (this.bpK != null) {
+                this.bpK.OJ();
             }
         } else {
-            this.bkz = true;
+            this.bpI = true;
         }
-        this.bky = this.bkz ? false : true;
+        this.bpH = this.bpI ? false : true;
     }
 
-    public void Mm() {
+    public void OH() {
         this.isScrolling = false;
-        this.bky = true;
-        this.bkz = false;
+        this.bpH = true;
+        this.bpI = false;
         smoothScrollToPosition(getBottom());
     }
 
     @Override // com.baidu.live.im.j
-    public void KZ() {
-        if (!this.isScrolling && this.bky) {
+    public void Nc() {
+        if (!this.isScrolling && this.bpH) {
             post(new Runnable() { // from class: com.baidu.live.im.view.ALAImMsgListView.2
                 @Override // java.lang.Runnable
                 public void run() {
@@ -165,18 +165,18 @@ public class ALAImMsgListView extends BdTypeListView implements j {
         }
     }
 
-    public void Kj() {
+    public void Ml() {
         this.showShadow = false;
-        this.bkz = false;
-        if (this.bkx != null) {
-            this.bkx.Kj();
+        this.bpI = false;
+        if (this.bpG != null) {
+            this.bpG.Ml();
         }
     }
 
     @Override // com.baidu.live.im.j
-    public void b(String str, String str2, boolean z, String str3) {
-        if (this.bkx != null) {
-            this.bkx.b(str, str2, z, str3);
+    public void a(String str, String str2, boolean z, String str3, String str4) {
+        if (this.bpG != null) {
+            this.bpG.a(str, str2, z, str3, str4);
         }
     }
 
@@ -184,13 +184,13 @@ public class ALAImMsgListView extends BdTypeListView implements j {
     public void setNeedTopAlphaShade(boolean z) {
         if (z) {
             this.mShadowHeight = getResources().getDimensionPixelSize(a.d.sdk_ds50);
-            this.bkA = new Paint();
-            this.bkA.setStyle(Paint.Style.FILL_AND_STROKE);
-            this.bkA.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
-            this.bkA.setShader(new LinearGradient(0.0f, 0.0f, 0.0f, this.mShadowHeight, getResources().getColor(a.c.sdk_white_alpha0), getResources().getColor(a.c.sdk_white_alpha100), Shader.TileMode.CLAMP));
+            this.bpJ = new Paint();
+            this.bpJ.setStyle(Paint.Style.FILL_AND_STROKE);
+            this.bpJ.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
+            this.bpJ.setShader(new LinearGradient(0.0f, 0.0f, 0.0f, this.mShadowHeight, getResources().getColor(a.c.sdk_white_alpha0), getResources().getColor(a.c.sdk_white_alpha100), Shader.TileMode.CLAMP));
         } else {
             this.mShadowHeight = 0;
-            this.bkA = null;
+            this.bpJ = null;
         }
         invalidate();
     }
@@ -202,11 +202,11 @@ public class ALAImMsgListView extends BdTypeListView implements j {
     public void setLogData(String str, String str2) {
     }
 
-    public void Mn() {
-        this.bkz = false;
-        this.bky = true;
-        if (this.bkx != null) {
-            this.bkx.release();
+    public void OI() {
+        this.bpI = false;
+        this.bpH = true;
+        if (this.bpG != null) {
+            this.bpG.release();
         }
     }
 
@@ -219,8 +219,8 @@ public class ALAImMsgListView extends BdTypeListView implements j {
     @Override // com.baidu.live.adp.widget.listview.BdListView, android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.bkA != null && this.showShadow) {
-            canvas.drawRect(0.0f, 0.0f, getWidth(), this.mShadowHeight, this.bkA);
+        if (this.bpJ != null && this.showShadow) {
+            canvas.drawRect(0.0f, 0.0f, getWidth(), this.mShadowHeight, this.bpJ);
         }
     }
 
@@ -229,19 +229,19 @@ public class ALAImMsgListView extends BdTypeListView implements j {
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
         if (motionEvent.getAction() == 0) {
-            this.bkv = motionEvent.getX();
-            this.bkw = motionEvent.getY();
+            this.bpE = motionEvent.getX();
+            this.bpF = motionEvent.getY();
             this.direction = 0;
-            this.bky = false;
+            this.bpH = false;
             getParent().requestDisallowInterceptTouchEvent(true);
         } else if (motionEvent.getAction() == 2) {
-            if (Math.abs(this.bkv - x) > 20.0f || Math.abs(this.bkw - y) > 20.0f) {
-                this.bky = false;
+            if (Math.abs(this.bpE - x) > 20.0f || Math.abs(this.bpF - y) > 20.0f) {
+                this.bpH = false;
             }
-            if (this.bkD && this.direction == 0 && (Math.abs(x - this.bkv) > ViewConfiguration.get(getContext()).getScaledTouchSlop() || Math.abs(y - this.bkw) > ViewConfiguration.get(getContext()).getScaledTouchSlop())) {
-                if (Math.abs(y - this.bkw) * 0.5f > Math.abs(x - this.bkv)) {
+            if (this.direction == 0 && (Math.abs(x - this.bpE) > ViewConfiguration.get(getContext()).getScaledTouchSlop() || Math.abs(y - this.bpF) > ViewConfiguration.get(getContext()).getScaledTouchSlop())) {
+                if (Math.abs(y - this.bpF) * 0.5f > Math.abs(x - this.bpE)) {
                     this.direction = 1;
-                    if (y > this.bkw) {
+                    if (y > this.bpF) {
                         if (!canScrollVertically(-1)) {
                             getParent().requestDisallowInterceptTouchEvent(false);
                             return false;
@@ -257,20 +257,24 @@ public class ALAImMsgListView extends BdTypeListView implements j {
                 }
             }
         } else if (motionEvent.getAction() == 3 || motionEvent.getAction() == 1) {
-            Ml();
+            OG();
             getParent().requestDisallowInterceptTouchEvent(false);
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     public void setFromMaster(boolean z) {
-        this.biV = z;
-        if (this.bkx != null) {
-            this.bkx.setFromMaster(this.biV);
+        this.bnn = z;
+        if (this.bpG != null) {
+            this.bpG.setFromMaster(this.bnn);
         }
     }
 
     public void setOnUserMoveToBottomIMCallBack(a aVar) {
-        this.bkB = aVar;
+        this.bpK = aVar;
+    }
+
+    public com.baidu.live.im.a.a getAdapterManager() {
+        return this.bpG;
     }
 }

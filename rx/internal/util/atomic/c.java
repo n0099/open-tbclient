@@ -3,7 +3,7 @@ package rx.internal.util.atomic;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes14.dex */
+/* loaded from: classes12.dex */
 public final class c<E> extends a<E> {
     private static final Integer MAX_LOOK_AHEAD_STEP = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     final AtomicLong consumerIndex;
@@ -33,7 +33,7 @@ public final class c<E> extends a<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        AtomicReferenceArray<E> atomicReferenceArray = this.qky;
+        AtomicReferenceArray<E> atomicReferenceArray = this.pUz;
         int i = this.mask;
         long j = this.producerIndex.get();
         int calcElementOffset = calcElementOffset(j, i);
@@ -54,7 +54,7 @@ public final class c<E> extends a<E> {
     public E poll() {
         long j = this.consumerIndex.get();
         int calcElementOffset = calcElementOffset(j);
-        AtomicReferenceArray<E> atomicReferenceArray = this.qky;
+        AtomicReferenceArray<E> atomicReferenceArray = this.pUz;
         E b = b(atomicReferenceArray, calcElementOffset);
         if (b == null) {
             return null;
@@ -71,20 +71,20 @@ public final class c<E> extends a<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long eAR = eAR();
+        long eDi = eDi();
         while (true) {
-            long eAQ = eAQ();
-            long eAR2 = eAR();
-            if (eAR == eAR2) {
-                return (int) (eAQ - eAR2);
+            long eDh = eDh();
+            long eDi2 = eDi();
+            if (eDi == eDi2) {
+                return (int) (eDh - eDi2);
             }
-            eAR = eAR2;
+            eDi = eDi2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return eAQ() == eAR();
+        return eDh() == eDi();
     }
 
     private void soProducerIndex(long j) {
@@ -95,11 +95,11 @@ public final class c<E> extends a<E> {
         this.consumerIndex.lazySet(j);
     }
 
-    private long eAR() {
+    private long eDi() {
         return this.consumerIndex.get();
     }
 
-    private long eAQ() {
+    private long eDh() {
         return this.producerIndex.get();
     }
 }

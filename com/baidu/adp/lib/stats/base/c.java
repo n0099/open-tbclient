@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c {
-    public static File[] au(boolean z) {
+    public static File[] at(boolean z) {
         DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getTrackLogWriteDir(), null, DiskFileOperate.Action.INFO);
         diskFileOperate.setSdCard(z);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);

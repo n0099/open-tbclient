@@ -4,22 +4,22 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class YuyinAlaGiftSendHttpResponseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.live.yuyingift.a.a bPG;
-    private long bcl;
-    private long bcm;
+    private com.baidu.live.yuyingift.a.a bUQ;
+    private long bgl;
+    private long bgm;
     private long mLogId;
 
     public YuyinAlaGiftSendHttpResponseMessage() {
         super(1031055);
-        this.bcl = 0L;
+        this.bgl = 0L;
     }
 
-    public long IK() {
-        return this.bcl;
+    public long KK() {
+        return this.bgl;
     }
 
-    public long IL() {
-        return this.bcm;
+    public long KL() {
+        return this.bgm;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -27,20 +27,20 @@ public class YuyinAlaGiftSendHttpResponseMessage extends JsonHttpResponsedMessag
         return this.mLogId;
     }
 
-    public com.baidu.live.yuyingift.a.a WW() {
-        return this.bPG;
+    public com.baidu.live.yuyingift.a.a Zv() {
+        return this.bUQ;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null && i == 1031055) {
             super.decodeLogicInBackGround(i, jSONObject);
-            this.bcl = jSONObject.optLong("left_scores");
-            this.bcm = jSONObject.optLong("tdou_num");
+            this.bgl = jSONObject.optLong("left_scores");
+            this.bgm = jSONObject.optLong("tdou_num");
             this.mLogId = jSONObject.optLong("logid");
             JSONObject optJSONObject = jSONObject.optJSONObject("system_luck_window");
             if (optJSONObject != null) {
-                this.bPG = com.baidu.live.yuyingift.a.a.ae(optJSONObject);
+                this.bUQ = com.baidu.live.yuyingift.a.a.ag(optJSONObject);
             }
         }
     }
