@@ -34,7 +34,7 @@ public class a {
         Location ctq;
         if (shareItem != null) {
             if (!j.isNetWorkAvailable()) {
-                l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
                 return;
             }
             if (z && (ctq = ctq()) != null) {

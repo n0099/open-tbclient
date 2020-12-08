@@ -39,7 +39,7 @@ public class c extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.gws = com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
-        this.mLeftDrawable = ap.getDrawable(this.mContext.getResources(), R.drawable.icon_video_direct_seeding);
+        this.mLeftDrawable = ap.getDrawable(this.mContext.getResources(), (int) R.drawable.icon_video_direct_seeding);
     }
 
     public void a(a aVar) {
@@ -65,12 +65,12 @@ public class c extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
             bVar.gwx = (TextView) view.findViewById(R.id.recent_history_whole_follow_btn);
             bVar.gwy = (TextView) view.findViewById(R.id.recent_history_whole_unfollow_btn);
             ap.setBackgroundColor(view, R.color.CAM_X0201);
-            ap.setViewTextColor(bVar.egV, R.color.CAM_X0105);
-            ap.setViewTextColor(bVar.gww, R.color.CAM_X0109);
-            ap.setViewTextColor(bVar.gwx, R.color.CAM_X0110);
-            ap.setViewTextColor(bVar.gwy, R.color.square_follow_btn_txt_color);
+            ap.setViewTextColor(bVar.egV, (int) R.color.CAM_X0105);
+            ap.setViewTextColor(bVar.gww, (int) R.color.CAM_X0109);
+            ap.setViewTextColor(bVar.gwx, (int) R.color.CAM_X0110);
+            ap.setViewTextColor(bVar.gwy, (int) R.color.square_follow_btn_txt_color);
             bVar.gwq.setCompoundDrawablesWithIntrinsicBounds(this.mLeftDrawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            ap.setViewTextColor(bVar.gwr, R.color.CAM_X0301);
+            ap.setViewTextColor(bVar.gwr, (int) R.color.CAM_X0301);
             view.setTag(bVar);
         } else {
             bVar = (b) view.getTag();

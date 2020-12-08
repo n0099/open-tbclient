@@ -226,19 +226,19 @@ public class b extends BaseAdapter {
         if (textView != null) {
             if (i == 0) {
                 textView.setText(R.string.ala_achievement_mark_status_unlock);
-                ap.setViewTextColor(textView, R.color.CAM_X0109);
+                ap.setViewTextColor(textView, (int) R.color.CAM_X0109);
                 ap.setBackgroundResource(textView, R.drawable.bg_ala_person_privilege_status_bg_gray);
             } else if (i == 1) {
                 textView.setText(R.string.ala_achievement_mark_status_wear);
-                ap.setViewTextColor(textView, R.color.live_cp_other_b);
+                ap.setViewTextColor(textView, (int) R.color.live_cp_other_b);
                 ap.setBackgroundResource(textView, R.drawable.bg_ala_person_privilege_status_bg_green);
             } else if (i == 2) {
                 textView.setText(R.string.ala_achievement_mark_status_lock);
-                ap.setViewTextColor(textView, R.color.CAM_X0302);
+                ap.setViewTextColor(textView, (int) R.color.CAM_X0302);
                 ap.setBackgroundResource(textView, R.drawable.bg_ala_person_privilege_status_bg_blue);
             } else if (i == 3) {
                 textView.setText(R.string.ala_achievement_mark_status_expired);
-                ap.setViewTextColor(textView, R.color.CAM_X0109);
+                ap.setViewTextColor(textView, (int) R.color.CAM_X0109);
                 ap.setBackgroundResource(textView, R.drawable.bg_ala_person_privilege_status_bg_gray);
             } else {
                 textView.setVisibility(4);

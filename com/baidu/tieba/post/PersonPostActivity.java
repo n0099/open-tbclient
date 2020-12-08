@@ -323,7 +323,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             ap.setBackgroundColor(this.mTabHost.getFragmentTabWidget(), R.color.CAM_X0201);
         }
         SvgManager.btW().a(this.mBF, R.drawable.icon_pure_topbar_delete44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        this.mBG.setImageDrawable(ap.getDrawable(i, R.drawable.person_center_red_tip_shape));
+        this.mBG.setImageDrawable(ap.getDrawable(i, (int) R.drawable.person_center_red_tip_shape));
         if (this.mBH != null) {
             int count = this.mBH.getCount();
             for (int i2 = 0; i2 < count; i2++) {

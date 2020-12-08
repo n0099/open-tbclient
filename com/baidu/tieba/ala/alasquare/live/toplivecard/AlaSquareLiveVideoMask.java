@@ -109,10 +109,10 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
     }
 
     public void bAu() {
-        ap.setViewTextColor(this.gqH, R.color.CAM_X0101);
-        ap.setViewTextColor(this.eBQ, R.color.CAM_X0101);
-        ap.setViewTextColor(this.gqF, R.color.CAM_X0101);
-        ap.setViewTextColor(this.gqG, R.color.CAM_X0101);
+        ap.setViewTextColor(this.gqH, (int) R.color.CAM_X0101);
+        ap.setViewTextColor(this.eBQ, (int) R.color.CAM_X0101);
+        ap.setViewTextColor(this.gqF, (int) R.color.CAM_X0101);
+        ap.setViewTextColor(this.gqG, (int) R.color.CAM_X0101);
     }
 
     public void bRP() {

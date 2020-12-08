@@ -74,10 +74,10 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.c>
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ap.setBackgroundResource(this.gzP.gzW, R.drawable.addresslist_item_bg);
-            ap.setViewTextColor(this.gzP.gzV, R.color.CAM_X0101);
-            ap.setViewTextColor(this.gzP.aYw, R.color.CAM_X0101);
-            ap.setViewTextColor(this.gzP.gzY, R.color.CAM_X0105);
-            ap.setViewTextColor(this.gzP.gzZ, R.color.CAM_X0109);
+            ap.setViewTextColor(this.gzP.gzV, (int) R.color.CAM_X0101);
+            ap.setViewTextColor(this.gzP.aYw, (int) R.color.CAM_X0101);
+            ap.setViewTextColor(this.gzP.gzY, (int) R.color.CAM_X0105);
+            ap.setViewTextColor(this.gzP.gzZ, (int) R.color.CAM_X0109);
             this.mSkinType = i;
         }
     }

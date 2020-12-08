@@ -232,7 +232,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     l.showLongToast(TbadkCoreApplication.getInst(), this.mnM.mop.getCantModifyAvatarDesc());
                     return;
                 } else {
-                    l.showLongToast(TbadkCoreApplication.getInst(), R.string.person_cant_edit_avatar_default_tip);
+                    l.showLongToast(TbadkCoreApplication.getInst(), (int) R.string.person_cant_edit_avatar_default_tip);
                     return;
                 }
             }
@@ -336,8 +336,8 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 }
             });
             this.mob.b(getPageContext());
-            ap.setViewTextColor(inflate.findViewById(R.id.nickname_dialog_title), R.color.CAM_X0105);
-            ap.setViewTextColor(inflate.findViewById(R.id.nickname_dialog_tip), R.color.common_color_10122);
+            ap.setViewTextColor(inflate.findViewById(R.id.nickname_dialog_title), (int) R.color.CAM_X0105);
+            ap.setViewTextColor(inflate.findViewById(R.id.nickname_dialog_tip), (int) R.color.common_color_10122);
         }
         this.mob.brv();
     }
@@ -441,8 +441,8 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         SvgManager.btW().a(this.eAB, R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         this.iOi.refresh();
-        ap.setViewTextColor(this.mnW, R.color.CAM_X0109);
-        WebPManager.a(this.moa, R.drawable.icon_mask_personalba_edit40, (WebPManager.ResourceStateType) null);
+        ap.setViewTextColor(this.mnW, (int) R.color.CAM_X0109);
+        WebPManager.a(this.moa, (int) R.drawable.icon_mask_personalba_edit40, (WebPManager.ResourceStateType) null);
         ap.setViewTextColor(this.kwL, R.color.CAM_X0302, 1);
     }
 

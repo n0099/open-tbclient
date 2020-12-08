@@ -127,10 +127,10 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
     }
 
     public void onChangeSkinType() {
-        ap.setViewTextColor(this.mTitle, R.color.CAM_X0101);
-        ap.setViewTextColor(this.eBQ, R.color.CAM_X0101);
-        ap.setViewTextColor(this.gvV, R.color.CAM_X0101);
-        Drawable drawable = ap.getDrawable(getContext().getResources(), R.drawable.tab_icon_living_seeding);
+        ap.setViewTextColor(this.mTitle, (int) R.color.CAM_X0101);
+        ap.setViewTextColor(this.eBQ, (int) R.color.CAM_X0101);
+        ap.setViewTextColor(this.gvV, (int) R.color.CAM_X0101);
+        Drawable drawable = ap.getDrawable(getContext().getResources(), (int) R.drawable.tab_icon_living_seeding);
         drawable.setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18), getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18));
         this.gvV.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
         this.gvV.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelOffset(R.dimen.tbds8));

@@ -3242,7 +3242,7 @@ public class az {
     public void dtp() {
         boolean z;
         if (this.lQU != null) {
-            if (this.lPg.getPositionForView(this.lQU.getView()) != -1) {
+            if (((this.lQU.getView() == null || this.lQU.getView().getParent() == null) ? -1 : this.lPg.getPositionForView(this.lQU.getView())) != -1) {
                 if (this.lQU.getView().getTop() + lQS <= this.lQg.getBottom()) {
                     this.lQT = 1;
                     z = true;

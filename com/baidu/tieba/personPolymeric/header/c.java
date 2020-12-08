@@ -310,7 +310,7 @@ public class c {
     }
 
     private void Ix(int i) {
-        BdToast.a((Context) this.mPageContext.getPageActivity(), (CharSequence) String.format(this.mPageContext.getString(R.string.person_privacy_toast), au.getUserDescByGender(i)), R.drawable.icon_pure_toast_mistake40_svg, true).brB();
+        BdToast.a((Context) this.mPageContext.getPageActivity(), (CharSequence) String.format(this.mPageContext.getString(R.string.person_privacy_toast), au.getUserDescByGender(i)), (int) R.drawable.icon_pure_toast_mistake40_svg, true).brB();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

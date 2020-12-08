@@ -105,16 +105,16 @@ public class a {
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setViewTextColor(this.gvV, R.color.CAM_X0101);
-            ap.setViewTextColor(this.gyD, R.color.CAM_X0101);
-            ap.setViewTextColor(this.mTitle, R.color.CAM_X0105);
+            ap.setViewTextColor(this.gvV, (int) R.color.CAM_X0101);
+            ap.setViewTextColor(this.gyD, (int) R.color.CAM_X0101);
+            ap.setViewTextColor(this.mTitle, (int) R.color.CAM_X0105);
             if (!StringUtils.isNull(this.gyE)) {
                 this.gyC.setVisibility(0);
                 this.gyC.startLoad(this.gyE, 10, false);
             } else {
                 this.gyC.setVisibility(8);
             }
-            Drawable drawable = ap.getDrawable(this.mTbPageContext.getResources(), R.drawable.tab_icon_living_seeding);
+            Drawable drawable = ap.getDrawable(this.mTbPageContext.getResources(), (int) R.drawable.tab_icon_living_seeding);
             drawable.setBounds(0, 0, this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds15), this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds15));
             this.gvV.setCompoundDrawablePadding(this.mTbPageContext.getResources().getDimensionPixelSize(R.dimen.tbds14));
             this.gvV.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);

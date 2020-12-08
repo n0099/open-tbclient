@@ -207,7 +207,7 @@ public class PersonExtraStatic {
                 TextView ey = com.baidu.tbadk.ala.c.ey(context);
                 if (ey != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    ap.setViewTextColor(ey, R.color.CAM_X0302);
+                    ap.setViewTextColor(ey, (int) R.color.CAM_X0302);
                     layoutParams.setMargins(l.getDimens(context, R.dimen.ds8), 0, l.getDimens(context, R.dimen.ds8), 0);
                     layoutParams.gravity = 16;
                     ey.setLayoutParams(layoutParams);

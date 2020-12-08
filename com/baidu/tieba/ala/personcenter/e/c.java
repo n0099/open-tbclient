@@ -44,8 +44,8 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setViewTextColor(this.hRk, R.color.common_color_10106);
-        ap.setViewTextColor(this.hRl, R.color.CAM_X0302);
+        ap.setViewTextColor(this.hRk, (int) R.color.common_color_10106);
+        ap.setViewTextColor(this.hRl, (int) R.color.CAM_X0302);
     }
 
     @Override // android.view.View.OnClickListener

@@ -229,7 +229,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             ap.setBackgroundColor(this.mStatusBarView, R.color.common_color_10274);
         }
         if (this.gLV != null) {
-            ap.setViewTextColor(this.gLV, R.color.CAM_X0106);
+            ap.setViewTextColor(this.gLV, (int) R.color.CAM_X0106);
         }
         if (this.gLW != null) {
             this.gLW.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());

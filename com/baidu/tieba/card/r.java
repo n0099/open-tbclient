@@ -131,7 +131,7 @@ public class r extends b<CardPersonDynamicThreadData> {
                         r.this.bAr();
                         return;
                     } else {
-                        BdToast.a(r.this.getContext(), (CharSequence) r.this.getContext().getString(R.string.video_check_click_msg), R.drawable.icon_pure_toast_mistake40_svg, true).brB();
+                        BdToast.a(r.this.getContext(), (CharSequence) r.this.getContext().getString(R.string.video_check_click_msg), (int) R.drawable.icon_pure_toast_mistake40_svg, true).brB();
                         return;
                     }
                 }
@@ -148,8 +148,8 @@ public class r extends b<CardPersonDynamicThreadData> {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && r.this.ikh != null && r.this.ikh.threadId != null && r.this.mTitle != null && r.this.ahp != null && ((String) customResponsedMessage.getData()).equals(r.this.ikh.threadId) && !r.this.isHost()) {
-                    n.a(r.this.mTitle, r.this.ikh.threadId, R.color.CAM_X0105, R.color.CAM_X0109);
-                    n.a(r.this.ahp, r.this.ikh.threadId, R.color.CAM_X0107, R.color.CAM_X0109);
+                    n.a(r.this.mTitle, r.this.ikh.threadId, (int) R.color.CAM_X0105, (int) R.color.CAM_X0109);
+                    n.a(r.this.ahp, r.this.ikh.threadId, (int) R.color.CAM_X0107, (int) R.color.CAM_X0109);
                 }
             }
         };
@@ -223,7 +223,7 @@ public class r extends b<CardPersonDynamicThreadData> {
         this.ikN = (TextView) this.mRootView.findViewById(R.id.audience_count);
         this.ikO = (TBLottieAnimationView) this.mRootView.findViewById(R.id.ala_play);
         this.ikO.loop(true);
-        ap.a(this.ikO, R.raw.ala_play);
+        ap.a(this.ikO, (int) R.raw.ala_play);
         this.ikP = (TextView) this.mRootView.findViewById(R.id.fake_video_state);
         this.ikJ = (LinearLayout) this.mRootView.findViewById(R.id.shared_ala_live_layout);
         this.ikK = (TextView) this.mRootView.findViewById(R.id.shared_ala_live_room_title);
@@ -266,20 +266,20 @@ public class r extends b<CardPersonDynamicThreadData> {
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.a(this.ikO, R.raw.ala_play);
+            ap.a(this.ikO, (int) R.raw.ala_play);
             ap.setBackgroundResource(getView(), R.drawable.home_thread_card_item_bg);
-            ap.setViewTextColor(this.iky, R.color.CAM_X0105);
-            ap.setViewTextColor(this.ikA, R.color.CAM_X0107);
-            ap.setViewTextColor(this.ikB, R.color.CAM_X0105);
-            ap.setViewTextColor(this.ikC, R.color.CAM_X0109);
-            ap.setViewTextColor(this.ikQ, R.color.CAM_X0109);
-            ap.setViewTextColor(this.ikD, R.color.CAM_X0109);
+            ap.setViewTextColor(this.iky, (int) R.color.CAM_X0105);
+            ap.setViewTextColor(this.ikA, (int) R.color.CAM_X0107);
+            ap.setViewTextColor(this.ikB, (int) R.color.CAM_X0105);
+            ap.setViewTextColor(this.ikC, (int) R.color.CAM_X0109);
+            ap.setViewTextColor(this.ikQ, (int) R.color.CAM_X0109);
+            ap.setViewTextColor(this.ikD, (int) R.color.CAM_X0109);
             if (this.ikE != null) {
                 this.ikE.setImageDrawable(SvgManager.btW().a(R.drawable.icon_pure_personalba_more24_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS));
             }
-            ap.setViewTextColor(this.mTitle, R.color.CAM_X0105);
-            ap.setViewTextColor(this.ahp, R.color.CAM_X0106);
-            ap.setViewTextColor(this.ikK, R.color.CAM_X0106);
+            ap.setViewTextColor(this.mTitle, (int) R.color.CAM_X0105);
+            ap.setViewTextColor(this.ahp, (int) R.color.CAM_X0106);
+            ap.setViewTextColor(this.ikK, (int) R.color.CAM_X0106);
             if (this.ikF != null) {
                 this.ikF.onChangeSkinType();
             }
@@ -579,7 +579,7 @@ public class r extends b<CardPersonDynamicThreadData> {
     public void csd() {
         if (this.ikh != null && this.ikh.eCR != null && this.ikh.eCR.bpj() != null) {
             if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                com.baidu.adp.lib.util.l.showToast(this.mPageContext.getPageActivity(), R.string.no_network_guide);
+                com.baidu.adp.lib.util.l.showToast(this.mPageContext.getPageActivity(), (int) R.string.no_network_guide);
                 return;
             }
             if (!isHost()) {
@@ -618,8 +618,8 @@ public class r extends b<CardPersonDynamicThreadData> {
         if (this.ikh != null) {
             if (!isHost()) {
                 n.Jq(this.ikh.threadId);
-                n.a(this.mTitle, this.ikh.threadId, R.color.CAM_X0105, R.color.CAM_X0109);
-                n.a(this.ahp, this.ikh.threadId, R.color.CAM_X0107, R.color.CAM_X0109);
+                n.a(this.mTitle, this.ikh.threadId, (int) R.color.CAM_X0105, (int) R.color.CAM_X0109);
+                n.a(this.ahp, this.ikh.threadId, (int) R.color.CAM_X0107, (int) R.color.CAM_X0109);
             }
             PbActivityConfig pbActivityConfig = new PbActivityConfig(this.mPageContext.getPageActivity());
             if (this.ikh.inM == 40) {
@@ -695,7 +695,7 @@ public class r extends b<CardPersonDynamicThreadData> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, List<MediaData> list, int i, by byVar) {
         if (!TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD)) {
-            com.baidu.adp.lib.util.l.showToast(this.mPageContext.getPageActivity(), R.string.plugin_image_viewer_install_error_tips);
+            com.baidu.adp.lib.util.l.showToast(this.mPageContext.getPageActivity(), (int) R.string.plugin_image_viewer_install_error_tips);
             return;
         }
         ArrayList<String> arrayList = new ArrayList<>();
@@ -739,7 +739,7 @@ public class r extends b<CardPersonDynamicThreadData> {
         if (isHost()) {
             return true;
         }
-        n.a(this.mTitle, cardPersonDynamicThreadData.threadId, R.color.CAM_X0105, R.color.CAM_X0109);
+        n.a(this.mTitle, cardPersonDynamicThreadData.threadId, (int) R.color.CAM_X0105, (int) R.color.CAM_X0109);
         return true;
     }
 }

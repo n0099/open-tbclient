@@ -52,9 +52,9 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
                                 b.this.muF.isAttention = true;
                                 b.this.muE.setVisibility(0);
                                 b.this.wM(true);
-                                com.baidu.adp.lib.util.l.showToast(b.this.mContext, R.string.attention_success);
+                                com.baidu.adp.lib.util.l.showToast(b.this.mContext, (int) R.string.attention_success);
                             } else if (StringUtils.isNull(aVar.errorMessage)) {
-                                com.baidu.adp.lib.util.l.showToast(b.this.mContext, R.string.attention_fail);
+                                com.baidu.adp.lib.util.l.showToast(b.this.mContext, (int) R.string.attention_fail);
                             } else {
                                 com.baidu.adp.lib.util.l.showToast(b.this.mContext, aVar.errorMessage);
                             }
@@ -74,10 +74,10 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
                             b.this.muF.isAttention = false;
                             b.this.muE.setVisibility(0);
                             b.this.wM(b.this.muF.isAttention);
-                            com.baidu.adp.lib.util.l.showToast(b.this.mContext, R.string.unlike_success);
+                            com.baidu.adp.lib.util.l.showToast(b.this.mContext, (int) R.string.unlike_success);
                             return;
                         }
-                        com.baidu.adp.lib.util.l.showToast(b.this.mContext, R.string.unlike_failure);
+                        com.baidu.adp.lib.util.l.showToast(b.this.mContext, (int) R.string.unlike_failure);
                     }
                 }
             }
@@ -188,7 +188,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
     public void wM(boolean z) {
         if (z) {
             this.muE.setText(this.mContext.getString(R.string.relate_forum_is_followed));
-            ap.setViewTextColor(this.muE, R.color.CAM_X0110);
+            ap.setViewTextColor(this.muE, (int) R.color.CAM_X0110);
             ap.setBackgroundResource(this.muE, R.color.transparent);
             this.muE.setClickable(false);
             return;

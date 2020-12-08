@@ -119,7 +119,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     protected void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         ap.setImageResource(this.gNs, R.drawable.icon_search);
-        ap.setViewTextColor(this.gNr, R.color.enter_forum_search_text_color);
+        ap.setViewTextColor(this.gNr, (int) R.color.enter_forum_search_text_color);
         ap.setBackgroundResource(this.gNq, R.drawable.all_game_search_frame);
     }
 

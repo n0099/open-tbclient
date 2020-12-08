@@ -44,7 +44,7 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ap.setBackgroundResource(getView(), R.color.CAM_X0201);
-            ap.setViewTextColor(this.mTitle, R.color.CAM_X0109);
+            ap.setViewTextColor(this.mTitle, (int) R.color.CAM_X0109);
             int childCount = this.kXc.getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = this.kXc.getChildAt(i2);

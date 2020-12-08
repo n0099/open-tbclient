@@ -295,6 +295,7 @@ public class b {
 
     public void a(UserData userData, com.baidu.tieba.j.b bVar) {
         String intro;
+        int i;
         if (userData != null) {
             this.mUserData = userData;
             this.mrt = bVar;
@@ -367,9 +368,10 @@ public class b {
             } else {
                 this.msz.setVisibility(8);
             }
-            int i = R.drawable.icon_mask_boy16_svg;
             if (this.mUserData != null) {
                 i = this.mUserData.getSex() == 2 ? R.drawable.icon_mask_girl16_svg : R.drawable.icon_mask_boy16_svg;
+            } else {
+                i = R.drawable.icon_mask_boy16_svg;
             }
             SvgManager.btW().a(this.msA, i, SvgManager.SvgResourceStateType.NORMAL);
             if (this.mUserData.getSex() == 0) {

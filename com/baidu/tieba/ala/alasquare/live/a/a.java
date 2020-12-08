@@ -48,8 +48,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         }
         ap.setBackgroundColor(findViewById, R.color.CAM_X0205);
         ap.setBackgroundColor(aVar.mView, R.color.CAM_X0201);
-        ap.setViewTextColor(textView, R.color.CAM_X0106);
-        ap.setViewTextColor(textView2, R.color.CAM_X0109);
+        ap.setViewTextColor(textView, (int) R.color.CAM_X0106);
+        ap.setViewTextColor(textView2, (int) R.color.CAM_X0109);
         ap.setImageResource(imageView, R.drawable.icon_arrow_tab);
         textView.setText(!TextUtils.isEmpty(bVar.labelName) ? bVar.labelName : bVar.entryName);
         textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live.a.a.1

@@ -99,7 +99,7 @@ public class a extends af.a implements View.OnClickListener {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x00f1 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x00f2 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x0008 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:13:0x0045 A[ORIG_RETURN, RETURN] */

@@ -296,9 +296,9 @@ public class c implements View.OnClickListener {
 
     public void show() {
         if (!j.isNetWorkAvailable()) {
-            l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+            l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
         } else if (!g.bAq()) {
-            l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.plugin_share_install_failure);
+            l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.plugin_share_install_failure);
         } else {
             dLi();
             this.mDialog = new AlertDialog.Builder(this.mContext, R.style.DialogTheme).create();
@@ -409,7 +409,7 @@ public class c implements View.OnClickListener {
                 ar arVar = new ar("c13724");
                 if (i == R.drawable.icon_mask_share_wechat40_svg) {
                     if (!j.isNetWorkAvailable()) {
-                        l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
                         return;
                     }
                     f("share_to_weixin", new Object[0]);
@@ -428,7 +428,7 @@ public class c implements View.OnClickListener {
                     arVar.al("obj_type", 2);
                 } else if (i == R.drawable.icon_mask_share_circle40_svg) {
                     if (!j.isNetWorkAvailable()) {
-                        l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
                         return;
                     }
                     f("share_to_pyq", new Object[0]);
@@ -450,7 +450,7 @@ public class c implements View.OnClickListener {
                     arVar.al("obj_type", 3);
                 } else if (i == R.drawable.icon_mask_share_qqzone40_svg) {
                     if (!j.isNetWorkAvailable()) {
-                        l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
                         return;
                     }
                     if (z.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
@@ -471,7 +471,7 @@ public class c implements View.OnClickListener {
                     arVar.al("obj_type", 5);
                 } else if (i == R.drawable.icon_qq_weibo) {
                     if (!j.isNetWorkAvailable()) {
-                        l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
                         return;
                     }
                     f("share_to_qweibo", new Object[0]);
@@ -485,7 +485,7 @@ public class c implements View.OnClickListener {
                     }
                 } else if (i == R.drawable.icon_mask_share_weibo40_svg) {
                     if (!j.isNetWorkAvailable()) {
-                        l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
                         return;
                     }
                     f("share_to_sweibo", new Object[0]);
@@ -505,7 +505,7 @@ public class c implements View.OnClickListener {
                     arVar.al("obj_type", 6);
                 } else if (i == R.drawable.icon_renren) {
                     if (!j.isNetWorkAvailable()) {
-                        l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
                         return;
                     }
                     f("share_to_renren", new Object[0]);
@@ -519,7 +519,7 @@ public class c implements View.OnClickListener {
                     }
                 } else if (i == R.drawable.icon_mask_share_qq40_svg) {
                     if (!j.isNetWorkAvailable()) {
-                        l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
                         return;
                     }
                     if (z.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
@@ -612,7 +612,7 @@ public class c implements View.OnClickListener {
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     com.baidu.adp.lib.util.a.copyToClipboard(shareItem.content);
-                    l.showToast(c.this.mContext.getApplicationContext(), R.string.copy_success);
+                    l.showToast(c.this.mContext.getApplicationContext(), (int) R.string.copy_success);
                     aVar2.dismiss();
                 }
             });

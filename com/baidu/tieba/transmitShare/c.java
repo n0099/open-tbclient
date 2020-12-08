@@ -155,7 +155,7 @@ public class c implements View.OnClickListener, a {
     /* JADX INFO: Access modifiers changed from: private */
     public void dLj() {
         com.baidu.tbadk.core.elementsMaven.c.bm(this.mRootView).pA(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
-        ap.setViewTextColor(this.jhp, R.color.CAM_X0109);
+        ap.setViewTextColor(this.jhp, (int) R.color.CAM_X0109);
         ap.k(this.naA, R.color.CAM_X0107);
     }
 

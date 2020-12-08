@@ -71,7 +71,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
-                    l.showToast(getPageContext().getPageActivity(), R.string.cosume_record_plugin_not_install_tip);
+                    l.showToast(getPageContext().getPageActivity(), (int) R.string.cosume_record_plugin_not_install_tip);
                     return;
                 }
                 bf.bua().b(getPageContext(), new String[]{str.substring("tieba&".length())});

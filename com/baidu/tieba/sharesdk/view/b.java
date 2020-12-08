@@ -124,7 +124,7 @@ public class b extends c {
             gradientDrawable.setCornerRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21));
             gradientDrawable.setColor(ap.getColor(R.color.CAM_X0206));
             this.nao.setBackgroundDrawable(gradientDrawable);
-            ap.setViewTextColor(this.naq, R.color.CAM_X0107);
+            ap.setViewTextColor(this.naq, (int) R.color.CAM_X0107);
             this.naq.setText(this.naj.getContent());
             dLl();
             ap.setBackgroundColor(this.nav, R.color.CAM_X0109);
@@ -133,9 +133,9 @@ public class b extends c {
                 name_show = name_show.substring(0, 10) + StringHelper.STRING_MORE;
             }
             this.naw.setText(name_show);
-            ap.setViewTextColor(this.naw, R.color.CAM_X0109);
-            ap.setViewTextColor(this.nas, R.color.CAM_X0304);
-            ap.setViewTextColor(this.nat, R.color.CAM_X0105);
+            ap.setViewTextColor(this.naw, (int) R.color.CAM_X0109);
+            ap.setViewTextColor(this.nas, (int) R.color.CAM_X0304);
+            ap.setViewTextColor(this.nat, (int) R.color.CAM_X0105);
             this.nau.setImageBitmap(this.naj.dnL());
             ap.setImageResource(this.nan, R.drawable.pic_pb_post_share_logo);
             xH(false);
@@ -183,7 +183,7 @@ public class b extends c {
                     switch (next.getType()) {
                         case 1:
                             if (this.nax.getVisibility() == 8) {
-                                ap.setViewTextColor(this.nax, R.color.CAM_X0105);
+                                ap.setViewTextColor(this.nax, (int) R.color.CAM_X0105);
                                 this.nax.setText(next.bIJ());
                                 this.nax.setVisibility(0);
                                 break;

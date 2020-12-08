@@ -29,7 +29,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ap.setBackgroundResource(this.gMq, R.color.CAM_X0204);
-            ap.setViewTextColor(this.gMr, R.color.CAM_X0109);
+            ap.setViewTextColor(this.gMr, (int) R.color.CAM_X0109);
             ap.setBackgroundResource(this.gMs, R.color.CAM_X0204);
             this.mSkinType = i;
         }

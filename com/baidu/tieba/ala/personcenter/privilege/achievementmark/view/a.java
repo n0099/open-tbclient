@@ -94,10 +94,10 @@ public class a {
 
     private void onChangeSkinType() {
         ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        ap.setViewTextColor(this.mName, R.color.common_color_10310);
-        ap.setViewTextColor(this.hPq, R.color.white_alpha70);
-        ap.setViewTextColor(this.hPx, R.color.CAM_X0109);
-        ap.setViewTextColor(this.gZw, R.color.CAM_X0106);
+        ap.setViewTextColor(this.mName, (int) R.color.common_color_10310);
+        ap.setViewTextColor(this.hPq, (int) R.color.white_alpha70);
+        ap.setViewTextColor(this.hPx, (int) R.color.CAM_X0109);
+        ap.setViewTextColor(this.gZw, (int) R.color.CAM_X0106);
         if (TbadkApplication.getInst().getSkinType() == 1) {
             this.hPt.setAlpha(0.4f);
             this.dlk.setBackgroundColor(this.eNx.getResources().getColor(R.color.black_alpha60));
@@ -177,8 +177,8 @@ public class a {
                 }
             }, null);
         } else {
-            this.gui.startLoad(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
-            this.hPr.startLoad(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
+            this.gui.startLoad(String.valueOf((int) R.drawable.icon_default_avatar100_bg), 24, false);
+            this.hPr.startLoad(String.valueOf((int) R.drawable.icon_default_avatar100_bg), 24, false);
         }
         if (!StringUtils.isNull(str2)) {
             this.mName.setText(str2);

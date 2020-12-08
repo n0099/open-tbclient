@@ -81,8 +81,8 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c
             this.hQY.setAlpha(1);
         }
         this.hQT.setBackgroundColor(ap.getColor(i, R.color.CAM_X0204));
-        ap.setViewTextColor(this.mTitle, R.color.CAM_X0106);
-        ap.setViewTextColor(this.hQU, R.color.CAM_X0109);
+        ap.setViewTextColor(this.mTitle, (int) R.color.CAM_X0106);
+        ap.setViewTextColor(this.hQU, (int) R.color.CAM_X0109);
     }
 
     @Override // android.view.View.OnClickListener

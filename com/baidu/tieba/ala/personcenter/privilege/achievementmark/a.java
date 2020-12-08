@@ -206,7 +206,7 @@ public class a extends Dialog {
     /* JADX INFO: Access modifiers changed from: private */
     public void eE(String str, String str2) {
         if (StringUtils.isNull(str)) {
-            this.hOf.startLoad(String.valueOf(R.drawable.pic_live_honor), 24, false);
+            this.hOf.startLoad(String.valueOf((int) R.drawable.pic_live_honor), 24, false);
         } else {
             this.hOf.startLoad(str, 10, false);
         }

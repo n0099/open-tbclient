@@ -218,7 +218,7 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
         this.mNavigationBar.getBackground().mutate().setAlpha(0);
         ap.setNavbarTitleColor(this.mNavigationBar.mTextTitle, R.color.CAM_X0101, R.color.CAM_X0101);
         ap.setNavbarIconSrc(this.hNf, R.drawable.selector_topbar_return_white, R.drawable.selector_topbar_return_white_1);
-        this.hNe.setDivider(ap.getDrawable(i, R.color.CAM_X0204));
+        this.hNe.setDivider(ap.getDrawable(i, (int) R.color.CAM_X0204));
         this.hNe.setDividerHeight(this.eNx.getResources().getDimensionPixelSize(R.dimen.ds2));
         ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
         if (this.hNe.getAdapter() instanceof f) {

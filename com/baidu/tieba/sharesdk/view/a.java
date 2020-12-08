@@ -252,9 +252,9 @@ public class a implements View.OnClickListener {
 
     public void show() {
         if (!j.isNetWorkAvailable()) {
-            l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+            l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
         } else if (!g.bAq()) {
-            l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.plugin_share_install_failure);
+            l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.plugin_share_install_failure);
         } else {
             dLi();
             this.mDialog = new AlertDialog.Builder(this.mContext, R.style.DialogTheme).create();
@@ -319,7 +319,7 @@ public class a implements View.OnClickListener {
                     dismiss();
                 } else if (i == 4) {
                     if (!j.isNetWorkAvailable()) {
-                        l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
                         return;
                     }
                     f("share_to_weixin", new Object[0]);
@@ -331,7 +331,7 @@ public class a implements View.OnClickListener {
                     }
                 } else if (i == 3) {
                     if (!j.isNetWorkAvailable()) {
-                        l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
                         return;
                     }
                     f("share_to_pyq", new Object[0]);
@@ -346,7 +346,7 @@ public class a implements View.OnClickListener {
                     }
                 } else if (i == 5) {
                     if (!j.isNetWorkAvailable()) {
-                        l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
                     } else if (z.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                         f("share_to_qzone", new Object[0]);
                         Km(4);
@@ -360,7 +360,7 @@ public class a implements View.OnClickListener {
                     }
                 } else if (i == 6) {
                     if (!j.isNetWorkAvailable()) {
-                        l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
                         return;
                     }
                     f("share_to_qweibo", new Object[0]);
@@ -375,7 +375,7 @@ public class a implements View.OnClickListener {
                     }
                 } else if (i == 7) {
                     if (!j.isNetWorkAvailable()) {
-                        l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
                         return;
                     }
                     f("share_to_sweibo", new Object[0]);
@@ -390,7 +390,7 @@ public class a implements View.OnClickListener {
                     }
                 } else if (i == 8) {
                     if (!j.isNetWorkAvailable()) {
-                        l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
                         return;
                     }
                     f("share_to_renren", new Object[0]);
@@ -405,7 +405,7 @@ public class a implements View.OnClickListener {
                     }
                 } else if (i == 9) {
                     if (!j.isNetWorkAvailable()) {
-                        l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
                     } else if (z.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                         f("share_to_qq_friend", new Object[0]);
                         Km(8);

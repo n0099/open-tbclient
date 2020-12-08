@@ -28,7 +28,7 @@ public class n extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
         ap.setBackgroundResource(this.mvH, R.drawable.item_gift_selector);
         ap.setBackgroundColor(this.mvI, R.color.common_color_10294);
-        ap.setViewTextColor(this.mvI, R.color.CAM_X0302);
+        ap.setViewTextColor(this.mvI, (int) R.color.CAM_X0302);
     }
 
     @Override // com.baidu.tieba.card.b

@@ -456,7 +456,7 @@ public class SpecialLiveFragment extends BaseFragment {
             public void callback(Object obj) {
                 SpecialLiveFragment.this.gwQ.setClickable(true);
                 if (SpecialLiveFragment.this.fgf.getErrorCode() == 22) {
-                    l.showToast(SpecialLiveFragment.this.mContext, R.string.had_liked_forum);
+                    l.showToast(SpecialLiveFragment.this.mContext, (int) R.string.had_liked_forum);
                 } else if (AntiHelper.bP(SpecialLiveFragment.this.fgf.getErrorCode(), SpecialLiveFragment.this.fgf.getErrorString())) {
                     AntiHelper.bn(SpecialLiveFragment.this.mContext, SpecialLiveFragment.this.fgf.getErrorString());
                 } else if (SpecialLiveFragment.this.fgf.getErrorCode() != 0) {
@@ -467,10 +467,10 @@ public class SpecialLiveFragment extends BaseFragment {
                         TbadkCoreApplication.getInst().addLikeForum(SpecialLiveFragment.this.mForumName);
                         wVar.setLike(1);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, wVar));
-                        l.showToast(SpecialLiveFragment.this.mContext, R.string.attention_success);
+                        l.showToast(SpecialLiveFragment.this.mContext, (int) R.string.attention_success);
                         return;
                     }
-                    l.showToast(SpecialLiveFragment.this.mContext, R.string.neterror);
+                    l.showToast(SpecialLiveFragment.this.mContext, (int) R.string.neterror);
                 }
             }
         });
@@ -683,12 +683,12 @@ public class SpecialLiveFragment extends BaseFragment {
         mm(false);
         ap.setBackgroundColor(this.mStatusBarView, R.color.CAM_X0201);
         ap.setBackgroundColor(this.gwT, R.color.CAM_X0201);
-        ap.setViewTextColor(this.gwV, R.color.CAM_X0105);
+        ap.setViewTextColor(this.gwV, (int) R.color.CAM_X0105);
         ap.setBackgroundColor(this.gwN, R.color.CAM_X0201);
         ap.setBackgroundColor(this.gwO, R.color.CAM_X0205);
-        ap.setViewTextColor(this.gwP, R.color.CAM_X0105);
-        ap.setViewTextColor(this.gwR, R.color.CAM_X0107);
-        ap.setViewTextColor(this.gwQ, R.color.CAM_X0111);
+        ap.setViewTextColor(this.gwP, (int) R.color.CAM_X0105);
+        ap.setViewTextColor(this.gwR, (int) R.color.CAM_X0107);
+        ap.setViewTextColor(this.gwQ, (int) R.color.CAM_X0111);
         ap.setBackgroundResource(this.gwQ, R.drawable.frs_attention_btn_bg_selector);
         ap.setBackgroundResource(this.gwL, R.color.CAM_X0204);
     }
@@ -696,10 +696,10 @@ public class SpecialLiveFragment extends BaseFragment {
     /* JADX INFO: Access modifiers changed from: private */
     public void ml(boolean z) {
         Drawable drawable;
+        int i = R.drawable.frs_attention_btn_bg_selector;
         ap.setBackgroundResource(this.gwQ, R.drawable.frs_attention_btn_bg_selector);
         int dimens = l.getDimens(this.mContext, R.dimen.ds10);
         String string = this.mContext.getResources().getString(R.string.attention);
-        int i = R.drawable.frs_attention_btn_bg_selector;
         int i2 = R.color.CAM_X0101;
         if (this.mCurState == 1) {
             drawable = ap.getDrawable(R.drawable.icon_add_follow_blue_s);
@@ -902,7 +902,7 @@ public class SpecialLiveFragment extends BaseFragment {
                             SpecialLiveFragment.this.gxg.dismiss();
                         }
                     });
-                    ap.setViewTextColor(textView, R.color.CAM_X0112);
+                    ap.setViewTextColor(textView, (int) R.color.CAM_X0112);
                     bubbleLayout.MA(ap.getColor(R.color.cp_link_tip_a_alpha95));
                     bubbleLayout.aZ(activity.getResources().getDimensionPixelSize(R.dimen.ds216));
                     return bubbleLayout;

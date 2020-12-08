@@ -36,8 +36,8 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         ap.setBackgroundResource(this.mRoot, R.color.CAM_X0201);
-        ap.setViewTextColor(this.mTitle, R.color.CAM_X0101);
-        ap.setViewTextColor(this.guc, R.color.CAM_X0101);
+        ap.setViewTextColor(this.mTitle, (int) R.color.CAM_X0101);
+        ap.setViewTextColor(this.guc, (int) R.color.CAM_X0101);
         ap.setImageResource(this.gud, R.drawable.icon_tab_live_close_n);
         ap.setBackgroundResource(this.guc, R.drawable.tab_sub_notification_btn_bg_selecor);
         ap.setImageResource(this.gue, R.drawable.bg_tab_live_notification);

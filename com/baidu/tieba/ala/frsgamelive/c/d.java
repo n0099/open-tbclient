@@ -116,11 +116,11 @@ public class d implements View.OnClickListener {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ap.setBackgroundResource(this.gMx.gzW, R.drawable.addresslist_item_bg);
-            ap.setViewTextColor(this.gMx.gzU, R.color.CAM_X0111);
-            ap.setViewTextColor(this.gMx.gzV, R.color.CAM_X0101);
-            ap.setViewTextColor(this.gMx.aYw, R.color.CAM_X0109);
-            ap.setViewTextColor(this.gMx.gzY, R.color.CAM_X0105);
-            ap.setViewTextColor(this.gMx.gMF, R.color.CAM_X0101);
+            ap.setViewTextColor(this.gMx.gzU, (int) R.color.CAM_X0111);
+            ap.setViewTextColor(this.gMx.gzV, (int) R.color.CAM_X0101);
+            ap.setViewTextColor(this.gMx.aYw, (int) R.color.CAM_X0109);
+            ap.setViewTextColor(this.gMx.gzY, (int) R.color.CAM_X0105);
+            ap.setViewTextColor(this.gMx.gMF, (int) R.color.CAM_X0101);
             this.mSkinType = i;
         }
     }

@@ -109,9 +109,9 @@ public class d implements View.OnClickListener {
         this.hbJ.setBackgroundDrawable(ap.pT(R.color.CAM_X0205));
         ap.setBackgroundColor(this.mDivider, R.color.CAM_X0204);
         if (byVar != null && n.Jr(byVar.getId())) {
-            ap.setViewTextColor(this.mTextTitle, R.color.CAM_X0109);
+            ap.setViewTextColor(this.mTextTitle, (int) R.color.CAM_X0109);
         } else {
-            ap.setViewTextColor(this.mTextTitle, R.color.CAM_X0105);
+            ap.setViewTextColor(this.mTextTitle, (int) R.color.CAM_X0105);
         }
     }
 

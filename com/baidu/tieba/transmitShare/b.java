@@ -128,7 +128,7 @@ public class b implements View.OnClickListener {
         if (view.getTag() instanceof Integer) {
             Integer num = (Integer) view.getTag();
             if (!j.isNetWorkAvailable() && num.intValue() != 10) {
-                l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
             } else if (LM(num.intValue())) {
                 LK(num.intValue());
             } else {

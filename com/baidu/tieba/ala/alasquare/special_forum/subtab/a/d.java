@@ -36,13 +36,13 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setViewTextColor(this.gyP.gyT, R.color.CAM_X0105);
-        ap.setViewTextColor(this.gyP.gyU, R.color.CAM_X0109);
-        ap.setViewTextColor(this.gyP.gyV, R.color.CAM_X0109);
-        ap.setViewTextColor(this.gyP.gwx, R.color.common_color_10140);
-        ap.setViewTextColor(this.gyP.gwq, R.color.CAM_X0109);
-        ap.getDrawable(this.mContext.getResources(), R.drawable.icon_video_direct_seeding).setBounds(0, 0, this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8), this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8));
-        this.gyP.gwq.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(this.mContext.getResources(), R.drawable.icon_living_seeding), (Drawable) null, (Drawable) null, (Drawable) null);
+        ap.setViewTextColor(this.gyP.gyT, (int) R.color.CAM_X0105);
+        ap.setViewTextColor(this.gyP.gyU, (int) R.color.CAM_X0109);
+        ap.setViewTextColor(this.gyP.gyV, (int) R.color.CAM_X0109);
+        ap.setViewTextColor(this.gyP.gwx, (int) R.color.common_color_10140);
+        ap.setViewTextColor(this.gyP.gwq, (int) R.color.CAM_X0109);
+        ap.getDrawable(this.mContext.getResources(), (int) R.drawable.icon_video_direct_seeding).setBounds(0, 0, this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8), this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8));
+        this.gyP.gwq.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(this.mContext.getResources(), (int) R.drawable.icon_living_seeding), (Drawable) null, (Drawable) null, (Drawable) null);
         ap.setBackgroundColor(this.gyP.eOv, R.color.CAM_X0204);
     }
 
@@ -140,7 +140,7 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
             this.gyT = (TextView) this.egT.findViewById(R.id.live_title);
             this.gwq = (TextView) this.egT.findViewById(R.id.living_tag);
             this.eOv = this.egT.findViewById(R.id.devider_line);
-            Drawable drawable = ap.getDrawable(d.this.mContext.getResources(), R.drawable.icon_living_seeding);
+            Drawable drawable = ap.getDrawable(d.this.mContext.getResources(), (int) R.drawable.icon_living_seeding);
             drawable.setBounds(0, 0, d.this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8), d.this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8));
             this.gwq.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
             this.gyU = (TextView) this.egT.findViewById(R.id.user_name);

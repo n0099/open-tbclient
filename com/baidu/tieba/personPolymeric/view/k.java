@@ -191,7 +191,7 @@ public class k {
             ap.setBackgroundColor(this.mvj, R.color.CAM_X0201);
         }
         ap.setBackgroundColor(this.gwT, R.color.CAM_X0201);
-        ap.setViewTextColor(this.gwV, R.color.CAM_X0105);
+        ap.setViewTextColor(this.gwV, (int) R.color.CAM_X0105);
         wO(this.gwT.getAlpha() > 0.5f);
     }
 

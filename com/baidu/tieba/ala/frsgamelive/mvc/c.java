@@ -154,8 +154,8 @@ public class c {
             this.mNavigationBar.onChangeSkinType(this.mPageContext, i);
             this.mNavigationBar.setmBackImageViewBg(R.drawable.icon_return_bg_s, R.drawable.icon_return_bg);
         }
-        ap.setViewTextColor(this.gLD, R.color.CAM_X0109);
-        ap.setViewTextColor(this.gLE, R.color.CAM_X0109);
+        ap.setViewTextColor(this.gLD, (int) R.color.CAM_X0109);
+        ap.setViewTextColor(this.gLE, (int) R.color.CAM_X0109);
         this.gLg.setContentBackgroundColor(ap.getColor(R.color.CAM_X0201));
         this.gLE.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_gamefrs_arrow_n), (Drawable) null);
     }
@@ -218,8 +218,8 @@ public class c {
         ap.setBackgroundResource(this.gLF, R.drawable.ala_frs_game_live_sort_selecor);
         ap.setBackgroundResource(this.gLG, R.drawable.ala_frs_game_live_sort_selecor);
         ap.setBackgroundResource(this.gLH, R.color.CAM_X0204);
-        ap.setViewTextColor(this.gLF, R.color.CAM_X0106);
-        ap.setViewTextColor(this.gLG, R.color.CAM_X0106);
+        ap.setViewTextColor(this.gLF, (int) R.color.CAM_X0106);
+        ap.setViewTextColor(this.gLG, (int) R.color.CAM_X0106);
         int[] iArr = new int[2];
         this.gLE.getLocationOnScreen(iArr);
         int height = ((View) this.gLE.getParent()).getHeight() - this.gLE.getHeight();
@@ -264,9 +264,9 @@ public class c {
     }
 
     private void bVL() {
-        ap.setViewTextColor(this.gLJ, R.color.CAM_X0109);
-        ap.setViewTextColor(this.gLK, R.color.CAM_X0109);
-        ap.setViewTextColor(this.gLL, R.color.CAM_X0109);
+        ap.setViewTextColor(this.gLJ, (int) R.color.CAM_X0109);
+        ap.setViewTextColor(this.gLK, (int) R.color.CAM_X0109);
+        ap.setViewTextColor(this.gLL, (int) R.color.CAM_X0109);
         ap.setBackgroundResource(this.gLM, R.color.CAM_X0204);
         ap.setBackgroundResource(this.gLN, R.color.CAM_X0204);
     }

@@ -301,8 +301,8 @@ public class b {
         ap.setViewTextColor(this.msi, R.color.CAM_X0105, 1, i);
         ap.setViewTextColor(this.mum, R.color.CAM_X0105, 1, i);
         ap.setBackgroundColor(this.mun, R.color.CAM_X0206);
-        ap.setViewTextColor(this.muo, R.color.CAM_X0311);
-        ap.setViewTextColor(this.mup, R.color.CAM_X0311);
+        ap.setViewTextColor(this.muo, (int) R.color.CAM_X0311);
+        ap.setViewTextColor(this.mup, (int) R.color.CAM_X0311);
         SvgManager.btW().a(this.muq, R.drawable.ic_icon_mask_red_default_crown24, SvgManager.SvgResourceStateType.NORMAL);
         SvgManager.btW().a(this.mur, R.drawable.ic_icon_pure_common_arrow16_n_svg, R.color.CAM_X0311, SvgManager.SvgResourceStateType.NORMAL);
         if (this.mNoDataView != null) {

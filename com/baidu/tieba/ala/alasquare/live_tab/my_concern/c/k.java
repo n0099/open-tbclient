@@ -59,14 +59,14 @@ public class k {
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setViewTextColor(this.guo, R.color.CAM_X0105);
-        ap.setViewTextColor(this.gup, R.color.CAM_X0109);
+        ap.setViewTextColor(this.guo, (int) R.color.CAM_X0105);
+        ap.setViewTextColor(this.gup, (int) R.color.CAM_X0109);
         if (i == 1) {
             this.gun.setBorderColor(this.mTbPageContext.getResources().getColor(R.color.CAM_X0903_1));
         } else {
             this.gun.setBorderColor(this.mTbPageContext.getResources().getColor(R.color.CAM_X0903));
         }
-        Drawable drawable = ap.getDrawable(this.mTbPageContext.getResources(), R.drawable.tab_icon_living_seeding);
+        Drawable drawable = ap.getDrawable(this.mTbPageContext.getResources(), (int) R.drawable.tab_icon_living_seeding);
         drawable.setBounds(0, 0, this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds18), this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds18));
         this.gup.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
         this.gup.setCompoundDrawablePadding(this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds8));

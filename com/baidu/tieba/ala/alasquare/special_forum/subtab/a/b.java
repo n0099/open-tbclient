@@ -215,11 +215,11 @@ public class b {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ap.setBackgroundResource(this.gtL, R.drawable.addresslist_item_bg);
-            ap.setViewTextColor(this.gtK, R.color.CAM_X0101);
-            ap.setViewTextColor(this.bAG, R.color.CAM_X0101);
+            ap.setViewTextColor(this.gtK, (int) R.color.CAM_X0101);
+            ap.setViewTextColor(this.bAG, (int) R.color.CAM_X0101);
             ap.setViewTextColor(this.gyK, R.color.CAM_X0111, 1, 0);
-            ap.getDrawable(this.mTbPageContext.getResources(), R.drawable.icon_video_direct_seeding).setBounds(0, 0, this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds14), this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds14));
-            this.gtK.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(this.mTbPageContext.getResources(), R.drawable.icon_video_direct_seeding), (Drawable) null, (Drawable) null, (Drawable) null);
+            ap.getDrawable(this.mTbPageContext.getResources(), (int) R.drawable.icon_video_direct_seeding).setBounds(0, 0, this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds14), this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds14));
+            this.gtK.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(this.mTbPageContext.getResources(), (int) R.drawable.icon_video_direct_seeding), (Drawable) null, (Drawable) null, (Drawable) null);
             this.mSkinType = i;
         }
     }

@@ -283,7 +283,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
                         com.baidu.tieba.ala.alasquare.special_forum.data.f fVar = (com.baidu.tieba.ala.alasquare.special_forum.data.f) qVar;
                         if (fVar.gxA != null) {
                             if (!l.isNetOk()) {
-                                ConcernTabFragment.this.getPageContext().showToast(R.string.neterror);
+                                ConcernTabFragment.this.getPageContext().showToast((int) R.string.neterror);
                                 return;
                             }
                             if (((com.baidu.tieba.ala.alasquare.special_forum.data.f) qVar).gxB) {

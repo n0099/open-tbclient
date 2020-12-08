@@ -3,9 +3,8 @@ package com.baidu.mapsdkplatform.comapi.commonutils.a;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes26.dex */
-public class e implements HostnameVerifier {
+class e implements HostnameVerifier {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ d f2215a;

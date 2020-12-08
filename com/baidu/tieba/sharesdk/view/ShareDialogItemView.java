@@ -87,7 +87,7 @@ public class ShareDialogItemView extends LinearLayout {
         this.naK = new EMTextView(this.context);
         this.naK.setTextSize(0, naI);
         this.naK.setText(i);
-        ap.setViewTextColor(this.naK, R.color.CAM_X0107);
+        ap.setViewTextColor(this.naK, (int) R.color.CAM_X0107);
         this.naM = new LinearLayout.LayoutParams(-2, -2);
         this.naM.gravity = 1;
     }

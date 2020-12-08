@@ -105,8 +105,8 @@ public class a extends com.baidu.tieba.card.b<g> implements z {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ap.setBackgroundResource(this.hcf, R.drawable.addresslist_item_bg);
-            ap.setViewTextColor(this.hcb, R.color.CAM_X0106);
-            ap.setViewTextColor(this.hcc, R.color.CAM_X0109);
+            ap.setViewTextColor(this.hcb, (int) R.color.CAM_X0106);
+            ap.setViewTextColor(this.hcc, (int) R.color.CAM_X0109);
             ap.setBackgroundColor(this.dividerLine, R.color.CAM_X0204);
             this.mSkinType = i;
         }
