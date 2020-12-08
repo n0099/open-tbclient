@@ -246,7 +246,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         }
         if (this.moV != null) {
             ap.setBackgroundResource(this.moV, R.color.CAM_X0201);
-            ap.setViewTextColor(this.moV, R.color.CAM_X0109);
+            ap.setViewTextColor(this.moV, (int) R.color.CAM_X0109);
         }
         ap.setBackgroundColor(this.icn, R.color.CAM_X0201);
         if (this.moW != null) {

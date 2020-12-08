@@ -107,7 +107,7 @@ public class MainBottomLiveTabFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ap.setViewTextColor(this.gpt, R.color.CAM_X0105);
+        ap.setViewTextColor(this.gpt, (int) R.color.CAM_X0105);
         ap.setBackgroundColor(this.gps, R.color.CAM_X0207);
         TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
         if (pageContext != null) {

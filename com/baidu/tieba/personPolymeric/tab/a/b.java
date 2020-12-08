@@ -79,7 +79,7 @@ public class b {
             @Override // com.baidu.tieba.card.q.a
             public void setPrivacy(boolean z) {
                 if (z) {
-                    l.showToast(b.this.eNx.getPageActivity(), R.string.thread_has_hide);
+                    l.showToast(b.this.eNx.getPageActivity(), (int) R.string.thread_has_hide);
                 }
                 b.this.a(z, byVar);
             }

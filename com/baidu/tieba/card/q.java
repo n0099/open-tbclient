@@ -72,7 +72,7 @@ public class q {
         public void onSuccess() {
             if (q.this.ikh.isPrivacy) {
                 q.this.ikh.isPrivacy = false;
-                com.baidu.adp.lib.util.l.showToast(q.this.mContext, R.string.thread_has_open);
+                com.baidu.adp.lib.util.l.showToast(q.this.mContext, (int) R.string.thread_has_open);
                 if (q.this.ikj != null) {
                     q.this.ikj.setText(q.this.mContext.getString(R.string.set_thread_privacy));
                 }
@@ -101,7 +101,7 @@ public class q {
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
             if (!com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-                com.baidu.adp.lib.util.l.showToast(q.this.mContext, R.string.neterror);
+                com.baidu.adp.lib.util.l.showToast(q.this.mContext, (int) R.string.neterror);
                 return;
             }
             if (q.this.ikh.isPrivacy) {
@@ -129,7 +129,7 @@ public class q {
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
             if (!com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-                com.baidu.adp.lib.util.l.showToast(q.this.mContext, R.string.neterror);
+                com.baidu.adp.lib.util.l.showToast(q.this.mContext, (int) R.string.neterror);
                 return;
             }
             if (q.this.ikh != null && q.this.fXb != null) {
@@ -145,7 +145,7 @@ public class q {
             if (obj instanceof ForumManageModel.b) {
                 ForumManageModel.b bVar = (ForumManageModel.b) obj;
                 if (bVar.mErrCode == 0) {
-                    com.baidu.adp.lib.util.l.showToast(q.this.mContext, R.string.delete_success);
+                    com.baidu.adp.lib.util.l.showToast(q.this.mContext, (int) R.string.delete_success);
                     if (q.this.ikh != null) {
                         if (au.isEmpty(q.this.ikh.ioc)) {
                             if (!au.isEmpty(q.this.ikh.threadId)) {
@@ -159,7 +159,7 @@ public class q {
                 } else if (!au.isEmpty(bVar.noI)) {
                     com.baidu.adp.lib.util.l.showToast(q.this.mContext, bVar.noI);
                 } else {
-                    com.baidu.adp.lib.util.l.showToast(q.this.mContext, R.string.delete_fail);
+                    com.baidu.adp.lib.util.l.showToast(q.this.mContext, (int) R.string.delete_fail);
                 }
             }
         }
@@ -269,7 +269,7 @@ public class q {
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     if (!com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-                        com.baidu.adp.lib.util.l.showToast(q.this.mContext, R.string.neterror);
+                        com.baidu.adp.lib.util.l.showToast(q.this.mContext, (int) R.string.neterror);
                         return;
                     }
                     if (q.this.ikh.from != 1) {

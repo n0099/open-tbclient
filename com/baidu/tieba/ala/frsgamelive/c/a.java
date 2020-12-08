@@ -27,8 +27,8 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setViewTextColor(this.gMn, R.color.CAM_X0109);
-            ap.setViewTextColor(this.gMo, R.color.CAM_X0109);
+            ap.setViewTextColor(this.gMn, (int) R.color.CAM_X0109);
+            ap.setViewTextColor(this.gMo, (int) R.color.CAM_X0109);
             this.mSkinType = i;
         }
     }

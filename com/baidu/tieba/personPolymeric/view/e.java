@@ -39,7 +39,7 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
         ap.setBackgroundColor(this.elk, R.color.CAM_X0204);
-        ap.setViewTextColor(this.mTitle, R.color.CAM_X0109);
+        ap.setViewTextColor(this.mTitle, (int) R.color.CAM_X0109);
     }
 
     @Override // com.baidu.tieba.card.b

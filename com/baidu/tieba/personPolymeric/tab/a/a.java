@@ -78,8 +78,8 @@ public class a {
 
     private void onChangeSkinType() {
         ap.setImageResource(this.iLU, R.drawable.pic_person_center_dynamic_guide);
-        ap.setViewTextColor(this.mTip, R.color.CAM_X0107);
-        ap.setViewTextColor(this.mTitle, R.color.CAM_X0105);
-        ap.setViewTextColor(this.mtx, R.color.CAM_X0302);
+        ap.setViewTextColor(this.mTip, (int) R.color.CAM_X0107);
+        ap.setViewTextColor(this.mTitle, (int) R.color.CAM_X0105);
+        ap.setViewTextColor(this.mtx, (int) R.color.CAM_X0302);
     }
 }

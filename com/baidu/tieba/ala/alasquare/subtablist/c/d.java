@@ -346,7 +346,7 @@ public class d {
             textView.setTag(str);
             textView.setGravity(17);
             ap.setBackgroundResource(textView, R.drawable.ala_sub_list_live_sort_text_selecor);
-            ap.setViewTextColor(textView, R.color.CAM_X0109);
+            ap.setViewTextColor(textView, (int) R.color.CAM_X0109);
             textView.setOnClickListener(this);
             return textView;
         }
@@ -368,8 +368,8 @@ public class d {
         }
 
         public void bAu() {
-            ap.setViewTextColor(this.gAj, R.color.CAM_X0109);
-            ap.setViewTextColor(this.gAk, R.color.CAM_X0109);
+            ap.setViewTextColor(this.gAj, (int) R.color.CAM_X0109);
+            ap.setViewTextColor(this.gAk, (int) R.color.CAM_X0109);
             this.gAk.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_sub_list_arrow_n), (Drawable) null);
         }
 

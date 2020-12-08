@@ -64,11 +64,11 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         if (this.mSkinType != i) {
             ap.setBackgroundResource(getView(), R.drawable.home_thread_card_item_bg);
             ap.setBackgroundColor(this.ijY, R.color.CAM_X0204);
-            ap.setViewTextColor(this.muI, R.color.CAM_X0106);
-            ap.setViewTextColor(this.muH, R.color.CAM_X0106);
-            ap.setViewTextColor(this.muJ, R.color.CAM_X0106);
-            ap.setViewTextColor(this.muK, R.color.CAM_X0106);
-            ap.setViewTextColor(this.muO, R.color.CAM_X0108);
+            ap.setViewTextColor(this.muI, (int) R.color.CAM_X0106);
+            ap.setViewTextColor(this.muH, (int) R.color.CAM_X0106);
+            ap.setViewTextColor(this.muJ, (int) R.color.CAM_X0106);
+            ap.setViewTextColor(this.muK, (int) R.color.CAM_X0106);
+            ap.setViewTextColor(this.muO, (int) R.color.CAM_X0108);
         }
         this.mSkinType = i;
     }

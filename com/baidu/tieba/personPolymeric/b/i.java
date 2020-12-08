@@ -207,7 +207,7 @@ public class i extends e implements View.OnClickListener {
                                     l.showLongToast(TbadkCoreApplication.getInst(), i.this.mqX.getUserData().getCantModifyAvatarDesc());
                                     break;
                                 } else {
-                                    l.showLongToast(TbadkCoreApplication.getInst(), R.string.person_cant_edit_avatar_default_tip);
+                                    l.showLongToast(TbadkCoreApplication.getInst(), (int) R.string.person_cant_edit_avatar_default_tip);
                                     break;
                                 }
                             } else {
@@ -221,7 +221,7 @@ public class i extends e implements View.OnClickListener {
                                     l.showLongToast(TbadkCoreApplication.getInst(), i.this.mqX.getUserData().getCantModifyAvatarDesc());
                                     break;
                                 } else {
-                                    l.showLongToast(TbadkCoreApplication.getInst(), R.string.person_cant_edit_avatar_default_tip);
+                                    l.showLongToast(TbadkCoreApplication.getInst(), (int) R.string.person_cant_edit_avatar_default_tip);
                                     break;
                                 }
                             } else {

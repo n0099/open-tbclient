@@ -178,8 +178,8 @@ public class AlaEnterEffectFragment extends AbsFragment {
             }, null);
             return;
         }
-        this.hPK.startLoad(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
-        this.hPN.startLoad(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
+        this.hPK.startLoad(String.valueOf((int) R.drawable.icon_default_avatar100_bg), 24, false);
+        this.hPN.startLoad(String.valueOf((int) R.drawable.icon_default_avatar100_bg), 24, false);
     }
 
     public void a(int i, int i2, boolean z, View.OnClickListener onClickListener) {

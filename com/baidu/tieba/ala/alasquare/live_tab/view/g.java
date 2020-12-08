@@ -139,11 +139,11 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        ap.setViewTextColor(this.gvj, R.drawable.tab_super_entrance_txt_selecor);
-        ap.setViewTextColor(this.gvm, R.drawable.tab_super_entrance_txt_selecor);
-        ap.setViewTextColor(this.gvp, R.drawable.tab_super_entrance_txt_selecor);
-        ap.setViewTextColor(this.gvs, R.drawable.tab_super_entrance_txt_selecor);
-        ap.setViewTextColor(this.gvv, R.drawable.tab_super_entrance_txt_selecor);
+        ap.setViewTextColor(this.gvj, (int) R.drawable.tab_super_entrance_txt_selecor);
+        ap.setViewTextColor(this.gvm, (int) R.drawable.tab_super_entrance_txt_selecor);
+        ap.setViewTextColor(this.gvp, (int) R.drawable.tab_super_entrance_txt_selecor);
+        ap.setViewTextColor(this.gvs, (int) R.drawable.tab_super_entrance_txt_selecor);
+        ap.setViewTextColor(this.gvv, (int) R.drawable.tab_super_entrance_txt_selecor);
         ap.setImageResource(this.gvl, R.drawable.super_entrance_ranklist_bg_selector);
         ap.setImageResource(this.gvo, R.drawable.super_entrance_discuss_bg_selector);
         ap.setImageResource(this.gvr, R.drawable.super_entrance_person_bg_selector);
@@ -294,7 +294,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
             }
             if (!this.gvD.dTg()) {
                 if (!BdBaseApplication.getInst().isDebugMode() && (plugin2 = PluginCenter.getInstance().getPlugin("com.baidu.tieba.pluginAla")) != null && !plugin2.isLoaded()) {
-                    com.baidu.adp.lib.util.l.showToast(getTbPageContext().getPageActivity(), R.string.plugin_config_not_found);
+                    com.baidu.adp.lib.util.l.showToast(getTbPageContext().getPageActivity(), (int) R.string.plugin_config_not_found);
                     return;
                 }
                 com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("square_live_publish_live_has_showed"), true);

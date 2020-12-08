@@ -27,7 +27,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         ap.setBackgroundResource(this.egT, R.color.CAM_X0201);
-        ap.setViewTextColor(this.gtG, R.color.CAM_X0109);
+        ap.setViewTextColor(this.gtG, (int) R.color.CAM_X0109);
         ap.setImageResource(this.gtH, R.drawable.new_pic_emotion_08);
         ap.setBackgroundResource(this.eOv, R.color.CAM_X0204);
     }

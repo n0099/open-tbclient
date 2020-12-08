@@ -238,7 +238,7 @@ public class h implements View.OnClickListener {
                 }
             } else if (this.mqK.dyg() != null && view.getId() == this.mqK.dyg().getId()) {
                 if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                    l.showToast(this.mPageContext.getPageActivity(), R.string.neterror);
+                    l.showToast(this.mPageContext.getPageActivity(), (int) R.string.neterror);
                 } else {
                     dAm();
                 }

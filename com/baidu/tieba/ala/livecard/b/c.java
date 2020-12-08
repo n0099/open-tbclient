@@ -137,13 +137,13 @@ public class c extends com.baidu.tieba.card.a<by> implements com.baidu.tieba.a.e
             }
         }
         if (this.agJ != 0 && n.Jr(((by) this.agJ).getId())) {
-            ap.setViewTextColor(this.mTextTitle, R.color.CAM_X0109);
-            ap.setViewTextColor(this.hcu, R.color.CAM_X0109);
-            ap.setViewTextColor(this.hcv, R.color.CAM_X0109);
+            ap.setViewTextColor(this.mTextTitle, (int) R.color.CAM_X0109);
+            ap.setViewTextColor(this.hcu, (int) R.color.CAM_X0109);
+            ap.setViewTextColor(this.hcv, (int) R.color.CAM_X0109);
         } else {
-            ap.setViewTextColor(this.mTextTitle, R.color.CAM_X0105);
-            ap.setViewTextColor(this.hcu, R.color.CAM_X0106);
-            ap.setViewTextColor(this.hcv, R.color.CAM_X0105);
+            ap.setViewTextColor(this.mTextTitle, (int) R.color.CAM_X0105);
+            ap.setViewTextColor(this.hcu, (int) R.color.CAM_X0106);
+            ap.setViewTextColor(this.hcv, (int) R.color.CAM_X0105);
         }
         ap.setBackgroundColor(this.mMaskView, R.color.CAM_X0201);
     }
@@ -309,7 +309,7 @@ public class c extends com.baidu.tieba.card.a<by> implements com.baidu.tieba.a.e
     public void q(TbPageContext<?> tbPageContext) {
         if (tbPageContext != null && this.agJ != 0 && ((by) this.agJ).bpj() != null) {
             if (!j.isNetWorkAvailable()) {
-                l.showToast(tbPageContext.getPageActivity(), R.string.no_network_guide);
+                l.showToast(tbPageContext.getPageActivity(), (int) R.string.no_network_guide);
                 return;
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();

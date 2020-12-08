@@ -20,7 +20,7 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setViewTextColor(this.gyO.textView, R.color.CAM_X0109);
+        ap.setViewTextColor(this.gyO.textView, (int) R.color.CAM_X0109);
         ap.setBackgroundColor(this.gyO.eOv, R.color.CAM_X0204);
     }
 

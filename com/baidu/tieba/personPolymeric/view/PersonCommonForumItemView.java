@@ -77,10 +77,10 @@ public class PersonCommonForumItemView extends RelativeLayout {
 
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
-            ap.setViewTextColor(this.kfj, R.color.CAM_X0105);
-            ap.setViewTextColor(this.mvv, R.color.CAM_X0109);
-            ap.setViewTextColor(this.mvx, R.color.CAM_X0109);
-            ap.setViewTextColor(this.mvw, R.color.CAM_X0302);
+            ap.setViewTextColor(this.kfj, (int) R.color.CAM_X0105);
+            ap.setViewTextColor(this.mvv, (int) R.color.CAM_X0109);
+            ap.setViewTextColor(this.mvx, (int) R.color.CAM_X0109);
+            ap.setViewTextColor(this.mvw, (int) R.color.CAM_X0302);
             ap.setBackgroundResource(this, R.drawable.person_common_forum_item_bg);
         }
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();

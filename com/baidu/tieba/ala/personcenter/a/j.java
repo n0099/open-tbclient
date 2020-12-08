@@ -144,7 +144,7 @@ public class j extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.card.a
                 return;
             }
             if (!BdBaseApplication.getInst().isDebugMode() && (plugin2 = PluginCenter.getInstance().getPlugin("com.baidu.tieba.pluginAla")) != null && !plugin2.isLoaded()) {
-                com.baidu.adp.lib.util.l.showToast(this.mPageContext.getPageActivity(), R.string.plugin_config_not_found);
+                com.baidu.adp.lib.util.l.showToast(this.mPageContext.getPageActivity(), (int) R.string.plugin_config_not_found);
             } else {
                 o(this.mPageContext);
             }

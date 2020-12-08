@@ -116,10 +116,10 @@ public class g {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ap.setBackgroundResource(this.gAt.gzW, R.drawable.addresslist_item_bg);
-            ap.setViewTextColor(this.gAt.gzV, R.color.CAM_X0101);
-            ap.setViewTextColor(this.gAt.aYw, R.color.CAM_X0101);
-            ap.setViewTextColor(this.gAt.gzY, R.color.CAM_X0105);
-            ap.setViewTextColor(this.gAt.gzZ, R.color.CAM_X0109);
+            ap.setViewTextColor(this.gAt.gzV, (int) R.color.CAM_X0101);
+            ap.setViewTextColor(this.gAt.aYw, (int) R.color.CAM_X0101);
+            ap.setViewTextColor(this.gAt.gzY, (int) R.color.CAM_X0105);
+            ap.setViewTextColor(this.gAt.gzZ, (int) R.color.CAM_X0109);
             this.mSkinType = i;
         }
     }

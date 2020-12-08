@@ -132,7 +132,7 @@ public class h extends RecyclerView.Adapter<a> {
 
         public void onChangeSkinType() {
             ap.setBackgroundResource(this.mRootView, R.drawable.person_center_action_item_selector);
-            ap.setViewTextColor(this.mName, R.color.CAM_X0105);
+            ap.setViewTextColor(this.mName, (int) R.color.CAM_X0105);
         }
     }
 }

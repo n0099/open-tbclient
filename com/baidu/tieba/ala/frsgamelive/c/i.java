@@ -39,7 +39,7 @@ public class i extends com.baidu.adp.widget.ListView.c {
             ap.setBackgroundResource(this.mRootView, R.drawable.addresslist_item_bg);
         }
         if (this.gMT != null) {
-            ap.setViewTextColor(this.gMT, R.color.CAM_X0304);
+            ap.setViewTextColor(this.gMT, (int) R.color.CAM_X0304);
         }
         if (this.gMS != null) {
             ap.setImageResource(this.gMS, R.drawable.icon_inf_arrowblue_n);

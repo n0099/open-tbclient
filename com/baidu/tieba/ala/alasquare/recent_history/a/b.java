@@ -38,10 +38,10 @@ public class b extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
             aVar.gwq = (TextView) view.findViewById(R.id.recent_history_living_living_tag);
             aVar.gwr = (TextView) view.findViewById(R.id.recent_history_living_send_gift_tag);
             ap.setBackgroundColor(view, R.color.CAM_X0201);
-            ap.setViewTextColor(aVar.title, R.color.CAM_X0105);
-            ap.setViewTextColor(aVar.gwp, R.color.CAM_X0109);
-            ap.setViewTextColor(aVar.egV, R.color.CAM_X0107);
-            ap.setViewTextColor(aVar.gwr, R.color.CAM_X0301);
+            ap.setViewTextColor(aVar.title, (int) R.color.CAM_X0105);
+            ap.setViewTextColor(aVar.gwp, (int) R.color.CAM_X0109);
+            ap.setViewTextColor(aVar.egV, (int) R.color.CAM_X0107);
+            ap.setViewTextColor(aVar.gwr, (int) R.color.CAM_X0301);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();

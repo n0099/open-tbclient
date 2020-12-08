@@ -176,14 +176,14 @@ public class a {
             this.mSkinType = i;
             ap.setBackgroundResource(this.gqg, R.color.CAM_X0201);
             ap.setImageResource(this.gqi, R.drawable.live_portal_rank);
-            ap.setViewTextColor(this.ghg, R.color.CAM_X0105);
-            ap.setViewTextColor(this.gqj, R.color.CAM_X0109);
+            ap.setViewTextColor(this.ghg, (int) R.color.CAM_X0105);
+            ap.setViewTextColor(this.gqj, (int) R.color.CAM_X0109);
             ap.setImageResource(this.gql, R.drawable.live_import_history);
-            ap.setViewTextColor(this.gqm, R.color.CAM_X0105);
-            ap.setViewTextColor(this.gqn, R.color.CAM_X0109);
+            ap.setViewTextColor(this.gqm, (int) R.color.CAM_X0105);
+            ap.setViewTextColor(this.gqn, (int) R.color.CAM_X0109);
             ap.setImageResource(this.gqq, R.drawable.live_import_activity);
-            ap.setViewTextColor(this.gqr, R.color.CAM_X0105);
-            ap.setViewTextColor(this.gqs, R.color.CAM_X0109);
+            ap.setViewTextColor(this.gqr, (int) R.color.CAM_X0105);
+            ap.setViewTextColor(this.gqs, (int) R.color.CAM_X0109);
             ap.setBackgroundResource(this.gqu, R.color.CAM_X0205);
         }
     }

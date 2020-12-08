@@ -70,9 +70,8 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes22.dex */
-    public static class a extends BdAsyncTask<Void, Void, InterestFrsData> {
+    private static class a extends BdAsyncTask<Void, Void, InterestFrsData> {
         private int limit;
         private WeakReference<b> lzd;
         private int offset;

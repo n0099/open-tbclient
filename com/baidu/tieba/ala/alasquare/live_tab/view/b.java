@@ -146,7 +146,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         ap.setBackgroundColor(this.mDivider, R.color.CAM_X0204);
         ap.setBackgroundColor(this.eNL, R.color.CAM_X0204);
-        ap.setViewTextColor(this.mTitle, R.color.CAM_X0105);
+        ap.setViewTextColor(this.mTitle, (int) R.color.CAM_X0105);
     }
 
     @Override // com.baidu.tieba.card.b

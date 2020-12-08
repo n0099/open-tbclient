@@ -55,7 +55,7 @@ public class a extends BaseAdapter {
             c0658a.gze.setDefaultBgResource(R.color.transparent);
             c0658a.gze.setRadius(this.mTbPageContext.getResources().getDimensionPixelSize(R.dimen.ds20));
             c0658a.title = (TextView) view.findViewById(R.id.title);
-            ap.setViewTextColor(c0658a.title, R.color.CAM_X0106);
+            ap.setViewTextColor(c0658a.title, (int) R.color.CAM_X0106);
             view.setTag(c0658a);
         } else {
             c0658a = (C0658a) view.getTag();

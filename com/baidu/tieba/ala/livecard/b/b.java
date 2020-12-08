@@ -58,13 +58,13 @@ public class b extends com.baidu.tieba.card.b<by> implements z {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ap.setBackgroundResource(this.hco, R.drawable.ala_live_card_start_live_selector);
-            ap.setViewTextColor(this.hco, R.color.CAM_X0101);
+            ap.setViewTextColor(this.hco, (int) R.color.CAM_X0101);
             ap.setBackgroundColor(this.hbJ, R.color.CAM_X0201);
             ap.setBackgroundColor(this.mDivider, R.color.CAM_X0204);
             ap.setBackgroundColor(this.hcm, R.color.CAM_X0204);
             ap.setBackgroundColor(this.dLl, R.color.CAM_X0204);
-            ap.setViewTextColor(this.hcn, R.color.CAM_X0109);
-            ap.setViewTextColor(this.hcp, R.color.CAM_X0108);
+            ap.setViewTextColor(this.hcn, (int) R.color.CAM_X0109);
+            ap.setViewTextColor(this.hcp, (int) R.color.CAM_X0108);
             ap.setBackgroundColor(this.hcq, R.color.CAM_X0201);
             this.mSkinType = i;
         }

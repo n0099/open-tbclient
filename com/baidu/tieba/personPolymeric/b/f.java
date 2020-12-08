@@ -113,7 +113,7 @@ public class f extends e {
         if (this.mNoDataView == null) {
             this.mNoDataView = NoDataViewFactory.a(this.eNx.getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.ANTI, dimensionPixelSize), NoDataViewFactory.d.dZ(null, this.eNx.getString(R.string.user_to_anti)), null);
         }
-        ap.setViewTextColor(this.mNoDataView.getSuTextView(), R.color.CAM_X0106);
+        ap.setViewTextColor(this.mNoDataView.getSuTextView(), (int) R.color.CAM_X0106);
         this.mNoDataView.onChangeSkinType(this.eNx, TbadkCoreApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
     }

@@ -148,7 +148,7 @@ public class f extends a {
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void onChangeSkinType(int i) {
-        ap.setViewTextColor(this.gfP, R.color.CAM_X0111);
+        ap.setViewTextColor(this.gfP, (int) R.color.CAM_X0111);
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a

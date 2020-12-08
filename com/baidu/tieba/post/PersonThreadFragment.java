@@ -81,7 +81,7 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                com.baidu.adp.lib.util.l.showToast(PersonThreadFragment.this.getActivity(), R.string.thread_has_hide);
+                com.baidu.adp.lib.util.l.showToast(PersonThreadFragment.this.getActivity(), (int) R.string.thread_has_hide);
             }
         }
     };
@@ -280,7 +280,7 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
             this.fBr.setVisibility(8);
             this.mProgressBar = (ProgressBar) this.mRoot.findViewById(R.id.progress);
             rY(TbadkCoreApplication.getInst().getSkinType());
-            ap.setViewTextColor(this.mTextView, R.color.common_color_10039);
+            ap.setViewTextColor(this.mTextView, (int) R.color.common_color_10039);
             this.fBr.setLayoutParams(new LinearLayout.LayoutParams(-1, com.baidu.adp.lib.util.l.getDimens(this.gbm.getPageContext().getPageActivity(), R.dimen.ds120)));
             return this.mRoot;
         }
@@ -292,7 +292,7 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
         @SuppressLint({"ResourceAsColor"})
         public void changeSkin(int i) {
             if (this.mSkinType != i) {
-                ap.setViewTextColor(this.mTextView, R.color.common_color_10039);
+                ap.setViewTextColor(this.mTextView, (int) R.color.common_color_10039);
                 ap.setBackgroundColor(this.mRoot, this.bgColor, i);
                 ap.setBackgroundColor(this.fBr, this.bgColor, i);
                 this.mSkinType = i;

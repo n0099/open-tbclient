@@ -117,7 +117,7 @@ public class e extends com.baidu.tieba.card.a<by> implements com.baidu.tieba.a.e
         this.hcN = (LinearLayout) view.findViewById(R.id.ala_live_lottie_bg);
         this.hcL = (TBLottieAnimationView) view.findViewById(R.id.ala_live_lottie);
         this.hcL.loop(true);
-        ap.a(this.hcL, R.raw.ala_live2);
+        ap.a(this.hcL, (int) R.raw.ala_live2);
         this.hcL.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() { // from class: com.baidu.tieba.ala.livecard.b.e.1
             @Override // android.view.View.OnAttachStateChangeListener
             public void onViewAttachedToWindow(View view2) {
@@ -173,10 +173,10 @@ public class e extends com.baidu.tieba.card.a<by> implements com.baidu.tieba.a.e
             com.baidu.tbadk.core.elementsMaven.c.bm(this.hbJ).pA(com.baidu.tbadk.a.d.bkA() ? R.string.J_X02 : R.string.J_X06).aP(R.color.CAM_X0205, R.color.CAM_X0206);
             com.baidu.tbadk.core.elementsMaven.c.bm(this.hcK).pD(R.dimen.L_X01).pC(R.color.CAM_X0401).pA(R.string.J_X05).setBackGroundColor(R.color.CAM_X0611);
             int dimens = l.getDimens(getContext(), R.dimen.tbds31);
-            ap.a(this.hcN, R.color.CAM_X0310, GradientDrawable.Orientation.LEFT_RIGHT, new float[]{dimens, dimens, dimens, dimens, dimens, dimens, dimens, dimens});
+            ap.a(this.hcN, (int) R.color.CAM_X0310, GradientDrawable.Orientation.LEFT_RIGHT, new float[]{dimens, dimens, dimens, dimens, dimens, dimens, dimens, dimens});
             ap.setBackgroundColor(this.hcO, R.color.CAM_X0101);
-            ap.setViewTextColor(this.fMQ, R.color.CAM_X0101);
-            ap.setViewTextColor(this.hcM, R.color.CAM_X0101);
+            ap.setViewTextColor(this.fMQ, (int) R.color.CAM_X0101);
+            ap.setViewTextColor(this.hcM, (int) R.color.CAM_X0101);
             this.agP.onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.fMK.setPlaceHolder(3);
             this.hbL.onChangeSkinType();
@@ -186,9 +186,9 @@ public class e extends com.baidu.tieba.card.a<by> implements com.baidu.tieba.a.e
             }
         }
         if (this.agJ != 0 && n.Jr(((by) this.agJ).getId())) {
-            ap.setViewTextColor(this.mTextTitle, R.color.CAM_X0109);
+            ap.setViewTextColor(this.mTextTitle, (int) R.color.CAM_X0109);
         } else {
-            ap.setViewTextColor(this.mTextTitle, R.color.CAM_X0105);
+            ap.setViewTextColor(this.mTextTitle, (int) R.color.CAM_X0105);
         }
         ap.setBackgroundColor(this.mMaskView, R.color.CAM_X0201);
         this.hcE.onChangeSkinType();
@@ -394,7 +394,7 @@ public class e extends com.baidu.tieba.card.a<by> implements com.baidu.tieba.a.e
         String str;
         if (context != null && byVar != null && byVar.bpj() != null) {
             if (!j.isNetWorkAvailable()) {
-                l.showToast(context, R.string.no_network_guide);
+                l.showToast(context, (int) R.string.no_network_guide);
                 return;
             }
             String str2 = this.hcQ ? "frs_live_stage_live" : "frs_play";

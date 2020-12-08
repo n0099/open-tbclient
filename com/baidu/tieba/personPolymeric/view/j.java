@@ -43,7 +43,7 @@ public class j extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         if (i != this.mSkinType) {
             this.mSkinType = i;
             ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-            ap.setViewTextColor(this.mTitleView, R.color.CAM_X0109);
+            ap.setViewTextColor(this.mTitleView, (int) R.color.CAM_X0109);
         }
     }
 

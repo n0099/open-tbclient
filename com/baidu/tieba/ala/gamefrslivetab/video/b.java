@@ -251,7 +251,7 @@ public class b {
     private boolean Hu(String str) {
         if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_LEGO)) {
             if (!(MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null)) {
-                l.showToast(this.gNh.getActivity(), R.string.plugin_install_fail);
+                l.showToast(this.gNh.getActivity(), (int) R.string.plugin_install_fail);
                 return true;
             }
             bf.bua().b(this.gNh.getPageContext(), new String[]{str});
@@ -263,7 +263,7 @@ public class b {
     private boolean Hv(String str) {
         if (str.contains("nohead:url") || str.contains("booktown")) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                l.showToast(this.gNh.getActivity(), R.string.plugin_install_fail);
+                l.showToast(this.gNh.getActivity(), (int) R.string.plugin_install_fail);
             } else {
                 bf.bua().b(this.gNh.getPageContext(), new String[]{str});
             }
@@ -310,7 +310,7 @@ public class b {
             return false;
         }
         if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MembercenterActivityConfig.class)) {
-            l.showToast(this.gNh.getActivity(), R.string.plugin_install_fail);
+            l.showToast(this.gNh.getActivity(), (int) R.string.plugin_install_fail);
             return true;
         }
         bf.bua().b(this.gNh.getPageContext(), new String[]{str});
@@ -322,7 +322,7 @@ public class b {
             return false;
         }
         if (!TbadkCoreApplication.getInst().appResponseToIntentClass(DressupCenterActivityConfig.class)) {
-            l.showToast(this.gNh.getActivity(), R.string.plugin_install_fail);
+            l.showToast(this.gNh.getActivity(), (int) R.string.plugin_install_fail);
             return true;
         }
         bf.bua().b(this.gNh.getPageContext(), new String[]{str});

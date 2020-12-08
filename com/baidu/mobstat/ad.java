@@ -2,9 +2,8 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import java.lang.Thread;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
-public class ad implements Thread.UncaughtExceptionHandler {
+class ad implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
     private static final ad f2522a = new ad();
